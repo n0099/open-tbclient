@@ -26,9 +26,12 @@ public final class QueryUserInfosResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<QueryUserInfosResIdl> {
+    public static final class Builder extends Message.Builder<QueryUserInfosResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(QueryUserInfosResIdl queryUserInfosResIdl) {
             super(queryUserInfosResIdl);

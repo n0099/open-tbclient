@@ -1,74 +1,30 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.data.LiveCardData;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-class bd {
-    final /* synthetic */ ba aNg;
-    private List<LiveCardData> aNm;
-    private List<LiveCardData> aNn;
-    private final boolean aNo;
+public class bd implements com.baidu.adp.widget.ListView.u {
+    public static final BdUniqueId aWm = BdUniqueId.gen();
+    private int height = 0;
+    private int aWn = 0;
 
-    public bd(ba baVar, List<LiveCardData> list) {
-        this.aNg = baVar;
-        this.aNm = list;
-        if (list != null && list.size() > 1) {
-            this.aNo = true;
-        } else {
-            this.aNo = false;
-        }
-        this.aNn = W(this.aNm);
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return aWm;
     }
 
-    private List<LiveCardData> W(List<LiveCardData> list) {
-        ArrayList arrayList = new ArrayList();
-        if (list != null) {
-            arrayList.addAll(list);
-            if (this.aNo && list.size() >= 1) {
-                arrayList.add(0, list.get(list.size() - 1));
-                arrayList.add(list.get(0));
-            }
-        }
-        return arrayList;
+    public int getHeight() {
+        return this.height;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public int eY(int i) {
-        if (this.aNo) {
-            int size = this.aNn.size();
-            if (i == 0) {
-                return size - 2;
-            }
-            if (i == size - 1) {
-                return 1;
-            }
-            return i;
-        }
-        return i;
+    public void setHeight(int i) {
+        this.height = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public int eZ(int i) {
-        if (this.aNo) {
-            return i - 1;
-        }
-        return i;
+    public int LL() {
+        return this.aWn;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public int KZ() {
-        if (this.aNm == null) {
-            return 0;
-        }
-        return this.aNm.size();
-    }
-
-    public int La() {
-        return this.aNo ? 1 : 0;
-    }
-
-    public List<LiveCardData> Lb() {
-        return this.aNn;
+    public void fi(int i) {
+        this.aWn = i;
     }
 }

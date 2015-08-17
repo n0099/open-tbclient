@@ -1,27 +1,38 @@
 package com.baidu.tieba.write.write;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes.dex */
-public class bb implements TextWatcher {
-    final /* synthetic */ WriteActivity cCQ;
+class bb extends CustomMessageListener {
+    final /* synthetic */ WriteActivity cUM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bb(WriteActivity writeActivity) {
-        this.cCQ = writeActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bb(WriteActivity writeActivity, int i) {
+        super(i);
+        this.cUM = writeActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.cCQ.asG();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.tbadkCore.location.d dVar;
+        com.baidu.tieba.tbadkCore.location.d dVar2;
+        com.baidu.tieba.tbadkCore.location.d dVar3;
+        if (customResponsedMessage instanceof ResponsedSelectLocation) {
+            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
+            if (responsedSelectLocation.isShowLocation()) {
+                dVar2 = this.cUM.arN;
+                dVar2.fA(false);
+                dVar3 = this.cUM.arN;
+                dVar3.bc(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                this.cUM.a(2, true, responsedSelectLocation.getName());
+                return;
+            }
+            dVar = this.cUM.arN;
+            dVar.fA(true);
+            this.cUM.a(0, true, (String) null);
+        }
     }
 }

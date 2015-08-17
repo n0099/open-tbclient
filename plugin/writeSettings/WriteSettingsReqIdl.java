@@ -21,8 +21,11 @@ public final class WriteSettingsReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<WriteSettingsReqIdl> {
+    public static final class Builder extends Message.Builder<WriteSettingsReqIdl> {
         public ReqData data;
+
+        public Builder() {
+        }
 
         public Builder(WriteSettingsReqIdl writeSettingsReqIdl) {
             super(writeSettingsReqIdl);

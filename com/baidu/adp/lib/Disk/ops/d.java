@@ -1,43 +1,50 @@
 package com.baidu.adp.lib.Disk.ops;
 
-import java.nio.ByteBuffer;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
-class d {
-    private static byte rK = Byte.MIN_VALUE;
-    private static byte rL = Byte.MIN_VALUE;
-    boolean rM = false;
-    long rN = 0;
-    boolean rO = true;
+public class d extends DiskFileOperate {
+    private String mContent;
+    private String rL;
 
-    public static int fQ() {
-        return 14;
+    public d(String str, String str2, DiskFileOperate.Action action) {
+        super(str, str2, action);
+        this.mContent = null;
+        this.rL = "UTF-8";
     }
 
-    public byte[] toByteArray() {
-        ByteBuffer allocate = ByteBuffer.allocate(fQ());
-        allocate.putInt(1786600511);
-        allocate.put(this.rM ? (byte) (rK | 0) : (byte) 0);
-        allocate.putLong(this.rN);
-        allocate.put(this.rO ? (byte) 0 : (byte) (rL | 0));
-        allocate.flip();
-        return allocate.array();
-    }
-
-    public boolean l(byte[] bArr) {
-        if (bArr == null || bArr.length < fQ()) {
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public boolean x(byte[] bArr) {
+        if (bArr == null) {
             return false;
         }
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, fQ());
-        if (wrap.getInt() == 1786600511) {
-            if ((wrap.get() & rK) != 0) {
-                this.rM = true;
-            }
-            this.rN = wrap.getLong();
-            if ((wrap.get() & rL) != 0) {
-                this.rO = false;
-            }
+        try {
+            this.mContent = new String(bArr, this.rL);
             return true;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return false;
         }
-        return false;
+    }
+
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public byte[] fw() {
+        if (this.mContent != null) {
+            try {
+                return this.mContent.getBytes(this.rL);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return null;
+            }
+        }
+        return null;
+    }
+
+    public String getContent() {
+        return this.mContent;
+    }
+
+    public void setContent(String str) {
+        this.mContent = str;
     }
 }

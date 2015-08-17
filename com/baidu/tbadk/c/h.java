@@ -1,66 +1,64 @@
 package com.baidu.tbadk.c;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.n;
-import com.baidu.tieba.p;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class h extends a {
-    private ImageView amM;
-    private TextView amN;
-    private TextView amO;
-    private TextView amP;
+    private TextView auA;
+    private TextView auB;
+    private TbImageView auy;
+    private TextView auz;
 
     public h(Context context, View.OnClickListener onClickListener) {
-        super(com.baidu.adp.lib.g.b.hr().inflate(context, r.net_refresh_view_layout, null));
-        this.amM = (ImageView) this.amG.findViewById(q.net_refresh_image);
-        this.amN = (TextView) this.amG.findViewById(q.net_refresh_desc);
-        this.amO = (TextView) this.amG.findViewById(q.net_refresh_title);
-        this.amP = (TextView) this.amG.findViewById(q.net_refresh_button);
-        this.amP.setOnClickListener(onClickListener);
-        this.amG.setOnClickListener(null);
-        rU();
+        super(LayoutInflater.from(context).inflate(i.g.net_refresh_view_layout, (ViewGroup) null));
+        this.auy = (TbImageView) this.aus.findViewById(i.f.net_refresh_image);
+        this.auz = (TextView) this.aus.findViewById(i.f.net_refresh_desc);
+        this.auA = (TextView) this.aus.findViewById(i.f.net_refresh_title);
+        this.auB = (TextView) this.aus.findViewById(i.f.net_refresh_button);
+        this.auB.setOnClickListener(onClickListener);
+        this.aus.setOnClickListener(null);
+        ta();
     }
 
-    public void eQ(String str) {
-        this.amN.setText(str);
+    public void fi(String str) {
+        this.auz.setText(str);
     }
 
-    public void dQ(int i) {
-        ViewGroup.LayoutParams layoutParams = this.amM.getLayoutParams();
+    public void eg(int i) {
+        ViewGroup.LayoutParams layoutParams = this.auy.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.amM.setLayoutParams(marginLayoutParams);
+            this.auy.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void AB() {
-        this.amP.setVisibility(0);
-        this.amO.setVisibility(0);
-        ay.b(this.amN, n.cp_cont_d, 1);
+    public void Cw() {
+        this.auB.setVisibility(0);
+        this.auA.setVisibility(0);
+        al.b(this.auz, i.c.cp_cont_d, 1);
     }
 
-    public void AC() {
-        this.amP.setVisibility(8);
-        this.amO.setVisibility(8);
-        ay.b(this.amN, n.cp_cont_b, 1);
+    public void Cx() {
+        this.auB.setVisibility(8);
+        this.auA.setVisibility(8);
+        al.b(this.auz, i.c.cp_cont_b, 1);
     }
 
-    public void rU() {
+    public void ta() {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        ay.c(this.amM, p.net_refresh_emotion);
-        ay.a(this.amN, n.cp_cont_d, 1, skinType);
-        ay.a(this.amO, n.cp_cont_b, 1, skinType);
-        ay.a(this.amP, n.cp_cont_g, 1, skinType);
-        ay.c(this.amP, p.btn_appdownload, skinType);
-        ay.j(this.amG, n.cp_bg_line_d);
+        al.c(this.auy, i.e.net_refresh_emotion);
+        al.a(this.auz, i.c.cp_cont_d, 1, skinType);
+        al.a(this.auA, i.c.cp_cont_b, 1, skinType);
+        al.a(this.auB, i.c.cp_cont_g, 1, skinType);
+        al.c(this.auB, i.e.btn_appdownload, skinType);
+        al.j(this.aus, i.c.cp_bg_line_d);
     }
 }

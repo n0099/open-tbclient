@@ -1,43 +1,143 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.i;
+import com.baidu.tieba.pb.pb.sub.SubPbLayout;
+import com.baidu.tieba.pb.view.BaobaoTailView;
+import com.baidu.tieba.tbadkCore.FrsPraiseView;
 /* loaded from: classes.dex */
-public class bv extends bn<com.baidu.tbadk.core.data.aa, bu> {
-    private View.OnClickListener mItemClickListener;
+public class bv extends x.a {
+    public TextView aII;
+    UserIconBox aTN;
+    public UserIconBox bco;
+    public View ccQ;
+    public View ccR;
+    public View ccS;
+    public View ccT;
+    public View ccU;
+    public HeadImageView ccV;
+    public ImageView ccW;
+    public ImageView ccX;
+    public TextView ccY;
+    public TextView ccZ;
+    public TextView cdA;
+    public TextView cdB;
+    public ImageView cda;
+    public ImageView cdb;
+    public TbRichTextView cdc;
+    public TextView cdd;
+    public TbRichTextView cde;
+    public View cdf;
+    public FrsPraiseView cdg;
+    public ImageView cdh;
+    public RelativeLayout cdi;
+    public LinearLayout cdj;
+    public ImageView cdk;
+    public SubPbLayout cdl;
+    public BaobaoTailView cdm;
+    public LinearLayout cdn;
+    public TextView cdo;
+    public LinearLayout cdp;
+    public Button cdq;
+    public LinearLayout cdr;
+    public TextView cds;
+    public View cdt;
+    public View cdu;
+    public LinearLayout cdv;
+    public ImageView cdw;
+    public TextView cdx;
+    public LinearLayout cdy;
+    public ImageView cdz;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bv(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: q */
-    public bu a(ViewGroup viewGroup) {
-        return new bu(com.baidu.adp.lib.g.b.hr().a(this.mContext, com.baidu.tieba.r.pb_u9_news_layout, viewGroup, false));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.bn, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.aa aaVar, bu buVar) {
-        super.a(i, view, viewGroup, (ViewGroup) aaVar, (com.baidu.tbadk.core.data.aa) buVar);
-        if (aaVar != null) {
-            buVar.bMb.setOnClickListener(this.mItemClickListener);
-            buVar.bMb.setText(aaVar.getSummary());
-            buVar.bMb.setTag(aaVar);
-            com.baidu.tbadk.core.util.ay.j(buVar.bMc, com.baidu.tieba.n.cp_bg_line_b);
-            com.baidu.tbadk.core.util.ay.b(buVar.bMb, com.baidu.tieba.n.cp_cont_b, 1);
-            buVar.bMb.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.ay.getDrawable(com.baidu.tieba.p.icon_frs_news), (Drawable) null, (Drawable) null, (Drawable) null);
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [132=5] */
+    public bv(View view, boolean z, boolean z2, int i, boolean z3) {
+        super(view);
+        this.ccU = view.findViewById(i.f.sub_pb_more);
+        this.ccV = (HeadImageView) view.findViewById(i.f.photo);
+        this.aII = (TextView) view.findViewById(i.f.user_name);
+        this.ccW = (ImageView) view.findViewById(i.f.user_rank);
+        this.ccX = (ImageView) view.findViewById(i.f.user_gender);
+        this.cdb = (ImageView) view.findViewById(i.f.reply);
+        this.cdc = (TbRichTextView) view.findViewById(i.f.richText);
+        this.cdd = (TextView) view.findViewById(i.f.pb_act_btn);
+        this.cde = (TbRichTextView) view.findViewById(i.f.pb_act_img);
+        this.cdf = view.findViewById(i.f.pb_item_praise_topline);
+        this.cdg = (FrsPraiseView) view.findViewById(i.f.pb_item_praise_view);
+        this.cdh = (ImageView) view.findViewById(i.f.pb_item_praise_bottomline);
+        this.cdv = (LinearLayout) view.findViewById(i.f.pb_item_location_container);
+        this.cdx = (TextView) view.findViewById(i.f.pb_item_location_address);
+        this.cdw = (ImageView) view.findViewById(i.f.pb_item_location_img);
+        this.cdy = (LinearLayout) view.findViewById(i.f.pb_reply_location_container);
+        this.cdA = (TextView) view.findViewById(i.f.pb_reply_location_address);
+        this.cdz = (ImageView) view.findViewById(i.f.pb_reply_location_img);
+        this.cda = (ImageView) view.findViewById(i.f.floor_owner);
+        this.ccY = (TextView) view.findViewById(i.f.floor);
+        this.ccZ = (TextView) view.findViewById(i.f.time);
+        this.cdi = (RelativeLayout) view.findViewById(i.f.pb_post_header_layout);
+        this.cdl = (SubPbLayout) view.findViewById(i.f.pb_post_footer_layout);
+        this.cdj = (LinearLayout) view.findViewById(i.f.pb_subpb_layout_root);
+        this.cdk = (ImageView) view.findViewById(i.f.pb_post_footer_layout_line_top);
+        this.ccQ = view;
+        this.ccR = view.findViewById(i.f.new_pb_list_item_line_top);
+        this.ccS = view.findViewById(i.f.new_pb_list_item_line_top_full);
+        this.ccT = view.findViewById(i.f.new_pb_list_item_blank_top);
+        this.cdc.Fs();
+        this.cdc.setImageViewStretch(true);
+        this.cde.setMaxImageWidth(com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst()) - (((int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds30)) * 2));
+        this.cde.setMaxImageHeight((int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds484));
+        int min = Math.min(((((com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.cdc.getPaddingLeft()) - this.cdc.getPaddingRight()) - ((int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds60)), i);
+        this.cdc.setMaxImageWidth(min);
+        this.cdc.setMaxImageHeight((int) (min * 1.618f));
+        this.cdc.setTextSize(TbConfig.getContentSize());
+        if (z) {
+            ViewGroup.LayoutParams layoutParams = this.ccV.getLayoutParams();
+            layoutParams.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds60);
+            this.ccV.setLayoutParams(layoutParams);
+            this.ccV.setVisibility(0);
+        } else {
+            ViewGroup.LayoutParams layoutParams2 = this.ccV.getLayoutParams();
+            layoutParams2.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds30);
+            this.ccV.setLayoutParams(layoutParams2);
+            this.ccV.setVisibility(4);
         }
-        return view;
-    }
-
-    public void v(View.OnClickListener onClickListener) {
-        this.mItemClickListener = onClickListener;
+        this.cdc.f(z2, false);
+        this.cdc.setVoiceViewRes(i.g.voice_play_btn);
+        this.bco = (UserIconBox) view.findViewById(i.f.user_icon_box);
+        this.aTN = (UserIconBox) view.findViewById(i.f.user_tshow_icon_box);
+        this.cdn = (LinearLayout) view.findViewById(i.f.add_post_footer_layout);
+        if (z3) {
+            this.cdi.setVisibility(8);
+            this.cdb.setVisibility(8);
+            this.cdc.setPadding(0, 0, 0, 0);
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.cdc.getLayoutParams();
+            layoutParams3.leftMargin = 0;
+            layoutParams3.rightMargin = 0;
+            layoutParams3.topMargin = 0;
+            layoutParams3.bottomMargin = 0;
+            this.cdc.setLayoutParams(layoutParams3);
+            view.findViewById(i.f.pb_list_item_layout).setPadding(0, 0, 0, 0);
+            this.cdp = (LinearLayout) view.findViewById(i.f.add_time_container);
+            this.cdo = (TextView) view.findViewById(i.f.add_time);
+            this.cdq = (Button) view.findViewById(i.f.manage_btn);
+            this.cdp.setVisibility(0);
+        }
+        this.cdr = (LinearLayout) view.findViewById(i.f.addition_more_container);
+        this.cds = (TextView) this.cdr.findViewById(i.f.addition_more);
+        this.cdt = this.cdr.findViewById(i.f.addition_divider1);
+        this.cdu = this.cdr.findViewById(i.f.addition_divider2);
+        this.cdm = (BaobaoTailView) view.findViewById(i.f.baobao_tail);
+        this.cdB = (TextView) view.findViewById(i.f.pb_item_tail_content);
     }
 }

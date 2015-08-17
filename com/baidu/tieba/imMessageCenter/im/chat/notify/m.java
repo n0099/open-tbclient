@@ -1,26 +1,34 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
-import android.view.View;
-import com.baidu.adp.base.BdBaseFragmentActivity;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.bq;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements View.OnClickListener {
-    final /* synthetic */ d bsx;
+public class m implements com.baidu.tieba.im.chat.notify.a {
+    final /* synthetic */ e bGo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(d dVar) {
-        this.bsx = dVar;
+    public m(e eVar) {
+        this.bGo = eVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        BdBaseFragmentActivity bdBaseFragmentActivity;
-        BdBaseFragmentActivity bdBaseFragmentActivity2;
-        bdBaseFragmentActivity = this.bsx.bsl;
-        TiebaStatic.eventStat(bdBaseFragmentActivity.getPageContext().getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
-        bdBaseFragmentActivity2 = this.bsx.bsl;
-        bq.ac(bdBaseFragmentActivity2.getPageContext().getPageActivity());
+    @Override // com.baidu.tieba.im.chat.notify.a
+    public void onComplete() {
+        BdListView bdListView;
+        ImMessageCenterModel imMessageCenterModel;
+        BdListView bdListView2;
+        ImMessageCenterListAdapter imMessageCenterListAdapter;
+        ImMessageCenterModel imMessageCenterModel2;
+        bdListView = this.bGo.bGe;
+        if (bdListView != null) {
+            imMessageCenterModel = this.bGo.bGb;
+            if (imMessageCenterModel != null) {
+                bdListView2 = this.bGo.bGe;
+                bdListView2.completePullRefresh();
+                imMessageCenterListAdapter = this.bGo.bGf;
+                imMessageCenterModel2 = this.bGo.bGb;
+                imMessageCenterListAdapter.setData(imMessageCenterModel2.getData());
+            }
+        }
     }
 }

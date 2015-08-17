@@ -1,22 +1,20 @@
 package com.baidu.tieba.pluginCenter;
 
-import android.view.View;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class j implements View.OnClickListener {
-    final /* synthetic */ i bXD;
+class j implements DialogInterface.OnDismissListener {
+
+    /* renamed from: com  reason: collision with root package name */
+    final /* synthetic */ PluginDownloadActivity f129com;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(i iVar) {
-        this.bXD = iVar;
+    public j(PluginDownloadActivity pluginDownloadActivity) {
+        this.f129com = pluginDownloadActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PluginDownloadActivity pluginDownloadActivity;
-        PluginDownloadActivity pluginDownloadActivity2;
-        pluginDownloadActivity = this.bXD.bXt;
-        pluginDownloadActivity.setResult(0);
-        pluginDownloadActivity2 = this.bXD.bXt;
-        pluginDownloadActivity2.finish();
+    @Override // android.content.DialogInterface.OnDismissListener
+    public void onDismiss(DialogInterface dialogInterface) {
+        this.f129com.setResult(0);
+        this.f129com.finish();
     }
 }

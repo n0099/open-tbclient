@@ -81,7 +81,7 @@ public final class DataReq extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataReq> {
+    public static final class Builder extends Message.Builder<DataReq> {
         public Integer decision;
         public Integer groupId;
         public Long inviteUserId;
@@ -89,6 +89,9 @@ public final class DataReq extends Message {
         public Integer sysGroupId;
         public Integer sysMsgId;
         public String userIds;
+
+        public Builder() {
+        }
 
         public Builder(DataReq dataReq) {
             super(dataReq);

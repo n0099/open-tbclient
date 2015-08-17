@@ -1,19 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import android.view.View;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu implements View.OnLongClickListener {
-    final /* synthetic */ bk baH;
+public class bu implements a.b {
+    final /* synthetic */ TalkableActivity boV;
+    private final /* synthetic */ int boW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(bk bkVar) {
-        this.baH = bkVar;
+    public bu(TalkableActivity talkableActivity, int i) {
+        this.boV = talkableActivity;
+        this.boW = i;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        this.baH.baa.onItemViewLongClick(view, 7, this.baH.mPosition, 0L);
-        return true;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        this.boV.reSendMsg(this.boW);
     }
 }

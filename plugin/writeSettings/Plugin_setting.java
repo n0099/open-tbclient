@@ -198,7 +198,7 @@ public final class Plugin_setting extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<Plugin_setting> {
+    public static final class Builder extends Message.Builder<Plugin_setting> {
         public String abandon_apk_path;
         public String apk_path;
         public String cmd_range;
@@ -219,6 +219,9 @@ public final class Plugin_setting extends Message {
         public String url;
         public String version;
         public Integer version_code;
+
+        public Builder() {
+        }
 
         public Builder(Plugin_setting plugin_setting) {
             super(plugin_setting);

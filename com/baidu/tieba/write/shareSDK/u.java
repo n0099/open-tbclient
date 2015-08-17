@@ -1,37 +1,21 @@
 package com.baidu.tieba.write.shareSDK;
 
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tieba.write.write.cn;
+import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements View.OnClickListener {
-    final /* synthetic */ q cAM;
+public class u implements PopupWindow.OnDismissListener {
+    final /* synthetic */ o cSC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(q qVar) {
-        this.cAM = qVar;
+    public u(o oVar) {
+        this.cSC = oVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        cn cnVar;
-        WriteShareActivity writeShareActivity;
-        WriteShareActivity writeShareActivity2;
-        WriteShareActivity writeShareActivity3;
-        WriteShareActivity writeShareActivity4;
-        textView = this.cAM.cAB;
-        textView.setSelected(true);
-        cnVar = this.cAM.cAC;
-        writeShareActivity = this.cAM.cAK;
-        int dip2px = com.baidu.adp.lib.util.n.dip2px(writeShareActivity.getPageContext().getContext(), 15.0f);
-        writeShareActivity2 = this.cAM.cAK;
-        com.baidu.adp.lib.g.k.showPopupWindowAsDropDown(cnVar, view, dip2px, com.baidu.adp.lib.util.n.dip2px(writeShareActivity2.getPageContext().getContext(), 1.0f));
-        writeShareActivity3 = this.cAM.cAK;
-        if (writeShareActivity3 != null) {
-            writeShareActivity4 = this.cAM.cAK;
-            writeShareActivity4.asC();
-        }
+    @Override // android.widget.PopupWindow.OnDismissListener
+    public void onDismiss() {
+        View view;
+        view = this.cSC.cSt;
+        view.setSelected(false);
     }
 }

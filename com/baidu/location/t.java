@@ -28,6 +28,7 @@ import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.FileEntity;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.MIME;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.params.BasicHttpParams;
@@ -50,7 +51,7 @@ abstract class t implements a0, n {
     public String c2 = null;
 
     /* loaded from: classes.dex */
-    public class a extends SSLSocketFactory {
+    public static class a extends SSLSocketFactory {
         final SSLContext a;
 
         public a(KeyStore keyStore) {
@@ -198,7 +199,7 @@ abstract class t implements a0, n {
                         httpPost2 = new HttpPost(t.this.cX);
                         try {
                             ByteArrayEntity byteArrayEntity = new ByteArrayEntity(t.this.c3);
-                            httpPost2.setHeader("Content-Type", "application/octet-stream");
+                            httpPost2.setHeader(MIME.CONTENT_TYPE, "application/octet-stream");
                             httpPost2.setHeader("Accept-Charset", "UTF-8;");
                             httpPost2.setEntity(byteArrayEntity);
                             DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
@@ -272,7 +273,7 @@ abstract class t implements a0, n {
                     }
                     try {
                         UrlEncodedFormEntity urlEncodedFormEntity = new UrlEncodedFormEntity(t.this.cZ, "utf-8");
-                        httpPost2.setHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+                        httpPost2.setHeader(MIME.CONTENT_TYPE, "application/x-www-form-urlencoded; charset=utf-8");
                         httpPost2.setHeader("Accept-Charset", "UTF-8;");
                         httpPost2.setEntity(urlEncodedFormEntity);
                         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
@@ -334,7 +335,7 @@ abstract class t implements a0, n {
                 while (i > 0) {
                     try {
                         httpGet = new HttpGet(t.this.cX);
-                        httpGet.setHeader("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+                        httpGet.setHeader(MIME.CONTENT_TYPE, "application/x-www-form-urlencoded; charset=utf-8");
                         httpGet.setHeader("Accept-Charset", "UTF-8;");
                         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
                         defaultHttpClient.getParams().setParameter("http.connection.timeout", Integer.valueOf((int) a0.F));
@@ -386,7 +387,7 @@ abstract class t implements a0, n {
                         httpPost = new HttpPost(t.this.cX);
                         try {
                             FileEntity fileEntity = new FileEntity(new File(t.this.c4), "binary/octet-stream");
-                            httpPost.setHeader("Content-Type", "application/octet-stream");
+                            httpPost.setHeader(MIME.CONTENT_TYPE, "application/octet-stream");
                             httpPost.setHeader("Accept-Charset", "UTF-8;");
                             httpPost.setEntity(fileEntity);
                             DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
@@ -457,7 +458,7 @@ abstract class t implements a0, n {
                         httpPost2 = new HttpPost(t.this.cX);
                         try {
                             StringEntity stringEntity = new StringEntity(t.this.c2, "UTF-8");
-                            httpPost2.setHeader("Content-Type", "text/xml");
+                            httpPost2.setHeader(MIME.CONTENT_TYPE, "text/xml");
                             httpPost2.setEntity(stringEntity);
                             BasicHttpParams basicHttpParams = new BasicHttpParams();
                             HttpConnectionParams.setConnectionTimeout(basicHttpParams, a0.F);

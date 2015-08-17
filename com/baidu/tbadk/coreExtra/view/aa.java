@@ -1,28 +1,38 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.widget.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class aa extends CustomMessageListener {
-    final /* synthetic */ LiveBroadcastCard agj;
+public class aa implements a.d {
+    final /* synthetic */ MultiImageView alK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aa(LiveBroadcastCard liveBroadcastCard, int i) {
-        super(i);
-        this.agj = liveBroadcastCard;
+    public aa(MultiImageView multiImageView) {
+        this.alK = multiImageView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        long j;
-        if (customResponsedMessage != null) {
-            j = this.agj.mStartTime;
-            if (j <= 0) {
-                return;
+    @Override // com.baidu.tbadk.widget.a.d
+    public void a(com.baidu.tbadk.widget.a aVar) {
+        i iVar;
+        boolean z;
+        i iVar2;
+        i iVar3;
+        iVar = this.alK.alE;
+        if (aVar == iVar.getCurrentView()) {
+            z = this.alK.alI;
+            if (z) {
+                iVar2 = this.alK.alE;
+                int childCount = iVar2.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    iVar3 = this.alK.alE;
+                    View childAt = iVar3.getChildAt(i);
+                    if (childAt != null && (childAt instanceof ae) && ((ae) childAt).getImageView() != aVar) {
+                        ((ae) childAt).release();
+                    }
+                }
             }
-            this.agj.dealStatusWillStart();
+            aVar.play();
         }
     }
 }

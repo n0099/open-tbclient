@@ -1,33 +1,29 @@
 package com.baidu.tieba.tbadkCore.data;
 
-import android.graphics.drawable.Drawable;
-import com.baidu.adp.widget.p;
-import com.baidu.adp.widget.q;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.data.IconData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class k implements q {
-    private final /* synthetic */ TbPageContext NC;
-    final /* synthetic */ j csr;
-    private final /* synthetic */ IconData css;
+class k extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ j cIV;
+    private final /* synthetic */ com.baidu.adp.widget.e cIW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(j jVar, IconData iconData, TbPageContext tbPageContext) {
-        this.csr = jVar;
-        this.css = iconData;
-        this.NC = tbPageContext;
+    public k(j jVar, com.baidu.adp.widget.e eVar) {
+        this.cIV = jVar;
+        this.cIW = eVar;
     }
 
-    @Override // com.baidu.adp.widget.q
-    public Drawable a(p pVar) {
-        com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.d.hl().a(this.css.getIcon(), 21, new Object[0]);
-        if (aVar == null) {
-            l lVar = new l(this, pVar, this.NC);
-            if (this.NC.getPageActivity() instanceof com.baidu.adp.base.m) {
-                com.baidu.adp.lib.f.d.hl().a(this.css.getIcon(), 21, lVar, ((com.baidu.adp.base.m) this.NC.getPageActivity()).getUniqueId());
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        i iVar;
+        super.a((k) aVar, str, i);
+        if (aVar != null && aVar.nd()) {
+            iVar = this.cIV.cIS;
+            this.cIW.setDrawable(iVar.f(aVar));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ADAPTER_CHANGE_CMD));
         }
-        return this.csr.f(aVar);
     }
 }

@@ -34,13 +34,13 @@ public final class UserInfo extends Message {
     public final Integer sysGroupId;
     @ProtoField(label = Message.Label.REPEATED, tag = 14)
     public final List<TshowInfo> tshowIcon;
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer userId;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long userId;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String userName;
     @ProtoField(tag = 15, type = Message.Datatype.INT32)
     public final Integer userType;
-    public static final Integer DEFAULT_USERID = 0;
+    public static final Long DEFAULT_USERID = 0L;
     public static final Integer DEFAULT_SEX = 0;
     public static final Double DEFAULT_LNG = Double.valueOf(0.0d);
     public static final Double DEFAULT_LAT = Double.valueOf(0.0d);
@@ -150,7 +150,7 @@ public final class UserInfo extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<UserInfo> {
+    public static final class Builder extends Message.Builder<UserInfo> {
         public Integer inTime;
         public Integer lastReplyTime;
         public Double lat;
@@ -163,9 +163,12 @@ public final class UserInfo extends Message {
         public Integer sex;
         public Integer sysGroupId;
         public List<TshowInfo> tshowIcon;
-        public Integer userId;
+        public Long userId;
         public String userName;
         public Integer userType;
+
+        public Builder() {
+        }
 
         public Builder(UserInfo userInfo) {
             super(userInfo);

@@ -1,28 +1,36 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.text.TextUtils;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.person.bs;
 /* loaded from: classes.dex */
-class bl {
-    TextView aJx;
-    HeadImageView aKz;
-    ImageView bTf;
-    LinearLayout bTg;
-    TextView bTh;
-    final /* synthetic */ bk bTi;
-    TextView baI;
-    ImageView bow;
-    ProgressBar mProgress;
-
-    private bl(bk bkVar) {
-        this.bTi = bkVar;
-    }
+class bl implements bs.a {
+    final /* synthetic */ PersonListActivity ckd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ bl(bk bkVar, bl blVar) {
-        this(bkVar);
+    public bl(PersonListActivity personListActivity) {
+        this.ckd = personListActivity;
+    }
+
+    @Override // com.baidu.tieba.person.bs.a
+    public void B(String str, boolean z) {
+        ProgressBar progressBar;
+        ProgressBar progressBar2;
+        if (!z) {
+            progressBar = this.ckd.mProgress;
+            if (progressBar.isShown()) {
+                progressBar2 = this.ckd.mProgress;
+                progressBar2.setVisibility(8);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                this.ckd.showToast(str);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.person.bs.a
+    public com.baidu.tieba.person.a.a d(com.baidu.tieba.person.a.a aVar, boolean z) {
+        this.ckd.a(aVar, z);
+        return null;
     }
 }

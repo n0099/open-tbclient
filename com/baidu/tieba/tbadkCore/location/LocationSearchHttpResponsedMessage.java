@@ -7,28 +7,28 @@ import com.squareup.wire.Wire;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
 /* loaded from: classes.dex */
 public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
-    private l mLocationData;
+    private i mLocationData;
 
     public LocationSearchHttpResponsedMessage(int i) {
         super(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME);
     }
 
-    public l getLocationData() {
+    public i getLocationData() {
         return this.mLocationData;
     }
 
-    public void setLocationData(l lVar) {
-        this.mLocationData = lVar;
+    public void setLocationData(i iVar) {
+        this.mLocationData = iVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         GetSuggestionByAddrNameResIdl getSuggestionByAddrNameResIdl = (GetSuggestionByAddrNameResIdl) new Wire(new Class[0]).parseFrom(bArr, GetSuggestionByAddrNameResIdl.class);
         setError(getSuggestionByAddrNameResIdl.error.errorno.intValue());
         setErrorString(getSuggestionByAddrNameResIdl.error.usermsg);
         if (getError() == 0) {
-            this.mLocationData = new l();
+            this.mLocationData = new i();
             this.mLocationData.a(getSuggestionByAddrNameResIdl.data);
             BdLog.detailException(null);
         }

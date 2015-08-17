@@ -17,7 +17,7 @@ public class LocationSearchNetRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.addr_name = this.addrName;
         if (z) {
-            com.baidu.tbadk.util.j.a(builder, true);
+            com.baidu.tbadk.util.g.a(builder, true);
         }
         GetSuggestionByAddrNameReqIdl.Builder builder2 = new GetSuggestionByAddrNameReqIdl.Builder();
         builder2.data = builder.build(false);

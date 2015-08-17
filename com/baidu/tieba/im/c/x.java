@@ -10,13 +10,13 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements com.baidu.tieba.im.g<LinkedHashMap<String, String>> {
-    private final /* synthetic */ ad bpH;
-    final /* synthetic */ a bpy;
+    final /* synthetic */ a bDl;
+    private final /* synthetic */ ad bDu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(a aVar, ad adVar) {
-        this.bpy = aVar;
-        this.bpH = adVar;
+        this.bDl = aVar;
+        this.bDu = adVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,11 +35,11 @@ public class x implements com.baidu.tieba.im.g<LinkedHashMap<String, String>> {
             while (it.hasNext()) {
                 String str2 = (String) it.next();
                 String str3 = linkedHashMap.get(str2);
-                String t = com.baidu.tieba.im.util.i.t(str3, true);
+                String t = com.baidu.tieba.im.util.h.t(str3, true);
                 if (t != null) {
                     linkedHashMap2.put(str2, t);
                 }
-                String t2 = com.baidu.tieba.im.util.i.t(str3, false);
+                String t2 = com.baidu.tieba.im.util.h.t(str3, false);
                 if (!TextUtils.isEmpty(t2) && !TextUtils.isEmpty(t)) {
                     ImageUrlData imageUrlData = new ImageUrlData();
                     imageUrlData.imageUrl = t2;
@@ -48,6 +48,6 @@ public class x implements com.baidu.tieba.im.g<LinkedHashMap<String, String>> {
                 }
             }
         }
-        this.bpH.a(linkedHashMap2, hashMap);
+        this.bDu.a(linkedHashMap2, hashMap);
     }
 }

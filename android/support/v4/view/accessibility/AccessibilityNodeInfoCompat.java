@@ -175,7 +175,7 @@ public class AccessibilityNodeInfoCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityNodeInfoStubImpl implements AccessibilityNodeInfoImpl {
+    static class AccessibilityNodeInfoStubImpl implements AccessibilityNodeInfoImpl {
         AccessibilityNodeInfoStubImpl() {
         }
 
@@ -470,7 +470,7 @@ public class AccessibilityNodeInfoCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityNodeInfoIcsImpl extends AccessibilityNodeInfoStubImpl {
+    static class AccessibilityNodeInfoIcsImpl extends AccessibilityNodeInfoStubImpl {
         AccessibilityNodeInfoIcsImpl() {
         }
 
@@ -711,7 +711,7 @@ public class AccessibilityNodeInfoCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityNodeInfoJellybeanImpl extends AccessibilityNodeInfoIcsImpl {
+    static class AccessibilityNodeInfoJellybeanImpl extends AccessibilityNodeInfoIcsImpl {
         AccessibilityNodeInfoJellybeanImpl() {
         }
 
@@ -782,7 +782,7 @@ public class AccessibilityNodeInfoCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityNodeInfoJellybeanMr2Impl extends AccessibilityNodeInfoJellybeanImpl {
+    static class AccessibilityNodeInfoJellybeanMr2Impl extends AccessibilityNodeInfoJellybeanImpl {
         AccessibilityNodeInfoJellybeanMr2Impl() {
         }
 
@@ -798,7 +798,7 @@ public class AccessibilityNodeInfoCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityNodeInfoKitKatImpl extends AccessibilityNodeInfoJellybeanMr2Impl {
+    static class AccessibilityNodeInfoKitKatImpl extends AccessibilityNodeInfoJellybeanMr2Impl {
         AccessibilityNodeInfoKitKatImpl() {
         }
 

@@ -2,11 +2,12 @@ package com.baidu.tbadk.coreExtra.live;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class LiveStatusChangeMessage extends CustomResponsedMessage<LiveStatusData> {
 
     /* loaded from: classes.dex */
-    public class LiveStatusData {
+    public static class LiveStatusData {
         public String errorString;
         public String groupId;
         public int status;
@@ -14,7 +15,7 @@ public class LiveStatusChangeMessage extends CustomResponsedMessage<LiveStatusDa
     }
 
     public LiveStatusChangeMessage(LiveStatusData liveStatusData) {
-        super(2001161, liveStatusData);
+        super(CmdConfigCustom.CMD_LIVE_STATUS_CHANGE, liveStatusData);
     }
 
     public static boolean isPublishing(LiveStatusData liveStatusData) {

@@ -1,57 +1,32 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.AbsListView;
+import com.baidu.tbadk.core.view.UserPhotoLayout;
+import com.baidu.tieba.i;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class br implements com.baidu.adp.lib.e.c<bu> {
-    final /* synthetic */ bq aOx;
+class br implements AbsListView.RecyclerListener {
+    final /* synthetic */ bl aXC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(bq bqVar) {
-        this.aOx = bqVar;
+    public br(bl blVar) {
+        this.aXC = blVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: LI */
-    public bu hk() {
-        Context context;
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        com.baidu.adp.lib.g.b hr = com.baidu.adp.lib.g.b.hr();
-        context = this.aOx.mContext;
-        View inflate = hr.inflate(context, com.baidu.tieba.r.frs_item_livecard, null);
-        bu buVar = new bu(this.aOx);
-        buVar.aKJ = (LinearLayout) inflate.findViewById(com.baidu.tieba.q.live_card_layout);
-        buVar.aKK = (LiveBroadcastCard) inflate.findViewById(com.baidu.tieba.q.item_card);
-        frsActivity = this.aOx.aMl;
-        frsActivity.getLayoutMode().ab(this.aOx.mSkinType == 1);
-        frsActivity2 = this.aOx.aMl;
-        frsActivity2.getLayoutMode().j(inflate);
-        buVar.ajy = this.aOx.mSkinType;
-        return buVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void k(bu buVar) {
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public bu l(bu buVar) {
-        return buVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public bu m(bu buVar) {
-        return buVar;
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(i.f.abstract_voice);
+        if (playVoiceBnt != null) {
+            playVoiceBnt.reset();
+        }
+        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(i.f.abstract_img_layout);
+        if (frsCommonImageLayout != null) {
+            frsCommonImageLayout.reset();
+        }
+        if (view != null && (view instanceof UserPhotoLayout)) {
+            ((UserPhotoLayout) view).reset();
+        }
     }
 }

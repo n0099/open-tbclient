@@ -1,23 +1,18 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.write.write.WriteImageActivity;
 /* loaded from: classes.dex */
-class bs extends CustomMessageListener {
-    final /* synthetic */ WriteActivity cCQ;
+class bs implements a.b {
+    final /* synthetic */ WriteImageActivity.a cUY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bs(WriteActivity writeActivity, int i) {
-        super(i);
-        this.cCQ = writeActivity;
+    public bs(WriteImageActivity.a aVar) {
+        this.cUY = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001310) {
-            this.cCQ.anW();
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

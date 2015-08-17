@@ -1,7 +1,8 @@
 package com.baidu.tieba.switchs.features;
 
 import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.f;
+import com.baidu.adp.lib.b.e;
+import com.tencent.mm.sdk.constants.ConstantsAPI;
 /* loaded from: classes.dex */
 public class TencentMMSwitchStatic extends a {
     public static final String MM = "tencent_mm";
@@ -10,8 +11,8 @@ public class TencentMMSwitchStatic extends a {
     public static final int MM_OFF_TYPE = 1;
 
     static {
-        f.gD().l(TencentMMSwitchStatic.class);
-        MM_KEY = new String[]{"com.tencent.mm"};
+        e.gy().e(TencentMMSwitchStatic.class);
+        MM_KEY = new String[]{ConstantsAPI.WXApp.WXAPP_PACKAGE_NAME};
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

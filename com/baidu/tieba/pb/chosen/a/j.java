@@ -1,44 +1,27 @@
 package com.baidu.tieba.pb.chosen.a;
 
-import android.content.Context;
 import android.view.View;
-import android.view.animation.Animation;
-import android.widget.ImageView;
-import com.baidu.tbadk.core.util.bq;
+import com.baidu.tieba.pb.chosen.a.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ h bJC;
+    final /* synthetic */ i bZP;
+    private final /* synthetic */ String bZQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(h hVar) {
-        this.bJC = hVar;
+    public j(i iVar, String str) {
+        this.bZP = iVar;
+        this.bZQ = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean z;
-        Context context;
-        ImageView imageView;
-        Animation aaq;
-        k kVar;
-        k kVar2;
-        boolean z2;
-        z = this.bJC.bJB;
-        if (!z) {
-            context = this.bJC.context;
-            if (bq.ae(context)) {
-                this.bJC.bJB = true;
-                imageView = this.bJC.bJv;
-                aaq = this.bJC.aaq();
-                imageView.startAnimation(aaq);
-                kVar = this.bJC.bJy;
-                if (kVar != null) {
-                    kVar2 = this.bJC.bJy;
-                    z2 = this.bJC.bJz;
-                    kVar2.dM(z2);
-                }
-            }
+        i.a aVar;
+        i.a aVar2;
+        aVar = this.bZP.bZI;
+        if (aVar != null) {
+            aVar2 = this.bZP.bZI;
+            aVar2.jd(this.bZQ);
         }
     }
 }

@@ -1,37 +1,56 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.app.Dialog;
 import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
+import android.widget.AdapterView;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tieba.i;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements View.OnClickListener {
-    final /* synthetic */ s bPU;
+public class ab implements AdapterView.OnItemClickListener {
+    final /* synthetic */ t cgt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(s sVar) {
-        this.bPU = sVar;
+    public ab(t tVar) {
+        this.cgt = tVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        Dialog dialog3;
-        TbPageContext tbPageContext;
-        dialog = this.bPU.bNM;
-        if (dialog != null) {
-            dialog2 = this.bPU.bNM;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.bPU.bNM;
-                tbPageContext = this.bPU.Yt;
-                com.baidu.adp.lib.g.k.b(dialog3, tbPageContext);
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        NewSubPbActivity newSubPbActivity;
+        ArrayList arrayList;
+        SparseArray sparseArray;
+        String str;
+        com.baidu.tbadk.editortools.c.n nVar;
+        ArrayList arrayList2;
+        ArrayList arrayList3;
+        ArrayList arrayList4;
+        newSubPbActivity = this.cgt.cgc;
+        if (bb.ah(newSubPbActivity.getPageContext().getPageActivity())) {
+            arrayList = this.cgt.cgo;
+            if (arrayList != null) {
+                arrayList2 = this.cgt.cgo;
+                if (i < arrayList2.size()) {
+                    arrayList3 = this.cgt.cgo;
+                    if (arrayList3.get(i) != null) {
+                        t tVar = this.cgt;
+                        arrayList4 = this.cgt.cgo;
+                        tVar.cgp = ((com.baidu.tieba.tbadkCore.data.i) arrayList4.get(i)).getId();
+                        sparseArray = (SparseArray) view.getTag();
+                        if (sparseArray == null && (str = (String) sparseArray.get(i.f.tag_photo_username)) != null) {
+                            nVar = this.cgt.bWp;
+                            nVar.eU(str);
+                            this.cgt.e(i, view);
+                            return;
+                        }
+                    }
+                }
             }
-        }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.bPU.a(((Integer) sparseArray.get(com.baidu.tieba.q.tag_del_post_type)).intValue(), (String) sparseArray.get(com.baidu.tieba.q.tag_del_post_id), ((Integer) sparseArray.get(com.baidu.tieba.q.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(com.baidu.tieba.q.tag_del_post_is_self)).booleanValue());
+            this.cgt.cgp = null;
+            sparseArray = (SparseArray) view.getTag();
+            if (sparseArray == null) {
+            }
         }
     }
 }

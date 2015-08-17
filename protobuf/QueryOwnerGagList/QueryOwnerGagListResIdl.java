@@ -26,9 +26,12 @@ public final class QueryOwnerGagListResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<QueryOwnerGagListResIdl> {
+    public static final class Builder extends Message.Builder<QueryOwnerGagListResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(QueryOwnerGagListResIdl queryOwnerGagListResIdl) {
             super(queryOwnerGagListResIdl);

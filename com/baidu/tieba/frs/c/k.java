@@ -7,68 +7,51 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsActivityStatic;
-import com.baidu.tieba.frs.ce;
-import com.baidu.tieba.frs.ci;
-import com.baidu.tieba.tbadkCore.w;
+import com.baidu.tieba.frs.cn;
+import com.baidu.tieba.frs.dg;
 import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class k extends com.baidu.tbadk.mvc.i.a implements com.baidu.adp.widget.BdSwitchView.b {
-    private FrsActivity aPF;
-    private SlidingMenu aQe = null;
-    private ci aQf = null;
-    private final View.OnClickListener aLK = new l(this);
-    private final SlidingMenu.OnClosedListener aQg = new m(this);
+public class k extends com.baidu.adp.base.f<FrsActivity> implements BdSwitchView.a {
+    private final View.OnClickListener aUY;
+    private FrsActivity bat;
+    private SlidingMenu bbA;
+    private dg bbB;
+    private final SlidingMenu.OnClosedListener bbC;
 
     public k(FrsActivity frsActivity) {
-        this.aPF = frsActivity;
+        super(frsActivity.getPageContext());
+        this.bbA = null;
+        this.bbB = null;
+        this.aUY = new l(this);
+        this.bbC = new m(this);
+        this.bat = frsActivity;
     }
 
-    @Override // com.baidu.tbadk.mvc.i.a
-    protected void a(com.baidu.tbadk.mvc.b.a aVar) {
-    }
-
-    @Override // com.baidu.tbadk.mvc.i.a
-    protected void oJ() {
-    }
-
-    @Override // com.baidu.tbadk.mvc.i.a
-    protected void oI() {
-    }
-
-    @Override // com.baidu.tbadk.mvc.core.c, com.baidu.adp.base.g
-    public TbPageContext<?> getPageContext() {
-        return this.aPF.getPageContext();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.mvc.core.c
-    public void oL() {
-    }
-
-    @Override // com.baidu.tbadk.mvc.core.c
-    protected int oK() {
-        return 0;
-    }
-
-    @Override // com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        if (this.aQf != null) {
-            this.aQf.changeSkinType(i);
+        if (this.bbB != null) {
+            this.bbB.changeSkinType(i);
             return true;
         }
         return true;
     }
 
-    @Override // com.baidu.tbadk.mvc.core.c
-    public boolean AY() {
-        if (getSlidingMenu().isMenuShowing()) {
-            getSlidingMenu().toggle(true);
-            if (Mz().LN()) {
-                Mz().ce(false);
-                this.aPF.refresh();
+    @Override // com.baidu.adp.base.f
+    public void destroy() {
+        if (this.bbB != null) {
+            this.bbB.destroy();
+        }
+    }
+
+    public boolean onBackPressed() {
+        if (NN().isMenuShowing()) {
+            NN().toggle(true);
+            if (NM().MC()) {
+                NM().cf(false);
+                this.bat.refresh();
                 return true;
             }
             return true;
@@ -76,66 +59,61 @@ public class k extends com.baidu.tbadk.mvc.i.a implements com.baidu.adp.widget.B
         return false;
     }
 
-    public void My() {
-        if (getSlidingMenu().isMenuShowing()) {
-            getSlidingMenu().toggle(true);
+    public void NL() {
+        if (NN().isMenuShowing()) {
+            NN().toggle(true);
         }
     }
 
-    public ci Mz() {
-        if (this.aQf == null) {
-            this.aQf = new ci(this.aPF.getPageContext());
-            getSlidingMenu().setMenu(this.aQf.getView());
-            this.aQf.n(this.aLK);
-            this.aQf.changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-            this.aQf.init();
-            this.aQf.LM().setOnSwitchStateChangeListener(this);
+    public dg NM() {
+        if (this.bbB == null) {
+            this.bbB = new dg(this.bat.getPageContext());
+            NN().setMenu(this.bbB.getView());
+            this.bbB.n(this.aUY);
+            this.bbB.changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+            this.bbB.init();
+            this.bbB.MB().setOnSwitchStateChangeListener(this);
         }
-        return this.aQf;
+        return this.bbB;
     }
 
-    public SlidingMenu getSlidingMenu() {
-        if (this.aQe == null) {
-            this.aQe = new SlidingMenu(getPageContext().getPageActivity());
-            this.aQe.setMode(1);
-            this.aQe.setTouchModeAbove(1);
-            this.aQe.setBehindOffset(com.baidu.adp.lib.util.n.dip2px(getPageContext().getPageActivity(), 48.0f));
-            this.aQe.setBehindScrollScale(0.5f);
-            this.aQe.setFadeDegree(0.35f);
-            this.aQe.attachToActivity(getPageContext().getPageActivity(), 1, true);
-            this.aQe.setOnClosedListener(this.aQg);
+    public SlidingMenu NN() {
+        if (this.bbA == null) {
+            this.bbA = new SlidingMenu(getPageContext().getPageActivity());
+            this.bbA.setBackgroundColor(getPageContext().getResources().getColor(17170444));
+            this.bbA.setMode(1);
+            this.bbA.setTouchModeAbove(1);
+            this.bbA.setBehindOffset(com.baidu.adp.lib.util.k.dip2px(getPageContext().getPageActivity(), 48.0f));
+            this.bbA.setBehindScrollScale(0.5f);
+            this.bbA.setFadeDegree(0.35f);
+            this.bbA.attachToActivity(getPageContext().getPageActivity(), 1, true);
+            this.bbA.setOnClosedListener(this.bbC);
         }
-        return this.aQe;
+        return this.bbA;
     }
 
     public void showMenu(boolean z) {
-        getSlidingMenu().showMenu(z);
+        NN().showMenu(z);
     }
 
-    public void cg(boolean z) {
-        Mz().cd(z);
+    public void cj(boolean z) {
+        NM().ce(z);
     }
 
     public void setIsManager(boolean z) {
-        Mz().setIsManager(z);
+        NM().setIsManager(z);
     }
 
-    public void e(w wVar) {
-        if (wVar != null && wVar.aas() != null) {
-            Mz().y(wVar.aas().getRecommendForumData());
+    public void a(cn cnVar) {
+        if (this.bbB != null) {
+            NM().a(cnVar, FrsActivityStatic.aVt, FrsActivityStatic.aVu);
         }
     }
 
-    public void a(ce ceVar) {
-        if (this.aQf != null) {
-            Mz().a(ceVar, FrsActivityStatic.aMh, FrsActivityStatic.aMi);
-        }
-    }
-
-    @Override // com.baidu.adp.widget.BdSwitchView.b
+    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         int i = 1;
-        if (view == Mz().LM()) {
+        if (view == NM().MB()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 if (TbadkCoreApplication.m411getInst().getSkinType() != 1) {
                     TiebaStatic.eventStat(getPageContext().getPageActivity(), "frs_night_mode", "frsclick", 1, new Object[0]);
@@ -150,9 +128,9 @@ public class k extends com.baidu.tbadk.mvc.i.a implements com.baidu.adp.widget.B
             } else {
                 return;
             }
-            this.aPF.onChangeSkinType(i);
-            com.baidu.tbadk.core.util.c.iL();
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
+            this.bat.onChangeSkinType(i);
+            com.baidu.tbadk.core.util.c.ix();
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
         }
     }
 }

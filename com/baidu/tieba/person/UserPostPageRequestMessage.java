@@ -2,6 +2,7 @@ package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.person.PersonPostModel;
 import com.squareup.wire.Message;
 import java.lang.ref.WeakReference;
 import tbclient.UserPost.DataReq;
@@ -10,7 +11,7 @@ import tbclient.UserPost.UserPostReqIdl;
 public class UserPostPageRequestMessage extends NetMessage {
     private boolean isReset;
     private boolean isThread;
-    private WeakReference<ch> mCallbackWeakReference;
+    private WeakReference<PersonPostModel.a> mCallbackWeakReference;
     private boolean needContent;
     private int pn;
     private int rn;
@@ -20,11 +21,11 @@ public class UserPostPageRequestMessage extends NetMessage {
         super(CmdConfigHttp.USER_POST_HTTP_CMD, 303002);
     }
 
-    public WeakReference<ch> getmCallbackWeakReference() {
+    public WeakReference<PersonPostModel.a> getmCallbackWeakReference() {
         return this.mCallbackWeakReference;
     }
 
-    public void setmCallbackWeakReference(WeakReference<ch> weakReference) {
+    public void setmCallbackWeakReference(WeakReference<PersonPostModel.a> weakReference) {
         this.mCallbackWeakReference = weakReference;
     }
 
@@ -80,13 +81,13 @@ public class UserPostPageRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     public Message encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.uid = Long.valueOf(com.baidu.adp.lib.g.c.c(this.uid, 0L));
+        builder.uid = Long.valueOf(com.baidu.adp.lib.g.b.c(this.uid, 0L));
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
         builder.is_thread = Integer.valueOf(this.isThread ? 1 : 0);
         builder.need_content = Integer.valueOf(this.needContent ? 1 : 0);
         if (z) {
-            com.baidu.tbadk.util.j.a(builder, true);
+            com.baidu.tbadk.util.g.a(builder, true);
         }
         UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
         builder2.data = builder.build(false);

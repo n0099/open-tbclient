@@ -1,18 +1,17 @@
 package com.baidu.tieba.setting.more;
 
 import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* loaded from: classes.dex */
-public class g implements View.OnClickListener {
-    final /* synthetic */ AppsActivity ceQ;
+class g implements BdSwitchView.a {
+    final /* synthetic */ f cwO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(AppsActivity appsActivity) {
-        this.ceQ = appsActivity;
+    public g(f fVar) {
+        this.cwO = fVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.ceQ.refresh();
+    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
+    public void a(View view, BdSwitchView.SwitchState switchState) {
     }
 }

@@ -1,14 +1,15 @@
 package com.baidu.tbadk.core;
 
-import android.content.Context;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TbErrInfo;
 /* loaded from: classes.dex */
 public class k {
-    public static void A(Context context, String str) {
-        TiebaStatic.eventStat(context, str, "click", 1, new Object[0]);
-    }
-
-    public static void B(Context context, String str) {
-        TiebaStatic.eventStat(context, str, "visit", 1, new Object[0]);
-    }
+    private static int BASE_ERROR_NO = -100000000;
+    public static final int Tw = BASE_ERROR_NO - 1000;
+    public static final int Tx = BASE_ERROR_NO + TbErrInfo.ERR_IMG_GET_REMOTE;
+    public static final int Ty = BASE_ERROR_NO + TbErrInfo.ERR_IMG_SEND;
+    public static final int Tz = BASE_ERROR_NO - 2000;
+    public static final int TA = BASE_ERROR_NO - 2001;
+    public static final int TB = BASE_ERROR_NO - 2002;
+    public static final int TC = BASE_ERROR_NO - 3000;
+    public static final int TD = BASE_ERROR_NO - 3001;
 }

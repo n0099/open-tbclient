@@ -24,10 +24,7 @@ public class GestureDetectorCompat {
     }
 
     /* loaded from: classes.dex */
-    class GestureDetectorCompatImplBase implements GestureDetectorCompatImpl {
-        private static final int LONG_PRESS = 2;
-        private static final int SHOW_PRESS = 1;
-        private static final int TAP = 3;
+    static class GestureDetectorCompatImplBase implements GestureDetectorCompatImpl {
         private boolean mAlwaysInBiggerTapRegion;
         private boolean mAlwaysInTapRegion;
         private MotionEvent mCurrentDownEvent;
@@ -54,7 +51,7 @@ public class GestureDetectorCompat {
         private static final int DOUBLE_TAP_TIMEOUT = ViewConfiguration.getDoubleTapTimeout();
 
         /* loaded from: classes.dex */
-        class GestureHandler extends Handler {
+        private class GestureHandler extends Handler {
             GestureHandler() {
             }
 
@@ -366,7 +363,7 @@ public class GestureDetectorCompat {
     }
 
     /* loaded from: classes.dex */
-    class GestureDetectorCompatImplJellybeanMr2 implements GestureDetectorCompatImpl {
+    static class GestureDetectorCompatImplJellybeanMr2 implements GestureDetectorCompatImpl {
         private final GestureDetector mDetector;
 
         public GestureDetectorCompatImplJellybeanMr2(Context context, GestureDetector.OnGestureListener onGestureListener, Handler handler) {

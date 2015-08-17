@@ -1,11 +1,18 @@
 package com.baidu.tieba.write.write;
+
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface x {
-    void a(com.baidu.tbadk.coreExtra.view.j jVar, int i);
+public class x implements View.OnClickListener {
+    final /* synthetic */ VcodeActivity cTX;
 
-    void asV();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public x(VcodeActivity vcodeActivity) {
+        this.cTX = vcodeActivity;
+    }
 
-    void asW();
-
-    void asX();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.cTX.fK(null);
+    }
 }

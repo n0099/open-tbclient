@@ -5,18 +5,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public class a extends c<byte[]> {
-    private String sR;
+    private String sO;
 
-    public a(com.baidu.adp.base.a.c cVar, String str) {
-        super(cVar);
-        this.sR = str;
+    public a(com.baidu.adp.base.a.b bVar, String str) {
+        super(bVar);
+        this.sO = str;
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String Q(String str) {
-        this.sS.E("CREATE TABLE IF NOT EXISTS " + this.sR + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
-        this.sS.E("CREATE INDEX if not exists idx_mi_ns ON " + this.sR + "(m_ns)");
-        return this.sR;
+    public String P(String str) {
+        this.sP.E("CREATE TABLE IF NOT EXISTS " + this.sO + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.sP.E("CREATE INDEX if not exists idx_mi_ns ON " + this.sO + "(m_ns)");
+        return this.sO;
     }
 
     @Override // com.baidu.adp.lib.cache.c
@@ -24,32 +24,32 @@ public class a extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public int gg() {
+    public int ga() {
         return 1;
     }
 
     /* JADX WARN: Type inference failed for: r2v17, types: [T, byte[]] */
     @Override // com.baidu.adp.lib.cache.c
-    protected m<byte[]> c(SQLiteDatabase sQLiteDatabase, String str) {
+    protected h<byte[]> c(SQLiteDatabase sQLiteDatabase, String str) {
         Cursor cursor;
         Throwable th;
-        m<byte[]> mVar = null;
+        h<byte[]> hVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.sT + " where m_key = ?", new String[]{str});
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.sQ + " where m_key = ?", new String[]{str});
             try {
                 if (cursor.moveToNext()) {
-                    mVar = new m<>();
-                    mVar.tf = cursor.getString(0);
-                    mVar.tg = cursor.getString(1);
-                    mVar.th = cursor.getLong(2);
-                    mVar.ti = cursor.getLong(3);
-                    mVar.tj = cursor.getLong(4);
-                    mVar.ss = cursor.getBlob(5);
+                    hVar = new h<>();
+                    hVar.tc = cursor.getString(0);
+                    hVar.td = cursor.getString(1);
+                    hVar.te = cursor.getLong(2);
+                    hVar.tf = cursor.getLong(3);
+                    hVar.tg = cursor.getLong(4);
+                    hVar.so = cursor.getBlob(5);
                     com.baidu.adp.lib.g.a.b(cursor);
                 } else {
                     com.baidu.adp.lib.g.a.b(cursor);
                 }
-                return mVar;
+                return hVar;
             } catch (Throwable th2) {
                 th = th2;
                 com.baidu.adp.lib.g.a.b(cursor);
@@ -62,29 +62,29 @@ public class a extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected ContentValues a(m<byte[]> mVar) {
+    protected ContentValues a(h<byte[]> hVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", mVar.tf);
-        contentValues.put("m_ns", mVar.tg);
-        contentValues.put("m_value", mVar.ss);
-        contentValues.put("saveTime", Long.valueOf(mVar.th));
-        contentValues.put("lastHitTime", Long.valueOf(mVar.ti));
-        contentValues.put("timeToExpire", Long.valueOf(mVar.tj));
+        contentValues.put("m_key", hVar.tc);
+        contentValues.put("m_ns", hVar.td);
+        contentValues.put("m_value", hVar.so);
+        contentValues.put("saveTime", Long.valueOf(hVar.te));
+        contentValues.put("lastHitTime", Long.valueOf(hVar.tf));
+        contentValues.put("timeToExpire", Long.valueOf(hVar.tg));
         return contentValues;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.sT + " where m_ns = ?", new String[]{str});
+        return sQLiteDatabase.rawQuery("select * from " + this.sQ + " where m_ns = ?", new String[]{str});
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean R(String str) {
+    protected boolean Q(String str) {
         try {
-            this.sS.dK().delete(this.sT, "m_ns = ?", new String[]{str});
+            this.sP.dL().delete(this.sQ, "m_ns = ?", new String[]{str});
             return true;
         } catch (Throwable th) {
-            this.sS.a(th, "failed to clear from " + str);
+            this.sP.a(th, "failed to clear from " + str);
             return false;
         }
     }

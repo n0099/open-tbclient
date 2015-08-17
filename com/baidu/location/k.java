@@ -18,7 +18,7 @@ public class k implements a0, n {
     private boolean by = false;
     private boolean bv = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
 

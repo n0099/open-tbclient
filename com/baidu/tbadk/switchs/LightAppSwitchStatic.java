@@ -1,11 +1,11 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.f;
+import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class LightAppSwitchStatic extends a {
     static {
-        f.gD().l(LightAppSwitchStatic.class);
+        e.gy().e(LightAppSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

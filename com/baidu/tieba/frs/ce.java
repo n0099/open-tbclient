@@ -1,34 +1,29 @@
 package com.baidu.tieba.frs;
 
 import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ce {
-    private long aOS;
-    private long aOT;
-    private long aOU;
+public class ce implements View.OnClickListener {
+    final /* synthetic */ bz aXQ;
+    private final /* synthetic */ com.baidu.tbadk.core.data.v aXR;
 
-    public ce(Context context) {
-        Q(0L);
-        R(0L);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ce(bz bzVar, com.baidu.tbadk.core.data.v vVar) {
+        this.aXQ = bzVar;
+        this.aXR = vVar;
     }
 
-    public void Q(long j) {
-        this.aOS = j;
-    }
-
-    public long LJ() {
-        return this.aOS + this.aOT;
-    }
-
-    public void R(long j) {
-        this.aOT = j;
-    }
-
-    public long LK() {
-        return this.aOU;
-    }
-
-    public void S(long j) {
-        this.aOU = j;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.aXQ.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXR.getAuthor().getUserId(), this.aXR.getAuthor().getName_show(), this.aXQ.aUy.acG().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

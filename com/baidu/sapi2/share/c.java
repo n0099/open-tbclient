@@ -27,17 +27,17 @@ class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static SapiAccount a(Context context) {
-        f fVar = new f(context);
-        if ("1".equals(fVar.a(a))) {
+        g gVar = new g(context);
+        if ("1".equals(gVar.a(a))) {
             SapiAccount sapiAccount = new SapiAccount();
-            sapiAccount.displayname = fVar.a("displayname");
-            sapiAccount.username = fVar.a(b);
-            sapiAccount.email = fVar.a(d);
-            sapiAccount.phone = fVar.a(e);
-            sapiAccount.bduss = fVar.a("bduss");
-            sapiAccount.ptoken = fVar.a("ptoken");
-            sapiAccount.extra = fVar.a(h);
-            a(sapiAccount, fVar.a(i));
+            sapiAccount.displayname = gVar.a("displayname");
+            sapiAccount.username = gVar.a(b);
+            sapiAccount.email = gVar.a(d);
+            sapiAccount.phone = gVar.a(e);
+            sapiAccount.bduss = gVar.a("bduss");
+            sapiAccount.ptoken = gVar.a("ptoken");
+            sapiAccount.extra = gVar.a(h);
+            a(sapiAccount, gVar.a(i));
             if (!TextUtils.isEmpty(sapiAccount.extra)) {
                 try {
                     JSONObject jSONObject = new JSONObject(sapiAccount.extra);
@@ -82,7 +82,7 @@ class c {
                 if (jSONArray.length() != 0) {
                     try {
                         JSONObject jSONObject = jSONArray.getJSONObject(0);
-                        com.baidu.sapi2.utils.e.a(sapiAccount, SocialType.getSocialType(jSONObject.optInt("type")), jSONObject.optString("headURL"));
+                        com.baidu.sapi2.utils.c.a(sapiAccount, SocialType.getSocialType(jSONObject.optInt("type")), jSONObject.optString("headURL"));
                     } catch (JSONException e2) {
                         L.e(e2);
                     }

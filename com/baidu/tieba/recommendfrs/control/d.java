@@ -1,21 +1,30 @@
 package com.baidu.tieba.recommendfrs.control;
 
-import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.recommendfrs.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
-    final /* synthetic */ a cbN;
+public class d implements CustomMessageTask.CustomRunnable<Boolean> {
+    final /* synthetic */ a csI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.cbN = aVar;
+        this.csI = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tieba.recommendfrs.control.a.b bVar;
-        bVar = this.cbN.cbH;
-        bVar.B(0, "头条");
-        this.cbN.ahs();
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
+        ScrollFragmentTabHost scrollFragmentTabHost;
+        ScrollFragmentTabHost scrollFragmentTabHost2;
+        scrollFragmentTabHost = this.csI.csC;
+        if (scrollFragmentTabHost.ajS()) {
+            scrollFragmentTabHost2 = this.csI.csC;
+            scrollFragmentTabHost2.ajU();
+            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, true);
+        }
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, false);
     }
 }

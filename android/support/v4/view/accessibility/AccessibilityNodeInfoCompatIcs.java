@@ -6,9 +6,6 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 class AccessibilityNodeInfoCompatIcs {
-    AccessibilityNodeInfoCompatIcs() {
-    }
-
     public static Object obtain() {
         return AccessibilityNodeInfo.obtain();
     }

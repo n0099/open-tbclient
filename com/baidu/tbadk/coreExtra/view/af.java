@@ -1,68 +1,46 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.os.Handler;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
-import java.util.LinkedList;
+import android.graphics.Bitmap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af {
-    private static af agk;
-    private static Handler mHandler = new ag();
-    private LinkedList<WeakReference<LiveBroadcastCard>> cards = new LinkedList<>();
+public class af extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ ae alW;
+    private final /* synthetic */ boolean alX;
 
-    public static af xV() {
-        if (agk == null) {
-            agk = new af();
-        }
-        return agk;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public af(ae aeVar, boolean z) {
+        this.alW = aeVar;
+        this.alX = z;
     }
 
-    private af() {
-    }
-
-    public void a(LiveBroadcastCard liveBroadcastCard) {
-        Iterator<WeakReference<LiveBroadcastCard>> it = this.cards.iterator();
-        boolean z = false;
-        while (it.hasNext()) {
-            LiveBroadcastCard liveBroadcastCard2 = it.next().get();
-            if (liveBroadcastCard2 != null) {
-                if (liveBroadcastCard2 == liveBroadcastCard) {
-                    z = true;
-                }
-            } else {
-                it.remove();
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        boolean z;
+        this.alW.aR(this.alX);
+        z = this.alW.alU;
         if (!z) {
-            this.cards.add(new WeakReference<>(liveBroadcastCard));
-        }
-        if (this.cards.size() > 0) {
-            mHandler.removeMessages(1);
-            mHandler.sendEmptyMessageDelayed(1, 1000L);
-        }
-    }
-
-    public void b(LiveBroadcastCard liveBroadcastCard) {
-        Iterator<WeakReference<LiveBroadcastCard>> it = this.cards.iterator();
-        while (it.hasNext()) {
-            LiveBroadcastCard liveBroadcastCard2 = it.next().get();
-            if (liveBroadcastCard2 != null) {
-                if (liveBroadcastCard2 == liveBroadcastCard) {
-                    it.remove();
+            if (aVar != null) {
+                Bitmap nc = aVar.nc();
+                if (nc != null) {
+                    this.alW.alT = true;
+                    if (aVar.fI()) {
+                        byte[] nh = aVar.nh();
+                        if (nh == null) {
+                            nh = com.baidu.tbadk.core.util.c.e(nc, 100);
+                        }
+                        this.alW.alR.a(nh, nc);
+                        return;
+                    }
+                    this.alW.alR.setImageBitmap(nc);
+                    this.alW.alR.setImageData(aVar.nh());
+                } else if (!this.alX) {
+                    this.alW.alR.setDefaultBitmap();
                 }
-            } else {
-                it.remove();
+            } else if (!this.alX) {
+                this.alW.alR.setDefaultBitmap();
             }
         }
-        if (this.cards.size() == 0) {
-            mHandler.removeMessages(1);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void sendTimeUpdateMessage() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2012113));
     }
 }

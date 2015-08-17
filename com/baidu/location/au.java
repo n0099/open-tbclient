@@ -37,7 +37,7 @@ public class au implements a0, n {
     private boolean ik = true;
     private long il = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BroadcastReceiver {
         private a() {
@@ -56,6 +56,7 @@ public class au implements a0, n {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
     public class b {
 

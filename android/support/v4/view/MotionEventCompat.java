@@ -29,7 +29,7 @@ public class MotionEventCompat {
     }
 
     /* loaded from: classes.dex */
-    class BaseMotionEventVersionImpl implements MotionEventVersionImpl {
+    static class BaseMotionEventVersionImpl implements MotionEventVersionImpl {
         BaseMotionEventVersionImpl() {
         }
 
@@ -69,7 +69,7 @@ public class MotionEventCompat {
     }
 
     /* loaded from: classes.dex */
-    class EclairMotionEventVersionImpl implements MotionEventVersionImpl {
+    static class EclairMotionEventVersionImpl implements MotionEventVersionImpl {
         EclairMotionEventVersionImpl() {
         }
 

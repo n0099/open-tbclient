@@ -1,42 +1,31 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bo extends CustomMessageListener {
-    final /* synthetic */ WriteActivity cCQ;
+public class bo implements View.OnClickListener {
+    private final /* synthetic */ String cia;
+    final /* synthetic */ WriteImageActivity this$0;
+    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bo(WriteActivity writeActivity, int i) {
-        super(i);
-        this.cCQ = writeActivity;
+    public bo(WriteImageActivity writeImageActivity, String str, int i) {
+        this.this$0 = writeImageActivity;
+        this.cia = str;
+        this.val$id = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.tbadkCore.location.e eVar;
-        com.baidu.tieba.write.editor.b bVar;
-        com.baidu.tieba.tbadkCore.location.e eVar2;
-        com.baidu.tieba.tbadkCore.location.e eVar3;
-        com.baidu.tieba.write.editor.b bVar2;
-        if (customResponsedMessage instanceof ResponsedSelectLocation) {
-            ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
-            if (responsedSelectLocation.isShowLocation()) {
-                eVar2 = this.cCQ.aJN;
-                eVar2.fi(false);
-                eVar3 = this.cCQ.aJN;
-                eVar3.bc(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                bVar2 = this.cCQ.cCx;
-                bVar2.D(2, responsedSelectLocation.getName());
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        if (this.this$0.mProgress.getVisibility() != 0) {
+            String str2 = this.cia;
+            str = this.this$0.chT;
+            if (!str2.equals(str)) {
+                this.this$0.le(this.cia);
+                this.this$0.jv(this.cia);
+                this.this$0.chR = this.val$id;
             }
-            eVar = this.cCQ.aJN;
-            eVar.fi(true);
-            bVar = this.cCQ.cCx;
-            bVar.setLocationInfoViewState(0);
         }
     }
 }

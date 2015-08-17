@@ -3,25 +3,25 @@ package com.baidu.tieba.im.widget.invite2GroupView;
 import android.app.Activity;
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.t;
+import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext NC;
-    final /* synthetic */ d brA;
+    private final /* synthetic */ TbPageContext Sn;
+    final /* synthetic */ d bFo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, TbPageContext tbPageContext) {
-        this.brA = dVar;
-        this.NC = tbPageContext;
+        this.bFo = dVar;
+        this.Sn = tbPageContext;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Invite2GroupView invite2GroupView;
-        invite2GroupView = this.brA.brz;
+        invite2GroupView = this.bFo.bFn;
         if (invite2GroupView.getContext() instanceof Activity) {
-            this.NC.showToast(t.has_recent_join);
+            this.Sn.showToast(i.C0057i.has_recent_join);
         }
     }
 }

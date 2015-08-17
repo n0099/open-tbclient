@@ -5,9 +5,6 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 /* loaded from: classes.dex */
 class ViewCompatICS {
-    ViewCompatICS() {
-    }
-
     public static boolean canScrollHorizontally(View view, int i) {
         return view.canScrollHorizontally(i);
     }

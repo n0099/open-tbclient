@@ -1,74 +1,51 @@
 package com.baidu.adp.lib.cache;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.adp.lib.cache.f;
 /* loaded from: classes.dex */
-class k implements h {
-    private final int maxSize;
-    private HashMap<String, Long> te = new HashMap<>();
+public class k<T> extends e<T> {
+    protected final c<T> tk;
 
-    public k(int i) {
-        this.maxSize = i;
+    public k(c<T> cVar, f fVar, boolean z) {
+        super(fVar, z);
+        this.tk = cVar;
     }
 
-    @Override // com.baidu.adp.lib.cache.f
-    public int gl() {
-        return this.maxSize;
+    @Override // com.baidu.adp.lib.cache.e
+    public h<T> W(String str) {
+        return this.tk.R(str);
     }
 
-    @Override // com.baidu.adp.lib.cache.f
-    public boolean gm() {
-        return true;
+    @Override // com.baidu.adp.lib.cache.e
+    public void c(h<T> hVar) {
+        this.tk.b(hVar);
     }
 
-    public String aa(String str) {
-        String str2;
-        if (!this.te.containsKey(str) && this.te.size() >= this.maxSize) {
-            synchronized (this) {
-                long j = -1;
-                str2 = null;
-                for (Map.Entry<String, Long> entry : this.te.entrySet()) {
-                    long longValue = entry.getValue().longValue();
-                    if (j == -1 || j > longValue) {
-                        j = longValue;
-                        str2 = entry.getKey();
-                    }
-                }
-                if (str2 != null) {
-                    this.te.remove(str2);
-                }
-            }
-            return str2;
+    @Override // com.baidu.adp.lib.cache.e
+    public void X(String str) {
+        this.tk.S(str);
+    }
+
+    @Override // com.baidu.adp.lib.cache.e
+    protected void Y(String str) {
+        this.tk.c(str, true);
+    }
+
+    @Override // com.baidu.adp.lib.cache.n
+    public void aa(String str) {
+        this.tk.T(str);
+    }
+
+    @Override // com.baidu.adp.lib.cache.n
+    public void ab(String str) {
+        if (this.sY instanceof f.b) {
+            com.baidu.adp.lib.g.k.hj().c(new l(this, str));
         }
-        return null;
-    }
-
-    @Override // com.baidu.adp.lib.cache.h
-    public String e(m<?> mVar) {
-        String aa = aa(mVar.tf);
-        synchronized (this) {
-            this.te.put(mVar.tf, Long.valueOf(mVar.ti));
+        if (this.sY instanceof f.a) {
+            com.baidu.adp.lib.g.k.hj().c(new m(this, str));
         }
-        return aa;
     }
 
-    @Override // com.baidu.adp.lib.cache.h
-    public void gp() {
-    }
-
-    @Override // com.baidu.adp.lib.cache.h
-    public String f(m<?> mVar) {
-        return mVar.tj < System.currentTimeMillis() ? mVar.tf : e(mVar);
-    }
-
-    @Override // com.baidu.adp.lib.cache.h
-    public void gq() {
-    }
-
-    @Override // com.baidu.adp.lib.cache.h
-    public void release() {
-        synchronized (this) {
-            this.te.clear();
-        }
+    public c<T> gn() {
+        return this.tk;
     }
 }

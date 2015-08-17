@@ -2,6 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.squareup.wire.Wire;
 import tbclient.PbPage.PbPageResIdl;
 /* loaded from: classes.dex */
@@ -41,7 +42,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
     }
 
     public PbPageReadLocalResponseMessage() {
-        super(2004003);
+        super(CmdConfigCustom.PB_PAGE_CACHE_CMD);
     }
 
     public void setContext(Context context) {
@@ -59,7 +60,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
                     this.pbData.a(pbPageResIdl.data, this.context);
                     if (!this.pbData.isValid()) {
                         this.pbData = null;
-                    } else if (isMarkCache() && this.pbData.pp() != null && !this.pbData.pp().equals(this.postId)) {
+                    } else if (isMarkCache() && this.pbData.qq() != null && !this.pbData.qq().equals(this.postId)) {
                         this.pbData = null;
                     }
                 } catch (Exception e) {

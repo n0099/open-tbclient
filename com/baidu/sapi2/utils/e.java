@@ -1,42 +1,75 @@
 package com.baidu.sapi2.utils;
 
+import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.utils.enums.SocialType;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.utils.a;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 /* loaded from: classes.dex */
 public class e {
-    public static final String a = "is_social_account";
-    public static final String b = "social_type";
-    public static final String c = "social_portrait";
+    private static final int a = 2;
+    private static final String b = Character.toString(1);
+    private static final String c = "android";
+    private static final String d = "OaLhzOKTTQGLw8hP";
 
-    public static void a(SapiAccount sapiAccount, SocialType socialType, String str) {
-        a(sapiAccount, a, (Object) true);
-        a(sapiAccount, b, Integer.valueOf(socialType.getType()));
-        a(sapiAccount, c, str);
+    static String a() {
+        return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "";
     }
 
-    public static void a(SapiAccount sapiAccount, String str, Object obj) {
-        if (sapiAccount != null && !TextUtils.isEmpty(str) && obj != null) {
-            if (TextUtils.isEmpty(sapiAccount.extra)) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(str, obj);
-                    sapiAccount.extra = jSONObject.toString();
-                    return;
-                } catch (JSONException e) {
-                    L.e(e);
-                    return;
-                }
-            }
-            try {
-                JSONObject jSONObject2 = new JSONObject(sapiAccount.extra);
-                jSONObject2.put(str, obj);
-                sapiAccount.extra = jSONObject2.toString();
-            } catch (JSONException e2) {
-                L.e(e2);
-            }
+    static String b() {
+        return !TextUtils.isEmpty(Build.MODEL) ? Build.MODEL : "";
+    }
+
+    static List<String> c() {
+        List<SapiAccount> shareAccounts = SapiAccountManager.getInstance().getShareAccounts();
+        ArrayList arrayList = new ArrayList();
+        for (SapiAccount sapiAccount : shareAccounts) {
+            arrayList.add(sapiAccount.uid);
+        }
+        return arrayList;
+    }
+
+    static List<String> a(String str) {
+        Context context = SapiAccountManager.getInstance().getSapiConfiguration().context;
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(context.getPackageName());
+        arrayList.add(SapiUtils.getVersionName(context));
+        arrayList.add(SapiAccountManager.VERSION_NAME);
+        arrayList.add(b());
+        arrayList.add(a());
+        arrayList.add("android");
+        arrayList.add(SapiUtils.getClientId(context));
+        arrayList.add(SapiAccountManager.getInstance().getSapiConfiguration().tpl);
+        arrayList.add(String.valueOf(SapiAccountManager.getInstance().getShareAccounts().size()));
+        arrayList.add(TextUtils.join(",", c()));
+        if (str == null) {
+            str = "";
+        }
+        arrayList.add(str);
+        arrayList.add(String.valueOf(com.baidu.sapi2.d.a(context).y()));
+        SapiAccount session = SapiAccountManager.getInstance().getSession();
+        if (session != null) {
+            arrayList.add(session.uid);
+        }
+        return arrayList;
+    }
+
+    static String d() {
+        return String.format("%02d", Integer.valueOf(new Random().nextInt(100))) + (System.currentTimeMillis() / 1000) + String.format("%03d", 2) + "0";
+    }
+
+    public static String b(String str) {
+        try {
+            String join = TextUtils.join(b, a(str));
+            String d2 = d();
+            return TextUtils.join("_", new String[]{d2, a.C0038a.b(new f().a(join, d2, d))});
+        } catch (Throwable th) {
+            L.e(th);
+            return "";
         }
     }
 }

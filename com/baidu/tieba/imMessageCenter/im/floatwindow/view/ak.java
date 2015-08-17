@@ -1,17 +1,26 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.newFriends.ResponseNewFriendDataMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ak implements View.OnClickListener {
-    final /* synthetic */ FloatingPersonalChatView buZ;
+public class ak extends CustomMessageListener {
+    final /* synthetic */ aj bIT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(FloatingPersonalChatView floatingPersonalChatView) {
-        this.buZ = floatingPersonalChatView;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ak(aj ajVar, int i) {
+        super(i);
+        this.bIT = ajVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.buZ.WK();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseNewFriendDataMessage)) {
+            return;
+        }
+        this.bIT.i(((ResponseNewFriendDataMessage) customResponsedMessage).getData());
     }
 }

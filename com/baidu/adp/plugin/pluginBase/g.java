@@ -47,6 +47,7 @@ public abstract class g extends i {
 
     protected void finalize() {
         this.mServiceProxy.proxyFinalize();
+        super.finalize();
     }
 
     public final Application getApplication() {

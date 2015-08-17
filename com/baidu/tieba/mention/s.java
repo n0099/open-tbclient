@@ -1,38 +1,49 @@
 package com.baidu.tieba.mention;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.support.v4.view.PagerAdapter;
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes.dex */
-public class s extends HttpMessageListener {
-    final /* synthetic */ r bGj;
+public class s extends PagerAdapter {
+    private SingleMentionActivity bVG;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(r rVar, int i) {
-        super(i);
-        this.bGj = rVar;
+    public s(SingleMentionActivity singleMentionActivity) {
+        this.bVG = singleMentionActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage)) {
-            com.baidu.tbadk.data.e msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData();
-            if (!com.baidu.tbadk.coreExtra.messageCenter.a.vL() && msgData != null && com.baidu.tbadk.coreExtra.messageCenter.c.wg().wi()) {
-                if (msgData.yN() >= 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.vJ().setMsgBookmark(msgData.yN());
-                }
-                if (msgData.yL() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.wg().wl()) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.vJ().setMsgAtme(msgData.yL());
-                }
-                if (msgData.yK() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.wg().wn()) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.vJ().setMsgReplyme(msgData.yK());
-                }
-                if (msgData.yM() >= 0 && com.baidu.tbadk.coreExtra.messageCenter.c.wg().wm()) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.vJ().setMsgFans(msgData.yM());
-                }
+    @Override // android.support.v4.view.PagerAdapter
+    public int getCount() {
+        return 2;
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
+        if (i == 0) {
+            ak abH = this.bVG.abH();
+            if (abH.getView() == null) {
+                View pb = abH.pb();
+                viewGroup.addView(pb);
+                abH.abv();
+                return pb;
             }
+            return abH.getView();
         }
+        j abI = this.bVG.abI();
+        if (abI.getView() == null) {
+            View pb2 = abI.pb();
+            viewGroup.addView(pb2);
+            abI.abv();
+            return pb2;
+        }
+        return abI.getView();
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
+    }
+
+    @Override // android.support.v4.view.PagerAdapter
+    public boolean isViewFromObject(View view, Object obj) {
+        return view == obj;
     }
 }

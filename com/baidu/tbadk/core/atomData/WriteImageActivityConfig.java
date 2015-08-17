@@ -4,9 +4,9 @@ import android.content.Context;
 import android.net.Uri;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class WriteImageActivityConfig extends c {
+public class WriteImageActivityConfig extends IntentConfig {
     public static final String CANCEL_TEXT = "cancel_text";
     public static final String DELET_FLAG = "delete";
     public static final String DISPLAY_SIZE = "display_size";

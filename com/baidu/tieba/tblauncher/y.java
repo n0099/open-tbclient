@@ -16,17 +16,8 @@ class y extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        aj ajVar;
-        aj ajVar2;
-        if (customResponsedMessage != null) {
-            this.this$0.aqc();
-            if (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.g) {
-                this.this$0.a((com.baidu.tbadk.data.g) customResponsedMessage.getData());
-            }
-            ajVar = this.this$0.cvs;
-            ajVar.aqx().aqA();
-            ajVar2 = this.this$0.cvs;
-            ajVar2.aqs();
+        if (customResponsedMessage != null && customResponsedMessage.getError() == 0) {
+            this.this$0.arB();
         }
     }
 }

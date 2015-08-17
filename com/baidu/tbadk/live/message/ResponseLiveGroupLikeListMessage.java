@@ -28,7 +28,7 @@ public class ResponseLiveGroupLikeListMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         QueryLiveGroupLikeListResIdl queryLiveGroupLikeListResIdl = (QueryLiveGroupLikeListResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryLiveGroupLikeListResIdl.class);
         setError(queryLiveGroupLikeListResIdl.error.errorno.intValue());

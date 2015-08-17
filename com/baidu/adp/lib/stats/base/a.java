@@ -1,113 +1,155 @@
 package com.baidu.adp.lib.stats.base;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.b.n;
-import com.baidu.adp.lib.stats.q;
+import com.baidu.adp.lib.stats.b.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    protected String mFilePrefixString;
-    private String wZ;
-    protected String xa;
-    protected n xc;
-    private StringBuffer mMemCache = new StringBuffer();
-    private int mMemCacheCount = 0;
-    private long mLastLogTime = 0;
-    protected long mLastUploadTime = 0;
-    private long mCurrentFileSize = 0;
-    protected int mMaxMemCount = 50;
-    protected final String mFileSuffixString = ".log";
+    private String wI;
+    protected String wS;
+    protected String wU;
+    protected p wV;
+    private StringBuffer wJ = new StringBuffer();
+    private StringBuffer wK = new StringBuffer();
+    private int wL = 0;
+    private int wM = 0;
+    private long wA = 0;
+    private long wN = 0;
+    protected long wO = 0;
+    private long wP = 0;
+    private long wQ = 0;
+    protected int wR = 50;
+    protected final String wT = ".log";
     protected boolean mUseSdCard = true;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
-    private ArrayList<String> xb = new ArrayList<>();
 
-    public a(n nVar) {
-        this.xc = nVar;
+    public a(p pVar) {
+        this.wV = pVar;
     }
 
-    public synchronized void add(q qVar) {
-        if (qVar != null) {
+    public synchronized void a(com.baidu.adp.lib.stats.d dVar) {
+        if (dVar != null) {
             try {
-                this.mMemCache.append(qVar.toString());
-                this.mMemCache.append("\r\n");
-                this.mMemCacheCount++;
+                this.wJ.append(dVar.toString());
+                this.wJ.append("\r\n");
+                this.wL++;
             } catch (Exception e) {
                 BdLog.e(e);
             } catch (OutOfMemoryError e2) {
+                e2.printStackTrace();
             }
         }
-        if (this.xc != null) {
-            this.xc.h(this);
+        if (this.wV != null) {
+            this.wV.g(this);
         }
-        this.mLastLogTime = System.currentTimeMillis();
+        this.wA = System.currentTimeMillis();
     }
 
-    public int ib() {
-        return this.mMemCacheCount;
+    public synchronized void b(com.baidu.adp.lib.stats.d dVar) {
+        if (dVar != null) {
+            try {
+                this.wK.append(dVar.toString());
+                this.wK.append("\r\n");
+                this.wM++;
+            } catch (Exception e) {
+                BdLog.e(e);
+            } catch (OutOfMemoryError e2) {
+                e2.printStackTrace();
+            }
+        }
+        if (this.wV != null) {
+            this.wV.g(this);
+        }
+        this.wN = System.currentTimeMillis();
     }
 
-    public long getmLastUploadTime() {
-        return this.mLastUploadTime;
+    public int hL() {
+        return this.wL;
     }
 
-    public void setmLastUploadTime(long j) {
-        this.mLastUploadTime = j;
+    public int hM() {
+        return this.wM;
     }
 
-    public long ic() {
-        return this.mLastLogTime;
+    public long hN() {
+        return this.wO;
     }
 
-    public String id() {
-        if (TextUtils.isEmpty(this.xa)) {
+    public void f(long j) {
+        this.wO = j;
+    }
+
+    public long hO() {
+        return this.wA;
+    }
+
+    public long hP() {
+        return this.wN;
+    }
+
+    public String hQ() {
+        if (TextUtils.isEmpty(this.wU)) {
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.mFilePrefixString);
-            sb.append(com.baidu.adp.lib.h.a.iB().iD());
+            sb.append(this.wS);
+            sb.append(com.baidu.adp.lib.stats.a.hk().hq());
             sb.append("Writing");
             sb.append(".log");
-            this.xa = sb.toString();
+            this.wU = sb.toString();
         }
-        return this.xa;
+        return this.wU;
     }
 
-    public String getUploadingLogFile() {
+    public String hR() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.mFilePrefixString);
+        sb.append(this.wS);
         sb.append(System.currentTimeMillis());
-        sb.append(com.baidu.adp.lib.h.a.iB().iD());
+        sb.append(com.baidu.adp.lib.stats.a.hk().hq());
         sb.append("Uploading");
         sb.append(".log");
         return sb.toString();
     }
 
-    public long ie() {
-        return this.mCurrentFileSize;
+    public long hS() {
+        return this.wP;
     }
 
-    public void l(long j) {
-        this.mCurrentFileSize = j;
+    public long hT() {
+        return this.wQ;
     }
 
-    public void clearMemData() {
-        this.mMemCache = new StringBuffer();
-        this.mMemCacheCount = 0;
-        this.mCurrentFileSize = 0L;
+    public void g(long j) {
+        this.wP = j;
     }
 
-    public void aB(String str) {
+    public void h(long j) {
+        this.wQ = j;
+    }
+
+    public synchronized void hU() {
+        this.wJ = new StringBuffer();
+        this.wL = 0;
+        this.wP = 0L;
+    }
+
+    public synchronized void hV() {
+        this.wK = new StringBuffer();
+        this.wM = 0;
+        this.wQ = 0L;
+    }
+
+    public void at(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.wZ = str;
+            this.wI = str;
         }
     }
 
-    public String ig() {
-        return this.wZ;
+    public String hW() {
+        return this.wI;
     }
 
-    public boolean ih() {
+    public boolean hX() {
         return this.isUploading;
     }
 
@@ -115,37 +157,31 @@ public class a {
         this.isUploading = z;
     }
 
-    public String getPostFileName() {
+    public String hY() {
         return "omp";
     }
 
-    public StringBuffer ii() {
-        return this.mMemCache;
+    public StringBuffer hZ() {
+        return this.wJ;
     }
 
-    public boolean ij() {
+    public StringBuffer ia() {
+        return this.wK;
+    }
+
+    public boolean ib() {
         return this.mUseSdCard;
     }
 
-    public boolean ik() {
+    public boolean ic() {
         return this.mMustSuccess;
     }
 
-    public String il() {
-        return this.mFilePrefixString;
+    public String id() {
+        return this.wS;
     }
 
-    public void aC(String str) {
-        if (!TextUtils.isEmpty(str) && !this.xb.contains(str)) {
-            this.xb.add(str);
-        }
-    }
-
-    public ArrayList<String> im() {
-        return this.xb;
-    }
-
-    public static String aD(String str) {
+    public static String au(String str) {
         if ("net".equals(str) || "op".equals(str) || "crash".equals(str) || AddFriendActivityConfig.MSG.equals(str)) {
             return "error";
         }

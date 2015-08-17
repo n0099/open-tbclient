@@ -1,24 +1,22 @@
 package com.baidu.adp.gif;
-
-import android.os.Build;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f {
-    public static final String[] rc = {"ZTE-T U880", "U880"};
-
-    public static boolean N(String str) {
-        for (String str2 : rc) {
-            if (str2.equals(str)) {
-                return false;
-            }
+public class f implements a {
+    @Override // com.baidu.adp.gif.a
+    public com.baidu.adp.widget.a.a K(String str) {
+        NSGif L = NSGif.L(str);
+        if (L == null) {
+            return null;
         }
-        return true;
+        return new com.baidu.adp.widget.a.a(L);
     }
 
-    private static boolean fm() {
-        return Build.VERSION.SDK_INT > 7;
-    }
-
-    public static boolean fn() {
-        return N(Build.MODEL) && fm() && NSGif.qX;
+    @Override // com.baidu.adp.gif.a
+    public com.baidu.adp.widget.a.a e(byte[] bArr, int i, int i2) {
+        NSGif f = NSGif.f(bArr, i, i2);
+        if (f == null) {
+            return null;
+        }
+        return new com.baidu.adp.widget.a.a(f);
     }
 }

@@ -1,31 +1,31 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm implements com.baidu.tieba.tbadkCore.am {
-    final /* synthetic */ bf aOn;
+public class bm implements BannerView.a {
+    final /* synthetic */ bl aXC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(bf bfVar) {
-        this.aOn = bfVar;
+    public bm(bl blVar) {
+        this.aXC = blVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.am
-    public void LG() {
-        FrsActivity frsActivity;
-        frsActivity = this.aOn.aMl;
-        frsActivity.KE();
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.am
-    public void LH() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        bdTypeListView = this.aOn.aNE;
-        if (bdTypeListView != null) {
-            bdTypeListView2 = this.aOn.aNE;
-            bdTypeListView2.setSelection(0);
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void yT() {
+        com.baidu.tbadk.core.data.j jVar;
+        com.baidu.tbadk.core.data.j jVar2;
+        jVar = this.aXC.aXq;
+        if (jVar != null) {
+            jVar2 = this.aXC.aXq;
+            if (jVar2.getType() == 2) {
+                this.aXC.LQ();
+            }
         }
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void yU() {
+        this.aXC.Me();
     }
 }

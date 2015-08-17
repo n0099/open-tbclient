@@ -21,8 +21,11 @@ public final class UploadClientLogReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<UploadClientLogReqIdl> {
+    public static final class Builder extends Message.Builder<UploadClientLogReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(UploadClientLogReqIdl uploadClientLogReqIdl) {
             super(uploadClientLogReqIdl);

@@ -5,13 +5,13 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import java.util.List;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tbadk.mvc.j.b<tinfo, com.baidu.tbadk.mvc.e.c, com.baidu.tbadk.mvc.j.a<tinfo, com.baidu.tbadk.mvc.e.c>> {
+public class a extends com.baidu.tbadk.mvc.g.b<tinfo, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.g.a<tinfo, com.baidu.tbadk.mvc.d.b>> {
     public a(TbPageContext<?> tbPageContext, Class<?>[] clsArr, int[] iArr, ViewEventCenter viewEventCenter) {
         super(tbPageContext, clsArr, iArr, viewEventCenter);
     }
 
-    @Override // com.baidu.tbadk.mvc.j.b
-    public int ec(int i) {
+    @Override // com.baidu.tbadk.mvc.g.b
+    public int ej(int i) {
         tinfo item = getItem(i);
         if (item == null) {
             return -1;
@@ -26,27 +26,27 @@ public class a extends com.baidu.tbadk.mvc.j.b<tinfo, com.baidu.tbadk.mvc.e.c, c
         return 1;
     }
 
-    public void L(long j) {
-        List<tinfo> CN;
+    public void N(long j) {
+        List<tinfo> Dp;
         tinfo tinfoVar;
-        if (j > 0 && (CN = CN()) != null && CN.size() > 0) {
-            int size = CN.size();
+        if (j > 0 && (Dp = Dp()) != null && Dp.size() > 0) {
+            int size = Dp.size();
             int i = 0;
             while (true) {
                 if (i >= size) {
                     tinfoVar = null;
                     break;
                 }
-                tinfo tinfoVar2 = CN.get(i);
+                tinfo tinfoVar2 = Dp.get(i);
                 if (tinfoVar2 == null || tinfoVar2.thread_id == null || tinfoVar2.thread_id.longValue() != j) {
                     i++;
                 } else {
-                    tinfoVar = CN.get(i);
+                    tinfoVar = Dp.get(i);
                     break;
                 }
             }
             if (tinfoVar != null) {
-                x(tinfoVar);
+                y(tinfoVar);
             }
         }
     }

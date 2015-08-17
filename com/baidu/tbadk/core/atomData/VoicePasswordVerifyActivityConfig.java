@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class VoicePasswordVerifyActivityConfig extends c {
+public class VoicePasswordVerifyActivityConfig extends IntentConfig {
     public static final String AUTH_SID = "extra_auth_sid";
     public static final String BDUSS = "extra_bduss";
     public static final String TOKEN = "extra_auth_token";

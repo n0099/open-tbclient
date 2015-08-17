@@ -26,7 +26,7 @@ public class MarginLayoutParamsCompat {
     }
 
     /* loaded from: classes.dex */
-    class MarginLayoutParamsCompatImplBase implements MarginLayoutParamsCompatImpl {
+    static class MarginLayoutParamsCompatImplBase implements MarginLayoutParamsCompatImpl {
         MarginLayoutParamsCompatImplBase() {
         }
 
@@ -70,7 +70,7 @@ public class MarginLayoutParamsCompat {
     }
 
     /* loaded from: classes.dex */
-    class MarginLayoutParamsCompatImplJbMr1 implements MarginLayoutParamsCompatImpl {
+    static class MarginLayoutParamsCompatImplJbMr1 implements MarginLayoutParamsCompatImpl {
         MarginLayoutParamsCompatImplJbMr1() {
         }
 

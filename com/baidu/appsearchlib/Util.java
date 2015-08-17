@@ -6,7 +6,6 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.support.v4.os.EnvironmentCompat;
 import android.telephony.TelephonyManager;
-import com.baidu.tbadk.game.GameInfoData;
 /* loaded from: classes.dex */
 public class Util {
     public static String openudid = null;
@@ -32,7 +31,7 @@ public class Util {
 
     public static String getCurrentVersion(Context context) {
         PackageInfo packageInfo2 = getPackageInfo(context);
-        return packageInfo2 == null ? GameInfoData.NOT_FROM_DETAIL : packageInfo2.versionName;
+        return packageInfo2 == null ? "0" : packageInfo2.versionName;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:16:0x004c -> B:17:0x000a). Please submit an issue!!! */

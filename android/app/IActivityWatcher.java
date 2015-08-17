@@ -11,7 +11,7 @@ public interface IActivityWatcher extends IInterface {
     void closingSystemDialogs(String str);
 
     /* loaded from: classes.dex */
-    public abstract class Stub extends Binder implements IActivityWatcher {
+    public static abstract class Stub extends Binder implements IActivityWatcher {
         private static final String DESCRIPTOR = "android.app.IActivityWatcher";
         static final int TRANSACTION_activityResuming = 1;
         static final int TRANSACTION_closingSystemDialogs = 2;
@@ -56,7 +56,7 @@ public interface IActivityWatcher extends IInterface {
         }
 
         /* loaded from: classes.dex */
-        class Proxy implements IActivityWatcher {
+        private static class Proxy implements IActivityWatcher {
             private IBinder mRemote;
 
             Proxy(IBinder iBinder) {

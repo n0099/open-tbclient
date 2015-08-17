@@ -7,6 +7,6 @@ public class VoiceLoginResult extends SapiResult {
 
     public VoiceLoginResult() {
         this.msgMap.put(RESULT_CODE_PWD_VERIFY_FAILURE, RESULT_MSG_PWD_VERIFY_FAILURE);
-        this.msgMap.put(SapiResult.ERROR_CODE_UNKNOWN, ERROR_MSG_UNKNOWN);
+        this.msgMap.put(SapiResult.ERROR_CODE_UNKNOWN, "登录失败");
     }
 }

@@ -1,20 +1,19 @@
 package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
-import com.baidu.adp.base.f;
-import com.baidu.adp.base.j;
+import com.baidu.adp.base.e;
+import com.baidu.adp.base.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.im.chat.notify.a;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryModifyVisibilityMessage;
-import com.baidu.tieba.im.message.h;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
-public abstract class ImBaseMessageCenterModel extends f<Object> {
+public abstract class ImBaseMessageCenterModel extends e<Object> {
     protected final LinkedList<ImMessageCenterShowItemData> mList;
 
     protected abstract int getCustomGroupType(ImMessageCenterShowItemData imMessageCenterShowItemData);
@@ -26,8 +25,8 @@ public abstract class ImBaseMessageCenterModel extends f<Object> {
     protected abstract void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData);
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public ImBaseMessageCenterModel(j jVar) {
-        super(jVar);
+    public ImBaseMessageCenterModel(h hVar) {
+        super(hVar);
         this.mList = new LinkedList<>();
     }
 
@@ -151,7 +150,7 @@ public abstract class ImBaseMessageCenterModel extends f<Object> {
                 if (aVar != null) {
                     aVar.onComplete();
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyVisibilityMessage(new h(friendId, getCustomGroupType(imMessageCenterShowItemData), false)));
+                MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyVisibilityMessage(new MemoryModifyVisibilityMessage.a(friendId, getCustomGroupType(imMessageCenterShowItemData), false)));
             }
         }
     }
@@ -166,12 +165,12 @@ public abstract class ImBaseMessageCenterModel extends f<Object> {
         }
     }
 
-    @Override // com.baidu.adp.base.f
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.f
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         return false;
     }

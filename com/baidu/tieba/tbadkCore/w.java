@@ -1,309 +1,100 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LiveRoomEntranceActivityConfig;
-import com.baidu.tbadk.core.data.LiveCardData;
-import com.baidu.tbadk.core.data.SignData;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import tbclient.FrsPage.AnchorPower;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class w extends u implements com.baidu.tbadk.mvc.b.m {
-    public void a(g gVar) {
-        if (gVar != null) {
-            ah ahVar = new ah();
-            ahVar.setLike(1);
-            ahVar.iz(gVar.level);
-            ahVar.setLevelName(gVar.coH);
-            ahVar.setCurScore(gVar.cur_score);
-            ahVar.setLevelupScore(gVar.levelup_score);
-            a(ahVar);
+public class w {
+    private int cHI;
+    private int cHJ;
+    private int cur_score;
+    private String fid;
+    private int is_like;
+    private String level_name;
+    private int levelup_score;
+    private int user_level;
+
+    public w() {
+        setLike(0);
+        this.cHI = 0;
+        this.cHJ = 0;
+        this.user_level = 0;
+        setLevelName("");
+        setCurScore(0);
+        setLevelupScore(0);
+    }
+
+    public String getFid() {
+        return this.fid;
+    }
+
+    public void kr(String str) {
+        this.fid = str;
+    }
+
+    public int ana() {
+        return this.user_level;
+    }
+
+    public void ju(int i) {
+        if (i >= 0) {
+            this.user_level = i;
         }
     }
 
-    public void a(ah ahVar) {
-        if (ahVar != null) {
-            this.bJE.setCurScore(ahVar.getCurScore());
-            this.bJE.setLevelupScore(ahVar.getLevelupScore());
-            this.bJE.setLike(ahVar.isLike());
-            this.bJE.setUser_level(ahVar.akz());
-            this.bJE.setLevelName(ahVar.getLevelName());
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str).optJSONObject(LoginActivityConfig.INFO));
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 
-    public void d(SignData signData) {
-        if (signData != null) {
-            this.bJE.setSignData(signData);
-        }
-    }
-
-    public void a(AnchorPower anchorPower) {
-        this.bJE.setAnchorPower(anchorPower);
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x000f, code lost:
-        return;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void e(com.baidu.tbadk.core.data.w wVar) {
-        if (this.threadList != null) {
-            while (!this.threadList.isEmpty() && this.threadList.get(0) != null && (this.threadList.get(0) instanceof com.baidu.tbadk.core.data.w) && ((com.baidu.tbadk.core.data.w) this.threadList.get(0)).getIs_top() == 2) {
-                this.threadList.remove(0);
-            }
-        }
-        this.threadList.add(0, wVar);
-    }
-
-    public void a(com.baidu.tbadk.core.data.o oVar) {
-        if (oVar != null && !StringUtils.isNull(oVar.getId()) && this.threadList != null) {
-            int amJ = amJ();
-            ArrayList<com.baidu.adp.widget.ListView.ai> threadList = getThreadList();
-            if (threadList != null && threadList.size() > 0) {
-                int size = threadList.size();
-                for (int i = 0; i < size; i++) {
-                    com.baidu.adp.widget.ListView.ai aiVar = threadList.get(i);
-                    if (aiVar instanceof com.baidu.tbadk.core.data.m) {
-                        amJ++;
-                    }
-                    if ((aiVar instanceof com.baidu.tbadk.core.data.w) && oVar.getId().equals(((com.baidu.tbadk.core.data.w) aiVar).getId())) {
-                        return;
-                    }
-                }
-            }
-            this.threadList.add(amJ, oVar);
-        }
-    }
-
-    public int amI() {
-        int i = 0;
-        ArrayList<com.baidu.adp.widget.ListView.ai> threadList = getThreadList();
-        if (threadList != null && threadList.size() > 0) {
-            int size = threadList.size();
-            int i2 = 0;
-            while (i2 < size) {
-                int i3 = threadList.get(i2) instanceof com.baidu.tbadk.core.data.o ? i + 1 : i;
-                i2++;
-                i = i3;
-            }
-        }
-        return i;
-    }
-
-    public int amJ() {
-        if (this.threadList == null || this.threadList.size() <= 0) {
-            return 0;
-        }
-        Iterator<com.baidu.adp.widget.ListView.ai> it = this.threadList.iterator();
-        int i = 0;
-        while (it.hasNext()) {
-            com.baidu.adp.widget.ListView.ai next = it.next();
-            if (next instanceof com.baidu.tbadk.core.data.w) {
-                if (((com.baidu.tbadk.core.data.w) next).getIs_top() != 0) {
-                    i++;
-                } else {
-                    return i;
-                }
-            }
-        }
-        return i;
-    }
-
-    public void aG(Context context) {
-        com.baidu.tbadk.core.data.f bannerListData;
-        int i;
-        if (this.bJE != null && (bannerListData = this.bJE.getBannerListData()) != null && bannerListData.qA() != null && this.threadList != null && this.threadList.size() > 0) {
-            int size = this.threadList.size();
-            int i2 = 0;
-            while (true) {
-                if (i2 >= size) {
-                    break;
-                } else if (!(this.threadList.get(i2) instanceof com.baidu.tbadk.core.data.c)) {
-                    i2++;
-                } else {
-                    this.threadList.remove(i2);
-                    break;
-                }
-            }
-            int size2 = this.threadList.size();
-            Iterator<com.baidu.adp.widget.ListView.ai> it = this.threadList.iterator();
-            int i3 = 0;
-            while (it.hasNext()) {
-                com.baidu.adp.widget.ListView.ai next = it.next();
-                if (next instanceof com.baidu.tbadk.core.data.w) {
-                    com.baidu.tbadk.core.data.w wVar = (com.baidu.tbadk.core.data.w) next;
-                    if (wVar.getIs_top() != 0 || wVar.ri() == 1) {
-                        i3++;
-                    }
-                }
-            }
-            int size3 = bannerListData.qA().size();
-            if (size3 >= 1) {
-                HashSet hashSet = new HashSet();
-                int i4 = 0;
-                int i5 = 0;
-                while (i4 < size3) {
-                    com.baidu.tbadk.core.data.c cVar = bannerListData.qA().get(i4);
-                    int i6 = ((cVar.Py + i3) - 1) + i5;
-                    if (!hashSet.contains(Integer.valueOf(i6)) && cVar != null) {
-                        if (!cVar.qu()) {
-                            i = i5;
-                        } else if (i6 >= size2) {
-                            i = i5;
-                        } else if (cVar.qv()) {
-                            if (au.isInstalledPackage(context, cVar.Px)) {
-                                i = i5;
-                            } else if (!TextUtils.isEmpty(cVar.Px) && !TextUtils.isEmpty(cVar.Pt)) {
-                                boolean er = com.baidu.tbadk.download.b.zf().er(cVar.Px);
-                                boolean es = com.baidu.tbadk.download.b.zf().es(cVar.Px);
-                                if (er) {
-                                    cVar.Pr = 1;
-                                } else if (es) {
-                                    cVar.Pr = 2;
-                                } else {
-                                    cVar.Pr = 0;
-                                }
-                                hashSet.add(Integer.valueOf(i6));
-                                this.threadList.add(i6, cVar);
-                                i = i5 + 1;
-                            }
-                        } else if (cVar.qw()) {
-                            hashSet.add(Integer.valueOf(i6));
-                            this.threadList.add(i6, cVar);
-                            i = i5 + 1;
-                        }
-                        i4++;
-                        i5 = i;
-                    }
-                    i = i5;
-                    i4++;
-                    i5 = i;
-                }
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                setLike(jSONObject.optInt("is_like", 0));
+                this.cHI = jSONObject.optInt("is_black", 0);
+                this.cHJ = jSONObject.optInt("like_num", 0);
+                this.user_level = jSONObject.optInt("level_id", 0);
+                setLevelName(jSONObject.optString("level_name", ""));
+                setLevelupScore(jSONObject.optInt("levelup_score", 0));
+                setCurScore(jSONObject.optInt("cur_score", 0));
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }
 
-    public void amK() {
-        boolean z = true;
-        int i = 0;
-        if (this.bJE != null && this.bGl != null && this.bGl.qP() == 1) {
-            if (this.cpl == null || !this.cpl.amN()) {
-                z = false;
-            }
-            if (this.cpj || z) {
-                aj ajVar = new aj();
-                ajVar.fe(this.cpj);
-                ajVar.jw(this.cpk);
-                ajVar.b(this.cpl);
-                ajVar.bq(1003);
-                if (this.threadList != null && this.threadList.size() > 0) {
-                    Iterator<com.baidu.adp.widget.ListView.ai> it = this.threadList.iterator();
-                    while (it.hasNext()) {
-                        com.baidu.adp.widget.ListView.ai next = it.next();
-                        if ((next instanceof com.baidu.tbadk.core.data.w) && ((com.baidu.tbadk.core.data.w) next).getIs_top() != 0) {
-                            i++;
-                        }
-                    }
-                    this.threadList.add(i, ajVar);
-                }
-            }
-        }
+    public void setLike(int i) {
+        this.is_like = i;
     }
 
-    public void amL() {
-        if (aas() != null && TbadkCoreApplication.m411getInst().appResponseToIntentClass(LiveRoomEntranceActivityConfig.class)) {
-            a(aas().getAnchorPower());
-            ArrayList<LiveCardData> amy = amy();
-            ArrayList<com.baidu.adp.widget.ListView.ai> threadList = getThreadList();
-            if (amy != null && amy.size() > 0 && threadList != null && threadList.size() > 0) {
-                int size = threadList.size();
-                int i = 0;
-                while (true) {
-                    if (i >= size) {
-                        break;
-                    } else if (!(threadList.get(i) instanceof com.baidu.tbadk.core.data.m)) {
-                        i++;
-                    } else {
-                        threadList.remove(i);
-                        break;
-                    }
-                }
-                int amJ = amJ();
-                com.baidu.tbadk.core.data.m mVar = new com.baidu.tbadk.core.data.m();
-                mVar.j(amy);
-                getThreadList().add(amJ, mVar);
-            }
-        }
+    public int isLike() {
+        return this.is_like;
     }
 
-    public void amM() {
-        com.baidu.tbadk.core.data.s recommendLikeUser;
-        int i;
-        int i2;
-        if (this.bJE != null && (recommendLikeUser = this.bJE.getRecommendLikeUser()) != null && recommendLikeUser.qW() != null && !TextUtils.isEmpty(recommendLikeUser.qW().getName()) && this.threadList != null && this.threadList.size() > 0) {
-            int size = this.threadList.size();
-            Iterator<com.baidu.adp.widget.ListView.ai> it = this.threadList.iterator();
-            int i3 = 0;
-            while (it.hasNext()) {
-                com.baidu.adp.widget.ListView.ai next = it.next();
-                if ((next instanceof com.baidu.tbadk.core.data.w) && ((com.baidu.tbadk.core.data.w) next).getIs_top() != 0) {
-                    i3++;
-                }
-            }
-            String qV = recommendLikeUser.qV();
-            if (!TextUtils.isEmpty(qV) && !TextUtils.isEmpty(qV.trim()) && (i = com.baidu.adp.lib.g.c.toInt(qV, -1)) != -1 && (i + i3) - 1 < size && i2 >= 0 && !(this.threadList.get(i2) instanceof com.baidu.tbadk.core.data.c)) {
-                if (i2 - 1 < 0 || !(this.threadList.get(i2 - 1) instanceof com.baidu.tbadk.core.data.c)) {
-                    this.threadList.add(i2, recommendLikeUser);
-                }
-            }
-        }
+    public void setLevelName(String str) {
+        this.level_name = str;
     }
 
-    public com.baidu.tbadk.core.data.w js(String str) {
-        if (this.threadList == null) {
-            return null;
-        }
-        Iterator<com.baidu.adp.widget.ListView.ai> it = this.threadList.iterator();
-        while (it.hasNext()) {
-            com.baidu.adp.widget.ListView.ai next = it.next();
-            if (next != null && (next instanceof com.baidu.tbadk.core.data.w) && TextUtils.equals(str, ((com.baidu.tbadk.core.data.w) next).getId())) {
-                return (com.baidu.tbadk.core.data.w) next;
-            }
-        }
-        return null;
+    public String getLevelName() {
+        return this.level_name;
     }
 
-    public void f(com.baidu.tbadk.core.data.w wVar) {
-        this.threadList.remove(wVar);
+    public void setCurScore(int i) {
+        this.cur_score = i;
     }
 
-    public boolean d(u uVar) {
-        if (uVar == null) {
-            return false;
-        }
-        b(uVar.qK());
-        a(uVar.amv());
-        fc(uVar.amr());
-        jq(uVar.ams());
-        c(uVar.aas());
-        setGameName(uVar.getGameName());
-        jr(uVar.amz());
-        a(uVar.amt());
-        fd(uVar.amw());
-        gX(uVar.aax());
-        S(uVar.amy());
-        a(uVar.Zq());
-        a(uVar.amq());
-        ba(uVar.amx());
-        R(uVar.getThreadList());
-        aZ(uVar.amu());
-        k(uVar.getUserData());
-        setUserMap(uVar.getUserMap());
-        return true;
+    public int getCurScore() {
+        return this.cur_score;
+    }
+
+    public void setLevelupScore(int i) {
+        this.levelup_score = i;
+    }
+
+    public int getLevelupScore() {
+        return this.levelup_score;
     }
 }

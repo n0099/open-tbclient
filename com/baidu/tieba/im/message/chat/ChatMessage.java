@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message.chat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.client.socket.a;
 import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.widget.ListView.ai;
+import com.baidu.adp.widget.ListView.u;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -16,7 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class ChatMessage extends TbSocketMessage implements a, ai {
+public abstract class ChatMessage extends TbSocketMessage implements a, u {
     private long bornTime;
     private transient MsgCacheData cacheData;
     private String content;
@@ -119,15 +119,15 @@ public abstract class ChatMessage extends TbSocketMessage implements a, ai {
                 int optInt = jSONObject.optInt("size_width");
                 int optInt2 = jSONObject.optInt("size_height");
                 com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-                aVar.als = false;
-                aVar.alt = optString;
-                aVar.alu = optString2;
-                aVar.alv = optString3;
-                aVar.alw = optString4;
-                aVar.alx = optInt;
-                aVar.aly = optInt2;
+                aVar.asX = false;
+                aVar.asY = optString;
+                aVar.asZ = optString2;
+                aVar.ata = optString3;
+                aVar.mGid = optString4;
+                aVar.atb = optInt;
+                aVar.atc = optInt2;
                 aVar.mPackageName = optString5;
-                aVar.alz = optString6;
+                aVar.atd = optString6;
                 this.gifInfo = aVar;
                 return aVar;
             }
@@ -347,7 +347,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, ai {
         return false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.ai
+    @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
         if (this.msgType == 11) {
             return TYPE_MSG_MID;

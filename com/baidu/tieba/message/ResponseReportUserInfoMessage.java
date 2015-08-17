@@ -1,5 +1,6 @@
 package com.baidu.tieba.message;
 
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -31,8 +32,8 @@ public class ResponseReportUserInfoMessage extends JsonHttpResponsedMessage {
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
         if (getStatusCode() == 200 && jSONObject != null) {
-            this.errorCode = jSONObject.optInt("error_code");
-            this.errorMsg = jSONObject.optString("error_msg");
+            this.errorCode = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE);
+            this.errorMsg = jSONObject.optString(SocialConstants.PARAM_ERROR_MSG);
             this.timeInterval = jSONObject.optInt("time_interval", 0);
         }
     }

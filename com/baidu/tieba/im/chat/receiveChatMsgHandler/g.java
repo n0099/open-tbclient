@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.chat.receiveChatMsgHandler;
 
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.chat.receiveChatMsgHandler.a;
 /* loaded from: classes.dex */
-public class g {
-    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, c cVar) {
-        a.a(groupMsgData, imMessageCenterPojo, cVar, new h(), false);
+class g implements a.c {
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.c
+    public boolean hh(String str) {
+        return true;
     }
 }

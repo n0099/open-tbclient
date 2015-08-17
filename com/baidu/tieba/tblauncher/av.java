@@ -1,19 +1,21 @@
 package com.baidu.tieba.tblauncher;
 
-import android.graphics.Canvas;
 import com.slidingmenu.lib.SlidingMenu;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class av implements SlidingMenu.CanvasTransformer {
-    final /* synthetic */ aj cwo;
+public class av implements SlidingMenu.OnAboveViewScrollListener {
+    final /* synthetic */ ai cMQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(aj ajVar) {
-        this.cwo = ajVar;
+    public av(ai aiVar) {
+        this.cMQ = aiVar;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.CanvasTransformer
-    public void transformCanvas(Canvas canvas, float f) {
-        float f2 = 1.0f - (0.2f * f);
-        canvas.scale(f2, f2, 0.0f, canvas.getHeight() / 2);
+    @Override // com.slidingmenu.lib.SlidingMenu.OnAboveViewScrollListener
+    public void onPageScrolled(int i, float f, int i2) {
+        SlidingMenu slidingMenu;
+        ai aiVar = this.cMQ;
+        slidingMenu = this.cMQ.bbA;
+        aiVar.y(1.0f - slidingMenu.getPercentOpen());
     }
 }

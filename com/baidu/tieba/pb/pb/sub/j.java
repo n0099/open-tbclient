@@ -1,32 +1,42 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
-import com.baidu.tieba.tbadkCore.ap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class j implements ap {
-    final /* synthetic */ NewSubPbActivity bPx;
+class j implements com.baidu.adp.lib.e.c<View> {
+    final /* synthetic */ NewSubPbActivity cfY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(NewSubPbActivity newSubPbActivity) {
-        this.bPx = newSubPbActivity;
+        this.cfY = newSubPbActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ap
-    public void a(WriteData writeData) {
-        s sVar;
-        s sVar2;
-        String str;
-        if (writeData != null) {
-            this.bPx.bPq = writeData.getContent();
-            sVar = this.bPx.bPr;
-            if (sVar.adz() != null) {
-                sVar2 = this.bPx.bPr;
-                PbEditor adz = sVar2.adz();
-                str = this.bPx.bPq;
-                adz.setContent(str);
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: adq */
+    public View hb() {
+        return new PlayVoiceBnt(this.cfY.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: W */
+    public void l(View view) {
+        ((PlayVoiceBnt) view).reset();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: X */
+    public View m(View view) {
+        return view;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: Y */
+    public View n(View view) {
+        ((PlayVoiceBnt) view).reset();
+        return view;
     }
 }

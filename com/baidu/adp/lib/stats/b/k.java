@@ -1,26 +1,25 @@
 package com.baidu.adp.lib.stats.b;
-
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k extends BroadcastReceiver {
+public class k implements p {
     final /* synthetic */ i this$0;
 
-    private k(i iVar) {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(i iVar) {
         this.this$0 = iVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ k(i iVar, k kVar) {
-        this(iVar);
-    }
-
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        if (intent != null) {
-            this.this$0.setUid(intent.getStringExtra("intent_data_userid"));
-            this.this$0.ix();
+    @Override // com.baidu.adp.lib.stats.b.p
+    public void g(com.baidu.adp.lib.stats.base.a aVar) {
+        boolean b;
+        boolean c;
+        b = this.this$0.b(aVar);
+        if (b) {
+            this.this$0.e(aVar);
+        }
+        c = this.this$0.c(aVar);
+        if (c) {
+            this.this$0.f(aVar);
         }
     }
 }

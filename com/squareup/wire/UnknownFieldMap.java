@@ -79,7 +79,7 @@ public final class UnknownFieldMap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public abstract class FieldValue {
+    public static abstract class FieldValue {
         private final int tag;
         private final WireType wireType;
 
@@ -131,7 +131,7 @@ public final class UnknownFieldMap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public final class VarintFieldValue extends FieldValue {
+    public static final class VarintFieldValue extends FieldValue {
         private final Long value;
 
         public VarintFieldValue(int i, Long l) {
@@ -158,7 +158,7 @@ public final class UnknownFieldMap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public final class Fixed32FieldValue extends FieldValue {
+    public static final class Fixed32FieldValue extends FieldValue {
         private final Integer value;
 
         public Fixed32FieldValue(int i, Integer num) {
@@ -185,7 +185,7 @@ public final class UnknownFieldMap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public final class Fixed64FieldValue extends FieldValue {
+    public static final class Fixed64FieldValue extends FieldValue {
         private final Long value;
 
         public Fixed64FieldValue(int i, Long l) {
@@ -212,7 +212,7 @@ public final class UnknownFieldMap {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public final class LengthDelimitedFieldValue extends FieldValue {
+    public static final class LengthDelimitedFieldValue extends FieldValue {
         private final ByteString value;
 
         public LengthDelimitedFieldValue(int i, ByteString byteString) {

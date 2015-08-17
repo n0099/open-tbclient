@@ -6,6 +6,7 @@ import android.content.Context;
 import android.hardware.Camera;
 import android.net.TrafficStats;
 import android.os.Build;
+import android.os.StatFs;
 import android.provider.Settings;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.ViewCompat;
@@ -77,6 +78,10 @@ public class CompatibleUtile {
             mObject14 = new Object14(this, null);
         }
         return mObject14;
+    }
+
+    public long getBlockSize(StatFs statFs) {
+        return Build.VERSION.SDK_INT >= 18 ? statFs.getBlockSizeLong() : statFs.getBlockSize();
     }
 
     public int getMemoryClass(Context context) {
@@ -231,7 +236,7 @@ public class CompatibleUtile {
     }
 
     /* loaded from: classes.dex */
-    public class FullscreenableChromeClient extends WebChromeClient {
+    public static class FullscreenableChromeClient extends WebChromeClient {
         private final FrameLayout.LayoutParams COVER_SCREEN_PARAMS = new FrameLayout.LayoutParams(-1, -1);
         protected Activity mActivity;
         private FrameLayout mContentView;
@@ -295,7 +300,7 @@ public class CompatibleUtile {
         }
 
         /* loaded from: classes.dex */
-        class FullscreenHolder extends FrameLayout {
+        private class FullscreenHolder extends FrameLayout {
             public FullscreenHolder(Context context) {
                 super(context);
                 setBackgroundColor(context.getResources().getColor(17170444));
@@ -308,7 +313,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class Object5 {
         private Object5() {
@@ -346,7 +351,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class Object7 {
         private Object7() {
@@ -364,7 +369,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class Object8 {
         private Object8() {
@@ -406,7 +411,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class Object9 {
         private Object9() {
@@ -437,7 +442,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class Object11 {
         private final int[] STATUSBAR_ATTRS;
@@ -494,7 +499,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class Object14 {
         private Object14() {
@@ -530,12 +535,6 @@ public class CompatibleUtile {
     }
 
     public static void dealWebView(WebSettings webSettings) {
-        if (Build.VERSION.SDK_INT <= 11) {
-            WebView.disablePlatformNotifications();
-            WebView.enablePlatformNotifications();
-        }
-        if (webSettings != null && Build.VERSION.SDK_INT <= 18) {
-            webSettings.setPluginsEnabled(true);
-        }
+        throw new Error("Unresolved compilation problems: \n\tThe method disablePlatformNotifications() is undefined for the type WebView\n\tThe method enablePlatformNotifications() is undefined for the type WebView\n\tThe method setPluginsEnabled(boolean) is undefined for the type WebSettings\n");
     }
 }

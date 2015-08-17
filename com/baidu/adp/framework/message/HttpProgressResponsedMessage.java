@@ -8,7 +8,7 @@ public class HttpProgressResponsedMessage extends CustomResponsedMessage<Object>
         this.mProgress = 0.0f;
     }
 
-    @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.CustomResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, Object obj) {
     }
 

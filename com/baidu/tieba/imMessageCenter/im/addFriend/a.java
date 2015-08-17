@@ -4,19 +4,20 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.data.i;
 import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
-import com.baidu.tieba.t;
+import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ AddFriendActivity brJ;
+    final /* synthetic */ AddFriendActivity bFx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AddFriendActivity addFriendActivity, int i) {
         super(i);
-        this.brJ = addFriendActivity;
+        this.bFx = addFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,19 +31,19 @@ public class a extends com.baidu.adp.framework.listener.e {
             int error = responseAddFriendMessage.getError();
             String errorString = responseAddFriendMessage.getErrorString();
             if (error == 0) {
-                str = this.brJ.userId;
-                str2 = this.brJ.name;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001197, new i(str, str2)));
-                z = this.brJ.brI;
+                str = this.bFx.userId;
+                str2 = this.bFx.name;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RESPONSE_ADD_FRIEND, new i(str, str2)));
+                z = this.bFx.bFw;
                 if (z) {
-                    this.brJ.showToast(this.brJ.getPageContext().getPageActivity().getString(t.add_ok_but_level_is_lower), false);
+                    this.bFx.showToast(this.bFx.getPageContext().getPageActivity().getString(i.C0057i.add_ok_but_level_is_lower), false);
                 } else {
-                    this.brJ.showToast(this.brJ.getPageContext().getPageActivity().getString(t.group_apply_succ), false);
+                    this.bFx.showToast(this.bFx.getPageContext().getPageActivity().getString(i.C0057i.group_apply_succ), false);
                 }
-                this.brJ.finish();
+                this.bFx.finish();
                 return;
             }
-            BdToast.a(this.brJ.getPageContext().getPageActivity(), errorString, BdToast.DefaultIcon.NOT).rR();
+            BdToast.a(this.bFx.getPageContext().getPageActivity(), errorString, BdToast.DefaultIcon.NOT).sX();
         }
     }
 }

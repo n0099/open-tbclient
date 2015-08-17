@@ -1,35 +1,23 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.person.UserPostPageHttpResponseMessage;
-import com.baidu.tieba.person.UserPostPageRequestMessage;
-import com.baidu.tieba.person.ch;
+import android.content.Context;
+import android.view.View;
+import android.widget.ProgressBar;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class v extends HttpMessageListener {
-    final /* synthetic */ t bUJ;
+public class v {
+    ProgressBar clr;
+    BdListView mBdListView;
+    com.baidu.tbadk.core.view.u mNoDataView = null;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v(t tVar, int i) {
-        super(i);
-        this.bUJ = tVar;
+    public BdListView getBdListView() {
+        return this.mBdListView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        ch chVar;
-        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
-            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
-            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
-                this.bUJ.b(null, false);
-                return;
-            }
-            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
-            if (userPostPageRequestMessage.isThread() && (chVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
-                chVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
-            }
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public v(Context context, View view) {
+        this.mBdListView = (BdListView) view.findViewById(i.f.list);
+        this.clr = (ProgressBar) view.findViewById(i.f.progress);
     }
 }

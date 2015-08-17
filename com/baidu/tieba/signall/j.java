@@ -2,25 +2,31 @@ package com.baidu.tieba.signall;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.SignData;
 /* loaded from: classes.dex */
 class j extends CustomMessageListener {
-    final /* synthetic */ SignAllForumActivity cis;
+    final /* synthetic */ SignAllForumActivity cAF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(SignAllForumActivity signAllForumActivity, int i) {
         super(i);
-        this.cis = signAllForumActivity;
+        this.cAF = signAllForumActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Integer num;
-        ae aeVar;
-        if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null && num.intValue() == 2) {
-            aeVar = this.cis.cik;
-            aeVar.akV().setHasPrivilege(true);
+        z zVar;
+        z zVar2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData)) {
+            zVar = this.cAF.cAx;
+            c any = zVar.any();
+            if (any != null) {
+                any.b((SignData) customResponsedMessage.getData());
+                zVar2 = this.cAF.cAx;
+                zVar2.anz().notifyDataSetChanged();
+            }
         }
     }
 }

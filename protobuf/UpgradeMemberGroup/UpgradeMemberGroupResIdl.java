@@ -22,8 +22,11 @@ public final class UpgradeMemberGroupResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<UpgradeMemberGroupResIdl> {
+    public static final class Builder extends Message.Builder<UpgradeMemberGroupResIdl> {
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(UpgradeMemberGroupResIdl upgradeMemberGroupResIdl) {
             super(upgradeMemberGroupResIdl);

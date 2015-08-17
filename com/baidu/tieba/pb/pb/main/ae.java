@@ -1,27 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ PbActivity bKU;
+public class ae implements a.b {
+    final /* synthetic */ PbActivity cbo;
+    private final /* synthetic */ cw cbs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(PbActivity pbActivity) {
-        this.bKU = pbActivity;
+    public ae(PbActivity pbActivity, cw cwVar) {
+        this.cbo = pbActivity;
+        this.cbs = cwVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.bKU.aJS;
-        com.baidu.tbadk.core.util.o.deleteFile(new File(append.append(str).toString()));
-        return null;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.cbo.HidenSoftKeyPad((InputMethodManager) this.cbo.getSystemService("input_method"), this.cbs.getChatMsgView());
+        aVar.dismiss();
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.adp.widget;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.graphics.Canvas;
 /* loaded from: classes.dex */
 public interface j {
-    void mH();
+    void draw(Canvas canvas);
 
-    void mI();
+    void measure(int i, int i2);
 }

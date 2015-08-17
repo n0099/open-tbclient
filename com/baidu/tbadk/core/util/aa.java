@@ -1,381 +1,191 @@
 package com.baidu.tbadk.core.util;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
+import android.graphics.Bitmap;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.location.a0;
-import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.game.GameInfoData;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class aa {
-    private com.baidu.tbadk.core.util.httpNet.a UM = null;
-    private s UN = null;
-    private aa UO = null;
-    private aj UQ = null;
-    private int UR = 0;
+    private static aa aan;
+    private static final BdUniqueId aao = BdUniqueId.gen();
 
-    private void sW() {
-        this.UM = new com.baidu.tbadk.core.util.httpNet.a();
-        this.UN = ae.tf().a(this.UM);
-        this.UO = null;
-        this.UM.tS().tV().mNetType = com.baidu.tbadk.core.util.httpNet.g.getNetType();
-        this.UM.tS().tV().WE = this.UM.tS().WE;
-        com.baidu.adp.lib.network.a.a.setCuid(TbadkCoreApplication.m411getInst().getCuid());
-    }
-
-    public com.baidu.tbadk.core.util.httpNet.a sX() {
-        return this.UM;
-    }
-
-    public aa() {
-        sW();
-    }
-
-    public aa(String str) {
-        sW();
-        this.UM.tS().tV().mUrl = str;
-    }
-
-    public void setUrl(String str) {
-        this.UM.tS().tV().mUrl = str;
-    }
-
-    public void n(ArrayList<BasicNameValuePair> arrayList) {
-        this.UN.n(arrayList);
-    }
-
-    public void o(String str, String str2) {
-        this.UN.o(str, str2);
-    }
-
-    public void a(BasicNameValuePair basicNameValuePair) {
-        this.UN.a(basicNameValuePair);
-    }
-
-    public void d(String str, byte[] bArr) {
-        this.UN.d(str, bArr);
-    }
-
-    private void sY() {
-        String currentBduss = TbadkCoreApplication.getCurrentBduss();
-        BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", currentBduss);
-        BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TbadkCoreApplication.m411getInst().getTbs());
-        if (currentBduss != null) {
-            ArrayList<BasicNameValuePair> sv = this.UN.sv();
-            int size = sv.size();
-            for (int i = 0; i < size; i++) {
-                BasicNameValuePair basicNameValuePair3 = sv.get(i);
-                if (basicNameValuePair3.getName().equals("BDUSS")) {
-                    sv.set(i, basicNameValuePair);
-                } else if (basicNameValuePair3.getName().equals("tbs")) {
-                    sv.set(i, basicNameValuePair2);
-                }
+    public static synchronized aa uo() {
+        aa aaVar;
+        synchronized (aa.class) {
+            if (aan == null) {
+                aan = new aa();
             }
+            aaVar = aan;
         }
+        return aaVar;
     }
 
-    private void sZ() {
-        if (this.UQ == null) {
-            this.UQ = ai.tl();
+    /* loaded from: classes.dex */
+    public class a extends BdAsyncTask<String, String, String> {
+        private final String aap;
+        private final boolean aaq;
+        private final boolean aar;
+        private final boolean aas;
+        private final String imageUrl;
+
+        public a(String str, String str2, boolean z, boolean z2, boolean z3) {
+            this.imageUrl = str;
+            this.aap = str2;
+            this.aaq = z;
+            this.aar = z2;
+            this.aas = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, aa.aao));
         }
-        if (this.UQ != null) {
-            this.UN.o("stTime", String.valueOf(this.UQ.mTime));
-            this.UN.o("stSize", String.valueOf(this.UQ.mSize));
-            this.UN.o("stTimesNum", String.valueOf(this.UQ.Vm));
-            this.UN.o("stMode", String.valueOf(this.UQ.mMode));
-            this.UN.o("stMethod", String.valueOf(this.UQ.Vl));
-        }
-        this.UR = ai.cb(0);
-        if (this.UR == 0 && this.UQ != null) {
-            this.UR = this.UQ.Vm;
-        }
-        this.UN.o("stErrorNums", String.valueOf(this.UR));
-    }
 
-    public boolean ta() {
-        return this.UM.tT().ta();
-    }
-
-    public int tb() {
-        return this.UM.tT().WI;
-    }
-
-    public int tc() {
-        return this.UM.tT().WH;
-    }
-
-    public String getErrorString() {
-        return this.UM.tT().mErrorString;
-    }
-
-    public void gS() {
-        if (this.UN != null) {
-            this.UN.gS();
-        }
-        if (this.UO != null) {
-            this.UO.gS();
-        }
-    }
-
-    private com.baidu.tbadk.core.data.n d(String str, String str2, boolean z) {
-        String sw;
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... strArr) {
+            try {
+                aa.this.b(this.imageUrl, this.aap, this.aaq, this.aar, this.aas);
+            } catch (Throwable th) {
+                TiebaStatic.imgError(TbErrInfo.ERR_IMG_CACHE, "pic cache img err: " + th.toString(), null);
+            }
             return null;
         }
-        try {
-            TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.m411getInst().getApp().getApplicationContext());
-            StringBuilder sb = new StringBuilder(32);
-            sb.append(TbConfig.LOGIN_FULL_ADDRESS);
-            if (this.UO == null) {
-                this.UO = new aa(sb.toString());
-            } else {
-                this.UO.gS();
-            }
-            this.UO.sX().tS().mIsNeedAddCommenParam = false;
-            this.UO.sX().tS().mIsUseCurrentBDUSS = false;
-            this.UO.sX().tS().WD = false;
-            this.UO.o("un", str);
-            this.UO.o("passwd", str2);
-            this.UO.o("isphone", GameInfoData.NOT_FROM_DETAIL);
-            this.UO.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
-            this.UO.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-            this.UO.sX().tS().tV().Xd = true;
-            sw = this.UO.sw();
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-        if (this.UO.sX().tT().qa() && sw != null) {
-            com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
-            nVar.parserJson(sw);
-            String userId = nVar.getUser().getUserId();
-            if (userId == null || userId.length() <= 0) {
-                this.UM.tT().mErrorString = TbadkCoreApplication.m411getInst().getApp().getApplicationContext().getString(com.baidu.tieba.t.neterror);
-                return null;
-            }
-            AccountData accountData = new AccountData();
-            accountData.setAccount(nVar.getUser().getUserName());
-            if (nVar.getUser().getPassword() != null) {
-                accountData.setPassword(nVar.getUser().getPassword());
-            } else {
-                accountData.setPassword(str2);
-            }
-            accountData.setID(nVar.getUser().getUserId());
-            accountData.setBDUSS(nVar.getUser().getBDUSS());
-            accountData.setPortrait(nVar.getUser().getPortrait());
-            accountData.setIsActive(1);
-            if (nVar.qK() != null) {
-                accountData.setTbs(nVar.qK().getTbs());
-            }
-            com.baidu.tbadk.core.a.d.b(accountData);
-            TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-            TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.m411getInst().getApp().getApplicationContext());
-            return nVar;
-        }
-        if (this.UO.ta()) {
-            switch (this.UO.tb()) {
-                case 1:
-                case 2:
-                case 5:
-                    if (z) {
-                        Message obtainMessage = TbadkCoreApplication.m411getInst().handler.obtainMessage(1);
-                        Bundle bundle = new Bundle();
-                        bundle.putString(LoginActivityConfig.ACCOUNT, str);
-                        obtainMessage.setData(bundle);
-                        TbadkCoreApplication.m411getInst().handler.sendMessage(obtainMessage);
-                        break;
+    }
+
+    public void b(String str, String str2, boolean z, boolean z2, boolean z3) {
+        if (str2 != null && str != null) {
+            String dc = as.dc(str);
+            ap.uz().copyFile(str2, dc);
+            if (z || z2 || z3) {
+                synchronized (c.Gl) {
+                    int da = ap.uz().da(dc);
+                    if (da > 0) {
+                        if (z) {
+                            Bitmap cY = ap.uz().cY(dc);
+                            com.baidu.tbadk.imageManager.c.Ce().ee(da);
+                            if (cY != null) {
+                                a(str, cY, z2, ap.uz().cZ(dc), z3, dc);
+                            }
+                        }
                     }
-                    break;
-            }
-            return null;
-        }
-        return null;
-    }
-
-    public byte[] sx() {
-        if (!this.UM.tS().mIsFromCDN) {
-            this.UM.tS().b(this.UN);
-        }
-        return this.UN.sx();
-    }
-
-    private void td() {
-        StringBuffer stringBuffer = new StringBuffer(1024);
-        ArrayList<BasicNameValuePair> sv = this.UN.sv();
-        for (int i = 0; sv != null && i < sv.size(); i++) {
-            BasicNameValuePair basicNameValuePair = sv.get(i);
-            if (basicNameValuePair != null) {
-                String name = basicNameValuePair.getName();
-                String value = basicNameValuePair.getValue();
-                stringBuffer.append(String.valueOf(name) + "=");
-                stringBuffer.append(value);
-            }
-        }
-        stringBuffer.append("tiebaclient!!!");
-        this.UN.o(SapiUtils.KEY_QR_LOGIN_SIGN, com.baidu.adp.lib.util.ac.toMd5(stringBuffer.toString()));
-    }
-
-    private String bW(int i) {
-        String sz;
-        com.baidu.tbadk.coreExtra.act.l uV;
-        switch (i) {
-            case 1:
-                if (sX().tS().mIsNeedAddCommenParam) {
-                    this.UM.tS().b(this.UN);
                 }
-                sZ();
-                sz = this.UN.sy();
-                break;
-            case 2:
-                if (sX().tS().mIsUseCurrentBDUSS) {
-                    sX().tS().a(this.UN);
-                }
-                if (sX().tS().mIsNeedAddCommenParam) {
-                    this.UM.tS().b(this.UN);
-                }
-                sZ();
-                sz = this.UN.sw();
-                break;
-            case 3:
-                if (sX().tS().mIsUseCurrentBDUSS) {
-                    sX().tS().a(this.UN);
-                }
-                if (sX().tS().mIsNeedAddCommenParam) {
-                    this.UM.tS().b(this.UN);
-                }
-                td();
-                sz = this.UN.sz();
-                break;
-            default:
-                return null;
-        }
-        if (!this.UM.tT().ta()) {
-            ai.a(this.UQ);
-            ai.cc(this.UR);
-            return sz;
-        } else if (!this.UM.tT().qa() && this.UM.tT().WI == 1 && this.UM.tS().WD) {
-            String str = this.UM.tT().mErrorString;
-            this.UM.tT().mErrorString = "";
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj == null) {
-                currentAccountObj = com.baidu.tbadk.core.a.d.qm();
             }
-            if (currentAccountObj == null || TextUtils.isEmpty(currentAccountObj.getAccount())) {
-                TbadkCoreApplication.m411getInst().handler.sendMessage(TbadkCoreApplication.m411getInst().handler.obtainMessage(1));
-                return null;
-            }
-            com.baidu.tbadk.core.a.d.cc(currentAccountObj.getAccount());
-            if (ReloginManager.sg().sk()) {
-                AccountData sj = ReloginManager.sg().sj();
-                if (sj == null) {
-                    ReloginManager.sg().e(sj);
-                    return null;
-                }
-                return bX(i);
-            }
-            com.baidu.tbadk.core.data.n d = d(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true);
-            if (!TextUtils.isEmpty(currentAccountObj.getID()) && (uV = com.baidu.tbadk.coreExtra.act.a.uV()) != null) {
-                uV.j(currentAccountObj);
-            }
-            if (d == null) {
-                if (this.UO != null) {
-                    this.UM.tT().mErrorString = this.UO.getErrorString();
-                    return null;
-                }
-                this.UM.tT().mErrorString = str;
-                return sz;
-            }
-            return bX(i);
-        } else {
-            return sz;
         }
     }
 
-    private String bX(int i) {
-        String sz;
-        sY();
-        switch (i) {
-            case 1:
-                sz = this.UN.sy();
-                break;
-            case 2:
-                sz = this.UN.sw();
-                break;
-            case 3:
-                sz = this.UN.sz();
-                break;
-            default:
-                return null;
-        }
-        if (this.UM.tT().ta()) {
-            switch (this.UM.tT().WI) {
-                case 1:
-                case 2:
-                case 5:
-                    TbadkCoreApplication.m411getInst().handler.sendMessage(TbadkCoreApplication.m411getInst().handler.obtainMessage(1));
-                    this.UM.tT().mErrorString = "";
-                    return null;
-                case 3:
-                case 4:
-                default:
-                    return sz;
-            }
-        }
-        return sz;
+    public void c(String str, String str2, boolean z, boolean z2, boolean z3) {
+        new a(str2, str2, z3, z3, z3).execute(new String[0]);
     }
 
-    public String sw() {
-        return bW(2);
+    public Bitmap h(Bitmap bitmap) {
+        return a(bitmap, true);
     }
 
-    public String sz() {
-        return bW(3);
-    }
-
-    public String cS(String str) {
-        byte[] bArr;
+    public Bitmap a(Bitmap bitmap, boolean z) {
         try {
-            InputStream cF = o.cF(str);
-            byte[] bArr2 = new byte[a0.O];
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(a0.O);
-            while (true) {
-                int read = cF.read(bArr2);
-                if (read == -1) {
-                    break;
-                }
-                byteArrayOutputStream.write(bArr2, 0, read);
+            com.baidu.tbadk.core.util.a.a imageSize = getImageSize(bitmap.getWidth(), bitmap.getHeight(), z);
+            int i = imageSize.width;
+            int i2 = imageSize.height;
+            if (i != bitmap.getWidth() || i2 != bitmap.getHeight()) {
+                Bitmap a2 = c.a(bitmap, i, i2);
+                return a2 != null ? a2 : bitmap;
             }
-            bArr = byteArrayOutputStream.toByteArray();
+            return bitmap;
         } catch (Exception e) {
-            bArr = null;
+            m mVar = new m();
+            if (bitmap == null) {
+                mVar.h("bitmap", "null");
+            } else {
+                mVar.h("bitW", Integer.valueOf(bitmap.getWidth()));
+                mVar.h("bitH", Integer.valueOf(bitmap.getHeight()));
+            }
+            TiebaStatic.imgError(TbErrInfo.ERR_IMG_RESIZE, "getResizedBitmap error: " + e.toString(), mVar.toString());
+            return bitmap;
         }
-        if (bArr == null || bArr.length <= 0) {
-            return null;
+    }
+
+    private static void a(String str, com.baidu.adp.widget.a.a aVar) {
+        com.baidu.tbadk.imageManager.c.Ce().c(str, aVar);
+    }
+
+    public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {
+        Bitmap bitmap2;
+        Bitmap h = z2 ? h(bitmap) : bitmap;
+        if (!z || h == null) {
+            bitmap2 = h;
+        } else {
+            float f = 10.0f;
+            bitmap2 = c.a(h, (h.getHeight() < 100 || h.getWidth() < 100) ? 5.0f : 5.0f, true);
         }
-        d("pic", bArr);
-        return sz();
+        if (!TextUtils.isEmpty(str)) {
+            ap.uz().h(str, c.e(bitmap2, 100));
+        }
+        return bitmap2;
     }
 
-    public boolean a(String str, Handler handler, int i) {
-        return a(str, handler, i, 5, 100);
+    private void a(String str, Bitmap bitmap, boolean z, boolean z2, boolean z3, String str2) {
+        try {
+            Bitmap a2 = a(bitmap, z, z3, str2);
+            if (a2 != null) {
+                a(str, new com.baidu.adp.widget.a.a(a2, z2));
+            }
+        } catch (Exception e) {
+            TiebaStatic.imgError(TbErrInfo.ERR_IMG_ADD_MEMORY, "addPicMemoryCache error: " + e.toString(), str);
+        }
     }
 
-    public boolean a(String str, Handler handler, int i, int i2, int i3) {
-        return a(str, handler, i, i2, i3, false);
-    }
-
-    public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        sX().tS().a(this.UN);
-        return this.UN.a(str, handler, i, i2, i3, z);
+    public com.baidu.tbadk.core.util.a.a getImageSize(int i, int i2, boolean z) {
+        boolean z2;
+        int i3;
+        int i4;
+        int i5;
+        int i6 = 70;
+        int ub = LocalViewSize.tY().ub();
+        if (z) {
+            if (i / i2 >= 3) {
+                z2 = true;
+                i3 = i / 2;
+                i4 = i;
+            } else if (i2 / i >= 3) {
+                i4 = i2 / 2;
+                z2 = true;
+                i3 = i2;
+            }
+            if (i4 <= i3 && i4 > ub) {
+                i3 = (int) (i3 / (i4 / ub));
+            } else if (i3 > i4 || i3 <= ub) {
+                ub = i4;
+            } else {
+                ub = (int) (i4 / (i3 / ub));
+                i3 = ub;
+            }
+            if (z2 && i <= ub && i2 <= i3) {
+                ub = (int) (ub * 0.9d);
+                i3 = (int) (i3 * 0.9d);
+            }
+            if (ub < 70 || i3 >= 70) {
+                i6 = i3;
+                i5 = ub;
+            } else {
+                i5 = 70;
+            }
+            return new com.baidu.tbadk.core.util.a.a(i5, i6, z2);
+        }
+        z2 = false;
+        i3 = i2;
+        i4 = i;
+        if (i4 <= i3) {
+        }
+        if (i3 > i4) {
+        }
+        ub = i4;
+        if (z2) {
+            ub = (int) (ub * 0.9d);
+            i3 = (int) (i3 * 0.9d);
+        }
+        if (ub < 70) {
+        }
+        i6 = i3;
+        i5 = ub;
+        return new com.baidu.tbadk.core.util.a.a(i5, i6, z2);
     }
 }

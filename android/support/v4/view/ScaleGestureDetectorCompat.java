@@ -13,7 +13,7 @@ public class ScaleGestureDetectorCompat {
     }
 
     /* loaded from: classes.dex */
-    class BaseScaleGestureDetectorImpl implements ScaleGestureDetectorImpl {
+    private static class BaseScaleGestureDetectorImpl implements ScaleGestureDetectorImpl {
         private BaseScaleGestureDetectorImpl() {
         }
 
@@ -28,7 +28,7 @@ public class ScaleGestureDetectorCompat {
     }
 
     /* loaded from: classes.dex */
-    class ScaleGestureDetectorCompatKitKatImpl implements ScaleGestureDetectorImpl {
+    private static class ScaleGestureDetectorCompatKitKatImpl implements ScaleGestureDetectorImpl {
         private ScaleGestureDetectorCompatKitKatImpl() {
         }
 

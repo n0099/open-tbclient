@@ -1,31 +1,43 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.GoodsInfo;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.FrsPage.Badges;
 /* loaded from: classes.dex */
 public class d {
-    public int PK;
-    public String PL;
-    public String PM;
-    public String PN;
-    public int PO;
-    public String PP;
-    public String PQ;
-    public String PR;
-    public String userName;
-    public String userPortrait;
+    private int UF;
+    private String badge_url;
+    private String webview;
 
-    public void a(GoodsInfo goodsInfo) {
-        if (goodsInfo != null) {
-            this.PK = goodsInfo.id.intValue();
-            this.userName = goodsInfo.user_name;
-            this.userPortrait = goodsInfo.user_portrait;
-            this.PL = goodsInfo.thread_title;
-            this.PM = goodsInfo.thread_pic;
-            this.PN = goodsInfo.pop_window_text;
-            this.PO = goodsInfo.goods_style.intValue();
-            this.PP = goodsInfo.card_desc;
-            this.PQ = goodsInfo.card_tag;
-            this.PR = goodsInfo.button_text;
+    public String ry() {
+        return this.badge_url;
+    }
+
+    public String rz() {
+        return String.valueOf(this.UF);
+    }
+
+    public String rA() {
+        return this.webview;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.UF = jSONObject.optInt("badge_id", 0);
+                this.badge_url = jSONObject.optString("badge_url", "");
+                this.webview = jSONObject.optString("webview");
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    public void a(Badges badges) {
+        if (badges != null) {
+            this.UF = badges.badge_id.intValue();
+            this.badge_url = badges.badge_url;
+            this.webview = badges.webview;
         }
     }
 }

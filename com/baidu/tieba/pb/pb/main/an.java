@@ -2,34 +2,29 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.app.Activity;
 import android.text.TextUtils;
-import com.baidu.tieba.pb.FileDownloader;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bKU;
+public class an implements a.b {
+    final /* synthetic */ PbActivity cbo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(PbActivity pbActivity) {
-        this.bKU = pbActivity;
+        this.cbo = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
+    @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tbadk.core.dialog.a aVar2;
         String str;
         String str2;
-        aVar2 = this.bKU.bKj;
+        aVar2 = this.cbo.caB;
         aVar2.dismiss();
-        if (com.baidu.tbadk.core.util.o.fo()) {
-            str = this.bKU.mDownloadUrl;
-            if (!TextUtils.isEmpty(str) && com.baidu.adp.lib.util.k.iY()) {
-                Activity pageActivity = this.bKU.getPageContext().getPageActivity();
-                str2 = this.bKU.mDownloadUrl;
-                FileDownloader.download(pageActivity, str2, null, this.bKU.getPageContext().getString(com.baidu.tieba.t.download_iqiyi_app));
-                return;
-            }
-            return;
+        str = this.cbo.caC;
+        if (!TextUtils.isEmpty(str)) {
+            Activity pageActivity = this.cbo.getPageContext().getPageActivity();
+            str2 = this.cbo.caC;
+            com.baidu.tbadk.browser.f.b(pageActivity, false, str2);
         }
-        this.bKU.showToast(com.baidu.tbadk.core.util.o.sr());
     }
 }

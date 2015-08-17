@@ -1,30 +1,61 @@
 package com.baidu.tieba.pb.chosen;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements View.OnClickListener {
-    final /* synthetic */ h bJd;
+public class i extends com.baidu.tbadk.editortools.c.a<PbChosenActivity> {
+    final /* synthetic */ PbChosenActivity bYY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(h hVar) {
-        this.bJd = hVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i(PbChosenActivity pbChosenActivity, com.baidu.adp.base.h hVar) {
+        super(hVar);
+        this.bYY = pbChosenActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbChosenActivity pbChosenActivity;
-        PbChosenActivity pbChosenActivity2;
-        PbChosenActivity pbChosenActivity3;
-        pbChosenActivity = this.bJd.bJc;
-        pbChosenActivity.sendMessage(new CustomMessage(2001284));
-        pbChosenActivity2 = this.bJd.bJc;
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonGroupActivityConfig(pbChosenActivity2.getPageContext().getPageActivity(), 23003)));
-        pbChosenActivity3 = this.bJd.bJc;
-        TiebaStatic.eventStat(pbChosenActivity3.getPageContext().getPageActivity(), "pb_new_share", "loc", 1, new Object[0]);
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.editortools.c.a
+    public boolean Bk() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.editortools.c.a
+    public WriteData eI(String str) {
+        com.baidu.tieba.pb.chosen.net.a aVar;
+        com.baidu.tieba.pb.chosen.net.a aVar2;
+        com.baidu.tieba.pb.chosen.net.a aVar3;
+        com.baidu.tieba.pb.chosen.net.a aVar4;
+        com.baidu.tieba.pb.chosen.net.a aVar5;
+        aVar = this.bYY.chosenData;
+        if (aVar != null) {
+            aVar2 = this.bYY.chosenData;
+            if (aVar2.getForumInfo() != null) {
+                WriteData writeData = new WriteData();
+                aVar3 = this.bYY.chosenData;
+                writeData.setForumId(String.valueOf(aVar3.getForumInfo().fromfid));
+                aVar4 = this.bYY.chosenData;
+                writeData.setForumName(aVar4.getForumInfo().fromfname);
+                aVar5 = this.bYY.chosenData;
+                writeData.setThreadId(String.valueOf(aVar5.getForumInfo().tid));
+                writeData.setIsAd(false);
+                writeData.setType(1);
+                return writeData;
+            }
+        }
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.editortools.c.a
+    public String Bl() {
+        return null;
     }
 }

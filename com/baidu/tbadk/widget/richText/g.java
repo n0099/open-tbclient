@@ -1,136 +1,80 @@
 package com.baidu.tbadk.widget.richText;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.PbContent;
+import android.app.Activity;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class g extends com.baidu.adp.lib.a.b.a.a.i {
-    private String aui;
-    private String auj;
-    private String auk;
-    private boolean aul;
-    private boolean aum;
-    private int mHeight;
-    private int mWidth;
+public class g extends ClickableSpan {
+    private String aBB;
+    private int mType;
+    private String mUrl;
 
-    public g() {
-        this.aui = null;
-        this.auj = null;
-        this.auk = null;
-        this.mWidth = 1;
-        this.mHeight = 1;
-        this.aul = false;
-        this.aum = true;
-    }
+    /* loaded from: classes.dex */
+    public static class a {
+        public String subType;
+        public int type;
+        public String url;
 
-    public g(PbContent pbContent) {
-        this.aui = null;
-        this.auj = null;
-        this.auk = null;
-        this.mWidth = 1;
-        this.mHeight = 1;
-        this.aul = false;
-        this.aum = true;
-        if (pbContent != null) {
-            this.aui = pbContent.src;
-            this.auj = pbContent.cdn_src;
-            if (this.auj == null || this.auj.length() == 0) {
-                this.auj = this.aui;
-            }
-            this.auk = pbContent.big_cdn_src;
-            String str = pbContent.bsize;
-            if (str != null) {
-                try {
-                    String[] split = str.split(",");
-                    this.mWidth = Integer.valueOf(split[0]).intValue();
-                    this.mHeight = Integer.valueOf(split[1]).intValue();
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            if (this.mWidth <= 0) {
-                this.mWidth = 1;
-            }
-            if (this.mHeight <= 0) {
-                this.mHeight = 1;
-            }
-            if (this.auj != null && this.auj.indexOf(".baidu.com") != -1) {
-                this.aul = true;
-            }
+        public a(int i, String str, String str2) {
+            this.type = i;
+            this.url = str;
+            this.subType = str2;
         }
     }
 
-    public g(JSONObject jSONObject) {
-        this.aui = null;
-        this.auj = null;
-        this.auk = null;
-        this.mWidth = 1;
-        this.mHeight = 1;
-        this.aul = false;
-        this.aum = true;
-        if (jSONObject != null) {
-            this.aui = jSONObject.optString("src");
-            this.auj = jSONObject.optString("cdn_src", "");
-            if (this.auj == null || this.auj.length() == 0) {
-                this.auj = this.aui;
-            }
-            this.auk = jSONObject.optString("big_cdn_src", null);
-            try {
-                String[] split = jSONObject.optString("bsize").split(",");
-                this.mWidth = Integer.valueOf(split[0]).intValue();
-                this.mHeight = Integer.valueOf(split[1]).intValue();
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-            if (this.mWidth <= 0) {
-                this.mWidth = 1;
-            }
-            if (this.mHeight <= 0) {
-                this.mHeight = 1;
-            }
-            if (this.auj != null && this.auj.indexOf(".baidu.com") != -1) {
-                this.aul = true;
+    public g(int i, String str) {
+        this.mType = 0;
+        this.mUrl = null;
+        this.mUrl = str;
+        this.mType = i;
+    }
+
+    public void fE(String str) {
+        this.aBB = str;
+    }
+
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        super.updateDrawState(textPaint);
+        textPaint.setUnderlineText(false);
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aBB)));
+    }
+
+    public static void a(TbPageContext<?> tbPageContext, int i, String str, String str2) {
+        if (tbPageContext != null && (tbPageContext.getOrignalPage() instanceof i)) {
+            i iVar = (i) tbPageContext.getOrignalPage();
+            Activity pageActivity = tbPageContext.getPageActivity();
+            switch (i) {
+                case 2:
+                    iVar.onLinkClicked(pageActivity, str);
+                    return;
+                case 16:
+                    iVar.onAtClicked(pageActivity, str);
+                    return;
+                case 32:
+                    iVar.onVideoClicked(pageActivity, str);
+                    return;
+                case 64:
+                    iVar.onSongClicked(pageActivity, str);
+                    return;
+                case 128:
+                    iVar.onVideoP2PClicked(pageActivity, str);
+                    return;
+                case 256:
+                    iVar.onPhoneClicked(pageActivity, str, str2);
+                    return;
+                default:
+                    return;
             }
         }
-    }
-
-    public String Ex() {
-        return this.auk;
-    }
-
-    public int getHeight() {
-        return this.mHeight;
-    }
-
-    public void setHeight(int i) {
-        this.mHeight = i;
-    }
-
-    public int getWidth() {
-        return this.mWidth;
-    }
-
-    public void setWidth(int i) {
-        this.mWidth = i;
-    }
-
-    public boolean Ey() {
-        return this.aul;
-    }
-
-    public String getSrc() {
-        return this.aui;
-    }
-
-    public String Ez() {
-        return this.auj;
-    }
-
-    public boolean EA() {
-        return this.aum;
-    }
-
-    public void bp(boolean z) {
-        this.aum = z;
     }
 }

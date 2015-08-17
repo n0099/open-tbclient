@@ -1,9 +1,19 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class MemoryUpdateHeadNameMessage extends CustomResponsedMessage<i> {
-    public MemoryUpdateHeadNameMessage(i iVar) {
-        super(2016017, iVar);
+public class MemoryUpdateHeadNameMessage extends CustomResponsedMessage<a> {
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public int customGroupType;
+        public String head;
+        public String id;
+        public String name;
+    }
+
+    public MemoryUpdateHeadNameMessage(a aVar) {
+        super(CmdConfigCustom.MEMORY_UPDATE_GROUP_HEAD_NAME, aVar);
     }
 }

@@ -2,12 +2,12 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.f;
+import com.baidu.adp.lib.b.e;
 import com.baidu.tieba.im.chat.notify.WindowSwitchResponse;
 /* loaded from: classes.dex */
 public class FloatWindowSwitchStatic extends a {
     static {
-        f.gD().l(FloatWindowSwitchStatic.class);
+        e.gy().e(FloatWindowSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

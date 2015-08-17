@@ -3,10 +3,11 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
-    private int XL;
-    private int XM;
+    private int acI;
+    private int acJ;
     private String mUrl;
     private String user_id;
     private String user_name;
@@ -24,8 +25,8 @@ public class HeadImageView extends TbClipImageView {
         this.user_id = null;
         this.user_name = null;
         this.mUrl = null;
-        this.XL = com.baidu.tieba.p.icon_default_avatar100;
-        this.XM = com.baidu.tieba.n.cp_cont_e;
+        this.acI = i.e.icon_default_avatar100;
+        this.acJ = i.c.cp_cont_e;
         init();
     }
 
@@ -33,8 +34,8 @@ public class HeadImageView extends TbClipImageView {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultBgResource(this.XM);
-        setDefaultResource(this.XL);
+        setDefaultBgResource(this.acJ);
+        setDefaultResource(this.acI);
     }
 
     public void setUrl(String str) {
@@ -63,11 +64,11 @@ public class HeadImageView extends TbClipImageView {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
-    public void uq() {
-        if (!this.atz) {
-            this.atz = true;
-        } else if (this.atC != null && this.atC.aqw) {
-            this.atC.Du();
+    public void vu() {
+        if (!this.aAJ) {
+            this.aAJ = true;
+        } else if (this.aAM != null && this.aAM.axj) {
+            this.aAM.DW();
         }
     }
 }

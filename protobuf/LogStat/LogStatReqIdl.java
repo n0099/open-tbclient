@@ -21,8 +21,11 @@ public final class LogStatReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<LogStatReqIdl> {
+    public static final class Builder extends Message.Builder<LogStatReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(LogStatReqIdl logStatReqIdl) {
             super(logStatReqIdl);

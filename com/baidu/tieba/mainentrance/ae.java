@@ -1,15 +1,18 @@
 package com.baidu.tieba.mainentrance;
+
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae implements Runnable {
-    final /* synthetic */ ad bCK;
+public class ae implements a.b {
+    final /* synthetic */ SquareSearchActivity bQZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ad adVar) {
-        this.bCK = adVar;
+    public ae(SquareSearchActivity squareSearchActivity) {
+        this.bQZ = squareSearchActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tieba.tbadkCore.util.j.apz();
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

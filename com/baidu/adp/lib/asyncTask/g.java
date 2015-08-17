@@ -1,16 +1,21 @@
 package com.baidu.adp.lib.asyncTask;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
 /* loaded from: classes.dex */
-class g implements ThreadFactory {
-    private final AtomicInteger mCount = new AtomicInteger(1);
+public abstract class g<V> extends FutureTask<V> {
+    private BdAsyncTask<?, ?, ?> sw;
 
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
-        String str = "BdAsyncTask #" + String.valueOf(this.mCount.getAndIncrement());
-        BdLog.i(str);
-        return new Thread(runnable, str);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public abstract void fP();
+
+    public BdAsyncTask<?, ?, ?> fT() {
+        return this.sw;
+    }
+
+    public g(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
+        super(callable);
+        this.sw = null;
+        this.sw = bdAsyncTask;
     }
 }

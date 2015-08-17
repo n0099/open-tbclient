@@ -1,25 +1,17 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
-
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.FloatingPersonalChatActivityConfig;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ad implements com.baidu.tieba.im.g<Void> {
-    private final /* synthetic */ CustomMessage bbX;
-    final /* synthetic */ ab buL;
+public class ad implements Runnable {
+    final /* synthetic */ FloatingPersonalChatView bIP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(ab abVar, CustomMessage customMessage) {
-        this.buL = abVar;
-        this.bbX = customMessage;
+    public ad(FloatingPersonalChatView floatingPersonalChatView) {
+        this.bIP = floatingPersonalChatView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.g
-    /* renamed from: d */
-    public void onReturnDataInUI(Void r5) {
-        ((FloatingPersonalChatActivityConfig) this.bbX.getData()).getIntent().setClass(((FloatingPersonalChatActivityConfig) this.bbX.getData()).getContext(), FloatingPersonalChatActivity.class);
-        if (((FloatingPersonalChatActivityConfig) this.bbX.getData()).getUserData().getUserIdLong() != 0) {
-            ((FloatingPersonalChatActivityConfig) this.bbX.getData()).startActivity();
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Xx().dx(false);
+        this.bIP.Yo();
     }
 }

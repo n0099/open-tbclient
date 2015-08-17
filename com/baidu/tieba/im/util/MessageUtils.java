@@ -7,17 +7,14 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.c.a;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.memorycache.c;
+import com.baidu.tieba.im.memorycache.b;
 import com.baidu.tieba.im.message.RequestPersonalMsgReadMessage;
 import com.baidu.tieba.im.message.chat.GroupChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class MessageUtils {
-    public static void createChatMessage(int i, String str, int i2) {
-    }
-
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3) {
-        createPersonalChatMessage(c.TE().I(String.valueOf(j), 2), i, str, j, str2, str3);
+        createPersonalChatMessage(b.Vl().L(String.valueOf(j), 2), i, str, j, str2, str3);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3) {
@@ -44,7 +41,7 @@ public class MessageUtils {
             userData2.setPortrait(TbadkCoreApplication.getCurrentPortrait());
             personalChatMessage.setUserInfo(userData2);
             try {
-                j3 = com.baidu.adp.lib.g.c.c(TbadkCoreApplication.getCurrentAccount(), 0L);
+                j3 = com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
             } catch (Exception e) {
                 j3 = 0;
             }
@@ -55,12 +52,12 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             personalChatMessage.setLocalData(msgLocalData);
-            a.UL().n(personalChatMessage);
+            a.Ws().n(personalChatMessage);
         }
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(c.TE().I(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(b.Vl().L(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createGroupChatMessage(long j, int i, String str, long j2) {
@@ -81,7 +78,7 @@ public class MessageUtils {
             userData.setPortrait(TbadkCoreApplication.getCurrentPortrait());
             groupChatMessage.setUserInfo(userData);
             try {
-                j3 = com.baidu.adp.lib.g.c.c(TbadkCoreApplication.getCurrentAccount(), 0L);
+                j3 = com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
             } catch (Exception e) {
                 j3 = 0;
             }
@@ -92,16 +89,16 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             groupChatMessage.setLocalData(msgLocalData);
-            a.UL().n(groupChatMessage);
+            a.Ws().n(groupChatMessage);
         }
     }
 
     public static void sendHasReadMessage(String str, int i) {
-        ImMessageCenterPojo D;
-        if (!StringUtils.isNull(str) && i == 2 && (D = c.TE().D(str, 2)) != null) {
-            long pulled_msgId = D.getPulled_msgId();
-            if (pulled_msgId > D.getSent_msgId()) {
-                RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(h.ah(pulled_msgId), Long.parseLong(str));
+        ImMessageCenterPojo G;
+        if (!StringUtils.isNull(str) && i == 2 && (G = b.Vl().G(str, 2)) != null) {
+            long pulled_msgId = G.getPulled_msgId();
+            if (pulled_msgId > G.getSent_msgId()) {
+                RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(g.aq(pulled_msgId), Long.parseLong(str));
                 if (!MessageManager.getInstance().getSocketClient().a(requestPersonalMsgReadMessage)) {
                     MessageManager.getInstance().sendMessage(requestPersonalMsgReadMessage);
                 }

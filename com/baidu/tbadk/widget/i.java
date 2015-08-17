@@ -1,66 +1,62 @@
 package com.baidu.tbadk.widget;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.gif.GiftGifView;
-import com.baidu.tieba.r;
-import com.baidu.tieba.t;
-import com.baidu.tieba.u;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class i implements DialogInterface.OnCancelListener, View.OnClickListener {
-    private Dialog atm;
-    private LinearLayout atn;
-    private GiftGifView ato;
-    private Activity mActivity;
-    private ProgressDialog mWaitingDialog;
+public class i extends ImageSpan {
+    private WeakReference<Drawable> Fe;
 
-    public i(Activity activity) {
-        this.mActivity = activity;
-        init();
+    public i(Drawable drawable) {
+        super(drawable);
     }
 
-    private void init() {
-        this.atm = Ej();
-        this.atn = (LinearLayout) this.atm.findViewById(com.baidu.tieba.q.gift_gif_ll);
-        this.ato = (GiftGifView) this.atm.findViewById(com.baidu.tieba.q.gift_gif_view);
-        this.atn.setOnClickListener(this);
-        this.ato.setOnClickListener(this);
-        this.ato.setAutoPlay(true);
-        this.ato.setPlayCallback(new j(this));
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        Drawable mG = mG();
+        if (mG == null) {
+            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+        }
+        Rect bounds = mG.getBounds();
+        if (fontMetricsInt != null) {
+            Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+            int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+            int i4 = bounds.bottom - bounds.top;
+            int i5 = (i4 / 2) - (i3 / 4);
+            int i6 = (i3 / 4) + (i4 / 2);
+            fontMetricsInt.ascent = -i6;
+            fontMetricsInt.top = -i6;
+            fontMetricsInt.bottom = i5;
+            fontMetricsInt.descent = i5;
+        }
+        return bounds.right;
     }
 
-    public void play(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-            aVar.alt = str;
-            aVar.alv = str;
-            this.ato.setIsHide(false);
-            this.ato.a(aVar);
-            this.mWaitingDialog = com.baidu.adp.lib.util.n.a(this.mActivity, this.mActivity.getString(t.loading), this);
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable mG = mG();
+        if (mG != null) {
+            canvas.save();
+            canvas.translate(f, (((i5 - i3) - mG.getBounds().bottom) / 2) + i3);
+            mG.draw(canvas);
+            canvas.restore();
         }
     }
 
-    private Dialog Ej() {
-        Dialog dialog = new Dialog(this.mActivity, u.dialog_full_screen);
-        dialog.setContentView(r.gif_play_dialog);
-        dialog.setOnDismissListener(new k(this));
-        return dialog;
-    }
-
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.ato.Ak();
-        com.baidu.adp.lib.g.k.b(this.atm, this.mActivity);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.ato.stop();
-        com.baidu.adp.lib.g.k.b(this.atm, this.mActivity);
+    private Drawable mG() {
+        WeakReference<Drawable> weakReference = this.Fe;
+        Drawable drawable = null;
+        if (weakReference != null) {
+            drawable = weakReference.get();
+        }
+        if (drawable == null) {
+            Drawable drawable2 = getDrawable();
+            this.Fe = new WeakReference<>(drawable2);
+            return drawable2;
+        }
+        return drawable;
     }
 }

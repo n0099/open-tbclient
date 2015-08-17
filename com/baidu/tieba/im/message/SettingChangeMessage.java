@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class SettingChangeMessage extends CustomResponsedMessage<Integer> {
     public static final int TYPE_GROUP = 1;
@@ -8,6 +9,6 @@ public class SettingChangeMessage extends CustomResponsedMessage<Integer> {
     public static final int TYPE_PERSONAL = 3;
 
     public SettingChangeMessage(int i) {
-        super(2016011);
+        super(CmdConfigCustom.MEMORY_SETTING_CHANGE);
     }
 }

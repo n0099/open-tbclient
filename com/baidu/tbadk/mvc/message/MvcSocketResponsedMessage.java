@@ -1,21 +1,21 @@
 package com.baidu.tbadk.mvc.message;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.cache.t;
+import com.baidu.adp.lib.cache.o;
 import com.baidu.adp.lib.util.b;
-import com.baidu.adp.lib.util.y;
+import com.baidu.adp.lib.util.q;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.b.a;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tbadk.mvc.b.e;
-import com.baidu.tbadk.mvc.b.k;
+import com.baidu.tbadk.mvc.b.j;
 import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
 import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
 /* loaded from: classes.dex */
-public abstract class MvcSocketResponsedMessage<D extends k, M extends Message> extends TbSocketReponsedMessage {
+public abstract class MvcSocketResponsedMessage<D extends j, M extends Message> extends TbSocketReponsedMessage {
     private D data;
 
     protected abstract Class<M> getProtobufResponseIdlClass();
@@ -25,7 +25,7 @@ public abstract class MvcSocketResponsedMessage<D extends k, M extends Message> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         boolean z;
         List<Field> a;
@@ -34,7 +34,7 @@ public abstract class MvcSocketResponsedMessage<D extends k, M extends Message> 
         if (a2 == null || a2.size() <= 0) {
             z = false;
         } else {
-            Object a3 = y.a(parseFrom, a2.get(0));
+            Object a3 = q.a(parseFrom, a2.get(0));
             if (a3 instanceof Error) {
                 Error error = (Error) a3;
                 setError(error.errorno.intValue());
@@ -43,7 +43,7 @@ public abstract class MvcSocketResponsedMessage<D extends k, M extends Message> 
             z = true;
         }
         if (!z && (a = b.a(parseFrom, tbclient.Error.class)) != null && a.size() > 0) {
-            Object a4 = y.a(parseFrom, a.get(0));
+            Object a4 = q.a(parseFrom, a.get(0));
             if (a4 instanceof tbclient.Error) {
                 tbclient.Error error2 = (tbclient.Error) a4;
                 setError(error2.errorno.intValue());
@@ -57,7 +57,7 @@ public abstract class MvcSocketResponsedMessage<D extends k, M extends Message> 
             } else if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                 obj = createData(((MvcNetMessage) getOrginalMessage().getExtra()).getResponseDataClass());
             }
-            if (obj instanceof k) {
+            if (obj instanceof j) {
                 this.data = (D) obj;
                 this.data.a(parseFrom);
             }
@@ -68,7 +68,7 @@ public abstract class MvcSocketResponsedMessage<D extends k, M extends Message> 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         e eVar;
-        t<byte[]> V;
+        o<byte[]> U;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && bArr != null) {
             if (getOrginalMessage() instanceof MvcSocketMessage) {
@@ -88,10 +88,10 @@ public abstract class MvcSocketResponsedMessage<D extends k, M extends Message> 
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String AK = eVar.AK();
+                String CD = eVar.CD();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(AK) && bArr != null && (V = a.rI().V(AK, currentAccount)) != null) {
-                    V.f(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(CD) && bArr != null && (U = a.sM().U(CD, currentAccount)) != null) {
+                    U.f(cacheKey, bArr);
                 }
             }
         }

@@ -19,7 +19,7 @@ public class ResponseLiveRoomIntroMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         QueryLiveGroupByGidAndPidResIdl queryLiveGroupByGidAndPidResIdl = (QueryLiveGroupByGidAndPidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryLiveGroupByGidAndPidResIdl.class);
         setError(queryLiveGroupByGidAndPidResIdl.error.errorno.intValue());
@@ -40,7 +40,7 @@ public class ResponseLiveRoomIntroMessage extends SocketResponsedMessage {
     }
 
     private void parseData(LiveGroupInfo liveGroupInfo, LiveCardData liveCardData) {
-        liveCardData.setAuthorId(liveGroupInfo.authorId.intValue());
+        liveCardData.setAuthorId(liveGroupInfo.authorId.longValue());
         liveCardData.setAuthorName(liveGroupInfo.authorName);
         liveCardData.setBackground(liveGroupInfo.background);
         liveCardData.setCreateTime(liveGroupInfo.createTime.intValue());
@@ -53,7 +53,7 @@ public class ResponseLiveRoomIntroMessage extends SocketResponsedMessage {
         liveCardData.setListeners(liveGroupInfo.listeners.intValue());
         liveCardData.setName(liveGroupInfo.name);
         liveCardData.setPortrait(liveGroupInfo.portrait);
-        liveCardData.setPublisherId(liveGroupInfo.publisherId.intValue());
+        liveCardData.setPublisherId(liveGroupInfo.publisherId.longValue());
         liveCardData.setPublisherName(liveGroupInfo.publisherName);
         liveCardData.setPublisherPortrait(liveGroupInfo.publisherPortrait);
         liveCardData.setIsVip(liveGroupInfo.isVip.intValue());

@@ -1,17 +1,25 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 /* loaded from: classes.dex */
-class ak implements CustomMessageTask.CustomRunnable<FrsActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<FrsActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), FrsActivity.class);
-            customMessage.getData().startActivity();
+class ak extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ak(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            if (com.baidu.adp.lib.g.b.g(customResponsedMessage.getData().toString(), 1) == 1) {
+                FrsActivityStatic.aVt = false;
+                FrsActivityStatic.aVs = false;
+                return;
+            }
+            FrsActivityStatic.aVu = false;
+            FrsActivityStatic.aVs = false;
         }
-        return null;
     }
 }

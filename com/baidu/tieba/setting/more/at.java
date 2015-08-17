@@ -1,33 +1,22 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.setting.model.MoreModel;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class at extends BaseActivity<SystemHelpSettingActivity>.LoadDataCallBack {
-    final /* synthetic */ SystemHelpSettingActivity cgR;
+class at implements a.b {
+    final /* synthetic */ SystemHelpSettingActivity cyR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public at(SystemHelpSettingActivity systemHelpSettingActivity, BaseActivity baseActivity) {
-        super();
-        this.cgR = systemHelpSettingActivity;
+    public at(SystemHelpSettingActivity systemHelpSettingActivity) {
+        this.cyR = systemHelpSettingActivity;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
-    public void callback(Object... objArr) {
-        bc bcVar;
-        bc bcVar2;
-        Object obj = objArr[0];
-        if (objArr != null && (obj instanceof MoreModel.TaskType)) {
-            if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
-                this.cgR.closeLoadingDialog();
-                bcVar2 = this.cgR.cgP;
-                bcVar2.ajY().setTip("");
-                this.cgR.showToast(com.baidu.tieba.t.systemhelpsetting_clear_cache_success);
-            } else if (obj == MoreModel.TaskType.GET_SIZE) {
-                bcVar = this.cgR.cgP;
-                bcVar.ajY().setTip((String) objArr[1]);
-            }
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tieba.setting.model.j jVar;
+        aVar.dismiss();
+        this.cyR.showLoadingDialog(this.cyR.getPageContext().getString(i.C0057i.deleting));
+        jVar = this.cyR.cyP;
+        jVar.akN();
     }
 }

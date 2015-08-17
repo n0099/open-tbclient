@@ -1,14 +1,14 @@
 package com.baidu.tbadk;
 
-import com.baidu.adp.base.a.c;
+import com.baidu.adp.base.a.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.be;
-import com.baidu.tbadk.core.util.bf;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 /* loaded from: classes.dex */
 public class TiebaDatabase {
     private static TiebaDatabase _instance = new TiebaDatabase();
-    private c mainDB;
-    private c mainSdDB;
+    private b mainDB;
+    private b mainSdDB;
 
     private TiebaDatabase() {
     }
@@ -17,35 +17,35 @@ public class TiebaDatabase {
         return _instance;
     }
 
-    public c getMainDBDatabaseManager() {
-        c cVar;
+    public b getMainDBDatabaseManager() {
+        b bVar;
         if (this.mainDB != null) {
             return this.mainDB;
         }
         synchronized (_instance) {
             if (this.mainDB != null) {
-                cVar = this.mainDB;
+                bVar = this.mainDB;
             } else {
-                this.mainDB = new c(new be(TbadkCoreApplication.m411getInst().getContext()));
-                cVar = this.mainDB;
+                this.mainDB = new b(new at(TbadkCoreApplication.m411getInst().getContext()));
+                bVar = this.mainDB;
             }
         }
-        return cVar;
+        return bVar;
     }
 
-    public c getSdcardMainDBDatabaseManager() {
-        c cVar;
+    public b getSdcardMainDBDatabaseManager() {
+        b bVar;
         if (this.mainSdDB != null) {
             return this.mainSdDB;
         }
         synchronized (_instance) {
             if (this.mainSdDB != null) {
-                cVar = this.mainSdDB;
+                bVar = this.mainSdDB;
             } else {
-                this.mainSdDB = new c(new bf());
-                cVar = this.mainSdDB;
+                this.mainSdDB = new b(new au());
+                bVar = this.mainSdDB;
             }
         }
-        return cVar;
+        return bVar;
     }
 }

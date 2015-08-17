@@ -1,13 +1,10 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
-public interface h extends f {
-    String e(m<?> mVar);
-
-    String f(m<?> mVar);
-
-    void gp();
-
-    void gq();
-
-    void release();
+public class h<T> {
+    public T so;
+    public String tc;
+    public String td;
+    public long te;
+    public long tf;
+    public long tg;
 }

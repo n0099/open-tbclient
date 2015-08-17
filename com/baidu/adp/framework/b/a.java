@@ -14,7 +14,7 @@ public class a extends c<CustomMessage<?>, CustomMessageTask, com.baidu.adp.fram
         super(messageManager);
         this.ql = null;
         this.ql = new com.baidu.adp.framework.client.b(messageManager);
-        this.qq = com.baidu.adp.framework.c.a.eU();
+        this.qq = com.baidu.adp.framework.c.a.eV();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

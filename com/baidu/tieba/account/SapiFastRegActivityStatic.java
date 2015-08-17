@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.atomData.RegisterActivityConfig;
 public class SapiFastRegActivityStatic {
     static {
         com.baidu.tbadk.coreExtra.act.b.checkPassV6Switch();
-        if (!com.baidu.tbadk.coreExtra.act.b.uW()) {
+        if (!com.baidu.tbadk.coreExtra.act.b.wa()) {
             TbadkCoreApplication.m411getInst().RegisterOrUpdateIntent(RegisterActivityConfig.class, SapiFastRegActivity.class);
         }
     }

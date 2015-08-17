@@ -2,15 +2,15 @@ package com.baidu.tieba.account.login;
 
 import android.view.View;
 import android.widget.Button;
-import com.baidu.tieba.q;
+import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnFocusChangeListener {
-    final /* synthetic */ Login2Activity ayN;
+    final /* synthetic */ Login2Activity aGf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Login2Activity login2Activity) {
-        this.ayN = login2Activity;
+        this.aGf = login2Activity;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -26,26 +26,26 @@ public class d implements View.OnFocusChangeListener {
         Button button9;
         if (z) {
             int id = view.getId();
-            if (id == q.edit_vcode) {
-                button7 = this.ayN.ayD;
+            if (id == i.f.edit_vcode) {
+                button7 = this.aGf.aFU;
                 button7.setVisibility(8);
-                button8 = this.ayN.ayC;
+                button8 = this.aGf.aFT;
                 button8.setVisibility(8);
-                button9 = this.ayN.ayE;
+                button9 = this.aGf.aFV;
                 button9.setVisibility(0);
-            } else if (id == q.login_edit_account) {
-                button4 = this.ayN.ayD;
+            } else if (id == i.f.login_edit_account) {
+                button4 = this.aGf.aFU;
                 button4.setVisibility(8);
-                button5 = this.ayN.ayC;
+                button5 = this.aGf.aFT;
                 button5.setVisibility(0);
-                button6 = this.ayN.ayE;
+                button6 = this.aGf.aFV;
                 button6.setVisibility(8);
-            } else if (id == q.login_edit_password) {
-                button = this.ayN.ayD;
+            } else if (id == i.f.login_edit_password) {
+                button = this.aGf.aFU;
                 button.setVisibility(0);
-                button2 = this.ayN.ayC;
+                button2 = this.aGf.aFT;
                 button2.setVisibility(8);
-                button3 = this.ayN.ayE;
+                button3 = this.aGf.aFV;
                 button3.setVisibility(8);
             }
         }

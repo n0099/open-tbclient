@@ -5,9 +5,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class t extends CustomMessageListener {
+    final /* synthetic */ DiscoverDelegateStatic aLw;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(DiscoverDelegateStatic discoverDelegateStatic, int i) {
         super(i);
+        this.aLw = discoverDelegateStatic;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,9 +20,9 @@ class t extends CustomMessageListener {
         ImageView imageView;
         Boolean bool;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007004 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
-            DiscoverDelegateStatic.aDX = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).amQ);
-            imageView = DiscoverDelegateStatic.aDW;
-            bool = DiscoverDelegateStatic.aDX;
+            this.aLw.aLu = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).auC);
+            imageView = this.aLw.aLt;
+            bool = this.aLw.aLu;
             imageView.setVisibility(bool.booleanValue() ? 0 : 8);
         }
     }

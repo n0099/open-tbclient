@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public abstract class FragmentStatePagerAdapter extends PagerAdapter {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "FragmentStatePagerAdapter";
     private final FragmentManager mFragmentManager;
     private FragmentTransaction mCurTransaction = null;
     private ArrayList<Fragment.SavedState> mSavedState = new ArrayList<>();
@@ -142,7 +140,7 @@ public abstract class FragmentStatePagerAdapter extends PagerAdapter {
                         fragment.setMenuVisibility(false);
                         this.mFragments.set(parseInt, fragment);
                     } else {
-                        Log.w(TAG, "Bad fragment at key " + str);
+                        Log.w("FragmentStatePagerAdapter", "Bad fragment at key " + str);
                     }
                 }
             }

@@ -36,9 +36,12 @@ public final class UserPermission extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<UserPermission> {
+    public static final class Builder extends Message.Builder<UserPermission> {
         public Integer isGroupManager;
         public Integer isGroupOwner;
+
+        public Builder() {
+        }
 
         public Builder(UserPermission userPermission) {
             super(userPermission);

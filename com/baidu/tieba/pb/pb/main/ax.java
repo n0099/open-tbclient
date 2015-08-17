@@ -1,16 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class ax implements Runnable {
-    final /* synthetic */ PbActivity bKU;
+class ax extends CustomMessageListener {
+    final /* synthetic */ PbActivity cbo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(PbActivity pbActivity) {
-        this.bKU = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ax(PbActivity pbActivity, int i) {
+        super(i);
+        this.cbo = pbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.bKU.praiseStopTime = System.currentTimeMillis();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ListAdapter adapter = this.cbo.getListView().getAdapter();
+        if (adapter != null && (adapter instanceof BaseAdapter)) {
+            ((BaseAdapter) adapter).notifyDataSetChanged();
+        }
     }
 }

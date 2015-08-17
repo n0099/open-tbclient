@@ -1,40 +1,43 @@
 package com.baidu.tieba.pb.pb.main;
+
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.tbadkCore.ad;
 /* loaded from: classes.dex */
-class ba implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bKU;
+class ba implements ad.a {
+    final /* synthetic */ PbActivity cbo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(PbActivity pbActivity) {
-        this.bKU = pbActivity;
+        this.cbo = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        bo boVar;
-        ch chVar;
-        ch chVar2;
-        ch chVar3;
-        bo boVar2;
-        ch chVar4;
-        this.bKU.KE();
-        boVar = this.bKU.bKw;
-        com.baidu.tbadk.core.data.q abv = boVar.abv();
-        chVar = this.bKU.bKA;
-        int pageNum = chVar.getPageNum();
-        if (pageNum <= 0) {
-            this.bKU.showToast(com.baidu.tieba.t.pb_page_error);
-        } else if (abv == null || pageNum <= abv.qN()) {
-            chVar2 = this.bKU.bKA;
-            chVar2.acx();
-            this.bKU.stopVoice();
-            chVar3 = this.bKU.bKA;
-            chVar3.acg();
-            boVar2 = this.bKU.bKw;
-            chVar4 = this.bKU.bKA;
-            boVar2.hA(chVar4.getPageNum());
-            aVar.dismiss();
-        } else {
-            this.bKU.showToast(com.baidu.tieba.t.pb_page_error);
+    @Override // com.baidu.tieba.tbadkCore.ad.a
+    public void fU(String str) {
+        com.baidu.tieba.tbadkCore.ad adVar;
+        bk bkVar;
+        this.cbo.aTc = false;
+        adVar = this.cbo.aTo;
+        if (adVar != null) {
+            bkVar = this.cbo.caL;
+            com.baidu.tieba.pb.a.b pbData = bkVar.getPbData();
+            if (pbData.acH().getPraise().getIsLike() == 1) {
+                this.cbo.fd(0);
+            } else {
+                this.cbo.fd(1);
+            }
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.acH()));
+        }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.ad.a
+    public void bF(String str) {
+        com.baidu.tieba.tbadkCore.ad adVar;
+        this.cbo.aTc = false;
+        adVar = this.cbo.aTo;
+        if (adVar != null && str != null) {
+            this.cbo.showToast(str);
         }
     }
 }

@@ -12,7 +12,7 @@ public class ViewConfigurationCompat {
     }
 
     /* loaded from: classes.dex */
-    class BaseViewConfigurationVersionImpl implements ViewConfigurationVersionImpl {
+    static class BaseViewConfigurationVersionImpl implements ViewConfigurationVersionImpl {
         BaseViewConfigurationVersionImpl() {
         }
 
@@ -23,7 +23,7 @@ public class ViewConfigurationCompat {
     }
 
     /* loaded from: classes.dex */
-    class FroyoViewConfigurationVersionImpl implements ViewConfigurationVersionImpl {
+    static class FroyoViewConfigurationVersionImpl implements ViewConfigurationVersionImpl {
         FroyoViewConfigurationVersionImpl() {
         }
 

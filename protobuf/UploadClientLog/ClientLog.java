@@ -54,11 +54,14 @@ public final class ClientLog extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<ClientLog> {
+    public static final class Builder extends Message.Builder<ClientLog> {
         public String et;
         public String net;
         public Integer process_type;
         public Integer pushcnt;
+
+        public Builder() {
+        }
 
         public Builder(ClientLog clientLog) {
             super(clientLog);

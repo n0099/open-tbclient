@@ -1,39 +1,58 @@
 package com.baidu.tieba.pb.c;
 
-import com.baidu.adp.base.f;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.pb.c.a.c;
+import com.baidu.tieba.pb.c.a.d;
+import com.baidu.tieba.pb.c.a.f;
+import com.baidu.tieba.pb.c.a.g;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FinePbPage.Content;
 /* loaded from: classes.dex */
-public class a extends f {
-    private b bKf;
-    private String filename;
+public class a {
+    private ArrayList<d> rM = new ArrayList<>();
 
-    public a(BaseActivity baseActivity) {
-        super(baseActivity.getPageContext());
-        this.bKf = null;
-        this.filename = null;
+    public ArrayList<d> getData() {
+        return this.rM;
     }
 
-    public boolean il(String str) {
-        this.filename = str;
-        return LoadData();
-    }
-
-    @Override // com.baidu.adp.base.f
-    protected boolean LoadData() {
-        if (this.bKf != null) {
-            this.bKf.cancel();
+    public void a(TbPageContext<?> tbPageContext, List<Content> list) {
+        if (list != null && !list.isEmpty()) {
+            g gVar = null;
+            for (Content content : list) {
+                if (content != null && content.type != null) {
+                    if (a(content)) {
+                        c a = f.a(tbPageContext, content);
+                        if (a != null) {
+                            if (a.afB()) {
+                                if (gVar != null) {
+                                    this.rM.add(gVar);
+                                }
+                                this.rM.add(a);
+                                gVar = null;
+                            } else {
+                                g gVar2 = gVar == null ? new g() : gVar;
+                                gVar2.d(a.afA());
+                                gVar = gVar2;
+                            }
+                        }
+                    } else {
+                        if (gVar != null) {
+                            this.rM.add(gVar);
+                        }
+                        this.rM.add(f.c(content));
+                        gVar = null;
+                    }
+                }
+            }
+            if (gVar != null) {
+                this.rM.add(gVar);
+            }
         }
-        this.bKf = new b(this, this.filename);
-        this.bKf.execute(new Object[0]);
-        return true;
     }
 
-    @Override // com.baidu.adp.base.f
-    public boolean cancelLoadData() {
-        if (this.bKf != null) {
-            this.bKf.cancel();
-            return true;
-        }
-        return true;
+    private boolean a(Content content) {
+        long longValue = content.type.longValue();
+        return longValue == 2 || longValue == 0 || longValue == 1;
     }
 }

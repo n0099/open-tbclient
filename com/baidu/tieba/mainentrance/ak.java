@@ -6,18 +6,21 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.coreExtra.search.ResponseSearchFriendMessage;
 import com.baidu.tbadk.data.SearchFriendResult;
+import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 class ak extends HttpMessageListener {
-    final /* synthetic */ SquareSearchActivity bCF;
+    final /* synthetic */ SquareSearchActivity bQZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak(SquareSearchActivity squareSearchActivity, int i) {
         super(i);
-        this.bCF = squareSearchActivity;
+        this.bQZ = squareSearchActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,37 +28,35 @@ class ak extends HttpMessageListener {
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
         ResponseSearchFriendMessage responseSearchFriendMessage;
         HttpMessage httpMessage;
-        com.baidu.tbadk.core.view.x xVar;
         boolean z;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001521) {
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
-            if ((httpResponsedMessage instanceof ResponseSearchFriendMessage) && (responseSearchFriendMessage = (ResponseSearchFriendMessage) httpResponsedMessage) != null && (httpMessage = (HttpMessage) responseSearchFriendMessage.getOrginalMessage()) != null && httpMessage.getTag() == this.bCF.getUniqueId()) {
+            if ((httpResponsedMessage instanceof ResponseSearchFriendMessage) && (responseSearchFriendMessage = (ResponseSearchFriendMessage) httpResponsedMessage) != null && (httpMessage = (HttpMessage) responseSearchFriendMessage.getOrginalMessage()) != null && httpMessage.getTag() == this.bQZ.getUniqueId()) {
                 if (statusCode == 200 && error == 0 && responseSearchFriendMessage.getSearchFriendResult() != null) {
                     List<SearchFriendResult.UserInfo> userInfo = responseSearchFriendMessage.getSearchFriendResult().getUserInfo();
                     if (userInfo.size() > 0) {
                         SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
                         if (String.valueOf(userInfo2.getUserId()) != null && userInfo2.getUserName() != null) {
-                            z = this.bCF.anT;
+                            z = this.bQZ.avj;
                             if (!z) {
                                 RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = new RequestSearchPersonHistoryWriteMessage();
                                 requestSearchPersonHistoryWriteMessage.setData(userInfo2.getUserName());
-                                this.bCF.anT = true;
-                                this.bCF.sendMessage(requestSearchPersonHistoryWriteMessage);
+                                this.bQZ.avj = true;
+                                this.bQZ.sendMessage(requestSearchPersonHistoryWriteMessage);
                             }
-                            this.bCF.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.bCF.getPageContext().getPageActivity(), String.valueOf(userInfo2.getUserId()), userInfo2.getUserName())));
+                            this.bQZ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.bQZ.getPageContext().getPageActivity(), String.valueOf(userInfo2.getUserId()), userInfo2.getUserName())));
                             return;
                         }
                         return;
                     }
-                    this.bCF.showToast(com.baidu.tieba.t.neterror);
+                    this.bQZ.showToast(i.C0057i.neterror);
                 } else if (TextUtils.isEmpty(httpResponsedMessage.getErrorString())) {
-                    this.bCF.showToast(com.baidu.tieba.t.neterror);
+                    this.bQZ.showToast(i.C0057i.neterror);
                 } else {
-                    this.bCF.showToast(httpResponsedMessage.getErrorString());
-                    this.bCF.Yz();
-                    xVar = this.bCF.mNoDataView;
-                    xVar.setTextOption(com.baidu.tbadk.core.view.ab.cv(com.baidu.tieba.t.text_no_suggest));
+                    this.bQZ.showToast(httpResponsedMessage.getErrorString());
+                    this.bQZ.aaf();
+                    this.bQZ.mNoDataView.setTextOption(NoDataViewFactory.d.cD(i.C0057i.text_no_suggest));
                 }
             }
         }

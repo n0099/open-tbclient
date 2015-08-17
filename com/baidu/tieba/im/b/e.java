@@ -1,39 +1,38 @@
 package com.baidu.tieba.im.b;
 
-import com.baidu.adp.lib.webSocket.l;
+import com.baidu.adp.base.BdBaseApplication;
 import java.util.Map;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements com.baidu.adp.framework.client.socket.link.g {
-    final /* synthetic */ b bnU;
+class e implements com.baidu.adp.framework.client.socket.link.e {
+    final /* synthetic */ b bBH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.bnU = bVar;
+        this.bBH = bVar;
     }
 
-    @Override // com.baidu.adp.framework.client.socket.link.g
+    @Override // com.baidu.adp.framework.client.socket.link.e
     public boolean k(int i, String str) {
-        this.bnU.stop();
+        this.bBH.stop();
         return false;
     }
 
-    @Override // com.baidu.adp.framework.client.socket.link.g
-    public void c(Map<String, String> map) {
-        this.bnU.start();
-        com.baidu.adp.lib.stats.f.hz().a("lc_con", (String) null, (String) null, l.jI().jQ(), 0, (String) null, "dns", Long.valueOf(l.jI().jF()), "ip", l.jI().jE(), "net", com.baidu.adp.lib.stats.f.hz().hC(), "localdns", l.jI().jm(), "localdnsbak", l.jI().jn());
-        com.baidu.adp.framework.client.socket.i.et().b(map);
+    @Override // com.baidu.adp.framework.client.socket.link.e
+    public void b(Map<String, String> map) {
+        this.bBH.start();
+        com.baidu.adp.lib.stats.a.hk().a("lc_con", (String) null, com.baidu.adp.lib.webSocket.h.jB().jI(), 0, (String) null, "dns", Long.valueOf(com.baidu.adp.lib.webSocket.h.jB().jy()), "ip", com.baidu.adp.lib.webSocket.h.jB().jx(), "net", com.baidu.adp.lib.stats.g.getNetType(BdBaseApplication.getInst()), "localdns", com.baidu.adp.lib.webSocket.h.jB().jg(), "localdnsbak", com.baidu.adp.lib.webSocket.h.jB().jh());
+        com.baidu.adp.framework.client.socket.g.eu().a(map);
     }
 
-    @Override // com.baidu.adp.framework.client.socket.link.g
-    public void e(byte[] bArr) {
+    @Override // com.baidu.adp.framework.client.socket.link.e
+    public void s(byte[] bArr) {
     }
 
-    @Override // com.baidu.adp.framework.client.socket.link.g
+    @Override // com.baidu.adp.framework.client.socket.link.e
     public void a(com.baidu.adp.lib.webSocket.c cVar) {
     }
 
-    @Override // com.baidu.adp.framework.client.socket.link.g
-    public void J(String str) {
+    @Override // com.baidu.adp.framework.client.socket.link.e
+    public void I(String str) {
     }
 }

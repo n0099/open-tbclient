@@ -1,26 +1,26 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tieba.i;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bg implements View.OnClickListener {
-    final /* synthetic */ bc bTa;
+public class bg implements View.OnLongClickListener {
+    final /* synthetic */ PersonImageActivity cjP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(bc bcVar) {
-        this.bTa = bcVar;
+    public bg(PersonImageActivity personImageActivity) {
+        this.cjP = personImageActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        bm bmVar;
-        z = this.bTa.bSX;
-        if (!z) {
-            bc bcVar = this.bTa;
-            bmVar = this.bTa.bSS;
-            bcVar.pageNum = bmVar.getData().Zq().qP() + 1;
-            this.bTa.bSX = true;
-            this.bTa.aeA();
-        }
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        c.b bVar;
+        String[] strArr = {this.cjP.getPageContext().getString(i.C0057i.save)};
+        PersonImageActivity personImageActivity = this.cjP;
+        bVar = this.cjP.bLx;
+        personImageActivity.createListMenu(strArr, bVar);
+        this.cjP.showListMenu();
+        return false;
     }
 }

@@ -1,8 +1,78 @@
 package com.baidu.adp.lib.cache;
+
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes.dex */
-public class v<T> {
-    public String key;
-    public T ss;
-    public long tj;
-    public long tz;
+public class v {
+    private final com.baidu.adp.base.a.b sP;
+
+    public v(Context context, com.baidu.adp.base.a.b bVar) {
+        this.sP = bVar;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [50=4] */
+    public i ae(String str) {
+        Cursor cursor;
+        try {
+            cursor = this.sP.dL().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+        } catch (Throwable th) {
+            th = th;
+            cursor = null;
+        }
+        try {
+        } catch (Throwable th2) {
+            th = th2;
+            try {
+                this.sP.a(th, "get");
+                return null;
+            } finally {
+                com.baidu.adp.lib.g.a.b(cursor);
+            }
+        }
+        if (!cursor.moveToNext()) {
+            com.baidu.adp.lib.g.a.b(cursor);
+            return null;
+        }
+        i iVar = new i();
+        iVar.td = cursor.getString(0);
+        iVar.sQ = cursor.getString(1);
+        iVar.maxSize = cursor.getInt(2);
+        iVar.th = cursor.getString(3);
+        iVar.ti = cursor.getInt(4);
+        iVar.tj = cursor.getLong(5);
+        return iVar;
+    }
+
+    public void a(i iVar) {
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("nameSpace", iVar.td);
+            contentValues.put("tableName", iVar.sQ);
+            contentValues.put("maxSize", Integer.valueOf(iVar.maxSize));
+            contentValues.put("cacheVersion", Integer.valueOf(iVar.ti));
+            contentValues.put("cacheType", iVar.th);
+            contentValues.put("lastActiveTime", Long.valueOf(iVar.tj));
+            SQLiteDatabase dL = this.sP.dL();
+            if (dL != null && dL.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{iVar.td}) == 0) {
+                dL.insert("cache_meta_info", null, contentValues);
+            }
+        } catch (Throwable th) {
+            this.sP.a(th, "addOrUpdate");
+        }
+    }
+
+    public int af(String str) {
+        try {
+            if (ae(str) == null) {
+                return 0;
+            }
+            return this.sP.dL().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+        } catch (Throwable th) {
+            this.sP.a(th, WriteImageActivityConfig.DELET_FLAG);
+            return 0;
+        }
+    }
 }

@@ -1,17 +1,23 @@
 package com.baidu.tieba.write.selectpoi;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.SearchLocationActivityConfig;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class f implements CustomMessageTask.CustomRunnable<SearchLocationActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<SearchLocationActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), SearchLocationActivity.class);
-            customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra(com.baidu.tbadk.core.frameworkData.c.REQUEST_CODE, 0));
+class f implements View.OnClickListener {
+    final /* synthetic */ SearchLocationActivity cRE;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(SearchLocationActivity searchLocationActivity) {
+        this.cRE = searchLocationActivity;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (!com.baidu.adp.lib.util.k.jf()) {
+            this.cRE.showToast(i.C0057i.no_network_guide);
+        } else if (!StringUtils.isNull(this.cRE.aka())) {
+            this.cRE.auf();
         }
-        return null;
     }
 }

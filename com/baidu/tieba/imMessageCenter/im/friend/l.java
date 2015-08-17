@@ -1,44 +1,22 @@
 package com.baidu.tieba.imMessageCenter.im.friend;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.relationship.GetContactListResponsedMessage;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l extends CustomMessageListener {
-    final /* synthetic */ InviteFriendListActivity bvB;
+public class l implements Runnable {
+    final /* synthetic */ k bJt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l(InviteFriendListActivity inviteFriendListActivity, int i) {
-        super(i);
-        this.bvB = inviteFriendListActivity;
+    public l(k kVar) {
+        this.bJt = kVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        AtomicBoolean atomicBoolean;
-        t tVar;
-        t tVar2;
-        if (customResponsedMessage instanceof GetContactListResponsedMessage) {
-            this.bvB.isLoaded = true;
-            atomicBoolean = this.bvB.bvz;
-            atomicBoolean.set(false);
-            InviteFriendListActivity inviteFriendListActivity = this.bvB;
-            tVar = this.bvB.bvu;
-            inviteFriendListActivity.hideLoadingView(tVar.getRootView());
-            List<com.baidu.tbadk.coreExtra.relationship.a> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
-            if (contacts == null) {
-                contacts = new LinkedList<>();
-            }
-            this.bvB.bvw = contacts;
-            tVar2 = this.bvB.bvu;
-            if (tVar2 != null) {
-                this.bvB.Xa();
-            }
+    @Override // java.lang.Runnable
+    public void run() {
+        InviteFriendListActivity inviteFriendListActivity;
+        InviteFriendListActivity inviteFriendListActivity2;
+        inviteFriendListActivity = this.bJt.bJs;
+        if (!inviteFriendListActivity.isFinishing()) {
+            inviteFriendListActivity2 = this.bJt.bJs;
+            inviteFriendListActivity2.finish();
         }
     }
 }

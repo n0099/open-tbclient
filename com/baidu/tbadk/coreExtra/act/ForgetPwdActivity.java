@@ -4,9 +4,10 @@ import android.os.Bundle;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
-    private SapiWebView abp;
+    private SapiWebView ags;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -14,19 +15,19 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        setContentView(com.baidu.tieba.r.layout_sapi_webview_forget_pwd);
-        uX();
+        setContentView(i.g.layout_sapi_webview_forget_pwd);
+        wb();
     }
 
-    protected void uX() {
-        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.q.view_navigation_bar);
+    protected void wb() {
+        this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new i(this));
-        this.mNavigationBar.setTitleText(getPageContext().getString(com.baidu.tieba.t.sapi_forget_password_title));
-        this.abp = (SapiWebView) findViewById(com.baidu.tieba.q.sapi_webview);
-        com.baidu.tbadk.core.a.f.a(getPageContext().getPageActivity(), this.abp);
-        this.abp.setOnBackCallback(new j(this));
-        this.abp.setOnFinishCallback(new k(this));
-        this.abp.loadForgetPwd();
+        this.mNavigationBar.setTitleText(getPageContext().getString(i.C0057i.sapi_forget_password_title));
+        this.ags = (SapiWebView) findViewById(i.f.sapi_webview);
+        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.ags);
+        this.ags.setOnBackCallback(new j(this));
+        this.ags.setOnFinishCallback(new k(this));
+        this.ags.loadForgetPwd();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -2,51 +2,32 @@ package com.baidu.tieba.pb.pb.sub;
 
 import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.tbadk.core.view.MorePopupWindow;
+import com.baidu.tieba.pb.b.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements View.OnTouchListener {
-    final /* synthetic */ s bPU;
+public class aa implements c.a {
+    final /* synthetic */ t cgt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(s sVar) {
-        this.bPU = sVar;
+    public aa(t tVar) {
+        this.cgt = tVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        MorePopupWindow morePopupWindow;
-        MorePopupWindow morePopupWindow2;
-        MorePopupWindow morePopupWindow3;
-        MorePopupWindow morePopupWindow4;
-        MorePopupWindow morePopupWindow5;
-        MorePopupWindow morePopupWindow6;
-        MorePopupWindow morePopupWindow7;
-        MorePopupWindow morePopupWindow8;
-        int x = (int) motionEvent.getX();
-        int y = (int) motionEvent.getY();
-        morePopupWindow = this.bPU.bKE;
-        if (morePopupWindow.getContentView() == null) {
-            return false;
-        }
-        morePopupWindow2 = this.bPU.bKE;
-        int top = morePopupWindow2.getContentView().getTop();
-        morePopupWindow3 = this.bPU.bKE;
-        int right = morePopupWindow3.getContentView().getRight();
-        morePopupWindow4 = this.bPU.bKE;
-        int bottom = morePopupWindow4.getContentView().getBottom();
-        if (motionEvent.getAction() == 4 && x > right && y > top && y < bottom) {
-            morePopupWindow6 = this.bPU.bKE;
-            if (morePopupWindow6.isShowing()) {
-                morePopupWindow7 = this.bPU.bKE;
-                morePopupWindow7.dismiss();
-                morePopupWindow8 = this.bPU.bKE;
-                morePopupWindow8.setIsIntercepted(true);
-                return true;
-            }
-        }
-        morePopupWindow5 = this.bPU.bKE;
-        morePopupWindow5.setIsIntercepted(false);
+    @Override // com.baidu.tieba.pb.b.c.a
+    public boolean a(View view, MotionEvent motionEvent) {
+        this.cgt.ev(false);
+        this.cgt.Z(view);
+        this.cgt.ev(true);
+        return true;
+    }
+
+    @Override // com.baidu.tieba.pb.b.c.a
+    public boolean b(View view, MotionEvent motionEvent) {
         return false;
+    }
+
+    @Override // com.baidu.tieba.pb.b.c.a
+    public boolean c(View view, MotionEvent motionEvent) {
+        return true;
     }
 }

@@ -4,12 +4,12 @@ import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
-public class a extends com.baidu.tbadk.mvc.j.a<Object, com.baidu.tbadk.mvc.e.c> {
+public class a extends com.baidu.tbadk.mvc.g.a<Object, com.baidu.tbadk.mvc.d.b> {
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ab
+    @Override // com.baidu.tieba.tbadkCore.r
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.f.a.a(tbPageContext, getRootView());
         return true;

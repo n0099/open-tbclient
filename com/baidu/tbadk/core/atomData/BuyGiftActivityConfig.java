@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class BuyGiftActivityConfig extends c {
+public class BuyGiftActivityConfig extends IntentConfig {
     public static final String GIFT_RECEIVER_ID = "gift_receiver_id";
 
     public BuyGiftActivityConfig(Context context, long j) {

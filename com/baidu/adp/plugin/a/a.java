@@ -57,8 +57,6 @@ public interface a {
 
     void a(Activity activity, CharSequence charSequence);
 
-    void a(Intent intent, int i);
-
     void a(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4);
 
     void a(IntentSender intentSender, Intent intent, int i, int i2, int i3);
@@ -72,8 +70,6 @@ public interface a {
     void a(View view, ViewGroup.LayoutParams layoutParams);
 
     void a(WindowManager.LayoutParams layoutParams);
-
-    void a(CharSequence charSequence, int i);
 
     void a(String str, boolean z, Bundle bundle, boolean z2);
 
@@ -91,19 +87,21 @@ public interface a {
 
     boolean a(AccessibilityEvent accessibilityEvent);
 
-    View al(int i);
-
-    void am(int i);
-
-    SharedPreferences an(int i);
+    View an(int i);
 
     void ao(int i);
 
-    void ap(int i);
+    SharedPreferences ap(int i);
 
     void aq(int i);
 
     void ar(int i);
+
+    void as(int i);
+
+    void at(int i);
+
+    void b(Intent intent, int i);
 
     void b(Bundle bundle);
 
@@ -113,11 +111,11 @@ public interface a {
 
     void b(CharSequence charSequence);
 
+    void b(CharSequence charSequence, int i);
+
     boolean b(int i, KeyEvent keyEvent);
 
     boolean b(int i, Menu menu);
-
-    boolean b(Intent intent, int i);
 
     boolean b(Bitmap bitmap, Canvas canvas);
 
@@ -125,9 +123,9 @@ public interface a {
 
     boolean b(MenuItem menuItem);
 
-    Object bi(String str);
+    boolean b(MotionEvent motionEvent);
 
-    void c(int i, int i2);
+    Object bb(String str);
 
     void c(int i, Menu menu);
 
@@ -136,6 +134,8 @@ public interface a {
     void c(Bundle bundle);
 
     boolean c(int i, KeyEvent keyEvent);
+
+    boolean c(Intent intent, int i);
 
     boolean c(Menu menu);
 
@@ -147,63 +147,77 @@ public interface a {
 
     boolean d(MotionEvent motionEvent);
 
+    void e(int i, int i2);
+
     void e(Bundle bundle);
 
     boolean e(MotionEvent motionEvent);
 
-    boolean f(MotionEvent motionEvent);
-
     Activity getActivity();
 
-    c kN();
+    c kG();
 
-    void kO();
+    void kH();
 
-    void kP();
+    void kI();
 
-    void kQ();
+    void kJ();
 
-    Context kR();
+    Context kK();
 
-    ComponentName kS();
+    ComponentName kL();
 
-    String kT();
+    String kM();
+
+    int kN();
+
+    View kO();
+
+    Intent kP();
+
+    LayoutInflater kQ();
+
+    String kR();
+
+    MenuInflater kS();
+
+    int kT();
 
     int kU();
 
-    View kV();
+    int kV();
 
-    Intent kW();
+    int kW();
 
-    LayoutInflater kX();
+    Window kX();
 
-    String kY();
+    WindowManager kY();
 
-    MenuInflater kZ();
+    boolean kZ();
 
-    int la();
+    boolean la();
 
-    int lb();
+    boolean lb();
 
-    int lc();
+    void lc();
 
-    int ld();
+    void ld();
 
-    Window le();
+    void le();
 
-    WindowManager lf();
+    void lf();
 
-    boolean lg();
+    void lg();
 
-    boolean lh();
+    void lh();
 
-    boolean li();
+    void li();
 
     void lj();
 
-    void lk();
+    Object lk();
 
-    void ll();
+    boolean ll();
 
     void lm();
 
@@ -212,20 +226,6 @@ public interface a {
     void lo();
 
     void lp();
-
-    void lq();
-
-    Object lr();
-
-    boolean ls();
-
-    void lt();
-
-    void lu();
-
-    void lv();
-
-    void lw();
 
     void m(Activity activity);
 

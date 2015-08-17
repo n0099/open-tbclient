@@ -14,7 +14,7 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
     private final int tag;
 
     /* loaded from: classes.dex */
-    public final class Builder<T extends ExtendableMessage<?>, E> {
+    public static final class Builder<T extends ExtendableMessage<?>, E> {
         private final Message.Datatype datatype;
         private final Class<? extends ProtoEnum> enumType;
         private final Class<T> extendedType;

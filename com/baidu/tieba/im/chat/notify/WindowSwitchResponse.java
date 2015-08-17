@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.chat.notify;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class WindowSwitchResponse extends CustomResponsedMessage<Object> {
     public static final int KEY_TYPE_CHAT = 1;
@@ -17,7 +18,7 @@ public class WindowSwitchResponse extends CustomResponsedMessage<Object> {
     }
 
     public WindowSwitchResponse() {
-        super(2001257);
+        super(CmdConfigCustom.CMD_FLOAT_WINDOW_SWITCH_CHANGED);
         this.isOpen = false;
     }
 

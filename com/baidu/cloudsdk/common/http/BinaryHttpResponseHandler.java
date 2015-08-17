@@ -7,6 +7,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpResponseException;
+import org.apache.http.entity.mime.MIME;
 import org.apache.http.util.EntityUtils;
 /* loaded from: classes.dex */
 public class BinaryHttpResponseHandler extends HttpResponseHandler {
@@ -41,7 +42,7 @@ public class BinaryHttpResponseHandler extends HttpResponseHandler {
         boolean z = true;
         byte[] bArr = null;
         StatusLine statusLine = httpResponse.getStatusLine();
-        Header[] headers = httpResponse.getHeaders("Content-Type");
+        Header[] headers = httpResponse.getHeaders(MIME.CONTENT_TYPE);
         if (headers.length != 1) {
             sendFailureMessage((Throwable) new HttpResponseException(statusLine.getStatusCode(), "None or more than one Content-Type Header found!"), (byte[]) null);
             return;

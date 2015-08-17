@@ -5,25 +5,25 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    protected f vb = new f();
-    protected g vc = new g();
-    private LinkedList<d> vd = new LinkedList<>();
+    protected f uX = new f();
+    protected g uY = new g();
+    private LinkedList<d> uZ = new LinkedList<>();
 
-    public f gY() {
-        return this.vb;
+    public f gS() {
+        return this.uX;
     }
 
-    public g gZ() {
-        return this.vc;
+    public g gT() {
+        return this.uY;
     }
 
-    public List<d> ha() {
-        return Collections.unmodifiableList(this.vd);
+    public List<d> gU() {
+        return Collections.unmodifiableList(this.uZ);
     }
 
     public void a(d dVar) {
         if (dVar != null) {
-            this.vd.add(dVar);
+            this.uZ.add(dVar);
         }
     }
 }

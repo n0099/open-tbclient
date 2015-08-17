@@ -1,11 +1,11 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.f;
+import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class LoginPassV6SwitchStatic extends a {
     static {
-        f.gD().l(LoginPassV6SwitchStatic.class);
+        e.gy().e(LoginPassV6SwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

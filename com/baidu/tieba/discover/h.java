@@ -2,33 +2,33 @@ package com.baidu.tieba.discover;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.core.util.bi;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements com.baidu.tbadk.coreExtra.view.b {
-    final /* synthetic */ a aDT;
-    private final /* synthetic */ String aDV;
+public class h implements BannerView.a {
+    final /* synthetic */ a aLq;
+    private final /* synthetic */ String aLs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar, String str) {
-        this.aDT = aVar;
-        this.aDV = str;
+        this.aLq = aVar;
+        this.aLs = str;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.b
-    public void xL() {
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void yU() {
         BdListView bdListView;
         BannerView bannerView;
-        bdListView = this.aDT.aDC;
-        bannerView = this.aDT.aDF;
+        bdListView = this.aLq.aKZ;
+        bannerView = this.aLq.aLc;
         bdListView.removeHeaderView(bannerView);
     }
 
-    @Override // com.baidu.tbadk.coreExtra.view.b
-    public void xK() {
-        if (!StringUtils.isNull(this.aDV)) {
-            bi.tO().b(this.aDT.getPageContext(), new String[]{this.aDV});
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void yT() {
+        if (!StringUtils.isNull(this.aLs)) {
+            ax.uR().b(this.aLq.getPageContext(), new String[]{this.aLs});
         }
     }
 }

@@ -41,7 +41,7 @@ public class OrmMapping {
         OrmJson,
         OrmUnknown;
 
-        /* JADX DEBUG: Replace access to removed values field (Cm) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (BW) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static OrmType[] valuesCustom() {
             OrmType[] valuesCustom = values();

@@ -1,9 +1,11 @@
 package com.baidu.tbadk.coreExtra.act;
 
+import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.AccountData;
+import java.util.List;
 /* loaded from: classes.dex */
 public interface l {
-    void a(com.baidu.tbadk.core.a.b bVar);
+    void a(a.InterfaceC0040a interfaceC0040a);
 
     void h(AccountData accountData);
 
@@ -11,7 +13,9 @@ public interface l {
 
     void j(AccountData accountData);
 
-    AccountData sj();
+    AccountData tq();
 
-    void va();
+    void we();
+
+    List<AccountData> wf();
 }

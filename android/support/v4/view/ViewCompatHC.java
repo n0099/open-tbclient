@@ -5,9 +5,6 @@ import android.graphics.Paint;
 import android.view.View;
 /* loaded from: classes.dex */
 class ViewCompatHC {
-    ViewCompatHC() {
-    }
-
     /* JADX INFO: Access modifiers changed from: package-private */
     public static long getFrameTime() {
         return ValueAnimator.getFrameDelay();

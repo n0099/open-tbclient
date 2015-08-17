@@ -4,19 +4,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 class i extends com.baidu.tieba.im.h<Boolean> {
-    private final /* synthetic */ UserData bbU;
-    final /* synthetic */ PersonalChatActivity brV;
+    final /* synthetic */ PersonalChatActivity bFJ;
+    private final /* synthetic */ UserData bpP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(PersonalChatActivity personalChatActivity, UserData userData) {
-        this.brV = personalChatActivity;
-        this.bbU = userData;
+        this.bFJ = personalChatActivity;
+        this.bpP = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.im.h
     public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tieba.im.settingcache.j.UR().aK(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.bbU.getUserId())));
+        return Boolean.valueOf(com.baidu.tieba.im.settingcache.j.Wy().aK(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.bpP.getUserId())));
     }
 }

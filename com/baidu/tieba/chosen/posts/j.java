@@ -1,33 +1,37 @@
 package com.baidu.tieba.chosen.posts;
 
-import com.baidu.adp.lib.util.n;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.y;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-class j implements y {
-    final /* synthetic */ e aDg;
+class j implements a.b {
+    final /* synthetic */ h aKE;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aKF;
+    private final /* synthetic */ int val$position;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(e eVar) {
-        this.aDg = eVar;
+    public j(h hVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
+        this.aKE = hVar;
+        this.aKF = aVar;
+        this.val$position = i;
     }
 
-    @Override // com.baidu.adp.widget.ListView.y
-    public void s(BdListView bdListView) {
-        com.baidu.tbadk.mvc.k.a aVar;
-        com.baidu.tbadk.mvc.k.a aVar2;
-        com.baidu.tbadk.mvc.k.a aVar3;
-        if (n.isNetOk()) {
-            this.aDg.bg(false);
-            return;
-        }
-        aVar = this.aDg.aoz;
-        if (aVar != null) {
-            aVar2 = this.aDg.aoz;
-            aVar2.CR();
-            aVar3 = this.aDg.aoz;
-            aVar3.ee(t.no_more_msg);
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        e eVar;
+        a aVar2;
+        e eVar2;
+        ChosenPostActivity chosenPostActivity;
+        e eVar3;
+        ChosenPostActivity chosenPostActivity2;
+        this.aKF.dismiss();
+        eVar = this.aKE.aKD;
+        aVar2 = eVar.aKy;
+        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4101, null, null, null);
+        bVar.setExtra(aVar2.getItem(this.val$position));
+        eVar2 = this.aKE.aKD;
+        chosenPostActivity = eVar2.aKw;
+        bVar.setUniqueId(chosenPostActivity.getUniqueId());
+        eVar3 = this.aKE.aKD;
+        chosenPostActivity2 = eVar3.aKw;
+        chosenPostActivity2.oH().dispatchMvcEvent(bVar);
     }
 }

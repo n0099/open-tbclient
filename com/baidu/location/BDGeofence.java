@@ -10,7 +10,7 @@ public interface BDGeofence {
     public static final int RADIUS_TYPE_SMALL = 1;
 
     /* loaded from: classes.dex */
-    public final class Builder {
+    public static final class Builder {
         private int a;
 
         /* renamed from: for  reason: not valid java name */

@@ -45,7 +45,7 @@ public class ScrollerCompat {
     }
 
     /* loaded from: classes.dex */
-    class ScrollerCompatImplBase implements ScrollerCompatImpl {
+    static class ScrollerCompatImplBase implements ScrollerCompatImpl {
         ScrollerCompatImplBase() {
         }
 
@@ -129,7 +129,7 @@ public class ScrollerCompat {
     }
 
     /* loaded from: classes.dex */
-    class ScrollerCompatImplGingerbread implements ScrollerCompatImpl {
+    static class ScrollerCompatImplGingerbread implements ScrollerCompatImpl {
         ScrollerCompatImplGingerbread() {
         }
 
@@ -215,7 +215,7 @@ public class ScrollerCompat {
     }
 
     /* loaded from: classes.dex */
-    class ScrollerCompatImplIcs extends ScrollerCompatImplGingerbread {
+    static class ScrollerCompatImplIcs extends ScrollerCompatImplGingerbread {
         ScrollerCompatImplIcs() {
         }
 

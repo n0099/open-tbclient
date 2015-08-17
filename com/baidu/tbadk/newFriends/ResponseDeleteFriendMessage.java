@@ -16,7 +16,7 @@ public class ResponseDeleteFriendMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         DeleteFriendResIdl deleteFriendResIdl = (DeleteFriendResIdl) new Wire(new Class[0]).parseFrom(bArr, DeleteFriendResIdl.class);
         setError(deleteFriendResIdl.error.errorno.intValue());

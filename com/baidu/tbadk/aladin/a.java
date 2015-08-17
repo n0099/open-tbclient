@@ -9,28 +9,28 @@ import java.net.ServerSocket;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class a extends Thread {
-    private AladinServer Nk;
-    private ServerSocket Nj = null;
-    private boolean Nl = false;
-    private boolean Nm = false;
-    private int mPort = 6257;
+    private AladinServer RT;
+    private ServerSocket RS = null;
+    private boolean RU = false;
+    private boolean RV = false;
+    private int RW = 6257;
 
     public a(AladinServer aladinServer) {
-        this.Nk = aladinServer;
+        this.RT = aladinServer;
     }
 
     private void init(int i) {
-        this.Nj = new ServerSocket();
-        this.Nj.setReuseAddress(true);
-        this.Nj.setSoTimeout(0);
-        this.Nj.bind(new InetSocketAddress(i));
+        this.RS = new ServerSocket();
+        this.RS.setReuseAddress(true);
+        this.RS.setSoTimeout(0);
+        this.RS.bind(new InetSocketAddress(i));
     }
 
     public void quit() {
-        this.Nm = true;
+        this.RV = true;
         try {
-            if (!this.Nj.isClosed()) {
-                this.Nj.close();
+            if (!this.RS.isClosed()) {
+                this.RS.close();
             }
         } catch (Throwable th) {
         }
@@ -38,18 +38,18 @@ public class a extends Thread {
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
-        this.mPort = com.baidu.tbadk.core.sharedPref.b.sl().getInt("aladin_port", -1);
-        if (this.mPort == -1) {
-            this.mPort = 6257;
+        this.RW = com.baidu.tbadk.core.sharedPref.b.ts().getInt("aladin_port", -1);
+        if (this.RW == -1) {
+            this.RW = 6257;
         }
         try {
-            init(this.mPort);
+            init(this.RW);
             while (true) {
                 try {
-                    this.Nl = true;
-                    Socket accept = this.Nj.accept();
+                    this.RU = true;
+                    Socket accept = this.RS.accept();
                     if (accept != null) {
-                        if (!com.baidu.tbadk.aladin.b.b.a(accept.getInetAddress())) {
+                        if (!com.baidu.tbadk.aladin.b.b.b(accept.getInetAddress())) {
                             try {
                                 if (!accept.isClosed()) {
                                     accept.close();
@@ -57,50 +57,50 @@ public class a extends Thread {
                             } catch (Throwable th) {
                             }
                         } else {
-                            new b(accept, this.Nk, this).start();
+                            new b(accept, this.RT, this).start();
                         }
                     }
                 } catch (Throwable th2) {
                     try {
                         BdLog.detailException(th2);
-                        this.Nl = false;
-                        if (this.Nj != null) {
+                        this.RU = false;
+                        if (this.RS != null) {
                             try {
-                                if (!this.Nj.isClosed()) {
-                                    this.Nj.close();
+                                if (!this.RS.isClosed()) {
+                                    this.RS.close();
                                 }
                             } catch (Throwable th3) {
                                 BdLog.detailException(th3);
                             }
                         }
-                        if (!this.Nm && this.Nk != null) {
+                        if (!this.RV && this.RT != null) {
                             try {
                                 Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            this.Nk.reStartListener();
+                            this.RT.reStartListener();
                             return;
                         }
                         return;
                     } catch (Throwable th4) {
-                        this.Nl = false;
-                        if (this.Nj != null) {
+                        this.RU = false;
+                        if (this.RS != null) {
                             try {
-                                if (!this.Nj.isClosed()) {
-                                    this.Nj.close();
+                                if (!this.RS.isClosed()) {
+                                    this.RS.close();
                                 }
                             } catch (Throwable th5) {
                                 BdLog.detailException(th5);
                             }
                         }
-                        if (!this.Nm && this.Nk != null) {
+                        if (!this.RV && this.RT != null) {
                             try {
                                 Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
                             } catch (InterruptedException e2) {
                                 e2.printStackTrace();
                             }
-                            this.Nk.reStartListener();
+                            this.RT.reStartListener();
                         }
                         throw th4;
                     }
@@ -108,14 +108,14 @@ public class a extends Thread {
             }
         } catch (Throwable th6) {
             BdLog.detailException(th6);
-            TiebaStatic.aladinPortError("", TbErrInfo.ERR_ALADIN_PORT_ERROR, th6.getMessage(), new StringBuilder(String.valueOf(this.mPort)).toString());
-            if (this.Nk != null) {
-                this.Nk.stopSelf();
+            TiebaStatic.aladinPortError(TbErrInfo.ERR_ALADIN_PORT_ERROR, th6.getMessage(), new StringBuilder(String.valueOf(this.RW)).toString());
+            if (this.RT != null) {
+                this.RT.stopSelf();
             }
-            if (this.Nj != null) {
+            if (this.RS != null) {
                 try {
-                    if (!this.Nj.isClosed()) {
-                        this.Nj.close();
+                    if (!this.RS.isClosed()) {
+                        this.RS.close();
                     }
                 } catch (Throwable th7) {
                     BdLog.detailException(th7);
@@ -124,7 +124,7 @@ public class a extends Thread {
         }
     }
 
-    public boolean pg() {
-        return this.Nl;
+    public boolean qg() {
+        return this.RU;
     }
 }

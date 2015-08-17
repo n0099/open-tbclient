@@ -8,39 +8,38 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
+import com.baidu.tieba.i;
 import com.baidu.tieba.selectpoi.NavigationBarActivity;
-import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 public class SelectLocationActivity extends NavigationBarActivity {
-    private BdListView aoy;
-    private ImageView czV;
-    private l czW;
-    private AdapterView.OnItemClickListener czX = new i(this);
-    private CustomMessageListener czY = new j(this, 2002013);
+    private BdListView aKx;
+    private ImageView cRJ;
+    private l cRK;
+    private AdapterView.OnItemClickListener cRL = new i(this);
+    private CustomMessageListener cRM = new j(this, CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(r.select_location_activity);
-        this.aox.setTitleText(t.select_position_title);
-        this.czV = (ImageView) this.aox.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.widget_nb_item_search, (View.OnClickListener) null);
-        this.czV.setOnClickListener(new k(this));
-        this.aoy = (BdListView) findViewById(q.select_position_list);
-        this.czW = new l(this);
-        this.aoy.setAdapter((ListAdapter) this.czW);
-        this.aoy.setOnItemClickListener(this.czX);
-        registerListener(this.czY);
+        setContentView(i.g.select_location_activity);
+        this.aIc.setTitleText(i.C0057i.select_position_title);
+        this.cRJ = (ImageView) this.aIc.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.widget_nb_item_search, (View.OnClickListener) null);
+        this.cRJ.setOnClickListener(new k(this));
+        this.aKx = (BdListView) findViewById(i.f.select_position_list);
+        this.cRK = new l(this);
+        this.aKx.setAdapter((ListAdapter) this.cRK);
+        this.aKx.setOnItemClickListener(this.cRL);
+        registerListener(this.cRM);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.czW.notifyDataSetChanged();
+        this.cRK.notifyDataSetChanged();
     }
 
     @Override // android.app.Activity

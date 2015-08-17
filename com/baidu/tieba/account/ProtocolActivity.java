@@ -4,22 +4,23 @@ import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.i;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
+    private TextView aDG = null;
+    private RelativeLayout aDt = null;
     private NavigationBar mNavigationBar;
-    private TextView awp = null;
-    private RelativeLayout awb = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        setContentView(com.baidu.tieba.r.account_protocol_activity);
+        setContentView(i.g.account_protocol_activity);
         initUI();
     }
 
@@ -34,18 +35,18 @@ public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
     */
     private void initUI() {
         BufferedReader bufferedReader;
-        this.awb = (RelativeLayout) findViewById(com.baidu.tieba.q.container);
-        this.mNavigationBar = (NavigationBar) findViewById(com.baidu.tieba.q.view_navigation_bar);
+        this.aDt = (RelativeLayout) findViewById(i.f.container);
+        this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         NavigationBar navigationBar = this.mNavigationBar;
-        String string = getPageContext().getString(com.baidu.tieba.t.account_protocol);
+        String string = getPageContext().getString(i.C0057i.account_protocol);
         navigationBar.setTitleText(string);
-        this.awp = (TextView) findViewById(com.baidu.tieba.q.text);
+        this.aDG = (TextView) findViewById(i.f.text);
         StringBuilder sb = new StringBuilder(1024);
         ?? r2 = 0;
         try {
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(getResources().openRawResource(com.baidu.tieba.s.baidu_protocol), "unicode"));
+                bufferedReader = new BufferedReader(new InputStreamReader(getResources().openRawResource(i.h.baidu_protocol), "unicode"));
                 while (true) {
                     try {
                         String readLine = bufferedReader.readLine();
@@ -64,7 +65,7 @@ public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
                                 e2.printStackTrace();
                             }
                         }
-                        this.awp.setText(sb.toString());
+                        this.aDG.setText(sb.toString());
                     }
                 }
                 if (bufferedReader != null) {
@@ -95,7 +96,7 @@ public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
             }
             throw th;
         }
-        this.awp.setText(sb.toString());
+        this.aDG.setText(sb.toString());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -103,7 +104,7 @@ public class ProtocolActivity extends BaseActivity<ProtocolActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ay.g(this.awb, i);
-        ay.c(this.awp, i);
+        al.g(this.aDt, i);
+        al.c(this.aDG, i);
     }
 }

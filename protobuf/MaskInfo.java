@@ -72,13 +72,16 @@ public final class MaskInfo extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<MaskInfo> {
+    public static final class Builder extends Message.Builder<MaskInfo> {
         public String maskFids;
         public String maskGids;
         public String maskUids;
         public Integer remindMask;
         public Integer shieldStatus;
         public Long userId;
+
+        public Builder() {
+        }
 
         public Builder(MaskInfo maskInfo) {
             super(maskInfo);

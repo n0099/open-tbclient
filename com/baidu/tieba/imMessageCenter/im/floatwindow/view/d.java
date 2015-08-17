@@ -1,19 +1,21 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
+
+import com.baidu.tieba.imMessageCenter.im.floatwindow.a.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements com.baidu.tieba.imMessageCenter.im.floatwindow.a.h {
-    final /* synthetic */ a bul;
+public class d implements e.a {
+    final /* synthetic */ a bIb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.bul = aVar;
+        this.bIb = aVar;
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.h
-    public void ei(int i) {
+    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.e.a
+    public void en(int i) {
         int i2;
-        a aVar = this.bul;
-        i2 = this.bul.btz;
-        aVar.aa(i2 - i, -1);
+        a aVar = this.bIb;
+        i2 = this.bIb.bHq;
+        aVar.an(i2 - i, -1);
     }
 }

@@ -20,8 +20,8 @@ public final class LiveGroupInfo extends Message {
     public static final String DEFAULT_PUBLISHERPORTRAIT = "";
     public static final String DEFAULT_SIGNATURE = "";
     public static final String DEFAULT_STREAMID = "";
-    @ProtoField(tag = 5, type = Message.Datatype.INT32)
-    public final Integer authorId;
+    @ProtoField(tag = 5, type = Message.Datatype.INT64)
+    public final Long authorId;
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
     public final String authorName;
     @ProtoField(tag = 32)
@@ -70,8 +70,8 @@ public final class LiveGroupInfo extends Message {
     public final String portrait;
     @ProtoField(tag = 23, type = Message.Datatype.STRING)
     public final String portraitId;
-    @ProtoField(tag = 7, type = Message.Datatype.INT32)
-    public final Integer publisherId;
+    @ProtoField(tag = 7, type = Message.Datatype.INT64)
+    public final Long publisherId;
     @ProtoField(tag = 8, type = Message.Datatype.STRING)
     public final String publisherName;
     @ProtoField(tag = 17, type = Message.Datatype.STRING)
@@ -86,9 +86,9 @@ public final class LiveGroupInfo extends Message {
     public final String streamId;
     public static final Integer DEFAULT_STATUS = 0;
     public static final Integer DEFAULT_FORUMID = 0;
-    public static final Integer DEFAULT_AUTHORID = 0;
+    public static final Long DEFAULT_AUTHORID = 0L;
     public static final Integer DEFAULT_GROUPTYPE = 0;
-    public static final Integer DEFAULT_PUBLISHERID = 0;
+    public static final Long DEFAULT_PUBLISHERID = 0L;
     public static final Integer DEFAULT_CREATETIME = 0;
     public static final Integer DEFAULT_GROUPID = 0;
     public static final Integer DEFAULT_DEVICEID = 0;
@@ -299,8 +299,8 @@ public final class LiveGroupInfo extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<LiveGroupInfo> {
-        public Integer authorId;
+    public static final class Builder extends Message.Builder<LiveGroupInfo> {
+        public Long authorId;
         public String authorName;
         public Photo avatar;
         public String background;
@@ -325,13 +325,16 @@ public final class LiveGroupInfo extends Message {
         public String playUrl;
         public String portrait;
         public String portraitId;
-        public Integer publisherId;
+        public Long publisherId;
         public String publisherName;
         public String publisherPortrait;
         public String signature;
         public Integer startTime;
         public Integer status;
         public String streamId;
+
+        public Builder() {
+        }
 
         public Builder(LiveGroupInfo liveGroupInfo) {
             super(liveGroupInfo);

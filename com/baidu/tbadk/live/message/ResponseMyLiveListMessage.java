@@ -2,6 +2,7 @@ package com.baidu.tbadk.live.message;
 
 import com.baidu.adp.framework.message.Message;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.b.a;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.live.data.HotLiveListData;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -22,7 +23,7 @@ public class ResponseMyLiveListMessage extends TbSocketReponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         int i2 = 0;
         QueryLiveGroupsByUidResIdl queryLiveGroupsByUidResIdl = (QueryLiveGroupsByUidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryLiveGroupsByUidResIdl.class);
@@ -41,7 +42,7 @@ public class ResponseMyLiveListMessage extends TbSocketReponsedMessage {
                     if (i3 < queryLiveGroupsByUidResIdl.data.groups.size()) {
                         LiveCardData liveCardData = new LiveCardData();
                         LiveGroupInfo liveGroupInfo = queryLiveGroupsByUidResIdl.data.groups.get(i3);
-                        liveCardData.setAuthorId(liveGroupInfo.authorId.intValue());
+                        liveCardData.setAuthorId(liveGroupInfo.authorId.longValue());
                         liveCardData.setAuthorName(liveGroupInfo.authorName);
                         liveCardData.setBackground(liveGroupInfo.background);
                         liveCardData.setCreateTime(liveGroupInfo.createTime.intValue());
@@ -55,7 +56,7 @@ public class ResponseMyLiveListMessage extends TbSocketReponsedMessage {
                         liveCardData.setListeners(liveGroupInfo.listeners.intValue());
                         liveCardData.setName(liveGroupInfo.name);
                         liveCardData.setPortrait(liveGroupInfo.portrait);
-                        liveCardData.setPublisherId(liveGroupInfo.publisherId.intValue());
+                        liveCardData.setPublisherId(liveGroupInfo.publisherId.longValue());
                         liveCardData.setPublisherName(liveGroupInfo.publisherName);
                         liveCardData.setPublisherPortrait(liveGroupInfo.publisherPortrait);
                         liveCardData.setStartTime(liveGroupInfo.startTime.intValue());
@@ -85,7 +86,7 @@ public class ResponseMyLiveListMessage extends TbSocketReponsedMessage {
             if (currentAccount == null) {
                 currentAccount = "";
             }
-            saveProtocolBufferDataToCache(com.baidu.tbadk.core.b.a.rI().cj("tb.live_hotlist"), "mylive_" + valueOf + currentAccount, bArr);
+            saveProtocolBufferDataToCache(a.sM().cj("tb.live_hotlist"), "mylive_" + valueOf + currentAccount, bArr);
         }
     }
 }

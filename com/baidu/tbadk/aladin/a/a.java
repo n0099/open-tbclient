@@ -1,7 +1,7 @@
 package com.baidu.tbadk.aladin.a;
 /* loaded from: classes.dex */
 public class a {
-    private String Np;
+    private String RZ;
     private String method;
     private String url;
 
@@ -10,7 +10,7 @@ public class a {
         if (str != null && (split = str.split(" ")) != null && split.length == 3) {
             this.method = split[0];
             this.url = split[1];
-            this.Np = split[2];
+            this.RZ = split[2];
         }
     }
 
@@ -26,7 +26,7 @@ public class a {
         this.url = str;
     }
 
-    public String ph() {
-        return this.Np;
+    public String qh() {
+        return this.RZ;
     }
 }

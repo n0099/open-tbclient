@@ -1,5 +1,14 @@
 package com.baidu.adp.base;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public interface k<T> {
-    j<T> getPageContext();
+public interface k {
+    BdUniqueId getUniqueId();
+
+    boolean isScroll();
+
+    void onPreLoad(BdListView bdListView);
+
+    void setIsScroll(boolean z);
 }

@@ -4,12 +4,12 @@ import com.baidu.tbadk.BaseActivity;
 import java.io.Serializable;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class ForumSuggestModel extends com.baidu.adp.base.f implements Serializable {
+public class ForumSuggestModel extends com.baidu.adp.base.e implements Serializable {
     private static final long serialVersionUID = 6239604692561216871L;
     public ArrayList<Forum> forum_list;
 
     /* loaded from: classes.dex */
-    public class Forum extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+    public static class Forum extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 9180642468980325020L;
         public String forum_name = "";
         public int forum_id = 0;
@@ -30,12 +30,12 @@ public class ForumSuggestModel extends com.baidu.adp.base.f implements Serializa
         return (ForumSuggestModel) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(str, ForumSuggestModel.class);
     }
 
-    @Override // com.baidu.adp.base.f
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.f
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         return false;
     }

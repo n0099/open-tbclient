@@ -1,25 +1,25 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.FloatingPersonalChatActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-import java.util.LinkedList;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements CustomMessageTask.CustomRunnable<FloatingPersonalChatActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<FloatingPersonalChatActivityConfig> run(CustomMessage<FloatingPersonalChatActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            FloatingPersonalChatActivityStatic.mUserDataList = customMessage.getData().getUserDataList();
-            UserData userData = customMessage.getData().getUserData();
-            if (userData != null) {
-                LinkedList linkedList = new LinkedList();
-                linkedList.add(String.valueOf(userData.getUserId()));
-                com.baidu.tieba.im.l.a(new ac(this, linkedList), new ad(this, customMessage));
-            }
+class ab implements com.baidu.tieba.im.g<Void> {
+    final /* synthetic */ z bIB;
+    private final /* synthetic */ CustomMessage bpS;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ab(z zVar, CustomMessage customMessage) {
+        this.bIB = zVar;
+        this.bpS = customMessage;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.im.g
+    /* renamed from: d */
+    public void onReturnDataInUI(Void r5) {
+        ((FloatingPersonalChatActivityConfig) this.bpS.getData()).getIntent();
+        if (((FloatingPersonalChatActivityConfig) this.bpS.getData()).getUserData().getUserIdLong() != 0) {
+            ((FloatingPersonalChatActivityConfig) this.bpS.getData()).startActivity(FloatingPersonalChatActivity.class);
         }
-        return null;
     }
 }

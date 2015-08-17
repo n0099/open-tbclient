@@ -1,35 +1,27 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
-import com.baidu.tieba.write.editor.TbEditorToolButtonContainer;
+import android.text.Editable;
+import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class au implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cCQ;
+public class au implements TextWatcher {
+    final /* synthetic */ WriteActivity cUM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(WriteActivity writeActivity) {
-        this.cCQ = writeActivity;
+        this.cUM = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        View view2;
-        cn cnVar;
-        TbEditorToolButtonContainer tbEditorToolButtonContainer;
-        EditorToolComponetContainer editorToolComponetContainer;
-        textView = this.cCQ.cAB;
-        textView.setVisibility(0);
-        view2 = this.cCQ.cAE;
-        view2.setSelected(true);
-        cnVar = this.cCQ.cAC;
-        com.baidu.adp.lib.g.k.showPopupWindowAsDropDown(cnVar, view, 0, com.baidu.adp.lib.util.n.dip2px(this.cCQ.getPageContext().getPageActivity(), 1.0f));
-        tbEditorToolButtonContainer = this.cCQ.cCy;
-        tbEditorToolButtonContainer.anf();
-        editorToolComponetContainer = this.cCQ.cqP;
-        editorToolComponetContainer.hideAll();
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.cUM.auw();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

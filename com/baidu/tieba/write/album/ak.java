@@ -1,24 +1,24 @@
 package com.baidu.tieba.write.album;
 
-import com.baidu.tbadk.img.ImageFileInfo;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ak implements ab {
-    final /* synthetic */ aj czq;
+public class ak implements l {
+    final /* synthetic */ ad cRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ak(aj ajVar) {
-        this.czq = ajVar;
+    public ak(ad adVar) {
+        this.cRf = adVar;
     }
 
-    @Override // com.baidu.tieba.write.album.ab
-    public boolean a(int i, ImageFileInfo imageFileInfo, boolean z) {
-        AlbumActivity albumActivity;
-        AlbumActivity albumActivity2;
-        if (z) {
-            albumActivity2 = this.czq.cya;
-            return albumActivity2.c(imageFileInfo);
-        }
-        albumActivity = this.czq.cya;
-        return albumActivity.d(imageFileInfo);
+    @Override // com.baidu.tieba.write.album.l
+    public void nw() {
+    }
+
+    @Override // com.baidu.tieba.write.album.l
+    public void bm(List<b> list) {
+        m mVar;
+        mVar = this.cRf.cPJ;
+        mVar.bo(list);
     }
 }

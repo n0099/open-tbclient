@@ -10,7 +10,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class b extends a<CustomMessage<?>, CustomMessageTask> {
+public class b extends com.baidu.adp.framework.client.a<CustomMessage<?>, CustomMessageTask> {
     public b(MessageManager messageManager) {
         super(messageManager);
     }
@@ -20,10 +20,10 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
     /* renamed from: a */
     public void sendMessage(CustomMessage customMessage, CustomMessageTask customMessageTask) {
         if (customMessage != null && customMessageTask != null) {
-            if (customMessageTask.fb() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+            if (customMessageTask.getType() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
                 CustomResponsedMessage<?> customResponsedMessage = null;
                 try {
-                    customResponsedMessage = customMessageTask.fa().run(customMessage);
+                    customResponsedMessage = customMessageTask.getRunnable().run(customMessage);
                     if (customResponsedMessage != null) {
                         customResponsedMessage.setOrginalMessage(customMessage);
                     }
@@ -36,16 +36,16 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
                 }
                 return;
             }
-            new c(this, customMessage, customMessageTask).execute(new String[0]);
+            new a(customMessage, customMessageTask).execute(new String[0]);
         }
     }
 
     public <T> CustomResponsedMessage<T> a(CustomMessage customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
         CustomResponsedMessage<T> customResponsedMessage = null;
         if (customMessageTask != null) {
-            if (customMessageTask.fb() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+            if (customMessageTask.getType() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
                 try {
-                    customResponsedMessage = (CustomResponsedMessage<T>) customMessageTask.fa().run(customMessage);
+                    customResponsedMessage = (CustomResponsedMessage<T>) customMessageTask.getRunnable().run(customMessage);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                 }
@@ -53,10 +53,69 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
                     this.od.dispatchResponsedMessage(customResponsedMessage);
                 }
             } else {
-                new c(this, customMessage, customMessageTask).execute(new String[0]);
+                new a(customMessage, customMessageTask).execute(new String[0]);
             }
         }
         return customResponsedMessage;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class a extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
+        private CustomMessage oe;
+        private CustomMessageTask of;
+
+        public CustomMessage dU() {
+            return this.oe;
+        }
+
+        public a(CustomMessage customMessage, CustomMessageTask customMessageTask) {
+            this.oe = null;
+            this.of = null;
+            setPriority(customMessageTask.getPriority());
+            setParallel(customMessageTask.getParallel());
+            setTag(customMessage.getTag());
+            setKey(String.valueOf(customMessageTask.getCmd()));
+            setParallel(customMessageTask.getTaskParallel());
+            if (customMessageTask.isImme()) {
+                setPriority(4);
+            }
+            this.oe = customMessage;
+            this.of = customMessageTask;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public CustomResponsedMessage doInBackground(String... strArr) {
+            if (this.of == null) {
+                return null;
+            }
+            if (this.of.getRunnable() == null) {
+                BdLog.e("CustomTask :" + this.of.getClass().getName() + "did not contain a runnable!!");
+                return null;
+            }
+            try {
+                return this.of.getRunnable().run(this.oe);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+                return null;
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: a */
+        public void onPostExecute(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null) {
+                customResponsedMessage.setOrginalMessage(this.oe);
+                b.this.od.dispatchResponsedMessage(customResponsedMessage);
+                return;
+            }
+            BdLog.e("CustomTask :" + this.of.getClass().getName() + "returns a NULL!!");
+        }
     }
 
     public void removeMessage(BdUniqueId bdUniqueId) {
@@ -69,7 +128,7 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
         if (i != 0) {
             str = String.valueOf(i);
         }
-        c.removeAllTask(bdUniqueId, str);
+        a.removeAllTask(bdUniqueId, str);
     }
 
     public LinkedList<CustomMessage<?>> a(BdUniqueId bdUniqueId) {
@@ -87,8 +146,8 @@ public class b extends a<CustomMessage<?>, CustomMessageTask> {
         Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
         while (it.hasNext()) {
             BdAsyncTask<?, ?, ?> next = it.next();
-            if (next instanceof c) {
-                linkedList.add(((c) next).dT());
+            if (next instanceof a) {
+                linkedList.add(((a) next).dU());
             }
         }
         return linkedList;

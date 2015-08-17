@@ -21,8 +21,11 @@ public final class QueryLiveGroupLikeListReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<QueryLiveGroupLikeListReqIdl> {
+    public static final class Builder extends Message.Builder<QueryLiveGroupLikeListReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(QueryLiveGroupLikeListReqIdl queryLiveGroupLikeListReqIdl) {
             super(queryLiveGroupLikeListReqIdl);

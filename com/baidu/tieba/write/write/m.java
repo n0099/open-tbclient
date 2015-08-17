@@ -1,111 +1,148 @@
 package com.baidu.tieba.write.write;
 
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.TbConfig;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.HashMap;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tieba.i;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class m extends BdAsyncTask<String, Integer, com.baidu.tieba.write.a.b> {
-    private com.baidu.tbadk.core.util.aa aaG;
-    final /* synthetic */ AtListActivity cBu;
-    private String mString;
+public class m extends BaseAdapter {
+    private ArrayList<MetaData> Xe;
+    private AtListActivity cTm;
+    private boolean cTo;
+    private TbCheckBox.a mCheckBoxStateChangedListener;
+    private final Context mContext;
+    private b cTn = null;
+    private ViewGroup bJv = null;
 
-    private m(AtListActivity atListActivity) {
-        this.cBu = atListActivity;
-        this.aaG = null;
-        this.mString = null;
+    /* loaded from: classes.dex */
+    public interface b {
+        void a(View view, MetaData metaData);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ m(AtListActivity atListActivity, m mVar) {
-        this(atListActivity);
+    public void a(b bVar) {
+        this.cTn = bVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        ProgressBar progressBar;
-        progressBar = this.cBu.mProgress;
-        progressBar.setVisibility(0);
-        super.onPreExecute();
+    public m(AtListActivity atListActivity, boolean z) {
+        this.cTo = true;
+        this.cTm = atListActivity;
+        this.mContext = this.cTm.getPageContext().getContext();
+        this.cTo = z;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        this.cBu.cBj = null;
-        this.mString = null;
-        progressBar = this.cBu.mProgress;
-        progressBar.setVisibility(8);
-        super.cancel(true);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setData(ArrayList<MetaData> arrayList) {
+        this.Xe = arrayList;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void setCheckBoxStateChangedListener(TbCheckBox.a aVar) {
+        this.mCheckBoxStateChangedListener = aVar;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        if (this.Xe == null) {
+            return 0;
+        }
+        return this.Xe.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: B */
-    public com.baidu.tieba.write.a.b doInBackground(String... strArr) {
-        com.baidu.tieba.write.b.a aVar;
-        this.mString = strArr[0];
-        this.aaG = new com.baidu.tbadk.core.util.aa();
-        if (this.mString != null && this.mString.length() > 0) {
-            this.aaG.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/sug");
-            this.aaG.o("uid", TbadkCoreApplication.getCurrentAccount());
-            this.aaG.o("q", this.mString);
-            String sw = this.aaG.sw();
-            if (this.aaG.sX().tT().qa()) {
-                com.baidu.tieba.write.a.b bVar = new com.baidu.tieba.write.a.b();
-                aVar = this.cBu.cBl;
-                com.baidu.tieba.write.a.a asn = aVar.asn();
-                if (asn != null) {
-                    bVar.a(sw, asn.asd());
-                    return bVar;
-                }
-                bVar.a(sw, (HashMap<String, String>) null);
-                return bVar;
-            }
+    @Override // android.widget.Adapter
+    /* renamed from: kw */
+    public MetaData getItem(int i) {
+        if (this.Xe != null && i < this.Xe.size()) {
+            return this.Xe.get(i);
         }
         return null;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public void onPostExecute(com.baidu.tieba.write.a.b bVar) {
-        ProgressBar progressBar;
-        EditText editText;
-        com.baidu.tieba.write.b.a aVar;
-        o oVar;
-        o oVar2;
-        BdListView bdListView;
-        this.cBu.cBj = null;
-        progressBar = this.cBu.mProgress;
-        progressBar.setVisibility(8);
-        if (this.aaG.sX().tT().qa() && this.mString != null) {
-            editText = this.cBu.mEditText;
-            if (com.baidu.adp.lib.util.m.a(editText.getText(), "").equals(this.mString)) {
-                if (bVar == null || bVar.ase().isEmpty()) {
-                    this.cBu.jA(1);
-                } else {
-                    this.cBu.jA(0);
-                }
-                aVar = this.cBu.cBl;
-                aVar.a(bVar);
-                oVar = this.cBu.cBm;
-                oVar.setData(bVar.ase());
-                oVar2 = this.cBu.cBm;
-                oVar2.notifyDataSetInvalidated();
-                bdListView = this.cBu.mListView;
-                bdListView.setSelection(0);
-                super.onPostExecute(bVar);
-            }
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return 0L;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        a aVar;
+        if (this.bJv == null) {
+            this.bJv = viewGroup;
         }
-        this.cBu.showToast(this.aaG.getErrorString());
-        super.onPostExecute(bVar);
+        MetaData item = getItem(i);
+        if (item != null) {
+            aVar = a(view != null ? view.getTag() : null, item);
+        } else {
+            aVar = null;
+        }
+        if (aVar != null) {
+            return aVar.rootView;
+        }
+        return null;
+    }
+
+    private a a(Object obj, MetaData metaData) {
+        a aVar;
+        int skinType = TbadkCoreApplication.m411getInst().getSkinType();
+        if (obj == null) {
+            aVar = auI();
+        } else {
+            aVar = (a) obj;
+        }
+        if (this.cTn != null) {
+            this.cTn.a(aVar.rootView, metaData);
+        }
+        String portrait = metaData.getPortrait();
+        aVar.aII.setText(metaData.getName_show());
+        aVar.bJx.setTagData(metaData);
+        aVar.bJb.setTag(portrait);
+        if (this.cTo) {
+            aVar.bJx.setVisibility(0);
+        } else {
+            aVar.bJx.setVisibility(8);
+        }
+        aVar.bJb.d(portrait, 12, false);
+        this.cTm.getPageContext().getLayoutMode().ad(skinType == 1);
+        this.cTm.getPageContext().getLayoutMode().k(aVar.rootView);
+        return aVar;
+    }
+
+    private a auI() {
+        a aVar = new a(this, null);
+        aVar.rootView = LayoutInflater.from(this.mContext).inflate(i.g.invite_friend_list_item, (ViewGroup) null);
+        aVar.bJb = (HeadImageView) aVar.rootView.findViewById(i.f.photo);
+        aVar.bJb.setIsRound(false);
+        aVar.aII = (TextView) aVar.rootView.findViewById(i.f.txt_user_name);
+        aVar.bJx = (TbCheckBox) aVar.rootView.findViewById(i.f.ckb_select);
+        if (this.mCheckBoxStateChangedListener != null) {
+            aVar.bJx.setStatedChangedListener(this.mCheckBoxStateChangedListener);
+        }
+        aVar.rootView.setTag(aVar);
+        return aVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class a {
+        public TextView aII;
+        public HeadImageView bJb;
+        public TbCheckBox bJx;
+        public View rootView;
+
+        private a() {
+        }
+
+        /* synthetic */ a(m mVar, a aVar) {
+            this();
+        }
     }
 }

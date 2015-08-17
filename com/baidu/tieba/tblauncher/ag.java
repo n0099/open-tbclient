@@ -3,18 +3,19 @@ package com.baidu.tieba.tblauncher;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import protobuf.GetOnlineInfo.Game;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
-public class ag implements CustomMessageTask.CustomRunnable<Game> {
+class ag implements CustomMessageTask.CustomRunnable<Integer> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Game> customMessage) {
-        if (customMessage == null) {
-            return null;
+    public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
+        if (customMessage != null && (customMessage instanceof NewMsgArriveRequestMessage)) {
+            int intValue = ((NewMsgArriveRequestMessage) customMessage).getData().intValue();
+            if (intValue == 2) {
+                MainTabActivity.cLK = true;
+            }
+            return new NewMsgArriveResponsedMessage(intValue);
         }
-        if (customMessage.getData() != null) {
-            MainTabActivityStatic.cvZ = customMessage.getData();
-        }
-        return new CustomResponsedMessage<>(2001258);
+        return null;
     }
 }

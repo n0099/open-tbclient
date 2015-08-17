@@ -7,20 +7,36 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class UserPhotoLayout extends LinearLayout implements AbsListView.RecyclerListener {
     private boolean mAutoChangeStyle;
-    private ax mChildClickListener;
+    private b mChildClickListener;
     private int mChildCount;
     private Context mContext;
     private List<MetaData> mDatas;
     private int mItemSize;
     private int mNormalShowCount;
     private int mPadding;
-    private ay mTbRecyclerListener;
+    private c mTbRecyclerListener;
     private com.baidu.adp.lib.e.b<HeadImageView> mUserPhotoPool;
+
+    /* loaded from: classes.dex */
+    public interface b {
+        void onChildClickCallback(int i);
+    }
+
+    /* loaded from: classes.dex */
+    public interface d {
+        ListView getListView();
+
+        int vI();
+
+        com.baidu.adp.lib.e.b<HeadImageView> vJ();
+    }
 
     public void setAutoChangeStyle(boolean z) {
         this.mAutoChangeStyle = z;
@@ -55,29 +71,29 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mAutoChangeStyle = true;
         this.mNormalShowCount = 6;
         this.mContext = context;
-        this.mPadding = com.baidu.adp.lib.util.n.dip2px(this.mContext, this.mPadding);
-        this.mItemSize = (int) this.mContext.getResources().getDimension(com.baidu.tieba.o.ds60);
-        if (this.mContext instanceof az) {
-            az azVar = (az) this.mContext;
-            this.mUserPhotoPool = azVar.uF();
-            if (azVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new ay(azVar.uE());
-                azVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
+        this.mPadding = com.baidu.adp.lib.util.k.dip2px(this.mContext, this.mPadding);
+        this.mItemSize = (int) this.mContext.getResources().getDimension(i.d.ds60);
+        if (this.mContext instanceof d) {
+            d dVar = (d) this.mContext;
+            this.mUserPhotoPool = dVar.vJ();
+            if (dVar.getListView() != null && this.mTbRecyclerListener == null) {
+                this.mTbRecyclerListener = new c(dVar.vI());
+                dVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
-        setOnHierarchyChangeListener(new au(this));
+        setOnHierarchyChangeListener(new ag(this));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        view.setOnClickListener(new aw(this, getChildCount() - 1, null));
+        view.setOnClickListener(new a(this, getChildCount() - 1, null));
     }
 
     @Override // android.view.ViewGroup
     public void addView(View view, int i) {
         super.addView(view, i);
-        view.setOnClickListener(new aw(this, getChildCount() - 1, null));
+        view.setOnClickListener(new a(this, getChildCount() - 1, null));
     }
 
     public void setData(List<MetaData> list, boolean z) {
@@ -97,7 +113,7 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
             imageView.setAutoChangeStyle(this.mAutoChangeStyle);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             addView(imageView);
-            imageView.c(this.mDatas.get(i).getPortrait(), 12, false);
+            imageView.d(this.mDatas.get(i).getPortrait(), 12, false);
         }
         requestLayout();
         invalidate();
@@ -152,8 +168,29 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
     }
 
-    public void setOnChildClickListener(ax axVar) {
-        this.mChildClickListener = axVar;
+    public void setOnChildClickListener(b bVar) {
+        this.mChildClickListener = bVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class a implements View.OnClickListener {
+        private final int mIndex;
+
+        private a(int i) {
+            this.mIndex = i;
+        }
+
+        /* synthetic */ a(UserPhotoLayout userPhotoLayout, int i, a aVar) {
+            this(i);
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (UserPhotoLayout.this.mChildClickListener != null) {
+                UserPhotoLayout.this.mChildClickListener.onChildClickCallback(this.mIndex);
+            }
+        }
     }
 
     public void reset() {
@@ -169,18 +206,32 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
     }
 
-    public static com.baidu.adp.lib.e.b<HeadImageView> createUserPhotoPool(Context context, int i) {
-        return new com.baidu.adp.lib.e.b<>(new av(context), i, 0);
-    }
-
     private HeadImageView getImageView(Context context) {
         HeadImageView headImageView = null;
         if (this.mUserPhotoPool != null) {
-            headImageView = this.mUserPhotoPool.hj();
+            headImageView = this.mUserPhotoPool.ha();
         }
         if (headImageView == null || headImageView.getParent() != null) {
             return new HeadImageView(context);
         }
         return headImageView;
+    }
+
+    /* loaded from: classes.dex */
+    private static class c implements AbsListView.RecyclerListener {
+        private int mId;
+
+        public c(int i) {
+            this.mId = 0;
+            this.mId = i;
+        }
+
+        @Override // android.widget.AbsListView.RecyclerListener
+        public void onMovedToScrapHeap(View view) {
+            View findViewById = view.findViewById(this.mId);
+            if (findViewById != null && (findViewById instanceof UserPhotoLayout)) {
+                ((UserPhotoLayout) findViewById).reset();
+            }
+        }
     }
 }

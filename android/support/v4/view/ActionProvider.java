@@ -7,7 +7,6 @@ import android.view.SubMenu;
 import android.view.View;
 /* loaded from: classes.dex */
 public abstract class ActionProvider {
-    private static final String TAG = "ActionProvider(support)";
     private final Context mContext;
     private SubUiVisibilityListener mSubUiVisibilityListener;
     private VisibilityListener mVisibilityListener;
@@ -73,7 +72,7 @@ public abstract class ActionProvider {
 
     public void setVisibilityListener(VisibilityListener visibilityListener) {
         if (this.mVisibilityListener != null && visibilityListener != null) {
-            Log.w(TAG, "setVisibilityListener: Setting a new ActionProvider.VisibilityListener when one is already set. Are you reusing this " + getClass().getSimpleName() + " instance while it is still in use somewhere else?");
+            Log.w("ActionProvider(support)", "setVisibilityListener: Setting a new ActionProvider.VisibilityListener when one is already set. Are you reusing this " + getClass().getSimpleName() + " instance while it is still in use somewhere else?");
         }
         this.mVisibilityListener = visibilityListener;
     }

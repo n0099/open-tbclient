@@ -1,25 +1,42 @@
 package com.baidu.tieba.im.memorycache;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.message.h> {
-    final /* synthetic */ af bmW;
-    private final /* synthetic */ ImMessageCenterPojo bme;
+public class ag extends CustomMessageListener {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(af afVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.bmW = afVar;
-        this.bme = imMessageCenterPojo;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ag(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+        super(i);
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tieba.im.message.h> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            com.baidu.tieba.im.db.k.Rw().a(this.bme);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        MemoryClearUnreadCountMessage.a data;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016006 && (customResponsedMessage instanceof MemoryClearUnreadCountMessage) && (data = ((MemoryClearUnreadCountMessage) customResponsedMessage).getData()) != null) {
+            ImMessageCenterPojo G = b.Vl().G(data.id, data.customGroupType);
+            if (G == null) {
+                BdLog.e("ClearUnreadCountMessage:  not find memery pojo");
+            } else if (G.getUnread_count() != 0) {
+                b.Vl().J(data.id, data.customGroupType);
+                CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new ah(this));
+                customMessageTask.setParallel(TiebaIMConfig.getParallel());
+                customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+                customMessageTask.setPriority(4);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2001000, data), customMessageTask);
+            }
         }
-        return null;
     }
 }

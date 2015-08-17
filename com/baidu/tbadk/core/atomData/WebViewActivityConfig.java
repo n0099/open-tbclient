@@ -3,15 +3,15 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
-import com.baidu.adp.lib.util.n;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bb;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class WebViewActivityConfig extends c {
+public class WebViewActivityConfig extends IntentConfig {
     public static final String TAG_COOKIE = "tag_cookie";
     public static final String TAG_ENABLE_JS = "tag_enable_js";
     public static final String TAG_NAV_BAR = "tag_navigation_bar";
@@ -44,19 +44,19 @@ public class WebViewActivityConfig extends c {
         setIntentAction(IntentAction.Activity);
     }
 
-    @Override // com.baidu.tbadk.core.frameworkData.c
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean isValid() {
         if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-            n.showToast(getContext(), getContext().getString(t.web_view_corrupted));
+            k.showToast(getContext(), getContext().getString(i.C0057i.web_view_corrupted));
             return false;
         }
         return true;
     }
 
     public static String addTiebaParams(String str) {
-        if (!bb.isEmpty(str)) {
+        if (!aq.isEmpty(str)) {
             if (str.indexOf("_client_version=") < 0) {
-                if (bb.isEmpty(Uri.parse(str).getQuery())) {
+                if (aq.isEmpty(Uri.parse(str).getQuery())) {
                     str = String.valueOf(str) + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     str = String.valueOf(str) + "&_client_version=" + TbConfig.getVersion();

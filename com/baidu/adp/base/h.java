@@ -1,21 +1,31 @@
 package com.baidu.adp.base;
 
-import android.view.View;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.message.NetMessage;
 /* loaded from: classes.dex */
-class h implements Runnable {
-    private View mView;
-    final /* synthetic */ g nv;
+public interface h<T> {
+    Context getContext();
 
-    public h(g gVar, View view) {
-        this.nv = gVar;
-        this.mView = null;
-        this.mView = view;
-    }
+    T getOrignalPage();
 
-    @Override // java.lang.Runnable
-    public void run() {
-        if (this.nv.mContext != null && this.nv.mContext.getPageActivity() != null && !this.nv.mContext.getPageActivity().isFinishing()) {
-            this.nv.ShowSoftKeyPad(this.mView);
-        }
-    }
+    Activity getPageActivity();
+
+    Resources getResources();
+
+    String getString(int i);
+
+    BdUniqueId getUniqueId();
+
+    void registerListener(MessageListener<?> messageListener);
+
+    void registerListener(com.baidu.adp.framework.listener.a aVar);
+
+    void sendMessage(Message<?> message);
+
+    void sendMessage(NetMessage netMessage);
 }

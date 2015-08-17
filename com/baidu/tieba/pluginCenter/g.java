@@ -1,57 +1,35 @@
 package com.baidu.tieba.pluginCenter;
 
-import android.content.DialogInterface;
-import android.view.KeyEvent;
-import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.i;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class g implements DialogInterface.OnKeyListener {
-    final /* synthetic */ PluginDownloadActivity bXt;
+public class g implements a.b {
+    final /* synthetic */ PluginDetailActivity coj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(PluginDownloadActivity pluginDownloadActivity) {
-        this.bXt = pluginDownloadActivity;
+    public g(PluginDetailActivity pluginDetailActivity) {
+        this.coj = pluginDetailActivity;
     }
 
-    @Override // android.content.DialogInterface.OnKeyListener
-    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-        boolean z;
-        i iVar;
-        i iVar2;
-        LinearLayout linearLayout;
-        i iVar3;
-        LinearLayout linearLayout2;
-        i iVar4;
-        LinearLayout linearLayout3;
-        i iVar5;
-        LinearLayout linearLayout4;
-        i iVar6;
-        LinearLayout linearLayout5;
-        z = this.bXt.bXs;
-        if (!z) {
-            iVar = this.bXt.bXr;
-            iVar.dismiss();
-            return true;
-        } else if (i == 4 && keyEvent.getAction() == 1) {
-            iVar2 = this.bXt.bXr;
-            linearLayout = iVar2.avE;
-            if (linearLayout.getVisibility() == 0) {
-                iVar5 = this.bXt.bXr;
-                linearLayout4 = iVar5.avE;
-                linearLayout4.setVisibility(8);
-                iVar6 = this.bXt.bXr;
-                linearLayout5 = iVar6.bXu;
-                linearLayout5.setVisibility(0);
-                return true;
-            }
-            iVar3 = this.bXt.bXr;
-            linearLayout2 = iVar3.avE;
-            linearLayout2.setVisibility(0);
-            iVar4 = this.bXt.bXr;
-            linearLayout3 = iVar4.bXu;
-            linearLayout3.setVisibility(8);
-            return true;
-        } else {
-            return false;
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        TextView textView;
+        TextView textView2;
+        PluginNetConfigInfos.PluginConfig pluginConfig;
+        com.baidu.adp.plugin.packageManager.d dVar;
+        textView = this.coj.cog;
+        al.b(textView, i.c.cp_cont_d, 1);
+        textView2 = this.coj.cog;
+        textView2.setEnabled(false);
+        PluginPackageManager lT = PluginPackageManager.lT();
+        pluginConfig = this.coj.coh;
+        dVar = this.coj.DA;
+        lT.a(pluginConfig, dVar);
+        aVar.dismiss();
     }
 }

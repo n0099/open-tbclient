@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class PbChosenActivityConfig extends c {
+public class PbChosenActivityConfig extends IntentConfig {
     public static final String KEY_FROM = "from";
     public static final String KEY_SHARE_URL = "share_url";
     public static final String KEY_TID = "ftid";

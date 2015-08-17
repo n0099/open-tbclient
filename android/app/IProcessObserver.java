@@ -13,7 +13,7 @@ public interface IProcessObserver extends IInterface {
     void onProcessDied(int i, int i2);
 
     /* loaded from: classes.dex */
-    public abstract class Stub extends Binder implements IProcessObserver {
+    public static abstract class Stub extends Binder implements IProcessObserver {
         private static final String DESCRIPTOR = "android.app.IProcessObserver";
         static final int TRANSACTION_onForegroundActivitiesChanged = 1;
         static final int TRANSACTION_onImportanceChanged = 2;
@@ -63,7 +63,7 @@ public interface IProcessObserver extends IInterface {
         }
 
         /* loaded from: classes.dex */
-        class Proxy implements IProcessObserver {
+        private static class Proxy implements IProcessObserver {
             private IBinder mRemote;
 
             Proxy(IBinder iBinder) {

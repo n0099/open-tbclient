@@ -1,32 +1,30 @@
 package com.baidu.tieba.tbadkCore;
 
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.PraiseData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ FrsCommonImageLayout coY;
+public class j implements View.OnClickListener {
+    final /* synthetic */ FrsPraiseView cGX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public j(FrsCommonImageLayout frsCommonImageLayout) {
-        this.coY = frsCommonImageLayout;
+    public j(FrsPraiseView frsPraiseView) {
+        this.cGX = frsPraiseView;
     }
 
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.e.b bVar;
-        com.baidu.adp.lib.e.b bVar2;
-        if (view2 instanceof TbImageView) {
-            bVar = this.coY.coQ;
-            if (bVar != null) {
-                bVar2 = this.coY.coQ;
-                bVar2.j((TbImageView) view2);
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PraiseData praiseData;
+        Context context;
+        praiseData = this.cGX.cGW;
+        MetaData metaData = praiseData.getUser().get(0);
+        if (metaData != null) {
+            context = this.cGX.mContext;
+            com.baidu.tbadk.util.f.a(CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, metaData.getUserId(), metaData.getName_show()));
         }
-    }
-
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
     }
 }

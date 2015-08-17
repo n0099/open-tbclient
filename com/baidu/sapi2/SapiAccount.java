@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.sapi2.utils.L;
-import com.baidu.sapi2.utils.e;
 import com.baidu.sapi2.utils.enums.SocialType;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class SapiAccount implements Parcelable, Cloneable {
-    public static final Parcelable.Creator<SapiAccount> CREATOR = new a();
+    public static final Parcelable.Creator<SapiAccount> CREATOR = new b();
     static final String a = "uid";
     static final String b = "displayname";
     static final String c = "username";
@@ -135,7 +134,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             return false;
         }
         try {
-            return new JSONObject(this.extra).optBoolean(e.a, false);
+            return new JSONObject(this.extra).optBoolean(com.baidu.sapi2.utils.c.a, false);
         } catch (JSONException e2) {
             return false;
         }
@@ -146,7 +145,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             return SocialType.UNKNOWN;
         }
         try {
-            return SocialType.getSocialType(new JSONObject(this.extra).optInt(e.b, SocialType.UNKNOWN.getType()));
+            return SocialType.getSocialType(new JSONObject(this.extra).optInt(com.baidu.sapi2.utils.c.b, SocialType.UNKNOWN.getType()));
         } catch (JSONException e2) {
             return SocialType.UNKNOWN;
         }
@@ -157,7 +156,7 @@ public class SapiAccount implements Parcelable, Cloneable {
             return null;
         }
         try {
-            return new JSONObject(this.extra).optString(e.c, null);
+            return new JSONObject(this.extra).optString(com.baidu.sapi2.utils.c.c, null);
         } catch (JSONException e2) {
             return null;
         }
@@ -234,7 +233,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     /* loaded from: classes.dex */
-    public final class ReloginCredentials {
+    public static final class ReloginCredentials {
         static final String a = "account";
         static final String b = "account_type";
         static final String c = "password";

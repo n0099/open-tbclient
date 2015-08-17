@@ -24,7 +24,7 @@ public class IntentCompat {
     }
 
     /* loaded from: classes.dex */
-    class IntentCompatImplBase implements IntentCompatImpl {
+    static class IntentCompatImplBase implements IntentCompatImpl {
         IntentCompatImplBase() {
         }
 
@@ -52,7 +52,7 @@ public class IntentCompat {
     }
 
     /* loaded from: classes.dex */
-    class IntentCompatImplHC extends IntentCompatImplBase {
+    static class IntentCompatImplHC extends IntentCompatImplBase {
         IntentCompatImplHC() {
         }
 
@@ -68,7 +68,7 @@ public class IntentCompat {
     }
 
     /* loaded from: classes.dex */
-    class IntentCompatImplIcsMr1 extends IntentCompatImplHC {
+    static class IntentCompatImplIcsMr1 extends IntentCompatImplHC {
         IntentCompatImplIcsMr1() {
         }
 

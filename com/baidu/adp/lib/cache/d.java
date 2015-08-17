@@ -1,15 +1,15 @@
 package com.baidu.adp.lib.cache;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    final /* synthetic */ c sZ;
+    final /* synthetic */ c sW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.sZ = cVar;
+        this.sW = cVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.sZ.gi();
+        this.sW.gd();
     }
 }

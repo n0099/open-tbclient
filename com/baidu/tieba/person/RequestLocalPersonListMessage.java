@@ -1,13 +1,14 @@
 package com.baidu.tieba.person;
 
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class RequestLocalPersonListMessage extends CustomMessage<Object> {
     private boolean isFollow;
     private String uid;
 
     public RequestLocalPersonListMessage() {
-        super(2001192);
+        super(CmdConfigCustom.CMD_READ_PERSON_LIST);
     }
 
     public boolean isFollow() {

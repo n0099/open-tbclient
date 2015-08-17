@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class CustomMessageTask extends MessageTask {
-    private CustomRunnable<?> qI;
-    private TASK_TYPE qJ;
-    private boolean qK;
-    private BdAsyncTaskParallel qL;
+    private boolean isImme;
+    private BdAsyncTaskParallel mBdAsyncTaskParallel;
+    private CustomRunnable<?> mRunnable;
+    private TASK_TYPE mType;
 
     /* loaded from: classes.dex */
     public interface CustomRunnable<T> {
@@ -34,39 +34,43 @@ public class CustomMessageTask extends MessageTask {
 
     public CustomMessageTask(int i, CustomRunnable<?> customRunnable) {
         super(i);
-        this.qI = null;
-        this.qJ = TASK_TYPE.ASYNCHRONIZED;
-        this.qK = false;
-        this.qL = null;
-        this.qI = customRunnable;
+        this.mRunnable = null;
+        this.mType = TASK_TYPE.ASYNCHRONIZED;
+        this.isImme = false;
+        this.mBdAsyncTaskParallel = null;
+        this.mRunnable = customRunnable;
     }
 
-    public CustomRunnable<?> fa() {
-        return this.qI;
+    public CustomRunnable<?> getRunnable() {
+        return this.mRunnable;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.u(this.mCmd);
+        return FrameHelper.w(this.mCmd);
     }
 
-    public TASK_TYPE fb() {
-        return this.qJ;
+    public TASK_TYPE getType() {
+        return this.mType;
     }
 
-    public void a(TASK_TYPE task_type) {
-        this.qJ = task_type;
+    public void setType(TASK_TYPE task_type) {
+        this.mType = task_type;
     }
 
-    public boolean fc() {
-        return this.qK;
+    public boolean isImme() {
+        return this.isImme;
     }
 
-    public BdAsyncTaskParallel fd() {
-        return this.qL;
+    public void setImme(boolean z) {
+        this.isImme = z;
     }
 
-    public void a(BdAsyncTaskParallel bdAsyncTaskParallel) {
-        this.qL = bdAsyncTaskParallel;
+    public BdAsyncTaskParallel getTaskParallel() {
+        return this.mBdAsyncTaskParallel;
+    }
+
+    public void setTaskParallel(BdAsyncTaskParallel bdAsyncTaskParallel) {
+        this.mBdAsyncTaskParallel = bdAsyncTaskParallel;
     }
 }

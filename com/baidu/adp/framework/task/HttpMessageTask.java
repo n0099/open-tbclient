@@ -18,7 +18,7 @@ public class HttpMessageTask extends MessageTask {
         GET,
         POST;
 
-        /* JADX DEBUG: Replace access to removed values field (qM) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qJ) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static HTTP_METHOD[] valuesCustom() {
             HTTP_METHOD[] valuesCustom = values();
@@ -45,12 +45,6 @@ public class HttpMessageTask extends MessageTask {
         return this.mUrl;
     }
 
-    public String setUrl(String str) {
-        String str2 = this.mUrl;
-        this.mUrl = str;
-        return str2;
-    }
-
     public HTTP_METHOD getMethod() {
         return this.mMethod;
     }
@@ -71,16 +65,8 @@ public class HttpMessageTask extends MessageTask {
         return this.mIsImm;
     }
 
-    public void setIsImm(boolean z) {
-        this.mIsImm = z;
-    }
-
     public a getDownloadTask() {
         return this.mDownloadTask;
-    }
-
-    public void setDownloadTask(a aVar) {
-        this.mDownloadTask = aVar;
     }
 
     public Class<? extends HttpResponsedMessage> getResponsedClass() {
@@ -93,7 +79,7 @@ public class HttpMessageTask extends MessageTask {
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.s(this.mCmd);
+        return FrameHelper.u(this.mCmd);
     }
 
     public e getConnectTimeOut() {
@@ -102,5 +88,24 @@ public class HttpMessageTask extends MessageTask {
 
     public void setConnectTimeOut(e eVar) {
         this.mConnectTimeOut = eVar;
+    }
+
+    /* loaded from: classes.dex */
+    public static class a {
+        private int mCmd;
+        private String qK;
+        private boolean qL;
+
+        public int getCmd() {
+            return this.mCmd;
+        }
+
+        public String fb() {
+            return this.qK;
+        }
+
+        public boolean fc() {
+            return this.qL;
+        }
     }
 }

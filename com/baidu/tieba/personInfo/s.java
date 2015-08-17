@@ -2,74 +2,167 @@ package com.baidu.tieba.personInfo;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.data.MyGift;
-import java.util.List;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 /* loaded from: classes.dex */
 public class s extends BaseAdapter {
-    private List<MyGift> bVS;
-    final /* synthetic */ r bVT;
+    private PersonInfoActivity cjU;
+    private ac clP;
+    private t clQ;
+    private ab clR;
+    private u clS;
+    private z clT;
+    private y clU;
+    private boolean mIsHost;
 
-    public s(r rVar, List<MyGift> list) {
-        this.bVT = rVar;
-        this.bVS = list;
+    public s(PersonInfoActivity personInfoActivity, boolean z) {
+        this.cjU = personInfoActivity;
+        this.mIsHost = z;
+        this.clP = new ac(this.cjU, this.mIsHost);
+        this.clQ = new t(this.cjU, this.mIsHost);
+        this.clR = new ab(this.cjU, this.mIsHost);
+        this.clS = new u(this.cjU, this.mIsHost);
+        this.clT = new z(this.cjU, this.mIsHost);
+        this.clU = new y(this.cjU);
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        return (!this.mIsHost || PersonInfoActivityConfig.IS_HAVE_MYMARK) ? 5 : 4;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        if (this.mIsHost) {
+            switch (i) {
+                case 0:
+                default:
+                    return 0;
+                case 1:
+                    return 2;
+                case 2:
+                    return 3;
+                case 3:
+                    return PersonInfoActivityConfig.IS_HAVE_MYMARK ? 5 : 4;
+                case 4:
+                    return 4;
+            }
+        }
+        switch (i) {
+            case 0:
+            default:
+                return 0;
+            case 1:
+                return 1;
+            case 2:
+                return 2;
+            case 3:
+                return 3;
+            case 4:
+                return 4;
+        }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bVS == null) {
-            return 0;
-        }
-        if (this.bVS.size() <= 8) {
-            return this.bVS.size();
-        }
-        return 8;
+        return (!this.mIsHost || PersonInfoActivityConfig.IS_HAVE_MYMARK) ? 5 : 4;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return null;
+        return Integer.valueOf(i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        return 0L;
+        return i;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0074: INVOKE  (r0v5 int A[REMOVE]) = (r2v8 com.baidu.tbadk.data.MyGift) type: VIRTUAL call: com.baidu.tbadk.data.MyGift.getGiftNum():int)] */
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        PersonInfoActivity personInfoActivity;
-        PersonInfoActivity personInfoActivity2;
-        PersonInfoActivity personInfoActivity3;
-        com.baidu.adp.lib.g.b hr = com.baidu.adp.lib.g.b.hr();
-        personInfoActivity = this.bVT.bVg;
-        View inflate = hr.inflate(personInfoActivity.getPageContext().getPageActivity(), com.baidu.tieba.r.personinfo_gift_icon, null);
-        personInfoActivity2 = this.bVT.bVg;
-        int dimensionPixelSize = personInfoActivity2.getResources().getDimensionPixelSize(com.baidu.tieba.o.ds86);
-        personInfoActivity3 = this.bVT.bVg;
-        inflate.setLayoutParams(new AbsListView.LayoutParams(dimensionPixelSize, personInfoActivity3.getResources().getDimensionPixelSize(com.baidu.tieba.o.ds80)));
-        HeadImageView headImageView = (HeadImageView) inflate.findViewById(com.baidu.tieba.q.gift_icon);
-        headImageView.setIsRound(true);
-        headImageView.setDrawBorder(false);
-        headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.q.gift_num);
-        f(textView);
-        MyGift myGift = this.bVS.get(i);
-        if (myGift != null) {
-            headImageView.c(myGift.getGiftIcon(), 10, false);
-            textView.setText(new StringBuilder().append(myGift.getGiftNum()).toString());
+        int itemViewType = getItemViewType(i);
+        if (itemViewType == 0) {
+            this.clP.ahi();
+            return this.clP.getRootView();
+        } else if (itemViewType == 1) {
+            this.clQ.ahi();
+            return this.clQ.getRootView();
+        } else if (itemViewType == 2) {
+            this.clR.ahi();
+            return this.clR.getRootView();
+        } else if (itemViewType == 3) {
+            this.clS.ahi();
+            return this.clS.getRootView();
+        } else if (itemViewType == 4) {
+            this.clT.ahi();
+            return this.clT.getRootView();
+        } else if (itemViewType == 5) {
+            this.clU.ahi();
+            return this.clU.getRootView();
+        } else {
+            return null;
         }
-        return inflate;
     }
 
-    private void f(TextView textView) {
-        ay.i((View) textView, com.baidu.tieba.p.personinfo_gift_num_bg);
-        ay.b(textView, com.baidu.tieba.n.cp_cont_g, 1);
+    public RelativeLayout agU() {
+        return this.clR.agU();
+    }
+
+    public void agV() {
+        this.clR.agV();
+    }
+
+    public RelativeLayout agW() {
+        return this.clQ.ahh();
+    }
+
+    public RelativeLayout agX() {
+        return this.clQ.agX();
+    }
+
+    public RelativeLayout agY() {
+        return this.clU.agY();
+    }
+
+    public TextView agZ() {
+        return this.clR.agZ();
+    }
+
+    public RelativeLayout aha() {
+        return this.clQ.aha();
+    }
+
+    public RelativeLayout ahb() {
+        return this.clR.ahb();
+    }
+
+    public RelativeLayout ahc() {
+        return this.clR.ahc();
+    }
+
+    public RelativeLayout ahd() {
+        return this.clR.ahd();
+    }
+
+    public RelativeLayout ahe() {
+        return this.clS.ahe();
+    }
+
+    public RelativeLayout ahf() {
+        return this.clS.agX();
+    }
+
+    public RelativeLayout ahg() {
+        return this.clT.ahg();
+    }
+
+    public void eJ(boolean z) {
+        this.clR.eJ(z);
+    }
+
+    public void iP(int i) {
+        this.clR.iP(i);
     }
 }

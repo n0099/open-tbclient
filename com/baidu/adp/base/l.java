@@ -1,62 +1,71 @@
 package com.baidu.adp.base;
 
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import android.os.Build;
-import android.text.TextUtils;
-import java.util.ArrayList;
-import java.util.Iterator;
+import android.content.Context;
+import com.baidu.megapp.ma.MAActivity;
+import com.baidu.megapp.ma.MAFragmentActivity;
+import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class l {
-    private static l nw = null;
-    private Resources nx = null;
-    private ArrayList<String> ny = null;
-
-    public static l dJ() {
-        if (nw == null) {
-            synchronized (l.class) {
-                if (nw == null) {
-                    nw = new l();
-                }
+    public static k A(Context context) {
+        Object a;
+        if (context == null) {
+            return null;
+        }
+        if (context instanceof k) {
+            return (k) context;
+        }
+        if (context instanceof i) {
+            Object orignalPage = ((i) context).getPageContext().getOrignalPage();
+            if (orignalPage instanceof k) {
+                return (k) orignalPage;
             }
         }
-        return nw;
+        Field b = com.baidu.adp.lib.util.b.b(context.getClass(), k.class);
+        if (b == null && (b = com.baidu.adp.lib.util.b.b(context.getClass(), MAActivity.class)) == null) {
+            b = com.baidu.adp.lib.util.b.b(context.getClass(), MAFragmentActivity.class);
+        }
+        if (b == null || (a = com.baidu.adp.lib.util.b.a(context, b)) == null || !(a instanceof k)) {
+            return null;
+        }
+        return (k) a;
     }
 
-    public synchronized void a(Resources resources) {
-        this.nx = resources;
+    public static i<?> B(Context context) {
+        Object a;
+        if (context == null) {
+            return null;
+        }
+        if (context instanceof i) {
+            return (i) context;
+        }
+        Field b = com.baidu.adp.lib.util.b.b(context.getClass(), k.class);
+        if (b == null && (b = com.baidu.adp.lib.util.b.b(context.getClass(), MAActivity.class)) == null) {
+            b = com.baidu.adp.lib.util.b.b(context.getClass(), MAFragmentActivity.class);
+        }
+        if (b == null || (a = com.baidu.adp.lib.util.b.a(context, b)) == null || !(a instanceof k) || !(a instanceof i)) {
+            return null;
+        }
+        return (i) a;
     }
 
-    public synchronized void D(String str) {
-        if (TextUtils.isEmpty(str)) {
-            throw new IllegalArgumentException("param resPath is null");
+    public static h<?> C(Context context) {
+        Object a;
+        if (context == null) {
+            return null;
         }
-        if (this.nx == null) {
-            throw new RuntimeException("hostResources is null");
+        if (context instanceof h) {
+            return (h) context;
         }
-        if (this.ny == null) {
-            this.ny = new ArrayList<>();
+        if (context instanceof i) {
+            return ((i) context).getPageContext();
         }
-        if (!this.ny.contains(str)) {
-            if (Build.VERSION.SDK_INT >= 20) {
-                com.baidu.adp.plugin.util.g.a(this.nx.getAssets(), "addAssetPath", new Object[]{str});
-            } else {
-                AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                if (this.ny.size() > 0) {
-                    Iterator<String> it = this.ny.iterator();
-                    while (it.hasNext()) {
-                        com.baidu.adp.plugin.util.g.a(assetManager, "addAssetPath", new Object[]{it.next()});
-                    }
-                }
-                com.baidu.adp.plugin.util.g.a(assetManager, "addAssetPath", new Object[]{str});
-                com.baidu.adp.plugin.util.g.a(assetManager, "addAssetPath", new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
-                this.nx = new Resources(assetManager, this.nx.getDisplayMetrics(), this.nx.getConfiguration());
-            }
-            this.ny.add(str);
+        Field b = com.baidu.adp.lib.util.b.b(context.getClass(), k.class);
+        if (b == null && (b = com.baidu.adp.lib.util.b.b(context.getClass(), MAActivity.class)) == null) {
+            b = com.baidu.adp.lib.util.b.b(context.getClass(), MAFragmentActivity.class);
         }
-    }
-
-    public synchronized Resources getResources() {
-        return this.nx;
+        if (b == null || (a = com.baidu.adp.lib.util.b.a(context, b)) == null || !(a instanceof k) || !(a instanceof i)) {
+            return null;
+        }
+        return ((i) a).getPageContext();
     }
 }

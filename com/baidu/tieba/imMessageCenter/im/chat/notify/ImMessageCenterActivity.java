@@ -11,7 +11,7 @@ public class ImMessageCenterActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.add(16908290, Fragment.instantiate(getPageContext().getContext(), d.class.getName()));
+        beginTransaction.add(16908290, Fragment.instantiate(getPageContext().getContext(), e.class.getName()));
         beginTransaction.commit();
     }
 

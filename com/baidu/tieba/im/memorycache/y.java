@@ -1,25 +1,28 @@
 package com.baidu.tieba.im.memorycache;
 
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import java.util.List;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
-    final /* synthetic */ x bmU;
+public class y extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(x xVar) {
-        this.bmU = xVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, int i) {
+        super(i);
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        if (imMessageCenterPojo != null) {
-            c.TE().a(6, imMessageCenterPojo.getPulled_msgId(), String.valueOf(10));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+            this.this$0.bzU = (ResponseOnlineMessage) socketResponsedMessage;
+            if (!b.Vl().bzI.get()) {
+                return;
+            }
+            this.this$0.Vx();
         }
-    }
-
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void c(String str, List<CommonMsgPojo> list) {
     }
 }

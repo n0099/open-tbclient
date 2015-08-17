@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class MyGiftListActivityConfig extends c {
+public class MyGiftListActivityConfig extends IntentConfig {
     public static final String ST_TYPE = "st_type";
     public static final String USER_ID = "id";
     public static final String USER_SEX = "sex";

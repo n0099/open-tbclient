@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class NoDataViewFactory {
 
@@ -20,7 +21,7 @@ public class NoDataViewFactory {
         WEBVIEW,
         LOCAL;
 
-        /* JADX DEBUG: Replace access to removed values field (ZG) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aeH) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ImgType[] valuesCustom() {
             ImgType[] valuesCustom = values();
@@ -31,36 +32,152 @@ public class NoDataViewFactory {
         }
     }
 
-    public static x a(Context context, View view, aa aaVar, ab abVar, z zVar) {
-        return a(context, view, aaVar, abVar, zVar, false);
+    /* loaded from: classes.dex */
+    public static class b {
+        a aeC;
+        a aeD;
+        int aeE = -1;
+
+        private b() {
+        }
+
+        public static b a(a aVar) {
+            b bVar = new b();
+            bVar.aeC = aVar;
+            return bVar;
+        }
+
+        public static b a(a aVar, int i) {
+            b bVar = new b();
+            bVar.aeC = aVar;
+            bVar.aeE = i;
+            return bVar;
+        }
     }
 
-    public static x a(Context context, View view, aa aaVar, ab abVar, z zVar, boolean z) {
-        x xVar = new x(context);
-        xVar.a(zVar, aaVar, abVar);
+    /* loaded from: classes.dex */
+    public static class a {
+        String YW;
+        View.OnClickListener aeB;
+
+        public a(String str, View.OnClickListener onClickListener) {
+            this.YW = str;
+            this.aeB = onClickListener;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class c {
+        ImgType aeF = ImgType.NONE;
+        int aeG = -1;
+        int aez = -1;
+        int mHeight = -1;
+        int mWidth = -1;
+
+        private c() {
+        }
+
+        public static c a(ImgType imgType, int i) {
+            c cVar = new c();
+            cVar.aeF = imgType;
+            cVar.aeG = i;
+            return cVar;
+        }
+
+        public static c a(ImgType imgType, int i, int i2, int i3, int i4) {
+            c cVar = new c();
+            cVar.aeF = imgType;
+            cVar.aez = i;
+            cVar.aeG = i2;
+            cVar.mHeight = i3;
+            cVar.mWidth = i4;
+            return cVar;
+        }
+
+        public static c a(ImgType imgType) {
+            c cVar = new c();
+            cVar.aeF = imgType;
+            return cVar;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class d {
+        String UT;
+        String aeI;
+        int aeJ = -1;
+        String mTitle;
+
+        private d() {
+        }
+
+        public static d B(int i, int i2) {
+            d dVar = new d();
+            dVar.UT = TbadkCoreApplication.m411getInst().getResources().getString(i);
+            dVar.aeJ = i2;
+            return dVar;
+        }
+
+        public static d cD(int i) {
+            return dr(TbadkCoreApplication.m411getInst().getResources().getString(i));
+        }
+
+        public static d C(int i, int i2) {
+            return ah(TbadkCoreApplication.m411getInst().getResources().getString(i), TbadkCoreApplication.m411getInst().getResources().getString(i2));
+        }
+
+        public static d dr(String str) {
+            d dVar = new d();
+            dVar.UT = str;
+            return dVar;
+        }
+
+        public static d ah(String str, String str2) {
+            d dVar = new d();
+            dVar.mTitle = str2;
+            dVar.UT = str;
+            return dVar;
+        }
+
+        public static d l(String str, String str2, String str3) {
+            d dVar = new d();
+            dVar.mTitle = str2;
+            dVar.UT = str;
+            dVar.aeI = str3;
+            return dVar;
+        }
+    }
+
+    public static u a(Context context, View view, c cVar, d dVar, b bVar) {
+        return a(context, view, cVar, dVar, bVar, false);
+    }
+
+    public static u a(Context context, View view, c cVar, d dVar, b bVar, boolean z) {
+        u uVar = new u(context);
+        uVar.a(bVar, cVar, dVar);
         if (view != null) {
             if (view instanceof RelativeLayout) {
                 RelativeLayout relativeLayout = (RelativeLayout) view;
                 if (z) {
-                    relativeLayout.addView(xVar, 0);
+                    relativeLayout.addView(uVar, 0);
                 } else {
-                    relativeLayout.addView(xVar);
+                    relativeLayout.addView(uVar);
                 }
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) xVar.getLayoutParams();
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) uVar.getLayoutParams();
                 layoutParams.width = -1;
                 layoutParams.height = -1;
                 layoutParams.addRule(14);
-                xVar.setLayoutParams(layoutParams);
+                uVar.setLayoutParams(layoutParams);
             } else if (view instanceof LinearLayout) {
-                ((LinearLayout) view).addView(xVar);
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) xVar.getLayoutParams();
+                ((LinearLayout) view).addView(uVar);
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) uVar.getLayoutParams();
                 layoutParams2.gravity = 1;
-                xVar.setLayoutParams(layoutParams2);
+                uVar.setLayoutParams(layoutParams2);
             } else if (view instanceof FrameLayout) {
-                ((FrameLayout) view).addView(xVar, 0);
+                ((FrameLayout) view).addView(uVar, 0);
             }
         }
-        xVar.setVisibility(8);
-        return xVar;
+        uVar.setVisibility(8);
+        return uVar;
     }
 }

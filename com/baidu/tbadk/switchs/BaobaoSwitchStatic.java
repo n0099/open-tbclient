@@ -1,14 +1,14 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.f;
+import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class BaobaoSwitchStatic extends a {
-    public static final String[] arC;
+    public static final String[] ayJ;
 
     static {
-        f.gD().l(BaobaoSwitchStatic.class);
-        arC = new String[]{"cn.myhug.baobao.sdk"};
+        e.gy().e(BaobaoSwitchStatic.class);
+        ayJ = new String[]{"cn.myhug.baobao.sdk"};
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -23,7 +23,7 @@ public class BaobaoSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] getCrashKeys() {
-        return arC;
+        return ayJ;
     }
 
     @Override // com.baidu.adp.lib.b.a

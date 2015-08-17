@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class NewUserGuideActivityConfig extends c {
+public class NewUserGuideActivityConfig extends IntentConfig {
     public static final String HAS_LIEK_BAR = "has_like_bar";
     public static final String IS_NEW_USER = "is_new_user";
 

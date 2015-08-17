@@ -22,8 +22,11 @@ public final class UpdateLiveGroupResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<UpdateLiveGroupResIdl> {
+    public static final class Builder extends Message.Builder<UpdateLiveGroupResIdl> {
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(UpdateLiveGroupResIdl updateLiveGroupResIdl) {
             super(updateLiveGroupResIdl);

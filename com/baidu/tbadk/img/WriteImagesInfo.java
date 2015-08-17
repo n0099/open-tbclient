@@ -1,11 +1,10 @@
 package com.baidu.tbadk.img;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.m;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.adp.lib.util.j;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.img.effect.d;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -13,8 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class WriteImagesInfo implements Parcelable, Serializable {
-    public static final Parcelable.Creator<WriteImagesInfo> CREATOR = new j();
+public class WriteImagesInfo implements Serializable {
     private LinkedList<ImageFileInfo> chosedFiles;
     private String lastAlbumId;
     private int maxImagesAllowed;
@@ -126,7 +124,7 @@ public class WriteImagesInfo implements Parcelable, Serializable {
     }
 
     public void parseJson(String str) {
-        if (!m.isEmpty(str)) {
+        if (!j.isEmpty(str)) {
             try {
                 parseJson(new JSONObject(str));
             } catch (JSONException e) {
@@ -192,24 +190,10 @@ public class WriteImagesInfo implements Parcelable, Serializable {
             for (int size = chosedFiles.size() - 1; size >= 0; size--) {
                 ImageFileInfo imageFileInfo = chosedFiles.get(size);
                 if (!imageFileInfo.isHasAddPostQualityAction()) {
-                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.y(bc.tB().tH(), bc.tB().tH()));
+                    imageFileInfo.addPersistAction(d.J(ar.uE().uK(), ar.uE().uK()));
                     imageFileInfo.setHasAddPostQualityAction(true);
                 }
             }
         }
-    }
-
-    @Override // android.os.Parcelable
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i) {
-        String jsonString = toJsonString();
-        if (jsonString == null) {
-            jsonString = "";
-        }
-        parcel.writeString(jsonString);
     }
 }

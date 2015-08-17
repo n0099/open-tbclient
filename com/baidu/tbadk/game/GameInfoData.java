@@ -60,7 +60,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private String version;
     private String ref_id = "5000901";
     private String ref_type = "606";
-    private String is_detail = NOT_FROM_DETAIL;
+    private String is_detail = "0";
 
     public CodeInfo getCodeInfo() {
         return this.codeInfo;
@@ -155,7 +155,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     }
 
     public void setPackageSize(String str) {
-        this.package_size = eF(str);
+        this.package_size = eV(str);
     }
 
     public String getGameLink() {
@@ -508,8 +508,8 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
         this.app_id = str;
     }
 
-    private String eF(String str) {
-        return String.format("%.1f", Float.valueOf(com.baidu.adp.lib.g.c.a(str, 0.0f)));
+    private String eV(String str) {
+        return String.format("%.1f", Float.valueOf(com.baidu.adp.lib.g.b.a(str, 0.0f)));
     }
 
     public String getIconPic1() {

@@ -1,149 +1,84 @@
 package com.baidu.tieba.personInfo;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.bb;
 import java.util.List;
+import tbclient.PostInfoList;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x {
-    private int ajy = -1;
-    private PersonInfoActivity bVg;
-    private RelativeLayout bWI;
-    private TextView bWJ;
-    private TextView bWK;
-    private LinearLayout bWL;
-    private TextView bWM;
-    private ImageView buy;
-    private boolean mIsHost;
-    private View mRootView;
+public class x extends CustomMessageListener {
+    final /* synthetic */ w cmY;
 
-    public x(PersonInfoActivity personInfoActivity, boolean z) {
-        this.bVg = personInfoActivity;
-        this.mIsHost = z;
-        this.mRootView = com.baidu.adp.lib.g.b.hr().inflate(this.bVg.getPageContext().getPageActivity(), com.baidu.tieba.r.personinfo_post_view, null);
-        initView();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(w wVar, int i) {
+        super(i);
+        this.cmY = wVar;
     }
 
-    private void initView() {
-        this.bWI = (RelativeLayout) this.mRootView.findViewById(com.baidu.tieba.q.post_ll);
-        this.bWI.setOnClickListener(this.bVg);
-        this.bWJ = (TextView) this.mRootView.findViewById(com.baidu.tieba.q.post_num);
-        this.bWK = (TextView) this.mRootView.findViewById(com.baidu.tieba.q.post_num_text);
-        this.bWL = (LinearLayout) this.mRootView.findViewById(com.baidu.tieba.q.post_info_ll);
-        this.bWM = (TextView) this.mRootView.findViewById(com.baidu.tieba.q.no_post_tip);
-        this.buy = (ImageView) this.mRootView.findViewById(com.baidu.tieba.q.arrow);
-        oG();
-        if (this.mIsHost) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bWI.getLayoutParams();
-            layoutParams.bottomMargin = 0;
-            this.bWI.setLayoutParams(layoutParams);
-        }
-    }
-
-    public void oG() {
-        if (this.ajy != TbadkCoreApplication.m411getInst().getSkinType()) {
-            this.ajy = TbadkCoreApplication.m411getInst().getSkinType();
-            ay.i(this.bWI, com.baidu.tieba.p.personinfo_select_bg);
-            ay.b(this.bWJ, com.baidu.tieba.n.cp_cont_f, 1);
-            ay.b(this.bWK, com.baidu.tieba.n.cp_cont_d, 1);
-            ay.b(this.bWM, com.baidu.tieba.n.cp_cont_e, 1);
-            ay.i(this.buy, com.baidu.tieba.p.icon_dredge_arrow_r_n);
-        }
-    }
-
-    public void afm() {
-        oG();
-        v aeU = this.bVg.aeU();
-        UserData userData = aeU.getUserData();
-        if (userData != null) {
-            com.baidu.tbadk.data.h personPrivate = userData.getPersonPrivate();
-            PersonTainInfo afy = aeU.afy();
-            int yT = personPrivate != null ? personPrivate.yT() : 1;
-            int isFriend = afy != null ? afy.getIsFriend() : 1;
-            if (this.mIsHost) {
-                a(userData, aeU);
-            } else if (yT == 1 || (yT == 2 && isFriend == 1)) {
-                a(userData, aeU);
-            } else {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bWK.getLayoutParams();
-                layoutParams.topMargin = 0;
-                this.bWK.setLayoutParams(layoutParams);
-                this.bWJ.setText("");
-                this.bWJ.setTextSize(0.0f);
-                this.bWJ.setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(com.baidu.tieba.p.icon_mycenter_lock), (Drawable) null, (Drawable) null, (Drawable) null);
-                this.bWM.setVisibility(0);
-                this.bWM.setText(com.baidu.tieba.t.set_private);
-                this.bWL.setVisibility(8);
-                this.buy.setVisibility(8);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        UserData userData;
+        UserData userData2;
+        PersonTainInfo personTainInfo;
+        PersonTainInfo personTainInfo2;
+        AntiData antiData;
+        AntiData antiData2;
+        AntiData antiData3;
+        UserData userData3;
+        AntiData antiData4;
+        UserData userData4;
+        List list;
+        com.baidu.adp.base.g gVar;
+        List list2;
+        if (customResponsedMessage instanceof ResponsePersonInfoMessage) {
+            ResponsePersonInfoMessage responsePersonInfoMessage = (ResponsePersonInfoMessage) customResponsedMessage;
+            userData = this.cmY.mUserData;
+            if (userData == null) {
+                this.cmY.mUserData = new UserData();
             }
-        }
-    }
-
-    private void a(UserData userData, v vVar) {
-        String cl = bb.cl(userData.getPosts_num());
-        this.bWJ.setTextSize(0, this.bVg.getResources().getDimensionPixelSize(com.baidu.tieba.o.ds72));
-        if (cl.contains("w") && cl.length() > 3) {
-            this.bWJ.setTextSize(0, this.bVg.getResources().getDimensionPixelSize(com.baidu.tieba.o.ds48));
-        }
-        this.bWJ.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-        this.bWJ.setText(cl);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bWK.getLayoutParams();
-        layoutParams.topMargin = -this.bVg.getResources().getDimensionPixelSize(com.baidu.tieba.o.ds10);
-        this.bWK.setLayoutParams(layoutParams);
-        List<PersonInfoPostList> afx = vVar.afx();
-        if (afx == null || afx.size() <= 0) {
-            this.bWL.setVisibility(8);
-            this.buy.setVisibility(8);
-            this.bWM.setVisibility(0);
-            this.bWM.setText(com.baidu.tieba.t.no_post_tip);
-            return;
-        }
-        this.bWL.setVisibility(0);
-        this.buy.setVisibility(0);
-        this.bWM.setVisibility(8);
-        com.baidu.adp.lib.g.b hr = com.baidu.adp.lib.g.b.hr();
-        this.bWL.removeAllViews();
-        int size = afx.size();
-        int i = size > 3 ? 3 : size;
-        for (int i2 = 0; i2 < i; i2++) {
-            PersonInfoPostList personInfoPostList = afx.get(i2);
-            View inflate = hr.inflate(this.bVg.getPageContext().getPageActivity(), com.baidu.tieba.r.personinfo_post_item, null);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.q.post_title);
-            TextView textView2 = (TextView) inflate.findViewById(com.baidu.tieba.q.post_content);
-            View findViewById = inflate.findViewById(com.baidu.tieba.q.line);
-            ay.b(textView, com.baidu.tieba.n.cp_cont_b, 1);
-            ay.b(textView2, com.baidu.tieba.n.cp_cont_f, 1);
-            ay.j(findViewById, com.baidu.tieba.n.cp_bg_line_b);
-            textView.setText(personInfoPostList.getTitle());
-            List<PersonInfoAbstract> abstractThread = personInfoPostList.getAbstractThread();
-            if (abstractThread != null && abstractThread.size() > 0 && !StringUtils.isNull(abstractThread.get(0).getText())) {
-                textView2.setText(abstractThread.get(0).getText());
-            } else {
-                textView2.setVisibility(8);
+            userData2 = this.cmY.mUserData;
+            userData2.parserProtobuf(responsePersonInfoMessage.getUser());
+            personTainInfo = this.cmY.cmU;
+            if (personTainInfo == null) {
+                this.cmY.cmU = new PersonTainInfo();
             }
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            if (i2 == 0) {
-                layoutParams2.topMargin = 0;
-            } else {
-                layoutParams2.topMargin = this.bVg.getResources().getDimensionPixelSize(com.baidu.tieba.o.ds26);
+            personTainInfo2 = this.cmY.cmU;
+            personTainInfo2.parseProto(responsePersonInfoMessage.getTainfo());
+            antiData = this.cmY.cao;
+            if (antiData == null) {
+                this.cmY.cao = new AntiData();
             }
-            this.bWL.addView(inflate, layoutParams2);
+            antiData2 = this.cmY.cao;
+            antiData2.parserProtobuf(responsePersonInfoMessage.getAnti_stat());
+            antiData3 = this.cmY.cao;
+            userData3 = this.cmY.mUserData;
+            antiData3.setUser_id(userData3.getUserId());
+            antiData4 = this.cmY.cao;
+            userData4 = this.cmY.mUserData;
+            antiData4.setUser_name(userData4.getUserName());
+            list = this.cmY.cmT;
+            list.clear();
+            List<PostInfoList> post_list = responsePersonInfoMessage.getPost_list();
+            if (post_list != null) {
+                int i = 0;
+                while (true) {
+                    int i2 = i;
+                    if (i2 >= post_list.size()) {
+                        break;
+                    }
+                    PersonInfoPostList personInfoPostList = new PersonInfoPostList();
+                    personInfoPostList.parseProto(post_list.get(i2));
+                    list2 = this.cmY.cmT;
+                    list2.add(personInfoPostList);
+                    i = i2 + 1;
+                }
+            }
+            gVar = this.cmY.mLoadDataCallBack;
+            gVar.d(true);
         }
-    }
-
-    public RelativeLayout afk() {
-        return this.bWI;
-    }
-
-    public View getRootView() {
-        return this.mRootView;
     }
 }

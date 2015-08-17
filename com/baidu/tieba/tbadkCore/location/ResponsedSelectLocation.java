@@ -1,6 +1,7 @@
 package com.baidu.tieba.tbadkCore.location;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ResponsedSelectLocation extends CustomResponsedMessage<Object> {
     private final String address;
@@ -9,7 +10,7 @@ public class ResponsedSelectLocation extends CustomResponsedMessage<Object> {
     private final String screatString;
 
     public ResponsedSelectLocation(boolean z, String str, String str2, String str3) {
-        super(2001232);
+        super(CmdConfigCustom.CMD_SELECT_LOCATION);
         this.isShowLocation = z;
         this.name = str;
         this.address = str2;

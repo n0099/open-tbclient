@@ -1,93 +1,18 @@
 package com.baidu.tieba.setting.more;
 
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends BdAsyncTask<Object, Integer, String> {
-    private com.baidu.tbadk.core.util.aa OE = null;
-    final /* synthetic */ AppsActivity ceQ;
-    private String url;
+public class i implements View.OnClickListener {
+    final /* synthetic */ AppsActivity cwV;
 
-    public i(AppsActivity appsActivity, String str) {
-        this.ceQ = appsActivity;
-        this.url = null;
-        this.url = str;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public i(AppsActivity appsActivity) {
+        this.cwV = appsActivity;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        ProgressBar progressBar;
-        LinearLayout linearLayout;
-        BaseWebView baseWebView;
-        progressBar = this.ceQ.ceN;
-        progressBar.setVisibility(0);
-        linearLayout = this.ceQ.ceM;
-        linearLayout.setVisibility(8);
-        baseWebView = this.ceQ.mWebView;
-        baseWebView.setVisibility(0);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: v */
-    public String doInBackground(Object... objArr) {
-        if (this.url == null) {
-            return null;
-        }
-        this.OE = new com.baidu.tbadk.core.util.aa(this.url);
-        this.OE.sX().tS().tV().Xe = false;
-        this.OE.o("client", "android");
-        return this.OE.sw();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        if (this.OE != null) {
-            this.OE.gS();
-        }
-        progressBar = this.ceQ.ceN;
-        progressBar.setVisibility(8);
-        this.ceQ.ceL = null;
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        ProgressBar progressBar;
-        boolean aiu;
-        BaseWebView baseWebView;
-        BaseWebView baseWebView2;
-        LinearLayout linearLayout;
-        BaseWebView baseWebView3;
-        progressBar = this.ceQ.ceN;
-        progressBar.setVisibility(8);
-        if (this.OE != null && this.OE.ta() && str != null && str.length() > 0) {
-            com.baidu.adp.lib.g.l.ht().c(new j(this, str));
-            com.baidu.tbadk.core.sharedPref.b.sl().putLong("app_inverval", System.currentTimeMillis());
-            baseWebView3 = this.ceQ.mWebView;
-            baseWebView3.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");
-            return;
-        }
-        aiu = this.ceQ.aiu();
-        if (!aiu && str == null) {
-            baseWebView2 = this.ceQ.mWebView;
-            baseWebView2.setVisibility(8);
-            linearLayout = this.ceQ.ceM;
-            linearLayout.setVisibility(0);
-            this.ceQ.showToast(this.ceQ.getPageContext().getString(com.baidu.tieba.t.neterror));
-            return;
-        }
-        String string = this.ceQ.getPageContext().getString(com.baidu.tieba.t.server_404);
-        baseWebView = this.ceQ.mWebView;
-        baseWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, string, "text/html", "utf-8", "");
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.cwV.refresh();
     }
 }

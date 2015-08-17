@@ -1,19 +1,16 @@
 package com.baidu.tieba.frs;
+
+import android.view.View;
 /* loaded from: classes.dex */
-class s extends com.baidu.adp.base.i {
-    final /* synthetic */ FrsActivity aLY;
+class s implements View.OnClickListener {
+    final /* synthetic */ FrsActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(FrsActivity frsActivity) {
-        this.aLY = frsActivity;
+        this.this$0 = frsActivity;
     }
 
-    @Override // com.baidu.adp.base.i
-    public void c(Object obj) {
-        com.baidu.tieba.frs.c.k kVar;
-        if (obj instanceof Boolean ? ((Boolean) obj).booleanValue() : false) {
-            kVar = this.aLY.aLC;
-            kVar.cg(false);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
     }
 }

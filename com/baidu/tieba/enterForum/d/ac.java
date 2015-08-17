@@ -2,26 +2,30 @@ package com.baidu.tieba.enterForum.d;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.NoPressedLinearLayout;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.i;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ac extends NoPressedLinearLayout {
-    private View ZX;
-    private ViewEventCenter aEU;
-    private List<com.baidu.tieba.enterForum.b.e> aGO;
-    private TextView aGP;
-    private ImageView aGQ;
-    private View aGR;
+    private ViewEventCenter aMt;
+    private List<com.baidu.tieba.enterForum.b.e> aOo;
+    private TextView aOp;
+    private ImageView aOq;
+    private View aOr;
+    private View aeY;
     private View mEmptyView;
 
     public ac(Context context) {
@@ -31,74 +35,74 @@ public class ac extends NoPressedLinearLayout {
     public ac(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         setOrientation(1);
-        this.aGO = new ArrayList();
-        He();
-        addView(this.ZX);
+        this.aOo = new ArrayList();
+        HV();
+        addView(this.aeY);
     }
 
     public int getItemViewCount() {
-        return this.aGO.size();
+        return this.aOo.size();
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.aEU = viewEventCenter;
+        this.aMt = viewEventCenter;
     }
 
     public void a(List<com.baidu.tieba.enterForum.b.e> list, TbPageContext<BaseFragmentActivity> tbPageContext) {
         setData(list);
-        e(tbPageContext);
+        f(tbPageContext);
     }
 
     public void setChangeViewVisibility(boolean z) {
-        if (this.aGR != null) {
+        if (this.aOr != null) {
             if (z) {
-                this.aGR.setVisibility(0);
+                this.aOr.setVisibility(0);
             } else {
-                this.aGR.setVisibility(8);
+                this.aOr.setVisibility(8);
             }
         }
     }
 
     private void setData(List<com.baidu.tieba.enterForum.b.e> list) {
-        this.aGO.clear();
+        this.aOo.clear();
         if (list != null) {
-            this.aGO.addAll(list);
+            this.aOo.addAll(list);
         }
     }
 
     private void a(com.baidu.tieba.enterForum.b.e eVar, TbPageContext<BaseFragmentActivity> tbPageContext) {
         if (eVar != null) {
             ab abVar = new ab(getContext());
-            abVar.setEventCenter(this.aEU);
+            abVar.setEventCenter(this.aMt);
             abVar.setData(eVar);
-            abVar.d(tbPageContext);
+            abVar.e(tbPageContext);
             addView(abVar);
         }
     }
 
-    private void He() {
-        this.ZX = com.baidu.adp.lib.g.b.hr().inflate(getContext(), com.baidu.tieba.r.enter_forum_recommendinfo_notice, null);
-        this.ZX.findViewById(com.baidu.tieba.q.iv_dismiss).setOnClickListener(new ad(this));
-        this.aGR = this.ZX.findViewById(com.baidu.tieba.q.enterforum_forumrecommendinfo_change);
-        this.aGR.setOnClickListener(new ae(this));
-        this.aGQ = (ImageView) this.ZX.findViewById(com.baidu.tieba.q.iv_dismiss);
-        this.mEmptyView = this.ZX.findViewById(com.baidu.tieba.q.enterforum_guide_top_divider);
+    private void HV() {
+        this.aeY = LayoutInflater.from(getContext()).inflate(i.g.enter_forum_recommendinfo_notice, (ViewGroup) null);
+        this.aeY.findViewById(i.f.iv_dismiss).setOnClickListener(new ad(this));
+        this.aOr = this.aeY.findViewById(i.f.enterforum_forumrecommendinfo_change);
+        this.aOr.setOnClickListener(new ae(this));
+        this.aOq = (ImageView) this.aeY.findViewById(i.f.iv_dismiss);
+        this.mEmptyView = this.aeY.findViewById(i.f.enterforum_guide_top_divider);
         if (TbadkCoreApplication.isLogin()) {
             this.mEmptyView.setVisibility(0);
-            this.aGQ.setVisibility(0);
+            this.aOq.setVisibility(0);
             return;
         }
         this.mEmptyView.setVisibility(8);
-        this.aGQ.setVisibility(8);
+        this.aOq.setVisibility(8);
     }
 
-    private void e(TbPageContext<BaseFragmentActivity> tbPageContext) {
+    private void f(TbPageContext<BaseFragmentActivity> tbPageContext) {
         int size;
-        if (this.aGO != null && this.aGO.size() != 0) {
-            II();
+        if (this.aOo != null && this.aOo.size() != 0) {
+            Jw();
             List<ab> allRecomItemView = getAllRecomItemView();
-            for (int i = 0; i < this.aGO.size(); i++) {
-                com.baidu.tieba.enterForum.b.e eVar = this.aGO.get(i);
+            for (int i = 0; i < this.aOo.size(); i++) {
+                com.baidu.tieba.enterForum.b.e eVar = this.aOo.get(i);
                 if (allRecomItemView == null || i >= allRecomItemView.size()) {
                     a(eVar, tbPageContext);
                 } else if (i < allRecomItemView.size()) {
@@ -106,20 +110,22 @@ public class ac extends NoPressedLinearLayout {
                 }
             }
             if (allRecomItemView != null) {
-                int size2 = allRecomItemView.size() - this.aGO.size();
+                int size2 = allRecomItemView.size() - this.aOo.size();
                 for (int i2 = 0; i2 < size2; i2++) {
                     removeView(allRecomItemView.get((size - i2) - 1));
                 }
             }
             if (TbadkCoreApplication.isLogin()) {
                 this.mEmptyView.setVisibility(0);
-                this.aGQ.setVisibility(0);
-                II();
+                this.aOq.setVisibility(0);
+                Jw();
                 return;
             }
             this.mEmptyView.setVisibility(8);
-            this.aGQ.setVisibility(8);
-            IJ();
+            this.aOq.setVisibility(8);
+            if (TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_SQUARE_FORUM_SQUARE)) {
+                Jx();
+            }
         }
     }
 
@@ -135,34 +141,34 @@ public class ac extends NoPressedLinearLayout {
         return arrayList;
     }
 
-    private void II() {
-        if (this.aGP != null) {
-            removeView(this.aGP);
-            this.aGP = null;
+    private void Jw() {
+        if (this.aOp != null) {
+            removeView(this.aOp);
+            this.aOp = null;
         }
     }
 
-    private void IJ() {
-        if (this.aGP == null) {
-            this.aGP = new TextView(getContext());
-            this.aGP.setText(com.baidu.tieba.t.discover_more_bar);
-            this.aGP.setTextSize(0, getContext().getResources().getDimensionPixelSize(com.baidu.tieba.o.fontsize28));
-            this.aGP.setGravity(17);
-            ay.b(this.aGP, com.baidu.tieba.n.cp_cont_i, 1);
-            this.aGP.setBackgroundDrawable(ay.getDrawable(com.baidu.tieba.p.btn_appdownload));
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(com.baidu.tieba.o.ds90));
-            layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(com.baidu.tieba.o.ds50);
-            layoutParams.leftMargin = getContext().getResources().getDimensionPixelSize(com.baidu.tieba.o.ds100);
-            layoutParams.rightMargin = getContext().getResources().getDimensionPixelSize(com.baidu.tieba.o.ds100);
-            layoutParams.bottomMargin = getContext().getResources().getDimensionPixelSize(com.baidu.tieba.o.ds50);
-            this.aGP.setLayoutParams(layoutParams);
-            this.aGP.setOnClickListener(new af(this));
-            addView(this.aGP);
+    private void Jx() {
+        if (this.aOp == null) {
+            this.aOp = new TextView(getContext());
+            this.aOp.setText(i.C0057i.discover_more_bar);
+            this.aOp.setTextSize(0, getContext().getResources().getDimensionPixelSize(i.d.fontsize28));
+            this.aOp.setGravity(17);
+            al.b(this.aOp, i.c.cp_cont_i, 1);
+            this.aOp.setBackgroundDrawable(al.getDrawable(i.e.btn_appdownload));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, getContext().getResources().getDimensionPixelSize(i.d.ds90));
+            layoutParams.topMargin = getContext().getResources().getDimensionPixelSize(i.d.ds50);
+            layoutParams.leftMargin = getContext().getResources().getDimensionPixelSize(i.d.ds100);
+            layoutParams.rightMargin = getContext().getResources().getDimensionPixelSize(i.d.ds100);
+            layoutParams.bottomMargin = getContext().getResources().getDimensionPixelSize(i.d.ds50);
+            this.aOp.setLayoutParams(layoutParams);
+            this.aOp.setOnClickListener(new af(this));
+            addView(this.aOp);
         }
     }
 
-    public void d(TbPageContext<?> tbPageContext) {
-        com.baidu.tbadk.f.a.a(tbPageContext, this.ZX);
+    public void e(TbPageContext<?> tbPageContext) {
+        com.baidu.tbadk.f.a.a(tbPageContext, this.aeY);
         int i = 0;
         while (true) {
             int i2 = i;
@@ -170,13 +176,13 @@ public class ac extends NoPressedLinearLayout {
                 break;
             }
             if (getChildAt(i2) instanceof ab) {
-                ((ab) getChildAt(i2)).d(tbPageContext);
+                ((ab) getChildAt(i2)).e(tbPageContext);
             }
             i = i2 + 1;
         }
-        if (this.aGP != null) {
-            ay.b(this.aGP, com.baidu.tieba.n.cp_cont_i, 1);
-            this.aGP.setBackgroundDrawable(ay.getDrawable(com.baidu.tieba.p.btn_appdownload));
+        if (this.aOp != null) {
+            al.b(this.aOp, i.c.cp_cont_i, 1);
+            this.aOp.setBackgroundDrawable(al.getDrawable(i.e.btn_appdownload));
         }
     }
 }

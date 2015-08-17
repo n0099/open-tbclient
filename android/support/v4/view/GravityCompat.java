@@ -23,7 +23,7 @@ public class GravityCompat {
     }
 
     /* loaded from: classes.dex */
-    class GravityCompatImplBase implements GravityCompatImpl {
+    static class GravityCompatImplBase implements GravityCompatImpl {
         GravityCompatImplBase() {
         }
 
@@ -49,7 +49,7 @@ public class GravityCompat {
     }
 
     /* loaded from: classes.dex */
-    class GravityCompatImplJellybeanMr1 implements GravityCompatImpl {
+    static class GravityCompatImplJellybeanMr1 implements GravityCompatImpl {
         GravityCompatImplJellybeanMr1() {
         }
 

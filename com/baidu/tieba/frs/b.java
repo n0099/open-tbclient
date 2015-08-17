@@ -1,41 +1,37 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.tbadkCore.FrsOfficalBanner;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-class b implements com.baidu.adp.widget.ListView.z {
-    final /* synthetic */ FrsActivity aLY;
+class b extends CustomMessageListener {
+    final /* synthetic */ FrsActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public b(FrsActivity frsActivity) {
-        this.aLY = frsActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b(FrsActivity frsActivity, int i) {
+        super(i);
+        this.this$0 = frsActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.z
-    public void T(boolean z) {
-        boolean z2;
-        bf bfVar;
-        bf bfVar2;
-        bf bfVar3;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Integer num;
+        com.baidu.tieba.tbadkCore.n nVar;
+        com.baidu.tieba.tbadkCore.n nVar2;
         com.baidu.tieba.frs.c.a aVar;
-        com.baidu.tieba.frs.c.a aVar2;
-        z2 = this.aLY.aLl;
-        if (z2) {
-            bfVar = this.aLY.aLj;
-            BdListView listView = bfVar.getListView();
-            bfVar2 = this.aLY.aLj;
-            FrsOfficalBanner LB = bfVar2.LB();
-            int i = -1;
-            if (listView.getFirstVisiblePosition() == 0 && listView.getChildCount() > 0 && (i = listView.getChildAt(0).getTop()) > (-LB.getHeight()) && i != 0) {
-                aVar2 = this.aLY.aLB;
-                aVar2.Mg();
-            }
-            if (i != 0 && !z) {
-                bfVar3 = this.aLY.aLj;
-                if (!bfVar3.KG() && listView.np()) {
-                    LB.setVisibility(0);
-                    aVar = this.aLY.aLB;
-                    aVar.Mg();
+        if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null) {
+            nVar = this.this$0.aUy;
+            if (nVar != null) {
+                nVar2 = this.this$0.aUy;
+                UserData userData = nVar2.getUserData();
+                if (userData != null) {
+                    userData.setIsMem(num.intValue());
+                    if (num.intValue() != 0) {
+                        aVar = this.this$0.aUM;
+                        aVar.b(num);
+                    }
                 }
             }
         }

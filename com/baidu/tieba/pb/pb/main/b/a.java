@@ -5,133 +5,134 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.lib.g.k;
+import com.baidu.adp.lib.g.j;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.share.i;
-import com.baidu.tieba.p;
+import com.baidu.tbadk.coreExtra.share.h;
+import com.baidu.tieba.i;
 import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.bt;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
-import com.baidu.tieba.t;
+import com.baidu.tieba.pb.pb.main.bo;
 /* loaded from: classes.dex */
 public class a {
-    public final View arG;
-    private PbActivity bLa;
-    public final TextView bOP;
-    public final ImageView bOQ;
-    public final ImageView bOR;
-    public final ImageView bOS;
+    public final View ayN;
+    private PbActivity cbx;
+    public final TextView cfr;
+    public final ImageView cfs;
+    public final ImageView cft;
+    public final ImageView cfu;
     public final NavigationBar mNavigationBar;
     private MorePopupWindow mPopWindow = null;
-    private bt bOT = null;
+    private bo cfv = null;
 
     public a(PbActivity pbActivity) {
-        this.bLa = pbActivity;
-        this.mNavigationBar = (NavigationBar) this.bLa.findViewById(q.view_navigation_bar);
+        this.cbx = pbActivity;
+        this.mNavigationBar = (NavigationBar) this.cbx.findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.setOnClickListener(new b(this));
-        this.arG = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.aNV);
-        this.bOP = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, r.pb_title_textview, (View.OnClickListener) null);
-        this.bOS = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.widget_nb_add_floor, pbActivity.aNV);
-        this.bOQ = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.nb_item_floor_host, pbActivity.aNV);
-        this.bOR = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, r.nb_item_floor_more, pbActivity.aNV);
-        this.bOP.setOnClickListener(pbActivity.aNV);
+        this.ayN = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.aXl);
+        this.cfr = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, i.g.pb_title_textview, (View.OnClickListener) null);
+        this.cfu = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.widget_nb_add_floor, pbActivity.aXl);
+        this.cfs = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.nb_item_floor_host, pbActivity.aXl);
+        this.cft = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.nb_item_floor_more, pbActivity.aXl);
+        this.cfr.setOnClickListener(pbActivity.aXl);
     }
 
-    public void ec(boolean z) {
-        this.bOR.setVisibility(z ? 0 : 8);
+    public void et(boolean z) {
+        this.cft.setVisibility(z ? 0 : 8);
     }
 
-    public NavigationBar acG() {
+    public NavigationBar aeH() {
         return this.mNavigationBar;
     }
 
-    public void it(String str) {
+    public void jp(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bOP.setVisibility(0);
-            this.bOP.setText(String.valueOf(str) + this.bLa.getPageContext().getString(t.bar));
+            this.cfr.setVisibility(0);
+            this.cfr.setText(String.valueOf(str) + this.cbx.getPageContext().getString(i.C0057i.bar));
         }
     }
 
-    public void acH() {
-        this.bOQ.setVisibility(4);
-        this.bOQ.setEnabled(false);
+    public void aeI() {
+        this.cfs.setVisibility(4);
+        this.cfs.setEnabled(false);
     }
 
-    public void eg(boolean z) {
+    public void ey(boolean z) {
         if (z) {
-            ay.c(this.bOQ, p.icon_floor_host_s);
+            al.c(this.cfs, i.e.icon_floor_host_s);
         } else {
-            ay.c(this.bOQ, p.icon_floor_host_n);
+            al.c(this.cfs, i.e.icon_floor_host_n);
         }
     }
 
-    public void ej(boolean z) {
+    public void eD(boolean z) {
         if (z) {
-            this.bOS.setVisibility(0);
+            this.cfu.setVisibility(0);
         } else {
-            this.bOS.setVisibility(8);
+            this.cfu.setVisibility(8);
         }
     }
 
     public void c(boolean z, boolean z2, boolean z3) {
-        if (!this.bLa.isProgressBarShown()) {
+        if (!this.cbx.isProgressBarShown()) {
             if (this.mPopWindow == null) {
-                this.bOT = new bt((PbActivity) this.bLa.getPageContext().getOrignalPage(), this.bLa.aNV);
+                this.cfv = new bo((PbActivity) this.cbx.getPageContext().getOrignalPage(), this.cbx.aXl);
                 int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-                this.mPopWindow = new MorePopupWindow(this.bLa.getPageContext().getPageActivity(), this.bOT.getView(), this.mNavigationBar, ay.getDrawable(p.bg_pull_down_right_n), new c(this));
-                this.mPopWindow.onChangeSkinType(this.bLa, skinType, ay.getDrawable(p.bg_pull_down_right_n));
+                this.mPopWindow = new MorePopupWindow(this.cbx.getPageContext().getPageActivity(), this.cfv.getView(), this.mNavigationBar, al.getDrawable(i.e.bg_pull_down_right_n), new c(this));
+                this.mPopWindow.onChangeSkinType(this.cbx, skinType, al.getDrawable(i.e.bg_pull_down_right_n));
             }
             if (z3) {
-                this.bOT.dZ(false);
+                this.cfv.eo(false);
             } else {
-                this.bOT.dZ(true);
+                this.cfv.eo(true);
             }
-            if (i.ai(this.bLa.getPageContext().getPageActivity())) {
-                this.bOT.abG().setVisibility(0);
-                this.bOT.abH().setVisibility(0);
+            if (h.ak(this.cbx.getPageContext().getPageActivity())) {
+                this.cfv.adN().setVisibility(0);
+                this.cfv.adO().setVisibility(0);
             } else {
-                this.bOT.abG().setVisibility(8);
-                this.bOT.abH().setVisibility(8);
+                this.cfv.adN().setVisibility(8);
+                this.cfv.adO().setVisibility(8);
             }
             if (this.mPopWindow != null) {
                 this.mPopWindow.refresh();
             }
-            e(z, z2);
+            i(z, z2);
             this.mPopWindow.showWindowInRightBottomOfHost();
         }
     }
 
-    private void e(boolean z, boolean z2) {
-        if (this.bOT != null) {
+    private void i(boolean z, boolean z2) {
+        if (this.cfv != null) {
             if (!z) {
-                this.bOT.abJ().setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(p.icon_recommend_see_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cfv.adQ().setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_recommend_see_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.bOT.abJ().setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(p.icon_recommend_see_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cfv.adQ().setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_recommend_see_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
             if (z2) {
-                this.bOT.abF().setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(p.icon_recommend_collect_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cfv.adM().setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_recommend_collect_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.bOT.abF().setCompoundDrawablesWithIntrinsicBounds(ay.getDrawable(p.icon_recommend_collect_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cfv.adM().setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_recommend_collect_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
         }
     }
 
-    public void pA() {
+    public void qB() {
         if (this.mPopWindow != null) {
-            k.a(this.mPopWindow, this.bLa.getPageContext().getPageActivity());
+            j.a(this.mPopWindow, this.cbx.getPageContext().getPageActivity());
         }
     }
 
-    public bt acI() {
-        return this.bOT;
+    public bo aeJ() {
+        return this.cfv;
     }
 
-    public void XR() {
+    public boolean aeK() {
+        return this.mPopWindow != null && this.mPopWindow.isShowing();
+    }
+
+    public void Zw() {
         this.mPopWindow = null;
-        this.bOT = null;
+        this.cfv = null;
     }
 }

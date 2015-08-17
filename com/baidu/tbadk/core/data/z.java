@@ -1,43 +1,54 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.Topic;
+import tbclient.FrsPage.TopNews;
+import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
-public class z {
-    private int Ro = 0;
-    private int Rp = 0;
-    private String link = "";
+public class z implements com.baidu.adp.widget.ListView.u {
+    public static final BdUniqueId Wg = BdUniqueId.gen();
+    private String Wh;
+    private int position = 0;
+    private String summary;
 
-    public int rF() {
-        return this.Ro;
+    public String sL() {
+        return this.Wh;
     }
 
-    public int rG() {
-        return this.Rp;
+    public String getSummary() {
+        return this.summary;
     }
 
-    public String getLink() {
-        return this.link;
+    public void a(TopNews topNews) {
+        if (topNews != null) {
+            this.Wh = topNews.news_link;
+            this.summary = topNews.summary;
+        }
     }
 
-    public void parserJson(JSONObject jSONObject) {
+    public void a(NewsInfo newsInfo) {
+        if (newsInfo != null) {
+            this.Wh = newsInfo.news_link;
+            this.summary = newsInfo.summary;
+            this.position = newsInfo.position.intValue();
+        }
+    }
+
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Ro = jSONObject.optInt("is_lpost", 0);
-                this.Rp = jSONObject.optInt("topic_type", 0);
-                this.link = jSONObject.optString("link", "");
+                this.Wh = jSONObject.optString("news_link");
+                this.summary = jSONObject.optString("summary");
+                this.position = jSONObject.optInt("position", 0);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    public void a(Topic topic) {
-        if (topic != null) {
-            this.Ro = topic.is_lpost.intValue();
-            this.Rp = topic.topic_type.intValue();
-            this.link = topic.link;
-        }
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return Wg;
     }
 }

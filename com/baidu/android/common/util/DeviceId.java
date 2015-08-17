@@ -25,7 +25,7 @@ public final class DeviceId {
     private static final String TAG = "DeviceId";
 
     /* loaded from: classes.dex */
-    final class IMEIInfo {
+    static final class IMEIInfo {
         public static final String DEFAULT_TM_DEVICEID = "";
         private static final String KEY_IMEI = "bd_setting_i";
         public final boolean CAN_READ_AND_WRITE_SYSTEM_SETTINGS;

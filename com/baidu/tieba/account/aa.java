@@ -1,173 +1,141 @@
 package com.baidu.tieba.account;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa extends BdAsyncTask<String, Integer, com.baidu.tbadk.core.data.n> {
-    private com.baidu.tbadk.core.util.aa OE;
-    final /* synthetic */ ActivationActivity awW;
-
-    private aa(ActivationActivity activationActivity) {
-        this.awW = activationActivity;
-        this.OE = null;
-    }
+class aa implements TextWatcher {
+    final /* synthetic */ Register2Activity aFh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ aa(ActivationActivity activationActivity, aa aaVar) {
-        this(activationActivity);
+    public aa(Register2Activity register2Activity) {
+        this.aFh = register2Activity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: m */
-    public com.baidu.tbadk.core.data.n doInBackground(String... strArr) {
-        RegistData registData;
-        RegistData registData2;
-        RegistData registData3;
-        RegistData registData4;
-        RegistData registData5;
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x006a, code lost:
+        if (r4 != r0.getEditableText()) goto L22;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0082, code lost:
+        if (r4 != r0.getEditableText()) goto L26;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x009a, code lost:
+        if (r4 != r0.getEditableText()) goto L30;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0060  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0078  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0090  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x00a8  */
+    /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
+    @Override // android.text.TextWatcher
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void afterTextChanged(Editable editable) {
         EditText editText;
-        RegistData registData6;
-        RegistData registData7;
-        try {
-            this.OE = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/regreal");
-            com.baidu.tbadk.core.util.aa aaVar = this.OE;
-            registData = this.awW.awO;
-            aaVar.o("un", registData.getName());
-            com.baidu.tbadk.core.util.aa aaVar2 = this.OE;
-            registData2 = this.awW.awO;
-            aaVar2.o("phonenum", registData2.getPhone());
-            com.baidu.tbadk.core.util.aa aaVar3 = this.OE;
-            registData3 = this.awW.awO;
-            aaVar3.o("passwd", registData3.getPsw());
-            registData4 = this.awW.awO;
-            if (registData4.getVcode() != null) {
-                com.baidu.tbadk.core.util.aa aaVar4 = this.OE;
-                registData7 = this.awW.awO;
-                aaVar4.o("vcode", registData7.getVcode());
-            }
-            registData5 = this.awW.awO;
-            if (registData5.getVcodeMd5() != null) {
-                com.baidu.tbadk.core.util.aa aaVar5 = this.OE;
-                registData6 = this.awW.awO;
-                aaVar5.o("vcode_md5", registData6.getVcodeMd5());
-            }
-            com.baidu.tbadk.core.util.aa aaVar6 = this.OE;
-            editText = this.awW.awI;
-            aaVar6.o("smscode", editText.getText().toString());
-            String sw = this.OE.sw();
-            if (this.OE.sX().tT().qa()) {
-                com.baidu.tbadk.core.data.n nVar = new com.baidu.tbadk.core.data.n();
-                nVar.parserJson(sw);
-                return nVar;
-            }
-            return null;
-        } catch (Exception e) {
-            BdLog.detailException(e);
-            return null;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public void onPostExecute(com.baidu.tbadk.core.data.n nVar) {
-        ProgressBar progressBar;
+        EditText editText2;
+        RelativeLayout relativeLayout;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        EditText editText3;
+        EditText editText4;
+        EditText editText5;
+        EditText editText6;
+        EditText editText7;
+        EditText editText8;
         boolean z;
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        int i;
-        int i2;
-        TextView textView;
-        TextView textView2;
-        RelativeLayout relativeLayout;
-        super.onPostExecute(nVar);
-        progressBar = this.awW.awG;
-        progressBar.setVisibility(8);
-        this.awW.awM = null;
-        this.awW.bt(true);
-        z = this.awW.awN;
-        if (z) {
-            relativeLayout = this.awW.awK;
-            relativeLayout.setEnabled(true);
+        RelativeLayout relativeLayout2;
+        EditText editText9;
+        RelativeLayout relativeLayout3;
+        editText = this.aFh.aEO;
+        if (editable == editText.getEditableText()) {
+            this.aFh.bv(false);
         }
-        if (nVar != null) {
-            this.awW.a(nVar);
-            return;
+        editText2 = this.aFh.aEM;
+        if (editText2.length() > 0) {
+            editText7 = this.aFh.aEN;
+            if (editText7.length() >= 6) {
+                editText8 = this.aFh.aEO;
+                if (editText8.length() > 0) {
+                    z = this.aFh.aEY;
+                    if (z) {
+                        editText9 = this.aFh.aEP;
+                        if (editText9.length() <= 0) {
+                            relativeLayout3 = this.aFh.aEQ;
+                            relativeLayout3.setEnabled(false);
+                            i = this.aFh.aFa;
+                            if (i == Register2Activity.aEw) {
+                                editText6 = this.aFh.aEM;
+                            }
+                            i2 = this.aFh.aFa;
+                            i3 = Register2Activity.aEx;
+                            if (i2 == i3) {
+                                editText5 = this.aFh.aEN;
+                            }
+                            i4 = this.aFh.aFa;
+                            i5 = Register2Activity.aEy;
+                            if (i4 == i5) {
+                                editText4 = this.aFh.aEO;
+                            }
+                            i6 = this.aFh.aFa;
+                            if (i6 == Register2Activity.aEz) {
+                                editText3 = this.aFh.aEP;
+                                if (editable != editText3.getEditableText()) {
+                                    return;
+                                }
+                                this.aFh.aFa = -1;
+                                this.aFh.Ga();
+                                return;
+                            }
+                            return;
+                        }
+                    }
+                    relativeLayout2 = this.aFh.aEQ;
+                    relativeLayout2.setEnabled(true);
+                    i = this.aFh.aFa;
+                    if (i == Register2Activity.aEw) {
+                    }
+                    i2 = this.aFh.aFa;
+                    i3 = Register2Activity.aEx;
+                    if (i2 == i3) {
+                    }
+                    i4 = this.aFh.aFa;
+                    i5 = Register2Activity.aEy;
+                    if (i4 == i5) {
+                    }
+                    i6 = this.aFh.aFa;
+                    if (i6 == Register2Activity.aEz) {
+                    }
+                }
+            }
         }
-        String errorString = this.OE.getErrorString();
-        if (errorString != null && errorString.length() > 0) {
-            textView = this.awW.afY;
-            textView.setVisibility(0);
-            textView2 = this.awW.afY;
-            textView2.setText(errorString);
-        }
-        if (this.OE.tb() == 26) {
-            this.awW.awT = 26;
-            linearLayout = this.awW.awD;
-            linearLayout.setBackgroundResource(com.baidu.tieba.p.pass_input_wrong);
-            linearLayout2 = this.awW.awD;
-            i = this.awW.awR;
-            i2 = this.awW.awS;
-            linearLayout2.setPadding(i, 0, i2, 0);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        ProgressBar progressBar;
-        RelativeLayout relativeLayout;
-        TextView textView;
-        TextView textView2;
-        LinearLayout linearLayout;
-        LinearLayout linearLayout2;
-        int i;
-        int i2;
-        progressBar = this.awW.awG;
-        progressBar.setVisibility(0);
-        relativeLayout = this.awW.awK;
+        relativeLayout = this.aFh.aEQ;
         relativeLayout.setEnabled(false);
-        this.awW.bt(false);
-        textView = this.awW.afY;
-        textView.setVisibility(4);
-        textView2 = this.awW.afY;
-        textView2.setText((CharSequence) null);
-        linearLayout = this.awW.awD;
-        linearLayout.setBackgroundResource(com.baidu.tieba.p.pass_input);
-        linearLayout2 = this.awW.awD;
-        i = this.awW.awR;
-        i2 = this.awW.awS;
-        linearLayout2.setPadding(i, 0, i2, 0);
-        super.onPreExecute();
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
-        boolean z;
-        RelativeLayout relativeLayout;
-        this.awW.awM = null;
-        progressBar = this.awW.awG;
-        progressBar.setVisibility(8);
-        z = this.awW.awN;
-        if (z) {
-            relativeLayout = this.awW.awK;
-            relativeLayout.setEnabled(true);
+        i = this.aFh.aFa;
+        if (i == Register2Activity.aEw) {
         }
-        if (this.OE != null) {
-            this.OE.gS();
+        i2 = this.aFh.aFa;
+        i3 = Register2Activity.aEx;
+        if (i2 == i3) {
         }
-        this.awW.bt(true);
-        super.cancel(true);
+        i4 = this.aFh.aFa;
+        i5 = Register2Activity.aEy;
+        if (i4 == i5) {
+        }
+        i6 = this.aFh.aFa;
+        if (i6 == Register2Activity.aEz) {
+        }
     }
 }

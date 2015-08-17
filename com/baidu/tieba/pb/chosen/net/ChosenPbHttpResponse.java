@@ -1,17 +1,22 @@
 package com.baidu.tieba.pb.chosen.net;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.cache.t;
+import com.baidu.adp.lib.cache.o;
 import com.squareup.wire.Wire;
+import java.util.List;
 import tbclient.FinePbPage.FinePbPageResIdl;
 import tbclient.FinePbPage.ForumInfo;
 import tbclient.FinePbPage.User_Info;
+import tbclient.Post;
+import tbclient.User;
 /* loaded from: classes.dex */
 public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
     private ForumInfo forumInfo;
     private long nextTid;
+    private List<Post> postList;
     private long preTid;
     private User_Info userInfo;
+    private List<User> userList;
 
     public long getPreTid() {
         return this.preTid;
@@ -36,7 +41,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         FinePbPageResIdl finePbPageResIdl = (FinePbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, FinePbPageResIdl.class);
         if (finePbPageResIdl != null) {
@@ -49,6 +54,8 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
                 this.nextTid = finePbPageResIdl.data.nextftid.longValue();
                 this.userInfo = finePbPageResIdl.data.user_info;
                 this.forumInfo = finePbPageResIdl.data.thread_info;
+                this.postList = finePbPageResIdl.data.post_list;
+                this.userList = finePbPageResIdl.data.user_list;
             }
         }
     }
@@ -58,7 +65,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (bArr != null && bArr.length > 0) {
-            t<byte[]> cj = com.baidu.tbadk.core.b.a.rI().cj("tb.pb_normal");
+            o<byte[]> cj = com.baidu.tbadk.core.b.a.sM().cj("tb.pb_normal");
             cj.remove("chosen_pb_page_cache");
             cj.f("chosen_pb_page_cache", bArr);
         }
@@ -77,5 +84,15 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
     @Override // com.baidu.tieba.pb.chosen.net.a
     public boolean isEmpty() {
         return this.forumInfo == null || this.forumInfo.content == null || this.forumInfo.content.size() <= 0;
+    }
+
+    @Override // com.baidu.tieba.pb.chosen.net.a
+    public List<Post> getPostList() {
+        return this.postList;
+    }
+
+    @Override // com.baidu.tieba.pb.chosen.net.a
+    public List<User> getUserList() {
+        return this.userList;
     }
 }

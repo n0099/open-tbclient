@@ -7,7 +7,6 @@ import android.os.Build;
 import android.support.v4.view.KeyEventCompat;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.VelocityTrackerCompat;
-import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewConfigurationCompat;
 import android.support.v4.view.accessibility.AccessibilityEventCompat;
 import android.util.AttributeSet;
@@ -28,11 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class CustomViewAbove extends ViewGroup {
-    private static final boolean DEBUG = false;
-    private static final int INVALID_POINTER = -1;
-    private static final int MIN_DISTANCE_FOR_FLING = 25;
-    private static final String TAG = "CustomViewAbove";
-    private static final boolean USE_CACHE = false;
     private static int max_settle_duration = TbConfig.POST_IMAGE_SMALL;
     private static final Interpolator sInterpolator = new Interpolator() { // from class: com.slidingmenu.lib.CustomViewAbove.1
         @Override // android.animation.TimeInterpolator
@@ -82,16 +76,13 @@ public class CustomViewAbove extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    public class SimpleOnPageChangeListener implements OnPageChangeListener {
+    public static class SimpleOnPageChangeListener implements OnPageChangeListener {
         @Override // com.slidingmenu.lib.CustomViewAbove.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
         }
 
         @Override // com.slidingmenu.lib.CustomViewAbove.OnPageChangeListener
         public void onPageSelected(int i) {
-        }
-
-        public void onPageScrollStateChanged(int i) {
         }
     }
 
@@ -199,20 +190,6 @@ public class CustomViewAbove extends ViewGroup {
         return onPageChangeListener2;
     }
 
-    public void addIgnoredView(View view) {
-        if (!this.mIgnoredViews.contains(view)) {
-            this.mIgnoredViews.add(view);
-        }
-    }
-
-    public void removeIgnoredView(View view) {
-        this.mIgnoredViews.remove(view);
-    }
-
-    public void clearIgnoredViews() {
-        this.mIgnoredViews.clear();
-    }
-
     float distanceInfluenceForSnapDuration(float f) {
         return FloatMath.sin((float) ((f - 0.5f) * 0.4712389167638204d));
     }
@@ -263,27 +240,8 @@ public class CustomViewAbove extends ViewGroup {
         return this.mViewBehind.getBehindWidth();
     }
 
-    public int getChildWidth(int i) {
-        switch (i) {
-            case 0:
-                return getBehindWidth();
-            case 1:
-                return this.mContent.getWidth();
-            default:
-                return 0;
-        }
-    }
-
-    public boolean isSlidingEnabled() {
-        return this.mEnabled;
-    }
-
     public void setSlidingEnabled(boolean z) {
         this.mEnabled = z;
-    }
-
-    void smoothScrollTo(int i, int i2) {
-        smoothScrollTo(i, i2, 0);
     }
 
     void smoothScrollTo(int i, int i2, int i3) {
@@ -715,21 +673,6 @@ public class CustomViewAbove extends ViewGroup {
         if (this.mScrollingCacheEnabled != z) {
             this.mScrollingCacheEnabled = z;
         }
-    }
-
-    protected boolean canScroll(View view, boolean z, int i, int i2, int i3) {
-        if (view instanceof ViewGroup) {
-            ViewGroup viewGroup = (ViewGroup) view;
-            int scrollX = view.getScrollX();
-            int scrollY = view.getScrollY();
-            for (int childCount = viewGroup.getChildCount() - 1; childCount >= 0; childCount--) {
-                View childAt = viewGroup.getChildAt(childCount);
-                if (i2 + scrollX >= childAt.getLeft() && i2 + scrollX < childAt.getRight() && i3 + scrollY >= childAt.getTop() && i3 + scrollY < childAt.getBottom() && canScroll(childAt, true, i, (i2 + scrollX) - childAt.getLeft(), (i3 + scrollY) - childAt.getTop())) {
-                    return true;
-                }
-            }
-        }
-        return z && ViewCompat.canScrollHorizontally(view, -i);
     }
 
     @Override // android.view.ViewGroup, android.view.View

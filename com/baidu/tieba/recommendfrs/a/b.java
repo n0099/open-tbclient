@@ -2,77 +2,107 @@ package com.baidu.tieba.recommendfrs.a;
 
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.n;
-import com.baidu.tieba.q;
-import com.baidu.tieba.t;
+import com.baidu.tieba.i;
 import tbclient.FineFrsPage.Hot_Thread;
 /* loaded from: classes.dex */
-public class b extends com.baidu.tbadk.mvc.j.a<com.baidu.tieba.recommendfrs.data.c, com.baidu.tbadk.mvc.e.c> {
-    private TbImageView aDj;
-    private TextView aDk;
-    private TextView aDl;
-    private TextView aDm;
-    private View aDn;
-    private TextView aiA;
+public class b extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data.c, com.baidu.tbadk.mvc.d.b> {
+    private TbImageView aKG;
+    private TextView aKH;
+    private TextView aKI;
+    private TextView aKJ;
+    private TextView anH;
+    private a ctN;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aDj = (TbImageView) view.findViewById(q.img);
-        this.aiA = (TextView) view.findViewById(q.title);
-        this.aDn = view.findViewById(q.divider_line);
-        View findViewById = view.findViewById(q.hot_thread_comment);
-        this.aDk = (TextView) findViewById.findViewById(q.hot_thread_line_tag);
-        this.aDl = (TextView) findViewById.findViewById(q.hot_thread_line_praise);
-        this.aDm = (TextView) findViewById.findViewById(q.hot_thread_line_comment);
+        this.aKG = (TbImageView) view.findViewById(i.f.img);
+        this.anH = (TextView) view.findViewById(i.f.title);
+        View findViewById = view.findViewById(i.f.hot_thread_comment);
+        this.aKH = (TextView) findViewById.findViewById(i.f.hot_thread_line_tag);
+        this.aKI = (TextView) findViewById.findViewById(i.f.hot_thread_line_praise);
+        this.aKJ = (TextView) findViewById.findViewById(i.f.hot_thread_line_comment);
+        this.ctN = new a(this, null);
+        this.aKH.setOnClickListener(this.ctN);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.mvc.j.e
+    @Override // com.baidu.tbadk.mvc.g.e
     /* renamed from: a */
-    public void z(com.baidu.tieba.recommendfrs.data.c cVar) {
-        super.z(cVar);
-        if (cVar != null && cVar.ahB() != null) {
-            Hot_Thread ahB = cVar.ahB();
-            String str = (ahB.pics == null || ahB.pics.size() <= 0) ? null : ahB.pics.get(0).small_pic;
-            TbImageView tbImageView = this.aDj;
-            if (!cVar.ahH()) {
+    public void A(com.baidu.tieba.recommendfrs.data.c cVar) {
+        super.A(cVar);
+        if (cVar != null && cVar.ajD() != null) {
+            Hot_Thread ajD = cVar.ajD();
+            String str = (ajD.pics == null || ajD.pics.size() <= 0) ? null : ajD.pics.get(0).small_pic;
+            TbImageView tbImageView = this.aKG;
+            if (!cVar.ajP()) {
                 str = null;
             }
-            tbImageView.c(str, 10, false);
-            this.aiA.setText(ahB.title);
-            if (StringUtils.isNull(ahB.forum_name)) {
-                this.aDk.setVisibility(8);
+            tbImageView.d(str, 10, false);
+            this.anH.setText(ajD.title);
+            if (StringUtils.isNull(ajD.forum_name)) {
+                this.aKH.setVisibility(8);
             } else {
-                this.aDk.setVisibility(0);
-                this.aDk.setText(getContext().getString(t.chosen_pb_original_bar, UtilHelper.getFixedText(ahB.forum_name, 7, false)));
-                this.aDk.setOnClickListener(new c(this, ahB));
+                this.aKH.setVisibility(0);
+                String string = getContext().getString(i.C0057i.chosen_pb_original_bar, UtilHelper.getFixedText(ajD.forum_name, 7, false));
+                this.ctN.setForumName(string);
+                this.aKH.setText(string);
             }
-            if (ahB.zan_num != null) {
-                this.aDl.setText(String.valueOf(ahB.zan_num));
+            if (ajD.zan_num != null) {
+                this.aKI.setText(aq.o(ajD.zan_num.intValue()));
             }
-            if (ahB.reply_num != null) {
-                this.aDm.setText(String.valueOf(ahB.reply_num));
+            if (ajD.reply_num != null) {
+                this.aKJ.setText(aq.o(ajD.reply_num.intValue()));
             }
-            this.aDn.setVisibility(0);
-            com.baidu.tieba.tbadkCore.util.l readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.jL(String.valueOf(ahB.forum_id))) {
-                ay.b(this.aiA, n.cp_cont_d, 1);
+            com.baidu.tieba.tbadkCore.util.m readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
+            if (readThreadHistory != null && readThreadHistory.kE(String.valueOf(ajD.forum_id))) {
+                al.b(this.anH, i.c.cp_cont_d, 1);
             } else {
-                ay.b(this.aiA, n.cp_cont_b, 1);
+                al.b(this.anH, i.c.cp_cont_b, 1);
             }
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ab
+    @Override // com.baidu.tieba.tbadkCore.r
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.f.a.a(tbPageContext, getRootView());
         return true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class a implements View.OnClickListener {
+        private String forumName;
+
+        private a() {
+        }
+
+        /* synthetic */ a(b bVar, a aVar) {
+            this();
+        }
+
+        public void setForumName(String str) {
+            this.forumName = str;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (aq.aP(this.forumName)) {
+                TiebaStatic.eventStat(b.this.getActivity(), "kantie_6", null, 1, new Object[0]);
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(b.this.getActivity()).createNormalCfg(this.forumName, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+            }
+        }
     }
 }

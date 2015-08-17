@@ -1,7 +1,9 @@
 package com.baidu.tieba.tblauncher;
+
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements com.baidu.tbadk.core.dialog.d {
+public class u implements a.b {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -9,9 +11,9 @@ public class u implements com.baidu.tbadk.core.dialog.d {
         this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
+    @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        this.this$0.aqi();
+        this.this$0.arJ();
     }
 }

@@ -1,63 +1,35 @@
 package com.baidu.tieba.tbadkCore.util;
 
-import com.baidu.adp.lib.util.BdLog;
-import java.util.HashMap;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.ax;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class l {
-    private volatile int bZR;
-    private volatile HashMap<Long, Integer> cug = new HashMap<>();
-    private volatile int cuf = 0;
+    private static String caG = "tbgametype";
 
-    public l(int i) {
-        this.bZR = i;
-    }
-
-    public void jK(String str) {
-        try {
-            Long valueOf = Long.valueOf(Long.parseLong(str));
-            synchronized (this) {
-                if (this.cug.size() >= this.bZR) {
-                    apD();
-                }
-                this.cuf++;
-                this.cug.put(valueOf, Integer.valueOf(this.cuf));
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public static String kC(String str) {
+        String[] split;
+        if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
+            return null;
         }
-    }
-
-    public void apD() {
-        synchronized (this) {
-            int i = 134217727;
-            Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.cug.entrySet()) {
-                if (entry.getValue().intValue() < i) {
-                    i = entry.getValue().intValue();
-                    l = entry.getKey();
+        for (String str2 : split) {
+            if (!TextUtils.isEmpty(str2) && str2.contains("TBCGameID=")) {
+                int indexOf = str2.indexOf("=");
+                if (indexOf + 1 >= str2.length()) {
+                    return "";
                 }
-            }
-            if (l != null) {
-                this.cug.remove(l);
-            } else {
-                this.cug.clear();
+                return str2.substring(indexOf + 1, str2.length());
             }
         }
+        return "";
     }
 
-    public boolean jL(String str) {
-        boolean z = false;
-        try {
-            Long valueOf = Long.valueOf(Long.parseLong(str));
-            synchronized (this) {
-                if (this.cug.get(valueOf) != null) {
-                    z = true;
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public static boolean ji(String str) {
+        Map<String, String> df;
+        if (!TextUtils.isEmpty(str) && (df = ax.df(ax.dg(str))) != null) {
+            String str2 = df.get(caG);
+            return !TextUtils.isEmpty(str2) && str2.equals("1");
         }
-        return z;
+        return false;
     }
 }

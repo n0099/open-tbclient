@@ -1,33 +1,24 @@
 package com.baidu.tbadk.coreExtra.websocketBase;
-/* loaded from: classes.dex */
-public class f {
-    public static f yn() {
-        f fVar;
-        fVar = g.aha;
-        return fVar;
-    }
 
-    private f() {
-    }
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes.dex */
+public class f extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ PingManager amC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ f(f fVar) {
-        this();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(PingManager pingManager, int i) {
+        super(i);
+        this.amC = pingManager;
     }
 
-    public void yo() {
-        em("kLCSError=1");
-    }
-
-    public void dm(int i) {
-        em("kNetStatus=" + i);
-    }
-
-    public void el(String str) {
-        em("kNewIpResult=" + str);
-    }
-
-    private void em(String str) {
-        com.baidu.adp.framework.client.socket.m.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.l.OO, str);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage == null) {
+            return;
+        }
+        this.amC.c(socketResponsedMessage);
     }
 }

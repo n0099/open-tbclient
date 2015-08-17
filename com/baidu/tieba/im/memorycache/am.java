@@ -2,47 +2,37 @@ package com.baidu.tieba.im.memorycache;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.RequestMemoryListMessage;
+import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class am implements CustomMessageTask.CustomRunnable<String> {
-    private final /* synthetic */ ImMessageCenterPojo bmR;
-    private final /* synthetic */ SocketResponsedMessage bmT;
-    final /* synthetic */ al bmZ;
-    private final /* synthetic */ ChatMessage val$chatMessage;
+public class am implements CustomMessageTask.CustomRunnable<Integer> {
+    final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public am(al alVar, ImMessageCenterPojo imMessageCenterPojo, ChatMessage chatMessage, SocketResponsedMessage socketResponsedMessage) {
-        this.bmZ = alVar;
-        this.bmR = imMessageCenterPojo;
-        this.val$chatMessage = chatMessage;
-        this.bmT = socketResponsedMessage;
+    public am(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic) {
+        this.this$0 = imMemoryCacheRegisterStatic;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage != null) {
-            try {
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            } finally {
-                com.baidu.tieba.im.db.g.Rr().endTransaction();
-            }
-            if (customMessage instanceof CustomMessage) {
-                com.baidu.tieba.im.db.g.Rr().Rs();
-                com.baidu.tieba.im.db.k.Rw().a(this.bmR, 3);
-                if (this.bmR.getCustomGroupType() == 2) {
-                    com.baidu.tieba.im.db.n.RC().a(this.val$chatMessage.getUserId(), this.val$chatMessage.getToUserId(), String.valueOf(this.val$chatMessage.getRecordId()), String.valueOf(this.val$chatMessage.getMsgId()), this.val$chatMessage.getLocalData().getStatus().shortValue());
-                } else {
-                    com.baidu.tieba.im.db.m.RB().a(this.val$chatMessage.getUserId(), this.val$chatMessage.getToUserId(), String.valueOf(this.val$chatMessage.getRecordId()), String.valueOf(this.val$chatMessage.getMsgId()), this.val$chatMessage.getLocalData().getStatus().shortValue());
-                }
-                return new CustomResponsedMessage<>(2016012, this.bmT);
-            }
+    public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
+        List<ImMessageCenterPojo> Vu;
+        if (customMessage == null || !(customMessage instanceof RequestMemoryListMessage)) {
+            return null;
         }
-        return null;
+        int intValue = ((RequestMemoryListMessage) customMessage).getData().intValue();
+        if (intValue == 3) {
+            Vu = b.Vl().Vt();
+        } else if (intValue == 2) {
+            Vu = b.Vl().Vs();
+        } else if (intValue == 1) {
+            Vu = b.Vl().Vq();
+        } else {
+            Vu = intValue == 4 ? b.Vl().Vu() : null;
+        }
+        return new ResponsedMemoryListMessage(Vu, intValue);
     }
 }

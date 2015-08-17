@@ -14,7 +14,6 @@ public class ViewCompat {
     public static final int ACCESSIBILITY_LIVE_REGION_ASSERTIVE = 2;
     public static final int ACCESSIBILITY_LIVE_REGION_NONE = 0;
     public static final int ACCESSIBILITY_LIVE_REGION_POLITE = 1;
-    private static final long FAKE_FRAME_TIME = 10;
     static final ViewCompatImpl IMPL;
     public static final int IMPORTANT_FOR_ACCESSIBILITY_AUTO = 0;
     public static final int IMPORTANT_FOR_ACCESSIBILITY_NO = 2;
@@ -107,7 +106,7 @@ public class ViewCompat {
     }
 
     /* loaded from: classes.dex */
-    class BaseViewCompatImpl implements ViewCompatImpl {
+    static class BaseViewCompatImpl implements ViewCompatImpl {
         BaseViewCompatImpl() {
         }
 
@@ -176,7 +175,7 @@ public class ViewCompat {
         }
 
         long getFrameTime() {
-            return ViewCompat.FAKE_FRAME_TIME;
+            return 10L;
         }
 
         @Override // android.support.v4.view.ViewCompat.ViewCompatImpl
@@ -276,7 +275,7 @@ public class ViewCompat {
     }
 
     /* loaded from: classes.dex */
-    class EclairMr1ViewCompatImpl extends BaseViewCompatImpl {
+    static class EclairMr1ViewCompatImpl extends BaseViewCompatImpl {
         EclairMr1ViewCompatImpl() {
         }
 
@@ -287,7 +286,7 @@ public class ViewCompat {
     }
 
     /* loaded from: classes.dex */
-    class GBViewCompatImpl extends EclairMr1ViewCompatImpl {
+    static class GBViewCompatImpl extends EclairMr1ViewCompatImpl {
         GBViewCompatImpl() {
         }
 
@@ -303,7 +302,7 @@ public class ViewCompat {
     }
 
     /* loaded from: classes.dex */
-    class HCViewCompatImpl extends GBViewCompatImpl {
+    static class HCViewCompatImpl extends GBViewCompatImpl {
         HCViewCompatImpl() {
         }
 
@@ -355,7 +354,7 @@ public class ViewCompat {
     }
 
     /* loaded from: classes.dex */
-    class ICSViewCompatImpl extends HCViewCompatImpl {
+    static class ICSViewCompatImpl extends HCViewCompatImpl {
         ICSViewCompatImpl() {
         }
 
@@ -391,7 +390,7 @@ public class ViewCompat {
     }
 
     /* loaded from: classes.dex */
-    class JBViewCompatImpl extends ICSViewCompatImpl {
+    static class JBViewCompatImpl extends ICSViewCompatImpl {
         JBViewCompatImpl() {
         }
 
@@ -456,7 +455,7 @@ public class ViewCompat {
     }
 
     /* loaded from: classes.dex */
-    class JbMr1ViewCompatImpl extends JBViewCompatImpl {
+    static class JbMr1ViewCompatImpl extends JBViewCompatImpl {
         JbMr1ViewCompatImpl() {
         }
 
@@ -487,7 +486,7 @@ public class ViewCompat {
     }
 
     /* loaded from: classes.dex */
-    class KitKatViewCompatImpl extends JbMr1ViewCompatImpl {
+    static class KitKatViewCompatImpl extends JbMr1ViewCompatImpl {
         KitKatViewCompatImpl() {
         }
 

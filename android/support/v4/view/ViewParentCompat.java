@@ -15,7 +15,7 @@ public class ViewParentCompat {
     }
 
     /* loaded from: classes.dex */
-    class ViewParentCompatStubImpl implements ViewParentCompatImpl {
+    static class ViewParentCompatStubImpl implements ViewParentCompatImpl {
         ViewParentCompatStubImpl() {
         }
 
@@ -30,7 +30,7 @@ public class ViewParentCompat {
     }
 
     /* loaded from: classes.dex */
-    class ViewParentCompatICSImpl extends ViewParentCompatStubImpl {
+    static class ViewParentCompatICSImpl extends ViewParentCompatStubImpl {
         ViewParentCompatICSImpl() {
         }
 

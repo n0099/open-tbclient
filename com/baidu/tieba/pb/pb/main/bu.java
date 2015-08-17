@@ -1,15 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu extends com.baidu.adp.widget.ListView.am {
-    public TextView bMb;
-    public View bMc;
+public class bu implements View.OnClickListener {
+    final /* synthetic */ br ccK;
+    private final /* synthetic */ int ccO;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.i ccP;
+    private final /* synthetic */ int val$count;
 
-    public bu(View view) {
-        super(view);
-        this.bMb = (TextView) view.findViewById(com.baidu.tieba.q.pb_u9_text_view);
-        this.bMc = view.findViewById(com.baidu.tieba.q.divide_line_up_pb_u9);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bu(br brVar, int i, int i2, com.baidu.tieba.tbadkCore.data.i iVar) {
+        this.ccK = brVar;
+        this.ccO = i;
+        this.val$count = i2;
+        this.ccP = iVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.ccP.jJ(Math.min(this.ccO + 5, this.val$count));
+        this.ccK.notifyDataSetChanged();
     }
 }

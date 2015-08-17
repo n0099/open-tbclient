@@ -1,97 +1,153 @@
 package com.baidu.tbadk.coreExtra.c;
 
-import com.baidu.adp.framework.MessageManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.aa;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.v;
+import java.io.File;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class b extends BdAsyncTask<Integer, Integer, String> {
-    private aa aaG;
-    final /* synthetic */ a acX;
-    private boolean acr;
-    private String portrait;
-    private String toUid;
-
-    private b(a aVar) {
-        this.acX = aVar;
-        this.aaG = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ b(a aVar, b bVar) {
-        this(aVar);
-    }
-
-    public void setPortrait(String str) {
-        this.portrait = str;
-    }
-
-    public void setToUid(String str) {
-        this.toUid = str;
-    }
-
-    public void aJ(boolean z) {
-        this.acr = z;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public String doInBackground(Integer... numArr) {
-        try {
-            if (this.portrait != null) {
-                this.aaG = new aa();
-                if (this.acr) {
-                    this.aaG.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
-                } else {
-                    this.aaG.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
-                }
-                this.aaG.o(com.baidu.tbadk.core.frameworkData.c.PORTRAIT, this.portrait);
-                this.aaG.sX().tS().mIsNeedTbs = true;
-                this.aaG.sw();
-                return null;
+public class b {
+    public void k(JSONObject jSONObject) {
+        JSONArray jSONArray;
+        JSONObject optJSONObject;
+        String str;
+        String str2;
+        JSONObject optJSONObject2;
+        if (jSONObject != null) {
+            try {
+                jSONArray = jSONObject.getJSONArray("APP_INDEX_START");
+            } catch (JSONException e) {
+                e.printStackTrace();
+                jSONArray = null;
             }
-            return null;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
+            TbadkSettings inst = TbadkSettings.getInst();
+            if (jSONArray != null && jSONArray.length() != 0 && (optJSONObject = jSONArray.optJSONObject(0)) != null) {
+                int optInt = optJSONObject.optInt("url_type");
+                String optString = optJSONObject.optString("url");
+                String optString2 = optJSONObject.optString("apk_url");
+                String optString3 = optJSONObject.optString("apk_name");
+                String optString4 = optJSONObject.optString("app_name");
+                inst.saveString("url", optString);
+                inst.saveInt("url_type", optInt);
+                inst.saveString("apk_url", optString2);
+                inst.saveString("apk_name", optString3);
+                inst.saveString("app_name", optString4);
+                JSONArray optJSONArray = optJSONObject.optJSONArray("goods_info");
+                if (optJSONArray == null || optJSONArray.length() == 0 || (optJSONObject2 = optJSONArray.optJSONObject(0)) == null) {
+                    str = null;
+                    str2 = null;
+                } else {
+                    str2 = optJSONObject2.optString("thread_pic");
+                    str = optJSONObject2.optString("thread_pic_md5");
+                    inst.saveString("apk_size", optJSONObject2.optString("apk_size"));
+                }
+                if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+                    String loadString = inst.loadString("launch_config_md5", null);
+                    if (StringUtils.isNull(loadString)) {
+                        inst.saveString("launch_config_md5", str);
+                        inst.saveString("launch_config_remote_url", str2);
+                        dQ(str2);
+                    } else if (!TextUtils.equals(loadString, str)) {
+                        inst.saveString("launch_config_md5", str);
+                        inst.saveString("launch_config_remote_url", str2);
+                        dQ(str2);
+                    }
+                }
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        super.onPostExecute((b) str);
-        this.acX.acW = null;
-        if (this.aaG != null) {
-            com.baidu.tbadk.coreExtra.message.a aVar = new com.baidu.tbadk.coreExtra.message.a();
-            aVar.acq = this.aaG.sX().tT().qa();
-            aVar.errorString = this.aaG.getErrorString();
-            aVar.acr = this.acr;
-            aVar.toUid = this.toUid;
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
+    /* JADX INFO: Access modifiers changed from: private */
+    public void xK() {
+        String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
+        if (!StringUtils.isNull(loadString)) {
+            TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        com.baidu.adp.base.i iVar;
-        com.baidu.adp.base.i iVar2;
-        super.cancel(true);
-        if (this.aaG != null) {
-            this.aaG.gS();
-            this.aaG = null;
+    public String xL() {
+        return TbadkSettings.getInst().loadString("launch_config_local_url", "");
+    }
+
+    public void dQ(String str) {
+        String xL = xL();
+        if (!TextUtils.equals(xL, str) || !dR(xL)) {
+            aj(str, xL);
         }
-        this.acX.acW = null;
-        iVar = this.acX.mLoadDataCallBack;
-        if (iVar != null) {
-            iVar2 = this.acX.mLoadDataCallBack;
-            iVar2.c(false);
+    }
+
+    public void xM() {
+        if (i.iP()) {
+            TbadkSettings inst = TbadkSettings.getInst();
+            aj(inst.loadString("launch_config_remote_url", ""), inst.loadString("launch_config_local_url", ""));
+        }
+    }
+
+    private boolean dR(String str) {
+        File cC = n.cC(as.dc(str));
+        return cC != null && cC.exists() && cC.isFile();
+    }
+
+    private void aj(String str, String str2) {
+        if (i.iP()) {
+            new a(str, as.dc(str), str2).execute(new String[0]);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a extends BdAsyncTask<String, Integer, Boolean> {
+        private v Tu = null;
+        private final String Yj;
+        private final String aii;
+        private final String aij;
+
+        public a(String str, String str2, String str3) {
+            this.aii = str;
+            this.Yj = str2;
+            this.aij = str3;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: f */
+        public Boolean doInBackground(String... strArr) {
+            Boolean bool = false;
+            try {
+                this.Tu = new v(this.aii);
+                bool = Boolean.valueOf(this.Tu.a(String.valueOf(this.Yj) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                if (bool != null && bool.booleanValue()) {
+                    if (!StringUtils.isNull(n.e(null, String.valueOf(this.Yj) + ".tmp", null, this.Yj)) && !TextUtils.isEmpty(this.aii) && !this.aii.equals(this.aij)) {
+                        n.cI(as.dc(this.aij));
+                    }
+                } else {
+                    n.cI(String.valueOf(this.Yj) + ".tmp");
+                }
+            } catch (Exception e) {
+            }
+            return bool;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public void onPostExecute(Boolean bool) {
+            super.onPostExecute(bool);
+            if (bool != null && bool.booleanValue()) {
+                new b().xK();
+            }
         }
     }
 }

@@ -1,37 +1,32 @@
 package com.baidu.tieba.person.post;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.AdapterView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tieba.person.PersonPostModel;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w implements AdapterView.OnItemClickListener {
-    final /* synthetic */ t bUJ;
+public class w implements View.OnClickListener {
+    final /* synthetic */ ReplyLinearLayout clv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(t tVar) {
-        this.bUJ = tVar;
+    public w(ReplyLinearLayout replyLinearLayout) {
+        this.clv = replyLinearLayout;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        q qVar;
-        q qVar2;
-        q qVar3;
-        if (i >= 0) {
-            qVar = this.bUJ.bUG;
-            if (qVar != null) {
-                qVar2 = this.bUJ.bUG;
-                if (i < qVar2.getCount()) {
-                    qVar3 = this.bUJ.bUG;
-                    PersonPostModel.PostList postList = (PersonPostModel.PostList) qVar3.getItem(i);
-                    if (postList != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.bUJ.getActivity()).createCfgForPersonCenter(String.valueOf(postList.thread_id), String.valueOf(postList.post_id), "person_post", 18005)));
-                    }
-                }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String[] strArr = (String[]) view.getTag();
+        if (strArr != null) {
+            Context context = this.clv.getContext();
+            if ("0".equals(strArr[3])) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(context).createNormalCfg(strArr[1], strArr[2], "person_post_reply")));
+                return;
             }
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(context).createSubPbActivityConfig(strArr[1], strArr[2], "person_post_reply", false, null, false)));
         }
     }
 }

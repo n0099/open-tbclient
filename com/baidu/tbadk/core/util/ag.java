@@ -1,23 +1,38 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import java.io.File;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag extends BroadcastReceiver {
-    final /* synthetic */ af this$0;
-
-    private ag(af afVar) {
-        this.this$0 = afVar;
-    }
+public class ag implements Runnable {
+    final /* synthetic */ ae aaF;
+    private final /* synthetic */ String aaG;
+    private final /* synthetic */ int aaH;
+    private final /* synthetic */ String aaI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ag(af afVar, ag agVar) {
-        this(afVar);
+    public ag(ae aeVar, String str, int i, String str2) {
+        this.aaF = aeVar;
+        this.aaG = str;
+        this.aaH = i;
+        this.aaI = str2;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        this.this$0.ti();
+    @Override // java.lang.Runnable
+    public void run() {
+        File uu;
+        boolean c;
+        boolean cm;
+        uu = this.aaF.uu();
+        c = this.aaF.c(uu, this.aaG);
+        if (c) {
+            this.aaF.s(uu);
+            cm = this.aaF.cm(this.aaH);
+            if (cm) {
+                this.aaF.us();
+                return;
+            }
+        }
+        this.aaF.uw();
+        this.aaF.d(this.aaI, this.aaG, this.aaH);
     }
 }

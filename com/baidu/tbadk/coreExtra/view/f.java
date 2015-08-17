@@ -1,7 +1,18 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.webkit.WebView;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface f {
-    boolean shouldOverrideUrlLoading(WebView webView, String str);
+public class f implements View.OnClickListener {
+    final /* synthetic */ d akC;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(d dVar) {
+        this.akC = dVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.akC.s(view);
+    }
 }

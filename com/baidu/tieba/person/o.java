@@ -1,19 +1,18 @@
 package com.baidu.tieba.person;
 
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.person.EditHeadActivity;
 /* loaded from: classes.dex */
-class o implements Runnable {
-    final /* synthetic */ n bRA;
+class o implements a.b {
+    final /* synthetic */ EditHeadActivity.a cif;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(n nVar) {
-        this.bRA = nVar;
+    public o(EditHeadActivity.a aVar) {
+        this.cif = aVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        EditHeadActivity editHeadActivity;
-        editHeadActivity = this.bRA.this$0;
-        editHeadActivity.iB(WriteImageActivityConfig.FILTER_NAME_NORMAL);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

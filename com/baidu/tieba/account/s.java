@@ -1,33 +1,28 @@
 package com.baidu.tieba.account;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.data.AccountData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class s implements com.baidu.tieba.a.b {
-    final /* synthetic */ p awx;
+class s implements View.OnFocusChangeListener {
+    final /* synthetic */ ActivationActivity aEn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(p pVar) {
-        this.awx = pVar;
+    public s(ActivationActivity activationActivity) {
+        this.aEn = activationActivity;
     }
 
-    @Override // com.baidu.tieba.a.b
-    public void a(AccountData accountData) {
-        u uVar;
-        u uVar2;
-        new t(this, accountData).execute(new Void[0]);
-        uVar = this.awx.awu;
-        if (uVar != null) {
-            uVar2 = this.awx.awu;
-            uVar2.onSuccess();
-        }
-    }
-
-    @Override // com.baidu.tieba.a.b
-    public void fp(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            com.baidu.tbadk.core.a.d.cc(str);
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
+        ImageView imageView;
+        ImageView imageView2;
+        if (view == this.aEn.aDZ) {
+            if (z) {
+                imageView2 = this.aEn.aDV;
+                imageView2.setVisibility(0);
+                return;
+            }
+            imageView = this.aEn.aDV;
+            imageView.setVisibility(8);
         }
     }
 }

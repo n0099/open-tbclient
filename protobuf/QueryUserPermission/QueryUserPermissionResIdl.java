@@ -26,9 +26,12 @@ public final class QueryUserPermissionResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<QueryUserPermissionResIdl> {
+    public static final class Builder extends Message.Builder<QueryUserPermissionResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(QueryUserPermissionResIdl queryUserPermissionResIdl) {
             super(queryUserPermissionResIdl);

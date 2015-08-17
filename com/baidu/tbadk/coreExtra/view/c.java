@@ -1,17 +1,30 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.view.View;
+import android.content.Context;
+import android.webkit.WebView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.coreExtra.view.BaseWebView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements View.OnLongClickListener {
-    final /* synthetic */ BaseWebView afd;
+public class c implements BaseWebView.b {
+    final /* synthetic */ BaseWebView akk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BaseWebView baseWebView) {
-        this.afd = baseWebView;
+        this.akk = baseWebView;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
+    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        Context context;
+        if (str != null) {
+            try {
+                context = this.akk.mContext;
+                com.baidu.tbadk.browser.f.D(context, str);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
         return true;
     }
 }

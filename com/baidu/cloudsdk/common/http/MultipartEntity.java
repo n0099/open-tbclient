@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.util.Random;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
+import org.apache.http.entity.mime.MIME;
 import org.apache.http.message.BasicHeader;
 /* loaded from: classes.dex */
 class MultipartEntity implements HttpEntity {
@@ -98,7 +99,7 @@ class MultipartEntity implements HttpEntity {
     }
 
     public Header getContentType() {
-        return new BasicHeader("Content-Type", "multipart/form-data; boundary=" + this.mBoundary);
+        return new BasicHeader(MIME.CONTENT_TYPE, "multipart/form-data; boundary=" + this.mBoundary);
     }
 
     public boolean isChunked() {

@@ -3,23 +3,23 @@ package com.baidu.tbadk.game;
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.b.f;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.GameWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.q;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.o;
 import com.baidu.tbadk.plugins.LightAppPlugin;
 /* loaded from: classes.dex */
-public class a extends q {
+public class a extends o {
     public static void c(Context context, String str, String str2, String str3) {
         LightAppPlugin lightAppPlugin;
-        b.Ab().ao(str3, str2);
-        if (f.gD().ai("t5core") == 0 && (lightAppPlugin = (LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
+        b.BS().ao(str3, str2);
+        if (com.baidu.adp.lib.b.e.gy().ah("t5core") == 0 && (lightAppPlugin = (LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
             lightAppPlugin.launchLightApp(context, TbConfig.api_key, TbWebViewActivityConfig.addTiebaParams(str2));
             return;
         }
-        e.Ae().r(str3, 2);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GameWebViewActivityConfig(context, str, str2, str3, true)));
+        e.BV().u(str3, 2);
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameWebViewActivityConfig(context, str, str2, str3, true)));
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.f;
+import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class AppUploadSwitchStatic extends a {
     static {
-        f.gD().l(AppUploadSwitchStatic.class);
+        e.gy().e(AppUploadSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

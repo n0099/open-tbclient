@@ -41,7 +41,7 @@ public class ax implements a0, n {
     private a iL;
     private Context ix;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends Handler {
 
@@ -186,7 +186,7 @@ public class ax implements a0, n {
     }
 
     /* loaded from: classes.dex */
-    class c implements Runnable {
+    private class c implements Runnable {
 
         /* renamed from: do  reason: not valid java name */
         private final at f83do;
@@ -212,7 +212,7 @@ public class ax implements a0, n {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class d implements Runnable {
 

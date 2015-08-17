@@ -1,10 +1,19 @@
 package com.baidu.adp.lib.cache;
+
+import com.baidu.adp.lib.cache.o;
 /* loaded from: classes.dex */
-public class n {
-    public int maxSize;
-    public String sT;
-    public String tg;
-    public String tk;
-    public int tl;
-    public long tm;
+public interface n<T> {
+    void a(String str, String str2, T t, long j);
+
+    void aa(String str);
+
+    void ab(String str);
+
+    f gf();
+
+    T l(String str, String str2);
+
+    o.b<T> m(String str, String str2);
+
+    void n(String str, String str2);
 }

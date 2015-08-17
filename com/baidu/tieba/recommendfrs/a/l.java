@@ -1,45 +1,90 @@
 package com.baidu.tieba.recommendfrs.a;
 
 import android.content.Context;
-import android.widget.ImageView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.o;
-import com.baidu.tieba.p;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.flow.CoverFlowView;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.i;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class l implements com.baidu.tbadk.core.flow.b {
-    final /* synthetic */ k ccD;
+public class l {
+    private CoverFlowView<com.baidu.tieba.recommendfrs.data.a> ctY;
+    private TextView ctZ;
+    private boolean cti = true;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar) {
-        this.ccD = kVar;
+    public l(Context context) {
+        this.ctY = new CoverFlowView<>(context);
+        this.ctY.setDisableParentEvent(true);
+        this.ctY.setCoverFlowFactory(new m(this));
+        this.ctZ = aL(context);
+        this.ctY.addView(this.ctZ, 1, new FrameLayout.LayoutParams(-1, -2, 80));
     }
 
-    @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.c rV() {
-        com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
-        cVar.setDrawableId(p.icon_banner_n);
-        cVar.bM(p.icon_banner_s);
-        cVar.setSpacing(o.ds14);
-        cVar.setGravity(85);
-        cVar.bO(o.ds30);
-        cVar.bN(o.ds22);
-        return cVar;
+    private TextView aL(Context context) {
+        TextView textView = new TextView(context);
+        textView.setLayoutParams(new ViewGroup.LayoutParams(-1, context.getResources().getDimensionPixelSize(i.d.ds76)));
+        textView.setGravity(16);
+        textView.setTextSize(0, context.getResources().getDimensionPixelSize(i.d.fontsize36));
+        textView.setPadding(context.getResources().getDimensionPixelSize(i.d.ds30), context.getResources().getDimensionPixelSize(i.d.ds22), 0, context.getResources().getDimensionPixelSize(i.d.ds18));
+        textView.setSingleLine(true);
+        al.i((View) textView, i.e.recommend_frs_header_title_bg);
+        al.b(textView, i.c.cp_cont_g, 1);
+        return textView;
     }
 
-    @Override // com.baidu.tbadk.core.flow.b
-    public TbImageView V(Context context) {
-        TbImageView tbImageView = new TbImageView(context);
-        tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        tbImageView.setGifIconSupport(false);
-        return tbImageView;
+    public void a(com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommendfrs.data.a> dVar) {
+        if (this.ctY != null) {
+            this.ctY.setCallback(dVar);
+        }
     }
 
-    @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.e rW() {
-        com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
-        eVar.setHeight(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(o.ds314));
-        return eVar;
+    public void setTitle(String str) {
+        if (this.ctZ != null) {
+            this.ctZ.setText(str);
+        }
+    }
+
+    public com.baidu.tieba.recommendfrs.data.a jh(int i) {
+        if (i < 0) {
+            return null;
+        }
+        return this.ctY.bT(i);
+    }
+
+    public void setData(List<com.baidu.tieba.recommendfrs.data.a> list) {
+        if (list != null && list.size() > 0) {
+            if (!this.cti) {
+                ArrayList arrayList = new ArrayList();
+                for (com.baidu.tieba.recommendfrs.data.a aVar : list) {
+                    com.baidu.tieba.recommendfrs.data.a clone = aVar.clone();
+                    clone.jU(null);
+                    arrayList.add(clone);
+                }
+                list = arrayList;
+            }
+            if (list.size() > 5) {
+                list = list.subList(0, 4);
+            }
+            if (this.ctY != null) {
+                this.ctY.setData(list);
+            }
+        }
+    }
+
+    public View getView() {
+        return this.ctY;
+    }
+
+    public void e(TbPageContext<?> tbPageContext) {
+        al.i((View) this.ctZ, i.e.recommend_frs_header_title_bg);
+        al.b(this.ctZ, i.c.cp_cont_g, 1);
+        if (this.ctY != null) {
+            this.ctY.ta();
+        }
     }
 }

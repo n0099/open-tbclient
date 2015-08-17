@@ -3,56 +3,56 @@ package com.baidu.tieba.im.e.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.im.message.LoadHistoryMessage;
 import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.d;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class g implements CustomMessageTask.CustomRunnable<com.baidu.tieba.im.message.c> {
-    private com.baidu.tieba.im.db.c bqi;
+public class g implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
+    private com.baidu.tieba.im.db.c bDV;
     private int mCmd;
 
     public g() {
-        a(com.baidu.tieba.im.db.c.Rn(), 2001149);
+        a(com.baidu.tieba.im.db.c.SV(), CmdConfigCustom.CMD_LOAD_HISTORY_GROUP);
     }
 
     private void a(com.baidu.tieba.im.db.c cVar, int i) {
-        this.bqi = cVar;
+        this.bDV = cVar;
         this.mCmd = i;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tieba.im.message.c> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
         if (customMessage == null || !(customMessage instanceof LoadHistoryMessage)) {
-            return gH(this.mCmd);
+            return hl(this.mCmd);
         }
-        if (this.bqi == null) {
-            return gH(this.mCmd);
+        if (this.bDV == null) {
+            return hl(this.mCmd);
         }
-        com.baidu.tieba.im.message.c data = customMessage.getData();
+        LoadHistoryMessage.a data = customMessage.getData();
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.mCmd);
-        LinkedList<ChatMessage> a = this.bqi.a(data.id, data.bno, data.bnp, data.limit);
-        if (a == null) {
-            return gH(this.mCmd);
+        LinkedList<ChatMessage> b = this.bDV.b(data.id, data.bBb, data.bBc, data.limit);
+        if (b == null) {
+            return hl(this.mCmd);
         }
-        d dVar = new d();
-        if (data.bno == null) {
-            dVar.isFirst = true;
+        LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
+        if (data.bBb == null) {
+            aVar.isFirst = true;
         } else {
-            dVar.isFirst = false;
+            aVar.isFirst = false;
         }
-        dVar.msgList = a;
-        dVar.id = data.id;
+        aVar.msgList = b;
+        aVar.id = data.id;
         try {
-            loadHistoryResponsedMessage.decodeInBackGround(2001105, dVar);
+            loadHistoryResponsedMessage.decodeInBackGround(CmdConfigCustom.CMD_LOAD_HISTORY, aVar);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return loadHistoryResponsedMessage;
     }
 
-    private LoadHistoryResponsedMessage gH(int i) {
+    private LoadHistoryResponsedMessage hl(int i) {
         LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
         loadHistoryResponsedMessage.setError(-18);
         return loadHistoryResponsedMessage;

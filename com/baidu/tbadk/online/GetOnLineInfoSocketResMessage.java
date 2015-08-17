@@ -23,7 +23,7 @@ public class GetOnLineInfoSocketResMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         GetOnlineInfoResIdl getOnlineInfoResIdl = (GetOnlineInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetOnlineInfoResIdl.class);
         setError(getOnlineInfoResIdl.error.errorno.intValue());

@@ -13,10 +13,11 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.a.b;
 import com.baidu.adp.plugin.pluginBase.g;
+import com.baidu.megapp.ma.MAService;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
-public class ServiceProxy extends Service implements b {
+public class ServiceProxy extends MAService implements b {
     private g mEntity = null;
 
     public void loadTargetService(Intent intent) {
@@ -28,7 +29,7 @@ public class ServiceProxy extends Service implements b {
                 return;
             }
             try {
-                this.mEntity = (g) PluginCenter.getInstance().getPlugin(stringExtra).kz().loadClass(intent.getStringExtra("intent_extra_service")).asSubclass(g.class).newInstance();
+                this.mEntity = (g) PluginCenter.getInstance().getPlugin(stringExtra).ks().loadClass(intent.getStringExtra("intent_extra_service")).asSubclass(g.class).newInstance();
                 this.mEntity.setServiceProxy(this);
                 this.mEntity.setPluginPackageName(stringExtra);
                 this.mEntity.onCreate();

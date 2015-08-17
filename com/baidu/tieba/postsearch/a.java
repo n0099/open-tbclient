@@ -5,73 +5,74 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class a {
-    private EditText bBN = null;
-    private TextView bBO = null;
-    private PostSearchActivity bXN;
-    private View bXO;
+    private EditText bQb = null;
+    private TextView bQc = null;
+    private PostSearchActivity coG;
+    private View coH;
     private NavigationBar mNavigationBar;
     private View mRootView;
 
     public a(PostSearchActivity postSearchActivity, View view) {
         this.mRootView = view;
-        this.bXN = postSearchActivity;
-        MN();
+        this.coG = postSearchActivity;
+        Oi();
     }
 
-    private void MN() {
-        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(com.baidu.tieba.q.view_navigation_bar);
+    private void Oi() {
+        this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
-        this.bXO = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, com.baidu.tieba.r.post_search_navigation_view, (View.OnClickListener) null);
-        this.bBN = (EditText) this.bXO.findViewById(com.baidu.tieba.q.search_text);
-        this.bBO = (TextView) this.bXO.findViewById(com.baidu.tieba.q.search_del);
-        this.bBO.setVisibility(8);
-        this.bBN.setOnFocusChangeListener(new c(this));
-        this.bBN.setOnClickListener(new d(this));
-        this.bBN.setOnEditorActionListener(new e(this));
-        this.bBO.setOnClickListener(new f(this));
-        this.bBN.addTextChangedListener(new g(this));
+        this.coH = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, i.g.post_search_navigation_view, (View.OnClickListener) null);
+        this.bQb = (EditText) this.coH.findViewById(i.f.search_text);
+        this.bQc = (TextView) this.coH.findViewById(i.f.search_del);
+        this.bQc.setVisibility(8);
+        this.bQb.setOnFocusChangeListener(new c(this));
+        this.bQb.setOnClickListener(new d(this));
+        this.bQb.setOnEditorActionListener(new e(this));
+        this.bQc.setOnClickListener(new f(this));
+        this.bQb.addTextChangedListener(new g(this));
     }
 
-    public void iK(String str) {
-        this.bBN.setText(str);
+    public void jE(String str) {
+        this.bQb.setText(str);
     }
 
-    public void Vk() {
+    public void WR() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
-    public void afR() {
-        com.baidu.adp.lib.util.n.c(this.bXN.getPageContext().getPageActivity(), this.bBN);
+    public void ahP() {
+        com.baidu.adp.lib.util.k.c(this.coG.getPageContext().getPageActivity(), this.bQb);
     }
 
-    public void afS() {
-        this.bBO.setVisibility(8);
+    public void ahQ() {
+        this.bQc.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afT() {
-        if (!StringUtils.isNull(this.bBN.getText().toString())) {
-            this.bBO.setVisibility(0);
+    public void ahR() {
+        if (!StringUtils.isNull(this.bQb.getText().toString())) {
+            this.bQc.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void afU() {
-        if (!this.bXN.afW()) {
-            this.bXN.afV();
-            if (!this.bBN.hasFocus()) {
-                this.bBN.requestFocus();
-                com.baidu.adp.lib.util.n.d(this.bXN.getPageContext().getPageActivity(), this.bBN);
+    public void ahS() {
+        if (!this.coG.ahU()) {
+            this.coG.ahT();
+            if (!this.bQb.hasFocus()) {
+                this.bQb.requestFocus();
+                com.baidu.adp.lib.util.k.d(this.coG.getPageContext().getPageActivity(), this.bQb);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.bXN.getPageContext(), i);
-        com.baidu.tbadk.f.a.a(this.bXN.getPageContext(), this.bXO);
+        this.mNavigationBar.onChangeSkinType(this.coG.getPageContext(), i);
+        com.baidu.tbadk.f.a.a(this.coG.getPageContext(), this.coH);
     }
 }

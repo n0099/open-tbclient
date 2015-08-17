@@ -1,76 +1,58 @@
 package com.baidu.tieba.write.shareSDK;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import com.baidu.tbadk.core.data.PostPrefixData;
+import com.baidu.tieba.i;
+import com.baidu.tieba.write.shareSDK.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteShareActivity cAu;
+public class e implements a.InterfaceC0075a {
+    final /* synthetic */ WriteShareActivity cSj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(WriteShareActivity writeShareActivity) {
-        this.cAu = writeShareActivity;
+        this.cSj = writeShareActivity;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:10:0x002b, code lost:
-        if (r4 == r0.asM()) goto L19;
-     */
-    @Override // android.view.View.OnFocusChangeListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onFocusChange(View view, boolean z) {
-        q qVar;
-        q qVar2;
-        q qVar3;
-        q qVar4;
-        q qVar5;
-        InputMethodManager inputMethodManager;
-        q qVar6;
-        q qVar7;
-        q qVar8;
-        InputMethodManager inputMethodManager2;
-        q qVar9;
-        q qVar10;
-        q qVar11;
-        q qVar12;
-        qVar = this.cAu.cAf;
-        if (qVar != null) {
-            qVar2 = this.cAu.cAf;
-            if (view != qVar2.asI()) {
-                qVar11 = this.cAu.cAf;
-                if (view != qVar11.asL()) {
-                    qVar12 = this.cAu.cAf;
-                }
-            }
-            if (!z) {
-                qVar3 = this.cAu.cAf;
-                if (view == qVar3.asI()) {
-                    qVar4 = this.cAu.cAf;
-                    if (qVar4.asN() != null) {
-                        qVar5 = this.cAu.cAf;
-                        qVar5.asN().setVisibility(0);
+    @Override // com.baidu.tieba.write.shareSDK.a.InterfaceC0075a
+    public void a(boolean z, PostPrefixData postPrefixData) {
+        o oVar;
+        PostPrefixData postPrefixData2;
+        PostPrefixData postPrefixData3;
+        PostPrefixData postPrefixData4;
+        o oVar2;
+        o oVar3;
+        PostPrefixData postPrefixData5;
+        if (z) {
+            this.cSj.mPrefixData = postPrefixData;
+            postPrefixData2 = this.cSj.mPrefixData;
+            if (postPrefixData2 != null) {
+                postPrefixData3 = this.cSj.mPrefixData;
+                if (postPrefixData3.getPrefixs().size() > 0) {
+                    postPrefixData4 = this.cSj.mPrefixData;
+                    postPrefixData4.getPrefixs().add(this.cSj.getPageContext().getString(i.C0057i.write_no_prefix));
+                    oVar2 = this.cSj.cRT;
+                    if (oVar2 != null) {
+                        oVar3 = this.cSj.cRT;
+                        postPrefixData5 = this.cSj.mPrefixData;
+                        oVar3.a(postPrefixData5);
+                        return;
                     }
+                    return;
                 }
-            } else {
-                WriteShareActivity writeShareActivity = this.cAu;
-                inputMethodManager = this.cAu.mInputManager;
-                qVar6 = this.cAu.cAf;
-                writeShareActivity.ShowSoftKeyPad(inputMethodManager, qVar6.asI());
+                return;
             }
-            qVar7 = this.cAu.cAf;
-            if (view == qVar7.asJ()) {
-                if (z) {
-                    qVar10 = this.cAu.cAf;
-                    qVar10.asJ().setHint((CharSequence) null);
-                } else {
-                    qVar8 = this.cAu.cAf;
-                    qVar8.asJ().setHint(com.baidu.tieba.t.content);
-                }
-                WriteShareActivity writeShareActivity2 = this.cAu;
-                inputMethodManager2 = this.cAu.mInputManager;
-                qVar9 = this.cAu.cAf;
-                writeShareActivity2.ShowSoftKeyPad(inputMethodManager2, qVar9.asI());
-            }
+            return;
         }
+        this.cSj.mPrefixData = null;
+        oVar = this.cSj.cRT;
+        oVar.a((PostPrefixData) null);
+    }
+
+    @Override // com.baidu.tieba.write.shareSDK.a.InterfaceC0075a
+    public void auj() {
+        o oVar;
+        this.cSj.mPrefixData = null;
+        oVar = this.cSj.cRT;
+        oVar.a((PostPrefixData) null);
     }
 }

@@ -5,32 +5,33 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PostSearchActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class PostSearchActivityStatic {
     static {
         TbadkCoreApplication.m411getInst().RegisterIntent(PostSearchActivityConfig.class, PostSearchActivity.class);
-        afY();
-        afZ();
-        aga();
+        ahW();
+        ahX();
+        ahY();
     }
 
-    private static void afY() {
+    private static void ahW() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_POST_SEARCH, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_SEARCH_URL);
         tbHttpMessageTask.setResponsedClass(PostSearchHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private static void afZ() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2009003, new h());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+    private static void ahX() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.SAVE_SEARCH_POST_DATA, new h());
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aga() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2009004, new i());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
+    private static void ahY() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA, new i());
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 }

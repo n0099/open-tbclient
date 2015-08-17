@@ -12,21 +12,21 @@ public class ForumDetailData extends com.baidu.adp.lib.a.b.a.a.i implements Seri
     public ThreadInfo[] thread_list = new ThreadInfo[0];
 
     /* loaded from: classes.dex */
-    public class BadgeInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+    public static class BadgeInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1;
         public long badge_id = 0;
         public String badge_url = "";
     }
 
     /* loaded from: classes.dex */
-    public class ForumContent extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+    public static class ForumContent extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1;
         public int type = 0;
         public String text = "";
     }
 
     /* loaded from: classes.dex */
-    public class ForumDirInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+    public static class ForumDirInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1;
         public long hot_value;
         public int rank = 0;
@@ -39,7 +39,7 @@ public class ForumDetailData extends com.baidu.adp.lib.a.b.a.a.i implements Seri
     }
 
     /* loaded from: classes.dex */
-    public class ForumInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+    public static class ForumInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1;
         public int forum_id = 0;
         public String forum_name = "";
@@ -52,14 +52,14 @@ public class ForumDetailData extends com.baidu.adp.lib.a.b.a.a.i implements Seri
     }
 
     /* loaded from: classes.dex */
-    public class ThreadAbstract extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+    public static class ThreadAbstract extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1;
         public int type = 0;
         public String text = "";
     }
 
     /* loaded from: classes.dex */
-    public class ThreadInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+    public static class ThreadInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
         private static final long serialVersionUID = 1;
         public long id = 0;
         public long tid = 0;

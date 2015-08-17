@@ -3,10 +3,10 @@ package com.baidu.adp.lib.a.b.a.d;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class n implements h {
-    private Map<?, ?> rY;
+    private Map<?, ?> rV;
 
     public n(Map<?, ?> map) {
-        this.rY = map;
+        this.rV = map;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.d.h

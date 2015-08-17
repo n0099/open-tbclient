@@ -28,106 +28,105 @@ public final class d {
     private static final String g = "login_accounts";
     private static final String h = "first_install";
     private static final String i = "login_status_changed";
-    private static final String j = "voluntary_share_version";
-    private static final String k = "sapi_options";
-    private static final String l = "relogin_credentials";
-    private static final String m = "cuidtoken";
-    private static final String n = "device_token";
-    private static final String o = "device_login_available";
-    private static final String p = "hosts_hijacked";
-    private static final String q = "stat_items";
-    private static final String r = "sync_token";
-    private static final String s = "sync_token_expired";
-    private static final String t = "time_offset_seconds";
-    private static final String u = "device_info_read_times";
-    private static d x;
-    private SharedPreferences v;
-    private Context w;
+    private static final String j = "sapi_options";
+    private static final String k = "relogin_credentials";
+    private static final String l = "cuidtoken";
+    private static final String m = "device_token";
+    private static final String n = "device_login_available";
+    private static final String o = "hosts_hijacked";
+    private static final String p = "stat_items";
+    private static final String q = "sync_token";
+    private static final String r = "sync_token_expired";
+    private static final String s = "time_offset_seconds";
+    private static final String t = "device_info_read_times";
+    private static d w;
+    private SharedPreferences u;
+    private Context v;
 
     public static d a(Context context) {
         synchronized (d.class) {
-            if (x == null) {
-                x = new d(context.getApplicationContext());
+            if (w == null) {
+                w = new d(context.getApplicationContext());
             }
         }
-        return x;
+        return w;
     }
 
     private d(Context context) {
-        this.w = context;
-        this.v = context.getSharedPreferences("sapi_system", 0);
+        this.v = context;
+        this.u = context.getSharedPreferences("sapi_system", 0);
     }
 
     private void a(String str, String str2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.v.edit().putString(str, str2).apply();
+            this.u.edit().putString(str, str2).apply();
         } else {
-            this.v.edit().putString(str, str2).commit();
+            this.u.edit().putString(str, str2).commit();
         }
     }
 
     private void a(String str, int i2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.v.edit().putInt(str, i2).apply();
+            this.u.edit().putInt(str, i2).apply();
         } else {
-            this.v.edit().putInt(str, i2).commit();
+            this.u.edit().putInt(str, i2).commit();
         }
     }
 
     private void a(String str, long j2) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.v.edit().putLong(str, j2).apply();
+            this.u.edit().putLong(str, j2).apply();
         } else {
-            this.v.edit().putLong(str, j2).commit();
+            this.u.edit().putLong(str, j2).commit();
         }
     }
 
     private void a(String str, boolean z) {
         if (Build.VERSION.SDK_INT > 8) {
-            this.v.edit().putBoolean(str, z).apply();
+            this.u.edit().putBoolean(str, z).apply();
         } else {
-            this.v.edit().putBoolean(str, z).commit();
+            this.u.edit().putBoolean(str, z).commit();
         }
     }
 
     private String g(String str) {
-        return this.v.getString(str, "");
+        return this.u.getString(str, "");
     }
 
     private boolean b(String str, boolean z) {
-        return this.v.getBoolean(str, z);
+        return this.u.getBoolean(str, z);
     }
 
     private int b(String str, int i2) {
-        return this.v.getInt(str, i2);
+        return this.u.getInt(str, i2);
     }
 
     private long b(String str, long j2) {
-        return this.v.getLong(str, j2);
+        return this.u.getLong(str, j2);
     }
 
     public String a() {
-        return g(n);
+        return g(m);
     }
 
     public void a(String str) {
-        a(n, str);
+        a(m, str);
     }
 
     public boolean b() {
-        return b(o, false);
+        return b(n, false);
     }
 
     public void a(boolean z) {
-        a(o, z);
+        a(n, z);
     }
 
     public boolean c() {
-        return b(p, false);
+        return b(o, false);
     }
 
     public void b(boolean z) {
-        a(p, z);
+        a(o, z);
     }
 
     public void b(String str) {
@@ -149,7 +148,7 @@ public final class d {
         if (jSONObject != null) {
             a(e, jSONObject.toString());
             if (!h()) {
-                B();
+                z();
             }
         }
     }
@@ -248,20 +247,12 @@ public final class d {
         return b(i, false);
     }
 
-    private void B() {
+    private void z() {
         a(i, true);
     }
 
     public void i() {
         a(i, false);
-    }
-
-    public int j() {
-        return b(j, 0);
-    }
-
-    public void a(int i2) {
-        a(j, i2);
     }
 
     private void a(List<SapiAccount> list) {
@@ -278,49 +269,45 @@ public final class d {
         }
     }
 
-    public b k() {
-        String g2 = g(k);
+    public c j() {
+        String g2 = g(j);
         if (!TextUtils.isEmpty(g2)) {
             try {
-                return b.a(new JSONObject(g2));
+                return c.a(new JSONObject(g2));
             } catch (JSONException e2) {
             }
         }
-        return new b();
+        return new c();
     }
 
-    public void a(b bVar) {
-        if (bVar != null) {
-            a(k, bVar.i());
+    public void a(c cVar) {
+        if (cVar != null) {
+            a(j, cVar.h());
         }
     }
 
-    public Map<String, String> l() {
-        return k().f();
+    public Map<String, String> k() {
+        return j().e();
     }
 
-    public List<String> m() {
-        return k().g();
+    public List<String> l() {
+        return j().f();
     }
 
-    public String n() {
-        return k().a();
-    }
-
-    public Map<String, Integer> o() {
-        return k().c();
+    public String m() {
+        return j().a();
     }
 
     public void a(String str, SapiAccount.ReloginCredentials reloginCredentials) {
         if (!TextUtils.isEmpty(str) && reloginCredentials != null && !TextUtils.isEmpty(reloginCredentials.account) && !TextUtils.isEmpty(reloginCredentials.password) && !TextUtils.isEmpty(reloginCredentials.ubi) && !TextUtils.isEmpty(reloginCredentials.accountType)) {
             d(reloginCredentials.ubi);
-            JSONObject p2 = p();
-            if (p2 == null) {
-                p2 = new JSONObject();
+            JSONObject n2 = n();
+            if (n2 == null) {
+                n2 = new JSONObject();
             }
             try {
-                p2.put(str, reloginCredentials.toJSONObject());
-                a(l, p2.toString());
+                n2.put(str, reloginCredentials.toJSONObject());
+                a(k, n2.toString());
             } catch (JSONException e2) {
                 L.e(e2);
             }
@@ -329,17 +316,17 @@ public final class d {
 
     public SapiAccount.ReloginCredentials c(String str) {
         JSONObject optJSONObject;
-        JSONObject p2 = p();
-        if (p2 == null || (optJSONObject = p2.optJSONObject(str)) == null) {
+        JSONObject n2 = n();
+        if (n2 == null || (optJSONObject = n2.optJSONObject(str)) == null) {
             return new SapiAccount.ReloginCredentials();
         }
         SapiAccount.ReloginCredentials fromJSONObject = SapiAccount.ReloginCredentials.fromJSONObject(optJSONObject);
-        fromJSONObject.ubi = q();
+        fromJSONObject.ubi = o();
         return fromJSONObject;
     }
 
-    public JSONObject p() {
-        String g2 = g(l);
+    public JSONObject n() {
+        String g2 = g(k);
         if (!TextUtils.isEmpty(g2)) {
             try {
                 return new JSONObject(g2);
@@ -350,11 +337,11 @@ public final class d {
     }
 
     void d(String str) {
-        a(m, str);
+        a(l, str);
     }
 
-    String q() {
-        return g(m);
+    String o() {
+        return g(l);
     }
 
     public void a(String str, Map<String, String> map) {
@@ -363,13 +350,13 @@ public final class d {
                 map = Collections.emptyMap();
             }
             try {
-                Map<String, Map<String, String>> r2 = r();
-                r2.put(str, map);
+                Map<String, Map<String, String>> p2 = p();
+                p2.put(str, map);
                 JSONObject jSONObject = new JSONObject();
-                for (Map.Entry<String, Map<String, String>> entry : r2.entrySet()) {
+                for (Map.Entry<String, Map<String, String>> entry : p2.entrySet()) {
                     jSONObject.put(entry.getKey(), new JSONObject(entry.getValue()));
                 }
-                a(q, jSONObject.toString());
+                a(p, jSONObject.toString());
             } catch (Throwable th) {
                 L.e(th);
             }
@@ -379,20 +366,20 @@ public final class d {
     public void e(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                Map<String, Map<String, String>> r2 = r();
-                if (r2.containsKey(str)) {
-                    r2.remove(str);
+                Map<String, Map<String, String>> p2 = p();
+                if (p2.containsKey(str)) {
+                    p2.remove(str);
                 }
-                a(q, new JSONObject(r2).toString());
+                a(p, new JSONObject(p2).toString());
             } catch (Throwable th) {
                 L.e(th);
             }
         }
     }
 
-    public Map<String, Map<String, String>> r() {
+    public Map<String, Map<String, String>> p() {
         HashMap hashMap = new HashMap();
-        String g2 = g(q);
+        String g2 = g(p);
         if (!TextUtils.isEmpty(g2)) {
             try {
                 JSONObject jSONObject = new JSONObject(g2);
@@ -422,15 +409,15 @@ public final class d {
 
     public void f(String str) {
         if (!TextUtils.isEmpty(str)) {
-            a(r, e.a(this.w, str));
+            a(q, e.a(this.v, str));
         }
     }
 
-    public JSONObject s() {
-        String g2 = g(r);
+    public JSONObject q() {
+        String g2 = g(q);
         if (!TextUtils.isEmpty(g2)) {
             try {
-                return new JSONObject(e.b(this.w, g2));
+                return new JSONObject(e.b(this.v, g2));
             } catch (Throwable th) {
                 L.e(th);
             }
@@ -438,58 +425,58 @@ public final class d {
         return null;
     }
 
+    public String r() {
+        if (q() != null) {
+            return q().optString("sn");
+        }
+        return null;
+    }
+
+    public String s() {
+        if (q() != null) {
+            return q().optString("seed");
+        }
+        return null;
+    }
+
     public String t() {
-        if (s() != null) {
-            return s().optString("sn");
-        }
-        return null;
-    }
-
-    public String u() {
-        if (s() != null) {
-            return s().optString("seed");
-        }
-        return null;
-    }
-
-    public String v() {
-        if (s() != null) {
-            return s().optString("pubkey");
+        if (q() != null) {
+            return q().optString("pubkey");
         }
         return null;
     }
 
     public void c(boolean z) {
-        a(s, z);
+        a(r, z);
     }
 
-    public boolean w() {
-        return b(s, false);
+    public boolean u() {
+        return b(r, false);
     }
 
-    public void b(int i2) {
-        a(t, i2);
+    public void a(int i2) {
+        a(s, i2);
+    }
+
+    public int v() {
+        return b(s, 0);
+    }
+
+    public long w() {
+        return (System.currentTimeMillis() / 1000) + v();
     }
 
     public int x() {
-        return b(t, 0);
-    }
-
-    public long y() {
-        return (System.currentTimeMillis() / 1000) + x();
-    }
-
-    public int z() {
         return b(b, 0);
     }
 
-    public void c(int i2) {
+    public void b(int i2) {
         a(b, i2);
     }
 
-    public long A() {
-        long b2 = b(u, 0L) + 1;
-        a(u, b2);
+    public long y() {
+        long b2 = b(t, 0L) + 1;
+        a(t, b2);
         return b2;
     }
 

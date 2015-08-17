@@ -26,9 +26,12 @@ public final class CommitReceivedPmsgResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<CommitReceivedPmsgResIdl> {
+    public static final class Builder extends Message.Builder<CommitReceivedPmsgResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(CommitReceivedPmsgResIdl commitReceivedPmsgResIdl) {
             super(commitReceivedPmsgResIdl);

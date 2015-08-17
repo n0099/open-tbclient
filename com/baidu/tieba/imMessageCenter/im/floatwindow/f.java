@@ -1,33 +1,70 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class f extends CustomMessageListener {
-    final /* synthetic */ b btt;
+public class f extends g {
+    private HeadImageView aIG;
+    private e bHn;
+    private TextView bHo;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(b bVar) {
-        super(2001011);
-        this.btt = bVar;
+    public f() {
+        super(LayoutInflater.from(TbadkCoreApplication.m411getInst()).inflate(i.g.im_float_head_view, (ViewGroup) null));
+        this.bHn = new e();
+        this.aIG = (HeadImageView) this.bHu.findViewById(i.f.im_float_head_view_head);
+        this.bHo = (TextView) this.bHu.findViewById(i.f.im_float_head_view_text);
+        this.aIG.setIsRound(true);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Boolean data;
-        if ((customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null) {
-            TbadkCoreApplication.m411getInst().setProcesBackground(data.booleanValue());
-            if (data.booleanValue()) {
-                this.btt.isBackground = true;
-                this.btt.du(false);
-                return;
-            }
-            this.btt.isBackground = false;
-            this.btt.dt(true);
+    public void b(int i, int i2, String str, int i3) {
+        an(i, i2);
+        XN();
+        this.aIG.d(str, 12, false);
+        this.aIG.setUrl(str);
+        hp(i3);
+        this.aIG.requestFocusFromTouch();
+    }
+
+    public void N(String str, int i) {
+        if (TextUtils.equals(str, this.aIG.getUrl())) {
+            hp(i);
         }
+    }
+
+    private void hp(int i) {
+        int i2;
+        if (i <= 0) {
+            this.bHo.setVisibility(8);
+            return;
+        }
+        this.bHo.setVisibility(0);
+        al.b(this.bHo, i.c.cp_cont_i, 1);
+        if (i < 10) {
+            this.bHo.setText(String.valueOf(i));
+            i2 = i.e.icon_news_head_prompt_one;
+        } else if (i < 100) {
+            this.bHo.setText(String.valueOf(i));
+            i2 = i.e.icon_news_head_prompt_two;
+        } else {
+            this.bHo.setText("   ");
+            i2 = i.e.icon_news_head_prompt_more;
+        }
+        al.i((View) this.bHo, i2);
+    }
+
+    public e XK() {
+        this.bHn.O(this.bHu);
+        return this.bHn;
+    }
+
+    public void al(int i, int i2) {
+        an(i, i2);
     }
 }

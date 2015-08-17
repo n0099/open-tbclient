@@ -1,35 +1,28 @@
 package com.baidu.tieba.service;
 
-import android.os.Handler;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
+import android.content.Intent;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import java.util.HashMap;
 /* loaded from: classes.dex */
-class d extends Thread {
-    final /* synthetic */ ClearTempService cdA;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public d(ClearTempService clearTempService) {
-        this.cdA = clearTempService;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Handler handler2;
-        super.run();
-        try {
-            File file = new File(com.baidu.tbadk.core.util.o.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME);
-            File file2 = new File(com.baidu.tbadk.core.util.o.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME);
-            File file3 = new File(com.baidu.tbadk.core.util.o.ya + "/" + TbConfig.getTempDirName() + "/voice");
-            this.cdA.deleteCache(file, false);
-            this.cdA.deleteDir(file2);
-            this.cdA.deleteDir(file3);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+class d implements CustomMessageTask.CustomRunnable<HashMap<String, String>> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<String> run(CustomMessage<HashMap<String, String>> customMessage) {
+        HashMap<String, String> data = customMessage.getData();
+        Intent intent = new Intent(TbadkCoreApplication.m411getInst().getContext(), FatalErrorService.class);
+        if (data != null && IntentConfig.START.equals(data.get("type"))) {
+            intent.putExtra("uname", data.get("uname"));
+            intent.putExtra("uid", data.get("uid"));
+            TbadkCoreApplication.m411getInst().getContext().startService(intent);
+            return null;
+        } else if (IntentConfig.STOP.equals(data)) {
+            TbadkCoreApplication.m411getInst().getContext().stopService(intent);
+            return null;
+        } else {
+            return null;
         }
-        handler = this.cdA.handler;
-        handler2 = this.cdA.handler;
-        handler.sendMessage(handler2.obtainMessage());
     }
 }

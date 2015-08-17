@@ -1,8 +1,6 @@
 package com.baidu.tieba.person;
 
-import android.graphics.Bitmap;
 import android.view.View;
-import android.widget.ProgressBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
@@ -15,21 +13,10 @@ public class k implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ProgressBar progressBar;
-        Bitmap bitmap;
-        Bitmap bitmap2;
-        progressBar = this.this$0.mProgress;
-        if (progressBar.getVisibility() != 0) {
-            bitmap = this.this$0.mBitmap;
-            if (bitmap == null) {
-                bitmap2 = this.this$0.bRl;
-                if (bitmap2 == null) {
-                    return;
-                }
-            }
-            if (view.getTag() != null) {
-                this.this$0.bRs = false;
-                this.this$0.iA(view.getTag().toString());
+        if (this.this$0.mProgress.getVisibility() != 0) {
+            if ((this.this$0.mBitmap != null || this.this$0.chO != null) && view.getTag() != null) {
+                this.this$0.chV = false;
+                this.this$0.A(view.getTag().toString(), false);
             }
         }
     }

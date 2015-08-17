@@ -1,30 +1,38 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow;
 
 import android.view.View;
+import android.view.WindowManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public class j {
-    private int btu;
-    private int btv;
-    private int radius;
+public abstract class j {
+    protected View bHu;
+    private boolean aut = false;
+    protected WindowManager bHv = (WindowManager) TbadkCoreApplication.m411getInst().getSystemService("window");
+    protected WindowManager.LayoutParams bHw = XL();
 
-    public boolean a(j jVar) {
-        return ((this.btu - jVar.btu) * (this.btu - jVar.btu)) + ((this.btv - jVar.btv) * (this.btv - jVar.btv)) < (this.radius + jVar.radius) * (this.radius + jVar.radius);
+    public abstract WindowManager.LayoutParams XL();
+
+    public j(View view) {
+        this.bHu = view;
     }
 
-    public void J(View view) {
-        int[] iArr = new int[2];
-        view.getLocationOnScreen(iArr);
-        int measuredHeight = view.getMeasuredHeight() / 2;
-        u(iArr[0] + measuredHeight, iArr[1] + measuredHeight, measuredHeight);
+    public boolean XM() {
+        return this.aut && this.bHu.getParent() != null;
     }
 
-    public void u(int i, int i2, int i3) {
-        this.btu = i;
-        this.btv = i2;
-        this.radius = i3;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void XN() {
+        if (this.bHv != null && this.bHw != null && this.bHu.getParent() == null) {
+            this.aut = true;
+            this.bHv.addView(this.bHu, this.bHw);
+        }
     }
 
-    public boolean isEmpty() {
-        return this.btu == 0 && this.btv == 0 && this.radius == 0;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void XO() {
+        if (this.bHv != null && this.bHu.getParent() != null) {
+            this.aut = false;
+            this.bHv.removeView(this.bHu);
+        }
     }
 }

@@ -46,8 +46,8 @@ public class ReplyInfo implements Serializable {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.userId = jSONObject.optInt("user_id", 0);
-            this.friendId = jSONObject.optInt("friend_id", 0);
+            this.userId = jSONObject.optLong("user_id", 0L);
+            this.friendId = jSONObject.optLong("friend_id", 0L);
             this.message = jSONObject.optString("message");
             this.time = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
         }
@@ -55,8 +55,8 @@ public class ReplyInfo implements Serializable {
 
     public void parseProto(ReplyList replyList) {
         if (replyList != null) {
-            this.userId = replyList.user_id.intValue();
-            this.friendId = replyList.friend_id.intValue();
+            this.userId = replyList.user_id.longValue();
+            this.friendId = replyList.friend_id.longValue();
             this.message = replyList.message;
             this.time = replyList.time.intValue();
         }

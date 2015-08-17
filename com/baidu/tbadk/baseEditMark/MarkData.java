@@ -3,7 +3,7 @@ package com.baidu.tbadk.baseEditMark;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -14,6 +14,7 @@ public class MarkData implements Serializable {
     private String mForumName;
     private String mPostId;
     private String mThreadId;
+    private boolean mIsPhotoLiveThread = false;
     private String mId = null;
     private int mFloor = 0;
     private long mTime = 0;
@@ -24,6 +25,7 @@ public class MarkData implements Serializable {
     private int mReplyNum = 0;
     private int mSubPost = 0;
     private int mNewCounts = 0;
+    private boolean isApp = false;
 
     public String getAuthorName() {
         return this.mAuthorName;
@@ -47,6 +49,10 @@ public class MarkData implements Serializable {
 
     public int getSubPost() {
         return this.mSubPost;
+    }
+
+    public boolean isPhotoLiveThread() {
+        return this.mIsPhotoLiveThread;
     }
 
     public String getId() {
@@ -105,9 +111,6 @@ public class MarkData implements Serializable {
         return this.mPostId;
     }
 
-    public void logPrint() {
-    }
-
     public void setAccount(String str) {
         this.mAccount = str;
     }
@@ -148,6 +151,14 @@ public class MarkData implements Serializable {
         this.mNewCounts = i;
     }
 
+    public boolean isApp() {
+        return this.isApp;
+    }
+
+    public void setApp(boolean z) {
+        this.isApp = z;
+    }
+
     public JSONObject toJson() {
         int i;
         try {
@@ -176,10 +187,11 @@ public class MarkData implements Serializable {
             this.mPostId = jSONObject.optString("mark_pid");
             this.mForumName = jSONObject.optString("forum_name");
             this.mTitle = jSONObject.optString("title");
-            this.mAuthorName = jSONObject.optJSONObject("author").optString(c.NAME_SHOW);
+            this.mAuthorName = jSONObject.optJSONObject("author").optString(IntentConfig.NAME_SHOW);
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
             this.mNewCounts = jSONObject.optInt(ImageViewerConfig.COUNT);
+            this.mIsPhotoLiveThread = jSONObject.optInt("thread_type") == 33;
             int optInt = jSONObject.optInt("mark_status");
             if (optInt == 0) {
                 this.mSequence = true;

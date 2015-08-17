@@ -1,9 +1,16 @@
 package com.baidu.adp.framework.client.socket;
-
-import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f {
-    SocketResponsedMessage ow;
-    g ox;
+public class f implements Runnable {
+    final /* synthetic */ e oH;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(e eVar) {
+        this.oH = eVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.oH.ea();
+    }
 }

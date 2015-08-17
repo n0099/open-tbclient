@@ -1,31 +1,40 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tbadk.core.view.MorePopupWindow;
+import android.text.TextUtils;
+import android.widget.EditText;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.newFriends.RequestApplyLocalMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af implements com.baidu.tbadk.core.view.s {
-    final /* synthetic */ ad bXf;
+public class af implements a.b {
+    private final /* synthetic */ UserData bpP;
+    final /* synthetic */ ac cnK;
+    private final /* synthetic */ EditText cnL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ad adVar) {
-        this.bXf = adVar;
+    public af(ac acVar, EditText editText, UserData userData) {
+        this.cnK = acVar;
+        this.cnL = editText;
+        this.bpP = userData;
     }
 
-    @Override // com.baidu.tbadk.core.view.s
-    public void pC() {
-        MorePopupWindow morePopupWindow;
-        PersonInfoActivity personInfoActivity;
-        morePopupWindow = this.bXf.bXd;
-        personInfoActivity = this.bXf.bVg;
-        com.baidu.adp.lib.g.k.a(morePopupWindow, personInfoActivity.getPageContext().getPageActivity());
-    }
-
-    @Override // com.baidu.tbadk.core.view.s
-    public void pD() {
-        MorePopupWindow morePopupWindow;
-        PersonInfoActivity personInfoActivity;
-        morePopupWindow = this.bXf.bXd;
-        personInfoActivity = this.bXf.bVg;
-        com.baidu.adp.lib.g.k.a(morePopupWindow, personInfoActivity.getPageContext().getPageActivity());
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        String trim = this.cnL.getText().toString().trim();
+        if (!TextUtils.isEmpty(trim)) {
+            RequestApplyLocalMessage requestApplyLocalMessage = new RequestApplyLocalMessage();
+            requestApplyLocalMessage.setUid(Long.valueOf(TbadkCoreApplication.getCurrentAccount()).longValue());
+            requestApplyLocalMessage.setFriendId(this.bpP.getUserIdLong());
+            requestApplyLocalMessage.setMessage(trim);
+            requestApplyLocalMessage.setContent(trim);
+            requestApplyLocalMessage.setName(this.bpP.getName_show());
+            requestApplyLocalMessage.setPortrait(this.bpP.getPortrait());
+            requestApplyLocalMessage.setId(this.bpP.getUserIdLong());
+            MessageManager.getInstance().dispatchResponsedMessageToUI(requestApplyLocalMessage);
+            aVar.dismiss();
+        }
     }
 }

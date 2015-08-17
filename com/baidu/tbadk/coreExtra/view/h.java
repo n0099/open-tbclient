@@ -1,7 +1,17 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.webkit.WebView;
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public interface h {
-    void a(WebView webView, String str);
+class h implements a.b {
+    final /* synthetic */ d akC;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(d dVar) {
+        this.akC = dVar;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+    }
 }

@@ -3,17 +3,17 @@ package com.baidu.tieba.signall;
 import java.util.Comparator;
 /* loaded from: classes.dex */
 class d implements Comparator<e> {
-    final /* synthetic */ c chQ;
+    final /* synthetic */ c cAe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.chQ = cVar;
+        this.cAe = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(e eVar, e eVar2) {
-        return eVar2.akz() - eVar.akz();
+        return eVar2.ana() - eVar.ana();
     }
 }

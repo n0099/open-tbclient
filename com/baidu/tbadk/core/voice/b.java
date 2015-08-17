@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.voice;
 
 import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.voice.VoiceManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
@@ -14,17 +15,14 @@ public class b implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         VoiceData.VoiceModel voiceModel;
-        i iVar;
-        VoiceData.VoiceModel voiceModel2;
+        VoiceManager.b bVar;
         VoiceManager voiceManager = this.this$0;
         voiceModel = this.this$0.mNewClickModel;
         voiceManager.mCurPlayModel = voiceModel;
         VoiceManager voiceManager2 = this.this$0;
-        iVar = this.this$0.sNewPlayView;
-        voiceManager2.sPlayView = iVar;
+        bVar = this.this$0.sNewPlayView;
+        voiceManager2.sPlayView = bVar;
         this.this$0.sNewPlayView = null;
-        VoiceManager voiceManager3 = this.this$0;
-        voiceModel2 = this.this$0.mCurPlayModel;
-        voiceManager3.setDownloading(voiceModel2);
+        this.this$0.setDownloading(this.this$0.mCurPlayModel);
     }
 }

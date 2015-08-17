@@ -45,10 +45,13 @@ public final class Photo extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<Photo> {
+    public static final class Builder extends Message.Builder<Photo> {
         public String bigurl;
         public String picId;
         public String smallurl;
+
+        public Builder() {
+        }
 
         public Builder(Photo photo) {
             super(photo);

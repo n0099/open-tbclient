@@ -1,71 +1,50 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
-import android.graphics.Bitmap;
-import android.graphics.NinePatch;
-import android.graphics.Rect;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class l extends a {
+    private boolean acq;
+    private boolean acr;
+    private boolean acs;
+    private int height;
+    private int width;
+
+    public l(boolean z, boolean z2, boolean z3) {
+        this.acq = true;
+        this.acr = false;
+        this.acs = false;
+        this.width = 0;
+        this.height = 0;
+        this.acq = z;
+        this.acr = z2;
+        this.acs = z3;
+        this.width = Math.min(com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m411getInst().getApp(), 427.0f), (int) TbConfig.PB_IMAGE_NEW_MAX_WIDTH);
+        this.height = (int) (this.width * 1.6f);
+    }
+
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public int getWidth() {
-        return 0;
+        return this.width;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public int getHeight() {
-        return 0;
+        return this.height;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return true;
+        return this.acq;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean ue() {
-        return false;
+    public boolean vi() {
+        return this.acs;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean uf() {
-        return false;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public com.baidu.adp.lib.Disk.ops.c dk(String str) {
-        return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public com.baidu.adp.widget.a.a a(com.baidu.adp.lib.Disk.ops.c cVar, String str) {
-        if (cVar == null || !(cVar instanceof com.baidu.adp.lib.Disk.ops.b)) {
-            return null;
-        }
-        com.baidu.adp.lib.Disk.ops.b bVar = (com.baidu.adp.lib.Disk.ops.b) cVar;
-        cVar.k(cVar.getData());
-        Bitmap bitmap = cVar.getBitmap();
-        if (bitmap != null) {
-            return new com.baidu.adp.widget.a.a(bitmap, false, str, bVar.getRect());
-        }
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    protected Bitmap b(byte[] bArr, Rect rect, StringBuilder sb) {
-        return com.baidu.tbadk.core.util.c.a(bArr, rect, sb);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean g(Bitmap bitmap) {
-        return bitmap.getNinePatchChunk() != null && NinePatch.isNinePatchChunk(bitmap.getNinePatchChunk());
-    }
-
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    protected Bitmap b(Bitmap bitmap, int i, int i2) {
-        return bitmap;
+    public boolean vj() {
+        return this.acr;
     }
 }

@@ -26,9 +26,12 @@ public final class UpdateGroupResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<UpdateGroupResIdl> {
+    public static final class Builder extends Message.Builder<UpdateGroupResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(UpdateGroupResIdl updateGroupResIdl) {
             super(updateGroupResIdl);

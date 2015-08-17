@@ -1,6 +1,7 @@
 package com.baidu.tbadk.live.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import protobuf.QueryLiveGroupsByUid.DataReq;
 import protobuf.QueryLiveGroupsByUid.QueryLiveGroupsByUidReqIdl;
 /* loaded from: classes.dex */
@@ -10,7 +11,7 @@ public class RequestMyLiveListLocalMessage extends CustomMessage<Object> {
     private int type;
 
     public RequestMyLiveListLocalMessage() {
-        super(2001165);
+        super(CmdConfigCustom.CMD_QUERY_MYLIVE_LOCAL);
     }
 
     public int getType() {

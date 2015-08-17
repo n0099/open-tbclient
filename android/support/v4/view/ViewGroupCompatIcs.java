@@ -5,9 +5,6 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 /* loaded from: classes.dex */
 class ViewGroupCompatIcs {
-    ViewGroupCompatIcs() {
-    }
-
     public static boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
         return viewGroup.onRequestSendAccessibilityEvent(view, accessibilityEvent);
     }

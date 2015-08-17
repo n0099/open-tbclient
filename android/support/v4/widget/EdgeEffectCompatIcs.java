@@ -5,9 +5,6 @@ import android.graphics.Canvas;
 import android.widget.EdgeEffect;
 /* loaded from: classes.dex */
 class EdgeEffectCompatIcs {
-    EdgeEffectCompatIcs() {
-    }
-
     public static Object newEdgeEffect(Context context) {
         return new EdgeEffect(context);
     }

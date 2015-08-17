@@ -9,26 +9,23 @@ public class g extends NetModel<h, i, SingleMentionActivity> {
         super(tbPageContext, hVar, NetModel.NetModelType.TYPE_NETWORK);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int oN() {
+    protected int oU() {
         return CmdConfigHttp.REPLYME_HTTP_CMD;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String oO() {
+    protected String oV() {
         return "c/u/feed/atme";
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<i> getResponseDataClass() {
+    protected Class<i> getResponseDataClass() {
         return i.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oP() {
+    protected int oW() {
         return 0;
     }
 }

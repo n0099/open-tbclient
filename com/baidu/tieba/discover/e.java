@@ -4,25 +4,28 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ a aDT;
+public class e implements a.b {
+    final /* synthetic */ a aLq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar) {
-        this.aDT = aVar;
+        this.aLq = aVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
+    @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
         TbadkApplication.getInst().setLocationShared(true);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2902001, new com.baidu.tbadk.core.frameworkData.c(this.aDT.getPageContext().getPageActivity())));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_NEIGHBORS, new IntentConfig(this.aLq.getPageContext().getPageActivity())));
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
         httpMessage.addParam("opt", "location");
         httpMessage.addParam("val", String.valueOf(1));
-        this.aDT.sendMessage(httpMessage);
+        this.aLq.sendMessage(httpMessage);
     }
 }

@@ -8,12 +8,6 @@ import android.os.Environment;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ContextCompat {
-    private static final String DIR_ANDROID = "Android";
-    private static final String DIR_CACHE = "cache";
-    private static final String DIR_DATA = "data";
-    private static final String DIR_FILES = "files";
-    private static final String DIR_OBB = "obb";
-
     public static boolean startActivities(Context context, Intent[] intentArr) {
         return startActivities(context, intentArr, null);
     }
@@ -40,7 +34,7 @@ public class ContextCompat {
         if (i >= 11) {
             buildPath = ContextCompatHoneycomb.getObbDir(context);
         } else {
-            buildPath = buildPath(Environment.getExternalStorageDirectory(), DIR_ANDROID, DIR_OBB, context.getPackageName());
+            buildPath = buildPath(Environment.getExternalStorageDirectory(), "Android", "obb", context.getPackageName());
         }
         return new File[]{buildPath};
     }
@@ -54,7 +48,7 @@ public class ContextCompat {
         if (i >= 8) {
             buildPath = ContextCompatFroyo.getExternalFilesDir(context, str);
         } else {
-            buildPath = buildPath(Environment.getExternalStorageDirectory(), DIR_ANDROID, "data", context.getPackageName(), DIR_FILES, str);
+            buildPath = buildPath(Environment.getExternalStorageDirectory(), "Android", "data", context.getPackageName(), "files", str);
         }
         return new File[]{buildPath};
     }
@@ -68,7 +62,7 @@ public class ContextCompat {
         if (i >= 8) {
             buildPath = ContextCompatFroyo.getExternalCacheDir(context);
         } else {
-            buildPath = buildPath(Environment.getExternalStorageDirectory(), DIR_ANDROID, "data", context.getPackageName(), DIR_CACHE);
+            buildPath = buildPath(Environment.getExternalStorageDirectory(), "Android", "data", context.getPackageName(), "cache");
         }
         return new File[]{buildPath};
     }

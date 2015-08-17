@@ -12,7 +12,7 @@ public class PluginNetConfigInfos extends i implements Serializable {
     private List<PluginConfig> plugin_config = new ArrayList();
 
     /* loaded from: classes.dex */
-    public class Newest extends i implements Serializable {
+    public static class Newest extends i implements Serializable {
         private static final long serialVersionUID = 8713611233991534353L;
         public String change_log;
         public int download_type;
@@ -26,7 +26,7 @@ public class PluginNetConfigInfos extends i implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class PluginConfig extends i implements Serializable {
+    public static class PluginConfig extends i implements Serializable {
         private static final long serialVersionUID = -5184076118455114028L;
         public String display_name;
         public int enable;

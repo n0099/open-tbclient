@@ -1,17 +1,28 @@
 package com.baidu.tieba.chosen.posts;
+
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.tieba.i;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class h implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ g aDh;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aDi;
+public class h implements AdapterView.OnItemLongClickListener {
+    final /* synthetic */ e aKD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(g gVar, com.baidu.tbadk.core.dialog.a aVar) {
-        this.aDh = gVar;
-        this.aDi = aVar;
+    public h(e eVar) {
+        this.aKD = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.aDi.dismiss();
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        com.baidu.adp.base.i iVar;
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.aKD.getActivity());
+        aVar.cn(this.aKD.getActivity().getString(i.C0057i.chosen_post_dialog_text));
+        aVar.b(i.C0057i.cancel, new i(this, aVar));
+        aVar.a(i.C0057i.confirm, new j(this, aVar, i));
+        iVar = this.aKD.aKw;
+        aVar.b(iVar.getPageContext());
+        aVar.sP();
+        return true;
     }
 }

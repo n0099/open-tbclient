@@ -57,7 +57,7 @@ public class GeofenceClient implements a0, n {
     }
 
     /* loaded from: classes.dex */
-    class a extends Handler {
+    private class a extends Handler {
         private a() {
         }
 

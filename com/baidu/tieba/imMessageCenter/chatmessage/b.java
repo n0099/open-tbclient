@@ -7,25 +7,26 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ ChatMessageActivity brD;
+    final /* synthetic */ ChatMessageActivity bFr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ChatMessageActivity chatMessageActivity) {
-        this.brD = chatMessageActivity;
+        this.bFr = chatMessageActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ImageView imageView;
-        imageView = this.brD.brB;
+        imageView = this.bFr.bFp;
         if (view == imageView && TbadkCoreApplication.isLogin()) {
-            TiebaStatic.eventStat(this.brD.getPageContext().getContext(), "msg_newchat_tab_c", "click", 1, new Object[0]);
+            TiebaStatic.eventStat(this.bFr.getPageContext().getContext(), "msg_newchat_tab_c", "click", 1, new Object[0]);
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", "1");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InviteFriendListActivityConfig(this.brD.getPageContext().getPageActivity(), true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new InviteFriendListActivityConfig(this.bFr.getPageContext().getPageActivity(), true)));
         }
     }
 }

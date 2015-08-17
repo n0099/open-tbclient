@@ -13,7 +13,7 @@ public class ParcelableCompat {
     }
 
     /* loaded from: classes.dex */
-    class CompatCreator<T> implements Parcelable.Creator<T> {
+    static class CompatCreator<T> implements Parcelable.Creator<T> {
         final ParcelableCompatCreatorCallbacks<T> mCallbacks;
 
         public CompatCreator(ParcelableCompatCreatorCallbacks<T> parcelableCompatCreatorCallbacks) {

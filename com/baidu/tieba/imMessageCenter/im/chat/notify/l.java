@@ -1,25 +1,65 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
-    final /* synthetic */ d bsx;
+public class l extends CustomMessageListener {
+    final /* synthetic */ e bGo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(d dVar) {
-        this.bsx = dVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l(e eVar, int i) {
+        super(i);
+        this.bGo = eVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (TbadkCoreApplication.isLogin()) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new InviteFriendListActivityConfig((Context) this.bsx.getPageContext().getPageActivity(), true, true)));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ImMessageCenterListAdapter imMessageCenterListAdapter;
+        ImMessageCenterListAdapter imMessageCenterListAdapter2;
+        ImMessageCenterListAdapter imMessageCenterListAdapter3;
+        ImMessageCenterListAdapter imMessageCenterListAdapter4;
+        ImMessageCenterModel imMessageCenterModel;
+        com.baidu.tieba.im.chat.notify.a aVar;
+        if (customResponsedMessage != null) {
+            if (customResponsedMessage.getCmd() != 2016002) {
+                if (customResponsedMessage.getCmd() != 2016004) {
+                    if (customResponsedMessage.getCmd() != 2016007) {
+                        if (customResponsedMessage.getCmd() == 2016001) {
+                            imMessageCenterModel = this.bGo.bGb;
+                            aVar = this.bGo.bqv;
+                            imMessageCenterModel.setData(null, aVar);
+                            return;
+                        } else if (customResponsedMessage.getCmd() == 2016010) {
+                            imMessageCenterListAdapter3 = this.bGo.bGf;
+                            if (imMessageCenterListAdapter3 != null) {
+                                imMessageCenterListAdapter4 = this.bGo.bGf;
+                                imMessageCenterListAdapter4.notifyDataSetChanged();
+                                return;
+                            }
+                            return;
+                        } else if (customResponsedMessage.getCmd() == 2016011) {
+                            imMessageCenterListAdapter = this.bGo.bGf;
+                            if (imMessageCenterListAdapter != null) {
+                                imMessageCenterListAdapter2 = this.bGo.bGf;
+                                imMessageCenterListAdapter2.notifyDataSetChanged();
+                                return;
+                            }
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                    this.bGo.g(customResponsedMessage);
+                    return;
+                }
+                this.bGo.f(customResponsedMessage);
+                return;
+            }
+            this.bGo.e(customResponsedMessage);
         }
     }
 }

@@ -1,35 +1,34 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.util.SparseArray;
 import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements View.OnLongClickListener {
-    final /* synthetic */ NewSubPbActivity bPx;
+public class e implements c.b {
+    final /* synthetic */ NewSubPbActivity cfY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(NewSubPbActivity newSubPbActivity) {
-        this.bPx = newSubPbActivity;
+        this.cfY = newSubPbActivity;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        SparseArray sparseArray;
-        s sVar;
-        com.baidu.tbadk.core.dialog.h hVar;
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
         ak akVar;
-        try {
-            sparseArray = (SparseArray) view.getTag();
-        } catch (ClassCastException e) {
-            e.printStackTrace();
-            sparseArray = null;
+        ak akVar2;
+        cVar.dismiss();
+        com.baidu.tieba.tbadkCore.data.i iVar = null;
+        akVar = this.cfY.cfP;
+        if (akVar.afo() != null) {
+            akVar2 = this.cfY.cfP;
+            iVar = akVar2.afo().acQ();
         }
-        if (sparseArray != null) {
-            sVar = this.bPx.bPr;
-            hVar = this.bPx.bKT;
-            akVar = this.bPx.bPo;
-            sVar.a(hVar, akVar.isMarked());
+        if (iVar != null) {
+            if (i == 0) {
+                iVar.aQ(this.cfY.getPageContext().getPageActivity());
+            } else if (i == 1) {
+                this.cfY.b(iVar);
+            }
         }
-        return true;
     }
 }

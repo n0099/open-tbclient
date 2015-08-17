@@ -21,8 +21,11 @@ public final class GetOnlineInfoReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<GetOnlineInfoReqIdl> {
+    public static final class Builder extends Message.Builder<GetOnlineInfoReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(GetOnlineInfoReqIdl getOnlineInfoReqIdl) {
             super(getOnlineInfoReqIdl);

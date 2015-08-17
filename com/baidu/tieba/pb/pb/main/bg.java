@@ -1,86 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.tieba.recapp.PbRecBaseViewHolder;
 /* loaded from: classes.dex */
-class bg implements com.baidu.tbadk.core.util.bk {
-    Pattern bKZ = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
+public class bg extends bj<com.baidu.tieba.tbadkCore.data.h, PbRecBaseViewHolder> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public bg(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
+    }
 
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0068, code lost:
-        if (android.text.TextUtils.isEmpty(r0) == false) goto L37;
-     */
-    @Override // com.baidu.tbadk.core.util.bk
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
-        String substring;
-        String str;
-        boolean z;
-        if (strArr == null || strArr.length == 0 || strArr[0] == null) {
-            return false;
-        }
-        String lowerCase = strArr[0].toLowerCase();
-        Matcher matcher = this.bKZ.matcher(lowerCase);
-        if (matcher.find()) {
-            substring = matcher.group(1);
-            str = "allthread";
-            z = false;
-        } else if (lowerCase != null && lowerCase.startsWith("http://tieba.baidu.com/f?")) {
-            String substring2 = lowerCase.substring("http://tieba.baidu.com/f?".length());
-            if (substring2 != null) {
-                String[] split = substring2.split("&");
-                int i = 0;
-                while (true) {
-                    if (i < split.length) {
-                        if (split[i] == null || !split[i].startsWith("kz=")) {
-                            i++;
-                        } else {
-                            substring = split[i].substring(3);
-                            break;
-                        }
-                    } else {
-                        substring = null;
-                        break;
-                    }
-                }
-            }
-            substring = null;
-            str = "allthread";
-            z = false;
-        } else if (!lowerCase.startsWith("pb:")) {
-            if (!lowerCase.startsWith("com.baidu.tieba://?kz=")) {
-                return false;
-            }
-            substring = lowerCase.substring("com.baidu.tieba://?kz=".length());
-            str = null;
-            z = true;
-        } else {
-            substring = lowerCase.substring(3);
-            if (TextUtils.isEmpty(substring)) {
-                return false;
-            }
-            if (strArr.length > 1) {
-                str = strArr[1];
-                z = false;
-            } else {
-                str = null;
-                z = false;
-            }
-        }
-        if (tbPageContext != null) {
-            tbPageContext.sendMessage(new CustomMessage(2004001, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(substring, null, str)));
-            return true;
-        } else if (!z || TextUtils.isEmpty(substring)) {
-            return false;
-        } else {
-            com.baidu.adp.lib.g.j.f(TbadkCoreApplication.m411getInst(), cg.K(TbadkCoreApplication.m411getInst(), substring));
-            return true;
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: x */
+    public PbRecBaseViewHolder a(ViewGroup viewGroup) {
+        return com.baidu.tieba.recapp.a.aje().l(this.mContext, 1);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.bj, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.h hVar, PbRecBaseViewHolder pbRecBaseViewHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) hVar, (com.baidu.tieba.tbadkCore.data.h) pbRecBaseViewHolder);
+        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
+        com.baidu.tieba.tbadkCore.data.h hVar2 = (com.baidu.tieba.tbadkCore.data.h) aA(i);
+        this.cbx.getLayoutMode().ad(this.mSkinType == 1);
+        this.cbx.getLayoutMode().k(view);
+        pbRecBaseViewHolder.update(hVar2, i, this.mIsFromCDN);
+        return view;
     }
 }

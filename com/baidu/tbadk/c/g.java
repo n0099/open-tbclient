@@ -1,29 +1,30 @@
 package com.baidu.tbadk.c;
 
+import android.os.Handler;
 import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Runnable {
-    final /* synthetic */ f amL;
+    final /* synthetic */ f aux;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.amL = fVar;
+        this.aux = fVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        int Ay;
+        int Ct;
         TextView textView;
         String[] strArr;
-        TextView textView2;
         Runnable runnable;
-        Ay = this.amL.Ay();
-        textView = this.amL.agG;
-        strArr = this.amL.XP;
-        textView.setText(strArr[Ay]);
-        textView2 = this.amL.agG;
-        runnable = this.amL.Iu;
-        textView2.postDelayed(runnable, 200L);
+        Ct = this.aux.Ct();
+        textView = this.aux.alM;
+        strArr = this.aux.acM;
+        textView.setText(strArr[Ct]);
+        Handler handler = TbadkCoreApplication.m411getInst().handler;
+        runnable = this.aux.Ix;
+        handler.postDelayed(runnable, 200L);
     }
 }

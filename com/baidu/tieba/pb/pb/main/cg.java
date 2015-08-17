@@ -1,19 +1,46 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import android.app.Dialog;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.tieba.i;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cg {
-    public static Intent K(Context context, String str) {
-        if (TextUtils.isEmpty(str) || context == null) {
-            return null;
+public class cg implements View.OnClickListener {
+    final /* synthetic */ cb cfj;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cg(cb cbVar) {
+        this.cfj = cbVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        PbActivity.a aVar;
+        PbActivity.a aVar2;
+        Dialog dialog2;
+        Dialog dialog3;
+        PbActivity pbActivity;
+        dialog = this.cfj.cep;
+        if (dialog != null) {
+            dialog2 = this.cfj.cep;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.cfj.cep;
+                pbActivity = this.cfj.cbx;
+                com.baidu.adp.lib.g.j.b(dialog3, pbActivity.getPageContext());
+            }
         }
-        Intent intent = new Intent(context, DealIntentService.class);
-        intent.putExtra("class", 1);
-        intent.putExtra("id", str);
-        intent.putExtra("from", "nas");
-        return intent;
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray == null) {
+            return;
+        }
+        aVar = this.cfj.cff;
+        if (aVar == null) {
+            return;
+        }
+        aVar2 = this.cfj.cff;
+        aVar2.d(new Object[]{sparseArray.get(i.f.tag_manage_user_identity), sparseArray.get(i.f.tag_forbid_user_name), sparseArray.get(i.f.tag_forbid_user_post_id)});
     }
 }

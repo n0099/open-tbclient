@@ -1,13 +1,15 @@
 package com.baidu.tbadk.core.view;
-
-import android.view.View;
 /* loaded from: classes.dex */
-public class y {
-    View.OnClickListener ZA;
-    String mText;
+class y implements Runnable {
+    final /* synthetic */ x afe;
 
-    public y(String str, View.OnClickListener onClickListener) {
-        this.mText = str;
-        this.ZA = onClickListener;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public y(x xVar) {
+        this.afe = xVar;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        this.afe.afd.start();
     }
 }

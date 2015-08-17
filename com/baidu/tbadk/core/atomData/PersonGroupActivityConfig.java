@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class PersonGroupActivityConfig extends c {
+public class PersonGroupActivityConfig extends IntentConfig {
     public static final int FROM_ADDRESSLIST = 1;
     public static final int FROM_GAME_VEBVIEW = 2;
     public static final int FROM_OTHER = 0;

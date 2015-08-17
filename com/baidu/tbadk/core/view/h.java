@@ -1,20 +1,28 @@
 package com.baidu.tbadk.core.view;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.RegisterActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.IntentAction;
 /* loaded from: classes.dex */
-class h extends LinearLayout {
-    public h(Context context, String str) {
-        super(context);
-        LayoutInflater.from(getContext()).inflate(com.baidu.tieba.r.floatview_item_layout, this);
-        setGravity(17);
-        ((TextView) findViewById(com.baidu.tieba.q.floatview_item_tv)).setText(str);
-        setTag(str);
+class h implements View.OnClickListener {
+    private final /* synthetic */ TbPageContext Sn;
+    final /* synthetic */ f adx;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(f fVar, TbPageContext tbPageContext) {
+        this.adx = fVar;
+        this.Sn = tbPageContext;
     }
 
-    public static LinearLayout.LayoutParams uo() {
-        return new LinearLayout.LayoutParams(-2, -1);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        RegisterActivityConfig registerActivityConfig = new RegisterActivityConfig(this.Sn.getPageActivity());
+        registerActivityConfig.setRequestCode(22002);
+        registerActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, registerActivityConfig));
     }
 }

@@ -1,28 +1,42 @@
 package com.baidu.tieba.mention;
 
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.ReplyMe.ReplyMeResIdl;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 /* loaded from: classes.dex */
-public class ah extends u implements com.baidu.tbadk.mvc.b.c {
-    @Override // com.baidu.tbadk.mvc.b.b
-    public boolean A(byte[] bArr) {
-        try {
-            a((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class));
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
+public class ah extends com.baidu.tbadk.mvc.model.d<ai, aj, SingleMentionActivity> {
+    public ah(TbPageContext<SingleMentionActivity> tbPageContext, ai aiVar) {
+        super(tbPageContext, aiVar);
     }
 
-    @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Bp() {
-        return null;
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected Class<? extends MvcProtobufHttpResponsedMessage> oY() {
+        return ReplyMeHttpResponseMessage.class;
     }
 
-    @Override // com.baidu.tbadk.mvc.b.d
-    public String getCacheKey() {
-        return "replyme_cache";
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected Class<? extends MvcSocketResponsedMessage> oX() {
+        return ReplyMeSocketResponseMessage.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected int oU() {
+        return CmdConfigHttp.REPLYME_HTTP_CMD;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected String oV() {
+        return "c/u/feed/replyme";
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected Class<aj> getResponseDataClass() {
+        return aj.class;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel
+    protected int oW() {
+        return 303007;
     }
 }

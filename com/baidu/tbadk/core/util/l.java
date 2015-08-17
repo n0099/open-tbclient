@@ -1,37 +1,16 @@
 package com.baidu.tbadk.core.util;
 
-import java.nio.ByteBuffer;
+import android.os.Build;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-class l {
-    private static byte rK = Byte.MIN_VALUE;
-    boolean rM = false;
-    long rN = 0;
-
-    public static int fQ() {
-        return 13;
-    }
-
-    public byte[] toByteArray() {
-        ByteBuffer allocate = ByteBuffer.allocate(fQ());
-        allocate.putInt(1786600510);
-        allocate.put(this.rM ? (byte) (0 | rK) : (byte) 0);
-        allocate.putLong(this.rN);
-        allocate.flip();
-        return allocate.array();
-    }
-
-    public boolean l(byte[] bArr) {
-        if (bArr == null || bArr.length < fQ()) {
-            return false;
-        }
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, fQ());
-        if (wrap.getInt() == 1786600510) {
-            if ((wrap.get() & rK) != 0) {
-                this.rM = true;
-            }
-            this.rN = wrap.getLong();
-            return true;
-        }
-        return false;
+public class l extends Thread {
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        v vVar = new v(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IN_PV_ADDRESS);
+        vVar.o("st_type", TbConfig.ST_TYPE_ENTER_FORE);
+        vVar.o("os_version", Build.VERSION.RELEASE);
+        vVar.o("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
+        vVar.tD();
     }
 }

@@ -1,38 +1,33 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.location.Address;
+import com.baidu.adp.lib.d.a;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.tbadkCore.location.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ e ctN;
+public class f implements a.InterfaceC0003a {
+    final /* synthetic */ d cKp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(e eVar, int i, boolean z) {
-        super(i, z);
-        this.ctN = eVar;
+    public f(d dVar) {
+        this.cKp = dVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        j jVar;
-        j jVar2;
-        if (socketResponsedMessage == null || socketResponsedMessage.getError() != 0 || !(socketResponsedMessage instanceof LocationSocketResponsedMessage)) {
-            BdLog.i("mLocationListener response error!");
-            jVar = this.ctN.ctG;
-            if (jVar != null) {
-                String str = null;
-                if (socketResponsedMessage != null && socketResponsedMessage.getError() > 0) {
-                    str = socketResponsedMessage.getErrorString();
-                }
-                jVar2 = this.ctN.ctG;
-                jVar2.gh(str);
-                return;
-            }
+    @Override // com.baidu.adp.lib.d.a.InterfaceC0003a
+    public void b(int i, String str, Address address) {
+        d.a aVar;
+        d.a aVar2;
+        if (i == 0 && address != null) {
+            BdLog.i("mGetLonAndLatCallback address:" + address.getLongitude() + ";" + address.getLatitude());
+            this.cKp.bb(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
             return;
         }
-        this.ctN.c(((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData());
+        BdLog.i("mGetLonAndLatCallback error!");
+        aVar = this.cKp.cKi;
+        if (aVar != null) {
+            aVar2 = this.cKp.cKi;
+            aVar2.eO(str);
+        }
     }
 }

@@ -2,34 +2,35 @@ package com.baidu.tieba.pb.chosen;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tieba.i;
 import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
-import com.baidu.tieba.t;
 /* loaded from: classes.dex */
 class d extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbChosenActivity bJb;
+    final /* synthetic */ PbChosenActivity bYY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(PbChosenActivity pbChosenActivity, int i, int i2) {
         super(i, i2);
-        this.bJb = pbChosenActivity;
+        this.bYY = pbChosenActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
-        com.baidu.tieba.pb.chosen.a.h hVar;
-        com.baidu.tieba.pb.chosen.a.h hVar2;
+        com.baidu.tieba.pb.chosen.a.i iVar;
+        com.baidu.tieba.pb.chosen.a.i iVar2;
         if (responsedMessage != null) {
-            hVar = this.bJb.bIQ;
-            hVar.aap();
+            iVar = this.bYY.bYD;
+            iVar.acD();
             if (responsedMessage.hasError()) {
-                this.bJb.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.bJb.getResources().getString(t.neterror) : responsedMessage.getErrorString());
+                BdToast.b(this.bYY.getPageContext().getPageActivity(), StringUtils.isNull(responsedMessage.getErrorString()) ? this.bYY.getResources().getString(i.C0057i.neterror) : responsedMessage.getErrorString()).sX();
                 return;
             }
             Object extra = responsedMessage.getOrginalMessage().getExtra();
             if (extra instanceof ChosenZanNetMessage) {
-                hVar2 = this.bJb.bIQ;
-                hVar2.dN(((ChosenZanNetMessage) extra).isPraise());
+                iVar2 = this.bYY.bYD;
+                iVar2.ea(((ChosenZanNetMessage) extra).isPraise());
             }
         }
     }

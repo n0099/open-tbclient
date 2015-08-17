@@ -55,13 +55,6 @@ public class SlidingActivityHelper {
         });
     }
 
-    public void setSlidingActionBarEnabled(boolean z) {
-        if (this.mOnPostCreateCalled) {
-            throw new IllegalStateException("enableSlidingActionBar must be called in onCreate.");
-        }
-        this.mEnableSlide = z;
-    }
-
     public View findViewById(int i) {
         View findViewById;
         if (this.mSlidingMenu == null || (findViewById = this.mSlidingMenu.findViewById(i)) == null) {
@@ -81,34 +74,13 @@ public class SlidingActivityHelper {
         }
     }
 
-    public void setContentView(View view) {
-        this.mBroadcasting = true;
-        this.mActivity.setContentView(view);
-    }
-
     public void setBehindContentView(View view, ViewGroup.LayoutParams layoutParams) {
         this.mViewBehind = view;
         this.mSlidingMenu.setMenu(this.mViewBehind);
     }
 
-    public SlidingMenu getSlidingMenu() {
-        return this.mSlidingMenu;
-    }
-
-    public void toggle() {
-        this.mSlidingMenu.toggle();
-    }
-
     public void showContent() {
         this.mSlidingMenu.showContent();
-    }
-
-    public void showMenu() {
-        this.mSlidingMenu.showMenu();
-    }
-
-    public void showSecondaryMenu() {
-        this.mSlidingMenu.showSecondaryMenu();
     }
 
     public boolean onKeyUp(int i, KeyEvent keyEvent) {

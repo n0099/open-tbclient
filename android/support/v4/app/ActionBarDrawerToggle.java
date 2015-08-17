@@ -14,9 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 /* loaded from: classes.dex */
 public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
-    private static final int ID_HOME = 16908332;
     private static final ActionBarDrawerToggleImpl IMPL;
-    private static final float TOGGLE_DRAWABLE_OFFSET = 0.33333334f;
     private final Activity mActivity;
     private final Delegate mActivityImpl;
     private final int mCloseDrawerContentDescRes;
@@ -29,7 +27,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     private SlideDrawable mSlider;
     private Drawable mThemeImage;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public interface ActionBarDrawerToggleImpl {
         Drawable getThemeUpIndicator(Activity activity);
@@ -54,7 +52,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     /* loaded from: classes.dex */
-    class ActionBarDrawerToggleImplBase implements ActionBarDrawerToggleImpl {
+    private static class ActionBarDrawerToggleImplBase implements ActionBarDrawerToggleImpl {
         private ActionBarDrawerToggleImplBase() {
         }
 
@@ -75,7 +73,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     /* loaded from: classes.dex */
-    class ActionBarDrawerToggleImplHC implements ActionBarDrawerToggleImpl {
+    private static class ActionBarDrawerToggleImplHC implements ActionBarDrawerToggleImpl {
         private ActionBarDrawerToggleImplHC() {
         }
 
@@ -117,7 +115,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         this.mThemeImage = getThemeUpIndicator();
         this.mDrawerImage = activity.getResources().getDrawable(i);
         this.mSlider = new SlideDrawable(this.mDrawerImage);
-        this.mSlider.setOffset(TOGGLE_DRAWABLE_OFFSET);
+        this.mSlider.setOffset(0.33333334f);
     }
 
     public void syncState() {
@@ -153,7 +151,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        if (menuItem != null && menuItem.getItemId() == ID_HOME && this.mDrawerIndicatorEnabled) {
+        if (menuItem != null && menuItem.getItemId() == 16908332 && this.mDrawerIndicatorEnabled) {
             if (this.mDrawerLayout.isDrawerVisible(GravityCompat.START)) {
                 this.mDrawerLayout.closeDrawer(GravityCompat.START);
             } else {
@@ -216,7 +214,7 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class SlideDrawable extends InsetDrawable implements Drawable.Callback {
         private final boolean mHasMirroring;

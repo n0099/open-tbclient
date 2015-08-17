@@ -2,7 +2,6 @@ package com.baidu.adp.base;
 
 import android.app.Activity;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.plugin.proxy.activity.ActivityProxy;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,11 +9,17 @@ import java.util.Iterator;
 public final class a {
     private static ArrayList<SoftReference<Activity>> np;
     private static a nq;
-    private b nr;
+    private InterfaceC0000a nr;
     private int ns = 0;
 
-    public void a(b bVar) {
-        this.nr = bVar;
+    /* renamed from: com.baidu.adp.base.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public interface InterfaceC0000a {
+        void onActivityClosed();
+    }
+
+    public void a(InterfaceC0000a interfaceC0000a) {
+        this.nr = interfaceC0000a;
     }
 
     private a() {
@@ -37,11 +42,11 @@ public final class a {
     public void g(Activity activity) {
         if (activity != null) {
             np.add(new SoftReference<>(activity));
-            o(this.ns);
+            q(this.ns);
         }
     }
 
-    public Activity n(int i) {
+    public Activity p(int i) {
         int size = np.size();
         if (size == 0) {
             return null;
@@ -84,22 +89,32 @@ public final class a {
         }
     }
 
+    public Activity dG() {
+        SoftReference<Activity> softReference;
+        int size = np.size();
+        if (size != 0 && (softReference = np.get(size - 1)) != null) {
+            return softReference.get();
+        }
+        return null;
+    }
+
     public void setActivityStackMaxSize(int i) {
         if (i >= 10 || i == 0) {
             this.ns = i;
         }
     }
 
-    public void dG() {
-        o(3);
+    public void dH() {
+        q(3);
     }
 
-    public void dH() {
+    public void dI() {
+        Activity activity;
         if (np != null) {
             while (!np.isEmpty()) {
                 SoftReference<Activity> remove = np.remove(0);
-                if (remove != null && remove.get() != null) {
-                    remove.get().finish();
+                if (remove != null && remove.get() != null && (activity = remove.get()) != null) {
+                    activity.finish();
                 }
             }
         }
@@ -112,26 +127,22 @@ public final class a {
         return this.ns;
     }
 
-    private void o(int i) {
+    private void q(int i) {
         if (i != 0) {
             int size = dF().getSize();
             while (size > i) {
                 size--;
-                Activity n = dF().n(1);
-                if (n != null) {
-                    n.finish();
+                Activity p = dF().p(1);
+                if (p != null) {
+                    p.finish();
                 }
             }
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x005b A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x001a A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String dI() {
-        String simpleName;
+    public String dJ() {
+        Activity activity;
+        String str;
         if (np == null || np.size() == 0) {
             return "";
         }
@@ -139,28 +150,14 @@ public final class a {
         Iterator<SoftReference<Activity>> it = np.iterator();
         while (it.hasNext()) {
             SoftReference<Activity> next = it.next();
-            if (next != null && next.get() != null) {
-                Activity activity = next.get();
-                if (activity instanceof ActivityProxy) {
-                    com.baidu.adp.plugin.pluginBase.c kN = ((ActivityProxy) activity).kN();
-                    if (kN != null && kN.getClass() != null) {
-                        simpleName = kN.getClass().getSimpleName();
-                        if (StringUtils.isNull(simpleName)) {
-                            sb.append(String.valueOf(simpleName) + ";");
-                        }
-                    }
-                    simpleName = "";
-                    if (StringUtils.isNull(simpleName)) {
-                    }
+            if (next != null && (activity = next.get()) != null) {
+                if (activity == null || activity.getClass() == null) {
+                    str = "";
                 } else {
-                    if (activity.getClass() != null) {
-                        simpleName = activity.getClass().getSimpleName();
-                        if (StringUtils.isNull(simpleName)) {
-                        }
-                    }
-                    simpleName = "";
-                    if (StringUtils.isNull(simpleName)) {
-                    }
+                    str = activity.getClass().getSimpleName();
+                }
+                if (!StringUtils.isNull(str)) {
+                    sb.append(String.valueOf(str) + ";");
                 }
             }
         }

@@ -10,11 +10,11 @@ public final class LikeUserInfo extends Message {
     public final String portrait;
     @ProtoField(tag = 4, type = Message.Datatype.INT32)
     public final Integer time;
-    @ProtoField(tag = 1, type = Message.Datatype.INT32)
-    public final Integer userId;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long userId;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String userName;
-    public static final Integer DEFAULT_USERID = 0;
+    public static final Long DEFAULT_USERID = 0L;
     public static final Integer DEFAULT_TIME = 0;
 
     /* synthetic */ LikeUserInfo(Builder builder, boolean z, LikeUserInfo likeUserInfo) {
@@ -54,11 +54,14 @@ public final class LikeUserInfo extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<LikeUserInfo> {
+    public static final class Builder extends Message.Builder<LikeUserInfo> {
         public String portrait;
         public Integer time;
-        public Integer userId;
+        public Long userId;
         public String userName;
+
+        public Builder() {
+        }
 
         public Builder(LikeUserInfo likeUserInfo) {
             super(likeUserInfo);

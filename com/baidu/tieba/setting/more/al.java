@@ -1,29 +1,18 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.message.RequestUpdateMaskMessage;
-import com.baidu.tbadk.core.message.ResponseUpdateMaskMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class al extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ aj cga;
-
+class al extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public al(aj ajVar, int i) {
+    public al(int i) {
         super(i);
-        this.cga = ajVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        MsgRemindActivity msgRemindActivity;
-        msgRemindActivity = this.cga.cfX;
-        msgRemindActivity.hideProgressBar();
-        if ((socketResponsedMessage instanceof ResponseUpdateMaskMessage) && (socketResponsedMessage.getOrginalMessage() instanceof RequestUpdateMaskMessage)) {
-            ResponseUpdateMaskMessage responseUpdateMaskMessage = (ResponseUpdateMaskMessage) socketResponsedMessage;
-            this.cga.a(4, responseUpdateMaskMessage.getError() == 0, ((RequestUpdateMaskMessage) socketResponsedMessage.getOrginalMessage()).isSettingMask(), responseUpdateMaskMessage.getErrorString());
-        }
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        SettingStatic.cyJ = true;
+        SettingStatic.amt();
     }
 }

@@ -1,18 +1,28 @@
 package com.baidu.tbadk.performanceLog;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.tbadk.performanceLog.j;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k implements CustomMessageTask.CustomRunnable<m> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<m> customMessage) {
-        if (customMessage == null) {
-            return null;
+public class k extends Handler {
+    final /* synthetic */ j awU;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(j jVar) {
+        this.awU = jVar;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        j.a aVar;
+        j.a aVar2;
+        int i;
+        aVar = this.awU.awS;
+        if (aVar != null) {
+            aVar2 = this.awU.awS;
+            i = this.awU.awI;
+            aVar2.en(i);
         }
-        m data = customMessage.getData();
-        data.apZ = ah.DC().DE();
-        data.aqa = ah.DC().DG();
-        return new CustomResponsedMessage<>(2016100, data);
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.f;
+import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class CrabSdkSwitchStatic extends a {
     static {
-        f.gD().l(CrabSdkSwitchStatic.class);
+        e.gy().e(CrabSdkSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

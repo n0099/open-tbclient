@@ -1,53 +1,68 @@
 package com.baidu.tbadk.core.view;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.flow.CoverFlowView;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
-public class b {
-    private TbPageContext<?> LH;
-    private AlertDialog XU;
-    private Activity mActivity;
-    private String XV = null;
-    private TextView Sl = null;
+public class b extends BaseAdapter {
+    private TbPageContext<?> LS;
+    private CoverFlowView<com.baidu.tieba.square.a> acT;
+    private ArrayList<com.baidu.tieba.square.a> datas = new ArrayList<>();
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.square.a> Xv = new c(this);
 
     public b(TbPageContext<?> tbPageContext) {
-        this.LH = null;
-        this.mActivity = null;
-        this.LH = tbPageContext;
-        if (this.LH != null && this.LH.getPageActivity() != null) {
-            this.mActivity = this.LH.getPageActivity();
+        this.acT = null;
+        this.LS = tbPageContext;
+        this.acT = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.acT.setCoverFlowFactory(new d(this, tbPageContext));
+        this.acT.setCallback(this.Xv);
+    }
+
+    public void setData(ArrayList<com.baidu.tbadk.core.data.s> arrayList) {
+        ArrayList<com.baidu.tieba.square.a> arrayList2 = new ArrayList<>();
+        Iterator<com.baidu.tbadk.core.data.s> it = arrayList.iterator();
+        while (it.hasNext()) {
+            com.baidu.tbadk.core.data.s next = it.next();
+            if (next != null) {
+                arrayList2.add(new com.baidu.tieba.square.a(next));
+            }
+        }
+        this.datas = arrayList2;
+        this.acT.setData(arrayList2);
+        notifyDataSetChanged();
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        return (this.datas != null ? this.datas.size() + 0 : 0) > 0 ? 1 : 0;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        return Integer.valueOf(i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        return i;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        return this.acT;
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.acT != null) {
+            this.acT.ta();
         }
     }
 
-    public b uj() {
-        if (this.mActivity != null) {
-            this.XU = new AlertDialog.Builder(this.mActivity).create();
-            View inflate = com.baidu.adp.lib.g.b.hr().inflate(this.mActivity, com.baidu.tieba.r.custom_loading_toast, null);
-            this.Sl = (TextView) inflate.findViewById(com.baidu.tieba.q.custom_loading_text);
-            com.baidu.adp.lib.g.k.a(this.XU, this.mActivity);
-            if (this.XU != null && this.XU.getWindow() != null) {
-                this.XU.getWindow().setContentView(inflate);
-                this.XU.setCanceledOnTouchOutside(false);
-            }
-        }
-        return this;
-    }
-
-    public void ar(boolean z) {
-        if (z) {
-            if (this.XU == null) {
-                uj();
-            }
-            if (!StringUtils.isNull(this.XV) && this.Sl != null) {
-                this.Sl.setText(this.XV);
-            }
-            com.baidu.adp.lib.g.k.a(this.XU, this.mActivity);
-            return;
-        }
-        com.baidu.adp.lib.g.k.b(this.XU, this.mActivity);
+    public CoverFlowView<com.baidu.tieba.square.a> vo() {
+        return this.acT;
     }
 }

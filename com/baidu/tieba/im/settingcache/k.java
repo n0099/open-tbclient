@@ -2,22 +2,22 @@ package com.baidu.tieba.im.settingcache;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends com.baidu.tieba.im.h<Void> {
-    final /* synthetic */ j bqb;
-    private final /* synthetic */ PersonalSettingItemData bqc;
-    private final /* synthetic */ String val$key;
+    final /* synthetic */ j bDO;
+    private final /* synthetic */ PersonalSettingItemData bDP;
+    private final /* synthetic */ String tB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar, PersonalSettingItemData personalSettingItemData, String str) {
-        this.bqb = jVar;
-        this.bqc = personalSettingItemData;
-        this.val$key = str;
+        this.bDO = jVar;
+        this.bDP = personalSettingItemData;
+        this.tB = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.h
-    /* renamed from: FR */
+    /* renamed from: GD */
     public Void doInBackground() {
-        this.bqb.UN().f(this.val$key, com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(this.bqc));
+        this.bDO.Wu().f(this.tB, com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(this.bDP));
         return null;
     }
 }

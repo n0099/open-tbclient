@@ -1,116 +1,37 @@
 package com.baidu.tieba.account;
 
+import android.view.View;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.ImageView;
 /* loaded from: classes.dex */
-public class ab extends BdAsyncTask<String, Integer, Boolean> {
-    private com.baidu.tbadk.core.util.aa OE;
-    final /* synthetic */ ActivationActivity awW;
-
-    private ab(ActivationActivity activationActivity) {
-        this.awW = activationActivity;
-        this.OE = null;
-    }
+class ab implements View.OnFocusChangeListener {
+    final /* synthetic */ Register2Activity aFh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ ab(ActivationActivity activationActivity, ab abVar) {
-        this(activationActivity);
+    public ab(Register2Activity register2Activity) {
+        this.aFh = register2Activity;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        ProgressBar progressBar;
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
         EditText editText;
-        RelativeLayout relativeLayout;
-        this.awW.awL = null;
-        progressBar = this.awW.awF;
-        progressBar.setVisibility(8);
-        editText = this.awW.awI;
-        if (editText.length() == 6) {
-            relativeLayout = this.awW.awJ;
-            relativeLayout.setEnabled(true);
-        }
-        if (this.OE != null) {
-            this.OE.gS();
-        }
-        super.cancel(true);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: f */
-    public Boolean doInBackground(String... strArr) {
-        RegistData registData;
-        boolean z = false;
-        try {
-            this.OE = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/getsmscode");
-            com.baidu.tbadk.core.util.aa aaVar = this.OE;
-            registData = this.awW.awO;
-            aaVar.o("phonenum", registData.getPhone());
-            this.OE.sw();
-            if (this.OE.sX().tT().qa()) {
-                z = true;
+        EditText editText2;
+        ImageView imageView = null;
+        editText = this.aFh.aEM;
+        if (view == editText) {
+            imageView = this.aFh.aED;
+        } else {
+            editText2 = this.aFh.aEO;
+            if (view == editText2) {
+                imageView = this.aFh.aEE;
             }
-        } catch (Exception e) {
-            BdLog.detailException(e);
         }
-        return Boolean.valueOf(z);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public void onPostExecute(Boolean bool) {
-        ProgressBar progressBar;
-        EditText editText;
-        TextView textView;
-        TextView textView2;
-        RelativeLayout relativeLayout;
-        super.onPostExecute(bool);
-        this.awW.awL = null;
-        progressBar = this.awW.awF;
-        progressBar.setVisibility(8);
-        editText = this.awW.awI;
-        if (editText.length() == 6) {
-            relativeLayout = this.awW.awJ;
-            relativeLayout.setEnabled(true);
+        if (imageView != null) {
+            if (z) {
+                imageView.setVisibility(0);
+            } else {
+                imageView.setVisibility(8);
+            }
         }
-        if (bool.booleanValue()) {
-            this.awW.Fe();
-            return;
-        }
-        String errorString = this.OE.getErrorString();
-        if (errorString != null && errorString.length() > 0) {
-            textView = this.awW.afY;
-            textView.setVisibility(0);
-            textView2 = this.awW.afY;
-            textView2.setText(errorString);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
-        ProgressBar progressBar;
-        TextView textView;
-        TextView textView2;
-        RelativeLayout relativeLayout;
-        progressBar = this.awW.awF;
-        progressBar.setVisibility(0);
-        textView = this.awW.afY;
-        textView.setVisibility(4);
-        textView2 = this.awW.afY;
-        textView2.setText((CharSequence) null);
-        relativeLayout = this.awW.awJ;
-        relativeLayout.setEnabled(false);
-        super.onPreExecute();
     }
 }

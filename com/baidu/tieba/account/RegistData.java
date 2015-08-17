@@ -4,7 +4,6 @@ import java.io.Serializable;
 /* loaded from: classes.dex */
 public class RegistData implements Serializable {
     private static final long serialVersionUID = 3826031631760706500L;
-    private String activationCode;
     private String name;
     private String phone;
     private String psw;
@@ -26,7 +25,7 @@ public class RegistData implements Serializable {
 
     public void setPsw(String str) {
         if (str != null) {
-            str = com.baidu.adp.lib.util.c.m(str.getBytes());
+            str = com.baidu.adp.lib.util.c.encodeBytes(str.getBytes());
         }
         this.psw = str;
     }
@@ -45,10 +44,6 @@ public class RegistData implements Serializable {
 
     public String getVcode() {
         return this.vcode;
-    }
-
-    public String getActivationCode() {
-        return this.activationCode;
     }
 
     public void setVcodeMd5(String str) {

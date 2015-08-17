@@ -5,11 +5,9 @@ import android.view.View;
 import android.widget.SearchView;
 /* loaded from: classes.dex */
 class SearchViewCompatIcs {
-    SearchViewCompatIcs() {
-    }
 
     /* loaded from: classes.dex */
-    public class MySearchView extends SearchView {
+    public static class MySearchView extends SearchView {
         public MySearchView(Context context) {
             super(context);
         }

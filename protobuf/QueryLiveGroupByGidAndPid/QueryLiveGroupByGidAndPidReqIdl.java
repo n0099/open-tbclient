@@ -21,8 +21,11 @@ public final class QueryLiveGroupByGidAndPidReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<QueryLiveGroupByGidAndPidReqIdl> {
+    public static final class Builder extends Message.Builder<QueryLiveGroupByGidAndPidReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(QueryLiveGroupByGidAndPidReqIdl queryLiveGroupByGidAndPidReqIdl) {
             super(queryLiveGroupByGidAndPidReqIdl);

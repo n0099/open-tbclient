@@ -5,13 +5,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> bxT;
-    public int bxR = 0;
+    public ArrayList<ArrayList<String>> bLI;
+    public int bLG = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String bxS = null;
-    boolean bxU = false;
-    public String bxV = null;
+    public String bLH = null;
+    boolean bLJ = false;
+    public String bLK = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -19,19 +19,19 @@ public class TbCdnIpListData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
-                    this.bxR = optJSONObject.optInt("errorno");
+                    this.bLG = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString("errmsg");
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.bxU = true;
+                    this.bLJ = true;
                 } else {
-                    this.bxU = false;
+                    this.bLJ = false;
                 }
-                this.bxV = jSONObject.optString("cdn_domain");
+                this.bLK = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString("img_url");
-                    this.bxS = optJSONObject2.optString("img_md5");
+                    this.bLH = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -54,7 +54,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.bxT = arrayList;
+                        this.bLI = arrayList;
                     }
                 }
             } catch (Exception e) {

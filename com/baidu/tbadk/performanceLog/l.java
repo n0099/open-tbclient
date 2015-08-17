@@ -1,31 +1,31 @@
 package com.baidu.tbadk.performanceLog;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l extends CustomMessageListener {
-    final /* synthetic */ h apY;
+public class l implements c {
+    final /* synthetic */ j awU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l(h hVar, int i) {
-        super(i);
-        this.apY = hVar;
+    public l(j jVar) {
+        this.awU = jVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        m mVar;
+    /* JADX WARN: Incorrect condition in loop: B:4:0x0008 */
+    @Override // com.baidu.tbadk.performanceLog.c
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void fm(String str) {
+        String[] strArr;
+        String[] strArr2;
         int i;
-        if (customResponsedMessage != null && (mVar = (m) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.apY.mId) {
-            h hVar = this.apY;
-            i = hVar.apS;
-            hVar.apS = i + 1;
-            this.apY.eW(mVar.apZ);
-            this.apY.ek(mVar.aqa);
-            this.apY.Dl();
+        for (int i2 = 0; i2 < strArr.length; i2++) {
+            strArr2 = this.awU.awP;
+            if (str.contains(strArr2[i2])) {
+                j jVar = this.awU;
+                i = jVar.awI;
+                jVar.awI = i + 1;
+                return;
+            }
         }
     }
 }

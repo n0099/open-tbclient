@@ -1,19 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import java.util.Comparator;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.adp.widget.ListView.x.a;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-class bj implements Comparator<Integer> {
-    final /* synthetic */ bh bLn;
+public abstract class bj<T, V extends x.a> extends com.baidu.adp.widget.ListView.a<T, V> {
+    protected ListView aTA;
+    protected PbActivity cbx;
+    protected boolean mIsFromCDN;
+    protected int mSkinType;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bj(bh bhVar) {
-        this.bLn = bhVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public bj(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity.getPageContext().getPageActivity(), bdUniqueId);
+        this.mIsFromCDN = false;
+        this.cbx = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(Integer num, Integer num2) {
-        return (num != null ? num.intValue() : 0) - (num != null ? num2.intValue() : 0);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
+        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
+        this.aTA = (ListView) viewGroup;
+        return null;
+    }
+
+    public void setFromCDN(boolean z) {
+        this.mIsFromCDN = z;
     }
 }

@@ -4,9 +4,6 @@ import android.net.TrafficStats;
 import java.net.Socket;
 /* loaded from: classes.dex */
 class TrafficStatsCompatIcs {
-    TrafficStatsCompatIcs() {
-    }
-
     public static void clearThreadStatsTag() {
         TrafficStats.clearThreadStatsTag();
     }

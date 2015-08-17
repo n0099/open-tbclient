@@ -3,8 +3,11 @@ package com.baidu.tieba.tbadkCore.writeModel;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class PostWriteCallBackData implements Serializable {
+    public static final int ERROR_ANTI_USER = 340016;
+    public static final int ERROR_DISABLE_REPLY = 230277;
     private static final long serialVersionUID = 3542955843976043534L;
     private String colorMsg;
+    private int errorCode;
     private String errorString;
     private String preMsg;
     private String threadId = null;
@@ -13,10 +16,19 @@ public class PostWriteCallBackData implements Serializable {
     public PostWriteCallBackData() {
     }
 
-    public PostWriteCallBackData(String str, String str2, String str3) {
+    public PostWriteCallBackData(int i, String str, String str2, String str3) {
+        this.errorCode = i;
         this.errorString = str;
         this.preMsg = str2;
         this.colorMsg = str3;
+    }
+
+    public int getErrorCode() {
+        return this.errorCode;
+    }
+
+    public void setErrorCode(int i) {
+        this.errorCode = i;
     }
 
     public String getErrorString() {

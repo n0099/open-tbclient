@@ -1,48 +1,33 @@
 package com.baidu.tieba.write.write;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ai extends HttpMessageListener {
-    final /* synthetic */ WriteActivity cCQ;
+public class ai implements View.OnTouchListener {
+    final /* synthetic */ WriteActivity cUM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ai(WriteActivity writeActivity, int i) {
-        super(i);
-        this.cCQ = writeActivity;
+    public ai(WriteActivity writeActivity) {
+        this.cUM = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        String str;
-        String str2;
-        String str3;
-        if (httpResponsedMessage.getError() == 0) {
-            String str4 = (String) MessageManager.getInstance().runTask(2001291, String.class, httpResponsedMessage).getData();
-            if (TextUtils.isEmpty(str4)) {
-                str3 = this.cCQ.bCQ;
-                if (!TextUtils.isEmpty(str3)) {
-                    this.cCQ.bCQ = str4;
-                    TbadkCoreApplication.m411getInst().setDefaultBubble(str4);
-                    this.cCQ.fF(true);
-                    return;
-                }
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                str = this.cCQ.bCQ;
-                if (!str4.equals(str)) {
-                    this.cCQ.bCQ = str4;
-                    TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                    str2 = this.cCQ.bCQ;
-                    m411getInst.setDefaultBubble(str2);
-                    this.cCQ.fF(true);
-                }
-            }
-        }
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        InputMethodManager inputMethodManager;
+        EditText editText;
+        InputMethodManager inputMethodManager2;
+        EditText editText2;
+        WriteActivity writeActivity = this.cUM;
+        inputMethodManager = this.cUM.mInputManager;
+        editText = this.cUM.cSk;
+        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        WriteActivity writeActivity2 = this.cUM;
+        inputMethodManager2 = this.cUM.mInputManager;
+        editText2 = this.cUM.cSo;
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
+        return false;
     }
 }

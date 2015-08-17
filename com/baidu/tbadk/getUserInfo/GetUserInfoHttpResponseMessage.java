@@ -2,6 +2,7 @@ package com.baidu.tbadk.getUserInfo;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
@@ -33,10 +34,10 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
-        if (this.mData != null && this.mData.Af() != null) {
-            b.Ag().a(this.mData.Af());
+        if (this.mData != null && this.mData.BW() != null) {
+            b.BX().a(this.mData.BW());
         } else {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001253));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED));
         }
     }
 }

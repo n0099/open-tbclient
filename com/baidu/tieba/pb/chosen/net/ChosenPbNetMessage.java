@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.chosen.net;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.j;
+import com.baidu.tbadk.util.g;
 import tbclient.FinePbPage.DataReq;
 import tbclient.FinePbPage.FinePbPageReqIdl;
 /* loaded from: classes.dex */
@@ -47,7 +47,7 @@ public class ChosenPbNetMessage extends NetMessage {
         builder.scr_h = Long.valueOf(this.scrH);
         builder.scr_w = Long.valueOf(this.scrW);
         builder.scr_dip = Long.valueOf(this.scr_dip);
-        j.a(builder, true);
+        g.a(builder, true);
         FinePbPageReqIdl.Builder builder2 = new FinePbPageReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

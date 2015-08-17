@@ -1,27 +1,35 @@
 package com.baidu.tieba.frs;
 
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
+import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bo implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ bf aOn;
+public class bo implements View.OnTouchListener {
+    final /* synthetic */ bl aXC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(bf bfVar) {
-        this.aOn = bfVar;
+    public bo(bl blVar) {
+        this.aXC = blVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        eVar.dismiss();
-        if (i == 0) {
-            frsActivity2 = this.aOn.aMl;
-            com.baidu.tbadk.core.util.ax.b(frsActivity2.getPageContext());
-        } else if (i == 1) {
-            frsActivity = this.aOn.aMl;
-            com.baidu.tbadk.core.util.ax.p(frsActivity.getPageContext().getPageActivity());
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        ImageView imageView;
+        ImageView imageView2;
+        if (view.getId() == i.f.refresh_layout) {
+            if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
+                imageView = this.aXC.aWW;
+                com.baidu.tbadk.core.util.al.c(imageView, i.e.pic_fresh_n);
+            }
+            if (motionEvent.getAction() == 0) {
+                imageView2 = this.aXC.aWW;
+                com.baidu.tbadk.core.util.al.c(imageView2, i.e.pic_fresh_s);
+                return false;
+            }
+            return false;
         }
+        return false;
     }
 }

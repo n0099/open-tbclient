@@ -1,13 +1,13 @@
 package com.baidu.adp.framework.message;
 /* loaded from: classes.dex */
-public abstract class ResponsedMessage<T> implements b<T> {
+public abstract class ResponsedMessage<T> implements a<T> {
     private final int mCmd;
     private Message<?> mOrginalMessage;
     private int mError = 0;
     private String mErrorString = null;
     private int mDownSize = 0;
     private long mCostTime = 0;
-    public c performanceData = new c();
+    public b performanceData = new b();
 
     public abstract boolean hasError();
 

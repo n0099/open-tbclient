@@ -1,35 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.recapp.PbRecBaseViewHolder;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.pb.pb.main.bk;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bl extends bn<com.baidu.tieba.tbadkCore.data.i, PbRecBaseViewHolder> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bl(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+public class bl extends CustomMessageListener {
+    final /* synthetic */ bk ccq;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bl(bk bkVar, int i) {
+        super(i);
+        this.ccq = bkVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: p */
-    public PbRecBaseViewHolder a(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.ahi().k(this.mContext, 2);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.bn, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.i iVar, PbRecBaseViewHolder pbRecBaseViewHolder) {
-        super.a(i, view, viewGroup, (ViewGroup) iVar, (com.baidu.tieba.tbadkCore.data.i) pbRecBaseViewHolder);
-        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
-        com.baidu.tieba.tbadkCore.data.i iVar2 = (com.baidu.tieba.tbadkCore.data.i) ay(i);
-        this.bLa.getLayoutMode().ab(this.mSkinType == 1);
-        this.bLa.getLayoutMode().j(view);
-        pbRecBaseViewHolder.update(iVar2, i, this.mIsFromCDN);
-        return view;
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdUniqueId bdUniqueId;
+        BdUniqueId bdUniqueId2;
+        int i;
+        bk.a aVar;
+        this.ccq.ccn = true;
+        bdUniqueId = this.ccq.unique_id;
+        if (bdUniqueId == customResponsedMessage.getOrginalMessage().getTag() && customResponsedMessage != null && (customResponsedMessage instanceof PbPageReadLocalResponseMessage)) {
+            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
+            bdUniqueId2 = this.ccq.unique_id;
+            if (tag == bdUniqueId2) {
+                PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage;
+                com.baidu.tieba.pb.a.b pbData = pbPageReadLocalResponseMessage.getPbData();
+                if (pbData != null) {
+                    this.ccq.g(pbData);
+                    this.ccq.c(pbData);
+                    aVar = this.ccq.cci;
+                    if (aVar != null && pbData != null) {
+                        com.baidu.adp.lib.g.h.hi().post(new bm(this, pbPageReadLocalResponseMessage, pbData));
+                    }
+                }
+                bk bkVar = this.ccq;
+                i = this.ccq.mRequestType;
+                bkVar.iu(i);
+            }
+        }
     }
 }

@@ -15,7 +15,6 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.framework.task.MessageTask;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.n;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class i {
@@ -29,7 +28,7 @@ public class i {
 
     public void addMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            n.jk();
+            com.baidu.adp.lib.util.k.jd();
             if (fVar instanceof d) {
                 FrameHelper.a(this.qb, (d) fVar);
             } else if (fVar instanceof k) {
@@ -44,7 +43,7 @@ public class i {
 
     public void removeMessageRule(f<?, ?> fVar) {
         if (fVar != null) {
-            n.jk();
+            com.baidu.adp.lib.util.k.jd();
             if (fVar instanceof d) {
                 this.qb.remove(fVar);
             } else if (fVar instanceof k) {
@@ -59,7 +58,7 @@ public class i {
 
     public void a(g<?> gVar) {
         if (gVar != null) {
-            n.jk();
+            com.baidu.adp.lib.util.k.jd();
             if (gVar instanceof c) {
                 FrameHelper.a(this.qe, (c) gVar);
             } else if (gVar instanceof j) {
@@ -74,7 +73,7 @@ public class i {
 
     public void b(g<?> gVar) {
         if (gVar != null) {
-            n.jk();
+            com.baidu.adp.lib.util.k.jd();
             if (gVar instanceof c) {
                 this.qe.remove(gVar);
             } else if (gVar instanceof j) {

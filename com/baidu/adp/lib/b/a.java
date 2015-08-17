@@ -1,4 +1,6 @@
 package com.baidu.adp.lib.b;
+
+import com.baidu.adp.lib.b.c;
 /* loaded from: classes.dex */
 public abstract class a {
     protected static final int DEF_CRASHTIME_LIMIT = 10;
@@ -7,7 +9,7 @@ public abstract class a {
     protected int mDefaultType = 0;
     protected int mOffType = 1;
     protected int mMaxCrashTimes = 10;
-    protected d mSwitchListener = new b(this);
+    protected c.a mSwitchListener = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public abstract void changeSettingByType(int i);
@@ -26,7 +28,7 @@ public abstract class a {
     public void addToManager() {
         c cVar = new c(this.mName, this.mDefaultType, this.mSwitchListener);
         cVar.a(this.mMaxCrashTimes, this.mKey, this.mOffType);
-        f.gD().a(cVar);
+        e.gy().a(cVar);
     }
 
     public a() {

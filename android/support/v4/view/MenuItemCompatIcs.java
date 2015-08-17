@@ -6,12 +6,6 @@ class MenuItemCompatIcs {
 
     /* loaded from: classes.dex */
     interface SupportActionExpandProxy {
-        boolean onMenuItemActionCollapse(MenuItem menuItem);
-
-        boolean onMenuItemActionExpand(MenuItem menuItem);
-    }
-
-    MenuItemCompatIcs() {
     }
 
     public static boolean expandActionView(MenuItem menuItem) {
@@ -31,21 +25,11 @@ class MenuItemCompatIcs {
     }
 
     /* loaded from: classes.dex */
-    class OnActionExpandListenerWrapper implements MenuItem.OnActionExpandListener {
+    static class OnActionExpandListenerWrapper implements MenuItem.OnActionExpandListener {
         private SupportActionExpandProxy mWrapped;
 
         public OnActionExpandListenerWrapper(SupportActionExpandProxy supportActionExpandProxy) {
             this.mWrapped = supportActionExpandProxy;
-        }
-
-        @Override // android.view.MenuItem.OnActionExpandListener
-        public boolean onMenuItemActionExpand(MenuItem menuItem) {
-            return this.mWrapped.onMenuItemActionExpand(menuItem);
-        }
-
-        @Override // android.view.MenuItem.OnActionExpandListener
-        public boolean onMenuItemActionCollapse(MenuItem menuItem) {
-            return this.mWrapped.onMenuItemActionCollapse(menuItem);
         }
     }
 }

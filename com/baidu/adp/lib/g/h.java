@@ -1,19 +1,16 @@
 package com.baidu.adp.lib.g;
 
-import android.view.animation.Animation;
+import android.os.Handler;
+import android.os.Looper;
 /* loaded from: classes.dex */
-class h implements Runnable {
-    final /* synthetic */ e vW;
-    private final /* synthetic */ Animation vX;
+public class h extends Handler {
+    private static final h vT = new h();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(e eVar, Animation animation) {
-        this.vW = eVar;
-        this.vX = animation;
+    private h() {
+        super(Looper.getMainLooper());
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.vW.c(this.vX);
+    public static final h hi() {
+        return vT;
     }
 }

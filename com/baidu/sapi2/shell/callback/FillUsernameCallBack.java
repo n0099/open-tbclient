@@ -1,6 +1,7 @@
 package com.baidu.sapi2.shell.callback;
 
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
+@Deprecated
 /* loaded from: classes.dex */
 public abstract class FillUsernameCallBack implements SapiCallBack<SapiAccountResponse> {
     public abstract void onInvalidBduss();

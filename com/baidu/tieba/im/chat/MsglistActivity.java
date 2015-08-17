@@ -4,14 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements ax {
-    protected abstract boolean first(ax axVar);
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements al {
+    protected abstract boolean first(al alVar);
 
     protected abstract boolean initData(Bundle bundle);
 
     protected abstract void initView();
 
-    @Override // com.baidu.tieba.im.chat.ax
+    @Override // com.baidu.tieba.im.chat.al
     public void onFirstHistoryPageLoaded() {
         onPageInited();
     }
@@ -28,7 +28,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             return;
         }
         initView();
-        adjustResizeForSoftInput();
+        adjustResizeForSoftInput(false);
         if (this.mListModel != null) {
             this.mListModel.setImageUploadUIProgressCallback(this.mUploadProgressCallback);
         }
@@ -36,7 +36,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (first(this)) {
             loadDraft();
             regReceiver();
-            cg.bba = com.baidu.tbadk.util.g.DW();
+            bo.boU = com.baidu.tbadk.util.d.EB();
         }
     }
 
@@ -55,8 +55,9 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
-    protected void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.mListView != null) {
             this.mListView.onChangeSkinType(i);

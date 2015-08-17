@@ -1,53 +1,20 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.person.ProfileHttpResponseMessage;
-import com.baidu.tieba.person.ProfileSocketResponseMessage;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ w cfw;
+public class x implements View.OnClickListener {
+    final /* synthetic */ v cxU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(w wVar, int i, int i2) {
-        super(i, i2);
-        this.cfw = wVar;
+    public x(v vVar) {
+        this.cxU = vVar;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        com.baidu.tieba.tbadkCore.e.a aVar;
-        com.baidu.tieba.tbadkCore.e.a aVar2;
-        com.baidu.tieba.tbadkCore.e.a aVar3;
-        com.baidu.tieba.tbadkCore.e.a aVar4;
-        if ((responsedMessage instanceof ProfileSocketResponseMessage) || (responsedMessage instanceof ProfileHttpResponseMessage)) {
-            if (responsedMessage.getOrginalMessage() == null || this.cfw.getUniqueId() == null || this.cfw.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
-                if (responsedMessage instanceof ProfileSocketResponseMessage) {
-                    ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
-                    aVar3 = this.cfw.aFt;
-                    if (aVar3 != null) {
-                        long downSize = profileSocketResponseMessage.getDownSize();
-                        long costTime = profileSocketResponseMessage.getCostTime();
-                        aVar4 = this.cfw.aFt;
-                        aVar4.a(false, !responsedMessage.hasError(), profileSocketResponseMessage.getError(), profileSocketResponseMessage.getErrorString(), downSize, 0L, costTime);
-                        this.cfw.aFt = null;
-                    }
-                    this.cfw.a(profileSocketResponseMessage);
-                }
-                if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                    ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
-                    aVar = this.cfw.aFt;
-                    if (aVar != null) {
-                        long downSize2 = profileHttpResponseMessage.getDownSize();
-                        long costTime2 = profileHttpResponseMessage.getCostTime();
-                        aVar2 = this.cfw.aFt;
-                        aVar2.a(true, !responsedMessage.hasError(), profileHttpResponseMessage.getError(), profileHttpResponseMessage.getErrorString(), downSize2, costTime2, 0L);
-                        this.cfw.aFt = null;
-                    }
-                    this.cfw.a(profileHttpResponseMessage);
-                }
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        r rVar;
+        rVar = this.cxU.cxD;
+        rVar.jo(12);
     }
 }

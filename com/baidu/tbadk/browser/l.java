@@ -1,7 +1,9 @@
 package com.baidu.tbadk.browser;
+
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-class l implements com.baidu.tbadk.core.dialog.d {
-    @Override // com.baidu.tbadk.core.dialog.d
+class l implements a.b {
+    @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
     }

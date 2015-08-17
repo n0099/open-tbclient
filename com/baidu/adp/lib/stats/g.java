@@ -1,50 +1,60 @@
 package com.baidu.adp.lib.stats;
 
-import android.os.Handler;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Context;
+import android.support.v4.os.EnvironmentCompat;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class g extends Handler {
-    final /* synthetic */ f this$0;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(f fVar) {
-        this.this$0 = fVar;
+public class g {
+    public static String F(Context context) {
+        if (com.baidu.adp.lib.util.i.iP()) {
+            return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
+        }
+        if (com.baidu.adp.lib.util.i.isWap()) {
+            return "2";
+        }
+        return "1";
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        BdStatLog bdStatLog;
-        BdDebugLog bdDebugLog;
-        BdErrorLog bdErrorLog;
-        BdPerformanceLog bdPerformanceLog;
-        switch (message.what) {
-            case 1:
-                this.this$0.b((BdStatBase) message.obj, message.arg1 > 0, message.arg2 > 0);
-                return;
-            case 2:
-                f fVar = this.this$0;
-                bdStatLog = this.this$0.wv;
-                fVar.a((BdStatBase) bdStatLog, true, true);
-                f fVar2 = this.this$0;
-                bdDebugLog = this.this$0.ww;
-                fVar2.a((BdStatBase) bdDebugLog, true, true);
-                f fVar3 = this.this$0;
-                bdErrorLog = this.this$0.wx;
-                fVar3.a((BdStatBase) bdErrorLog, true, true);
-                f fVar4 = this.this$0;
-                bdPerformanceLog = this.this$0.wy;
-                fVar4.a((BdStatBase) bdPerformanceLog, true, true);
-                this.this$0.hG();
-                return;
-            case 3:
-                this.this$0.c((BdStatBase) message.obj, message.arg1 > 0);
-                return;
-            case 4:
-                this.this$0.b((BdStatBase) message.obj);
-                return;
-            default:
-                return;
+    public static String getNetType(Context context) {
+        if (context == null) {
+            return null;
         }
+        if (com.baidu.adp.lib.util.i.iP()) {
+            return "WIFI";
+        }
+        if (com.baidu.adp.lib.util.i.iQ()) {
+            int iX = com.baidu.adp.lib.util.i.iX();
+            StringBuilder sb = new StringBuilder();
+            switch (iX) {
+                case 1:
+                    sb.append('M');
+                    break;
+                case 2:
+                    sb.append('U');
+                    break;
+                case 3:
+                    sb.append('T');
+                    break;
+                default:
+                    sb.append('N');
+                    break;
+            }
+            if (com.baidu.adp.lib.util.i.isWap()) {
+                sb.append("_WAP_");
+            } else {
+                sb.append("_NET_");
+            }
+            if (com.baidu.adp.lib.util.i.iS()) {
+                sb.append("3G");
+            } else if (com.baidu.adp.lib.util.i.iR()) {
+                sb.append("4G");
+            } else if (com.baidu.adp.lib.util.i.iT()) {
+                sb.append("2G");
+            } else {
+                sb.append('N');
+            }
+            return sb.toString();
+        }
+        return EnvironmentCompat.MEDIA_UNKNOWN;
     }
 }

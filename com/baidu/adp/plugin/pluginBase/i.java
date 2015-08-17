@@ -5,7 +5,7 @@ import android.content.ContextWrapper;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.l;
+import com.baidu.adp.base.j;
 import com.baidu.adp.plugin.PluginCenter;
 /* loaded from: classes.dex */
 public class i extends ContextWrapper {
@@ -35,7 +35,7 @@ public class i extends ContextWrapper {
         if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.getInstance().getPlugin(this.mPackageName).kz();
+        return PluginCenter.getInstance().getPlugin(this.mPackageName).ks();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -49,7 +49,7 @@ public class i extends ContextWrapper {
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
         if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
-            Resources resources = l.dJ().getResources();
+            Resources resources = j.dK().getResources();
             if (resources == null) {
                 return super.getResources();
             }
@@ -57,7 +57,7 @@ public class i extends ContextWrapper {
         } else if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         } else {
-            return PluginCenter.getInstance().getPlugin(this.mPackageName).kA();
+            return PluginCenter.getInstance().getPlugin(this.mPackageName).kt();
         }
     }
 

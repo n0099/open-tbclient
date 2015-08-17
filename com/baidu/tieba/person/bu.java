@@ -1,35 +1,43 @@
 package com.baidu.tieba.person;
 
-import android.text.TextUtils;
-import android.widget.ProgressBar;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.person.bs;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bu implements cf {
-    final /* synthetic */ PersonListActivity bTv;
+public class bu extends CustomMessageListener {
+    final /* synthetic */ bs ckq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(PersonListActivity personListActivity) {
-        this.bTv = personListActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bu(bs bsVar, int i) {
+        super(i);
+        this.ckq = bsVar;
     }
 
-    @Override // com.baidu.tieba.person.cf
-    public void A(String str, boolean z) {
-        ProgressBar progressBar;
-        ProgressBar progressBar2;
-        if (!z) {
-            progressBar = this.bTv.mProgress;
-            if (progressBar.isShown()) {
-                progressBar2 = this.bTv.mProgress;
-                progressBar2.setVisibility(8);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        bs.a aVar;
+        bs.a aVar2;
+        bs.a aVar3;
+        bs.a aVar4;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
+            com.baidu.tieba.person.a.a data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
+            if (data2 != null) {
+                aVar3 = this.ckq.ckc;
+                if (aVar3 != null) {
+                    aVar4 = this.ckq.ckc;
+                    aVar4.d(data2, true);
+                    return;
+                }
+                return;
             }
-            if (!TextUtils.isEmpty(str)) {
-                this.bTv.showToast(str);
+            aVar = this.ckq.ckc;
+            if (aVar != null) {
+                aVar2 = this.ckq.ckc;
+                aVar2.B("", true);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.person.cf
-    public com.baidu.tieba.person.a.a d(com.baidu.tieba.person.a.a aVar, boolean z) {
-        this.bTv.a(aVar, z);
-        return null;
     }
 }

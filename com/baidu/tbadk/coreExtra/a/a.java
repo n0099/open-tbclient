@@ -1,41 +1,51 @@
 package com.baidu.tbadk.coreExtra.a;
 
+import com.baidu.adp.lib.util.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.aq;
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class a {
-    private static a abC;
-    private boolean abB;
+    private static a agJ;
+    private boolean agI;
 
     private a() {
-        this.abB = false;
+        this.agI = false;
         try {
-            if (!bb.isEmpty(new BufferedReader(new InputStreamReader(TbadkCoreApplication.m411getInst().getApp().getAssets().open("apk_ab_test.txt"))).readLine())) {
-                this.abB = true;
+            InputStream open = TbadkCoreApplication.m411getInst().getApp().getAssets().open("apk_ab_test.txt");
+            if (!aq.isEmpty(new BufferedReader(new InputStreamReader(open)).readLine())) {
+                this.agI = true;
             }
+            o.d(open);
         } catch (Throwable th) {
-            this.abB = false;
+            try {
+                this.agI = false;
+                o.d(null);
+            } catch (Throwable th2) {
+                o.d(null);
+                throw th2;
+            }
         }
     }
 
-    public static synchronized a vd() {
+    public static synchronized a wl() {
         a aVar;
         synchronized (a.class) {
-            if (abC == null) {
-                abC = new a();
+            if (agJ == null) {
+                agJ = new a();
             }
-            aVar = abC;
+            aVar = agJ;
         }
         return aVar;
     }
 
-    public boolean ve() {
-        return this.abB;
+    public boolean wm() {
+        return this.agI;
     }
 
-    public String vf() {
-        return this.abB ? "pub_env=3;" : "";
+    public String wn() {
+        return this.agI ? "pub_env=3;" : "";
     }
 }

@@ -4,11 +4,11 @@ import android.content.Context;
 import android.os.Build;
 import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.t;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class LiveRoomChatActivityConfig extends c {
+public class LiveRoomChatActivityConfig extends IntentConfig {
     public static final String FROM = "from";
     public static final String FROM_NOTIFY = "from_notify";
 
@@ -32,12 +32,12 @@ public class LiveRoomChatActivityConfig extends c {
         getIntent().putExtra("forum_name", str);
     }
 
-    @Override // com.baidu.tbadk.core.frameworkData.c
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean isValid() {
         if (Build.VERSION.SDK_INT >= 9) {
             return true;
         }
-        UtilHelper.showToast(getContext(), getContext().getString(t.live_error_system_not_support));
+        UtilHelper.showToast(getContext(), getContext().getString(i.C0057i.live_error_system_not_support));
         return false;
     }
 }

@@ -49,7 +49,7 @@ public class SearchViewCompat {
     }
 
     /* loaded from: classes.dex */
-    class SearchViewCompatStubImpl implements SearchViewCompatImpl {
+    static class SearchViewCompatStubImpl implements SearchViewCompatImpl {
         SearchViewCompatStubImpl() {
         }
 
@@ -134,7 +134,7 @@ public class SearchViewCompat {
     }
 
     /* loaded from: classes.dex */
-    class SearchViewCompatHoneycombImpl extends SearchViewCompatStubImpl {
+    static class SearchViewCompatHoneycombImpl extends SearchViewCompatStubImpl {
         SearchViewCompatHoneycombImpl() {
         }
 
@@ -151,15 +151,6 @@ public class SearchViewCompat {
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public Object newOnQueryTextListener(final OnQueryTextListenerCompat onQueryTextListenerCompat) {
             return SearchViewCompatHoneycomb.newOnQueryTextListener(new SearchViewCompatHoneycomb.OnQueryTextListenerCompatBridge() { // from class: android.support.v4.widget.SearchViewCompat.SearchViewCompatHoneycombImpl.1
-                @Override // android.support.v4.widget.SearchViewCompatHoneycomb.OnQueryTextListenerCompatBridge
-                public boolean onQueryTextSubmit(String str) {
-                    return onQueryTextListenerCompat.onQueryTextSubmit(str);
-                }
-
-                @Override // android.support.v4.widget.SearchViewCompatHoneycomb.OnQueryTextListenerCompatBridge
-                public boolean onQueryTextChange(String str) {
-                    return onQueryTextListenerCompat.onQueryTextChange(str);
-                }
             });
         }
 
@@ -171,10 +162,6 @@ public class SearchViewCompat {
         @Override // android.support.v4.widget.SearchViewCompat.SearchViewCompatStubImpl, android.support.v4.widget.SearchViewCompat.SearchViewCompatImpl
         public Object newOnCloseListener(final OnCloseListenerCompat onCloseListenerCompat) {
             return SearchViewCompatHoneycomb.newOnCloseListener(new SearchViewCompatHoneycomb.OnCloseListenerCompatBridge() { // from class: android.support.v4.widget.SearchViewCompat.SearchViewCompatHoneycombImpl.2
-                @Override // android.support.v4.widget.SearchViewCompatHoneycomb.OnCloseListenerCompatBridge
-                public boolean onClose() {
-                    return onCloseListenerCompat.onClose();
-                }
             });
         }
 
@@ -235,7 +222,7 @@ public class SearchViewCompat {
     }
 
     /* loaded from: classes.dex */
-    class SearchViewCompatIcsImpl extends SearchViewCompatHoneycombImpl {
+    static class SearchViewCompatIcsImpl extends SearchViewCompatHoneycombImpl {
         SearchViewCompatIcsImpl() {
         }
 
@@ -265,9 +252,6 @@ public class SearchViewCompat {
         }
     }
 
-    private SearchViewCompat(Context context) {
-    }
-
     public static View newSearchView(Context context) {
         return IMPL.newSearchView(context);
     }
@@ -289,7 +273,7 @@ public class SearchViewCompat {
     }
 
     /* loaded from: classes.dex */
-    public abstract class OnQueryTextListenerCompat {
+    public static abstract class OnQueryTextListenerCompat {
         final Object mListener = SearchViewCompat.IMPL.newOnQueryTextListener(this);
 
         public boolean onQueryTextSubmit(String str) {
@@ -306,7 +290,7 @@ public class SearchViewCompat {
     }
 
     /* loaded from: classes.dex */
-    public abstract class OnCloseListenerCompat {
+    public static abstract class OnCloseListenerCompat {
         final Object mListener = SearchViewCompat.IMPL.newOnCloseListener(this);
 
         public boolean onClose() {

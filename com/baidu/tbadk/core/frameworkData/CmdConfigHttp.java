@@ -2,10 +2,12 @@ package com.baidu.tbadk.core.frameworkData;
 /* loaded from: classes.dex */
 public class CmdConfigHttp {
     public static final int ATME_HTTP_CMD = 1002210;
+    public static final int BAWU_TEAM_INFO_CMD = 1001705;
     public static final int BG_LOGIN_HTTP_CMD = 1001101;
     public static final int BUYPROPS_CMD = 1001504;
     public static final int CDN_IPLIST_CMD = 1002600;
     public static final int CLEAR_LOCATION_INFO = 1001508;
+    public static final int CMD_ADD_USER_ATTR_URL = 1003018;
     public static final int CMD_APPLY_GAME_CODE = 1003015;
     public static final int CMD_CHOSEN_PB_PRAISE = 1003007;
     public static final int CMD_FOUND_NEW = 1003003;
@@ -14,9 +16,12 @@ public class CmdConfigHttp {
     public static final int CMD_GET_GAME_BANNER = 1003013;
     public static final int CMD_GET_GAME_NEW = 1003014;
     public static final int CMD_GET_HOT_THREAD = 1003005;
+    public static final int CMD_GET_LEVLE_INFO = 1001710;
     public static final int CMD_GET_MUTIL_GAME_LIST = 1002800;
     public static final int CMD_GET_MY_POST = 1003010;
     public static final int CMD_GET_OPEN_USERINFO = 1003012;
+    public static final int CMD_GET_ORDER = 1003029;
+    public static final int CMD_GET_PAY_CONFIG = 1003024;
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
     public static final int CMD_GET_SUGGESTLOCSTION_BY_NAME = 1003002;
     public static final int CMD_GET_USER_INFO = 1003001;
@@ -25,6 +30,15 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_GET_YINJI = 1001533;
     public static final int CMD_POST_SEARCH = 1003016;
     public static final int CMD_RECOMMEND_FRS = 1003011;
+    public static final int CMD_TAIL_ADD = 1003019;
+    public static final int CMD_TAIL_DELETE = 1003020;
+    public static final int CMD_TAIL_GET = 1003021;
+    public static final int CMD_TAIL_SET = 1003022;
+    public static final int CMD_TAIL_UPDATE = 1003023;
+    public static final int CMD_USER_MUTE_ADD = 1003027;
+    public static final int CMD_USER_MUTE_CHECK = 1003025;
+    public static final int CMD_USER_MUTE_DEL = 1003028;
+    public static final int CMD_USER_MUTE_QUERY = 1003026;
     public static final int COMMON_PRAISE_Y_OR_N = 1001600;
     public static final int DISCOVER_TAB_HTTP_CMD = 1001300;
     public static final int DISTRIBUTE_ACTRUAL_CMD = 1003000;
@@ -32,9 +46,11 @@ public class CmdConfigHttp {
     public static final int FLOOR_HTTP_CMD = 1001502;
     public static final int FORUM_RECOMMEND_HTTP_CMD = 1002400;
     private static final int FRS_BASE_CMD = 1001700;
+    public static final int FRS_HOT_TAB_CMD = 1001707;
     public static final int FRS_HTTP_CMD = 1001703;
     public static final int FRS_LIST = 1001700;
     public static final int FRS_LOAD_MORE_CMD = 1001704;
+    public static final int FRS_MEMBER_TAB_CMD = 1001706;
     public static final int FRS_WATER_FALL_LIST_HTTP_CMD = 1001701;
     public static final int FRS_WATER_FALL_PHOTO_HTTP_CMD = 1001702;
     public static final int GETPAYINFO_CMD = 1001505;
@@ -61,6 +77,7 @@ public class CmdConfigHttp {
     public static final int MSG_REMINDER_CMD = 1002500;
     public static final int PB_HTTP_CMD = 1001800;
     public static final int PB_PAGE_HTTP_CMD = 1001801;
+    public static final int PHOTO_LIVE_SET_COVER_HTTP_CMD = 1001802;
     public static final int PIC_BASE_CMD = 1002000;
     public static final int PIC_DEL_LIKE_BAR_CMD = 1002003;
     public static final int PIC_FRIEND_CMD = 1002001;

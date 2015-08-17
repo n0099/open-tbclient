@@ -1,27 +1,16 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TiebaDatabase;
 /* loaded from: classes.dex */
-class j extends Thread {
-    final /* synthetic */ AccountActivity awg;
-    private String wk;
-
-    public j(AccountActivity accountActivity, String str) {
-        this.awg = accountActivity;
-        this.wk = null;
-        this.wk = str;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        com.baidu.tbadk.core.util.aa aaVar = new com.baidu.tbadk.core.util.aa(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/logout");
-        aaVar.sX().tS().WD = false;
-        aaVar.sX().tS().mIsUseCurrentBDUSS = false;
-        aaVar.o("BDUSS", this.wk);
-        aaVar.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
-        aaVar.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-        aaVar.sw();
+public class j {
+    public static void deleteAccountAllInfo(String str) {
+        if (str != null) {
+            com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            mainDBDatabaseManager.a("delete from cash_data where account=?", new String[]{str});
+            mainDBDatabaseManager.a("delete from mark_data where account=?", new String[]{str});
+            mainDBDatabaseManager.a("delete from draft_box where account=?", new Object[]{str});
+            mainDBDatabaseManager.a("delete from account_data where id=?", new Object[]{str});
+            mainDBDatabaseManager.a("delete from setting where account=?", new Object[]{str});
+        }
     }
 }

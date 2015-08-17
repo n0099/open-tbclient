@@ -1,21 +1,54 @@
 package com.baidu.tieba.tblauncher;
 
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-class ah implements CustomMessageTask.CustomRunnable<Integer> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
-        if (customMessage != null && (customMessage instanceof NewMsgArriveRequestMessage)) {
-            int intValue = ((NewMsgArriveRequestMessage) customMessage).getData().intValue();
-            if (intValue == 2) {
-                MainTabActivity.cvj = true;
-            }
-            return new NewMsgArriveResponsedMessage(intValue);
+public class ah implements com.baidu.tbadk.core.c.a {
+    private a cMB;
+
+    @Override // com.baidu.tbadk.core.c.a
+    public void e(Context context, int i) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i)));
+    }
+
+    @Override // com.baidu.tbadk.core.c.a
+    public void aa(Context context) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount != null && currentAccount.length() > 0) {
+            e(context, 1);
+        } else {
+            e(context, 0);
         }
-        return null;
+    }
+
+    @Override // com.baidu.tbadk.core.c.a
+    public void a(Context context, int i, boolean z) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
+    }
+
+    @Override // com.baidu.tbadk.core.c.a
+    public Class<?> tl() {
+        return MainTabActivity.class;
+    }
+
+    @Override // com.baidu.tbadk.core.c.a
+    public String tm() {
+        return MainTabActivity.class.getName();
+    }
+
+    @Override // com.baidu.tbadk.core.c.a
+    public int getCurrentTabType() {
+        if (this.cMB != null) {
+            return this.cMB.getCurrentTabType();
+        }
+        return -1;
+    }
+
+    public void a(a aVar) {
+        this.cMB = aVar;
     }
 }

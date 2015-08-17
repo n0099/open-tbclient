@@ -1,18 +1,20 @@
 package com.baidu.tieba.write.write;
+
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-class e implements com.baidu.tbadk.core.view.ad {
-    final /* synthetic */ AtListActivity cBu;
+class e implements NoNetworkView.a {
+    final /* synthetic */ AtListActivity cTk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AtListActivity atListActivity) {
-        this.cBu = atListActivity;
+        this.cTk = atListActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.ad
-    public void au(boolean z) {
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void ay(boolean z) {
         if (!z) {
             return;
         }
-        this.cBu.kc(null);
+        this.cTk.lc(null);
     }
 }

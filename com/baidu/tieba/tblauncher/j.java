@@ -16,11 +16,8 @@ class j extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        aj ajVar;
         if (customResponsedMessage != null) {
-            ajVar = this.this$0.cvs;
-            ajVar.jd(0);
-            MainTabActivity.cvj = false;
+            this.this$0.jX(1);
         }
     }
 }

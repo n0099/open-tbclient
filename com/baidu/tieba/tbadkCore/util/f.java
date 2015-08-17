@@ -1,25 +1,10 @@
 package com.baidu.tieba.tbadkCore.util;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AccountRestoreActivityConfig;
-import com.baidu.tbadk.util.PageType;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class f implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ PageType cua;
-    private final /* synthetic */ Context val$context;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f(Context context, PageType pageType) {
-        this.val$context = context;
-        this.cua = pageType;
-    }
-
-    @Override // com.baidu.tbadk.core.dialog.d
+class f implements a.b {
+    @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountRestoreActivityConfig(this.val$context, this.cua)));
     }
 }

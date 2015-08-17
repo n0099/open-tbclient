@@ -6,38 +6,38 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends GetPopularPortraitsCallback {
-    final /* synthetic */ ChangeSystemPhotoActivity arP;
+    final /* synthetic */ ChangeSystemPhotoActivity ayX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
-        this.arP = changeSystemPhotoActivity;
+        this.ayX = changeSystemPhotoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.sapi2.callback.SapiCallback
     /* renamed from: a */
     public void onSuccess(GetPopularPortraitsInfoResult getPopularPortraitsInfoResult) {
-        i iVar;
-        ArrayList<k> arrayList;
-        i iVar2;
+        h hVar;
+        ArrayList<i> arrayList;
+        h hVar2;
         ArrayList arrayList2;
         if (getPopularPortraitsInfoResult != null && getPopularPortraitsInfoResult.popularPortraitsInfoList != null && getPopularPortraitsInfoResult.popularPortraitsInfoList.size() > 0) {
             for (GetPopularPortraitsInfoResult.PopularPortraitsInfo popularPortraitsInfo : getPopularPortraitsInfoResult.popularPortraitsInfoList) {
                 if (popularPortraitsInfo != null && popularPortraitsInfo.url != null) {
-                    k kVar = new k();
-                    kVar.setUrl(popularPortraitsInfo.url);
-                    kVar.setNum(popularPortraitsInfo.num);
-                    kVar.eq(popularPortraitsInfo.myItem);
-                    kVar.fc(popularPortraitsInfo.series);
-                    arrayList2 = this.arP.arJ;
-                    arrayList2.add(kVar);
+                    i iVar = new i();
+                    iVar.setUrl(popularPortraitsInfo.url);
+                    iVar.setNum(popularPortraitsInfo.num);
+                    iVar.ev(popularPortraitsInfo.myItem);
+                    iVar.fu(popularPortraitsInfo.series);
+                    arrayList2 = this.ayX.ayQ;
+                    arrayList2.add(iVar);
                 }
             }
-            iVar = this.arP.arI;
-            arrayList = this.arP.arJ;
-            iVar.s(arrayList);
-            iVar2 = this.arP.arI;
-            iVar2.notifyDataSetChanged();
+            hVar = this.ayX.ayP;
+            arrayList = this.ayX.ayQ;
+            hVar.t(arrayList);
+            hVar2 = this.ayX.ayP;
+            hVar2.notifyDataSetChanged();
         }
     }
 

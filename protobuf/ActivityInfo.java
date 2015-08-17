@@ -45,10 +45,13 @@ public final class ActivityInfo extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<ActivityInfo> {
+    public static final class Builder extends Message.Builder<ActivityInfo> {
         public Integer activityId;
         public String activityTitle;
         public Integer isEnd;
+
+        public Builder() {
+        }
 
         public Builder(ActivityInfo activityInfo) {
             super(activityInfo);

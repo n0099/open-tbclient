@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class PersonFriendActivityConfig extends c {
+public class PersonFriendActivityConfig extends IntentConfig {
     public static final String KEY_CURRENT_TAB = "key_current_tab";
     public static final String KEY_SEX = "key_sex";
     public static final String KEY_UID = "key_uid";

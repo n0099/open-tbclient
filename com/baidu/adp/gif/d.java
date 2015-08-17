@@ -1,10 +1,18 @@
 package com.baidu.adp.gif;
-
-import com.baidu.adp.lib.util.j;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d extends j {
-    @Override // com.baidu.adp.lib.util.j
-    public void l(boolean z) {
-        NSGif.qX = z;
+public class d implements Runnable {
+    final /* synthetic */ NSGif qX;
+    private final /* synthetic */ int qY;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public d(NSGif nSGif, int i) {
+        this.qX = nSGif;
+        this.qY = i;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        NSGif.nativeDestroy(this.qY);
     }
 }

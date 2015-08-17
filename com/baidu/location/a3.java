@@ -64,7 +64,7 @@ public class a3 implements n {
     private Handler jz = new Handler();
     private boolean jx = true;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends t {
         private static final String d1 = "bloc";
@@ -162,7 +162,7 @@ public class a3 implements n {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends aj {
         private b() {
@@ -190,7 +190,7 @@ public class a3 implements n {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class d implements com.baidu.location.b, Runnable {
         private d() {

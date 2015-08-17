@@ -1,37 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
 /* loaded from: classes.dex */
-public class s implements com.baidu.tbadk.core.dialog.d {
-    final /* synthetic */ PbActivity bKU;
+class s implements c.b {
+    final /* synthetic */ PbActivity cbo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbActivity pbActivity) {
-        this.bKU = pbActivity;
+        this.cbo = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tieba.tbadkCore.location.j jVar;
-        ch chVar;
-        com.baidu.tieba.tbadkCore.location.e eVar;
-        ch chVar2;
-        ch chVar3;
-        if (UtilHelper.isNetOk()) {
-            chVar = this.bKU.bKA;
-            if (chVar.Kj() != null) {
-                chVar2 = this.bKU.bKA;
-                chVar2.Kj().setLocationInfoViewState(1);
-                chVar3 = this.bKU.bKA;
-                chVar3.Kj().setLocationViewVisibility(0);
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        cVar.dismiss();
+        if (this.cbo.cbm != null) {
+            if (i == 0) {
+                this.cbo.cbm.aQ(this.cbo.getPageContext().getPageActivity());
+                this.cbo.cbm = null;
+            } else if (i == 1 && this.cbo.checkUpIsLogin()) {
+                this.cbo.b(this.cbo.cbm);
             }
-            eVar = this.bKU.aJN;
-            eVar.apq();
-        } else {
-            jVar = this.bKU.aJY;
-            jVar.JX();
         }
-        aVar.dismiss();
     }
 }

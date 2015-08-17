@@ -1,20 +1,28 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tieba.im.chat.ax;
+import com.baidu.tieba.im.chat.al;
 /* loaded from: classes.dex */
-public class LoadHistoryMessage extends CustomMessage<c> {
-    private ax callback;
+public class LoadHistoryMessage extends CustomMessage<a> {
+    private al callback;
 
-    public LoadHistoryMessage(int i, c cVar) {
-        super(i, cVar);
+    /* loaded from: classes.dex */
+    public static class a {
+        public String bBb;
+        public String bBc;
+        public String id;
+        public int limit;
     }
 
-    public ax getCallback() {
+    public LoadHistoryMessage(int i, a aVar) {
+        super(i, aVar);
+    }
+
+    public al getCallback() {
         return this.callback;
     }
 
-    public void setCallback(ax axVar) {
-        this.callback = axVar;
+    public void setCallback(al alVar) {
+        this.callback = alVar;
     }
 }

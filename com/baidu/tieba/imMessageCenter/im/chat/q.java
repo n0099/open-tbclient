@@ -1,25 +1,31 @@
 package com.baidu.tieba.imMessageCenter.im.chat;
 
-import android.view.View;
+import android.view.animation.Animation;
+import android.widget.TextView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q implements View.OnClickListener {
-    final /* synthetic */ PersonalChatView bsh;
+public class q implements Animation.AnimationListener {
+    final /* synthetic */ PersonalChatView bFW;
+    private final /* synthetic */ Animation bFX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(PersonalChatView personalChatView) {
-        this.bsh = personalChatView;
+    public q(PersonalChatView personalChatView, Animation animation) {
+        this.bFW = personalChatView;
+        this.bFX = animation;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PersonalChatActivity personalChatActivity;
-        PersonalChatActivity personalChatActivity2;
-        personalChatActivity = this.bsh.brZ;
-        if (personalChatActivity.Vr()) {
-            this.bsh.SendMore1Event();
-            return;
-        }
-        personalChatActivity2 = this.bsh.brZ;
-        personalChatActivity2.showToast(com.baidu.tieba.t.add_friend_cannot_send);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        TextView textView;
+        textView = this.bFW.bFS;
+        textView.startAnimation(this.bFX);
     }
 }

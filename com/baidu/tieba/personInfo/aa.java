@@ -1,20 +1,33 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.Profile.ProfileResIdl;
 /* loaded from: classes.dex */
-class aa implements View.OnClickListener {
-    final /* synthetic */ z bWR;
-    private final /* synthetic */ UserData bbT;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(z zVar, UserData userData) {
-        this.bWR = zVar;
-        this.bbT = userData;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.bWR.m(this.bbT);
+public class aa implements CustomMessageTask.CustomRunnable<Object> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        ProfileResIdl profileResIdl;
+        ResponsePersonInfoMessage responsePersonInfoMessage = null;
+        if (customMessage instanceof RequestPersonInfoMessage) {
+            try {
+                profileResIdl = (ProfileResIdl) new Wire(new Class[0]).parseFrom(com.baidu.tbadk.core.b.a.sM().U("tb_user_profile", TbadkCoreApplication.getCurrentAccountName()).get("profile_cache_key"), ProfileResIdl.class);
+            } catch (IOException e) {
+                e.printStackTrace();
+                profileResIdl = null;
+            }
+            responsePersonInfoMessage = new ResponsePersonInfoMessage();
+            if (profileResIdl != null) {
+                responsePersonInfoMessage.setUser(profileResIdl.data.user);
+                responsePersonInfoMessage.setAnti_stat(profileResIdl.data.anti_stat);
+                responsePersonInfoMessage.setTainfo(profileResIdl.data.tainfo);
+                responsePersonInfoMessage.setPost_list(profileResIdl.data.post_list);
+            }
+        }
+        return responsePersonInfoMessage;
     }
 }

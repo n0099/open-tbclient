@@ -5,6 +5,7 @@ import com.baidu.adp.lib.stats.base.BdUploadStatMsgData;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsUploadConfig;
 import com.baidu.adp.lib.stats.switchs.BdStatisticsWriteConfig;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,6 +16,7 @@ public class BdStatSwitchData implements Serializable {
     private final BdStatisticsWriteConfig writeConfig = new BdStatisticsWriteConfig();
     private final BdStatisticsUploadConfig uploadConfig = new BdStatisticsUploadConfig();
     private final HashMap<String, BdUploadStatMsgData> tmpSwitchConfDataHashMap = new HashMap<>();
+    private HashMap<String, ArrayList<String>> mChildTypes = new HashMap<>();
 
     public BdStatSwitchData() {
         BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem = new BdStatisticsWriteConfig.BdStatisticsWriteConfigItem();
@@ -91,6 +93,7 @@ public class BdStatSwitchData implements Serializable {
     private void a(JSONArray jSONArray, BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem, BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem) {
         if (jSONArray != null) {
             JSONObject optJSONObject = jSONArray.optJSONObject(0);
+            ArrayList<String> arrayList = new ArrayList<>();
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("common");
             bdStatisticsWriteConfigItem.isWrite = optJSONObject2.optInt("is_write", 0) != 0;
             bdStatisticsWriteConfigItem.particleNum = optJSONObject2.optInt("particleNum");
@@ -111,9 +114,15 @@ public class BdStatSwitchData implements Serializable {
                     bdStatistisUploadChilidItem.isWifi = optJSONObject3.optInt("is_only_wifi", 0) != 0;
                     bdStatistisUploadChilidItem.percent = optJSONObject3.optInt("percent");
                     bdStatisticsUploadConfigItem.childItem.put(bdStatistisUploadChilidItem.subType, bdStatistisUploadChilidItem);
+                    arrayList.add(bdStatistisUploadChilidItem.subType);
                 }
+                this.mChildTypes.put(bdStatisticsWriteConfigItem.type, arrayList);
             }
         }
+    }
+
+    public ArrayList<String> getChiledTypes(String str) {
+        return this.mChildTypes.get(str);
     }
 
     public boolean isWrite(String str, String str2) {

@@ -7,16 +7,12 @@ import android.widget.TextView;
 import java.util.Locale;
 /* loaded from: classes.dex */
 class PagerTitleStripIcs {
-    PagerTitleStripIcs() {
-    }
-
     public static void setSingleLineAllCaps(TextView textView) {
         textView.setTransformationMethod(new SingleLineAllCapsTransform(textView.getContext()));
     }
 
     /* loaded from: classes.dex */
-    class SingleLineAllCapsTransform extends SingleLineTransformationMethod {
-        private static final String TAG = "SingleLineAllCapsTransform";
+    private static class SingleLineAllCapsTransform extends SingleLineTransformationMethod {
         private Locale mLocale;
 
         public SingleLineAllCapsTransform(Context context) {

@@ -1,34 +1,31 @@
 package com.baidu.tieba.write.write;
 
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
-import com.baidu.tieba.tbadkCore.PbEditor.EditorToolComponetContainer;
-import com.baidu.tieba.write.editor.TbEditorToolButtonContainer;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc implements View.OnTouchListener {
-    final /* synthetic */ WriteActivity cCQ;
+class bc implements View.OnClickListener {
+    final /* synthetic */ WriteActivity cUM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(WriteActivity writeActivity) {
-        this.cCQ = writeActivity;
+        this.cUM = writeActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        TbEditorToolButtonContainer tbEditorToolButtonContainer;
-        EditorToolComponetContainer editorToolComponetContainer;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.editortools.j jVar;
+        int auW;
         EditText editText;
-        if (motionEvent.getAction() == 1) {
-            view.requestFocus();
-            tbEditorToolButtonContainer = this.cCQ.cCy;
-            tbEditorToolButtonContainer.anf();
-            editorToolComponetContainer = this.cCQ.cqP;
-            editText = this.cCQ.cAz;
-            editorToolComponetContainer.ab(editText);
-            return false;
+        EditText editText2;
+        jVar = this.cUM.cUo;
+        jVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+        auW = this.cUM.auW();
+        if (auW >= 0) {
+            editText = this.cUM.cSo;
+            if (auW < editText.getText().length()) {
+                editText2 = this.cUM.cSo;
+                editText2.setSelection(auW);
+            }
         }
-        return false;
     }
 }

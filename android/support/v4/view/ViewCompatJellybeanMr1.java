@@ -4,9 +4,6 @@ import android.graphics.Paint;
 import android.view.View;
 /* loaded from: classes.dex */
 class ViewCompatJellybeanMr1 {
-    ViewCompatJellybeanMr1() {
-    }
-
     public static int getLabelFor(View view) {
         return view.getLabelFor();
     }

@@ -1,10 +1,9 @@
 package com.baidu.tieba.frs.loadmore;
 
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.widget.ListView.ai;
+import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.w;
-import com.baidu.tbadk.game.GameInfoData;
+import com.baidu.tbadk.core.data.v;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,19 +13,19 @@ import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
-    private ArrayList<ai> threadList;
+    private ArrayList<u> threadList;
     private HashMap<String, MetaData> userMap;
 
     public LoadMoreResponseSocketMessage() {
         super(301002);
     }
 
-    public ArrayList<ai> getThreadList() {
+    public ArrayList<u> getThreadList() {
         return this.threadList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         ThreadListResIdl threadListResIdl = (ThreadListResIdl) new Wire(new Class[0]).parseFrom(bArr, ThreadListResIdl.class);
         setError(threadListResIdl.error.errorno.intValue());
@@ -39,7 +38,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     MetaData metaData = new MetaData();
                     metaData.parserProtobuf(list.get(i2));
                     String userId = metaData.getUserId();
-                    if (userId != null && !userId.equals(GameInfoData.NOT_FROM_DETAIL)) {
+                    if (userId != null && !userId.equals("0")) {
                         this.userMap.put(metaData.getUserId(), metaData);
                     }
                 }
@@ -48,11 +47,11 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
             List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
             if (list2 != null) {
                 for (int i3 = 0; i3 < list2.size(); i3++) {
-                    w wVar = new w();
-                    wVar.setUserMap(this.userMap);
-                    wVar.a(list2.get(i3));
-                    wVar.parser_title();
-                    this.threadList.add(wVar);
+                    v vVar = new v();
+                    vVar.setUserMap(this.userMap);
+                    vVar.a(list2.get(i3));
+                    vVar.parser_title();
+                    this.threadList.add(vVar);
                 }
             }
         }

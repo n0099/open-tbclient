@@ -1,41 +1,39 @@
 package com.baidu.tieba.account;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.AccountData;
+import android.widget.TextView;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.i;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class d implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ c awh;
-    private final /* synthetic */ View awi;
+public class d implements View.OnClickListener {
+    final /* synthetic */ AccountActivity aDy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(c cVar, View view) {
-        this.awh = cVar;
-        this.awi = view;
+    public d(AccountActivity accountActivity) {
+        this.aDy = accountActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        AccountActivity accountActivity;
-        AccountActivity accountActivity2;
-        if (this.awi != null) {
-            AccountData accountData = (AccountData) this.awi.getTag();
-            switch (i) {
-                case 0:
-                    if (accountData != null) {
-                        accountActivity2 = this.awh.awg;
-                        accountActivity2.a(false, accountData);
-                        break;
-                    }
-                    break;
-                case 1:
-                    if (accountData != null) {
-                        accountActivity = this.awh.awg;
-                        accountActivity.a(true, accountData);
-                        break;
-                    }
-                    break;
-            }
-            eVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TextView textView;
+        TextView textView2;
+        TextView textView3;
+        TextView textView4;
+        if (!this.aDy.aDs.FR()) {
+            this.aDy.aDs.setEditState(true);
+            textView3 = this.aDy.aDu;
+            textView3.setText(i.C0057i.done);
+            textView4 = this.aDy.aDu;
+            al.b(textView4, i.c.cp_link_tip_a, 1);
+            this.aDy.aDs.notifyDataSetChanged();
+            return;
         }
+        this.aDy.aDs.setEditState(false);
+        textView = this.aDy.aDu;
+        textView.setText(i.C0057i.edit);
+        textView2 = this.aDy.aDu;
+        al.b(textView2, i.c.navi_op_text, 1);
+        this.aDy.aDs.notifyDataSetChanged();
     }
 }

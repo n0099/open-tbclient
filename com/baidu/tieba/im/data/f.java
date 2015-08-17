@@ -6,14 +6,14 @@ import android.os.Parcelable;
 class f implements Parcelable.Creator<RandChatRoomData> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: f */
+    /* renamed from: e */
     public RandChatRoomData createFromParcel(Parcel parcel) {
         return new RandChatRoomData(parcel, null);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: gc */
+    /* renamed from: gD */
     public RandChatRoomData[] newArray(int i) {
         return new RandChatRoomData[i];
     }

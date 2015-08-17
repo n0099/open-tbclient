@@ -1,20 +1,45 @@
 package com.baidu.tbadk.mvc.model;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements Runnable {
-    private final /* synthetic */ CustomMessageListener aoi;
+public class m extends com.baidu.adp.framework.listener.a {
     final /* synthetic */ NetModel this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(NetModel netModel, CustomMessageListener customMessageListener) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(NetModel netModel, int i, int i2) {
+        super(i, i2);
         this.this$0 = netModel;
-        this.aoi = customMessageListener;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.this$0.registerListener(this.aoi);
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        NetModel.d dVar;
+        NetModel.d dVar2;
+        this.this$0.avu = false;
+        if (this.this$0.avx != null) {
+            com.baidu.adp.lib.g.h.hi().removeCallbacks(this.this$0.avx);
+        }
+        if (responsedMessage instanceof MvcProtobufHttpResponsedMessage) {
+            MvcNetMessage mvcNetMessage = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
+            if (this.this$0.avl != null) {
+                this.this$0.avl.a((MvcProtobufHttpResponsedMessage) responsedMessage, null, mvcNetMessage);
+            }
+        } else if (responsedMessage instanceof MvcSocketResponsedMessage) {
+            MvcNetMessage mvcNetMessage2 = responsedMessage.getOrginalMessage().getExtra() instanceof MvcNetMessage ? (MvcNetMessage) responsedMessage.getOrginalMessage().getExtra() : null;
+            dVar = this.this$0.avm;
+            if (dVar != null) {
+                dVar2 = this.this$0.avm;
+                dVar2.a((MvcSocketResponsedMessage) responsedMessage, null, mvcNetMessage2);
+            }
+        } else if (TbadkCoreApplication.m411getInst().isDebugMode()) {
+            throw new RuntimeException("mvc netmodel NetListener responsedMessage error");
+        }
     }
 }

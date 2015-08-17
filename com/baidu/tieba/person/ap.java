@@ -1,34 +1,24 @@
 package com.baidu.tieba.person;
 
-import android.app.Activity;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.ChangeSystemPhotoActivityConfig;
-import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements com.baidu.tbadk.core.dialog.h {
-    final /* synthetic */ PersonChangeActivity bSO;
+public class ap implements View.OnClickListener {
+    final /* synthetic */ PersonChangeActivity cjt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(PersonChangeActivity personChangeActivity) {
-        this.bSO = personChangeActivity;
+        this.cjt = personChangeActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.h
-    public void itemClick(com.baidu.tbadk.core.dialog.e eVar, int i, View view) {
-        WriteImagesInfo writeImagesInfo;
-        if (i == 0) {
-            Activity pageActivity = this.bSO.getPageContext().getPageActivity();
-            writeImagesInfo = this.bSO.mWriteImagesInfo;
-            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(pageActivity, writeImagesInfo.toJsonString());
-            albumActivityConfig.setRequestCode(12002);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
-        } else if (i == 1) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChangeSystemPhotoActivityConfig(this.bSO.getPageContext().getPageActivity(), 12014)));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.cjt.ciZ.booleanValue()) {
+            TiebaStatic.log("c10100");
+        } else {
+            TiebaStatic.log("c10101");
         }
-        eVar.dismiss();
+        this.cjt.agm();
     }
 }

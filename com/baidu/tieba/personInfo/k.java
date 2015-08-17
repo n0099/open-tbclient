@@ -1,53 +1,52 @@
 package com.baidu.tieba.personInfo;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
+import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
+import com.baidu.tieba.i;
+import com.baidu.tieba.im.model.BlackListModel;
 /* loaded from: classes.dex */
-class k extends CustomMessageListener {
-    final /* synthetic */ PersonInfoActivity bVf;
+class k extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ PersonInfoActivity clO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.bVf = personInfoActivity;
+        this.clO = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        v vVar;
-        v vVar2;
-        ad adVar;
-        v vVar3;
-        v vVar4;
-        if (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg) {
-            ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
-            if (responseNewFriendUpdateUiMsg.getAction() == -1) {
-                String content = responseNewFriendUpdateUiMsg.getContent();
-                if (!TextUtils.isEmpty(content)) {
-                    long friendId = responseNewFriendUpdateUiMsg.getFriendId();
-                    long c = com.baidu.adp.lib.g.c.c(TbadkCoreApplication.getCurrentAccount(), 0L);
-                    ReplyInfo replyInfo = new ReplyInfo();
-                    replyInfo.setUserId(c);
-                    replyInfo.setFriendId(friendId);
-                    replyInfo.setMessage(content);
-                    vVar3 = this.bVf.bUU;
-                    vVar3.afy().getReplyInfo().add(replyInfo);
-                    vVar4 = this.bVf.bUU;
-                    vVar4.afF();
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage;
+        Message<?> orginalMessage;
+        BlackListModel blackListModel;
+        BlackListModel blackListModel2;
+        BlackListModel blackListModel3;
+        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage)) {
+            RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
+            if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
+                if (requestUpdateMaskInfoMessage.getIsMask() == 1) {
+                    blackListModel3 = this.clO.clB;
+                    blackListModel3.setMaskType(1);
+                } else {
+                    blackListModel = this.clO.clB;
+                    blackListModel.setMaskType(0);
                 }
-            } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                vVar = this.bVf.bUU;
-                if (vVar.afy() != null) {
-                    vVar2 = this.bVf.bUU;
-                    vVar2.afy().setIsFriend(1);
-                    adVar = this.bVf.bUV;
-                    adVar.afL();
+                if (responseUpdateMaskInfoMessage.getError() == 0) {
+                    blackListModel2 = this.clO.clB;
+                    if (blackListModel2.getMaskType() == 1) {
+                        this.clO.showToast(this.clO.getPageContext().getString(i.C0057i.chat_message_blocked));
+                        return;
+                    } else {
+                        this.clO.showToast(this.clO.getPageContext().getString(i.C0057i.block_chat_remove_success));
+                        return;
+                    }
                 }
+                this.clO.showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.clO.getResources().getString(i.C0057i.neterror) : responseUpdateMaskInfoMessage.getErrorString());
             }
         }
     }

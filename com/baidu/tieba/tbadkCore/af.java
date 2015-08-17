@@ -1,64 +1,47 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.tbadk.TbPageContext;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.i;
+import java.io.File;
 /* loaded from: classes.dex */
-public class af extends com.baidu.adp.base.f {
-    private String cpK;
-    private ag cpL;
-    private String cpM;
-    private String from;
-    private String mForumId;
-    private String mForumName;
-
-    public af(TbPageContext tbPageContext) {
-        super(tbPageContext);
-        this.mForumName = null;
-        this.mForumId = null;
-        this.cpK = null;
-        this.cpL = null;
-    }
-
-    public void setFrom(String str) {
-        this.from = str;
-    }
-
-    @Override // com.baidu.adp.base.f
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.f
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void LQ() {
-        if (this.cpL != null) {
-            this.cpL.cancel();
-            this.cpL = null;
+public class af {
+    public static final void a(Context context, p pVar, int i) {
+        if (context != null && pVar != null) {
+            if (!(!TextUtils.isEmpty(pVar.getPkgName()))) {
+                com.baidu.adp.lib.util.k.showToast(context, i.C0057i.pb_app_error);
+            } else if (com.baidu.adp.lib.util.i.iO()) {
+                pVar.jE(1);
+                TiebaStatic.eventStat(context, "pb_dl_app", null, 1, "app_name", pVar.getPkgName());
+                com.baidu.tbadk.download.b.Ap().a(pVar.getPkgName(), pVar.getDownloadUrl(), pVar.getAppName(), i, 0);
+            } else {
+                com.baidu.adp.lib.util.k.showToast(context, i.C0057i.neterror);
+            }
         }
     }
 
-    public void q(String str, String str2, String str3) {
-        ba(str, str2);
-        this.cpK = str3;
-    }
-
-    public void ba(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.cpL == null) {
-            this.mForumName = str;
-            this.mForumId = str2;
-            this.cpL = new ag(this, null);
-            this.cpL.setPriority(2);
-            this.cpL.execute(new Object[0]);
+    public static final void a(Context context, p pVar) {
+        if (context != null && pVar != null) {
+            String pkgName = pVar.getPkgName();
+            if (TextUtils.isEmpty(pkgName)) {
+                com.baidu.adp.lib.util.k.showToast(context, i.C0057i.pb_app_error);
+                return;
+            }
+            File cC = com.baidu.tbadk.core.util.n.cC(String.valueOf(pkgName.replace(".", "_")) + ".apk");
+            if (cC != null) {
+                Intent intent = new Intent();
+                intent.addFlags(268435456);
+                intent.setAction("android.intent.action.VIEW");
+                intent.setDataAndType(Uri.fromFile(cC), "application/vnd.android.package-archive");
+                context.startActivity(intent);
+            }
         }
     }
 
-    public boolean amQ() {
-        return this.cpL != null;
-    }
-
-    public void ju(String str) {
-        this.cpM = str;
+    public static boolean isInstalledPackage(Context context, String str) {
+        return context.getPackageManager().getApplicationInfo(str, 8192) != null;
     }
 }

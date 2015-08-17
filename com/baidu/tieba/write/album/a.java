@@ -1,42 +1,15 @@
 package com.baidu.tieba.write.album;
-
-import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
-public class a {
-    private String albumId;
-    private String count;
-    private ImageFileInfo cxZ;
-    private String name;
+class a implements Runnable {
+    final /* synthetic */ AlbumActivity cPO;
 
-    public String getAlbumId() {
-        return this.albumId;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public a(AlbumActivity albumActivity) {
+        this.cPO = albumActivity;
     }
 
-    public void jU(String str) {
-        this.albumId = str;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String str) {
-        this.name = str;
-    }
-
-    public String arH() {
-        return this.count;
-    }
-
-    public void jV(String str) {
-        this.count = str;
-    }
-
-    public ImageFileInfo arI() {
-        return this.cxZ;
-    }
-
-    public void e(ImageFileInfo imageFileInfo) {
-        this.cxZ = imageFileInfo;
+    @Override // java.lang.Runnable
+    public void run() {
+        this.cPO.finish();
     }
 }

@@ -1,37 +1,37 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.person.UserPostPageHttpResponseMessage;
-import com.baidu.tieba.person.UserPostPageRequestMessage;
-import com.baidu.tieba.person.ch;
+import android.view.View;
+import android.widget.AdapterView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.person.PersonPostModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends HttpMessageListener {
-    final /* synthetic */ k bUz;
+public class n implements AdapterView.OnItemClickListener {
+    final /* synthetic */ i clg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n(k kVar, int i) {
-        super(i);
-        this.bUz = kVar;
+    public n(i iVar) {
+        this.clg = iVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        ch chVar;
-        ch chVar2;
-        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
-            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
-            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
-                chVar2 = this.bUz.bUg;
-                chVar2.a(null, false);
-                return;
-            }
-            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
-            if (!userPostPageRequestMessage.isThread() && (chVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
-                chVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        f fVar;
+        f fVar2;
+        f fVar3;
+        if (i >= 0) {
+            fVar = this.clg.ckX;
+            if (fVar != null) {
+                fVar2 = this.clg.ckX;
+                if (i < fVar2.getCount()) {
+                    fVar3 = this.clg.ckX;
+                    PersonPostModel.PostInfoList iN = fVar3.iN(i);
+                    if (iN != null) {
+                        this.clg.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.clg.getActivity()).createCfgForPersonCenter(String.valueOf(iN.thread_id), String.valueOf(iN.post_id), "person_post", 18005)));
+                    }
+                }
             }
         }
     }

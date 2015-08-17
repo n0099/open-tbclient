@@ -2,101 +2,100 @@ package com.baidu.tbadk.core.util.httpNet;
 
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.p;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.s;
+import com.baidu.tbadk.core.util.q;
 /* loaded from: classes.dex */
 public class b {
-    private final f WC = new f();
+    private final g abD = new g();
     public boolean mIsNeedTbs = false;
-    public boolean WD = true;
+    public boolean abE = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public String WE = p.hT();
-    public boolean WF = false;
-    public int WG = 0;
+    public boolean abF = false;
+    public int abG = 0;
 
-    public f tV() {
-        return this.WC;
+    public g uY() {
+        return this.abD;
     }
 
-    public void a(s sVar) {
+    public void a(q qVar) {
         String currentBduss = TbadkCoreApplication.getCurrentBduss();
         if (currentBduss != null && this.mIsUseCurrentBDUSS) {
-            sVar.o("BDUSS", currentBduss);
+            qVar.o("BDUSS", currentBduss);
         }
     }
 
-    public void b(s sVar) {
+    public void b(q qVar) {
         String str;
         boolean z = true;
-        sVar.o("_client_type", "2");
+        qVar.o("_client_type", "2");
         if (!TbadkCoreApplication.m411getInst().isOfficial()) {
-            sVar.o("apid", TbConfig.SW_APID);
+            qVar.o("apid", TbConfig.SW_APID);
         }
-        sVar.o("_client_version", TbConfig.getVersion());
+        qVar.o("_client_version", TbConfig.getVersion());
         if (TbadkCoreApplication.m411getInst().getImei() != null) {
-            sVar.o("_phone_imei", TbadkCoreApplication.m411getInst().getImei());
+            qVar.o("_phone_imei", TbadkCoreApplication.m411getInst().getImei());
         }
         String clientId = TbadkCoreApplication.getClientId();
         if (clientId != null) {
-            sVar.o("_client_id", clientId);
+            qVar.o("_client_id", clientId);
         }
         String subappType = TbConfig.getSubappType();
         if (!TextUtils.isEmpty(subappType)) {
-            sVar.o("subapp_type", subappType);
+            qVar.o("subapp_type", subappType);
         }
         String from = TbadkCoreApplication.getFrom();
         if (from != null && from.length() > 0) {
-            sVar.o("from", from);
+            qVar.o("from", from);
         }
-        String netType = g.getNetType();
+        String netType = h.getNetType();
         if (netType != null) {
-            String vf = com.baidu.tbadk.coreExtra.a.a.vd().vf();
+            String wn = com.baidu.tbadk.coreExtra.a.a.wl().wn();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m411getInst().getKeepaliveWifi() == 1) {
-                    str = String.valueOf(vf) + "ka=open";
+                    str = String.valueOf(wn) + "ka=open";
                     com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-                    com.baidu.adp.lib.network.a.a.ak(str);
+                    com.baidu.adp.lib.network.a.a.aj(str);
                 }
                 z = false;
-                str = vf;
+                str = wn;
                 com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-                com.baidu.adp.lib.network.a.a.ak(str);
+                com.baidu.adp.lib.network.a.a.aj(str);
             } else {
                 if (TbadkCoreApplication.m411getInst().getKeepaliveNonWifi() == 1) {
-                    str = String.valueOf(vf) + "ka=open";
+                    str = String.valueOf(wn) + "ka=open";
                     com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-                    com.baidu.adp.lib.network.a.a.ak(str);
+                    com.baidu.adp.lib.network.a.a.aj(str);
                 }
                 z = false;
-                str = vf;
+                str = wn;
                 com.baidu.adp.lib.network.a.a.setKeepAlive(z);
-                com.baidu.adp.lib.network.a.a.ak(str);
+                com.baidu.adp.lib.network.a.a.aj(str);
             }
         }
         if (this.mIsNeedTbs) {
-            sVar.o("tbs", TbadkCoreApplication.m411getInst().getTbs());
+            qVar.o("tbs", TbadkCoreApplication.m411getInst().getTbs());
         }
-        sVar.o("cuid", TbadkCoreApplication.m411getInst().getCuid());
-        sVar.o("timestamp", Long.toString(System.currentTimeMillis()));
-        sVar.o("model", Build.MODEL);
+        qVar.o(SocialConstants.PARAM_CUID, TbadkCoreApplication.m411getInst().getCuid());
+        qVar.o("timestamp", Long.toString(System.currentTimeMillis()));
+        qVar.o("model", Build.MODEL);
     }
 
-    public String tW() {
-        if (this.WC.mUrl == null) {
+    public String uZ() {
+        if (this.abD.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.WC.mUrl.startsWith(str)) {
-            int indexOf = this.WC.mUrl.indexOf(63);
+        if (this.abD.mUrl.startsWith(str)) {
+            int indexOf = this.abD.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.WC.mUrl.length();
+                indexOf = this.abD.mUrl.length();
             }
-            return this.WC.mUrl.substring(str.length(), indexOf);
+            return this.abD.mUrl.substring(str.length(), indexOf);
         }
-        return this.WC.mUrl;
+        return this.abD.mUrl;
     }
 }

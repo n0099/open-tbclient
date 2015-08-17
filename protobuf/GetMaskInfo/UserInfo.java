@@ -6,13 +6,13 @@ import com.squareup.wire.ProtoField;
 public final class UserInfo extends Message {
     public static final String DEFAULT_NAME = "";
     public static final String DEFAULT_PORTRAIT = "";
-    public static final Integer DEFAULT_UID = 0;
+    public static final Long DEFAULT_UID = 0L;
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String name;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String portrait;
-    @ProtoField(tag = 3, type = Message.Datatype.UINT32)
-    public final Integer uid;
+    @ProtoField(tag = 3, type = Message.Datatype.INT64)
+    public final Long uid;
 
     /* synthetic */ UserInfo(Builder builder, boolean z, UserInfo userInfo) {
         this(builder, z);
@@ -45,10 +45,13 @@ public final class UserInfo extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<UserInfo> {
+    public static final class Builder extends Message.Builder<UserInfo> {
         public String name;
         public String portrait;
-        public Integer uid;
+        public Long uid;
+
+        public Builder() {
+        }
 
         public Builder(UserInfo userInfo) {
             super(userInfo);

@@ -1,32 +1,32 @@
 package com.baidu.tbadk.coreExtra.share;
 
-import com.baidu.adp.lib.util.n;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.t;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class e implements a {
-    final /* synthetic */ d aey;
+    final /* synthetic */ d ajF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.aey = dVar;
+        this.ajF = dVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a
-    public void xz() {
-        n.showToast(TbadkCoreApplication.m411getInst().getContext(), t.auth_account_success);
+    public void yI() {
+        k.showToast(TbadkCoreApplication.m411getInst().getContext(), i.C0057i.auth_account_success);
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a
-    public void xA() {
+    public void yJ() {
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a
-    public void xB() {
-        n.showToast(TbadkCoreApplication.m411getInst().getContext(), t.share_success);
+    public void yK() {
+        k.showToast(TbadkCoreApplication.m411getInst().getContext(), i.C0057i.share_success);
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a
-    public void xC() {
+    public void yL() {
     }
 }

@@ -2,52 +2,36 @@ package com.baidu.tieba.tbadkCore.data;
 
 import android.content.Context;
 import android.view.View;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends com.baidu.tbadk.util.h {
-    final /* synthetic */ c csb;
+public class e extends com.baidu.tbadk.util.e {
+    final /* synthetic */ b cIB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(c cVar, Context context) {
+    public e(b bVar, Context context) {
         super(context);
-        this.csb = cVar;
+        this.cIB = bVar;
     }
 
-    @Override // com.baidu.tbadk.util.h, android.text.style.ClickableSpan
+    @Override // com.baidu.tbadk.util.e, android.text.style.ClickableSpan
     public void onClick(View view) {
-        Pattern pattern;
         String str;
-        Pattern pattern2;
         String str2;
         String str3;
-        pattern = c.pbPattern0;
-        str = this.csb.link;
-        Matcher matcher = pattern.matcher(str);
-        if (matcher.find()) {
-            try {
-                String group = matcher.group();
-                fi(group.substring(group.lastIndexOf("/") + 1));
-                return;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        String str4 = null;
+        str = this.cIB.text;
+        if (str != null) {
+            str3 = this.cIB.text;
+            str4 = str3.replace("@", "").replace(" ", "");
         }
-        pattern2 = c.csa;
-        str2 = this.csb.link;
-        Matcher matcher2 = pattern2.matcher(str2);
-        if (matcher2.find()) {
-            try {
-                String group2 = matcher2.group();
-                fi(group2.substring(group2.lastIndexOf("=") + 1));
-                return;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-        str3 = this.csb.link;
-        fh(str3);
+        MessageManager messageManager = MessageManager.getInstance();
+        Context context = getContext();
+        str2 = this.cIB.link;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, str2, str4)));
     }
 }

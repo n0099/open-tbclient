@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -70,7 +71,12 @@ public class FragmentActivity extends Activity {
     };
 
     /* loaded from: classes.dex */
-    final class NonConfigurationInstances {
+    static class FragmentTag {
+        public static final int[] Fragment = {16842755, 16842960, 16842961};
+    }
+
+    /* loaded from: classes.dex */
+    static final class NonConfigurationInstances {
         Object activity;
         SimpleArrayMap<String, Object> children;
         Object custom;
@@ -78,17 +84,6 @@ public class FragmentActivity extends Activity {
         SimpleArrayMap<String, LoaderManagerImpl> loaders;
 
         NonConfigurationInstances() {
-        }
-    }
-
-    /* loaded from: classes.dex */
-    class FragmentTag {
-        public static final int[] Fragment = {16842755, 16842960, 16842961};
-        public static final int Fragment_id = 1;
-        public static final int Fragment_name = 0;
-        public static final int Fragment_tag = 2;
-
-        FragmentTag() {
         }
     }
 
@@ -540,7 +535,7 @@ public class FragmentActivity extends Activity {
             if (id != 0 && resources != null) {
                 switch ((-16777216) & id) {
                     case ViewCompat.MEASURED_STATE_TOO_SMALL /* 16777216 */:
-                        resourcePackageName = "android";
+                        resourcePackageName = SocialConstants.ANDROID_CLIENT_TYPE;
                         String resourceTypeName = resources.getResourceTypeName(id);
                         String resourceEntryName = resources.getResourceEntryName(id);
                         sb.append(" ");

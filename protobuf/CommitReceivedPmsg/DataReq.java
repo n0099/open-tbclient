@@ -72,13 +72,16 @@ public final class DataReq extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataReq> {
+    public static final class Builder extends Message.Builder<DataReq> {
         public Integer groupId;
         public Long msgId;
         public Integer msgType;
         public String st_type;
         public Long toUid;
         public Integer toUserType;
+
+        public Builder() {
+        }
 
         public Builder(DataReq dataReq) {
             super(dataReq);

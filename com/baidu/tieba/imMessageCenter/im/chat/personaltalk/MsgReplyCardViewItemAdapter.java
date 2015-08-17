@@ -5,12 +5,11 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.chat.bd;
-import com.baidu.tieba.im.chat.be;
+import com.baidu.tieba.im.chat.ap;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView;
 /* loaded from: classes.dex */
-public class MsgReplyCardViewItemAdapter extends bd<MsgReplyCardView> {
+public class MsgReplyCardViewItemAdapter extends ap<MsgReplyCardView> {
     public MsgReplyCardViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
     }
@@ -18,22 +17,30 @@ public class MsgReplyCardViewItemAdapter extends bd<MsgReplyCardView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: o */
-    public be<MsgReplyCardView> a(ViewGroup viewGroup) {
-        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.mPageContext);
-        return new b(this, msgReplyCardView.getConvertView(), msgReplyCardView);
+    /* renamed from: t */
+    public ap.a<MsgReplyCardView> a(ViewGroup viewGroup) {
+        MsgReplyCardView msgReplyCardView = new MsgReplyCardView(this.Mr);
+        return new a(msgReplyCardView.getConvertView(), msgReplyCardView);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.im.chat.bd
-    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, be<MsgReplyCardView> beVar) {
-        super.a(i, view, viewGroup, chatMessage, (be) beVar);
-        MsgReplyCardView Pv = beVar.Pv();
-        Pv.a(this.mPageContext, chatMessage, viewGroup);
-        Pv.a(this.aZZ);
-        Pv.setPosition(i);
-        this.mPageContext.getLayoutMode().ab(false);
-        this.mPageContext.getLayoutMode().j(view);
+    @Override // com.baidu.tieba.im.chat.ap
+    public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<MsgReplyCardView> aVar) {
+        super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
+        MsgReplyCardView Rg = aVar.Rg();
+        Rg.a(this.Mr, chatMessage, viewGroup);
+        Rg.a(this.bnV);
+        Rg.setPosition(i);
+        this.Mr.getLayoutMode().ad(false);
+        this.Mr.getLayoutMode().k(view);
         return view;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class a extends ap.a<MsgReplyCardView> {
+        public a(View view, MsgReplyCardView msgReplyCardView) {
+            super(view, msgReplyCardView);
+        }
     }
 }

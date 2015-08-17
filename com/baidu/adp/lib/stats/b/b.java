@@ -1,9 +1,10 @@
 package com.baidu.adp.lib.stats.b;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.lib.stats.base.a {
-    public b(n nVar) {
-        super(nVar);
-        this.mMaxMemCount = 50;
-        this.mFilePrefixString = "err";
+    public b(p pVar) {
+        super(pVar);
+        this.wR = 50;
+        this.wS = "err";
     }
 }

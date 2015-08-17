@@ -1,27 +1,23 @@
 package android.support.v4.hardware.display;
 
 import android.content.Context;
+import android.hardware.display.DisplayManager;
 import android.view.Display;
 /* loaded from: classes.dex */
-class a extends DisplayManagerCompat {
-    private final Object lA;
-
-    public a(Context context) {
-        this.lA = c.y(context);
+final class a {
+    public static Object y(Context context) {
+        return context.getSystemService("display");
     }
 
-    @Override // android.support.v4.hardware.display.DisplayManagerCompat
-    public Display getDisplay(int i) {
-        return c.a(this.lA, i);
+    public static Display a(Object obj, int i) {
+        return ((DisplayManager) obj).getDisplay(i);
     }
 
-    @Override // android.support.v4.hardware.display.DisplayManagerCompat
-    public Display[] getDisplays() {
-        return c.b(this.lA);
+    public static Display[] c(Object obj) {
+        return ((DisplayManager) obj).getDisplays();
     }
 
-    @Override // android.support.v4.hardware.display.DisplayManagerCompat
-    public Display[] getDisplays(String str) {
-        return c.a(this.lA, str);
+    public static Display[] b(Object obj, String str) {
+        return ((DisplayManager) obj).getDisplays(str);
     }
 }

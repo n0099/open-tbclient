@@ -217,7 +217,7 @@ public abstract class CursorAdapter extends BaseAdapter implements CursorFilter.
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class ChangeObserver extends ContentObserver {
         public ChangeObserver() {
@@ -235,7 +235,7 @@ public abstract class CursorAdapter extends BaseAdapter implements CursorFilter.
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class MyDataSetObserver extends DataSetObserver {
         private MyDataSetObserver() {

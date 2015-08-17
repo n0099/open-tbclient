@@ -1,19 +1,19 @@
 package com.baidu.tbadk.coreExtra.act;
 
-import com.baidu.tbadk.core.data.AccountData;
+import android.content.DialogInterface;
 /* loaded from: classes.dex */
-class o implements Runnable {
-    final /* synthetic */ m aby;
-    private final /* synthetic */ AccountData abz;
+class o implements DialogInterface.OnCancelListener {
+    final /* synthetic */ n agF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(m mVar, AccountData accountData) {
-        this.aby = mVar;
-        this.abz = accountData;
+    public o(n nVar) {
+        this.agF = nVar;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.core.a.d.b(this.abz);
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        LoginActivity loginActivity;
+        loginActivity = this.agF.agE;
+        loginActivity.destroyWaitingDialog();
     }
 }

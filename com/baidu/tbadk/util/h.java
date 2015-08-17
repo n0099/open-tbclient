@@ -1,33 +1,63 @@
 package com.baidu.tbadk.util;
 
-import android.content.Context;
-import android.text.style.ClickableSpan;
-import android.view.View;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
-public class h extends ClickableSpan {
-    private Context mContext;
+public class h {
+    private static final byte[] azm = new byte[1];
+    private static h azn = null;
+    private CustomMessageListener xm;
 
-    public h(Context context) {
-        this.mContext = null;
-        this.mContext = context;
+    public static h ED() {
+        if (azn == null) {
+            synchronized (azm) {
+                if (azn == null) {
+                    azn = new h();
+                }
+            }
+        }
+        return azn;
     }
 
-    public Context getContext() {
-        return this.mContext;
+    private h() {
+        com.baidu.adp.lib.util.i.init();
     }
 
-    public void fh(String str) {
-        com.baidu.tbadk.browser.f.x(this.mContext, str);
+    public void EE() {
+        try {
+            if (this.xm == null) {
+                this.xm = EF();
+                MessageManager.getInstance().registerListener(this.xm);
+            }
+        } catch (Exception e) {
+            this.xm = null;
+            BdLog.e(e.getMessage());
+        }
     }
 
-    public void fi(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
+    private CustomMessageListener EF() {
+        return new i(this, 2000994);
     }
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void EG() {
+        try {
+            boolean iO = com.baidu.adp.lib.util.i.iO();
+            if (iO) {
+                if (com.baidu.adp.lib.util.i.iP()) {
+                    ar.uE().as(true);
+                } else if (com.baidu.adp.lib.util.i.iQ()) {
+                    ar.uE().as(false);
+                }
+            }
+            NoNetworkView.setIsHasNetwork(iO);
+            CompatibleUtile.dealWebView(null);
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
+        }
     }
 }

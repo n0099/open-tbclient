@@ -30,11 +30,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class SlidingPaneLayout extends ViewGroup {
-    private static final int DEFAULT_FADE_COLOR = -858993460;
-    private static final int DEFAULT_OVERHANG_SIZE = 32;
     static final SlidingPanelLayoutImpl IMPL;
-    private static final int MIN_FLING_VELOCITY = 400;
-    private static final String TAG = "SlidingPaneLayout";
     private boolean mCanSlide;
     private int mCoveredFadeColor;
     private final ViewDragHelper mDragHelper;
@@ -82,7 +78,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    public class SimplePanelSlideListener implements PanelSlideListener {
+    public static class SimplePanelSlideListener implements PanelSlideListener {
         @Override // android.support.v4.widget.SlidingPaneLayout.PanelSlideListener
         public void onPanelSlide(View view, float f) {
         }
@@ -106,7 +102,7 @@ public class SlidingPaneLayout extends ViewGroup {
 
     public SlidingPaneLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.mSliderFadeColor = DEFAULT_FADE_COLOR;
+        this.mSliderFadeColor = -858993460;
         this.mFirstLayout = true;
         this.mTmpRect = new Rect();
         this.mPostedRunnables = new ArrayList<>();
@@ -318,7 +314,7 @@ public class SlidingPaneLayout extends ViewGroup {
         int paddingLeft = (i4 - getPaddingLeft()) - getPaddingRight();
         int childCount = getChildCount();
         if (childCount > 2) {
-            Log.e(TAG, "onMeasure: More than two child views are not supported.");
+            Log.e("SlidingPaneLayout", "onMeasure: More than two child views are not supported.");
         }
         this.mSlideableView = null;
         int i9 = 0;
@@ -700,7 +696,7 @@ public class SlidingPaneLayout extends ViewGroup {
                 canvas.drawBitmap(drawingCache, view.getLeft(), view.getTop(), layoutParams.dimPaint);
                 drawChild = false;
             } else {
-                Log.e(TAG, "drawChild: child view " + view + " returned null drawing cache");
+                Log.e("SlidingPaneLayout", "drawChild: child view " + view + " returned null drawing cache");
                 drawChild = super.drawChild(canvas, view, j);
             }
         } else {
@@ -840,7 +836,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    class DragHelperCallback extends ViewDragHelper.Callback {
+    private class DragHelperCallback extends ViewDragHelper.Callback {
         private DragHelperCallback() {
         }
 
@@ -905,7 +901,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    public class LayoutParams extends ViewGroup.MarginLayoutParams {
+    public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         private static final int[] ATTRS = {16843137};
         Paint dimPaint;
         boolean dimWhenOffset;
@@ -949,7 +945,7 @@ public class SlidingPaneLayout extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class SavedState extends View.BaseSavedState {
+    public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v4.widget.SlidingPaneLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
@@ -984,7 +980,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    class SlidingPanelLayoutImplBase implements SlidingPanelLayoutImpl {
+    static class SlidingPanelLayoutImplBase implements SlidingPanelLayoutImpl {
         SlidingPanelLayoutImplBase() {
         }
 
@@ -995,7 +991,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    class SlidingPanelLayoutImplJB extends SlidingPanelLayoutImplBase {
+    static class SlidingPanelLayoutImplJB extends SlidingPanelLayoutImplBase {
         private Method mGetDisplayList;
         private Field mRecreateDisplayList;
 
@@ -1003,13 +999,13 @@ public class SlidingPaneLayout extends ViewGroup {
             try {
                 this.mGetDisplayList = View.class.getDeclaredMethod("getDisplayList", null);
             } catch (NoSuchMethodException e) {
-                Log.e(SlidingPaneLayout.TAG, "Couldn't fetch getDisplayList method; dimming won't work right.", e);
+                Log.e("SlidingPaneLayout", "Couldn't fetch getDisplayList method; dimming won't work right.", e);
             }
             try {
                 this.mRecreateDisplayList = View.class.getDeclaredField("mRecreateDisplayList");
                 this.mRecreateDisplayList.setAccessible(true);
             } catch (NoSuchFieldException e2) {
-                Log.e(SlidingPaneLayout.TAG, "Couldn't fetch mRecreateDisplayList field; dimming will be slow.", e2);
+                Log.e("SlidingPaneLayout", "Couldn't fetch mRecreateDisplayList field; dimming will be slow.", e2);
             }
         }
 
@@ -1020,7 +1016,7 @@ public class SlidingPaneLayout extends ViewGroup {
                     this.mRecreateDisplayList.setBoolean(view, true);
                     this.mGetDisplayList.invoke(view, null);
                 } catch (Exception e) {
-                    Log.e(SlidingPaneLayout.TAG, "Error refreshing display list state", e);
+                    Log.e("SlidingPaneLayout", "Error refreshing display list state", e);
                 }
                 super.invalidateChildRegion(slidingPaneLayout, view);
                 return;
@@ -1030,7 +1026,7 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    class SlidingPanelLayoutImplJBMR1 extends SlidingPanelLayoutImplBase {
+    static class SlidingPanelLayoutImplJBMR1 extends SlidingPanelLayoutImplBase {
         SlidingPanelLayoutImplJBMR1() {
         }
 
@@ -1109,7 +1105,7 @@ public class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class DisableLayerRunnable implements Runnable {
         final View mChildView;

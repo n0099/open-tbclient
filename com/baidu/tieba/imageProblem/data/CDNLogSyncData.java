@@ -1,68 +1,67 @@
 package com.baidu.tieba.imageProblem.data;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.stats.f;
-import com.baidu.adp.lib.stats.q;
+import com.baidu.adp.lib.stats.a;
+import com.baidu.adp.lib.stats.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.core.util.t;
-import com.baidu.tbadk.game.GameInfoData;
+import com.baidu.tbadk.core.util.r;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class CDNLogSyncData {
-    private boolean PV;
-    private int PW;
-    private int PX;
-    private int PY = 25;
-    private int PZ = 25;
-    private int Qa = 10;
+    private boolean UG;
+    private int UH;
+    private int UI;
+    private int UJ = 25;
+    private int UK = 25;
+    private int UL = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.PY;
+        return this.UJ;
     }
 
     public void setSuccRank(int i) {
-        this.PY = i;
+        this.UJ = i;
     }
 
     public int getErrRank() {
-        return this.PZ;
+        return this.UK;
     }
 
     public void setErrRank(int i) {
-        this.PZ = i;
+        this.UK = i;
     }
 
     public int getSlowRank() {
-        return this.Qa;
+        return this.UL;
     }
 
     public void setSlowRank(int i) {
-        this.Qa = i;
+        this.UL = i;
     }
 
     public boolean ismSwitch() {
-        return this.PV;
+        return this.UG;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.PV != z) {
-            q hm = t.hm();
-            hm.r("act", "fallback");
-            hm.r("result", z ? "1" : GameInfoData.NOT_FROM_DETAIL);
-            hm.r("type", "switch");
-            f.hz().a("img", hm);
+        if (this.UG != z) {
+            d hd = r.hd();
+            hd.q("act", "fallback");
+            hd.q("result", z ? "1" : "0");
+            hd.q("type", "switch");
+            a.hk().b("img", hd);
         }
-        this.PV = z;
+        this.UG = z;
     }
 
     public int getSlowNumber() {
-        return this.PW;
+        return this.UH;
     }
 
     public void setSlowNumber(int i) {
-        this.PW = i;
+        this.UH = i;
     }
 
     public int getTime() {
@@ -74,11 +73,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.PX;
+        return this.UI;
     }
 
     public void setErrNumber(int i) {
-        this.PX = i;
+        this.UI = i;
     }
 
     public void parseJson(String str) {
@@ -87,7 +86,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.PV = false;
+            this.UG = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -96,30 +95,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.PV = true;
+                    this.UG = true;
                 } else {
-                    this.PV = false;
+                    this.UG = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.PX = optJSONObject.optInt("num");
+                    this.UI = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-                    this.PW = optJSONObject2.optInt("num");
+                    this.UH = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.PY = optJSONObject3.optInt("succ");
-                    this.PZ = optJSONObject3.optInt("err");
-                    this.Qa = optJSONObject3.optInt("slow");
+                    this.UJ = optJSONObject3.optInt("succ");
+                    this.UK = optJSONObject3.optInt("err");
+                    this.UL = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.PW <= 0 || this.PX <= 0) {
-                    this.PV = false;
+                if (this.time <= 0 || this.UH <= 0 || this.UI <= 0) {
+                    this.UG = false;
                 }
             } catch (Exception e) {
-                this.PV = false;
+                this.UG = false;
                 BdLog.e(e.getMessage());
             }
         }

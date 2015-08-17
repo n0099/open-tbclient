@@ -1,24 +1,16 @@
 package com.baidu.tieba.account;
 
-import android.content.DialogInterface;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class h implements DialogInterface.OnCancelListener {
-    final /* synthetic */ AccountActivity awg;
-    private final /* synthetic */ boolean awj;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(AccountActivity accountActivity, boolean z) {
-        this.awg = accountActivity;
-        this.awj = z;
-    }
-
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.awg.destroyWaitingDialog();
-        if (this.awj) {
-            this.awg.fo("account delete cancel");
+class h implements CustomMessageTask.CustomRunnable<IntentConfig> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<IntentConfig> customMessage) {
+        if (customMessage != null && customMessage.getData() != null) {
+            customMessage.getData().startActivity(AccountActivity.class);
         }
-        this.awg.awf = null;
+        return null;
     }
 }

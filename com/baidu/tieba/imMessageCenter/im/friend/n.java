@@ -1,22 +1,24 @@
 package com.baidu.tieba.imMessageCenter.im.friend;
+
+import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements Runnable {
-    final /* synthetic */ m bvC;
+public class n implements DialogInterface.OnCancelListener {
+    final /* synthetic */ InviteFriendListActivity bJs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(m mVar) {
-        this.bvC = mVar;
+    public n(InviteFriendListActivity inviteFriendListActivity) {
+        this.bJs = inviteFriendListActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        InviteFriendListActivity inviteFriendListActivity;
-        InviteFriendListActivity inviteFriendListActivity2;
-        inviteFriendListActivity = this.bvC.bvB;
-        if (!inviteFriendListActivity.isFinishing()) {
-            inviteFriendListActivity2 = this.bvC.bvB;
-            inviteFriendListActivity2.finish();
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        y yVar;
+        y yVar2;
+        yVar = this.bJs.bJm;
+        if (yVar != null) {
+            yVar2 = this.bJs.bJm;
+            yVar2.cancelLoadData();
         }
     }
 }

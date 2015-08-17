@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class i extends a {
     public static final i objectWithBundle(Bundle bundle, Class<?> cls) {
-        i iVar = (i) com.baidu.adp.lib.a.a.a.j(cls);
+        i iVar = (i) com.baidu.adp.lib.a.a.a.c(cls);
         if (iVar == null || !iVar.fillByBundle(bundle)) {
             return null;
         }
@@ -24,7 +24,7 @@ public class i extends a {
     }
 
     public static final i objectWithIntent(Intent intent, Class<?> cls) {
-        i iVar = (i) com.baidu.adp.lib.a.a.a.j(cls);
+        i iVar = (i) com.baidu.adp.lib.a.a.a.c(cls);
         if (iVar == null || !iVar.fillByIntent(intent)) {
             return null;
         }
@@ -40,7 +40,7 @@ public class i extends a {
     }
 
     public static final i objectWithJson(JSONObject jSONObject, Class<?> cls) {
-        i iVar = (i) com.baidu.adp.lib.a.a.a.j(cls);
+        i iVar = (i) com.baidu.adp.lib.a.a.a.c(cls);
         if (iVar == null || !iVar.fillByJsonObject(jSONObject)) {
             return null;
         }
@@ -76,7 +76,7 @@ public class i extends a {
     }
 
     public static final i objectWithMap(Map<String, Object> map, Class<?> cls) {
-        i iVar = (i) com.baidu.adp.lib.a.a.a.j(cls);
+        i iVar = (i) com.baidu.adp.lib.a.a.a.c(cls);
         if (iVar == null || !iVar.fillByMap(map)) {
             return null;
         }

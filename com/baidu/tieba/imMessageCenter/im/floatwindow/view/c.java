@@ -1,34 +1,36 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 
 import android.graphics.Point;
+import com.baidu.tieba.imMessageCenter.im.floatwindow.a.c;
+import com.baidu.tieba.imMessageCenter.im.floatwindow.view.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c implements com.baidu.tieba.imMessageCenter.im.floatwindow.a.e {
-    final /* synthetic */ a bul;
+public class c implements c.a {
+    final /* synthetic */ a bIb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bul = aVar;
+        this.bIb = aVar;
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.e
-    public void Wc() {
-        e eVar;
-        e eVar2;
-        this.bul.buh = false;
-        this.bul.setTouchable(true);
-        eVar = this.bul.btr;
-        if (eVar != null) {
-            eVar2 = this.bul.btr;
-            eVar2.Wc();
+    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.c.a
+    public void XJ() {
+        a.InterfaceC0062a interfaceC0062a;
+        a.InterfaceC0062a interfaceC0062a2;
+        this.bIb.bHX = false;
+        this.bIb.setTouchable(true);
+        interfaceC0062a = this.bIb.bHi;
+        if (interfaceC0062a != null) {
+            interfaceC0062a2 = this.bIb.bHi;
+            interfaceC0062a2.XJ();
         }
     }
 
-    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.e
+    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.c.a
     public void a(Point point) {
         int i;
-        a aVar = this.bul;
-        i = this.bul.btz;
-        aVar.aa(i - point.x, point.y);
+        a aVar = this.bIb;
+        i = this.bIb.bHq;
+        aVar.an(i - point.x, point.y);
     }
 }

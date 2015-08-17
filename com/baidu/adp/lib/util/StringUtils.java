@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.util;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.game.GameInfoData;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -99,7 +98,7 @@ public class StringUtils {
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
     private static String unitFormat(int i) {
         if (i >= 0 && i < 10) {
-            return GameInfoData.NOT_FROM_DETAIL + Integer.toString(i);
+            return "0" + Integer.toString(i);
         }
         return new StringBuilder().append(i).toString();
     }

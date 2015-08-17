@@ -1,22 +1,39 @@
 package com.baidu.tieba.write.shareSDK;
+
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
-class i implements com.baidu.tieba.write.view.i {
-    final /* synthetic */ WriteShareActivity cAu;
+class i implements a.b {
+    final /* synthetic */ WriteShareActivity cSj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(WriteShareActivity writeShareActivity) {
-        this.cAu = writeShareActivity;
+        this.cSj = writeShareActivity;
     }
 
-    @Override // com.baidu.tieba.write.view.i
-    public void a(com.baidu.tieba.write.view.f fVar) {
-        boolean z;
-        fVar.dismiss();
-        z = this.cAu.cAi;
-        if (!z) {
-            this.cAu.setResult(0);
+    @Override // com.baidu.tieba.tbadkCore.writeModel.a.b
+    public void a(ImageUploadResult imageUploadResult, boolean z) {
+        WriteData writeData;
+        WriteData writeData2;
+        WriteData writeData3;
+        WriteData writeData4;
+        WriteData writeData5;
+        WriteData writeData6;
+        if (imageUploadResult == null || imageUploadResult.picInfo == null || imageUploadResult.picInfo.originPic == null) {
+            writeData = this.cSj.cKS;
+            writeData.setShareSummaryImg("");
+            writeData2 = this.cSj.cKS;
+            writeData2.setShareSummaryImgHeight(0);
+            writeData3 = this.cSj.cKS;
+            writeData3.setShareSummaryImgWidth(0);
+            return;
         }
-        com.baidu.tbadk.core.c.b.a(this.cAu.getPageContext().getPageActivity(), 200, false);
-        this.cAu.finish();
+        writeData4 = this.cSj.cKS;
+        writeData4.setShareSummaryImg(imageUploadResult.picInfo.originPic.picUrl);
+        writeData5 = this.cSj.cKS;
+        writeData5.setShareSummaryImgHeight(imageUploadResult.picInfo.originPic.height);
+        writeData6 = this.cSj.cKS;
+        writeData6.setShareSummaryImgWidth(imageUploadResult.picInfo.originPic.width);
     }
 }

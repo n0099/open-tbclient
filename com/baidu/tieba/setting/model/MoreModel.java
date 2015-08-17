@@ -1,10 +1,9 @@
 package com.baidu.tieba.setting.model;
 
-import com.baidu.adp.base.f;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
-public class MoreModel extends f {
-    private boolean cet;
+public class MoreModel extends com.baidu.adp.base.e {
+    private boolean cwa;
     private PersonChangeData mPersonChangeData;
 
     /* loaded from: classes.dex */
@@ -12,7 +11,7 @@ public class MoreModel extends f {
         DO_CACHE_CLEAR,
         GET_SIZE;
 
-        /* JADX DEBUG: Replace access to removed values field (ceu) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (cwb) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static TaskType[] valuesCustom() {
             TaskType[] valuesCustom = values();
@@ -26,7 +25,7 @@ public class MoreModel extends f {
     public MoreModel(PersonChangeData personChangeData) {
         super(null);
         this.mPersonChangeData = null;
-        this.cet = false;
+        this.cwa = false;
         this.mPersonChangeData = personChangeData;
         if (this.mPersonChangeData == null) {
             this.mPersonChangeData = new PersonChangeData();
@@ -37,20 +36,20 @@ public class MoreModel extends f {
         this.mPersonChangeData = personChangeData;
     }
 
-    public void eI(boolean z) {
-        this.cet = z;
+    public void fb(boolean z) {
+        this.cwa = z;
     }
 
-    public boolean air() {
-        return this.cet;
+    public boolean akL() {
+        return this.cwa;
     }
 
-    @Override // com.baidu.adp.base.f
+    @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
         return false;
     }
 
-    @Override // com.baidu.adp.base.f
+    @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         return false;
     }

@@ -1,41 +1,26 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.view.al;
+import com.baidu.adp.base.BdBaseFragmentActivity;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bb;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends al {
-    public p(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+public class p implements View.OnClickListener {
+    final /* synthetic */ e bGo;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public p(e eVar) {
+        this.bGo = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.ah, com.baidu.adp.widget.ListView.f
-    public View ng() {
-        View ng = super.ng();
-        this.ZZ.setVisibility(4);
-        return ng;
-    }
-
-    @Override // com.baidu.tbadk.core.view.al
-    public void cy(int i) {
-        super.cy(i);
-        ay.j(this.ZY, com.baidu.tieba.n.cp_bg_line_d);
-    }
-
-    @Override // com.baidu.tbadk.core.view.al, com.baidu.tbadk.core.view.ah, com.baidu.adp.widget.ListView.f
-    public void Q(boolean z) {
-    }
-
-    @Override // com.baidu.tbadk.core.view.ah, com.baidu.adp.widget.ListView.f
-    public void nh() {
-    }
-
-    @Override // com.baidu.tbadk.core.view.al, com.baidu.tbadk.core.view.ah, com.baidu.adp.widget.ListView.f
-    public void ni() {
-    }
-
-    @Override // com.baidu.tbadk.core.view.al, com.baidu.tbadk.core.view.ah, com.baidu.adp.widget.ListView.f
-    public void R(boolean z) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BdBaseFragmentActivity bdBaseFragmentActivity;
+        BdBaseFragmentActivity bdBaseFragmentActivity2;
+        bdBaseFragmentActivity = this.bGo.bGc;
+        TiebaStatic.eventStat(bdBaseFragmentActivity.getPageContext().getPageActivity(), "notlogin_10", "click", 1, new Object[0]);
+        bdBaseFragmentActivity2 = this.bGo.bGc;
+        bb.af(bdBaseFragmentActivity2.getPageContext().getPageActivity());
     }
 }

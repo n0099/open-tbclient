@@ -11,14 +11,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class PagerTabStrip extends PagerTitleStrip {
-    private static final int FULL_UNDERLINE_HEIGHT = 1;
-    private static final int INDICATOR_HEIGHT = 3;
-    private static final int MIN_PADDING_BOTTOM = 6;
-    private static final int MIN_STRIP_HEIGHT = 32;
-    private static final int MIN_TEXT_SPACING = 64;
-    private static final int TAB_PADDING = 16;
-    private static final int TAB_SPACING = 32;
-    private static final String TAG = "PagerTabStrip";
     private boolean mDrawFullUnderline;
     private boolean mDrawFullUnderlineSet;
     private int mFullUnderlineHeight;

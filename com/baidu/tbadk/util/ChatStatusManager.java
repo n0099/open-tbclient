@@ -14,7 +14,13 @@ public class ChatStatusManager {
     public static final int UPDATES = 6;
     public static final int VALIDATE = 7;
     private static ChatStatusManager instance;
-    private SparseArray<c> mStatus = new SparseArray<>();
+    private SparseArray<a> mStatus = new SparseArray<>();
+
+    /* loaded from: classes.dex */
+    public static class a {
+        public String azh;
+        public boolean isOpen;
+    }
 
     public static synchronized ChatStatusManager getInst() {
         ChatStatusManager chatStatusManager;
@@ -28,41 +34,41 @@ public class ChatStatusManager {
     }
 
     public boolean getIsOpen(int i) {
-        c cVar = this.mStatus.get(i);
-        if (cVar == null) {
+        a aVar = this.mStatus.get(i);
+        if (aVar == null) {
             return false;
         }
-        return cVar.isOpen;
+        return aVar.isOpen;
     }
 
     public String getCurId(int i) {
-        c cVar = this.mStatus.get(i);
-        if (cVar == null) {
+        a aVar = this.mStatus.get(i);
+        if (aVar == null) {
             return "";
         }
-        return cVar.ase;
+        return aVar.azh;
     }
 
     public void setIsOpen(int i, boolean z) {
-        c cVar = this.mStatus.get(i);
-        if (cVar != null) {
-            cVar.isOpen = z;
+        a aVar = this.mStatus.get(i);
+        if (aVar != null) {
+            aVar.isOpen = z;
             return;
         }
-        c cVar2 = new c();
-        cVar2.isOpen = z;
-        this.mStatus.put(i, cVar2);
+        a aVar2 = new a();
+        aVar2.isOpen = z;
+        this.mStatus.put(i, aVar2);
     }
 
     public void setCurId(int i, String str) {
-        c cVar = this.mStatus.get(i);
-        if (cVar != null) {
-            cVar.ase = str;
+        a aVar = this.mStatus.get(i);
+        if (aVar != null) {
+            aVar.azh = str;
             return;
         }
-        c cVar2 = new c();
-        cVar2.ase = str;
-        this.mStatus.put(i, cVar2);
+        a aVar2 = new a();
+        aVar2.azh = str;
+        this.mStatus.put(i, aVar2);
     }
 
     public void remove(int i) {

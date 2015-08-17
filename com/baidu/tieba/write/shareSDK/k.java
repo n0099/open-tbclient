@@ -1,57 +1,47 @@
 package com.baidu.tieba.write.shareSDK;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
 /* loaded from: classes.dex */
-class k implements com.baidu.tieba.tbadkCore.writeModel.d {
-    final /* synthetic */ WriteShareActivity cAu;
+class k implements DialogInterface.OnKeyListener {
+    final /* synthetic */ WriteShareActivity cSj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(WriteShareActivity writeShareActivity) {
-        this.cAu = writeShareActivity;
+        this.cSj = writeShareActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.writeModel.d
-    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.l lVar, WriteData writeData, AntiData antiData) {
-        com.baidu.tieba.write.view.f fVar;
-        com.baidu.tieba.write.view.f fVar2;
-        com.baidu.tieba.write.view.f fVar3;
-        com.baidu.tieba.write.view.f fVar4;
-        this.cAu.closeLoadingDialog();
-        if (!z) {
-            if (lVar != null && writeData != null && lVar.getVcode_pic_url() != null) {
-                writeData.setVcodeMD5(lVar.getVcode_md5());
-                writeData.setVcodeUrl(lVar.getVcode_pic_url());
-                this.cAu.cAh = true;
-                if (lVar.vv().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.cAu.getPageContext().getPageActivity(), 12006, writeData, false)));
-                    return;
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.cAu.getPageContext().getPageActivity(), writeData, 12006)));
-                    return;
+    @Override // android.content.DialogInterface.OnKeyListener
+    public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+        o oVar;
+        boolean z;
+        o oVar2;
+        o oVar3;
+        o oVar4;
+        if (i == 4) {
+            oVar = this.cSj.cRT;
+            if (oVar != null) {
+                oVar2 = this.cSj.cRT;
+                if (oVar2.auA() != null) {
+                    oVar3 = this.cSj.cRT;
+                    if (oVar3.auA().isShowing()) {
+                        oVar4 = this.cSj.cRT;
+                        com.baidu.adp.lib.g.j.a(oVar4.auA(), this.cSj.getPageContext().getPageActivity());
+                        return true;
+                    }
                 }
             }
-            this.cAu.asx();
-            fVar = this.cAu.cAk;
-            if (fVar != null) {
-                this.cAu.cAi = false;
-                fVar2 = this.cAu.cAk;
-                fVar2.asQ();
-                return;
+            this.cSj.auo();
+            z = this.cSj.cRW;
+            if (z) {
+                this.cSj.setResult(-1);
+            } else {
+                this.cSj.setResult(0);
             }
-            return;
+            com.baidu.tbadk.core.c.b.a(this.cSj.getPageContext().getPageActivity(), 200, false);
+            this.cSj.finish();
+            return true;
         }
-        this.cAu.asw();
-        fVar3 = this.cAu.cAj;
-        if (fVar3 != null) {
-            this.cAu.cAi = true;
-            this.cAu.setResult(-1);
-            fVar4 = this.cAu.cAj;
-            fVar4.asQ();
-        }
+        return false;
     }
 }

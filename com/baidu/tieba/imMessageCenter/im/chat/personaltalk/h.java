@@ -1,26 +1,20 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
-/* JADX INFO: Access modifiers changed from: package-private */
+
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class h implements Runnable {
-    private final /* synthetic */ boolean aZC;
-    final /* synthetic */ PersonalTalkSettingActivity bsG;
+class h implements a.b {
+    final /* synthetic */ PersonalTalkSettingActivity bGx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(PersonalTalkSettingActivity personalTalkSettingActivity, boolean z) {
-        this.bsG = personalTalkSettingActivity;
-        this.aZC = z;
+    public h(PersonalTalkSettingActivity personalTalkSettingActivity) {
+        this.bGx = personalTalkSettingActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        y yVar;
-        y yVar2;
-        y yVar3;
-        yVar = this.bsG.bsD;
-        yVar.a((com.baidu.adp.widget.BdSwitchView.b) null);
-        yVar2 = this.bsG.bsD;
-        yVar2.ds(!this.aZC);
-        yVar3 = this.bsG.bsD;
-        yVar3.a(this.bsG);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        r rVar;
+        aVar.dismiss();
+        rVar = this.bGx.bGv;
+        rVar.du(false);
     }
 }

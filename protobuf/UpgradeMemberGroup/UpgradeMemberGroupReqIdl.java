@@ -21,8 +21,11 @@ public final class UpgradeMemberGroupReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<UpgradeMemberGroupReqIdl> {
+    public static final class Builder extends Message.Builder<UpgradeMemberGroupReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(UpgradeMemberGroupReqIdl upgradeMemberGroupReqIdl) {
             super(upgradeMemberGroupReqIdl);

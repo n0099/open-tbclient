@@ -1,54 +1,49 @@
 package com.baidu.tieba.setting.more;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.i;
+import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
+import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 /* loaded from: classes.dex */
-public class e implements View.OnClickListener {
-    final /* synthetic */ d ceI;
-    private final /* synthetic */ q ceJ;
+class e extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ AccountSafeActivity cwD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar, q qVar) {
-        this.ceI = dVar;
-        this.ceJ = qVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(AccountSafeActivity accountSafeActivity, int i, int i2) {
+        super(i, i2);
+        this.cwD = accountSafeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        SettingTextTestNewView settingTextTestNewView;
-        TbSettingTextTipView tbSettingTextTipView;
-        TextView textView;
-        long j;
-        int i;
-        settingTextTestNewView = this.ceI.ceE;
-        if (view == settingTextTestNewView) {
-            this.ceJ.iu(1);
-            return;
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        if (this.cwD.cwz != null) {
+            this.cwD.cwz.setLoading(false);
         }
-        tbSettingTextTipView = this.ceI.ceF;
-        if (view == tbSettingTextTipView) {
-            this.ceJ.iu(2);
-            return;
-        }
-        textView = this.ceI.ceD;
-        if (view == textView) {
-            long currentTimeMillis = System.currentTimeMillis();
-            j = this.ceI.ceA;
-            if (currentTimeMillis - j >= 2000) {
-                this.ceI.cez = 0;
-            } else {
-                d dVar = this.ceI;
-                i = dVar.cez;
-                int i2 = i + 1;
-                dVar.cez = i2;
-                if (i2 >= 14) {
-                    this.ceJ.iu(4);
-                    this.ceI.cez = 0;
+        this.cwD.closeLoadingDialog();
+        if (responsedMessage != null) {
+            if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
+                this.cwD.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.cwD.getResources().getString(i.C0057i.neterror) : responsedMessage.getErrorString());
+                return;
+            }
+            com.baidu.tieba.setting.im.more.a aVar = null;
+            if (responsedMessage instanceof ResponsedPrivacyHttpMessage) {
+                aVar = ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData();
+            }
+            if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
+                aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
+            }
+            if (aVar != null && aVar.akt() != null) {
+                this.cwD.cwA = aVar.akt().secureemail;
+                this.cwD.cwB = aVar.akt().securemobil;
+                if (this.cwD.cwz != null) {
+                    this.cwD.cwz.fa(true);
                 }
             }
-            this.ceI.ceA = System.currentTimeMillis();
+            if (this.cwD.cwy != null) {
+                this.cwD.cwy.d(aVar);
+            }
         }
     }
 }

@@ -54,7 +54,7 @@ public class ResponseLiveGroupInfoByGid extends TbSocketReponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         QueryLiveGroupByGidResIdl queryLiveGroupByGidResIdl = (QueryLiveGroupByGidResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryLiveGroupByGidResIdl.class);
         setError(queryLiveGroupByGidResIdl.error.errorno.intValue());

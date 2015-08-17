@@ -1,17 +1,34 @@
 package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.ImMessageCenterActivityConfig;
+import android.os.Build;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class a implements CustomMessageTask.CustomRunnable<ImMessageCenterActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<ImMessageCenterActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            customMessage.getData().getIntent().setClass(customMessage.getData().getContext(), ImMessageCenterActivity.class);
-            customMessage.getData().startActivity();
+public class a {
+    public static boolean a(BaseFragmentActivity baseFragmentActivity, int i) {
+        if (TbadkCoreApplication.m411getInst().appResponseToCmd(i)) {
+            return true;
         }
-        return null;
+        a(baseFragmentActivity);
+        return false;
+    }
+
+    public static boolean a(BaseFragmentActivity baseFragmentActivity, Class<?> cls) {
+        if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(cls)) {
+            return true;
+        }
+        a(baseFragmentActivity);
+        return false;
+    }
+
+    private static void a(BaseFragmentActivity baseFragmentActivity) {
+        if (baseFragmentActivity != null) {
+            if (Build.VERSION.SDK_INT <= 10) {
+                baseFragmentActivity.showToast(i.C0057i.plugin_not_exit_for_2_3);
+            } else {
+                baseFragmentActivity.showToast(i.C0057i.plugin_not_exit);
+            }
+        }
     }
 }

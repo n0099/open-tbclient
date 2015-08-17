@@ -1,28 +1,20 @@
 package com.baidu.tieba.chosen.posts;
 
-import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import tbclient.HotThread.tinfo;
+import com.baidu.tbadk.core.view.x;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements AdapterView.OnItemClickListener {
-    final /* synthetic */ e aDg;
+public class f implements x.a {
+    final /* synthetic */ e aKD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.aDg = eVar;
+        this.aKD = eVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        a aVar;
-        aVar = this.aDg.aDd;
-        tinfo item = aVar.getItem(i);
-        if (item != null) {
-            TiebaStatic.eventStat(this.aDg.getActivity(), "kantie_5", null, 1, "threadId", item.thread_id);
-            this.aDg.getPageContext().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.aDg.getContext()).createNormalCfg(String.valueOf(item.thread_id), null, null)));
-        }
+    @Override // com.baidu.tbadk.core.view.x.a
+    public void onListPullRefresh(boolean z) {
+        ChosenPostActivity chosenPostActivity;
+        chosenPostActivity = this.aKD.aKw;
+        chosenPostActivity.HB().bz(z);
     }
 }

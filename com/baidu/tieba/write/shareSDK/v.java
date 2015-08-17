@@ -1,37 +1,27 @@
 package com.baidu.tieba.write.shareSDK;
 
-import android.widget.TextView;
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tieba.write.write.cn;
-import com.baidu.tieba.write.write.co;
+import android.text.Editable;
+import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v implements co {
-    final /* synthetic */ q cAM;
+public class v implements TextWatcher {
+    final /* synthetic */ o cSC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(q qVar) {
-        this.cAM = qVar;
+    public v(o oVar) {
+        this.cSC = oVar;
     }
 
-    @Override // com.baidu.tieba.write.write.co
-    public void jv(int i) {
-        WriteShareActivity writeShareActivity;
-        TextView textView;
-        PostPrefixData postPrefixData;
-        cn cnVar;
-        cn cnVar2;
-        WriteShareActivity writeShareActivity2;
-        writeShareActivity = this.cAM.cAK;
-        writeShareActivity.ju(i);
-        textView = this.cAM.cAB;
-        postPrefixData = this.cAM.mPrefixData;
-        textView.setText(postPrefixData.getPrefixs().get(i));
-        cnVar = this.cAM.cAC;
-        cnVar.setCurrentIndex(i);
-        this.cAM.asG();
-        cnVar2 = this.cAM.cAC;
-        writeShareActivity2 = this.cAM.cAK;
-        com.baidu.adp.lib.g.k.a(cnVar2, writeShareActivity2.getPageContext().getPageActivity());
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.cSC.auw();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

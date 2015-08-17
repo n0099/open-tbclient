@@ -26,9 +26,12 @@ public final class GetMaskInfoResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<GetMaskInfoResIdl> {
+    public static final class Builder extends Message.Builder<GetMaskInfoResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(GetMaskInfoResIdl getMaskInfoResIdl) {
             super(getMaskInfoResIdl);

@@ -30,9 +30,12 @@ public final class GetGroupMsgReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<GetGroupMsgReqIdl> {
+    public static final class Builder extends Message.Builder<GetGroupMsgReqIdl> {
         public String cuid;
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(GetGroupMsgReqIdl getGroupMsgReqIdl) {
             super(getGroupMsgReqIdl);

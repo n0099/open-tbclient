@@ -15,7 +15,7 @@ public class b extends c<HttpMessage, HttpMessageTask, com.baidu.adp.framework.a
         super(messageManager);
         this.qm = null;
         this.qm = new HttpClient(messageManager);
-        this.qq = com.baidu.adp.framework.c.b.eV();
+        this.qq = com.baidu.adp.framework.c.b.eW();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ public class b extends c<HttpMessage, HttpMessageTask, com.baidu.adp.framework.a
     /* renamed from: a */
     public void sendMessage(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         if (httpMessageTask.getConnectTimeOut() == null) {
-            httpMessageTask.setConnectTimeOut(((com.baidu.adp.framework.c.b) this.qq).eW());
+            httpMessageTask.setConnectTimeOut(((com.baidu.adp.framework.c.b) this.qq).eX());
         }
         this.qm.sendMessage(httpMessage, httpMessageTask);
     }

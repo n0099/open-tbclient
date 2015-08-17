@@ -13,7 +13,6 @@ import android.util.Log;
 public class NavUtils {
     private static final NavUtilsImpl IMPL;
     public static final String PARENT_ACTIVITY = "android.support.PARENT_ACTIVITY";
-    private static final String TAG = "NavUtils";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -29,7 +28,7 @@ public class NavUtils {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class NavUtilsImplBase implements NavUtilsImpl {
+    public static class NavUtilsImplBase implements NavUtilsImpl {
         NavUtilsImplBase() {
         }
 
@@ -42,7 +41,7 @@ public class NavUtils {
                 try {
                     intent = NavUtils.getParentActivityName(activity, componentName) == null ? IntentCompat.makeMainActivity(componentName) : new Intent().setComponent(componentName);
                 } catch (PackageManager.NameNotFoundException e) {
-                    Log.e(NavUtils.TAG, "getParentActivityIntent: bad parentActivityName '" + parentActivityName + "' in manifest");
+                    Log.e("NavUtils", "getParentActivityIntent: bad parentActivityName '" + parentActivityName + "' in manifest");
                 }
             }
             return intent;
@@ -75,7 +74,7 @@ public class NavUtils {
     }
 
     /* loaded from: classes.dex */
-    class NavUtilsImplJB extends NavUtilsImplBase {
+    static class NavUtilsImplJB extends NavUtilsImplBase {
         NavUtilsImplJB() {
         }
 

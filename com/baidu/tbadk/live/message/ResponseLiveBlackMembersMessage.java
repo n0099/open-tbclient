@@ -20,7 +20,7 @@ public class ResponseLiveBlackMembersMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         int i2 = 0;
         QueryOwnerGagListResIdl queryOwnerGagListResIdl = (QueryOwnerGagListResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryOwnerGagListResIdl.class);

@@ -1,10 +1,13 @@
 package com.baidu.tieba.enterForum.home;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.t;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
@@ -13,24 +16,24 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.d AD() {
-        com.baidu.tbadk.mainTab.d dVar = new com.baidu.tbadk.mainTab.d();
-        dVar.anf = new a();
-        dVar.type = 1;
-        dVar.ang = t.home;
-        dVar.anh = com.baidu.tieba.p.icon_tabbar_enterforum;
-        return dVar;
+    public com.baidu.tbadk.mainTab.c Cz() {
+        com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
+        cVar.auR = new d();
+        cVar.type = 1;
+        cVar.auS = i.C0057i.home;
+        cVar.auT = i.e.icon_tabbar_enterforum;
+        return cVar;
     }
 
     static {
-        s sVar = new s(2007002);
-        sVar.setPriority(2);
-        MessageManager.getInstance().registerListener(sVar);
+        w wVar = new w(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
+        wVar.setPriority(2);
+        MessageManager.getInstance().registerListener(wVar);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator aj(Context context) {
-        this.amS = (FragmentTabIndicator) com.baidu.adp.lib.g.b.hr().inflate(context, com.baidu.tieba.r.fragmenttabindicator, null);
-        return this.amS;
+    public FragmentTabIndicator an(Context context) {
+        this.auE = (FragmentTabIndicator) LayoutInflater.from(context).inflate(i.g.fragmenttabindicator, (ViewGroup) null);
+        return this.auE;
     }
 }

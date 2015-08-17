@@ -4,9 +4,8 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.network.http.d;
 import com.baidu.adp.lib.network.http.e;
-import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.ai;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.adp.lib.util.i;
+import com.baidu.tbadk.core.util.z;
 /* loaded from: classes.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public TbHttpResponsedMessage(int i) {
@@ -14,7 +13,7 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
     }
 
@@ -54,16 +53,16 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
     public void logStatInBackground(int i, e eVar) {
-        if (eVar.ha().size() > 0) {
-            d dVar = eVar.ha().get(eVar.ha().size() - 1);
-            ai.Vk.addAndGet(eVar.ha().size() - 1);
-            aj ajVar = new aj();
-            ajVar.mMode = getMode(k.jc());
-            ajVar.mSize = dVar.uR;
-            ajVar.mTime = dVar.uV;
-            ajVar.Vm = dVar.uU;
-            ajVar.Vl = eVar.gY().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
-            ai.a(ajVar);
+        if (eVar.gU().size() > 0) {
+            d dVar = eVar.gU().get(eVar.gU().size() - 1);
+            z.aah.addAndGet(eVar.gU().size() - 1);
+            z.a aVar = new z.a();
+            aVar.mMode = getMode(i.iU());
+            aVar.mSize = dVar.uN;
+            aVar.mTime = dVar.uR;
+            aVar.aaj = dVar.uQ;
+            aVar.aai = eVar.gS().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
+            z.a(aVar);
         }
     }
 }

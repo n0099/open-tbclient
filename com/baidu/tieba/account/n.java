@@ -1,24 +1,35 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tieba.a.a;
+import com.baidu.tieba.account.k;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n {
-    TextView awo;
-    TextView awp;
-    ImageView awq;
-    Button awr;
-    final /* synthetic */ m aws;
-    View mLine;
-
-    private n(m mVar) {
-        this.aws = mVar;
-    }
+public class n implements a.InterfaceC0055a {
+    final /* synthetic */ k aDO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ n(m mVar, n nVar) {
-        this(mVar);
+    public n(k kVar) {
+        this.aDO = kVar;
+    }
+
+    @Override // com.baidu.tieba.a.a.InterfaceC0055a
+    public void a(AccountData accountData) {
+        k.a aVar;
+        k.a aVar2;
+        new o(this, accountData).execute(new Void[0]);
+        aVar = this.aDO.aDL;
+        if (aVar != null) {
+            aVar2 = this.aDO.aDL;
+            aVar2.onSuccess();
+        }
+    }
+
+    @Override // com.baidu.tieba.a.a.InterfaceC0055a
+    public void fJ(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            com.baidu.tbadk.core.a.b.cc(str);
+        }
     }
 }

@@ -1,24 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.tbadkCore.PbEditor.PbEditor;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class ci implements com.baidu.tieba.tbadkCore.c.h {
-    final /* synthetic */ ch bOG;
+class ci implements a.b {
+    final /* synthetic */ cb cfj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(ch chVar) {
-        this.bOG = chVar;
+    public ci(cb cbVar) {
+        this.cfj = cbVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.c.h
-    public void nf() {
-        PbEditor pbEditor;
-        PbEditor pbEditor2;
-        pbEditor = this.bOG.bOi;
-        if (pbEditor != null) {
-            pbEditor2 = this.bOG.bOi;
-            pbEditor2.refresh();
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

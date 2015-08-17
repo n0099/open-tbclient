@@ -1,47 +1,51 @@
 package com.baidu.tieba.recommendfrs;
 
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bi;
-import com.baidu.tieba.recommendfrs.a.k;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.recommendfrs.a.l;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommendfrs.data.a> {
-    final /* synthetic */ b cbF;
+    final /* synthetic */ d csB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(b bVar) {
-        this.cbF = bVar;
+    public e(d dVar) {
+        this.csB = dVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.d
-    public void m(int i, String str) {
-        k kVar;
-        kVar = this.cbF.cbx;
-        com.baidu.tieba.recommendfrs.data.a io = kVar.io(i);
-        if (io != null) {
-            TiebaStatic.eventStat(this.cbF.getFragmentActivity(), "kantie_banner", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
-            String aht = io.aht();
-            if (!StringUtils.isNull(aht)) {
-                bi.tO().b(this.cbF.getPageContext(), new String[]{aht});
-            } else {
-                this.cbF.aX(str, io.ahv());
+    public void o(int i, String str) {
+        l lVar;
+        TbPageContext<?> tbPageContext;
+        lVar = this.csB.csn;
+        com.baidu.tieba.recommendfrs.data.a jh = lVar.jh(i);
+        if (jh != null) {
+            TiebaStatic.eventStat(this.csB.getContext(), "kantie_banner", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
+            String ajs = jh.ajs();
+            if (!StringUtils.isNull(ajs)) {
+                ax uR = ax.uR();
+                tbPageContext = this.csB.pageContext;
+                uR.b(tbPageContext, new String[]{ajs});
+                return;
             }
+            this.csB.aX(str, jh.aju());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.flow.a.d
     public void a(int i, com.baidu.tieba.recommendfrs.data.a aVar) {
-        k kVar;
-        k kVar2;
+        l lVar;
+        l lVar2;
         if (aVar != null) {
-            kVar = this.cbF.cbx;
-            if (kVar != null) {
-                kVar2 = this.cbF.cbx;
-                kVar2.setTitle(UtilHelper.getFixedText(aVar.ahu(), 14, true));
+            lVar = this.csB.csn;
+            if (lVar != null) {
+                lVar2 = this.csB.csn;
+                lVar2.setTitle(UtilHelper.getFixedText(aVar.ajt(), 14, true));
             }
         }
     }

@@ -1,62 +1,45 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.graphics.Bitmap;
-import android.util.Log;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.view.View;
+import android.widget.LinearLayout;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e extends WebViewClient {
-    final /* synthetic */ BaseWebView afd;
+public class e implements Runnable {
+    final /* synthetic */ d akC;
 
-    public e(BaseWebView baseWebView) {
-        this.afd = baseWebView;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(d dVar) {
+        this.akC = dVar;
     }
 
-    @Override // android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        h hVar;
-        h hVar2;
-        super.onPageStarted(webView, str, bitmap);
-        hVar = this.afd.mOnPageStartedListener;
-        if (hVar != null) {
-            hVar2 = this.afd.mOnPageStartedListener;
-            hVar2.a(webView, str);
+    @Override // java.lang.Runnable
+    public void run() {
+        View view;
+        int i;
+        View view2;
+        view = this.akC.akx;
+        if (view != null) {
+            int childCount = ((LinearLayout) this.akC.getChildAt(0)).getChildCount();
+            int i2 = 0;
+            while (true) {
+                if (i2 >= childCount) {
+                    i = 0;
+                    break;
+                }
+                View childAt = ((LinearLayout) this.akC.getChildAt(0)).getChildAt(i2);
+                view2 = this.akC.akx;
+                if (childAt != view2) {
+                    i2++;
+                } else {
+                    i = childAt.getRight();
+                    break;
+                }
+            }
+            this.akC.akx = null;
+            int width = i - this.akC.getWidth();
+            if (width > 0) {
+                this.akC.scrollBy(width, 0);
+            }
         }
-        Log.d("BaseWebView", "@onPageStarted = " + str);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onLoadResource(WebView webView, String str) {
-        super.onLoadResource(webView, str);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
-        g gVar;
-        g gVar2;
-        super.onPageFinished(webView, str);
-        gVar = this.afd.mOnPageFinishedListener;
-        if (gVar != null) {
-            gVar2 = this.afd.mOnPageFinishedListener;
-            gVar2.onPageFinished(webView, str);
-        }
-        Log.d("BaseWebView", "@onPageFinished = " + str);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        f fVar;
-        f fVar2;
-        fVar = this.afd.mOnLoadUrlListener;
-        if (fVar != null) {
-            fVar2 = this.afd.mOnLoadUrlListener;
-            return fVar2.shouldOverrideUrlLoading(webView, str);
-        }
-        return super.shouldOverrideUrlLoading(webView, str);
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onReceivedError(WebView webView, int i, String str, String str2) {
-        super.onReceivedError(webView, i, str, str2);
     }
 }

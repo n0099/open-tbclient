@@ -19,11 +19,11 @@ public abstract class a {
         this.qj = new c(this, i2);
     }
 
-    public HttpMessageListener eR() {
+    public HttpMessageListener eS() {
         return this.qi;
     }
 
-    public e eS() {
+    public e eT() {
         return this.qj;
     }
 

@@ -3,67 +3,85 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private String acg;
-    private String ach;
-    private String aci;
-    private String acj;
-    private String ack;
-    private String acl;
-    private String acm;
-    private String acn;
-    private String aco;
+    private String ahm;
+    private String ahn;
+    private String aho;
+    private String ahp;
+    private String ahq;
+    private String ahr;
+    private String ahs;
+    private String aht;
+    private int ahu;
+    private String ahv;
+    private String ahw;
+    private String ahx;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.acg = jSONObject.optString("drop_pic");
-                this.ach = jSONObject.optString("drop_pic_md5");
-                this.aci = jSONObject.optString("drop_pic_num");
-                this.acj = jSONObject.optString("drop_bg_color_day");
-                this.ack = jSONObject.optString("drop_bg_color_night");
-                this.acl = jSONObject.optString("apply_vip_live_room_pid");
-                this.acm = jSONObject.optString("max_cache");
-                this.acn = jSONObject.optString("frs_max_cache");
-                this.aco = jSONObject.optString("frs_pn");
+                this.ahm = jSONObject.optString("drop_pic");
+                this.ahn = jSONObject.optString("drop_pic_md5");
+                this.aho = jSONObject.optString("drop_pic_num");
+                this.ahp = jSONObject.optString("drop_bg_color_day");
+                this.ahq = jSONObject.optString("drop_bg_color_night");
+                this.ahr = jSONObject.optString("apply_vip_live_room_pid");
+                this.ahv = jSONObject.optString("max_cache");
+                this.ahw = jSONObject.optString("frs_max_cache");
+                this.ahx = jSONObject.optString("frs_pn");
+                this.ahs = jSONObject.optString("tail_link");
+                this.aht = jSONObject.optString("bubble_link");
+                this.ahu = jSONObject.optInt("xiaoying_time");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String vx() {
-        return this.acl;
+    public String wE() {
+        return this.ahr;
     }
 
-    public String vy() {
-        return this.acg;
+    public String wF() {
+        return this.ahm;
     }
 
-    public String vz() {
-        return this.ach;
+    public String wG() {
+        return this.ahn;
     }
 
-    public String vA() {
-        return this.aci;
+    public String wH() {
+        return this.aho;
     }
 
-    public String vB() {
-        return this.acj;
+    public String wI() {
+        return this.ahp;
     }
 
-    public String vC() {
-        return this.ack;
+    public String wJ() {
+        return this.ahq;
     }
 
-    public String vD() {
-        return this.acm;
+    public String wK() {
+        return this.ahv;
     }
 
-    public String vE() {
-        return this.acn;
+    public String wL() {
+        return this.ahw;
     }
 
-    public String vF() {
-        return this.aco;
+    public String wM() {
+        return this.ahx;
+    }
+
+    public String wN() {
+        return this.ahs;
+    }
+
+    public String wO() {
+        return this.aht;
+    }
+
+    public int wP() {
+        return this.ahu;
     }
 }

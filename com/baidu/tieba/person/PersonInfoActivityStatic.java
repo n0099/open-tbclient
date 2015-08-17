@@ -4,30 +4,35 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.game.GameInfoData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.personInfo.PersonInfoActivity;
+import com.baidu.tieba.usermute.response.UserMuteCheckHttpResponsedMessage;
+import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
 /* loaded from: classes.dex */
 public class PersonInfoActivityStatic {
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2002003, new bs());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSON_INFO, new bj());
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        HM();
+        Iz();
     }
 
-    private static void HM() {
+    private static void Iz() {
         com.baidu.tieba.tbadkCore.a.a.a(303012, ProfileSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.S("c/u/user/profile", 303012));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.Z("c/u/user/profile", 303012));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
         tbHttpMessageTask.setResponsedClass(ProfileHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        com.baidu.tieba.tbadkCore.a.a.c(303040, UserMuteCheckSocketResponsedMessage.class, false);
+        com.baidu.tieba.tbadkCore.a.a.a(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -37,7 +42,7 @@ public class PersonInfoActivityStatic {
         String stringExtra2 = personInfoActivityConfig.getIntent().getStringExtra("user_name");
         String stringExtra3 = personInfoActivityConfig.getIntent().getStringExtra("from");
         String stringExtra4 = personInfoActivityConfig.getIntent().getStringExtra("st_type");
-        if (stringExtra != null && stringExtra.length() > 0 && !stringExtra.equals(GameInfoData.NOT_FROM_DETAIL) && !stringExtra.startsWith("-")) {
+        if (stringExtra != null && stringExtra.length() > 0 && !stringExtra.equals("0") && !stringExtra.startsWith("-")) {
             Intent intent = personInfoActivityConfig.getIntent();
             intent.setClass(context, PersonInfoActivity.class);
             if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().equals(stringExtra)) {
@@ -50,6 +55,7 @@ public class PersonInfoActivityStatic {
             intent.putExtra("from_forum", stringExtra3);
             intent.putExtra("st_type", stringExtra4);
             intent.putExtra("tab_page", false);
+            personInfoActivityConfig.setComponentClass(PersonInfoActivity.class);
             personInfoActivityConfig.run();
         }
     }

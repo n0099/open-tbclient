@@ -26,9 +26,12 @@ public final class QueryGroupDetailResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<QueryGroupDetailResIdl> {
+    public static final class Builder extends Message.Builder<QueryGroupDetailResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(QueryGroupDetailResIdl queryGroupDetailResIdl) {
             super(queryGroupDetailResIdl);

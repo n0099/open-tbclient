@@ -1,20 +1,20 @@
 package com.baidu.adp.lib.a.b.a.b;
 /* loaded from: classes.dex */
 public class b implements h {
-    private boolean rS;
+    private boolean rO;
 
     public b(boolean z) {
-        this.rS = z;
+        this.rO = z;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Boolean.valueOf(this.rS);
+        return Boolean.valueOf(this.rO);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object b(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Boolean.valueOf(this.rS);
+        return Boolean.valueOf(this.rO);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -24,16 +24,16 @@ public class b implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Boolean.valueOf(this.rS);
+        return Boolean.valueOf(this.rO);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object e(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Boolean.valueOf(this.rS);
+        return Boolean.valueOf(this.rO);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Boolean.valueOf(this.rS);
+        return Boolean.valueOf(this.rO);
     }
 }

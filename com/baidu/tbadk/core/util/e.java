@@ -6,16 +6,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class e {
-    public static void sp() {
-        com.baidu.adp.base.a.c mainDBDatabaseManager;
+    public static void tw() {
+        com.baidu.adp.base.a.b mainDBDatabaseManager;
         if (TbadkCoreApplication.getCurrentAccount() != null && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
             mainDBDatabaseManager.a("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
         }
     }
 
-    public static void cw(String str) {
+    public static void cx(String str) {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
-            com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             if (str != null && mainDBDatabaseManager != null) {
                 mainDBDatabaseManager.a("delete from chunk_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
             }
@@ -26,23 +26,23 @@ public class e {
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             return false;
         }
-        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         Date date = new Date();
         if (bVar == null || mainDBDatabaseManager == null) {
             return false;
         }
-        mainDBDatabaseManager.a("delete from chunk_upload_data where md5=? and account=?", new String[]{bVar.vg(), TbadkCoreApplication.getCurrentAccount()});
-        return mainDBDatabaseManager.a("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{bVar.vg(), Long.valueOf(bVar.getTotalLength()), Integer.valueOf(bVar.vh()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        mainDBDatabaseManager.a("delete from chunk_upload_data where md5=? and account=?", new String[]{bVar.wo(), TbadkCoreApplication.getCurrentAccount()});
+        return mainDBDatabaseManager.a("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{bVar.wo(), Long.valueOf(bVar.getTotalLength()), Integer.valueOf(bVar.wp()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static com.baidu.tbadk.coreExtra.data.b cx(String str) {
+    public static com.baidu.tbadk.coreExtra.data.b cy(String str) {
         Cursor cursor;
         Exception e;
         com.baidu.tbadk.coreExtra.data.b bVar;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             return null;
         }
-        com.baidu.adp.base.a.c mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         try {
             cursor = mainDBDatabaseManager.rawQuery("select * from chunk_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
             try {
@@ -50,9 +50,9 @@ public class e {
                     if (cursor.moveToFirst()) {
                         bVar = new com.baidu.tbadk.coreExtra.data.b();
                         try {
-                            bVar.dz(str);
-                            bVar.cD(cursor.getInt(3));
-                            bVar.u(cursor.getLong(2));
+                            bVar.dB(str);
+                            bVar.cN(cursor.getInt(3));
+                            bVar.s(cursor.getLong(2));
                         } catch (Exception e2) {
                             e = e2;
                             mainDBDatabaseManager.a(e, "getChunkUploadDataByMd5");

@@ -1,33 +1,32 @@
 package com.baidu.tieba.write.write;
 
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements View.OnTouchListener {
-    final /* synthetic */ WriteActivity cCQ;
+public class ar implements a.b {
+    final /* synthetic */ WriteActivity cUM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(WriteActivity writeActivity) {
-        this.cCQ = writeActivity;
+        this.cUM = writeActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        InputMethodManager inputMethodManager;
-        EditText editText;
-        InputMethodManager inputMethodManager2;
-        EditText editText2;
-        WriteActivity writeActivity = this.cCQ;
-        inputMethodManager = this.cCQ.mInputManager;
-        editText = this.cCQ.cAv;
-        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.cCQ;
-        inputMethodManager2 = this.cCQ.mInputManager;
-        editText2 = this.cCQ.cAz;
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
-        return false;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        WriteData writeData;
+        WriteData writeData2;
+        WriteData writeData3;
+        aVar.dismiss();
+        writeData = this.cUM.cKS;
+        int type = writeData.getType();
+        if (type == 0) {
+            writeData3 = this.cUM.cKS;
+            com.baidu.tieba.tbadkCore.ac.b(writeData3.getForumId(), (WriteData) null);
+        } else if (type == 1) {
+            writeData2 = this.cUM.cKS;
+            com.baidu.tieba.tbadkCore.ac.c(writeData2.getThreadId(), (WriteData) null);
+        }
+        this.cUM.finish();
     }
 }

@@ -5,6 +5,7 @@ import android.os.Environment;
 import android.support.v4.widget.ExploreByTouchHelper;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.location.au;
 import com.baidu.location.u;
 import java.io.File;
@@ -50,7 +51,7 @@ public class c implements a0, n {
     public static int ab = 7;
     public static int Z = 20;
     public static int a7 = 70;
-    public static int ai = 120;
+    public static int ai = SocialAPIErrorCodes.ERROR_INVALID_AUTHORIZED_CODE;
     public static float aH = 2.0f;
     public static float aG = 10.0f;
     public static float bd = 50.0f;

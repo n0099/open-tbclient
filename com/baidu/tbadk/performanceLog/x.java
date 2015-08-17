@@ -1,12 +1,9 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class x {
-    public String apZ;
-    public int aqa;
-    final /* synthetic */ u aqu;
-    public String aqv;
+    public String subType = null;
 
-    public x(u uVar) {
-        this.aqu = uVar;
+    public static com.baidu.adp.lib.stats.d hd() {
+        return com.baidu.adp.lib.stats.a.hk().ap("pfmonitor");
     }
 }

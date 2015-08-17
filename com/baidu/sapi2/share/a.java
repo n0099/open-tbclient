@@ -15,8 +15,8 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.L;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-import com.baidu.tbadk.game.GameInfoData;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -149,10 +149,10 @@ public final class a {
         }
         String d = d(context);
         String b2 = b(context, d);
-        Map<String, String> l = com.baidu.sapi2.d.a(context).l();
+        Map<String, String> k = com.baidu.sapi2.d.a(context).k();
         if (!TextUtils.isEmpty(d) && !TextUtils.isEmpty(b2)) {
-            for (String str : l.keySet()) {
-                if (d.matches(str) && b2.equals(l.get(str))) {
+            for (String str : k.keySet()) {
+                if (d.matches(str) && b2.equals(k.get(str))) {
                     return true;
                 }
             }
@@ -164,11 +164,11 @@ public final class a {
         if (context == null || TextUtils.isEmpty(str)) {
             return false;
         }
-        Map<String, String> l = com.baidu.sapi2.d.a(context).l();
+        Map<String, String> k = com.baidu.sapi2.d.a(context).k();
         String b2 = b(context, str);
         if (!TextUtils.isEmpty(b2)) {
-            for (String str2 : l.keySet()) {
-                if (str.matches(str2) && b2.equals(l.get(str2))) {
+            for (String str2 : k.keySet()) {
+                if (str.matches(str2) && b2.equals(k.get(str2))) {
                     return true;
                 }
             }
@@ -231,7 +231,7 @@ public final class a {
         for (byte b2 : bArr) {
             String hexString = Integer.toHexString(b2 & 255);
             if (hexString.length() == 1) {
-                sb.append(GameInfoData.NOT_FROM_DETAIL);
+                sb.append("0");
             }
             sb.append(hexString);
         }
@@ -250,7 +250,7 @@ public final class a {
                     a2.c(sapiAccount);
                     a2.d(sapiAccount);
                     if (SapiAccountManager.getSilentShareListener() != null) {
-                        new Handler(Looper.getMainLooper()).post(new RunnableC0008a(a2));
+                        new Handler(Looper.getMainLooper()).post(new RunnableC0028a(a2));
                     }
                     for (SapiAccount sapiAccount2 : shareModel.a()) {
                         if (a(context, sapiAccount2)) {
@@ -259,7 +259,7 @@ public final class a {
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put(SapiUtils.QR_LOGIN_LP_APP, sapiAccount.app);
-                    com.baidu.sapi2.utils.a.a("silent_login_share", hashMap);
+                    StatService.a("silent_login_share", hashMap);
                 } else {
                     for (SapiAccount sapiAccount3 : shareModel.a()) {
                         if (a(context, sapiAccount3)) {
@@ -275,10 +275,10 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.share.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public final class RunnableC0008a implements Runnable {
+    public final class RunnableC0028a implements Runnable {
         final /* synthetic */ com.baidu.sapi2.d a;
 
-        RunnableC0008a(com.baidu.sapi2.d dVar) {
+        RunnableC0028a(com.baidu.sapi2.d dVar) {
             this.a = dVar;
         }
 

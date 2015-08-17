@@ -41,24 +41,43 @@ public class UserData extends MetaData {
     private List<MyGift> mGift;
     private int mGiftNum;
     private List<MyGroup> mGroup;
+    private boolean mIsSelectTail;
     private List<MyLikeForum> mLikeForum;
     private int managerLevel;
+    private int markCount;
+    private int newMarkCount;
     private String password;
-    private g payMemberInfo;
+    private f payMemberInfo;
     private Permission permission;
-    private h personPrivate;
+    private g personPrivate;
     private String position;
     private int posts_num;
     private int sex;
     private String tb_age;
     private int userType;
 
-    public h getPersonPrivate() {
+    public int getMarkCount() {
+        return this.markCount;
+    }
+
+    public void setMarkCount(int i) {
+        this.markCount = i;
+    }
+
+    public int getNewMarkCount() {
+        return this.newMarkCount;
+    }
+
+    public void setNewMarkCount(int i) {
+        this.newMarkCount = i;
+    }
+
+    public g getPersonPrivate() {
         return this.personPrivate;
     }
 
-    public void setPersonPrivate(h hVar) {
-        this.personPrivate = hVar;
+    public void setPersonPrivate(g gVar) {
+        this.personPrivate = gVar;
     }
 
     public List<MyLikeForum> getLikeForum() {
@@ -125,6 +144,14 @@ public class UserData extends MetaData {
         this.grade = str;
     }
 
+    public boolean getIsSelectTail() {
+        return this.mIsSelectTail;
+    }
+
+    public void setIsSelectTail(boolean z) {
+        this.mIsSelectTail = z;
+    }
+
     public UserData() {
         this.password = null;
         this.isManager = false;
@@ -141,6 +168,8 @@ public class UserData extends MetaData {
         this.posts_num = 0;
         setHave_attention(0);
         this.tb_age = "";
+        this.markCount = 0;
+        this.newMarkCount = 0;
     }
 
     public UserData(long j, String str, String str2, int i) {
@@ -188,6 +217,8 @@ public class UserData extends MetaData {
             this.posts_num = user.post_num.intValue();
             this.tb_age = user.tb_age;
             this.managerLevel = user.is_manager.intValue();
+            this.markCount = user.bookmark_count.intValue();
+            this.newMarkCount = user.bookmark_new_count.intValue();
             this.isOfficialAccount = user.is_guanfang.intValue();
             if (user.is_manager.intValue() == 1) {
                 this.isManager = true;
@@ -202,12 +233,12 @@ public class UserData extends MetaData {
             this.isFriend = user.is_friend.intValue();
             PrivSets privSets = user.priv_sets;
             if (privSets != null) {
-                this.personPrivate = new h();
+                this.personPrivate = new g();
                 this.personPrivate.a(privSets);
             }
             PayMemberInfo payMemberInfo = user.pay_member_info;
             if (payMemberInfo != null) {
-                this.payMemberInfo = new g();
+                this.payMemberInfo = new f();
                 this.payMemberInfo.a(payMemberInfo);
             }
             if (user.is_mask.intValue() == 1) {
@@ -215,6 +246,7 @@ public class UserData extends MetaData {
             } else {
                 this.isMask = false;
             }
+            this.mIsSelectTail = user.is_select_tail.intValue() == 1;
             this.mGiftNum = user.gift_num.intValue();
             this.mLikeForum.clear();
             List<LikeForumInfo> list = user.likeForum;
@@ -276,6 +308,8 @@ public class UserData extends MetaData {
                 this.like_bars = jSONObject.optInt("my_like_num");
                 this.intro = jSONObject.optString("intro");
                 this.isFriend = jSONObject.optInt("is_friend");
+                this.markCount = jSONObject.optInt("bookmark_count");
+                this.newMarkCount = jSONObject.optInt("bookmark_new_count", 0);
                 this.have_attention = jSONObject.optInt("has_concerned");
                 this.password = jSONObject.optString("passwd");
                 this.posts_num = jSONObject.optInt("post_num", 0);
@@ -293,12 +327,12 @@ public class UserData extends MetaData {
                 this.mGiftNum = jSONObject.optInt("gift_num");
                 JSONObject optJSONObject = jSONObject.optJSONObject("priv_sets");
                 if (optJSONObject != null) {
-                    this.personPrivate = new h();
+                    this.personPrivate = new g();
                     this.personPrivate.parserJson(optJSONObject);
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("pay_member_info");
                 if (optJSONObject2 != null) {
-                    this.payMemberInfo = new g();
+                    this.payMemberInfo = new f();
                     this.payMemberInfo.parseJson(optJSONObject2);
                 }
                 if (jSONObject.optInt("is_mask") == 1) {
@@ -343,11 +377,6 @@ public class UserData extends MetaData {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-    }
-
-    @Override // com.baidu.tbadk.data.MetaData
-    public void logPrint() {
-        super.logPrint();
     }
 
     public void setConcern_num(int i) {
@@ -426,7 +455,7 @@ public class UserData extends MetaData {
         return this.sex;
     }
 
-    public g getPayMemberInfoData() {
+    public f getPayMemberInfoData() {
         return this.payMemberInfo;
     }
 
@@ -507,7 +536,7 @@ public class UserData extends MetaData {
     }
 
     /* loaded from: classes.dex */
-    public class Permission extends i implements Serializable {
+    public static class Permission extends i implements Serializable {
         private static final long serialVersionUID = -661968182172681650L;
         private int isGroupManager;
         private int isGroupOwner;

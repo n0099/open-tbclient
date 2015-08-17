@@ -1,21 +1,23 @@
 package com.baidu.tbadk.core.a;
 
-import android.content.Context;
-import android.content.Intent;
 import android.view.View;
+import com.baidu.sapi2.SapiWebView;
 /* loaded from: classes.dex */
-class g implements View.OnClickListener {
-    private final /* synthetic */ Context val$context;
+class g implements Runnable {
+    private final /* synthetic */ SapiWebView TS;
+    private final /* synthetic */ View TT;
+    final /* synthetic */ f TU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(Context context) {
-        this.val$context = context;
+    public g(f fVar, View view, SapiWebView sapiWebView) {
+        this.TU = fVar;
+        this.TT = view;
+        this.TS = sapiWebView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Intent intent = new Intent("android.settings.SETTINGS");
-        intent.setFlags(270532608);
-        this.val$context.startActivity(intent);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.TT.setVisibility(4);
+        this.TS.reload();
     }
 }

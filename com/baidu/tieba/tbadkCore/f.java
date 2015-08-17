@@ -1,99 +1,49 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.game.GameInfoData;
-import org.json.JSONObject;
+import android.content.Context;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends BdAsyncTask<String, Integer, Boolean> {
-    private com.baidu.tbadk.core.util.aa aaG;
-    private final String coB;
-    private final g coC;
-    final /* synthetic */ e coD;
-    private final String mForumId;
-    private final String mForumName;
+public class f implements com.baidu.adp.lib.e.c<TbImageView> {
+    private final /* synthetic */ Context val$context;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: f */
-    public Boolean doInBackground(String... strArr) {
-        w wVar;
-        try {
-            this.aaG = new com.baidu.tbadk.core.util.aa(strArr[0]);
-            this.aaG.o(ImageViewerConfig.FORUM_ID, this.mForumId);
-            this.aaG.o("kw", this.mForumName);
-            this.aaG.o("is_like", this.coB);
-            this.aaG.sX().tS().mIsNeedTbs = true;
-            String sw = this.aaG.sw();
-            if (this.aaG.ta()) {
-                if (this.coB.equals(GameInfoData.NOT_FROM_DETAIL)) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(sw);
-                        JSONObject optJSONObject = jSONObject.optJSONObject("like_data");
-                        if (optJSONObject.optInt("is_success", 0) == 1) {
-                            this.coC.level = optJSONObject.optInt("level_id", 0);
-                            this.coC.coH = optJSONObject.optString("level_name", "");
-                            JSONObject optJSONObject2 = jSONObject.optJSONObject("user_perm");
-                            if (optJSONObject2 != null) {
-                                this.coC.cur_score = optJSONObject2.optInt("cur_score", 0);
-                                this.coC.levelup_score = optJSONObject2.optInt("levelup_score", 0);
-                            }
-                            this.coC.coF = true;
-                        }
-                        wVar = this.coD.cou;
-                        wVar.a(this.coC);
-                    } catch (Exception e) {
-                        BdLog.detailException(e);
-                    }
-                }
-                if (this.aaG.sX().tT().qa()) {
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(sw);
-                        this.coC.coG = jSONObject2.optInt("num");
-                        this.coC.coE = true;
-                    } catch (Exception e2) {
-                        BdLog.detailException(e2);
-                    }
-                }
-            }
-            return false;
-        } catch (Exception e3) {
-            BdLog.e(e3.getMessage());
-            return false;
-        }
-    }
-
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
-        super.cancel(true);
-        if (this.aaG != null) {
-            this.aaG.gS();
-        }
-        this.coD.coz = null;
-        this.coD.fb(false);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(Context context) {
+        this.val$context = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: vF */
+    public TbImageView hb() {
+        return new TbImageView(this.val$context);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: a */
+    public void l(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
     /* renamed from: b */
-    public void onPostExecute(Boolean bool) {
-        z zVar;
-        z zVar2;
-        this.coD.coz = null;
-        this.coD.fb(false);
-        if (this.aaG != null) {
-            h hVar = new h();
-            hVar.errorMsg = this.aaG.getErrorString();
-            hVar.errorCode = this.aaG.tb();
-            zVar = this.coD.cow;
-            if (zVar != null) {
-                zVar2 = this.coD.cow;
-                zVar2.a(this.coC, hVar);
-            }
-        }
+    public TbImageView m(TbImageView tbImageView) {
+        return tbImageView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public TbImageView n(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+        return tbImageView;
     }
 }

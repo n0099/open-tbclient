@@ -5,7 +5,7 @@ import android.view.KeyEvent;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import com.baidu.adp.base.BdBaseActivity;
-import com.baidu.adp.base.j;
+import com.baidu.adp.base.h;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
@@ -20,11 +20,11 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             finish();
             return;
         }
-        bK(stringExtra);
-        PluginPackageManager.lM().a(stringExtra, new a(this));
+        bH(stringExtra);
+        PluginPackageManager.lT().a(stringExtra, new a(this));
     }
 
-    private void bK(String str) {
+    private void bH(String str) {
         try {
             LinearLayout linearLayout = new LinearLayout(getPageContext().getPageActivity());
             linearLayout.setGravity(17);
@@ -46,8 +46,8 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
         return super.onKeyDown(i, keyEvent);
     }
 
-    @Override // com.baidu.adp.base.k
-    public j<LoadingActivity> getPageContext() {
+    @Override // com.baidu.adp.base.i
+    public h<LoadingActivity> getPageContext() {
         return null;
     }
 }

@@ -12,15 +12,15 @@ import protobuf.UserInfo;
 public final class DataRes extends Message {
     public static final List<GroupInfo> DEFAULT_GROUPINFO = Collections.emptyList();
     public static final List<Integer> DEFAULT_HEARTBEATINTERVAL = Collections.emptyList();
-    public static final Integer DEFAULT_ISUSERAVAILABLE = 0;
+    public static final Long DEFAULT_ISUSERAVAILABLE = 0L;
     @ProtoField(tag = 5)
     public final ConfigVersion configVersion;
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<GroupInfo> groupInfo;
     @ProtoField(label = Message.Label.REPEATED, tag = 4, type = Message.Datatype.INT32)
     public final List<Integer> heartbeatInterval;
-    @ProtoField(tag = 6, type = Message.Datatype.INT32)
-    public final Integer isUserAvailable;
+    @ProtoField(tag = 6, type = Message.Datatype.INT64)
+    public final Long isUserAvailable;
     @ProtoField(tag = 3)
     public final MaskInfo maskInfo;
     @ProtoField(tag = 2)
@@ -63,13 +63,16 @@ public final class DataRes extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataRes> {
+    public static final class Builder extends Message.Builder<DataRes> {
         public ConfigVersion configVersion;
         public List<GroupInfo> groupInfo;
         public List<Integer> heartbeatInterval;
-        public Integer isUserAvailable;
+        public Long isUserAvailable;
         public MaskInfo maskInfo;
         public UserInfo userInfo;
+
+        public Builder() {
+        }
 
         public Builder(DataRes dataRes) {
             super(dataRes);

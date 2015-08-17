@@ -4,9 +4,9 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 /* loaded from: classes.dex */
 public final class DataReq extends Message {
-    public static final Integer DEFAULT_UID = 0;
-    @ProtoField(tag = 1, type = Message.Datatype.UINT32)
-    public final Integer uid;
+    public static final Long DEFAULT_UID = 0L;
+    @ProtoField(tag = 1, type = Message.Datatype.INT64)
+    public final Long uid;
 
     /* synthetic */ DataReq(Builder builder, boolean z, DataReq dataReq) {
         this(builder, z);
@@ -27,8 +27,11 @@ public final class DataReq extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DataReq> {
-        public Integer uid;
+    public static final class Builder extends Message.Builder<DataReq> {
+        public Long uid;
+
+        public Builder() {
+        }
 
         public Builder(DataReq dataReq) {
             super(dataReq);

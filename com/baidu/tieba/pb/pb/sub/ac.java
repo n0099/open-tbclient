@@ -1,43 +1,27 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.app.Dialog;
-import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
+import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements View.OnClickListener {
-    final /* synthetic */ s bPU;
+public class ac implements AdapterView.OnItemLongClickListener {
+    final /* synthetic */ t cgt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ac(s sVar) {
-        this.bPU = sVar;
+    public ac(t tVar) {
+        this.cgt = tVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        r rVar;
-        r rVar2;
-        Dialog dialog2;
-        Dialog dialog3;
-        TbPageContext tbPageContext;
-        dialog = this.bPU.bNM;
-        if (dialog != null) {
-            dialog2 = this.bPU.bNM;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.bPU.bNM;
-                tbPageContext = this.bPU.Yt;
-                com.baidu.adp.lib.g.k.b(dialog3, tbPageContext);
-            }
+    @Override // android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
+        View.OnLongClickListener onLongClickListener;
+        View.OnLongClickListener onLongClickListener2;
+        onLongClickListener = this.cgt.cgj;
+        if (onLongClickListener != null) {
+            onLongClickListener2 = this.cgt.cgj;
+            onLongClickListener2.onLongClick(view);
+            return false;
         }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            rVar = this.bPU.bPK;
-            if (rVar != null) {
-                rVar2 = this.bPU.bPK;
-                rVar2.c(new Object[]{sparseArray.get(com.baidu.tieba.q.tag_manage_user_identity), sparseArray.get(com.baidu.tieba.q.tag_forbid_user_name), sparseArray.get(com.baidu.tieba.q.tag_forbid_user_post_id)});
-            }
-        }
+        return false;
     }
 }

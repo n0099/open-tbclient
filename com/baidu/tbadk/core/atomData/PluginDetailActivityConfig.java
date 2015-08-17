@@ -2,9 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class PluginDetailActivityConfig extends c {
+public class PluginDetailActivityConfig extends IntentConfig {
     public static final String PLUGIN_NAME = "name";
 
     public PluginDetailActivityConfig(Context context, String str) {

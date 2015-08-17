@@ -9,14 +9,14 @@ public class RequestGetLivableForumList extends TbSocketMessage {
     int likeForumFlag;
     int pageNo;
     int pageSize;
-    int userId;
+    long userId;
 
     public RequestGetLivableForumList() {
         super(107129);
     }
 
-    public void setUserId(int i) {
-        this.userId = i;
+    public void setUserId(long j) {
+        this.userId = j;
     }
 
     public void setFilterFlag(int i) {
@@ -38,7 +38,7 @@ public class RequestGetLivableForumList extends TbSocketMessage {
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     protected Object encode() {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.userId = Integer.valueOf(this.userId);
+        builder.userId = Long.valueOf(this.userId);
         if (this.likeForumFlag == 1) {
             builder.pageNo = Integer.valueOf(this.pageNo);
             builder.pageSize = Integer.valueOf(this.pageSize);

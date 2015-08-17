@@ -1,13 +1,14 @@
 package com.baidu.tieba.mainentrance;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ResponseSearchPersonHistoryReadMessage extends CustomResponsedMessage<Object> {
     public final ArrayList<String> datas;
 
     public ResponseSearchPersonHistoryReadMessage() {
-        super(2001195);
+        super(CmdConfigCustom.CMD_READ_SEARCHPERSON_HISTORY);
         this.datas = new ArrayList<>(10);
     }
 }

@@ -5,15 +5,15 @@ import android.widget.LinearLayout;
 import java.util.Timer;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    private final /* synthetic */ Timer Ir;
-    final /* synthetic */ c Is;
+    private final /* synthetic */ Timer Iu;
+    final /* synthetic */ c Iv;
     private final /* synthetic */ View yH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, View view, Timer timer) {
-        this.Is = cVar;
+        this.Iv = cVar;
         this.yH = view;
-        this.Ir = timer;
+        this.Iu = timer;
     }
 
     @Override // java.lang.Runnable
@@ -33,30 +33,30 @@ class d implements Runnable {
         b bVar7;
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.yH.getLayoutParams();
         int i4 = layoutParams.bottomMargin;
-        bVar = this.Is.Iq;
-        i = bVar.Ia;
+        bVar = this.Iv.It;
+        i = bVar.Ic;
         layoutParams.bottomMargin = i4 - i;
         int i5 = layoutParams.bottomMargin;
-        bVar2 = this.Is.Iq;
-        i2 = bVar2.Io;
+        bVar2 = this.Iv.It;
+        i2 = bVar2.Ir;
         if (i5 <= i2) {
-            bVar6 = this.Is.Iq;
-            i3 = bVar6.Io;
+            bVar6 = this.Iv.It;
+            i3 = bVar6.Ir;
             layoutParams.bottomMargin = i3;
-            this.Ir.cancel();
-            bVar7 = this.Is.Iq;
-            bVar7.Ip = true;
+            this.Iu.cancel();
+            bVar7 = this.Iv.It;
+            bVar7.Is = true;
         }
         this.yH.setLayoutParams(layoutParams);
-        bVar3 = this.Is.Iq;
-        z = bVar3.Ip;
+        bVar3 = this.Iv.It;
+        z = bVar3.Is;
         if (z) {
-            bVar4 = this.Is.Iq;
-            gVar = bVar4.Ic;
+            bVar4 = this.Iv.It;
+            gVar = bVar4.Ie;
             if (gVar != null) {
-                bVar5 = this.Is.Iq;
-                gVar2 = bVar5.Ic;
-                gVar2.ns();
+                bVar5 = this.Iv.It;
+                gVar2 = bVar5.Ie;
+                gVar2.nC();
             }
         }
     }

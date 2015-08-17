@@ -1,24 +1,51 @@
 package com.baidu.tieba.mainentrance;
 
-import android.widget.AbsListView;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements AbsListView.OnScrollListener {
-    final /* synthetic */ SquareSearchActivity bCF;
+public class z implements View.OnClickListener {
+    final /* synthetic */ SquareSearchActivity bQZ;
+    private final /* synthetic */ TextView bRa;
+    private final /* synthetic */ ImageView bRb;
+    private final /* synthetic */ TextView bRc;
+    private final /* synthetic */ ImageView bRd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(SquareSearchActivity squareSearchActivity) {
-        this.bCF = squareSearchActivity;
+    public z(SquareSearchActivity squareSearchActivity, TextView textView, ImageView imageView, TextView textView2, ImageView imageView2) {
+        this.bQZ = squareSearchActivity;
+        this.bRa = textView;
+        this.bRb = imageView;
+        this.bRc = textView2;
+        this.bRd = imageView2;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (i == 2 || i == 1) {
-            com.baidu.adp.lib.util.n.c(this.bCF.getPageContext().getPageActivity(), absListView);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
+        FragmentTabIndicator fragmentTabIndicator;
+        FragmentTabIndicator fragmentTabIndicator2;
+        this.bQZ.bQB = false;
+        this.bRa.setTextColor(com.baidu.tbadk.core.util.al.getColor(i.c.cp_link_tip_a));
+        this.bRb.setVisibility(0);
+        this.bRc.setTextColor(com.baidu.tbadk.core.util.al.getColor(i.c.cp_cont_c));
+        this.bRd.setVisibility(8);
+        view2 = this.bQZ.bQg;
+        view2.setVisibility(8);
+        fragmentTabIndicator = this.bQZ.bPX;
+        fragmentTabIndicator.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down);
+        fragmentTabIndicator2 = this.bQZ.bPX;
+        fragmentTabIndicator2.cI(TbadkCoreApplication.m411getInst().getSkinType());
+        this.bQZ.ZU();
+        if (!TextUtils.isEmpty(this.bQZ.bQt)) {
+            this.bQZ.G(1, this.bQZ.bQt);
         }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        TiebaStatic.eventStat(this.bQZ.getPageContext().getPageActivity(), "search_2", "click", 1, new Object[0]);
     }
 }

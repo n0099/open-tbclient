@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class MentionActivityConfig extends c {
+public class MentionActivityConfig extends IntentConfig {
     public static final String KEY_INTENT_NOTIFICATION_ID = "NotifiIdKey";
     public static int jumpInTab = -1;
     public static boolean newJumpIn;

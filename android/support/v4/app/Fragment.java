@@ -75,7 +75,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     boolean mUserVisibleHint = true;
 
     /* loaded from: classes.dex */
-    public class SavedState implements Parcelable {
+    public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: android.support.v4.app.Fragment.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
@@ -117,7 +117,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     /* loaded from: classes.dex */
-    public class InstantiationException extends RuntimeException {
+    public static class InstantiationException extends RuntimeException {
         public InstantiationException(String str, Exception exc) {
             super(str, exc);
         }

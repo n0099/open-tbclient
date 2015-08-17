@@ -1,74 +1,38 @@
 package com.baidu.tieba.person;
 
+import android.view.View;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm extends com.baidu.adp.base.f {
-    private static final String aAA = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/listFriend";
-    private static TbHttpMessageTask aAB = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, aAA);
-    private com.baidu.tieba.person.a.a mData;
-    private String mId;
-    private boolean mIsHost;
-    private int mSex;
+public class bm implements View.OnClickListener {
+    final /* synthetic */ PersonListActivity ckd;
 
-    static {
-        aAB.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(aAB);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bm(PersonListActivity personListActivity) {
+        this.ckd = personListActivity;
     }
 
-    public bm(TbPageContext tbPageContext, boolean z) {
-        super(tbPageContext);
-        this.mData = new com.baidu.tieba.person.a.a();
-        this.mIsHost = z;
-    }
-
-    public void setId(String str) {
-        this.mId = str;
-    }
-
-    public String getId() {
-        return this.mId;
-    }
-
-    public void setSex(int i) {
-        this.mSex = i;
-    }
-
-    public void setData(com.baidu.tieba.person.a.a aVar) {
-        this.mData = aVar;
-    }
-
-    public com.baidu.tieba.person.a.a getData() {
-        return this.mData;
-    }
-
-    public void Hi() {
-        super.sendMessage(new PersonFriendByUidLocalMessage());
-    }
-
-    public void a(boolean z, String str, int i, int i2) {
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_FRIEND_CMD);
-        if (!z) {
-            httpMessage.addParam("friend_uid", str);
-            httpMessage.addParam("is_guest", String.valueOf(1));
-            httpMessage.setExtra(str);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        br brVar;
+        br brVar2;
+        br brVar3;
+        int intValue = ((Integer) view.getTag()).intValue();
+        brVar = this.ckd.cjY;
+        if (brVar != null) {
+            brVar2 = this.ckd.cjY;
+            if (brVar2.getItemViewType(intValue) == 0) {
+                brVar3 = this.ckd.cjY;
+                UserData userData = (UserData) brVar3.getItem(intValue);
+                if (userData != null && userData.getUserId() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.ckd.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), null, AddFriendActivityConfig.TYPE_FOCUS)));
+                }
+            }
         }
-        httpMessage.addParam("page_num", new StringBuilder(String.valueOf(i)).toString());
-        httpMessage.addParam("res_num", new StringBuilder(String.valueOf(i2)).toString());
-        super.sendMessage(httpMessage);
-    }
-
-    @Override // com.baidu.adp.base.f
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.f
-    public boolean cancelLoadData() {
-        return false;
     }
 }

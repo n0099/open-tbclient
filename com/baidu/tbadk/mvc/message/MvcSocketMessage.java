@@ -1,10 +1,10 @@
 package com.baidu.tbadk.mvc.message;
 
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
+import com.baidu.tbadk.mvc.b.j;
 import com.baidu.tbadk.mvc.b.k;
-import com.baidu.tbadk.mvc.b.l;
 /* loaded from: classes.dex */
-public class MvcSocketMessage<T extends l, D extends k> extends TbSocketMessage {
+public class MvcSocketMessage<T extends k, D extends j> extends TbSocketMessage {
     private boolean isNeedCache;
     private T requestData;
     private Class<D> responseDataClass;
@@ -17,7 +17,7 @@ public class MvcSocketMessage<T extends l, D extends k> extends TbSocketMessage 
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     protected Object encode() {
-        return this.requestData.Y(false);
+        return this.requestData.aa(false);
     }
 
     public T getRequestData() {

@@ -4,36 +4,45 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private ArrayList<a> aiy;
+    private ArrayList<com.baidu.tbadk.b.a.a> anF;
     private Context mContext;
+
+    /* loaded from: classes.dex */
+    private class a {
+        public HeadImageView anG;
+        public TextView anH;
+        public TextView anI;
+    }
 
     public Context getContext() {
         return this.mContext;
     }
 
-    public void a(a aVar) {
-        if (this.aiy != null && aVar != null) {
-            this.aiy.add(aVar);
+    public void a(com.baidu.tbadk.b.a.a aVar) {
+        if (this.anF != null && aVar != null) {
+            this.anF.add(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aiy == null) {
+        if (this.anF == null) {
             return 0;
         }
-        return this.aiy.size();
+        return this.anF.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ds */
-    public a getItem(int i) {
-        if (this.aiy != null && i < this.aiy.size()) {
-            return this.aiy.get(i);
+    /* renamed from: dC */
+    public com.baidu.tbadk.b.a.a getItem(int i) {
+        if (this.anF != null && i < this.anF.size()) {
+            return this.anF.get(i);
         }
         return null;
     }
@@ -46,10 +55,10 @@ public class b extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view != null) {
-            c cVar = (c) view.getTag();
-            cVar.aiz.setImageResource(this.aiy.get(i).yW());
-            cVar.aiA.setText(this.aiy.get(i).yX());
-            cVar.aiB.setText(i);
+            a aVar = (a) view.getTag();
+            aVar.anG.setImageResource(this.anF.get(i).Ag());
+            aVar.anH.setText(this.anF.get(i).Ah());
+            aVar.anI.setText(i);
             return view;
         }
         return null;

@@ -209,9 +209,6 @@ public class AntiData implements Serializable {
         }
     }
 
-    public void logPrint() {
-    }
-
     public void setForbid_info(String str) {
         this.forbid_info = str;
     }

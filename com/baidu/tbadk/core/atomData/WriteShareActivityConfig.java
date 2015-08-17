@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.app.Activity;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class WriteShareActivityConfig extends c {
+public class WriteShareActivityConfig extends IntentConfig {
     public static final String FORUM_NAME = "forum_name";
     public static final String PREFIX_DATA = "prefix_data";
     public static final String SHARE_API_KEY = "share_api_key";

@@ -1,88 +1,79 @@
 package com.baidu.adp.plugin.packageManager;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.plugin.util.Util;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.adp.plugin.PluginCenter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends BdAsyncTask<Void, Integer, Boolean> {
-    final /* synthetic */ e Dq;
+public class f extends BroadcastReceiver {
+    final /* synthetic */ PluginPackageManager this$0;
 
-    public f(e eVar) {
-        this.Dq = eVar;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public f(PluginPackageManager pluginPackageManager) {
+        this.this$0 = pluginPackageManager;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public Boolean doInBackground(Void... voidArr) {
-        ArrayList<File> lK = lK();
-        if (lK == null || lK.size() == 0) {
-            return false;
-        }
-        h(lK);
-        return true;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public void onPostExecute(Boolean bool) {
-        super.onPostExecute(bool);
-        this.Dq.Dp = null;
-    }
-
-    private ArrayList<File> lK() {
-        HashMap hashMap;
-        HashMap hashMap2;
-        ArrayList<File> arrayList = null;
-        File mo = Util.mo();
-        if (mo != null) {
-            String mh = com.baidu.adp.plugin.packageManager.pluginSettings.e.me().mh();
-            File[] listFiles = mo.listFiles();
-            if (listFiles != null) {
-                arrayList = new ArrayList<>();
-                for (File file : listFiles) {
-                    if (file != null) {
-                        String absolutePath = file.getAbsolutePath();
-                        BdLog.i("ClearRedunceFiles file: " + file.getAbsolutePath());
-                        if (!absolutePath.equals(mh) && System.currentTimeMillis() - file.lastModified() >= 86400000) {
-                            if (file.isDirectory()) {
-                                hashMap2 = this.Dq.Do;
-                                if (hashMap2.get(String.valueOf(absolutePath) + ".apk") == null) {
-                                    arrayList.add(file);
-                                }
-                            } else if (absolutePath.endsWith(".apk")) {
-                                hashMap = this.Dq.Do;
-                                if (hashMap.get(absolutePath) == null) {
-                                    arrayList.add(file);
-                                }
-                            } else if (System.currentTimeMillis() - file.lastModified() > 259200000) {
-                                arrayList.add(file);
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        String str;
+        String str2;
+        boolean z;
+        boolean z2 = true;
+        if (intent != null && "com.baidu.adp.plugin.currentpath".equals(intent.getAction())) {
+            Bundle resultExtras = getResultExtras(true);
+            String str3 = "";
+            if (resultExtras != null) {
+                str3 = resultExtras.getString("package_name");
+            }
+            if (!TextUtils.isEmpty(str3) && resultExtras != null) {
+                str = str3;
+                str2 = resultExtras.getString("current_path");
+            } else if (intent.getExtras() == null) {
+                str = str3;
+                str2 = "";
+            } else {
+                str = intent.getExtras().getString("package_name");
+                str2 = intent.getExtras().getString("current_path");
+            }
+            String str4 = "";
+            if (PluginCenter.getInstance().getPlugin(str) != null) {
+                str4 = PluginCenter.getInstance().getPlugin(str).kq();
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = str4;
+                } else {
+                    String[] split = str2.split(",");
+                    int length = split.length;
+                    int i = 0;
+                    while (true) {
+                        if (i < length) {
+                            if (split[i].equals(str4)) {
+                                break;
                             }
+                            i++;
+                        } else {
+                            z2 = false;
+                            break;
                         }
+                    }
+                    if (!z2) {
+                        str2 = String.valueOf(str2) + "," + str4;
                     }
                 }
             }
-        }
-        return arrayList;
-    }
-
-    private void h(ArrayList<File> arrayList) {
-        if (arrayList != null && arrayList.size() != 0) {
-            Iterator<File> it = arrayList.iterator();
-            while (it.hasNext()) {
-                File next = it.next();
-                if (next != null) {
-                    com.baidu.adp.lib.util.commonsio.a.g(next);
-                }
+            Bundle bundle = new Bundle();
+            bundle.putString("package_name", str);
+            bundle.putString("current_path", str2);
+            setResultExtras(bundle);
+            z = this.this$0.Dt;
+            if (!z) {
+                return;
             }
+            this.this$0.L(str, str2);
         }
     }
 }

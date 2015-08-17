@@ -9,7 +9,7 @@ public class RequestAddLiveGroupMessage extends TbSocketMessage {
     public int groupType;
     public int labelId;
     public String name;
-    public int publisherId;
+    public long publisherId;
     public String publisherName;
 
     public RequestAddLiveGroupMessage() {
@@ -23,7 +23,7 @@ public class RequestAddLiveGroupMessage extends TbSocketMessage {
         builder.name = this.name;
         builder.groupType = Integer.valueOf(this.groupType);
         builder.publisherName = this.publisherName;
-        builder.publisherId = Integer.valueOf(this.publisherId);
+        builder.publisherId = Long.valueOf(this.publisherId);
         builder.labelId = Integer.valueOf(this.labelId);
         AddLiveGroupReqIdl.Builder builder2 = new AddLiveGroupReqIdl.Builder();
         builder2.data = builder.build(false);

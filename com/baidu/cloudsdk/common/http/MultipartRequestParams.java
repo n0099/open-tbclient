@@ -107,9 +107,9 @@ public class MultipartRequestParams extends RequestParams {
         return stringBuilder;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public class FileWrapper {
+    public static class FileWrapper {
         public String mContentType;
         public String mFileName;
         public InputStream mIn;

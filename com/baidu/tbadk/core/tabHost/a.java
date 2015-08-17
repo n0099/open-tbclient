@@ -1,48 +1,39 @@
 package com.baidu.tbadk.core.tabHost;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.view.ViewGroup;
-import com.baidu.tbadk.core.BaseFragment;
-import java.util.List;
+import android.view.View;
+import android.view.animation.Animation;
+import com.baidu.adp.lib.g.d;
 /* loaded from: classes.dex */
-public class a extends FragmentPagerAdapter {
-    private List<b> TA;
-    private int mPrimaryPosition;
+class a extends d {
+    final /* synthetic */ FragmentTabHost YA;
 
-    public a(FragmentManager fragmentManager, List<b> list) {
-        super(fragmentManager);
-        this.mPrimaryPosition = -1;
-        this.TA = list;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public a(FragmentTabHost fragmentTabHost) {
+        this.YA = fragmentTabHost;
     }
 
-    @Override // android.support.v4.app.FragmentPagerAdapter
-    public Fragment getItem(int i) {
-        return this.TA.get(i).TC;
-    }
-
-    @Override // android.support.v4.app.FragmentPagerAdapter
-    public long getItemId(int i) {
-        return this.TA.get(i).TC.hashCode();
-    }
-
-    @Override // android.support.v4.view.PagerAdapter
-    public int getCount() {
-        return this.TA.size();
-    }
-
-    @Override // android.support.v4.app.FragmentPagerAdapter, android.support.v4.view.PagerAdapter
-    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
-        super.setPrimaryItem(viewGroup, i, obj);
-        if (this.mPrimaryPosition != i) {
-            if (this.mPrimaryPosition != -1) {
-                ((BaseFragment) getItem(this.mPrimaryPosition)).setPrimary(false);
-            }
-            this.mPrimaryPosition = i;
-            if (obj instanceof BaseFragment) {
-                ((BaseFragment) obj).setPrimary(true);
-            }
+    @Override // com.baidu.adp.lib.g.d
+    public void b(Animation animation) {
+        Animation layerInAnimation;
+        Animation layerOutAnimation;
+        View view;
+        View view2;
+        View view3;
+        View view4;
+        layerInAnimation = this.YA.getLayerInAnimation();
+        if (animation == layerInAnimation) {
+            view3 = this.YA.Ys;
+            view3.setVisibility(0);
+            view4 = this.YA.Ys;
+            view4.setClickable(true);
+            return;
+        }
+        layerOutAnimation = this.YA.getLayerOutAnimation();
+        if (animation == layerOutAnimation) {
+            view = this.YA.Ys;
+            view.setVisibility(8);
+            view2 = this.YA.Ys;
+            view2.setClickable(false);
         }
     }
 }

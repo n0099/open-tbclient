@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import java.util.HashMap;
 /* loaded from: classes.dex */
-public class BdStatisticsUploadConfig implements Serializable {
+class BdStatisticsUploadConfig implements Serializable {
     private static final long serialVersionUID = 3356496353918792359L;
     public HashMap<String, BdStatisticsUploadConfigItem> item = new HashMap<>();
 
     /* loaded from: classes.dex */
-    public class BdStatisticsUploadConfigItem implements Serializable {
+    public static class BdStatisticsUploadConfigItem implements Serializable {
         private static final long serialVersionUID = -7225735564387772L;
         public String type;
         public boolean isUpload = false;
@@ -18,7 +18,7 @@ public class BdStatisticsUploadConfig implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class BdStatistisUploadChilidItem implements Serializable {
+    public static class BdStatistisUploadChilidItem implements Serializable {
         private static final long serialVersionUID = 492107549674799283L;
         public boolean isUpload = false;
         public boolean isWifi = true;
@@ -57,7 +57,10 @@ public class BdStatisticsUploadConfig implements Serializable {
             if (bdStatistisUploadChilidItem == null) {
                 return bdStatisticsUploadConfigItem.isWifi;
             }
-            return bdStatistisUploadChilidItem.isWifi;
+            if (bdStatistisUploadChilidItem.isWifi) {
+                return true;
+            }
+            return bdStatisticsUploadConfigItem.isWifi;
         }
         return true;
     }

@@ -1,54 +1,57 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.tbadk.core.atomData.PayActivityConfig;
+import com.baidu.adp.lib.a.b.a.a.i;
 import org.json.JSONObject;
-import tbclient.PayMemberInfo;
+import tbclient.PrivSets;
 /* loaded from: classes.dex */
-public class g {
-    private int Pl;
-    private int ail;
-    private String expire_remind;
-    private String url;
+public class g extends i {
+    private int anr = 1;
+    private int ans = 1;
+    private int ant = 1;
+    private int anu = 1;
+    private int anv = 1;
 
-    public void parseJson(JSONObject jSONObject) {
+    public int Aa() {
+        return this.anr;
+    }
+
+    public int Ab() {
+        return this.ans;
+    }
+
+    public int Ac() {
+        return this.ant;
+    }
+
+    public int Ad() {
+        return this.anu;
+    }
+
+    public int Ae() {
+        return this.anv;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ail = jSONObject.optInt(PayActivityConfig.PROPS_ID);
-            this.Pl = jSONObject.optInt("end_time", 0);
-            this.url = jSONObject.optString(this.url, "");
-            this.expire_remind = jSONObject.optString("expire_remind");
+            this.anr = jSONObject.optInt("location", 1);
+            this.ans = jSONObject.optInt("like", 1);
+            this.ant = jSONObject.optInt("group", 1);
+            this.anu = jSONObject.optInt("post", 1);
+            this.anv = jSONObject.optInt("friend", 1);
         }
     }
 
-    public void a(PayMemberInfo payMemberInfo) {
-        if (payMemberInfo != null) {
-            if (payMemberInfo.props_id != null) {
-                this.ail = payMemberInfo.props_id.intValue();
+    public void a(PrivSets privSets) {
+        if (privSets != null) {
+            try {
+                this.anr = privSets.location.intValue();
+                this.ans = privSets.like.intValue();
+                this.ant = privSets.group.intValue();
+                this.anu = privSets.post.intValue();
+                this.anv = privSets.friend.intValue();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            if (payMemberInfo.end_time != null) {
-                this.Pl = payMemberInfo.end_time.intValue();
-            }
-            this.url = payMemberInfo.url;
-            this.expire_remind = payMemberInfo.expire_remind;
         }
-    }
-
-    public int yO() {
-        return this.ail;
-    }
-
-    public int qs() {
-        return this.Pl;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public String yP() {
-        return this.expire_remind;
-    }
-
-    public void eq(String str) {
-        this.expire_remind = str;
     }
 }

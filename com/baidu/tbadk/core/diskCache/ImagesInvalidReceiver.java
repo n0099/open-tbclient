@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.g.j;
+import com.baidu.adp.lib.g.i;
 /* loaded from: classes.dex */
 public class ImagesInvalidReceiver extends BroadcastReceiver {
     public static final String SUCCESS = "success";
@@ -12,7 +12,7 @@ public class ImagesInvalidReceiver extends BroadcastReceiver {
     public static void broadcast(boolean z) {
         Intent intent = new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidReceiver.class);
         intent.putExtra(SUCCESS, z);
-        j.h(BdBaseApplication.getInst().getContext(), intent);
+        i.h(BdBaseApplication.getInst().getContext(), intent);
     }
 
     @Override // android.content.BroadcastReceiver

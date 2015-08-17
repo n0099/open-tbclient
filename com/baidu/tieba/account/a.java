@@ -1,39 +1,32 @@
 package com.baidu.tieba.account;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* loaded from: classes.dex */
-class a implements com.baidu.tbadk.core.a.b {
-    final /* synthetic */ AccountActivity awg;
+class a extends Handler {
+    final /* synthetic */ AccountActivity aDy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AccountActivity accountActivity) {
-        this.awg = accountActivity;
+        this.aDy = accountActivity;
     }
 
-    @Override // com.baidu.tbadk.core.a.b
-    public void cb(String str) {
-    }
-
-    @Override // com.baidu.tbadk.core.a.b
-    public void a(AccountData accountData) {
-        TbadkCoreApplication.setCurrentAccount(accountData, this.awg.getBaseContext());
-        this.awg.closeLoadingDialog();
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
-        TbadkCoreApplication.m411getInst().onUserChanged();
-        com.baidu.tbadk.core.c.b.a(this.awg.getPageContext().getPageActivity(), 1, false);
-        this.awg.awe = null;
-    }
-
-    @Override // com.baidu.tbadk.core.a.b
-    public void c(String str, int i, String str2) {
-        this.awg.closeLoadingDialog();
-        this.awg.showToast(str2);
-        if (i == 1) {
-            ReloginManager.sg().e(TbadkCoreApplication.getCurrentAccountObj());
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        super.handleMessage(message);
+        switch (message.what) {
+            case 1:
+                this.aDy.FP();
+                return;
+            case 2:
+                if (message.obj instanceof AccountData) {
+                    this.aDy.n((AccountData) message.obj);
+                    return;
+                }
+                return;
+            default:
+                return;
         }
     }
 }

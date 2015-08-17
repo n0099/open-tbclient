@@ -1,37 +1,48 @@
 package com.baidu.tieba.person;
 
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tbadk.coreExtra.view.MultiImageView;
+import com.baidu.tieba.i;
+import com.baidu.tieba.person.PersonImageActivity;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bh implements AdapterView.OnItemClickListener {
-    final /* synthetic */ bc bTa;
+public class bh implements c.b {
+    final /* synthetic */ PersonImageActivity cjP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bh(bc bcVar) {
-        this.bTa = bcVar;
+    public bh(PersonImageActivity personImageActivity) {
+        this.cjP = personImageActivity;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        bk bkVar;
-        bk bkVar2;
-        bk bkVar3;
-        PersonFriendActivity aez;
-        bkVar = this.bTa.bST;
-        if (bkVar != null) {
-            bkVar2 = this.bTa.bST;
-            if (bkVar2.getItemViewType(i) == 0) {
-                bkVar3 = this.bTa.bST;
-                UserData userData = (UserData) bkVar3.getItem(i);
-                if (userData != null && userData.getUserId() != null) {
-                    bc bcVar = this.bTa;
-                    aez = this.bTa.aez();
-                    bcVar.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(aez.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        com.baidu.tbadk.core.dialog.c listMenu;
+        MultiImageView multiImageView;
+        MultiImageView multiImageView2;
+        PersonImageActivity.a aVar;
+        listMenu = this.cjP.getListMenu();
+        if (cVar == listMenu) {
+            if (i == 0) {
+                try {
+                    multiImageView = this.cjP.bmV;
+                    byte[] currentImageData = multiImageView.getCurrentImageData();
+                    if (currentImageData != null) {
+                        multiImageView2 = this.cjP.bmV;
+                        String currentImageUrl = multiImageView2.getCurrentImageUrl();
+                        this.cjP.cjO = new PersonImageActivity.a(currentImageUrl, currentImageData);
+                        aVar = this.cjP.cjO;
+                        aVar.execute(new String[0]);
+                        this.cjP.mProgress.setVisibility(0);
+                    } else {
+                        this.cjP.showToast(this.cjP.getPageContext().getString(i.C0057i.no_data));
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
             }
+            cVar.dismiss();
         }
     }
 }

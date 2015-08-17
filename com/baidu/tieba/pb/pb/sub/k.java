@@ -1,49 +1,48 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-public class k implements am {
-    final /* synthetic */ NewSubPbActivity bPx;
+class k implements com.baidu.adp.lib.e.c<LinearLayout> {
+    final /* synthetic */ NewSubPbActivity cfY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(NewSubPbActivity newSubPbActivity) {
-        this.bPx = newSubPbActivity;
+        this.cfY = newSubPbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.sub.am
-    public void a(boolean z, int i, String str, com.baidu.tieba.pb.a.c cVar) {
-        s sVar;
-        s sVar2;
-        s sVar3;
-        s sVar4;
-        ak akVar;
-        s sVar5;
-        sVar = this.bPx.bPr;
-        if (sVar != null) {
-            sVar5 = this.bPx.bPr;
-            sVar5.ado();
-        }
-        if (z) {
-            sVar2 = this.bPx.bPr;
-            sVar2.hideNoDataView();
-            if (cVar != null) {
-                sVar3 = this.bPx.bPr;
-                if (sVar3 != null) {
-                    sVar4 = this.bPx.bPr;
-                    akVar = this.bPx.bPo;
-                    sVar4.a(cVar, akVar.aaw());
-                }
-                an anVar = new an();
-                anVar.setData(cVar);
-                anVar.setType(0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004007, anVar));
-                return;
-            }
-            return;
-        }
-        this.bPx.showToast(str);
-        this.bPx.acW();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: adr */
+    public LinearLayout hb() {
+        LinearLayout linearLayout = new LinearLayout(this.cfY.getPageContext().getPageActivity());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        linearLayout.setLayoutParams(layoutParams);
+        linearLayout.setGravity(16);
+        linearLayout.setBaselineAligned(true);
+        linearLayout.setOrientation(0);
+        linearLayout.setLayoutParams(layoutParams);
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: g */
+    public void l(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: h */
+    public LinearLayout m(LinearLayout linearLayout) {
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: i */
+    public LinearLayout n(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+        return linearLayout;
     }
 }

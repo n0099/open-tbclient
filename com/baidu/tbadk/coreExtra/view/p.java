@@ -1,103 +1,28 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.content.Context;
-import android.graphics.PointF;
-import android.view.MotionEvent;
-import com.baidu.tbadk.core.view.BaseViewPager;
-import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class p extends BaseViewPager {
-    private PointF afx;
-    private com.baidu.tbadk.widget.a afy;
-    private com.baidu.tbadk.widget.a afz;
+class p extends CustomMessageListener {
+    final /* synthetic */ LiveBroadcastCard alq;
 
-    public p(Context context) {
-        super(context);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p(LiveBroadcastCard liveBroadcastCard, int i) {
+        super(i);
+        this.alq = liveBroadcastCard;
     }
 
-    public void setCurrentView(com.baidu.tbadk.widget.a aVar) {
-        this.afy = aVar;
-    }
-
-    public com.baidu.tbadk.widget.a getCurrentView() {
-        return this.afy;
-    }
-
-    private float[] i(MotionEvent motionEvent) {
-        switch (motionEvent.getAction() & CompatibleUtile.getActionMask()) {
-            case 1:
-            case 2:
-                PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.afx.x, pointF.y - this.afx.y};
-            case 0:
-                this.afx = new PointF(motionEvent.getX(), motionEvent.getY());
-                break;
-        }
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.core.view.BaseViewPager, com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
-            super.onTouchEvent(motionEvent);
-            if (this.afy != null) {
-                this.afy.actionUp();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        long j;
+        if (customResponsedMessage != null) {
+            j = this.alq.mStartTime;
+            if (j <= 0) {
+                return;
             }
+            this.alq.dealStatusWillStart();
         }
-        if (this.afy == null) {
-            return super.onTouchEvent(motionEvent);
-        }
-        float[] i = i(motionEvent);
-        if (this.afy.pagerCantScroll()) {
-            return super.onTouchEvent(motionEvent);
-        }
-        if (i != null && this.afy.onRightSide() && i[0] < 0.0f) {
-            return super.onTouchEvent(motionEvent);
-        }
-        if (i != null && this.afy.onLeftSide() && i[0] > 0.0f) {
-            return super.onTouchEvent(motionEvent);
-        }
-        if (i == null) {
-            if (this.afy.onLeftSide() || this.afy.onRightSide()) {
-                return super.onTouchEvent(motionEvent);
-            }
-            return false;
-        }
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
-    public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
-            super.onInterceptTouchEvent(motionEvent);
-        }
-        float[] i = i(motionEvent);
-        if (this.afy == null) {
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        if (this.afy.pagerCantScroll()) {
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        if (i != null && this.afy.onRightSide() && i[0] < 0.0f) {
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        if (i != null && this.afy.onLeftSide() && i[0] > 0.0f) {
-            return super.onInterceptTouchEvent(motionEvent);
-        }
-        if (i == null) {
-            if (this.afy.onLeftSide() || this.afy.onRightSide()) {
-                return super.onInterceptTouchEvent(motionEvent);
-            }
-            return false;
-        }
-        return false;
-    }
-
-    public void setSelectedView(com.baidu.tbadk.widget.a aVar) {
-        this.afz = aVar;
-    }
-
-    public com.baidu.tbadk.widget.a getSelectedView() {
-        return this.afz;
     }
 }

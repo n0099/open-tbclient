@@ -1,17 +1,15 @@
 package com.baidu.tieba.tbadkCore.e;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.stats.f;
-import com.baidu.adp.lib.stats.q;
-import com.baidu.tbadk.game.GameInfoData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class b {
-    private static HashMap<String, e> csI;
+    private static HashMap<String, e> cJk;
 
     static {
-        MessageManager.getInstance().registerListener(new c(2001011));
-        csI = new HashMap<>();
+        MessageManager.getInstance().registerListener(new c(CmdConfigCustom.CMD_BACKGROUND_SWTICH));
+        cJk = new HashMap<>();
     }
 
     public static void g(String str, String str2, boolean z) {
@@ -19,8 +17,8 @@ public class b {
             str2 = "";
         }
         String str3 = String.valueOf(str) + str2;
-        if (!csI.containsKey(str3)) {
-            csI.put(str3, new e(str, str2, z));
+        if (!cJk.containsKey(str3)) {
+            cJk.put(str3, new e(str, str2, z));
         }
     }
 
@@ -29,38 +27,41 @@ public class b {
             str2 = "";
         }
         String str3 = String.valueOf(str) + str2;
-        if (!csI.containsKey(str3)) {
-            csI.put(str3, new e(str, str2, z));
+        if (!cJk.containsKey(str3)) {
+            cJk.put(str3, new e(str, str2, z));
         }
-        return csI.get(str3);
+        return cJk.get(str3);
     }
 
-    public static void iS(int i) {
-        for (String str : csI.keySet()) {
-            a(csI.get(str), i);
+    public static void aqm() {
+    }
+
+    public static void jK(int i) {
+        for (String str : cJk.keySet()) {
+            a(cJk.get(str), i);
         }
     }
 
     public static void a(e eVar, int i) {
-        d dVar = eVar.csM;
-        d dVar2 = eVar.csN;
-        d dVar3 = eVar.csO;
+        d dVar = eVar.cJo;
+        d dVar2 = eVar.cJp;
+        d dVar3 = eVar.cJq;
         if (dVar.num + dVar2.num + dVar3.num >= i) {
-            q qVar = new q("dbg");
-            qVar.r("act", eVar.type);
-            qVar.r("httpTimeCost", String.valueOf(dVar.csJ));
-            qVar.r("httpNum", String.valueOf(dVar.num));
-            qVar.r("httpFailnum", String.valueOf(dVar.csK));
-            qVar.r("httpSize", String.valueOf(dVar.size));
-            qVar.r("socketTimeCost", String.valueOf(dVar2.csJ));
-            qVar.r("socketNum", String.valueOf(dVar2.num));
-            qVar.r("socketFailnum", String.valueOf(dVar2.csK));
-            qVar.r("socketSize", String.valueOf(dVar2.size));
-            qVar.r("abortTimeCost", String.valueOf(dVar3.csJ));
-            qVar.r("abortNum", String.valueOf(dVar3.num));
-            qVar.r("netType", eVar.blE);
-            qVar.r("isJson", eVar.csL ? "1" : GameInfoData.NOT_FROM_DETAIL);
-            f.hz().a("frs", qVar);
+            com.baidu.adp.lib.stats.d dVar4 = new com.baidu.adp.lib.stats.d("dbg");
+            dVar4.q("act", eVar.type);
+            dVar4.q("httpTimeCost", String.valueOf(dVar.cJl));
+            dVar4.q("httpNum", String.valueOf(dVar.num));
+            dVar4.q("httpFailnum", String.valueOf(dVar.cJm));
+            dVar4.q("httpSize", String.valueOf(dVar.size));
+            dVar4.q("socketTimeCost", String.valueOf(dVar2.cJl));
+            dVar4.q("socketNum", String.valueOf(dVar2.num));
+            dVar4.q("socketFailnum", String.valueOf(dVar2.cJm));
+            dVar4.q("socketSize", String.valueOf(dVar2.size));
+            dVar4.q("abortTimeCost", String.valueOf(dVar3.cJl));
+            dVar4.q("abortNum", String.valueOf(dVar3.num));
+            dVar4.q("netType", eVar.bzq);
+            dVar4.q("isJson", eVar.cJn ? "1" : "0");
+            com.baidu.adp.lib.stats.a.hk().b("frs", dVar4);
             dVar.reset();
             dVar2.reset();
             dVar3.reset();

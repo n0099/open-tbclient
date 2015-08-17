@@ -1,5 +1,25 @@
 package com.baidu.tbadk.coreExtra.view;
+
+import android.view.View;
+import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface r {
-    void dk(int i);
+public class r implements View.OnClickListener {
+    final /* synthetic */ LiveBroadcastCard alq;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public r(LiveBroadcastCard liveBroadcastCard) {
+        this.alq = liveBroadcastCard;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        LiveBroadcastCard.d dVar;
+        LiveBroadcastCard.d dVar2;
+        dVar = this.alq.mDeleteListener;
+        if (dVar != null) {
+            dVar2 = this.alq.mDeleteListener;
+            dVar2.onDeleteClick(view);
+        }
+    }
 }

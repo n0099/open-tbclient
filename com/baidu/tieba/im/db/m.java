@@ -1,23 +1,20 @@
 package com.baidu.tieba.im.db;
 
-import com.baidu.tieba.im.message.chat.OfficialChatMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m extends a {
-    public static String bfb = "tb_oficial_msg_";
-    private static a bfq;
-
-    private m() {
-        super("tb_oficial_msg_", OfficialChatMessage.class);
+public class m extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public m(int i) {
+        super(i);
     }
 
-    public static synchronized m RB() {
-        m mVar;
-        synchronized (m.class) {
-            if (bfq == null) {
-                bfq = new m();
-            }
-            mVar = (m) bfq;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008015 && customResponsedMessage.getData() != null) {
+            com.baidu.tieba.im.l.a(new n(this, customResponsedMessage), new o(this));
         }
-        return mVar;
     }
 }

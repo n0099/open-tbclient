@@ -3,10 +3,11 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.widget.TbClipImageView;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class GroupImageView extends TbClipImageView {
-    private int XL;
-    private int XM;
+    private int acI;
+    private int acJ;
 
     public GroupImageView(Context context) {
         this(context, null, 0);
@@ -18,8 +19,8 @@ public class GroupImageView extends TbClipImageView {
 
     public GroupImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.XL = com.baidu.tieba.p.icon_default_group_120;
-        this.XM = com.baidu.tieba.n.cp_cont_e;
+        this.acI = i.e.icon_default_group_120;
+        this.acJ = i.c.cp_cont_e;
         init();
     }
 
@@ -27,7 +28,7 @@ public class GroupImageView extends TbClipImageView {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultResource(this.XL);
-        setDefaultBgResource(this.XM);
+        setDefaultResource(this.acI);
+        setDefaultBgResource(this.acJ);
     }
 }

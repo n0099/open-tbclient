@@ -1,27 +1,16 @@
 package com.baidu.adp.lib.asyncTask;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes.dex */
-public class d extends Handler {
-    public d(Looper looper) {
-        super(looper);
-    }
+class d implements ThreadFactory {
+    private final AtomicInteger mCount = new AtomicInteger(1);
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        c cVar = (c) message.obj;
-        switch (message.what) {
-            case 1:
-                cVar.sz.finish(cVar.mData[0]);
-                return;
-            case 2:
-                cVar.sz.onProgressUpdate(cVar.mData);
-                return;
-            default:
-                return;
-        }
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        String str = "BdAsyncTask #" + String.valueOf(this.mCount.getAndIncrement());
+        BdLog.i(str);
+        return new Thread(runnable, str);
     }
 }

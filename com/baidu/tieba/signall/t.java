@@ -1,52 +1,62 @@
 package com.baidu.tieba.signall;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
+import android.widget.ProgressBar;
+import android.widget.Scroller;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t {
-    private a chO = new a();
-    private int ciQ;
-    private int ciR;
-    private int ciS;
-    private int ciT;
-    private int forumId;
-    private String forumName;
-    private int signed;
+public class t implements Runnable {
+    final /* synthetic */ s cBu;
 
-    public int getForumId() {
-        return this.forumId;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public t(s sVar) {
+        this.cBu = sVar;
     }
 
-    public int getSigned() {
-        return this.signed;
-    }
-
-    public int akO() {
-        return this.ciS;
-    }
-
-    public int getCurScore() {
-        return this.ciT;
-    }
-
-    public a akn() {
-        return this.chO;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.chO.parserJson(jSONObject.optJSONObject("error"));
-                this.forumId = jSONObject.optInt("forum_id");
-                this.forumName = jSONObject.optString("forum_name");
-                this.signed = jSONObject.optInt("signed");
-                this.ciQ = jSONObject.optInt("is_on");
-                this.ciR = jSONObject.optInt("is_filter");
-                this.ciS = jSONObject.optInt("sign_day_count");
-                this.ciT = jSONObject.optInt("cur_score");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    @Override // java.lang.Runnable
+    public void run() {
+        Scroller scroller;
+        ProgressBar progressBar;
+        ProgressBar progressBar2;
+        Scroller scroller2;
+        Scroller scroller3;
+        ProgressBar progressBar3;
+        ProgressBar progressBar4;
+        Runnable runnable;
+        int i;
+        Scroller scroller4;
+        Runnable runnable2;
+        scroller = this.cBu.mScroller;
+        if (!scroller.computeScrollOffset()) {
+            progressBar = this.cBu.mProgress;
+            int progress = progressBar.getProgress();
+            progressBar2 = this.cBu.mProgress;
+            int max = (progressBar2.getMax() * 9) / 10;
+            if (progress < max) {
+                scroller2 = this.cBu.mScroller;
+                scroller2.startScroll(progress, 0, max - progress, 0, 5000);
+                this.cBu.post(this);
+                return;
+            }
+            return;
+        }
+        scroller3 = this.cBu.mScroller;
+        int currX = scroller3.getCurrX();
+        progressBar3 = this.cBu.mProgress;
+        if (currX >= (progressBar3.getMax() * 9) / 10) {
+            i = this.cBu.cBn;
+            if (i != 2) {
+                scroller4 = this.cBu.mScroller;
+                scroller4.forceFinished(true);
+                s sVar = this.cBu;
+                runnable2 = this.cBu.cBs;
+                sVar.postDelayed(runnable2, 2000L);
+                return;
             }
         }
+        progressBar4 = this.cBu.mProgress;
+        progressBar4.setProgress(currX);
+        s sVar2 = this.cBu;
+        runnable = this.cBu.cBr;
+        sVar2.postDelayed(runnable, 16L);
     }
 }

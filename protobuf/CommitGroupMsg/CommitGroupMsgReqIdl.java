@@ -21,8 +21,11 @@ public final class CommitGroupMsgReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<CommitGroupMsgReqIdl> {
+    public static final class Builder extends Message.Builder<CommitGroupMsgReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(CommitGroupMsgReqIdl commitGroupMsgReqIdl) {
             super(commitGroupMsgReqIdl);

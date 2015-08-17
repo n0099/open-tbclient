@@ -1,5 +1,22 @@
 package com.baidu.tieba.pb.pb.sub;
 /* loaded from: classes.dex */
-public interface am {
-    void a(boolean z, int i, String str, com.baidu.tieba.pb.a.c cVar);
+public class am<T> {
+    private T data;
+    private int type;
+
+    public int getType() {
+        return this.type;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public T getData() {
+        return this.data;
+    }
+
+    public void setData(T t) {
+        this.data = t;
+    }
 }

@@ -1,41 +1,62 @@
 package com.baidu.tieba.tbadkCore.location;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetSuggestionByAddrName.DataRes;
+import tbclient.Lbs;
 /* loaded from: classes.dex */
-public class i extends HttpMessageListener {
-    final /* synthetic */ e ctN;
+public class i {
+    private ArrayList<a> cKq = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(e eVar, int i) {
-        super(i);
-        this.ctN = eVar;
+    /* loaded from: classes.dex */
+    public static class a {
+        private String lat;
+        private String lng;
+        private String name;
+        private String screatString;
+
+        public String getName() {
+            return this.name;
+        }
+
+        public void setName(String str) {
+            this.name = str;
+        }
+
+        public void b(Lbs lbs) {
+            if (lbs != null) {
+                this.name = lbs.name;
+                this.lat = lbs.lat;
+                this.lng = lbs.lng;
+                this.screatString = lbs.sn;
+            }
+        }
+
+        public String getScreatString() {
+            return this.screatString;
+        }
+
+        public void ky(String str) {
+            this.screatString = str;
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        j jVar;
-        j jVar2;
-        if (httpResponsedMessage == null || httpResponsedMessage.getError() != 0) {
-            BdLog.i("mOpenShareLocSwitchListener response error!");
-            jVar = this.ctN.ctG;
-            if (jVar != null) {
-                String str = null;
-                if (httpResponsedMessage != null && httpResponsedMessage.getError() > 0) {
-                    str = httpResponsedMessage.getErrorString();
-                }
-                jVar2 = this.ctN.ctG;
-                jVar2.gh(str);
-                return;
+    public ArrayList<a> aqL() {
+        return this.cKq;
+    }
+
+    public void Z(ArrayList<a> arrayList) {
+        this.cKq = arrayList;
+    }
+
+    public void a(DataRes dataRes) {
+        List<Lbs> list = dataRes.poi_info;
+        if (list != null && !list.isEmpty()) {
+            for (Lbs lbs : list) {
+                a aVar = new a();
+                aVar.b(lbs);
+                this.cKq.add(aVar);
             }
-            return;
         }
-        TbadkCoreApplication.m411getInst().setLocationShared(true);
-        this.ctN.apl();
     }
 }

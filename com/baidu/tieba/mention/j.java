@@ -1,87 +1,59 @@
 package com.baidu.tieba.mention;
 
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.mvc.core.MvcActivity;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class j extends l {
-    private com.baidu.tbadk.mvc.j.d<FeedData, com.baidu.tbadk.mvc.e.c, b> aDG;
-    private com.baidu.tbadk.mvc.i.b.c bFX;
-    private BdListView bFY;
-    private NoNetworkView mNoNetworkView;
+public class j extends k {
+    private com.baidu.tbadk.mvc.g.d<FeedData, com.baidu.tbadk.mvc.d.b, b> aLd;
+    private com.baidu.tbadk.mvc.f.a.b bVM;
+    private BdListView bVN;
 
-    public j(MvcActivity<?, ?, ?> mvcActivity) {
-        super(mvcActivity);
-    }
-
-    @Override // com.baidu.tbadk.mvc.i.e
-    public BdListView getListView() {
-        return this.bFY;
+    public j(SingleMentionActivity singleMentionActivity) {
+        super(singleMentionActivity);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.mvc.core.c
-    public void oH() {
-        super.oH();
-        if (this.aDG != null) {
-            this.aDG.oH();
+    public void a(com.baidu.tbadk.mvc.b.a aVar) {
+        if (aVar instanceof t) {
+            this.aLd.r(((t) aVar).abF());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.mvc.core.c
-    public void onActivityStop() {
-        super.onActivityStop();
-        if (this.aDG != null) {
-            this.aDG.onActivityStop();
+    @Override // com.baidu.tieba.mention.k
+    public View pb() {
+        this.rootView = this.bVG.getLayoutInflater().inflate(i.g.at_me_activity, (ViewGroup) null);
+        this.aKx = (BdListView) getView().findViewById(i.f.atme_lv);
+        oS();
+        return this.rootView;
+    }
+
+    @Override // com.baidu.tieba.mention.k
+    protected void oS() {
+        super.oS();
+        this.bVN = (BdListView) getView().findViewById(i.f.atme_lv);
+        this.aLd = new com.baidu.tbadk.mvc.g.d<>(this.bVG.getPageContext(), b.class, i.g.mention_atme_item, this.bVG.oH());
+        this.aLd.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.bVG.getResources().getDimension(i.d.ds80)), NoDataViewFactory.d.cD(i.C0057i.mention_atme_nodata), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+        this.bVN.setAdapter((ListAdapter) this.aLd);
+    }
+
+    @Override // com.baidu.tbadk.mvc.f.a.a
+    public com.baidu.tbadk.mvc.f.a.b Di() {
+        if (this.bVM == null) {
+            this.bVM = new com.baidu.tbadk.mvc.f.a.b();
+            this.bVM.setTitle(this.bVG.getPageContext().getString(i.C0057i.mention_atme));
+            this.bVM.ei(2);
+            FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
+            aVar.view = this.bVG.getLayoutInflater().inflate(i.g.message_tip_item, (ViewGroup) null);
+            this.bVM.a(aVar);
+            this.bVM.fl("msg_tip_key");
         }
-    }
-
-    @Override // com.baidu.tbadk.mvc.i.a
-    protected void a(com.baidu.tbadk.mvc.b.a aVar) {
-        if (aVar instanceof q) {
-            this.aDG.s(((q) aVar).Zp());
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.core.c
-    protected int oK() {
-        return com.baidu.tieba.r.at_me_activity;
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.mention.l, com.baidu.tbadk.mvc.core.c
-    public void oL() {
-        this.bFY = (BdListView) getView().findViewById(com.baidu.tieba.q.atme_lv);
-        this.aDG = new com.baidu.tbadk.mvc.j.d<>(getPageContext(), b.class, com.baidu.tieba.r.mention_atme_item, AM());
-        this.aDG.a(com.baidu.tbadk.core.view.aa.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(com.baidu.tieba.o.ds80)), com.baidu.tbadk.core.view.ab.cv(com.baidu.tieba.t.mention_atme_nodata), (com.baidu.tbadk.core.view.z) null, (FrameLayout.LayoutParams) null);
-        this.bFY.setAdapter((ListAdapter) this.aDG);
-        this.mNoNetworkView = (NoNetworkView) getView().findViewById(com.baidu.tieba.q.view_no_network_at);
-        super.oL();
-    }
-
-    @Override // com.baidu.tieba.mention.l, com.baidu.tbadk.mvc.i.e, com.baidu.tbadk.mvc.core.d, com.baidu.tbadk.mvc.core.c, com.baidu.tieba.tbadkCore.ab
-    public boolean a(TbPageContext<?> tbPageContext, int i) {
-        this.aDG.a(tbPageContext, i);
-        this.mNoNetworkView.onChangeSkinType(getPageContext(), i);
-        return super.a(tbPageContext, i);
-    }
-
-    @Override // com.baidu.tbadk.mvc.i.b.b
-    public com.baidu.tbadk.mvc.i.b.c CI() {
-        if (this.bFX == null) {
-            this.bFX = new com.baidu.tbadk.mvc.i.b.c();
-            this.bFX.setTitle(getString(com.baidu.tieba.t.mention_atme));
-            this.bFX.eb(2);
-            com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-            cVar.view = com.baidu.adp.lib.g.b.hr().inflate(getActivity(), com.baidu.tieba.r.message_tip_item, null);
-            this.bFX.a(cVar);
-            this.bFX.eT("msg_tip_key");
-        }
-        return this.bFX;
+        return this.bVM;
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends CustomMessageListener {
-    final /* synthetic */ b bnU;
+    final /* synthetic */ b bBH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(b bVar, int i) {
         super(i);
-        this.bnU = bVar;
+        this.bBH = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,17 +23,17 @@ public class h extends CustomMessageListener {
         SparseArray sparseArray3;
         SparseArray sparseArray4;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            sparseArray = this.bnU.bnQ;
+            sparseArray = this.bBH.bBD;
             if (sparseArray != null) {
-                sparseArray4 = this.bnU.bnQ;
+                sparseArray4 = this.bBH.bBD;
                 sparseArray4.clear();
             }
-            sparseArray2 = this.bnU.bnR;
+            sparseArray2 = this.bBH.bBE;
             if (sparseArray2 != null) {
-                sparseArray3 = this.bnU.bnR;
+                sparseArray3 = this.bBH.bBE;
                 sparseArray3.clear();
             }
-            this.bnU.bnM = null;
+            this.bBH.bBz = null;
         }
     }
 }

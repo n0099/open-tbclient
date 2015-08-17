@@ -1,41 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.widget.richText.g;
 /* loaded from: classes.dex */
-class ay implements com.baidu.tieba.tbadkCore.at {
-    final /* synthetic */ PbActivity bKU;
+class ay extends CustomMessageListener {
+    final /* synthetic */ PbActivity cbo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ay(PbActivity pbActivity) {
-        this.bKU = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ay(PbActivity pbActivity, int i) {
+        super(i);
+        this.cbo = pbActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.at
-    public void fA(String str) {
-        com.baidu.tieba.tbadkCore.ar arVar;
-        bo boVar;
-        this.bKU.aJO = false;
-        arVar = this.bKU.aKc;
-        if (arVar != null) {
-            boVar = this.bKU.bKw;
-            com.baidu.tieba.pb.a.b pbData = boVar.getPbData();
-            if (pbData.aat().getPraise().getIsLike() == 1) {
-                this.bKU.eS(0);
-            } else {
-                this.bKU.eS(1);
-            }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004004, pbData.aat()));
-        }
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.at
-    public void fB(String str) {
-        com.baidu.tieba.tbadkCore.ar arVar;
-        this.bKU.aJO = false;
-        arVar = this.bKU.aKc;
-        if (arVar != null && str != null) {
-            this.bKU.showToast(str);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof g.a)) {
+            g.a aVar = (g.a) customResponsedMessage.getData();
+            com.baidu.tbadk.widget.richText.g.a(this.cbo.getPageContext(), aVar.type, aVar.url, aVar.subType);
         }
     }
 }

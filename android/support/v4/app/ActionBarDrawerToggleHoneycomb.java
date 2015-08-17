@@ -11,11 +11,7 @@ import android.widget.ImageView;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 class ActionBarDrawerToggleHoneycomb {
-    private static final String TAG = "ActionBarDrawerToggleHoneycomb";
     private static final int[] THEME_ATTRS = {16843531};
-
-    ActionBarDrawerToggleHoneycomb() {
-    }
 
     public static Object setActionBarUpIndicator(Object obj, Activity activity, Drawable drawable, int i) {
         Object setIndicatorInfo = obj == null ? new SetIndicatorInfo(activity) : obj;
@@ -26,12 +22,12 @@ class ActionBarDrawerToggleHoneycomb {
                 setIndicatorInfo2.setHomeAsUpIndicator.invoke(actionBar, drawable);
                 setIndicatorInfo2.setHomeActionContentDescription.invoke(actionBar, Integer.valueOf(i));
             } catch (Exception e) {
-                Log.w(TAG, "Couldn't set home-as-up indicator via JB-MR2 API", e);
+                Log.w("ActionBarDrawerToggleHoneycomb", "Couldn't set home-as-up indicator via JB-MR2 API", e);
             }
         } else if (setIndicatorInfo2.upIndicatorView != null) {
             setIndicatorInfo2.upIndicatorView.setImageDrawable(drawable);
         } else {
-            Log.w(TAG, "Couldn't set home-as-up indicator");
+            Log.w("ActionBarDrawerToggleHoneycomb", "Couldn't set home-as-up indicator");
         }
         return setIndicatorInfo;
     }
@@ -43,7 +39,7 @@ class ActionBarDrawerToggleHoneycomb {
             try {
                 setIndicatorInfo2.setHomeActionContentDescription.invoke(activity.getActionBar(), Integer.valueOf(i));
             } catch (Exception e) {
-                Log.w(TAG, "Couldn't set content description via JB-MR2 API", e);
+                Log.w("ActionBarDrawerToggleHoneycomb", "Couldn't set content description via JB-MR2 API", e);
             }
         }
         return setIndicatorInfo;
@@ -57,7 +53,7 @@ class ActionBarDrawerToggleHoneycomb {
     }
 
     /* loaded from: classes.dex */
-    class SetIndicatorInfo {
+    private static class SetIndicatorInfo {
         public Method setHomeActionContentDescription;
         public Method setHomeAsUpIndicator;
         public ImageView upIndicatorView;

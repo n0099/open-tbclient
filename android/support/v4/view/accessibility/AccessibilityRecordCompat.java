@@ -10,9 +10,8 @@ public class AccessibilityRecordCompat {
     private static final AccessibilityRecordImpl IMPL;
     private final Object mRecord;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public interface AccessibilityRecordImpl {
+    interface AccessibilityRecordImpl {
         int getAddedCount(Object obj);
 
         CharSequence getBeforeText(Object obj);
@@ -107,7 +106,7 @@ public class AccessibilityRecordCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityRecordStubImpl implements AccessibilityRecordImpl {
+    static class AccessibilityRecordStubImpl implements AccessibilityRecordImpl {
         AccessibilityRecordStubImpl() {
         }
 
@@ -321,7 +320,7 @@ public class AccessibilityRecordCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityRecordIcsImpl extends AccessibilityRecordStubImpl {
+    static class AccessibilityRecordIcsImpl extends AccessibilityRecordStubImpl {
         AccessibilityRecordIcsImpl() {
         }
 
@@ -532,7 +531,7 @@ public class AccessibilityRecordCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityRecordIcsMr1Impl extends AccessibilityRecordIcsImpl {
+    static class AccessibilityRecordIcsMr1Impl extends AccessibilityRecordIcsImpl {
         AccessibilityRecordIcsMr1Impl() {
         }
 
@@ -558,7 +557,7 @@ public class AccessibilityRecordCompat {
     }
 
     /* loaded from: classes.dex */
-    class AccessibilityRecordJellyBeanImpl extends AccessibilityRecordIcsMr1Impl {
+    static class AccessibilityRecordJellyBeanImpl extends AccessibilityRecordIcsMr1Impl {
         AccessibilityRecordJellyBeanImpl() {
         }
 

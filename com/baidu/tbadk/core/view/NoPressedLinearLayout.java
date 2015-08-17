@@ -9,6 +9,10 @@ public class NoPressedLinearLayout extends LinearLayout {
         super(context, attributeSet);
     }
 
+    public NoPressedLinearLayout(Context context) {
+        super(context);
+    }
+
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchSetPressed(boolean z) {
     }

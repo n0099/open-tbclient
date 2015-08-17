@@ -29,8 +29,11 @@ public final class RateList extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<RateList> {
+    public static final class Builder extends Message.Builder<RateList> {
         public List<Integer> rate;
+
+        public Builder() {
+        }
 
         public Builder(RateList rateList) {
             super(rateList);

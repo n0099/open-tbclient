@@ -1,36 +1,31 @@
 package com.baidu.tieba.im.b;
 
-import android.os.Handler;
-import android.os.Message;
+import android.util.SparseArray;
+import com.baidu.adp.framework.a.k;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tieba.im.message.MessageSyncMessage;
 /* loaded from: classes.dex */
-class i extends Handler {
-    private i() {
+public class i extends k {
+    public i() {
+        super(202003);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ i(i iVar) {
-        this();
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        super.handleMessage(message);
-        switch (message.what) {
-            case 2:
-                b.d(b.Ug()).removeMessages(2);
-                b.Ug().Ul();
-                return;
-            case 3:
-                b.d(b.Ug()).removeMessages(3);
-                if (b.e(b.Ug()) == 3) {
-                    b.Ug().Um();
-                } else {
-                    b.Ug().Ul();
-                }
-                b.d(b.Ug()).sendMessageDelayed(b.d(b.Ug()).obtainMessage(3), b.f(b.Ug()));
-                return;
-            default:
-                return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.f
+    /* renamed from: d */
+    public SocketMessage a(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        StringBuilder sb = new StringBuilder(200);
+        if (socketMessage instanceof MessageSyncMessage) {
+            SparseArray<Long> groupMids = ((MessageSyncMessage) socketMessage).getGroupMids();
+            for (int i = 0; i < groupMids.size(); i++) {
+                sb.append(groupMids.keyAt(i));
+                sb.append("-");
+                sb.append(groupMids.valueAt(i));
+                sb.append("|");
+            }
+            com.baidu.tbadk.core.log.b.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + ((MessageSyncMessage) socketMessage).getSyncTypeString(), "comment", sb.toString());
         }
+        return socketMessage;
     }
 }

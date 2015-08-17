@@ -2,7 +2,6 @@ package com.baidu.location;
 
 import com.baidu.location.au;
 import com.baidu.location.u;
-import com.baidu.tbadk.game.GameInfoData;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.Iterator;
@@ -141,12 +140,12 @@ public class j implements a0, b {
     public void m294if(u.a aVar, au.b bVar) {
         this.ll++;
         if (aVar == null || !aVar.a()) {
-            this.ln.add(GameInfoData.NOT_FROM_DETAIL);
+            this.ln.add("0");
         } else {
             this.ln.add("1");
         }
         if (bVar == null || bVar.m227try() <= 0) {
-            this.lb.add(GameInfoData.NOT_FROM_DETAIL);
+            this.lb.add("0");
         } else {
             this.lb.add("" + bVar.m227try());
         }

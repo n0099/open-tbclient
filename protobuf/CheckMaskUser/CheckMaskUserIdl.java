@@ -21,8 +21,11 @@ public final class CheckMaskUserIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<CheckMaskUserIdl> {
+    public static final class Builder extends Message.Builder<CheckMaskUserIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(CheckMaskUserIdl checkMaskUserIdl) {
             super(checkMaskUserIdl);

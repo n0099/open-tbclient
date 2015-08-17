@@ -10,7 +10,7 @@ public class ResponseSubscribeLiveGroupMessage extends SocketResponsedMessage {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.b
+    @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         SubscribeLiveGroupResIdl subscribeLiveGroupResIdl = (SubscribeLiveGroupResIdl) new Wire(new Class[0]).parseFrom(bArr, SubscribeLiveGroupResIdl.class);
         setError(subscribeLiveGroupResIdl.error.errorno.intValue());

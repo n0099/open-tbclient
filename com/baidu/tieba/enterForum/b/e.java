@@ -4,17 +4,17 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class e implements com.baidu.tbadk.mvc.b.a {
-    private String aEH;
-    private int aEI;
-    private int aEJ;
-    private String aEK;
+    private String aMg;
+    private int aMh;
+    private int aMi;
+    private String aMj;
     private long mForumId;
     private String mForumName;
-    private int mIsLike;
+    private int mThreadNum;
     private int mType;
 
     public String getAvatar() {
-        return this.aEH;
+        return this.aMg;
     }
 
     public long getForumId() {
@@ -25,28 +25,28 @@ public class e implements com.baidu.tbadk.mvc.b.a {
         return this.mForumName;
     }
 
-    public int HJ() {
-        return this.aEI;
+    public int Iu() {
+        return this.aMi;
     }
 
-    public int HK() {
-        return this.aEJ;
+    public int Iv() {
+        return this.mThreadNum;
     }
 
     public String getSlogan() {
-        return this.aEK;
+        return this.aMj;
     }
 
     public void b(RecommendForumInfo recommendForumInfo) {
         if (recommendForumInfo != null) {
             try {
-                this.aEH = recommendForumInfo.avatar;
+                this.aMg = recommendForumInfo.avatar;
                 this.mForumId = recommendForumInfo.forum_id.longValue();
                 this.mForumName = recommendForumInfo.forum_name;
-                this.mIsLike = recommendForumInfo.is_like.intValue();
-                this.aEI = recommendForumInfo.member_count.intValue();
-                this.aEJ = recommendForumInfo.thread_count.intValue();
-                this.aEK = recommendForumInfo.slogan;
+                this.aMh = recommendForumInfo.is_like.intValue();
+                this.aMi = recommendForumInfo.member_count.intValue();
+                this.mThreadNum = recommendForumInfo.thread_count.intValue();
+                this.aMj = recommendForumInfo.slogan;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

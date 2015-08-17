@@ -33,6 +33,7 @@ import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -153,7 +154,7 @@ public class ViewPager extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class ItemInfo {
+    public static class ItemInfo {
         Object object;
         float offset;
         int position;
@@ -165,7 +166,7 @@ public class ViewPager extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    public class SimpleOnPageChangeListener implements OnPageChangeListener {
+    public static class SimpleOnPageChangeListener implements OnPageChangeListener {
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
         }
@@ -917,7 +918,7 @@ public class ViewPager extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    public class SavedState extends View.BaseSavedState {
+    public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = ParcelableCompat.newCreator(new ParcelableCompatCreatorCallbacks<SavedState>() { // from class: android.support.v4.view.ViewPager.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
@@ -1091,7 +1092,7 @@ public class ViewPager extends ViewGroup {
             View childAt = getChildAt(i6);
             if (childAt.getVisibility() != 8 && (layoutParams2 = (LayoutParams) childAt.getLayoutParams()) != null && layoutParams2.isDecor) {
                 int i7 = layoutParams2.gravity & 7;
-                int i8 = layoutParams2.gravity & 112;
+                int i8 = layoutParams2.gravity & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY;
                 int i9 = ExploreByTouchHelper.INVALID_ID;
                 int i10 = ExploreByTouchHelper.INVALID_ID;
                 boolean z = i8 == 48 || i8 == 80;
@@ -1191,7 +1192,7 @@ public class ViewPager extends ViewGroup {
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                 if (layoutParams.isDecor) {
                     int i14 = layoutParams.gravity & 7;
-                    int i15 = layoutParams.gravity & 112;
+                    int i15 = layoutParams.gravity & SocialAPIErrorCodes.ERROR_EXPIRED_SESSION_KEY;
                     switch (i14) {
                         case 1:
                             i7 = Math.max((i10 - childAt.getMeasuredWidth()) / 2, paddingLeft);
@@ -2217,7 +2218,7 @@ public class ViewPager extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    class PagerObserver extends DataSetObserver {
+    private class PagerObserver extends DataSetObserver {
         private PagerObserver() {
         }
 
@@ -2233,7 +2234,7 @@ public class ViewPager extends ViewGroup {
     }
 
     /* loaded from: classes.dex */
-    public class LayoutParams extends ViewGroup.LayoutParams {
+    public static class LayoutParams extends ViewGroup.LayoutParams {
         int childIndex;
         public int gravity;
         public boolean isDecor;
@@ -2257,7 +2258,7 @@ public class ViewPager extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class ViewPositionComparator implements Comparator<View> {
+    public static class ViewPositionComparator implements Comparator<View> {
         ViewPositionComparator() {
         }
 

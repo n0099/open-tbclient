@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import java.io.Serializable;
 import java.util.HashMap;
 /* loaded from: classes.dex */
-public class BdStatisticsWriteConfig implements Serializable {
+class BdStatisticsWriteConfig implements Serializable {
     private static final long serialVersionUID = 7184457133962107119L;
     public final HashMap<String, BdStatisticsWriteConfigItem> item = new HashMap<>();
 
     /* loaded from: classes.dex */
-    public class BdStatisticsWriteConfigItem implements Serializable {
+    public static class BdStatisticsWriteConfigItem implements Serializable {
         private static final long serialVersionUID = 4440010439026244319L;
         public String type;
         public boolean isWrite = false;
@@ -28,7 +28,7 @@ public class BdStatisticsWriteConfig implements Serializable {
             if (bdStatisticsWriteChildItem == null) {
                 return bdStatisticsWriteConfigItem.isWrite;
             }
-            return bdStatisticsWriteChildItem.iu() && bdStatisticsWriteConfigItem.isWrite;
+            return bdStatisticsWriteChildItem.il() && bdStatisticsWriteConfigItem.isWrite;
         }
         return false;
     }
@@ -42,13 +42,13 @@ public class BdStatisticsWriteConfig implements Serializable {
     }
 
     /* loaded from: classes.dex */
-    public class BdStatisticsWriteChildItem implements Serializable {
+    public static class BdStatisticsWriteChildItem implements Serializable {
         private static final long serialVersionUID = 2371610422804472309L;
         public boolean isWrite;
         public String subType;
 
         /* JADX INFO: Access modifiers changed from: private */
-        public boolean iu() {
+        public boolean il() {
             return this.isWrite;
         }
     }

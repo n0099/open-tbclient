@@ -1,25 +1,31 @@
 package com.baidu.tieba.mention;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.tbadkCore.writeModel.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ap extends CustomMessageListener {
+public class ap implements a.d {
+    final /* synthetic */ ak bWv;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(int i) {
-        super(i);
+    public ap(ak akVar) {
+        this.bWv = akVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-            if (TbadkCoreApplication.isLogin()) {
-                r.Zm().start();
-            } else {
-                r.Zm().destroy();
-            }
+    @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
+    public void a(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.l lVar, WriteData writeData, AntiData antiData) {
+        SingleMentionActivity singleMentionActivity;
+        com.baidu.tbadk.editortools.c.n nVar;
+        SingleMentionActivity singleMentionActivity2;
+        singleMentionActivity = this.bWv.bWg;
+        singleMentionActivity.hideProgressBar();
+        nVar = this.bWv.bWp;
+        nVar.Ay().hide();
+        if (postWriteCallBackData != null && lVar == null) {
+            singleMentionActivity2 = this.bWv.bWg;
+            singleMentionActivity2.showToast(postWriteCallBackData.getErrorString());
         }
     }
 }

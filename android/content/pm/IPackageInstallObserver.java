@@ -8,7 +8,7 @@ import android.os.Parcel;
 public interface IPackageInstallObserver extends IInterface {
 
     /* loaded from: classes.dex */
-    public abstract class Stub extends Binder implements IPackageInstallObserver {
+    public static abstract class Stub extends Binder implements IPackageInstallObserver {
         public static IPackageInstallObserver asInterface(IBinder iBinder) {
             return null;
         }

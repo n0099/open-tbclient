@@ -6,6 +6,7 @@ import android.os.IBinder;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.n;
 import java.io.File;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -14,7 +15,7 @@ public class ClearTempService extends BdBaseService {
     private static final int MAX_FILE_COUNT = 500;
     private volatile boolean interrupted = false;
     private Thread thread = null;
-    private final Handler handler = new c(this);
+    private final Handler handler = new b(this);
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -32,7 +33,7 @@ public class ClearTempService extends BdBaseService {
         super.onStart(intent, i);
         this.interrupted = false;
         if (this.thread == null) {
-            this.thread = new d(this);
+            this.thread = new c(this);
             this.thread.start();
         }
     }
@@ -64,7 +65,7 @@ public class ClearTempService extends BdBaseService {
     }
 
     private void deleteImageCacheByName() {
-        String str = com.baidu.tbadk.core.util.o.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
+        String str = n.xV + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME;
         for (int i = 0; i < 20; i++) {
             File file = new File(String.valueOf(str) + "/" + i);
             if (file.exists() && file.isDirectory()) {

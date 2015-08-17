@@ -24,16 +24,8 @@ public class TbHttpMessageTask extends HttpMessageTask {
         return this.mIsBDImage;
     }
 
-    public void setIsBDImage(boolean z) {
-        this.mIsBDImage = z;
-    }
-
     public boolean isFromCDN() {
         return this.mIsFromCDN;
-    }
-
-    public void setIsFromCDN(boolean z) {
-        this.mIsFromCDN = z;
     }
 
     public boolean isNeedTbs() {
@@ -62,10 +54,6 @@ public class TbHttpMessageTask extends HttpMessageTask {
 
     public boolean isBaiduServer() {
         return this.mIsBaiduServer;
-    }
-
-    public void setmIsNBaiduServer(boolean z) {
-        this.mIsBaiduServer = z;
     }
 
     public boolean isNeedLogin() {

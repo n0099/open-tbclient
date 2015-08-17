@@ -1,17 +1,22 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.app.Activity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class az extends CustomMessageListener {
+public class az implements a.b {
+    private final /* synthetic */ Activity abn;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(int i) {
-        super(i);
+    public az(Activity activity) {
+        this.abn = activity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ay.VT = null;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        TbadkCoreApplication.m411getInst().notifyAppEnterBackground();
+        this.abn.finish();
     }
 }

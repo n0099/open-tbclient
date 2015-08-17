@@ -1,22 +1,24 @@
 package com.baidu.tieba.write.album;
 
-import com.baidu.tbadk.img.ImageFileInfo;
+import android.widget.GridView;
+import com.baidu.tbadk.core.view.HeadImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al implements aa {
-    final /* synthetic */ aj czq;
+public class al implements com.baidu.tbadk.imageManager.b {
+    final /* synthetic */ ad cRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(aj ajVar) {
-        this.czq = ajVar;
+    public al(ad adVar) {
+        this.cRf = adVar;
     }
 
-    @Override // com.baidu.tieba.write.album.aa
-    public void a(int i, ImageFileInfo imageFileInfo) {
-        p pVar;
-        AlbumActivity albumActivity;
-        pVar = this.czq.cxV;
-        pVar.setCurrentIndex(i);
-        albumActivity = this.czq.cya;
-        albumActivity.jk(1);
+    @Override // com.baidu.tbadk.imageManager.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        GridView gridView;
+        gridView = this.cRf.mGridView;
+        HeadImageView headImageView = (HeadImageView) gridView.findViewWithTag(str);
+        if (headImageView != null && aVar != null) {
+            headImageView.invalidate();
+        }
     }
 }

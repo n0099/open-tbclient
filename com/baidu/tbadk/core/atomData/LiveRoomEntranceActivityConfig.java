@@ -1,10 +1,10 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class LiveRoomEntranceActivityConfig extends c {
-    public static String FROM_FRS = PbActivityConfig.KEY_FROM_FRS;
+public class LiveRoomEntranceActivityConfig extends IntentConfig {
+    public static String FROM_FRS = "from_frs";
     public static String FROM_HOT_LIVE = "from_hot_live";
 
     public LiveRoomEntranceActivityConfig(Context context, int i, String str, String str2) {

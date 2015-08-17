@@ -4,22 +4,23 @@ import android.view.View;
 import android.widget.ImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes.dex */
 class k implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView auX;
+    final /* synthetic */ TbRichTextView aCn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(TbRichTextView tbRichTextView) {
-        this.auX = tbRichTextView;
+        this.aCn = tbRichTextView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        s sVar;
+        TbRichTextView.c cVar;
         String str;
-        s sVar2;
-        sVar = this.auX.auJ;
-        if (sVar != null && (view instanceof ImageView)) {
+        TbRichTextView.c cVar2;
+        cVar = this.aCn.aBY;
+        if (cVar != null && (view instanceof ImageView)) {
             Object tag = view.getTag();
             if (tag != null && (tag instanceof String)) {
                 str = (String) tag;
@@ -28,10 +29,10 @@ class k implements View.OnClickListener {
             } else {
                 str = ((TbImageView) view).getUrl();
             }
-            int childCount = this.auX.getChildCount();
+            int childCount = this.aCn.getChildCount();
             int i = -1;
             for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.auX.getChildAt(i2);
+                View childAt = this.aCn.getChildAt(i2);
                 if ((childAt instanceof ImageView) && !(childAt instanceof GifView)) {
                     i++;
                 }
@@ -39,8 +40,8 @@ class k implements View.OnClickListener {
                     break;
                 }
             }
-            sVar2 = this.auX.auJ;
-            sVar2.a(view, str, i);
+            cVar2 = this.aCn.aBY;
+            cVar2.a(view, str, i);
         }
     }
 }

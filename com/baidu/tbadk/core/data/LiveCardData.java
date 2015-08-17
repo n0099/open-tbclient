@@ -1,15 +1,16 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.ac;
+import com.baidu.tbadk.core.util.ad;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.AnchorInfo;
 /* loaded from: classes.dex */
-public class LiveCardData implements ap, Serializable {
+public class LiveCardData implements ad, Serializable {
+    public static final int LIVETYPE_PHOTOLIVE = 33;
     private static final long serialVersionUID = 1;
-    private int authorId;
+    private long authorId;
     private String authorName;
     private String background;
     private long createTime;
@@ -24,16 +25,23 @@ public class LiveCardData implements ap, Serializable {
     private boolean isModifyTime = false;
     private int isVip;
     private String labelName;
+    private long lastModifiedTime;
     private int likers;
     private int listeners;
     private String name;
     private String portrait;
-    private int publisherId;
+    private int postNum;
+    private long publisherId;
     private String publisherName;
     private String publisherPortrait;
+    private int replyNum;
     private long startTime;
     private int status;
     private String streamId;
+    private long threadId;
+    private String title;
+    private int type;
+    private int zanNum;
 
     public int getFlag() {
         return this.flag;
@@ -107,12 +115,12 @@ public class LiveCardData implements ap, Serializable {
         this.portrait = str;
     }
 
-    public int getAuthorId() {
+    public long getAuthorId() {
         return this.authorId;
     }
 
-    public void setAuthorId(int i) {
-        this.authorId = i;
+    public void setAuthorId(long j) {
+        this.authorId = j;
     }
 
     public String getAuthorName() {
@@ -155,12 +163,12 @@ public class LiveCardData implements ap, Serializable {
         this.publisherName = str;
     }
 
-    public int getPublisherId() {
+    public long getPublisherId() {
         return this.publisherId;
     }
 
-    public void setPublisherId(int i) {
-        this.publisherId = i;
+    public void setPublisherId(long j) {
+        this.publisherId = j;
     }
 
     public String getStreamId() {
@@ -227,6 +235,62 @@ public class LiveCardData implements ap, Serializable {
         this.labelName = str;
     }
 
+    public void setTitle(String str) {
+        this.title = str;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setThreadId(long j) {
+        this.threadId = j;
+    }
+
+    public long getThreadId() {
+        return this.threadId;
+    }
+
+    public void setPostNum(int i) {
+        this.postNum = i;
+    }
+
+    public long getPostNum() {
+        return this.postNum;
+    }
+
+    public void setLastModifiedTime(long j) {
+        this.lastModifiedTime = j;
+    }
+
+    public long getLastModifiedTime() {
+        return this.lastModifiedTime;
+    }
+
+    public void setZanNum(int i) {
+        this.zanNum = i;
+    }
+
+    public int getZanNum() {
+        return this.zanNum;
+    }
+
+    public void setReplyNum(int i) {
+        this.replyNum = i;
+    }
+
+    public int getReplyNum() {
+        return this.replyNum;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public long getType() {
+        return this.type;
+    }
+
     public JSONObject toDraftJson() {
         JSONObject jSONObject = new JSONObject();
         try {
@@ -247,7 +311,8 @@ public class LiveCardData implements ap, Serializable {
 
     public void parserProtobuf(AnchorInfo anchorInfo) {
         if (anchorInfo != null) {
-            this.publisherId = anchorInfo.author_id.intValue();
+            this.type = anchorInfo.type.intValue();
+            this.publisherId = anchorInfo.author_id.longValue();
             this.publisherName = anchorInfo.author_name;
             this.groupId = anchorInfo.group_id.intValue();
             this.intro = anchorInfo.intro;
@@ -266,16 +331,26 @@ public class LiveCardData implements ap, Serializable {
             }
             this.labelName = anchorInfo.label_name;
             this.isVip = anchorInfo.is_vip.intValue();
+            if (anchorInfo.twzhibo_info != null) {
+                this.title = anchorInfo.twzhibo_info.title;
+                this.threadId = anchorInfo.twzhibo_info.thread_id.longValue();
+                this.postNum = anchorInfo.twzhibo_info.post_num.intValue();
+                this.lastModifiedTime = anchorInfo.twzhibo_info.last_modified_time.longValue();
+                if (anchorInfo.twzhibo_info.zan != null) {
+                    this.zanNum = anchorInfo.twzhibo_info.zan.num.intValue();
+                }
+                this.replyNum = anchorInfo.twzhibo_info.reply_num.intValue();
+            }
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.ap
-    public ArrayList<ao> getImages() {
-        ArrayList<ao> arrayList = new ArrayList<>();
-        ao aoVar = new ao();
-        aoVar.Ri = this.portrait;
-        aoVar.Vx = 10;
-        arrayList.add(aoVar);
+    @Override // com.baidu.tbadk.core.util.ad
+    public ArrayList<ac> getImages() {
+        ArrayList<ac> arrayList = new ArrayList<>();
+        ac acVar = new ac();
+        acVar.VY = this.portrait;
+        acVar.aau = 10;
+        arrayList.add(acVar);
         return arrayList;
     }
 

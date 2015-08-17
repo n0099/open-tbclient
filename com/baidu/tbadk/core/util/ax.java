@@ -1,95 +1,175 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import java.io.File;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ax {
-    public static void b(TbPageContext<?> tbPageContext) {
-        try {
-            if (!o.fo()) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(o.sr());
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(o.sr());
-                }
-            } else {
-                File cD = o.cD("camera.jpg");
-                if (cD != null) {
-                    Uri fromFile = Uri.fromFile(cD);
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", fromFile);
-                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
-                } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(com.baidu.tieba.t.error_sd_error));
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(com.baidu.tieba.t.error_sd_error));
-                }
+    private static ax abj = new ay();
+    private static final Pattern abm = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private List<a> abk;
+    private b abl;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        boolean a(TbPageContext<?> tbPageContext, String[] strArr);
+    }
+
+    /* loaded from: classes.dex */
+    public interface b {
+        void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, c cVar, boolean z2);
+    }
+
+    /* loaded from: classes.dex */
+    public interface c {
+    }
+
+    private ax() {
+        this.abk = new LinkedList();
+        this.abl = null;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public /* synthetic */ ax(ax axVar) {
+        this();
+    }
+
+    public static SpannableString E(Context context, String str) {
+        int start;
+        Matcher matcher = abm.matcher(str);
+        SpannableString spannableString = new SpannableString(str);
+        while (matcher.find()) {
+            String group = matcher.group();
+            String group2 = matcher.group();
+            if (!group2.endsWith(" ")) {
+                group2 = String.valueOf(group2) + " ";
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            int length = group2.length();
+            spannableString.setSpan(new com.baidu.tbadk.widget.richText.g(2, group), matcher.start(), (length + start) - 1, 33);
+        }
+        return spannableString;
+    }
+
+    public static ax uR() {
+        return abj;
+    }
+
+    public void a(a aVar) {
+        if (!this.abk.contains(aVar)) {
+            this.abk.add(aVar);
         }
     }
 
-    public static void a(TbPageContext<?> tbPageContext, String str) {
-        String str2;
-        try {
-            if (!o.fo()) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(o.sr());
-                    return;
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(o.sr());
-                    return;
-                } else {
-                    return;
+    public void a(b bVar) {
+        this.abl = bVar;
+    }
+
+    public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, c cVar, boolean z2) {
+        boolean z3;
+        if (strArr != null && strArr.length != 0) {
+            if (this.abk == null) {
+                this.abk = new LinkedList();
+            }
+            Iterator<a> it = this.abk.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    z3 = false;
+                    break;
+                }
+                a next = it.next();
+                if (next != null && next.a(tbPageContext, strArr)) {
+                    z3 = true;
+                    break;
                 }
             }
-            boolean z = false;
-            if (o.cy(o.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
-                File file = new File(String.valueOf(str2) + "/" + str);
-                if (!file.exists()) {
-                    z = file.createNewFile();
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    Uri fromFile = Uri.fromFile(file);
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", fromFile);
-                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
-                }
+            if (!z3 && this.abl != null && tbPageContext != null) {
+                b(tbPageContext, "", strArr[0], z, cVar, z2);
             }
-            if (!z) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(com.baidu.tieba.t.error_sd_error));
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(com.baidu.tieba.t.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 
-    public static void p(Activity activity) {
-        q(activity);
+    public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, c cVar) {
+        a(tbPageContext, strArr, z, cVar, false);
     }
 
-    public static void q(Activity activity) {
-        try {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, 12002);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public void a(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z, c cVar, boolean z2) {
+        boolean z3;
+        if (strArr != null && strArr.length != 0 && !TextUtils.isEmpty(strArr[0])) {
+            if (this.abk == null) {
+                this.abk = new LinkedList();
+            }
+            Iterator<a> it = this.abk.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    z3 = false;
+                    break;
+                }
+                a next = it.next();
+                if (next != null && next.a(tbPageContext, strArr)) {
+                    z3 = true;
+                    break;
+                }
+            }
+            if (!z3 && this.abl != null) {
+                b(tbPageContext, str, strArr[0], z, cVar, z2);
+            }
+        }
+    }
+
+    public static Map<String, String> df(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        HashMap hashMap = new HashMap();
+        String[] split = str.split("[&]");
+        if (split != null) {
+            for (String str2 : split) {
+                String[] split2 = str2.split("[=]");
+                if (split2.length > 1) {
+                    hashMap.put(split2[0], split2[1]);
+                }
+            }
+            return hashMap;
+        }
+        return null;
+    }
+
+    public static String dg(String str) {
+        String[] split;
+        if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
+            return null;
+        }
+        return split[1];
+    }
+
+    public void b(TbPageContext<?> tbPageContext, String[] strArr) {
+        a(tbPageContext, strArr, false, null, false);
+    }
+
+    public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z) {
+        a(tbPageContext, strArr, false, null, z);
+    }
+
+    public void a(TbPageContext<?> tbPageContext, String str, String[] strArr) {
+        a(tbPageContext, str, strArr, false, null, false);
+    }
+
+    public void a(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z) {
+        a(tbPageContext, str, strArr, false, null, z);
+    }
+
+    private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, c cVar, boolean z2) {
+        if (abm.matcher(str2).find()) {
+            this.abl.a(tbPageContext, str, str2, z, cVar, z2);
         }
     }
 }

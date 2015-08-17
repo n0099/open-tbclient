@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.Serializable;
 /* loaded from: classes.dex */
-public class PluginSetting implements Serializable {
+public class PluginSetting implements Serializable, Cloneable {
     private static final long serialVersionUID = -6614934206499164039L;
     private String abandon_apk_path;
     public String apkPath;
@@ -49,11 +49,11 @@ public class PluginSetting implements Serializable {
     }
 
     public void setCmdRange(String str) {
-        this.cmdRangeInt = bE(str);
+        this.cmdRangeInt = by(str);
         this.cmdRangeStr = str;
     }
 
-    private int[] bE(String str) {
+    private int[] by(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(",")) == null) {
             return null;
@@ -70,14 +70,14 @@ public class PluginSetting implements Serializable {
                 BdLog.e("cmdRange2Int split by '-' error");
                 return null;
             }
-            int i2 = com.baidu.adp.lib.g.c.toInt(split2[0], -1);
-            int i3 = com.baidu.adp.lib.g.c.toInt(split2[1], -1);
-            if (i2 < 0 || i3 < 0 || i2 > i3) {
+            int g = com.baidu.adp.lib.g.b.g(split2[0], -1);
+            int g2 = com.baidu.adp.lib.g.b.g(split2[1], -1);
+            if (g < 0 || g2 < 0 || g > g2) {
                 BdLog.e("cmdRange2Int split  toInt error");
                 return null;
             }
-            iArr[i * 2] = i2;
-            iArr[(i * 2) + 1] = i3;
+            iArr[i * 2] = g;
+            iArr[(i * 2) + 1] = g2;
         }
         return iArr;
     }

@@ -2,15 +2,16 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ImMessageCenterActivityStatic {
-    private static void OI() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2008012, new a());
-        customMessageTask.a(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+    private static void Qs() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.IM_MESSAGE_CENTER_ACTIVITY_START, new b());
+        customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     static {
-        OI();
+        Qs();
     }
 }

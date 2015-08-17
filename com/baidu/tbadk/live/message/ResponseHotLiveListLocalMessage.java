@@ -2,6 +2,7 @@ package com.baidu.tbadk.live.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.LiveCardData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.live.data.HotLiveListData;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class ResponseHotLiveListLocalMessage extends CustomResponsedMessage<Obje
     private HotLiveListData hotLiveListData;
 
     public ResponseHotLiveListLocalMessage() {
-        super(2001214);
+        super(CmdConfigCustom.CMD_CACHE_LIVE_HOT_LIST_ALL);
     }
 
     public HotLiveListData getHotLiveListData() {
@@ -41,7 +42,7 @@ public class ResponseHotLiveListLocalMessage extends CustomResponsedMessage<Obje
                     if (i3 < queryHotLiveGroupsResIdl.data.groups.size()) {
                         LiveCardData liveCardData = new LiveCardData();
                         LiveGroupInfo liveGroupInfo = queryHotLiveGroupsResIdl.data.groups.get(i3);
-                        liveCardData.setAuthorId(liveGroupInfo.authorId.intValue());
+                        liveCardData.setAuthorId(liveGroupInfo.authorId.longValue());
                         liveCardData.setAuthorName(liveGroupInfo.authorName);
                         liveCardData.setBackground(liveGroupInfo.background);
                         liveCardData.setCreateTime(liveGroupInfo.createTime.intValue());
@@ -54,7 +55,7 @@ public class ResponseHotLiveListLocalMessage extends CustomResponsedMessage<Obje
                         liveCardData.setListeners(liveGroupInfo.listeners.intValue());
                         liveCardData.setName(liveGroupInfo.name);
                         liveCardData.setPortrait(liveGroupInfo.portrait);
-                        liveCardData.setPublisherId(liveGroupInfo.publisherId.intValue());
+                        liveCardData.setPublisherId(liveGroupInfo.publisherId.longValue());
                         liveCardData.setPublisherName(liveGroupInfo.publisherName);
                         liveCardData.setPublisherPortrait(liveGroupInfo.publisherPortrait);
                         liveCardData.setStartTime(liveGroupInfo.startTime.intValue());

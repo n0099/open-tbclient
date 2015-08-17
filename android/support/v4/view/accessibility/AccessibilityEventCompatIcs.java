@@ -4,9 +4,6 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityRecord;
 /* loaded from: classes.dex */
 class AccessibilityEventCompatIcs {
-    AccessibilityEventCompatIcs() {
-    }
-
     public static int getRecordCount(AccessibilityEvent accessibilityEvent) {
         return accessibilityEvent.getRecordCount();
     }

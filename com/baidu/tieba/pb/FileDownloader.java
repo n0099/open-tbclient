@@ -5,11 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
-import com.baidu.adp.lib.util.n;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.core.util.o;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.util.n;
+import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.i;
+import java.io.File;
 /* loaded from: classes.dex */
 public class FileDownloader extends Service {
     public static final int FILE_EXIST = 1;
@@ -17,10 +20,10 @@ public class FileDownloader extends Service {
     private static final String TAG_INFO = "info";
     private static final String TAG_URL = "url";
     private String mInfo = null;
-    private b mDowndingTask = null;
+    private a mDowndingTask = null;
     private int progress = 0;
     private String schedule = null;
-    private final Handler handler = new a(this);
+    private final Handler handler = new com.baidu.tieba.pb.a(this);
 
     public static void download(Context context, String str, String str2, String str3) {
         Intent intent = new Intent(context, FileDownloader.class);
@@ -57,14 +60,14 @@ public class FileDownloader extends Service {
             } else {
                 fileOfUrl = getFileOfUrl(stringExtra);
             }
-            if (o.cB(fileOfUrl) != null) {
+            if (n.cC(fileOfUrl) != null) {
                 this.handler.sendMessageDelayed(this.handler.obtainMessage(1, fileOfUrl), 100L);
             } else if (this.mDowndingTask == null) {
-                this.mDowndingTask = new b(this, stringExtra, fileOfUrl);
+                this.mDowndingTask = new a(stringExtra, fileOfUrl);
                 this.mDowndingTask.execute(new String[0]);
                 NotificationHelper.showProgressNotification(getBaseContext(), 10, null, 0, "0/0", this.mInfo, true);
             } else {
-                n.showToast(getApplicationContext(), t.downloading_tip);
+                k.showToast(getApplicationContext(), i.C0057i.downloading_tip);
             }
         }
         super.onStart(intent, i);
@@ -79,5 +82,76 @@ public class FileDownloader extends Service {
         }
         String[] split = str.split("/");
         return split[split.length - 1];
+    }
+
+    /* loaded from: classes.dex */
+    private class a extends BdAsyncTask<String, Integer, Boolean> {
+        private final String Yj;
+        private final String mUrl;
+        private v Tu = null;
+        private volatile boolean aGi = false;
+
+        public a(String str, String str2) {
+            this.mUrl = str;
+            this.Yj = str2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: f */
+        public Boolean doInBackground(String... strArr) {
+            File cD;
+            Boolean bool = false;
+            while (!this.aGi) {
+                try {
+                    this.Tu = new v(this.mUrl);
+                    bool = Boolean.valueOf(this.Tu.a(String.valueOf(this.Yj) + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
+                    if (bool.booleanValue() || this.Tu.ui() == -2) {
+                        break;
+                    } else if (!this.Tu.ue().uW().gN()) {
+                        try {
+                            Thread.sleep(10000L);
+                        } catch (Exception e) {
+                        }
+                    }
+                } catch (Exception e2) {
+                }
+            }
+            if (bool.booleanValue()) {
+                n.cI(this.Yj);
+                File cC = n.cC(String.valueOf(this.Yj) + ".tmp");
+                if (cC != null && (cD = n.cD(this.Yj)) != null) {
+                    cC.renameTo(cD);
+                }
+            }
+            return bool;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            super.cancel(true);
+            FileDownloader.this.mDowndingTask = null;
+            this.aGi = true;
+            if (this.Tu != null) {
+                this.Tu.gM();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public void onPostExecute(Boolean bool) {
+            super.onPostExecute(bool);
+            FileDownloader.this.mDowndingTask = null;
+            if (bool.booleanValue()) {
+                NotificationHelper.cancelNotification(FileDownloader.this.getBaseContext(), 10);
+                FileDownloader.this.handler.sendMessageDelayed(FileDownloader.this.handler.obtainMessage(1, this.Yj), 100L);
+                return;
+            }
+            NotificationHelper.showProgressNotification(FileDownloader.this.getBaseContext(), 10, null, FileDownloader.this.progress, this.mUrl, FileDownloader.this.getString(i.C0057i.error_sd_error), false);
+            FileDownloader.this.stopSelf();
+        }
     }
 }

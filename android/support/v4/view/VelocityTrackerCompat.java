@@ -14,7 +14,7 @@ public class VelocityTrackerCompat {
     }
 
     /* loaded from: classes.dex */
-    class BaseVelocityTrackerVersionImpl implements VelocityTrackerVersionImpl {
+    static class BaseVelocityTrackerVersionImpl implements VelocityTrackerVersionImpl {
         BaseVelocityTrackerVersionImpl() {
         }
 
@@ -30,7 +30,7 @@ public class VelocityTrackerCompat {
     }
 
     /* loaded from: classes.dex */
-    class HoneycombVelocityTrackerVersionImpl implements VelocityTrackerVersionImpl {
+    static class HoneycombVelocityTrackerVersionImpl implements VelocityTrackerVersionImpl {
         HoneycombVelocityTrackerVersionImpl() {
         }
 

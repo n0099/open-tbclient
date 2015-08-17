@@ -21,8 +21,11 @@ public final class QueryUserPermissionReqIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<QueryUserPermissionReqIdl> {
+    public static final class Builder extends Message.Builder<QueryUserPermissionReqIdl> {
         public DataReq data;
+
+        public Builder() {
+        }
 
         public Builder(QueryUserPermissionReqIdl queryUserPermissionReqIdl) {
             super(queryUserPermissionReqIdl);

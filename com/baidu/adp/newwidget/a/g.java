@@ -10,39 +10,39 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewCompat;
 /* loaded from: classes.dex */
-public class g extends l {
-    private boolean BO;
-    private Path Ca;
-    private final Paint Cb = new Paint();
-    private final Paint Cc = new Paint();
+public class g extends k {
+    private Path BK;
+    private final Paint BL = new Paint();
+    private final Paint BM = new Paint();
+    private boolean By;
     private Rect mRect;
 
     public g() {
-        this.Cb.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.Cb.setStyle(Paint.Style.FILL);
-        this.Cb.setAntiAlias(true);
-        this.Cc.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        this.BL.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.BL.setStyle(Paint.Style.FILL);
+        this.BL.setAntiAlias(true);
+        this.BM.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
     private void c(Rect rect) {
         boolean z = false;
         if (rect != null) {
-            if (this.Ca == null || this.BO != this.Bp.BO) {
+            if (this.BK == null || this.By != this.Bc.By) {
                 z = true;
             }
             if (this.mRect == null || !this.mRect.contains(rect)) {
                 z = true;
             }
-            this.BO = this.Bp.BO;
+            this.By = this.Bc.By;
             if (z) {
                 this.mRect = rect;
-                this.Ca = new Path();
-                if (this.BO) {
-                    this.Ca.addCircle((rect.right + rect.left) / 2, (rect.top + rect.bottom) / 2, Math.min(rect.width(), rect.height()) / 2, Path.Direction.CCW);
+                this.BK = new Path();
+                if (this.By) {
+                    this.BK.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
                 } else {
-                    this.Ca.addRoundRect(new RectF(rect), this.Bp.mRadius, this.Bp.mRadius, Path.Direction.CCW);
+                    this.BK.addRoundRect(new RectF(rect), this.Bc.mRadius, this.Bc.mRadius, Path.Direction.CCW);
                 }
-                this.Ca.close();
+                this.BK.close();
             }
         }
     }
@@ -52,7 +52,7 @@ public class g extends l {
         canvas.save();
         c(drawable.getBounds());
         try {
-            canvas.clipPath(this.Ca);
+            canvas.clipPath(this.BK);
         } catch (Exception e) {
         }
         drawable.draw(canvas);

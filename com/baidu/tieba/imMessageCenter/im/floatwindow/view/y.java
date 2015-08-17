@@ -1,28 +1,19 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 
-import com.baidu.tieba.im.chat.AbsMsglistView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class y implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ FloatingPersonalChatActivity buK;
-
+class y extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(FloatingPersonalChatActivity floatingPersonalChatActivity) {
-        this.buK = floatingPersonalChatActivity;
+    public y(int i) {
+        super(i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.g
-    public void onReturnDataInUI(Boolean bool) {
-        AbsMsglistView absMsglistView;
-        AbsMsglistView absMsglistView2;
-        if (bool != null) {
-            if (bool.booleanValue()) {
-                absMsglistView2 = this.buK.mListView;
-                absMsglistView2.closeNotNotify();
-                return;
-            }
-            absMsglistView = this.buK.mListView;
-            absMsglistView.showNotNotfiy();
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+            FloatingPersonalChatActivityStatic.bFK = null;
         }
     }
 }

@@ -1,26 +1,27 @@
 package com.baidu.tbadk.b;
 
 import android.view.View;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class d extends b {
-    private com.baidu.tbadk.core.frameworkData.c ait;
-    private com.baidu.tbadk.core.frameworkData.c aiu;
+    private IntentConfig anA;
+    private IntentConfig anB;
     private View.OnClickListener mClickListener;
 
     @Override // com.baidu.tbadk.b.b
-    public void e(View.OnClickListener onClickListener) {
+    public void d(View.OnClickListener onClickListener) {
         this.mClickListener = onClickListener;
     }
 
-    public void a(com.baidu.tbadk.core.frameworkData.c cVar) {
-        this.ait = cVar;
+    public void a(IntentConfig intentConfig) {
+        this.anA = intentConfig;
     }
 
-    public void b(com.baidu.tbadk.core.frameworkData.c cVar) {
-        this.aiu = cVar;
+    public void b(IntentConfig intentConfig) {
+        this.anB = intentConfig;
     }
 
-    public com.baidu.tbadk.core.frameworkData.c aR(boolean z) {
-        return z ? this.ait : this.aiu;
+    public IntentConfig aV(boolean z) {
+        return z ? this.anA : this.anB;
     }
 }

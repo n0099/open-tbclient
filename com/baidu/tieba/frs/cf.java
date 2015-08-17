@@ -1,51 +1,62 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.BitmapDrawable;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tieba.frs.bz;
+import com.baidu.tieba.i;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class cf extends av<com.baidu.tbadk.core.data.w, cg> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public cf(FrsActivity frsActivity, BdUniqueId bdUniqueId) {
-        super(frsActivity, bdUniqueId);
-    }
+public class cf extends x.a {
+    public TextView aPV;
+    public LinearLayout aTG;
+    public LinearLayout aTH;
+    public TextView aTI;
+    public PlayVoiceBnt aTJ;
+    public FrsCommonImageLayout aTK;
+    public TextView aTL;
+    public TextView aTM;
+    public UserIconBox aTN;
+    public HeadImageView aTO;
+    public TextView aTR;
+    public TextView aTT;
+    public TextView aTV;
+    public LinearLayout aTX;
+    public LinearLayout aXS;
+    public UserIconBox aXT;
+    public TextView aXU;
+    public bz.a aXV;
+    public TextView aXW;
+    public View aXX;
+    public int apH;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: k */
-    public cg a(ViewGroup viewGroup) {
-        return new cg(com.baidu.adp.lib.g.b.hr().inflate(this.mContext, com.baidu.tieba.r.frs_top_item, null));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.av, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.w wVar, cg cgVar) {
-        BitmapDrawable bitmapDrawable;
-        super.a(i, view, viewGroup, (ViewGroup) wVar, (com.baidu.tbadk.core.data.w) cgVar);
-        this.aMl.getLayoutMode().ab(this.mSkinType == 1);
-        this.aMl.getLayoutMode().j(view);
-        if (wVar == null) {
-            return null;
-        }
-        cgVar.mTitle.setText(wVar.getTitle());
-        com.baidu.tieba.tbadkCore.util.l readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.jL(wVar.getId())) {
-            com.baidu.tbadk.core.util.ay.b(cgVar.mTitle, com.baidu.tieba.n.listview_item_thread_read, 1);
-        }
-        if (wVar.getIs_top() == 1) {
-            bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.ay.getDrawable(com.baidu.tieba.p.icon_top);
-        } else {
-            bitmapDrawable = wVar.getIs_top() == 2 ? (BitmapDrawable) com.baidu.tbadk.core.util.ay.getDrawable(com.baidu.tieba.p.icon_notice) : null;
-        }
-        com.baidu.tbadk.core.util.ay.i(cgVar.aMI, com.baidu.tieba.p.frs_top_item_bg);
-        if (bitmapDrawable != null) {
-            bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-        }
-        cgVar.mTitle.setCompoundDrawables(bitmapDrawable, null, null, null);
-        return view;
+    public cf(View view, int i) {
+        super(view);
+        this.apH = -1;
+        this.aTG = (LinearLayout) view.findViewById(i.f.frs_list);
+        this.aTX = (LinearLayout) view.findViewById(i.f.frs_item_user_info_view);
+        this.aTH = (LinearLayout) view.findViewById(i.f.frs_list_item_top_linear_layout);
+        this.aXS = (LinearLayout) view.findViewById(i.f.new_year_color_egg);
+        this.aTO = (HeadImageView) view.findViewById(i.f.frs_photo);
+        this.aTN = (UserIconBox) view.findViewById(i.f.frs_user_tshow_icon_box);
+        this.aXT = (UserIconBox) view.findViewById(i.f.frs_user_icon_box);
+        this.aTM = (TextView) view.findViewById(i.f.frs_lv_author);
+        this.aTL = (TextView) view.findViewById(i.f.frs_lv_reply_time);
+        this.aPV = (TextView) view.findViewById(i.f.frs_lv_title);
+        this.aTI = (TextView) view.findViewById(i.f.abstract_text);
+        this.aTJ = (PlayVoiceBnt) view.findViewById(i.f.abstract_voice);
+        this.aTK = (FrsCommonImageLayout) view.findViewById(i.f.abstract_img_layout);
+        this.aTR = (TextView) view.findViewById(i.f.frs_praise_num);
+        this.aXU = (TextView) view.findViewById(i.f.action_button);
+        this.aTT = (TextView) view.findViewById(i.f.frs_reply_num);
+        this.aTV = (TextView) view.findViewById(i.f.frs_more_abstract);
+        this.aXW = (TextView) view.findViewById(i.f.frs_item_location_address);
+        this.aXX = view.findViewById(i.f.frs_item_location_sep);
+        this.aTG.setBackgroundResource(i.c.transparent);
+        this.aTG.setPadding(0, i, 0, 0);
     }
 }

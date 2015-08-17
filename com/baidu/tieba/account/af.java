@@ -1,19 +1,17 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.sapi2.SapiWebView;
 /* loaded from: classes.dex */
-class af implements Runnable {
-    private final /* synthetic */ AccountData Pa;
-    final /* synthetic */ NotLoginGuideActivity axc;
+class af implements SapiWebView.OnFinishCallback {
+    final /* synthetic */ SapiFastRegActivity aFk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(NotLoginGuideActivity notLoginGuideActivity, AccountData accountData) {
-        this.axc = notLoginGuideActivity;
-        this.Pa = accountData;
+    public af(SapiFastRegActivity sapiFastRegActivity) {
+        this.aFk = sapiFastRegActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tbadk.core.a.d.b(this.Pa);
+    @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
+    public void onFinish() {
+        this.aFk.finish();
     }
 }

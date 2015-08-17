@@ -34,7 +34,7 @@ public class ak extends aj implements a0, n {
     private BDLocation.a eO = null;
     private long eD = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements Runnable {
         private a() {

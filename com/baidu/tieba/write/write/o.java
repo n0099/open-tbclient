@@ -1,125 +1,135 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.cloudsdk.social.core.SocialConstants;
+import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class o extends BaseAdapter {
-    private ArrayList<MetaData> Sk;
-    private AtListActivity cBv;
-    private boolean cBx;
-    private com.baidu.tbadk.core.view.af mCheckBoxStateChangedListener;
-    private final Context mContext;
-    private q cBw = null;
-    private ViewGroup bvF = null;
+public class o extends com.baidu.adp.base.e<WriteActivity> {
+    private a cTs;
+    private ArrayList<com.baidu.tbadk.core.data.v> cTt;
+    private WriteActivity cTu;
+    private int mErrCode;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(q qVar) {
-        this.cBw = qVar;
-    }
-
-    public o(AtListActivity atListActivity, boolean z) {
-        this.cBx = true;
-        this.cBv = atListActivity;
-        this.mContext = this.cBv.getPageContext().getContext();
-        this.cBx = z;
+    public o(WriteActivity writeActivity) {
+        super(writeActivity.getPageContext());
+        this.cTs = null;
+        this.cTt = null;
+        this.mErrCode = 0;
+        this.cTu = writeActivity;
+        this.cTt = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setData(ArrayList<MetaData> arrayList) {
-        this.Sk = arrayList;
+    public ArrayList<com.baidu.tbadk.core.data.v> auJ() {
+        return this.cTt;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setCheckBoxStateChangedListener(com.baidu.tbadk.core.view.af afVar) {
-        this.mCheckBoxStateChangedListener = afVar;
+    public int getErrCode() {
+        return this.mErrCode;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.Sk == null) {
-            return 0;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void ld(String str) {
+        if (this.cTs == null) {
+            this.cTs = new a(this, null);
+            this.cTs.setPriority(3);
+            this.cTs.execute(str);
         }
-        return this.Sk.size();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: jB */
-    public MetaData getItem(int i) {
-        if (this.Sk != null && i < this.Sk.size()) {
-            return this.Sk.get(i);
+    /* loaded from: classes.dex */
+    private class a extends BdAsyncTask<Object, o, o> {
+        private com.baidu.tbadk.core.util.v Tu;
+
+        private a() {
         }
-        return null;
+
+        /* synthetic */ a(o oVar, a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: G */
+        public o doInBackground(Object... objArr) {
+            String obj = objArr[0].toString();
+            this.Tu = new com.baidu.tbadk.core.util.v(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
+            this.Tu.o("kw", obj);
+            String tD = this.Tu.tD();
+            if (!this.Tu.ue().uW().rb()) {
+                return null;
+            }
+            o oVar = new o(o.this.cTu);
+            oVar.parserJson(tD);
+            return oVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(o oVar) {
+            super.onPostExecute(oVar);
+            o.this.cTs = null;
+            o.this.mLoadDataCallBack.d(oVar);
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            super.cancel(true);
+            o.this.cTs = null;
+            if (this.Tu != null) {
+                this.Tu.gM();
+            }
+        }
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return 0L;
+    void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        p pVar;
-        if (this.bvF == null) {
-            this.bvF = viewGroup;
+    void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.mErrCode = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE, 0);
+                JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                        if (jSONObject2 != null) {
+                            com.baidu.tbadk.core.data.v vVar = new com.baidu.tbadk.core.data.v();
+                            vVar.parserJson(jSONObject2);
+                            this.cTt.add(vVar);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        MetaData item = getItem(i);
-        if (item != null) {
-            pVar = a(view != null ? view.getTag() : null, item);
-        } else {
-            pVar = null;
-        }
-        if (pVar != null) {
-            return pVar.rootView;
-        }
-        return null;
     }
 
-    private p a(Object obj, MetaData metaData) {
-        p pVar;
-        int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        if (obj == null) {
-            pVar = asR();
-        } else {
-            pVar = (p) obj;
-        }
-        if (this.cBw != null) {
-            this.cBw.a(pVar.rootView, metaData);
-        }
-        String portrait = metaData.getPortrait();
-        pVar.aBn.setText(metaData.getName_show());
-        pVar.bvH.setTagData(metaData);
-        pVar.bvk.setTag(portrait);
-        if (this.cBx) {
-            pVar.bvH.setVisibility(0);
-        } else {
-            pVar.bvH.setVisibility(8);
-        }
-        pVar.bvk.c(portrait, 12, false);
-        this.cBv.getPageContext().getLayoutMode().ab(skinType == 1);
-        this.cBv.getPageContext().getLayoutMode().j(pVar.rootView);
-        return pVar;
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
     }
 
-    private p asR() {
-        p pVar = new p(this, null);
-        pVar.rootView = com.baidu.adp.lib.g.b.hr().inflate(this.mContext, com.baidu.tieba.r.invite_friend_list_item, null);
-        pVar.bvk = (HeadImageView) pVar.rootView.findViewById(com.baidu.tieba.q.photo);
-        pVar.bvk.setIsRound(false);
-        pVar.aBn = (TextView) pVar.rootView.findViewById(com.baidu.tieba.q.txt_user_name);
-        pVar.bvH = (TbCheckBox) pVar.rootView.findViewById(com.baidu.tieba.q.ckb_select);
-        if (this.mCheckBoxStateChangedListener != null) {
-            pVar.bvH.setStatedChangedListener(this.mCheckBoxStateChangedListener);
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        if (this.cTs != null) {
+            this.cTs.cancel();
+            return true;
         }
-        pVar.rootView.setTag(pVar);
-        return pVar;
+        return true;
     }
 }

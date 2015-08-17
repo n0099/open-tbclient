@@ -3,17 +3,18 @@ package com.baidu.tbadk.switchs;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.f;
+import com.baidu.adp.lib.b.e;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class XiaomiPushSdkSwitchStatic extends a {
     static {
-        f.gD().l(XiaomiPushSdkSwitchStatic.class);
+        e.gy().e(XiaomiPushSdkSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.b.a
     public void changeSettingByType(int i) {
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001317));
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_XIAOMI_PUSH_SWITCH_CHANGE));
     }
 
     @Override // com.baidu.adp.lib.b.a

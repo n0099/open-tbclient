@@ -1,11 +1,11 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.tbadk.core.frameworkData.c;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class AppsActivityConfig extends c {
+public class AppsActivityConfig extends IntentConfig {
     public AppsActivityConfig(Context context, String str) {
         super(context);
-        getIntent().putExtra(ImageViewerConfig.URL, str);
+        getIntent().putExtra("url", str);
     }
 }

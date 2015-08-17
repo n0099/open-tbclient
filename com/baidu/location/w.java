@@ -16,7 +16,7 @@ class w {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class a {
+    public static class a {
         a() {
         }
 

@@ -12,6 +12,8 @@ public class GetUserInfoResult extends SapiResult {
     public String secureMobile;
     public String uid;
     public String username;
+    public boolean isInitialPortrait = false;
+    public boolean havePwd = true;
 
     public GetUserInfoResult() {
         this.msgMap.put(400021, "用户登录状态失效，请重新登录");
@@ -19,6 +21,6 @@ public class GetUserInfoResult extends SapiResult {
     }
 
     public String toString() {
-        return "GetUserInfoResult{username='" + this.username + "', displayname='" + this.displayname + "', uid='" + this.uid + "', secureMobile='" + this.secureMobile + "', secureEmail='" + this.secureEmail + "', incompleteUser=" + this.incompleteUser + ", portrait='" + this.portrait + "', portraitSign='" + this.portraitSign + "'}";
+        return "GetUserInfoResult{username='" + this.username + "', displayname='" + this.displayname + "', uid='" + this.uid + "', secureMobile='" + this.secureMobile + "', secureEmail='" + this.secureEmail + "', incompleteUser=" + this.incompleteUser + ", portrait='" + this.portrait + "', portraitSign='" + this.portraitSign + "', isInitialPortrait=" + this.isInitialPortrait + ", havePwd=" + this.havePwd + '}';
     }
 }

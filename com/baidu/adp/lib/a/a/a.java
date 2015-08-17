@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static final Object j(Class<?> cls) {
+    public static final Object c(Class<?> cls) {
         Object obj = null;
         try {
             Constructor<?>[] declaredConstructors = cls.getDeclaredConstructors();
@@ -82,7 +82,7 @@ public class a {
         return cls2.isAssignableFrom(cls);
     }
 
-    public static final List<Field> k(Class<?> cls) {
+    public static final List<Field> d(Class<?> cls) {
         LinkedList linkedList = new LinkedList();
         while (cls != Object.class) {
             Field[] declaredFields = cls.getDeclaredFields();
@@ -110,7 +110,7 @@ public class a {
         return field;
     }
 
-    public static final Object b(Object obj, String str) {
+    public static final Object c(Object obj, String str) {
         Field b = b(obj.getClass(), str);
         if (b != null) {
             try {

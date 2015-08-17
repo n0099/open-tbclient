@@ -1,11 +1,16 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.tbadk.data.IconData;
 import java.io.Serializable;
+import java.util.List;
 /* loaded from: classes.dex */
 public class AccountData implements Serializable {
     private static final long serialVersionUID = 4126203103788833116L;
+    private boolean mIsSelectTail;
     private String mMemberIconUrl;
+    private int mMemberType;
     private int mSex;
+    private List<IconData> mUserIcons;
     private String portrait;
     private String mID = null;
     private String mAccount = null;
@@ -40,6 +45,14 @@ public class AccountData implements Serializable {
         this.mPassword = str;
     }
 
+    public int getMemberType() {
+        return this.mMemberType;
+    }
+
+    public void setMemberType(int i) {
+        this.mMemberType = i;
+    }
+
     public String getBDUSS() {
         return this.BDUSS;
     }
@@ -56,7 +69,12 @@ public class AccountData implements Serializable {
         this.mIsActive = i;
     }
 
-    public void logPrint() {
+    public List<IconData> getUserIcons() {
+        return this.mUserIcons;
+    }
+
+    public void setUserIcons(List<IconData> list) {
+        this.mUserIcons = list;
     }
 
     public void setTbs(String str) {
@@ -105,5 +123,13 @@ public class AccountData implements Serializable {
 
     public void setMemberIconUrl(String str) {
         this.mMemberIconUrl = str;
+    }
+
+    public boolean getIsSelectTail() {
+        return this.mIsSelectTail;
+    }
+
+    public void setIsSelectTail(boolean z) {
+        this.mIsSelectTail = z;
     }
 }

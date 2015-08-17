@@ -5,16 +5,16 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.q;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ ChatMessageActivity brD;
+    final /* synthetic */ ChatMessageActivity bFr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(ChatMessageActivity chatMessageActivity, int i) {
         super(i);
-        this.brD = chatMessageActivity;
+        this.bFr = chatMessageActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,13 +31,13 @@ class a extends CustomMessageListener {
             fragment = (Fragment) data;
         }
         if (fragment != null) {
-            this.brD.mFragmentManager = this.brD.getSupportFragmentManager();
-            ChatMessageActivity chatMessageActivity = this.brD;
-            fragmentManager = this.brD.mFragmentManager;
-            chatMessageActivity.brC = fragmentManager.beginTransaction();
-            fragmentTransaction = this.brD.brC;
-            fragmentTransaction.add(q.content, fragment);
-            fragmentTransaction2 = this.brD.brC;
+            this.bFr.mFragmentManager = this.bFr.getSupportFragmentManager();
+            ChatMessageActivity chatMessageActivity = this.bFr;
+            fragmentManager = this.bFr.mFragmentManager;
+            chatMessageActivity.bFq = fragmentManager.beginTransaction();
+            fragmentTransaction = this.bFr.bFq;
+            fragmentTransaction.add(i.f.content, fragment);
+            fragmentTransaction2 = this.bFr.bFq;
             fragmentTransaction2.commitAllowingStateLoss();
         }
     }

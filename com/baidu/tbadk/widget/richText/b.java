@@ -6,118 +6,118 @@ import tbclient.NativeApp;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.lib.a.b.a.a.i {
-    private String atS;
-    private int atT;
-    private String atU;
-    private String atV;
-    private String mText;
+    private String YW;
+    private String aBf;
+    private int aBg;
+    private String aBh;
+    private String aBi;
     private int mType;
 
     public b() {
-        this.mText = null;
-        this.atS = null;
+        this.YW = null;
+        this.aBf = null;
         this.mType = 0;
     }
 
     public b(JSONObject jSONObject) {
-        this.mText = null;
-        this.atS = null;
+        this.YW = null;
+        this.aBf = null;
         this.mType = 0;
         if (jSONObject != null) {
-            this.mText = jSONObject.optString("text");
-            this.atS = jSONObject.optString("link");
+            this.YW = jSONObject.optString("text");
+            this.aBf = jSONObject.optString("link");
             this.mType = jSONObject.optInt("type", 0);
-            this.atT = jSONObject.optInt("is_native_app", 0);
-            if (this.atT == 1) {
+            this.aBg = jSONObject.optInt("is_native_app", 0);
+            if (this.aBg == 1) {
                 if (jSONObject.optJSONObject("native_app") == null) {
-                    this.atT = 0;
+                    this.aBg = 0;
                     return;
                 }
-                this.atU = jSONObject.optString("jump_and");
-                this.atV = jSONObject.optString("download_and");
-                if (TextUtils.isEmpty(this.atU) || TextUtils.isEmpty(this.atV)) {
-                    this.atT = 0;
+                this.aBh = jSONObject.optString("jump_and");
+                this.aBi = jSONObject.optString("download_and");
+                if (TextUtils.isEmpty(this.aBh) || TextUtils.isEmpty(this.aBi)) {
+                    this.aBg = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.atU = String.valueOf(this.atU) + ";download_url:" + this.atV + ";web_play_url:" + this.atS;
+                    this.aBh = String.valueOf(this.aBh) + ";download_url:" + this.aBi + ";web_play_url:" + this.aBf;
                 } else if (this.mType == 5) {
-                    this.atU = String.valueOf(this.atU) + ";download_url:" + this.atV + ";web_play_url:" + this.mText;
+                    this.aBh = String.valueOf(this.aBh) + ";download_url:" + this.aBi + ";web_play_url:" + this.YW;
                 }
-                this.atU = String.valueOf(this.atU) + ";is_native_app=1";
+                this.aBh = String.valueOf(this.aBh) + ";is_native_app=1";
             }
         }
     }
 
     public b(PbContent pbContent) {
-        this.mText = null;
-        this.atS = null;
+        this.YW = null;
+        this.aBf = null;
         this.mType = 0;
         if (pbContent != null) {
-            this.mText = pbContent.text;
-            this.atS = pbContent.link;
+            this.YW = pbContent.text;
+            this.aBf = pbContent.link;
             this.mType = pbContent.type.intValue();
-            this.atT = pbContent.is_native_app.intValue();
-            if (this.atT == 1) {
+            this.aBg = pbContent.is_native_app.intValue();
+            if (this.aBg == 1) {
                 NativeApp nativeApp = pbContent.native_app;
                 if (nativeApp == null) {
-                    this.atT = 0;
+                    this.aBg = 0;
                     return;
                 }
-                this.atU = nativeApp.jump_and;
-                this.atV = nativeApp.download_and;
-                if (TextUtils.isEmpty(this.atU) || TextUtils.isEmpty(this.atV)) {
-                    this.atT = 0;
+                this.aBh = nativeApp.jump_and;
+                this.aBi = nativeApp.download_and;
+                if (TextUtils.isEmpty(this.aBh) || TextUtils.isEmpty(this.aBi)) {
+                    this.aBg = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.atU = String.valueOf(this.atU) + ";download_url:" + this.atV + ";web_play_url:" + this.atS;
+                    this.aBh = String.valueOf(this.aBh) + ";download_url:" + this.aBi + ";web_play_url:" + this.aBf;
                 } else if (this.mType == 5) {
-                    this.atU = String.valueOf(this.atU) + ";download_url:" + this.atV + ";web_play_url:" + this.mText;
+                    this.aBh = String.valueOf(this.aBh) + ";download_url:" + this.aBi + ";web_play_url:" + this.YW;
                 }
-                this.atU = String.valueOf(this.atU) + ";is_native_app=1";
+                this.aBh = String.valueOf(this.aBh) + ";is_native_app=1";
             }
         }
     }
 
     public b(String str, String str2) {
-        this.mText = null;
-        this.atS = null;
+        this.YW = null;
+        this.aBf = null;
         this.mType = 0;
-        this.mText = str;
-        this.atS = str2;
+        this.YW = str;
+        this.aBf = str2;
     }
 
     public void setText(String str) {
-        this.mText = str;
+        this.YW = str;
     }
 
     public void setLink(String str) {
-        this.atS = str;
+        this.aBf = str;
     }
 
     public String getText() {
-        return this.mText;
+        return this.YW;
     }
 
     public String getLink() {
-        return this.atS;
+        return this.aBf;
     }
 
-    public int En() {
-        return this.atT;
+    public int EX() {
+        return this.aBg;
     }
 
-    public String Eo() {
-        return this.atU;
+    public String EY() {
+        return this.aBh;
     }
 
-    public void Ep() {
-        if (this.mText != null) {
-            this.mText = this.mText.replaceAll("\n", "");
+    public void EZ() {
+        if (this.YW != null) {
+            this.YW = this.YW.replaceAll("\n", "");
         }
-        if (this.atS != null) {
-            this.atS = this.atS.replaceAll("\n", "");
+        if (this.aBf != null) {
+            this.aBf = this.aBf.replaceAll("\n", "");
         }
     }
 }

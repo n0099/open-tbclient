@@ -2,89 +2,74 @@ package com.baidu.tieba.imMessageCenter.im.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.p;
-import com.baidu.tieba.q;
-import com.baidu.tieba.r;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tieba.i;
 import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private static ArrayList<ShutDownValidateTipView> ZK = new ArrayList<>();
-    private static boolean ZM;
-    private ArrayList<c> ZP;
-    private TextView bwI;
-    private ImageView bwJ;
-    private TextView bwK;
-    private TextView bwL;
-    private boolean bwM;
+    private ArrayList<a> aeP;
+    private TextView bKA;
+    private TextView bKB;
+    private boolean bKC;
+    private TextView bKy;
+    private ImageView bKz;
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void ay(boolean z);
+    }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ZP = new ArrayList<>();
+        this.aeP = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ZP = new ArrayList<>();
+        this.aeP = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context) {
         super(context);
-        this.ZP = new ArrayList<>();
+        this.aeP = new ArrayList<>();
         init(context);
     }
 
     public void init(Context context) {
-        addView(com.baidu.adp.lib.g.b.hr().inflate(context, r.shut_down_validate_tip, null));
-        this.bwJ = (ImageView) findViewById(q.no_network_icon);
-        this.bwK = (TextView) findViewById(q.no_network_guide1);
-        this.bwL = (TextView) findViewById(q.no_network_guide2);
-        this.bwI = (TextView) findViewById(q.no_network_showmore);
+        addView(LayoutInflater.from(context).inflate(i.g.shut_down_validate_tip, (ViewGroup) null));
+        this.bKz = (ImageView) findViewById(i.f.no_network_icon);
+        this.bKA = (TextView) findViewById(i.f.no_network_guide1);
+        this.bKB = (TextView) findViewById(i.f.no_network_guide2);
+        this.bKy = (TextView) findViewById(i.f.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.bwI != null) {
-            this.bwI.setOnClickListener(onClickListener);
-        }
-    }
-
-    public static void setIsHasNetwork(boolean z) {
-        if (z != ZM) {
-            ZM = z;
-            if (ZM) {
-                Iterator<ShutDownValidateTipView> it = ZK.iterator();
-                while (it.hasNext()) {
-                    it.next().setVisible(false);
-                }
-                return;
-            }
-            Iterator<ShutDownValidateTipView> it2 = ZK.iterator();
-            while (it2.hasNext()) {
-                it2.next().setVisible(true);
-            }
+        if (this.bKy != null) {
+            this.bKy.setOnClickListener(onClickListener);
         }
     }
 
     public void setVisible(boolean z) {
-        if (z != this.bwM) {
-            this.bwM = z;
+        if (z != this.bKC) {
+            this.bKC = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
-                alphaAnimation.setAnimationListener(new a(this));
+                alphaAnimation.setAnimationListener(new com.baidu.tieba.imMessageCenter.im.view.a(this));
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i = 0; i < this.ZP.size(); i++) {
-                    this.ZP.get(i).au(false);
+                for (int i = 0; i < this.aeP.size(); i++) {
+                    this.aeP.get(i).ay(false);
                 }
             } else if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -92,8 +77,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                 alphaAnimation2.setDuration(500L);
                 alphaAnimation2.setAnimationListener(new b(this));
                 startAnimation(alphaAnimation2);
-                for (int i2 = 0; i2 < this.ZP.size(); i2++) {
-                    this.ZP.get(i2).au(true);
+                for (int i2 = 0; i2 < this.aeP.size(); i2++) {
+                    this.aeP.get(i2).ay(true);
                 }
             }
         }
@@ -102,27 +87,25 @@ public class ShutDownValidateTipView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        ZK.add(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        ZK.remove(this);
-        this.ZP.clear();
+        this.aeP.clear();
     }
 
     public void onChangeSkinType(int i) {
-        ay.c(this.bwJ, p.icon_error);
-        ay.i(findViewById(q.no_network_parent), p.bg_no_network);
+        al.c(this.bKz, i.e.icon_error);
+        al.i(findViewById(i.f.no_network_parent), i.e.bg_no_network);
         if (i == 1) {
-            this.bwK.setTextColor(-10523526);
-            this.bwL.setTextColor(-8682095);
-            this.bwI.setTextColor(-10523526);
+            this.bKA.setTextColor(-10523526);
+            this.bKB.setTextColor(-8682095);
+            this.bKy.setTextColor(-10523526);
             return;
         }
-        this.bwK.setTextColor(-14277082);
-        this.bwL.setTextColor(-5065030);
-        this.bwI.setTextColor(-14277082);
+        this.bKA.setTextColor(-14277082);
+        this.bKB.setTextColor(-5065030);
+        this.bKy.setTextColor(-14277082);
     }
 }

@@ -1,44 +1,53 @@
 package com.baidu.adp.lib.d;
 
-import android.location.Location;
-import android.location.LocationListener;
-import android.os.Bundle;
+import android.location.Address;
+import com.baidu.adp.R;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.d.a;
+import com.baidu.adp.lib.util.StringUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements LocationListener {
-    final /* synthetic */ a uG;
+public class b implements a.b {
+    final /* synthetic */ a uD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.uG = aVar;
+        this.uD = aVar;
     }
 
-    @Override // android.location.LocationListener
-    public void onLocationChanged(Location location) {
-        f fVar;
-        f fVar2;
-        f fVar3;
-        if (location != null) {
-            fVar = this.uG.uC;
-            if (fVar == null) {
-                this.uG.uC = new f(this.uG, null);
-                fVar2 = this.uG.uC;
-                fVar2.setSelfExecute(true);
-                fVar3 = this.uG.uC;
-                fVar3.execute(location);
-            }
+    @Override // com.baidu.adp.lib.d.a.b
+    public void a(int i, String str, Address address, long j, boolean z) {
+        this.uD.ut = j;
+        this.uD.uz = address;
+        this.uD.uw = z;
+        this.uD.errorCode = i;
+        this.uD.gH();
+        switch (i) {
+            case 1:
+                if (StringUtils.isNull(str)) {
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.location_gps_offline);
+                    break;
+                }
+                break;
+            case 2:
+                if (StringUtils.isNull(str)) {
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.location_net_offline);
+                    break;
+                }
+                break;
+            case 3:
+                if (StringUtils.isNull(str)) {
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.location_all_offline);
+                    break;
+                }
+                break;
+            case 4:
+                if (StringUtils.isNull(str)) {
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.location_out_time);
+                    break;
+                }
+                break;
         }
-    }
-
-    @Override // android.location.LocationListener
-    public void onProviderDisabled(String str) {
-    }
-
-    @Override // android.location.LocationListener
-    public void onProviderEnabled(String str) {
-    }
-
-    @Override // android.location.LocationListener
-    public void onStatusChanged(String str, int i, Bundle bundle) {
+        this.uD.a(i, str, address);
     }
 }

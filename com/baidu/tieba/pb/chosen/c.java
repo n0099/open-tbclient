@@ -1,43 +1,47 @@
 package com.baidu.tieba.pb.chosen;
 
-import android.view.View;
+import android.widget.RelativeLayout;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.t;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbChosenActivity bJb;
+    final /* synthetic */ PbChosenActivity bYY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(PbChosenActivity pbChosenActivity, int i, int i2) {
         super(i, i2);
-        this.bJb = pbChosenActivity;
+        this.bYY = pbChosenActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
-        View view;
+        RelativeLayout relativeLayout;
         boolean z;
-        View view2;
+        RelativeLayout relativeLayout2;
+        com.baidu.tieba.pb.chosen.a.m mVar;
         if (responsedMessage instanceof com.baidu.tieba.pb.chosen.net.a) {
             com.baidu.tieba.pb.chosen.net.a aVar = (com.baidu.tieba.pb.chosen.net.a) responsedMessage;
             int erroCode = aVar.getErroCode();
-            this.bJb.bIV = true;
-            if (erroCode != 0 || aVar.isEmpty()) {
-                PbChosenActivity pbChosenActivity = this.bJb;
-                view = this.bJb.rootView;
-                pbChosenActivity.hideLoadingView(view);
-                this.bJb.showToast(StringUtils.isNull(aVar.getErrorText()) ? this.bJb.getResources().getString(t.neterror) : aVar.getErrorText());
+            this.bYY.bYO = true;
+            if (erroCode != 0) {
+                PbChosenActivity pbChosenActivity = this.bYY;
+                relativeLayout = this.bYY.bYB;
+                pbChosenActivity.hideLoadingView(relativeLayout);
+                BdToast.b(this.bYY.getPageContext().getPageActivity(), StringUtils.isNull(aVar.getErrorText()) ? this.bYY.getResources().getString(i.C0057i.neterror) : aVar.getErrorText()).sX();
             } else {
-                this.bJb.a(aVar);
+                this.bYY.a(aVar);
             }
-            z = this.bJb.aIZ;
+            z = this.bYY.aQA;
             if (!z) {
-                String string = this.bJb.getResources().getString(t.recommend_pb_no_net_text);
-                PbChosenActivity pbChosenActivity2 = this.bJb;
-                view2 = this.bJb.rootView;
-                pbChosenActivity2.showNetRefreshView(view2, string, true);
+                String string = this.bYY.getResources().getString(i.C0057i.error_unkown_try_again);
+                PbChosenActivity pbChosenActivity2 = this.bYY;
+                relativeLayout2 = this.bYY.bYB;
+                pbChosenActivity2.showNetRefreshView(relativeLayout2, string, true);
+                mVar = this.bYY.bYF;
+                mVar.setVisible(false);
             }
         }
     }

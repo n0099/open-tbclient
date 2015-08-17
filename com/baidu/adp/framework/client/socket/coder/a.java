@@ -10,12 +10,12 @@ public class a {
     private int pN;
     private int pO;
 
-    public static int eF() {
+    public static int eG() {
         return 9;
     }
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr) {
-        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + eF());
+        ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + eG());
         byte b = z ? (byte) (pJ | 0) : (byte) 0;
         if (z2) {
             b = (byte) (b | pK);
@@ -30,8 +30,8 @@ public class a {
         return allocate.array();
     }
 
-    public static a f(byte[] bArr) {
-        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, eF());
+    public static a t(byte[] bArr) {
+        ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, eG());
         a aVar = new a();
         byte b = wrap.get();
         if ((pJ & b) != 0) {
@@ -45,19 +45,19 @@ public class a {
         return aVar;
     }
 
-    public boolean eG() {
+    public boolean eH() {
         return this.pM;
     }
 
-    public int eH() {
+    public int eI() {
         return this.pN;
     }
 
-    public boolean eI() {
+    public boolean eJ() {
         return this.pL;
     }
 
-    public int eJ() {
+    public int eK() {
         return this.pO;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.e.a;
-import com.baidu.adp.lib.g.c;
+import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
@@ -46,6 +46,6 @@ public class PvCacheModel {
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        return UtilHelper.isSameDay(c.c(str2, 0L), System.currentTimeMillis());
+        return UtilHelper.isSameDay(b.c(str2, 0L), System.currentTimeMillis());
     }
 }

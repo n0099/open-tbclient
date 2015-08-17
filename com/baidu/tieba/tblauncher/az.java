@@ -1,31 +1,22 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.slidingmenu.lib.SlidingMenu;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az implements com.baidu.tbadk.core.dialog.d {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aDi;
-    private final /* synthetic */ int bbB;
-    final /* synthetic */ aj cwo;
+public class az implements SlidingMenu.OnClosedListener {
+    final /* synthetic */ ai cMQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(aj ajVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.cwo = ajVar;
-        this.aDi = aVar;
-        this.bbB = i;
+    public az(ai aiVar) {
+        this.cMQ = aiVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.d
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        this.aDi.dismiss();
-        if (this.bbB == 0) {
-            mainTabActivity2 = this.cwo.cwi;
-            TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_overdue_know", "click", 1, new Object[0]);
-        } else if (this.bbB == 1) {
-            mainTabActivity = this.cwo.cwi;
-            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_know", "click", 1, new Object[0]);
-        }
+    @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
+    public void onClosed() {
+        this.cMQ.y(1.0f);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_SLIDINGMENU_CLOSED));
     }
 }

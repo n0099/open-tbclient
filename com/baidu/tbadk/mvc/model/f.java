@@ -1,70 +1,43 @@
 package com.baidu.tbadk.mvc.model;
 
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements Runnable {
-    private static /* synthetic */ int[] aoh;
+public class f extends com.baidu.adp.framework.listener.e {
     final /* synthetic */ NetModel this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(NetModel netModel) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(NetModel netModel, int i, boolean z) {
+        super(i, z);
         this.this$0 = netModel;
     }
 
-    static /* synthetic */ int[] BU() {
-        int[] iArr = aoh;
-        if (iArr == null) {
-            iArr = new int[NetModel.NetModelType.valuesCustom().length];
-            try {
-                iArr[NetModel.NetModelType.TYPE_AUTO.ordinal()] = 3;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                iArr[NetModel.NetModelType.TYPE_HTTP.ordinal()] = 1;
-            } catch (NoSuchFieldError e2) {
-            }
-            try {
-                iArr[NetModel.NetModelType.TYPE_NETWORK.ordinal()] = 4;
-            } catch (NoSuchFieldError e3) {
-            }
-            try {
-                iArr[NetModel.NetModelType.TYPE_SOCKET.ordinal()] = 2;
-            } catch (NoSuchFieldError e4) {
-            }
-            aoh = iArr;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        NetModel.d dVar;
+        NetModel.d dVar2;
+        this.this$0.avu = false;
+        if (this.this$0.avx != null) {
+            com.baidu.adp.lib.g.h.hi().removeCallbacks(this.this$0.avx);
         }
-        return iArr;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        NetModel.NetModelType netModelType;
-        TbPageContext tbPageContext;
-        TbPageContext tbPageContext2;
-        TbPageContext tbPageContext3;
-        int[] BU = BU();
-        netModelType = this.this$0.anY;
-        switch (BU[netModelType.ordinal()]) {
-            case 1:
-            case 4:
-                NetModel netModel = this.this$0;
-                tbPageContext = this.this$0.mPageContext;
-                netModel.r(-1, tbPageContext.getString(com.baidu.tieba.t.neterror));
-                return;
-            case 2:
-                NetModel netModel2 = this.this$0;
-                tbPageContext2 = this.this$0.mPageContext;
-                netModel2.s(-1, tbPageContext2.getString(com.baidu.tieba.t.neterror));
-                return;
-            case 3:
-                NetModel netModel3 = this.this$0;
-                tbPageContext3 = this.this$0.mPageContext;
-                netModel3.q(-1, tbPageContext3.getString(com.baidu.tieba.t.neterror));
-                return;
-            default:
-                return;
+        if (socketResponsedMessage instanceof MvcSocketResponsedMessage) {
+            if (socketResponsedMessage.getOrginalMessage() instanceof MvcSocketMessage) {
+                dVar = this.this$0.avm;
+                if (dVar != null) {
+                    dVar2 = this.this$0.avm;
+                    dVar2.a((MvcSocketResponsedMessage) socketResponsedMessage, (MvcSocketMessage) socketResponsedMessage.getOrginalMessage(), null);
+                }
+            } else if (TbadkCoreApplication.m411getInst().isDebugMode()) {
+                throw new RuntimeException("mvc netmodel SocketListener socketResponsedMessage originaMessage error");
+            }
+        } else if (TbadkCoreApplication.m411getInst().isDebugMode()) {
+            throw new RuntimeException("mvc netmodel SocketListener socketResponsedMessage error");
         }
     }
 }

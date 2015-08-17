@@ -7,12 +7,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public final class SettingTextTestNewView extends TbSettingTextTipView {
     public SettingTextTestNewView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         hideArrow();
-        e(0, 0, com.baidu.adp.lib.util.n.d(context, com.baidu.tieba.o.ds30), 0);
+        h(0, 0, com.baidu.adp.lib.util.k.d(context, i.d.ds30), 0);
     }
 
     public void refresh() {
@@ -24,13 +25,13 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             z = true;
         }
         if (z) {
-            this.agH.setText("new");
-            this.agH.setTextAppearance(this.mContext, z2 ? com.baidu.tieba.u.setting_version_prompt_text_1 : com.baidu.tieba.u.setting_version_prompt_text);
-            com.baidu.tbadk.core.util.ay.i((View) this.agH, com.baidu.tieba.p.icon_news_text_prompt);
+            this.alN.setText("new");
+            this.alN.setTextAppearance(this.mContext, z2 ? i.j.setting_version_prompt_text_1 : i.j.setting_version_prompt_text);
+            com.baidu.tbadk.core.util.al.i((View) this.alN, i.e.icon_news_text_prompt);
             return;
         }
-        this.agH.setText((TbConfig.getVersionType() != 1 || com.baidu.tbadk.core.util.bb.isEmpty(TbConfig.getSubVersion())) ? TbConfig.getVersion() : String.valueOf(version) + "." + TbConfig.getSubVersion());
-        this.agH.setBackgroundDrawable(null);
-        this.agH.setTextAppearance(this.mContext, z2 ? com.baidu.tieba.u.setting_version_text_1 : com.baidu.tieba.u.setting_version_text);
+        this.alN.setText((TbConfig.getVersionType() != 1 || com.baidu.tbadk.core.util.aq.isEmpty(TbConfig.getSubVersion())) ? TbConfig.getVersion() : String.valueOf(version) + "." + TbConfig.getSubVersion());
+        this.alN.setBackgroundDrawable(null);
+        this.alN.setTextAppearance(this.mContext, z2 ? i.j.setting_version_text_1 : i.j.setting_version_text);
     }
 }

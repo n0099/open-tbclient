@@ -1,32 +1,31 @@
 package com.baidu.tbadk.gif;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.lib.f.c<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ GifView alX;
+class c extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ GifView atB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(GifView gifView) {
-        this.alX = gifView;
+        this.atB = gifView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.c
+    @Override // com.baidu.adp.lib.f.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
         super.a((c) aVar, str, i);
-        this.alX.stopLoading();
-        this.alX.setGif(aVar);
+        this.atB.stopLoading();
+        this.atB.setGif(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.c
+    @Override // com.baidu.adp.lib.f.b
     public void onProgressUpdate(Object... objArr) {
         super.onProgressUpdate(objArr);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.c
-    public void am(String str) {
-        super.am(str);
+    @Override // com.baidu.adp.lib.f.b
+    public void al(String str) {
+        super.al(str);
     }
 }

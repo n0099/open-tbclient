@@ -26,9 +26,12 @@ public final class DelGroupUsersResIdl extends Message {
     }
 
     /* loaded from: classes.dex */
-    public final class Builder extends Message.Builder<DelGroupUsersResIdl> {
+    public static final class Builder extends Message.Builder<DelGroupUsersResIdl> {
         public DataRes data;
         public Error error;
+
+        public Builder() {
+        }
 
         public Builder(DelGroupUsersResIdl delGroupUsersResIdl) {
             super(delGroupUsersResIdl);

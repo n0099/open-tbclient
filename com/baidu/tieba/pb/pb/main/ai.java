@@ -1,64 +1,34 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class ai implements com.baidu.tieba.tbadkCore.location.j {
-    final /* synthetic */ PbActivity bKU;
+class ai extends CustomMessageListener {
+    final /* synthetic */ PbActivity cbo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ai(PbActivity pbActivity) {
-        this.bKU = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ai(PbActivity pbActivity, int i) {
+        super(i);
+        this.cbo = pbActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.location.j
-    public void JX() {
-        ch chVar;
-        ch chVar2;
-        ch chVar3;
-        chVar = this.bKU.bKA;
-        if (chVar.Kj() != null) {
-            chVar2 = this.bKU.bKA;
-            if (chVar2.Kj().getLocationViewVisibility() == 0) {
-                this.bKU.showToast(com.baidu.tieba.t.no_network_guide);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tbadk.editortools.c.d dVar;
+        cb cbVar;
+        cb cbVar2;
+        com.baidu.tbadk.editortools.c.d dVar2;
+        if (customResponsedMessage != null) {
+            dVar = this.cbo.caX;
+            if (dVar != null) {
+                cbVar2 = this.cbo.caQ;
+                dVar2 = this.cbo.caX;
+                cbVar2.eA(dVar2.Br());
             }
-            chVar3 = this.bKU.bKA;
-            chVar3.Kj().setLocationInfoViewState(0);
+            cbVar = this.cbo.caQ;
+            cbVar.eC(false);
         }
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.location.j
-    public void gh(String str) {
-        ch chVar;
-        ch chVar2;
-        ch chVar3;
-        chVar = this.bKU.bKA;
-        if (chVar.Kj() != null) {
-            chVar2 = this.bKU.bKA;
-            if (chVar2.Kj().getLocationViewVisibility() == 0) {
-                PbActivity pbActivity = this.bKU;
-                if (StringUtils.isNull(str)) {
-                    str = this.bKU.getPageContext().getString(com.baidu.tieba.t.location_fail);
-                }
-                pbActivity.showToast(str);
-            }
-            chVar3 = this.bKU.bKA;
-            chVar3.Kj().setLocationInfoViewState(0);
-        }
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.location.j
-    public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-        ch chVar;
-        ch chVar2;
-        if (aVar != null && !StringUtils.isNull(aVar.ape())) {
-            chVar = this.bKU.bKA;
-            if (chVar.Kj() != null) {
-                chVar2 = this.bKU.bKA;
-                chVar2.Kj().D(2, aVar.ape());
-                return;
-            }
-            return;
-        }
-        gh(null);
     }
 }

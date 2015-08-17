@@ -1,76 +1,39 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 
-import android.os.Handler;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.location.Address;
+import com.baidu.adp.lib.d.a;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.bb;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.im.model.PersonalMsglistModel;
-import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.ResponsePersonalLbsInfoMessage;
+import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.RequestPersonalLbsInfoMessage;
 /* loaded from: classes.dex */
-class s extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ FloatingPersonalChatActivity buK;
+class s implements a.InterfaceC0003a {
+    final /* synthetic */ FloatingPersonalChatActivity bIA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s(FloatingPersonalChatActivity floatingPersonalChatActivity, int i, boolean z) {
-        super(i, z);
-        this.buK = floatingPersonalChatActivity;
+    public s(FloatingPersonalChatActivity floatingPersonalChatActivity) {
+        this.bIA = floatingPersonalChatActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        com.baidu.tbadk.coreExtra.relationship.b bVar;
+    @Override // com.baidu.adp.lib.d.a.InterfaceC0003a
+    public void b(int i, String str, Address address) {
         MsglistModel msglistModel;
-        FloatingPersonalChatView floatingPersonalChatView;
-        com.baidu.tbadk.coreExtra.relationship.b bVar2;
-        com.baidu.tbadk.coreExtra.relationship.b bVar3;
-        long hD;
-        long j;
-        String str;
-        com.baidu.tbadk.coreExtra.relationship.b bVar4;
-        Handler handler;
-        Runnable runnable;
-        long j2;
+        UserData userData;
         MsglistModel msglistModel2;
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205101 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponsePersonalLbsInfoMessage)) {
-            this.buK.brM = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
-            bVar = this.buK.brM;
-            if (bVar != null) {
-                UserData userData = null;
-                msglistModel = this.buK.mListModel;
-                if (msglistModel instanceof PersonalMsglistModel) {
-                    msglistModel2 = this.buK.mListModel;
-                    userData = ((PersonalMsglistModel) msglistModel2).getUser();
-                }
-                if (userData == null) {
-                    return;
-                }
-                floatingPersonalChatView = this.buK.buI;
-                String userName = userData.getUserName();
-                bVar2 = this.buK.brM;
-                floatingPersonalChatView.a(userName, bVar2);
-                FloatingPersonalChatActivity floatingPersonalChatActivity = this.buK;
-                FloatingPersonalChatActivity floatingPersonalChatActivity2 = this.buK;
-                bVar3 = this.buK.brM;
-                hD = floatingPersonalChatActivity2.hD(bb.n(bVar3.getTime()));
-                floatingPersonalChatActivity.brL = hD;
-                j = this.buK.brL;
-                if (j != 0) {
-                    handler = this.buK.mHandler;
-                    runnable = this.buK.brQ;
-                    j2 = this.buK.brL;
-                    handler.postDelayed(runnable, j2);
-                }
-                com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f WE = FloatingPersonalChatActivityStatic.WE();
-                str = this.buK.brN;
-                String str2 = String.valueOf(str) + "&" + userData.getUserId();
-                bVar4 = this.buK.brM;
-                WE.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
+        if (i == 0 && address != null) {
+            String valueOf = String.valueOf(address.getLatitude());
+            String valueOf2 = String.valueOf(address.getLongitude());
+            msglistModel = this.bIA.mListModel;
+            if (msglistModel instanceof PersonalMsglistModel) {
+                msglistModel2 = this.bIA.mListModel;
+                userData = ((PersonalMsglistModel) msglistModel2).getUser();
+            } else {
+                userData = null;
             }
-            TbadkCoreApplication.m411getInst().getAlarmManager().pn();
+            if (userData != null) {
+                this.bIA.mUser = userData;
+                this.bIA.sendMessage(new RequestPersonalLbsInfoMessage(205101, userData.getUserIdLong(), valueOf, valueOf2));
+            }
         }
     }
 }

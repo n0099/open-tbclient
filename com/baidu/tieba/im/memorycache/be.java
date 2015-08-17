@@ -1,11 +1,12 @@
 package com.baidu.tieba.im.memorycache;
 
+import com.baidu.tieba.im.chat.receiveChatMsgHandler.a;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
+public class be implements a.b {
     final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,12 +14,13 @@ public class be implements com.baidu.tieba.im.chat.receiveChatMsgHandler.c {
         this.this$0 = imMemoryCacheRegisterStatic;
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        c.TE().a(-2, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        b.Vl().e(imMessageCenterPojo);
+        b.Vl().a(9, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
     }
 
-    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.c
-    public void c(String str, List<CommonMsgPojo> list) {
+    @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
+    public void e(String str, List<CommonMsgPojo> list) {
     }
 }

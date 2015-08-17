@@ -5,52 +5,49 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tbadk.mvc.model.e;
+import com.baidu.tbadk.mvc.model.d;
 import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
-import com.baidu.tieba.tbadkCore.t;
-import com.baidu.tieba.tbadkCore.u;
+import com.baidu.tieba.tbadkCore.k;
+import com.baidu.tieba.tbadkCore.l;
 /* loaded from: classes.dex */
-public class c<T> extends e<t, u, T> {
-    public c(TbPageContext<T> tbPageContext, t tVar) {
-        super(tbPageContext, tVar);
+public class c<T> extends d<k, l, T> {
+    public c(TbPageContext<T> tbPageContext, k kVar) {
+        super(tbPageContext, kVar);
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> oR() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> oY() {
         return FrsPageHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> oQ() {
+    protected Class<? extends MvcSocketResponsedMessage> oX() {
         return FRSPageSocketResponsedMessage.class;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<u> getResponseDataClass() {
-        return u.class;
+    protected Class<l> getResponseDataClass() {
+        return l.class;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public int oN() {
+    protected int oU() {
         return CmdConfigHttp.FRS_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oP() {
+    protected int oW() {
         return 301001;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public String oO() {
+    protected String oV() {
         return TbConfig.FRS_ADDRESS;
     }
 
-    public void a(t tVar) {
-        this.anX = tVar;
+    public void a(k kVar) {
+        this.avn = kVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel

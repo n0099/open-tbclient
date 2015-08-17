@@ -3,6 +3,7 @@ package com.baidu.tbadk.mvc.c.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mvc.c.b;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -23,17 +24,8 @@ public abstract class a {
         }
     }
 
-    public void removeEventDelegate(com.baidu.tbadk.mvc.c.a aVar) {
-        if (this.eventDelegates != null && this.eventDelegates.contains(aVar)) {
-            if (this.isDispatchMvcEventing && TbadkCoreApplication.m411getInst().isDebugMode()) {
-                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
-            }
-            this.eventDelegates.remove(aVar);
-        }
-    }
-
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [77=4] */
-    public boolean dispatchMvcEvent(com.baidu.tbadk.mvc.c.b bVar) {
+    public boolean dispatchMvcEvent(b bVar) {
         boolean z;
         boolean z2;
         if (bVar != null && bVar.getUniqueId() == null) {
@@ -51,13 +43,13 @@ public abstract class a {
             while (i < size) {
                 try {
                     com.baidu.tbadk.mvc.c.a aVar = this.eventDelegates.get(i);
-                    if (aVar == null || (aVar.AN() && !(aVar.AN() && bVar.getUniqueId() == aVar.getUniqueId()))) {
+                    if (aVar == null || (aVar.oK() && !(aVar.oK() && bVar.getUniqueId() == aVar.getUniqueId()))) {
                         z2 = z;
                     } else {
                         z2 = aVar.a(bVar);
                         if (z2) {
                             try {
-                                if (bVar.By()) {
+                                if (bVar.CJ()) {
                                     return true;
                                 }
                             } catch (Throwable th) {
@@ -90,10 +82,6 @@ public abstract class a {
         }
     }
 
-    protected void onBeforeDispatchMvcEvent(com.baidu.tbadk.mvc.c.b bVar) {
-    }
-
-    public void setDefaultUniqueId(BdUniqueId bdUniqueId) {
-        this.uniqueId = bdUniqueId;
+    protected void onBeforeDispatchMvcEvent(b bVar) {
     }
 }

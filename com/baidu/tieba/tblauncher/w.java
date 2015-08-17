@@ -2,6 +2,8 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 class w extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -16,21 +18,16 @@ class w extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        aj ajVar;
-        boolean z;
-        aj ajVar2;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            ajVar = this.this$0.cvs;
-            if (booleanValue) {
-                ajVar2 = this.this$0.cvs;
-                if (ajVar2.aqn()) {
-                    z = true;
-                    ajVar.fr(z);
-                }
+        ai aiVar;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
+            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
+                BdLog.e("transform error");
+            } else if (MainTabActivity.cLK) {
+                NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
+                int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme();
+                aiVar = this.this$0.cLT;
+                aiVar.jY(msgReplyme);
             }
-            z = false;
-            ajVar.fr(z);
         }
     }
 }

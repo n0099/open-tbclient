@@ -9,16 +9,15 @@ import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.base.m;
+import com.baidu.adp.base.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.n;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
-public class a extends c implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, m {
-    private final int PRELOAD_DELAY = 100;
+public class a extends c implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, k {
+    private static final int PRELOAD_DELAY = 100;
     private BdUniqueId mId = null;
     private boolean mIsScroll = false;
     public final Handler mHandler = new Handler(this);
@@ -66,7 +65,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
     }
 
     public void showToast(String str) {
-        n.showToast(getApplicationContext(), str);
+        com.baidu.adp.lib.util.k.showToast(getApplicationContext(), str);
     }
 
     public void releaseResouce() {
@@ -127,7 +126,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
         MessageManager.getInstance().registerListener(i, messageListener);
     }
 
-    @Override // com.baidu.adp.base.m
+    @Override // com.baidu.adp.base.k
     public BdUniqueId getUniqueId() {
         return this.mId;
     }
@@ -138,7 +137,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.f.d.hl().d(this.mId);
+        com.baidu.adp.lib.f.c.hc().d(this.mId);
         com.baidu.adp.base.a.dF().h(getActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
@@ -147,7 +146,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
     @Override // com.baidu.adp.plugin.pluginBase.c
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.f.d.hl().e(this.mId);
+        com.baidu.adp.lib.f.c.hc().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -164,21 +163,21 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.nn();
+            onGetPreLoadListView.nx();
         }
     }
 
-    @Override // com.baidu.adp.base.m
+    @Override // com.baidu.adp.base.k
     public boolean isScroll() {
         return this.mIsScroll;
     }
 
-    @Override // com.baidu.adp.base.m
+    @Override // com.baidu.adp.base.k
     public void setIsScroll(boolean z) {
         this.mIsScroll = z;
     }
 
-    @Override // com.baidu.adp.base.m
+    @Override // com.baidu.adp.base.k
     public void onPreLoad(BdListView bdListView) {
     }
 

@@ -1,12 +1,12 @@
 package com.baidu.tbadk.core.voice;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.adp.lib.voice.l;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.t;
+import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g extends com.baidu.adp.lib.f.c<com.baidu.tbadk.core.voice.a.a> {
+public class g extends com.baidu.adp.lib.f.b<com.baidu.tbadk.core.voice.a.a> {
     final /* synthetic */ VoiceManager this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,50 +16,25 @@ public class g extends com.baidu.adp.lib.f.c<com.baidu.tbadk.core.voice.a.a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.c
+    @Override // com.baidu.adp.lib.f.b
     public void a(com.baidu.tbadk.core.voice.a.a aVar, String str, int i) {
-        VoiceData.VoiceModel voiceModel;
-        i iVar;
-        i iVar2;
-        VoiceData.VoiceModel voiceModel2;
-        i iVar3;
-        VoiceData.VoiceModel voiceModel3;
-        VoiceData.VoiceModel voiceModel4;
-        VoiceData.VoiceModel voiceModel5;
         super.a((g) aVar, str, i);
-        voiceModel = this.this$0.mCurPlayModel;
-        if (voiceModel == null) {
-            return;
-        }
-        iVar = this.this$0.sPlayView;
-        if (iVar != null && aVar != null) {
+        if (this.this$0.mCurPlayModel != null && this.this$0.sPlayView != null && aVar != null) {
             String str2 = aVar.path;
             String str3 = aVar.md5;
             int i2 = aVar.error_code;
             String str4 = aVar.error_msg;
             if (StringUtils.isNull(str2) || StringUtils.isNull(str3)) {
-                TiebaStatic.voiceError("", 1, this.this$0.context.getString(t.voice_cache_error_internal), str2);
+                TiebaStatic.voiceError(1, this.this$0.context.getString(i.C0057i.voice_cache_error_internal), str2);
                 if (i2 <= 0 || StringUtils.isNull(str4) || (i2 != 2 && i2 != 4 && i2 != 3 && i2 != 7)) {
-                    iVar2 = this.this$0.sPlayView;
-                    iVar2.onShowErr(5, com.baidu.adp.lib.voice.l.getString(t.voice_err_load_fail));
+                    this.this$0.sPlayView.onShowErr(5, l.getString(i.C0057i.voice_err_load_fail));
                 } else {
-                    iVar3 = this.this$0.sPlayView;
-                    iVar3.onShowErr(5, str4);
+                    this.this$0.sPlayView.onShowErr(5, str4);
                 }
-                VoiceManager voiceManager = this.this$0;
-                voiceModel2 = this.this$0.mCurPlayModel;
-                voiceManager.setPlayWaiting(voiceModel2);
-                return;
-            }
-            voiceModel3 = this.this$0.mCurPlayModel;
-            if (!voiceModel3.voiceId.equals(str3)) {
-                return;
-            }
-            voiceModel4 = this.this$0.mCurPlayModel;
-            if (VoiceManager.isVoiceDownloading(voiceModel4.voice_status.intValue())) {
-                VoiceManager voiceManager2 = this.this$0;
-                voiceModel5 = this.this$0.mCurPlayModel;
-                voiceManager2.setPlaying(voiceModel5, str2);
+                this.this$0.setPlayWaiting(this.this$0.mCurPlayModel);
+            } else if (!this.this$0.mCurPlayModel.voiceId.equals(str3) || !VoiceManager.isVoiceDownloading(this.this$0.mCurPlayModel.voice_status.intValue())) {
+            } else {
+                this.this$0.setPlaying(this.this$0.mCurPlayModel, str2);
             }
         }
     }

@@ -26,7 +26,7 @@ public class NotificationCompat {
     }
 
     /* loaded from: classes.dex */
-    class NotificationCompatImplBase implements NotificationCompatImpl {
+    static class NotificationCompatImplBase implements NotificationCompatImpl {
         NotificationCompatImplBase() {
         }
 
@@ -42,7 +42,7 @@ public class NotificationCompat {
     }
 
     /* loaded from: classes.dex */
-    class NotificationCompatImplHoneycomb implements NotificationCompatImpl {
+    static class NotificationCompatImplHoneycomb implements NotificationCompatImpl {
         NotificationCompatImplHoneycomb() {
         }
 
@@ -53,7 +53,7 @@ public class NotificationCompat {
     }
 
     /* loaded from: classes.dex */
-    class NotificationCompatImplIceCreamSandwich implements NotificationCompatImpl {
+    static class NotificationCompatImplIceCreamSandwich implements NotificationCompatImpl {
         NotificationCompatImplIceCreamSandwich() {
         }
 
@@ -64,7 +64,7 @@ public class NotificationCompat {
     }
 
     /* loaded from: classes.dex */
-    class NotificationCompatImplJellybean implements NotificationCompatImpl {
+    static class NotificationCompatImplJellybean implements NotificationCompatImpl {
         NotificationCompatImplJellybean() {
         }
 
@@ -105,7 +105,7 @@ public class NotificationCompat {
     }
 
     /* loaded from: classes.dex */
-    public class Builder {
+    public static class Builder {
         CharSequence mContentInfo;
         PendingIntent mContentIntent;
         CharSequence mContentText;
@@ -309,7 +309,7 @@ public class NotificationCompat {
     }
 
     /* loaded from: classes.dex */
-    public abstract class Style {
+    public static abstract class Style {
         CharSequence mBigContentTitle;
         Builder mBuilder;
         CharSequence mSummaryText;
@@ -333,7 +333,7 @@ public class NotificationCompat {
     }
 
     /* loaded from: classes.dex */
-    public class BigPictureStyle extends Style {
+    public static class BigPictureStyle extends Style {
         Bitmap mBigLargeIcon;
         boolean mBigLargeIconSet;
         Bitmap mPicture;
@@ -369,7 +369,7 @@ public class NotificationCompat {
     }
 
     /* loaded from: classes.dex */
-    public class BigTextStyle extends Style {
+    public static class BigTextStyle extends Style {
         CharSequence mBigText;
 
         public BigTextStyle() {
@@ -397,7 +397,7 @@ public class NotificationCompat {
     }
 
     /* loaded from: classes.dex */
-    public class InboxStyle extends Style {
+    public static class InboxStyle extends Style {
         ArrayList<CharSequence> mTexts = new ArrayList<>();
 
         public InboxStyle() {
@@ -425,7 +425,7 @@ public class NotificationCompat {
     }
 
     /* loaded from: classes.dex */
-    public class Action {
+    public static class Action {
         public PendingIntent actionIntent;
         public int icon;
         public CharSequence title;

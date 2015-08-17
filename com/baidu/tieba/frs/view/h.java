@@ -1,42 +1,55 @@
 package com.baidu.tieba.frs.view;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.frs.aw;
-import com.baidu.tieba.tbadkCore.GoodGridView;
+import android.graphics.drawable.Drawable;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ax;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h {
-    private View LG;
-    private GoodGridView aRu;
-    private ImageView aRv;
+public class h implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.data.i> {
+    final /* synthetic */ a bcO;
 
-    public h(Context context) {
-        this.LG = null;
-        this.aRu = null;
-        this.aRv = null;
-        this.LG = com.baidu.adp.lib.g.b.hr().inflate(context, com.baidu.tieba.r.dialog_good, null);
-        this.aRu = (GoodGridView) this.LG.findViewById(com.baidu.tieba.q.good_gridview);
-        this.aRv = (ImageView) this.LG.findViewById(com.baidu.tieba.q.divider_line);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public h(a aVar) {
+        this.bcO = aVar;
     }
 
-    public void a(aw awVar) {
-        this.aRu.setAdapter((ListAdapter) awVar);
+    @Override // com.baidu.tbadk.core.flow.a.d
+    public void o(int i, String str) {
+        ax.uR().b(this.bcO.LS, new String[]{str});
+        String str2 = "";
+        if (this.bcO.aVx != null) {
+            str2 = this.bcO.aVx.getForumId();
+        }
+        TiebaStatic.log(new ao("c10133").af(ImageViewerConfig.FORUM_ID, str2).r(ImageViewerConfig.INDEX, i));
     }
 
-    public void b(AdapterView.OnItemClickListener onItemClickListener) {
-        this.aRu.setOnItemClickListener(onItemClickListener);
-    }
-
-    public View getView() {
-        return this.LG;
-    }
-
-    public void changeSkinType(int i) {
-        ay.j(this.aRu, com.baidu.tieba.n.cp_bg_line_d);
-        ay.i(this.aRv, com.baidu.tieba.n.frs_goodheader_line_end);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.core.flow.a.d
+    public void a(int i, com.baidu.tbadk.core.data.i iVar) {
+        int i2;
+        Drawable drawable;
+        if (this.bcO.bcc != null) {
+            String str = "";
+            if (this.bcO.aVx != null) {
+                str = this.bcO.aVx.getForumId();
+            }
+            TiebaStatic.log(new ao("c10132").af(ImageViewerConfig.FORUM_ID, str).r(ImageViewerConfig.INDEX, i));
+            if (iVar == null || StringUtils.isNull(iVar.getTitle(), true)) {
+                this.bcO.bcc.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                this.bcO.bcc.setText("");
+                return;
+            }
+            TextView textView = this.bcO.bcc;
+            i2 = this.bcO.drawablePadding;
+            textView.setCompoundDrawablePadding(i2);
+            TextView textView2 = this.bcO.bcc;
+            drawable = this.bcO.bcd;
+            textView2.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.bcO.bcc.setText(iVar.getTitle());
+        }
     }
 }

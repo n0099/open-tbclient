@@ -5,14 +5,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes.dex */
 public class b extends c<byte[]> {
-    public b(com.baidu.adp.base.a.c cVar) {
-        super(cVar);
+    public b(com.baidu.adp.base.a.b bVar) {
+        super(bVar);
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String Q(String str) {
+    public String P(String str) {
         String str2 = "cache_kv_b" + Math.abs(str.hashCode());
-        this.sS.E("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
+        this.sP.E("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
         return str2;
     }
 
@@ -21,31 +21,31 @@ public class b extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public int gg() {
+    public int ga() {
         return 1;
     }
 
     /* JADX WARN: Type inference failed for: r2v15, types: [T, byte[]] */
     @Override // com.baidu.adp.lib.cache.c
-    protected m<byte[]> c(SQLiteDatabase sQLiteDatabase, String str) {
+    protected h<byte[]> c(SQLiteDatabase sQLiteDatabase, String str) {
         Cursor cursor;
         Throwable th;
-        m<byte[]> mVar = null;
+        h<byte[]> hVar = null;
         try {
-            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.sT + " where m_key = ?", new String[]{str});
+            cursor = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.sQ + " where m_key = ?", new String[]{str});
             try {
                 if (cursor.moveToNext()) {
-                    mVar = new m<>();
-                    mVar.tf = cursor.getString(0);
-                    mVar.th = cursor.getLong(1);
-                    mVar.ti = cursor.getLong(2);
-                    mVar.tj = cursor.getLong(3);
-                    mVar.ss = cursor.getBlob(4);
+                    hVar = new h<>();
+                    hVar.tc = cursor.getString(0);
+                    hVar.te = cursor.getLong(1);
+                    hVar.tf = cursor.getLong(2);
+                    hVar.tg = cursor.getLong(3);
+                    hVar.so = cursor.getBlob(4);
                     com.baidu.adp.lib.g.a.b(cursor);
                 } else {
                     com.baidu.adp.lib.g.a.b(cursor);
                 }
-                return mVar;
+                return hVar;
             } catch (Throwable th2) {
                 th = th2;
                 com.baidu.adp.lib.g.a.b(cursor);
@@ -58,24 +58,24 @@ public class b extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected ContentValues a(m<byte[]> mVar) {
+    protected ContentValues a(h<byte[]> hVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("m_key", mVar.tf);
-        contentValues.put("m_value", mVar.ss);
-        contentValues.put("saveTime", Long.valueOf(mVar.th));
-        contentValues.put("lastHitTime", Long.valueOf(mVar.ti));
-        contentValues.put("timeToExpire", Long.valueOf(mVar.tj));
+        contentValues.put("m_key", hVar.tc);
+        contentValues.put("m_value", hVar.so);
+        contentValues.put("saveTime", Long.valueOf(hVar.te));
+        contentValues.put("lastHitTime", Long.valueOf(hVar.tf));
+        contentValues.put("timeToExpire", Long.valueOf(hVar.tg));
         return contentValues;
     }
 
     @Override // com.baidu.adp.lib.cache.c
     public Cursor d(SQLiteDatabase sQLiteDatabase, String str) {
-        return sQLiteDatabase.rawQuery("select * from " + this.sT, new String[0]);
+        return sQLiteDatabase.rawQuery("select * from " + this.sQ, new String[0]);
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean R(String str) {
-        this.sS.E("DROP TABLE IF EXISTS " + this.sT);
+    protected boolean Q(String str) {
+        this.sP.E("DROP TABLE IF EXISTS " + this.sQ);
         return true;
     }
 }

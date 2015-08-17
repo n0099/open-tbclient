@@ -1,31 +1,7 @@
 package com.baidu.adp.lib.stats;
-
-import java.util.Comparator;
 /* loaded from: classes.dex */
-class e implements Comparator<s> {
-    final /* synthetic */ BdNormalStatBase wb;
+public interface e {
+    long ar(String str);
 
-    private e(BdNormalStatBase bdNormalStatBase) {
-        this.wb = bdNormalStatBase;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ e(BdNormalStatBase bdNormalStatBase, e eVar) {
-        this(bdNormalStatBase);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(s sVar, s sVar2) {
-        long j = sVar.wY;
-        long j2 = sVar2.wY;
-        if (j > j2) {
-            return 1;
-        }
-        if (j == j2) {
-            return 0;
-        }
-        return -1;
-    }
+    void d(String str, long j);
 }
