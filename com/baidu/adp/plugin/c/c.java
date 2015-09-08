@@ -19,8 +19,8 @@ public class c implements d<Message<?>> {
         if (message == null) {
             return false;
         }
-        String au = com.baidu.adp.plugin.packageManager.pluginSettings.c.mp().au(message.getCmd());
-        if (TextUtils.isEmpty(au) || com.baidu.adp.plugin.packageManager.pluginSettings.c.mp().bC(au)) {
+        String au = com.baidu.adp.plugin.packageManager.pluginSettings.c.mm().au(message.getCmd());
+        if (TextUtils.isEmpty(au) || com.baidu.adp.plugin.packageManager.pluginSettings.c.mm().bC(au)) {
             return false;
         }
         if (PluginCenter.getInstance().hasInstance(au)) {
@@ -31,6 +31,6 @@ public class c implements d<Message<?>> {
             return true;
         }
         this.Dc.a(au, message);
-        return PluginCenter.getInstance().launch(au);
+        return PluginCenter.getInstance().launch(au).Ci;
     }
 }

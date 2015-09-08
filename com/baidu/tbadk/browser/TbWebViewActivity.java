@@ -19,7 +19,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import java.util.Timer;
 /* loaded from: classes.dex */
 public class TbWebViewActivity extends BaseWebViewActivity {
     public static final int FILECHOOSER_RESULTCODE = 1;
@@ -118,7 +117,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
             this.mWebView.setVisibility(8);
-            new Timer().schedule(new m(this), ViewConfiguration.getZoomControlsTimeout());
+            com.baidu.adp.lib.g.h.hf().postDelayed(new n(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
         }
     }
 
@@ -204,7 +203,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void initCookie() {
-        f.W(getApplicationContext());
+        g.W(getApplicationContext());
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity

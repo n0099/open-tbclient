@@ -7,16 +7,16 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e implements ad {
     private String avatar;
-    private int cAf;
-    private int cAg;
-    private int cAh;
-    private int cAi;
-    private int cAj;
-    private boolean cAk;
-    private boolean cAl;
-    private boolean cAm;
-    private boolean cAn;
-    private int cAo;
+    private int cID;
+    private int cIE;
+    private int cIF;
+    private int cIG;
+    private int cIH;
+    private boolean cII;
+    private boolean cIJ;
+    private boolean cIK;
+    private boolean cIL;
+    private int cIM;
     private String errorMsg;
     private int forumId;
     private String forumName;
@@ -33,70 +33,70 @@ public class e implements ad {
         return this.avatar;
     }
 
-    public int amY() {
-        return this.cAf;
+    public int arh() {
+        return this.cID;
     }
 
-    public int amZ() {
-        return this.cAg;
+    public int ari() {
+        return this.cIE;
     }
 
-    public int ana() {
-        return this.cAh;
+    public int arj() {
+        return this.cIF;
     }
 
-    public int anb() {
-        return this.cAi;
+    public int ark() {
+        return this.cIG;
     }
 
-    public int anc() {
-        return this.cAj;
+    public int arl() {
+        return this.cIH;
     }
 
-    public void js(int i) {
-        this.cAf = i;
+    public void kc(int i) {
+        this.cID = i;
     }
 
-    public void jt(int i) {
-        this.cAg = i;
+    public void kd(int i) {
+        this.cIE = i;
     }
 
-    public void ju(int i) {
-        this.cAh = i;
+    public void ke(int i) {
+        this.cIF = i;
     }
 
-    public boolean and() {
-        return this.cAk;
+    public boolean arm() {
+        return this.cII;
     }
 
-    public void fk(boolean z) {
-        this.cAk = z;
-        this.cAf = 1;
+    public void fV(boolean z) {
+        this.cII = z;
+        this.cID = 1;
     }
 
-    public boolean ane() {
-        return this.cAm;
+    public boolean arn() {
+        return this.cIK;
     }
 
-    public void fl(boolean z) {
-        this.cAm = z;
-        this.cAf = 0;
+    public void fW(boolean z) {
+        this.cIK = z;
+        this.cID = 0;
     }
 
-    public boolean anf() {
-        return this.cAn;
+    public boolean aro() {
+        return this.cIL;
     }
 
-    public void fm(boolean z) {
-        this.cAn = z;
+    public void fX(boolean z) {
+        this.cIL = z;
     }
 
-    public int ang() {
-        return this.cAo;
+    public int arp() {
+        return this.cIM;
     }
 
-    public void jv(int i) {
-        this.cAo = i;
+    public void kf(int i) {
+        this.cIM = i;
     }
 
     public String getErrorMsg() {
@@ -107,12 +107,12 @@ public class e implements ad {
         this.errorMsg = str;
     }
 
-    public boolean anh() {
-        return this.cAl;
+    public boolean arq() {
+        return this.cIJ;
     }
 
-    public void fn(boolean z) {
-        this.cAl = z;
+    public void fY(boolean z) {
+        this.cIJ = z;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -120,14 +120,14 @@ public class e implements ad {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.cAf = jSONObject.optInt("is_sign_in");
-            this.cAg = jSONObject.optInt("cont_sign_num");
-            this.cAh = jSONObject.optInt("user_level");
-            this.cAi = jSONObject.optInt("user_exp");
-            this.cAj = jSONObject.optInt("need_exp");
-            if (this.cAf != 0) {
-                this.cAk = true;
-                this.cAm = false;
+            this.cID = jSONObject.optInt("is_sign_in");
+            this.cIE = jSONObject.optInt("cont_sign_num");
+            this.cIF = jSONObject.optInt("user_level");
+            this.cIG = jSONObject.optInt("user_exp");
+            this.cIH = jSONObject.optInt("need_exp");
+            if (this.cID != 0) {
+                this.cII = true;
+                this.cIK = false;
             }
         }
     }
@@ -136,8 +136,8 @@ public class e implements ad {
     public ArrayList<ac> getImages() {
         ArrayList<ac> arrayList = new ArrayList<>();
         ac acVar = new ac();
-        acVar.VY = this.avatar;
-        acVar.aau = 10;
+        acVar.Wg = this.avatar;
+        acVar.aaD = 10;
         arrayList.add(acVar);
         return arrayList;
     }

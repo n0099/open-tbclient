@@ -14,87 +14,87 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class e {
-    private ImageView cts;
-    private TextView ctt;
-    private SlidingTabLayout ctu;
-    private Animation ctv;
-    private Animation ctw;
+    private ImageView cBK;
+    private TextView cBL;
+    private SlidingTabLayout cBM;
+    private Animation cBN;
+    private Animation cBO;
     private Context mContext;
     private View rootView;
-    private boolean ctx = true;
-    private com.baidu.adp.lib.g.d bIl = new f(this);
+    private boolean cBP = true;
+    private com.baidu.adp.lib.g.d bIS = new f(this);
 
     public e(Context context, View view) {
         this.rootView = view;
         this.mContext = context;
-        this.ctt = (TextView) view.findViewById(i.f.tab_widget_switch);
-        this.cts = (ImageView) view.findViewById(i.f.tab_widget_more);
-        this.ctu = (SlidingTabLayout) view.findViewById(i.f.tab_widget_sliding_tab);
+        this.cBL = (TextView) view.findViewById(i.f.tab_widget_switch);
+        this.cBK = (ImageView) view.findViewById(i.f.tab_widget_more);
+        this.cBM = (SlidingTabLayout) view.findViewById(i.f.tab_widget_sliding_tab);
     }
 
-    public void F(View.OnClickListener onClickListener) {
-        if (this.cts != null) {
-            this.cts.setOnClickListener(onClickListener);
+    public void G(View.OnClickListener onClickListener) {
+        if (this.cBK != null) {
+            this.cBK.setOnClickListener(onClickListener);
         }
     }
 
     public void setViewPager(ViewPager viewPager) {
-        if (this.ctu != null) {
-            this.ctu.setViewPager(viewPager);
+        if (this.cBM != null) {
+            this.cBM.setViewPager(viewPager);
         }
     }
 
     public void onChangeSkinType(int i) {
-        al.j(this.rootView, i.c.cp_bg_line_e);
-        al.j((View) this.ctt, i.c.cp_bg_line_e);
-        al.b(this.ctt, i.c.cp_cont_f, 1);
-        if (this.ctx) {
-            al.c(this.cts, i.e.icon_triangle_down_normal);
+        al.i(this.rootView, i.c.cp_bg_line_e);
+        al.i((View) this.cBL, i.c.cp_bg_line_e);
+        al.b(this.cBL, i.c.cp_cont_f, 1);
+        if (this.cBP) {
+            al.c(this.cBK, i.e.icon_triangle_down_normal);
         } else {
-            al.c(this.cts, i.e.icon_triangle_up_normal);
+            al.c(this.cBK, i.e.icon_triangle_up_normal);
         }
-        al.i(this.cts, i.e.rec_frs_btn_more_selector);
-        if (this.ctu != null) {
-            this.ctu.onChangeSkinType(i);
+        al.h(this.cBK, i.e.rec_frs_btn_more_selector);
+        if (this.cBM != null) {
+            this.cBM.onChangeSkinType(i);
         }
     }
 
-    public void ajX() {
-        this.ctx = false;
+    public void aod() {
+        this.cBP = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, true));
-        if (this.ctt != null) {
-            this.ctt.clearAnimation();
-            this.ctt.setVisibility(0);
-            this.ctt.startAnimation(getInAnimation());
+        if (this.cBL != null) {
+            this.cBL.clearAnimation();
+            this.cBL.setVisibility(0);
+            this.cBL.startAnimation(getInAnimation());
         }
-        al.c(this.cts, i.e.icon_triangle_up_normal);
-        this.ctu.setDrawBottomLine(false);
+        al.c(this.cBK, i.e.icon_triangle_up_normal);
+        this.cBM.setDrawBottomLine(false);
     }
 
-    public void ajY() {
-        this.ctx = true;
+    public void aoe() {
+        this.cBP = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, false));
-        if (this.ctt != null) {
-            this.ctt.clearAnimation();
-            this.ctt.startAnimation(getOutAnimation());
+        if (this.cBL != null) {
+            this.cBL.clearAnimation();
+            this.cBL.startAnimation(getOutAnimation());
         }
-        al.c(this.cts, i.e.icon_triangle_down_normal);
-        this.ctu.setDrawBottomLine(true);
+        al.c(this.cBK, i.e.icon_triangle_down_normal);
+        this.cBM.setDrawBottomLine(true);
     }
 
     private Animation getInAnimation() {
-        if (this.ctv == null) {
-            this.ctv = AnimationUtils.loadAnimation(this.mContext, i.a.fade_in);
-            this.ctv.setAnimationListener(this.bIl);
+        if (this.cBN == null) {
+            this.cBN = AnimationUtils.loadAnimation(this.mContext, i.a.fade_in);
+            this.cBN.setAnimationListener(this.bIS);
         }
-        return this.ctv;
+        return this.cBN;
     }
 
     private Animation getOutAnimation() {
-        if (this.ctw == null) {
-            this.ctw = AnimationUtils.loadAnimation(this.mContext, i.a.fade_out);
-            this.ctw.setAnimationListener(this.bIl);
+        if (this.cBO == null) {
+            this.cBO = AnimationUtils.loadAnimation(this.mContext, i.a.fade_out);
+            this.cBO.setAnimationListener(this.bIS);
         }
-        return this.ctw;
+        return this.cBO;
     }
 }

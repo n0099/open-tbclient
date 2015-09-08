@@ -17,63 +17,63 @@ import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class i {
-    private LinearLayout aOT;
-    private a baP;
-    private BdListView baZ;
-    private View bba;
+    private LinearLayout aPg;
+    private a bbj;
+    private BdListView bbt;
+    private View bbu;
     private List<h> mData;
     private MorePopupWindow mPopWindow;
     private AdapterView.OnItemClickListener Hw = new j(this);
-    private final BaseAdapter bbb = new k(this);
+    private final BaseAdapter bbv = new k(this);
 
     /* loaded from: classes.dex */
     public interface a {
-        void fD(int i);
+        void fM(int i);
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        public TextView aPi;
-        public ImageView bbe;
-        public View bbf;
-        public View bbg;
+        public TextView aPv;
+        public View bbA;
+        public ImageView bby;
+        public View bbz;
     }
 
     public i(Context context, a aVar) {
-        au(context);
-        this.baP = aVar;
+        at(context);
+        this.bbj = aVar;
     }
 
-    private void au(Context context) {
-        this.aOT = new LinearLayout(context);
-        this.baZ = new BdListView(context);
-        this.baZ.setAlwaysDrawnWithCacheEnabled(false);
-        this.baZ.setDivider(null);
-        this.baZ.setDividerHeight(0);
-        this.baZ.setSelector(17170445);
-        this.baZ.setCacheColorHint(context.getResources().getColor(17170445));
-        this.aOT.setOrientation(1);
-        this.aOT.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.aOT.addView(this.baZ);
-        this.bba = new View(context);
+    private void at(Context context) {
+        this.aPg = new LinearLayout(context);
+        this.bbt = new BdListView(context);
+        this.bbt.setAlwaysDrawnWithCacheEnabled(false);
+        this.bbt.setDivider(null);
+        this.bbt.setDividerHeight(0);
+        this.bbt.setSelector(17170445);
+        this.bbt.setCacheColorHint(context.getResources().getColor(17170445));
+        this.aPg.setOrientation(1);
+        this.aPg.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        this.aPg.addView(this.bbt);
+        this.bbu = new View(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        al.i(this.bba, i.c.black_alpha40);
-        this.bba.setOnClickListener(new l(this));
-        this.aOT.addView(this.bba, layoutParams);
-        this.baZ.setOnItemClickListener(this.Hw);
-        this.baZ.setAdapter((ListAdapter) this.bbb);
+        al.h(this.bbu, i.c.black_alpha40);
+        this.bbu.setOnClickListener(new l(this));
+        this.aPg.addView(this.bbu, layoutParams);
+        this.bbt.setOnItemClickListener(this.Hw);
+        this.bbt.setAdapter((ListAdapter) this.bbv);
     }
 
     private void a(Activity activity, View view, TabItemView tabItemView) {
         if (this.mPopWindow == null) {
-            this.mPopWindow = new MorePopupWindow(activity, this.aOT, view, al.getDrawable(i.e.transparent_bg), new m(this));
+            this.mPopWindow = new MorePopupWindow(activity, this.aPg, view, al.getDrawable(i.e.transparent_bg), new m(this));
             this.mPopWindow.setOnDismissListener(new n(this, tabItemView));
         }
     }
 
     public void a(Activity activity, View view, TabItemView tabItemView, List<h> list) {
         this.mData = list;
-        this.bbb.notifyDataSetChanged();
+        this.bbv.notifyDataSetChanged();
         a(activity, view, tabItemView);
         if (this.mPopWindow != null) {
             this.mPopWindow.refresh();
@@ -83,10 +83,10 @@ public class i {
         }
     }
 
-    public void vD() {
-        this.bbb.notifyDataSetChanged();
-        if (this.bba != null) {
-            al.i(this.bba, i.c.black_alpha40);
+    public void vI() {
+        this.bbv.notifyDataSetChanged();
+        if (this.bbu != null) {
+            al.h(this.bbu, i.c.black_alpha40);
         }
         if (this.mPopWindow != null) {
             this.mPopWindow.setBackgroundDrawable(al.getDrawable(i.e.transparent_bg));

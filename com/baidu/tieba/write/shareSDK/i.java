@@ -5,11 +5,11 @@ import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class i implements a.b {
-    final /* synthetic */ WriteShareActivity cSj;
+    final /* synthetic */ WriteShareActivity daW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(WriteShareActivity writeShareActivity) {
-        this.cSj = writeShareActivity;
+        this.daW = writeShareActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.b
@@ -21,19 +21,19 @@ class i implements a.b {
         WriteData writeData5;
         WriteData writeData6;
         if (imageUploadResult == null || imageUploadResult.picInfo == null || imageUploadResult.picInfo.originPic == null) {
-            writeData = this.cSj.cKS;
+            writeData = this.daW.cTs;
             writeData.setShareSummaryImg("");
-            writeData2 = this.cSj.cKS;
+            writeData2 = this.daW.cTs;
             writeData2.setShareSummaryImgHeight(0);
-            writeData3 = this.cSj.cKS;
+            writeData3 = this.daW.cTs;
             writeData3.setShareSummaryImgWidth(0);
             return;
         }
-        writeData4 = this.cSj.cKS;
+        writeData4 = this.daW.cTs;
         writeData4.setShareSummaryImg(imageUploadResult.picInfo.originPic.picUrl);
-        writeData5 = this.cSj.cKS;
+        writeData5 = this.daW.cTs;
         writeData5.setShareSummaryImgHeight(imageUploadResult.picInfo.originPic.height);
-        writeData6 = this.cSj.cKS;
+        writeData6 = this.daW.cTs;
         writeData6.setShareSummaryImgWidth(imageUploadResult.picInfo.originPic.width);
     }
 }

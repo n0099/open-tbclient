@@ -8,20 +8,20 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class a {
-    private static a agJ;
-    private boolean agI;
+    private static a agT;
+    private boolean agS;
 
     private a() {
-        this.agI = false;
+        this.agS = false;
         try {
             InputStream open = TbadkCoreApplication.m411getInst().getApp().getAssets().open("apk_ab_test.txt");
             if (!aq.isEmpty(new BufferedReader(new InputStreamReader(open)).readLine())) {
-                this.agI = true;
+                this.agS = true;
             }
             o.d(open);
         } catch (Throwable th) {
             try {
-                this.agI = false;
+                this.agS = false;
                 o.d(null);
             } catch (Throwable th2) {
                 o.d(null);
@@ -30,22 +30,22 @@ public class a {
         }
     }
 
-    public static synchronized a wl() {
+    public static synchronized a wq() {
         a aVar;
         synchronized (a.class) {
-            if (agJ == null) {
-                agJ = new a();
+            if (agT == null) {
+                agT = new a();
             }
-            aVar = agJ;
+            aVar = agT;
         }
         return aVar;
     }
 
-    public boolean wm() {
-        return this.agI;
+    public boolean wr() {
+        return this.agS;
     }
 
-    public String wn() {
-        return this.agI ? "pub_env=3;" : "";
+    public String ws() {
+        return this.agS ? "pub_env=3;" : "";
     }
 }

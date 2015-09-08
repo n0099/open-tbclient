@@ -30,6 +30,7 @@ public class XiaoyingTaskService extends IntentService {
         super.onCreate();
         if (XiaoyingPlugin.getTaskService() != null) {
             XiaoyingPlugin.getTaskService().onCreate();
+            XiaoyingPlugin.getTaskService().setIntentRedelivery(false);
         }
     }
 

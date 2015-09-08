@@ -5,14 +5,14 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int auk = 0;
+    private int avU = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
         return "rotate";
     }
 
-    public static ImageOperation ef(int i) {
+    public static ImageOperation en(int i) {
         ImageOperation imageOperation = new ImageOperation();
         imageOperation.actionName = "rotate";
         imageOperation.actionParam = String.valueOf(i);
@@ -20,9 +20,9 @@ public class e extends b {
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public void fe(String str) {
+    public void fm(String str) {
         if (str != null) {
-            this.auk = Integer.parseInt(str);
+            this.avU = Integer.parseInt(str);
         }
     }
 
@@ -31,18 +31,18 @@ public class e extends b {
         if (bitmap == null) {
             return null;
         }
-        com.baidu.tbadk.imageManager.c.Ce().ee(com.baidu.tbadk.core.util.c.f(bitmap) * 2);
-        if (this.auk == 0 || this.auk == 1) {
-            return com.baidu.tbadk.core.util.c.h(bitmap, this.auk);
+        com.baidu.tbadk.imageManager.c.Cs().em(com.baidu.tbadk.core.util.c.f(bitmap) * 2);
+        if (this.avU == 0 || this.avU == 1) {
+            return com.baidu.tbadk.core.util.c.h(bitmap, this.avU);
         }
-        if (this.auk == 2 || this.auk == 3) {
-            return com.baidu.tbadk.core.util.c.j(bitmap, this.auk);
+        if (this.avU == 2 || this.avU == 3) {
+            return com.baidu.tbadk.core.util.c.j(bitmap, this.avU);
         }
         return bitmap;
     }
 
     @Override // com.baidu.tbadk.img.effect.b
-    public Bitmap ff(String str) {
+    public Bitmap fn(String str) {
         int max = Math.max(k.K(TbadkCoreApplication.m411getInst().getApp()), k.L(TbadkCoreApplication.m411getInst().getApp()));
         return b(com.baidu.tbadk.core.util.c.b(str, max, max), true);
     }

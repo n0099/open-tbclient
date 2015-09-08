@@ -8,11 +8,11 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements View.OnClickListener {
-    final /* synthetic */ t cgt;
+    final /* synthetic */ t chq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(t tVar) {
-        this.cgt = tVar;
+        this.chq = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,20 +23,20 @@ public class af implements View.OnClickListener {
         Dialog dialog2;
         Dialog dialog3;
         NewSubPbActivity newSubPbActivity;
-        dialog = this.cgt.cep;
+        dialog = this.chq.cfm;
         if (dialog != null) {
-            dialog2 = this.cgt.cep;
+            dialog2 = this.chq.cfm;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.cgt.cep;
-                newSubPbActivity = this.cgt.cgc;
+                dialog3 = this.chq.cfm;
+                newSubPbActivity = this.chq.cgZ;
                 com.baidu.adp.lib.g.j.b(dialog3, newSubPbActivity.getPageContext());
             }
         }
         SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
-            aVar = this.cgt.cgk;
+            aVar = this.chq.chi;
             if (aVar != null) {
-                aVar2 = this.cgt.cgk;
+                aVar2 = this.chq.chi;
                 aVar2.d(new Object[]{sparseArray.get(i.f.tag_manage_user_identity), sparseArray.get(i.f.tag_forbid_user_name), sparseArray.get(i.f.tag_forbid_user_post_id)});
             }
         }

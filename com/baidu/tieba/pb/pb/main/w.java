@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.view.MorePopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements View.OnTouchListener {
-    final /* synthetic */ PbActivity cbo;
+    final /* synthetic */ PbActivity ccj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(PbActivity pbActivity) {
-        this.cbo = pbActivity;
+        this.ccj = pbActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -25,27 +25,27 @@ public class w implements View.OnTouchListener {
         MorePopupWindow morePopupWindow8;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        morePopupWindow = this.cbo.caU;
+        morePopupWindow = this.ccj.cbP;
         if (morePopupWindow.getContentView() == null) {
             return false;
         }
-        morePopupWindow2 = this.cbo.caU;
+        morePopupWindow2 = this.ccj.cbP;
         int top = morePopupWindow2.getContentView().getTop();
-        morePopupWindow3 = this.cbo.caU;
+        morePopupWindow3 = this.ccj.cbP;
         int right = morePopupWindow3.getContentView().getRight();
-        morePopupWindow4 = this.cbo.caU;
+        morePopupWindow4 = this.ccj.cbP;
         int bottom = morePopupWindow4.getContentView().getBottom();
         if (motionEvent.getAction() == 4 && x > right && y > top && y < bottom) {
-            morePopupWindow6 = this.cbo.caU;
+            morePopupWindow6 = this.ccj.cbP;
             if (morePopupWindow6.isShowing()) {
-                morePopupWindow7 = this.cbo.caU;
-                com.baidu.adp.lib.g.j.a(morePopupWindow7, this.cbo.getPageContext().getPageActivity());
-                morePopupWindow8 = this.cbo.caU;
+                morePopupWindow7 = this.ccj.cbP;
+                com.baidu.adp.lib.g.j.a(morePopupWindow7, this.ccj.getPageContext().getPageActivity());
+                morePopupWindow8 = this.ccj.cbP;
                 morePopupWindow8.setIsIntercepted(true);
                 return true;
             }
         }
-        morePopupWindow5 = this.cbo.caU;
+        morePopupWindow5 = this.ccj.cbP;
         morePopupWindow5.setIsIntercepted(false);
         return false;
     }

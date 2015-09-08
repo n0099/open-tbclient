@@ -4,13 +4,13 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends com.baidu.tbadk.editortools.c.a<PbChosenActivity> {
-    final /* synthetic */ PbChosenActivity bYY;
+    final /* synthetic */ PbChosenActivity bZS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(PbChosenActivity pbChosenActivity, com.baidu.adp.base.h hVar) {
         super(hVar);
-        this.bYY = pbChosenActivity;
+        this.bZS = pbChosenActivity;
     }
 
     @Override // com.baidu.adp.base.e
@@ -24,27 +24,27 @@ public class i extends com.baidu.tbadk.editortools.c.a<PbChosenActivity> {
     }
 
     @Override // com.baidu.tbadk.editortools.c.a
-    public boolean Bk() {
+    public boolean Bx() {
         return false;
     }
 
     @Override // com.baidu.tbadk.editortools.c.a
-    public WriteData eI(String str) {
+    public WriteData eQ(String str) {
         com.baidu.tieba.pb.chosen.net.a aVar;
         com.baidu.tieba.pb.chosen.net.a aVar2;
         com.baidu.tieba.pb.chosen.net.a aVar3;
         com.baidu.tieba.pb.chosen.net.a aVar4;
         com.baidu.tieba.pb.chosen.net.a aVar5;
-        aVar = this.bYY.chosenData;
+        aVar = this.bZS.chosenData;
         if (aVar != null) {
-            aVar2 = this.bYY.chosenData;
+            aVar2 = this.bZS.chosenData;
             if (aVar2.getForumInfo() != null) {
                 WriteData writeData = new WriteData();
-                aVar3 = this.bYY.chosenData;
+                aVar3 = this.bZS.chosenData;
                 writeData.setForumId(String.valueOf(aVar3.getForumInfo().fromfid));
-                aVar4 = this.bYY.chosenData;
+                aVar4 = this.bZS.chosenData;
                 writeData.setForumName(aVar4.getForumInfo().fromfname);
-                aVar5 = this.bYY.chosenData;
+                aVar5 = this.bZS.chosenData;
                 writeData.setThreadId(String.valueOf(aVar5.getForumInfo().tid));
                 writeData.setIsAd(false);
                 writeData.setType(1);
@@ -55,7 +55,7 @@ public class i extends com.baidu.tbadk.editortools.c.a<PbChosenActivity> {
     }
 
     @Override // com.baidu.tbadk.editortools.c.a
-    public String Bl() {
+    public String By() {
         return null;
     }
 }

@@ -12,11 +12,11 @@ import com.baidu.tieba.recommendfrs.data.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements NetModel.b<h, g> {
-    final /* synthetic */ b csN;
+    final /* synthetic */ b cBf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.csN = bVar;
+        this.cBf = bVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
@@ -32,23 +32,23 @@ public class d implements NetModel.b<h, g> {
             if (requestData == null) {
                 str = null;
             } else {
-                str = requestData.ajK();
+                str = requestData.anQ();
             }
             if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.getError() != 0 || mvcHttpResponsedMessage.getData() == null) {
-                aVar = this.csN.csM;
+                aVar = this.cBf.cBe;
                 if (aVar != null) {
-                    aVar2 = this.csN.csM;
+                    aVar2 = this.cBf.cBe;
                     aVar2.h(str, mvcHttpResponsedMessage.getErrorString(), mvcHttpResponsedMessage.getError());
                     return;
                 }
                 return;
             }
             g data = mvcHttpResponsedMessage.getData();
-            aVar3 = this.csN.csM;
+            aVar3 = this.cBf.cBe;
             if (aVar3 != null) {
-                aVar4 = this.csN.csM;
-                hVar = this.csN.csL;
-                aVar4.a(true, data, hVar.ajQ() != 0, str);
+                aVar4 = this.cBf.cBe;
+                hVar = this.cBf.cBd;
+                aVar4.a(true, data, hVar.anW() != 0, str);
             }
         }
     }
@@ -66,23 +66,23 @@ public class d implements NetModel.b<h, g> {
             if (requestData == null) {
                 str = null;
             } else {
-                str = requestData.ajK();
+                str = requestData.anQ();
             }
             if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.getError() != 0 || mvcSocketResponsedMessage.getData() == null) {
-                aVar = this.csN.csM;
+                aVar = this.cBf.cBe;
                 if (aVar != null) {
-                    aVar2 = this.csN.csM;
+                    aVar2 = this.cBf.cBe;
                     aVar2.h(str, mvcSocketResponsedMessage.getErrorString(), mvcSocketResponsedMessage.getError());
                     return;
                 }
                 return;
             }
             g data = mvcSocketResponsedMessage.getData();
-            aVar3 = this.csN.csM;
+            aVar3 = this.cBf.cBe;
             if (aVar3 != null) {
-                aVar4 = this.csN.csM;
-                hVar = this.csN.csL;
-                aVar4.a(true, data, hVar.ajQ() != 0, str);
+                aVar4 = this.cBf.cBe;
+                hVar = this.cBf.cBd;
+                aVar4.a(true, data, hVar.anW() != 0, str);
             }
         }
     }

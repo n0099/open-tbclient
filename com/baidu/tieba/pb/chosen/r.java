@@ -11,10 +11,10 @@ import com.baidu.tieba.i;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 public class r {
-    private PbChosenActivity bYZ;
+    private PbChosenActivity bZT;
 
     public r(PbChosenActivity pbChosenActivity) {
-        this.bYZ = pbChosenActivity;
+        this.bZT = pbChosenActivity;
     }
 
     public void a(com.baidu.tieba.pb.chosen.net.a aVar, String str) {
@@ -22,26 +22,26 @@ public class r {
             String str2 = aVar.getForumInfo().fromfname;
             String str3 = aVar.getForumInfo().title;
             String str4 = aVar.getForumInfo()._abstract;
-            Resources resources = this.bYZ.getPageContext().getPageActivity().getResources();
-            String format = MessageFormat.format(resources.getString(i.C0057i.share_content_tpl), str3, str2, str4);
-            String string = resources.getString(i.C0057i.chosen_pb_share_content, str3);
+            Resources resources = this.bZT.getPageContext().getPageActivity().getResources();
+            String format = MessageFormat.format(resources.getString(i.h.share_content_tpl), str3, str2, str4);
+            String string = resources.getString(i.h.chosen_pb_share_content, str3);
             com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
             fVar.title = str3;
             fVar.content = format;
             fVar.linkUrl = "http://tieba.baidu.com/mo/q/recommendpb?ftid=" + aVar.getForumInfo().ftid;
-            fVar.ajK = string;
-            fVar.ajJ = str4;
-            fVar.ajI = Long.toString(aVar.getForumInfo().ftid.longValue());
-            fVar.ajH = true;
+            fVar.ajT = string;
+            fVar.ajS = str4;
+            fVar.ajR = Long.toString(aVar.getForumInfo().ftid.longValue());
+            fVar.ajQ = true;
             if (!StringUtils.isNull(str)) {
                 fVar.imageUri = Uri.parse(str);
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.bYZ.getPageContext().getPageActivity(), fVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.bZT.getPageContext().getPageActivity(), fVar, true);
             shareDialogConfig.setIsCopyLink(true);
-            shareDialogConfig.addOutsideTextView(i.C0057i.share_tieba_qunzu, i.e.icon_unite_share_qunzu, new s(this));
-            shareDialogConfig.addOutsideTextView(i.C0057i.forum_friend, i.e.icon_unite_share_baf, new t(this));
+            shareDialogConfig.addOutsideTextView(i.h.share_tieba_qunzu, i.e.icon_unite_share_qunzu, new s(this));
+            shareDialogConfig.addOutsideTextView(i.h.forum_friend, i.e.icon_unite_share_baf, new t(this));
             shareDialogConfig.setCopyLinkListener(new u(this, fVar));
-            this.bYZ.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
+            this.bZT.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
         }
     }
 
@@ -67,12 +67,12 @@ public class r {
             com.baidu.tieba.pb.chosen.a.n nVar = new com.baidu.tieba.pb.chosen.a.n(pbChosenActivity.getPageContext().getPageActivity());
             nVar.setTitle(aVar.getForumInfo().title);
             nVar.setDesc(aVar.getForumInfo()._abstract);
-            nVar.v(str3, false);
+            nVar.x(str3, false);
             aVar2.m(nVar);
-            aVar2.a(i.C0057i.share, new v(aVar, pbChosenActivity, nVar, j, str, str2, str3));
-            aVar2.b(i.C0057i.alert_no_button, new w(pbChosenActivity, nVar));
+            aVar2.a(i.h.share, new v(aVar, pbChosenActivity, nVar, j, str, str2, str3));
+            aVar2.b(i.h.alert_no_button, new w(pbChosenActivity, nVar));
             aVar2.ak(false);
-            aVar2.b(pbChosenActivity.getPageContext()).sP();
+            aVar2.b(pbChosenActivity.getPageContext()).sU();
         }
     }
 
@@ -80,14 +80,14 @@ public class r {
         if (aVar != null && aVar.getForumInfo() != null) {
             com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(pbChosenActivity.getPageContext().getPageActivity());
             com.baidu.tieba.pb.chosen.a.n nVar = new com.baidu.tieba.pb.chosen.a.n(pbChosenActivity.getPageContext().getPageActivity());
-            nVar.v(str2, false);
+            nVar.x(str2, false);
             nVar.setTitle(aVar.getForumInfo().title);
             nVar.setDesc(aVar.getForumInfo()._abstract);
             aVar2.m(nVar);
-            aVar2.a(i.C0057i.share, new x(aVar, pbChosenActivity, nVar, i, str, j, str2));
-            aVar2.b(i.C0057i.alert_no_button, new y(pbChosenActivity, nVar));
+            aVar2.a(i.h.share, new x(aVar, pbChosenActivity, nVar, i, str, j, str2));
+            aVar2.b(i.h.alert_no_button, new y(pbChosenActivity, nVar));
             aVar2.ak(false);
-            aVar2.b(pbChosenActivity.getPageContext()).sP();
+            aVar2.b(pbChosenActivity.getPageContext()).sU();
         }
     }
 }

@@ -3,15 +3,15 @@ package com.baidu.tieba.im.c;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ac {
-    public String hX(String str) {
-        com.baidu.tbadk.coreExtra.data.b wq;
+    public String ih(String str) {
+        com.baidu.tbadk.coreExtra.data.b ww;
         if (str != null) {
             try {
-                com.baidu.tbadk.coreExtra.data.c dx = new com.baidu.tbadk.core.voice.service.c(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS).dx(com.baidu.tbadk.core.util.n.q(str, 1));
-                if (dx != null && dx.isSuccess() && (wq = dx.wq()) != null) {
-                    String wo = wq.wo();
-                    com.baidu.tbadk.core.voice.a.b.ai(str, wo);
-                    return wo;
+                com.baidu.tbadk.coreExtra.data.c dE = new com.baidu.tbadk.core.voice.service.c(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS).dE(com.baidu.tbadk.core.util.n.q(str, 1));
+                if (dE != null && dE.isSuccess() && (ww = dE.ww()) != null) {
+                    String wu = ww.wu();
+                    com.baidu.tbadk.core.voice.a.b.ai(str, wu);
+                    return wu;
                 }
             } catch (Exception e) {
             }

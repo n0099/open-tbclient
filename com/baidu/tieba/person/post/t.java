@@ -1,23 +1,18 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.tbadk.core.view.x;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements x.a {
-    final /* synthetic */ p clq;
+public class t implements a.b {
+    final /* synthetic */ p cmh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(p pVar) {
-        this.clq = pVar;
+        this.cmh = pVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.x.a
-    public void onListPullRefresh(boolean z) {
-        o oVar;
-        o oVar2;
-        oVar = this.clq.cln;
-        if (oVar != null) {
-            oVar2 = this.clq.cln;
-            oVar2.eI(true);
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

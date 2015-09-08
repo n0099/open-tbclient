@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.ThreadExpressionActivityConfig;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -84,7 +85,7 @@ public class PraiseData extends com.baidu.adp.lib.a.b.a.a.i implements Serializa
         if (jSONObject != null) {
             try {
                 this.num = jSONObject.optLong("num", 0L);
-                this.isLike = jSONObject.optInt("is_liked", 0);
+                this.isLike = jSONObject.optInt(ThreadExpressionActivityConfig.IS_LIKED, 0);
                 JSONArray jSONArray = jSONObject.getJSONArray("liker_id");
                 if (jSONArray == null || jSONArray.length() <= 0) {
                     return;

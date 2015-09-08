@@ -11,115 +11,115 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s {
-    public String bQt;
-    private PostSearchActivity coG;
-    private String coX;
-    public ArrayList<String> cpg;
-    public int coY = 0;
-    public int coZ = 0;
-    public int cpa = 1;
-    public int cpb = 1;
-    public int cpc = 1;
-    public boolean cpd = false;
-    public boolean cpe = false;
-    public boolean cpf = false;
-    private int cph = 0;
-    private final HttpMessageListener cpi = new t(this, CmdConfigHttp.CMD_POST_SEARCH);
-    private CustomMessageListener bQX = new u(this, CmdConfigCustom.GET_ALL_SEARCH_POST_DATA);
+    public String bQZ;
+    public ArrayList<String> cxD;
+    private PostSearchActivity cxd;
+    private String cxu;
+    public int cxv = 0;
+    public int cxw = 0;
+    public int cxx = 1;
+    public int cxy = 1;
+    public int cxz = 1;
+    public boolean cxA = false;
+    public boolean cxB = false;
+    public boolean cxC = false;
+    private int cxE = 0;
+    private final HttpMessageListener cxF = new t(this, CmdConfigHttp.CMD_POST_SEARCH);
+    private CustomMessageListener bRD = new u(this, CmdConfigCustom.GET_ALL_SEARCH_POST_DATA);
 
     public s(PostSearchActivity postSearchActivity) {
-        this.coG = postSearchActivity;
-        this.coG.registerListener(this.bQX);
-        this.coG.registerListener(this.cpi);
+        this.cxd = postSearchActivity;
+        this.cxd.registerListener(this.bRD);
+        this.cxd.registerListener(this.cxF);
     }
 
-    public boolean T(String str, int i) {
+    public boolean V(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.bQt)) {
-            aii();
+        if (!str.equals(this.bQZ)) {
+            amm();
         }
         switch (i) {
             case 1:
-                return jG(str);
+                return kl(str);
             case 2:
-                return jH(str);
+                return km(str);
             case 3:
-                return jI(str);
+                return kn(str);
             default:
                 return false;
         }
     }
 
-    public boolean jG(String str) {
-        if (this.cpd) {
+    public boolean kl(String str) {
+        if (this.cxA) {
             return false;
         }
-        this.bQt = str;
-        this.cph = 1;
-        this.coG.sendMessage(iR(this.cph));
-        this.cpd = true;
+        this.bQZ = str;
+        this.cxE = 1;
+        this.cxd.sendMessage(jB(this.cxE));
+        this.cxA = true;
         return true;
     }
 
-    public boolean jH(String str) {
-        if (this.cpe) {
+    public boolean km(String str) {
+        if (this.cxB) {
             return false;
         }
-        this.bQt = str;
-        this.cph = 2;
-        this.coG.sendMessage(iR(this.cph));
-        this.cpe = true;
+        this.bQZ = str;
+        this.cxE = 2;
+        this.cxd.sendMessage(jB(this.cxE));
+        this.cxB = true;
         return true;
     }
 
-    public boolean jI(String str) {
-        if (this.cpf) {
+    public boolean kn(String str) {
+        if (this.cxC) {
             return false;
         }
-        this.bQt = str;
-        this.cph = 3;
-        this.coG.sendMessage(iR(this.cph));
-        this.cpf = true;
+        this.bQZ = str;
+        this.cxE = 3;
+        this.cxd.sendMessage(jB(this.cxE));
+        this.cxC = true;
         return true;
     }
 
-    public void aif() {
-        this.coG.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
+    public void amj() {
+        this.cxd.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
     }
 
-    public void aig() {
-        if (!StringUtils.isNull(this.bQt) && !this.bQt.equals(this.coX)) {
-            this.coG.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.bQt));
-            this.coX = this.bQt;
+    public void amk() {
+        if (!StringUtils.isNull(this.bQZ) && !this.bQZ.equals(this.cxu)) {
+            this.cxd.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.bQZ));
+            this.cxu = this.bQZ;
         }
     }
 
-    public void aih() {
-        if (this.cpg != null) {
-            this.cpg.clear();
+    public void aml() {
+        if (this.cxD != null) {
+            this.cxD.clear();
         }
-        this.coG.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
+        this.cxd.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
     }
 
-    public void aii() {
-        this.cpa = 1;
-        this.cpb = 1;
-        this.cpc = 1;
+    public void amm() {
+        this.cxx = 1;
+        this.cxy = 1;
+        this.cxz = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aij() {
-        if (this.cpg == null) {
-            this.cpg = new ArrayList<>();
+    public void amn() {
+        if (this.cxD == null) {
+            this.cxD = new ArrayList<>();
         }
-        this.cpg.remove(this.bQt);
-        this.cpg.add(0, this.bQt);
-        aZ(this.cpg);
+        this.cxD.remove(this.bQZ);
+        this.cxD.add(0, this.bQZ);
+        bh(this.cxD);
     }
 
-    private void aZ(List<String> list) {
+    private void bh(List<String> list) {
         int size;
         if (list != null && list.size() - 5 > 0) {
             int size2 = list.size();
@@ -129,43 +129,43 @@ public class s {
         }
     }
 
-    private HttpMessage iR(int i) {
+    private HttpMessage jB(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-        httpMessage.addParam("word", this.bQt);
+        httpMessage.addParam("word", this.bQZ);
         httpMessage.addParam("rn", (Object) 30);
-        httpMessage.addParam("kw", this.coG.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.cph));
+        httpMessage.addParam("kw", this.cxd.mForumName);
+        httpMessage.setExtra(Integer.valueOf(this.cxE));
         switch (i) {
             case 1:
                 httpMessage.addParam("sm", (Object) 1);
                 httpMessage.addParam("only_thread", (Object) 0);
-                httpMessage.addParam("pn", Integer.valueOf(this.cpa));
+                httpMessage.addParam("pn", Integer.valueOf(this.cxx));
                 break;
             case 2:
                 httpMessage.addParam("sm", (Object) 2);
                 httpMessage.addParam("only_thread", (Object) 0);
-                httpMessage.addParam("pn", Integer.valueOf(this.cpb));
+                httpMessage.addParam("pn", Integer.valueOf(this.cxy));
                 break;
             case 3:
                 httpMessage.addParam("sm", (Object) 2);
                 httpMessage.addParam("only_thread", (Object) 1);
-                httpMessage.addParam("pn", Integer.valueOf(this.cpc));
+                httpMessage.addParam("pn", Integer.valueOf(this.cxz));
                 break;
         }
         return httpMessage;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iS(int i) {
+    public void jC(int i) {
         switch (i) {
             case 1:
-                this.cpa++;
+                this.cxx++;
                 return;
             case 2:
-                this.cpb++;
+                this.cxy++;
                 return;
             case 3:
-                this.cpc++;
+                this.cxz++;
                 return;
             default:
                 return;
@@ -173,30 +173,30 @@ public class s {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int iT(int i) {
+    public int jD(int i) {
         switch (i) {
             case 1:
-                return this.cpa;
+                return this.cxx;
             case 2:
-                return this.cpb;
+                return this.cxy;
             case 3:
-                return this.cpc;
+                return this.cxz;
             default:
                 return 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iU(int i) {
+    public void jE(int i) {
         switch (i) {
             case 1:
-                this.cpd = false;
+                this.cxA = false;
                 return;
             case 2:
-                this.cpe = false;
+                this.cxB = false;
                 return;
             case 3:
-                this.cpf = false;
+                this.cxC = false;
                 return;
             default:
                 return;

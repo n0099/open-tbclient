@@ -5,7 +5,7 @@ import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class ScreenLockSyncSwitchStatic extends a {
     static {
-        e.gy().e(ScreenLockSyncSwitchStatic.class);
+        e.gv().e(ScreenLockSyncSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

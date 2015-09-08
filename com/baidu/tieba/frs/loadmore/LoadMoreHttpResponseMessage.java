@@ -2,8 +2,11 @@ package com.baidu.tieba.frs.loadmore;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.widget.ListView.u;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.v;
+import com.baidu.tbadk.core.data.t;
+import com.baidu.tbadk.core.data.x;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,11 +50,19 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
             List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
             if (list2 != null) {
                 for (int i3 = 0; i3 < list2.size(); i3++) {
-                    v vVar = new v();
-                    vVar.setUserMap(this.userMap);
-                    vVar.a(list2.get(i3));
-                    vVar.parser_title();
-                    this.threadList.add(vVar);
+                    x xVar = new x();
+                    xVar.setUserMap(this.userMap);
+                    xVar.a(list2.get(i3));
+                    xVar.parser_title();
+                    if (xVar.sv() == 33) {
+                        t tVar = new t();
+                        tVar.a(xVar);
+                        if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                            this.threadList.add(tVar);
+                        }
+                    } else {
+                        this.threadList.add(xVar);
+                    }
                 }
             }
         }

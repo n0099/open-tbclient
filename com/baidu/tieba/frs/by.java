@@ -1,14 +1,21 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class by extends x.a {
-    public TextView aXI;
+public class by implements LiveBroadcastCard.a {
+    final /* synthetic */ bv aXL;
 
-    public by(View view) {
-        super(view);
-        this.aXI = (TextView) view;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public by(bv bvVar) {
+        this.aXL = bvVar;
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.LiveBroadcastCard.a
+    public boolean zo() {
+        BaseActivity baseActivity;
+        baseActivity = this.aXL.aSX;
+        return baseActivity.checkUpIsLogin();
     }
 }

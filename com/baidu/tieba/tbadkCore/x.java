@@ -1,23 +1,100 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.app.Activity;
-import android.widget.ListView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class x implements Runnable {
-    private com.baidu.tbadk.editortools.c.d aqG;
-    private ListView aqH;
-    private Activity aqI;
-    private int aqJ;
-    private int distance;
-    private int position;
+public class x {
+    private int cQi;
+    private int cQj;
+    private int cur_score;
+    private String fid;
+    private int is_like;
+    private String level_name;
+    private int levelup_score;
+    private int user_level;
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int[] iArr = new int[2];
-        if (this.aqG != null && this.aqG.Ay() != null) {
-            this.aqG.Ay().getLocationInWindow(iArr);
-            this.aqH.setSelectionFromTop(this.position + this.aqH.getHeaderViewsCount(), ((iArr[1] - this.distance) - this.aqJ) - com.baidu.adp.lib.util.k.l(this.aqI));
-            this.aqH.invalidate();
+    public x() {
+        setLike(0);
+        this.cQi = 0;
+        this.cQj = 0;
+        this.user_level = 0;
+        setLevelName("");
+        setCurScore(0);
+        setLevelupScore(0);
+    }
+
+    public String getFid() {
+        return this.fid;
+    }
+
+    public void kW(String str) {
+        this.fid = str;
+    }
+
+    public int arj() {
+        return this.user_level;
+    }
+
+    public void ke(int i) {
+        if (i >= 0) {
+            this.user_level = i;
         }
+    }
+
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str).optJSONObject(LoginActivityConfig.INFO));
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                setLike(jSONObject.optInt("is_like", 0));
+                this.cQi = jSONObject.optInt("is_black", 0);
+                this.cQj = jSONObject.optInt("like_num", 0);
+                this.user_level = jSONObject.optInt("level_id", 0);
+                setLevelName(jSONObject.optString("level_name", ""));
+                setLevelupScore(jSONObject.optInt("levelup_score", 0));
+                setCurScore(jSONObject.optInt("cur_score", 0));
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
+    }
+
+    public void setLike(int i) {
+        this.is_like = i;
+    }
+
+    public int isLike() {
+        return this.is_like;
+    }
+
+    public void setLevelName(String str) {
+        this.level_name = str;
+    }
+
+    public String getLevelName() {
+        return this.level_name;
+    }
+
+    public void setCurScore(int i) {
+        this.cur_score = i;
+    }
+
+    public int getCurScore() {
+        return this.cur_score;
+    }
+
+    public void setLevelupScore(int i) {
+        this.levelup_score = i;
+    }
+
+    public int getLevelupScore() {
+        return this.levelup_score;
     }
 }

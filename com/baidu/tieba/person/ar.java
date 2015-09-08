@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity cjt;
+    final /* synthetic */ PersonChangeActivity cko;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(PersonChangeActivity personChangeActivity) {
-        this.cjt = personChangeActivity;
+        this.cko = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cjt.agi();
+        this.cko.agy();
     }
 }

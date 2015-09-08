@@ -11,11 +11,9 @@ public interface l {
 
     void i(AccountData accountData);
 
-    void j(AccountData accountData);
+    AccountData tv();
 
-    AccountData tq();
+    void wj();
 
-    void we();
-
-    List<AccountData> wf();
+    List<AccountData> wk();
 }

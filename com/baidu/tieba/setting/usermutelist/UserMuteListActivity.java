@@ -13,60 +13,60 @@ import java.util.ArrayList;
 import tbclient.UserMuteQuery.MuteUser;
 /* loaded from: classes.dex */
 public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
-    private ArrayList<MuteUser> Xe;
-    private com.baidu.tbadk.core.view.a aMv;
-    private UserMuteAddAndDelModel caO;
-    private l cza;
-    private h czb;
-    private com.baidu.tieba.usermute.k czc;
-    private boolean bVP = false;
-    private k.a czd = new a(this);
-    private CustomMessageListener cze = new b(this, CmdConfigCustom.CMD_USER_MUTE_LIST_NEED_REFRESH);
-    private CustomMessageListener czf = new c(this, CmdConfigCustom.CMD_USER_MUTE_LIST_REMOVE_ITEM);
-    private h.b czg = new d(this);
-    private h.a czh = new e(this);
+    private ArrayList<MuteUser> Xn;
+    private com.baidu.tbadk.core.view.a aMI;
+    private com.baidu.tieba.usermute.k cHA;
+    private l cHy;
+    private h cHz;
+    private UserMuteAddAndDelModel cbJ;
+    private boolean bWv = false;
+    private k.a cHB = new a(this);
+    private CustomMessageListener cHC = new b(this, CmdConfigCustom.CMD_USER_MUTE_LIST_NEED_REFRESH);
+    private CustomMessageListener cHD = new c(this, CmdConfigCustom.CMD_USER_MUTE_LIST_REMOVE_ITEM);
+    private h.b cHE = new d(this);
+    private h.a cHF = new e(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        Yv();
-        this.czc = new com.baidu.tieba.usermute.k(this.czd);
-        this.caO = new UserMuteAddAndDelModel(this);
-        registerListener(this.czf);
-        registerListener(this.cze);
-        this.czb = new h(this, this.czg, this.czh);
-        this.cza = new l(this, this.czb);
-        this.cza.getListView().setAdapter((ListAdapter) this.czb);
-        this.czc.aB(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
+        Yx();
+        this.cHA = new com.baidu.tieba.usermute.k(this.cHB);
+        this.cbJ = new UserMuteAddAndDelModel(this);
+        registerListener(this.cHD);
+        registerListener(this.cHC);
+        this.cHz = new h(this, this.cHE, this.cHF);
+        this.cHy = new l(this, this.cHz);
+        this.cHy.getListView().setAdapter((ListAdapter) this.cHz);
+        this.cHA.aG(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.czc.onDestroy();
+        this.cHA.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.bVP) {
-            this.bVP = false;
-            if (this.caO != null) {
-                Yv();
-                this.czc.aB(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
+        if (this.bWv) {
+            this.bWv = false;
+            if (this.cbJ != null) {
+                Yx();
+                this.cHA.aG(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
             }
         }
     }
 
-    private void Yv() {
-        if (this.aMv == null) {
-            this.aMv = new com.baidu.tbadk.core.view.a(getPageContext());
-            this.aMv.b(new f(this));
+    private void Yx() {
+        if (this.aMI == null) {
+            this.aMI = new com.baidu.tbadk.core.view.a(getPageContext());
+            this.aMI.b(new f(this));
             return;
         }
-        this.aMv.av(true);
+        this.aMI.av(true);
     }
 }

@@ -1,15 +1,15 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 /* loaded from: classes.dex */
 public class e implements b {
-    private int bHK;
-    private int bHL;
-    private a bHM;
+    private int bIr;
+    private int bIs;
+    private a bIt;
     private final int speed;
     private int start;
 
     /* loaded from: classes.dex */
     public interface a {
-        void en(int i);
+        void ev(int i);
     }
 
     public e(int i) {
@@ -18,33 +18,33 @@ public class e implements b {
 
     public void setStart(int i) {
         this.start = i;
-        this.bHL = i;
+        this.bIs = i;
     }
 
-    public void hr(int i) {
-        this.bHK = i;
+    public void hB(int i) {
+        this.bIr = i;
     }
 
     public void a(a aVar) {
-        this.bHM = aVar;
+        this.bIt = aVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (this.bHL != this.bHK) {
-            if (this.bHK > this.start) {
-                this.bHL += this.speed;
-                if (this.bHL > this.bHK) {
-                    this.bHL = this.bHK;
+        if (this.bIs != this.bIr) {
+            if (this.bIr > this.start) {
+                this.bIs += this.speed;
+                if (this.bIs > this.bIr) {
+                    this.bIs = this.bIr;
                 }
             } else {
-                this.bHL -= this.speed;
-                if (this.bHL < this.bHK) {
-                    this.bHL = this.bHK;
+                this.bIs -= this.speed;
+                if (this.bIs < this.bIr) {
+                    this.bIs = this.bIr;
                 }
             }
-            if (this.bHM != null) {
-                this.bHM.en(this.bHL);
+            if (this.bIt != null) {
+                this.bIt.ev(this.bIs);
             }
             return false;
         }

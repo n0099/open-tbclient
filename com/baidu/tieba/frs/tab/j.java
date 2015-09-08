@@ -9,11 +9,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements AdapterView.OnItemClickListener {
-    final /* synthetic */ i bbc;
+    final /* synthetic */ i bbw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.bbc = iVar;
+        this.bbw = iVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -25,27 +25,27 @@ public class j implements AdapterView.OnItemClickListener {
         BaseAdapter baseAdapter2;
         i.a aVar2;
         MorePopupWindow morePopupWindow2;
-        morePopupWindow = this.bbc.mPopWindow;
+        morePopupWindow = this.bbw.mPopWindow;
         if (morePopupWindow != null) {
-            morePopupWindow2 = this.bbc.mPopWindow;
+            morePopupWindow2 = this.bbw.mPopWindow;
             com.baidu.adp.lib.g.j.a(morePopupWindow2);
         }
-        baseAdapter = this.bbc.bbb;
+        baseAdapter = this.bbw.bbv;
         if (baseAdapter != null) {
-            aVar = this.bbc.baP;
+            aVar = this.bbw.bbj;
             if (aVar != null) {
-                list = this.bbc.mData;
+                list = this.bbw.mData;
                 for (h hVar : list) {
                     if (hVar != null) {
                         hVar.isSelected = false;
                     }
                 }
-                baseAdapter2 = this.bbc.bbb;
+                baseAdapter2 = this.bbw.bbv;
                 h hVar2 = (h) baseAdapter2.getItem(i);
                 if (hVar2 != null) {
                     hVar2.isSelected = true;
-                    aVar2 = this.bbc.baP;
-                    aVar2.fD(hVar2.aYt);
+                    aVar2 = this.bbw.bbj;
+                    aVar2.fM(hVar2.aYK);
                 }
             }
         }

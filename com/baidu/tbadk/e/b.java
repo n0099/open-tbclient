@@ -1,21 +1,16 @@
 package com.baidu.tbadk.e;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.a.e;
-import com.baidu.tbadk.core.relogin.ReloginManager;
+import android.view.View;
+import android.widget.FrameLayout;
 /* loaded from: classes.dex */
-public class b extends e {
-    public b(int i) {
-        super(i);
-    }
-
-    @Override // com.baidu.adp.framework.a.e
-    public void b(int i, BdUniqueId bdUniqueId) {
-        ReloginManager.tn().d(i, bdUniqueId);
-    }
-
-    @Override // com.baidu.adp.framework.a.e
-    public void b(BdUniqueId bdUniqueId) {
-        ReloginManager.tn().g(bdUniqueId);
+public class b implements c {
+    @Override // com.baidu.tbadk.e.c
+    public void a(View view, View view2, boolean z) {
+        FrameLayout frameLayout = (FrameLayout) view;
+        if (z) {
+            frameLayout.addView(view2, 0);
+        } else {
+            frameLayout.addView(view2);
+        }
     }
 }

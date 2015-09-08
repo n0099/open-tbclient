@@ -16,19 +16,19 @@ public class b {
     private int height;
     private int width;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern cIA = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern cRa = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String cIy = null;
-    private SpannableStringBuilder cIz = null;
-    private boolean cIx = false;
+    private String cQY = null;
+    private SpannableStringBuilder cQZ = null;
+    private boolean cQX = false;
 
-    public static boolean aw(int i, int i2) {
+    public static boolean aF(int i, int i2) {
         return i == 0 && i2 != 3;
     }
 
-    public static boolean ax(int i, int i2) {
+    public static boolean aG(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -44,23 +44,23 @@ public class b {
         return this.text;
     }
 
-    public String apD() {
+    public String atQ() {
         return this.c;
     }
 
-    public SpannableStringBuilder apE() {
-        return this.cIz;
+    public SpannableStringBuilder atR() {
+        return this.cQZ;
     }
 
-    public SpannableStringBuilder a(SpannableString spannableString) {
-        if (this.cIz == null) {
-            this.cIz = new SpannableStringBuilder();
+    public SpannableStringBuilder b(SpannableString spannableString) {
+        if (this.cQZ == null) {
+            this.cQZ = new SpannableStringBuilder();
         }
-        this.cIz.append((CharSequence) spannableString);
-        return this.cIz;
+        this.cQZ.append((CharSequence) spannableString);
+        return this.cQZ;
     }
 
-    public SpannableString aO(Context context) {
+    public SpannableString aR(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -76,9 +76,9 @@ public class b {
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.text) + " ");
                 com.baidu.adp.widget.a.a face = TbadkCoreApplication.m411getInst().getFace(this.text);
                 if (face != null) {
-                    BitmapDrawable ne = face.ne();
-                    ne.setBounds(0, 0, face.getWidth(), face.getHeight());
-                    spannableString2.setSpan(new ImageSpan(ne, 1), 0, this.text.length(), 33);
+                    BitmapDrawable nb = face.nb();
+                    nb.setBounds(0, 0, face.getWidth(), face.getHeight());
+                    spannableString2.setSpan(new ImageSpan(nb, 1), 0, this.text.length(), 33);
                     return spannableString2;
                 }
                 return spannableString2;
@@ -102,7 +102,7 @@ public class b {
                 if (!this.text.endsWith(" ")) {
                     this.text = String.valueOf(this.text) + " ";
                 }
-                String string = context.getString(i.C0057i.video);
+                String string = context.getString(i.h.video);
                 SpannableString spannableString4 = new SpannableString(String.valueOf(string) + this.text);
                 spannableString4.setSpan(new c(this, context), string.length(), str.length() - 1, 33);
                 return spannableString4;
@@ -120,7 +120,7 @@ public class b {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.cIy = jSONObject.optString("cdn_src", null);
+                    this.cQY = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(",");
                         if (split.length > 1) {
@@ -135,7 +135,7 @@ public class b {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.cIx = true;
+                        this.cQX = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");
@@ -145,7 +145,7 @@ public class b {
                 } else {
                     this.text = jSONObject.optString("text");
                     this.link = jSONObject.optString("link");
-                    if (this.type == 2 && TbFaceManager.Cd().ez(this.text) == 0) {
+                    if (this.type == 2 && TbFaceManager.Cr().eH(this.text) == 0) {
                         this.type = 0;
                         this.text = "[" + jSONObject.optString("c") + "]";
                     }

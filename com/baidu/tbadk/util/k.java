@@ -7,7 +7,7 @@ public class k {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int fB(String str) {
+    public static int fJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -23,7 +23,7 @@ public class k {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public static String ew(int i) {
+    public static String eE(int i) {
         if (i >= 100000000) {
             return String.valueOf(i / 100000000) + "亿+";
         }

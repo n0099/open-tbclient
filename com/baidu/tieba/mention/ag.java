@@ -16,101 +16,101 @@ import com.baidu.tbadk.mvc.model.a;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ag extends com.baidu.adp.base.e<SingleMentionActivity> implements NetModel.b<ai, aj>, a.InterfaceC0052a<aj> {
-    private com.baidu.tbadk.mvc.d.a aKr;
-    private SingleMentionActivity bVG;
-    private FeedData bVK;
-    private t bVL;
-    private ai bWj;
-    private ah bWk;
-    private y bWl;
+    private com.baidu.tbadk.mvc.d.a aKE;
+    private ai bWP;
+    private ah bWQ;
+    private y bWR;
+    private SingleMentionActivity bWm;
+    private FeedData bWq;
+    private t bWr;
 
     public ag(SingleMentionActivity singleMentionActivity) {
         super(singleMentionActivity.getPageContext());
-        this.bVG = singleMentionActivity;
+        this.bWm = singleMentionActivity;
     }
 
     public void f(Bundle bundle) {
-        this.bWj = new ai();
-        this.bWk = new ah(this.bVG.getPageContext(), this.bWj);
-        this.bWk.a(this);
-        this.bWk.setUniqueId(getUniqueId());
-        this.bWl = new y(this.bVG.getPageContext());
-        this.bWl.a(this);
-        this.bWl.setUniqueId(getUniqueId());
-        this.bVL = new t();
-        this.aKr = new com.baidu.tbadk.mvc.d.a();
+        this.bWP = new ai();
+        this.bWQ = new ah(this.bWm.getPageContext(), this.bWP);
+        this.bWQ.a(this);
+        this.bWQ.setUniqueId(getUniqueId());
+        this.bWR = new y(this.bWm.getPageContext());
+        this.bWR.a(this);
+        this.bWR.setUniqueId(getUniqueId());
+        this.bWr = new t();
+        this.aKE = new com.baidu.tbadk.mvc.d.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean HF() {
-        if (this.bWk.isLoading() || !this.aKr.Df()) {
+    public boolean Ht() {
+        if (this.bWQ.isLoading() || !this.aKE.Dp()) {
             return false;
         }
-        this.aKr.bf(true);
-        this.aKr.bh(true);
-        this.bWj.b(this.bVK);
-        this.bWk.setNeedCache(false);
-        this.bWk.CV();
-        this.bVG.abH().d(this.aKr);
+        this.aKE.bm(true);
+        this.aKE.bo(true);
+        this.bWP.b(this.bWq);
+        this.bWQ.setNeedCache(false);
+        this.bWQ.Df();
+        this.bWm.abM().d(this.aKE);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bz(boolean z) {
-        if (this.bWk.isLoading()) {
+    public boolean bE(boolean z) {
+        if (this.bWQ.isLoading()) {
             return false;
         }
-        this.bVK = null;
-        this.bWj.reset();
-        this.bWk.setNeedCache(true);
-        this.bWk.CV();
+        this.bWq = null;
+        this.bWP.reset();
+        this.bWQ.setNeedCache(true);
+        this.bWQ.Df();
         return true;
     }
 
-    public boolean oT() {
-        this.bWl.a((com.baidu.tbadk.mvc.b.e) this.bWj);
+    public boolean oQ() {
+        this.bWR.a((com.baidu.tbadk.mvc.b.e) this.bWP);
         return true;
     }
 
     protected boolean a(ai aiVar, aj ajVar) {
         if (aiVar.getUpdateType() != 4) {
-            this.bVL.abF().clear();
+            this.bWr.abK().clear();
         }
-        this.bVL.a(ajVar);
-        if (ajVar != null && ajVar.abF() != null && ajVar.abF().size() > 0) {
-            this.bVK = ajVar.abF().get(ajVar.abF().size() - 1);
-            if (this.bVL.getPage() != null) {
-                this.aKr.bg(this.bVL.getPage().rT() == 1);
+        this.bWr.a(ajVar);
+        if (ajVar != null && ajVar.abK() != null && ajVar.abK().size() > 0) {
+            this.bWq = ajVar.abK().get(ajVar.abK().size() - 1);
+            if (this.bWr.getPage() != null) {
+                this.aKE.bn(this.bWr.getPage().rQ() == 1);
             } else {
-                this.aKr.bg(true);
+                this.aKE.bn(true);
             }
             if (aiVar != null) {
                 aiVar.toNextPage();
             }
-            this.aKr.bh(true);
+            this.aKE.bo(true);
         } else {
-            this.bVK = null;
-            this.aKr.bg(false);
-            this.aKr.bh(false);
+            this.bWq = null;
+            this.aKE.bn(false);
+            this.aKE.bo(false);
         }
-        this.aKr.bf(false);
-        this.aKr.be(false);
-        com.baidu.tbadk.coreExtra.messageCenter.a.wT().xi();
-        this.bVG.abL().m(1, true);
-        this.bVG.abH().a(this.bVL);
-        this.bVG.abH().d(this.aKr);
+        this.aKE.bm(false);
+        this.aKE.bl(false);
+        com.baidu.tbadk.coreExtra.messageCenter.a.wZ().xo();
+        this.bWm.abQ().n(1, true);
+        this.bWm.abM().a(this.bWr);
+        this.bWm.abM().d(this.aKE);
         return false;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a
     public void a(ReadCacheRespMsg<List<aj>> readCacheRespMsg, ReadCacheMessage<aj> readCacheMessage) {
         if (readCacheRespMsg != null && readCacheRespMsg.getData() != null && readCacheRespMsg.getData().size() > 0) {
-            a(this.bWj, readCacheRespMsg.getData().get(0));
+            a(this.bWP, readCacheRespMsg.getData().get(0));
         }
-        this.bVK = null;
-        this.bWj.reset();
-        this.bWk.setNeedCache(true);
-        this.bWk.CV();
+        this.bWq = null;
+        this.bWP.reset();
+        this.bWQ.setNeedCache(true);
+        this.bWQ.Df();
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a
@@ -127,7 +127,7 @@ public class ag extends com.baidu.adp.base.e<SingleMentionActivity> implements N
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.wT().setMsgReplyme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.wZ().setMsgReplyme(0);
             ajVar = null;
         }
         if (r1 == null || ajVar == null || !a(r1, ajVar)) {
@@ -138,8 +138,8 @@ public class ag extends com.baidu.adp.base.e<SingleMentionActivity> implements N
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.bVG.a(errorData);
-            this.bVG.abH().a(errorData);
+            this.bWm.a(errorData);
+            this.bWm.abM().a(errorData);
         }
     }
 
@@ -153,7 +153,7 @@ public class ag extends com.baidu.adp.base.e<SingleMentionActivity> implements N
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.wT().setMsgReplyme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.wZ().setMsgReplyme(0);
             ajVar = null;
         }
         if (r1 == null || ajVar == null || !a(r1, ajVar)) {
@@ -164,8 +164,8 @@ public class ag extends com.baidu.adp.base.e<SingleMentionActivity> implements N
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
-            this.bVG.a(errorData);
-            this.bVG.abH().a(errorData);
+            this.bWm.a(errorData);
+            this.bWm.abM().a(errorData);
         }
     }
 

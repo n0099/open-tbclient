@@ -7,7 +7,7 @@ public abstract class a extends i {
 
     public abstract void b(String str, long j, long j2);
 
-    public static a mA() {
+    public static a mx() {
         if (EO == null) {
             EO = new b();
         }

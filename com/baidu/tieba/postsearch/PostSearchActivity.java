@@ -5,63 +5,63 @@ import android.os.Bundle;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
-    public String bQt;
-    private y coJ;
-    private s coK;
+    public String bQZ;
+    private y cxg;
+    private s cxh;
     public String mForumName;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.coJ = new y(this);
-        this.coJ.initView();
-        this.coK = new s(this);
+        this.cxg = new y(this);
+        this.cxg.initView();
+        this.cxh = new s(this);
         initData();
     }
 
-    public void jF(String str) {
-        this.bQt = str;
-        this.coJ.iW(1);
-        this.coK.aii();
-        this.coJ.KS();
+    public void kk(String str) {
+        this.bQZ = str;
+        this.cxg.jG(1);
+        this.cxh.amm();
+        this.cxg.KG();
     }
 
-    public void jE(String str) {
-        this.coJ.jE(str);
+    public void kj(String str) {
+        this.cxg.kj(str);
     }
 
-    public void ahT() {
-        this.coJ.U(this.coK.cpg);
+    public void alY() {
+        this.cxg.aa(this.cxh.cxD);
     }
 
     public void a(int i, j jVar, boolean z) {
-        if (i == 1 && (jVar == null || !jVar.Wl())) {
-            this.coJ.aia();
-            this.coJ.aim();
+        if (i == 1 && (jVar == null || !jVar.Wn())) {
+            this.cxg.akM();
+            this.cxg.amq();
             return;
         }
-        this.coJ.aia();
-        this.coJ.aib();
-        this.coJ.a(i, jVar, z);
+        this.cxg.akM();
+        this.cxg.amf();
+        this.cxg.a(i, jVar, z);
     }
 
-    public boolean ahU() {
-        return this.coJ.ahU();
+    public boolean alZ() {
+        return this.cxg.alZ();
     }
 
-    public void ahP() {
-        this.coJ.ahP();
+    public void alU() {
+        this.cxg.alU();
     }
 
-    public s ahV() {
-        return this.coK;
+    public s ama() {
+        return this.cxh;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
-        this.coJ.onChangeSkinType(i);
+        this.cxg.onChangeSkinType(i);
     }
 
     private void initData() {
@@ -69,6 +69,6 @@ public class PostSearchActivity extends BaseFragmentActivity {
         if (intent != null) {
             this.mForumName = intent.getStringExtra("forum_name");
         }
-        this.coK.aif();
+        this.cxh.amj();
     }
 }

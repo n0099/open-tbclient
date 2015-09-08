@@ -8,13 +8,13 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ v aZx;
+    final /* synthetic */ v aZQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(v vVar, int i, int i2) {
         super(i, i2);
-        this.aZx = vVar;
+        this.aZQ = vVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -26,29 +26,29 @@ public class w extends com.baidu.adp.framework.listener.a {
         FrsGoodActivity frsGoodActivity5;
         FrsGoodActivity frsGoodActivity6;
         FrsGoodActivity frsGoodActivity7;
-        this.aZx.avu = false;
+        this.aZQ.axc = false;
         if (responsedMessage == null) {
-            frsGoodActivity6 = this.aZx.aWu;
-            frsGoodActivity7 = this.aZx.aWu;
-            frsGoodActivity6.gE(frsGoodActivity7.getPageContext().getString(i.C0057i.neterror));
+            frsGoodActivity6 = this.aZQ.aWL;
+            frsGoodActivity7 = this.aZQ.aWL;
+            frsGoodActivity6.gL(frsGoodActivity7.getPageContext().getString(i.h.neterror));
         } else if (responsedMessage.getError() != 0) {
             if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                frsGoodActivity5 = this.aZx.aWu;
-                frsGoodActivity5.gE(responsedMessage.getErrorString());
+                frsGoodActivity5 = this.aZQ.aWL;
+                frsGoodActivity5.gL(responsedMessage.getErrorString());
                 return;
             }
-            frsGoodActivity3 = this.aZx.aWu;
-            frsGoodActivity4 = this.aZx.aWu;
-            frsGoodActivity3.gE(frsGoodActivity4.getPageContext().getString(i.C0057i.neterror));
+            frsGoodActivity3 = this.aZQ.aWL;
+            frsGoodActivity4 = this.aZQ.aWL;
+            frsGoodActivity3.gL(frsGoodActivity4.getPageContext().getString(i.h.neterror));
         } else {
             if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
-                frsGoodActivity2 = this.aZx.aWu;
-                frsGoodActivity2.C(((LoadMoreHttpResponseMessage) responsedMessage).getThreadList());
+                frsGoodActivity2 = this.aZQ.aWL;
+                frsGoodActivity2.B(((LoadMoreHttpResponseMessage) responsedMessage).getThreadList());
             } else if (responsedMessage instanceof LoadMoreResponseSocketMessage) {
-                frsGoodActivity = this.aZx.aWu;
-                frsGoodActivity.C(((LoadMoreResponseSocketMessage) responsedMessage).getThreadList());
+                frsGoodActivity = this.aZQ.aWL;
+                frsGoodActivity.B(((LoadMoreResponseSocketMessage) responsedMessage).getThreadList());
             }
-            this.aZx.aZt++;
+            this.aZQ.aZM++;
         }
     }
 }

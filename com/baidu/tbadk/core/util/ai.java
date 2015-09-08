@@ -2,21 +2,21 @@ package com.baidu.tbadk.core.util;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements Runnable {
-    final /* synthetic */ ae aaF;
-    private final /* synthetic */ String aaG;
-    private final /* synthetic */ String aaJ;
-    private final /* synthetic */ int aaK;
+    final /* synthetic */ ae aaO;
+    private final /* synthetic */ String aaP;
+    private final /* synthetic */ String aaS;
+    private final /* synthetic */ int aaT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(ae aeVar, String str, String str2, int i) {
-        this.aaF = aeVar;
-        this.aaJ = str;
-        this.aaG = str2;
-        this.aaK = i;
+        this.aaO = aeVar;
+        this.aaS = str;
+        this.aaP = str2;
+        this.aaT = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.aaF.d(this.aaJ, this.aaG, this.aaK);
+        this.aaO.d(this.aaS, this.aaP, this.aaT);
     }
 }

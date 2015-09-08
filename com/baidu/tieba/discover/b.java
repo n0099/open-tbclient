@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends CustomMessageListener {
-    final /* synthetic */ a aLq;
+    final /* synthetic */ a aLD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.aLq = aVar;
+        this.aLD = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,14 +22,14 @@ public class b extends CustomMessageListener {
         com.baidu.tbadk.mvc.g.d dVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            dVar = this.aLq.aLd;
-            List<D> Dp = dVar.Dp();
-            if (Dp != 0 && !Dp.isEmpty()) {
-                for (D d : Dp) {
-                    if (d != null && "discover_game_center".equals(d.If())) {
-                        d.bF(booleanValue);
-                        dVar2 = this.aLq.aLd;
-                        dVar2.z(d);
+            dVar = this.aLD.aLq;
+            List<D> Dz = dVar.Dz();
+            if (Dz != 0 && !Dz.isEmpty()) {
+                for (D d : Dz) {
+                    if (d != null && "discover_game_center".equals(d.HT())) {
+                        d.bK(booleanValue);
+                        dVar2 = this.aLD.aLq;
+                        dVar2.A(d);
                         return;
                     }
                 }

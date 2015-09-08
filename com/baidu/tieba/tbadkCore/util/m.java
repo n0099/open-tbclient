@@ -5,53 +5,53 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class m {
-    private volatile int cqK;
-    private volatile HashMap<Long, Integer> cKI = new HashMap<>();
-    private volatile int cKH = 0;
+    private volatile int czh;
+    private volatile HashMap<Long, Integer> cTi = new HashMap<>();
+    private volatile int cTh = 0;
 
     public m(int i) {
-        this.cqK = i;
+        this.czh = i;
     }
 
-    public void kD(String str) {
+    public void li(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.cKI.size() >= this.cqK) {
-                    aqX();
+                if (this.cTi.size() >= this.czh) {
+                    avl();
                 }
-                this.cKH++;
-                this.cKI.put(valueOf, Integer.valueOf(this.cKH));
+                this.cTh++;
+                this.cTi.put(valueOf, Integer.valueOf(this.cTh));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void aqX() {
+    public void avl() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;
-            for (Map.Entry<Long, Integer> entry : this.cKI.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.cTi.entrySet()) {
                 if (entry.getValue().intValue() < i) {
                     i = entry.getValue().intValue();
                     l = entry.getKey();
                 }
             }
             if (l != null) {
-                this.cKI.remove(l);
+                this.cTi.remove(l);
             } else {
-                this.cKI.clear();
+                this.cTi.clear();
             }
         }
     }
 
-    public boolean kE(String str) {
+    public boolean lj(String str) {
         boolean z = false;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.cKI.get(valueOf) != null) {
+                if (this.cTi.get(valueOf) != null) {
                     z = true;
                 }
             }

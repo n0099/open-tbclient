@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.c.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cp implements View.OnClickListener {
-    final /* synthetic */ cb cfj;
+    final /* synthetic */ cb cgg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cp(cb cbVar) {
-        this.cfj = cbVar;
+        this.cgg = cbVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,26 +21,26 @@ public class cp implements View.OnClickListener {
         View view3;
         PbActivity pbActivity2;
         com.baidu.tbadk.editortools.j jVar3;
-        a.InterfaceC0069a interfaceC0069a;
-        pbActivity = this.cfj.cbx;
+        a.InterfaceC0071a interfaceC0071a;
+        pbActivity = this.cgg.ccs;
         if (pbActivity.checkUpIsLogin()) {
-            jVar = this.cfj.Kz;
+            jVar = this.cgg.Kz;
             if (jVar != null) {
-                this.cfj.aee();
+                this.cgg.aes();
             }
-            jVar2 = this.cfj.Kz;
+            jVar2 = this.cgg.Kz;
             if (jVar2 != null) {
-                this.cfj.ceR = false;
-                pbActivity2 = this.cfj.cbx;
-                jVar3 = this.cfj.Kz;
-                interfaceC0069a = this.cfj.cfd;
-                com.baidu.tieba.tbadkCore.c.a.a(pbActivity2, (View) jVar3.dL(3).aox, false, interfaceC0069a);
+                this.cgg.cfO = false;
+                pbActivity2 = this.cgg.ccs;
+                jVar3 = this.cgg.Kz;
+                interfaceC0071a = this.cgg.cga;
+                com.baidu.tieba.tbadkCore.c.a.a(pbActivity2, (View) jVar3.dT(3).aqi, false, interfaceC0071a);
             }
-            view2 = this.cfj.ceN;
+            view2 = this.cgg.cfK;
             if (view2 != null) {
-                view3 = this.cfj.ceN;
+                view3 = this.cgg.cfK;
                 view3.setVisibility(8);
-                this.cfj.ceR = false;
+                this.cgg.cfO = false;
             }
         }
     }

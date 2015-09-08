@@ -7,11 +7,11 @@ import com.slidingmenu.lib.SlidingMenu;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements SlidingMenu.OnClosedListener {
-    final /* synthetic */ k bbD;
+    final /* synthetic */ k bbX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(k kVar) {
-        this.bbD = kVar;
+        this.bbX = kVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:? A[RETURN, SYNTHETIC] */
@@ -26,24 +26,24 @@ public class m implements SlidingMenu.OnClosedListener {
         FrsActivity frsActivity3;
         FrsActivity frsActivity4;
         FrsActivity frsActivity5;
-        frsActivity = this.bbD.bat;
+        frsActivity = this.bbX.baN;
         if (!TextUtils.isEmpty(frsActivity.getFrom())) {
-            frsActivity4 = this.bbD.bat;
+            frsActivity4 = this.bbX.baN;
             if (FrsActivityConfig.FRS_FROM_WRITESHARE.equals(frsActivity4.getFrom())) {
-                frsActivity5 = this.bbD.bat;
+                frsActivity5 = this.bbX.baN;
                 frsActivity5.setSwipeBackEnabled(false);
-                if (!this.bbD.NM().MC()) {
-                    this.bbD.NM().cf(false);
-                    frsActivity3 = this.bbD.bat;
+                if (!this.bbX.NN().MC()) {
+                    this.bbX.NN().ck(false);
+                    frsActivity3 = this.bbX.baN;
                     frsActivity3.refresh();
                     return;
                 }
                 return;
             }
         }
-        frsActivity2 = this.bbD.bat;
+        frsActivity2 = this.bbX.baN;
         frsActivity2.setSwipeBackEnabled(true);
-        if (!this.bbD.NM().MC()) {
+        if (!this.bbX.NN().MC()) {
         }
     }
 }

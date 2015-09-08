@@ -209,7 +209,7 @@ public class MessageManager {
 
     public void registerTask(MessageTask messageTask) {
         if (messageTask != null) {
-            com.baidu.adp.lib.util.k.jd();
+            com.baidu.adp.lib.util.k.ja();
             if (messageTask instanceof HttpMessageTask) {
                 this.mHttpManager.registerTask((HttpMessageTask) messageTask);
             } else if (messageTask instanceof SocketMessageTask) {
@@ -237,19 +237,19 @@ public class MessageManager {
     }
 
     public ArrayList<HttpMessageTask> findHttpTasks() {
-        return this.mHttpManager.eU();
+        return this.mHttpManager.eR();
     }
 
     public ArrayList<CustomMessageTask> findCustomTasks() {
-        return this.mCustomManager.eU();
+        return this.mCustomManager.eR();
     }
 
     public ArrayList<SocketMessageTask> findSocketTasks() {
-        return this.mSocketManager.eU();
+        return this.mSocketManager.eR();
     }
 
     public void unRegisterTask(int i) {
-        com.baidu.adp.lib.util.k.jd();
+        com.baidu.adp.lib.util.k.ja();
         com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(i);
         if (manager != null) {
             manager.unRegisterTask(i);
@@ -258,28 +258,28 @@ public class MessageManager {
 
     public void registerListener(com.baidu.adp.framework.listener.a aVar) {
         if (aVar != null) {
-            this.mHttpManager.registerListener(0, aVar.eS());
-            this.mSocketManager.registerListener(0, aVar.eT());
+            this.mHttpManager.registerListener(0, aVar.getHttpMessageListener());
+            this.mSocketManager.registerListener(0, aVar.getSocketMessageListener());
         }
     }
 
     public void registerListener(int i, com.baidu.adp.framework.listener.a aVar) {
         if (aVar != null) {
-            this.mHttpManager.registerListener(i, aVar.eS());
-            this.mSocketManager.registerListener(i, aVar.eT());
+            this.mHttpManager.registerListener(i, aVar.getHttpMessageListener());
+            this.mSocketManager.registerListener(i, aVar.getSocketMessageListener());
         }
     }
 
     public void unRegisterListener(com.baidu.adp.framework.listener.a aVar) {
         if (aVar != null) {
-            this.mHttpManager.unRegisterListener(aVar.eS());
-            this.mSocketManager.unRegisterListener(aVar.eT());
+            this.mHttpManager.unRegisterListener(aVar.getHttpMessageListener());
+            this.mSocketManager.unRegisterListener(aVar.getSocketMessageListener());
         }
     }
 
     public void registerListenerFromBackground(final MessageListener<?> messageListener) {
         if (messageListener != null) {
-            if (com.baidu.adp.lib.util.k.je()) {
+            if (com.baidu.adp.lib.util.k.jb()) {
                 registerListener(messageListener);
             } else {
                 this.mUIHandler.post(new Runnable() { // from class: com.baidu.adp.framework.MessageManager.2
@@ -294,7 +294,7 @@ public class MessageManager {
 
     public void registerListener(MessageListener<?> messageListener) {
         if (messageListener != null) {
-            com.baidu.adp.lib.util.k.jd();
+            com.baidu.adp.lib.util.k.ja();
             FrameHelper.TYPE t = FrameHelper.t(messageListener.getCmd());
             if (t == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
                 this.mHttpManager.registerListener(0, (HttpMessageListener) messageListener);
@@ -310,7 +310,7 @@ public class MessageManager {
 
     public void registerListener(int i, MessageListener<?> messageListener) {
         if (messageListener != null) {
-            com.baidu.adp.lib.util.k.jd();
+            com.baidu.adp.lib.util.k.ja();
             FrameHelper.TYPE t = FrameHelper.t(i);
             if (t == FrameHelper.TYPE.HTTP && (messageListener instanceof HttpMessageListener)) {
                 this.mHttpManager.registerListener(i, (HttpMessageListener) messageListener);
@@ -325,7 +325,7 @@ public class MessageManager {
     }
 
     public void unRegisterListener(MessageListener<?> messageListener) {
-        com.baidu.adp.lib.util.k.jd();
+        com.baidu.adp.lib.util.k.ja();
         if (messageListener != null) {
             int cmd = messageListener.getCmd();
             if (cmd != 0) {
@@ -349,7 +349,7 @@ public class MessageManager {
     }
 
     public void registerStickyMode(int i) {
-        com.baidu.adp.lib.util.k.jd();
+        com.baidu.adp.lib.util.k.ja();
         com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(i);
         if (manager != null) {
             manager.registerStickyMode(i);
@@ -357,7 +357,7 @@ public class MessageManager {
     }
 
     public void unRegisterStickyMode(int i) {
-        com.baidu.adp.lib.util.k.jd();
+        com.baidu.adp.lib.util.k.ja();
         com.baidu.adp.framework.b.c<?, ?, ?, ?> manager = getManager(i);
         if (manager != null) {
             manager.unRegisterStickyMode(i);
@@ -365,32 +365,32 @@ public class MessageManager {
     }
 
     public void addMessageRule(f<?, ?> fVar) {
-        com.baidu.adp.lib.util.k.jd();
+        com.baidu.adp.lib.util.k.ja();
         this.mController.addMessageRule(fVar);
     }
 
     public void removeMessageRule(f<?, ?> fVar) {
-        com.baidu.adp.lib.util.k.jd();
+        com.baidu.adp.lib.util.k.ja();
         this.mController.removeMessageRule(fVar);
     }
 
     public void addResponsedMessageRule(g<?> gVar) {
-        com.baidu.adp.lib.util.k.jd();
+        com.baidu.adp.lib.util.k.ja();
         this.mController.a(gVar);
     }
 
     public void removeResponsedMessageRule(g<?> gVar) {
-        com.baidu.adp.lib.util.k.jd();
+        com.baidu.adp.lib.util.k.ja();
         this.mController.b(gVar);
     }
 
     public void addRemovedMessageRule(com.baidu.adp.framework.a.e eVar) {
-        com.baidu.adp.lib.util.k.jd();
+        com.baidu.adp.lib.util.k.ja();
         this.mController.a(eVar);
     }
 
     public void removeRemovedMessageRule(com.baidu.adp.framework.a.e eVar) {
-        com.baidu.adp.lib.util.k.jd();
+        com.baidu.adp.lib.util.k.ja();
         this.mController.b(eVar);
     }
 

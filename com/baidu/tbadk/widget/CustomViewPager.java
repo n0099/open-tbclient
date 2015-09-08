@@ -5,25 +5,25 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class CustomViewPager extends TbViewPager {
-    private boolean azw;
+    private boolean aBe;
 
     public CustomViewPager(Context context) {
         super(context);
-        this.azw = true;
+        this.aBe = true;
     }
 
     public CustomViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.azw = true;
+        this.aBe = true;
     }
 
     public void setScrollable(boolean z) {
-        this.azw = z;
+        this.aBe = z;
     }
 
     @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.azw) {
+        if (this.aBe) {
             if (getCurrentItem() != 0) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }

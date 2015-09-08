@@ -7,6 +7,7 @@ import tbclient.PbFloor.DataReq;
 import tbclient.PbFloor.PbFloorReqIdl;
 /* loaded from: classes.dex */
 public class SubPbRequestMessage extends NetMessage {
+    private int is_comm_reverse;
     private long kz;
     private long pid;
     private int pn;
@@ -19,6 +20,10 @@ public class SubPbRequestMessage extends NetMessage {
     private boolean treatDelPage;
 
     public SubPbRequestMessage(Context context, long j, long j2, long j3, int i, int i2, int i3, double d, String str) {
+        this(context, j, j2, j3, i, i2, i3, d, str, 0);
+    }
+
+    public SubPbRequestMessage(Context context, long j, long j2, long j3, int i, int i2, int i3, double d, String str, int i4) {
         super(CmdConfigHttp.SubPb_HTTP_CMD, 302002);
         this.richTextClickListener = context;
         this.kz = j;
@@ -29,6 +34,7 @@ public class SubPbRequestMessage extends NetMessage {
         this.scr_h = i3;
         this.scr_dip = d;
         this.stType = str;
+        this.is_comm_reverse = i4;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -42,6 +48,7 @@ public class SubPbRequestMessage extends NetMessage {
         builder.scr_h = Integer.valueOf(this.scr_h);
         builder.scr_dip = Double.valueOf(this.scr_dip);
         builder.st_type = this.stType;
+        builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
         if (z) {
             com.baidu.tbadk.util.g.a(builder, true);
         }

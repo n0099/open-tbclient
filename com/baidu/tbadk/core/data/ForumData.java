@@ -44,13 +44,13 @@ public class ForumData implements ad, Serializable {
     private final j mFrsBannerData;
     private final PostPrefixData mPrefixData;
     private ArrayList<RecommendForumData> mRecommendForumData;
-    private final q mRecommendLikeUser;
-    private z news_info;
+    private final r mRecommendLikeUser;
+    private ab news_info;
     private String slogan;
     private String tag_color;
     private String tag_id;
-    private w top_code;
-    private x top_notice_data;
+    private y top_code;
+    private z top_notice_data;
     private String id = null;
     private String name = null;
     private String first_class = null;
@@ -75,15 +75,15 @@ public class ForumData implements ad, Serializable {
         this.levelup_score = 0;
         this.is_support_local = 0;
         this.is_local_effect = 0;
-        this.top_notice_data = new x();
+        this.top_notice_data = new z();
         this.mBadgeData = new ArrayList<>();
         this.mFrsBannerData = new j();
         this.mBannerListData = new BannerListData();
         this.mRecommendForumData = new ArrayList<>();
         this.mPrefixData = new PostPrefixData();
-        this.mRecommendLikeUser = new q();
-        this.top_code = new w();
-        this.news_info = new z();
+        this.mRecommendLikeUser = new r();
+        this.top_code = new y();
+        this.news_info = new ab();
     }
 
     public AnchorPower getAnchorPower() {
@@ -218,12 +218,12 @@ public class ForumData implements ad, Serializable {
         this.mSignData = signData;
     }
 
-    public x getTop_notice_data() {
+    public z getTop_notice_data() {
         return this.top_notice_data;
     }
 
-    public void setTop_notice_data(x xVar) {
-        this.top_notice_data = xVar;
+    public void setTop_notice_data(z zVar) {
+        this.top_notice_data = zVar;
     }
 
     public void setManagers(ArrayList<String> arrayList) {
@@ -262,7 +262,7 @@ public class ForumData implements ad, Serializable {
         return this.mBannerListData;
     }
 
-    public q getRecommendLikeUser() {
+    public r getRecommendLikeUser() {
         return this.mRecommendLikeUser;
     }
 
@@ -581,19 +581,19 @@ public class ForumData implements ad, Serializable {
         return this.mPrefixData;
     }
 
-    public void setTopCode(w wVar) {
-        this.top_code = wVar;
+    public void setTopCode(y yVar) {
+        this.top_code = yVar;
     }
 
-    public void setNewsInfo(z zVar) {
-        this.news_info = zVar;
+    public void setNewsInfo(ab abVar) {
+        this.news_info = abVar;
     }
 
-    public w getTopCode() {
+    public y getTopCode() {
         return this.top_code;
     }
 
-    public z getNewsInfo() {
+    public ab getNewsInfo() {
         return this.news_info;
     }
 
@@ -601,8 +601,8 @@ public class ForumData implements ad, Serializable {
     public ArrayList<ac> getImages() {
         ArrayList<ac> arrayList = new ArrayList<>();
         ac acVar = new ac();
-        acVar.VY = this.image_url;
-        acVar.aau = 10;
+        acVar.Wg = this.image_url;
+        acVar.aaD = 10;
         arrayList.add(acVar);
         return arrayList;
     }

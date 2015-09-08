@@ -22,7 +22,7 @@ public class k implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        this.this$0.lx();
+        this.this$0.lu();
     }
 
     @Override // android.content.ServiceConnection

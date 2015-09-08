@@ -8,7 +8,7 @@ public enum PageType {
     FLOOR_IN_FLOOR,
     WRITE;
 
-    /* JADX DEBUG: Replace access to removed values field (azp) with 'values()' method */
+    /* JADX DEBUG: Replace access to removed values field (aAX) with 'values()' method */
     /* renamed from: values  reason: to resolve conflict with enum method */
     public static PageType[] valuesCustom() {
         PageType[] valuesCustom = values();

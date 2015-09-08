@@ -7,17 +7,17 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements Animation.AnimationListener {
-    final /* synthetic */ PersonalChatView bFW;
-    private final /* synthetic */ Animation bFX;
-    private final /* synthetic */ String bFY;
-    private final /* synthetic */ String bnZ;
+    final /* synthetic */ PersonalChatView bGD;
+    private final /* synthetic */ Animation bGE;
+    private final /* synthetic */ String bGF;
+    private final /* synthetic */ String box;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PersonalChatView personalChatView, String str, String str2, Animation animation) {
-        this.bFW = personalChatView;
-        this.bnZ = str;
-        this.bFY = str2;
-        this.bFX = animation;
+        this.bGD = personalChatView;
+        this.box = str;
+        this.bGF = str2;
+        this.bGE = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -35,14 +35,14 @@ public class s implements Animation.AnimationListener {
         PersonalChatActivity personalChatActivity;
         TextView textView2;
         LinearLayout linearLayout2;
-        linearLayout = this.bFW.bFP;
+        linearLayout = this.bGD.bGw;
         linearLayout.clearAnimation();
-        textView = this.bFW.bFQ;
-        personalChatActivity = this.bFW.bFN;
-        textView.setText(personalChatActivity.getResources().getString(i.C0057i.add_friend_agree_title, this.bnZ));
-        textView2 = this.bFW.bFR;
-        textView2.setText(this.bFY);
-        linearLayout2 = this.bFW.bFP;
-        linearLayout2.setAnimation(this.bFX);
+        textView = this.bGD.bGx;
+        personalChatActivity = this.bGD.bGu;
+        textView.setText(personalChatActivity.getResources().getString(i.h.add_friend_agree_title, this.box));
+        textView2 = this.bGD.bGy;
+        textView2.setText(this.bGF);
+        linearLayout2 = this.bGD.bGw;
+        linearLayout2.setAnimation(this.bGE);
     }
 }

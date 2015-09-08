@@ -1,27 +1,18 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tblauncher.a.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ao implements View.OnClickListener {
-    final /* synthetic */ ai cMQ;
+public class ao implements d.a {
+    final /* synthetic */ am cVq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ao(ai aiVar) {
-        this.cMQ = aiVar;
+    public ao(am amVar) {
+        this.cVq = amVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        mainTabActivity = this.cMQ.cMK;
-        mainTabActivity2 = this.cMQ.cMK;
-        mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.SIGN_ALL_FORUM_CUSTOM_CMD, new SignAllForumActivityConfig(mainTabActivity2.getPageContext().getPageActivity())));
-        TiebaStatic.log("c10085");
+    @Override // com.baidu.tieba.tblauncher.a.d.a
+    public void fj(int i) {
+        this.cVq.onChangeSkinType(i);
     }
 }

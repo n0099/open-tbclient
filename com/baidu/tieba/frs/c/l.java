@@ -10,22 +10,23 @@ import com.baidu.tbadk.core.atomData.ChatMessageActivityConfig;
 import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsGoodActivityConfig;
+import com.baidu.tbadk.core.atomData.FrsLiveListActivityConfig;
 import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
 import com.baidu.tbadk.core.atomData.PostSearchActivityConfig;
 import com.baidu.tbadk.core.atomData.SingleMentionActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.dg;
+import com.baidu.tieba.frs.dm;
 import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ k bbD;
+    final /* synthetic */ k bbX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.bbD = kVar;
+        this.bbX = kVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -58,103 +59,126 @@ public class l implements View.OnClickListener {
         FrsActivity frsActivity26;
         FrsActivity frsActivity27;
         FrsActivity frsActivity28;
+        FrsActivity frsActivity29;
+        FrsActivity frsActivity30;
+        FrsActivity frsActivity31;
+        FrsActivity frsActivity32;
+        FrsActivity frsActivity33;
+        FrsActivity frsActivity34;
         int id = view.getId();
         if (id == i.f.message_layout) {
-            frsActivity26 = this.bbD.bat;
-            frsActivity26.Lx();
+            frsActivity32 = this.bbX.baN;
+            frsActivity32.Lo();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                frsActivity27 = this.bbD.bat;
-                ChatMessageActivityConfig chatMessageActivityConfig = new ChatMessageActivityConfig(frsActivity27.getPageContext().getPageActivity());
-                frsActivity28 = this.bbD.bat;
-                frsActivity28.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, chatMessageActivityConfig));
+                frsActivity33 = this.bbX.baN;
+                ChatMessageActivityConfig chatMessageActivityConfig = new ChatMessageActivityConfig(frsActivity33.getPageContext().getPageActivity());
+                frsActivity34 = this.bbX.baN;
+                frsActivity34.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, chatMessageActivityConfig));
             }
         } else if (id == i.f.mention_layout) {
-            frsActivity24 = this.bbD.bat;
-            frsActivity24.Lw();
+            frsActivity30 = this.bbX.baN;
+            frsActivity30.Ln();
             String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount2 != null && currentAccount2.length() > 0) {
-                TiebaStatic.eventStat(this.bbD.getPageContext().getPageActivity(), "frs_message", "frsclick", 1, new Object[0]);
-                SingleMentionActivityConfig singleMentionActivityConfig = new SingleMentionActivityConfig(this.bbD.getPageContext().getPageActivity());
-                frsActivity25 = this.bbD.bat;
-                frsActivity25.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, singleMentionActivityConfig));
+                TiebaStatic.eventStat(this.bbX.getPageContext().getPageActivity(), "frs_message", "frsclick", 1, new Object[0]);
+                SingleMentionActivityConfig singleMentionActivityConfig = new SingleMentionActivityConfig(this.bbX.getPageContext().getPageActivity());
+                frsActivity31 = this.bbX.baN;
+                frsActivity31.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, singleMentionActivityConfig));
             }
         } else if (id == i.f.history_tv) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbHistoryActivityConfig(this.bbD.getPageContext().getPageActivity())));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbHistoryActivityConfig(this.bbX.getPageContext().getPageActivity())));
         } else if (id == i.f.bar_info_tv) {
-            frsActivity21 = this.bbD.bat;
-            if (frsActivity21.Lu() != null) {
-                frsActivity22 = this.bbD.bat;
-                if (frsActivity22.Lu().acG() != null) {
+            frsActivity27 = this.bbX.baN;
+            if (frsActivity27.Ll() != null) {
+                frsActivity28 = this.bbX.baN;
+                if (frsActivity28.Ll().acP() != null) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    Activity pageActivity = this.bbD.getPageContext().getPageActivity();
-                    frsActivity23 = this.bbD.bat;
-                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(pageActivity, frsActivity23.Lu().acG().getId(), ForumDetailActivityConfig.FromType.FRS_SIDE)));
+                    Activity pageActivity = this.bbX.getPageContext().getPageActivity();
+                    frsActivity29 = this.bbX.baN;
+                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(pageActivity, frsActivity29.Ll().acP().getId(), ForumDetailActivityConfig.FromType.FRS_SIDE)));
                 }
             }
         } else if (id == i.f.forum_manager_center) {
-            frsActivity17 = this.bbD.bat;
-            if (frsActivity17.Lu() != null) {
-                frsActivity18 = this.bbD.bat;
-                if (frsActivity18.Lu().acG() != null) {
-                    frsActivity19 = this.bbD.bat;
-                    String id2 = frsActivity19.Lu().acG().getId();
-                    frsActivity20 = this.bbD.bat;
-                    com.baidu.tbadk.browser.f.B(this.bbD.getPageContext().getPageActivity(), "http://tieba.baidu.com/mo/q/bawuindex?fn=" + frsActivity20.Lu().acG().getName() + "&fid=" + id2);
+            frsActivity23 = this.bbX.baN;
+            if (frsActivity23.Ll() != null) {
+                frsActivity24 = this.bbX.baN;
+                if (frsActivity24.Ll().acP() != null) {
+                    frsActivity25 = this.bbX.baN;
+                    String id2 = frsActivity25.Ll().acP().getId();
+                    frsActivity26 = this.bbX.baN;
+                    com.baidu.tbadk.browser.g.B(this.bbX.getPageContext().getPageActivity(), "http://tieba.baidu.com/mo/q/bawuindex?fn=" + frsActivity26.Ll().acP().getName() + "&fid=" + id2);
                 }
             }
         } else if (id == i.f.recommend_forum_item_layout) {
-            dg.a aVar = (dg.a) view.getTag();
+            dm.a aVar = (dm.a) view.getTag();
             if (aVar != null) {
-                frsActivity12 = this.bbD.bat;
-                if (frsActivity12.Lu() != null) {
-                    frsActivity13 = this.bbD.bat;
-                    if (frsActivity13.Lu().acG() != null) {
-                        frsActivity14 = this.bbD.bat;
-                        String name = frsActivity14.Lu().acG().getName();
+                frsActivity18 = this.bbX.baN;
+                if (frsActivity18.Ll() != null) {
+                    frsActivity19 = this.bbX.baN;
+                    if (frsActivity19.Ll().acP() != null) {
+                        frsActivity20 = this.bbX.baN;
+                        String name = frsActivity20.Ll().acP().getName();
                         String str = aVar.name;
                         if (!str.equals(name)) {
-                            frsActivity15 = this.bbD.bat;
-                            frsActivity15.resetData();
-                            frsActivity16 = this.bbD.bat;
-                            frsActivity16.a(aVar, str);
-                        } else if (this.bbD.NN().isMenuShowing()) {
-                            this.bbD.NN().toggle(true);
+                            frsActivity21 = this.bbX.baN;
+                            frsActivity21.resetData();
+                            frsActivity22 = this.bbX.baN;
+                            frsActivity22.a(aVar, str);
+                        } else if (this.bbX.NO().isMenuShowing()) {
+                            this.bbX.NO().toggle(true);
                         }
                     }
                 }
             }
         } else if (id == i.f.unfollow_layout) {
-            if (com.baidu.adp.lib.util.i.iO()) {
-                frsActivity11 = this.bbD.bat;
-                frsActivity11.Ly();
+            if (com.baidu.adp.lib.util.i.iL()) {
+                frsActivity17 = this.bbX.baN;
+                frsActivity17.Lp();
                 return;
             }
-            frsActivity10 = this.bbD.bat;
-            frsActivity10.showToast(i.C0057i.neterror);
+            frsActivity16 = this.bbX.baN;
+            frsActivity16.showToast(i.h.neterror);
         } else if (id == i.f.post_search_ll) {
-            frsActivity5 = this.bbD.bat;
-            if (frsActivity5.Lu() != null) {
-                frsActivity6 = this.bbD.bat;
-                if (frsActivity6.Lu().acG() != null) {
-                    frsActivity7 = this.bbD.bat;
-                    String name2 = frsActivity7.Lu().acG().getName();
+            frsActivity11 = this.bbX.baN;
+            if (frsActivity11.Ll() != null) {
+                frsActivity12 = this.bbX.baN;
+                if (frsActivity12.Ll().acP() != null) {
+                    frsActivity13 = this.bbX.baN;
+                    String name2 = frsActivity13.Ll().acP().getName();
                     if (!StringUtils.isNull(name2)) {
-                        frsActivity8 = this.bbD.bat;
-                        frsActivity9 = this.bbD.bat;
-                        frsActivity8.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PostSearchActivityConfig(frsActivity9.getPageContext().getPageActivity(), name2)));
+                        frsActivity14 = this.bbX.baN;
+                        frsActivity15 = this.bbX.baN;
+                        frsActivity14.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PostSearchActivityConfig(frsActivity15.getPageContext().getPageActivity(), name2)));
                     }
                 }
             }
         } else if (id == i.f.frs_sidebar_good_tv) {
-            frsActivity2 = this.bbD.bat;
-            frsActivity3 = this.bbD.bat;
-            FrsGoodActivityConfig frsGoodActivityConfig = new FrsGoodActivityConfig(frsActivity3.getPageContext().getPageActivity());
-            frsActivity4 = this.bbD.bat;
-            frsActivity2.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, frsGoodActivityConfig.createNormalCfg(frsActivity4.aUq, FrsActivityConfig.FRS_FROM_LIKE)));
+            frsActivity8 = this.bbX.baN;
+            frsActivity9 = this.bbX.baN;
+            FrsGoodActivityConfig frsGoodActivityConfig = new FrsGoodActivityConfig(frsActivity9.getPageContext().getPageActivity());
+            frsActivity10 = this.bbX.baN;
+            frsActivity8.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, frsGoodActivityConfig.createNormalCfg(frsActivity10.aUF, FrsActivityConfig.FRS_FROM_LIKE)));
         } else if (id == i.f.frs_sidebar_add_to_desktop) {
-            frsActivity = this.bbD.bat;
-            frsActivity.Lq();
+            frsActivity7 = this.bbX.baN;
+            frsActivity7.Lf();
+        } else if (id == i.f.bar_live_tv) {
+            frsActivity = this.bbX.baN;
+            if (frsActivity.Ll() != null) {
+                frsActivity2 = this.bbX.baN;
+                if (frsActivity2.Ll().acP() != null) {
+                    frsActivity3 = this.bbX.baN;
+                    if (frsActivity3.Ll().getUserData() != null) {
+                        MessageManager messageManager2 = MessageManager.getInstance();
+                        frsActivity4 = this.bbX.baN;
+                        Activity pageActivity2 = frsActivity4.getPageContext().getPageActivity();
+                        frsActivity5 = this.bbX.baN;
+                        String id3 = frsActivity5.Ll().acP().getId();
+                        frsActivity6 = this.bbX.baN;
+                        messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FrsLiveListActivityConfig(pageActivity2, id3, frsActivity6.Ll().getUserData().getIsManager())));
+                    }
+                }
+            }
         }
     }
 }

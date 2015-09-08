@@ -120,10 +120,10 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                 return;
             case 4:
                 if (isExStorageOk() && (msg2 = this.mListModel.getMsg(i2)) != null && com.baidu.tieba.im.util.h.p(msg2)) {
-                    String t = com.baidu.tieba.im.util.h.t(msg2.getContent(), true);
-                    String t2 = com.baidu.tieba.im.util.h.t(msg2.getContent(), false);
-                    if (t != null && (this.mListModel instanceof CommonGroupMsglistModel) && ((CommonGroupMsglistModel) this.mListModel).getGroup() != null) {
-                        sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupMsgImageActivityConfig(getPageContext().getContext(), t, ((CommonGroupMsglistModel) this.mListModel).getGroup().getGroupId(), false, String.valueOf(msg2.getMsgId()), t2)));
+                    String v = com.baidu.tieba.im.util.h.v(msg2.getContent(), true);
+                    String v2 = com.baidu.tieba.im.util.h.v(msg2.getContent(), false);
+                    if (v != null && (this.mListModel instanceof CommonGroupMsglistModel) && ((CommonGroupMsglistModel) this.mListModel).getGroup() != null) {
+                        sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GroupMsgImageActivityConfig(getPageContext().getContext(), v, ((CommonGroupMsglistModel) this.mListModel).getGroup().getGroupId(), false, String.valueOf(msg2.getMsgId()), v2)));
                         return;
                     }
                     return;
@@ -192,7 +192,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
                 if (jSONObject.getString("eventId").equals("003") && string.equals(String.valueOf(group.getGroupId()))) {
-                    showToast(TbadkApplication.getInst().getString(i.C0057i.group_is_kicked), false);
+                    showToast(TbadkApplication.getInst().getString(i.h.group_is_kicked), false);
                     finish();
                 }
             } catch (JSONException e) {
@@ -230,7 +230,7 @@ public abstract class CommonGroupChatActiviy<T> extends MsglistActivity<T> {
                 JSONObject jSONObject = new JSONObject(groupNewsPojo.getContent());
                 String string = jSONObject.getJSONObject("eventParam").getString("groupId");
                 if (jSONObject.getString("eventId").equals("107") && string.equals(String.valueOf(group.getGroupId()))) {
-                    showToast(TbadkApplication.getInst().getString(i.C0057i.group_is_dismiss), false);
+                    showToast(TbadkApplication.getInst().getString(i.h.group_is_dismiss), false);
                     finish();
                 }
             } catch (JSONException e) {

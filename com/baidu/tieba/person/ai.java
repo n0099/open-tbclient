@@ -4,16 +4,16 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements a.b {
-    final /* synthetic */ PersonChangeActivity cjt;
+    final /* synthetic */ PersonChangeActivity cko;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(PersonChangeActivity personChangeActivity) {
-        this.cjt = personChangeActivity;
+        this.cko = personChangeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        this.cjt.agm();
+        this.cko.agC();
     }
 }

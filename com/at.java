@@ -11,11 +11,11 @@ import com.sina.sso.RemoteSSO;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements ServiceConnection {
-    final /* synthetic */ as daw;
+    final /* synthetic */ as djy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.daw = asVar;
+        this.djy = asVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -23,25 +23,25 @@ public class at implements ServiceConnection {
         ServiceConnection serviceConnection;
         RemoteSSO asInterface = RemoteSSO.Stub.asInterface(iBinder);
         try {
-            this.daw.a = asInterface.getPackageName();
-            this.daw.b = asInterface.getActivityName();
-            if (!this.daw.startSingleSignOn()) {
-                this.daw.startAuthDialog();
+            this.djy.a = asInterface.getPackageName();
+            this.djy.b = asInterface.getActivityName();
+            if (!this.djy.startSingleSignOn()) {
+                this.djy.startAuthDialog();
             }
         } catch (RemoteException e) {
-            this.daw.startAuthDialog();
+            this.djy.startAuthDialog();
         } finally {
-            Context applicationContext = this.daw.mActivity.getApplicationContext();
-            serviceConnection = this.daw.dav;
+            Context applicationContext = this.djy.mActivity.getApplicationContext();
+            serviceConnection = this.djy.djx;
             applicationContext.unbindService(serviceConnection);
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        SessionManager.Session session = SessionManager.getInstance(this.daw.mActivity).get(MediaType.SINAWEIBO.toString());
+        SessionManager.Session session = SessionManager.getInstance(this.djy.mActivity).get(MediaType.SINAWEIBO.toString());
         if (session == null || session.isExpired()) {
-            this.daw.startAuthDialog();
+            this.djy.startAuthDialog();
         }
     }
 }

@@ -15,8 +15,8 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private TextView alN;
-    private CustomMessageListener bFZ;
+    private TextView anz;
+    private CustomMessageListener bGG;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -24,27 +24,27 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Cz() {
+    public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.auR = new e();
+        cVar.awz = new e();
         cVar.type = 3;
-        cVar.auS = i.C0057i.enter_message;
-        cVar.auT = i.e.icon_tabbar_imcenter;
+        cVar.awA = i.h.enter_message;
+        cVar.awB = i.e.icon_tabbar_imcenter;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator an(Context context) {
-        this.auE = (FragmentTabIndicator) LayoutInflater.from(context).inflate(i.g.fragmenttabindicator, (ViewGroup) null);
-        this.alN = (TextView) LayoutInflater.from(context).inflate(i.g.message_tip_item, (ViewGroup) null);
+    public FragmentTabIndicator getTabIndicator(Context context) {
+        this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(i.g.fragmenttabindicator, (ViewGroup) null);
+        this.anz = (TextView) LayoutInflater.from(context).inflate(i.g.message_tip_item, (ViewGroup) null);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.auQ = this.auE;
-        aVar.view = this.alN;
-        aVar.auO = i.e.icon_dot_orange;
-        aVar.auP = i.c.frs_slidebar_message_text;
-        this.alN.setVisibility(8);
-        this.auE.a(AddFriendActivityConfig.MSG, aVar);
-        return this.auE;
+        aVar.awy = this.mIndicator;
+        aVar.view = this.anz;
+        aVar.aww = i.e.icon_dot_orange;
+        aVar.awx = i.c.frs_slidebar_message_text;
+        this.anz.setVisibility(8);
+        this.mIndicator.a(AddFriendActivityConfig.MSG, aVar);
+        return this.mIndicator;
     }
 
     static {
@@ -54,15 +54,15 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void Cy() {
-        this.bFZ = new d(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
-        MessageManager.getInstance().registerListener(this.bFZ);
+    public void onAdd() {
+        this.bGG = new d(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
+        MessageManager.getInstance().registerListener(this.bGG);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void ef() {
-        super.ef();
-        MessageManager.getInstance().unRegisterListener(this.bFZ);
+    public void onRemove() {
+        super.onRemove();
+        MessageManager.getInstance().unRegisterListener(this.bGG);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,13 +73,13 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
             textView.setVisibility(8);
         } else if (i < 10) {
             textView.setText(String.valueOf(i));
-            al.i((View) textView, i.e.icon_news_head_prompt_one);
+            al.h((View) textView, i.e.icon_news_head_prompt_one);
         } else if (i < 100) {
             textView.setText(String.valueOf(i));
-            al.i((View) textView, i.e.icon_news_head_prompt_two);
+            al.h((View) textView, i.e.icon_news_head_prompt_two);
         } else {
             textView.setText("   ");
-            al.i((View) textView, i.e.icon_news_head_prompt_more);
+            al.h((View) textView, i.e.icon_news_head_prompt_more);
         }
     }
 }

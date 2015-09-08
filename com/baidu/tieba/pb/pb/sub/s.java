@@ -10,11 +10,11 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity cfY;
+    final /* synthetic */ NewSubPbActivity cgV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(NewSubPbActivity newSubPbActivity) {
-        this.cfY = newSubPbActivity;
+        this.cgV = newSubPbActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
@@ -33,27 +33,27 @@ public class s implements NewSubPbActivity.a {
         Object[] objArr = (Object[]) obj;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            aVar = this.cfY.cfQ;
-            if (!aVar.aqN() && objArr != null && objArr.length >= 4) {
+            aVar = this.cgV.cgN;
+            if (!aVar.avb() && objArr != null && objArr.length >= 4) {
                 String valueOf = String.valueOf(objArr[0]);
                 int g = com.baidu.adp.lib.g.b.g(String.valueOf(objArr[1]), 0);
                 boolean d = com.baidu.adp.lib.g.b.d(String.valueOf(objArr[2]), false);
                 int g2 = com.baidu.adp.lib.g.b.g(String.valueOf(objArr[3]), 0);
-                akVar = this.cfY.cfP;
+                akVar = this.cgV.cgM;
                 if (akVar != null) {
-                    akVar2 = this.cfY.cfP;
-                    if (akVar2.afo() != null) {
-                        akVar3 = this.cfY.cfP;
-                        if (akVar3.afo().acV() != null) {
-                            akVar4 = this.cfY.cfP;
-                            if (akVar4.afo().acX() != null) {
-                                aVar2 = this.cfY.cfQ;
-                                akVar5 = this.cfY.cfP;
-                                String id = akVar5.afo().acV().getId();
-                                akVar6 = this.cfY.cfP;
-                                String name = akVar6.afo().acV().getName();
-                                akVar7 = this.cfY.cfP;
-                                aVar2.a(id, name, akVar7.afo().acX().getId(), valueOf, g2, g, d);
+                    akVar2 = this.cgV.cgM;
+                    if (akVar2.afD() != null) {
+                        akVar3 = this.cgV.cgM;
+                        if (akVar3.afD().adi() != null) {
+                            akVar4 = this.cgV.cgM;
+                            if (akVar4.afD().adk() != null) {
+                                aVar2 = this.cgV.cgN;
+                                akVar5 = this.cgV.cgM;
+                                String id = akVar5.afD().adi().getId();
+                                akVar6 = this.cgV.cgM;
+                                String name = akVar6.afD().adi().getName();
+                                akVar7 = this.cgV.cgM;
+                                aVar2.a(id, name, akVar7.afD().adk().getId(), valueOf, g2, g, d);
                                 return;
                             }
                             return;
@@ -66,6 +66,6 @@ public class s implements NewSubPbActivity.a {
             }
             return;
         }
-        TbadkCoreApplication.m411getInst().login(this.cfY.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.cfY.getPageContext().getPageActivity(), this.cfY.getPageContext().getString(i.C0057i.login_to_use), true, 11017)));
+        TbadkCoreApplication.m411getInst().login(this.cgV.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.cgV.getPageContext().getPageActivity(), this.cgV.getPageContext().getString(i.h.login_to_use), true, 11017)));
     }
 }

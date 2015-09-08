@@ -1,30 +1,71 @@
 package com.baidu.tieba.frs;
 
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.adp.widget.ListView.x.a;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class bd implements com.baidu.adp.widget.ListView.u {
-    public static final BdUniqueId aWm = BdUniqueId.gen();
-    private int height = 0;
-    private int aWn = 0;
+public abstract class bd<T, V extends x.a> extends com.baidu.adp.widget.ListView.a<T, V> {
+    protected BaseActivity<?> aSX;
+    protected int aTK;
+    protected int aTL;
+    protected ListView aTO;
+    protected com.baidu.tieba.tbadkCore.o aUN;
+    protected av aWB;
+    protected int aWC;
+    protected boolean mIsFromCDN;
+    protected int mSkinType;
 
-    @Override // com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return aWm;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public bd(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
+        super(baseActivity == null ? null : baseActivity.getPageContext().getPageActivity(), bdUniqueId);
+        this.mIsFromCDN = false;
+        d(baseActivity);
     }
 
-    public int getHeight() {
-        return this.height;
+    public void d(BaseActivity<?> baseActivity) {
+        if (baseActivity != null) {
+            this.mContext = baseActivity.getActivity();
+            this.aSX = baseActivity;
+            this.aTK = this.mContext.getResources().getDimensionPixelSize(i.d.ds8);
+            this.aTL = this.mContext.getResources().getDimensionPixelSize(i.d.ds16);
+        }
     }
 
-    public void setHeight(int i) {
-        this.height = i;
+    public void release() {
+        this.mContext = null;
+        this.aSX = null;
+        this.aWB = null;
+        this.GH = null;
+        this.GI = null;
     }
 
-    public int LL() {
-        return this.aWn;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
+        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
+        this.aTO = (ListView) viewGroup;
+        return null;
     }
 
-    public void fi(int i) {
-        this.aWn = i;
+    public void setFromCDN(boolean z) {
+        this.mIsFromCDN = z;
+    }
+
+    public void a(com.baidu.tieba.tbadkCore.o oVar) {
+        this.aUN = oVar;
+    }
+
+    public void a(av avVar) {
+        this.aWB = avVar;
+    }
+
+    public void fp(int i) {
+        this.aWC = i;
     }
 }

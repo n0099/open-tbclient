@@ -45,7 +45,7 @@ class c extends l {
         e eVar;
         e eVar2;
         k.a("linkservice", 0, 0, "onOpen", 0, "LinkService:onOpen");
-        k.eF();
+        k.eE();
         handler = BdSocketLinkService.mHandler;
         handler.removeMessages(1);
         eVar = BdSocketLinkService.connStateCallBack;
@@ -63,7 +63,7 @@ class c extends l {
         e eVar2;
         boolean z = false;
         k.a("linkservice", 0, 0, "onClose", i, str);
-        k.eF();
+        k.eE();
         handler = BdSocketLinkService.mHandler;
         handler.removeMessages(1);
         eVar = BdSocketLinkService.connStateCallBack;
@@ -71,7 +71,7 @@ class c extends l {
             eVar2 = BdSocketLinkService.connStateCallBack;
             z = eVar2.k(i, null);
         }
-        if (!z && i != 1 && com.baidu.adp.lib.util.k.jf()) {
+        if (!z && i != 1 && com.baidu.adp.lib.util.k.jc()) {
             hVar = BdSocketLinkService.reConnStra;
             hVar.start("onClose:" + i + ":" + str);
         }

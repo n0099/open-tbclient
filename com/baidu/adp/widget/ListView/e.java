@@ -27,7 +27,7 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes.dex */
     public interface a {
-        void nw();
+        void nt();
     }
 
     public e(Context context) {
@@ -51,7 +51,7 @@ public class e extends BaseAdapter {
         this.Ht = aVar;
     }
 
-    public int nu() {
+    public int nr() {
         if (this.mAdapter != null) {
             return this.mAdapter.getCount();
         }
@@ -295,7 +295,7 @@ public class e extends BaseAdapter {
         if (i < headersCount) {
             View view4 = this.Ho.get(i).view;
             if (view4 == null) {
-                return nv();
+                return ns();
             }
             return view4;
         }
@@ -312,7 +312,7 @@ public class e extends BaseAdapter {
                 view3 = this.mAdapter.getView(i2, view, viewGroup);
             }
             if (view3 == null) {
-                return nv();
+                return ns();
             }
             return view3;
         }
@@ -323,12 +323,12 @@ public class e extends BaseAdapter {
             view2 = null;
         }
         if (view2 == null) {
-            return nv();
+            return ns();
         }
         return view2;
     }
 
-    private View nv() {
+    private View ns() {
         TextView textView = new TextView(this.mContext);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = com.baidu.adp.lib.util.k.dip2px(this.mContext, 15.0f);

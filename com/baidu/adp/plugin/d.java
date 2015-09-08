@@ -15,7 +15,7 @@ public class d {
     private int Cn = 0;
     private int Co = 0;
 
-    public static d kE() {
+    public static d kB() {
         if (Cp == null) {
             synchronized (d.class) {
                 if (Cp == null) {

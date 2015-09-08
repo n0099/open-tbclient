@@ -13,11 +13,11 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a cfq;
+    final /* synthetic */ a cgn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cfq = aVar;
+        this.cgn = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -47,13 +47,13 @@ public class b implements View.OnClickListener {
             }
         }
         if (str3 != null) {
-            pbActivity = this.cfq.cbx;
-            if (pbActivity.acZ() != null) {
+            pbActivity = this.cgn.ccs;
+            if (pbActivity.adm() != null) {
                 MessageManager messageManager = MessageManager.getInstance();
-                pbActivity2 = this.cfq.cbx;
+                pbActivity2 = this.cgn.ccs;
                 Activity pageActivity = pbActivity2.getPageContext().getPageActivity();
-                pbActivity3 = this.cfq.cbx;
-                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.acZ().adx(), AddFriendActivityConfig.TYPE_PB_HEAD)));
+                pbActivity3 = this.cgn.ccs;
+                messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.adm().adL(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }
     }

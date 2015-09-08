@@ -2,6 +2,6 @@ package com.baidu.tbadk.core.voice;
 /* loaded from: classes.dex */
 public class VoiceStatic {
     static {
-        com.baidu.adp.lib.f.c.hc().a(23, new com.baidu.tbadk.core.voice.a.c());
+        com.baidu.adp.lib.f.c.gZ().a(23, new com.baidu.tbadk.core.voice.a.c());
     }
 }

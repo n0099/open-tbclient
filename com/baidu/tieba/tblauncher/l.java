@@ -16,10 +16,10 @@ class l extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && com.baidu.tbadk.core.c.b.tl() == null) {
-            ah ahVar = new ah();
-            ahVar.a(this.this$0);
-            com.baidu.tbadk.core.c.b.a(ahVar);
+        if (customResponsedMessage != null && com.baidu.tbadk.core.c.b.tq() == null) {
+            al alVar = new al();
+            alVar.a(this.this$0);
+            com.baidu.tbadk.core.c.b.a(alVar);
         }
     }
 }

@@ -1,21 +1,21 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class cc implements LiveBroadcastCard.a {
-    final /* synthetic */ bz aXQ;
+public class cc extends x.a {
+    View aXT;
+    TextView aXU;
+    View aXV;
+    TextView aXW;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cc(bz bzVar) {
-        this.aXQ = bzVar;
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.LiveBroadcastCard.a
-    public boolean zd() {
-        BaseActivity baseActivity;
-        baseActivity = this.aXQ.aSJ;
-        return baseActivity.checkUpIsLogin();
+    public cc(View view) {
+        super(view);
+        this.aXU = (TextView) view.findViewById(i.f.frs_fortune_bag_content);
+        this.aXT = view.findViewById(i.f.frs_fortune_bag_item);
+        this.aXV = view.findViewById(i.f.frs_my_service_item);
+        this.aXW = (TextView) view.findViewById(i.f.frs_my_service_content);
     }
 }

@@ -11,25 +11,25 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.message.ResponseReportUserInfoMessage;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e {
-    public long Sh;
-    private a bWH;
-    private final HttpMessageListener bWI;
+    public long Sf;
+    private a bXn;
+    private final HttpMessageListener bXo;
 
     /* loaded from: classes.dex */
     public interface a {
-        void ic(int i);
+        void in(int i);
 
         void onError(int i, String str);
     }
 
     public void a(a aVar) {
-        this.bWH = aVar;
+        this.bXn = aVar;
     }
 
     public d(Context context) {
         super(null);
-        this.Sh = 300000L;
-        this.bWI = new e(this, CmdConfigHttp.REPORT_USER_INFO);
+        this.Sf = 300000L;
+        this.bXo = new e(this, CmdConfigHttp.REPORT_USER_INFO);
     }
 
     @Override // com.baidu.adp.base.e
@@ -42,24 +42,24 @@ public class d extends com.baidu.adp.base.e {
         return false;
     }
 
-    public boolean abM() {
-        return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.m411getInst().getReporyUserInfoLastTime()) >= this.Sh;
+    public boolean abR() {
+        return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.m411getInst().getReporyUserInfoLastTime()) >= this.Sf;
     }
 
-    public void abN() {
+    public void abS() {
         TbadkCoreApplication.m411getInst().setReporyUserInfoCurrentTime();
     }
 
-    public void as(long j) {
-        this.Sh = j;
+    public void at(long j) {
+        this.Sf = j;
     }
 
-    public void abO() {
+    public void abT() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/report");
         tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.bWI);
+        messageManager.registerListener(this.bXo);
     }
 
     public void a(int i, float f, float f2) {
@@ -71,6 +71,6 @@ public class d extends com.baidu.adp.base.e {
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.bWI);
+        MessageManager.getInstance().unRegisterListener(this.bXo);
     }
 }

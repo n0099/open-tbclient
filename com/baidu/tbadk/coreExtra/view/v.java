@@ -1,58 +1,82 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.data.LiveChatRoomEventData;
-import com.baidu.tbadk.coreExtra.message.LiveChatRoomEventResponseMessage;
-import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
+import android.support.v4.view.ViewPager;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class v extends CustomMessageListener {
-    final /* synthetic */ LivePlayingStatusMgr alz;
+public class v implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ MultiImageView amq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v(LivePlayingStatusMgr livePlayingStatusMgr, int i) {
-        super(i);
-        this.alz = livePlayingStatusMgr;
+    public v(MultiImageView multiImageView) {
+        this.amq = multiImageView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        LiveChatRoomEventData parseFromEventContent;
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        if (customResponsedMessage.getCmd() == 2001166 && (customResponsedMessage instanceof LiveChatRoomEventResponseMessage)) {
-            String data = ((LiveChatRoomEventResponseMessage) customResponsedMessage).getData();
-            if (!TextUtils.isEmpty(data) && (parseFromEventContent = LiveChatRoomEventData.parseFromEventContent(data)) != null && !"302".equals(parseFromEventContent.mEventId) && !"306".equals(parseFromEventContent.mEventId)) {
-                if ("310".equals(parseFromEventContent.mEventId)) {
-                    i4 = this.alz.gid;
-                    if (i4 != 0) {
-                        this.alz.zi();
-                    }
-                } else if (!"307".equals(parseFromEventContent.mEventId)) {
-                    if ("318".equals(parseFromEventContent.mEventId)) {
-                        i3 = this.alz.gid;
-                        if (i3 != 0) {
-                            this.alz.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
-                        }
-                    } else if ("308".equals(parseFromEventContent.mEventId)) {
-                        i2 = this.alz.gid;
-                        if (i2 != 0) {
-                            this.alz.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.PAUSE);
-                        }
-                    } else if ("309".equals(parseFromEventContent.mEventId)) {
-                        i = this.alz.gid;
-                        if (i != 0) {
-                            this.alz.a(parseFromEventContent.mGroupId, LivePlayingStatusMgr.LivePlayingStatus.NO_PUBLISHER);
-                        }
-                    }
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
+        ViewPager.OnPageChangeListener onPageChangeListener;
+        ViewPager.OnPageChangeListener onPageChangeListener2;
+        onPageChangeListener = this.amq.aml;
+        if (onPageChangeListener != null) {
+            onPageChangeListener2 = this.amq.aml;
+            onPageChangeListener2.onPageScrollStateChanged(i);
+        }
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+        ViewPager.OnPageChangeListener onPageChangeListener;
+        ViewPager.OnPageChangeListener onPageChangeListener2;
+        onPageChangeListener = this.amq.aml;
+        if (onPageChangeListener != null) {
+            onPageChangeListener2 = this.amq.aml;
+            onPageChangeListener2.onPageScrolled(i, f, i2);
+        }
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        i iVar;
+        i iVar2;
+        boolean z;
+        ViewPager.OnPageChangeListener onPageChangeListener;
+        ViewPager.OnPageChangeListener onPageChangeListener2;
+        i iVar3;
+        boolean z2;
+        i iVar4;
+        com.baidu.tbadk.widget.a imageView;
+        i iVar5;
+        iVar = this.amq.amk;
+        View findViewWithTag = iVar.findViewWithTag(String.valueOf(i));
+        if (findViewWithTag != null && (findViewWithTag instanceof ab) && (imageView = ((ab) findViewWithTag).getImageView()) != null) {
+            iVar5 = this.amq.amk;
+            iVar5.setSelectedView(imageView);
+            imageView.restoreSize();
+        }
+        iVar2 = this.amq.amk;
+        int childCount = iVar2.getChildCount();
+        for (int i2 = 0; i2 < childCount; i2++) {
+            iVar4 = this.amq.amk;
+            View childAt = iVar4.getChildAt(i2);
+            if (childAt != null && (childAt instanceof ab)) {
+                ((ab) childAt).zA();
+            }
+        }
+        z = this.amq.amo;
+        if (z && (com.baidu.adp.lib.util.i.iP() || com.baidu.adp.lib.util.i.iM())) {
+            for (int i3 = 0; i3 < childCount; i3++) {
+                iVar3 = this.amq.amk;
+                View childAt2 = iVar3.getChildAt(i3);
+                if (childAt2 != null && (childAt2 instanceof ab)) {
+                    z2 = this.amq.alj;
+                    ((ab) childAt2).aZ(z2);
                 }
             }
+        }
+        onPageChangeListener = this.amq.aml;
+        if (onPageChangeListener != null) {
+            onPageChangeListener2 = this.amq.aml;
+            onPageChangeListener2.onPageSelected(i);
         }
     }
 }

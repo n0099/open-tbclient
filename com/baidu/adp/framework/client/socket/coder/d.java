@@ -10,7 +10,7 @@ public class d {
     private SecretKey pV = null;
     private byte[] pW = null;
 
-    public static d eM() {
+    public static d eL() {
         if (pU == null) {
             synchronized (d.class) {
                 if (pU == null) {
@@ -41,7 +41,7 @@ public class d {
     private d() {
     }
 
-    public byte[] eN() {
+    public byte[] eM() {
         return this.pW;
     }
 

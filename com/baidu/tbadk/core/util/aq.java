@@ -17,18 +17,20 @@ import java.util.Locale;
 import java.util.TimeZone;
 /* loaded from: classes.dex */
 public class aq extends com.baidu.adp.lib.util.j {
-    private static long aaT = 86400000;
-    private static long aaU = 3600000;
-    private static long aaV = TbConfig.USE_TIME_INTERVAL;
-    private static long aaW = 1000;
-    private static String aaX = TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_hour_before);
-    private static String aaY = TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_min_before);
-    private static String aaZ = TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_sec_before);
-    private static Date aba = new Date();
+    private static long abc = 86400000;
+    private static long abd = 3600000;
+    private static long abe = TbConfig.USE_TIME_INTERVAL;
+    private static long abf = 1000;
+    private static String abg = TbadkCoreApplication.m411getInst().getApp().getString(i.h.time_hour_before);
+    private static String abh = TbadkCoreApplication.m411getInst().getApp().getString(i.h.time_min_before);
+    private static String abi = TbadkCoreApplication.m411getInst().getApp().getString(i.h.time_sec_before);
+    private static Date abj = new Date();
 
     static {
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
         if (timeZone != null) {
+            yo.setTimeZone(timeZone);
+            yp.setTimeZone(timeZone);
             yq.setTimeZone(timeZone);
             yr.setTimeZone(timeZone);
             ys.setTimeZone(timeZone);
@@ -37,16 +39,14 @@ public class aq extends com.baidu.adp.lib.util.j {
             yv.setTimeZone(timeZone);
             yw.setTimeZone(timeZone);
             yx.setTimeZone(timeZone);
-            yy.setTimeZone(timeZone);
-            yz.setTimeZone(timeZone);
         }
     }
 
-    public static String uC() {
+    public static String uH() {
         String format;
         Date date = new Date();
-        synchronized (yy) {
-            format = yy.format(date);
+        synchronized (yw) {
+            format = yw.format(date);
         }
         return format;
     }
@@ -76,7 +76,7 @@ public class aq extends com.baidu.adp.lib.util.j {
         }
     }
 
-    public static int uD() {
+    public static int uI() {
         Calendar calendar = Calendar.getInstance();
         return calendar.get(5) + 0 + (calendar.get(1) * 10000) + ((calendar.get(2) + 1) * 100);
     }
@@ -166,13 +166,13 @@ public class aq extends com.baidu.adp.lib.util.j {
                 return "1个月前";
             }
             if (date.getYear() == date2.getYear()) {
-                synchronized (yz) {
-                    format2 = yz.format(date2);
+                synchronized (yx) {
+                    format2 = yx.format(date2);
                 }
                 return format2;
             }
-            synchronized (yv) {
-                format = yv.format(date2);
+            synchronized (yt) {
+                format = yt.format(date2);
             }
             return format;
         } else {
@@ -188,15 +188,15 @@ public class aq extends com.baidu.adp.lib.util.j {
         if (abs >= Long.MAX_VALUE) {
             return "一个月前";
         }
-        if (abs / aaT != 0) {
-            if (abs / aaT > 30) {
+        if (abs / abc != 0) {
+            if (abs / abc > 30) {
                 return "一个月前";
             }
-            return String.valueOf(abs / aaT) + "天前";
-        } else if (abs / aaU != 0) {
-            return String.valueOf(abs / aaU) + "小时前";
+            return String.valueOf(abs / abc) + "天前";
+        } else if (abs / abd != 0) {
+            return String.valueOf(abs / abd) + "小时前";
         } else {
-            return String.valueOf(abs / aaV) + "分钟前";
+            return String.valueOf(abs / abe) + "分钟前";
         }
     }
 
@@ -228,9 +228,9 @@ public class aq extends com.baidu.adp.lib.util.j {
 
     public static String m(long j) {
         String g;
-        synchronized (aba) {
-            aba.setTime(j);
-            g = g(aba);
+        synchronized (abj) {
+            abj.setTime(j);
+            g = g(abj);
         }
         return g;
     }
@@ -240,18 +240,18 @@ public class aq extends com.baidu.adp.lib.util.j {
             return "";
         }
         long time = new Date().getTime() - date.getTime();
-        if (time < aaT && time > 0) {
-            if (time < aaU) {
-                if (time < aaV) {
-                    long j = time / aaW;
+        if (time < abc && time > 0) {
+            if (time < abd) {
+                if (time < abe) {
+                    long j = time / abf;
                     if (j == 0) {
                         j = 1;
                     }
-                    return String.valueOf(String.valueOf(j)) + aaZ;
+                    return String.valueOf(String.valueOf(j)) + abi;
                 }
-                return String.valueOf(String.valueOf(time / aaV)) + aaY;
+                return String.valueOf(String.valueOf(time / abe)) + abh;
             }
-            return String.valueOf(String.valueOf(time / aaU)) + aaX;
+            return String.valueOf(String.valueOf(time / abd)) + abg;
         }
         return d(date);
     }
@@ -264,12 +264,12 @@ public class aq extends com.baidu.adp.lib.util.j {
         } else {
             valueOf = String.valueOf(date.getMinutes());
         }
-        return date.getHours() > 12 ? TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_show_afternoon, new Object[]{String.valueOf(date.getHours() - 12), valueOf}) : date.getHours() == 12 ? TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_show_afternoon, new Object[]{String.valueOf(date.getHours()), valueOf}) : date.getHours() == 0 ? TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_show_morning, new Object[]{String.valueOf(12), valueOf}) : TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.time_show_morning, new Object[]{String.valueOf(date.getHours()), valueOf});
+        return date.getHours() > 12 ? TbadkCoreApplication.m411getInst().getApp().getString(i.h.time_show_afternoon, new Object[]{String.valueOf(date.getHours() - 12), valueOf}) : date.getHours() == 12 ? TbadkCoreApplication.m411getInst().getApp().getString(i.h.time_show_afternoon, new Object[]{String.valueOf(date.getHours()), valueOf}) : date.getHours() == 0 ? TbadkCoreApplication.m411getInst().getApp().getString(i.h.time_show_morning, new Object[]{String.valueOf(12), valueOf}) : TbadkCoreApplication.m411getInst().getApp().getString(i.h.time_show_morning, new Object[]{String.valueOf(date.getHours()), valueOf});
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r5v0 int)] */
     @Deprecated
-    public static String ct(int i) {
+    public static String cy(int i) {
         if (i > 9999) {
             return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(i / 10000.0f));
         }
@@ -322,6 +322,17 @@ public class aq extends com.baidu.adp.lib.util.j {
         }
     }
 
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r3v0 long)] */
+    public static String r(long j) {
+        if (j > 999) {
+            return String.valueOf(999L) + "+";
+        }
+        if (j < 0) {
+            return "0";
+        }
+        return new StringBuilder().append(j).toString();
+    }
+
     public static SpannableString a(Context context, String str, String str2, int i, boolean z) {
         int lastIndexOf;
         if (TextUtils.isEmpty(str) || i <= 0) {
@@ -350,11 +361,15 @@ public class aq extends com.baidu.adp.lib.util.j {
         return new SimpleDateFormat(str).format(date);
     }
 
-    public static String db(String str) {
+    public static String dh(String str) {
         return isEmpty(str) ? "" : "\u202d" + str + "\u202c";
     }
 
     public static SpannableStringBuilder a(SpannableStringBuilder spannableStringBuilder) {
         return spannableStringBuilder == null ? new SpannableStringBuilder("") : new SpannableStringBuilder("\u202d").append((CharSequence) spannableStringBuilder).append((CharSequence) "\u202c");
+    }
+
+    public static String uJ() {
+        return "-∞";
     }
 }

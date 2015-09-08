@@ -5,11 +5,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class ag implements v {
-    final /* synthetic */ ad cRf;
+    final /* synthetic */ ad cZQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(ad adVar) {
-        this.cRf = adVar;
+        this.cZQ = adVar;
     }
 
     @Override // com.baidu.tieba.write.album.v
@@ -19,21 +19,21 @@ class ag implements v {
         m mVar3;
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
-        mVar = this.cRf.cPJ;
+        mVar = this.cZQ.cYt;
         int maxImagesAllowed = mVar.getMaxImagesAllowed();
-        mVar2 = this.cRf.cPJ;
+        mVar2 = this.cZQ.cYt;
         if (mVar2.size() < maxImagesAllowed) {
-            mVar3 = this.cRf.cPJ;
-            String atQ = mVar3.atQ();
-            if (!TextUtils.isEmpty(atQ)) {
-                albumActivity2 = this.cRf.cPQ;
-                com.baidu.tbadk.core.util.ak.a(albumActivity2.getPageContext(), atQ);
+            mVar3 = this.cZQ.cYt;
+            String ayj = mVar3.ayj();
+            if (!TextUtils.isEmpty(ayj)) {
+                albumActivity2 = this.cZQ.cYB;
+                com.baidu.tbadk.core.util.ak.a(albumActivity2.getPageContext(), ayj);
                 return;
             }
-            albumActivity = this.cRf.cPQ;
+            albumActivity = this.cZQ.cYB;
             com.baidu.tbadk.core.util.ak.c(albumActivity.getPageContext());
             return;
         }
-        this.cRf.showToast(String.format(this.cRf.getPageContext().getString(i.C0057i.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+        this.cZQ.showToast(String.format(this.cZQ.getPageContext().getString(i.h.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
     }
 }

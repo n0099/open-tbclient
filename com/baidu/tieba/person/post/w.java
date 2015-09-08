@@ -1,32 +1,35 @@
 package com.baidu.tieba.person.post;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.person.PersonPostModel;
+import com.baidu.tieba.person.UserPostPageHttpResponseMessage;
+import com.baidu.tieba.person.UserPostPageRequestMessage;
 /* loaded from: classes.dex */
-public class w implements View.OnClickListener {
-    final /* synthetic */ ReplyLinearLayout clv;
+class w extends HttpMessageListener {
+    final /* synthetic */ u cmu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(ReplyLinearLayout replyLinearLayout) {
-        this.clv = replyLinearLayout;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(u uVar, int i) {
+        super(i);
+        this.cmu = uVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String[] strArr = (String[]) view.getTag();
-        if (strArr != null) {
-            Context context = this.clv.getContext();
-            if ("0".equals(strArr[3])) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(context).createNormalCfg(strArr[1], strArr[2], "person_post_reply")));
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        PersonPostModel.a aVar;
+        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
+            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
+            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
+                this.cmu.b(null, false);
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(context).createSubPbActivityConfig(strArr[1], strArr[2], "person_post_reply", false, null, false)));
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
+            if (userPostPageRequestMessage.isThread() && (aVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
+                aVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+            }
         }
     }
 }

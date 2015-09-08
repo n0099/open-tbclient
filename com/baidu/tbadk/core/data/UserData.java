@@ -69,8 +69,8 @@ public class UserData extends com.baidu.tbadk.data.UserData implements ad, com.b
     public ArrayList<ac> getImages() {
         ArrayList<ac> arrayList = new ArrayList<>();
         ac acVar = new ac();
-        acVar.VY = getPortrait();
-        acVar.aau = 12;
+        acVar.Wg = getPortrait();
+        acVar.aaD = 12;
         arrayList.add(acVar);
         return arrayList;
     }

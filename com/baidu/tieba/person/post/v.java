@@ -1,23 +1,34 @@
 package com.baidu.tieba.person.post;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ProgressBar;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.i;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tieba.person.PersonPostModel;
+import com.baidu.tieba.person.UserPostPageRequestMessage;
+import com.baidu.tieba.person.UserPostPageSocketResponsedMessage;
 /* loaded from: classes.dex */
-public class v {
-    ProgressBar clr;
-    BdListView mBdListView;
-    com.baidu.tbadk.core.view.u mNoDataView = null;
-
-    public BdListView getBdListView() {
-        return this.mBdListView;
-    }
+class v extends com.baidu.adp.framework.listener.e {
+    final /* synthetic */ u cmu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(Context context, View view) {
-        this.mBdListView = (BdListView) view.findViewById(i.f.list);
-        this.clr = (ProgressBar) view.findViewById(i.f.progress);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v(u uVar, int i) {
+        super(i);
+        this.cmu = uVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        PersonPostModel.a aVar;
+        if (socketResponsedMessage instanceof UserPostPageSocketResponsedMessage) {
+            UserPostPageSocketResponsedMessage userPostPageSocketResponsedMessage = (UserPostPageSocketResponsedMessage) socketResponsedMessage;
+            if (userPostPageSocketResponsedMessage.getOrginalMessage() == null) {
+                this.cmu.b(null, false);
+                return;
+            }
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
+            if (userPostPageRequestMessage.isThread() && (aVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
+                aVar.a(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+            }
+        }
     }
 }

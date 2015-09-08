@@ -5,9 +5,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static c azi = new c();
-    private b azj;
-    private a azk;
+    private static c aAQ = new c();
+    private b aAR;
+    private a aAS;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -17,22 +17,22 @@ public class c {
     private c() {
     }
 
-    public static c Ez() {
-        return azi;
+    public static c EJ() {
+        return aAQ;
     }
 
     public void a(a aVar) {
-        this.azk = aVar;
-        if (this.azj != null) {
-            this.azj.cancel();
+        this.aAS = aVar;
+        if (this.aAR != null) {
+            this.aAR.cancel();
         }
-        this.azj = new b(this, null);
-        this.azj.setPriority(4);
-        this.azj.execute(new String[0]);
+        this.aAR = new b(this, null);
+        this.aAR.setPriority(4);
+        this.aAR.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean EA() {
+    public boolean EK() {
         int i;
         long j = 0;
         byte[] aH = com.baidu.adp.lib.util.e.aH("crash_hour_record.log");
@@ -71,9 +71,9 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: f */
+        /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(c.this.EA());
+            return Boolean.valueOf(c.this.EK());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,8 +81,8 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
-            if (c.this.azk != null && bool != null) {
-                c.this.azk.ag(bool.booleanValue());
+            if (c.this.aAS != null && bool != null) {
+                c.this.aAS.ag(bool.booleanValue());
             }
         }
     }

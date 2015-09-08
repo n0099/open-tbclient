@@ -1,57 +1,49 @@
 package com.baidu.tieba.tbadkCore;
 
-import tbclient.FrsPage.StarEnter;
+import android.content.Context;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g {
-    private int cGT;
-    private String icon;
-    private int time;
-    private String title;
-    private int type;
-    private String url;
+public class g implements com.baidu.adp.lib.e.c<TbImageView> {
+    private final /* synthetic */ Context val$context;
 
-    public String getIcon() {
-        return this.icon;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(Context context) {
+        this.val$context = context;
     }
 
-    public void setIcon(String str) {
-        this.icon = str;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: vK */
+    public TbImageView gY() {
+        return new TbImageView(this.val$context);
     }
 
-    public void jD(int i) {
-        this.cGT = i;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: a */
+    public void l(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
     }
 
-    public String getTitle() {
-        return this.title;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: b */
+    public TbImageView m(TbImageView tbImageView) {
+        return tbImageView;
     }
 
-    public void setTitle(String str) {
-        this.title = str;
-    }
-
-    public void setType(int i) {
-        this.type = i;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public void setUrl(String str) {
-        this.url = str;
-    }
-
-    public void setTime(int i) {
-        this.time = i;
-    }
-
-    public void a(StarEnter starEnter) {
-        setIcon(starEnter.icon);
-        setTime(starEnter.time.intValue());
-        setTitle(starEnter.title);
-        setType(starEnter.type.intValue());
-        setUrl(starEnter.url);
-        jD(starEnter.weight.intValue());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: c */
+    public TbImageView n(TbImageView tbImageView) {
+        tbImageView.setBackgroundResource(0);
+        tbImageView.setImageDrawable(null);
+        tbImageView.setTag(null);
+        tbImageView.setOnClickListener(null);
+        return tbImageView;
     }
 }

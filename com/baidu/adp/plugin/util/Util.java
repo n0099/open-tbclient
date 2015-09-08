@@ -57,16 +57,16 @@ public final class Util {
     }
 
     public static final boolean j(long j) {
-        long mz = mz();
+        long mw = mw();
         if (j <= 0) {
-            return mz <= 0 || mz >= 31457280;
+            return mw <= 0 || mw >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < mz;
+        return (j2 <= 31457280 ? j2 : 31457280L) < mw;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, CONST_STR, RETURN] complete} */
@@ -183,14 +183,14 @@ public final class Util {
     }
 
     public static File bI(String str) {
-        PluginSetting bm = PluginPackageManager.lT().bm(str);
+        PluginSetting bm = PluginPackageManager.lQ().bm(str);
         if (bm == null || bm.apkPath == null || bm.apkPath.length() <= ".apk".length()) {
             return null;
         }
         return new File(bm.apkPath.substring(0, bm.apkPath.length() - ".apk".length()));
     }
 
-    public static File my() {
+    public static File mv() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -289,7 +289,7 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return String.valueOf(pluginSetting.packageName) + ".apk_" + pluginSetting.tempVersionCode;
+        return String.valueOf(pluginSetting.packageName) + "_" + pluginSetting.tempVersionCode + ".apk";
     }
 
     public static String bJ(String str) {
@@ -303,10 +303,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return my() + File.separator + e(pluginSetting);
+        return mv() + File.separator + e(pluginSetting);
     }
 
-    public static long mz() {
+    public static long mw() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

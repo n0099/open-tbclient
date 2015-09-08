@@ -1,27 +1,17 @@
 package com.baidu.tieba.write.write;
-
-import android.text.Editable;
-import android.text.TextWatcher;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class as implements TextWatcher {
-    final /* synthetic */ WriteActivity cUM;
+class as implements Runnable {
+    final /* synthetic */ ar ddS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(WriteActivity writeActivity) {
-        this.cUM = writeActivity;
+    public as(ar arVar) {
+        this.ddS = arVar;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.cUM.auw();
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    @Override // java.lang.Runnable
+    public void run() {
+        WriteActivity writeActivity;
+        writeActivity = this.ddS.ddQ;
+        writeActivity.finish();
     }
 }

@@ -30,9 +30,9 @@ public class BdExpandListView extends BdListView {
     public interface a {
         void k(float f);
 
-        void no();
+        void nl();
 
-        void np();
+        void nm();
     }
 
     public BdExpandListView(Context context, AttributeSet attributeSet) {
@@ -66,9 +66,9 @@ public class BdExpandListView extends BdListView {
                 case 1:
                 case 3:
                     if (this.Hc) {
-                        nm();
+                        nj();
                     } else {
-                        this.Hh.no();
+                        this.Hh.nl();
                     }
                     new Handler().postDelayed(new com.baidu.adp.widget.ListView.b(this), 200L);
                     break;
@@ -120,12 +120,12 @@ public class BdExpandListView extends BdListView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void nm() {
+    public void nj() {
         if (this.Hb != null) {
             if (this.GX.getHeight() >= this.Hb.Hk - (this.Hg / 2)) {
-                nn();
+                nk();
             } else {
-                this.Hh.no();
+                this.Hh.nl();
             }
             this.mScroller.startScroll(0, this.GX.getHeight(), 0, this.Hb.startY - this.GX.getHeight(), 200);
             invalidate();
@@ -133,9 +133,9 @@ public class BdExpandListView extends BdListView {
         }
     }
 
-    public void nn() {
+    public void nk() {
         if (this.Hh != null) {
-            this.Hh.np();
+            this.Hh.nm();
         }
     }
 

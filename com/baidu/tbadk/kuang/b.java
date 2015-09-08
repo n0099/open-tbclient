@@ -8,15 +8,15 @@ import com.baidu.searchbox.plugin.api.PluginInvoker;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.coreExtra.view.l;
+import com.baidu.tbadk.coreExtra.view.k;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes.dex */
 public class b {
-    public static int aum = 0;
-    private static String wt = "";
+    public static int avW = 0;
+    private static String wr = "";
     private static String mUserId = "";
-    private static String TQ = "";
-    private static l agt = null;
+    private static String TR = "";
+    private static k agD = null;
 
     public static void a(int i, String str, Class<?>[] clsArr, Object[] objArr, String str2, HostInvokeCallback hostInvokeCallback) {
         try {
@@ -44,23 +44,23 @@ public class b {
     }
 
     public static void a(TbPageContext<?> tbPageContext, AccountData accountData) {
-        agt = new l(tbPageContext);
-        agt.a(new c());
-        agt.b(new d());
-        agt.zc();
-        agt.l(accountData);
-        agt.yY();
+        agD = new k(tbPageContext);
+        agD.a(new c());
+        agD.b(new d());
+        agD.zi();
+        agD.k(accountData);
+        agD.ze();
     }
 
-    public static void bd(boolean z) {
+    public static void bk(boolean z) {
         a("getUserId", new Class[0], new Object[0], new h(new g(new f(new e(z)))));
     }
 
     public static void c(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.adp.lib.g.h.hi().postDelayed(new i(customResponsedMessage), aum);
+        com.baidu.adp.lib.g.h.hf().postDelayed(new i(customResponsedMessage), avW);
     }
 
-    public static void Cn() {
+    public static void CB() {
         a("login", new Class[0], new Object[0], new j());
     }
 }

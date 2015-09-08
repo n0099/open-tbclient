@@ -12,8 +12,8 @@ class ak extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        SettingStatic.cyK = false;
+        SettingStatic.cHi = false;
         SettingStatic.maskInfo = null;
-        SettingStatic.cyJ = false;
+        SettingStatic.cHh = false;
     }
 }

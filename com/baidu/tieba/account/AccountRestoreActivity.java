@@ -27,11 +27,11 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         this.mPageType = getIntent().getStringExtra(PAGE_TYPE);
         this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(getPageContext().getString(i.C0057i.anti_account_restore));
+        this.mNavigationBar.setTitleText(getPageContext().getString(i.h.anti_account_restore));
         this.mWebView = (BaseWebView) findViewById(i.f.webview_acc_restore);
         this.mWebView.getSettings().setJavaScriptEnabled(true);
         this.mWebView.addJavascriptInterface(this, "AccountJsBridge");
-        com.baidu.tbadk.browser.f.W(getPageContext().getPageActivity());
+        com.baidu.tbadk.browser.g.W(getPageContext().getPageActivity());
         this.mWebView.loadUrl("http://tieba.baidu.com/mo/q/account_page?_client_version=" + TbConfig.getVersion());
     }
 

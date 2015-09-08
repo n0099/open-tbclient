@@ -8,40 +8,40 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.personInfo.PersonInfoActivity;
 /* loaded from: classes.dex */
 public class bk extends com.baidu.adp.base.f {
-    TextView cjQ;
-    TextView cjR;
-    TextView cjS;
-    View cjT;
-    PersonInfoActivity cjU;
+    TextView ckL;
+    TextView ckM;
+    TextView ckN;
+    View ckO;
+    PersonInfoActivity ckP;
     View mView;
 
     public bk(PersonInfoActivity personInfoActivity) {
         super(personInfoActivity.getPageContext());
-        this.cjU = personInfoActivity;
-        a(this.cjU);
+        this.ckP = personInfoActivity;
+        a(this.ckP);
     }
 
     private void a(PersonInfoActivity personInfoActivity) {
         this.mView = LayoutInflater.from(personInfoActivity.getPageContext().getPageActivity()).inflate(i.g.person_info_more_view, (ViewGroup) null);
-        this.cjQ = (TextView) this.mView.findViewById(i.f.person_info_more_view_item_friend);
-        this.cjQ.setOnClickListener(personInfoActivity);
-        this.cjR = (TextView) this.mView.findViewById(i.f.person_info_more_view_item_black);
-        this.cjR.setOnClickListener(personInfoActivity);
-        this.cjS = (TextView) this.mView.findViewById(i.f.person_info_more_view_item_mute);
-        this.cjT = this.mView.findViewById(i.f.person_info_more_view_item_line_mute);
-        this.cjS.setOnClickListener(personInfoActivity);
+        this.ckL = (TextView) this.mView.findViewById(i.f.person_info_more_view_item_friend);
+        this.ckL.setOnClickListener(personInfoActivity);
+        this.ckM = (TextView) this.mView.findViewById(i.f.person_info_more_view_item_black);
+        this.ckM.setOnClickListener(personInfoActivity);
+        this.ckN = (TextView) this.mView.findViewById(i.f.person_info_more_view_item_mute);
+        this.ckO = this.mView.findViewById(i.f.person_info_more_view_item_line_mute);
+        this.ckN.setOnClickListener(personInfoActivity);
     }
 
     public void j(boolean z, boolean z2) {
         if (z) {
-            this.cjQ.setVisibility(0);
+            this.ckL.setVisibility(0);
         } else {
-            this.cjQ.setVisibility(8);
+            this.ckL.setVisibility(8);
         }
         if (z2) {
-            this.cjR.setText(i.C0057i.remove_block_chat);
+            this.ckM.setText(i.h.remove_block_chat);
         } else {
-            this.cjR.setText(i.C0057i.block_chat_message);
+            this.ckM.setText(i.h.block_chat_message);
         }
     }
 
@@ -49,25 +49,25 @@ public class bk extends com.baidu.adp.base.f {
         return this.mView;
     }
 
-    public View agt() {
-        return this.cjQ;
+    public View agJ() {
+        return this.ckL;
     }
 
-    public View agu() {
-        return this.cjR;
+    public View agK() {
+        return this.ckM;
     }
 
-    public View agv() {
-        return this.cjS;
+    public View agL() {
+        return this.ckN;
     }
 
-    public void iL(int i) {
-        this.cjS.setVisibility(0);
-        this.cjT.setVisibility(0);
+    public void iX(int i) {
+        this.ckN.setVisibility(0);
+        this.ckO.setVisibility(0);
         if (i == 0) {
-            this.cjS.setText(this.cjU.getPageContext().getResources().getString(i.C0057i.mute));
+            this.ckN.setText(this.ckP.getPageContext().getResources().getString(i.h.mute));
         } else if (i == 1) {
-            this.cjS.setText(this.cjU.getPageContext().getResources().getString(i.C0057i.un_mute));
+            this.ckN.setText(this.ckP.getPageContext().getResources().getString(i.h.un_mute));
         }
     }
 }

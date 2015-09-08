@@ -27,16 +27,16 @@ public class ResponsedPrivacyHttpMessage extends HttpResponsedMessage {
             }
             if (getPrivateInfoResIdl.data != null) {
                 if (getPrivateInfoResIdl.data.like != null) {
-                    this.privacyData.jk(getPrivateInfoResIdl.data.like.intValue());
+                    this.privacyData.jU(getPrivateInfoResIdl.data.like.intValue());
                 }
                 if (getPrivateInfoResIdl.data.group != null) {
-                    this.privacyData.jl(getPrivateInfoResIdl.data.group.intValue());
+                    this.privacyData.jV(getPrivateInfoResIdl.data.group.intValue());
                 }
                 if (getPrivateInfoResIdl.data.post != null) {
-                    this.privacyData.jj(getPrivateInfoResIdl.data.post.intValue());
+                    this.privacyData.jT(getPrivateInfoResIdl.data.post.intValue());
                 }
                 if (getPrivateInfoResIdl.data.location != null) {
-                    this.privacyData.jm(getPrivateInfoResIdl.data.location.intValue());
+                    this.privacyData.jW(getPrivateInfoResIdl.data.location.intValue());
                 }
                 if (getPrivateInfoResIdl.data.user != null) {
                     this.privacyData.a(getPrivateInfoResIdl.data.user);

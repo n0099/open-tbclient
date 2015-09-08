@@ -1,37 +1,37 @@
 package com.baidu.tieba.frs;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
 class af extends CustomMessageListener {
-    final /* synthetic */ FrsActivity this$0;
+    final /* synthetic */ FrsActivity aVz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public af(FrsActivity frsActivity, int i) {
         super(i);
-        this.this$0 = frsActivity;
+        this.aVz = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2012111) {
-            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
-            if (intValue == 1 || intValue == 4 || intValue == 3) {
-                FrsActivityStatic.aVt = true;
-            } else if (intValue == 2) {
-                FrsActivityStatic.aVu = true;
+        bi biVar;
+        bi biVar2;
+        bi biVar3;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.coreExtra.data.i)) {
+            com.baidu.tbadk.coreExtra.data.i iVar = (com.baidu.tbadk.coreExtra.data.i) customResponsedMessage.getData();
+            if (!TextUtils.isEmpty(iVar.userId) && !TextUtils.isEmpty(iVar.userName)) {
+                biVar = this.aVz.aUL;
+                if (biVar != null) {
+                    biVar2 = this.aVz.aUL;
+                    if (biVar2.Ma() != null) {
+                        biVar3 = this.aVz.aUL;
+                        biVar3.Ma().ar(iVar.userId, iVar.userName);
+                    }
+                }
             }
-            boolean z = intValue == 3;
-            boolean LE = FrsActivityStatic.LE();
-            if (z && LE) {
-                FrsActivityStatic.aVs = false;
-            } else {
-                FrsActivityStatic.aVs = true;
-            }
-            this.this$0.Lj();
         }
     }
 }

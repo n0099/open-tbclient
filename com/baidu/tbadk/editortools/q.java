@@ -7,12 +7,12 @@ import com.baidu.tieba.i;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class q extends com.baidu.tbadk.editortools.view.b {
-    private SparseIntArray aoV;
-    LinkedList<p> aoy;
+    private SparseIntArray aqG;
+    LinkedList<p> aqj;
 
     public q(Context context) {
         super(context);
-        this.aoV = new SparseIntArray();
+        this.aqG = new SparseIntArray();
         setPadding(context.getResources().getDimensionPixelSize(i.d.ds34), 0, context.getResources().getDimensionPixelSize(i.d.ds34), 0);
         setBackgroundColorId(i.c.pb_editor_tool_view_bg);
         setToolId(2);
@@ -20,14 +20,14 @@ public class q extends com.baidu.tbadk.editortools.view.b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void i(LinkedList<p> linkedList) {
-        this.aoy = linkedList;
+        this.aqj = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.view.b, com.baidu.tbadk.editortools.w
     public void init() {
         setShowDelete(false);
         r rVar = new r();
-        rVar.i(this.aoy);
+        rVar.i(this.aqj);
         b(rVar);
     }
 
@@ -36,13 +36,13 @@ public class q extends com.baidu.tbadk.editortools.view.b {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            AF();
+            AS();
         }
     }
 
     private void c(a aVar) {
         int i;
-        Integer valueOf = Integer.valueOf(this.aoV.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.aqG.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
             i = intValue - 1;
@@ -56,13 +56,13 @@ public class q extends com.baidu.tbadk.editortools.view.b {
         } else {
             i = intValue;
         }
-        this.aoV.put(aVar.id, i >= 0 ? i : 0);
+        this.aqG.put(aVar.id, i >= 0 ? i : 0);
     }
 
-    private void AF() {
+    private void AS() {
         int i = 0;
-        for (int i2 = 0; i2 < this.aoV.size(); i2++) {
-            i += this.aoV.valueAt(i2);
+        for (int i2 = 0; i2 < this.aqG.size(); i2++) {
+            i += this.aqG.valueAt(i2);
         }
         if (i > 0) {
             b(new a(2, 2, " "));

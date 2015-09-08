@@ -2,16 +2,18 @@ package com.baidu.tieba.pb.a;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.data.AdditionData;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.TwzhiboAnti;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.data.p;
-import com.baidu.tbadk.core.data.v;
-import com.baidu.tbadk.core.data.z;
+import com.baidu.tbadk.core.data.ab;
+import com.baidu.tbadk.core.data.o;
+import com.baidu.tbadk.core.data.x;
 import com.baidu.tbadk.core.util.ac;
 import com.baidu.tbadk.data.d;
 import com.baidu.tieba.i;
@@ -28,120 +30,127 @@ import tbclient.SimpleUser;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class b {
-    private int bLf;
-    private boolean caf = true;
-    private ArrayList<h> cah = new ArrayList<>();
-    private ForumData bZW = new ForumData();
-    private v bZX = new v();
-    private ArrayList<i> bZY = new ArrayList<>();
+    private int bLM;
+    private TwzhiboAnti cbc;
+    private boolean caZ = true;
+    private ArrayList<h> cbb = new ArrayList<>();
+    private ForumData caQ = new ForumData();
+    private x caR = new x();
+    private ArrayList<i> caS = new ArrayList<>();
     private HashMap<String, MetaData> userMap = new HashMap<>();
-    private p bWc = new p();
-    private AntiData Vd = new AntiData();
-    private d bZZ = new d();
-    private int cab = 0;
-    private boolean caa = false;
-    private final UserData cac = new UserData();
-    private List<MuteUser> cae = new ArrayList();
-    private AdditionData cag = new AdditionData();
-    private z cad = new z();
+    private o bWI = new o();
+    private AntiData Vc = new AntiData();
+    private d caT = new d();
+    private int caV = 0;
+    private boolean caU = false;
+    private final UserData caW = new UserData();
+    private List<MuteUser> caY = new ArrayList();
+    private AdditionData cba = new AdditionData();
+    private ab caX = new ab();
 
-    public boolean acF() {
-        return this.caf;
+    public boolean acO() {
+        return this.caZ;
     }
 
-    public void ec(boolean z) {
-        this.caf = z;
+    public void ej(boolean z) {
+        this.caZ = z;
     }
 
     public b() {
-        this.bLf = 0;
-        this.bLf = 0;
+        this.bLM = 0;
+        this.cbc = null;
+        this.bLM = 0;
+        this.cbc = new TwzhiboAnti();
     }
 
     public boolean isValid() {
-        return this.bZY != null && this.bZY.size() > 0;
+        return this.caS != null && this.caS.size() > 0;
     }
 
-    public String[] aG(Context context) {
+    public String[] aF(Context context) {
         String str = "";
         if (isValid()) {
-            i iVar = this.bZY.get(0);
-            ac aqc = iVar.aqc();
-            r1 = aqc != null ? aqc.VY : null;
-            str = iVar.aR(context);
-            if (this.bZX != null && this.bZX.getAnchorInfoData() != null && this.bZX.getAnchorInfoData().getGroup_id() != 0) {
-                str = "[" + context.getString(i.C0057i.msglist_live) + "] " + str;
+            i iVar = this.caS.get(0);
+            ac auq = iVar.auq();
+            r1 = auq != null ? auq.Wg : null;
+            str = iVar.aU(context);
+            if (this.caR != null && this.caR.getAnchorInfoData() != null && this.caR.getAnchorInfoData().getGroup_id() != 0) {
+                str = "[" + context.getString(i.h.msglist_live) + "] " + str;
             }
         }
         return new String[]{r1, str};
     }
 
-    public ForumData acG() {
-        return this.bZW;
+    public ForumData acP() {
+        return this.caQ;
     }
 
-    public v acH() {
-        return this.bZX;
+    public x acQ() {
+        return this.caR;
     }
 
-    public ArrayList<com.baidu.tieba.tbadkCore.data.i> acI() {
-        return this.bZY;
+    public ArrayList<com.baidu.tieba.tbadkCore.data.i> acR() {
+        return this.caS;
     }
 
-    public p getPage() {
-        return this.bWc;
+    public o getPage() {
+        return this.bWI;
     }
 
-    public z acJ() {
-        return this.cad;
+    public ab acS() {
+        return this.caX;
     }
 
-    public void a(p pVar, int i) {
-        this.bWc.bv(pVar.rR());
-        this.bWc.bu(pVar.ru());
-        this.bWc.bt(pVar.rP());
-        this.bWc.bw(pVar.rS());
+    public TwzhiboAnti acT() {
+        return this.cbc;
+    }
+
+    public void a(o oVar, int i) {
+        this.bWI.bw(oVar.rO());
+        this.bWI.bv(oVar.rt());
+        this.bWI.bu(oVar.rM());
+        this.bWI.bx(oVar.rP());
         if (i == 0) {
-            this.bWc = pVar;
+            this.bWI = oVar;
         } else if (i == 1) {
-            this.bWc.bx(pVar.rT());
+            this.bWI.by(oVar.rQ());
         } else if (i == 2) {
-            this.bWc.by(pVar.rU());
+            this.bWI.bz(oVar.rR());
         }
     }
 
-    public AntiData rM() {
-        return this.Vd;
+    public AntiData rK() {
+        return this.Vc;
     }
 
     public UserData getUserData() {
-        return this.cac;
+        return this.caW;
     }
 
-    public boolean qr() {
-        return this.bZX.getIsMarked() != 0;
+    public boolean qo() {
+        return this.caR.getIsMarked() != 0;
     }
 
     public void ab(boolean z) {
-        if (this.bZX != null) {
+        if (this.caR != null) {
             if (z) {
-                this.bZX.setIsMarked(1);
+                this.caR.setIsMarked(1);
             } else {
-                this.bZX.setIsMarked(0);
+                this.caR.setIsMarked(0);
             }
         }
     }
 
-    public String qq() {
-        if (this.bZX != null) {
-            return this.bZX.sr();
+    public String qn() {
+        if (this.caR != null) {
+            return this.caR.ss();
         }
         return null;
     }
 
-    public void jg(String str) {
-        if (this.bZX != null) {
-            this.bZX.ci(str);
+    public void jo(String str) {
+        if (this.caR != null) {
+            this.caR.co(str);
         }
     }
 
@@ -159,79 +168,84 @@ public class b {
                         }
                     }
                 }
-                hB(dataRes.is_new_url.intValue());
-                this.bZW.parserProtobuf(dataRes.forum);
-                this.bZX.setUserMap(this.userMap);
-                this.bZX.a(dataRes.thread);
-                this.cad.a(dataRes.news_info);
+                hL(dataRes.is_new_url.intValue());
+                this.caQ.parserProtobuf(dataRes.forum);
+                this.caR.setUserMap(this.userMap);
+                this.caR.a(dataRes.thread);
+                this.caX.a(dataRes.news_info);
                 List<Post> list2 = dataRes.post_list;
                 if (list2 != null && list2.size() > 0) {
                     for (Post post : dataRes.post_list) {
                         com.baidu.tieba.tbadkCore.data.i iVar = new com.baidu.tieba.tbadkCore.data.i();
                         iVar.setUserMap(this.userMap);
                         iVar.a(post, context);
-                        this.bZY.add(iVar);
+                        this.caS.add(iVar);
                     }
                 }
-                this.bWc.a(dataRes.page);
-                this.Vd.parserProtobuf(dataRes.anti);
-                this.bZZ.a(dataRes.location);
-                this.caa = dataRes.has_floor.intValue() == 1;
+                this.bWI.a(dataRes.page);
+                this.Vc.parserProtobuf(dataRes.anti);
+                this.caT.a(dataRes.location);
+                this.caU = dataRes.has_floor.intValue() == 1;
                 if (dataRes.user != null) {
-                    this.cab = dataRes.user.is_manager.intValue();
+                    this.caV = dataRes.user.is_manager.intValue();
                 }
-                this.cac.parserProtobuf(dataRes.user);
+                this.caW.parserProtobuf(dataRes.user);
                 if (dataRes.user != null && dataRes.user.mute_user != null) {
                     for (SimpleUser simpleUser : dataRes.user.mute_user) {
                         if (simpleUser != null) {
                             MuteUser muteUser = new MuteUser();
                             muteUser.parserProtobuf(simpleUser);
-                            this.cae.add(muteUser);
+                            this.caY.add(muteUser);
                         }
                     }
                 }
-                this.cag.parserProtoBuf(dataRes.add_post);
-                this.bZX.setReply_num(this.bZX.getReply_num() > 0 ? this.bZX.getReply_num() - 1 : 0);
+                this.cba.parserProtoBuf(dataRes.add_post);
+                this.caR.setReply_num(this.caR.getReply_num() > 0 ? this.caR.getReply_num() - 1 : 0);
                 if (dataRes.banner_list != null) {
                     for (App app : dataRes.banner_list.app) {
                         h hVar = new h();
                         hVar.b(app);
-                        if (!this.cah.contains(hVar)) {
-                            this.cah.add(hVar);
+                        if (!this.cbb.contains(hVar)) {
+                            this.cbb.add(hVar);
                         }
                     }
                 }
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj != null) {
-                    currentAccountObj.setIsSelectTail(this.cac.getIsSelectTail());
+                    currentAccountObj.setIsSelectTail(this.caW.getIsSelectTail());
                 }
+                this.cbc.parserProtobuf(dataRes.twzhibo_anti);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public int acK() {
-        return this.cab;
+    public int acU() {
+        return this.caV;
     }
 
-    public int acL() {
-        return this.bLf;
+    public int acV() {
+        return this.bLM;
     }
 
-    public void hB(int i) {
-        this.bLf = i;
+    public void hL(int i) {
+        this.bLM = i;
     }
 
-    public List<MuteUser> acM() {
-        return this.cae;
+    public List<MuteUser> acW() {
+        return this.caY;
     }
 
-    public AdditionData acN() {
-        return this.cag;
+    public AdditionData acX() {
+        return this.cba;
     }
 
-    public ArrayList<h> acO() {
-        return this.cah;
+    public ArrayList<h> acY() {
+        return this.cbb;
+    }
+
+    public ArrayList<u> acZ() {
+        return new ArrayList<>(this.caS);
     }
 }

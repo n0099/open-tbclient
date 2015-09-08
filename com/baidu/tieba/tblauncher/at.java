@@ -1,26 +1,24 @@
 package com.baidu.tieba.tblauncher;
 
-import android.support.v4.view.ViewPager;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class at implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ ai cMQ;
+public class at implements View.OnClickListener {
+    final /* synthetic */ am cVq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public at(ai aiVar) {
-        this.cMQ = aiVar;
+    public at(am amVar) {
+        this.cVq = amVar;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        com.baidu.adp.lib.g.h.hi().postDelayed(new au(this), 200L);
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MainTabActivity mainTabActivity;
+        MainTabActivity mainTabActivity2;
+        mainTabActivity = this.cVq.cVl;
+        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_4", "click", 1, new Object[0]);
+        mainTabActivity2 = this.cVq.cVl;
+        com.baidu.tbadk.core.util.bb.ag(mainTabActivity2.getPageContext().getPageActivity());
     }
 }

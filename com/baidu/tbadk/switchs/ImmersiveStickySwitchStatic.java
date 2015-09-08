@@ -5,7 +5,7 @@ import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class ImmersiveStickySwitchStatic extends a {
     static {
-        e.gy().e(ImmersiveStickySwitchStatic.class);
+        e.gv().e(ImmersiveStickySwitchStatic.class);
     }
 
     @Override // com.baidu.adp.lib.b.a

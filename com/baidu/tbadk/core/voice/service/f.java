@@ -4,11 +4,11 @@ import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements MediaPlayer.OnCompletionListener {
-    final /* synthetic */ MediaService afR;
+    final /* synthetic */ MediaService agb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(MediaService mediaService) {
-        this.afR = mediaService;
+        this.agb = mediaService;
     }
 
     @Override // android.media.MediaPlayer.OnCompletionListener
@@ -16,13 +16,13 @@ public class f implements MediaPlayer.OnCompletionListener {
         h hVar;
         Voice voice;
         h hVar2;
-        hVar = this.afR.mPlayer;
+        hVar = this.agb.mPlayer;
         if (hVar != null) {
-            voice = this.afR.mVoice;
+            voice = this.agb.mVoice;
             if (voice != null) {
-                hVar2 = this.afR.mPlayer;
-                hVar2.vO();
-                this.afR.stopVoice(null);
+                hVar2 = this.agb.mPlayer;
+                hVar2.vT();
+                this.agb.stopVoice(null);
             }
         }
     }

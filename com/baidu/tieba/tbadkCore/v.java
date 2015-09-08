@@ -1,148 +1,77 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes.dex */
-public class v extends com.baidu.adp.base.e {
-    private String cHE;
-    private a cHF;
-    private String cHG;
-    private String from;
-    private String mForumId;
-    private String mForumName;
+public class v implements com.baidu.tbadk.mvc.b.a {
+    private String aMt;
+    private int bcT;
+    private int cQd;
+    private String mId;
+    private String mName;
+    private int mType;
 
-    public v(TbPageContext tbPageContext) {
-        super(tbPageContext);
-        this.mForumName = null;
-        this.mForumId = null;
-        this.cHE = null;
-        this.cHF = null;
+    public v() {
     }
 
-    public void setFrom(String str) {
-        this.from = str;
+    public v(int i) {
+        this.mType = i;
     }
 
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
+    public String getId() {
+        return this.mId;
     }
 
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
+    public String getName() {
+        return this.mName;
     }
 
-    public void MF() {
-        if (this.cHF != null) {
-            this.cHF.cancel();
-            this.cHF = null;
+    public void kq(int i) {
+        this.cQd = i;
+    }
+
+    public int atC() {
+        return this.cQd;
+    }
+
+    public void setLevel(int i) {
+        this.bcT = i;
+    }
+
+    public int getLevel() {
+        return this.bcT;
+    }
+
+    public String getAvatar() {
+        return this.aMt;
+    }
+
+    public void a(LikeForum likeForum) {
+        if (likeForum != null) {
+            a(likeForum, null);
         }
     }
 
-    public void r(String str, String str2, String str3) {
-        ba(str, str2);
-        this.cHE = str3;
-    }
-
-    public void ba(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.cHF == null) {
-            this.mForumName = str;
-            this.mForumId = str2;
-            this.cHF = new a(this, null);
-            this.cHF.setPriority(2);
-            this.cHF.execute(new Object[0]);
-        }
-    }
-
-    public boolean apq() {
-        return this.cHF != null;
-    }
-
-    public void kq(String str) {
-        this.cHG = str;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a extends BdAsyncTask<Object, Integer, w> {
-        private volatile com.baidu.tbadk.core.util.v afJ;
-
-        private a() {
-            this.afJ = null;
-        }
-
-        /* synthetic */ a(v vVar, a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: E */
-        public w doInBackground(Object... objArr) {
+    public void a(LikeForum likeForum, Context context) {
+        if (likeForum != null) {
             try {
-                this.afJ = new com.baidu.tbadk.core.util.v(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
-                this.afJ.o("kw", v.this.mForumName);
-                this.afJ.o(ImageViewerConfig.FORUM_ID, v.this.mForumId);
-                this.afJ.o("st_type", v.this.from);
-                if (!StringUtils.isNull(v.this.cHG)) {
-                    this.afJ.o("dev_id", v.this.cHG);
-                }
-                if (!TextUtils.isEmpty(v.this.cHE)) {
-                    this.afJ.o("pagefrom", v.this.cHE);
-                }
-                this.afJ.ue().uV().mIsNeedTbs = true;
-                String tD = this.afJ.tD();
-                if (this.afJ.ue().uW().rb() && tD != null) {
-                    w wVar = new w();
-                    wVar.parserJson(tD);
-                    wVar.kr(v.this.mForumId);
-                    return wVar;
-                }
+                this.mId = String.valueOf(likeForum.forum_id);
+                this.mName = likeForum.forum_name;
+                this.cQd = likeForum.is_sign.intValue();
+                this.bcT = likeForum.level_id.intValue();
+                this.aMt = likeForum.avatar;
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                BdLog.detailException(e);
             }
-            return null;
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(w wVar) {
-            v.this.cHF = null;
-            if (wVar != null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(com.baidu.adp.lib.g.b.c(wVar.getFid(), 0L))));
-                TbadkCoreApplication.m411getInst().addLikeForum(v.this.mForumName);
-            }
-            if (wVar == null && this.afJ != null) {
-                v.this.mErrorCode = this.afJ.ui();
-                v.this.mErrorString = this.afJ.getErrorString();
-            }
-            if (v.this.mLoadDataCallBack != null) {
-                v.this.mLoadDataCallBack.d(wVar);
-            }
-        }
+    public int getType() {
+        return this.mType;
+    }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            if (this.afJ != null) {
-                this.afJ.gM();
-                this.afJ = null;
-            }
-            v.this.cHF = null;
-            super.cancel(true);
-            v.this.mLoadDataCallBack.d(null);
-        }
+    public void setType(int i) {
+        this.mType = i;
     }
 }

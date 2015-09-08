@@ -1,27 +1,24 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.plugins.XiaoyingUtil;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.util.SparseArray;
+import java.util.List;
 /* loaded from: classes.dex */
-public class cy implements View.OnClickListener {
-    final /* synthetic */ cx aYy;
-    private final /* synthetic */ MediaData aYz;
+public class cy {
+    private static cy aYM = new cy();
+    private SparseArray<List<cx>> aYL = new SparseArray<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(cx cxVar, MediaData mediaData) {
-        this.aYy = cxVar;
-        this.aYz = mediaData;
+    private cy() {
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        TiebaStatic.log("c10067");
-        context = this.aYy.mContext;
-        XiaoyingUtil.startPlayXiaoyingVideo(context, this.aYz.getVideoUrl());
+    public static cy Mw() {
+        return aYM;
+    }
+
+    public void c(int i, List<cx> list) {
+        this.aYL.put(i, list);
+    }
+
+    public List<cx> fA(int i) {
+        return this.aYL.get(i);
     }
 }

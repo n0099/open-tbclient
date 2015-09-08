@@ -12,6 +12,10 @@ public class a extends i {
     String pkgName;
     int priority;
 
+    public String getPkgName() {
+        return this.pkgName;
+    }
+
     public int getPriority() {
         return this.priority;
     }
@@ -24,7 +28,7 @@ public class a extends i {
         return this.errorMsg;
     }
 
-    public String mu() {
+    public String mr() {
         return this.Eq;
     }
 }

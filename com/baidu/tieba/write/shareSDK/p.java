@@ -7,11 +7,11 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements TbImageView.a {
-    final /* synthetic */ o cSC;
+    final /* synthetic */ o dbp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.cSC = oVar;
+        this.dbp = oVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
@@ -28,28 +28,28 @@ public class p implements TbImageView.a {
         WriteShareActivity writeShareActivity5;
         int i2;
         if (z) {
-            shareSDKImageView = this.cSC.cSw;
+            shareSDKImageView = this.dbp.dbj;
             if (shareSDKImageView.getLoadedWidth() != 0) {
-                shareSDKImageView2 = this.cSC.cSw;
+                shareSDKImageView2 = this.dbp.dbj;
                 if (shareSDKImageView2.getLoadedHeight() != 0) {
-                    o oVar = this.cSC;
-                    shareSDKImageView3 = this.cSC.cSw;
+                    o oVar = this.dbp;
+                    shareSDKImageView3 = this.dbp.dbj;
                     oVar.width = shareSDKImageView3.getLoadedWidth();
-                    o oVar2 = this.cSC;
-                    shareSDKImageView4 = this.cSC.cSw;
+                    o oVar2 = this.dbp;
+                    shareSDKImageView4 = this.dbp.dbj;
                     oVar2.height = shareSDKImageView4.getLoadedHeight();
-                    writeShareActivity3 = this.cSC.cSz;
+                    writeShareActivity3 = this.dbp.dbm;
                     if (writeShareActivity3 != null) {
-                        writeShareActivity4 = this.cSC.cSz;
-                        WriteData ard = writeShareActivity4.ard();
-                        i = this.cSC.width;
-                        ard.setShareSummaryImgWidth(i);
-                        writeShareActivity5 = this.cSC.cSz;
-                        WriteData ard2 = writeShareActivity5.ard();
-                        i2 = this.cSC.height;
-                        ard2.setShareSummaryImgHeight(i2);
-                        this.cSC.cSB = true;
-                        this.cSC.auw();
+                        writeShareActivity4 = this.dbp.dbm;
+                        WriteData avr = writeShareActivity4.avr();
+                        i = this.dbp.width;
+                        avr.setShareSummaryImgWidth(i);
+                        writeShareActivity5 = this.dbp.dbm;
+                        WriteData avr2 = writeShareActivity5.avr();
+                        i2 = this.dbp.height;
+                        avr2.setShareSummaryImgHeight(i2);
+                        this.dbp.dbo = true;
+                        this.dbp.ayQ();
                         return;
                     }
                     return;
@@ -58,12 +58,12 @@ public class p implements TbImageView.a {
             }
             return;
         }
-        this.cSC.cSB = false;
-        this.cSC.auw();
-        writeShareActivity = this.cSC.cSz;
+        this.dbp.dbo = false;
+        this.dbp.ayQ();
+        writeShareActivity = this.dbp.dbm;
         if (writeShareActivity != null) {
-            writeShareActivity2 = this.cSC.cSz;
-            writeShareActivity2.ko(i.C0057i.share_load_image_fail_tip);
+            writeShareActivity2 = this.dbp.dbm;
+            writeShareActivity2.kZ(i.h.share_load_image_fail_tip);
         }
     }
 
@@ -71,12 +71,12 @@ public class p implements TbImageView.a {
     public void onCancel() {
         WriteShareActivity writeShareActivity;
         WriteShareActivity writeShareActivity2;
-        this.cSC.cSB = false;
-        this.cSC.auw();
-        writeShareActivity = this.cSC.cSz;
+        this.dbp.dbo = false;
+        this.dbp.ayQ();
+        writeShareActivity = this.dbp.dbm;
         if (writeShareActivity != null) {
-            writeShareActivity2 = this.cSC.cSz;
-            writeShareActivity2.ko(i.C0057i.share_load_image_fail_tip);
+            writeShareActivity2 = this.dbp.dbm;
+            writeShareActivity2.kZ(i.h.share_load_image_fail_tip);
         }
     }
 }

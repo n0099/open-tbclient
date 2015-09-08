@@ -7,25 +7,25 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k implements h {
-    private JSONObject sm;
+    private JSONObject sk;
 
     public k(JSONObject jSONObject) {
-        this.sm = jSONObject;
+        this.sk = jSONObject;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.d.h
     public Object g(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        Class<?> fO = cVar.fO();
-        Type[] fN = cVar.fN();
-        if (com.baidu.adp.lib.a.a.a.a(fO, Map.class)) {
-            Map<String, Object> d = com.baidu.adp.lib.a.b.a.e.a.d(cVar, this.sm.length());
+        Class<?> fL = cVar.fL();
+        Type[] fK = cVar.fK();
+        if (com.baidu.adp.lib.a.a.a.a(fL, Map.class)) {
+            Map<String, Object> d = com.baidu.adp.lib.a.b.a.e.a.d(cVar, this.sk.length());
             if (d != null) {
-                Iterator<String> keys = this.sm.keys();
+                Iterator<String> keys = this.sk.keys();
                 while (keys.hasNext()) {
                     String next = keys.next();
                     if (next instanceof String) {
                         String str = next;
-                        Object g = com.baidu.adp.lib.a.b.a.e.g.j(this.sm.opt(str)).g(new com.baidu.adp.lib.a.b.a.e.c(fN[1]));
+                        Object g = com.baidu.adp.lib.a.b.a.e.g.j(this.sk.opt(str)).g(new com.baidu.adp.lib.a.b.a.e.c(fK[1]));
                         if (g != null) {
                             d.put(str, g);
                         }
@@ -33,16 +33,16 @@ public class k implements h {
                 }
             }
             return d;
-        } else if (fO == SparseArray.class) {
-            SparseArray sparseArray = new SparseArray(this.sm.length());
-            Iterator<String> keys2 = this.sm.keys();
+        } else if (fL == SparseArray.class) {
+            SparseArray sparseArray = new SparseArray(this.sk.length());
+            Iterator<String> keys2 = this.sk.keys();
             while (keys2.hasNext()) {
                 String next2 = keys2.next();
                 if (next2 instanceof String) {
                     String str2 = next2;
                     try {
                         int parseInt = Integer.parseInt(str2);
-                        Object g2 = com.baidu.adp.lib.a.b.a.e.g.j(this.sm.opt(String.valueOf(str2))).g(new com.baidu.adp.lib.a.b.a.e.c(fN[0]));
+                        Object g2 = com.baidu.adp.lib.a.b.a.e.g.j(this.sk.opt(String.valueOf(str2))).g(new com.baidu.adp.lib.a.b.a.e.c(fK[0]));
                         if (g2 != null) {
                             sparseArray.put(parseInt, g2);
                         }
@@ -52,8 +52,8 @@ public class k implements h {
                 }
             }
             return sparseArray;
-        } else if (com.baidu.adp.lib.a.a.a.a(fO, com.baidu.adp.lib.a.b.a.a.a.class)) {
-            return com.baidu.adp.lib.a.b.a.a.i.objectWithJson(this.sm, fO);
+        } else if (com.baidu.adp.lib.a.a.a.a(fL, com.baidu.adp.lib.a.b.a.a.a.class)) {
+            return com.baidu.adp.lib.a.b.a.a.i.objectWithJson(this.sk, fL);
         } else {
             return null;
         }

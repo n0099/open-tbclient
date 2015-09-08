@@ -4,11 +4,11 @@ import android.widget.AbsListView;
 import com.baidu.location.BDLocationStatusCodes;
 /* loaded from: classes.dex */
 class k implements AbsListView.OnScrollListener {
-    final /* synthetic */ PbActivity cbo;
+    final /* synthetic */ PbActivity ccj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(PbActivity pbActivity) {
-        this.cbo = pbActivity;
+        this.ccj = pbActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -29,45 +29,45 @@ class k implements AbsListView.OnScrollListener {
         cb cbVar6;
         com.baidu.tbadk.performanceLog.e eVar5;
         if (i == 2 || i == 1) {
-            cbVar = this.cbo.caQ;
-            cbVar.aeA();
-            dVar = this.cbo.caX;
+            cbVar = this.ccj.cbL;
+            cbVar.aeO();
+            dVar = this.ccj.cbS;
             if (dVar != null) {
-                cbVar4 = this.cbo.caQ;
-                dVar3 = this.cbo.caX;
-                cbVar4.eA(dVar3.Br());
+                cbVar4 = this.ccj.cbL;
+                dVar3 = this.ccj.cbS;
+                cbVar4.eI(dVar3.BE());
             }
-            cbVar2 = this.cbo.caQ;
-            cbVar2.aec();
-            dVar2 = this.cbo.caX;
-            dVar2.Bu();
-            z = this.cbo.caJ;
+            cbVar2 = this.ccj.cbL;
+            cbVar2.aeq();
+            dVar2 = this.ccj.cbS;
+            dVar2.BH();
+            z = this.ccj.cbE;
             if (!z) {
-                this.cbo.caJ = true;
-                cbVar3 = this.cbo.caQ;
-                cbVar3.aeD();
+                this.ccj.cbE = true;
+                cbVar3 = this.ccj.cbL;
+                cbVar3.aeR();
             }
         }
-        eVar = this.cbo.caK;
+        eVar = this.ccj.cbF;
         if (eVar == null) {
-            this.cbo.caK = new com.baidu.tbadk.performanceLog.e();
-            eVar5 = this.cbo.caK;
-            eVar5.eq(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+            this.ccj.cbF = new com.baidu.tbadk.performanceLog.e();
+            eVar5 = this.ccj.cbF;
+            eVar5.ey(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
         }
         if (i == 0) {
-            cbVar5 = this.cbo.caQ;
-            if (cbVar5.aeg() != null) {
-                cbVar6 = this.cbo.caQ;
-                cbVar6.aeg().notifyDataSetChanged();
+            cbVar5 = this.ccj.cbL;
+            if (cbVar5.aeu() != null) {
+                cbVar6 = this.ccj.cbL;
+                cbVar6.aeu().notifyDataSetChanged();
             }
-            eVar4 = this.cbo.caK;
-            eVar4.DH();
+            eVar4 = this.ccj.cbF;
+            eVar4.DR();
         } else if (i == 1) {
-            eVar3 = this.cbo.caK;
-            eVar3.DH();
+            eVar3 = this.ccj.cbF;
+            eVar3.DR();
         } else {
-            eVar2 = this.cbo.caK;
-            eVar2.DH();
+            eVar2 = this.ccj.cbF;
+            eVar2.DR();
         }
     }
 

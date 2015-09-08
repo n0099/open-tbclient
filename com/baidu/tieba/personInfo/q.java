@@ -7,13 +7,13 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class q extends CustomMessageListener {
-    final /* synthetic */ PersonInfoActivity clO;
+    final /* synthetic */ PersonInfoActivity cmR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.clO = personInfoActivity;
+        this.cmR = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,22 +25,22 @@ class q extends CustomMessageListener {
         w wVar3;
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().ahA) {
-                wVar = this.clO.clC;
+            if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().Ci) {
+                wVar = this.cmR.cmF;
                 UserData userData = wVar.getUserData();
                 if (userData != null && userData.getHave_attention() != 1) {
-                    this.clO.showToast(i.C0057i.like_success);
-                    wVar3 = this.clO.clC;
+                    this.cmR.showToast(i.h.like_success);
+                    wVar3 = this.cmR.cmF;
                     wVar3.getUserData().setHave_attention(1);
                 } else if (userData != null && userData.getHave_attention() == 1) {
-                    wVar2 = this.clO.clC;
+                    wVar2 = this.cmR.cmF;
                     wVar2.getUserData().setHave_attention(2);
-                    this.clO.showToast(i.C0057i.unlike_success);
+                    this.cmR.showToast(i.h.unlike_success);
                 }
-                agVar = this.clO.clD;
-                agVar.ahH();
+                agVar = this.cmR.cmG;
+                agVar.ahZ();
             } else if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().errorString != null) {
-                this.clO.showToast(updateAttentionMessage.getData().errorString);
+                this.cmR.showToast(updateAttentionMessage.getData().errorString);
             }
         }
     }

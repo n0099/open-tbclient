@@ -21,56 +21,56 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class d extends HorizontalScrollView {
-    private boolean akA;
-    private String akB;
-    private int aks;
-    private int akt;
-    private Runnable aku;
-    private TbPageContextSupport akv;
-    private ImageView[] akw;
-    private View akx;
-    private View aky;
-    private a akz;
+    private int akK;
+    private int akL;
+    private Runnable akM;
+    private TbPageContextSupport akN;
+    private ImageView[] akO;
+    private View akP;
+    private View akQ;
+    private a akR;
+    private boolean akS;
+    private String akT;
     private Context mContext;
 
     /* loaded from: classes.dex */
     public interface a {
-        void ei(String str);
+        void ep(String str);
     }
 
     public d(TbPageContextSupport tbPageContextSupport, a aVar, String str) {
         super(tbPageContextSupport.getPageContext().getContext());
-        this.aks = 0;
-        this.akt = 0;
-        this.aku = new e(this);
+        this.akK = 0;
+        this.akL = 0;
+        this.akM = new e(this);
         this.mContext = null;
-        this.akw = null;
-        this.akx = null;
-        this.aky = null;
-        this.akz = null;
-        this.akA = true;
-        this.akB = WriteImageActivityConfig.FILTER_NAME_NORMAL;
+        this.akO = null;
+        this.akP = null;
+        this.akQ = null;
+        this.akR = null;
+        this.akS = true;
+        this.akT = WriteImageActivityConfig.FILTER_NAME_NORMAL;
         this.mContext = tbPageContextSupport.getPageContext().getContext();
-        this.akv = tbPageContextSupport;
-        this.akz = aVar;
+        this.akN = tbPageContextSupport;
+        this.akR = aVar;
         if (str != null) {
-            this.akB = str;
+            this.akT = str;
         }
         init();
     }
 
     private void init() {
-        this.aks = (int) this.mContext.getResources().getDimension(i.d.ds4);
-        this.akt = (int) this.mContext.getResources().getDimension(i.d.ds30);
+        this.akK = (int) this.mContext.getResources().getDimension(i.d.ds4);
+        this.akL = (int) this.mContext.getResources().getDimension(i.d.ds30);
         LinearLayout linearLayout = new LinearLayout(this.mContext);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
         linearLayout.setGravity(16);
         linearLayout.setOrientation(0);
-        linearLayout.setPadding(this.akt, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
+        linearLayout.setPadding(this.akL, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
         setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
         addView(linearLayout);
         String[] stringArray = this.mContext.getResources().getStringArray(i.b.fiter_name);
-        this.akw = new ImageView[stringArray.length];
+        this.akO = new ImageView[stringArray.length];
         int length = stringArray.length;
         int i = 0;
         int i2 = 0;
@@ -83,17 +83,17 @@ public class d extends HorizontalScrollView {
             textView.setText(substring2);
             textView.setTag(substring);
             ImageView imageView = (ImageView) inflate.findViewById(i.f.filter_immage);
-            imageView.setPadding(this.aks, this.aks, this.aks, this.aks);
+            imageView.setPadding(this.akK, this.akK, this.akK, this.akK);
             imageView.setTag(textView);
             imageView.setOnClickListener(new f(this));
-            if (substring.equals(this.akB)) {
-                this.akx = inflate;
-                this.aky = imageView;
+            if (substring.equals(this.akT)) {
+                this.akP = inflate;
+                this.akQ = imageView;
                 imageView.setBackgroundResource(i.e.bg_choose_filter);
                 textView.setSelected(true);
             }
-            imageView.setImageResource(eh(substring));
-            this.akw[i2] = imageView;
+            imageView.setImageResource(eo(substring));
+            this.akO[i2] = imageView;
             linearLayout.addView(inflate);
             i++;
             i2++;
@@ -103,57 +103,57 @@ public class d extends HorizontalScrollView {
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.akx != null) {
-            post(this.aku);
+        if (this.akP != null) {
+            post(this.akM);
         }
     }
 
     public String getSelectedFilter() {
-        return this.aky != null ? (String) ((View) this.aky.getTag()).getTag() : WriteImageActivityConfig.FILTER_NAME_NORMAL;
+        return this.akQ != null ? (String) ((View) this.akQ.getTag()).getTag() : WriteImageActivityConfig.FILTER_NAME_NORMAL;
     }
 
     public void setCanbeClick(boolean z) {
-        this.akA = z;
+        this.akS = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s(View view) {
-        if (this.akA && view != this.aky && yW()) {
-            if (this.aky != null) {
-                this.aky.setBackgroundDrawable(null);
-                ((TextView) this.aky.getTag()).setSelected(false);
+        if (this.akS && view != this.akQ && zd()) {
+            if (this.akQ != null) {
+                this.akQ.setBackgroundDrawable(null);
+                ((TextView) this.akQ.getTag()).setSelected(false);
             }
-            this.aky = view;
+            this.akQ = view;
             view.setBackgroundResource(i.e.bg_choose_filter);
             TextView textView = (TextView) view.getTag();
             textView.setSelected(true);
-            this.akB = (String) textView.getTag();
-            if (this.akz != null) {
-                this.akz.ei(this.akB);
+            this.akT = (String) textView.getTag();
+            if (this.akR != null) {
+                this.akR.ep(this.akT);
             }
         }
     }
 
-    private boolean yW() {
-        PluginPackageManager.PluginStatus bv = PluginPackageManager.lT().bv(PluginCenter.NAME_MOTUSDK);
+    private boolean zd() {
+        PluginPackageManager.PluginStatus bv = PluginPackageManager.lQ().bv(PluginCenter.NAME_MOTUSDK);
         if (bv == PluginPackageManager.PluginStatus.NROMAL) {
             return true;
         }
         if (bv == PluginPackageManager.PluginStatus.DISABLE) {
-            UtilHelper.showToast(getContext(), i.C0057i.plugin_config_not_found);
+            UtilHelper.showToast(getContext(), i.h.plugin_config_not_found);
             return false;
         } else if (bv == PluginPackageManager.PluginStatus.UNINSTALLED) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDownloadActivityConfig(this.mContext, PluginPackageManager.lT().getPluginConfig(PluginCenter.NAME_MOTUSDK))));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDownloadActivityConfig(this.mContext, PluginPackageManager.lQ().getPluginConfig(PluginCenter.NAME_MOTUSDK))));
             return false;
         } else if (bv == PluginPackageManager.PluginStatus.FORBIDDEN) {
-            com.baidu.tbadk.coreExtra.util.a.a(this.akv.getPageContext(), i.C0057i.plugin_muto_not_install, new g(this), new h(this));
+            com.baidu.tbadk.coreExtra.util.a.a(this.akN.getPageContext(), i.h.plugin_muto_not_install, new g(this), new h(this));
             return false;
         } else {
             return true;
         }
     }
 
-    public static int eh(String str) {
+    public static int eo(String str) {
         if (TbadkCoreApplication.getMotuFilterImageMap() == null || TbadkCoreApplication.getMotuFilterImageMap().size() == 0) {
             return 0;
         }

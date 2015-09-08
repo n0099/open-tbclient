@@ -21,16 +21,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class al {
-    private static String Tr;
-    private static int Ts;
-    private static String aaP;
-    private static Resources aaQ;
+    private static String Ts;
+    private static int Tt;
+    private static String aaY;
+    private static Resources aaZ;
 
     static {
         MessageManager.getInstance().registerListener(new am(CmdConfigCustom.METHOD_NIGHTRES_PLUGIN_CHANGE));
-        aaP = "skinType not support";
-        Tr = null;
-        Ts = 0;
+        aaY = "skinType not support";
+        Ts = null;
+        Tt = 0;
     }
 
     @Deprecated
@@ -76,18 +76,7 @@ public class al {
 
     public static void f(View view, int i) {
         if (view != null) {
-            i(view, i.e.common_bg);
-        }
-    }
-
-    public static void g(View view, int i) {
-        if (view != null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (i == 1) {
-                view.setBackgroundColor(app.getResources().getColor(i.c.skin_1_common_bg));
-            } else {
-                view.setBackgroundColor(app.getResources().getColor(i.c.login_bg_color));
-            }
+            h(view, i.e.common_bg);
         }
     }
 
@@ -102,22 +91,22 @@ public class al {
         }
     }
 
-    public static void h(View view, int i) {
+    public static void g(View view, int i) {
         if (view != null) {
-            i(view, i.e.titlebar_bg);
+            h(view, i.e.titlebar_bg);
         }
     }
 
     public static void f(TextView textView, int i) {
         if (textView != null) {
-            i((View) textView, i.e.title_comm);
+            h((View) textView, i.e.title_comm);
         }
         e(textView, i);
     }
 
     public static void g(TextView textView, int i) {
         if (textView != null) {
-            i((View) textView, i.e.navi_done_text_bg);
+            h((View) textView, i.e.navi_done_text_bg);
         }
         h(textView, i);
     }
@@ -130,7 +119,7 @@ public class al {
 
     public static void i(TextView textView, int i) {
         if (textView != null) {
-            i((View) textView, i.e.navi_op_text_bg);
+            h((View) textView, i.e.navi_op_text_bg);
         }
         j(textView, i);
     }
@@ -144,7 +133,7 @@ public class al {
     public static void a(ImageView imageView, int i) {
         if (imageView != null) {
             imageView.setScaleType(ImageView.ScaleType.CENTER);
-            i(imageView, i.e.title_icon_bg);
+            h(imageView, i.e.title_icon_bg);
             c(imageView, i.e.icon_return_old_n);
         }
     }
@@ -152,19 +141,19 @@ public class al {
     public static void b(ImageView imageView, int i) {
         if (imageView != null) {
             imageView.setScaleType(ImageView.ScaleType.CENTER);
-            i(imageView, i.e.title_icon_bg);
+            h(imageView, i.e.title_icon_bg);
             c(imageView, i.e.icon_refresh_n);
         }
     }
 
-    public static int cn(int i) {
+    public static int cr(int i) {
         if (i == 1) {
             return BdBaseApplication.getInst().getApp().getResources().getColor(i.c.skin_1_common_color);
         }
-        throw new IllegalArgumentException(aaP);
+        throw new IllegalArgumentException(aaY);
     }
 
-    public static int co(int i) {
+    public static int cs(int i) {
         Application app = BdBaseApplication.getInst().getApp();
         return i == 1 ? app.getResources().getColor(i.c.skin_1_common_bg) : app.getResources().getColor(i.c.backgroundcolor);
     }
@@ -176,21 +165,21 @@ public class al {
     }
 
     private static int a(Resources resources, int i) {
-        if (aaQ == null) {
-            aaQ = resources;
+        if (aaZ == null) {
+            aaZ = resources;
         }
         String resourceName = resources.getResourceName(i);
-        if (TextUtils.isEmpty(resourceName) || resourceName.indexOf(":") <= 0 || aaQ == null) {
+        if (TextUtils.isEmpty(resourceName) || resourceName.indexOf(":") <= 0 || aaZ == null) {
             return 0;
         }
-        if (Ts == 0) {
-            Tr = BdBaseApplication.getInst().getPackageName();
-            Ts = Tr.length();
+        if (Tt == 0) {
+            Ts = BdBaseApplication.getInst().getPackageName();
+            Tt = Ts.length();
         }
-        if (resourceName.length() > Ts && resourceName.charAt(Ts) != ':' && resourceName.startsWith(Tr)) {
-            resourceName = String.valueOf(Tr) + resourceName.substring(resourceName.indexOf(":"));
+        if (resourceName.length() > Tt && resourceName.charAt(Tt) != ':' && resourceName.startsWith(Ts)) {
+            resourceName = String.valueOf(Ts) + resourceName.substring(resourceName.indexOf(":"));
         }
-        return aaQ.getIdentifier(String.valueOf(resourceName) + "_1", null, null);
+        return aaZ.getIdentifier(String.valueOf(resourceName) + "_1", null, null);
     }
 
     public static int b(Resources resources, int i) {
@@ -207,8 +196,8 @@ public class al {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (aaQ != null) {
-                resources2 = aaQ;
+            } else if (aaZ != null) {
+                resources2 = aaZ;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -242,8 +231,8 @@ public class al {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (aaQ != null) {
-                resources2 = aaQ;
+            } else if (aaZ != null) {
+                resources2 = aaZ;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -259,7 +248,7 @@ public class al {
         }
     }
 
-    public static ColorStateList cp(int i) {
+    public static ColorStateList ct(int i) {
         return c((Resources) null, i);
     }
 
@@ -277,8 +266,8 @@ public class al {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (aaQ != null) {
-                resources2 = aaQ;
+            } else if (aaZ != null) {
+                resources2 = aaZ;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -303,7 +292,14 @@ public class al {
     }
 
     public static Drawable x(int i, int i2) {
-        return i == 0 ? BdBaseApplication.getInst().getApp().getResources().getDrawable(i2) : getDrawable(i2);
+        if (i == 0) {
+            try {
+                return BdBaseApplication.getInst().getApp().getResources().getDrawable(i2);
+            } catch (Throwable th) {
+                return null;
+            }
+        }
+        return getDrawable(i2);
     }
 
     public static Bitmap a(Resources resources, int i, BitmapFactory.Options options) {
@@ -317,13 +313,13 @@ public class al {
             int a = a(resources, i);
             if (a == 0) {
                 a = i;
-            } else if (aaQ != null) {
-                Resources resources2 = aaQ;
+            } else if (aaZ != null) {
+                Resources resources2 = aaZ;
             } else {
                 a = i;
             }
             try {
-                Bitmap a2 = c.a(aaQ, a, i, options);
+                Bitmap a2 = c.a(aaZ, a, i, options);
                 if (a2 == null) {
                     return c.a(i, options);
                 }
@@ -336,20 +332,26 @@ public class al {
     }
 
     public static Bitmap e(Resources resources, int i) {
-        return cq(i);
+        return cu(i);
     }
 
-    public static Bitmap cq(int i) {
+    public static Bitmap cu(int i) {
         return a((Resources) null, i, new BitmapFactory.Options());
     }
 
-    public static Bitmap cr(int i) {
+    public static Bitmap cv(int i) {
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 2;
+        return a((Resources) null, i, options);
+    }
+
+    public static Bitmap cw(int i) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inPreferredConfig = Bitmap.Config.RGB_565;
         return a((Resources) null, i, options);
     }
 
-    public static Bitmap cs(int i) {
+    public static Bitmap cx(int i) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 4;
         return a((Resources) null, i, options);
@@ -421,7 +423,7 @@ public class al {
         }
     }
 
-    public static void i(View view, int i) {
+    public static void h(View view, int i) {
         if (view != null && i != 0) {
             int paddingLeft = view.getPaddingLeft();
             int paddingRight = view.getPaddingRight();
@@ -447,7 +449,7 @@ public class al {
         }
     }
 
-    public static void j(View view, int i) {
+    public static void i(View view, int i) {
         if (view != null && i != 0) {
             int paddingLeft = view.getPaddingLeft();
             int paddingRight = view.getPaddingRight();

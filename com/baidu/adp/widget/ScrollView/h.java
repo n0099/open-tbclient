@@ -12,7 +12,7 @@ public class h implements g {
     }
 
     @Override // com.baidu.adp.widget.ScrollView.g
-    public void nC() {
+    public void nz() {
         BdPullRefreshScrollView.State state;
         BdPullRefreshScrollView.State state2;
         a aVar;
@@ -38,7 +38,7 @@ public class h implements g {
         aVar3 = this.IX.IQ;
         if (aVar3 != null) {
             aVar4 = this.IX.IQ;
-            aVar4.nX();
+            aVar4.nU();
         }
     }
 }

@@ -9,13 +9,13 @@ import com.baidu.tieba.signall.f;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends HttpMessageListener {
-    final /* synthetic */ f cAv;
+    final /* synthetic */ f cIT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i) {
         super(i);
-        this.cAv = fVar;
+        this.cIT = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,32 +31,35 @@ public class g extends HttpMessageListener {
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001201) {
             int error = httpResponsedMessage.getError();
             if (!httpResponsedMessage.isSuccess()) {
+                if (error == 110001) {
+                    this.cIT.d(httpResponsedMessage);
+                }
                 String errorString = httpResponsedMessage.getErrorString();
-                aVar5 = this.cAv.cAq;
-                aVar5.hD(errorString);
+                aVar5 = this.cIT.cIO;
+                aVar5.hM(errorString);
             } else if (error == 0) {
-                this.cAv.cAp = ((GetForumResponsed) httpResponsedMessage).listData;
-                aVar2 = this.cAv.cAq;
+                this.cIT.cIN = ((GetForumResponsed) httpResponsedMessage).listData;
+                aVar2 = this.cIT.cIO;
                 if (aVar2 != null) {
-                    cVar = this.cAv.cAp;
+                    cVar = this.cIT.cIN;
                     if (cVar != null) {
-                        aVar4 = this.cAv.cAq;
-                        cVar2 = this.cAv.cAp;
+                        aVar4 = this.cIT.cIO;
+                        cVar2 = this.cIT.cIN;
                         aVar4.a(cVar2);
                     }
                 }
                 String errorString2 = httpResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString2)) {
-                    errorString2 = TbadkCoreApplication.m411getInst().getContext().getString(i.C0057i.neterror);
+                    errorString2 = TbadkCoreApplication.m411getInst().getContext().getString(i.h.neterror);
                 }
-                aVar3 = this.cAv.cAq;
-                aVar3.hD(errorString2);
+                aVar3 = this.cIT.cIO;
+                aVar3.hM(errorString2);
             } else {
                 String errorString3 = httpResponsedMessage.getErrorString();
-                aVar = this.cAv.cAq;
-                aVar.hD(errorString3);
+                aVar = this.cIT.cIO;
+                aVar.hM(errorString3);
             }
-            this.cAv.cAr = null;
+            this.cIT.cIP = null;
         }
     }
 }

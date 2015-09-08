@@ -16,12 +16,12 @@ import com.baidu.tieba.i;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bb {
-    public static an abv;
-    public static an abw;
-    private static int abq = -1;
-    private static int abr = -1;
-    private static boolean abt = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> abu = new com.baidu.adp.lib.e.a<>(500);
+    public static an abE;
+    public static an abF;
+    private static int abA = -1;
+    private static int abB = -1;
+    private static boolean abC = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> abD = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -31,27 +31,27 @@ public class bb {
 
     public static void ae(Context context) {
         mAppContext = context;
-        abt = true;
+        abC = true;
     }
 
-    private static void uS() {
+    private static void uY() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            abr = mAppContext.getResources().getColor(i.c.more_color);
-            abq = mAppContext.getResources().getColor(i.c.skin_1_common_color);
+            abB = mAppContext.getResources().getColor(i.c.more_color);
+            abA = mAppContext.getResources().getColor(i.c.skin_1_common_color);
         }
     }
 
-    private static int cu(int i) {
+    private static int cz(int i) {
         return at(i == 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int at(boolean z) {
-        if (abt) {
-            abt = false;
-            uS();
+        if (abC) {
+            abC = false;
+            uY();
         }
-        return z ? abq : abr;
+        return z ? abA : abB;
     }
 
     public static void p(View view) {
@@ -62,16 +62,16 @@ public class bb {
 
     public static void q(View view) {
         if (view != null) {
-            abu.remove(Integer.valueOf(System.identityHashCode(view)));
+            abD.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void b(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = abu.get(Integer.valueOf(identityHashCode));
+        Integer num = abD.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             c(viewGroup, i);
-            abu.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            abD.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -103,7 +103,7 @@ public class bb {
         a(viewGroup, true, (a) new bc(i, i == 1));
     }
 
-    public static void k(View view, int i) {
+    public static void j(View view, int i) {
         if (view != null) {
             if (i == 1) {
                 view.setBackgroundColor(-14078923);
@@ -117,19 +117,19 @@ public class bb {
         if (view != null) {
             view.setBackgroundDrawable(null);
             if (i == 0) {
-                al.i(view, i.e.auto_skin_list_item_bg_up);
+                al.h(view, i.e.auto_skin_list_item_bg_up);
             } else if (i == 2) {
-                al.i(view, i.e.auto_skin_list_item_bg_down);
+                al.h(view, i.e.auto_skin_list_item_bg_down);
             } else {
-                al.i(view, i.e.list_selector_item);
+                al.h(view, i.e.list_selector_item);
             }
         }
     }
 
     public static void af(Context context) {
         if (context != null) {
-            if (abv != null) {
-                abv.ad(context);
+            if (abE != null) {
+                abE.ad(context);
                 return;
             }
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
@@ -139,8 +139,8 @@ public class bb {
 
     public static void ag(Context context) {
         if (context != null) {
-            if (abw != null) {
-                abw.ad(context);
+            if (abF != null) {
+                abF.ad(context);
                 return;
             }
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
@@ -168,13 +168,13 @@ public class bb {
 
     public static void c(TextView textView, int i) {
         if (textView != null) {
-            textView.setTextColor(cu(i));
+            textView.setTextColor(cz(i));
         }
     }
 
     public static void a(CheckBox checkBox, int i) {
         if (checkBox != null) {
-            checkBox.setTextColor(cu(i));
+            checkBox.setTextColor(cz(i));
         }
     }
 
@@ -186,7 +186,7 @@ public class bb {
                 linearLayout.setOrientation(1);
                 View view3 = new View(view.getContext());
                 if (z) {
-                    al.j(view3, i);
+                    al.i(view3, i);
                 } else {
                     view3.setBackgroundResource(i);
                 }

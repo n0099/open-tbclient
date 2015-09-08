@@ -21,78 +21,78 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b bGU;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.view.a bGX;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.view.e bGY;
-    private f bGZ;
-    private boolean bGV = false;
+    private static b bHB;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.view.a bHE;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.view.e bHF;
+    private f bHG;
+    private boolean bHC = false;
     private boolean isBackground = false;
-    private boolean bGW = false;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.a bHa = new com.baidu.tieba.imMessageCenter.im.floatwindow.a();
-    private ArrayList<String> bHb = new ArrayList<>();
+    private boolean bHD = false;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.a bHH = new com.baidu.tieba.imMessageCenter.im.floatwindow.a();
+    private ArrayList<String> bHI = new ArrayList<>();
     private final Handler handler = new Handler(Looper.getMainLooper());
-    private e bHc = new e();
-    private d bHd = new d();
-    private a bHe = new a();
-    private C0061b bHf = new C0061b();
-    private c bHg = new c();
-    private i bHh = new com.baidu.tieba.imMessageCenter.im.floatwindow.c(this);
-    private a.InterfaceC0062a bHi = new com.baidu.tieba.imMessageCenter.im.floatwindow.d(this);
+    private e bHJ = new e();
+    private d bHK = new d();
+    private a bHL = new a();
+    private C0061b bHM = new C0061b();
+    private c bHN = new c();
+    private i bHO = new com.baidu.tieba.imMessageCenter.im.floatwindow.c(this);
+    private a.InterfaceC0062a bHP = new com.baidu.tieba.imMessageCenter.im.floatwindow.d(this);
 
-    public static synchronized b Xx() {
+    public static synchronized b Xz() {
         b bVar;
         synchronized (b.class) {
-            if (bGU == null) {
-                bGU = new b();
+            if (bHB == null) {
+                bHB = new b();
             }
-            bVar = bGU;
+            bVar = bHB;
         }
         return bVar;
     }
 
-    public boolean im(String str) {
-        return this.bHb.contains(str);
+    public boolean iv(String str) {
+        return this.bHI.contains(str);
     }
 
-    public void in(String str) {
-        if (!StringUtils.isNull(str) && !this.bHb.contains(str)) {
-            this.bHb.add(str);
+    public void iw(String str) {
+        if (!StringUtils.isNull(str) && !this.bHI.contains(str)) {
+            this.bHI.add(str);
         }
     }
 
-    public void io(String str) {
+    public void ix(String str) {
         if (!StringUtils.isNull(str)) {
-            this.bHb.remove(str);
+            this.bHI.remove(str);
         }
     }
 
     public void registerListener() {
-        MessageManager.getInstance().registerListener(this.bHd);
-        MessageManager.getInstance().registerListener(this.bHe);
-        MessageManager.getInstance().registerListener(this.bHc);
-        MessageManager.getInstance().registerListener(this.bHf);
-        MessageManager.getInstance().registerListener(this.bHg);
+        MessageManager.getInstance().registerListener(this.bHK);
+        MessageManager.getInstance().registerListener(this.bHL);
+        MessageManager.getInstance().registerListener(this.bHJ);
+        MessageManager.getInstance().registerListener(this.bHM);
+        MessageManager.getInstance().registerListener(this.bHN);
     }
 
-    public void dw(boolean z) {
-        if (!Xy()) {
-            if (this.bHa.Xw()) {
-                XA();
-                if (!XC().XM()) {
-                    XC().a(this.handler, z);
+    public void dB(boolean z) {
+        if (!XA()) {
+            if (this.bHH.Xy()) {
+                XC();
+                if (!XE().XO()) {
+                    XE().a(this.handler, z);
                     return;
                 }
                 return;
             }
-            dx(false);
+            dC(false);
         }
     }
 
-    private boolean Xy() {
-        return TbadkCoreApplication.m411getInst().isMIUIRom() || !TbadkCoreApplication.m411getInst().isFloatingWindowOpened() || this.bGV || !Xz() || com.baidu.tbadk.coreExtra.messageCenter.c.xq().xt() == 0 || !com.baidu.tbadk.coreExtra.messageCenter.c.xq().xy();
+    private boolean XA() {
+        return TbadkCoreApplication.m411getInst().isMIUIRom() || !TbadkCoreApplication.m411getInst().isFloatingWindowOpened() || this.bHC || !XB() || com.baidu.tbadk.coreExtra.messageCenter.c.xw().xz() == 0 || !com.baidu.tbadk.coreExtra.messageCenter.c.xw().xE();
     }
 
-    private boolean Xz() {
+    private boolean XB() {
         List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) TbadkCoreApplication.m411getInst().getSystemService("activity")).getRunningTasks(5);
         if (runningTasks == null || runningTasks.size() <= 0) {
             return false;
@@ -105,69 +105,69 @@ public class b {
         return ("com.baidu.tieba.LogoActivity".equalsIgnoreCase(className) || "com.baidu.tieba.guide.NewUserGuideActivity".equalsIgnoreCase(className) || "com.baidu.tieba.topRec.TopRecActivity".equalsIgnoreCase(className) || "com.baidu.tieba.screenlocknotify.ScreenLockActivity".equalsIgnoreCase(className)) ? false : true;
     }
 
-    public void ip(String str) {
+    public void iy(String str) {
         if (!StringUtils.isNull(str)) {
-            this.bHa.ij(str);
-            XC().F(this.bHa.Xt());
+            this.bHH.is(str);
+            XE().E(this.bHH.Xv());
         }
     }
 
-    public void iq(String str) {
-        this.bHa.ik(str);
-        if (!this.bHa.Xw()) {
-            dx(false);
+    public void iz(String str) {
+        this.bHH.it(str);
+        if (!this.bHH.Xy()) {
+            dC(false);
         } else {
-            XA();
+            XC();
         }
     }
 
-    private void XA() {
-        XC().F(this.bHa.Xt());
-        XC().hs(this.bHa.Xs());
+    private void XC() {
+        XE().E(this.bHH.Xv());
+        XE().hC(this.bHH.Xu());
     }
 
-    public void dx(boolean z) {
-        if (this.bGX != null) {
-            XD().c(this.handler);
-            this.bGX.XO();
+    public void dC(boolean z) {
+        if (this.bHE != null) {
+            XF().c(this.handler);
+            this.bHE.XQ();
             if (z) {
-                this.bGX.am(0, getPaddingTop());
-                this.bHa.removeAll();
+                this.bHE.am(0, getPaddingTop());
+                this.bHH.removeAll();
             }
         }
     }
 
-    public void M(String str, int i) {
-        if (XE().XM()) {
-            XE().N(str, i);
+    public void N(String str, int i) {
+        if (XG().XO()) {
+            XG().O(str, i);
         }
     }
 
     public void a(int i, int i2, String str, int i3) {
-        XE().b(i, i2, str, i3);
-        XD().b(this.handler);
+        XG().b(i, i2, str, i3);
+        XF().b(this.handler);
     }
 
     public void ai(int i, int i2) {
-        XE().al(i, i2);
-        if (a(XE().XK(), this.bGY.Yb())) {
-            XD().Yc();
+        XG().al(i, i2);
+        if (a(XG().XM(), this.bHF.Yd())) {
+            XF().Ye();
         } else {
-            XD().Yd();
+            XF().Yf();
         }
     }
 
     public void a(h.a aVar) {
-        if (a(XE().XK(), XD().Yb())) {
-            aVar.Yk();
+        if (a(XG().XM(), XF().Yd())) {
+            aVar.Ym();
         }
-        XE().XO();
-        XD().c(this.handler);
+        XG().XQ();
+        XF().c(this.handler);
     }
 
-    public void XB() {
-        this.bGW = true;
-        XC().XZ();
+    public void XD() {
+        this.bHD = true;
+        XE().Yb();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -176,22 +176,22 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XC() {
-        if (this.bGX == null) {
-            this.bGX = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.a(TbadkCoreApplication.m411getInst());
-            this.bGX.a(this.bHh);
-            this.bGX.a(this.bHi);
-            this.bGX.am(0, getPaddingTop());
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XE() {
+        if (this.bHE == null) {
+            this.bHE = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.a(TbadkCoreApplication.m411getInst());
+            this.bHE.a(this.bHO);
+            this.bHE.a(this.bHP);
+            this.bHE.am(0, getPaddingTop());
         }
-        return this.bGX;
+        return this.bHE;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XD() {
-        if (this.bGY == null) {
-            this.bGY = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.e(TbadkCoreApplication.m411getInst());
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF() {
+        if (this.bHF == null) {
+            this.bHF = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.e(TbadkCoreApplication.m411getInst());
         }
-        return this.bGY;
+        return this.bHF;
     }
 
     private int getPaddingTop() {
@@ -207,23 +207,23 @@ public class b {
         return G + H + resources.getDimensionPixelSize(i.d.ds40);
     }
 
-    private f XE() {
-        if (this.bGZ == null) {
-            this.bGZ = new f();
+    private f XG() {
+        if (this.bHG == null) {
+            this.bHG = new f();
         }
-        return this.bGZ;
+        return this.bHG;
     }
 
-    public void XF() {
-        this.bGV = true;
-        this.bHa.Xq();
-        XC().setTouchable(false);
+    public void XH() {
+        this.bHC = true;
+        this.bHH.Xs();
+        XE().setTouchable(false);
     }
 
-    public void XG() {
-        this.bGV = false;
-        this.bHa.Xr();
-        XC().setTouchable(true);
+    public void XI() {
+        this.bHC = false;
+        this.bHH.Xt();
+        XE().setTouchable(true);
     }
 
     /* loaded from: classes.dex */
@@ -236,17 +236,17 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             int v;
-            if ((customResponsedMessage instanceof MemoryChangedMessage) && !TbadkCoreApplication.m411getInst().isMIUIRom() && com.baidu.tbadk.coreExtra.messageCenter.c.xq().xH() && !b.this.isBackground && com.baidu.tbadk.coreExtra.messageCenter.c.xq().xt() != 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xq().xy()) {
+            if ((customResponsedMessage instanceof MemoryChangedMessage) && !TbadkCoreApplication.m411getInst().isMIUIRom() && com.baidu.tbadk.coreExtra.messageCenter.c.xw().xN() && !b.this.isBackground && com.baidu.tbadk.coreExtra.messageCenter.c.xw().xz() != 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xw().xE()) {
                 ImMessageCenterPojo data = ((MemoryChangedMessage) customResponsedMessage).getData();
-                if ((2 == data.getCustomGroupType() || -7 == data.getCustomGroupType()) && !b.this.bHb.contains(data.getGid())) {
-                    if ((com.baidu.tbadk.coreExtra.messageCenter.c.xq().xu() || data.getIsFriend() != 0) && com.baidu.tieba.im.settingcache.j.Wy().aK(TbadkCoreApplication.getCurrentAccount(), data.getGid())) {
+                if ((2 == data.getCustomGroupType() || -7 == data.getCustomGroupType()) && !b.this.bHI.contains(data.getGid())) {
+                    if ((com.baidu.tbadk.coreExtra.messageCenter.c.xw().xA() || data.getIsFriend() != 0) && com.baidu.tieba.im.settingcache.j.WA().aM(TbadkCoreApplication.getCurrentAccount(), data.getGid())) {
                         if (2 == data.getCustomGroupType()) {
-                            v = b.this.bHa.u(data);
+                            v = b.this.bHH.u(data);
                         } else {
-                            v = -7 == data.getCustomGroupType() ? b.this.bHa.v(data) : 0;
+                            v = -7 == data.getCustomGroupType() ? b.this.bHH.v(data) : 0;
                         }
                         if (v != 0 && v != 3) {
-                            b.this.dw(true);
+                            b.this.dB(true);
                         }
                     }
                 }
@@ -272,22 +272,22 @@ public class b {
                     case 1:
                     case 3:
                         if (!isOpen) {
-                            b.this.dx(true);
+                            b.this.dC(true);
                             return;
                         }
                         return;
                     case 2:
-                        if (!isOpen && b.this.bHa.Xv()) {
-                            b.this.dw(false);
+                        if (!isOpen && b.this.bHH.Xx()) {
+                            b.this.dB(false);
                             return;
                         }
                         return;
                     case 4:
                         if (isOpen) {
-                            b.this.dw(true);
+                            b.this.dB(true);
                             return;
                         } else {
-                            b.this.dx(false);
+                            b.this.dC(false);
                             return;
                         }
                     default:
@@ -307,7 +307,7 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                b.this.dx(true);
+                b.this.dC(true);
             }
         }
     }
@@ -327,11 +327,11 @@ public class b {
                 TbadkCoreApplication.m411getInst().setProcesBackground(data.booleanValue());
                 if (data.booleanValue()) {
                     b.this.isBackground = true;
-                    b.this.dx(false);
+                    b.this.dC(false);
                     return;
                 }
                 b.this.isBackground = false;
-                b.this.dw(true);
+                b.this.dB(true);
             }
         }
     }
@@ -346,7 +346,7 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008015) {
-                b.this.dx(true);
+                b.this.dC(true);
             }
         }
     }

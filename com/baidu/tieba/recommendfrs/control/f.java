@@ -5,19 +5,19 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ a csI;
+    final /* synthetic */ a cBa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar) {
-        this.csI = aVar;
+        this.cBa = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tieba.recommendfrs.control.a.b bVar;
-        bVar = this.csI.csD;
+        bVar = this.cBa.cAV;
         bVar.c(0, "头条", 0);
-        this.csI.ajr();
-        this.csI.a(this.csI.getView(), false, this.csI.getResources().getDimensionPixelSize(i.d.ds360));
+        this.cBa.anv();
+        this.cBa.a(this.cBa.getView(), false, this.cBa.getResources().getDimensionPixelSize(i.d.ds360));
     }
 }

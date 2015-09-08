@@ -8,11 +8,11 @@ import com.baidu.tbadk.img.a;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class i implements a.c {
-    final /* synthetic */ h chZ;
+    final /* synthetic */ h ciU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.chZ = hVar;
+        this.ciU = hVar;
     }
 
     @Override // com.baidu.tbadk.img.a.c
@@ -22,14 +22,14 @@ class i implements a.c {
         EditHeadActivity editHeadActivity3;
         EditHeadActivity editHeadActivity4;
         EditHeadActivity editHeadActivity5;
-        editHeadActivity = this.chZ.this$0;
+        editHeadActivity = this.ciU.this$0;
         editHeadActivity.closeLoadingDialog();
-        editHeadActivity2 = this.chZ.this$0;
+        editHeadActivity2 = this.ciU.this$0;
         Intent intent = editHeadActivity2.getIntent();
         if (imageUploadResult != null) {
             if (imageUploadResult.error_code != 0) {
-                editHeadActivity5 = this.chZ.this$0;
-                editHeadActivity5.showToast(i.C0057i.upload_pic_error, false);
+                editHeadActivity5 = this.ciU.this$0;
+                editHeadActivity5.showToast(i.h.upload_pic_error, false);
             } else {
                 PhotoUrlData photoUrlData = new PhotoUrlData();
                 photoUrlData.setPicId(String.valueOf(imageUploadResult.picId));
@@ -48,9 +48,9 @@ class i implements a.c {
                 intent.putExtra(EditHeadActivity.PIC_INFO, photoUrlData);
             }
         }
-        editHeadActivity3 = this.chZ.this$0;
+        editHeadActivity3 = this.ciU.this$0;
         editHeadActivity3.setResult(-1, intent);
-        editHeadActivity4 = this.chZ.this$0;
+        editHeadActivity4 = this.ciU.this$0;
         editHeadActivity4.finish();
     }
 }

@@ -217,7 +217,7 @@ public class BdListView extends ListView {
         }
     }
 
-    public void nx() {
+    public void nu() {
         removeCallbacks(this.HO);
     }
 
@@ -464,7 +464,7 @@ public class BdListView extends ListView {
 
     public void setPullRefresh(com.baidu.adp.widget.ListView.d dVar) {
         if (this.HT != null) {
-            removeHeaderView(this.HT.nA().getView());
+            removeHeaderView(this.HT.nx().getView());
         }
         this.HT = null;
         if (dVar != null) {
@@ -477,10 +477,10 @@ public class BdListView extends ListView {
         if (this.HT == null) {
             return;
         }
-        this.HT.nB();
+        this.HT.ny();
     }
 
-    public void ny() {
+    public void nv() {
         if (this.HT != null) {
             setSelection(0);
             this.HT.W(true);
@@ -508,7 +508,7 @@ public class BdListView extends ListView {
         }
     }
 
-    public boolean nz() {
+    public boolean nw() {
         return this.HT == null || this.HT.mState == 3;
     }
 
@@ -537,18 +537,18 @@ public class BdListView extends ListView {
             this.HW = dVar;
             this.mListView = bdListView;
             View view = this.HW.getView();
-            view.setPadding(0, -this.HW.nt(), 0, 0);
+            view.setPadding(0, -this.HW.nq(), 0, 0);
             view.invalidate();
             this.mListView.g(view);
         }
 
-        public com.baidu.adp.widget.ListView.d nA() {
+        public com.baidu.adp.widget.ListView.d nx() {
             return this.HW;
         }
 
         public void done() {
             this.mState = 3;
-            this.HW.setPadding(0, -this.HW.nt(), 0, 0);
+            this.HW.setPadding(0, -this.HW.nq(), 0, 0);
             this.HW.S(true);
             if (this.HD != null) {
                 this.HD.V(false);
@@ -558,7 +558,7 @@ public class BdListView extends ListView {
         public void W(boolean z) {
             this.mState = 2;
             this.HW.setPadding(0, 0, 0, 0);
-            this.HW.ns();
+            this.HW.np();
             this.HW.T(z);
         }
 
@@ -567,7 +567,7 @@ public class BdListView extends ListView {
         }
 
         public void a(MotionEvent motionEvent, int i) {
-            if (motionEvent.getAction() == 0 && nA().isEnable()) {
+            if (motionEvent.getAction() == 0 && nx().isEnable()) {
                 this.HX = false;
                 this.HZ = false;
                 if (i == 0 && !this.HX) {
@@ -578,14 +578,14 @@ public class BdListView extends ListView {
         }
 
         public void b(MotionEvent motionEvent, int i) {
-            if (nA().isEnable()) {
+            if (nx().isEnable()) {
                 switch (motionEvent.getAction()) {
                     case 1:
                     case 3:
                         if (this.mState != 2) {
                             if (this.mState == 1) {
                                 this.mState = 3;
-                                this.HW.setPadding(0, -this.HW.nt(), 0, 0);
+                                this.HW.setPadding(0, -this.HW.nq(), 0, 0);
                                 this.HW.S(false);
                                 if (this.HD != null) {
                                     this.HD.V(true);
@@ -616,7 +616,7 @@ public class BdListView extends ListView {
                         if (this.mState != 2 && this.HX) {
                             if (this.mState == 0) {
                                 this.mListView.setSelection(0);
-                                if (((int) ((y - this.HY) / HV)) < this.HW.nt() && y - this.HY > 0) {
+                                if (((int) ((y - this.HY) / HV)) < this.HW.nq() && y - this.HY > 0) {
                                     this.mState = 1;
                                     this.HW.R(this.HZ.booleanValue());
                                     this.HZ = false;
@@ -625,7 +625,7 @@ public class BdListView extends ListView {
                                     }
                                 } else if (y - this.HY <= 0) {
                                     this.mState = 3;
-                                    this.HW.setPadding(0, -this.HW.nt(), 0, 0);
+                                    this.HW.setPadding(0, -this.HW.nq(), 0, 0);
                                     this.HW.S(false);
                                     if (this.HD != null) {
                                         this.HD.V(true);
@@ -633,16 +633,16 @@ public class BdListView extends ListView {
                                 }
                             } else if (this.mState == 1) {
                                 this.mListView.setSelection(0);
-                                if (((int) ((y - this.HY) / HV)) >= this.HW.nt()) {
+                                if (((int) ((y - this.HY) / HV)) >= this.HW.nq()) {
                                     this.mState = 0;
                                     this.HZ = true;
-                                    this.HW.nr();
+                                    this.HW.no();
                                     if (this.HD != null) {
                                         this.HD.V(true);
                                     }
                                 } else if (y - this.HY <= 0) {
                                     this.mState = 3;
-                                    this.HW.setPadding(0, -this.HW.nt(), 0, 0);
+                                    this.HW.setPadding(0, -this.HW.nq(), 0, 0);
                                     this.HW.S(false);
                                     if (this.HD != null) {
                                         this.HD.V(true);
@@ -661,7 +661,7 @@ public class BdListView extends ListView {
                                 }
                             }
                             if (this.mState == 1 || this.mState == 0) {
-                                this.HW.setPadding(0, ((int) ((y - this.HY) / HV)) - this.HW.nt(), 0, 0);
+                                this.HW.setPadding(0, ((int) ((y - this.HY) / HV)) - this.HW.nq(), 0, 0);
                                 return;
                             }
                             return;
@@ -674,11 +674,11 @@ public class BdListView extends ListView {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void nB() {
+        public void ny() {
             View view;
-            com.baidu.adp.widget.ListView.d nA = nA();
-            if (nA != null && (view = nA.getView()) != null) {
-                q qVar = new q(view.getContext(), 0, -nA.nt(), this.Ia);
+            com.baidu.adp.widget.ListView.d nx = nx();
+            if (nx != null && (view = nx.getView()) != null) {
+                q qVar = new q(view.getContext(), 0, -nx.nq(), this.Ia);
                 qVar.a(new p(this));
                 qVar.h(view);
             }

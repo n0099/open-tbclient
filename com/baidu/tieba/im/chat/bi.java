@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class bi {
-    private TbPageContext<MsglistActivity<?>> LS;
-    private List<ap> aVP;
-    private BdTypeListView aVy;
-    private MsgLeftViewItemAdapter boJ;
-    private MsgRightViewItemAdapter boK;
-    private MsgMidViewItemAdapter boL;
-    private CustomMessageListener boM;
+    private BdTypeListView aVN;
+    private List<ap> aWg;
+    private MsgLeftViewItemAdapter bph;
+    private MsgRightViewItemAdapter bpi;
+    private MsgMidViewItemAdapter bpj;
+    private CustomMessageListener bpk;
+    private TbPageContext<MsglistActivity<?>> mContext;
     private List<ChatMessage> mData;
 
     public bi(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView) {
@@ -27,61 +27,61 @@ public class bi {
 
     public bi(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
         this.mData = null;
-        this.aVP = new ArrayList();
-        this.boM = new bj(this, CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN);
-        this.LS = tbPageContext;
-        this.aVy = bdTypeListView;
-        Ri();
-        this.boJ.gs(i);
-        this.boK.gs(i);
+        this.aWg = new ArrayList();
+        this.bpk = new bj(this, CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN);
+        this.mContext = tbPageContext;
+        this.aVN = bdTypeListView;
+        Rk();
+        this.bph.gC(i);
+        this.bpi.gC(i);
     }
 
-    private void Ri() {
-        this.boJ = new MsgLeftViewItemAdapter(this.LS, ChatMessage.TYPE_MSG_LEFT);
-        this.boJ.cE(true);
-        this.boJ.cD(true);
-        this.boK = new MsgRightViewItemAdapter(this.LS, ChatMessage.TYPE_MSG_RIGHT);
-        this.boK.cE(true);
-        this.boK.cD(true);
-        this.boL = new MsgMidViewItemAdapter(this.LS, ChatMessage.TYPE_MSG_MID);
-        this.aVP.add(this.boJ);
-        this.aVP.add(this.boK);
-        this.aVP.add(this.boL);
+    private void Rk() {
+        this.bph = new MsgLeftViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_LEFT);
+        this.bph.cJ(true);
+        this.bph.cI(true);
+        this.bpi = new MsgRightViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_RIGHT);
+        this.bpi.cJ(true);
+        this.bpi.cI(true);
+        this.bpj = new MsgMidViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_MID);
+        this.aWg.add(this.bph);
+        this.aWg.add(this.bpi);
+        this.aWg.add(this.bpj);
         initListener();
         MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-        aVar.bob = new ArrayList();
-        aVar.context = this.LS;
+        aVar.boz = new ArrayList();
+        aVar.context = this.mContext;
         MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
     }
 
     private void initListener() {
-        this.boM.setPriority(Integer.MAX_VALUE);
-        this.LS.registerListener(this.boM);
+        this.bpk.setPriority(Integer.MAX_VALUE);
+        this.mContext.registerListener(this.bpk);
     }
 
-    public void cF(boolean z) {
-        if (this.boJ != null) {
-            this.boJ.cF(z);
+    public void cK(boolean z) {
+        if (this.bph != null) {
+            this.bph.cK(z);
         }
     }
 
-    public void cG(boolean z) {
-        if (this.boK != null) {
-            this.boK.cG(z);
+    public void cL(boolean z) {
+        if (this.bpi != null) {
+            this.bpi.cL(z);
         }
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        for (ap apVar : this.aVP) {
-            if (apVar.Rf()) {
+        for (ap apVar : this.aWg) {
+            if (apVar.Rh()) {
                 apVar.a(aVar);
             }
         }
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        for (ap apVar : this.aVP) {
-            if (apVar.Re()) {
+        for (ap apVar : this.aWg) {
+            if (apVar.Rg()) {
                 apVar.setOnItemViewLongClickListener(bVar);
             }
         }
@@ -92,20 +92,20 @@ public class bi {
     }
 
     public void e(ChatMessage chatMessage) {
-        if (this.aVy.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            ((com.baidu.adp.widget.ListView.e) this.aVy.getAdapter()).notifyDataSetChanged();
+        if (this.aVN.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            ((com.baidu.adp.widget.ListView.e) this.aVN.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.aVy.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            ((com.baidu.adp.widget.ListView.e) this.aVy.getAdapter()).notifyDataSetChanged();
+        if (this.aVN.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            ((com.baidu.adp.widget.ListView.e) this.aVN.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.aVy.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            ((com.baidu.adp.widget.ListView.e) this.aVy.getAdapter()).notifyDataSetInvalidated();
+        if (this.aVN.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            ((com.baidu.adp.widget.ListView.e) this.aVN.getAdapter()).notifyDataSetInvalidated();
         }
     }
 
@@ -124,22 +124,22 @@ public class bi {
             }
             arrayList.addAll(this.mData);
         }
-        this.aVy.setData(arrayList);
+        this.aVN.setData(arrayList);
     }
 
-    public void gs(int i) {
-        if (this.boJ != null) {
-            this.boJ.gs(i);
+    public void gC(int i) {
+        if (this.bph != null) {
+            this.bph.gC(i);
         }
-        if (this.boK != null) {
-            this.boK.gs(i);
+        if (this.bpi != null) {
+            this.bpi.gC(i);
         }
     }
 
     public void onDestory() {
-        if (this.boM != null) {
-            MessageManager.getInstance().unRegisterListener(this.boM);
-            this.boM = null;
+        if (this.bpk != null) {
+            MessageManager.getInstance().unRegisterListener(this.bpk);
+            this.bpk = null;
         }
     }
 }

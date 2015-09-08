@@ -1,28 +1,82 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.view.ViewTreeObserver;
+import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class p extends CustomMessageListener {
-    final /* synthetic */ LiveBroadcastCard alq;
+public class p {
+    private ViewTreeObserver.OnGlobalLayoutListener ame;
+    private String labelName = "";
+    private int ama = 0;
+    private boolean amb = false;
+    private String labelId = "";
+    private int amc = 0;
+    private boolean amd = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(LiveBroadcastCard liveBroadcastCard, int i) {
-        super(i);
-        this.alq = liveBroadcastCard;
+    public void setLabelName(String str) {
+        this.labelName = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        long j;
-        if (customResponsedMessage != null) {
-            j = this.alq.mStartTime;
-            if (j <= 0) {
-                return;
-            }
-            this.alq.dealStatusWillStart();
+    public String getLabelName() {
+        return this.labelName;
+    }
+
+    public void dC(int i) {
+        this.ama = i;
+    }
+
+    public int zj() {
+        return this.ama;
+    }
+
+    public void aU(boolean z) {
+        this.amb = z;
+    }
+
+    public boolean zk() {
+        return this.amb;
+    }
+
+    public void setLabelId(String str) {
+        this.labelId = str;
+    }
+
+    public String zl() {
+        return this.labelId;
+    }
+
+    public void aV(boolean z) {
+        this.amd = z;
+    }
+
+    public boolean zm() {
+        return this.amd;
+    }
+
+    public void a(ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener) {
+        this.ame = onGlobalLayoutListener;
+    }
+
+    public ViewTreeObserver.OnGlobalLayoutListener zn() {
+        return this.ame;
+    }
+
+    public SpannableStringBuilder al(String str, String str2) {
+        String str3 = String.valueOf(str) + "(" + aq.r(com.baidu.adp.lib.g.b.c(str2, 0L)) + ")";
+        if (com.baidu.adp.lib.g.b.c(str2, 0L) > 0) {
+            str = str3;
         }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+        if (com.baidu.adp.lib.g.b.c(str2, 0L) <= 0) {
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(al.getColor(i.c.cp_cont_i)), 0, str.length(), 33);
+        } else {
+            int indexOf = str.indexOf("(");
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(al.getColor(i.c.cp_cont_i)), 0, indexOf, 33);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(al.getColor(i.c.cp_link_tip_d)), indexOf, str.length(), 33);
+        }
+        return spannableStringBuilder;
     }
 }

@@ -12,11 +12,11 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements af.b {
-    final /* synthetic */ a bDl;
+    final /* synthetic */ a bDS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bDl = aVar;
+        this.bDS = aVar;
     }
 
     @Override // com.baidu.tieba.im.c.af.b
@@ -24,7 +24,7 @@ public class b implements af.b {
         ae aeVar;
         ae aeVar2;
         try {
-            a.Ws().l(chatMessage);
+            a.Wu().l(chatMessage);
             if (chatMessage != null) {
                 if (str != null && str.length() > 0) {
                     VoiceMsgData v = com.baidu.tieba.im.util.h.v(chatMessage);
@@ -33,11 +33,11 @@ public class b implements af.b {
                         chatMessage.setContent("[" + com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(v) + "]");
                     }
                     com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
-                    a.Ws().n(chatMessage);
-                    aeVar = this.bDl.mSendCallback;
+                    a.Wu().n(chatMessage);
+                    aeVar = this.bDS.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.bDl.mSendCallback;
-                        aeVar2.hj(2);
+                        aeVar2 = this.bDS.mSendCallback;
+                        aeVar2.ht(2);
                         return;
                     }
                     return;

@@ -1,31 +1,31 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.widget.EditText;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.style.ImageSpan;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 /* loaded from: classes.dex */
-class bc implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cUM;
+class bc implements TbFaceManager.a {
+    final /* synthetic */ WriteActivity ddQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(WriteActivity writeActivity) {
-        this.cUM = writeActivity;
+        this.ddQ = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.tbadk.editortools.j jVar;
-        int auW;
-        EditText editText;
-        EditText editText2;
-        jVar = this.cUM.cUo;
-        jVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-        auW = this.cUM.auW();
-        if (auW >= 0) {
-            editText = this.cUM.cSo;
-            if (auW < editText.getText().length()) {
-                editText2 = this.cUM.cSo;
-                editText2.setSelection(auW);
-            }
+    @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
+    public ImageSpan fg(String str) {
+        com.baidu.adp.widget.a.a eN = com.baidu.tbadk.editortools.emotiontool.t.Bp().eN(str);
+        if (eN == null) {
+            eN = com.baidu.tbadk.editortools.emotiontool.t.Bp().am(null, str);
         }
+        if (eN == null) {
+            return null;
+        }
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(eN.mZ());
+        int width = eN.getWidth();
+        bitmapDrawable.setBounds(0, 0, width, width);
+        bitmapDrawable.setGravity(SocialAPIErrorCodes.ERROR_INVALID_SECRET_KEY);
+        return new ImageSpan(bitmapDrawable, 0);
     }
 }

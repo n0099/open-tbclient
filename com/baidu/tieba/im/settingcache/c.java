@@ -5,26 +5,26 @@ import com.baidu.adp.lib.cache.o;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class c extends a {
-    private static c bDF = new c();
+    private static c bEm = new c();
 
     private c() {
     }
 
-    public static c Wv() {
-        return bDF;
+    public static c Wx() {
+        return bEm;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: aL */
-    public GroupSettingItemData aJ(String str, String str2) {
+    /* renamed from: aN */
+    public GroupSettingItemData aL(String str, String str2) {
         GroupSettingItemData groupSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.bDC) {
-            com.baidu.tieba.im.pushNotify.a aVar = this.bDC.get(str3);
+        synchronized (this.bEj) {
+            com.baidu.tieba.im.pushNotify.a aVar = this.bEj.get(str3);
             groupSettingItemData = aVar instanceof GroupSettingItemData ? (GroupSettingItemData) aVar : null;
         }
         if (groupSettingItemData == null) {
@@ -33,7 +33,7 @@ public class c extends a {
             groupSettingItemData2.setGid(str2);
             groupSettingItemData2.setAcceptNotify(true);
             groupSettingItemData2.setInGroup(true);
-            if (com.baidu.adp.lib.util.k.je()) {
+            if (com.baidu.adp.lib.util.k.jb()) {
                 a(groupSettingItemData2, null);
                 return groupSettingItemData2;
             }
@@ -43,24 +43,24 @@ public class c extends a {
         return groupSettingItemData;
     }
 
-    public void SU() {
+    public void SW() {
         super.l(GroupSettingItemData.class);
     }
 
     public void b(String str, String str2, boolean z, com.baidu.tieba.im.g<Void> gVar) {
-        GroupSettingItemData aJ = aJ(str, str2);
-        if (aJ != null) {
-            aJ.setAlreadyApply(z);
-            aJ.setLastApplyTimeStamp(System.currentTimeMillis());
-            a(aJ, gVar);
+        GroupSettingItemData aL = aL(str, str2);
+        if (aL != null) {
+            aL.setAlreadyApply(z);
+            aL.setLastApplyTimeStamp(System.currentTimeMillis());
+            a(aL, gVar);
         }
     }
 
     public void c(String str, String str2, boolean z, com.baidu.tieba.im.g<Void> gVar) {
-        GroupSettingItemData aJ = aJ(str, str2);
-        if (aJ != null) {
-            aJ.setInGroup(z);
-            a(aJ, gVar);
+        GroupSettingItemData aL = aL(str, str2);
+        if (aL != null) {
+            aL.setInGroup(z);
+            a(aL, gVar);
         }
     }
 
@@ -70,8 +70,8 @@ public class c extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public o<String> Wu() {
-        return com.baidu.tbadk.core.b.a.sM().ck("tb.im_group_setting");
+    public o<String> Ww() {
+        return com.baidu.tbadk.core.b.a.sR().cq("tb.im_group_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -86,13 +86,13 @@ public class c extends a {
                 }
                 return;
             }
-            o<String> Wu = Wu();
+            o<String> Ww = Ww();
             String str = String.valueOf(uid) + "@" + gid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(groupSettingItemData);
-            synchronized (this.bDC) {
-                this.bDC.put(str, groupSettingItemData);
+            synchronized (this.bEj) {
+                this.bEj.put(str, groupSettingItemData);
             }
-            Wu.f(str, jsonStrWithObject);
+            Ww.f(str, jsonStrWithObject);
         }
     }
 
@@ -109,8 +109,8 @@ public class c extends a {
                 return;
             }
             String str = String.valueOf(uid) + "@" + gid;
-            synchronized (this.bDC) {
-                this.bDC.put(str, groupSettingItemData);
+            synchronized (this.bEj) {
+                this.bEj.put(str, groupSettingItemData);
             }
             com.baidu.tieba.im.l.a(new e(this, groupSettingItemData, str), gVar);
         }
@@ -119,8 +119,8 @@ public class c extends a {
     public void b(String str, String str2, com.baidu.tieba.im.g<Void> gVar) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             String str3 = String.valueOf(str) + "@" + str2;
-            synchronized (this.bDC) {
-                this.bDC.remove(str3);
+            synchronized (this.bEj) {
+                this.bEj.remove(str3);
             }
             com.baidu.tieba.im.l.a(new f(this, str3), gVar);
         }

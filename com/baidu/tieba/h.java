@@ -9,20 +9,20 @@ import com.baidu.tbadk.core.util.as;
 import java.io.File;
 /* loaded from: classes.dex */
 public class h {
-    private com.baidu.tbadk.coreExtra.c.b aCD = new com.baidu.tbadk.coreExtra.c.b();
+    private com.baidu.tbadk.coreExtra.c.b aEl = new com.baidu.tbadk.coreExtra.c.b();
 
-    public Bitmap as(Context context) {
+    public Bitmap ar(Context context) {
         Bitmap bitmap = null;
-        String xL = this.aCD.xL();
-        if (!StringUtils.isNull(xL)) {
+        String xS = this.aEl.xS();
+        if (!StringUtils.isNull(xS)) {
             try {
-                File cC = com.baidu.tbadk.core.util.n.cC(as.dc(xL));
-                if (cC == null) {
-                    this.aCD.xM();
+                File cI = com.baidu.tbadk.core.util.n.cI(as.di(xS));
+                if (cI == null) {
+                    this.aEl.xT();
                 } else {
-                    bitmap = BitmapFactory.decodeFile(cC.getAbsolutePath());
+                    bitmap = BitmapFactory.decodeFile(cI.getAbsolutePath());
                     if (bitmap == null) {
-                        this.aCD.xM();
+                        this.aEl.xT();
                     }
                 }
             } catch (Throwable th) {

@@ -5,28 +5,28 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.write.write.AtSelectFriendList;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ AtSelectFriendList cTr;
+    final /* synthetic */ AtSelectFriendList dco;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(AtSelectFriendList atSelectFriendList) {
-        this.cTr = atSelectFriendList;
+        this.dco = atSelectFriendList;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         LinearLayout linearLayout;
-        boolean YA;
+        boolean YC;
         AtSelectFriendList.a aVar;
         AtSelectFriendList.a aVar2;
-        linearLayout = this.cTr.bJe;
+        linearLayout = this.dco.bJL;
         linearLayout.removeView(view);
-        YA = this.cTr.YA();
-        if (!YA) {
-            this.cTr.Yy();
+        YC = this.dco.YC();
+        if (!YC) {
+            this.dco.YA();
         }
-        aVar = this.cTr.cTq;
+        aVar = this.dco.dcn;
         if (aVar != null) {
-            aVar2 = this.cTr.cTq;
+            aVar2 = this.dco.dcn;
             aVar2.a(view, view.getTag());
         }
     }

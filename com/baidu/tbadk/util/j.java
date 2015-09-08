@@ -4,15 +4,15 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.v;
 /* loaded from: classes.dex */
 public class j extends Thread {
-    private int azq;
-    private int azr;
+    private int aAY;
+    private int aAZ;
     private String type = null;
 
     public j(int i, int i2) {
-        this.azq = 0;
-        this.azr = 0;
-        this.azq = i;
-        this.azr = i2;
+        this.aAY = 0;
+        this.aAZ = 0;
+        this.aAY = i;
+        this.aAZ = i2;
     }
 
     public void setType(String str) {
@@ -23,11 +23,11 @@ public class j extends Thread {
     public void run() {
         super.run();
         v vVar = new v(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
-        vVar.o("img_num", String.valueOf(this.azq));
-        vVar.o("img_total", String.valueOf(this.azr));
+        vVar.o("img_num", String.valueOf(this.aAY));
+        vVar.o("img_total", String.valueOf(this.aAZ));
         if (this.type != null) {
             vVar.o("img_type", this.type);
         }
-        vVar.tD();
+        vVar.tI();
     }
 }

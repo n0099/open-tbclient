@@ -17,9 +17,9 @@ public class i implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        com.baidu.adp.lib.cache.o<String> V = com.baidu.tbadk.core.b.a.sM().V("tb.searchperson_history", currentAccount);
+        com.baidu.adp.lib.cache.o<String> V = com.baidu.tbadk.core.b.a.sR().V("tb.searchperson_history", currentAccount);
         if (requestSearchPersonHistoryWriteMessage.isClear()) {
-            BdCacheService.go().a(V);
+            BdCacheService.gl().a(V);
         } else {
             Object data = requestSearchPersonHistoryWriteMessage.getData();
             if (data == null || !(data instanceof String)) {

@@ -13,18 +13,18 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class h extends PagerAdapter {
-    private int Bp;
-    private com.baidu.tbadk.img.b cPM;
-    private AlbumActivity cPQ;
-    private Map<Integer, Boolean> cQg = new HashMap();
+    private int Bn;
+    private AlbumActivity cYB;
+    private Map<Integer, Boolean> cYR = new HashMap();
+    private com.baidu.tbadk.img.b cYw;
     private List<ImageFileInfo> mList;
     private int mMaxHeight;
 
     public h(AlbumActivity albumActivity, com.baidu.tbadk.img.b bVar) {
-        this.cPQ = albumActivity;
-        this.cPM = bVar;
-        this.Bp = com.baidu.adp.lib.util.k.K(this.cPQ.getPageContext().getContext());
-        this.mMaxHeight = com.baidu.adp.lib.util.k.L(this.cPQ.getPageContext().getContext()) - ((int) this.cPQ.getResources().getDimension(i.d.album_bottom_height));
+        this.cYB = albumActivity;
+        this.cYw = bVar;
+        this.Bn = com.baidu.adp.lib.util.k.K(this.cYB.getPageContext().getContext());
+        this.mMaxHeight = com.baidu.adp.lib.util.k.L(this.cYB.getPageContext().getContext()) - ((int) this.cYB.getResources().getDimension(i.d.album_bottom_height));
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -50,38 +50,38 @@ public class h extends PagerAdapter {
         ((ViewPager) viewGroup).removeView((View) obj);
     }
 
-    public ImageFileInfo kg(int i) {
+    public ImageFileInfo kR(int i) {
         if (i < 0 || i >= getCount()) {
             return null;
         }
         return this.mList.get(i);
     }
 
-    public boolean kh(int i) {
-        if (this.cQg.get(Integer.valueOf(i)) == null) {
+    public boolean kS(int i) {
+        if (this.cYR.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.cQg.get(Integer.valueOf(i)).booleanValue();
+        return this.cYR.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(this.cPQ.getPageContext().getContext()).inflate(i.g.album_big_image_item, (ViewGroup) null);
+        View inflate = LayoutInflater.from(this.cYB.getPageContext().getContext()).inflate(i.g.album_big_image_item, (ViewGroup) null);
         TbImageView tbImageView = (TbImageView) inflate.findViewById(i.f.big_image);
         tbImageView.setTag(null);
         tbImageView.setDefaultResource(0);
         tbImageView.setDefaultBgResource(0);
-        ImageFileInfo kg = kg(i);
-        this.cQg.put(Integer.valueOf(i), false);
-        if (kg != null) {
-            kg.clearPageActions();
-            kg.addPageAction(com.baidu.tbadk.img.effect.d.J(this.Bp, this.mMaxHeight));
-            tbImageView.setTag(kg.toCachedKey(false));
-            if (this.cPM.a(kg, false) != null) {
+        ImageFileInfo kR = kR(i);
+        this.cYR.put(Integer.valueOf(i), false);
+        if (kR != null) {
+            kR.clearPageActions();
+            kR.addPageAction(com.baidu.tbadk.img.effect.d.J(this.Bn, this.mMaxHeight));
+            tbImageView.setTag(kR.toCachedKey(false));
+            if (this.cYw.a(kR, false) != null) {
                 tbImageView.invalidate();
-                this.cQg.put(Integer.valueOf(i), true);
+                this.cYR.put(Integer.valueOf(i), true);
             } else {
-                this.cPM.a(kg, new i(this, viewGroup, i), false);
+                this.cYw.a(kR, new i(this, viewGroup, i), false);
             }
         }
         ((ViewPager) viewGroup).addView(inflate, 0);

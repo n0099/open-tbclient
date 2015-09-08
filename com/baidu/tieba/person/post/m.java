@@ -1,19 +1,38 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.tbadk.core.view.x;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.person.PersonPostModel;
+import com.baidu.tieba.person.UserPostPageHttpResponseMessage;
+import com.baidu.tieba.person.UserPostPageRequestMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m implements x.a {
-    final /* synthetic */ i clg;
+public class m extends HttpMessageListener {
+    final /* synthetic */ j cmb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(i iVar) {
-        this.clg = iVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m(j jVar, int i) {
+        super(i);
+        this.cmb = jVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.x.a
-    public void onListPullRefresh(boolean z) {
-        f fVar;
-        fVar = this.clg.ckX;
-        fVar.eI(true);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        PersonPostModel.a aVar;
+        PersonPostModel.a aVar2;
+        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
+            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
+            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
+                aVar2 = this.cmb.clI;
+                aVar2.a(null, false);
+                return;
+            }
+            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
+            if (!userPostPageRequestMessage.isThread() && (aVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
+                aVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+            }
+        }
     }
 }

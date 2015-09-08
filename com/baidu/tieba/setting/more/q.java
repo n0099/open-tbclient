@@ -6,18 +6,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l cxv;
+    final /* synthetic */ l cFS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(l lVar) {
-        this.cxv = lVar;
+        this.cFS = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         com.baidu.tbadk.core.dialog.e eVar;
-        eVar = this.cxv.cxl;
-        eVar.bL(i);
+        eVar = this.cFS.cFI;
+        eVar.bO(i);
         switch (i) {
             case 0:
                 TbadkCoreApplication.m411getInst().setFontSize(1);
@@ -29,6 +29,6 @@ public class q implements AdapterView.OnItemClickListener {
                 TbadkCoreApplication.m411getInst().setFontSize(3);
                 break;
         }
-        this.cxv.alm();
+        this.cFS.apt();
     }
 }

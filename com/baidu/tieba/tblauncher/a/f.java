@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.b {
-    final /* synthetic */ d cNj;
+    final /* synthetic */ d cVQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.cNj = dVar;
+        this.cVQ = dVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

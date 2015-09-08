@@ -1,15 +1,17 @@
 package com.baidu.tbadk.coreExtra.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class BaseWebView extends WebView {
-    private static final String TAG = "BaseWebView";
     private Context mContext;
     private b mDownloadListener;
     private b mOnLoadUrlListener;
@@ -76,11 +78,54 @@ public class BaseWebView extends WebView {
     public void init() {
         getSettings().setJavaScriptEnabled(true);
         getSettings().setCacheMode(2);
-        com.baidu.tbadk.browser.f.WebViewNoDataBase(getSettings());
+        com.baidu.tbadk.browser.g.WebViewNoDataBase(getSettings());
         this.mWebViewClient = new a();
         setWebViewClient(this.mWebViewClient);
-        setWebChromeClient(new WebChromeClient());
+        setWebChromeClient(new f(this, null));
         setOnLongClickListener(new com.baidu.tbadk.coreExtra.view.b(this));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public class f extends WebChromeClient {
+        private f() {
+        }
+
+        /* synthetic */ f(BaseWebView baseWebView, f fVar) {
+            this();
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.j.k((Activity) BaseWebView.this.getContext())) {
+                return super.onJsAlert(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.j.k((Activity) BaseWebView.this.getContext())) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.j.k((Activity) BaseWebView.this.getContext())) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+
+        @Override // android.webkit.WebChromeClient
+        public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+            if ((BaseWebView.this.getContext() instanceof Activity) && com.baidu.adp.lib.g.j.k((Activity) BaseWebView.this.getContext())) {
+                return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+            }
+            return true;
+        }
     }
 
     /* loaded from: classes.dex */

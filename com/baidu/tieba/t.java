@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.i;
-import com.baidu.tieba.tbadkCore.af;
+import com.baidu.tieba.tbadkCore.ag;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class t {
@@ -21,14 +21,14 @@ public class t {
         String str = null;
         try {
             String versionName = TbadkCoreApplication.m411getInst().getVersionName();
-            String string = com.baidu.tbadk.core.sharedPref.b.ts().getString("version_name", "");
+            String string = com.baidu.tbadk.core.sharedPref.b.tx().getString("version_name", "");
             if (!TextUtils.isEmpty(versionName)) {
                 if (versionName.equals(string)) {
-                    str = com.baidu.tbadk.core.sharedPref.b.ts().getString("apk_md5", "");
+                    str = com.baidu.tbadk.core.sharedPref.b.tx().getString("apk_md5", "");
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.ts().putString("version_name", versionName);
+                    com.baidu.tbadk.core.sharedPref.b.tx().putString("version_name", versionName);
                     String d = as.d(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m411getInst().getContext().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.ts().putString("apk_md5", d);
+                    com.baidu.tbadk.core.sharedPref.b.tx().putString("apk_md5", d);
                     str = d;
                 }
             }
@@ -51,7 +51,7 @@ public class t {
     }
 
     public static boolean a(Context context, CombineDownload combineDownload) {
-        return (combineDownload == null || af.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
+        return (combineDownload == null || ag.isInstalledPackage(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true;
     }
 
     public static void a(Context context, VersionData versionData) {
@@ -72,7 +72,7 @@ public class t {
         bundle.putInt("versioncode", versionData.getNewVersionCode());
         bundle.putLong("patch_size", com.baidu.adp.lib.g.b.c(versionData.getPatchSize(), 0L));
         bundle.putString("patch_url", versionData.getPatch());
-        bundle.putString("sname", context.getString(i.C0057i.app_name));
+        bundle.putString("sname", context.getString(i.h.app_name));
         bundle.putString("packagename", TbadkCoreApplication.m411getInst().getContext().getPackageName());
         bundle.putString("downurl", versionData.getUrl());
         bundle.putString("versionname", versionData.getNewVersion());
@@ -80,7 +80,7 @@ public class t {
         bundle.putString("updatetime", aq.d(new Date(System.currentTimeMillis())));
         bundle.putString("size", versionData.getSize());
         bundle.putString("signmd5", str);
-        bundle.putString("tj", String.valueOf(str) + context.getString(i.C0057i.app_name));
+        bundle.putString("tj", String.valueOf(str) + context.getString(i.h.app_name));
         intent.putExtra("extra_client_downloadinfo", bundle);
         context.startActivity(intent);
     }

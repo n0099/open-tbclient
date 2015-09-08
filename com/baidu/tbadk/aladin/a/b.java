@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private String Sa;
+    private String RY;
     private int errorCode = 0;
     private Intent intent;
     private String response;
@@ -20,12 +20,12 @@ public class b {
         }
     }
 
-    public boolean qi() {
-        HashMap<String, String> i;
-        if (this.url == null || (i = i(this.url.split("&"))) == null) {
+    public boolean qf() {
+        HashMap<String, String> j;
+        if (this.url == null || (j = j(this.url.split("&"))) == null) {
             return false;
         }
-        for (Map.Entry<String, String> entry : i.entrySet()) {
+        for (Map.Entry<String, String> entry : j.entrySet()) {
             if (entry != null) {
                 String key = entry.getKey();
                 String value = entry.getValue();
@@ -33,8 +33,8 @@ public class b {
                     if ("intent".equals(key)) {
                         bP(value);
                     } else if (!Info.kBaiduTimeKey.equals(key) && "callback".equals(key)) {
-                        this.Sa = value;
-                        qj();
+                        this.RY = value;
+                        qg();
                     }
                 }
             }
@@ -111,13 +111,13 @@ public class b {
         }
     }
 
-    private void qj() {
-        if (this.Sa != null) {
-            this.response = String.valueOf(this.Sa) + "({\"error\":" + this.errorCode + "})";
+    private void qg() {
+        if (this.RY != null) {
+            this.response = String.valueOf(this.RY) + "({\"error\":" + this.errorCode + "})";
         }
     }
 
-    private HashMap<String, String> i(String[] strArr) {
+    private HashMap<String, String> j(String[] strArr) {
         if (strArr != null && strArr.length > 0) {
             HashMap<String, String> hashMap = new HashMap<>(strArr.length);
             for (String str : strArr) {
@@ -142,15 +142,15 @@ public class b {
         return this.intent;
     }
 
-    public String qk() {
+    public String qh() {
         if (this.response == null) {
-            qj();
+            qg();
         }
         return this.response;
     }
 
     public void setErrorCode(int i) {
         this.errorCode = i;
-        qj();
+        qg();
     }
 }

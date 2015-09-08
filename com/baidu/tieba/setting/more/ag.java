@@ -4,15 +4,15 @@ import com.baidu.sapi2.SapiWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements SapiWebView.OnBackCallback {
-    final /* synthetic */ SapiWebViewActivity cyI;
+    final /* synthetic */ SapiWebViewActivity cHg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(SapiWebViewActivity sapiWebViewActivity) {
-        this.cyI = sapiWebViewActivity;
+        this.cHg = sapiWebViewActivity;
     }
 
     @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
     public void onBack() {
-        this.cyI.goBack();
+        this.cHg.goBack();
     }
 }

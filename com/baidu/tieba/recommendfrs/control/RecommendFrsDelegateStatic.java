@@ -15,12 +15,12 @@ public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public com.baidu.tbadk.mainTab.c Cz() {
+    public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.auR = new a();
+        cVar.awz = new a();
         cVar.type = 2;
-        cVar.auS = i.C0057i.recommend;
-        cVar.auT = i.e.icon_tabbar_essence;
+        cVar.awA = i.h.recommend;
+        cVar.awB = i.e.icon_tabbar_essence;
         return cVar;
     }
 
@@ -31,8 +31,8 @@ public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public FragmentTabIndicator an(Context context) {
-        this.auE = (FragmentTabIndicator) LayoutInflater.from(context).inflate(i.g.fragmenttabindicator, (ViewGroup) null);
-        return this.auE;
+    public FragmentTabIndicator getTabIndicator(Context context) {
+        this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(i.g.fragmenttabindicator, (ViewGroup) null);
+        return this.mIndicator;
     }
 }

@@ -123,7 +123,7 @@ public class a<K, V> {
         return this.size;
     }
 
-    public final synchronized int gg() {
+    public final synchronized int gd() {
         return this.maxSize;
     }
 

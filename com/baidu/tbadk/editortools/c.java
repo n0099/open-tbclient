@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class c extends ImageView implements p {
-    private int aoj;
+    private int apU;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -26,8 +26,8 @@ public class c extends ImageView implements p {
     }
 
     public void setIcon(int i) {
-        this.aoj = i;
-        setImageResource(this.aoj);
+        this.apU = i;
+        al.a(this, this.apU, this.mSkinType);
     }
 
     public void setToolId(int i) {
@@ -40,7 +40,7 @@ public class c extends ImageView implements p {
     }
 
     @Override // com.baidu.tbadk.editortools.p
-    public void oy() {
+    public void ov() {
         setVisibility(0);
     }
 
@@ -49,7 +49,7 @@ public class c extends ImageView implements p {
         setVisibility(8);
     }
 
-    public void ex(String str) {
+    public void eF(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -74,7 +74,7 @@ public class c extends ImageView implements p {
         }
     }
 
-    public void Ax() {
+    public void AK() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -89,9 +89,9 @@ public class c extends ImageView implements p {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                Ax();
+                AK();
             } else if (aVar.data instanceof String) {
-                ex((String) aVar.data);
+                eF((String) aVar.data);
             }
         }
     }
@@ -99,7 +99,7 @@ public class c extends ImageView implements p {
     @Override // com.baidu.tbadk.editortools.p
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        al.a(this, this.aoj, i);
+        al.a(this, this.apU, i);
         if (this.mTip != null) {
             al.a(this.mTip, i.c.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {

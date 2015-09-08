@@ -4,11 +4,11 @@ import com.baidu.tieba.mention.ae;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements ae.a {
-    final /* synthetic */ ak bWv;
+    final /* synthetic */ ak bXb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(ak akVar) {
-        this.bWv = akVar;
+        this.bXb = akVar;
     }
 
     @Override // com.baidu.tieba.mention.ae.a
@@ -19,23 +19,23 @@ public class al implements ae.a {
         FeedData feedData2;
         com.baidu.tbadk.editortools.c.n nVar3;
         FeedData feedData3;
-        this.bWv.mForumId = String.valueOf(j);
-        this.bWv.bWr = j2;
-        this.bWv.bWs = j3;
-        nVar = this.bWv.bWp;
+        this.bXb.mForumId = String.valueOf(j);
+        this.bXb.bWX = j2;
+        this.bXb.bWY = j3;
+        nVar = this.bXb.bWV;
         if (nVar != null) {
-            feedData = this.bWv.bWq;
+            feedData = this.bXb.bWW;
             if (feedData.getIsFloor()) {
-                feedData2 = this.bWv.bWq;
+                feedData2 = this.bXb.bWW;
                 if (feedData2.getReplyer() != null) {
-                    nVar3 = this.bWv.bWp;
-                    feedData3 = this.bWv.bWq;
-                    nVar3.eR(feedData3.getReplyer().getUserName());
+                    nVar3 = this.bXb.bWV;
+                    feedData3 = this.bXb.bWW;
+                    nVar3.eZ(feedData3.getReplyer().getUserName());
                     return;
                 }
             }
-            nVar2 = this.bWv.bWp;
-            nVar2.eR(null);
+            nVar2 = this.bXb.bWV;
+            nVar2.eZ(null);
         }
     }
 }

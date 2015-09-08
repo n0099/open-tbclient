@@ -4,11 +4,11 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements com.baidu.tbadk.editortools.b {
-    final /* synthetic */ AbsMsglistView bnk;
+    final /* synthetic */ AbsMsglistView bnI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(AbsMsglistView absMsglistView) {
-        this.bnk = absMsglistView;
+        this.bnI = absMsglistView;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -17,21 +17,21 @@ public class h implements com.baidu.tbadk.editortools.b {
             if (aVar.code == 24) {
                 if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.coreExtra.data.f)) {
                     com.baidu.tbadk.coreExtra.data.f fVar = (com.baidu.tbadk.coreExtra.data.f) aVar.data;
-                    EmotionGroupType wu = fVar.wu();
+                    EmotionGroupType wA = fVar.wA();
                     String name = fVar.getName();
-                    if (wu != EmotionGroupType.LOCAL && name != null) {
-                        this.bnk.mContext.sendBigEmotionMsg(fVar);
-                        this.bnk.onSendEmotion();
+                    if (wA != EmotionGroupType.LOCAL && name != null) {
+                        this.bnI.mContext.sendBigEmotionMsg(fVar);
+                        this.bnI.onSendEmotion();
                     }
                 }
             } else if (aVar.code == 8) {
-                this.bnk.mContext.sendTextMsg();
+                this.bnI.mContext.sendTextMsg();
             } else if (aVar.code == 4) {
                 if (aVar.data != null && (aVar.data instanceof String)) {
-                    this.bnk.mTextContent = (String) aVar.data;
+                    this.bnI.mTextContent = (String) aVar.data;
                 }
             } else if (aVar.code == 14) {
-                this.bnk.mContext.openImageView();
+                this.bnI.mContext.openImageView();
             }
         }
     }

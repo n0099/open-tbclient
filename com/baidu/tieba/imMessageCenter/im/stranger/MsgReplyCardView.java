@@ -13,11 +13,11 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.stranger.c;
 /* loaded from: classes.dex */
 public class MsgReplyCardView extends as {
-    private LinearLayout bKa;
-    private TextView bKb;
-    private TextView bKc;
-    private TextView bKd;
-    private TextView bKe;
+    private LinearLayout bKH;
+    private TextView bKI;
+    private TextView bKJ;
+    private TextView bKK;
+    private TextView bKL;
 
     public MsgReplyCardView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, i.g.msg_reply_card_view);
@@ -25,67 +25,67 @@ public class MsgReplyCardView extends as {
     }
 
     private void init() {
-        this.bKa = (LinearLayout) findViewById(i.f.reply_card);
-        this.bKb = (TextView) findViewById(i.f.reply_title);
-        this.bKc = (TextView) findViewById(i.f.reply_content);
-        this.bKd = (TextView) findViewById(i.f.reply_quote_content);
-        this.bKe = (TextView) findViewById(i.f.reply_frs_name);
-        this.bKa.setOnClickListener(new a(this));
+        this.bKH = (LinearLayout) findViewById(i.f.reply_card);
+        this.bKI = (TextView) findViewById(i.f.reply_title);
+        this.bKJ = (TextView) findViewById(i.f.reply_content);
+        this.bKK = (TextView) findViewById(i.f.reply_quote_content);
+        this.bKL = (TextView) findViewById(i.f.reply_frs_name);
+        this.bKH.setOnClickListener(new a(this));
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            c.a ix = c.ix(chatMessage.getContent());
+            c.a iG = c.iG(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.bKb.setText(a(ix, valueOf));
-            this.bKc.setText(ix.replyContent);
-            this.bKd.setText(b(ix, valueOf));
-            this.bKe.setText(String.valueOf(ix.bKn) + this.mContext.getString(i.C0057i.bar));
+            this.bKI.setText(a(iG, valueOf));
+            this.bKJ.setText(iG.replyContent);
+            this.bKK.setText(b(iG, valueOf));
+            this.bKL.setText(String.valueOf(iG.bKU) + this.mContext.getString(i.h.bar));
         }
     }
 
     private String a(c.a aVar, String str) {
         String string;
-        String hA;
+        String hK;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = hA(aVar.bKh);
-            hA = this.mContext.getString(i.C0057i.you);
+            string = hK(aVar.bKO);
+            hK = this.mContext.getString(i.h.you);
         } else {
-            string = this.mContext.getString(i.C0057i.you);
-            hA = hA(aVar.bKh);
+            string = this.mContext.getString(i.h.you);
+            hK = hK(aVar.bKO);
         }
-        return String.format(this.mContext.getString(i.C0057i.add_friend_card_title), string, getType(aVar.type), hA);
+        return String.format(this.mContext.getString(i.h.add_friend_card_title), string, getType(aVar.type), hK);
     }
 
     private String b(c.a aVar, String str) {
-        String hA;
+        String hK;
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            hA = this.mContext.getString(i.C0057i.me);
+            hK = this.mContext.getString(i.h.me);
         } else {
-            hA = hA(aVar.bKh);
+            hK = hK(aVar.bKO);
         }
         if (aVar.type == 1) {
-            sb.append(String.format(this.mContext.getString(i.C0057i.add_friend_card_quote_comment), hA));
-            sb.append(aVar.bKl);
+            sb.append(String.format(this.mContext.getString(i.h.add_friend_card_quote_comment), hK));
+            sb.append(aVar.bKS);
         } else {
-            sb.append(String.format(this.mContext.getString(i.C0057i.add_friend_card_quote_thread), hA));
+            sb.append(String.format(this.mContext.getString(i.h.add_friend_card_quote_thread), hK));
             sb.append(aVar.title);
         }
         return sb.toString();
     }
 
-    private String hA(int i) {
+    private String hK(int i) {
         if (i == 1) {
-            return this.mContext.getResources().getString(i.C0057i.he);
+            return this.mContext.getResources().getString(i.h.he);
         }
         if (i == 2) {
-            return this.mContext.getResources().getString(i.C0057i.she);
+            return this.mContext.getResources().getString(i.h.she);
         }
-        return this.mContext.getResources().getString(i.C0057i.ta);
+        return this.mContext.getResources().getString(i.h.ta);
     }
 
     private String getType(int i) {
-        return i == 1 ? this.mContext.getResources().getString(i.C0057i.add_friend_card_title_comment) : this.mContext.getResources().getString(i.C0057i.add_friend_card_title_thread);
+        return i == 1 ? this.mContext.getResources().getString(i.h.add_friend_card_title_comment) : this.mContext.getResources().getString(i.h.add_friend_card_title_thread);
     }
 }

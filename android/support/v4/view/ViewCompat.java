@@ -14,6 +14,7 @@ public class ViewCompat {
     public static final int ACCESSIBILITY_LIVE_REGION_ASSERTIVE = 2;
     public static final int ACCESSIBILITY_LIVE_REGION_NONE = 0;
     public static final int ACCESSIBILITY_LIVE_REGION_POLITE = 1;
+    private static final long FAKE_FRAME_TIME = 10;
     static final ViewCompatImpl IMPL;
     public static final int IMPORTANT_FOR_ACCESSIBILITY_AUTO = 0;
     public static final int IMPORTANT_FOR_ACCESSIBILITY_NO = 2;
@@ -175,7 +176,7 @@ public class ViewCompat {
         }
 
         long getFrameTime() {
-            return 10L;
+            return ViewCompat.FAKE_FRAME_TIME;
         }
 
         @Override // android.support.v4.view.ViewCompat.ViewCompatImpl

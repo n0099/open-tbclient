@@ -1,19 +1,18 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
+import com.baidu.tieba.write.view.PhotoLiveView.PhotoLiveLinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ae implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cUM;
+public class ae implements PhotoLiveLinearLayout.a {
+    final /* synthetic */ WriteActivity ddQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(WriteActivity writeActivity) {
-        this.cUM = writeActivity;
+        this.ddQ = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.cUM.auo();
-        this.cUM.avb();
+    @Override // com.baidu.tieba.write.view.PhotoLiveView.PhotoLiveLinearLayout.a
+    public void azf() {
+        this.ddQ.azU();
     }
 }

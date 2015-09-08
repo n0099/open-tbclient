@@ -33,7 +33,7 @@ public class g implements Runnable {
                 eVar2 = this.HU.Hv;
                 if (eVar2.getWrappedAdapter() != null) {
                     eVar3 = this.HU.Hv;
-                    if (eVar3.nu() > 0) {
+                    if (eVar3.nr() > 0) {
                         eVar4 = this.HU.Hv;
                         i2 = firstVisiblePosition - eVar4.getHeadersCount();
                         if (i2 < 0) {
@@ -42,9 +42,9 @@ public class g implements Runnable {
                         eVar5 = this.HU.Hv;
                         int headersCount = lastVisiblePosition - eVar5.getHeadersCount();
                         eVar6 = this.HU.Hv;
-                        if (headersCount >= eVar6.nu()) {
+                        if (headersCount >= eVar6.nr()) {
                             eVar7 = this.HU.Hv;
-                            headersCount = eVar7.nu() - 1;
+                            headersCount = eVar7.nr() - 1;
                         }
                         if (headersCount >= 0) {
                             i = headersCount;

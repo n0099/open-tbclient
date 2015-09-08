@@ -3,16 +3,16 @@ package com.baidu.tbadk.core.data;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class i implements com.baidu.tbadk.core.flow.a.a {
-    private String US;
     private String UT;
     private String UU;
-    private boolean UV;
+    private String UV;
+    private boolean UW;
     private String mImageUrl;
     private String mTitle;
 
     public i(String str, String str2, String str3) {
         this.mImageUrl = str;
-        this.US = str2;
+        this.UT = str2;
         this.mTitle = str3;
     }
 
@@ -25,8 +25,8 @@ public class i implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String rE() {
-        return this.US;
+    public String rD() {
+        return this.UT;
     }
 
     public String getTitle() {
@@ -34,38 +34,38 @@ public class i implements com.baidu.tbadk.core.flow.a.a {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: rF */
+    /* renamed from: rE */
     public i clone() {
         i iVar = new i();
         iVar.mImageUrl = this.mImageUrl;
-        iVar.US = this.US;
-        iVar.mTitle = this.mTitle;
         iVar.UT = this.UT;
+        iVar.mTitle = this.mTitle;
         iVar.UU = this.UU;
+        iVar.UV = this.UV;
         return iVar;
     }
 
     public void a(HeadImgs headImgs) {
         if (headImgs != null) {
             this.mImageUrl = headImgs.img_url;
-            this.US = headImgs.pc_url;
+            this.UT = headImgs.pc_url;
             if (headImgs.title != null) {
                 this.mTitle = headImgs.title.trim();
             }
             if (headImgs.subtitle != null) {
-                this.UT = headImgs.subtitle.trim();
+                this.UU = headImgs.subtitle.trim();
             }
             if (headImgs.btn_text != null) {
-                this.UU = headImgs.btn_text.trim();
+                this.UV = headImgs.btn_text.trim();
             }
         }
     }
 
-    public boolean rG() {
-        return this.UV;
+    public boolean rF() {
+        return this.UW;
     }
 
     public void ah(boolean z) {
-        this.UV = z;
+        this.UW = z;
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements DialogInterface.OnCancelListener {
-    final /* synthetic */ PbActivity cbo;
-    private final /* synthetic */ MarkData cbv;
+    final /* synthetic */ PbActivity ccj;
+    private final /* synthetic */ MarkData ccq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(PbActivity pbActivity, MarkData markData) {
-        this.cbo = pbActivity;
-        this.cbv = markData;
+        this.ccj = pbActivity;
+        this.ccq = markData;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
@@ -22,19 +22,19 @@ public class ah implements DialogInterface.OnCancelListener {
         cb cbVar2;
         cb cbVar3;
         int[] iArr = new int[2];
-        cbVar = this.cbo.caQ;
+        cbVar = this.ccj.cbL;
         if (cbVar != null) {
-            cbVar2 = this.cbo.caQ;
+            cbVar2 = this.ccj.cbL;
             if (cbVar2.getView() != null) {
-                cbVar3 = this.cbo.caQ;
+                cbVar3 = this.ccj.cbL;
                 cbVar3.getView().getLocationOnScreen(iArr);
             }
         }
         if (iArr[0] > 0) {
             Intent intent = new Intent();
-            intent.putExtra(PbActivityConfig.KEY_MARK, this.cbv);
-            this.cbo.setResult(-1, intent);
-            this.cbo.ade();
+            intent.putExtra(PbActivityConfig.KEY_MARK, this.ccq);
+            this.ccj.setResult(-1, intent);
+            this.ccj.adr();
         }
     }
 }

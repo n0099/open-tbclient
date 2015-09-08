@@ -10,14 +10,14 @@ public class MemoryModifyVisibilityMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean apm;
+        public boolean aqX;
         public int customGroupType;
         public String id;
 
         public a(String str, int i, boolean z) {
             this.id = str;
             this.customGroupType = i;
-            this.apm = z;
+            this.aqX = z;
         }
     }
 }

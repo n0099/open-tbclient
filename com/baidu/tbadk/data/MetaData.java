@@ -14,6 +14,7 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class MetaData extends i implements Serializable {
     private static final long serialVersionUID = -2658065756886586092L;
+    private String fansNickName;
     private int gender;
     private int is_myfriend;
     private int is_like = 0;
@@ -28,6 +29,9 @@ public class MetaData extends i implements Serializable {
     private ArrayList<IconData> mTShowIconInfo = new ArrayList<>();
     private int is_bawu = 0;
     private String bawu_type = null;
+    private int concernNum = 0;
+    private int fansNum = 0;
+    private boolean mHadConcerned = false;
 
     public void setUserId(String str) {
         this.userId = str;
@@ -161,7 +165,31 @@ public class MetaData extends i implements Serializable {
         this.gender = i;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x0009: IGET  (r1v0 java.lang.Long A[REMOVE]) = (r7v0 tbclient.User) tbclient.User.id java.lang.Long)] */
+    public int getConcernNum() {
+        return this.concernNum;
+    }
+
+    public String getFansNickName() {
+        return this.fansNickName;
+    }
+
+    public void setFansNum(int i) {
+        this.fansNum = i;
+    }
+
+    public int getFansNum() {
+        return this.fansNum;
+    }
+
+    public boolean hadConcerned() {
+        return this.mHadConcerned;
+    }
+
+    public void setHadConcerned(boolean z) {
+        this.mHadConcerned = z;
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Long : 0x000a: IGET  (r3v0 java.lang.Long A[REMOVE]) = (r7v0 tbclient.User) tbclient.User.id java.lang.Long)] */
     public void parserProtobuf(User user) {
         if (user != null) {
             this.userId = new StringBuilder().append(user.id).toString();
@@ -173,6 +201,10 @@ public class MetaData extends i implements Serializable {
             this.is_bawu = user.is_bawu.intValue();
             this.bawu_type = user.bawu_type;
             this.is_myfriend = user.is_friend.intValue();
+            this.concernNum = user.concern_num.intValue();
+            this.mHadConcerned = user.has_concerned.intValue() == 1;
+            this.fansNickName = user.fans_nickname;
+            this.fansNum = user.fans_num.intValue();
             if (this.userName != null && this.userName.length() <= 0) {
                 this.userName = null;
             }

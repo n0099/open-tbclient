@@ -5,25 +5,25 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class a {
-    private static a cKz = null;
-    private CustomMessageListener cKA = new b(this, 0);
+    private static a cSZ = null;
+    private CustomMessageListener cTa = new b(this, 0);
 
-    public static synchronized a aqO() {
+    public static synchronized a avc() {
         a aVar;
         synchronized (a.class) {
-            if (cKz == null) {
+            if (cSZ == null) {
                 synchronized (a.class) {
-                    if (cKz == null) {
-                        cKz = new a();
+                    if (cSZ == null) {
+                        cSZ = new a();
                     }
                 }
             }
-            aVar = cKz;
+            aVar = cSZ;
         }
         return aVar;
     }
 
     private a() {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_UPLOAD_STAT, this.cKA);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.CMD_UPLOAD_STAT, this.cTa);
     }
 }

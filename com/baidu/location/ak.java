@@ -7,7 +7,6 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.aj;
 import com.baidu.location.au;
 import com.baidu.location.u;
-import com.baidu.tbadk.TbConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak extends aj implements a0, n {
@@ -17,7 +16,7 @@ public class ak extends aj implements a0, n {
     private double eI;
     private double eL;
     public aj.a ez;
-    final int eR = TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI;
+    final int eR = 2000;
     final int ey = 1000;
     private boolean eM = true;
     private String eS = null;

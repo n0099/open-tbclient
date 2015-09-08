@@ -6,7 +6,7 @@ public class r {
     protected BdUniqueId mId = BdUniqueId.gen();
     protected int mSubType = 0;
 
-    public void eq(int i) {
+    public void ey(int i) {
         this.mSubType = i;
     }
 }

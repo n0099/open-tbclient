@@ -10,20 +10,20 @@ import com.baidu.tieba.i;
 public class a extends v {
     public a(Context context) {
         super(context, (String) null, 4);
-        this.apj = false;
-        this.api = 2;
-        this.apk = new int[]{4, 12, 10, 22, 23, 13, 11, 28, 29, 9};
-        this.aox = new SendView(context);
+        this.aqU = false;
+        this.aqT = 2;
+        this.aqV = new int[]{4, 12, 10, 22, 23, 13, 11, 28, 29, 9};
+        this.aqi = new SendView(context);
         u.a aVar = new u.a(context.getResources().getDimensionPixelSize(i.d.ds100), context.getResources().getDimensionPixelSize(i.d.ds78));
         aVar.gravity = 16;
         aVar.leftMargin = context.getResources().getDimensionPixelSize(i.d.ds10);
         aVar.rightMargin = context.getResources().getDimensionPixelSize(i.d.ds10);
-        ((View) this.aox).setLayoutParams(aVar);
+        ((View) this.aqi).setLayoutParams(aVar);
     }
 
     public void setText(int i) {
-        if (this.aox != null && (this.aox instanceof TextView)) {
-            ((TextView) this.aox).setText(i);
+        if (this.aqi != null && (this.aqi instanceof TextView)) {
+            ((TextView) this.aqi).setText(i);
         }
     }
 }

@@ -9,22 +9,22 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class d extends x.a {
-    HeadImageView aIG;
-    TextView aPi;
-    TextView anH;
-    LinearLayout ban;
-    TextView bao;
-    TbImageView bap;
-    TextView baq;
+    HeadImageView aIT;
+    TextView aPv;
+    TextView amV;
+    LinearLayout baI;
+    TextView baJ;
+    TbImageView baK;
+    TextView baL;
 
     public d(View view) {
         super(view);
-        this.ban = (LinearLayout) view.findViewById(i.f.normal_locality_parent);
-        this.aIG = (HeadImageView) view.findViewById(i.f.normal_locality_head);
-        this.aPi = (TextView) view.findViewById(i.f.normal_locality_name);
-        this.bao = (TextView) view.findViewById(i.f.normal_locality_sub);
-        this.anH = (TextView) view.findViewById(i.f.normal_locality_title);
-        this.bap = (TbImageView) view.findViewById(i.f.normal_locality_pic);
-        this.baq = (TextView) view.findViewById(i.f.normal_locality_brief);
+        this.baI = (LinearLayout) view.findViewById(i.f.normal_locality_parent);
+        this.aIT = (HeadImageView) view.findViewById(i.f.normal_locality_head);
+        this.aPv = (TextView) view.findViewById(i.f.normal_locality_name);
+        this.baJ = (TextView) view.findViewById(i.f.normal_locality_sub);
+        this.amV = (TextView) view.findViewById(i.f.normal_locality_title);
+        this.baK = (TbImageView) view.findViewById(i.f.normal_locality_pic);
+        this.baL = (TextView) view.findViewById(i.f.normal_locality_brief);
     }
 }

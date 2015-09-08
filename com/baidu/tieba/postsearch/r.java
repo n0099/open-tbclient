@@ -14,24 +14,24 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class r extends BaseFragment implements BdListView.e {
-    private PbListView aXu;
-    private PostSearchActivity coG;
-    private BdListView coT;
-    private v coU;
-    private j coV;
-    private String coW;
+    private PbListView aXr;
+    private PostSearchActivity cxd;
+    private BdListView cxq;
+    private v cxr;
+    private j cxs;
+    private String cxt;
     private com.baidu.tbadk.core.view.u mNoDataView;
     private View mRootView;
     private int mTabType;
 
     public r() {
         this.mTabType = -1;
-        this.coW = "";
+        this.cxt = "";
     }
 
     public r(int i) {
         this.mTabType = -1;
-        this.coW = "";
+        this.cxt = "";
         this.mTabType = i;
     }
 
@@ -45,135 +45,135 @@ public class r extends BaseFragment implements BdListView.e {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.coG = (PostSearchActivity) getBaseFragmentActivity();
-        this.coU = new v(this.coG.getPageContext());
-        this.coT.setAdapter((ListAdapter) this.coU);
-        this.aXu = new PbListView(this.coG.getPageContext().getPageActivity());
-        this.aXu.nq();
-        this.coT.setOnSrollToBottomListener(this);
+        this.cxd = (PostSearchActivity) getBaseFragmentActivity();
+        this.cxr = new v(this.cxd.getPageContext());
+        this.cxq.setAdapter((ListAdapter) this.cxr);
+        this.aXr = new PbListView(this.cxd.getPageContext().getPageActivity());
+        this.aXr.nn();
+        this.cxq.setOnSrollToBottomListener(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        eN(false);
+        fz(false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.coG != null) {
-            com.baidu.tbadk.f.a.a(this.coG.getPageContext(), this.mRootView);
+        if (this.cxd != null) {
+            com.baidu.tbadk.h.a.a(this.cxd.getPageContext(), this.mRootView);
         }
-        if (this.aXu != null) {
-            this.aXu.cG(i);
+        if (this.aXr != null) {
+            this.aXr.cM(i);
         }
-        if (this.coU != null) {
-            this.coU.notifyDataSetChanged();
+        if (this.cxr != null) {
+            this.cxr.notifyDataSetChanged();
         }
     }
 
     public void a(j jVar, boolean z) {
         hideNoDataView();
         hideLoadingView(this.mRootView);
-        if (jVar == null || jVar.cmT == null || jVar.cmT.size() == 0) {
-            if (!z || this.coV == null || this.coV.cmT == null || this.coV.cmT.size() == 0) {
-                Mq();
+        if (jVar == null || jVar.cnV == null || jVar.cnV.size() == 0) {
+            if (!z || this.cxs == null || this.cxs.cnV == null || this.cxs.cnV.size() == 0) {
+                Mh();
                 showNoDataView();
-                this.coT.setVisibility(8);
-                this.coV = jVar;
+                this.cxq.setVisibility(8);
+                this.cxs = jVar;
                 return;
             }
-            if (this.coV.coL.rT() == 1) {
-                Mo();
+            if (this.cxs.cxi.rQ() == 1) {
+                Mf();
                 return;
             } else {
-                Mp();
+                Mg();
                 return;
             }
         }
-        if (!z || this.coV == null || this.coV.cmT == null || this.coV.cmT.size() == 0) {
-            this.coV = jVar;
+        if (!z || this.cxs == null || this.cxs.cnV == null || this.cxs.cnV.size() == 0) {
+            this.cxs = jVar;
         } else {
-            this.coV.coL = jVar.coL;
-            this.coV.cmT.addAll(jVar.cmT);
+            this.cxs.cxi = jVar.cxi;
+            this.cxs.cnV.addAll(jVar.cnV);
         }
-        if (this.coV.coL.rT() == 1) {
-            Mo();
+        if (this.cxs.cxi.rQ() == 1) {
+            Mf();
         } else {
-            Mp();
+            Mg();
         }
-        this.coU.clear();
-        this.coU.ba(this.coV.cmT);
-        this.coU.notifyDataSetChanged();
+        this.cxr.clear();
+        this.cxr.bi(this.cxs.cnV);
+        this.cxr.notifyDataSetChanged();
         if (!z) {
-            this.coT.setSelection(0);
+            this.cxq.setSelection(0);
         }
-        this.coT.setVisibility(0);
+        this.cxq.setVisibility(0);
     }
 
-    public void eN(boolean z) {
-        String str = this.coG.bQt;
+    public void fz(boolean z) {
+        String str = this.cxd.bQZ;
         if (!StringUtils.isNull(str)) {
-            boolean z2 = !str.equals(this.coW) || z;
-            if (this.coV == null || (this.coV != null && !this.coV.Wl() && this.coV.isHasMore())) {
+            boolean z2 = !str.equals(this.cxt) || z;
+            if (this.cxs == null || (this.cxs != null && !this.cxs.Wn() && this.cxs.isHasMore())) {
                 z2 = true;
             }
             if (z2) {
-                showLoadingView(this.mRootView, false, this.coG.getResources().getDimensionPixelSize(i.d.ds320));
-                this.coG.ahV().T(str, this.mTabType);
-                this.coW = str;
+                showLoadingView(this.mRootView, false, this.cxd.getResources().getDimensionPixelSize(i.d.ds320));
+                this.cxd.ama().V(str, this.mTabType);
+                this.cxt = str;
             }
         }
     }
 
-    public void aid() {
-        if (this.coV != null && this.coV.cmT != null) {
-            this.coV.cmT.clear();
-            this.coU.clear();
-            this.coU.ba(this.coV.cmT);
-            this.coU.notifyDataSetChanged();
+    public void amh() {
+        if (this.cxs != null && this.cxs.cnV != null) {
+            this.cxs.cnV.clear();
+            this.cxr.clear();
+            this.cxr.bi(this.cxs.cnV);
+            this.cxr.notifyDataSetChanged();
         }
-        Mq();
+        Mh();
         hideNoDataView();
     }
 
     private void initView() {
-        this.coT = (BdListView) this.mRootView.findViewById(i.f.result_list);
+        this.cxq = (BdListView) this.mRootView.findViewById(i.f.result_list);
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!StringUtils.isNull(this.coW) && this.coV != null && this.coV.isHasMore() && this.coG.ahV().T(this.coW, this.mTabType)) {
-            aie();
+        if (!StringUtils.isNull(this.cxt) && this.cxs != null && this.cxs.isHasMore() && this.cxd.ama().V(this.cxt, this.mTabType)) {
+            ami();
         }
     }
 
-    private void aie() {
-        this.coT.setNextPage(this.aXu);
-        this.aXu.startLoadData();
+    private void ami() {
+        this.cxq.setNextPage(this.aXr);
+        this.aXr.startLoadData();
     }
 
-    private void Mo() {
-        this.coT.setNextPage(this.aXu);
-        this.aXu.vB();
-        this.aXu.setText(this.coG.getResources().getString(i.C0057i.pb_load_more));
+    private void Mf() {
+        this.cxq.setNextPage(this.aXr);
+        this.aXr.vG();
+        this.aXr.setText(this.cxd.getResources().getString(i.h.pb_load_more));
     }
 
-    private void Mp() {
-        this.coT.setNextPage(this.aXu);
-        this.aXu.vB();
-        this.aXu.setText(this.coG.getResources().getString(i.C0057i.list_no_more));
+    private void Mg() {
+        this.cxq.setNextPage(this.aXr);
+        this.aXr.vG();
+        this.aXr.setText(this.cxd.getResources().getString(i.h.list_no_more));
     }
 
-    private void Mq() {
-        this.coT.setNextPage(null);
+    private void Mh() {
+        this.cxq.setNextPage(null);
     }
 
     private void showNoDataView() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.coG.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cD(i.C0057i.no_search_result_record), null);
-            this.mNoDataView.onChangeSkinType(this.coG.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+            this.mNoDataView = NoDataViewFactory.a(this.cxd.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cJ(i.h.no_search_result_record), null);
+            this.mNoDataView.onChangeSkinType(this.cxd.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
         }
         this.mNoDataView.setVisibility(0);
     }

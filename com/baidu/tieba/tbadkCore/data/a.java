@@ -5,15 +5,15 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.lib.a.b.a.a.i {
-    public final int Uq;
+    public final int Ur;
     public final String abtest;
     public final String apk_name;
     public final String apk_url;
-    public final int cIr;
-    public final int cIs;
-    public final int cIt;
-    public final C0071a[] cIu;
-    public C0071a cIv;
+    public final int cQR;
+    public final int cQS;
+    public final int cQT;
+    public final C0073a[] cQU;
+    public C0073a cQV;
     public final String ext_info;
     public final String first_name;
     public final String id;
@@ -29,7 +29,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
     public a() {
         this.id = null;
         this.name = null;
-        this.cIr = 0;
+        this.cQR = 0;
         this.url = null;
         this.ios_url = null;
         this.apk_url = null;
@@ -38,22 +38,22 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         this.first_name = null;
         this.second_name = null;
         this.price = null;
-        this.Uq = 0;
+        this.Ur = 0;
         this.abtest = null;
-        this.cIs = 0;
+        this.cQS = 0;
         this.user_id = null;
         this.verify = null;
         this.ext_info = null;
-        this.cIt = 0;
-        this.cIu = null;
-        this.cIv = null;
+        this.cQT = 0;
+        this.cQU = null;
+        this.cQV = null;
     }
 
     public a(App app) {
         if (app == null) {
             this.id = null;
             this.name = null;
-            this.cIr = 0;
+            this.cQR = 0;
             this.url = null;
             this.ios_url = null;
             this.apk_url = null;
@@ -61,21 +61,21 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
             this.pos_name = null;
             this.first_name = null;
             this.second_name = null;
-            this.Uq = 0;
+            this.Ur = 0;
             this.price = null;
             this.abtest = null;
-            this.cIs = 0;
+            this.cQS = 0;
             this.user_id = null;
             this.verify = null;
             this.ext_info = null;
-            this.cIt = 0;
-            this.cIu = null;
-            this.cIv = null;
+            this.cQT = 0;
+            this.cQU = null;
+            this.cQV = null;
             return;
         }
         this.id = app.id;
         this.name = app.name;
-        this.cIr = app.url_type.intValue();
+        this.cQR = app.url_type.intValue();
         this.url = app.url;
         this.apk_url = app.apk_url;
         this.apk_name = app.apk_name;
@@ -83,44 +83,44 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         this.pos_name = app.pos_name;
         this.first_name = app.first_name;
         this.second_name = app.second_name;
-        this.Uq = app.cpid.intValue();
+        this.Ur = app.cpid.intValue();
         this.price = app.price;
         this.abtest = app.abtest;
-        this.cIs = app.plan_id.intValue();
+        this.cQS = app.plan_id.intValue();
         this.user_id = app.user_id;
         this.verify = app.verify;
         this.ext_info = app.ext_info;
-        this.cIt = app.app_time.intValue();
-        this.cIu = null;
+        this.cQT = app.app_time.intValue();
+        this.cQU = null;
         if (app.goods_info != null) {
             for (GoodsInfo goodsInfo : app.goods_info) {
                 if (goodsInfo != null) {
-                    this.cIv = new C0071a(goodsInfo);
+                    this.cQV = new C0073a(goodsInfo);
                     return;
                 }
             }
         }
     }
 
-    public boolean rv() {
-        if (this.cIr == 2) {
+    public boolean ru() {
+        if (this.cQR == 2) {
             return false;
         }
-        return rw() || rx();
+        return rv() || rw();
+    }
+
+    public boolean rv() {
+        return (this.cQR != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
     }
 
     public boolean rw() {
-        return (this.cIr != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
-    }
-
-    public boolean rx() {
-        return this.cIr == 1 && !StringUtils.isNull(this.url);
+        return this.cQR == 1 && !StringUtils.isNull(this.url);
     }
 
     /* renamed from: com.baidu.tieba.tbadkCore.data.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0071a extends com.baidu.adp.lib.a.b.a.a.i {
-        public final int cIw;
+    public static class C0073a extends com.baidu.adp.lib.a.b.a.a.i {
+        public final int cQW;
         public final int id;
         public final String pop_window_text;
         public final String thread_pic;
@@ -128,17 +128,17 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         public final String user_name;
         public final String user_portrait;
 
-        public C0071a() {
+        public C0073a() {
             this.id = 0;
             this.user_name = null;
             this.user_portrait = null;
             this.thread_title = null;
             this.thread_pic = null;
             this.pop_window_text = null;
-            this.cIw = 0;
+            this.cQW = 0;
         }
 
-        public C0071a(GoodsInfo goodsInfo) {
+        public C0073a(GoodsInfo goodsInfo) {
             if (goodsInfo == null) {
                 this.id = 0;
                 this.user_name = null;
@@ -146,7 +146,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                 this.thread_title = null;
                 this.thread_pic = null;
                 this.pop_window_text = null;
-                this.cIw = 0;
+                this.cQW = 0;
                 return;
             }
             this.id = goodsInfo.id.intValue();
@@ -155,7 +155,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
             this.thread_title = goodsInfo.thread_title;
             this.thread_pic = goodsInfo.thread_pic;
             this.pop_window_text = goodsInfo.pop_window_text;
-            this.cIw = goodsInfo.goods_style.intValue();
+            this.cQW = goodsInfo.goods_style.intValue();
         }
     }
 }

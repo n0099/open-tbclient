@@ -17,30 +17,30 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.lib.d.d {
-    private static c bPt;
-    private LocationManager bPv;
+    private static c bPZ;
+    private LocationManager bQb;
     private int errorCode;
     private Context mContext;
-    private a bPu = null;
-    private a.b bPn = null;
-    private Address bPw = null;
-    private long ut = 0;
+    private a bQa = null;
+    private a.b bPT = null;
+    private Address bQc = null;
+    private long ur = 0;
     private Handler mHandler = null;
-    private boolean bPr = false;
-    private Runnable bPx = null;
-    private Runnable bPy = null;
-    private final LocationListener bPz = new d(this);
-    private final LocationListener bPA = new e(this);
+    private boolean bPX = false;
+    private Runnable bQd = null;
+    private Runnable bQe = null;
+    private final LocationListener bQf = new d(this);
+    private final LocationListener bQg = new e(this);
 
-    public static c ZL() {
-        if (bPt == null) {
+    public static c ZP() {
+        if (bPZ == null) {
             synchronized (c.class) {
-                if (bPt == null) {
-                    bPt = new c();
+                if (bPZ == null) {
+                    bPZ = new c();
                 }
             }
         }
-        return bPt;
+        return bPZ;
     }
 
     private c() {
@@ -49,45 +49,45 @@ public class c implements com.baidu.adp.lib.d.d {
     @Override // com.baidu.adp.lib.d.d
     public void a(a.b bVar) {
         this.mContext = TbadkCoreApplication.m411getInst().getContext();
-        this.bPn = bVar;
+        this.bPT = bVar;
         try {
-            this.bPv = (LocationManager) this.mContext.getSystemService("location");
+            this.bQb = (LocationManager) this.mContext.getSystemService("location");
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        this.bPx = new f(this);
-        this.bPy = new g(this);
-        gG();
+        this.bQd = new f(this);
+        this.bQe = new g(this);
+        gD();
     }
 
-    private void gG() {
+    private void gD() {
         this.mHandler = new Handler(Looper.getMainLooper(), new h(this));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [248=4] */
     @Override // com.baidu.adp.lib.d.d
     public void A(boolean z) {
-        if (this.bPn == null) {
+        if (this.bPT == null) {
             return;
         }
         try {
-            if (this.bPv != null) {
-                this.bPv.removeUpdates(this.bPz);
+            if (this.bQb != null) {
+                this.bQb.removeUpdates(this.bQf);
                 this.errorCode = 4;
-                this.bPr = z;
-                if (!this.bPv.isProviderEnabled("gps") && !this.bPv.isProviderEnabled("network")) {
+                this.bPX = z;
+                if (!this.bQb.isProviderEnabled("gps") && !this.bQb.isProviderEnabled("network")) {
                     this.errorCode = 3;
-                    this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), com.baidu.adp.lib.d.a.us);
+                    this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), com.baidu.adp.lib.d.a.uq);
                     return;
                 }
-                if (this.bPv.isProviderEnabled("gps")) {
-                    this.mHandler.post(this.bPy);
+                if (this.bQb.isProviderEnabled("gps")) {
+                    this.mHandler.post(this.bQe);
                 } else {
                     this.errorCode = 1;
                 }
                 if (!z) {
-                    if (this.bPv.isProviderEnabled("network")) {
-                        this.mHandler.post(this.bPx);
+                    if (this.bQb.isProviderEnabled("network")) {
+                        this.mHandler.post(this.bQd);
                     } else {
                         this.errorCode = 2;
                     }
@@ -95,10 +95,10 @@ public class c implements com.baidu.adp.lib.d.d {
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            gI();
+            gF();
             this.errorCode = 5;
         } finally {
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), com.baidu.adp.lib.d.a.us);
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), com.baidu.adp.lib.d.a.uq);
         }
     }
 
@@ -107,19 +107,19 @@ public class c implements com.baidu.adp.lib.d.d {
         if (this.mHandler.hasMessages(0)) {
             this.mHandler.removeMessages(0);
         }
-        this.mHandler.removeCallbacks(this.bPy);
-        this.mHandler.removeCallbacks(this.bPx);
-        if (this.bPv != null) {
+        this.mHandler.removeCallbacks(this.bQe);
+        this.mHandler.removeCallbacks(this.bQd);
+        if (this.bQb != null) {
             try {
-                this.bPv.removeUpdates(this.bPz);
-                this.bPv.removeUpdates(this.bPA);
+                this.bQb.removeUpdates(this.bQf);
+                this.bQb.removeUpdates(this.bQg);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
-        if (this.bPu != null) {
-            this.bPu.cancel();
-            this.bPu = null;
+        if (this.bQa != null) {
+            this.bQa.cancel();
+            this.bQa = null;
         }
     }
 
@@ -172,12 +172,12 @@ public class c implements com.baidu.adp.lib.d.d {
         /* renamed from: a */
         public void onPostExecute(Address address) {
             super.onPostExecute(address);
-            c.this.bPu = null;
+            c.this.bQa = null;
             if (address != null) {
-                c.this.gI();
-                c.this.ut = System.currentTimeMillis();
-                c.this.bPw = address;
-                c.this.bPn.a(0, "", c.this.bPw, c.this.ut, c.this.bPr);
+                c.this.gF();
+                c.this.ur = System.currentTimeMillis();
+                c.this.bQc = address;
+                c.this.bPT.a(0, "", c.this.bQc, c.this.ur, c.this.bPX);
             }
         }
 
@@ -185,28 +185,28 @@ public class c implements com.baidu.adp.lib.d.d {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            c.this.bPu = null;
+            c.this.bQa = null;
         }
     }
 
     @Override // com.baidu.adp.lib.d.d
-    public void gI() {
+    public void gF() {
         if (this.mHandler.hasMessages(0)) {
             this.mHandler.removeMessages(0);
         }
-        this.mHandler.removeCallbacks(this.bPy);
-        this.mHandler.removeCallbacks(this.bPx);
-        if (this.bPv != null) {
+        this.mHandler.removeCallbacks(this.bQe);
+        this.mHandler.removeCallbacks(this.bQd);
+        if (this.bQb != null) {
             try {
-                this.bPv.removeUpdates(this.bPz);
-                this.bPv.removeUpdates(this.bPA);
+                this.bQb.removeUpdates(this.bQf);
+                this.bQb.removeUpdates(this.bQg);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
-        if (this.bPu != null) {
-            this.bPu.cancel();
-            this.bPu = null;
+        if (this.bQa != null) {
+            this.bQa.cancel();
+            this.bQa = null;
         }
     }
 }

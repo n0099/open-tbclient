@@ -14,7 +14,7 @@ import java.io.OutputStream;
 public class b {
     private static b pP = null;
 
-    public static b eL() {
+    public static b eK() {
         if (pP == null) {
             synchronized (b.class) {
                 if (pP == null) {
@@ -38,7 +38,7 @@ public class b {
                 encodeInBackGround = d(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = v.a(d.eM().getSecretKey(), encodeInBackGround);
+                encodeInBackGround = v.a(d.eL().getSecretKey(), encodeInBackGround);
             }
             return a.a(z2, z, socketMessage.getCmd(), i, encodeInBackGround);
         } catch (Throwable th) {
@@ -51,19 +51,19 @@ public class b {
             throw new CoderException(j.oT);
         }
         a aVar = cVar.pQ;
-        if (aVar.eJ() && cVar.pT > 0) {
-            if (d.eM().getSecretKey() == null) {
+        if (aVar.eI() && cVar.pT > 0) {
+            if (d.eL().getSecretKey() == null) {
                 throw new CoderException(j.pa);
             }
             try {
-                cVar.pR = v.a(d.eM().getSecretKey(), cVar.pR, cVar.pS, cVar.pT);
+                cVar.pR = v.a(d.eL().getSecretKey(), cVar.pR, cVar.pS, cVar.pT);
                 cVar.pS = 0;
                 cVar.pT = cVar.pR.length;
             } catch (Exception e) {
                 throw new CoderException(j.pe);
             }
         }
-        if (aVar.eH() && cVar.pT > 0) {
+        if (aVar.eG() && cVar.pT > 0) {
             try {
                 cVar.pR = c(cVar.pR, cVar.pS, cVar.pT);
                 cVar.pS = 0;
@@ -76,8 +76,8 @@ public class b {
     }
 
     public c u(byte[] bArr) {
-        int eG = a.eG();
-        if (bArr == null || bArr.length < eG) {
+        int eF = a.eF();
+        if (bArr == null || bArr.length < eF) {
             throw new CoderException(j.oT);
         }
         a t = a.t(bArr);
@@ -87,8 +87,8 @@ public class b {
         c cVar = new c();
         cVar.pQ = t;
         cVar.pR = bArr;
-        cVar.pS = eG;
-        cVar.pT = bArr.length - eG;
+        cVar.pS = eF;
+        cVar.pT = bArr.length - eF;
         return cVar;
     }
 
@@ -109,7 +109,7 @@ public class b {
             if (socketMessage != null) {
                 j = socketMessage.getClientLogID();
             }
-            com.baidu.adp.lib.stats.a.hk().b("im", j, (String) null, IntentConfig.CMD, Integer.valueOf(i), "byteslength", Integer.valueOf(bArr != null ? bArr.length : 0), "comment", th != null ? th.getMessage() : null);
+            com.baidu.adp.lib.stats.a.hh().b("im", j, (String) null, IntentConfig.CMD, Integer.valueOf(i), "byteslength", Integer.valueOf(bArr != null ? bArr.length : 0), "comment", th != null ? th.getMessage() : null);
             throw new CoderException(j.oW);
         }
     }

@@ -18,14 +18,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class f {
-    private final String cPU = TbConfig.getTempDirName();
-    private a cPV;
-    private c cPW;
+    private final String cYF = TbConfig.getTempDirName();
+    private a cYG;
+    private c cYH;
     private final Context mContext;
 
     /* loaded from: classes.dex */
     public interface b {
-        void bl(List<ImageFileInfo> list);
+        void bu(List<ImageFileInfo> list);
     }
 
     public f(Context context) {
@@ -36,10 +36,10 @@ public class f {
         if (lVar == null) {
             return false;
         }
-        atI();
-        this.cPV = new a(lVar);
-        this.cPV.setPriority(3);
-        this.cPV.execute(new Object[0]);
+        ayb();
+        this.cYG = new a(lVar);
+        this.cYG.setPriority(3);
+        this.cYG.execute(new Object[0]);
         return true;
     }
 
@@ -47,67 +47,67 @@ public class f {
         if (amVar == null) {
             return false;
         }
-        atJ();
-        this.cPW = new c(str, amVar);
-        this.cPW.setPriority(3);
-        this.cPW.execute(new Void[0]);
+        ayc();
+        this.cYH = new c(str, amVar);
+        this.cYH.setPriority(3);
+        this.cYH.execute(new Void[0]);
         return true;
     }
 
-    public void atI() {
-        if (this.cPV != null) {
-            this.cPV.cancel();
-            this.cPV = null;
+    public void ayb() {
+        if (this.cYG != null) {
+            this.cYG.cancel();
+            this.cYG = null;
         }
     }
 
-    public void atJ() {
-        if (this.cPW != null) {
-            this.cPW.cancel();
-            this.cPW = null;
+    public void ayc() {
+        if (this.cYH != null) {
+            this.cYH.cancel();
+            this.cYH = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, List<com.baidu.tieba.write.album.b>> {
-        private final l cPX;
+        private final l cYI;
 
         public a(l lVar) {
-            this.cPX = lVar;
+            this.cYI = lVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: F */
+        /* renamed from: E */
         public List<com.baidu.tieba.write.album.b> doInBackground(Object... objArr) {
-            return f.this.atK();
+            return f.this.ayd();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            if (this.cPX != null) {
-                this.cPX.nw();
+            if (this.cYI != null) {
+                this.cYI.nt();
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: n */
+        /* renamed from: o */
         public void onPostExecute(List<com.baidu.tieba.write.album.b> list) {
             super.onPostExecute(list);
-            if (this.cPX != null) {
-                this.cPX.bm(list);
+            if (this.cYI != null) {
+                this.cYI.bv(list);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.tieba.write.album.b> atK() {
+    public List<com.baidu.tieba.write.album.b> ayd() {
         return a(this.mContext, a(this.mContext, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI), MediaStore.Images.Media.INTERNAL_CONTENT_URI);
     }
 
@@ -140,8 +140,8 @@ public class f {
                             File file = new File(string3.substring(0, string3.lastIndexOf("/")));
                             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                                 for (File file2 : listFiles) {
-                                    String kW = kW(file2.getAbsolutePath());
-                                    if (kW != null && (matcher = compile.matcher(kW)) != null && matcher.matches()) {
+                                    String lD = lD(file2.getAbsolutePath());
+                                    if (lD != null && (matcher = compile.matcher(lD)) != null && matcher.matches()) {
                                         i++;
                                     }
                                 }
@@ -149,13 +149,13 @@ public class f {
                             if (i != 0) {
                                 String sb = new StringBuilder(String.valueOf(i)).toString();
                                 com.baidu.tieba.write.album.b bVar = new com.baidu.tieba.write.album.b();
-                                bVar.kU(string);
-                                bVar.kV(sb);
+                                bVar.lB(string);
+                                bVar.lC(sb);
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 imageFileInfo.setFilePath(string3);
                                 bVar.e(imageFileInfo);
                                 bVar.setName(string2);
-                                if (string2 != null && string2.equals(this.cPU)) {
+                                if (string2 != null && string2.equals(this.cYF)) {
                                     list.add(0, bVar);
                                 } else {
                                     list.add(bVar);
@@ -189,7 +189,7 @@ public class f {
         }
     }
 
-    public String kW(String str) {
+    public String lD(String str) {
         String fileExtensionFromUrl = getFileExtensionFromUrl(str);
         if (fileExtensionFromUrl == null) {
             return null;
@@ -222,16 +222,16 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo>> {
-        private final am cPZ;
-        private final String cQa;
-        private String cQb;
-        private List<com.baidu.tieba.write.album.b> cQc;
-        private int cQd = 1;
-        private b cQe = new g(this);
+        private final am cYK;
+        private final String cYL;
+        private String cYM;
+        private List<com.baidu.tieba.write.album.b> cYN;
+        private int cYO = 1;
+        private b cYP = new g(this);
 
         public c(String str, am amVar) {
-            this.cPZ = amVar;
-            this.cQa = str;
+            this.cYK = amVar;
+            this.cYL = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -239,23 +239,23 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: m */
         public List<ImageFileInfo> doInBackground(Void... voidArr) {
-            if (TextUtils.isEmpty(this.cQa)) {
+            if (TextUtils.isEmpty(this.cYL)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            if (this.cQa.equals("-1")) {
-                this.cQc = f.this.atK();
-                if (this.cQc != null) {
-                    for (com.baidu.tieba.write.album.b bVar : this.cQc) {
+            if (this.cYL.equals("-1")) {
+                this.cYN = f.this.ayd();
+                if (this.cYN != null) {
+                    for (com.baidu.tieba.write.album.b bVar : this.cYN) {
                         String albumId = bVar.getAlbumId();
                         if (!TextUtils.isEmpty(albumId)) {
-                            a(arrayList, this.cQe, albumId);
+                            a(arrayList, this.cYP, albumId);
                         }
                     }
                 }
                 return arrayList;
             }
-            a(arrayList, this.cQe, this.cQa);
+            a(arrayList, this.cYP, this.cYL);
             return arrayList;
         }
 
@@ -272,8 +272,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (this.cPZ != null) {
-                this.cPZ.nw();
+            if (this.cYK != null) {
+                this.cYK.nt();
             }
         }
 
@@ -283,36 +283,36 @@ public class f {
         /* renamed from: c */
         public void onProgressUpdate(List<ImageFileInfo>... listArr) {
             super.onProgressUpdate(listArr);
-            if (listArr.length > 0 && this.cPZ != null) {
-                this.cPZ.a(this.cQc, listArr[0], this.cQb);
+            if (listArr.length > 0 && this.cYK != null) {
+                this.cYK.a(this.cYN, listArr[0], this.cYM);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: n */
+        /* renamed from: o */
         public void onPostExecute(List<ImageFileInfo> list) {
             super.onPostExecute(list);
-            if (this.cPZ != null) {
-                this.cPZ.a(this.cQc, list, this.cQb);
+            if (this.cYK != null) {
+                this.cYK.a(this.cYN, list, this.cYM);
             }
         }
 
         private void a(List<ImageFileInfo> list, b bVar) {
             if (list != null && bVar != null) {
-                if (this.cQd == 1 || this.cQd == 2) {
-                    if (list.size() / this.cQd > 50) {
+                if (this.cYO == 1 || this.cYO == 2) {
+                    if (list.size() / this.cYO > 50) {
                         if (bVar != null) {
-                            bVar.bl(list);
+                            bVar.bu(list);
                         }
-                        this.cQd++;
+                        this.cYO++;
                     }
-                } else if (list.size() / this.cQd > 500) {
+                } else if (list.size() / this.cYO > 500) {
                     if (bVar != null) {
-                        bVar.bl(list);
+                        bVar.bu(list);
                     }
-                    this.cQd++;
+                    this.cYO++;
                 }
             }
         }
@@ -335,7 +335,7 @@ public class f {
                                 int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
                                 do {
                                     String string = cursor.getString(columnIndex);
-                                    this.cQb = cursor.getString(columnIndex2);
+                                    this.cYM = cursor.getString(columnIndex2);
                                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                                     imageFileInfo.setAlbumnId(str);
                                     imageFileInfo.setFilePath(string);

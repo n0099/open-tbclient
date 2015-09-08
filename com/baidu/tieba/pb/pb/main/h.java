@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class h implements a.d {
-    final /* synthetic */ PbActivity cbo;
+    final /* synthetic */ PbActivity ccj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PbActivity pbActivity) {
-        this.cbo = pbActivity;
+        this.ccj = pbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -33,9 +33,9 @@ class h implements a.d {
         cb cbVar7;
         cb cbVar8;
         com.baidu.tbadk.editortools.c.d dVar2;
-        this.cbo.stopVoice();
-        cbVar = this.cbo.caQ;
-        cbVar.ex(z);
+        this.ccj.stopVoice();
+        cbVar = this.ccj.cbL;
+        cbVar.eF(z);
         String str = "";
         int i = -1;
         if (postWriteCallBackData != null) {
@@ -43,54 +43,54 @@ class h implements a.d {
             str = postWriteCallBackData.getErrorString();
         }
         if (z) {
-            cbVar2 = this.cbo.caQ;
-            cbVar2.aeA();
-            dVar = this.cbo.caX;
+            cbVar2 = this.ccj.cbL;
+            cbVar2.aeO();
+            dVar = this.ccj.cbS;
             if (dVar != null) {
-                cbVar8 = this.cbo.caQ;
-                dVar2 = this.cbo.caX;
-                cbVar8.eA(dVar2.Br());
+                cbVar8 = this.ccj.cbL;
+                dVar2 = this.ccj.cbS;
+                cbVar8.eI(dVar2.BE());
             }
-            cbVar3 = this.cbo.caQ;
-            cbVar3.aeb();
-            cbVar4 = this.cbo.caQ;
-            cbVar4.eC(true);
-            bkVar = this.cbo.caL;
-            bkVar.adK();
-            this.cbo.a(antiData, postWriteCallBackData);
+            cbVar3 = this.ccj.cbL;
+            cbVar3.aep();
+            cbVar4 = this.ccj.cbL;
+            cbVar4.eK(true);
+            bkVar = this.ccj.cbG;
+            bkVar.adY();
+            this.ccj.a(antiData, postWriteCallBackData);
             if (writeData != null) {
                 String floor = writeData.getFloor();
                 if (writeData == null || writeData.getType() != 2) {
-                    bkVar2 = this.cbo.caL;
+                    bkVar2 = this.ccj.cbG;
                     if (bkVar2.getHostMode()) {
-                        bkVar4 = this.cbo.caL;
+                        bkVar4 = this.ccj.cbG;
                         com.baidu.tieba.pb.a.b pbData = bkVar4.getPbData();
-                        if (pbData != null && pbData.acH() != null && pbData.acH().getAuthor() != null && (userId = pbData.acH().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                            bkVar5 = this.cbo.caL;
-                            if (bkVar5.adE()) {
-                                cbVar6 = this.cbo.caQ;
-                                cbVar6.ael();
+                        if (pbData != null && pbData.acQ() != null && pbData.acQ().getAuthor() != null && (userId = pbData.acQ().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+                            bkVar5 = this.ccj.cbG;
+                            if (bkVar5.adS()) {
+                                cbVar6 = this.ccj.cbL;
+                                cbVar6.aez();
                                 return;
                             }
                             return;
                         }
                         return;
                     }
-                    bkVar3 = this.cbo.caL;
-                    if (bkVar3.adE()) {
-                        cbVar5 = this.cbo.caQ;
-                        cbVar5.ael();
+                    bkVar3 = this.ccj.cbG;
+                    if (bkVar3.adS()) {
+                        cbVar5 = this.ccj.cbL;
+                        cbVar5.aez();
                     }
                 } else if (floor != null) {
-                    bkVar6 = this.cbo.caL;
+                    bkVar6 = this.ccj.cbG;
                     com.baidu.tieba.pb.a.b pbData2 = bkVar6.getPbData();
-                    cbVar7 = this.cbo.caQ;
+                    cbVar7 = this.ccj.cbL;
                     cbVar7.h(pbData2);
                 }
             }
         } else if (lVar != null) {
         } else {
-            this.cbo.a(i, antiData, str);
+            this.ccj.a(i, antiData, str);
         }
     }
 }

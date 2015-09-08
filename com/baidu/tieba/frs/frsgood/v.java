@@ -8,32 +8,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class v extends com.baidu.adp.base.e<FrsGoodActivity> {
-    private FrsGoodActivity aWu;
-    public boolean aZs;
-    public int aZt;
-    private ArrayList<com.baidu.adp.widget.ListView.u> aZu;
-    private ArrayList<com.baidu.adp.widget.ListView.u> aZv;
-    private final com.baidu.adp.framework.listener.a aZw;
-    public boolean avu;
+    private FrsGoodActivity aWL;
+    public boolean aZL;
+    public int aZM;
+    private ArrayList<com.baidu.adp.widget.ListView.u> aZN;
+    private ArrayList<com.baidu.adp.widget.ListView.u> aZO;
+    private final com.baidu.adp.framework.listener.a aZP;
+    public boolean axc;
 
     public v(FrsGoodActivity frsGoodActivity) {
         super(frsGoodActivity.getPageContext());
-        this.avu = false;
-        this.aZs = false;
-        this.aZt = 0;
-        this.aZu = new ArrayList<>();
-        this.aZv = new ArrayList<>();
-        this.aZw = new w(this, CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
-        this.aWu = frsGoodActivity;
+        this.axc = false;
+        this.aZL = false;
+        this.aZM = 0;
+        this.aZN = new ArrayList<>();
+        this.aZO = new ArrayList<>();
+        this.aZP = new w(this, CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
+        this.aWL = frsGoodActivity;
     }
 
     public void registerListener() {
-        registerListener(this.aZw);
+        registerListener(this.aZP);
     }
 
     public void a(long j, List<Long> list) {
         if (j == 0 || list == null || list.size() == 0) {
-            this.aZs = true;
+            this.aZL = true;
             return;
         }
         String X = X(list);
@@ -43,21 +43,21 @@ public class v extends com.baidu.adp.base.e<FrsGoodActivity> {
             loadMoreRequestMessage.setThreadIds(X);
             loadMoreRequestMessage.setNeedAbstract(0);
             sendMessage(loadMoreRequestMessage);
-            this.avu = true;
+            this.axc = true;
         }
     }
 
     private String X(List<Long> list) {
         int i = 30;
         if (list == null || list.size() == 0) {
-            this.aZs = true;
+            this.aZL = true;
             return "";
         }
         StringBuilder sb = new StringBuilder();
         int size = list.size();
         int i2 = 0;
-        if (this.aZt != 0) {
-            if (this.aZt != 1) {
+        if (this.aZM != 0) {
+            if (this.aZM != 1) {
                 return "";
             }
             i2 = 30;
@@ -67,12 +67,12 @@ public class v extends com.baidu.adp.base.e<FrsGoodActivity> {
             i = list.size();
         }
         if (i2 >= list.size()) {
-            this.aZs = true;
+            this.aZL = true;
             return "";
         }
         for (int i3 = i2; i3 < i; i3++) {
             if (i3 == list.size() - 1) {
-                this.aZs = true;
+                this.aZL = true;
             }
             Long l = list.get(i3);
             if (l != null) {
@@ -97,17 +97,17 @@ public class v extends com.baidu.adp.base.e<FrsGoodActivity> {
     }
 
     public void resetData() {
-        this.aZt = 0;
-        this.aZs = false;
-        this.aZu.clear();
-        this.aZv.clear();
+        this.aZM = 0;
+        this.aZL = false;
+        this.aZN.clear();
+        this.aZO.clear();
     }
 
     public boolean Y(List<Long> list) {
         if (list != null && list.size() != 0) {
-            return (this.aZt == 2 || this.aZs) ? false : true;
+            return (this.aZM == 2 || this.aZL) ? false : true;
         }
-        this.aZs = true;
+        this.aZL = true;
         return false;
     }
 
@@ -116,36 +116,36 @@ public class v extends com.baidu.adp.base.e<FrsGoodActivity> {
             return null;
         }
         if (z) {
-            this.aZu.clear();
-            this.aZv.clear();
+            this.aZN.clear();
+            this.aZO.clear();
         }
-        int wy = TbadkCoreApplication.m411getInst().getListItemRule().wy() - this.aZu.size();
+        int wE = TbadkCoreApplication.m411getInst().getListItemRule().wE() - this.aZN.size();
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
-            if (i < wy) {
-                this.aZu.add(arrayList.get(i));
+            if (i < wE) {
+                this.aZN.add(arrayList.get(i));
             } else {
-                this.aZv.add(arrayList.get(i));
+                this.aZO.add(arrayList.get(i));
             }
         }
         ArrayList<com.baidu.adp.widget.ListView.u> arrayList2 = new ArrayList<>();
-        arrayList2.addAll(this.aZu);
-        arrayList2.addAll(this.aZv);
+        arrayList2.addAll(this.aZN);
+        arrayList2.addAll(this.aZO);
         return arrayList2;
     }
 
     public ArrayList<com.baidu.adp.widget.ListView.u> MN() {
         int i;
-        int size = this.aZv.size() + 30;
-        int wx = TbadkCoreApplication.m411getInst().getListItemRule().wx();
-        if (size > wx && this.aZv.size() > (i = size - wx)) {
+        int size = this.aZO.size() + 30;
+        int wD = TbadkCoreApplication.m411getInst().getListItemRule().wD();
+        if (size > wD && this.aZO.size() > (i = size - wD)) {
             for (int i2 = 0; i2 < i; i2++) {
-                this.aZv.remove(0);
+                this.aZO.remove(0);
             }
         }
         ArrayList<com.baidu.adp.widget.ListView.u> arrayList = new ArrayList<>();
-        arrayList.addAll(this.aZu);
-        arrayList.addAll(this.aZv);
+        arrayList.addAll(this.aZN);
+        arrayList.addAll(this.aZO);
         return arrayList;
     }
 }

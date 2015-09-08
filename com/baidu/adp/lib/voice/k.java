@@ -3,5 +3,5 @@ package com.baidu.adp.lib.voice;
 public interface k extends i {
     void ak(int i);
 
-    void js();
+    void jp();
 }

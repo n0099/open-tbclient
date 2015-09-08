@@ -23,34 +23,34 @@ public class h implements View.OnClickListener {
         int i3;
         boolean z;
         String str = TbConfig.PERSON_HEAD_FILE;
-        i = this.this$0.bDY;
+        i = this.this$0.bEF;
         if (i != 0) {
             str = TbConfig.GROUP_HEAD_FILE;
         }
-        EditHeadsImageView editHeadsImageView = this.this$0.chB;
-        i2 = this.this$0.bDY;
-        Bitmap bo = editHeadsImageView.bo(i2 == 0);
-        if (bo == null) {
+        EditHeadsImageView editHeadsImageView = this.this$0.ciw;
+        i2 = this.this$0.bEF;
+        Bitmap bv = editHeadsImageView.bv(i2 == 0);
+        if (bv == null) {
             return;
         }
-        b = this.this$0.b(str, bo);
+        b = this.this$0.b(str, bv);
         if (b) {
-            i3 = this.this$0.bDY;
+            i3 = this.this$0.bEF;
             if (i3 == 0) {
-                z = this.this$0.ayV;
+                z = this.this$0.aAD;
                 if (z) {
-                    this.this$0.afS();
+                    this.this$0.agi();
                     return;
                 }
                 this.this$0.setResult(-1);
                 this.this$0.closeActivity();
                 return;
             }
-            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.n.cB(TbConfig.GROUP_HEAD_FILE), "head");
-            aVar.Ci();
+            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.n.cH(TbConfig.GROUP_HEAD_FILE), "head");
+            aVar.Cw();
             aVar.a(new i(this));
-            aVar.Cg();
-            this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(i.C0057i.uploading));
+            aVar.Cu();
+            this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(i.h.uploading));
         }
     }
 }

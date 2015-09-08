@@ -3,15 +3,14 @@ package com.baidu.tbadk.core.util;
 import android.os.Handler;
 import android.widget.Toast;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class g {
-    private static Toast yE;
-    private boolean YV;
+    private static Toast yC;
+    private boolean Ze;
     private static Handler mHandler = new Handler();
-    private static Runnable YU = new h();
+    private static Runnable Zd = new h();
 
-    public static g tx() {
+    public static g tC() {
         return new g();
     }
 
@@ -19,24 +18,24 @@ public class g {
     }
 
     public void c(String str, int i, int i2) {
-        if (!this.YV && str != null) {
+        if (!this.Ze && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
-                mHandler.removeCallbacks(YU);
-                if (yE != null) {
-                    yE.setText(trim);
+                mHandler.removeCallbacks(Zd);
+                if (yC != null) {
+                    yC.setText(trim);
                 } else {
-                    yE = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    yE.setGravity(17, 0, i2);
+                    yC = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                    yC.setGravity(17, 0, i2);
                 }
-                mHandler.postDelayed(YU, i);
-                yE.show();
+                mHandler.postDelayed(Zd, i);
+                yC.show();
             }
         }
     }
 
     public void showToast(int i) {
-        showToast(i, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
+        showToast(i, 2000);
     }
 
     public void showToast(String str, int i) {
@@ -52,19 +51,19 @@ public class g {
     }
 
     public void onPause() {
-        this.YV = true;
+        this.Ze = true;
         cancel();
     }
 
     public void onResume() {
-        this.YV = false;
+        this.Ze = false;
     }
 
     public static void cancel() {
-        if (yE != null) {
-            mHandler.removeCallbacks(YU);
-            yE.cancel();
-            yE = null;
+        if (yC != null) {
+            mHandler.removeCallbacks(Zd);
+            yC.cancel();
+            yC = null;
         }
     }
 }

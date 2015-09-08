@@ -11,6 +11,8 @@ public class EditHeadActivityConfig extends IntentConfig {
     public static final String CUT_IMAGE_HEIGHT_SCALE = "cut_image_height_scale";
     public static final String EDITTYPE = "edit_type";
     public static final String FROMCODE = "request";
+    public static final String FROM_PHOTO_LIVE = "from_photo_live";
+    public static final String FROM_WHERE = "from_where";
     public static final int GROUP_PHOTO_WALL = 2;
     public static final int GROUP_TYPE = 1;
     public static final String NEED_UPLOAD = "need_upload";
@@ -73,6 +75,31 @@ public class EditHeadActivityConfig extends IntentConfig {
         getIntent().putExtra("edit_type", 0);
         getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
         getIntent().putExtra("need_upload", z);
+        getIntent().setData(uri);
+        setRequestCode(i2);
+        setIntentAction(IntentAction.ActivityForResult);
+    }
+
+    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, float f, String str) {
+        super(context);
+        getIntent().putExtra("request", i);
+        getIntent().putExtra(ACCOUNTDATA, accountData);
+        getIntent().putExtra("edit_type", i3);
+        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
+        getIntent().putExtra(FROM_WHERE, str);
+        getIntent().setData(uri);
+        setRequestCode(i2);
+        setIntentAction(IntentAction.ActivityForResult);
+    }
+
+    public EditHeadActivityConfig(Context context, int i, int i2, Uri uri, AccountData accountData, int i3, String str, float f, String str2) {
+        super(context);
+        getIntent().putExtra("request", i);
+        getIntent().putExtra(ACCOUNTDATA, accountData);
+        getIntent().putExtra("edit_type", i3);
+        getIntent().putExtra(FILE_NAME, str);
+        getIntent().putExtra(CUT_IMAGE_HEIGHT_SCALE, f);
+        getIntent().putExtra(FROM_WHERE, str2);
         getIntent().setData(uri);
         setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);

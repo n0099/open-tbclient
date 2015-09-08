@@ -4,20 +4,20 @@ import com.baidu.tieba.tbadkCore.location.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements d.b {
-    final /* synthetic */ d ase;
+    final /* synthetic */ d atO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.ase = dVar;
+        this.atO = dVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.b
-    public void BG() {
-        this.ase.a(0, false, null);
+    public void BT() {
+        this.atO.a(0, false, null);
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.b
-    public void eP(String str) {
-        this.ase.a(2, true, str);
+    public void eX(String str) {
+        this.atO.a(2, true, str);
     }
 }

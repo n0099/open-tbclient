@@ -12,9 +12,9 @@ import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class HaloView extends View {
     Runnable Ix;
-    private boolean adA;
-    private int adB;
-    private boolean adC;
+    private boolean adK;
+    private int adL;
+    private boolean adM;
     private final Context mContext;
     private final Paint mPaint;
 
@@ -24,17 +24,17 @@ public class HaloView extends View {
 
     public HaloView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.adA = false;
-        this.adB = 0;
-        this.adC = false;
+        this.adK = false;
+        this.adL = 0;
+        this.adM = false;
         this.Ix = new j(this);
         this.mContext = context;
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.k.HaloView);
-        this.adA = obtainStyledAttributes.getBoolean(0, false);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.j.HaloView);
+        this.adK = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
-        if (this.adA) {
+        if (this.adK) {
             this.mPaint.setStyle(Paint.Style.FILL);
         } else {
             this.mPaint.setStyle(Paint.Style.STROKE);
@@ -43,8 +43,8 @@ public class HaloView extends View {
     }
 
     public void setIsBlack(boolean z) {
-        this.adA = z;
-        if (this.adA) {
+        this.adK = z;
+        if (this.adK) {
             this.mPaint.setStyle(Paint.Style.FILL);
         } else {
             this.mPaint.setStyle(Paint.Style.STROKE);
@@ -56,22 +56,22 @@ public class HaloView extends View {
     protected void onDraw(Canvas canvas) {
         int width = getWidth() / 2;
         int height = getHeight() / 2;
-        if (!this.adA) {
+        if (!this.adK) {
             int d = com.baidu.adp.lib.util.k.d(this.mContext, i.d.ds70);
             int d2 = com.baidu.adp.lib.util.k.d(this.mContext, i.d.ds90);
             int d3 = com.baidu.adp.lib.util.k.d(this.mContext, i.d.ds30);
             int d4 = com.baidu.adp.lib.util.k.d(this.mContext, i.d.ds60);
-            if (this.adB >= 1) {
+            if (this.adL >= 1) {
                 this.mPaint.setARGB(25, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
                 this.mPaint.setStrokeWidth(d3);
                 canvas.drawCircle(width, height, d, this.mPaint);
             }
-            if (this.adB >= 2) {
+            if (this.adL >= 2) {
                 this.mPaint.setARGB(20, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
                 this.mPaint.setStrokeWidth(d4);
                 canvas.drawCircle(width, height, (d3 / 2) + d, this.mPaint);
             }
-            if (this.adB >= 3) {
+            if (this.adL >= 3) {
                 this.mPaint.setARGB(15, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK, MotionEventCompat.ACTION_MASK);
                 this.mPaint.setStrokeWidth(d2);
                 canvas.drawCircle(width, height, d + d3, this.mPaint);
@@ -86,6 +86,6 @@ public class HaloView extends View {
     }
 
     public void onDestroy() {
-        this.adC = true;
+        this.adM = true;
     }
 }

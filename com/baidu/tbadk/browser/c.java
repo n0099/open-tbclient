@@ -1,32 +1,23 @@
 package com.baidu.tbadk.browser;
 
-import android.os.Message;
-import java.util.Timer;
-import java.util.TimerTask;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class c extends TimerTask {
-    final /* synthetic */ BaseWebViewActivity Sl;
+class c implements View.OnClickListener {
+    final /* synthetic */ BaseWebViewActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(BaseWebViewActivity baseWebViewActivity) {
-        this.Sl = baseWebViewActivity;
+        this.this$0 = baseWebViewActivity;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public void run() {
-        Timer timer;
-        Timer timer2;
-        Timer timer3;
-        Message message = new Message();
-        message.what = BaseWebViewActivity.TIME_OUT_MSG_CODE;
-        this.Sl.mHandler.sendMessage(message);
-        timer = this.Sl.mTimer;
-        if (timer != null) {
-            timer2 = this.Sl.mTimer;
-            timer2.cancel();
-            timer3 = this.Sl.mTimer;
-            timer3.purge();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (!com.baidu.adp.lib.util.i.iL()) {
+            this.this$0.showToast(i.h.neterror);
+            return;
         }
+        this.this$0.mView.hideNoDataView();
+        this.this$0.refresh();
     }
 }

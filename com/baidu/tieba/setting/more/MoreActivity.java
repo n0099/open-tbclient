@@ -31,23 +31,23 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.setting.model.MoreModel;
 /* loaded from: classes.dex */
 public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitchView.a {
-    private static int cxA = 11;
-    private static int cxB = 18;
-    private v cxw;
-    private com.baidu.tieba.setting.model.c cxy;
-    private MoreModel cxx = null;
-    private a cxz = null;
+    private static int cFX = 11;
+    private static int cFY = 18;
+    private v cFT;
+    private com.baidu.tieba.setting.model.c cFV;
+    private MoreModel cFU = null;
+    private a cFW = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cxw = new v(this, aln());
+        this.cFT = new v(this, apu());
         k(bundle);
         regReceiver();
     }
 
-    private r aln() {
+    private r apu() {
         return new s(this);
     }
 
@@ -56,8 +56,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     public void onDestroy() {
         super.onDestroy();
         unregReceiver();
-        if (this.cxw != null) {
-            this.cxw.alD();
+        if (this.cFT != null) {
+            this.cFT.apK();
         }
     }
 
@@ -65,8 +65,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.cxw != null) {
-            this.cxw.refreshNewVersion();
+        if (this.cFT != null) {
+            this.cFT.refreshNewVersion();
         }
     }
 
@@ -74,26 +74,26 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cxw.onChangeSkinType(i);
+        this.cFT.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         setSkinType(-1);
-        this.cxw.akF();
+        this.cFT.aoM();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable(PersonChangeData.TAG_PERSON_INFO, this.cxx.getPersonChangeData());
+        bundle.putSerializable(PersonChangeData.TAG_PERSON_INFO, this.cFU.getPersonChangeData());
         super.onSaveInstanceState(bundle);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            alx();
+            apE();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -105,10 +105,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         if (i2 == -1) {
             switch (i) {
                 case 101:
-                    this.cxx.setPersonChangeData((PersonChangeData) intent.getSerializableExtra("data"));
-                    this.cxx.fb(true);
-                    if (this.cxy != null) {
-                        this.cxy.l(false, true);
+                    this.cFU.setPersonChangeData((PersonChangeData) intent.getSerializableExtra("data"));
+                    this.cFU.fM(true);
+                    if (this.cFV != null) {
+                        this.cFV.m(false, true);
                         return;
                     }
                     return;
@@ -121,10 +121,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         }
     }
 
-    private void alo() {
-        if (this.cxx.akL()) {
+    private void apv() {
+        if (this.cFU.aoS()) {
             Intent intent = new Intent();
-            intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cxx.getPersonChangeData());
+            intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cFU.getPersonChangeData());
             setResult(-1, intent);
         }
     }
@@ -137,11 +137,11 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             personChangeData = (PersonChangeData) getIntent().getSerializableExtra(PersonChangeData.TAG_PERSON_INFO);
         }
         if (personChangeData == null) {
-            this.cxy = new com.baidu.tieba.setting.model.c(this);
-            this.cxy.setUniqueId(getUniqueId());
-            this.cxy.setId(TbadkCoreApplication.getCurrentAccount());
-            this.cxy.setLoadDataCallBack(new t(this));
-            this.cxy.l(true, true);
+            this.cFV = new com.baidu.tieba.setting.model.c(this);
+            this.cFV.setUniqueId(getUniqueId());
+            this.cFV.setId(TbadkCoreApplication.getCurrentAccount());
+            this.cFV.setLoadDataCallBack(new t(this));
+            this.cFV.m(true, true);
         }
         b(personChangeData);
     }
@@ -149,10 +149,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     /* JADX INFO: Access modifiers changed from: private */
     public void b(PersonChangeData personChangeData) {
         if (personChangeData != null && personChangeData.getPortrait() != null) {
-            this.cxw.C(personChangeData.getPortrait(), false);
+            this.cFT.E(personChangeData.getPortrait(), false);
         }
-        this.cxx = new MoreModel(personChangeData);
-        this.cxx.setLoadDataCallBack(new u(this));
+        this.cFU = new MoreModel(personChangeData);
+        this.cFU.setLoadDataCallBack(new u(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -167,20 +167,20 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            MoreActivity.this.cxw.refreshNewVersion();
+            MoreActivity.this.cFT.refreshNewVersion();
         }
     }
 
     private void regReceiver() {
-        this.cxz = new a(this, null);
+        this.cFW = new a(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.cxz, intentFilter);
+        registerReceiver(this.cFW, intentFilter);
     }
 
     private void unregReceiver() {
-        if (this.cxz != null) {
-            unregisterReceiver(this.cxz);
+        if (this.cFW != null) {
+            unregisterReceiver(this.cFW);
         }
     }
 
@@ -190,22 +190,22 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goToFeedBack() {
-        if (Build.VERSION.SDK_INT <= cxB && Build.VERSION.SDK_INT >= cxA) {
-            alp();
+        if (Build.VERSION.SDK_INT <= cFY && Build.VERSION.SDK_INT >= cFX) {
+            apw();
         } else {
-            alq();
+            apx();
         }
     }
 
-    private void alp() {
-        com.baidu.tbadk.browser.f.a(getPageContext().getPageActivity(), TbadkCoreApplication.m411getInst().getString(i.C0057i.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false);
-        com.baidu.adp.lib.stats.a.hk().ht();
+    private void apw() {
+        com.baidu.tbadk.browser.g.a(getPageContext().getPageActivity(), TbadkCoreApplication.m411getInst().getString(i.h.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false);
+        com.baidu.adp.lib.stats.a.hh().hq();
     }
 
-    private void alq() {
+    private void apx() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.m411getInst().login(getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) getPageContext().getPageActivity(), getPageContext().getString(i.C0057i.login_feedback), true, 12008)));
+            TbadkCoreApplication.m411getInst().login(getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) getPageContext().getPageActivity(), getPageContext().getString(i.h.login_feedback), true, 12008)));
             return;
         }
         AntiData antiData = new AntiData();
@@ -219,7 +219,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alr() {
+    public void apy() {
         String str;
         String str2 = TbConfig.RECOMMEND_APP_ADDRESS;
         if (str2.indexOf("?") < 0) {
@@ -236,51 +236,51 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void als() {
+    public void apz() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountSafeSettingActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alt() {
+    public void apA() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AboutActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alu() {
+    public void apB() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BrowseSettingActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alv() {
+    public void apC() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if ((currentAccount == null || currentAccount.length() <= 0) && com.baidu.tbadk.core.a.b.rm() <= 0) {
-            TbadkCoreApplication.m411getInst().login(getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getPageContext().getPageActivity(), 1, getPageContext().getString(i.C0057i.login_manage_account), 11003)));
+        if ((currentAccount == null || currentAccount.length() <= 0) && com.baidu.tbadk.core.a.b.rk() <= 0) {
+            TbadkCoreApplication.m411getInst().login(getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getPageContext().getPageActivity(), 1, getPageContext().getString(i.h.login_manage_account), 11003)));
         } else {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_ACCOUNT, new IntentConfig(getPageContext().getPageActivity())));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alw() {
+    public void apD() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonChangeActivityConfig(getPageContext().getPageActivity(), 101, this.cxx.getPersonChangeData(), false)));
+            sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonChangeActivityConfig(getPageContext().getPageActivity(), 101, this.cFU.getPersonChangeData(), false)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alx() {
-        alo();
+    public void apE() {
+        apv();
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aly() {
+    public void apF() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MsgRemindActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alz() {
+    public void apG() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SecretSettingActivityConfig(getPageContext().getPageActivity())));
     }
 }

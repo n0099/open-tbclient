@@ -3,38 +3,28 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class aj extends Thread {
-    private String aaN;
-    private boolean aaO;
+    private String aaW;
+    private boolean aaX;
     private String mObjTp;
     private String mParam;
     private String mType;
 
-    public aj(String str) {
-        this.mType = null;
-        this.mParam = null;
-        this.aaN = null;
-        this.mObjTp = null;
-        this.aaO = false;
-        this.mType = str;
-        this.aaO = false;
-    }
-
     public aj(String str, boolean z) {
         this.mType = null;
         this.mParam = null;
-        this.aaN = null;
+        this.aaW = null;
         this.mObjTp = null;
-        this.aaO = false;
+        this.aaX = false;
         this.mType = str;
-        this.aaO = z;
+        this.aaX = z;
     }
 
     public aj(String str, String str2) {
         this.mType = null;
         this.mParam = null;
-        this.aaN = null;
+        this.aaW = null;
         this.mObjTp = null;
-        this.aaO = false;
+        this.aaX = false;
         this.mType = str;
         this.mParam = str2;
     }
@@ -43,7 +33,7 @@ public class aj extends Thread {
     public void run() {
         String str;
         super.run();
-        if (this.aaO) {
+        if (this.aaX) {
             str = TbConfig.IN_PV_ADDRESS;
         } else {
             str = TbConfig.LOAD_REG_PV_ADDRESS;
@@ -53,12 +43,12 @@ public class aj extends Thread {
         if (this.mParam != null) {
             vVar.o("st_param", this.mParam);
         }
-        if (this.aaN != null) {
-            vVar.o("obj", this.aaN);
+        if (this.aaW != null) {
+            vVar.o("obj", this.aaW);
         }
         if (this.mObjTp != null) {
             vVar.o("obj_tp", this.mObjTp);
         }
-        vVar.tD();
+        vVar.tI();
     }
 }

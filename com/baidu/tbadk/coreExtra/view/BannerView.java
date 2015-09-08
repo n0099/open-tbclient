@@ -13,24 +13,24 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    private TbPageContext<?> LS;
-    private String aka;
-    private String akb;
-    private Button akc;
-    private TbImageView akd;
-    private boolean ake;
-    private float akf;
-    private boolean akg;
-    private a akh;
-    View.OnClickListener aki;
+    View.OnClickListener akA;
+    private String aks;
+    private String akt;
+    private Button aku;
+    private TbImageView akv;
+    private boolean akw;
+    private float akx;
+    private boolean aky;
+    private a akz;
     private String link;
+    private TbPageContext<?> mContext;
     private String type;
 
     /* loaded from: classes.dex */
     public interface a {
-        void yT();
+        void za();
 
-        void yU();
+        void zb();
     }
 
     public void setBannerType(String str) {
@@ -39,12 +39,12 @@ public class BannerView extends RelativeLayout {
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aka = "";
-        this.akb = "";
-        this.ake = false;
-        this.akf = 0.1388889f;
-        this.akg = false;
-        this.aki = new com.baidu.tbadk.coreExtra.view.a(this);
+        this.aks = "";
+        this.akt = "";
+        this.akw = false;
+        this.akx = 0.1388889f;
+        this.aky = false;
+        this.akA = new com.baidu.tbadk.coreExtra.view.a(this);
         init(context);
     }
 
@@ -54,29 +54,29 @@ public class BannerView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(i.g.bannerview, this);
-        this.akc = (Button) findViewById(i.f.btn_close);
-        this.akc.setOnClickListener(this.aki);
-        this.akd = (TbImageView) findViewById(i.f.banner_image);
-        this.akd.setAutoChangeStyle(true);
-        this.akd.setOnClickListener(this.aki);
+        this.aku = (Button) findViewById(i.f.btn_close);
+        this.aku.setOnClickListener(this.akA);
+        this.akv = (TbImageView) findViewById(i.f.banner_image);
+        this.akv.setAutoChangeStyle(true);
+        this.akv.setOnClickListener(this.akA);
     }
 
     public void setBannerViewEvent(TbImageView.a aVar) {
-        if (this.akd != null && aVar != null) {
-            this.akd.setEvent(aVar);
+        if (this.akv != null && aVar != null) {
+            this.akv.setEvent(aVar);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, String str, String str2) {
-        this.LS = tbPageContext;
+        this.mContext = tbPageContext;
         this.link = str2;
-        this.akg = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.aky = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.ake && this.akg) {
-            ViewGroup.LayoutParams layoutParams = this.akd.getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.K(getContext()) * this.akf) + 0.5d);
-            this.akd.setLayoutParams(layoutParams);
-            this.akd.a(str, 10, 720, 100, false);
+        if (!this.akw && this.aky) {
+            ViewGroup.LayoutParams layoutParams = this.akv.getLayoutParams();
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.K(getContext()) * this.akx) + 0.5d);
+            this.akv.setLayoutParams(layoutParams);
+            this.akv.a(str, 10, 720, 100, false);
             setVisibility(0);
         }
     }
@@ -86,19 +86,19 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewClickListener(a aVar) {
-        this.akh = aVar;
+        this.akz = aVar;
     }
 
-    public boolean yS() {
-        return this.akg;
+    public boolean yZ() {
+        return this.aky;
     }
 
     public void reset() {
-        this.ake = false;
-        this.akg = false;
+        this.akw = false;
+        this.aky = false;
     }
 
-    public void oQ() {
-        this.akd.postInvalidate();
+    public void oN() {
+        this.akv.postInvalidate();
     }
 }

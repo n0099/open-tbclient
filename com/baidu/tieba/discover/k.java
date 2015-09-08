@@ -10,19 +10,19 @@ import com.baidu.tieba.discover.data.OpenUserResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends HttpMessageListener {
-    final /* synthetic */ a aLq;
+    final /* synthetic */ a aLD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(a aVar, int i) {
         super(i);
-        this.aLq = aVar;
+        this.aLD = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        this.aLq.getPageContext().getOrignalPage().closeLoadingDialog();
+        this.aLD.getPageContext().getOrignalPage().closeLoadingDialog();
         if (httpResponsedMessage instanceof OpenUserResponsedMessage) {
             OpenUserResponsedMessage openUserResponsedMessage = (OpenUserResponsedMessage) httpResponsedMessage;
             if (openUserResponsedMessage.getOrginalMessage() instanceof HttpMessage) {
@@ -34,20 +34,20 @@ public class k extends HttpMessageListener {
                         if (userInfo != null) {
                             if (!TextUtils.isEmpty(userInfo.toJson())) {
                                 if (TbadkCoreApplication.isLogin()) {
-                                    com.baidu.tbadk.core.sharedPref.b.ts().putString("open_user_info_" + TbadkCoreApplication.getCurrentAccount(), userInfo.toJson());
-                                    this.aLq.m(str, userInfo.getOpenID(), userInfo.getUserName());
+                                    com.baidu.tbadk.core.sharedPref.b.tx().putString("open_user_info_" + TbadkCoreApplication.getCurrentAccount(), userInfo.toJson());
+                                    this.aLD.n(str, userInfo.getOpenID(), userInfo.getUserName());
                                     return;
                                 }
-                                this.aLq.m(str, "", "");
+                                this.aLD.n(str, "", "");
                                 return;
                             }
-                            this.aLq.m(str, "", "");
+                            this.aLD.n(str, "", "");
                             return;
                         }
-                        this.aLq.m(str, "", "");
+                        this.aLD.n(str, "", "");
                         return;
                     }
-                    this.aLq.m(str, "", "");
+                    this.aLD.n(str, "", "");
                 }
             }
         }

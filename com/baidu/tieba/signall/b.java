@@ -1,12 +1,12 @@
 package com.baidu.tieba.signall;
 /* loaded from: classes.dex */
 public class b extends e {
-    private String czA;
+    private String cHY;
     private String title;
 
     public b(String str, String str2) {
         this.title = str;
-        this.czA = str2;
+        this.cHY = str2;
     }
 
     public String getTitle() {

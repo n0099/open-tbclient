@@ -3,14 +3,14 @@ package com.baidu.tieba.chosen.posts;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class j implements a.b {
-    final /* synthetic */ h aKE;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aKF;
+    final /* synthetic */ h aKR;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aKS;
     private final /* synthetic */ int val$position;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(h hVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.aKE = hVar;
-        this.aKF = aVar;
+        this.aKR = hVar;
+        this.aKS = aVar;
         this.val$position = i;
     }
 
@@ -22,16 +22,16 @@ class j implements a.b {
         ChosenPostActivity chosenPostActivity;
         e eVar3;
         ChosenPostActivity chosenPostActivity2;
-        this.aKF.dismiss();
-        eVar = this.aKE.aKD;
-        aVar2 = eVar.aKy;
+        this.aKS.dismiss();
+        eVar = this.aKR.aKQ;
+        aVar2 = eVar.aKL;
         com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4101, null, null, null);
         bVar.setExtra(aVar2.getItem(this.val$position));
-        eVar2 = this.aKE.aKD;
-        chosenPostActivity = eVar2.aKw;
+        eVar2 = this.aKR.aKQ;
+        chosenPostActivity = eVar2.aKJ;
         bVar.setUniqueId(chosenPostActivity.getUniqueId());
-        eVar3 = this.aKE.aKD;
-        chosenPostActivity2 = eVar3.aKw;
-        chosenPostActivity2.oH().dispatchMvcEvent(bVar);
+        eVar3 = this.aKR.aKQ;
+        chosenPostActivity2 = eVar3.aKJ;
+        chosenPostActivity2.oE().dispatchMvcEvent(bVar);
     }
 }

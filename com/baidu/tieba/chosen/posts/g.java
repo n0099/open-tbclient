@@ -10,21 +10,21 @@ import tbclient.HotThread.tinfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements AdapterView.OnItemClickListener {
-    final /* synthetic */ e aKD;
+    final /* synthetic */ e aKQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.aKD = eVar;
+        this.aKQ = eVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         a aVar;
-        aVar = this.aKD.aKy;
+        aVar = this.aKQ.aKL;
         tinfo item = aVar.getItem(i);
         if (item != null) {
-            TiebaStatic.eventStat(this.aKD.getActivity(), "kantie_5", null, 1, "threadId", item.thread_id);
-            this.aKD.getPageContext().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.aKD.getActivity()).createNormalCfg(String.valueOf(item.thread_id), null, null)));
+            TiebaStatic.eventStat(this.aKQ.getActivity(), "kantie_5", null, 1, "threadId", item.thread_id);
+            this.aKQ.getPageContext().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.aKQ.getActivity()).createNormalCfg(String.valueOf(item.thread_id), null, null)));
         }
     }
 }

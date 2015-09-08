@@ -17,8 +17,8 @@ import org.json.JSONObject;
 public class XiubaTbJsBridge {
     private static final String XIUBA_PACKAGE = "com.xiu8.baidu.activity";
     private final TbPageContext<?> mTbPageContext;
-    private final CustomMessageListener installListener = new r(this, CmdConfigCustom.CMD_PACKAGE_ADDED);
-    private final CustomMessageListener downloadListener = new s(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
+    private final CustomMessageListener installListener = new s(this, CmdConfigCustom.CMD_PACKAGE_ADDED);
+    private final CustomMessageListener downloadListener = new t(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
 
     public XiubaTbJsBridge(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
@@ -68,7 +68,7 @@ public class XiubaTbJsBridge {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Ap().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m411getInst().getResources().getString(i.C0057i.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.AC().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m411getInst().getResources().getString(i.h.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

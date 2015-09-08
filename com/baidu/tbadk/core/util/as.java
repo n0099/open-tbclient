@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class as {
-    private static final char[] yT = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static final char[] yR = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     public static String b(PackageInfo packageInfo) {
         long j = 0;
@@ -49,9 +49,9 @@ public class as {
             for (int i2 = 0; i2 < 16; i2++) {
                 byte b = digest[i2];
                 int i3 = i + 1;
-                cArr[i] = yT[(b >>> 4) & 15];
+                cArr[i] = yR[(b >>> 4) & 15];
                 i = i3 + 1;
-                cArr[i3] = yT[b & 15];
+                cArr[i3] = yR[b & 15];
             }
             return new String(cArr);
         } catch (Exception e) {
@@ -76,7 +76,7 @@ public class as {
         return null;
     }
 
-    public static String dc(String str) {
+    public static String di(String str) {
         return com.baidu.adp.lib.util.t.toMd5(str);
     }
 }

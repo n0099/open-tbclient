@@ -6,17 +6,17 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a bcO;
+    final /* synthetic */ a bdi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.bcO = aVar;
+        this.bdi = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.bcO.bcy)) {
-            com.baidu.tbadk.browser.f.a(this.bcO.LS.getPageActivity(), this.bcO.LS.getString(i.C0057i.frs_badge_intro), this.bcO.bcy, true, false, false);
+        if (!TextUtils.isEmpty(this.bdi.bcS)) {
+            com.baidu.tbadk.browser.g.a(this.bdi.mContext.getPageActivity(), this.bdi.mContext.getString(i.h.frs_badge_intro), this.bdi.bcS, true, false, false);
         }
     }
 }

@@ -10,11 +10,11 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.pb.pb.main.bk;
 /* loaded from: classes.dex */
 class i implements bk.a {
-    final /* synthetic */ PbActivity cbo;
+    final /* synthetic */ PbActivity ccj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(PbActivity pbActivity) {
-        this.cbo = pbActivity;
+        this.ccj = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.bk.a
@@ -54,85 +54,85 @@ class i implements bk.a {
         cb cbVar14;
         com.baidu.tbadk.editortools.c.d dVar8;
         cb cbVar15;
-        this.cbo.bYO = true;
+        this.ccj.bZI = true;
         long currentTimeMillis = System.currentTimeMillis();
-        cbVar = this.cbo.caQ;
-        cbVar.aep();
-        PbActivity pbActivity = this.cbo;
-        cbVar2 = this.cbo.caQ;
+        cbVar = this.ccj.cbL;
+        cbVar.aeD();
+        PbActivity pbActivity = this.ccj;
+        cbVar2 = this.ccj.cbL;
         pbActivity.hideLoadingView(cbVar2.getView());
-        cbVar3 = this.cbo.caQ;
-        cbVar3.UK();
-        z2 = this.cbo.atm;
+        cbVar3 = this.ccj.cbL;
+        cbVar3.UM();
+        z2 = this.ccj.auW;
         if (z2) {
-            this.cbo.atm = false;
-            cbVar15 = this.cbo.caQ;
-            cbVar15.cdM.cfs.setEnabled(true);
+            this.ccj.auW = false;
+            cbVar15 = this.ccj.cbL;
+            cbVar15.ceJ.cgp.setEnabled(true);
         }
         if (i4 == 0 && bVar != null) {
-            this.cbo.aUm = true;
+            this.ccj.aUA = true;
         }
         if (z && bVar != null) {
-            cbVar8 = this.cbo.caQ;
-            cbVar8.LZ();
-            dVar = this.cbo.caX;
+            cbVar8 = this.ccj.cbL;
+            cbVar8.LQ();
+            dVar = this.ccj.cbS;
             if (dVar != null) {
-                cbVar14 = this.cbo.caQ;
-                dVar8 = this.cbo.caX;
-                cbVar14.eA(dVar8.Br());
+                cbVar14 = this.ccj.cbL;
+                dVar8 = this.ccj.cbS;
+                cbVar14.eI(dVar8.BE());
             }
-            cbVar9 = this.cbo.caQ;
-            cbVar9.eC(false);
+            cbVar9 = this.ccj.cbL;
+            cbVar9.eK(false);
             TbadkCoreApplication.m411getInst().setDefaultBubble(bVar.getUserData().getBimg_url());
             TbadkCoreApplication.m411getInst().setDefaultBubbleEndTime(bVar.getUserData().getBimg_end_time());
-            dVar2 = this.cbo.caX;
+            dVar2 = this.ccj.cbS;
             if (dVar2 != null) {
-                dVar6 = this.cbo.caX;
-                dVar6.a(bVar.rM());
-                dVar7 = this.cbo.caX;
-                dVar7.a(bVar.acG(), bVar.getUserData());
+                dVar6 = this.ccj.cbS;
+                dVar6.a(bVar.rK());
+                dVar7 = this.ccj.cbS;
+                dVar7.a(bVar.acP(), bVar.getUserData());
             }
-            aVar = this.cbo.caM;
+            aVar = this.ccj.cbH;
             if (aVar != null) {
-                aVar2 = this.cbo.caM;
-                aVar2.ab(bVar.qr());
+                aVar2 = this.ccj.cbH;
+                aVar2.ab(bVar.qo());
             }
-            if (bVar == null || bVar.acL() != 1) {
-                this.cbo.mIsFromCDN = false;
+            if (bVar == null || bVar.acV() != 1) {
+                this.ccj.mIsFromCDN = false;
             } else {
-                this.cbo.mIsFromCDN = true;
+                this.ccj.mIsFromCDN = true;
             }
-            cbVar10 = this.cbo.caQ;
-            z4 = this.cbo.mIsFromCDN;
-            cbVar10.eB(z4);
-            cbVar11 = this.cbo.caQ;
-            bkVar = this.cbo.caL;
-            boolean ady = bkVar.ady();
-            bkVar2 = this.cbo.caL;
-            cbVar11.a(bVar, i2, i3, ady, i4, bkVar2.getIsFromMark());
-            cbVar12 = this.cbo.caQ;
-            bkVar3 = this.cbo.caL;
-            cbVar12.a(bVar, bkVar3.ady(), false, i2);
-            cbVar13 = this.cbo.caQ;
-            bkVar4 = this.cbo.caL;
-            cbVar13.ey(bkVar4.getHostMode());
-            this.cbo.adn();
-            AntiData rM = bVar.rM();
-            if (rM != null) {
-                this.cbo.arU = rM.getVoice_message();
-                str2 = this.cbo.arU;
+            cbVar10 = this.ccj.cbL;
+            z4 = this.ccj.mIsFromCDN;
+            cbVar10.eJ(z4);
+            cbVar11 = this.ccj.cbL;
+            bkVar = this.ccj.cbG;
+            boolean adM = bkVar.adM();
+            bkVar2 = this.ccj.cbG;
+            cbVar11.a(bVar, i2, i3, adM, i4, bkVar2.getIsFromMark());
+            cbVar12 = this.ccj.cbL;
+            bkVar3 = this.ccj.cbG;
+            cbVar12.a(bVar, bkVar3.adM(), false, i2);
+            cbVar13 = this.ccj.cbL;
+            bkVar4 = this.ccj.cbG;
+            cbVar13.eG(bkVar4.getHostMode());
+            this.ccj.adA();
+            AntiData rK = bVar.rK();
+            if (rK != null) {
+                this.ccj.atE = rK.getVoice_message();
+                str2 = this.ccj.atE;
                 if (!StringUtils.isNull(str2)) {
-                    dVar3 = this.cbo.caX;
+                    dVar3 = this.ccj.cbS;
                     if (dVar3 != null) {
-                        dVar4 = this.cbo.caX;
-                        if (dVar4.Ay() != null) {
-                            dVar5 = this.cbo.caX;
-                            com.baidu.tbadk.editortools.p dJ = dVar5.Ay().dJ(6);
-                            if (dJ != null) {
-                                str3 = this.cbo.arU;
+                        dVar4 = this.ccj.cbS;
+                        if (dVar4.AL() != null) {
+                            dVar5 = this.ccj.cbS;
+                            com.baidu.tbadk.editortools.p dR = dVar5.AL().dR(6);
+                            if (dR != null) {
+                                str3 = this.ccj.atE;
                                 if (!TextUtils.isEmpty(str3)) {
-                                    onClickListener = this.cbo.cba;
-                                    ((View) dJ).setOnClickListener(onClickListener);
+                                    onClickListener = this.ccj.cbV;
+                                    ((View) dR).setOnClickListener(onClickListener);
                                 }
                             }
                         }
@@ -140,50 +140,50 @@ class i implements bk.a {
                 }
             }
         } else if (str != null) {
-            z3 = this.cbo.aUm;
+            z3 = this.ccj.aUA;
             if (!z3 && i4 == 1) {
                 if (i2 == 3 || i2 == 4 || i2 == 6) {
-                    PbActivity pbActivity2 = this.cbo;
-                    cbVar6 = this.cbo.caQ;
-                    pbActivity2.showNetRefreshView(cbVar6.getView(), this.cbo.getPageContext().getResources().getString(i.C0057i.net_error_text, str, Integer.valueOf(i)), true);
-                    cbVar7 = this.cbo.caQ;
-                    cbVar7.aeE();
+                    PbActivity pbActivity2 = this.ccj;
+                    cbVar6 = this.ccj.cbL;
+                    pbActivity2.showNetRefreshView(cbVar6.getView(), this.ccj.getPageContext().getResources().getString(i.h.net_error_text, str, Integer.valueOf(i)), true);
+                    cbVar7 = this.ccj.cbL;
+                    cbVar7.aeS();
                 }
             } else {
-                this.cbo.showToast(str);
+                this.ccj.showToast(str);
             }
-            cbVar4 = this.cbo.caQ;
-            cbVar4.jo(this.cbo.getResources().getString(i.C0057i.list_no_more));
-            cbVar5 = this.cbo.caQ;
-            cbVar5.vB();
+            cbVar4 = this.ccj.cbL;
+            cbVar4.jw(this.ccj.getResources().getString(i.h.list_no_more));
+            cbVar5 = this.ccj.cbL;
+            cbVar5.vG();
         }
-        this.cbo.axq = System.currentTimeMillis() - currentTimeMillis;
+        this.ccj.ayY = System.currentTimeMillis() - currentTimeMillis;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.bk.a
     public void a(com.baidu.tieba.pb.a.b bVar) {
         cb cbVar;
-        cbVar = this.cbo.caQ;
+        cbVar = this.ccj.cbL;
         cbVar.h(bVar);
     }
 
     @Override // com.baidu.tieba.pb.pb.main.bk.a
-    public void ef(boolean z) {
+    public void em(boolean z) {
         long j;
         long j2;
         long j3;
-        PbActivity pbActivity = this.cbo;
+        PbActivity pbActivity = this.ccj;
         long currentTimeMillis = System.currentTimeMillis();
-        j = this.cbo.aMq;
-        pbActivity.axr = currentTimeMillis - j;
+        j = this.ccj.aMD;
+        pbActivity.ayZ = currentTimeMillis - j;
         if (z) {
             com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
-            tVar.eq(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-            j2 = this.cbo.createTime;
-            tVar.axk = j2;
-            j3 = this.cbo.axr;
-            tVar.axr = j3;
-            tVar.DY();
+            tVar.ey(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+            j2 = this.ccj.createTime;
+            tVar.ayS = j2;
+            j3 = this.ccj.ayZ;
+            tVar.ayZ = j3;
+            tVar.Ei();
         }
     }
 
@@ -195,21 +195,21 @@ class i implements bk.a {
         long j4;
         long j5;
         if (tVar != null) {
-            j = this.cbo.createTime;
-            tVar.axk = j;
-            this.cbo.createTime = 0L;
-            j2 = this.cbo.axq;
-            tVar.axq = j2;
-            j3 = this.cbo.axr;
+            j = this.ccj.createTime;
+            tVar.ayS = j;
+            this.ccj.createTime = 0L;
+            j2 = this.ccj.ayY;
+            tVar.ayY = j2;
+            j3 = this.ccj.ayZ;
             if (j3 == 0) {
                 long currentTimeMillis = System.currentTimeMillis();
-                j5 = this.cbo.aMq;
+                j5 = this.ccj.aMD;
                 j4 = currentTimeMillis - j5;
             } else {
-                j4 = this.cbo.axr;
+                j4 = this.ccj.ayZ;
             }
-            tVar.axr = j4;
-            tVar.DZ();
+            tVar.ayZ = j4;
+            tVar.Ej();
         }
     }
 }

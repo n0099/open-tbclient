@@ -50,9 +50,9 @@ public class f extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface b {
-        void od();
+        void oa();
 
-        void oe();
+        void ob();
     }
 
     public f(Context context) {
@@ -206,18 +206,18 @@ public class f extends FrameLayout {
                 if (Math.abs(this.Jn) > this.mMinimumVelocity && f > this.mFlingDistance) {
                     if (this.Jn > 0.0f) {
                         this.Jg = true;
-                        nZ();
+                        nW();
                         return true;
                     }
-                    oa();
+                    nX();
                     this.Jg = false;
                     return true;
                 } else if (this.mContentView.getScrollX() <= (-this.mViewWidth) / 2) {
                     this.Jg = true;
-                    nZ();
+                    nW();
                     break;
                 } else {
-                    oa();
+                    nX();
                     this.Jg = false;
                     break;
                 }
@@ -244,7 +244,7 @@ public class f extends FrameLayout {
                 }
                 break;
             case 3:
-                ob();
+                nY();
                 break;
         }
         return super.onTouchEvent(motionEvent);
@@ -279,7 +279,7 @@ public class f extends FrameLayout {
     private void endDrag() {
         this.Jf = false;
         this.mActivePointerId = -1;
-        ob();
+        nY();
     }
 
     private boolean a(MotionEvent motionEvent, int i, int i2) {
@@ -302,13 +302,13 @@ public class f extends FrameLayout {
         return findPointerIndex;
     }
 
-    private void nZ() {
+    private void nW() {
         this.Ji = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, (-(this.mViewWidth + this.mContentView.getScrollX())) + 1, 0);
         postInvalidate();
     }
 
-    private void oa() {
+    private void nX() {
         this.Ji = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, -this.mContentView.getScrollX(), 0);
         postInvalidate();
@@ -349,7 +349,7 @@ public class f extends FrameLayout {
         }
     }
 
-    private void ob() {
+    private void nY() {
         if (this.mVelocityTracker != null) {
             this.mVelocityTracker.clear();
             this.mVelocityTracker.recycle();
@@ -365,7 +365,7 @@ public class f extends FrameLayout {
         this.Jh = z;
     }
 
-    public void oc() {
+    public void nZ() {
         if (this.Jd != null) {
             this.Jd.setBackgroundResource(R.color.transparent);
         }

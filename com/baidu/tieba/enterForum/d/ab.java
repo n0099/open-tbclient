@@ -16,15 +16,15 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class ab extends LinearLayout implements View.OnClickListener {
-    private ViewEventCenter aMt;
-    private View aOg;
-    private BarImageView aOh;
-    private TextView aOi;
-    private TextView aOj;
-    private TextView aOk;
-    private TextView aOl;
-    private TextView aOm;
-    private com.baidu.tieba.enterForum.b.e aOn;
+    private ViewEventCenter aMG;
+    private com.baidu.tieba.enterForum.b.e aOA;
+    private View aOt;
+    private BarImageView aOu;
+    private TextView aOv;
+    private TextView aOw;
+    private TextView aOx;
+    private TextView aOy;
+    private TextView aOz;
 
     public ab(Context context) {
         this(context, null);
@@ -37,37 +37,37 @@ public class ab extends LinearLayout implements View.OnClickListener {
     }
 
     private void init() {
-        this.aOg = findViewById(i.f.view_root);
-        this.aOi = (TextView) findViewById(i.f.forum_name);
-        this.aOj = (TextView) findViewById(i.f.forum_follows_count);
-        this.aOk = (TextView) findViewById(i.f.forum_thread_count);
-        this.aOl = (TextView) findViewById(i.f.forum_intro);
-        this.aOh = (BarImageView) findViewById(i.f.forum_avatar);
-        this.aOm = (TextView) findViewById(i.f.tv_add_love);
-        this.aOm.setOnClickListener(this);
+        this.aOt = findViewById(i.f.view_root);
+        this.aOv = (TextView) findViewById(i.f.forum_name);
+        this.aOw = (TextView) findViewById(i.f.forum_follows_count);
+        this.aOx = (TextView) findViewById(i.f.forum_thread_count);
+        this.aOy = (TextView) findViewById(i.f.forum_intro);
+        this.aOu = (BarImageView) findViewById(i.f.forum_avatar);
+        this.aOz = (TextView) findViewById(i.f.tv_add_love);
+        this.aOz.setOnClickListener(this);
         setOnClickListener(this);
         if (TbadkCoreApplication.isLogin()) {
-            this.aOm.setVisibility(0);
+            this.aOz.setVisibility(0);
         } else {
-            this.aOm.setVisibility(8);
+            this.aOz.setVisibility(8);
         }
     }
 
-    private String eR(int i) {
+    private String eY(int i) {
         return i <= 999999 ? String.valueOf(i) : String.format("%.0fw", Float.valueOf(i / 10000.0f));
     }
 
     public void setData(com.baidu.tieba.enterForum.b.e eVar) {
         if (eVar != null) {
-            this.aOn = eVar;
+            this.aOA = eVar;
             if (eVar.getType() == 0) {
                 setVisibility(0);
-                this.aOi.setText(eVar.getForumName());
-                this.aOj.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.C0057i.attention_n)) + eR(eVar.Iu()));
-                this.aOk.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.C0057i.text_post)) + eR(eVar.Iv()));
-                this.aOl.setText(eVar.getSlogan());
+                this.aOv.setText(eVar.getForumName());
+                this.aOw.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.attention_n)) + eY(eVar.Ii()));
+                this.aOx.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.text_post)) + eY(eVar.Ij()));
+                this.aOy.setText(eVar.getSlogan());
                 if (!StringUtils.isNULL(eVar.getAvatar())) {
-                    this.aOh.d(eVar.getAvatar(), 10, false);
+                    this.aOu.d(eVar.getAvatar(), 10, false);
                     return;
                 }
                 return;
@@ -77,23 +77,23 @@ public class ab extends LinearLayout implements View.OnClickListener {
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.aMt = viewEventCenter;
+        this.aMG = viewEventCenter;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aMt != null) {
-            if (view == this.aOm) {
-                this.aMt.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(10, this.aOn, null, null));
+        if (this.aMG != null) {
+            if (view == this.aOz) {
+                this.aMG.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(10, this.aOA, null, null));
             } else if (view == this) {
-                this.aMt.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(11, this.aOn, null, null));
+                this.aMG.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(11, this.aOA, null, null));
             }
         }
     }
 
     public void e(TbPageContext<?> tbPageContext) {
-        com.baidu.tbadk.f.a.a(tbPageContext, this);
-        al.i(this.aOg, i.e.addresslist_item_bg);
-        this.aOh.invalidate();
+        com.baidu.tbadk.h.a.a(tbPageContext, this);
+        al.h(this.aOt, i.e.addresslist_item_bg);
+        this.aOu.invalidate();
     }
 }

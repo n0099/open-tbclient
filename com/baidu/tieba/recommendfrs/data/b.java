@@ -3,24 +3,27 @@ package com.baidu.tieba.recommendfrs.data;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.FineFrsPage.FineThreadInfo;
+import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class b extends i {
-    private long bpG;
-    private int csR;
-    private boolean csS;
-    private long csT;
-    private int csU;
+    private long bqe;
+    private int cBj;
+    private boolean cBk;
+    private long cBl;
+    private int cBm;
     private String desc;
     private String forumName;
     private long ftid;
+    private int thread_type;
     private List<String> thumbnail;
     private String title;
+    private ZhiBoInfoTW twzhibo_info;
     private int type;
 
     public b a(FineThreadInfo fineThreadInfo) {
         if (fineThreadInfo != null) {
             if (fineThreadInfo.forder != null) {
-                this.csU = fineThreadInfo.forder.intValue();
+                this.cBm = fineThreadInfo.forder.intValue();
             }
             if (fineThreadInfo.ftid != null) {
                 this.ftid = fineThreadInfo.ftid.longValue();
@@ -35,32 +38,36 @@ public class b extends i {
                 this.thumbnail.addAll(fineThreadInfo.thumbnail);
             }
             if (fineThreadInfo.publish_time != null) {
-                this.csR = fineThreadInfo.publish_time.intValue();
+                this.cBj = fineThreadInfo.publish_time.intValue();
             }
             this.forumName = fineThreadInfo.fromfname;
             if (fineThreadInfo.threadsnum != null) {
-                this.csT = fineThreadInfo.threadsnum.longValue();
+                this.cBl = fineThreadInfo.threadsnum.longValue();
             }
             if (fineThreadInfo.zansum != null) {
-                this.bpG = fineThreadInfo.zansum.longValue();
+                this.bqe = fineThreadInfo.zansum.longValue();
             }
+            if (fineThreadInfo.thread_type != null) {
+                this.thread_type = fineThreadInfo.thread_type.intValue();
+            }
+            this.twzhibo_info = fineThreadInfo.twzhibo_info;
         }
         return this;
     }
 
-    public int ajw() {
-        return this.csU;
+    public int anA() {
+        return this.cBm;
     }
 
-    public long ajx() {
-        return this.bpG;
+    public long anB() {
+        return this.bqe;
     }
 
-    public long ajy() {
-        return this.csT;
+    public long anC() {
+        return this.cBl;
     }
 
-    public long ajz() {
+    public long anD() {
         return this.ftid;
     }
 
@@ -76,23 +83,31 @@ public class b extends i {
         return this.desc;
     }
 
-    public List<String> ajA() {
+    public List<String> anE() {
         return this.thumbnail;
     }
 
-    public int ajB() {
-        return this.csR;
+    public int anF() {
+        return this.cBj;
     }
 
     public String getForumName() {
         return this.forumName;
     }
 
-    public boolean ajC() {
-        return this.csS;
+    public boolean anG() {
+        return this.cBk;
     }
 
-    public void eR(boolean z) {
-        this.csS = z;
+    public void fD(boolean z) {
+        this.cBk = z;
+    }
+
+    public int anH() {
+        return this.thread_type;
+    }
+
+    public ZhiBoInfoTW anI() {
+        return this.twzhibo_info;
     }
 }

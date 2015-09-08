@@ -1,34 +1,50 @@
 package com.baidu.tieba.recommendfrs.a;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
+import android.widget.ImageView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n extends com.baidu.tbadk.mvc.g.a<String, com.baidu.tbadk.mvc.d.b> {
-    private TextView bpf;
+public class n implements com.baidu.tbadk.core.flow.b {
+    final /* synthetic */ m cCw;
 
-    public n(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, view, viewEventCenter);
-        this.bpf = (TextView) view.findViewById(i.f.recommend_frs_time_divider_text);
-        a(tbPageContext, TbadkCoreApplication.m411getInst().getSkinType());
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(m mVar) {
+        this.cCw = mVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.mvc.g.e
-    /* renamed from: jD */
-    public void A(String str) {
-        super.A(str);
-        if (str != null) {
-            this.bpf.setText(str);
-        }
+    @Override // com.baidu.tbadk.core.flow.b
+    public com.baidu.tbadk.core.flow.a.c tg() {
+        com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
+        cVar.setDrawableId(i.e.icon_diandian_white_n);
+        cVar.bX(i.e.icon_diandian_white_s);
+        cVar.setSpacing(i.d.ds1);
+        cVar.setGravity(85);
+        cVar.bZ(i.d.ds30);
+        cVar.bY(i.d.ds22);
+        return cVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.r
-    public boolean a(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.f.a.a(tbPageContext, getRootView());
-        return true;
+    @Override // com.baidu.tbadk.core.flow.b
+    public TbImageView X(Context context) {
+        TbImageView tbImageView = new TbImageView(context);
+        tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        tbImageView.setGifIconSupport(false);
+        return tbImageView;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.b
+    public com.baidu.tbadk.core.flow.a.e th() {
+        com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
+        eVar.setHeight(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds314));
+        return eVar;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.b
+    public View ti() {
+        return null;
     }
 }

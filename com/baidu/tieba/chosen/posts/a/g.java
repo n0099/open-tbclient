@@ -10,21 +10,21 @@ import com.baidu.tbadk.core.util.aq;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes.dex */
 class g implements View.OnClickListener {
-    private final /* synthetic */ tinfo aKR;
-    final /* synthetic */ e aKU;
+    private final /* synthetic */ tinfo aLe;
+    final /* synthetic */ e aLh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar, tinfo tinfoVar) {
-        this.aKU = eVar;
-        this.aKR = tinfoVar;
+        this.aLh = eVar;
+        this.aLe = tinfoVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        String str = this.aKR.forum_name;
+        String str = this.aLe.forum_name;
         if (aq.aP(str)) {
-            TiebaStatic.eventStat(this.aKU.getActivity(), "kantie_6", null, 1, new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.aKU.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
+            TiebaStatic.eventStat(this.aLh.getActivity(), "kantie_6", null, 1, new Object[0]);
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.aLh.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
         }
     }
 }

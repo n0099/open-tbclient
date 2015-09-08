@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbChosenActivity bYY;
+    final /* synthetic */ PbChosenActivity bZS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(PbChosenActivity pbChosenActivity, int i, int i2) {
         super(i, i2);
-        this.bYY = pbChosenActivity;
+        this.bZS = pbChosenActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,22 +25,22 @@ class c extends com.baidu.adp.framework.listener.a {
         if (responsedMessage instanceof com.baidu.tieba.pb.chosen.net.a) {
             com.baidu.tieba.pb.chosen.net.a aVar = (com.baidu.tieba.pb.chosen.net.a) responsedMessage;
             int erroCode = aVar.getErroCode();
-            this.bYY.bYO = true;
+            this.bZS.bZI = true;
             if (erroCode != 0) {
-                PbChosenActivity pbChosenActivity = this.bYY;
-                relativeLayout = this.bYY.bYB;
+                PbChosenActivity pbChosenActivity = this.bZS;
+                relativeLayout = this.bZS.bZv;
                 pbChosenActivity.hideLoadingView(relativeLayout);
-                BdToast.b(this.bYY.getPageContext().getPageActivity(), StringUtils.isNull(aVar.getErrorText()) ? this.bYY.getResources().getString(i.C0057i.neterror) : aVar.getErrorText()).sX();
+                BdToast.b(this.bZS.getPageContext().getPageActivity(), StringUtils.isNull(aVar.getErrorText()) ? this.bZS.getResources().getString(i.h.neterror) : aVar.getErrorText()).tc();
             } else {
-                this.bYY.a(aVar);
+                this.bZS.a(aVar);
             }
-            z = this.bYY.aQA;
+            z = this.bZS.aQO;
             if (!z) {
-                String string = this.bYY.getResources().getString(i.C0057i.error_unkown_try_again);
-                PbChosenActivity pbChosenActivity2 = this.bYY;
-                relativeLayout2 = this.bYY.bYB;
+                String string = this.bZS.getResources().getString(i.h.error_unkown_try_again);
+                PbChosenActivity pbChosenActivity2 = this.bZS;
+                relativeLayout2 = this.bZS.bZv;
                 pbChosenActivity2.showNetRefreshView(relativeLayout2, string, true);
-                mVar = this.bYY.bYF;
+                mVar = this.bZS.bZz;
                 mVar.setVisible(false);
             }
         }

@@ -22,15 +22,15 @@ import java.util.Iterator;
 public class a {
     public static void I(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
-            k.showToast(context, i.C0057i.pb_app_error);
+            k.showToast(context, i.h.pb_app_error);
             return;
         }
-        File cC = n.cC(String.valueOf(str.replace(".", "_")) + ".apk");
-        if (cC != null) {
+        File cI = n.cI(String.valueOf(str.replace(".", "_")) + ".apk");
+        if (cI != null) {
             Intent intent = new Intent();
             intent.addFlags(268435456);
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(Uri.fromFile(cC), "application/vnd.android.package-archive");
+            intent.setDataAndType(Uri.fromFile(cI), "application/vnd.android.package-archive");
             context.startActivity(intent);
         }
     }
@@ -68,7 +68,7 @@ public class a {
         } else {
             str2 = "content://com.android.launcher2.settings/favorites?notify=true";
         }
-        Cursor query = context.getContentResolver().query(Uri.parse(str2), null, "title=?", new String[]{String.valueOf(str) + context.getString(i.C0057i.bar)}, null);
+        Cursor query = context.getContentResolver().query(Uri.parse(str2), null, "title=?", new String[]{String.valueOf(str) + context.getString(i.h.bar)}, null);
         boolean z = query != null && query.getCount() > 0;
         o.b(query);
         return z;

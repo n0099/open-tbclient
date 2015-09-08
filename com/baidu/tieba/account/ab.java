@@ -1,37 +1,32 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
+import com.baidu.sapi2.shell.listener.AuthorizationListener;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tieba.i;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ab implements View.OnFocusChangeListener {
-    final /* synthetic */ Register2Activity aFh;
+public class ab extends AuthorizationListener {
+    final /* synthetic */ SapiFastRegActivity aGg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(Register2Activity register2Activity) {
-        this.aFh = register2Activity;
+    public ab(SapiFastRegActivity sapiFastRegActivity) {
+        this.aGg = sapiFastRegActivity;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        EditText editText;
-        EditText editText2;
-        ImageView imageView = null;
-        editText = this.aFh.aEM;
-        if (view == editText) {
-            imageView = this.aFh.aED;
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public void onSuccess() {
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_success", 0, "", new Object[0]);
+        this.aGg.Gh();
+    }
+
+    @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
+    public void onFailed(int i, String str) {
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_fail", i, str, new Object[0]);
+        if (str != null && !"".equals(str)) {
+            this.aGg.showToast(str);
         } else {
-            editText2 = this.aFh.aEO;
-            if (view == editText2) {
-                imageView = this.aFh.aEE;
-            }
+            this.aGg.showToast(i.h.data_load_error);
         }
-        if (imageView != null) {
-            if (z) {
-                imageView.setVisibility(0);
-            } else {
-                imageView.setVisibility(8);
-            }
-        }
+        this.aGg.finish();
     }
 }

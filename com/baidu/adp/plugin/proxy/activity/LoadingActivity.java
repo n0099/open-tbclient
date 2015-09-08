@@ -21,7 +21,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             return;
         }
         bH(stringExtra);
-        PluginPackageManager.lT().a(stringExtra, new a(this));
+        PluginPackageManager.lQ().a(stringExtra, new a(this));
     }
 
     private void bH(String str) {

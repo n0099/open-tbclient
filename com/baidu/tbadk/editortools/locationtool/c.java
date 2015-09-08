@@ -7,8 +7,8 @@ import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class c extends v {
     public c(Context context, int i) {
-        super(context, TbadkCoreApplication.m411getInst().getString(i.C0057i.editor_location), 7, i);
-        this.apf = i.e.btn_pb_add_pin;
-        this.apk = new int[]{18};
+        super(context, TbadkCoreApplication.m411getInst().getString(i.h.editor_location), 7, i);
+        this.aqQ = i.e.btn_pb_add_pin;
+        this.aqV = new int[]{18};
     }
 }

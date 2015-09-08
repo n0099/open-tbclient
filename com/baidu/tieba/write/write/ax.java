@@ -1,31 +1,30 @@
 package com.baidu.tieba.write.write;
 
-import android.text.SpannableStringBuilder;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    private final /* synthetic */ SpannableStringBuilder bVA;
-    private final /* synthetic */ int bVB;
-    private final /* synthetic */ EmotionGroupType bVC;
-    final /* synthetic */ WriteActivity cUM;
+public class ax implements View.OnTouchListener {
+    final /* synthetic */ WriteActivity ddQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
-        this.cUM = writeActivity;
-        this.bVA = spannableStringBuilder;
-        this.bVB = i;
-        this.bVC = emotionGroupType;
+    public ax(WriteActivity writeActivity) {
+        this.ddQ = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        super.a((ax) aVar, str, i);
-        if (aVar == null) {
-            return;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        com.baidu.tbadk.editortools.j jVar;
+        EditText editText;
+        if (motionEvent.getAction() == 1) {
+            view.requestFocus();
+            jVar = this.ddQ.ddl;
+            jVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+            editText = this.ddQ.dbb;
+            editText.requestFocus();
+            return false;
         }
-        this.cUM.a(this.bVA, this.bVB, aVar, this.bVC);
+        return false;
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.tieba.usermute.i;
 import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
 class e implements i.a {
-    final /* synthetic */ PbActivity cbo;
+    final /* synthetic */ PbActivity ccj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PbActivity pbActivity) {
-        this.cbo = pbActivity;
+        this.ccj = pbActivity;
     }
 
     @Override // com.baidu.tieba.usermute.i.a
@@ -18,8 +18,8 @@ class e implements i.a {
         cb cbVar;
         boolean z;
         cb cbVar2;
-        cbVar = this.cbo.caQ;
-        cbVar.aeG();
+        cbVar = this.ccj.cbL;
+        cbVar.aeU();
         SparseArray<Object> sparseArray = (SparseArray) obj;
         if (i == 0 && dataRes != null) {
             boolean z2 = com.baidu.adp.lib.g.b.g(dataRes.is_mute, 0) == 1;
@@ -31,9 +31,9 @@ class e implements i.a {
         }
         int intValue = ((Integer) sparseArray.get(i.f.tag_from)).intValue();
         if (intValue == 0) {
-            this.cbo.a(z, sparseArray);
+            this.ccj.a(z, sparseArray);
         } else if (intValue == 1) {
-            cbVar2 = this.cbo.caQ;
+            cbVar2 = this.ccj.cbL;
             cbVar2.a(sparseArray, z);
         }
     }

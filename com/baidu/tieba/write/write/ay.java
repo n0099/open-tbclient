@@ -1,18 +1,27 @@
 package com.baidu.tieba.write.write;
 
-import android.content.DialogInterface;
+import android.text.Editable;
+import android.text.TextWatcher;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ay implements DialogInterface.OnCancelListener {
-    final /* synthetic */ WriteActivity cUM;
+public class ay implements TextWatcher {
+    final /* synthetic */ WriteActivity ddQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ay(WriteActivity writeActivity) {
-        this.cUM = writeActivity;
+        this.ddQ = writeActivity;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.cUM.destroyWaitingDialog();
-        this.cUM.auo();
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.ddQ.ayQ();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class n implements View.OnClickListener {
-    final /* synthetic */ PbChosenActivity bYY;
+    final /* synthetic */ PbChosenActivity bZS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(PbChosenActivity pbChosenActivity) {
-        this.bYY = pbChosenActivity;
+        this.bZS = pbChosenActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,18 +18,18 @@ class n implements View.OnClickListener {
         r rVar2;
         com.baidu.tieba.pb.chosen.net.a aVar;
         String str;
-        if (this.bYY.checkUpIsLogin()) {
-            i = this.bYY.from;
+        if (this.bZS.checkUpIsLogin()) {
+            i = this.bZS.from;
             if (i == 2) {
                 TiebaStatic.log("c10148");
             }
-            rVar = this.bYY.bYM;
+            rVar = this.bZS.bZG;
             if (rVar == null) {
-                this.bYY.bYM = new r(this.bYY);
+                this.bZS.bZG = new r(this.bZS);
             }
-            rVar2 = this.bYY.bYM;
-            aVar = this.bYY.chosenData;
-            str = this.bYY.shareUrl;
+            rVar2 = this.bZS.bZG;
+            aVar = this.bZS.chosenData;
+            str = this.bZS.shareUrl;
             rVar2.a(aVar, str);
         }
     }

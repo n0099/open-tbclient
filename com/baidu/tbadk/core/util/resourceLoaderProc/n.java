@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.r;
 /* loaded from: classes.dex */
 public class n extends a {
-    private boolean acq;
+    private boolean acB;
 
     public n(boolean z) {
-        this.acq = true;
-        this.acq = z;
+        this.acB = true;
+        this.acB = z;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -28,45 +28,45 @@ public class n extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.acq;
+        return this.acB;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vi() {
+    public boolean vn() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vj() {
+    public boolean vo() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a b(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        com.baidu.adp.lib.stats.d hd = r.hd();
-        hd.hA();
+        com.baidu.adp.lib.stats.d ha = r.ha();
+        ha.hx();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c dl = dl(as.dc(str2));
-        if (dl == null) {
+        com.baidu.adp.lib.Disk.ops.c dt = dt(as.di(str2));
+        if (dt == null) {
             return null;
         }
-        dl.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        dl.o(true);
-        dl.p(false);
-        dl.h(bArr);
-        dl.q(false);
+        dt.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        dt.o(true);
+        dt.p(false);
+        dt.h(bArr);
+        dt.q(false);
         if (aVar != null) {
             d dVar = new d();
-            dVar.f(dl);
-            aVar.vt = dVar;
+            dVar.f(dt);
+            aVar.vr = dVar;
         }
-        boolean iP = com.baidu.adp.lib.util.i.iP();
-        if (!com.baidu.adp.lib.Disk.d.fm().c(dl)) {
-            r.a(hd, str2, false, hd.hB(), iP);
+        boolean iM = com.baidu.adp.lib.util.i.iM();
+        if (!com.baidu.adp.lib.Disk.d.fj().c(dt)) {
+            r.a(ha, str2, false, ha.hy(), iM);
             return null;
         }
-        int i = TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI;
-        if (iP) {
+        int i = 2000;
+        if (iM) {
             i = 300;
         }
         synchronized (bArr) {
@@ -75,30 +75,30 @@ public class n extends a {
             } catch (InterruptedException e) {
             }
         }
-        com.baidu.adp.widget.a.a a = dl.isSuccess() ? a(dl, str2) : null;
+        com.baidu.adp.widget.a.a a = dt.isSuccess() ? a(dt, str2) : null;
         if (a != null) {
-            r.a(hd, str2, true, hd.hB(), iP);
+            r.a(ha, str2, true, ha.hy(), iM);
         } else {
-            r.a(hd, str2, false, hd.hB(), iP);
+            r.a(ha, str2, false, ha.hy(), iM);
         }
         return a;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    protected com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.a.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.httpNet.i iVar, byte[] bArr, Rect rect) {
+    protected com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.a.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
         if (i(bitmap)) {
             aVar2 = new com.baidu.adp.widget.a.a(bitmap, z, str, rect);
-            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, as.dc(str2), DiskFileOperate.Action.WRITE);
+            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, as.di(str2), DiskFileOperate.Action.WRITE);
             cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.o(true);
             cVar.setData(bArr);
             cVar.r(z);
             cVar.q(false);
-            com.baidu.adp.lib.Disk.d.fm().c(cVar);
+            com.baidu.adp.lib.Disk.d.fj().c(cVar);
             if (aVar != null) {
                 d dVar = new d();
                 dVar.f(cVar);
-                aVar.vt = dVar;
+                aVar.vr = dVar;
             }
         }
         return aVar2;

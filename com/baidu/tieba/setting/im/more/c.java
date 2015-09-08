@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class c extends HttpMessageListener {
-    final /* synthetic */ SecretSettingActivity cvA;
+    final /* synthetic */ SecretSettingActivity cDW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(SecretSettingActivity secretSettingActivity, int i, boolean z) {
         super(i, z);
-        this.cvA = secretSettingActivity;
+        this.cDW = secretSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,33 +26,33 @@ class c extends HttpMessageListener {
         i iVar3;
         i iVar4;
         if (httpResponsedMessage != null) {
-            this.cvA.hideProgressBar();
+            this.cDW.hideProgressBar();
             if (httpResponsedMessage.getOrginalMessage() instanceof PrivacySettingMessage) {
                 PrivacySettingMessage privacySettingMessage = (PrivacySettingMessage) httpResponsedMessage.getOrginalMessage();
                 String operation = privacySettingMessage.getOperation();
                 int type = privacySettingMessage.getType();
                 if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    this.cvA.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.cvA.getResources().getString(i.C0057i.neterror) : httpResponsedMessage.getErrorString());
+                    this.cDW.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.cDW.getResources().getString(i.h.neterror) : httpResponsedMessage.getErrorString());
                     if (TextUtils.equals("location", operation)) {
-                        iVar = this.cvA.cvn;
-                        this.cvA.mHandler.postDelayed(new d(this, iVar.akG()), 500L);
+                        iVar = this.cDW.cDJ;
+                        this.cDW.mHandler.postDelayed(new d(this, iVar.aoN()), 500L);
                         return;
                     }
                     return;
                 }
-                this.cvA.showToast(i.C0057i.success);
+                this.cDW.showToast(i.h.success);
                 if (!TextUtils.equals("location", operation)) {
-                    aVar = this.cvA.cvo;
-                    aVar.W(operation, type);
-                    iVar2 = this.cvA.cvn;
-                    iVar2.Y(operation, type);
+                    aVar = this.cDW.cDK;
+                    aVar.Y(operation, type);
+                    iVar2 = this.cDW.cDJ;
+                    iVar2.aa(operation, type);
                     return;
                 }
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                iVar3 = this.cvA.cvn;
-                m411getInst.setLocationShared(iVar3.akG());
-                iVar4 = this.cvA.cvn;
-                iVar4.eX(TbadkCoreApplication.m411getInst().getLocationShared());
+                iVar3 = this.cDW.cDJ;
+                m411getInst.setLocationShared(iVar3.aoN());
+                iVar4 = this.cDW.cDJ;
+                iVar4.fI(TbadkCoreApplication.m411getInst().getLocationShared());
             }
         }
     }

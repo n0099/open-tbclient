@@ -9,9 +9,9 @@ public class a extends com.baidu.tbadk.mvc.g.a<Object, com.baidu.tbadk.mvc.d.b> 
         super(tbPageContext, view, viewEventCenter);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.r
+    @Override // com.baidu.tieba.tbadkCore.s
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.f.a.a(tbPageContext, getRootView());
+        com.baidu.tbadk.h.a.a(tbPageContext, getRootView());
         return true;
     }
 }

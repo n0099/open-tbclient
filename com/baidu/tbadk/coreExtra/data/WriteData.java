@@ -34,6 +34,7 @@ public class WriteData implements Serializable {
     private boolean mIsAddition;
     private boolean mIsBaobao;
     private boolean mIsFrsReply;
+    private boolean mIsGiftPost;
     private boolean mIsNoTitle;
     private String mRepostId;
     private String mReturnVoiceMd5;
@@ -57,7 +58,6 @@ public class WriteData implements Serializable {
     private String mVcodeMD5;
     private String mVcodeUrl;
     private String mVoiceMd5;
-    private PhotoUrlData photoLiveCoverUlrData;
     private VideoInfo videoInfo;
     private WriteImagesInfo writeImagesInfo;
 
@@ -98,6 +98,7 @@ public class WriteData implements Serializable {
         this.mShareSummaryImgType = null;
         this.mShareReferUrl = null;
         this.mShareLocalImageData = null;
+        this.mIsGiftPost = false;
     }
 
     public WriteData(int i) {
@@ -112,7 +113,7 @@ public class WriteData implements Serializable {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
                 if (this.baobaoImagesInfo == null || this.baobaoImagesInfo.size() <= 0) {
                     if (this.liveCardData == null || !this.liveCardData.isModifyTime()) {
-                        return (this.videoInfo != null && this.videoInfo.isAvaliable()) || this.photoLiveCoverUlrData != null;
+                        return this.videoInfo != null && this.videoInfo.isAvaliable();
                     }
                     return true;
                 }
@@ -142,9 +143,6 @@ public class WriteData implements Serializable {
             }
             if (this.baobaoImagesInfo != null) {
                 jSONObject.put("baobaoImagesInfo", this.baobaoImagesInfo.toJson());
-            }
-            if (this.photoLiveCoverUlrData != null) {
-                jSONObject.put("photoLiveCoverUlrData", this.photoLiveCoverUlrData.toJson());
             }
         } catch (Exception e) {
         }
@@ -182,11 +180,6 @@ public class WriteData implements Serializable {
             if (optJSONObject4 != null) {
                 writeData.baobaoImagesInfo = new WriteImagesInfo();
                 writeData.baobaoImagesInfo.parseJson(optJSONObject4);
-            }
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("photoLiveCoverUlrData");
-            if (optJSONObject5 != null) {
-                writeData.photoLiveCoverUlrData = new PhotoUrlData();
-                writeData.photoLiveCoverUlrData.parseJson(optJSONObject5);
             }
             return writeData;
         } catch (Exception e) {
@@ -328,14 +321,6 @@ public class WriteData implements Serializable {
             return false;
         }
         return this.mIsBaobao;
-    }
-
-    public PhotoUrlData getPhotoLiveCoverUlrData() {
-        return this.photoLiveCoverUlrData;
-    }
-
-    public void setPhotoLiveCoverUlrData(PhotoUrlData photoUrlData) {
-        this.photoLiveCoverUlrData = photoUrlData;
     }
 
     public void setVoice(String str) {
@@ -634,5 +619,13 @@ public class WriteData implements Serializable {
 
     public String getShareLocalImageUri() {
         return this.mShareLocalImageUri;
+    }
+
+    public boolean isGiftPost() {
+        return this.mIsGiftPost;
+    }
+
+    public void setIsGiftPost(boolean z) {
+        this.mIsGiftPost = z;
     }
 }

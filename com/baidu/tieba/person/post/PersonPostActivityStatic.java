@@ -6,6 +6,6 @@ import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 public class PersonPostActivityStatic {
     static {
         TbadkCoreApplication.m411getInst().RegisterIntent(PersonPostActivityConfig.class, PersonPostActivity.class);
-        x.init();
+        ad.init();
     }
 }

@@ -8,24 +8,24 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 /* loaded from: classes.dex */
 public class s extends BaseAdapter {
-    private PersonInfoActivity cjU;
-    private ac clP;
-    private t clQ;
-    private ab clR;
-    private u clS;
-    private z clT;
-    private y clU;
+    private PersonInfoActivity ckP;
+    private ac cmS;
+    private t cmT;
+    private ab cmU;
+    private u cmV;
+    private z cmW;
+    private y cmX;
     private boolean mIsHost;
 
     public s(PersonInfoActivity personInfoActivity, boolean z) {
-        this.cjU = personInfoActivity;
+        this.ckP = personInfoActivity;
         this.mIsHost = z;
-        this.clP = new ac(this.cjU, this.mIsHost);
-        this.clQ = new t(this.cjU, this.mIsHost);
-        this.clR = new ab(this.cjU, this.mIsHost);
-        this.clS = new u(this.cjU, this.mIsHost);
-        this.clT = new z(this.cjU, this.mIsHost);
-        this.clU = new y(this.cjU);
+        this.cmS = new ac(this.ckP, this.mIsHost);
+        this.cmT = new t(this.ckP, this.mIsHost);
+        this.cmU = new ab(this.ckP, this.mIsHost);
+        this.cmV = new u(this.ckP, this.mIsHost);
+        this.cmW = new z(this.ckP, this.mIsHost);
+        this.cmX = new y(this.ckP);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -84,85 +84,85 @@ public class s extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 0) {
-            this.clP.ahi();
-            return this.clP.getRootView();
+            this.cmS.ahA();
+            return this.cmS.getRootView();
         } else if (itemViewType == 1) {
-            this.clQ.ahi();
-            return this.clQ.getRootView();
+            this.cmT.ahA();
+            return this.cmT.getRootView();
         } else if (itemViewType == 2) {
-            this.clR.ahi();
-            return this.clR.getRootView();
+            this.cmU.ahA();
+            return this.cmU.getRootView();
         } else if (itemViewType == 3) {
-            this.clS.ahi();
-            return this.clS.getRootView();
+            this.cmV.ahA();
+            return this.cmV.getRootView();
         } else if (itemViewType == 4) {
-            this.clT.ahi();
-            return this.clT.getRootView();
+            this.cmW.ahA();
+            return this.cmW.getRootView();
         } else if (itemViewType == 5) {
-            this.clU.ahi();
-            return this.clU.getRootView();
+            this.cmX.ahA();
+            return this.cmX.getRootView();
         } else {
             return null;
         }
     }
 
-    public RelativeLayout agU() {
-        return this.clR.agU();
+    public RelativeLayout ahm() {
+        return this.cmU.ahm();
     }
 
-    public void agV() {
-        this.clR.agV();
+    public void ahn() {
+        this.cmU.ahn();
     }
 
-    public RelativeLayout agW() {
-        return this.clQ.ahh();
+    public RelativeLayout aho() {
+        return this.cmT.ahz();
     }
 
-    public RelativeLayout agX() {
-        return this.clQ.agX();
+    public RelativeLayout ahp() {
+        return this.cmT.ahp();
     }
 
-    public RelativeLayout agY() {
-        return this.clU.agY();
+    public RelativeLayout ahq() {
+        return this.cmX.ahq();
     }
 
-    public TextView agZ() {
-        return this.clR.agZ();
+    public TextView ahr() {
+        return this.cmU.ahr();
     }
 
-    public RelativeLayout aha() {
-        return this.clQ.aha();
+    public RelativeLayout ahs() {
+        return this.cmT.ahs();
     }
 
-    public RelativeLayout ahb() {
-        return this.clR.ahb();
+    public RelativeLayout aht() {
+        return this.cmU.aht();
     }
 
-    public RelativeLayout ahc() {
-        return this.clR.ahc();
+    public RelativeLayout ahu() {
+        return this.cmU.ahu();
     }
 
-    public RelativeLayout ahd() {
-        return this.clR.ahd();
+    public RelativeLayout ahv() {
+        return this.cmU.ahv();
     }
 
-    public RelativeLayout ahe() {
-        return this.clS.ahe();
+    public RelativeLayout ahw() {
+        return this.cmV.ahw();
     }
 
-    public RelativeLayout ahf() {
-        return this.clS.agX();
+    public RelativeLayout ahx() {
+        return this.cmV.ahp();
     }
 
-    public RelativeLayout ahg() {
-        return this.clT.ahg();
+    public RelativeLayout ahy() {
+        return this.cmW.ahy();
     }
 
-    public void eJ(boolean z) {
-        this.clR.eJ(z);
+    public void eU(boolean z) {
+        this.cmU.eU(z);
     }
 
-    public void iP(int i) {
-        this.clR.iP(i);
+    public void jc(int i) {
+        this.cmU.jc(i);
     }
 }

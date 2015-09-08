@@ -14,10 +14,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ax {
-    private static ax abj = new ay();
-    private static final Pattern abm = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private List<a> abk;
-    private b abl;
+    private static ax abt = new ay();
+    private static final Pattern abw = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private List<a> abu;
+    private b abv;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -34,8 +34,8 @@ public class ax {
     }
 
     private ax() {
-        this.abk = new LinkedList();
-        this.abl = null;
+        this.abu = new LinkedList();
+        this.abv = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -45,7 +45,7 @@ public class ax {
 
     public static SpannableString E(Context context, String str) {
         int start;
-        Matcher matcher = abm.matcher(str);
+        Matcher matcher = abw.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -59,27 +59,27 @@ public class ax {
         return spannableString;
     }
 
-    public static ax uR() {
-        return abj;
+    public static ax uX() {
+        return abt;
     }
 
     public void a(a aVar) {
-        if (!this.abk.contains(aVar)) {
-            this.abk.add(aVar);
+        if (!this.abu.contains(aVar)) {
+            this.abu.add(aVar);
         }
     }
 
     public void a(b bVar) {
-        this.abl = bVar;
+        this.abv = bVar;
     }
 
     public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, c cVar, boolean z2) {
         boolean z3;
         if (strArr != null && strArr.length != 0) {
-            if (this.abk == null) {
-                this.abk = new LinkedList();
+            if (this.abu == null) {
+                this.abu = new LinkedList();
             }
-            Iterator<a> it = this.abk.iterator();
+            Iterator<a> it = this.abu.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z3 = false;
@@ -91,7 +91,7 @@ public class ax {
                     break;
                 }
             }
-            if (!z3 && this.abl != null && tbPageContext != null) {
+            if (!z3 && this.abv != null && tbPageContext != null) {
                 b(tbPageContext, "", strArr[0], z, cVar, z2);
             }
         }
@@ -104,10 +104,10 @@ public class ax {
     public void a(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z, c cVar, boolean z2) {
         boolean z3;
         if (strArr != null && strArr.length != 0 && !TextUtils.isEmpty(strArr[0])) {
-            if (this.abk == null) {
-                this.abk = new LinkedList();
+            if (this.abu == null) {
+                this.abu = new LinkedList();
             }
-            Iterator<a> it = this.abk.iterator();
+            Iterator<a> it = this.abu.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z3 = false;
@@ -119,13 +119,13 @@ public class ax {
                     break;
                 }
             }
-            if (!z3 && this.abl != null) {
+            if (!z3 && this.abv != null) {
                 b(tbPageContext, str, strArr[0], z, cVar, z2);
             }
         }
     }
 
-    public static Map<String, String> df(String str) {
+    public static Map<String, String> dl(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -143,7 +143,7 @@ public class ax {
         return null;
     }
 
-    public static String dg(String str) {
+    public static String dm(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
             return null;
@@ -168,8 +168,8 @@ public class ax {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, c cVar, boolean z2) {
-        if (abm.matcher(str2).find()) {
-            this.abl.a(tbPageContext, str, str2, z, cVar, z2);
+        if (abw.matcher(str2).find()) {
+            this.abv.a(tbPageContext, str, str2, z, cVar, z2);
         }
     }
 }

@@ -5,11 +5,11 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements BdListView.f {
-    final /* synthetic */ e aKD;
+    final /* synthetic */ e aKQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(e eVar) {
-        this.aKD = eVar;
+        this.aKQ = eVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.f
@@ -18,17 +18,17 @@ public class k implements BdListView.f {
         com.baidu.tbadk.mvc.h.a aVar2;
         com.baidu.tbadk.mvc.h.a aVar3;
         ChosenPostActivity chosenPostActivity;
-        if (com.baidu.adp.lib.util.k.jf()) {
-            chosenPostActivity = this.aKD.aKw;
-            chosenPostActivity.HB().HF();
+        if (com.baidu.adp.lib.util.k.jc()) {
+            chosenPostActivity = this.aKQ.aKJ;
+            chosenPostActivity.Hp().Ht();
             return;
         }
-        aVar = this.aKD.aKz;
+        aVar = this.aKQ.aKM;
         if (aVar != null) {
-            aVar2 = this.aKD.aKz;
-            aVar2.oy();
-            aVar3 = this.aKD.aKz;
-            aVar3.el(i.C0057i.no_more_msg);
+            aVar2 = this.aKQ.aKM;
+            aVar2.ov();
+            aVar3 = this.aKQ.aKM;
+            aVar3.et(i.h.no_more_msg);
         }
     }
 }

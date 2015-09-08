@@ -8,11 +8,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-    final /* synthetic */ c cPT;
+    final /* synthetic */ c cYE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.cPT = cVar;
+        this.cYE = cVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -35,43 +35,43 @@ class d implements View.OnClickListener {
         ImageView imageView3;
         AlbumActivity albumActivity6;
         int i4;
-        hVar = this.cPT.cPR;
+        hVar = this.cYE.cYC;
         if (hVar != null) {
-            hVar2 = this.cPT.cPR;
-            i = this.cPT.apO;
-            ImageFileInfo kg = hVar2.kg(i);
-            mVar = this.cPT.cPJ;
+            hVar2 = this.cYE.cYC;
+            i = this.cYE.ary;
+            ImageFileInfo kR = hVar2.kR(i);
+            mVar = this.cYE.cYt;
             if (mVar != null) {
-                albumActivity = this.cPT.cPQ;
+                albumActivity = this.cYE.cYB;
                 if (albumActivity != null) {
-                    hVar3 = this.cPT.cPR;
-                    i2 = this.cPT.apO;
-                    if (hVar3.kh(i2)) {
-                        mVar2 = this.cPT.cPJ;
-                        if (mVar2.isAdded(kg)) {
-                            albumActivity5 = this.cPT.cPQ;
-                            if (albumActivity5.d(kg)) {
-                                c cVar = this.cPT;
-                                imageView3 = this.cPT.cPS;
+                    hVar3 = this.cYE.cYC;
+                    i2 = this.cYE.ary;
+                    if (hVar3.kS(i2)) {
+                        mVar2 = this.cYE.cYt;
+                        if (mVar2.isAdded(kR)) {
+                            albumActivity5 = this.cYE.cYB;
+                            if (albumActivity5.d(kR)) {
+                                c cVar = this.cYE;
+                                imageView3 = this.cYE.cYD;
                                 cVar.b(imageView3, false);
-                                albumActivity6 = this.cPT.cPQ;
-                                i4 = this.cPT.apO;
-                                albumActivity6.q(i4, false);
+                                albumActivity6 = this.cYE.cYB;
+                                i4 = this.cYE.ary;
+                                albumActivity6.r(i4, false);
                                 return;
                             }
                             return;
                         }
-                        albumActivity2 = this.cPT.cPQ;
-                        if (albumActivity2.c(kg)) {
-                            c cVar2 = this.cPT;
-                            imageView = this.cPT.cPS;
+                        albumActivity2 = this.cYE.cYB;
+                        if (albumActivity2.c(kR)) {
+                            c cVar2 = this.cYE;
+                            imageView = this.cYE.cYD;
                             cVar2.b(imageView, true);
-                            albumActivity3 = this.cPT.cPQ;
-                            i3 = this.cPT.apO;
-                            albumActivity3.q(i3, true);
-                            albumActivity4 = this.cPT.cPQ;
+                            albumActivity3 = this.cYE.cYB;
+                            i3 = this.cYE.ary;
+                            albumActivity3.r(i3, true);
+                            albumActivity4 = this.cYE.cYB;
                             Animation loadAnimation = AnimationUtils.loadAnimation(albumActivity4.getPageContext().getContext(), i.a.album_choose_icon);
-                            imageView2 = this.cPT.cPS;
+                            imageView2 = this.cYE.cYD;
                             imageView2.startAnimation(loadAnimation);
                         }
                     }

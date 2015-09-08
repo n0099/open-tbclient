@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class x implements View.OnClickListener {
-    final /* synthetic */ r ciI;
+    final /* synthetic */ r cjC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(r rVar) {
-        this.ciI = rVar;
+        this.cjC = rVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,27 +25,27 @@ class x implements View.OnClickListener {
         TextView textView3;
         TextView textView4;
         ac acVar6;
-        acVar = this.ciI.cis;
+        acVar = this.cjC.cjm;
         if (acVar != null) {
-            acVar2 = this.ciI.cis;
-            if (!acVar2.FR()) {
-                acVar5 = this.ciI.cis;
+            acVar2 = this.cjC.cjm;
+            if (!acVar2.Gb()) {
+                acVar5 = this.cjC.cjm;
                 acVar5.setEditState(true);
-                textView3 = this.ciI.aDu;
-                textView3.setText(i.C0057i.done);
-                textView4 = this.ciI.aDu;
+                textView3 = this.cjC.aFc;
+                textView3.setText(i.h.done);
+                textView4 = this.cjC.aFc;
                 com.baidu.tbadk.core.util.al.g(textView4, TbadkCoreApplication.m411getInst().getSkinType());
-                acVar6 = this.ciI.cis;
+                acVar6 = this.cjC.cjm;
                 acVar6.notifyDataSetChanged();
                 return;
             }
-            acVar3 = this.ciI.cis;
+            acVar3 = this.cjC.cjm;
             acVar3.setEditState(false);
-            textView = this.ciI.aDu;
-            textView.setText(i.C0057i.edit);
-            textView2 = this.ciI.aDu;
+            textView = this.cjC.aFc;
+            textView.setText(i.h.edit);
+            textView2 = this.cjC.aFc;
             com.baidu.tbadk.core.util.al.i(textView2, TbadkCoreApplication.m411getInst().getSkinType());
-            acVar4 = this.ciI.cis;
+            acVar4 = this.cjC.cjm;
             acVar4.notifyDataSetChanged();
         }
     }

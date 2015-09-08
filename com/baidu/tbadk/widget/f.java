@@ -11,11 +11,11 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements GiftGifView.a {
-    final /* synthetic */ e aAz;
+    final /* synthetic */ e aCh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.aAz = eVar;
+        this.aCh = eVar;
     }
 
     @Override // com.baidu.tbadk.gif.GiftGifView.a
@@ -24,12 +24,12 @@ public class f implements GiftGifView.a {
         LinearLayout linearLayout;
         Dialog dialog;
         Activity activity;
-        giftGifView = this.aAz.aAy;
+        giftGifView = this.aCh.aCg;
         giftGifView.setIsHide(true);
-        linearLayout = this.aAz.aAx;
+        linearLayout = this.aCh.aCf;
         linearLayout.setVisibility(8);
-        dialog = this.aAz.aAw;
-        activity = this.aAz.mActivity;
+        dialog = this.aCh.aCe;
+        activity = this.aCh.mActivity;
         j.b(dialog, activity);
     }
 
@@ -40,35 +40,35 @@ public class f implements GiftGifView.a {
         Activity activity;
         GiftGifView giftGifView;
         LinearLayout linearLayout;
-        progressDialog = this.aAz.mWaitingDialog;
+        progressDialog = this.aCh.mWaitingDialog;
         k.a(progressDialog);
-        dialog = this.aAz.aAw;
-        activity = this.aAz.mActivity;
+        dialog = this.aCh.aCe;
+        activity = this.aCh.mActivity;
         j.a(dialog, activity);
-        giftGifView = this.aAz.aAy;
+        giftGifView = this.aCh.aCg;
         giftGifView.setVisibility(0);
-        linearLayout = this.aAz.aAx;
+        linearLayout = this.aCh.aCf;
         linearLayout.setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.gif.GiftGifView.a
-    public void Cc() {
+    public void Cq() {
         ProgressDialog progressDialog;
         Dialog dialog;
         Activity activity;
         Activity activity2;
         Activity activity3;
-        progressDialog = this.aAz.mWaitingDialog;
+        progressDialog = this.aCh.mWaitingDialog;
         k.a(progressDialog);
-        dialog = this.aAz.aAw;
-        activity = this.aAz.mActivity;
+        dialog = this.aCh.aCe;
+        activity = this.aCh.mActivity;
         j.b(dialog, activity);
-        if (k.jf()) {
-            activity3 = this.aAz.mActivity;
-            k.showToast(activity3, i.C0057i.gif_play_failed_tip);
+        if (k.jc()) {
+            activity3 = this.aCh.mActivity;
+            k.showToast(activity3, i.h.gif_play_failed_tip);
             return;
         }
-        activity2 = this.aAz.mActivity;
-        k.showToast(activity2, i.C0057i.neterror);
+        activity2 = this.aCh.mActivity;
+        k.showToast(activity2, i.h.neterror);
     }
 }

@@ -9,10 +9,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.m;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bc;
+import com.baidu.tieba.frs.bd;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class e extends bc<com.baidu.tbadk.core.data.c, f> {
+public class e extends bd<com.baidu.tbadk.core.data.c, f> {
     public e(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
     }
@@ -20,54 +20,54 @@ public class e extends bc<com.baidu.tbadk.core.data.c, f> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: s */
+    /* renamed from: u */
     public f a(ViewGroup viewGroup) {
         return new f(LayoutInflater.from(this.mContext).inflate(i.g.frs_locality_bar_single_replenish, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bc, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.bd, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.c cVar, f fVar) {
         super.a(i, view, viewGroup, (ViewGroup) cVar, (com.baidu.tbadk.core.data.c) fVar);
-        fVar.ban.setPadding(0, i - this.aWl == 0 ? this.aTw : this.aTx, 0, 0);
-        this.aSJ.getLayoutMode().ad(this.mSkinType == 1);
-        this.aSJ.getLayoutMode().k(view);
-        if (!cVar.Uw && (this.aSJ instanceof FrsActivity)) {
-            cVar.Uw = true;
-            ((FrsActivity) this.aSJ).a(cVar, "show");
-            ((FrsActivity) this.aSJ).b(cVar, "show");
+        fVar.baI.setPadding(0, i - this.aWC == 0 ? this.aTK : this.aTL, 0, 0);
+        this.aSX.getLayoutMode().ad(this.mSkinType == 1);
+        this.aSX.getLayoutMode().k(view);
+        if (!cVar.Ux && (this.aSX instanceof FrsActivity)) {
+            cVar.Ux = true;
+            ((FrsActivity) this.aSX).a(cVar, "show");
+            ((FrsActivity) this.aSX).b(cVar, "show");
         }
-        if (m.rd().rf()) {
-            fVar.aIG.setVisibility(0);
-            fVar.aIG.d(cVar.Uv.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+        if (m.rb().rd()) {
+            fVar.aIT.setVisibility(0);
+            fVar.aIT.d(cVar.Uw.userPortrait, this.mIsFromCDN ? 13 : 14, false);
         } else {
-            fVar.aIG.setVisibility(8);
+            fVar.aIT.setVisibility(8);
         }
-        if (m.rd().rh() && !TextUtils.isEmpty(cVar.Uv.Uz)) {
-            fVar.bap.setVisibility(0);
-            fVar.bap.d(cVar.Uv.Uz, this.mIsFromCDN ? 30 : 31, false);
+        if (m.rb().rf() && !TextUtils.isEmpty(cVar.Uw.UA)) {
+            fVar.baK.setVisibility(0);
+            fVar.baK.d(cVar.Uw.UA, this.mIsFromCDN ? 30 : 31, false);
         } else {
-            fVar.bap.setVisibility(8);
+            fVar.baK.setVisibility(8);
         }
-        fVar.aPi.setText(cVar.Uv.userName);
-        if (StringUtils.isNull(cVar.Uv.Uy)) {
-            fVar.anH.setVisibility(8);
+        fVar.aPv.setText(cVar.Uw.userName);
+        if (StringUtils.isNull(cVar.Uw.Uz)) {
+            fVar.amV.setVisibility(8);
         } else {
-            fVar.anH.setVisibility(0);
-            fVar.anH.setText(cVar.Uv.Uy);
+            fVar.amV.setVisibility(0);
+            fVar.amV.setText(cVar.Uw.Uz);
         }
-        if (StringUtils.isNull(cVar.Uv.UC)) {
-            fVar.baq.setVisibility(8);
+        if (StringUtils.isNull(cVar.Uw.UD)) {
+            fVar.baL.setVisibility(8);
         } else {
-            fVar.baq.setVisibility(0);
-            fVar.baq.setText(cVar.Uv.UC);
+            fVar.baL.setVisibility(0);
+            fVar.baL.setText(cVar.Uw.UD);
         }
-        if (StringUtils.isNull(cVar.Uv.UD)) {
-            fVar.bas.setVisibility(8);
+        if (StringUtils.isNull(cVar.Uw.UE)) {
+            fVar.baM.setVisibility(8);
         } else {
-            fVar.bas.setVisibility(0);
-            fVar.bas.setText(cVar.Uv.UD);
+            fVar.baM.setVisibility(0);
+            fVar.baM.setText(cVar.Uw.UE);
         }
         return view;
     }

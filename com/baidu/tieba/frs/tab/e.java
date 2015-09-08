@@ -3,15 +3,15 @@ package com.baidu.tieba.frs.tab;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class e implements Runnable {
-    final /* synthetic */ HorizontalTabView baR;
+    final /* synthetic */ HorizontalTabView bbl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(HorizontalTabView horizontalTabView) {
-        this.baR = horizontalTabView;
+        this.bbl = horizontalTabView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.baR.scrollBy(this.baR.getContext().getResources().getDimensionPixelSize(i.d.ds160), 0);
+        this.bbl.scrollBy(this.bbl.getContext().getResources().getDimensionPixelSize(i.d.ds160), 0);
     }
 }

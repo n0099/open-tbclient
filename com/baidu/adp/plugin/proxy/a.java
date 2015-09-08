@@ -42,7 +42,7 @@ public class a extends PackageManager {
     @Override // android.content.pm.PackageManager
     public PackageInfo getPackageInfo(String str, int i) {
         com.baidu.adp.plugin.a plugin2;
-        return (!TextUtils.equals(this.mPackageName, str) || (plugin2 = PluginCenter.getInstance().getPlugin(this.Ez)) == null) ? this.Ey.getPackageInfo(str, i) : plugin2.ku();
+        return (!TextUtils.equals(this.mPackageName, str) || (plugin2 = PluginCenter.getInstance().getPlugin(this.Ez)) == null) ? this.Ey.getPackageInfo(str, i) : plugin2.kr();
     }
 
     @Override // android.content.pm.PackageManager

@@ -18,11 +18,11 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
-    private SapiWebView ags;
+    private SapiWebView agC;
     private String bduss;
     private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.coreExtra.view.l agt = null;
-    private final a.InterfaceC0040a XQ = new c(this);
+    private com.baidu.tbadk.coreExtra.view.k agD = null;
+    private final a.InterfaceC0040a XZ = new c(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -31,23 +31,23 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
         setSwipeBackEnabled(false);
         setContentView(i.g.layout_sapi_webview_fill_uprofile);
         this.bduss = getIntent().getStringExtra(SapiWebViewActivityConfig.EXTRA_BDUSS);
-        wb();
+        wg();
     }
 
-    protected void wb() {
+    protected void wg() {
         this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
-        this.mNavigationBar.setTitleText(getPageContext().getString(i.C0057i.sapi_filluprofile));
+        this.mNavigationBar.setTitleText(getPageContext().getString(i.h.sapi_filluprofile));
         if (TextUtils.isEmpty(this.bduss)) {
             Toast.makeText(getPageContext().getPageActivity(), "参数错误，无法正常化", 0).show();
             finish();
         }
-        this.ags = (SapiWebView) findViewById(i.f.sapi_webview);
-        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.ags);
-        this.ags.setOnBackCallback(new e(this));
-        this.ags.setOnFinishCallback(new f(this));
-        this.ags.setAuthorizationListener(new g(this));
-        this.ags.loadFillUProfile(this.bduss);
+        this.agC = (SapiWebView) findViewById(i.f.sapi_webview);
+        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.agC);
+        this.agC.setOnBackCallback(new e(this));
+        this.agC.setOnFinishCallback(new f(this));
+        this.agC.setAuthorizationListener(new g(this));
+        this.agC.loadFillUProfile(this.bduss);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -58,7 +58,7 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wc() {
+    public void wh() {
         TbadkCoreApplication.m411getInst().onUserChanged();
         Intent intent = new Intent();
         intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
@@ -67,22 +67,22 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wd() {
+    public void wi() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            com.baidu.tbadk.core.a.a.rj().a(session.username, session.bduss, session.ptoken, this.XQ);
+            com.baidu.tbadk.core.a.a.rh().a(session.username, session.bduss, session.ptoken, this.XZ);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(AccountData accountData) {
-        if (this.agt == null) {
-            this.agt = new com.baidu.tbadk.coreExtra.view.l(getPageContext());
-            this.agt.a(new h(this));
+        if (this.agD == null) {
+            this.agD = new com.baidu.tbadk.coreExtra.view.k(getPageContext());
+            this.agD.a(new h(this));
         }
-        this.agt.zc();
-        this.agt.l(accountData);
-        this.agt.yY();
+        this.agD.zi();
+        this.agD.k(accountData);
+        this.agD.ze();
     }
 }

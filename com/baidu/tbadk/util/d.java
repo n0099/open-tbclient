@@ -1,34 +1,34 @@
 package com.baidu.tbadk.util;
 /* loaded from: classes.dex */
 public class d {
-    public static boolean EB() {
-        return EC();
+    public static boolean EL() {
+        return EM();
     }
 
-    public static boolean EC() {
-        return com.baidu.tbadk.core.util.n.fl() && com.baidu.adp.gif.e.fk();
+    public static boolean EM() {
+        return com.baidu.tbadk.core.util.n.fi() && com.baidu.adp.gif.e.fh();
     }
 
-    public static boolean fw(String str) {
+    public static boolean fE(String str) {
         if (str == null) {
             return false;
         }
-        if (fx(str)) {
+        if (fF(str)) {
             return true;
         }
         int indexOf = str.indexOf("imgsrc");
         if (indexOf <= 0 || indexOf >= 20) {
-            return (com.baidu.adp.lib.b.e.gy().ah("portrait_cdn_open") != 0) && fy(str);
+            return (com.baidu.adp.lib.b.e.gv().ah("portrait_cdn_open") != 0) && fG(str);
         }
         return true;
     }
 
-    public static boolean fx(String str) {
+    public static boolean fF(String str) {
         int indexOf;
         return str != null && (indexOf = str.indexOf("hiphotos")) > 0 && indexOf < 20;
     }
 
-    public static boolean fy(String str) {
+    public static boolean fG(String str) {
         int indexOf;
         return str != null && (indexOf = str.indexOf("tb.himg")) > 0 && indexOf < 20;
     }

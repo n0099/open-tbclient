@@ -7,9 +7,9 @@ import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class i extends v {
     public i(Context context, int i) {
-        super(context, TbadkCoreApplication.m411getInst().getString(i.C0057i.editor_image), 10, i);
-        this.apf = i.e.btn_pb_add_pic;
-        this.apg = false;
-        this.apk = new int[]{14};
+        super(context, TbadkCoreApplication.m411getInst().getString(i.h.editor_image), 10, i);
+        this.aqQ = i.e.btn_pb_add_pic;
+        this.aqR = false;
+        this.aqV = new int[]{14};
     }
 }

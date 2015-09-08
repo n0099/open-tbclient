@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import android.view.View;
 /* loaded from: classes.dex */
 class r implements View.OnClickListener {
-    final /* synthetic */ FrsActivity this$0;
+    final /* synthetic */ FrsActivity aVz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(FrsActivity frsActivity) {
-        this.this$0 = frsActivity;
+        this.aVz = frsActivity;
     }
 
     @Override // android.view.View.OnClickListener

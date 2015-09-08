@@ -10,7 +10,7 @@ public class a {
     private static volatile a Db = null;
     private HashMap<String, ArrayList<Message<?>>> Da = null;
 
-    public static a lK() {
+    public static a lH() {
         if (Db == null) {
             synchronized (a.class) {
                 if (Db == null) {
@@ -23,15 +23,15 @@ public class a {
 
     public void init() {
         this.Da = new HashMap<>();
-        lM();
-        lL();
+        lJ();
+        lI();
     }
 
-    private void lL() {
+    private void lI() {
         MessageManager.getInstance().registerListener(2000997, new b(this, 0));
     }
 
-    private void lM() {
+    private void lJ() {
         MessageManager.getInstance().setNotFindTaskListener(new c(this));
     }
 

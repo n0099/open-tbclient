@@ -11,7 +11,7 @@ public class TencentMMSwitchStatic extends a {
     public static final int MM_OFF_TYPE = 1;
 
     static {
-        e.gy().e(TencentMMSwitchStatic.class);
+        e.gv().e(TencentMMSwitchStatic.class);
         MM_KEY = new String[]{ConstantsAPI.WXApp.WXAPP_PACKAGE_NAME};
     }
 

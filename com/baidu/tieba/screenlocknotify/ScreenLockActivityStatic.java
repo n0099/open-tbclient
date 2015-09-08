@@ -10,12 +10,11 @@ public class ScreenLockActivityStatic {
         TbadkApplication.getInst().RegisterIntent(ScreenLockActivityConfig.class, ScreenLockActivity.class);
         try {
             TbadkApplication.getInst().getApp().getClassLoader().loadClass(ScreenLockNotifyService.class.getName());
-            g.akd();
+            f.aoj();
             TbadkApplication.getInst().getApp().startService(new Intent(TbadkApplication.getInst().getApp(), ScreenLockNotifyService.class));
-            BdLog.i("-------------------启动ScreenlockManager,service!");
         } catch (Exception e) {
             BdLog.e(e);
-            com.baidu.adp.plugin.b.a.lH().d("plugin_load", "screenlock_failed", null, String.valueOf(e.getMessage()) + "---" + e.getClass().getName());
+            com.baidu.adp.plugin.b.a.lE().e("plugin_load", "screenlock_failed", null, String.valueOf(e.getMessage()) + "---" + e.getClass().getName());
         }
     }
 }

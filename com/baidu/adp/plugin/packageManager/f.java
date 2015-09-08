@@ -40,7 +40,7 @@ public class f extends BroadcastReceiver {
             }
             String str4 = "";
             if (PluginCenter.getInstance().getPlugin(str) != null) {
-                str4 = PluginCenter.getInstance().getPlugin(str).kq();
+                str4 = PluginCenter.getInstance().getPlugin(str).kn();
             }
             if (!TextUtils.isEmpty(str4)) {
                 if (TextUtils.isEmpty(str2)) {

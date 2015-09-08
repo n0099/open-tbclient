@@ -5,21 +5,21 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class aj implements com.baidu.adp.lib.e.c<ImageView> {
-    final /* synthetic */ PbActivity cbo;
+    final /* synthetic */ PbActivity ccj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(PbActivity pbActivity) {
-        this.cbo = pbActivity;
+        this.ccj = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: ado */
-    public ImageView hb() {
-        com.baidu.tbadk.widget.d dVar = new com.baidu.tbadk.widget.d(this.cbo.getPageContext().getPageActivity());
-        boolean rh = com.baidu.tbadk.core.m.rd().rh();
+    /* renamed from: adB */
+    public ImageView gY() {
+        com.baidu.tbadk.widget.d dVar = new com.baidu.tbadk.widget.d(this.ccj.getPageContext().getPageActivity());
+        boolean rf = com.baidu.tbadk.core.m.rb().rf();
         dVar.setDefaultBg(com.baidu.tbadk.core.util.al.getDrawable(i.c.pb_default_image_bg));
-        if (rh) {
+        if (rf) {
             dVar.setAdjustViewBounds(false);
             dVar.setInterceptOnClick(false);
         } else {
@@ -50,7 +50,7 @@ class aj implements com.baidu.adp.lib.e.c<ImageView> {
         if (imageView instanceof TbImageView) {
             TbImageView tbImageView = (TbImageView) imageView;
             tbImageView.setTag(null);
-            if (com.baidu.tbadk.core.m.rd().rh()) {
+            if (com.baidu.tbadk.core.m.rb().rf()) {
                 tbImageView.setAdjustViewBounds(false);
                 tbImageView.setInterceptOnClick(false);
             } else {

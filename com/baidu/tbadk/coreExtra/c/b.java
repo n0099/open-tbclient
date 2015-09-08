@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        dQ(str2);
+                        dX(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        dQ(str2);
+                        dX(str2);
                     }
                 }
             }
@@ -68,71 +68,71 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xK() {
+    public void xR() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String xL() {
+    public String xS() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void dQ(String str) {
-        String xL = xL();
-        if (!TextUtils.equals(xL, str) || !dR(xL)) {
-            aj(str, xL);
+    public void dX(String str) {
+        String xS = xS();
+        if (!TextUtils.equals(xS, str) || !dY(xS)) {
+            aj(str, xS);
         }
     }
 
-    public void xM() {
-        if (i.iP()) {
+    public void xT() {
+        if (i.iM()) {
             TbadkSettings inst = TbadkSettings.getInst();
             aj(inst.loadString("launch_config_remote_url", ""), inst.loadString("launch_config_local_url", ""));
         }
     }
 
-    private boolean dR(String str) {
-        File cC = n.cC(as.dc(str));
-        return cC != null && cC.exists() && cC.isFile();
+    private boolean dY(String str) {
+        File cI = n.cI(as.di(str));
+        return cI != null && cI.exists() && cI.isFile();
     }
 
     private void aj(String str, String str2) {
-        if (i.iP()) {
-            new a(str, as.dc(str), str2).execute(new String[0]);
+        if (i.iM()) {
+            new a(str, as.di(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private v Tu = null;
-        private final String Yj;
-        private final String aii;
-        private final String aij;
+        private v Tv = null;
+        private final String Ys;
+        private final String air;
+        private final String ais;
 
         public a(String str, String str2, String str3) {
-            this.aii = str;
-            this.Yj = str2;
-            this.aij = str3;
+            this.air = str;
+            this.Ys = str2;
+            this.ais = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: f */
+        /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.Tu = new v(this.aii);
-                bool = Boolean.valueOf(this.Tu.a(String.valueOf(this.Yj) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                this.Tv = new v(this.air);
+                bool = Boolean.valueOf(this.Tv.a(String.valueOf(this.Ys) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(n.e(null, String.valueOf(this.Yj) + ".tmp", null, this.Yj)) && !TextUtils.isEmpty(this.aii) && !this.aii.equals(this.aij)) {
-                        n.cI(as.dc(this.aij));
+                    if (!StringUtils.isNull(n.f(null, String.valueOf(this.Ys) + ".tmp", null, this.Ys)) && !TextUtils.isEmpty(this.air) && !this.air.equals(this.ais)) {
+                        n.cO(as.di(this.ais));
                     }
                 } else {
-                    n.cI(String.valueOf(this.Yj) + ".tmp");
+                    n.cO(String.valueOf(this.Ys) + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -146,7 +146,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
             if (bool != null && bool.booleanValue()) {
-                new b().xK();
+                new b().xR();
             }
         }
     }

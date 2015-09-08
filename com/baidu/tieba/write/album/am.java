@@ -6,5 +6,5 @@ import java.util.List;
 public interface am {
     void a(List<b> list, List<ImageFileInfo> list2, String str);
 
-    void nw();
+    void nt();
 }

@@ -5,24 +5,24 @@ import android.os.Looper;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class a {
-    private static a bHx;
-    private final HandlerC0060a bHy = new HandlerC0060a(Looper.getMainLooper());
+    private static a bIe;
+    private final HandlerC0060a bIf = new HandlerC0060a(Looper.getMainLooper());
 
     private a() {
     }
 
-    public static a XP() {
-        if (bHx == null) {
-            bHx = new a();
+    public static a XR() {
+        if (bIe == null) {
+            bIe = new a();
         }
-        return bHx;
+        return bIe;
     }
 
     public void a(b bVar) {
         Message obtain = Message.obtain();
         obtain.what = 1;
         obtain.obj = bVar;
-        this.bHy.sendMessage(obtain);
+        this.bIf.sendMessage(obtain);
     }
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.floatwindow.a.a$a  reason: collision with other inner class name */
@@ -42,7 +42,7 @@ public class a {
                         Message obtain = Message.obtain();
                         obtain.what = 1;
                         obtain.obj = bVar;
-                        a.this.bHy.sendMessage(obtain);
+                        a.this.bIf.sendMessage(obtain);
                         return;
                     }
                     return;

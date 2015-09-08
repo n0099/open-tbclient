@@ -5,7 +5,7 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.tieba.tbadkCore.data.h;
 /* loaded from: classes.dex */
 public abstract class PbRecBaseViewHolder extends x.a {
-    protected h crU;
+    protected h cAp;
     protected boolean mIsFromCDN;
     private int position;
     protected View rootView;
@@ -19,15 +19,15 @@ public abstract class PbRecBaseViewHolder extends x.a {
     }
 
     public void update(h hVar, int i, boolean z) {
-        if (!hVar.cID) {
-            com.baidu.tbadk.distribute.a.Ai().a(this.rootView.getContext(), hVar.apR(), "show", "pb", hVar.cIE, hVar.threadId);
-            com.baidu.tbadk.distribute.a.Ai().a(hVar.apR(), hVar.cIE, hVar.threadId, "PB", "show");
-            hVar.cID = true;
+        if (!hVar.cRd) {
+            com.baidu.tbadk.distribute.a.Av().a(this.rootView.getContext(), hVar.aue(), "show", "pb", hVar.cRe, hVar.threadId);
+            com.baidu.tbadk.distribute.a.Av().a(hVar.aue(), hVar.cRe, hVar.threadId, "PB", "show");
+            hVar.cRd = true;
         }
         if (hVar != null) {
-            com.baidu.tbadk.distribute.a.anJ = hVar.aZG;
+            com.baidu.tbadk.distribute.a.apu = hVar.aZY;
         }
-        this.crU = hVar;
+        this.cAp = hVar;
         this.position = i;
         this.mIsFromCDN = z;
         this.rootView.setTag(this);
@@ -38,6 +38,6 @@ public abstract class PbRecBaseViewHolder extends x.a {
     }
 
     public void refresh() {
-        update(this.crU, this.position, this.mIsFromCDN);
+        update(this.cAp, this.position, this.mIsFromCDN);
     }
 }

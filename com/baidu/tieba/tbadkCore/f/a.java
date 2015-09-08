@@ -1,11 +1,11 @@
 package com.baidu.tieba.tbadkCore.f;
 /* loaded from: classes.dex */
 public interface a {
-    int aqv();
+    int auJ();
 
-    int aqw();
+    int auK();
 
-    int aqx();
+    int auL();
 
     int getType();
 

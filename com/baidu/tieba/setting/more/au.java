@@ -3,11 +3,11 @@ package com.baidu.tieba.setting.more;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class au implements a.b {
-    final /* synthetic */ SystemHelpSettingActivity cyR;
+    final /* synthetic */ SystemHelpSettingActivity cHp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.cyR = systemHelpSettingActivity;
+        this.cHp = systemHelpSettingActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

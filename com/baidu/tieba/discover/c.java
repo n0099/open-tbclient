@@ -7,21 +7,21 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements a.b {
-    final /* synthetic */ a aLq;
-    private final /* synthetic */ PluginNetConfigInfos.PluginConfig aLr;
+    final /* synthetic */ a aLD;
+    private final /* synthetic */ PluginNetConfigInfos.PluginConfig aLE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, PluginNetConfigInfos.PluginConfig pluginConfig) {
-        this.aLq = aVar;
-        this.aLr = pluginConfig;
+        this.aLD = aVar;
+        this.aLE = pluginConfig;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        if (com.baidu.adp.lib.util.k.jf()) {
-            PluginPackageManager.lT().a(this.aLr, (com.baidu.adp.plugin.packageManager.d) null);
+        if (com.baidu.adp.lib.util.k.jc()) {
+            PluginPackageManager.lQ().a(this.aLE, (com.baidu.adp.plugin.packageManager.d) null);
         } else {
-            this.aLq.showToast(i.C0057i.neterror);
+            this.aLD.showToast(i.h.neterror);
         }
         aVar.dismiss();
     }

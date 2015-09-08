@@ -14,23 +14,23 @@ import java.io.File;
 public class ak {
     public static void c(TbPageContext<?> tbPageContext) {
         try {
-            if (!n.fl()) {
+            if (!n.fi()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(n.ty());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(n.tD());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(n.ty());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(n.tD());
                 }
             } else {
-                File cE = n.cE("camera.jpg");
-                if (cE != null) {
-                    Uri fromFile = Uri.fromFile(cE);
+                File cK = n.cK("camera.jpg");
+                if (cK != null) {
+                    Uri fromFile = Uri.fromFile(cK);
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
                     intent.putExtra("output", fromFile);
                     tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(i.C0057i.error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(i.h.error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(i.C0057i.error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(i.h.error_sd_error));
                 }
             }
         } catch (Exception e) {
@@ -41,19 +41,19 @@ public class ak {
     public static void a(TbPageContext<?> tbPageContext, String str) {
         String str2;
         try {
-            if (!n.fl()) {
+            if (!n.fi()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(n.ty());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(n.tD());
                     return;
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(n.ty());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(n.tD());
                     return;
                 } else {
                     return;
                 }
             }
             boolean z = false;
-            if (n.cz(n.xV + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
+            if (n.cF(n.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR)) {
                 File file = new File(String.valueOf(str2) + "/" + str);
                 if (!file.exists()) {
                     z = file.createNewFile();
@@ -69,9 +69,9 @@ public class ak {
             }
             if (!z) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(i.C0057i.error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(i.h.error_sd_error));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(i.C0057i.error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(i.h.error_sd_error));
                 }
             }
         } catch (Exception e) {

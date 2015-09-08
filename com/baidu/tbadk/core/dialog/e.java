@@ -20,43 +20,43 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e {
     private AdapterView.OnItemClickListener Hw;
-    private TbPageContext<?> LS;
-    private TextView WL;
-    private View WM;
-    private f WW;
-    private AlertDialog Ww;
+    private AlertDialog WE;
+    private TextView WU;
+    private View WV;
+    private f Xf;
+    private TbPageContext<?> mContext;
     private ArrayList<g> mItems;
     private BdListView mListView;
     private ViewGroup mRootView;
     private String mTitle;
-    private int WO = -1;
-    private int Wn = -1;
-    private boolean Wy = false;
+    private int WX = -1;
+    private int Wv = -1;
+    private boolean WG = false;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int WS = i.j.dialog_ani_b2t;
-        public static final int WT = i.j.dialog_ani_t2b;
-        public static final int WU = i.j.dialog_ani_l2r;
-        public static final int WV = i.j.dialog_ani_r2l;
+        public static final int Xb = i.C0057i.dialog_ani_b2t;
+        public static final int Xc = i.C0057i.dialog_ani_t2b;
+        public static final int Xd = i.C0057i.dialog_ani_l2r;
+        public static final int Xe = i.C0057i.dialog_ani_r2l;
     }
 
     public e(TbPageContext<?> tbPageContext) {
-        this.LS = tbPageContext;
-        this.mRootView = (ViewGroup) LayoutInflater.from(this.LS.getPageActivity()).inflate(i.g.dialog_rich_layout, (ViewGroup) null);
-        this.WL = (TextView) this.mRootView.findViewById(i.f.dialog_title_list);
+        this.mContext = tbPageContext;
+        this.mRootView = (ViewGroup) LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.dialog_rich_layout, (ViewGroup) null);
+        this.WU = (TextView) this.mRootView.findViewById(i.f.dialog_title_list);
         this.mListView = (BdListView) this.mRootView.findViewById(i.f.dialog_content_list);
-        this.WM = this.mRootView.findViewById(i.f.line_bg);
-        this.WW = new f(this.LS);
+        this.WV = this.mRootView.findViewById(i.f.line_bg);
+        this.Xf = new f(this.mContext);
     }
 
-    public e cp(String str) {
+    public e cv(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public e bK(int i) {
-        return cp(this.LS.getResources().getString(i));
+    public e bN(int i) {
+        return cv(this.mContext.getResources().getString(i));
     }
 
     public e a(ArrayList<g> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -70,25 +70,25 @@ public class e {
         return this;
     }
 
-    public e sT() {
-        if (!this.Wy) {
-            this.Wy = true;
+    public e sY() {
+        if (!this.WG) {
+            this.WG = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
-                this.WL.setText(this.mTitle);
-                this.WL.setVisibility(0);
-                this.WM.setVisibility(0);
+                this.WU.setText(this.mTitle);
+                this.WU.setVisibility(0);
+                this.WV.setVisibility(0);
             } else {
-                this.WL.setVisibility(8);
-                this.WM.setVisibility(8);
+                this.WU.setVisibility(8);
+                this.WV.setVisibility(8);
             }
-            this.mListView.setAdapter((ListAdapter) this.WW);
-            this.WW.setData(this.mItems);
-            c(this.LS);
+            this.mListView.setAdapter((ListAdapter) this.Xf);
+            this.Xf.setData(this.mItems);
+            c(this.mContext);
         }
         return this;
     }
 
-    public void bL(int i) {
+    public void bO(int i) {
         for (int i2 = 0; i2 < this.mItems.size(); i2++) {
             if (i2 == i) {
                 this.mItems.get(i2).setChecked(true);
@@ -96,30 +96,30 @@ public class e {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.WW.setData(this.mItems);
+        this.Xf.setData(this.mItems);
     }
 
-    public e sU() {
-        if (!this.Wy) {
+    public e sZ() {
+        if (!this.WG) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.Ww != null) {
-            j.a(this.Ww, this.LS);
+        if (this.WE != null) {
+            j.a(this.WE, this.mContext);
         } else {
-            this.Ww = new AlertDialog.Builder(this.LS.getPageActivity()).create();
-            this.Ww.setCanceledOnTouchOutside(true);
-            if (j.a(this.Ww, this.LS.getPageActivity())) {
-                Window window = this.Ww.getWindow();
-                if (this.WO == -1) {
-                    this.WO = a.WS;
+            this.WE = new AlertDialog.Builder(this.mContext.getPageActivity()).create();
+            this.WE.setCanceledOnTouchOutside(true);
+            if (j.a(this.WE, this.mContext.getPageActivity())) {
+                Window window = this.WE.getWindow();
+                if (this.WX == -1) {
+                    this.WX = a.Xb;
                 }
-                if (this.Wn == -1) {
-                    this.Wn = 17;
+                if (this.Wv == -1) {
+                    this.Wv = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.Wn);
+                window.setGravity(this.Wv);
                 window.setBackgroundDrawableResource(i.e.transparent_bg);
                 window.setContentView(this.mRootView);
             }
@@ -137,8 +137,8 @@ public class e {
     }
 
     public void dismiss() {
-        if (this.Ww != null) {
-            j.b(this.Ww, this.LS.getPageActivity());
+        if (this.WE != null) {
+            j.b(this.WE, this.mContext.getPageActivity());
         }
     }
 }

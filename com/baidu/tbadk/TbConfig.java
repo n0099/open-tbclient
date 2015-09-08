@@ -31,7 +31,7 @@ public class TbConfig {
     private static final String BROADCAST_PAGE_ADDED = "com.baidu.tieba.broadcast.imagepb.pageadded";
     private static final String BROADCAST_PAGE_CHANGED = "com.baidu.tieba.broadcast.imagepb.pagechanged";
     private static final String BROADCAST_SIGN_ALERT = "com.baidu.tieba.broadcast.signalert";
-    public static final int BUILD_NUMBER = 369;
+    public static final int BUILD_NUMBER = 232;
     public static final String BUY_FACE_PACKAGE_URL = "c/e/faces/buyfacepack";
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
     public static final String CHANNEL_FILE = "channel.dat";
@@ -121,6 +121,7 @@ public class TbConfig {
     public static final String JUMP_TO_NEW_USER_CHOOSE_BAR = "c/u/user/getuserlike";
     public static final boolean LBSSWITCH = true;
     public static final String LIKE_ADDRESS = "c/c/forum/like";
+    public static final int LIVE_IMAGE_MAX_COUNT = 6;
     public static final String LOAD_REG_PV_ADDRESS = "c/s/pv";
     public static final String LOCAL_CAMERA_DIR = "cameras";
     public static final String LOCAL_PIC_DIR = "photos";
@@ -179,6 +180,7 @@ public class TbConfig {
     public static final int NOTIFY_PLUGIN_INSTALLING = 1000;
     public static final int NOTIFY_PUSH_ID = 15;
     public static final int NOTIFY_RECOMMEND_MESSAGE_ID = 13;
+    public static final int NOTIFY_REMIND_RECOMMEND = 2000;
     public static final int NOTIFY_REPLY_ME_ID = 24;
     public static final int NOTIFY_SIGN_ID = 12;
     public static final long NOTIFY_SOUND_INTERVAL = 5000;
@@ -195,7 +197,7 @@ public class TbConfig {
     public static final String PHONE_DATEBASE_NAME = "baidu_tieba.db";
     public static final int PHOTO_DELAY_TIME = 90;
     public static final String PHOTO_LIVE_COVER_FILE = "tieba_photo_live_cover_image";
-    public static final String PHOTO_LIVE_SET_COVER = "/c/c/post/setLiveCover";
+    public static final String PHOTO_LIVE_SET_COVER = "c/c/thread/setLiveCover";
     public static final String PLUGIN_NET_CONFIGS_MIS = "c/s/pluginsmisconf";
     public static final int POST_IMAGE_BIG = 900;
     public static final int POST_IMAGE_DISPLAY = 100;
@@ -316,7 +318,7 @@ public class TbConfig {
     public static String PHOTO_BIG_ADDRESS = "http://tb.himg.baidu.com/sys/portrait/item/";
     public static final String IMAGE_ADDRESS = String.valueOf(SERVER_ADDRESS) + "c/p/img?";
     public static String UPLOAD_IMG_URL = String.valueOf(SERVER_ADDRESS) + "c/s/uploadPicture";
-    public static String ADD_USER_ATTR_URL = "/c/c/user/addUserAttr";
+    public static String ADD_USER_ATTR_URL = "c/c/user/addUserAttr";
     public static boolean COULD_UPDATE = true;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;

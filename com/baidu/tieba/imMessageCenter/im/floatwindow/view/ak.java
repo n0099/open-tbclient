@@ -6,13 +6,13 @@ import com.baidu.tbadk.newFriends.ResponseNewFriendDataMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak extends CustomMessageListener {
-    final /* synthetic */ aj bIT;
+    final /* synthetic */ aj bJA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak(aj ajVar, int i) {
         super(i);
-        this.bIT = ajVar;
+        this.bJA = ajVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,6 +21,6 @@ public class ak extends CustomMessageListener {
         if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseNewFriendDataMessage)) {
             return;
         }
-        this.bIT.i(((ResponseNewFriendDataMessage) customResponsedMessage).getData());
+        this.bJA.i(((ResponseNewFriendDataMessage) customResponsedMessage).getData());
     }
 }

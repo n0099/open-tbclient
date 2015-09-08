@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.location.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.InterfaceC0003a {
-    final /* synthetic */ d cKp;
+    final /* synthetic */ d cSP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar) {
-        this.cKp = dVar;
+        this.cSP = dVar;
     }
 
     @Override // com.baidu.adp.lib.d.a.InterfaceC0003a
@@ -20,14 +20,14 @@ public class f implements a.InterfaceC0003a {
         d.a aVar2;
         if (i == 0 && address != null) {
             BdLog.i("mGetLonAndLatCallback address:" + address.getLongitude() + ";" + address.getLatitude());
-            this.cKp.bb(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
+            this.cSP.bf(String.valueOf(address.getLongitude()), String.valueOf(address.getLatitude()));
             return;
         }
         BdLog.i("mGetLonAndLatCallback error!");
-        aVar = this.cKp.cKi;
+        aVar = this.cSP.cSI;
         if (aVar != null) {
-            aVar2 = this.cKp.cKi;
-            aVar2.eO(str);
+            aVar2 = this.cSP.cSI;
+            aVar2.eW(str);
         }
     }
 }

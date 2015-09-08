@@ -1,27 +1,27 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.write.write.WriteImageActivity;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class br implements a.b {
-    final /* synthetic */ WriteImageActivity.a cUY;
+public class br implements View.OnClickListener {
+    private final /* synthetic */ String ciV;
+    final /* synthetic */ WriteImageActivity this$0;
+    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(WriteImageActivity.a aVar) {
-        this.cUY = aVar;
+    public br(WriteImageActivity writeImageActivity, String str, int i) {
+        this.this$0 = writeImageActivity;
+        this.ciV = str;
+        this.val$id = i;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        WriteImageActivity writeImageActivity;
-        MessageManager messageManager = MessageManager.getInstance();
-        writeImageActivity = WriteImageActivity.this;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(writeImageActivity.getPageContext().getPageActivity(), PluginCenter.NAME_MOTUSDK)));
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (this.this$0.mProgress.getVisibility() != 0) {
+            this.this$0.aEa.setImageBitmap(this.this$0.mBitmap);
+            this.this$0.ciQ = false;
+            this.this$0.jD(this.ciV);
+            this.this$0.ciM = this.val$id;
+        }
     }
 }

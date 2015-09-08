@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class bs extends com.baidu.adp.base.e<PersonListActivity> {
-    public static final BdUniqueId ckl = BdUniqueId.gen();
-    public static final BdUniqueId ckm = BdUniqueId.gen();
-    public HttpMessageListener bJQ;
-    private a ckc;
-    private boolean ckn;
-    private PersonListActivity cko;
-    public CustomMessageListener ckp;
+    public static final BdUniqueId clg = BdUniqueId.gen();
+    public static final BdUniqueId clh = BdUniqueId.gen();
+    public HttpMessageListener bKx;
+    private a ckX;
+    private boolean cli;
+    private PersonListActivity clj;
+    public CustomMessageListener clk;
     private String mId;
     private int mPage;
     private int mSex;
@@ -27,7 +27,7 @@ public class bs extends com.baidu.adp.base.e<PersonListActivity> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface a {
-        void B(String str, boolean z);
+        void D(String str, boolean z);
 
         com.baidu.tieba.person.a.a d(com.baidu.tieba.person.a.a aVar, boolean z);
     }
@@ -35,19 +35,19 @@ public class bs extends com.baidu.adp.base.e<PersonListActivity> {
     public bs(PersonListActivity personListActivity, a aVar) {
         super(personListActivity.getPageContext());
         this.mPage = 0;
-        this.bJQ = new bt(this, CmdConfigHttp.PIC_PERSONAL_LIST);
-        this.ckp = new bu(this, CmdConfigCustom.CMD_READ_PERSON_LIST);
-        this.cko = personListActivity;
-        this.ckn = true;
+        this.bKx = new bt(this, CmdConfigHttp.PIC_PERSONAL_LIST);
+        this.clk = new bu(this, CmdConfigCustom.CMD_READ_PERSON_LIST);
+        this.clj = personListActivity;
+        this.cli = true;
         this.mId = null;
-        this.ckc = aVar;
+        this.ckX = aVar;
     }
 
     public int getPage() {
         return this.mPage;
     }
 
-    public void iM(int i) {
+    public void iY(int i) {
         this.mPage = i;
     }
 
@@ -67,18 +67,18 @@ public class bs extends com.baidu.adp.base.e<PersonListActivity> {
         return this.mSex;
     }
 
-    public void cj(boolean z) {
-        this.ckn = z;
+    public void co(boolean z) {
+        this.cli = z;
     }
 
-    public boolean agx() {
-        return this.ckn;
+    public boolean agN() {
+        return this.cli;
     }
 
-    public void Iz() {
+    public void In() {
         String str;
         MessageManager messageManager = MessageManager.getInstance();
-        if (this.ckn) {
+        if (this.cli) {
             str = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/follow/page";
         } else {
             str = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/fans/page";
@@ -86,15 +86,15 @@ public class bs extends com.baidu.adp.base.e<PersonListActivity> {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_PERSONAL_LIST, str);
         tbHttpMessageTask.setResponsedClass(ResponseNetPersonListMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.bJQ);
+        registerListener(this.bKx);
     }
 
-    public void agy() {
+    public void agO() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_PERSONAL_LIST);
-        if (this.ckn) {
-            httpMessage.setTag(ckm);
+        if (this.cli) {
+            httpMessage.setTag(clh);
         } else {
-            httpMessage.setTag(ckl);
+            httpMessage.setTag(clg);
         }
         if (this.mId != null && !this.mId.equals(TbadkCoreApplication.getCurrentAccount())) {
             httpMessage.addParam("uid", this.mId);
@@ -106,23 +106,23 @@ public class bs extends com.baidu.adp.base.e<PersonListActivity> {
         sendMessage(httpMessage);
     }
 
-    public void agz() {
+    public void agP() {
         com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(CmdConfigCustom.CMD_READ_PERSON_LIST, new bv());
         aVar.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(aVar);
-        registerListener(this.ckp);
+        registerListener(this.clk);
     }
 
-    public void agA() {
+    public void agQ() {
         RequestLocalPersonListMessage requestLocalPersonListMessage = new RequestLocalPersonListMessage();
-        requestLocalPersonListMessage.setFollow(this.ckn);
+        requestLocalPersonListMessage.setFollow(this.cli);
         requestLocalPersonListMessage.setUid(this.mId);
         sendMessage(requestLocalPersonListMessage);
     }
 
-    public void agB() {
-        MessageManager.getInstance().unRegisterListener(this.ckp);
-        MessageManager.getInstance().unRegisterListener(this.bJQ);
+    public void agR() {
+        MessageManager.getInstance().unRegisterListener(this.clk);
+        MessageManager.getInstance().unRegisterListener(this.bKx);
     }
 
     @Override // com.baidu.adp.base.e

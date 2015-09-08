@@ -5,40 +5,40 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0065a cat;
+    private InterfaceC0067a cbo;
     private int count = 0;
-    private long car = 0;
-    private long cas = 0;
-    private long cau = 500;
+    private long cbm = 0;
+    private long cbn = 0;
+    private long cbp = 500;
     private Handler mHandler = new b(this);
 
     /* renamed from: com.baidu.tieba.pb.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0065a {
-        void Ms();
+    public interface InterfaceC0067a {
+        void Mj();
 
-        void Mt();
+        void Mk();
     }
 
-    public a(InterfaceC0065a interfaceC0065a) {
-        this.cat = interfaceC0065a;
+    public a(InterfaceC0067a interfaceC0067a) {
+        this.cbo = interfaceC0067a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.cat == null) {
+            if (this.cbo == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.car = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.cau);
+                this.cbm = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.cbp);
                 return true;
             } else if (this.count == 2) {
-                this.cas = System.currentTimeMillis();
-                if (this.cas - this.car < this.cau) {
-                    this.cat.Mt();
+                this.cbn = System.currentTimeMillis();
+                if (this.cbn - this.cbm < this.cbp) {
+                    this.cbo.Mk();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

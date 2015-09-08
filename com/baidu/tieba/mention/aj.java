@@ -17,7 +17,7 @@ public class aj extends x implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] CC() {
+    public byte[] CM() {
         return null;
     }
 

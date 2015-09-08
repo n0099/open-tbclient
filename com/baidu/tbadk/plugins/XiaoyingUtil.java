@@ -3,6 +3,7 @@ package com.baidu.tbadk.plugins;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -32,13 +33,15 @@ public class XiaoyingUtil {
     public static final String EXTRA_UID = "extra_uid";
     public static final String EXTRA_USER_NAME = "extra_user_name";
     public static final String PKG_NAME_XIAOYING = "com.quvideo.xiaoying";
+    private static final long START_INTERVAL_TIME = 3000;
     public static final String URL_EVENT_REPORT = "http://reportevent.xiaoying.co/event";
+    private static long lastStartTime;
     private static String lastUid;
     private static String shareUid;
     private static int showTime;
 
     public static boolean isXiaoyingForbidden() {
-        return PluginPackageManager.lT().br(PKG_NAME_XIAOYING);
+        return PluginPackageManager.lQ().br(PKG_NAME_XIAOYING);
     }
 
     public static int getShowTime() {
@@ -50,19 +53,23 @@ public class XiaoyingUtil {
     }
 
     public static boolean isXiaoyingInstalled() {
-        return PluginPackageManager.lT().bl(PKG_NAME_XIAOYING) && TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_START_XIAOYING);
+        return PluginPackageManager.lQ().bl(PKG_NAME_XIAOYING) && TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_START_XIAOYING);
     }
 
     public static void startXiaoying(Context context) {
         if (context != null) {
-            if (!i.iO()) {
-                BdToast.b(context, context.getString(i.C0057i.neterror)).sX();
+            if (!i.iL()) {
+                BdToast.b(context, context.getString(i.h.neterror)).tc();
                 return;
             }
-            if (TextUtils.equals(lastUid, TbadkCoreApplication.getCurrentAccount()) && !StringUtils.isNull(shareUid)) {
-                startXiaoyingInternal(context, shareUid);
-            } else {
-                new a(context).execute(new String[0]);
+            long elapsedRealtime = SystemClock.elapsedRealtime();
+            if (lastStartTime <= 0 || elapsedRealtime - lastStartTime >= START_INTERVAL_TIME) {
+                lastStartTime = elapsedRealtime;
+                if (TextUtils.equals(lastUid, TbadkCoreApplication.getCurrentAccount()) && !StringUtils.isNull(shareUid)) {
+                    startXiaoyingInternal(context, shareUid);
+                } else {
+                    new a(context).execute(new String[0]);
+                }
             }
         }
     }
@@ -70,9 +77,9 @@ public class XiaoyingUtil {
     public static void startPlayXiaoyingVideo(Context context, String str) {
         if (context != null && !StringUtils.isNull(str)) {
             if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
-                BdToast.b(context, context.getString(i.C0057i.plugin_xiaoying_install_fail)).sX();
-            } else if (!com.baidu.adp.lib.util.i.iO()) {
-                BdToast.b(context, context.getString(i.C0057i.neterror)).sX();
+                BdToast.b(context, context.getString(i.h.plugin_xiaoying_install_fail)).tc();
+            } else if (!com.baidu.adp.lib.util.i.iL()) {
+                BdToast.b(context, context.getString(i.h.neterror)).tc();
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new XiaoyingPlayerConfig(context, str)));
             }
@@ -82,7 +89,7 @@ public class XiaoyingUtil {
     public static boolean showXiaoyingTool() {
         PluginNetConfigInfos.PluginConfig pluginConfig;
         PluginSetting findPluginSetting;
-        if (!TbadkCoreApplication.m411getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (pluginConfig = PluginPackageManager.lT().getPluginConfig(PKG_NAME_XIAOYING)) == null || TextUtils.isEmpty(pluginConfig.display_name) || pluginConfig.forbidden == 1 || (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mp().findPluginSetting(PKG_NAME_XIAOYING)) == null) {
+        if (!TbadkCoreApplication.m411getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (pluginConfig = PluginPackageManager.lQ().getPluginConfig(PKG_NAME_XIAOYING)) == null || TextUtils.isEmpty(pluginConfig.display_name) || pluginConfig.forbidden == 1 || (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mm().findPluginSetting(PKG_NAME_XIAOYING)) == null) {
             return false;
         }
         return pluginConfig.newest == null || findPluginSetting.versionCode <= pluginConfig.newest.version_code;
@@ -92,10 +99,10 @@ public class XiaoyingUtil {
         Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.cn(str);
+            aVar.ct(str);
             aVar.a(str2, new c(pageActivity, tbPageContext));
-            aVar.b(i.C0057i.cancel, new d());
-            aVar.b(tbPageContext).sP();
+            aVar.b(i.h.cancel, new d());
+            aVar.b(tbPageContext).sU();
         }
     }
 
@@ -154,12 +161,12 @@ public class XiaoyingUtil {
             vVar.o("uid", currentAccount);
             vVar.o("_client_version", TbConfig.getVersion());
             vVar.o("method", "uidEncode");
-            String tD = vVar.tD();
-            if (!vVar.uh() || StringUtils.isNull(tD)) {
+            String tI = vVar.tI();
+            if (!vVar.um() || StringUtils.isNull(tI)) {
                 return null;
             }
             try {
-                JSONObject jSONObject = new JSONObject(tD);
+                JSONObject jSONObject = new JSONObject(tI);
                 if (jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE) == 0) {
                     String optString = jSONObject.optString("uid");
                     if (!StringUtils.isNull(optString)) {

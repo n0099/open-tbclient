@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class n {
-    private int Aq;
-    private int Ar;
-    private boolean As;
-    private boolean At;
-    private int Au;
-    private int Av;
-    private boolean Aw;
-    private boolean Ax;
-    private String zC;
+    private int Ao;
+    private int Ap;
+    private boolean Aq;
+    private boolean Ar;
+    private int As;
+    private int At;
+    private boolean Au;
+    private boolean Av;
+    private String zA;
 
     public n() {
-        this.zC = null;
-        this.Aq = 32768;
-        this.Ar = 131072;
-        this.As = false;
-        this.At = true;
-        this.Au = 30000;
-        this.Av = 30000;
-        this.Aw = true;
-        this.Ax = true;
-        this.zC = null;
+        this.zA = null;
+        this.Ao = 32768;
+        this.Ap = 131072;
+        this.Aq = false;
+        this.Ar = true;
+        this.As = 30000;
+        this.At = 30000;
+        this.Au = true;
+        this.Av = true;
+        this.zA = null;
     }
 
     public n(n nVar) {
-        this.zC = null;
+        this.zA = null;
+        this.Ao = nVar.Ao;
+        this.Ap = nVar.Ap;
         this.Aq = nVar.Aq;
         this.Ar = nVar.Ar;
         this.As = nVar.As;
         this.At = nVar.At;
         this.Au = nVar.Au;
         this.Av = nVar.Av;
-        this.Aw = nVar.Aw;
-        this.Ax = nVar.Ax;
-        this.zC = nVar.zC;
+        this.zA = nVar.zA;
     }
 
-    public boolean jQ() {
+    public boolean jN() {
+        return this.Aq;
+    }
+
+    public int jO() {
+        return this.Ao;
+    }
+
+    public int jP() {
+        return this.Ap;
+    }
+
+    public boolean getTcpNoDelay() {
+        return this.Ar;
+    }
+
+    public int jQ() {
         return this.As;
     }
 
     public int jR() {
-        return this.Aq;
-    }
-
-    public int jS() {
-        return this.Ar;
-    }
-
-    public boolean getTcpNoDelay() {
         return this.At;
     }
 
-    public int jT() {
+    public boolean jS() {
         return this.Au;
     }
 
-    public int jU() {
+    public boolean jT() {
         return this.Av;
     }
 
-    public boolean jV() {
-        return this.Aw;
-    }
-
-    public boolean jW() {
-        return this.Ax;
-    }
-
-    public String jX() {
-        return this.zC;
+    public String jU() {
+        return this.zA;
     }
 
     public void aX(String str) {
-        this.zC = str;
+        this.zA = str;
     }
 }

@@ -155,49 +155,55 @@ public interface a {
 
     Activity getActivity();
 
-    c kG();
+    c kD();
 
-    void kH();
+    void kE();
 
-    void kI();
+    void kF();
 
-    void kJ();
+    void kG();
 
-    Context kK();
+    Context kH();
 
-    ComponentName kL();
+    ComponentName kI();
 
-    String kM();
+    String kJ();
 
-    int kN();
+    int kK();
 
-    View kO();
+    View kL();
 
-    Intent kP();
+    Intent kM();
 
-    LayoutInflater kQ();
+    LayoutInflater kN();
 
-    String kR();
+    String kO();
 
-    MenuInflater kS();
+    MenuInflater kP();
+
+    int kQ();
+
+    int kR();
+
+    int kS();
 
     int kT();
 
-    int kU();
+    Window kU();
 
-    int kV();
+    WindowManager kV();
 
-    int kW();
+    boolean kW();
 
-    Window kX();
+    boolean kX();
 
-    WindowManager kY();
+    boolean kY();
 
-    boolean kZ();
+    void kZ();
 
-    boolean la();
+    void la();
 
-    boolean lb();
+    void lb();
 
     void lc();
 
@@ -209,23 +215,17 @@ public interface a {
 
     void lg();
 
-    void lh();
+    Object lh();
 
-    void li();
+    boolean li();
 
     void lj();
 
-    Object lk();
+    void lk();
 
-    boolean ll();
+    void ll();
 
     void lm();
-
-    void ln();
-
-    void lo();
-
-    void lp();
 
     void m(Activity activity);
 

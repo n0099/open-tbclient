@@ -4,22 +4,22 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bu implements View.OnClickListener {
-    final /* synthetic */ br ccK;
-    private final /* synthetic */ int ccO;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.i ccP;
+    final /* synthetic */ br cdH;
+    private final /* synthetic */ int cdL;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.i cdM;
     private final /* synthetic */ int val$count;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bu(br brVar, int i, int i2, com.baidu.tieba.tbadkCore.data.i iVar) {
-        this.ccK = brVar;
-        this.ccO = i;
+        this.cdH = brVar;
+        this.cdL = i;
         this.val$count = i2;
-        this.ccP = iVar;
+        this.cdM = iVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.ccP.jJ(Math.min(this.ccO + 5, this.val$count));
-        this.ccK.notifyDataSetChanged();
+        this.cdM.ku(Math.min(this.cdL + 5, this.val$count));
+        this.cdH.notifyDataSetChanged();
     }
 }

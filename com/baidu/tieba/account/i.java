@@ -15,14 +15,14 @@ import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class i extends BaseAdapter {
-    private View.OnClickListener aeB;
-    private BaseActivity arT;
+    private View.OnClickListener aeL;
+    private BaseActivity atD;
     private List<AccountData> mData = null;
-    private boolean aDE = false;
+    private boolean aFm = false;
 
     public i(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.arT = baseActivity;
-        this.aeB = onClickListener;
+        this.atD = baseActivity;
+        this.aeL = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -72,32 +72,32 @@ public class i extends BaseAdapter {
                         aVar = (a) view.getTag();
                         view2 = view;
                     } else if (getItemViewType(i) == 0) {
-                        view2 = LayoutInflater.from(this.arT.getPageContext().getContext()).inflate(i.g.account_item, (ViewGroup) null);
+                        view2 = LayoutInflater.from(this.atD.getPageContext().getContext()).inflate(i.g.account_item, (ViewGroup) null);
                         aVar = new a(this, null);
-                        aVar.aDF = (TextView) view2.findViewById(i.f.account);
-                        aVar.aDH = (ImageView) view2.findViewById(i.f.active);
-                        aVar.aDI = (Button) view2.findViewById(i.f.delete);
+                        aVar.aFn = (TextView) view2.findViewById(i.f.account);
+                        aVar.aFp = (ImageView) view2.findViewById(i.f.active);
+                        aVar.aFq = (Button) view2.findViewById(i.f.delete);
                         aVar.mLine = view2.findViewById(i.f.account_item_line_layout);
-                        aVar.aDI.setOnClickListener(this.aeB);
+                        aVar.aFq.setOnClickListener(this.aeL);
                         view2.setTag(aVar);
                     } else {
-                        view2 = LayoutInflater.from(this.arT.getPageContext().getContext()).inflate(i.g.account_add_item, (ViewGroup) null);
+                        view2 = LayoutInflater.from(this.atD.getPageContext().getContext()).inflate(i.g.account_add_item, (ViewGroup) null);
                         aVar = new a(this, null);
-                        aVar.aDG = (TextView) view2.findViewById(i.f.add_text);
+                        aVar.aFo = (TextView) view2.findViewById(i.f.add_text);
                         view2.setTag(aVar);
                     }
                     if (getItemViewType(i) == 0) {
                         AccountData accountData = (AccountData) getItem(i);
-                        aVar.aDH.setVisibility(8);
-                        aVar.aDI.setVisibility(8);
-                        aVar.aDI.setTag(accountData);
+                        aVar.aFp.setVisibility(8);
+                        aVar.aFq.setVisibility(8);
+                        aVar.aFq.setTag(accountData);
                         if (accountData != null) {
-                            aVar.aDF.setText(accountData.getAccount());
+                            aVar.aFn.setText(accountData.getAccount());
                             if (accountData.getIsActive() == 1) {
-                                aVar.aDH.setVisibility(0);
+                                aVar.aFp.setVisibility(0);
                             }
-                            if (this.aDE) {
-                                aVar.aDI.setVisibility(0);
+                            if (this.aFm) {
+                                aVar.aFq.setVisibility(0);
                             }
                         }
                         if (i == getCount() - 2) {
@@ -106,42 +106,42 @@ public class i extends BaseAdapter {
                             aVar.mLine.setVisibility(0);
                         }
                     }
-                    this.arT.getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-                    this.arT.getLayoutMode().k(view2);
+                    this.atD.getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+                    this.atD.getLayoutMode().k(view2);
                     return view2;
                 } catch (Throwable th) {
                     th = th;
-                    this.arT.getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-                    this.arT.getLayoutMode().k(view);
+                    this.atD.getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+                    this.atD.getLayoutMode().k(view);
                     throw th;
                 }
             } catch (Exception e) {
                 e = e;
                 BdLog.detailException(e);
-                this.arT.getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() != 1);
-                this.arT.getLayoutMode().k(view);
+                this.atD.getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() != 1);
+                this.atD.getLayoutMode().k(view);
                 return view;
             }
         } catch (Exception e2) {
             e = e2;
             BdLog.detailException(e);
-            this.arT.getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() != 1);
-            this.arT.getLayoutMode().k(view);
+            this.atD.getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() != 1);
+            this.atD.getLayoutMode().k(view);
             return view;
         } catch (Throwable th2) {
             th = th2;
-            this.arT.getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-            this.arT.getLayoutMode().k(view);
+            this.atD.getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+            this.atD.getLayoutMode().k(view);
             throw th;
         }
     }
 
     public void setEditState(boolean z) {
-        this.aDE = z;
+        this.aFm = z;
     }
 
-    public boolean FR() {
-        return this.aDE;
+    public boolean Gb() {
+        return this.aFm;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -159,10 +159,10 @@ public class i extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class a {
-        TextView aDF;
-        TextView aDG;
-        ImageView aDH;
-        Button aDI;
+        TextView aFn;
+        TextView aFo;
+        ImageView aFp;
+        Button aFq;
         View mLine;
 
         private a() {

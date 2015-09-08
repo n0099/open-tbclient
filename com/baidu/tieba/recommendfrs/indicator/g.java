@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
-    private final int bsp;
-    private List<String> csE = new ArrayList();
+    private final int bsV;
+    private List<String> cAW = new ArrayList();
     private Context mContext;
     private int padding;
     private int textSize;
@@ -23,30 +23,30 @@ public class g extends BaseAdapter {
         this.mContext = context;
         this.textSize = context.getResources().getDimensionPixelSize(i.d.fontsize28);
         this.padding = context.getResources().getDimensionPixelSize(i.d.ds16);
-        this.bsp = i;
+        this.bsV = i;
     }
 
-    public void bf(List<String> list) {
-        this.csE.clear();
+    public void bn(List<String> list) {
+        this.cAW.clear();
         if (list != null && list.size() > 0) {
-            this.csE.addAll(list);
+            this.cAW.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.csE.size();
+        return this.cAW.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: hT */
+    /* renamed from: id */
     public String getItem(int i) {
-        if (i < 0 || i >= this.csE.size()) {
+        if (i < 0 || i >= this.cAW.size()) {
             return null;
         }
-        return this.csE.get(i);
+        return this.cAW.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -67,10 +67,10 @@ public class g extends BaseAdapter {
         }
         textView.setText(getItem(i));
         al.b(textView, i.c.cp_cont_f, 1);
-        if (i == this.bsp) {
-            al.i((View) textView, i.e.btn_label_white_s);
+        if (i == this.bsV) {
+            al.h((View) textView, i.e.btn_label_white_s);
         } else {
-            al.i((View) textView, i.e.rec_frs_btn_more_item);
+            al.h((View) textView, i.e.rec_frs_btn_more_item);
         }
         return textView;
     }

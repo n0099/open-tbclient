@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h extends CustomMessageListener {
-    final /* synthetic */ d cNj;
+    final /* synthetic */ d cVQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(d dVar, int i) {
         super(i);
-        this.cNj = dVar;
+        this.cVQ = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,19 +23,19 @@ public class h extends CustomMessageListener {
         c cVar4;
         c cVar5;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001361) {
-            cVar = this.cNj.cNd;
+            cVar = this.cVQ.cVK;
             if (cVar != null) {
-                cVar2 = this.cNj.cNd;
+                cVar2 = this.cVQ.cVK;
                 if (cVar2.getDayNightView() != null) {
-                    cVar3 = this.cNj.cNd;
+                    cVar3 = this.cVQ.cVK;
                     if (cVar3.MA()) {
-                        cVar5 = this.cNj.cNd;
+                        cVar5 = this.cVQ.cVK;
                         cVar5.getDayNightView().setVisibility(0);
                     } else {
-                        cVar4 = this.cNj.cNd;
+                        cVar4 = this.cVQ.cVK;
                         cVar4.getDayNightView().setVisibility(8);
                     }
-                    this.cNj.asd();
+                    this.cVQ.aww();
                 }
             }
         }

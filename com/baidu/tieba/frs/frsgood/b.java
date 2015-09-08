@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.frsgood;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class b implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsGoodActivity aZp;
+    final /* synthetic */ FrsGoodActivity aZI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(FrsGoodActivity frsGoodActivity) {
-        this.aZp = frsGoodActivity;
+        this.aZI = frsGoodActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -19,25 +19,25 @@ class b implements AbsListView.OnScrollListener {
         boolean z;
         com.baidu.adp.widget.ListView.w wVar;
         if (i == 2 || i == 1) {
-            z = this.aZp.aUG;
+            z = this.aZI.aUV;
             if (!z) {
-                this.aZp.aUG = true;
-                this.aZp.aZj.Mn();
+                this.aZI.aUV = true;
+                this.aZI.aZC.Me();
             }
         }
         if (i == 0) {
-            x xVar = this.aZp.aZj;
-            wVar = this.aZp.aVh;
+            x xVar = this.aZI.aZC;
+            wVar = this.aZI.aVv;
             xVar.a(wVar);
-            this.aZp.Ji = false;
+            this.aZI.Ji = false;
         } else {
-            this.aZp.aZj.a((com.baidu.adp.widget.ListView.w) null);
-            this.aZp.Ji = true;
+            this.aZI.aZC.a((com.baidu.adp.widget.ListView.w) null);
+            this.aZI.Ji = true;
         }
-        if (this.aZp.aUH == null) {
-            this.aZp.aUH = new com.baidu.tbadk.performanceLog.e();
+        if (this.aZI.aUW == null) {
+            this.aZI.aUW = new com.baidu.tbadk.performanceLog.e();
         }
-        this.aZp.aUH.eq(1000);
-        this.aZp.aUH.DH();
+        this.aZI.aUW.ey(1000);
+        this.aZI.aUW.DR();
     }
 }

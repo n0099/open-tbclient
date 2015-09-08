@@ -18,7 +18,7 @@ public class b {
     private HashMap<String, String> Dk = new HashMap<>();
     private a Dl = null;
 
-    public static b lP() {
+    public static b lM() {
         if (Dj == null) {
             synchronized (b.class) {
                 if (Dj == null) {
@@ -33,20 +33,20 @@ public class b {
     }
 
     public void clear(boolean z) {
-        if (z && this.Dl == null && lQ()) {
+        if (z && this.Dl == null && lN()) {
             this.Dl = new a();
             this.Dl.execute(new Void[0]);
         }
     }
 
-    private boolean lQ() {
+    private boolean lN() {
         String[] split;
         this.Dk.clear();
-        PluginSettings mm = com.baidu.adp.plugin.packageManager.pluginSettings.c.mp().mm();
-        if (mm == null) {
+        PluginSettings mj = com.baidu.adp.plugin.packageManager.pluginSettings.c.mm().mj();
+        if (mj == null) {
             return false;
         }
-        for (Map.Entry<String, PluginSetting> entry : mm.getPlugins().entrySet()) {
+        for (Map.Entry<String, PluginSetting> entry : mj.getPlugins().entrySet()) {
             PluginSetting value = entry.getValue();
             if (!TextUtils.isEmpty(value.apkPath)) {
                 this.Dk.put(value.apkPath, "");
@@ -73,11 +73,11 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public Boolean doInBackground(Void... voidArr) {
-            ArrayList<File> lR = lR();
-            if (lR == null || lR.size() == 0) {
+            ArrayList<File> lO = lO();
+            if (lO == null || lO.size() == 0) {
                 return false;
             }
-            f(lR);
+            f(lO);
             return true;
         }
 
@@ -90,19 +90,19 @@ public class b {
             b.this.Dl = null;
         }
 
-        private ArrayList<File> lR() {
+        private ArrayList<File> lO() {
             ArrayList<File> arrayList = null;
-            File my = Util.my();
-            if (my != null) {
-                String mo = com.baidu.adp.plugin.packageManager.pluginSettings.b.ml().mo();
-                File[] listFiles = my.listFiles();
+            File mv = Util.mv();
+            if (mv != null) {
+                String ml = com.baidu.adp.plugin.packageManager.pluginSettings.b.mi().ml();
+                File[] listFiles = mv.listFiles();
                 if (listFiles != null) {
                     arrayList = new ArrayList<>();
                     for (File file : listFiles) {
                         if (file != null) {
                             String absolutePath = file.getAbsolutePath();
                             BdLog.i("ClearRedunceFiles file: " + file.getAbsolutePath());
-                            if (!absolutePath.equals(mo) && System.currentTimeMillis() - file.lastModified() >= 86400000) {
+                            if (!absolutePath.equals(ml) && System.currentTimeMillis() - file.lastModified() >= 86400000) {
                                 if (file.isDirectory()) {
                                     if (b.this.Dk.get(String.valueOf(absolutePath) + ".apk") == null) {
                                         arrayList.add(file);

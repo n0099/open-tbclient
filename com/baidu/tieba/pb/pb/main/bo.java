@@ -7,30 +7,30 @@ import android.widget.TextView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class bo extends com.baidu.adp.base.f<PbActivity> {
-    private View ccA;
-    private PbActivity ccB;
-    private TextView ccu;
-    private TextView ccv;
-    private View ccw;
-    private TextView ccx;
-    private TextView ccy;
-    private TextView ccz;
+    private TextView cdr;
+    private TextView cds;
+    private View cdt;
+    private TextView cdu;
+    private TextView cdv;
+    private TextView cdw;
+    private View cdx;
+    private PbActivity cdy;
     private View.OnClickListener mClickListener;
     private View mView;
 
     public bo(PbActivity pbActivity, View.OnClickListener onClickListener) {
         super(pbActivity.getPageContext());
         this.mView = null;
-        this.ccu = null;
-        this.ccv = null;
-        this.ccw = null;
-        this.ccx = null;
-        this.ccy = null;
-        this.ccz = null;
-        this.ccA = null;
-        this.ccB = null;
+        this.cdr = null;
+        this.cds = null;
+        this.cdt = null;
+        this.cdu = null;
+        this.cdv = null;
+        this.cdw = null;
+        this.cdx = null;
+        this.cdy = null;
         this.mClickListener = null;
-        this.ccB = pbActivity;
+        this.cdy = pbActivity;
         this.mClickListener = onClickListener;
         initUI();
     }
@@ -39,53 +39,53 @@ public class bo extends com.baidu.adp.base.f<PbActivity> {
         return this.mView;
     }
 
-    public TextView adM() {
-        return this.ccu;
+    public TextView aea() {
+        return this.cdr;
     }
 
-    public TextView adN() {
-        return this.ccv;
+    public TextView aeb() {
+        return this.cds;
     }
 
-    public View adO() {
-        return this.ccw;
+    public View aec() {
+        return this.cdt;
     }
 
-    public TextView adP() {
-        return this.ccx;
+    public TextView aed() {
+        return this.cdu;
     }
 
-    public TextView adQ() {
-        return this.ccy;
+    public TextView aee() {
+        return this.cdv;
     }
 
-    public TextView adR() {
-        return this.ccz;
+    public TextView aef() {
+        return this.cdw;
     }
 
-    public void eo(boolean z) {
+    public void ew(boolean z) {
         if (z) {
-            this.ccz.setVisibility(8);
-            this.ccA.setVisibility(8);
+            this.cdw.setVisibility(8);
+            this.cdx.setVisibility(8);
             return;
         }
-        this.ccz.setVisibility(0);
-        this.ccA.setVisibility(0);
+        this.cdw.setVisibility(0);
+        this.cdx.setVisibility(0);
     }
 
     private void initUI() {
-        this.mView = LayoutInflater.from(this.ccB.getPageContext().getPageActivity()).inflate(i.g.pb_more_view, (ViewGroup) null);
-        this.ccu = (TextView) this.mView.findViewById(i.f.pb_more_view_item_mark);
-        this.ccu.setOnClickListener(this.mClickListener);
-        this.ccv = (TextView) this.mView.findViewById(i.f.pb_more_view_item_share);
-        this.ccw = this.mView.findViewById(i.f.pb_more_view_item_line_share);
-        this.ccv.setOnClickListener(this.mClickListener);
-        this.ccx = (TextView) this.mView.findViewById(i.f.pb_more_view_item_jump);
-        this.ccx.setOnClickListener(this.mClickListener);
-        this.ccy = (TextView) this.mView.findViewById(i.f.pb_more_view_item_see);
-        this.ccy.setOnClickListener(this.mClickListener);
-        this.ccz = (TextView) this.mView.findViewById(i.f.pb_more_view_item_report);
-        this.ccz.setOnClickListener(this.mClickListener);
-        this.ccA = this.mView.findViewById(i.f.pb_more_view_item_report_line);
+        this.mView = LayoutInflater.from(this.cdy.getPageContext().getPageActivity()).inflate(i.g.pb_more_view, (ViewGroup) null);
+        this.cdr = (TextView) this.mView.findViewById(i.f.pb_more_view_item_mark);
+        this.cdr.setOnClickListener(this.mClickListener);
+        this.cds = (TextView) this.mView.findViewById(i.f.pb_more_view_item_share);
+        this.cdt = this.mView.findViewById(i.f.pb_more_view_item_line_share);
+        this.cds.setOnClickListener(this.mClickListener);
+        this.cdu = (TextView) this.mView.findViewById(i.f.pb_more_view_item_jump);
+        this.cdu.setOnClickListener(this.mClickListener);
+        this.cdv = (TextView) this.mView.findViewById(i.f.pb_more_view_item_see);
+        this.cdv.setOnClickListener(this.mClickListener);
+        this.cdw = (TextView) this.mView.findViewById(i.f.pb_more_view_item_report);
+        this.cdw.setOnClickListener(this.mClickListener);
+        this.cdx = this.mView.findViewById(i.f.pb_more_view_item_report_line);
     }
 }

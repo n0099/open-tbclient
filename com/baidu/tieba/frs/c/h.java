@@ -6,40 +6,40 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.tbadkCore.ai;
-import com.baidu.tieba.tbadkCore.w;
+import com.baidu.tieba.tbadkCore.aj;
+import com.baidu.tieba.tbadkCore.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements ai.a {
-    final /* synthetic */ a bbz;
+public class h implements aj.a {
+    final /* synthetic */ a bbT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.bbz = aVar;
+        this.bbT = aVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ai.a
+    @Override // com.baidu.tieba.tbadkCore.aj.a
     public void g(String str, long j) {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
-        frsActivity = this.bbz.bat;
-        com.baidu.tieba.tbadkCore.n Lu = frsActivity.Lu();
-        if (Lu != null && Lu.acG() != null) {
-            com.baidu.tieba.tbadkCore.c.aoQ().E(Lu.acG().getName(), false);
-            Lu.acG().setLike(0);
-            this.bbz.fH(0);
-            frsActivity2 = this.bbz.bat;
-            frsActivity2.aVj.d(true);
+        frsActivity = this.bbT.baN;
+        com.baidu.tieba.tbadkCore.o Ll = frsActivity.Ll();
+        if (Ll != null && Ll.acP() != null) {
+            com.baidu.tieba.tbadkCore.d.asX().G(Ll.acP().getName(), false);
+            Ll.acP().setLike(0);
+            this.bbT.fQ(0);
+            frsActivity2 = this.bbT.baN;
+            frsActivity2.aVx.d(true);
             TbadkCoreApplication.m411getInst().delLikeForum(str);
-            this.bbz.f(false, new StringBuilder(String.valueOf(j)).toString());
+            this.bbT.e(false, new StringBuilder(String.valueOf(j)).toString());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, new StringBuilder(String.valueOf(j)).toString()));
-            w wVar = new w();
-            wVar.setLike(0);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, wVar));
+            x xVar = new x();
+            xVar.setLike(0);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, xVar));
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ai.a
+    @Override // com.baidu.tieba.tbadkCore.aj.a
     public void h(String str, long j) {
     }
 }

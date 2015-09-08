@@ -5,17 +5,17 @@ import com.baidu.tieba.im.message.RequestMemoryListMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements x.a {
-    final /* synthetic */ e bGo;
+    final /* synthetic */ e bGV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(e eVar) {
-        this.bGo = eVar;
+        this.bGV = eVar;
     }
 
     @Override // com.baidu.tbadk.core.view.x.a
     public void onListPullRefresh(boolean z) {
         if (!z) {
-            this.bGo.sendMessage(new RequestMemoryListMessage(1));
+            this.bGV.sendMessage(new RequestMemoryListMessage(1));
         }
     }
 }

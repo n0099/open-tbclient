@@ -4,18 +4,18 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cn implements View.OnFocusChangeListener {
-    final /* synthetic */ cb cfj;
+    final /* synthetic */ cb cgg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cn(cb cbVar) {
-        this.cfj = cbVar;
+        this.cgg = cbVar;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
         PbActivity pbActivity;
         if (!z) {
-            pbActivity = this.cfj.cbx;
+            pbActivity = this.cgg.ccs;
             com.baidu.adp.lib.util.k.c(pbActivity.getPageContext().getPageActivity(), view);
         }
     }

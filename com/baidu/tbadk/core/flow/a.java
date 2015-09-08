@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
-    private ArrayList<TbImageView> Xm = new ArrayList<>();
-    private ArrayList<T> Xn = new ArrayList<>();
-    private View.OnClickListener Xo;
+    private ArrayList<TbImageView> Xv = new ArrayList<>();
+    private ArrayList<T> Xw = new ArrayList<>();
+    private View.OnClickListener Xx;
     private Context context;
 
     public a(Context context) {
@@ -21,42 +21,42 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.Xo = onClickListener;
+        this.Xx = onClickListener;
     }
 
-    public T bT(int i) {
-        if (this.Xn == null || this.Xn.isEmpty() || i < 0 || i >= this.Xn.size()) {
+    public T bW(int i) {
+        if (this.Xw == null || this.Xw.isEmpty() || i < 0 || i >= this.Xw.size()) {
             return null;
         }
-        return this.Xn.get(i);
+        return this.Xw.get(i);
     }
 
     public void a(List<T> list, b bVar) {
         TbImageView tbImageView;
         if (list != null && !list.isEmpty()) {
-            this.Xn.clear();
-            this.Xn.addAll(list);
-            l(this.Xn);
-            int size = this.Xm.size();
-            int size2 = this.Xn.size();
+            this.Xw.clear();
+            this.Xw.addAll(list);
+            k(this.Xw);
+            int size = this.Xv.size();
+            int size2 = this.Xw.size();
             for (int i = 0; i < size2; i++) {
                 if (i >= size) {
                     TbImageView X = bVar.X(this.context);
-                    this.Xm.add(X);
+                    this.Xv.add(X);
                     tbImageView = X;
                 } else {
-                    tbImageView = this.Xm.get(i);
+                    tbImageView = this.Xv.get(i);
                 }
-                if (this.Xn.get(i) != null && tbImageView != null) {
-                    tbImageView.d(this.Xn.get(i).getPicUrl(), 10, false);
-                    tbImageView.setOnClickListener(this.Xo);
+                if (this.Xw.get(i) != null && tbImageView != null) {
+                    tbImageView.d(this.Xw.get(i).getPicUrl(), 10, false);
+                    tbImageView.setOnClickListener(this.Xx);
                 }
             }
             notifyDataSetChanged();
         }
     }
 
-    private void l(ArrayList<T> arrayList) {
+    private void k(ArrayList<T> arrayList) {
         int size;
         if (arrayList != null && (size = arrayList.size()) > 1) {
             arrayList.add(0, arrayList.get(size - 1));
@@ -66,18 +66,18 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.Xm != null && this.Xm.size() > 0) {
-            return this.Xm.size();
+        if (this.Xv != null && this.Xv.size() > 0) {
+            return this.Xv.size();
         }
         return 0;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.Xm == null) {
+        if (this.Xv == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        TbImageView tbImageView = this.Xm.get(i);
+        TbImageView tbImageView = this.Xv.get(i);
         if (tbImageView == null) {
             return super.instantiateItem(viewGroup, i);
         }
@@ -97,9 +97,9 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
     }
 
-    public void ta() {
-        if (this.Xm != null && this.Xm.size() > 0) {
-            Iterator<TbImageView> it = this.Xm.iterator();
+    public void tf() {
+        if (this.Xv != null && this.Xv.size() > 0) {
+            Iterator<TbImageView> it = this.Xv.iterator();
             while (it.hasNext()) {
                 it.next().invalidate();
             }

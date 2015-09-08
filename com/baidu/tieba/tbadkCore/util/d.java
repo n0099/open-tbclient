@@ -10,18 +10,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements a.b {
-    private final /* synthetic */ AntiData cKD;
+    private final /* synthetic */ AntiData cTd;
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Context context, AntiData antiData) {
         this.val$context = context;
-        this.cKD = antiData;
+        this.cTd = antiData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AppealActivityConfig(this.val$context, this.cKD.getBlock_forum_id(), this.cKD.getUser_id(), this.cKD.getUser_name())));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AppealActivityConfig(this.val$context, this.cTd.getBlock_forum_id(), this.cTd.getUser_id(), this.cTd.getUser_name())));
     }
 }

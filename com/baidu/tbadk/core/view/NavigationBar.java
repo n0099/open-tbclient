@@ -40,7 +40,7 @@ public class NavigationBar extends RelativeLayout {
         HORIZONTAL_CENTER,
         HORIZONTAL_RIGHT;
 
-        /* JADX DEBUG: Replace access to removed values field (aem) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aew) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlAlign[] valuesCustom() {
             ControlAlign[] valuesCustom = values();
@@ -55,7 +55,7 @@ public class NavigationBar extends RelativeLayout {
     public enum ControlType {
         BACK_BUTTON;
 
-        /* JADX DEBUG: Replace access to removed values field (aen) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aex) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlType[] valuesCustom() {
             ControlType[] valuesCustom = values();
@@ -100,7 +100,7 @@ public class NavigationBar extends RelativeLayout {
         this.mNavBottomLine = (TextView) this.mRootView.findViewById(i.f.navBottomLine);
         this.mNavBottomLine.setVisibility(8);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.k.NavigationBar);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.j.NavigationBar);
             z = obtainStyledAttributes.getBoolean(0, true);
             obtainStyledAttributes.recycle();
         } else {
@@ -299,8 +299,8 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public void onChangeSkinType(com.baidu.adp.base.h<?> hVar, int i) {
-        al.i(this, i.e.bg_bar);
-        al.j((View) this.mNavBottomLine, i.c.cp_other_f_1);
+        al.h(this, i.e.bg_bar);
+        al.i((View) this.mNavBottomLine, i.c.cp_other_f_1);
         initPadding();
         if (hVar instanceof TbPageContext) {
             ((TbPageContext) hVar).getLayoutMode().ad(i == 1);

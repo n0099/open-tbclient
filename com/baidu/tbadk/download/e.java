@@ -6,24 +6,24 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends Handler {
-    final /* synthetic */ d aoi;
+    final /* synthetic */ d apT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, Looper looper) {
         super(looper);
-        this.aoi = dVar;
+        this.apT = dVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         super.handleMessage(message);
-        if (message.what == 900002 && message.arg2 > 0 && d.aof != null) {
-            d.aof.setLength(message.arg1);
-            d.aof.setSize(message.arg2);
-            d.aof.setStatus(1);
-            if (d.aof.getCallback() != null) {
-                d.aof.getCallback().a(d.aof);
+        if (message.what == 900002 && message.arg2 > 0 && d.apQ != null) {
+            d.apQ.setLength(message.arg1);
+            d.apQ.setSize(message.arg2);
+            d.apQ.setStatus(1);
+            if (d.apQ.getCallback() != null) {
+                d.apQ.getCallback().a(d.apQ);
             }
         }
     }

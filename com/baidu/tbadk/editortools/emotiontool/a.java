@@ -4,19 +4,19 @@ public abstract class a implements Comparable<a> {
 
     /* renamed from: com.baidu.tbadk.editortools.emotiontool.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0047a {
+    public interface InterfaceC0046a {
         void a(v vVar);
     }
 
-    protected abstract void AJ();
+    protected abstract void AW();
 
-    public abstract void a(InterfaceC0047a interfaceC0047a);
+    public abstract void a(InterfaceC0046a interfaceC0046a);
 
     public abstract int getIndex();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a() {
-        AJ();
+        AW();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

@@ -6,11 +6,11 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements TbImageView.a {
-    final /* synthetic */ d cNj;
+    final /* synthetic */ d cVQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(d dVar) {
-        this.cNj = dVar;
+        this.cVQ = dVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
@@ -18,8 +18,8 @@ public class l implements TbImageView.a {
         AccountData currentAccountObj;
         c cVar;
         if (z && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && currentAccountObj.getMemberIconUrl() != null && currentAccountObj.getMemberIconUrl().equals(str)) {
-            cVar = this.cNj.cNd;
-            cVar.fL(true);
+            cVar = this.cVQ.cVK;
+            cVar.gw(true);
         }
     }
 

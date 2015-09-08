@@ -26,16 +26,16 @@ import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends LinearLayout {
-    private TextView bYb;
-    private ImageView cMV;
-    private TbImageView cMW;
-    private ImageView cMX;
-    private TbImageView cMY;
-    private ListView cMZ;
-    private TextView cNa;
-    private TextView cNb;
-    private UserIconBox cNc;
-    private HeadImageView cmD;
+    private TextView bYV;
+    private ImageView cVC;
+    private TbImageView cVD;
+    private ImageView cVE;
+    private TbImageView cVF;
+    private ListView cVG;
+    private TextView cVH;
+    private TextView cVI;
+    private UserIconBox cVJ;
+    private HeadImageView cnF;
 
     public c(Context context) {
         this(context, null);
@@ -49,26 +49,26 @@ public class c extends LinearLayout {
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(i.g.main_tab_left_navigation, (ViewGroup) this, true);
         setOrientation(1);
-        this.cmD = (HeadImageView) findViewById(i.f.user_head);
-        this.cMV = (ImageView) findViewById(i.f.user_head_red_tip);
-        this.cMW = (TbImageView) findViewById(i.f.user_vip_icon);
-        this.cMX = (ImageView) findViewById(i.f.left_navi_setting_red_tip);
-        this.bYb = (TextView) findViewById(i.f.user_name);
-        this.cMY = (TbImageView) findViewById(i.f.user_sex);
-        this.cMZ = (ListView) findViewById(i.f.left_navi_listview);
-        this.cNa = (TextView) findViewById(i.f.left_navi_setting);
-        this.cNb = (TextView) findViewById(i.f.left_navi_daynight);
-        this.cNc = (UserIconBox) findViewById(i.f.user_icon);
-        com.baidu.adp.lib.util.k.a(getContext(), this.cNb, 15, 10, 10, 10);
-        ahn();
-        asa();
-        if (this.cNb != null) {
+        this.cnF = (HeadImageView) findViewById(i.f.user_head);
+        this.cVC = (ImageView) findViewById(i.f.user_head_red_tip);
+        this.cVD = (TbImageView) findViewById(i.f.user_vip_icon);
+        this.cVE = (ImageView) findViewById(i.f.left_navi_setting_red_tip);
+        this.bYV = (TextView) findViewById(i.f.user_name);
+        this.cVF = (TbImageView) findViewById(i.f.user_sex);
+        this.cVG = (ListView) findViewById(i.f.left_navi_listview);
+        this.cVH = (TextView) findViewById(i.f.left_navi_setting);
+        this.cVI = (TextView) findViewById(i.f.left_navi_daynight);
+        this.cVJ = (UserIconBox) findViewById(i.f.user_icon);
+        com.baidu.adp.lib.util.k.a(getContext(), this.cVI, 15, 10, 10, 10);
+        ahF();
+        aws();
+        if (this.cVI != null) {
             if (!MA()) {
                 TbadkCoreApplication.m411getInst().setSkinType(0);
-                this.cNb.setVisibility(8);
+                this.cVI.setVisibility(8);
                 return;
             }
-            this.cNb.setVisibility(0);
+            this.cVI.setVisibility(0);
         }
     }
 
@@ -77,180 +77,180 @@ public class c extends LinearLayout {
     }
 
     public void setOnSettingViewClicked(View.OnClickListener onClickListener) {
-        if (this.cNa != null) {
-            this.cNa.setOnClickListener(onClickListener);
+        if (this.cVH != null) {
+            this.cVH.setOnClickListener(onClickListener);
         }
     }
 
     public void setUserIconOnClickListener(View.OnClickListener onClickListener) {
-        if (this.cNc != null) {
-            this.cNc.setOnClickListener(onClickListener);
+        if (this.cVJ != null) {
+            this.cVJ.setOnClickListener(onClickListener);
         }
     }
 
     public void setOnDayNightModeViewClicked(View.OnClickListener onClickListener) {
-        if (this.cNb != null) {
-            this.cNb.setOnClickListener(onClickListener);
+        if (this.cVI != null) {
+            this.cVI.setOnClickListener(onClickListener);
         }
     }
 
     public void setOnVipIconLoadListener(TbImageView.a aVar) {
-        if (this.cMW != null) {
-            this.cMW.setEvent(aVar);
+        if (this.cVD != null) {
+            this.cVD.setEvent(aVar);
         }
     }
 
     public void setOnPersonInfoViewClicked(View.OnClickListener onClickListener) {
-        if (this.cmD != null) {
-            this.cmD.setOnClickListener(onClickListener);
+        if (this.cnF != null) {
+            this.cnF.setOnClickListener(onClickListener);
         }
-        if (this.bYb != null) {
-            this.bYb.setOnClickListener(onClickListener);
+        if (this.bYV != null) {
+            this.bYV.setOnClickListener(onClickListener);
         }
     }
 
     public void setOnListItemClicked(AdapterView.OnItemClickListener onItemClickListener) {
-        if (this.cMZ != null) {
-            this.cMZ.setOnItemClickListener(onItemClickListener);
+        if (this.cVG != null) {
+            this.cVG.setOnItemClickListener(onItemClickListener);
         }
     }
 
-    private void ahn() {
-        if (this.cmD != null) {
-            this.cmD.setIsRound(true);
-            this.cmD.setDefaultBgResource(0);
-            this.cmD.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+    private void ahF() {
+        if (this.cnF != null) {
+            this.cnF.setIsRound(true);
+            this.cnF.setDefaultBgResource(0);
+            this.cnF.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
         }
     }
 
     public TbImageView getUserHeadView() {
-        return this.cmD;
+        return this.cnF;
     }
 
-    public void fL(boolean z) {
-        if (this.cMW != null) {
+    public void gw(boolean z) {
+        if (this.cVD != null) {
             if (z) {
-                this.cMW.setVisibility(0);
+                this.cVD.setVisibility(0);
             } else {
-                this.cMW.setVisibility(8);
+                this.cVD.setVisibility(8);
             }
         }
     }
 
-    private void asa() {
-        this.cMW.setGifIconSupport(false);
-        this.cMW.setVisibility(8);
+    private void aws() {
+        this.cVD.setGifIconSupport(false);
+        this.cVD.setVisibility(8);
     }
 
-    public void fM(boolean z) {
-        if (this.cMV != null) {
+    public void gx(boolean z) {
+        if (this.cVC != null) {
             if (z) {
-                al.c(this.cMV, i.e.icon_news_down_bar_one);
-                this.cMV.setVisibility(0);
+                al.c(this.cVC, i.e.icon_news_down_bar_one);
+                this.cVC.setVisibility(0);
                 return;
             }
-            this.cMV.setImageDrawable(null);
-            this.cMV.setVisibility(8);
+            this.cVC.setImageDrawable(null);
+            this.cVC.setVisibility(8);
         }
     }
 
-    public void fN(boolean z) {
-        if (this.cMX != null) {
+    public void gy(boolean z) {
+        if (this.cVE != null) {
             if (z) {
-                al.c(this.cMX, i.e.icon_news_down_bar_one);
-                this.cMX.setVisibility(0);
+                al.c(this.cVE, i.e.icon_news_down_bar_one);
+                this.cVE.setVisibility(0);
                 return;
             }
-            this.cMX.setImageDrawable(null);
-            this.cMX.setVisibility(8);
+            this.cVE.setImageDrawable(null);
+            this.cVE.setVisibility(8);
         }
     }
 
-    public void kG(String str) {
-        if (this.cmD != null && !StringUtils.isNull(str)) {
-            this.cmD.setVisibility(0);
-            this.cmD.d(str, 25, false);
+    public void ln(String str) {
+        if (this.cnF != null && !StringUtils.isNull(str)) {
+            this.cnF.setVisibility(0);
+            this.cnF.d(str, 25, false);
         }
     }
 
-    public void kH(String str) {
-        if (this.cMW != null) {
+    public void lo(String str) {
+        if (this.cVD != null) {
             if (!StringUtils.isNull(str)) {
-                this.cMW.d(str, 21, false);
+                this.cVD.d(str, 21, false);
             } else {
-                this.cMW.setVisibility(8);
+                this.cVD.setVisibility(8);
             }
         }
     }
 
     public void setUserSexIcon(int i) {
-        if (this.cMY != null) {
+        if (this.cVF != null) {
             if (i == 1) {
-                this.cMY.setVisibility(0);
-                this.cMY.setImageResource(i.e.icon_pop_boy);
+                this.cVF.setVisibility(0);
+                this.cVF.setImageResource(i.e.icon_pop_boy);
             } else if (i == 2) {
-                this.cMY.setVisibility(0);
-                this.cMY.setImageResource(i.e.icon_pop_girl);
+                this.cVF.setVisibility(0);
+                this.cVF.setImageResource(i.e.icon_pop_girl);
             } else {
-                this.cMY.setVisibility(8);
+                this.cVF.setVisibility(8);
             }
         }
     }
 
-    public void bk(List<IconData> list) {
+    public void bt(List<IconData> list) {
         if (list != null) {
-            this.cNc.a(list, 9, getResources().getDimensionPixelSize(i.d.ds34), getResources().getDimensionPixelSize(i.d.ds34), getResources().getDimensionPixelSize(i.d.ds12), true);
+            this.cVJ.a(list, 9, getResources().getDimensionPixelSize(i.d.ds34), getResources().getDimensionPixelSize(i.d.ds34), getResources().getDimensionPixelSize(i.d.ds12), true);
         }
     }
 
     public void setUserName(String str) {
-        if (this.bYb != null) {
-            this.bYb.setText(str);
+        if (this.bYV != null) {
+            this.bYV.setText(str);
         }
     }
 
     public void setListAdapter(BaseAdapter baseAdapter) {
-        if (this.cMZ != null) {
-            this.cMZ.setAdapter((ListAdapter) baseAdapter);
+        if (this.cVG != null) {
+            this.cVG.setAdapter((ListAdapter) baseAdapter);
         }
     }
 
     public TextView getSettingView() {
-        return this.cNa;
+        return this.cVH;
     }
 
     public TextView getDayNightView() {
-        return this.cNb;
+        return this.cVI;
     }
 
     public void setDayNightViewText(String str) {
-        if (this.cNb != null) {
-            this.cNb.setText(str);
+        if (this.cVI != null) {
+            this.cVI.setText(str);
         }
     }
 
     public void e(TbPageContext<?> tbPageContext) {
-        com.baidu.tbadk.f.a.a(tbPageContext, this);
+        com.baidu.tbadk.h.a.a(tbPageContext, this);
         boolean z = TbadkCoreApplication.m411getInst().getSkinType() == 1;
-        this.cmD.setIsNight(z);
-        if (this.cMV.getVisibility() == 0) {
-            al.c(this.cMV, i.e.icon_news_down_bar_one);
+        this.cnF.setIsNight(z);
+        if (this.cVC.getVisibility() == 0) {
+            al.c(this.cVC, i.e.icon_news_down_bar_one);
         }
-        if (this.cMW.getVisibility() == 0) {
-            this.cMW.setIsNight(z);
+        if (this.cVD.getVisibility() == 0) {
+            this.cVD.setIsNight(z);
         }
-        if (this.cMY.getVisibility() == 0) {
-            this.cMY.setIsNight(z);
+        if (this.cVF.getVisibility() == 0) {
+            this.cVF.setIsNight(z);
         }
-        if (this.cMX.getVisibility() == 0) {
-            al.c(this.cMX, i.e.icon_news_down_bar_one);
+        if (this.cVE.getVisibility() == 0) {
+            al.c(this.cVE, i.e.icon_news_down_bar_one);
         }
-        if (this.cNc != null) {
-            this.cNc.cI(TbadkCoreApplication.m411getInst().getSkinType());
+        if (this.cVJ != null) {
+            this.cVJ.cO(TbadkCoreApplication.m411getInst().getSkinType());
         }
     }
 
     public View getUserIconView() {
-        return this.cNc;
+        return this.cVJ;
     }
 }

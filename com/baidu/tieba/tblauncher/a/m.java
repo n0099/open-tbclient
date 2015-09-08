@@ -5,19 +5,19 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements LeftNaviScanMessage.b {
-    final /* synthetic */ d cNj;
-    private final /* synthetic */ int cNk;
-    private final /* synthetic */ int cNl;
+    final /* synthetic */ d cVQ;
+    private final /* synthetic */ int cVR;
+    private final /* synthetic */ int cVS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(d dVar, int i, int i2) {
-        this.cNj = dVar;
-        this.cNk = i;
-        this.cNl = i2;
+        this.cVQ = dVar;
+        this.cVR = i;
+        this.cVS = i2;
     }
 
     @Override // com.baidu.tbadk.core.message.LeftNaviScanMessage.b
-    public void k(List<com.baidu.tieba.tbadkCore.f.a> list) {
+    public void l(List<com.baidu.tieba.tbadkCore.f.a> list) {
         com.baidu.tbadk.mvc.g.d dVar;
         com.baidu.tbadk.mvc.g.d dVar2;
         int size = list.size();
@@ -29,17 +29,17 @@ public class m implements LeftNaviScanMessage.b {
             }
             if (list.get(i) instanceof a) {
                 aVar = (a) list.get(i);
-                if (aVar.getType() == this.cNk) {
-                    aVar.jZ(this.cNl);
+                if (aVar.getType() == this.cVR) {
+                    aVar.kK(this.cVS);
                     break;
                 }
             }
             i++;
         }
-        dVar = this.cNj.cNe;
+        dVar = this.cVQ.cVL;
         if (dVar != null && aVar != null) {
-            dVar2 = this.cNj.cNe;
-            dVar2.z(aVar);
+            dVar2 = this.cVQ.cVL;
+            dVar2.A(aVar);
         }
     }
 }

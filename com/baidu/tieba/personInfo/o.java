@@ -7,13 +7,13 @@ import com.baidu.tbadk.newFriends.ResponseApplyMessage;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class o extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity clO;
+    final /* synthetic */ PersonInfoActivity cmR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.clO = personInfoActivity;
+        this.cmR = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ class o extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage instanceof ResponseApplyMessage) {
             ResponseApplyMessage responseApplyMessage = (ResponseApplyMessage) socketResponsedMessage;
             if (responseApplyMessage.getError() != 0) {
-                this.clO.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.clO.getResources().getString(i.C0057i.neterror) : socketResponsedMessage.getErrorString());
+                this.cmR.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.cmR.getResources().getString(i.h.neterror) : socketResponsedMessage.getErrorString());
                 return;
             }
             RequestApplyMessage requestApplyMessage = (RequestApplyMessage) responseApplyMessage.getOrginalMessage();
@@ -32,10 +32,10 @@ class o extends com.baidu.adp.framework.listener.e {
             replyInfo.setUserId(requestApplyMessage.getUid());
             replyInfo.setFriendId(requestApplyMessage.getFriendId());
             replyInfo.setMessage(requestApplyMessage.getMessage());
-            wVar = this.clO.clC;
-            wVar.ahu().getReplyInfo().add(replyInfo);
-            agVar = this.clO.clD;
-            agVar.ahH();
+            wVar = this.cmR.cmF;
+            wVar.ahM().getReplyInfo().add(replyInfo);
+            agVar = this.cmR.cmG;
+            agVar.ahZ();
         }
     }
 }

@@ -1,33 +1,22 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
+import com.baidu.tbadk.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends Handler {
-    final /* synthetic */ LivePlayingStatusMgr alz;
+public class w implements a.e {
+    final /* synthetic */ MultiImageView amq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(LivePlayingStatusMgr livePlayingStatusMgr) {
-        this.alz = livePlayingStatusMgr;
+    public w(MultiImageView multiImageView) {
+        this.amq = multiImageView;
     }
 
-    @Override // android.os.Handler
-    public void dispatchMessage(Message message) {
-        LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus;
-        if (message != null) {
-            LivePlayingStatusMgr.LivePlayingStatus livePlayingStatus2 = (LivePlayingStatusMgr.LivePlayingStatus) message.obj;
-            try {
-                this.alz.alw = (LivePlayingStatusMgr.LivePlayingStatus) message.obj;
-                this.alz.gid = message.arg1;
-                LivePlayingStatusMgr livePlayingStatusMgr = this.alz;
-                livePlayingStatus = this.alz.alw;
-                livePlayingStatusMgr.b(livePlayingStatus);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+    @Override // com.baidu.tbadk.widget.a.e
+    public void a(com.baidu.tbadk.widget.a aVar, boolean z, boolean z2) {
+        i iVar;
+        iVar = this.amq.amk;
+        if (iVar.getSelectedView() == aVar) {
+            this.amq.setZoomButton(aVar);
         }
     }
 }

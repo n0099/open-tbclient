@@ -11,24 +11,24 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements a.InterfaceC0062a {
-    final /* synthetic */ b bHk;
+    final /* synthetic */ b bHR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.bHk = bVar;
+        this.bHR = bVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.a.InterfaceC0062a
-    public void XJ() {
+    public void XL() {
         boolean z;
         boolean z2;
-        ArrayList<UserData> Xu;
-        z = this.bHk.bGW;
+        ArrayList<UserData> Xw;
+        z = this.bHR.bHD;
         if (!z) {
-            z2 = this.bHk.bGV;
-            if (!z2 && (Xu = this.bHk.bHa.Xu()) != null && !Xu.isEmpty()) {
-                this.bHk.XF();
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_FLOATING_PERSONAL_CHAT, new FloatingPersonalChatActivityConfig(TbadkCoreApplication.m411getInst(), Xu)));
+            z2 = this.bHR.bHC;
+            if (!z2 && (Xw = this.bHR.bHH.Xw()) != null && !Xw.isEmpty()) {
+                this.bHR.XH();
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_FLOATING_PERSONAL_CHAT, new FloatingPersonalChatActivityConfig(TbadkCoreApplication.m411getInst(), Xw)));
             }
         }
     }

@@ -13,13 +13,13 @@ public class PluginInstallProgressStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void En() {
-        String string = TbadkCoreApplication.m411getInst().getResources().getString(i.C0057i.plugin_tip_installing);
+    public static final void Ex() {
+        String string = TbadkCoreApplication.m411getInst().getResources().getString(i.h.plugin_tip_installing);
         NotificationHelper.showNotification(TbadkCoreApplication.m411getInst().getApplicationContext(), 1000, null, string, string, null, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void Eo() {
+    public static final void Ey() {
         NotificationHelper.cancelNotification(TbadkCoreApplication.m411getInst().getApplicationContext(), 1000);
     }
 }

@@ -1,41 +1,44 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
+import android.app.TimePickerDialog;
 import android.widget.TextView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TimePicker;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class am implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cUM;
+class am implements TimePickerDialog.OnTimeSetListener {
+    final /* synthetic */ WriteActivity ddQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(WriteActivity writeActivity) {
-        this.cUM = writeActivity;
+        this.ddQ = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    @Override // android.app.TimePickerDialog.OnTimeSetListener
+    public void onTimeSet(TimePicker timePicker, int i, int i2) {
+        WriteData writeData;
+        WriteData writeData2;
+        WriteData writeData3;
+        WriteData writeData4;
         TextView textView;
-        bx bxVar;
-        com.baidu.tbadk.editortools.j jVar;
-        InputMethodManager inputMethodManager;
-        EditText editText;
-        InputMethodManager inputMethodManager2;
-        EditText editText2;
-        textView = this.cUM.cSq;
-        textView.setSelected(true);
-        bxVar = this.cUM.cSr;
-        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(bxVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.cUM.getPageContext().getPageActivity(), 1.0f));
-        jVar = this.cUM.cUo;
-        jVar.zk();
-        WriteActivity writeActivity = this.cUM;
-        inputMethodManager = this.cUM.mInputManager;
-        editText = this.cUM.cSk;
-        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.cUM;
-        inputMethodManager2 = this.cUM.mInputManager;
-        editText2 = this.cUM.cSo;
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
+        WriteData writeData5;
+        WriteData writeData6;
+        writeData = this.ddQ.cTs;
+        if (writeData.getLiveCardData() != null) {
+            Date date = new Date();
+            Date date2 = new Date(date.getYear(), date.getMonth(), date.getDate(), i, i2);
+            writeData2 = this.ddQ.cTs;
+            long startTime = writeData2.getLiveCardData().getStartTime();
+            writeData3 = this.ddQ.cTs;
+            writeData3.getLiveCardData().setStartTime(date2.getTime() / 1000);
+            writeData4 = this.ddQ.cTs;
+            if (startTime / 60 != writeData4.getLiveCardData().getStartTime() / 60) {
+                writeData6 = this.ddQ.cTs;
+                writeData6.getLiveCardData().setModifyTime(true);
+            }
+            textView = this.ddQ.ddt;
+            writeData5 = this.ddQ.cTs;
+            textView.setText(com.baidu.tbadk.core.util.aq.n(writeData5.getLiveCardData().getStartTime() * 1000));
+        }
     }
 }

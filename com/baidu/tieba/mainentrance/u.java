@@ -5,37 +5,37 @@ import android.view.View;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class u implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity bQZ;
+    final /* synthetic */ SquareSearchActivity bRF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(SquareSearchActivity squareSearchActivity) {
-        this.bQZ = squareSearchActivity;
+        this.bRF = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        if (this.bQZ.bQt != null && this.bQZ.bQt.trim().length() >= 1) {
-            if (this.bQZ.mMode != 0) {
-                if (this.bQZ.mMode == 3) {
-                    com.baidu.adp.lib.util.k.c(this.bQZ.getPageContext().getPageActivity(), this.bQZ.bQb);
-                    if (!TextUtils.isEmpty(this.bQZ.bQt) && this.bQZ.bQt.trim().length() != 0) {
-                        this.bQZ.bQt = this.bQZ.bQt.trim();
-                        this.bQZ.fX(this.bQZ.bQt);
+        if (this.bRF.bQZ != null && this.bRF.bQZ.trim().length() >= 1) {
+            if (this.bRF.mMode != 0) {
+                if (this.bRF.mMode == 3) {
+                    com.baidu.adp.lib.util.k.c(this.bRF.getPageContext().getPageActivity(), this.bRF.bQH);
+                    if (!TextUtils.isEmpty(this.bRF.bQZ) && this.bRF.bQZ.trim().length() != 0) {
+                        this.bRF.bQZ = this.bRF.bQZ.trim();
+                        this.bRF.ge(this.bRF.bQZ);
                         return;
                     }
                     return;
                 }
-                this.bQZ.G(1, this.bQZ.bQt);
+                this.bRF.E(1, this.bRF.bQZ);
                 return;
             }
-            z = this.bQZ.arn;
+            z = this.bRF.asX;
             if (z) {
-                this.bQZ.ZV();
+                this.bRF.aaa();
                 return;
             }
             return;
         }
-        this.bQZ.showToast(this.bQZ.getResources().getString(i.C0057i.write_keyword));
+        this.bRF.showToast(this.bRF.getResources().getString(i.h.write_keyword));
     }
 }

@@ -15,15 +15,15 @@ public class d extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable mG = mG();
+        Drawable mD = mD();
         canvas.save();
         int i6 = paint.getFontMetricsInt().top;
-        canvas.translate(f, (i5 - mG.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i6) / 2) - ((mG.getBounds().top + mG.getBounds().bottom) / 2)));
-        mG.draw(canvas);
+        canvas.translate(f, (i5 - mD.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i6) / 2) - ((mD.getBounds().top + mD.getBounds().bottom) / 2)));
+        mD.draw(canvas);
         canvas.restore();
     }
 
-    private Drawable mG() {
+    private Drawable mD() {
         WeakReference<Drawable> weakReference = this.Fe;
         Drawable drawable = null;
         if (weakReference != null) {

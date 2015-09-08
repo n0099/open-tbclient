@@ -36,7 +36,7 @@ public class CustomTextView extends TextView {
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a c = c(spannableStringBuilder, i, i2);
-        if (c.aAS) {
+        if (c.aCA) {
             a(i, i2, spannableStringBuilder, c);
         } else {
             M(i, i2);
@@ -65,7 +65,7 @@ public class CustomTextView extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.atm();
+        return a.axF();
     }
 
     private boolean c(CharSequence charSequence, int i) {
@@ -78,7 +78,7 @@ public class CustomTextView extends TextView {
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, a aVar) {
-        for (Object obj : aVar.aAU) {
+        for (Object obj : aVar.aCC) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -88,7 +88,7 @@ public class CustomTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : aVar.aAT) {
+        for (Object obj2 : aVar.aCB) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -112,22 +112,22 @@ public class CustomTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final boolean aAS;
-        public final List<Object> aAT;
-        public final List<Object> aAU;
+        public final boolean aCA;
+        public final List<Object> aCB;
+        public final List<Object> aCC;
 
         public static a g(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
         }
 
-        public static a atm() {
+        public static a axF() {
             return new a(false, null, null);
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.aAS = z;
-            this.aAT = list;
-            this.aAU = list2;
+            this.aCA = z;
+            this.aCB = list;
+            this.aCC = list2;
         }
     }
 }

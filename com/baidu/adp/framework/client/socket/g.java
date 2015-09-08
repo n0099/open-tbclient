@@ -8,7 +8,7 @@ public class g {
     private static g oI = null;
     private int ou = 0;
 
-    public static g eu() {
+    public static g et() {
         if (oI == null) {
             synchronized (g.class) {
                 if (oI == null) {
@@ -33,7 +33,7 @@ public class g {
         }
     }
 
-    public synchronized int eo() {
+    public synchronized int en() {
         int i;
         if (this.ou == 0) {
             this.ou++;

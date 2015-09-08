@@ -6,118 +6,118 @@ import tbclient.NativeApp;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.lib.a.b.a.a.i {
-    private String YW;
-    private String aBf;
-    private int aBg;
-    private String aBh;
-    private String aBi;
+    private String Zf;
+    private String aCN;
+    private int aCO;
+    private String aCP;
+    private String aCQ;
     private int mType;
 
     public b() {
-        this.YW = null;
-        this.aBf = null;
+        this.Zf = null;
+        this.aCN = null;
         this.mType = 0;
     }
 
     public b(JSONObject jSONObject) {
-        this.YW = null;
-        this.aBf = null;
+        this.Zf = null;
+        this.aCN = null;
         this.mType = 0;
         if (jSONObject != null) {
-            this.YW = jSONObject.optString("text");
-            this.aBf = jSONObject.optString("link");
+            this.Zf = jSONObject.optString("text");
+            this.aCN = jSONObject.optString("link");
             this.mType = jSONObject.optInt("type", 0);
-            this.aBg = jSONObject.optInt("is_native_app", 0);
-            if (this.aBg == 1) {
+            this.aCO = jSONObject.optInt("is_native_app", 0);
+            if (this.aCO == 1) {
                 if (jSONObject.optJSONObject("native_app") == null) {
-                    this.aBg = 0;
+                    this.aCO = 0;
                     return;
                 }
-                this.aBh = jSONObject.optString("jump_and");
-                this.aBi = jSONObject.optString("download_and");
-                if (TextUtils.isEmpty(this.aBh) || TextUtils.isEmpty(this.aBi)) {
-                    this.aBg = 0;
+                this.aCP = jSONObject.optString("jump_and");
+                this.aCQ = jSONObject.optString("download_and");
+                if (TextUtils.isEmpty(this.aCP) || TextUtils.isEmpty(this.aCQ)) {
+                    this.aCO = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.aBh = String.valueOf(this.aBh) + ";download_url:" + this.aBi + ";web_play_url:" + this.aBf;
+                    this.aCP = String.valueOf(this.aCP) + ";download_url:" + this.aCQ + ";web_play_url:" + this.aCN;
                 } else if (this.mType == 5) {
-                    this.aBh = String.valueOf(this.aBh) + ";download_url:" + this.aBi + ";web_play_url:" + this.YW;
+                    this.aCP = String.valueOf(this.aCP) + ";download_url:" + this.aCQ + ";web_play_url:" + this.Zf;
                 }
-                this.aBh = String.valueOf(this.aBh) + ";is_native_app=1";
+                this.aCP = String.valueOf(this.aCP) + ";is_native_app=1";
             }
         }
     }
 
     public b(PbContent pbContent) {
-        this.YW = null;
-        this.aBf = null;
+        this.Zf = null;
+        this.aCN = null;
         this.mType = 0;
         if (pbContent != null) {
-            this.YW = pbContent.text;
-            this.aBf = pbContent.link;
+            this.Zf = pbContent.text;
+            this.aCN = pbContent.link;
             this.mType = pbContent.type.intValue();
-            this.aBg = pbContent.is_native_app.intValue();
-            if (this.aBg == 1) {
+            this.aCO = pbContent.is_native_app.intValue();
+            if (this.aCO == 1) {
                 NativeApp nativeApp = pbContent.native_app;
                 if (nativeApp == null) {
-                    this.aBg = 0;
+                    this.aCO = 0;
                     return;
                 }
-                this.aBh = nativeApp.jump_and;
-                this.aBi = nativeApp.download_and;
-                if (TextUtils.isEmpty(this.aBh) || TextUtils.isEmpty(this.aBi)) {
-                    this.aBg = 0;
+                this.aCP = nativeApp.jump_and;
+                this.aCQ = nativeApp.download_and;
+                if (TextUtils.isEmpty(this.aCP) || TextUtils.isEmpty(this.aCQ)) {
+                    this.aCO = 0;
                     return;
                 }
                 if (this.mType == 1) {
-                    this.aBh = String.valueOf(this.aBh) + ";download_url:" + this.aBi + ";web_play_url:" + this.aBf;
+                    this.aCP = String.valueOf(this.aCP) + ";download_url:" + this.aCQ + ";web_play_url:" + this.aCN;
                 } else if (this.mType == 5) {
-                    this.aBh = String.valueOf(this.aBh) + ";download_url:" + this.aBi + ";web_play_url:" + this.YW;
+                    this.aCP = String.valueOf(this.aCP) + ";download_url:" + this.aCQ + ";web_play_url:" + this.Zf;
                 }
-                this.aBh = String.valueOf(this.aBh) + ";is_native_app=1";
+                this.aCP = String.valueOf(this.aCP) + ";is_native_app=1";
             }
         }
     }
 
     public b(String str, String str2) {
-        this.YW = null;
-        this.aBf = null;
+        this.Zf = null;
+        this.aCN = null;
         this.mType = 0;
-        this.YW = str;
-        this.aBf = str2;
+        this.Zf = str;
+        this.aCN = str2;
     }
 
     public void setText(String str) {
-        this.YW = str;
+        this.Zf = str;
     }
 
     public void setLink(String str) {
-        this.aBf = str;
+        this.aCN = str;
     }
 
     public String getText() {
-        return this.YW;
+        return this.Zf;
     }
 
     public String getLink() {
-        return this.aBf;
+        return this.aCN;
     }
 
-    public int EX() {
-        return this.aBg;
+    public int Fh() {
+        return this.aCO;
     }
 
-    public String EY() {
-        return this.aBh;
+    public String Fi() {
+        return this.aCP;
     }
 
-    public void EZ() {
-        if (this.YW != null) {
-            this.YW = this.YW.replaceAll("\n", "");
+    public void Fj() {
+        if (this.Zf != null) {
+            this.Zf = this.Zf.replaceAll("\n", "");
         }
-        if (this.aBf != null) {
-            this.aBf = this.aBf.replaceAll("\n", "");
+        if (this.aCN != null) {
+            this.aCN = this.aCN.replaceAll("\n", "");
         }
     }
 }

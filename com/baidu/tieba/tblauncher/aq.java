@@ -1,24 +1,37 @@
 package com.baidu.tieba.tblauncher;
 
 import android.view.View;
+import android.widget.ImageView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.atomData.GameCenterActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements View.OnClickListener {
-    final /* synthetic */ ai cMQ;
+    final /* synthetic */ am cVq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aq(ai aiVar) {
-        this.cMQ = aiVar;
+    public aq(am amVar) {
+        this.cVq = amVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        ImageView imageView;
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.cMQ.cMK;
-        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
-        mainTabActivity2 = this.cMQ.cMK;
-        com.baidu.tbadk.core.util.bb.af(mainTabActivity2.getPageContext().getPageActivity());
+        MainTabActivity mainTabActivity3;
+        imageView = this.cVq.cVj;
+        imageView.setVisibility(4);
+        com.baidu.tbadk.core.sharedPref.b.tx().putBoolean("game_is_show_tip", false);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHOW_GAME_MSG_TIP, false));
+        mainTabActivity = this.cVq.cVl;
+        mainTabActivity2 = this.cVq.cVl;
+        mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameCenterActivityConfig(mainTabActivity2.getPageContext().getPageActivity())));
+        mainTabActivity3 = this.cVq.cVl;
+        TiebaStatic.eventStat(mainTabActivity3.getPageContext().getPageActivity(), "tb_gamecenter", "click", 1, "ref_type", "601");
     }
 }

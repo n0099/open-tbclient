@@ -9,30 +9,30 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private TbPageContext<?> LS;
-    private CoverFlowView<com.baidu.tieba.square.a> acT;
+    private CoverFlowView<com.baidu.tieba.square.a> ade;
+    private TbPageContext<?> mContext;
     private ArrayList<com.baidu.tieba.square.a> datas = new ArrayList<>();
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.square.a> Xv = new c(this);
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.square.a> XE = new c(this);
 
     public b(TbPageContext<?> tbPageContext) {
-        this.acT = null;
-        this.LS = tbPageContext;
-        this.acT = new CoverFlowView<>(tbPageContext.getPageActivity());
-        this.acT.setCoverFlowFactory(new d(this, tbPageContext));
-        this.acT.setCallback(this.Xv);
+        this.ade = null;
+        this.mContext = tbPageContext;
+        this.ade = new CoverFlowView<>(tbPageContext.getPageActivity());
+        this.ade.setCoverFlowFactory(new d(this, tbPageContext));
+        this.ade.setCallback(this.XE);
     }
 
-    public void setData(ArrayList<com.baidu.tbadk.core.data.s> arrayList) {
+    public void setData(ArrayList<com.baidu.tbadk.core.data.u> arrayList) {
         ArrayList<com.baidu.tieba.square.a> arrayList2 = new ArrayList<>();
-        Iterator<com.baidu.tbadk.core.data.s> it = arrayList.iterator();
+        Iterator<com.baidu.tbadk.core.data.u> it = arrayList.iterator();
         while (it.hasNext()) {
-            com.baidu.tbadk.core.data.s next = it.next();
+            com.baidu.tbadk.core.data.u next = it.next();
             if (next != null) {
                 arrayList2.add(new com.baidu.tieba.square.a(next));
             }
         }
         this.datas = arrayList2;
-        this.acT.setData(arrayList2);
+        this.ade.setData(arrayList2);
         notifyDataSetChanged();
     }
 
@@ -53,16 +53,16 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return this.acT;
+        return this.ade;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.acT != null) {
-            this.acT.ta();
+        if (this.ade != null) {
+            this.ade.tf();
         }
     }
 
-    public CoverFlowView<com.baidu.tieba.square.a> vo() {
-        return this.acT;
+    public CoverFlowView<com.baidu.tieba.square.a> vt() {
+        return this.ade;
     }
 }

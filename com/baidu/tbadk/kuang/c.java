@@ -2,11 +2,10 @@ package com.baidu.tbadk.kuang;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.coreExtra.view.l;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.coreExtra.view.k;
 /* loaded from: classes.dex */
-public class c implements l.a {
-    @Override // com.baidu.tbadk.coreExtra.view.l.a
+class c implements k.a {
+    @Override // com.baidu.tbadk.coreExtra.view.k.a
     public void g(AccountData accountData) {
         com.baidu.tbadk.core.a.b.b(accountData);
         com.baidu.tbadk.core.a.b.c(accountData);

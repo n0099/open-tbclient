@@ -55,9 +55,9 @@ public class j implements com.baidu.adp.plugin.packageManager.pluginFileDownload
             dVar5 = this.this$0.DA;
             dVar5.b(bdFileDownloadData);
         }
-        if (bdFileDownloadData != null && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mp().findPluginSetting((id = bdFileDownloadData.getId()))) != null) {
-            com.baidu.adp.plugin.packageManager.pluginSettings.c.mp().l(id, a.b.DV);
-            com.baidu.adp.plugin.b.a.lH().H("plugin_download", bdFileDownloadData.getId());
+        if (bdFileDownloadData != null && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mm().findPluginSetting((id = bdFileDownloadData.getId()))) != null) {
+            com.baidu.adp.plugin.packageManager.pluginSettings.c.mm().l(id, a.b.DV);
+            com.baidu.adp.plugin.b.a.lE().H("plugin_download", bdFileDownloadData.getId());
             if (Util.j(findPluginSetting.size)) {
                 dVar2 = this.this$0.DA;
                 if (dVar2 != null) {
@@ -71,9 +71,7 @@ public class j implements com.baidu.adp.plugin.packageManager.pluginFileDownload
                 this.this$0.K(Util.f(findPluginSetting), findPluginSetting.packageName);
                 return;
             }
-            m.c(bdFileDownloadData.getPath(), id, "rom_size", String.valueOf(Util.mz()));
-            com.baidu.adp.plugin.b.a.lH().I("plugin_rom_small", id);
-            com.baidu.adp.plugin.b.a.lH().g("plugin_install", "rom too small", findPluginSetting.packageName);
+            m.c(bdFileDownloadData.getPath(), id, "rom_size", String.valueOf(Util.mw()));
             dVar3 = this.this$0.DA;
             if (dVar3 != null) {
                 dVar4 = this.this$0.DA;
@@ -95,7 +93,7 @@ public class j implements com.baidu.adp.plugin.packageManager.pluginFileDownload
             dVar2.c(bdFileDownloadData);
         }
         if (bdFileDownloadData != null) {
-            com.baidu.adp.plugin.b.a.lH().g("plugin_download", String.valueOf(i) + str2, bdFileDownloadData.getId());
+            com.baidu.adp.plugin.b.a.lE().g("plugin_download", String.valueOf(i) + str2, bdFileDownloadData.getId());
         }
     }
 }

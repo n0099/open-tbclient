@@ -6,10 +6,15 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class UserInfo extends Message {
+    public static final String DEFAULT_FANSNICKNAME = "";
     public static final String DEFAULT_NICKNAME = "";
     public static final String DEFAULT_PORTRAIT = "";
     public static final String DEFAULT_POSITION = "";
     public static final String DEFAULT_USERNAME = "";
+    @ProtoField(tag = 17, type = Message.Datatype.STRING)
+    public final String fansNickname;
+    @ProtoField(tag = 16, type = Message.Datatype.INT32)
+    public final Integer fansNum;
     @ProtoField(tag = 9, type = Message.Datatype.INT32)
     public final Integer inTime;
     @ProtoField(tag = 11, type = Message.Datatype.INT32)
@@ -50,6 +55,7 @@ public final class UserInfo extends Message {
     public static final Integer DEFAULT_SYSGROUPID = 0;
     public static final List<TshowInfo> DEFAULT_TSHOWICON = Collections.emptyList();
     public static final Integer DEFAULT_USERTYPE = 0;
+    public static final Integer DEFAULT_FANSNUM = 0;
 
     /* synthetic */ UserInfo(Builder builder, boolean z, UserInfo userInfo) {
         this(builder, z);
@@ -126,9 +132,19 @@ public final class UserInfo extends Message {
             }
             if (builder.userType == null) {
                 this.userType = DEFAULT_USERTYPE;
-                return;
             } else {
                 this.userType = builder.userType;
+            }
+            if (builder.fansNum == null) {
+                this.fansNum = DEFAULT_FANSNUM;
+            } else {
+                this.fansNum = builder.fansNum;
+            }
+            if (builder.fansNickname == null) {
+                this.fansNickname = "";
+                return;
+            } else {
+                this.fansNickname = builder.fansNickname;
                 return;
             }
         }
@@ -147,10 +163,14 @@ public final class UserInfo extends Message {
         this.permission = builder.permission;
         this.tshowIcon = immutableCopyOf(builder.tshowIcon);
         this.userType = builder.userType;
+        this.fansNum = builder.fansNum;
+        this.fansNickname = builder.fansNickname;
     }
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<UserInfo> {
+        public String fansNickname;
+        public Integer fansNum;
         public Integer inTime;
         public Integer lastReplyTime;
         public Double lat;
@@ -188,6 +208,8 @@ public final class UserInfo extends Message {
                 this.permission = userInfo.permission;
                 this.tshowIcon = UserInfo.copyOf(userInfo.tshowIcon);
                 this.userType = userInfo.userType;
+                this.fansNum = userInfo.fansNum;
+                this.fansNickname = userInfo.fansNickname;
             }
         }
 

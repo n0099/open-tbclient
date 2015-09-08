@@ -1,37 +1,57 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
-import com.baidu.tbadk.core.data.PraiseData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import tbclient.FrsPage.StarEnter;
 /* loaded from: classes.dex */
-public class h implements View.OnClickListener {
-    final /* synthetic */ FrsPraiseView cGX;
+public class h {
+    private int cPr;
+    private String icon;
+    private int time;
+    private String title;
+    private int type;
+    private String url;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(FrsPraiseView frsPraiseView) {
-        this.cGX = frsPraiseView;
+    public String getIcon() {
+        return this.icon;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PraiseData praiseData;
-        Context context;
-        String str;
-        String str2;
-        boolean z;
-        PraiseData praiseData2;
-        String str3 = "";
-        praiseData = this.cGX.cGW;
-        if (praiseData != null) {
-            praiseData2 = this.cGX.cGW;
-            str3 = praiseData2.getTitle();
-        }
-        context = this.cGX.mContext;
-        str = this.cGX.mThreadId;
-        str2 = this.cGX.mPostId;
-        z = this.cGX.cgM;
-        com.baidu.tbadk.util.f.c(new PraiseListActivityConfig(context, str, str2, str3, z));
+    public void setIcon(String str) {
+        this.icon = str;
+    }
+
+    public void kn(int i) {
+        this.cPr = i;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String str) {
+        this.title = str;
+    }
+
+    public void setType(int i) {
+        this.type = i;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String str) {
+        this.url = str;
+    }
+
+    public void setTime(int i) {
+        this.time = i;
+    }
+
+    public void a(StarEnter starEnter) {
+        setIcon(starEnter.icon);
+        setTime(starEnter.time.intValue());
+        setTitle(starEnter.title);
+        setType(starEnter.type.intValue());
+        setUrl(starEnter.url);
+        kn(starEnter.weight.intValue());
     }
 }

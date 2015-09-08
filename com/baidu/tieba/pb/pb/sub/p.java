@@ -7,11 +7,11 @@ import com.baidu.tieba.pb.pb.sub.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements ak.a {
-    final /* synthetic */ NewSubPbActivity cfY;
+    final /* synthetic */ NewSubPbActivity cgV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(NewSubPbActivity newSubPbActivity) {
-        this.cfY = newSubPbActivity;
+        this.cgV = newSubPbActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0035, code lost:
@@ -32,33 +32,33 @@ public class p implements ak.a {
         ak akVar2;
         ak akVar3;
         t tVar5;
-        tVar = this.cfY.cfR;
+        tVar = this.cgV.cgO;
         if (tVar != null) {
-            tVar5 = this.cfY.cfR;
-            tVar5.afc();
+            tVar5 = this.cgV.cgO;
+            tVar5.afq();
         }
         if (z) {
-            tVar2 = this.cfY.cfR;
+            tVar2 = this.cgV.cgO;
             tVar2.hideNoDataView();
             if (cVar != null) {
-                if (cVar.acQ() == null) {
-                    akVar3 = this.cfY.cfP;
+                if (cVar.adb() == null) {
+                    akVar3 = this.cgV.cgM;
                 }
-                com.baidu.tieba.tbadkCore.data.i acQ = cVar.acQ();
-                akVar = this.cfY.cfP;
-                acQ.c(akVar.afz());
-                tVar3 = this.cfY.cfR;
+                com.baidu.tieba.tbadkCore.data.i adb = cVar.adb();
+                akVar = this.cgV.cgM;
+                adb.a(akVar.afQ());
+                tVar3 = this.cgV.cgO;
                 if (tVar3 != null) {
-                    tVar4 = this.cfY.cfR;
-                    akVar2 = this.cfY.cfP;
-                    tVar4.a(cVar, akVar2.acK());
+                    tVar4 = this.cgV.cgO;
+                    akVar2 = this.cgV.cgM;
+                    tVar4.a(cVar, akVar2.acU());
                 }
                 am amVar = new am();
                 amVar.setData(cVar);
-                nVar = this.cfY.bWp;
+                nVar = this.cgV.bWV;
                 if (nVar != null) {
-                    nVar2 = this.cfY.bWp;
-                    nVar2.a(cVar.acW());
+                    nVar2 = this.cgV.bWV;
+                    nVar2.a(cVar.adj());
                 }
                 amVar.setType(0);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, amVar));
@@ -66,7 +66,7 @@ public class p implements ak.a {
             }
             return;
         }
-        this.cfY.showToast(str);
-        this.cfY.aeT();
+        this.cgV.showToast(str);
+        this.cgV.afh();
     }
 }

@@ -4,21 +4,21 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ak implements l {
-    final /* synthetic */ ad cRf;
+    final /* synthetic */ ad cZQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ak(ad adVar) {
-        this.cRf = adVar;
+        this.cZQ = adVar;
     }
 
     @Override // com.baidu.tieba.write.album.l
-    public void nw() {
+    public void nt() {
     }
 
     @Override // com.baidu.tieba.write.album.l
-    public void bm(List<b> list) {
+    public void bv(List<b> list) {
         m mVar;
-        mVar = this.cRf.cPJ;
-        mVar.bo(list);
+        mVar = this.cZQ.cYt;
+        mVar.bx(list);
     }
 }

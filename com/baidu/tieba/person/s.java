@@ -7,18 +7,18 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tieba.i;
 import com.baidu.tieba.im.message.ResponseGetLivableForumList;
-import com.baidu.tieba.person.post.p;
+import com.baidu.tieba.person.post.u;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ r ciI;
+    final /* synthetic */ r cjC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(r rVar, int i) {
         super(i);
-        this.ciI = rVar;
+        this.cjC = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,7 +29,7 @@ public class s extends com.baidu.adp.framework.listener.e {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        PersonBarActivity agd;
+        PersonBarActivity agt;
         boolean z;
         View view;
         View view2;
@@ -41,66 +41,66 @@ public class s extends com.baidu.adp.framework.listener.e {
         ac acVar2;
         ArrayList<ForumData> arrayList2;
         ac acVar3;
-        PersonBarActivity agd2;
+        PersonBarActivity agt2;
         View view3;
         String str;
-        this.ciI.mListView.completePullRefresh();
+        this.cjC.mListView.completePullRefresh();
         if (socketResponsedMessage == null) {
-            this.ciI.showToast(this.ciI.getPageContext().getString(i.C0057i.neterror));
+            this.cjC.showToast(this.cjC.getPageContext().getString(i.h.neterror));
         } else if (socketResponsedMessage.getCmd() == 107129 && (socketResponsedMessage instanceof ResponseGetLivableForumList)) {
             ResponseGetLivableForumList responseGetLivableForumList = (ResponseGetLivableForumList) socketResponsedMessage;
             if (responseGetLivableForumList.getError() == 0) {
-                agd = this.ciI.agd();
-                if (agd != null) {
-                    agd2 = this.ciI.agd();
-                    if (agd2.getRequestCode() != 23011) {
-                        view3 = this.ciI.ciz;
+                agt = this.cjC.agt();
+                if (agt != null) {
+                    agt2 = this.cjC.agt();
+                    if (agt2.getRequestCode() != 23011) {
+                        view3 = this.cjC.cjt;
                         view3.setVisibility(8);
-                        acVar = this.ciI.cis;
+                        acVar = this.cjC.cjm;
                         if (acVar == null) {
-                            arrayList = this.ciI.rM;
+                            arrayList = this.cjC.rK;
                             arrayList.addAll(responseGetLivableForumList.getData());
-                            this.ciI.removalDuplicate();
-                            acVar2 = this.ciI.cis;
-                            arrayList2 = this.ciI.rM;
+                            this.cjC.removalDuplicate();
+                            acVar2 = this.cjC.cjm;
+                            arrayList2 = this.cjC.rK;
                             acVar2.R(arrayList2);
-                            this.ciI.hasMore = responseGetLivableForumList.hasMore();
-                            this.ciI.eG(true);
-                            acVar3 = this.ciI.cis;
+                            this.cjC.hasMore = responseGetLivableForumList.hasMore();
+                            this.cjC.eP(true);
+                            acVar3 = this.cjC.cjm;
                             acVar3.notifyDataSetChanged();
-                            this.ciI.civ++;
+                            this.cjC.cjp++;
                             return;
                         }
                         return;
                     }
                 }
-                z = this.ciI.ciD;
+                z = this.cjC.cjx;
                 if (!z) {
-                    this.ciI.ciD = true;
-                    BdListView bdListView = this.ciI.mListView;
-                    view2 = this.ciI.ciz;
+                    this.cjC.cjx = true;
+                    BdListView bdListView = this.cjC.mListView;
+                    view2 = this.cjC.cjt;
                     bdListView.addHeaderView(view2);
                     int miniLevel = responseGetLivableForumList.getMiniLevel();
                     if (miniLevel <= 0) {
                         miniLevel = 0;
                     }
-                    textView = this.ciI.ciA;
-                    textView.setText(this.ciI.getResources().getString(i.C0057i.level_above_six_tip, Integer.valueOf(miniLevel)));
-                    textView2 = this.ciI.ciA;
+                    textView = this.cjC.cju;
+                    textView.setText(this.cjC.getResources().getString(i.h.level_above_six_tip, Integer.valueOf(miniLevel)));
+                    textView2 = this.cjC.cju;
                     com.baidu.tbadk.core.util.al.b(textView2, i.c.cp_cont_c, 1);
-                    textView3 = this.ciI.ciA;
-                    com.baidu.tbadk.core.util.al.j((View) textView3, i.c.bg_page_setting);
+                    textView3 = this.cjC.cju;
+                    com.baidu.tbadk.core.util.al.i((View) textView3, i.c.bg_page_setting);
                 }
-                view = this.ciI.ciz;
+                view = this.cjC.cjt;
                 view.setVisibility(0);
-                acVar = this.ciI.cis;
+                acVar = this.cjC.cjm;
                 if (acVar == null) {
                 }
             } else {
-                this.ciI.showToast(responseGetLivableForumList.getErrorString());
-                p.a aVar = this.ciI.cir;
-                str = this.ciI.ciy;
-                aVar.jz(str);
+                this.cjC.showToast(responseGetLivableForumList.getErrorString());
+                u.a aVar = this.cjC.cjl;
+                str = this.cjC.cjs;
+                aVar.jG(str);
             }
         }
     }

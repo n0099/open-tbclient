@@ -6,33 +6,33 @@ import com.baidu.tieba.pb.b.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ a cav;
+    final /* synthetic */ a cbq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cav = aVar;
+        this.cbq = aVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         int i;
-        a.InterfaceC0065a interfaceC0065a;
-        a.InterfaceC0065a interfaceC0065a2;
+        a.InterfaceC0067a interfaceC0067a;
+        a.InterfaceC0067a interfaceC0067a2;
         if (message.what == 2) {
-            this.cav.count = 0;
-            this.cav.car = 0L;
-            this.cav.cas = 0L;
+            this.cbq.count = 0;
+            this.cbq.cbm = 0L;
+            this.cbq.cbn = 0L;
         } else if (message.what == 1) {
-            i = this.cav.count;
+            i = this.cbq.count;
             if (i == 1) {
-                interfaceC0065a = this.cav.cat;
-                if (interfaceC0065a != null) {
-                    interfaceC0065a2 = this.cav.cat;
-                    interfaceC0065a2.Ms();
+                interfaceC0067a = this.cbq.cbo;
+                if (interfaceC0067a != null) {
+                    interfaceC0067a2 = this.cbq.cbo;
+                    interfaceC0067a2.Mj();
                 }
-                this.cav.count = 0;
-                this.cav.car = 0L;
-                this.cav.cas = 0L;
+                this.cbq.count = 0;
+                this.cbq.cbm = 0L;
+                this.cbq.cbn = 0L;
             }
         }
     }

@@ -12,6 +12,6 @@ class am extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        al.aaQ = null;
+        al.aaZ = null;
     }
 }

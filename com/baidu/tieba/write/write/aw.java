@@ -1,42 +1,86 @@
 package com.baidu.tieba.write.write;
 
-import android.graphics.drawable.NinePatchDrawable;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.EditText;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tbadkCore.c.a;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aw extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ WriteActivity cUM;
-    private final /* synthetic */ boolean cUP;
+public class aw implements TextWatcher {
+    private int crE;
+    final /* synthetic */ WriteActivity ddQ;
+    private EditText bEI = null;
+    private TextView mTextView = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(WriteActivity writeActivity, boolean z) {
-        this.cUM = writeActivity;
-        this.cUP = z;
+    public aw(WriteActivity writeActivity) {
+        this.ddQ = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        boolean z;
+        this.ddQ.ayQ();
+        z = this.ddQ.ddI;
+        if (z) {
+            this.crE = this.bEI.getSelectionStart();
+            this.bEI.setSelection(this.crE);
+            this.ddQ.b(this.mTextView, this.bEI);
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        boolean z;
+        boolean z2;
         EditText editText;
         EditText editText2;
-        a.InterfaceC0069a interfaceC0069a;
-        super.a((aw) aVar, str, i);
-        if (aVar != null && aVar.nc() != null && aVar.ng() != null) {
-            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkCoreApplication.m411getInst().getResources(), aVar.nc(), aVar.nc().getNinePatchChunk(), aVar.ng(), null);
-            if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
-                ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.ab.mAlpha);
-            }
-            editText = this.cUM.cSo;
-            editText.setBackgroundDrawable(ninePatchDrawable);
-            if (this.cUP) {
-                WriteActivity writeActivity = this.cUM;
-                editText2 = this.cUM.cSo;
-                interfaceC0069a = this.cUM.cfd;
-                com.baidu.tieba.tbadkCore.c.a.a(writeActivity, editText2, true, interfaceC0069a);
+        TextView textView;
+        TextView textView2;
+        boolean z3;
+        EditText editText3;
+        EditText editText4;
+        TextView textView3;
+        TextView textView4;
+        z = this.ddQ.ddI;
+        if (z) {
+            z3 = this.ddQ.ddJ;
+            if (z3) {
+                EditText editText5 = this.bEI;
+                editText3 = this.ddQ.ddD;
+                if (editText5 == editText3) {
+                    TextView textView5 = this.mTextView;
+                    textView4 = this.ddQ.ddE;
+                    if (textView5 == textView4) {
+                        return;
+                    }
+                }
+                editText4 = this.ddQ.ddD;
+                this.bEI = editText4;
+                textView3 = this.ddQ.ddE;
+                this.mTextView = textView3;
+                return;
             }
         }
+        z2 = this.ddQ.ddI;
+        if (z2) {
+            EditText editText6 = this.bEI;
+            editText = this.ddQ.ddz;
+            if (editText6 == editText) {
+                TextView textView6 = this.mTextView;
+                textView2 = this.ddQ.ddF;
+                if (textView6 == textView2) {
+                    return;
+                }
+            }
+            editText2 = this.ddQ.ddz;
+            this.bEI = editText2;
+            textView = this.ddQ.ddF;
+            this.mTextView = textView;
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

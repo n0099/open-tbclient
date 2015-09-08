@@ -9,13 +9,13 @@ import com.baidu.tbadk.coreExtra.message.ResponseFriendListMessage;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 class a extends HttpMessageListener {
-    final /* synthetic */ SelectFriendActivity bJV;
+    final /* synthetic */ SelectFriendActivity bKC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(SelectFriendActivity selectFriendActivity, int i) {
         super(i);
-        this.bJV = selectFriendActivity;
+        this.bKC = selectFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,13 +29,13 @@ class a extends HttpMessageListener {
                 friendList = new LinkedList<>();
             }
             if (friendList.size() > 0) {
-                uVar2 = this.bJV.mNoDataView;
+                uVar2 = this.bKC.mNoDataView;
                 uVar2.setVisibility(8);
-                this.bJV.bJS.setContacts(friendList);
-                this.bJV.bJS.notifyDataSetChanged();
+                this.bKC.bKz.setContacts(friendList);
+                this.bKC.bKz.notifyDataSetChanged();
                 return;
             }
-            uVar = this.bJV.mNoDataView;
+            uVar = this.bKC.mNoDataView;
             uVar.setVisibility(0);
         }
     }

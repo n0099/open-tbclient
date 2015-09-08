@@ -14,12 +14,12 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class CommonTabWidgetView extends LinearLayout {
     private j Kz;
-    private CommonTabHorizonScrollView asL;
-    private ImageView asM;
+    private CommonTabHorizonScrollView auv;
+    private ImageView auw;
 
     /* loaded from: classes.dex */
     public interface a {
-        void dR(int i);
+        void dZ(int i);
     }
 
     public CommonTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -40,13 +40,13 @@ public class CommonTabWidgetView extends LinearLayout {
         setVisibility(8);
         removeAllViews();
         LayoutInflater.from(context).inflate(i.g.common_tab_widget, (ViewGroup) this, true);
-        this.asL = (CommonTabHorizonScrollView) findViewById(i.f.privilege_tab_scroll_view);
-        this.asM = (ImageView) findViewById(i.f.privilege_tab_delete);
-        this.asM.setOnClickListener(new d(this));
+        this.auv = (CommonTabHorizonScrollView) findViewById(i.f.privilege_tab_scroll_view);
+        this.auw = (ImageView) findViewById(i.f.privilege_tab_delete);
+        this.auw.setOnClickListener(new d(this));
     }
 
     public void setDatas(ArrayList<com.baidu.tbadk.editortools.view.a> arrayList) {
-        this.asL.setDatas(arrayList);
+        this.auv.setDatas(arrayList);
         if (arrayList == null || arrayList.size() <= 1) {
             setVisibility(8);
         } else {
@@ -55,33 +55,33 @@ public class CommonTabWidgetView extends LinearLayout {
     }
 
     public void c(a.b bVar) {
-        this.asL.c(bVar);
+        this.auv.c(bVar);
     }
 
     public void setCurrentTab(int i) {
-        this.asL.setCurrentTab(i);
+        this.auv.setCurrentTab(i);
     }
 
     public void setOnTabSelectedListener(a aVar) {
-        this.asL.setOnTabSelectedListener(aVar);
+        this.auv.setOnTabSelectedListener(aVar);
     }
 
     public void reset() {
-        this.asL.reset();
+        this.auv.reset();
     }
 
     public void onChangeSkinType(int i) {
-        al.j(this, i.c.editor_tool_container_bg);
-        this.asL.cI(i);
-        al.c(this.asM, i.e.but_face_close);
-        al.j(this.asM, i.c.emotion_delete_bg);
+        al.i(this, i.c.editor_tool_container_bg);
+        this.auv.cO(i);
+        al.c(this.auw, i.e.but_face_close);
+        al.i(this.auw, i.c.emotion_delete_bg);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.asM.setVisibility(0);
+            this.auw.setVisibility(0);
         } else {
-            this.asM.setVisibility(8);
+            this.auw.setVisibility(8);
         }
     }
 }

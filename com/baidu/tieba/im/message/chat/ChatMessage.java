@@ -55,6 +55,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, u {
     public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY = BdUniqueId.gen();
     public static final BdUniqueId TYPE_MSG_MULTI_PIC_TEXT = BdUniqueId.gen();
     public static final BdUniqueId TYPE_MSG_REPLY_CARD = BdUniqueId.gen();
+    public static final BdUniqueId TYPE_MSG_PHOTOLIVE = BdUniqueId.gen();
 
     public ChatMessage(int i) {
         super(i);
@@ -119,15 +120,15 @@ public abstract class ChatMessage extends TbSocketMessage implements a, u {
                 int optInt = jSONObject.optInt("size_width");
                 int optInt2 = jSONObject.optInt("size_height");
                 com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-                aVar.asX = false;
-                aVar.asY = optString;
-                aVar.asZ = optString2;
-                aVar.ata = optString3;
+                aVar.auH = false;
+                aVar.auI = optString;
+                aVar.auJ = optString2;
+                aVar.auK = optString3;
                 aVar.mGid = optString4;
-                aVar.atb = optInt;
-                aVar.atc = optInt2;
+                aVar.auL = optInt;
+                aVar.auM = optInt2;
                 aVar.mPackageName = optString5;
-                aVar.atd = optString6;
+                aVar.auN = optString6;
                 this.gifInfo = aVar;
                 return aVar;
             }
@@ -366,6 +367,9 @@ public abstract class ChatMessage extends TbSocketMessage implements a, u {
         }
         if (this.msgType == 23) {
             return TYPE_MSG_REPLY_CARD;
+        }
+        if (this.msgType == 25) {
+            return TYPE_MSG_PHOTOLIVE;
         }
         if (getUserInfo() != null && getUserInfo().getUserId() != null) {
             if (getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {

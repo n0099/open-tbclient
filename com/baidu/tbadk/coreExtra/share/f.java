@@ -8,27 +8,27 @@ import com.baidu.tbadk.core.util.n;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    public static final String ajM = n.xV + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public String ajJ;
-    public String ajK;
-    public boolean ajH = false;
+    public static final String ajV = n.xT + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public String ajS;
+    public String ajT;
+    public boolean ajQ = false;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
     public Uri imageUri = null;
     public Location location = null;
-    private WeakReference<Bitmap> ajL = null;
-    public String ajI = null;
+    private WeakReference<Bitmap> ajU = null;
+    public String ajR = null;
 
     public Bitmap getImageData() {
         Bitmap bitmap;
-        if (this.ajL == null || (bitmap = this.ajL.get()) == null || bitmap.isRecycled()) {
+        if (this.ajU == null || (bitmap = this.ajU.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void j(Bitmap bitmap) {
-        this.ajL = new WeakReference<>(bitmap);
+        this.ajU = new WeakReference<>(bitmap);
     }
 }

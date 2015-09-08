@@ -11,11 +11,11 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.imgView.DragHorizonScrollView;
 /* loaded from: classes.dex */
 class e implements MultiImgToolView.a {
-    final /* synthetic */ MultiImgToolView arj;
+    final /* synthetic */ MultiImgToolView asT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(MultiImgToolView multiImgToolView) {
-        this.arj = multiImgToolView;
+        this.asT = multiImgToolView;
     }
 
     @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.a
@@ -36,44 +36,44 @@ class e implements MultiImgToolView.a {
         j jVar4;
         j jVar5;
         int i3;
-        dragHorizonScrollView = this.arj.aqZ;
-        if (!dragHorizonScrollView.aqt()) {
-            this.arj.am(view);
-            dragHorizonScrollView2 = this.arj.aqZ;
-            int an = dragHorizonScrollView2.an(view);
-            if (an >= 0) {
-                writeImagesInfo = this.arj.arc;
-                if (an < writeImagesInfo.getChosedFiles().size()) {
-                    writeImagesInfo2 = this.arj.arc;
-                    ImageFileInfo remove = writeImagesInfo2.getChosedFiles().remove(an);
+        dragHorizonScrollView = this.asT.asJ;
+        if (!dragHorizonScrollView.auH()) {
+            this.asT.av(view);
+            dragHorizonScrollView2 = this.asT.asJ;
+            int aw = dragHorizonScrollView2.aw(view);
+            if (aw >= 0) {
+                writeImagesInfo = this.asT.asM;
+                if (aw < writeImagesInfo.getChosedFiles().size()) {
+                    writeImagesInfo2 = this.asT.asM;
+                    ImageFileInfo remove = writeImagesInfo2.getChosedFiles().remove(aw);
                     if (remove.isTempFile()) {
-                        com.baidu.adp.lib.Disk.d.fm().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                        com.baidu.adp.lib.Disk.d.fj().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                     }
-                    dragHorizonScrollView3 = this.arj.aqZ;
+                    dragHorizonScrollView3 = this.asT.asJ;
                     int maxItemNum = dragHorizonScrollView3.getMaxItemNum();
-                    writeImagesInfo3 = this.arj.arc;
+                    writeImagesInfo3 = this.asT.asM;
                     int size = writeImagesInfo3.size();
-                    String string = this.arj.getResources().getString(i.C0057i.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
-                    textView = this.arj.ara;
+                    String string = this.asT.getResources().getString(i.h.editor_mutiiamge_text, Integer.valueOf(size), Integer.valueOf(maxItemNum - size));
+                    textView = this.asT.asK;
                     textView.setText(string);
-                    writeImagesInfo4 = this.arj.arc;
+                    writeImagesInfo4 = this.asT.asM;
                     int size2 = writeImagesInfo4.getChosedFiles().size();
-                    jVar = this.arj.Kz;
+                    jVar = this.asT.Kz;
                     if (jVar != null) {
-                        jVar2 = this.arj.Kz;
-                        i = this.arj.arg;
+                        jVar2 = this.asT.Kz;
+                        i = this.asT.asQ;
                         jVar2.b(new com.baidu.tbadk.editortools.a(i, -1, null));
                         if (size2 > 0) {
-                            jVar5 = this.arj.Kz;
-                            i3 = this.arj.arh;
+                            jVar5 = this.asT.Kz;
+                            i3 = this.asT.asR;
                             jVar5.b(new com.baidu.tbadk.editortools.a(2, i3, String.valueOf(size2)));
                         } else {
-                            jVar3 = this.arj.Kz;
-                            i2 = this.arj.arh;
+                            jVar3 = this.asT.Kz;
+                            i2 = this.asT.asR;
                             jVar3.b(new com.baidu.tbadk.editortools.a(2, i2, null));
                         }
                         if (maxItemNum == 1 && size2 == 0) {
-                            jVar4 = this.arj.Kz;
+                            jVar4 = this.asT.Kz;
                             jVar4.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                         }
                     }

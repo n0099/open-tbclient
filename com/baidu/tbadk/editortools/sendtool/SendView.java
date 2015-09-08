@@ -12,15 +12,15 @@ import com.baidu.tieba.i;
 public class SendView extends TextView implements w {
     private int Ky;
     private j Kz;
-    private int apH;
-    private boolean[] asr;
-    private int[] ass;
+    private int arr;
+    private boolean[] aub;
+    private int[] auc;
 
     public SendView(Context context) {
         super(context);
-        this.asr = new boolean[5];
-        this.ass = new int[2];
-        this.apH = 0;
+        this.aub = new boolean[5];
+        this.auc = new int[2];
+        this.arr = 0;
         setWidth(context.getResources().getDimensionPixelSize(i.d.ds100));
         setHeight(context.getResources().getDimensionPixelSize(i.d.ds88));
         setGravity(17);
@@ -28,7 +28,7 @@ public class SendView extends TextView implements w {
         setEnabled(false);
         setTextSize(0, context.getResources().getDimensionPixelSize(i.d.fontsize28));
         setTextColor(getContext().getResources().getColor(i.c.black_alpha40));
-        setText(i.C0057i.send_post);
+        setText(i.h.send_post);
         setBackgroundResource(i.e.btn_pb_editor_post_btn);
         setOnClickListener(new b(this));
     }
@@ -39,95 +39,95 @@ public class SendView extends TextView implements w {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.asr[0] = false;
+                        this.aub[0] = false;
                         break;
                     } else {
-                        this.asr[0] = true;
+                        this.aub[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.asr[0] = false;
-                    this.asr[1] = false;
-                    this.asr[2] = false;
-                    this.asr[3] = false;
-                    this.asr[4] = false;
-                    this.ass[0] = 0;
-                    this.ass[1] = 0;
+                    this.aub[0] = false;
+                    this.aub[1] = false;
+                    this.aub[2] = false;
+                    this.aub[3] = false;
+                    this.aub[4] = false;
+                    this.auc[0] = 0;
+                    this.auc[1] = 0;
                     break;
                 case 10:
-                    this.asr[2] = true;
+                    this.aub[2] = true;
                     break;
                 case 11:
-                    this.asr[2] = false;
+                    this.aub[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.aqW != null) {
-                            if (aVar2.aqW.getChosedFiles() != null) {
-                                this.ass[0] = aVar2.aqW.getChosedFiles().size();
+                        if (aVar2.asG != null) {
+                            if (aVar2.asG.getChosedFiles() != null) {
+                                this.auc[0] = aVar2.asG.getChosedFiles().size();
                             } else {
-                                this.ass[0] = 0;
+                                this.auc[0] = 0;
                             }
                         }
-                        if (this.ass[0] > 0) {
-                            this.asr[1] = true;
+                        if (this.auc[0] > 0) {
+                            this.aub[1] = true;
                             break;
                         } else {
-                            this.asr[1] = false;
+                            this.aub[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.ass;
+                    int[] iArr = this.auc;
                     iArr[0] = iArr[0] - 1;
-                    if (this.ass[0] > 0) {
-                        this.asr[1] = true;
+                    if (this.auc[0] > 0) {
+                        this.aub[1] = true;
                         break;
                     } else {
-                        this.asr[1] = false;
+                        this.aub[1] = false;
                         break;
                     }
                 case 22:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar3 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar3.aqW != null) {
-                            if (aVar3.aqW.getChosedFiles() != null) {
-                                this.ass[1] = aVar3.aqW.getChosedFiles().size();
+                        if (aVar3.asG != null) {
+                            if (aVar3.asG.getChosedFiles() != null) {
+                                this.auc[1] = aVar3.asG.getChosedFiles().size();
                             } else {
-                                this.ass[1] = 0;
+                                this.auc[1] = 0;
                             }
                         }
-                        if (this.ass[1] > 0) {
-                            this.asr[3] = true;
+                        if (this.auc[1] > 0) {
+                            this.aub[3] = true;
                             break;
                         } else {
-                            this.asr[3] = false;
+                            this.aub[3] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 23:
-                    this.asr[3] = false;
+                    this.aub[3] = false;
                     break;
                 case 28:
-                    this.asr[4] = true;
+                    this.aub[4] = true;
                     break;
                 case DealIntentService.CLASS_TYPE_PUSH_RECOMMEND_PB /* 29 */:
-                    this.asr[4] = false;
+                    this.aub[4] = false;
                     break;
             }
-            if (this.asr[0] || this.asr[1] || this.asr[2] || this.asr[3] || this.asr[4]) {
+            if (this.aub[0] || this.aub[1] || this.aub[2] || this.aub[3] || this.aub[4]) {
                 setEnabled(true);
-                al.a(this, i.c.cp_cont_f, 1, this.apH);
+                al.a(this, i.c.cp_cont_f, 1, this.arr);
                 return;
             }
             setEnabled(false);
-            al.a(this, i.c.black_alpha40, 1, this.apH);
+            al.a(this, i.c.black_alpha40, 1, this.arr);
         }
     }
 
@@ -159,7 +159,7 @@ public class SendView extends TextView implements w {
     }
 
     @Override // com.baidu.tbadk.editortools.w
-    public void oy() {
+    public void ov() {
         setVisibility(0);
     }
 
@@ -170,7 +170,7 @@ public class SendView extends TextView implements w {
 
     @Override // com.baidu.tbadk.editortools.w
     public void onChangeSkinType(int i) {
-        this.apH = i;
+        this.arr = i;
         if (isEnabled()) {
             al.a(this, i.c.cp_cont_f, 1, i);
         } else {

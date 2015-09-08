@@ -4,11 +4,11 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class f implements View.OnTouchListener {
-    final /* synthetic */ PbChosenActivity bYY;
+    final /* synthetic */ PbChosenActivity bZS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PbChosenActivity pbChosenActivity) {
-        this.bYY = pbChosenActivity;
+        this.bZS = pbChosenActivity;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -17,16 +17,16 @@ class f implements View.OnTouchListener {
         com.baidu.tieba.pb.chosen.a.m mVar;
         com.baidu.tbadk.editortools.c.d dVar2;
         com.baidu.tbadk.editortools.c.d dVar3;
-        com.baidu.adp.lib.util.k.c(this.bYY.getActivity(), this.bYY.getCurrentFocus());
-        dVar = this.bYY.aTh;
+        com.baidu.adp.lib.util.k.c(this.bZS.getActivity(), this.bZS.getCurrentFocus());
+        dVar = this.bZS.aTv;
         if (dVar != null) {
-            dVar2 = this.bYY.aTh;
-            if (dVar2.Ay() != null) {
-                dVar3 = this.bYY.aTh;
-                dVar3.Ay().hide();
+            dVar2 = this.bZS.aTv;
+            if (dVar2.AL() != null) {
+                dVar3 = this.bZS.aTv;
+                dVar3.AL().hide();
             }
         }
-        mVar = this.bYY.bYF;
+        mVar = this.bZS.bZz;
         mVar.setVisible(true);
         return false;
     }

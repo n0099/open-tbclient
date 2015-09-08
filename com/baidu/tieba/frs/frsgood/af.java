@@ -3,76 +3,76 @@ package com.baidu.tieba.frs.frsgood;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.tieba.frs.c.n;
-import com.baidu.tieba.frs.db;
-import com.baidu.tieba.frs.dc;
+import com.baidu.tieba.frs.dh;
+import com.baidu.tieba.frs.di;
 import com.baidu.tieba.frs.tab.HorizontalTabView;
 import com.baidu.tieba.frs.tab.TabData;
 import com.baidu.tieba.i;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.f<FrsGoodActivity> {
-    private String aWo;
-    private FrsGoodActivity aZA;
-    private HorizontalTabView aZK;
-    private SparseArray<n.a> aZL;
-    private TabData aZM;
-    private int aZN;
-    private dc aZO;
-    private x aZj;
+    private String aWF;
+    private x aZC;
+    private FrsGoodActivity aZT;
+    private HorizontalTabView bac;
+    private SparseArray<n.a> bad;
+    private TabData bae;
+    private int baf;
+    private di bag;
 
     public af(FrsGoodActivity frsGoodActivity) {
         super(frsGoodActivity.getPageContext());
-        this.aZL = new SparseArray<>();
-        this.aZN = 5;
-        this.aZO = new ag(this);
-        this.aZA = frsGoodActivity;
+        this.bad = new SparseArray<>();
+        this.baf = 5;
+        this.bag = new ag(this);
+        this.aZT = frsGoodActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void oS() {
-        this.aZj = new x(this.aZA, this.aZA.aUY);
-        this.aZA.a(this.aZj);
+    public void oP() {
+        this.aZC = new x(this.aZT, this.aZT.aVm);
+        this.aZT.a(this.aZC);
         MV();
     }
 
     private void MV() {
-        this.aZK = (HorizontalTabView) this.aZA.findViewById(i.f.frs_good_tabview);
+        this.bac = (HorizontalTabView) this.aZT.findViewById(i.f.frs_good_tabview);
     }
 
-    public void c(com.baidu.tieba.tbadkCore.n nVar) {
+    public void b(com.baidu.tieba.tbadkCore.o oVar) {
         ArrayList<com.baidu.tbadk.core.data.k> good_classify;
-        if (nVar != null && nVar.acG() != null && nVar.acG().getGood_classify() != null && (good_classify = nVar.acG().getGood_classify()) != null) {
-            this.aWo = this.aZA.getPageContext().getResources().getString(i.C0057i.forum_list_menu_all);
-            this.aZM = new TabData();
+        if (oVar != null && oVar.acP() != null && oVar.acP().getGood_classify() != null && (good_classify = oVar.acP().getGood_classify()) != null) {
+            this.aWF = this.aZT.getPageContext().getResources().getString(i.h.forum_list_menu_all);
+            this.bae = new TabData();
             com.baidu.tieba.frs.tab.g gVar = new com.baidu.tieba.frs.tab.g();
-            gVar.baT = 0;
-            gVar.name = this.aWo;
-            this.aZM.add(gVar);
+            gVar.bbn = 0;
+            gVar.name = this.aWF;
+            this.bae.add(gVar);
             for (com.baidu.tbadk.core.data.k kVar : good_classify) {
-                if (kVar != null && kVar.rK() > 0 && !TextUtils.isEmpty(kVar.rJ()) && !TextUtils.isEmpty(kVar.rJ().trim())) {
+                if (kVar != null && kVar.rJ() > 0 && !TextUtils.isEmpty(kVar.rI()) && !TextUtils.isEmpty(kVar.rI().trim())) {
                     com.baidu.tieba.frs.tab.g gVar2 = new com.baidu.tieba.frs.tab.g();
-                    gVar2.baT = kVar.rK();
-                    gVar2.name = kVar.rJ();
-                    this.aZM.add(gVar2);
+                    gVar2.bbn = kVar.rJ();
+                    gVar2.name = kVar.rI();
+                    this.bae.add(gVar2);
                 }
             }
-            this.aZK.setData(this.aZM, this.aZN);
+            this.bac.setData(this.bae, this.baf);
         }
     }
 
     public HorizontalTabView MW() {
-        return this.aZK;
+        return this.bac;
     }
 
-    public void a(db dbVar) {
-        if (this.aZK != null) {
-            this.aZK.setDataLoadInterface(dbVar);
+    public void a(dh dhVar) {
+        if (this.bac != null) {
+            this.bac.setDataLoadInterface(dhVar);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aZK != null) {
-            this.aZK.vD();
+        if (this.bac != null) {
+            this.bac.vI();
         }
     }
 }

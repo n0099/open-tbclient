@@ -7,55 +7,55 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class r extends a {
-    private static r aqE = new r();
-    private LinkedList<v> aqF;
+    private static r aso = new r();
+    private LinkedList<v> asp;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized r Bb() {
+    public static synchronized r Bo() {
         r rVar;
         synchronized (r.class) {
-            rVar = aqE;
+            rVar = aso;
         }
         return rVar;
     }
 
     public List<v> getGroups() {
-        return this.aqF;
+        return this.asp;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
-    public void a(a.InterfaceC0047a interfaceC0047a) {
-        if (this.aqF == null || this.aqF.isEmpty()) {
-            this.aqF = new LinkedList<>();
-            if (TbFaceManager.Cd().AQ() > 0) {
+    public void a(a.InterfaceC0046a interfaceC0046a) {
+        if (this.asp == null || this.asp.isEmpty()) {
+            this.asp = new LinkedList<>();
+            if (TbFaceManager.Cr().Bd() > 0) {
                 q qVar = new q();
-                this.aqF.add(qVar);
-                if (interfaceC0047a != null) {
-                    interfaceC0047a.a(qVar);
+                this.asp.add(qVar);
+                if (interfaceC0046a != null) {
+                    interfaceC0046a.a(qVar);
                     return;
                 }
                 return;
             }
             return;
         }
-        Iterator<v> it = this.aqF.iterator();
+        Iterator<v> it = this.asp.iterator();
         while (it.hasNext()) {
             v next = it.next();
-            if (interfaceC0047a != null) {
-                interfaceC0047a.a(next);
+            if (interfaceC0046a != null) {
+                interfaceC0046a.a(next);
             }
         }
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
-    public void AJ() {
+    public void AW() {
     }
 
     public boolean isEmpty() {
-        return this.aqF == null || this.aqF.size() == 0;
+        return this.asp == null || this.asp.size() == 0;
     }
 }

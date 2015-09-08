@@ -17,11 +17,11 @@ public class FoundNewSocketResponsedMessage extends MvcSocketResponsedMessage<a,
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        o<byte[]> cj;
+        o<byte[]> cp;
         if (getOrginalMessage().getExtra() instanceof MvcNetMessage) {
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-            if ((mvcNetMessage.getRequestData() instanceof b) && getData().Ia() > ((b) mvcNetMessage.getRequestData()).Ia() && (cj = com.baidu.tbadk.core.b.a.sM().cj("FoundNewCache")) != null) {
-                cj.f("FoundNewData", bArr);
+            if ((mvcNetMessage.getRequestData() instanceof b) && getData().HO() > ((b) mvcNetMessage.getRequestData()).HO() && (cp = com.baidu.tbadk.core.b.a.sR().cp("FoundNewCache")) != null) {
+                cp.f("FoundNewData", bArr);
             }
         }
     }

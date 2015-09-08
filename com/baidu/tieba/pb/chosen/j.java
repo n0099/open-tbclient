@@ -1,15 +1,15 @@
 package com.baidu.tieba.pb.chosen;
 /* loaded from: classes.dex */
 class j implements com.baidu.tbadk.editortools.c.b {
-    final /* synthetic */ PbChosenActivity bYY;
+    final /* synthetic */ PbChosenActivity bZS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(PbChosenActivity pbChosenActivity) {
-        this.bYY = pbChosenActivity;
+        this.bZS = pbChosenActivity;
     }
 
     @Override // com.baidu.tbadk.editortools.c.b
-    public void Bm() {
-        this.bYY.showProgressBar();
+    public void Bz() {
+        this.bZS.showProgressBar();
     }
 }

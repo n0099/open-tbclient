@@ -9,20 +9,20 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class b extends x.a {
-    HeadImageView aIG;
-    TextView aPi;
-    TextView anH;
-    LinearLayout ban;
-    TextView bao;
-    TbImageView bap;
+    HeadImageView aIT;
+    TextView aPv;
+    TextView amV;
+    LinearLayout baI;
+    TextView baJ;
+    TbImageView baK;
 
     public b(View view) {
         super(view);
-        this.ban = (LinearLayout) view.findViewById(i.f.frs_locality_big_image_parent);
-        this.aIG = (HeadImageView) view.findViewById(i.f.frs_locality_big_iamge_head);
-        this.aPi = (TextView) view.findViewById(i.f.frs_locality_big_iamge_name);
-        this.bao = (TextView) view.findViewById(i.f.frs_locality_big_iamge_sub);
-        this.anH = (TextView) view.findViewById(i.f.frs_locality_big_iamge_title);
-        this.bap = (TbImageView) view.findViewById(i.f.frs_locality_big_iamge_pic);
+        this.baI = (LinearLayout) view.findViewById(i.f.frs_locality_big_image_parent);
+        this.aIT = (HeadImageView) view.findViewById(i.f.frs_locality_big_iamge_head);
+        this.aPv = (TextView) view.findViewById(i.f.frs_locality_big_iamge_name);
+        this.baJ = (TextView) view.findViewById(i.f.frs_locality_big_iamge_sub);
+        this.amV = (TextView) view.findViewById(i.f.frs_locality_big_iamge_title);
+        this.baK = (TbImageView) view.findViewById(i.f.frs_locality_big_iamge_pic);
     }
 }

@@ -16,7 +16,7 @@ public class u extends com.baidu.adp.base.g {
     public void d(Object obj) {
         if (obj != null && (obj instanceof MoreModel.TaskType)) {
             if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
-                this.this$0.showToast(this.this$0.getPageContext().getString(i.C0057i.image_cash_del_suc));
+                this.this$0.showToast(this.this$0.getPageContext().getString(i.h.image_cash_del_suc));
             }
             this.this$0.closeLoadingDialog();
         }

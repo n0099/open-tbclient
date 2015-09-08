@@ -14,13 +14,13 @@ import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends HttpMessageListener {
-    final /* synthetic */ UserMuteAddAndDelModel cOT;
+    final /* synthetic */ UserMuteAddAndDelModel cXA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(UserMuteAddAndDelModel userMuteAddAndDelModel, int i) {
         super(i);
-        this.cOT = userMuteAddAndDelModel;
+        this.cXA = userMuteAddAndDelModel;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,20 +34,20 @@ public class b extends HttpMessageListener {
         String str;
         UserMuteAddAndDelModel.b bVar;
         UserMuteAddAndDelModel.b bVar2;
-        aVar = this.cOT.aMv;
+        aVar = this.cXA.aMI;
         aVar.av(false);
         if (httpResponsedMessage instanceof UserMuteDelResponseMessage) {
             UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) httpResponsedMessage;
-            if (userMuteDelResponseMessage.getMuteErrorCode() == UserMuteAddAndDelModel.cOL) {
-                nVar2 = this.cOT.cOO;
-                baseActivity2 = this.cOT.aSJ;
-                nVar2.dp(baseActivity2.getResources().getString(i.C0057i.un_mute_success));
+            if (userMuteDelResponseMessage.getMuteErrorCode() == UserMuteAddAndDelModel.cXs) {
+                nVar2 = this.cXA.cXv;
+                baseActivity2 = this.cXA.aSX;
+                nVar2.dw(baseActivity2.getResources().getString(i.h.un_mute_success));
                 MessageManager messageManager = MessageManager.getInstance();
-                str = this.cOT.mUserId;
+                str = this.cXA.mUserId;
                 messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_USER_MUTE_LIST_REMOVE_ITEM, str));
-                bVar = this.cOT.clN;
+                bVar = this.cXA.cmQ;
                 if (bVar != null) {
-                    bVar2 = this.cOT.clN;
+                    bVar2 = this.cXA.cmQ;
                     bVar2.a(userMuteDelResponseMessage);
                     return;
                 }
@@ -55,11 +55,11 @@ public class b extends HttpMessageListener {
             }
             String muteMessage = userMuteDelResponseMessage.getMuteMessage();
             if (aq.isEmpty(muteMessage)) {
-                baseActivity = this.cOT.aSJ;
-                muteMessage = baseActivity.getResources().getString(i.C0057i.un_mute_fail);
+                baseActivity = this.cXA.aSX;
+                muteMessage = baseActivity.getResources().getString(i.h.un_mute_fail);
             }
-            nVar = this.cOT.cOO;
-            nVar.dq(muteMessage);
+            nVar = this.cXA.cXv;
+            nVar.dx(muteMessage);
         }
     }
 }

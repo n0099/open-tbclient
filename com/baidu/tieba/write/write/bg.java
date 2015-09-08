@@ -1,29 +1,31 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.tbadkCore.location.d;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.EditText;
 /* loaded from: classes.dex */
-public class bg implements a.b {
-    final /* synthetic */ WriteActivity cUM;
+class bg implements View.OnClickListener {
+    final /* synthetic */ WriteActivity ddQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bg(WriteActivity writeActivity) {
-        this.cUM = writeActivity;
+        this.ddQ = writeActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        d.a aVar2;
-        com.baidu.tieba.tbadkCore.location.d dVar;
-        if (!com.baidu.adp.lib.util.i.iO()) {
-            aVar2 = this.cUM.asa;
-            aVar2.BF();
-        } else {
-            this.cUM.a(1, true, (String) null);
-            dVar = this.cUM.arN;
-            dVar.aqK();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.editortools.j jVar;
+        int azu;
+        EditText editText;
+        EditText editText2;
+        jVar = this.ddQ.ddl;
+        jVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+        azu = this.ddQ.azu();
+        if (azu >= 0) {
+            editText = this.ddQ.dbb;
+            if (azu < editText.getText().length()) {
+                editText2 = this.ddQ.dbb;
+                editText2.setSelection(azu);
+            }
         }
-        aVar.dismiss();
     }
 }

@@ -21,7 +21,7 @@ public class a {
     private a() {
     }
 
-    public static a lN() {
+    public static a lK() {
         if (Dd == null) {
             synchronized (a.class) {
                 if (Dd == null) {
@@ -55,12 +55,12 @@ public class a {
                     }
                 }
             }
-            lO();
+            lL();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lO() {
+    public void lL() {
         if (this.Df.size() != 0 && this.Dg == null) {
             this.Dg = new C0010a(this.Df.get(0));
             this.Dg.execute(new String[0]);
@@ -80,7 +80,7 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: f */
+        /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
             if (this.Dh != null) {
                 return Boolean.valueOf(bj(this.Dh.apkPath));
@@ -111,14 +111,14 @@ public class a {
             if (bool != null && bool.booleanValue() && a.this.De != null) {
                 a.this.De.J(this.Dh.packageName, this.Dh.apkPath);
             }
-            a.this.lO();
+            a.this.lL();
         }
 
         private boolean bj(String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            com.baidu.adp.plugin.b.a.lH().g("plugin_del_unuse", "delete unuse", str);
+            com.baidu.adp.plugin.b.a.lE().g("plugin_del_unuse", "delete unuse", str);
             com.baidu.adp.lib.util.e.f(new File(str));
             int length = str.length();
             if (length >= 4) {

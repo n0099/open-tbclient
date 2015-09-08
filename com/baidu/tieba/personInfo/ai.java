@@ -5,28 +5,28 @@ import com.baidu.tbadk.core.view.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements p.a {
-    final /* synthetic */ ag cnY;
+    final /* synthetic */ ag coZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(ag agVar) {
-        this.cnY = agVar;
+        this.coZ = agVar;
     }
 
     @Override // com.baidu.tbadk.core.view.p.a
-    public void qD() {
+    public void qA() {
         MorePopupWindow morePopupWindow;
         PersonInfoActivity personInfoActivity;
-        morePopupWindow = this.cnY.cnW;
-        personInfoActivity = this.cnY.cjU;
+        morePopupWindow = this.coZ.coX;
+        personInfoActivity = this.coZ.ckP;
         com.baidu.adp.lib.g.j.a(morePopupWindow, personInfoActivity.getPageContext().getPageActivity());
     }
 
     @Override // com.baidu.tbadk.core.view.p.a
-    public void qE() {
+    public void qB() {
         MorePopupWindow morePopupWindow;
         PersonInfoActivity personInfoActivity;
-        morePopupWindow = this.cnY.cnW;
-        personInfoActivity = this.cnY.cjU;
+        morePopupWindow = this.coZ.coX;
+        personInfoActivity = this.coZ.ckP;
         com.baidu.adp.lib.g.j.a(morePopupWindow, personInfoActivity.getPageContext().getPageActivity());
     }
 }

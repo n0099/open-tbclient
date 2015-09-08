@@ -1,23 +1,26 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.widget.PopupWindow;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.MyLiveActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y extends CustomMessageListener {
+public class y implements View.OnClickListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y(MainTabActivity mainTabActivity, int i) {
-        super(i);
+    public y(MainTabActivity mainTabActivity) {
         this.this$0 = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getError() == 0) {
-            this.this$0.arB();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PopupWindow popupWindow;
+        popupWindow = this.this$0.cUm;
+        com.baidu.adp.lib.g.j.a(popupWindow, this.this$0.getPageContext().getPageActivity());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyLiveActivityConfig(this.this$0.getPageContext().getPageActivity())));
     }
 }

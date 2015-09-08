@@ -1,27 +1,27 @@
 package com.baidu.tieba.square;
 
-import com.baidu.tbadk.core.data.s;
+import com.baidu.tbadk.core.data.u;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.core.flow.a.a {
-    private s cBK;
+    private u cKi;
 
-    public a(s sVar) {
-        this.cBK = sVar;
+    public a(u uVar) {
+        this.cKi = uVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        if (this.cBK == null) {
+        if (this.cKi == null) {
             return null;
         }
-        return this.cBK.sj();
+        return this.cKi.sk();
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String rE() {
-        if (this.cBK == null) {
+    public String rD() {
+        if (this.cKi == null) {
             return null;
         }
-        return this.cBK.getLink();
+        return this.cKi.getLink();
     }
 }

@@ -11,21 +11,21 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aj {
-    private a bIS;
-    private final CustomMessageListener bIR = new ak(this, CmdConfigCustom.CMD_GET_NEW_FRIEND_DATA_BY_ID);
-    private final HashMap<String, Integer> bIQ = new HashMap<>();
+    private a bJz;
+    private final CustomMessageListener bJy = new ak(this, CmdConfigCustom.CMD_GET_NEW_FRIEND_DATA_BY_ID);
+    private final HashMap<String, Integer> bJx = new HashMap<>();
 
     /* loaded from: classes.dex */
     public interface a {
-        void Yu();
+        void Yw();
     }
 
     public void a(a aVar) {
-        this.bIS = aVar;
+        this.bJz = aVar;
     }
 
     public void a(CommonPersonalChatActivity<FloatingPersonalChatActivity> commonPersonalChatActivity) {
-        commonPersonalChatActivity.registerListener(this.bIR);
+        commonPersonalChatActivity.registerListener(this.bJy);
     }
 
     public void aO(List<UserData> list) {
@@ -33,7 +33,7 @@ public class aj {
             for (UserData userData : list) {
                 if (userData != null) {
                     if (userData.getIsFriend() == 1) {
-                        this.bIQ.put(userData.getUserId(), 1);
+                        this.bJx.put(userData.getUserId(), 1);
                     } else {
                         d(userData);
                     }
@@ -46,24 +46,24 @@ public class aj {
         if (userData == null) {
             return 0;
         }
-        return iu(userData.getUserId());
+        return iD(userData.getUserId());
     }
 
-    public boolean is(String str) {
-        int iu = iu(str);
-        return iu == 1 || iu == 3;
+    public boolean iB(String str) {
+        int iD = iD(str);
+        return iD == 1 || iD == 3;
     }
 
-    public int iu(String str) {
-        if (!StringUtils.isNull(str) && this.bIQ.containsKey(str)) {
-            return this.bIQ.get(str).intValue();
+    public int iD(String str) {
+        if (!StringUtils.isNull(str) && this.bJx.containsKey(str)) {
+            return this.bJx.get(str).intValue();
         }
         return 0;
     }
 
-    public void O(String str, int i) {
+    public void P(String str, int i) {
         if (!StringUtils.isNull(str)) {
-            this.bIQ.put(str, Integer.valueOf(i));
+            this.bJx.put(str, Integer.valueOf(i));
         }
     }
 
@@ -85,9 +85,9 @@ public class aj {
             }
         }
         if (bVar != null && bVar.getId() != 0) {
-            this.bIQ.put(String.valueOf(bVar.getId()), Integer.valueOf(r0));
-            if (this.bIS != null) {
-                this.bIS.Yu();
+            this.bJx.put(String.valueOf(bVar.getId()), Integer.valueOf(r0));
+            if (this.bJz != null) {
+                this.bJz.Yw();
             }
         }
     }

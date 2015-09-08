@@ -1,15 +1,15 @@
 package com.baidu.tieba.service;
 /* loaded from: classes.dex */
 class f implements Runnable {
-    final /* synthetic */ TiebaActiveService cve;
+    final /* synthetic */ TiebaActiveService cDA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(TiebaActiveService tiebaActiveService) {
-        this.cve = tiebaActiveService;
+        this.cDA = tiebaActiveService;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.cve.sendActive();
+        this.cDA.sendActive();
     }
 }

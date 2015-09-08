@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 /* loaded from: classes.dex */
 public class a {
-    private C0042a aig;
+    private C0042a aip;
     private g mLoadDataCallBack;
 
     public a(g gVar) {
@@ -18,13 +18,13 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2) {
-        if (this.aig == null) {
-            this.aig = new C0042a(this, null);
-            this.aig.setPriority(2);
-            this.aig.aN(z);
-            this.aig.setPortrait(str);
-            this.aig.setToUid(str2);
-            this.aig.execute(new Integer[0]);
+        if (this.aip == null) {
+            this.aip = new C0042a(this, null);
+            this.aip.setPriority(2);
+            this.aip.aO(z);
+            this.aip.setPortrait(str);
+            this.aip.setToUid(str2);
+            this.aip.execute(new Integer[0]);
         }
     }
 
@@ -32,13 +32,13 @@ public class a {
     /* renamed from: com.baidu.tbadk.coreExtra.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0042a extends BdAsyncTask<Integer, Integer, String> {
-        private v afJ;
-        private boolean ahB;
+        private v afT;
+        private boolean ahK;
         private String portrait;
         private String toUid;
 
         private C0042a() {
-            this.afJ = null;
+            this.afT = null;
         }
 
         /* synthetic */ C0042a(a aVar, C0042a c0042a) {
@@ -53,8 +53,8 @@ public class a {
             this.toUid = str;
         }
 
-        public void aN(boolean z) {
-            this.ahB = z;
+        public void aO(boolean z) {
+            this.ahK = z;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,15 +64,15 @@ public class a {
         public String doInBackground(Integer... numArr) {
             try {
                 if (this.portrait != null) {
-                    this.afJ = new v();
-                    if (this.ahB) {
-                        this.afJ.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
+                    this.afT = new v();
+                    if (this.ahK) {
+                        this.afT.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FOLLOW_ADDRESS);
                     } else {
-                        this.afJ.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
+                        this.afT.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
                     }
-                    this.afJ.o(IntentConfig.PORTRAIT, this.portrait);
-                    this.afJ.ue().uV().mIsNeedTbs = true;
-                    this.afJ.tD();
+                    this.afT.o(IntentConfig.PORTRAIT, this.portrait);
+                    this.afT.uj().uZ().mIsNeedTbs = true;
+                    this.afT.tI();
                     return null;
                 }
                 return null;
@@ -87,12 +87,12 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0042a) str);
-            a.this.aig = null;
-            if (this.afJ != null) {
+            a.this.aip = null;
+            if (this.afT != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.ahA = this.afJ.ue().uW().rb();
-                aVar.errorString = this.afJ.getErrorString();
-                aVar.ahB = this.ahB;
+                aVar.Ci = this.afT.uj().va().qZ();
+                aVar.errorString = this.afT.getErrorString();
+                aVar.ahK = this.ahK;
                 aVar.toUid = this.toUid;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(aVar));
             }
@@ -101,11 +101,11 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.afJ != null) {
-                this.afJ.gM();
-                this.afJ = null;
+            if (this.afT != null) {
+                this.afT.gJ();
+                this.afT = null;
             }
-            a.this.aig = null;
+            a.this.aip = null;
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.d(false);
             }
@@ -113,8 +113,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.aig != null) {
-            this.aig.cancel();
+        if (this.aip != null) {
+            this.aip.cancel();
         }
     }
 }

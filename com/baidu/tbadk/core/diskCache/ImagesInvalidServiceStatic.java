@@ -8,7 +8,7 @@ import com.baidu.adp.lib.g.i;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class ImagesInvalidServiceStatic {
-    private static boolean Xl = false;
+    private static boolean Xu = false;
     private static Handler oy = new a();
 
     static {
@@ -25,6 +25,6 @@ public class ImagesInvalidServiceStatic {
     }
 
     public static void ap(boolean z) {
-        Xl = z;
+        Xu = z;
     }
 }

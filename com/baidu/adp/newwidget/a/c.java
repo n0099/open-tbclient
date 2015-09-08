@@ -7,55 +7,55 @@ import android.graphics.Rect;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class c extends a {
-    private Rect Bv = new Rect();
+    private Rect Bt = new Rect();
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(d dVar, ImageView imageView) {
-        if (this.Bc.Bz) {
-            float f = this.Bc.BA / 2.0f;
-            if (!this.Bc.BD) {
-                this.AZ.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
+        if (this.Ba.Bx) {
+            float f = this.Ba.By / 2.0f;
+            if (!this.Ba.BB) {
+                this.AX.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
                 return;
             }
             int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
             int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
-            PointF a = a(this.AY.left, this.AY.top, this.AX);
-            PointF a2 = a(this.AY.right, this.AY.bottom, this.AX);
-            this.AZ.set(Math.max((int) a.x, 0) + f, Math.max((int) a.y, 0) + f, Math.min((int) a2.x, width) - f, Math.min((int) a2.y, height) - f);
+            PointF a = a(this.AW.left, this.AW.top, this.AV);
+            PointF a2 = a(this.AW.right, this.AW.bottom, this.AV);
+            this.AX.set(Math.max((int) a.x, 0) + f, Math.max((int) a.y, 0) + f, Math.min((int) a2.x, width) - f, Math.min((int) a2.y, height) - f);
         }
     }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void b(Canvas canvas, d dVar, ImageView imageView) {
-        if (this.AX != null) {
-            canvas.concat(this.AX);
+        if (this.AV != null) {
+            canvas.concat(this.AV);
         }
-        if (dVar.kj()) {
-            Bitmap bitmap = dVar.Bw.getBitmap();
-            this.Bv.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            canvas.drawBitmap(bitmap, this.Bv, this.AY, this.mPaint);
+        if (dVar.kg()) {
+            Bitmap bitmap = dVar.Bu.getBitmap();
+            this.Bt.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            canvas.drawBitmap(bitmap, this.Bt, this.AW, this.mPaint);
             return;
         }
-        this.Bv.set(0, 0, dVar.getWidth(), dVar.getHeight());
-        dVar.Bx.a(canvas, this.Bv, this.AY, this.mPaint);
+        this.Bt.set(0, 0, dVar.getWidth(), dVar.getHeight());
+        dVar.Bv.a(canvas, this.Bt, this.AW, this.mPaint);
     }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void b(Canvas canvas, ImageView imageView) {
-        if (this.Bc.Bz) {
-            canvas.drawRect(this.AZ, this.AV);
+        if (this.Ba.Bx) {
+            canvas.drawRect(this.AX, this.AT);
         }
     }
 
     @Override // com.baidu.adp.newwidget.a.a
     public void a(Canvas canvas, ImageView imageView) {
-        if (this.Bc.BH != 0) {
+        if (this.Ba.BF != 0) {
             int scrollX = imageView.getScrollX();
             int scrollY = imageView.getScrollY();
             canvas.translate(scrollX, scrollY);
-            this.Bf.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            this.AW.setColor(this.Bc.BH);
-            canvas.drawRect(this.Bf, this.AW);
+            this.Bd.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+            this.AU.setColor(this.Ba.BF);
+            canvas.drawRect(this.Bd, this.AU);
             canvas.translate(-scrollX, -scrollY);
         }
     }

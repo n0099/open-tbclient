@@ -5,11 +5,11 @@ import android.widget.ImageView;
 import com.baidu.tieba.account.ActivationActivity;
 /* loaded from: classes.dex */
 class q implements View.OnClickListener {
-    final /* synthetic */ ActivationActivity aEn;
+    final /* synthetic */ ActivationActivity aFV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(ActivationActivity activationActivity) {
-        this.aEn = activationActivity;
+        this.aFV = activationActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,25 +24,25 @@ class q implements View.OnClickListener {
         ActivationActivity.b bVar4;
         ActivationActivity.a aVar3;
         ActivationActivity.a aVar4;
-        view2 = this.aEn.mBack;
+        view2 = this.aFV.mBack;
         if (view != view2) {
-            if (view != this.aEn.aEa) {
-                if (view != this.aEn.aEb) {
-                    imageView = this.aEn.aDV;
+            if (view != this.aFV.aFI) {
+                if (view != this.aFV.aFJ) {
+                    imageView = this.aFV.aFD;
                     if (view == imageView) {
-                        this.aEn.aDZ.setText((CharSequence) null);
+                        this.aFV.aFH.setText((CharSequence) null);
                         return;
                     }
                     return;
-                } else if (this.aEn.aEe) {
-                    bVar = this.aEn.aEc;
+                } else if (this.aFV.aFM) {
+                    bVar = this.aFV.aFK;
                     if (bVar == null) {
-                        aVar = this.aEn.aEd;
+                        aVar = this.aFV.aFL;
                         if (aVar == null) {
-                            this.aEn.aEc = new ActivationActivity.b(this.aEn, null);
-                            bVar2 = this.aEn.aEc;
+                            this.aFV.aFK = new ActivationActivity.b(this.aFV, null);
+                            bVar2 = this.aFV.aFK;
                             bVar2.setPriority(3);
-                            bVar3 = this.aEn.aEc;
+                            bVar3 = this.aFV.aFK;
                             bVar3.execute(new String[0]);
                             return;
                         }
@@ -53,14 +53,14 @@ class q implements View.OnClickListener {
                     return;
                 }
             }
-            aVar2 = this.aEn.aEd;
+            aVar2 = this.aFV.aFL;
             if (aVar2 == null) {
-                bVar4 = this.aEn.aEc;
+                bVar4 = this.aFV.aFK;
                 if (bVar4 == null) {
-                    this.aEn.aEd = new ActivationActivity.a(this.aEn, null);
-                    aVar3 = this.aEn.aEd;
+                    this.aFV.aFL = new ActivationActivity.a(this.aFV, null);
+                    aVar3 = this.aFV.aFL;
                     aVar3.setPriority(3);
-                    aVar4 = this.aEn.aEd;
+                    aVar4 = this.aFV.aFL;
                     aVar4.execute(new String[0]);
                     return;
                 }
@@ -68,7 +68,7 @@ class q implements View.OnClickListener {
             }
             return;
         }
-        this.aEn.setResult(0);
-        this.aEn.finish();
+        this.aFV.setResult(0);
+        this.aFV.finish();
     }
 }

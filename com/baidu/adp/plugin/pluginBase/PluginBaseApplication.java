@@ -173,7 +173,7 @@ public class PluginBaseApplication extends Application {
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
         com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.Ew);
-        return plugin2.kt() != null ? plugin2.kt() : this.Ev.getResources();
+        return plugin2.kq() != null ? plugin2.kq() : this.Ev.getResources();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context

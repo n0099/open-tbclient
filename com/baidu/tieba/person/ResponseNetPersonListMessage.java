@@ -54,11 +54,11 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && this.mModel != null && this.mModel.getPage() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
             BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
-            boolean z = tag != null && tag.equals(bs.ckm);
+            boolean z = tag != null && tag.equals(bs.clh);
             String str = new String(bArr);
-            com.baidu.adp.lib.cache.o<String> ck = com.baidu.tbadk.core.b.a.sM().ck("tb.my_pages");
-            if (ck != null) {
-                ck.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.mModel.getId(), str, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            com.baidu.adp.lib.cache.o<String> cq = com.baidu.tbadk.core.b.a.sR().cq("tb.my_pages");
+            if (cq != null) {
+                cq.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.mModel.getId(), str, TbConfig.APP_OVERDUR_DRAFT_BOX);
             }
         }
     }

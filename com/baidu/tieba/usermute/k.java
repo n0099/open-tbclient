@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import tbclient.UserMuteQuery.MuteUser;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.base.e {
-    public static int cOY = 0;
-    private com.baidu.adp.framework.listener.a cOZ = new l(this, CmdConfigHttp.CMD_USER_MUTE_QUERY, 303028);
-    private a czd;
+    public static int cXF = 0;
+    private a cHB;
+    private com.baidu.adp.framework.listener.a cXG = new l(this, CmdConfigHttp.CMD_USER_MUTE_QUERY, 303028);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -20,8 +20,8 @@ public class k extends com.baidu.adp.base.e {
     }
 
     public k(a aVar) {
-        this.czd = aVar;
-        registerListener(this.cOZ);
+        this.cHB = aVar;
+        registerListener(this.cXG);
         com.baidu.tieba.tbadkCore.a.a.c(303028, UserMuteQuerySocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303028, CmdConfigHttp.CMD_USER_MUTE_QUERY, TbConfig.USER_MUTE_QUERY, UserMuteQueryHttpResponsedMessage.class, false, false, true, false);
     }
@@ -34,7 +34,7 @@ public class k extends com.baidu.adp.base.e {
         sendMessage(userMuteQueryRequestMessage);
     }
 
-    public void aB(long j) {
+    public void aG(long j) {
         a(j, 1, 10);
     }
 
@@ -50,6 +50,6 @@ public class k extends com.baidu.adp.base.e {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cOZ);
+        MessageManager.getInstance().unRegisterListener(this.cXG);
     }
 }

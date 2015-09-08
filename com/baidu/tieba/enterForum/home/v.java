@@ -5,34 +5,34 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v extends CustomMessageListener {
-    final /* synthetic */ d aMD;
+    final /* synthetic */ d aMQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(d dVar, int i) {
         super(i);
-        this.aMD = dVar;
+        this.aMQ = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean IA;
+        boolean Io;
         boolean z;
         com.baidu.tieba.enterForum.c.c cVar;
         com.baidu.tieba.enterForum.c.c cVar2;
-        this.aMD.aMm.Jk();
-        IA = this.aMD.IA();
-        if (IA) {
-            this.aMD.aMm.Jj();
-            cVar = this.aMD.aMn;
-            cVar.J(this.aMD.aMm.Jm());
-            cVar2 = this.aMD.aMn;
-            cVar2.eM(this.aMD.aMm.IZ());
+        this.aMQ.aMz.IY();
+        Io = this.aMQ.Io();
+        if (Io) {
+            this.aMQ.aMz.IX();
+            cVar = this.aMQ.aMA;
+            cVar.K(this.aMQ.aMz.Ja());
+            cVar2 = this.aMQ.aMA;
+            cVar2.eT(this.aMQ.aMz.IN());
         }
-        z = this.aMD.aMr;
+        z = this.aMQ.aME;
         if (z) {
-            this.aMD.aMm.ny();
+            this.aMQ.aMz.nv();
         }
     }
 }

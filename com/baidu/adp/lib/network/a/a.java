@@ -17,21 +17,21 @@ import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
     private static String sCuid;
+    private static String vg;
+    private static String vh;
     private static String vi;
-    private static String vj;
-    private static String vk;
-    private static boolean vl;
-    private e vm;
-    private c vn;
-    private long vo;
+    private static boolean vj;
+    private e vk;
+    private c vl;
+    private long vm;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
-        this.vo = com.baidu.adp.lib.stats.a.hk().hm();
+        this.vm = com.baidu.adp.lib.stats.a.hh().hj();
     }
 
     public static void aj(String str) {
-        vi = str;
+        vg = str;
     }
 
     public static void setCuid(String str) {
@@ -39,24 +39,24 @@ public class a {
     }
 
     public static void setUserAgent(String str) {
-        vj = str;
+        vh = str;
     }
 
     public static void setUid(String str) {
-        vk = str;
+        vi = str;
     }
 
     public static void setKeepAlive(boolean z) {
-        vl = z;
+        vj = z;
     }
 
     public g a(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) {
-        this.vm = new e();
-        a(this.vm, z);
-        this.vm.gS().setUrl(str);
-        this.vn = new c(this.vm);
-        this.vn.f(i, i3, i4);
-        return this.vm.gT();
+        this.vk = new e();
+        a(this.vk, z);
+        this.vk.gP().setUrl(str);
+        this.vl = new c(this.vk);
+        this.vl.e(i, i3, i4);
+        return this.vk.gQ();
     }
 
     public g a(String str, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) {
@@ -64,52 +64,52 @@ public class a {
     }
 
     public g a(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) {
-        this.vm = new e();
-        a(this.vm, z);
-        this.vm.gS().setUrl(str);
+        this.vk = new e();
+        a(this.vk, z);
+        this.vk.gP().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.vm.gS().a(basicNameValuePair);
+                this.vk.gP().a(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.vm.gS().p(next.getName(), next.getValue());
+                this.vk.gP().p(next.getName(), next.getValue());
             }
         }
-        this.vn = new c(this.vm);
-        this.vn.h(i, i2, -1);
-        return this.vm.gT();
+        this.vl = new c(this.vk);
+        this.vl.g(i, i2, -1);
+        return this.vk.gQ();
     }
 
     public g a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, LinkedList<BasicNameValuePair> linkedList) {
-        this.vm = new e();
-        a(this.vm, z);
-        this.vm.gS().setUrl(str);
+        this.vk = new e();
+        a(this.vk, z);
+        this.vk.gP().setUrl(str);
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.vm.gS().p(next.getName(), next.getValue());
+                this.vk.gP().p(next.getName(), next.getValue());
             }
         }
         if (arrayList != null) {
             Iterator<BasicNameValuePair> it2 = arrayList.iterator();
             while (it2.hasNext()) {
                 BasicNameValuePair next2 = it2.next();
-                this.vm.gS().o(next2.getName(), next2.getValue());
+                this.vk.gP().o(next2.getName(), next2.getValue());
             }
         }
         if (hashMap != null) {
             for (Map.Entry<String, byte[]> entry : hashMap.entrySet()) {
-                this.vm.gS().d(entry.getKey(), entry.getValue());
+                this.vk.gP().d(entry.getKey(), entry.getValue());
             }
         }
-        this.vn = new c(this.vm);
-        this.vn.h(i, i2, -1);
-        return this.vm.gT();
+        this.vl = new c(this.vk);
+        this.vl.g(i, i2, -1);
+        return this.vk.gQ();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, h hVar, boolean z2) {
@@ -117,11 +117,11 @@ public class a {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, h hVar, boolean z2, boolean z3) {
-        this.vm = new e();
-        a(this.vm);
-        this.vm.gS().setUrl(str);
-        this.vn = new c(this.vm);
-        return this.vn.a(str2, hVar, i, i2, i3, i4, z2, z3);
+        this.vk = new e();
+        a(this.vk);
+        this.vk.gP().setUrl(str);
+        this.vl = new c(this.vk);
+        return this.vl.a(str2, hVar, i, i2, i3, i4, z2, z3);
     }
 
     public a() {
@@ -129,48 +129,48 @@ public class a {
     }
 
     public void cancel() {
-        if (this.vn != null) {
-            this.vn.cancel();
+        if (this.vl != null) {
+            this.vl.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.vn != null) {
-            return this.vn.gO();
+        if (this.vl != null) {
+            return this.vl.gL();
         }
         return false;
     }
 
-    public e gZ() {
-        return this.vm;
+    public e gW() {
+        return this.vk;
     }
 
     private void a(e eVar, boolean z) {
         if (eVar != null) {
-            if (!TextUtils.isEmpty(vi)) {
-                eVar.gS().p("Cookie", vi);
+            if (!TextUtils.isEmpty(vg)) {
+                eVar.gP().p("Cookie", vg);
             } else {
-                eVar.gS().p("Cookie", "");
+                eVar.gP().p("Cookie", "");
             }
-            if (!TextUtils.isEmpty(vk)) {
-                eVar.gS().p("client_user_token", vk);
+            if (!TextUtils.isEmpty(vi)) {
+                eVar.gP().p("client_user_token", vi);
             }
-            if (!TextUtils.isEmpty(vj)) {
-                eVar.gS().p("User-Agent", vj);
+            if (!TextUtils.isEmpty(vh)) {
+                eVar.gP().p("User-Agent", vh);
             }
             if (z) {
-                eVar.gS().p("Accept-Encoding", "gzip");
+                eVar.gP().p("Accept-Encoding", "gzip");
             } else {
-                eVar.gS().p("Accept-Encoding", "");
+                eVar.gP().p("Accept-Encoding", "");
             }
-            if (vl) {
-                eVar.gS().p("Connection", "Keep-Alive");
+            if (vj) {
+                eVar.gP().p("Connection", "Keep-Alive");
             } else {
-                eVar.gS().p("Connection", IntentConfig.CLOSE);
+                eVar.gP().p("Connection", IntentConfig.CLOSE);
             }
-            eVar.gS().p("client_logid", String.valueOf(this.vo));
+            eVar.gP().p("client_logid", String.valueOf(this.vm));
             if (!TextUtils.isEmpty(sCuid)) {
-                eVar.gS().p(SocialConstants.PARAM_CUID, sCuid);
+                eVar.gP().p(SocialConstants.PARAM_CUID, sCuid);
             }
         }
     }

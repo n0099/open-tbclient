@@ -1,26 +1,30 @@
 package com.baidu.tbadk.coreExtra.act;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.SapiWebView;
-import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends TimerTask {
-    final /* synthetic */ LoginActivity agE;
+public class w implements Runnable {
+    final /* synthetic */ LoginActivity agO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(LoginActivity loginActivity) {
-        this.agE = loginActivity;
+        this.agO = loginActivity;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
+    @Override // java.lang.Runnable
     public void run() {
         SapiWebView sapiWebView;
         SapiWebView sapiWebView2;
-        sapiWebView = this.agE.agw;
-        if (sapiWebView != null) {
-            sapiWebView2 = this.agE.agw;
-            sapiWebView2.destroy();
-            this.agE.agw = null;
+        try {
+            sapiWebView = this.agO.agG;
+            if (sapiWebView != null) {
+                sapiWebView2 = this.agO.agG;
+                sapiWebView2.destroy();
+                this.agO.agG = null;
+            }
+        } catch (Throwable th) {
+            BdLog.e(th);
         }
     }
 }

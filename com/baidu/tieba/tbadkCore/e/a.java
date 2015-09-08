@@ -4,72 +4,72 @@ import com.baidu.adp.lib.util.i;
 import com.baidu.location.LocationClientOption;
 /* loaded from: classes.dex */
 public class a {
-    private com.baidu.adp.lib.stats.d cJg;
-    private final int cJh = 10;
-    private final int cJi = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
-    public String cJj = null;
-    public boolean acc = false;
+    private com.baidu.adp.lib.stats.d cRG;
+    private final int cRH = 10;
+    private final int cRI = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+    public String cRJ = null;
+    public boolean acm = false;
 
     public a(String str) {
-        F(str, false);
+        H(str, false);
     }
 
-    public void F(String str, boolean z) {
-        this.cJj = str;
-        this.acc = z;
-        this.cJg = new com.baidu.adp.lib.stats.d("dbg");
+    public void H(String str, boolean z) {
+        this.cRJ = str;
+        this.acm = z;
+        this.cRG = new com.baidu.adp.lib.stats.d("dbg");
         b.g(str, getNetType(), z);
     }
 
     public void start() {
-        this.cJg.hA();
+        this.cRG.hx();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j) {
-        long hB = this.cJg.hB();
+        long hy = this.cRG.hy();
         long j2 = 0;
         long j3 = 0;
         if (z) {
-            j2 = hB;
+            j2 = hy;
         } else {
-            j3 = hB;
+            j3 = hy;
         }
         a(z, z2, i, str, j, j2, j3);
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e aql;
-        if (this.cJg != null && (aql = aql()) != null) {
+        e auz;
+        if (this.cRG != null && (auz = auz()) != null) {
             if (z) {
-                if (aql.cJo != null) {
-                    aql.cJo.num++;
+                if (auz.cRO != null) {
+                    auz.cRO.num++;
                     if (z2) {
-                        aql.cJo.cJl += j2;
-                        aql.cJo.size += j;
+                        auz.cRO.cRL += j2;
+                        auz.cRO.size += j;
                     } else {
-                        aql.cJo.cJm++;
+                        auz.cRO.cRM++;
                     }
                 } else {
                     return;
                 }
-            } else if (aql.cJp != null) {
-                aql.cJp.num++;
+            } else if (auz.cRP != null) {
+                auz.cRP.num++;
                 if (z2) {
-                    aql.cJp.cJl += j3;
-                    aql.cJp.size += j;
+                    auz.cRP.cRL += j3;
+                    auz.cRP.size += j;
                     j2 = j3;
                 } else {
-                    aql.cJp.cJm++;
+                    auz.cRP.cRM++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.cJg = null;
+            this.cRG = null;
             if (z2) {
-                b.a(aql, 10);
+                b.a(auz, 10);
             }
-            if (this.cJj == "frsStat") {
+            if (this.cRJ == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.d dVar = new com.baidu.adp.lib.stats.d("dbg");
                     dVar.q("act", "frs");
@@ -79,41 +79,41 @@ public class a {
                     dVar.q("errCode", String.valueOf(i));
                     dVar.q("errMsg", str);
                     dVar.q("down", String.valueOf(j));
-                    com.baidu.adp.lib.stats.a.hk().b("frs", dVar);
+                    com.baidu.adp.lib.stats.a.hh().b("frs", dVar);
                 }
             }
         }
     }
 
     public void destory() {
-        e aql;
-        if (this.cJg != null && (aql = aql()) != null && aql.cJq != null) {
-            long hB = this.cJg.hB();
-            if (hB > 3000) {
-                d dVar = aql.cJq;
-                dVar.cJl = hB + dVar.cJl;
-                aql.cJq.num++;
-                b.a(aql, 10);
+        e auz;
+        if (this.cRG != null && (auz = auz()) != null && auz.cRQ != null) {
+            long hy = this.cRG.hy();
+            if (hy > 3000) {
+                d dVar = auz.cRQ;
+                dVar.cRL = hy + dVar.cRL;
+                auz.cRQ.num++;
+                b.a(auz, 10);
             }
         }
     }
 
-    private e aql() {
-        return b.h(this.cJj, getNetType(), this.acc);
+    private e auz() {
+        return b.h(this.cRJ, getNetType(), this.acm);
     }
 
     private String getNetType() {
-        int iU = i.iU();
-        if (iU == 0) {
+        int iR = i.iR();
+        if (iR == 0) {
             return "N";
         }
-        if (iU == 1) {
+        if (iR == 1) {
             return "WIFI";
         }
-        if (iU == 3) {
+        if (iR == 3) {
             return "3G";
         }
-        if (iU != 2) {
+        if (iR != 2) {
             return "N";
         }
         return "2G";

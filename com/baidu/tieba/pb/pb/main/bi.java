@@ -5,104 +5,104 @@ import com.baidu.location.BDLocationStatusCodes;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class bi {
-    private static bi cbM;
-    private com.baidu.adp.lib.cache.o<byte[]> cbN = null;
-    private com.baidu.adp.lib.cache.o<byte[]> cbO = null;
-    private long cbP = 0;
-    private long cbQ = 0;
+    private static bi ccH;
+    private com.baidu.adp.lib.cache.o<byte[]> ccI = null;
+    private com.baidu.adp.lib.cache.o<byte[]> ccJ = null;
+    private long ccK = 0;
+    private long ccL = 0;
 
-    public static synchronized bi adv() {
+    public static synchronized bi adI() {
         bi biVar;
         synchronized (bi.class) {
-            if (cbM == null) {
-                cbM = new bi();
+            if (ccH == null) {
+                ccH = new bi();
             }
-            biVar = cbM;
+            biVar = ccH;
         }
         return biVar;
     }
 
     private bi() {
-        KG();
+        Ku();
     }
 
-    private void KG() {
-        if (this.cbN == null) {
+    private void Ku() {
+        if (this.ccI == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.cbN = com.baidu.tbadk.core.b.a.sM().cj("tb.pb_mark");
-            this.cbQ = System.currentTimeMillis() - currentTimeMillis;
+            this.ccI = com.baidu.tbadk.core.b.a.sR().cp("tb.pb_mark");
+            this.ccL = System.currentTimeMillis() - currentTimeMillis;
         }
-        if (this.cbO == null) {
+        if (this.ccJ == null) {
             long currentTimeMillis2 = System.currentTimeMillis();
-            this.cbO = com.baidu.tbadk.core.b.a.sM().cj("tb.pb_normal");
-            this.cbP = System.currentTimeMillis() - currentTimeMillis2;
+            this.ccJ = com.baidu.tbadk.core.b.a.sR().cp("tb.pb_normal");
+            this.ccK = System.currentTimeMillis() - currentTimeMillis2;
         }
     }
 
-    public void w(String str, boolean z) {
+    public void y(String str, boolean z) {
         if (z) {
-            if (this.cbN != null && str != null) {
-                this.cbN.b(str, new byte[0], 0L);
+            if (this.ccI != null && str != null) {
+                this.ccI.b(str, new byte[0], 0L);
             }
-        } else if (this.cbO != null && str != null) {
-            this.cbO.b(str, new byte[0], 0L);
+        } else if (this.ccJ != null && str != null) {
+            this.ccJ.b(str, new byte[0], 0L);
         }
     }
 
-    public byte[] x(String str, boolean z) {
+    public byte[] z(String str, boolean z) {
         o.b<byte[]> ac;
         long currentTimeMillis = System.currentTimeMillis();
         long j = 0;
         if (z) {
-            if (this.cbN != null && str != null) {
-                ac = this.cbN.ac(str);
-                j = this.cbQ;
+            if (this.ccI != null && str != null) {
+                ac = this.ccI.ac(str);
+                j = this.ccL;
             }
             ac = null;
         } else {
-            if (this.cbO != null && str != null) {
-                ac = this.cbO.ac(str);
-                j = this.cbP;
+            if (this.ccJ != null && str != null) {
+                ac = this.ccJ.ac(str);
+                j = this.ccK;
             }
             ac = null;
         }
-        if (ac == null || ac.so == null) {
+        if (ac == null || ac.sl == null) {
             return null;
         }
         com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
-        tVar.eq(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-        tVar.axs = (System.currentTimeMillis() - currentTimeMillis) + j;
-        tVar.Ea();
-        return ac.so;
+        tVar.ey(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+        tVar.aza = (System.currentTimeMillis() - currentTimeMillis) + j;
+        tVar.Ek();
+        return ac.sl;
     }
 
     public void a(String str, boolean z, byte[] bArr) {
         if (str != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            KG();
+            Ku();
             if (z) {
-                this.cbN.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+                this.ccI.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
-                this.cbO.a(str, bArr, 86400000L);
+                this.ccJ.a(str, bArr, 86400000L);
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
-            tVar.eq(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-            tVar.axt = currentTimeMillis2;
-            tVar.Eb();
+            tVar.ey(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+            tVar.azb = currentTimeMillis2;
+            tVar.El();
         }
     }
 
     public void m(String str, byte[] bArr) {
         if (bArr != null && str != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            KG();
-            this.cbN.a(str, bArr, 2592000000L);
+            Ku();
+            this.ccI.a(str, bArr, 2592000000L);
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
-            tVar.eq(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-            tVar.axt = currentTimeMillis2;
-            tVar.Eb();
+            tVar.ey(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+            tVar.azb = currentTimeMillis2;
+            tVar.El();
         }
     }
 }

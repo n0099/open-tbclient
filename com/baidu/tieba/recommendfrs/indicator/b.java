@@ -7,29 +7,29 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements com.baidu.tieba.recommendfrs.b {
-    final /* synthetic */ a ctk;
+    final /* synthetic */ a cBC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.ctk = aVar;
+        this.cBC = aVar;
     }
 
     @Override // com.baidu.tieba.recommendfrs.b
-    public void U(String str, int i) {
+    public void W(String str, int i) {
         ArrayList arrayList;
         ArrayList arrayList2;
         ArrayList arrayList3;
         if (!StringUtils.isNull(str) && i >= 0) {
-            arrayList = this.ctk.rM;
+            arrayList = this.cBC.rK;
             if (arrayList != null) {
-                arrayList2 = this.ctk.rM;
+                arrayList2 = this.cBC.rK;
                 if (arrayList2.size() > 0) {
-                    arrayList3 = this.ctk.rM;
+                    arrayList3 = this.cBC.rK;
                     Iterator it = arrayList3.iterator();
                     while (it.hasNext()) {
                         com.baidu.tieba.recommendfrs.data.e eVar = (com.baidu.tieba.recommendfrs.data.e) it.next();
                         if (eVar != null && TextUtils.equals(str, eVar.getTag())) {
-                            eVar.je(i);
+                            eVar.jO(i);
                             return;
                         }
                     }

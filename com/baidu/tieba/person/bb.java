@@ -3,31 +3,31 @@ package com.baidu.tieba.person;
 import com.baidu.tbadk.core.view.x;
 /* loaded from: classes.dex */
 class bb implements x.a {
-    final /* synthetic */ av cjG;
+    final /* synthetic */ av ckB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(av avVar) {
-        this.cjG = avVar;
+        this.ckB = avVar;
     }
 
     @Override // com.baidu.tbadk.core.view.x.a
     public void onListPullRefresh(boolean z) {
-        PersonFriendActivity agq;
+        PersonFriendActivity agG;
         be beVar;
         boolean z2;
-        PersonFriendActivity agq2;
+        PersonFriendActivity agG2;
         int i;
         int i2;
-        agq = this.cjG.agq();
-        if (agq != null) {
-            this.cjG.pageNum = 0;
-            this.cjG.cjB = true;
-            beVar = this.cjG.cjx;
-            z2 = this.cjG.mIsHost;
-            agq2 = this.cjG.agq();
-            String uid = agq2.getUid();
-            i = this.cjG.pageNum;
-            i2 = this.cjG.cjD;
+        agG = this.ckB.agG();
+        if (agG != null) {
+            this.ckB.pageNum = 0;
+            this.ckB.ckw = true;
+            beVar = this.ckB.cks;
+            z2 = this.ckB.mIsHost;
+            agG2 = this.ckB.agG();
+            String uid = agG2.getUid();
+            i = this.ckB.pageNum;
+            i2 = this.ckB.cky;
             beVar.a(z2, uid, i, i2);
         }
     }

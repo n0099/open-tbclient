@@ -1,46 +1,14 @@
 package com.baidu.tieba.account;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.app.Activity;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.a.a;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.atomData.RegisterActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class ae implements a.InterfaceC0040a {
-    final /* synthetic */ SapiFastRegActivity aFk;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(SapiFastRegActivity sapiFastRegActivity) {
-        this.aFk = sapiFastRegActivity;
-    }
-
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
-    public void cb(String str) {
-    }
-
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
-    public void a(AccountData accountData) {
-        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_cslogin_success", 0, "", new Object[0]);
-        if (!TextUtils.isEmpty(accountData.getAccount())) {
-            this.aFk.aFi = RegisterActivityConfig.LOGIN_USER;
-            this.aFk.r(accountData);
-            return;
-        }
-        this.aFk.f(accountData);
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: com.baidu.tieba.account.SapiFastRegActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
-    public void c(String str, int i, String str2) {
-        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_cslogin_fail", i, str2, new Object[0]);
-        this.aFk.showToast(i.C0057i.register_retry);
-        TbadkCoreApplication.m411getInst().login(this.aFk.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.aFk.getPageContext().getPageActivity(), (String) null, true, 11003)));
-        this.aFk.finish();
+class ae implements CustomMessageTask.CustomRunnable<Activity> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<com.baidu.tbadk.core.a.a> run(CustomMessage<Activity> customMessage) {
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_ACCOUT_LOGIN_HELPER, k.Gc());
     }
 }
