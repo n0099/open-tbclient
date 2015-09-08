@@ -348,8 +348,8 @@ public class LiveCardData implements ad, Serializable {
     public ArrayList<ac> getImages() {
         ArrayList<ac> arrayList = new ArrayList<>();
         ac acVar = new ac();
-        acVar.VY = this.portrait;
-        acVar.aau = 10;
+        acVar.Wg = this.portrait;
+        acVar.aaD = 10;
         arrayList.add(acVar);
         return arrayList;
     }

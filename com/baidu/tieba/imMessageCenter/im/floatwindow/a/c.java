@@ -3,118 +3,118 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 import android.graphics.Point;
 /* loaded from: classes.dex */
 public class c implements b {
-    private Point bHA;
-    private Point bHB;
-    private Point bHC;
-    private final int bHD;
-    private final int bHE;
-    private a bHF;
-    private int bHG;
+    private Point bIh;
+    private Point bIi;
+    private Point bIj;
+    private final int bIk;
+    private final int bIl;
+    private a bIm;
+    private int bIn;
     private float k;
 
     /* loaded from: classes.dex */
     public interface a {
-        void XJ();
+        void XL();
 
         void a(Point point);
     }
 
-    private int hq(int i) {
-        return (int) (((this.k * i) + this.bHA.y) - (this.k * this.bHA.x));
+    private int hA(int i) {
+        return (int) (((this.k * i) + this.bIh.y) - (this.k * this.bIh.x));
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (!this.bHC.equals(this.bHB)) {
-            switch (this.bHG) {
+        if (!this.bIj.equals(this.bIi)) {
+            switch (this.bIn) {
                 case 0:
-                    XQ();
-                    break;
-                case 1:
                     XS();
                     break;
-                case 2:
-                    XR();
-                    break;
-                case 3:
-                    XT();
-                    break;
-                case 4:
+                case 1:
                     XU();
                     break;
-                case 5:
+                case 2:
+                    XT();
+                    break;
+                case 3:
                     XV();
+                    break;
+                case 4:
+                    XW();
+                    break;
+                case 5:
+                    XX();
                     break;
             }
             return false;
         }
-        if (this.bHF != null) {
-            this.bHF.XJ();
+        if (this.bIm != null) {
+            this.bIm.XL();
         }
         return true;
     }
 
-    private void XQ() {
-        this.bHC.y += this.bHE;
-        if (this.bHC.y > this.bHB.y) {
-            this.bHC.y = this.bHB.y;
-        }
-        if (this.bHF != null) {
-            this.bHF.a(this.bHC);
-        }
-    }
-
-    private void XR() {
-        this.bHC.x += this.bHD;
-        if (this.bHC.x > this.bHB.x) {
-            this.bHC.x = this.bHB.x;
-        }
-        if (this.bHF != null) {
-            this.bHF.a(this.bHC);
-        }
-    }
-
     private void XS() {
-        this.bHC.y -= this.bHE;
-        if (this.bHC.y < this.bHB.y) {
-            this.bHC.y = this.bHB.y;
+        this.bIj.y += this.bIl;
+        if (this.bIj.y > this.bIi.y) {
+            this.bIj.y = this.bIi.y;
         }
-        if (this.bHF != null) {
-            this.bHF.a(this.bHC);
+        if (this.bIm != null) {
+            this.bIm.a(this.bIj);
         }
     }
 
     private void XT() {
-        this.bHC.x -= this.bHD;
-        if (this.bHC.x < this.bHB.x) {
-            this.bHC.x = this.bHB.x;
+        this.bIj.x += this.bIk;
+        if (this.bIj.x > this.bIi.x) {
+            this.bIj.x = this.bIi.x;
         }
-        if (this.bHF != null) {
-            this.bHF.a(this.bHC);
+        if (this.bIm != null) {
+            this.bIm.a(this.bIj);
         }
     }
 
     private void XU() {
-        this.bHC.x -= this.bHD;
-        this.bHC.y = hq(this.bHC.x);
-        if (this.bHC.x < this.bHB.x && this.bHC.y < this.bHB.y) {
-            this.bHC.x = this.bHB.x;
-            this.bHC.y = this.bHB.y;
+        this.bIj.y -= this.bIl;
+        if (this.bIj.y < this.bIi.y) {
+            this.bIj.y = this.bIi.y;
         }
-        if (this.bHF != null) {
-            this.bHF.a(this.bHC);
+        if (this.bIm != null) {
+            this.bIm.a(this.bIj);
         }
     }
 
     private void XV() {
-        this.bHC.x += this.bHD;
-        this.bHC.y = hq(this.bHC.x);
-        if (this.bHC.x > this.bHB.x && this.bHC.y > this.bHB.y) {
-            this.bHC.x = this.bHB.x;
-            this.bHC.y = this.bHB.y;
+        this.bIj.x -= this.bIk;
+        if (this.bIj.x < this.bIi.x) {
+            this.bIj.x = this.bIi.x;
         }
-        if (this.bHF != null) {
-            this.bHF.a(this.bHC);
+        if (this.bIm != null) {
+            this.bIm.a(this.bIj);
+        }
+    }
+
+    private void XW() {
+        this.bIj.x -= this.bIk;
+        this.bIj.y = hA(this.bIj.x);
+        if (this.bIj.x < this.bIi.x && this.bIj.y < this.bIi.y) {
+            this.bIj.x = this.bIi.x;
+            this.bIj.y = this.bIi.y;
+        }
+        if (this.bIm != null) {
+            this.bIm.a(this.bIj);
+        }
+    }
+
+    private void XX() {
+        this.bIj.x += this.bIk;
+        this.bIj.y = hA(this.bIj.x);
+        if (this.bIj.x > this.bIi.x && this.bIj.y > this.bIi.y) {
+            this.bIj.x = this.bIi.x;
+            this.bIj.y = this.bIi.y;
+        }
+        if (this.bIm != null) {
+            this.bIm.a(this.bIj);
         }
     }
 }

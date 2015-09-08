@@ -23,20 +23,20 @@ class c extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         int i;
         boolean z;
-        ai aiVar;
-        ai aiVar2;
+        am amVar;
+        am amVar2;
         int i2;
-        this.this$0.cMd = false;
-        i = this.this$0.cLV;
+        this.this$0.cUF = false;
+        i = this.this$0.cUx;
         if (i <= 0) {
-            i2 = this.this$0.cLY;
+            i2 = this.this$0.cUA;
             if (i2 <= 0) {
                 z = false;
                 if (z) {
-                    aiVar = this.this$0.cLT;
-                    aiVar.fG(false);
-                    aiVar2 = this.this$0.cLT;
-                    aiVar2.arY().fM(false);
+                    amVar = this.this$0.cUv;
+                    amVar.gr(false);
+                    amVar2 = this.this$0.cUv;
+                    amVar2.awl().gx(false);
                     return;
                 }
                 return;

@@ -6,7 +6,7 @@ public class c {
     private static volatile c DL;
     private b DM;
 
-    public static c mh() {
+    public static c me() {
         if (DL == null) {
             synchronized (c.class) {
                 if (DL == null) {
@@ -42,7 +42,7 @@ public class c {
             return false;
         }
         if (this.DM != null) {
-            for (BdFileDownloadData bdFileDownloadData : this.DM.mg()) {
+            for (BdFileDownloadData bdFileDownloadData : this.DM.md()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
                 }

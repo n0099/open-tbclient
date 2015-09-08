@@ -12,37 +12,37 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.im.data.a> Xe;
-    private IMBlackListActivity bIY;
-    private View.OnClickListener bIZ = new g(this);
+    private ArrayList<com.baidu.tieba.im.data.a> Xn;
+    private IMBlackListActivity bJF;
+    private View.OnClickListener bJG = new g(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(IMBlackListActivity iMBlackListActivity) {
-        this.bIY = iMBlackListActivity;
+        this.bJF = iMBlackListActivity;
     }
 
     public void setData(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
-        this.Xe = arrayList;
+        this.Xn = arrayList;
     }
 
     public void b(com.baidu.tieba.im.data.a aVar) {
-        if (this.Xe != null) {
-            this.Xe.remove(aVar);
+        if (this.Xn != null) {
+            this.Xn.remove(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Xe != null) {
-            return this.Xe.size();
+        if (this.Xn != null) {
+            return this.Xn.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.Xe != null) {
-            return this.Xe.get(i);
+        if (this.Xn != null) {
+            return this.Xn.get(i);
         }
         return null;
     }
@@ -67,45 +67,45 @@ public class f extends BaseAdapter {
         return null;
     }
 
-    private a Yw() {
+    private a Yy() {
         a aVar = new a(this, null);
-        aVar.rootView = LayoutInflater.from(this.bIY.getPageContext().getContext()).inflate(i.g.im_black_list_item, (ViewGroup) null);
-        aVar.bJb = (HeadImageView) aVar.rootView.findViewById(i.f.header_view);
-        aVar.bJb.setIsRound(true);
-        aVar.aII = (TextView) aVar.rootView.findViewById(i.f.user_name);
-        aVar.bJc = (Button) aVar.rootView.findViewById(i.f.remove_button);
+        aVar.rootView = LayoutInflater.from(this.bJF.getPageContext().getContext()).inflate(i.g.im_black_list_item, (ViewGroup) null);
+        aVar.bJI = (HeadImageView) aVar.rootView.findViewById(i.f.header_view);
+        aVar.bJI.setIsRound(true);
+        aVar.aIV = (TextView) aVar.rootView.findViewById(i.f.user_name);
+        aVar.bJJ = (Button) aVar.rootView.findViewById(i.f.remove_button);
         aVar.rootView.setTag(aVar);
-        aVar.bJc.setOnClickListener(this.bIZ);
+        aVar.bJJ.setOnClickListener(this.bJG);
         return aVar;
     }
 
     private a a(Object obj, com.baidu.tieba.im.data.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = Yw();
+            aVar2 = Yy();
         } else {
             aVar2 = (a) obj;
         }
-        a(aVar2, aVar.SJ());
-        aVar2.aII.setText(aVar.getUserName());
-        aVar2.bJc.setTag(aVar);
-        this.bIY.getLayoutMode().k(aVar2.rootView);
+        a(aVar2, aVar.SL());
+        aVar2.aIV.setText(aVar.getUserName());
+        aVar2.bJJ.setTag(aVar);
+        this.bJF.getLayoutMode().k(aVar2.rootView);
         return aVar2;
     }
 
     private void a(a aVar, String str) {
         if (str != null) {
-            aVar.bJb.setTag(str);
-            aVar.bJb.d(str, 12, false);
+            aVar.bJI.setTag(str);
+            aVar.bJI.d(str, 12, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public TextView aII;
-        public HeadImageView bJb;
-        public Button bJc;
+        public TextView aIV;
+        public HeadImageView bJI;
+        public Button bJJ;
         public View rootView;
 
         private a() {

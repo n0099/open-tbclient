@@ -16,11 +16,11 @@ public class i extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        Drawable mG = mG();
-        if (mG == null) {
+        Drawable mD = mD();
+        if (mD == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
-        Rect bounds = mG.getBounds();
+        Rect bounds = mD.getBounds();
         if (fontMetricsInt != null) {
             Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
             int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
@@ -37,16 +37,16 @@ public class i extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable mG = mG();
-        if (mG != null) {
+        Drawable mD = mD();
+        if (mD != null) {
             canvas.save();
-            canvas.translate(f, (((i5 - i3) - mG.getBounds().bottom) / 2) + i3);
-            mG.draw(canvas);
+            canvas.translate(f, (((i5 - i3) - mD.getBounds().bottom) / 2) + i3);
+            mD.draw(canvas);
             canvas.restore();
         }
     }
 
-    private Drawable mG() {
+    private Drawable mD() {
         WeakReference<Drawable> weakReference = this.Fe;
         Drawable drawable = null;
         if (weakReference != null) {

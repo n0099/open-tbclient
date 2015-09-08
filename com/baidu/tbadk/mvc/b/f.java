@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mvc.b;
 /* loaded from: classes.dex */
 public interface f extends d {
-    String CF();
+    String CP();
 
-    boolean fk(String str);
+    boolean fs(String str);
 }

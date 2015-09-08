@@ -61,8 +61,6 @@ public class PluginSettings implements Serializable, Cloneable {
         if (TextUtils.isEmpty(str) || pluginSetting == null) {
             return false;
         }
-        findPluginSetting(str);
-        removePluginSetting(str);
         this.mPlugins.put(str, pluginSetting);
         return true;
     }

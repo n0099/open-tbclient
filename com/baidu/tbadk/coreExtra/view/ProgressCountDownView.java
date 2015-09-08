@@ -57,7 +57,7 @@ public class ProgressCountDownView extends FrameLayout {
     public void setTime(long j, long j2, long j3) {
         this.mTotal = j;
         this.mWarnTime = j3;
-        this.mTimer = new ab(this, j, j2);
+        this.mTimer = new aa(this, j, j2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

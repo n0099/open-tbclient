@@ -2,7 +2,7 @@ package com.baidu.tieba.mention;
 /* loaded from: classes.dex */
 public class h extends ai {
     @Override // com.baidu.tieba.mention.ai, com.baidu.tbadk.mvc.b.e
-    public String CD() {
+    public String CN() {
         return "tb_user_atme";
     }
 
@@ -12,7 +12,7 @@ public class h extends ai {
     }
 
     @Override // com.baidu.tieba.mention.ai, com.baidu.tbadk.mvc.b.e
-    public boolean CE() {
+    public boolean CO() {
         return false;
     }
 }

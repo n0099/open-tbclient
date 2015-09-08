@@ -77,24 +77,24 @@ public class e extends com.baidu.adp.lib.webSocket.c {
         oy.removeCallbacks(ed());
     }
 
-    public void ef() {
+    public void onRemove() {
         ee();
         this.oD = false;
     }
 
-    public long eg() {
+    public long ef() {
         return this.oG;
     }
 
     @Override // com.baidu.adp.lib.webSocket.p
-    public void eh() {
+    public void eg() {
         if (this.oG == 0) {
             this.oG = System.currentTimeMillis();
         }
-        k.a("SenderData", this.oA.getCmd(), this.oA.getClientLogID(), this.ou, "StartSend", 0, "SenderData: start send size = " + (jw() != null ? jw().length : 0));
+        k.a("SenderData", this.oA.getCmd(), this.oA.getClientLogID(), this.ou, "StartSend", 0, "SenderData: start send size = " + (jt() != null ? jt().length : 0));
         oy.removeCallbacks(ed());
         if (this.ov.getTimeOut() != null) {
-            oy.postDelayed(ed(), this.ov.getTimeOut().fa());
+            oy.postDelayed(ed(), this.ov.getTimeOut().eX());
         }
         ec();
     }
@@ -106,57 +106,57 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     }
 
     @Override // com.baidu.adp.lib.webSocket.p
-    public void ei() {
+    public void eh() {
         int i;
         int cmd = this.oA.getCmd();
-        if (jw() != null) {
-            int length = jw().length;
+        if (jt() != null) {
+            int length = jt().length;
             this.oA.setEncodedBinarySize(length);
             i = length;
         } else {
             i = 0;
         }
         k.a("SenderData", cmd, this.oA.getClientLogID(), this.ou, "FinishSend", 0, "SenderData: finish send  size = " + i);
-        if (!this.ov.fd()) {
+        if (!this.ov.fa()) {
             oy.removeCallbacks(ed());
         }
         eb();
     }
 
-    public CoderException ej() {
+    public CoderException ei() {
         return this.oz;
     }
 
-    public boolean ek() {
-        return this.ov.fd();
+    public boolean ej() {
+        return this.ov.fa();
     }
 
     public int getPriority() {
         return this.ov.getPriority();
     }
 
-    public SocketMessage el() {
+    public SocketMessage ek() {
         return this.oA;
     }
 
-    public SocketMessageTask em() {
+    public SocketMessageTask el() {
         return this.ov;
     }
 
     @Override // com.baidu.adp.lib.webSocket.c
-    protected byte[] en() {
+    protected byte[] em() {
         this.oz = null;
-        com.baidu.adp.framework.client.socket.coder.b eL = com.baidu.adp.framework.client.socket.coder.b.eL();
-        this.ou = g.eu().eo();
-        com.baidu.adp.lib.stats.a hk = com.baidu.adp.lib.stats.a.hk();
+        com.baidu.adp.framework.client.socket.coder.b eK = com.baidu.adp.framework.client.socket.coder.b.eK();
+        this.ou = g.et().en();
+        com.baidu.adp.lib.stats.a hh = com.baidu.adp.lib.stats.a.hh();
         long clientLogID = this.oA == null ? -1L : this.oA.getClientLogID();
         String valueOf = String.valueOf(this.ou & 4294967295L);
         Object[] objArr = new Object[2];
         objArr[0] = IntentConfig.CMD;
         objArr[1] = Integer.valueOf(this.oA == null ? -1 : this.oA.getCmd());
-        hk.a("seqid", clientLogID, valueOf, objArr);
+        hh.a("seqid", clientLogID, valueOf, objArr);
         try {
-            return eL.a(this.oA, this.ou, this.ov.fe(), this.ov.getNeedEncrypt());
+            return eK.a(this.oA, this.ou, this.ov.fb(), this.ov.getNeedEncrypt());
         } catch (CoderException e) {
             this.oz = e;
             return null;
@@ -170,29 +170,29 @@ public class e extends com.baidu.adp.lib.webSocket.c {
         return 0;
     }
 
-    public int eo() {
+    public int en() {
         return this.ou;
     }
 
-    public boolean ep() {
-        return this.ov.ff();
+    public boolean eo() {
+        return this.ov.fc();
     }
 
-    public int eq() {
+    public int ep() {
         return this.oF;
     }
 
-    public int er() {
+    public int eq() {
         int i = this.oF + 1;
         this.oF = i;
         return i;
     }
 
-    public int es() {
+    public int er() {
         return this.oE;
     }
 
-    public int et() {
+    public int es() {
         int i = this.oE + 1;
         this.oE = i;
         return i;

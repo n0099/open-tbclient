@@ -12,7 +12,7 @@ class e implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.g.h.hi().postDelayed(new f(this), 1000L);
-        g.akd().cuw.akk();
+        this.this$0.finish();
+        f.aoj().cCR.aor();
     }
 }

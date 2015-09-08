@@ -5,11 +5,11 @@ import android.view.View;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
 class ae implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity cjt;
+    final /* synthetic */ PersonChangeActivity cko;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(PersonChangeActivity personChangeActivity) {
-        this.cjt = personChangeActivity;
+        this.cko = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,26 +17,26 @@ class ae implements View.OnClickListener {
         int i;
         boolean z;
         com.baidu.tbadk.core.dialog.a aVar;
-        int sex = this.cjt.cjl.xR().getSex();
-        i = this.cjt.mSex;
+        int sex = this.cko.ckf.xY().getSex();
+        i = this.cko.mSex;
         if (sex != i) {
-            this.cjt.chV = true;
+            this.cko.ciQ = true;
         }
-        z = this.cjt.chV;
+        z = this.cko.ciQ;
         if (!z) {
-            if (this.cjt.cjl != null && this.cjt.cjl.xR().getPhotoChanged()) {
+            if (this.cko.ckf != null && this.cko.ckf.xY().getPhotoChanged()) {
                 Intent intent = new Intent();
-                if (this.cjt.ciZ.booleanValue()) {
-                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cjt.cjl.xR());
+                if (this.cko.cjT.booleanValue()) {
+                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cko.ckf.xY());
                 } else {
-                    intent.putExtra("data", this.cjt.cjl.xR());
+                    intent.putExtra("data", this.cko.ckf.xY());
                 }
-                this.cjt.setResult(-1, intent);
+                this.cko.setResult(-1, intent);
             }
-            this.cjt.finish();
+            this.cko.finish();
             return;
         }
-        aVar = this.cjt.cjp;
-        aVar.sP();
+        aVar = this.cko.ckk;
+        aVar.sU();
     }
 }

@@ -9,11 +9,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements AdapterView.OnItemClickListener {
-    final /* synthetic */ t cgt;
+    final /* synthetic */ t chq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(t tVar) {
-        this.cgt = tVar;
+        this.chq = tVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -26,28 +26,28 @@ public class ab implements AdapterView.OnItemClickListener {
         ArrayList arrayList2;
         ArrayList arrayList3;
         ArrayList arrayList4;
-        newSubPbActivity = this.cgt.cgc;
+        newSubPbActivity = this.chq.cgZ;
         if (bb.ah(newSubPbActivity.getPageContext().getPageActivity())) {
-            arrayList = this.cgt.cgo;
+            arrayList = this.chq.chm;
             if (arrayList != null) {
-                arrayList2 = this.cgt.cgo;
+                arrayList2 = this.chq.chm;
                 if (i < arrayList2.size()) {
-                    arrayList3 = this.cgt.cgo;
+                    arrayList3 = this.chq.chm;
                     if (arrayList3.get(i) != null) {
-                        t tVar = this.cgt;
-                        arrayList4 = this.cgt.cgo;
-                        tVar.cgp = ((com.baidu.tieba.tbadkCore.data.i) arrayList4.get(i)).getId();
+                        t tVar = this.chq;
+                        arrayList4 = this.chq.chm;
+                        tVar.chn = ((com.baidu.tieba.tbadkCore.data.i) arrayList4.get(i)).getId();
                         sparseArray = (SparseArray) view.getTag();
                         if (sparseArray == null && (str = (String) sparseArray.get(i.f.tag_photo_username)) != null) {
-                            nVar = this.cgt.bWp;
-                            nVar.eU(str);
-                            this.cgt.e(i, view);
+                            nVar = this.chq.bWV;
+                            nVar.fc(str);
+                            this.chq.e(i, view);
                             return;
                         }
                     }
                 }
             }
-            this.cgt.cgp = null;
+            this.chq.chn = null;
             sparseArray = (SparseArray) view.getTag();
             if (sparseArray == null) {
             }

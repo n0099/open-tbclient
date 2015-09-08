@@ -1,7 +1,18 @@
 package com.baidu.tieba.frs;
 
-import java.util.ArrayList;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public interface dc {
-    void a(int i, int i2, df dfVar, ArrayList<com.baidu.adp.widget.ListView.u> arrayList);
+public class dc extends x.a {
+    TextView aQj;
+    LinearLayout aWp;
+
+    public dc(View view) {
+        super(view);
+        this.aWp = (LinearLayout) view.findViewById(i.f.frs_top_item);
+        this.aQj = (TextView) view.findViewById(i.f.frs_top_title);
+    }
 }

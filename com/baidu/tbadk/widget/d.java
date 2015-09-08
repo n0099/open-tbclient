@@ -8,7 +8,7 @@ import android.view.ViewParent;
 import com.baidu.tbadk.core.util.al;
 /* loaded from: classes.dex */
 public class d extends TbImageView {
-    private Drawable aAv;
+    private Drawable aCd;
 
     public d(Context context) {
         super(context);
@@ -19,9 +19,9 @@ public class d extends TbImageView {
     }
 
     public void setForegroundDrawable(Drawable drawable) {
-        this.aAv = drawable;
-        if (this.aAv != null) {
-            this.aAv.setBounds(0, 0, this.aAv.getIntrinsicHeight(), this.aAv.getMinimumWidth());
+        this.aCd = drawable;
+        if (this.aCd != null) {
+            this.aCd.setBounds(0, 0, this.aCd.getIntrinsicHeight(), this.aCd.getMinimumWidth());
         }
         invalidate();
     }
@@ -31,7 +31,7 @@ public class d extends TbImageView {
     public void onDraw(Canvas canvas) {
         int i;
         super.onDraw(canvas);
-        if (this.aAv != null) {
+        if (this.aCd != null) {
             canvas.save();
             ViewParent parent = getParent();
             if (!(parent instanceof View)) {
@@ -43,8 +43,8 @@ public class d extends TbImageView {
             if (width <= i) {
                 i = width;
             }
-            canvas.translate((i / 2) - (this.aAv.getIntrinsicWidth() / 2), (getHeight() / 2) - (this.aAv.getIntrinsicHeight() / 2));
-            this.aAv.draw(canvas);
+            canvas.translate((i / 2) - (this.aCd.getIntrinsicWidth() / 2), (getHeight() / 2) - (this.aCd.getIntrinsicHeight() / 2));
+            this.aCd.draw(canvas);
             canvas.restore();
         }
     }

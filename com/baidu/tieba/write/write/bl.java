@@ -1,14 +1,10 @@
 package com.baidu.tieba.write.write;
 
-import android.widget.CompoundButton;
-import android.widget.HorizontalScrollView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.view.View;
+import java.util.Date;
 /* loaded from: classes.dex */
-public class bl implements CompoundButton.OnCheckedChangeListener {
+class bl implements View.OnClickListener {
     final /* synthetic */ WriteImageActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,36 +12,41 @@ public class bl implements CompoundButton.OnCheckedChangeListener {
         this.this$0 = writeImageActivity;
     }
 
-    @Override // android.widget.CompoundButton.OnCheckedChangeListener
-    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        RadioButton radioButton;
-        RadioButton radioButton2;
-        HorizontalScrollView horizontalScrollView;
-        LinearLayout linearLayout;
-        TextView textView;
-        HorizontalScrollView horizontalScrollView2;
-        LinearLayout linearLayout2;
-        TextView textView2;
-        if (z) {
-            radioButton = this.this$0.chJ;
-            if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.this$0.chG;
-                horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.this$0.chL;
-                linearLayout2.setVisibility(8);
-                textView2 = this.this$0.LM;
-                textView2.setText(this.this$0.getPageContext().getString(i.C0057i.beautify));
-                return;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        int i;
+        boolean z2;
+        boolean lN;
+        z = this.this$0.ccY;
+        if (!z) {
+            i = this.this$0.requestCode;
+            if (i == 12003) {
+                Intent intent = new Intent();
+                if (this.this$0.mProgress.getVisibility() != 0) {
+                    z2 = this.this$0.ciQ;
+                    if (z2 && this.this$0.ciJ != null && !this.this$0.ciJ.isRecycled()) {
+                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
+                        lN = this.this$0.lN(str);
+                        if (lN) {
+                            intent.putExtra("change", true);
+                            intent.putExtra("file_name", str);
+                        } else {
+                            intent.putExtra("change", false);
+                        }
+                    } else {
+                        intent.putExtra("change", false);
+                    }
+                    this.this$0.setResult(-1, intent);
+                } else {
+                    return;
+                }
+            } else {
+                this.this$0.setResult(0, new Intent());
             }
-            radioButton2 = this.this$0.chK;
-            if (compoundButton == radioButton2) {
-                horizontalScrollView = this.this$0.chG;
-                horizontalScrollView.setVisibility(8);
-                linearLayout = this.this$0.chL;
-                linearLayout.setVisibility(0);
-                textView = this.this$0.LM;
-                textView.setText(this.this$0.getPageContext().getString(i.C0057i.rotate));
-            }
+        } else {
+            this.this$0.setResult(0, new Intent());
         }
+        this.this$0.finish();
     }
 }

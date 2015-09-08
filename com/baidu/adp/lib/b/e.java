@@ -7,47 +7,47 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class e {
-    private static e tM = null;
-    private HashMap<String, d> tN;
+    private static e tK = null;
+    private HashMap<String, d> tL;
 
     private e() {
-        this.tN = null;
-        this.tN = new HashMap<>();
+        this.tL = null;
+        this.tL = new HashMap<>();
     }
 
-    public static synchronized e gy() {
+    public static synchronized e gv() {
         e eVar;
         synchronized (e.class) {
-            if (tM == null) {
-                tM = new e();
+            if (tK == null) {
+                tK = new e();
             }
-            eVar = tM;
+            eVar = tK;
         }
         return eVar;
     }
 
     public void a(c cVar) {
-        if (cVar != null && !this.tN.containsKey(cVar.getName())) {
-            this.tN.put(cVar.getName(), new d(cVar));
+        if (cVar != null && !this.tL.containsKey(cVar.getName())) {
+            this.tL.put(cVar.getName(), new d(cVar));
         }
     }
 
     public void crash(String str) {
-        Iterator<d> it = this.tN.values().iterator();
+        Iterator<d> it = this.tL.values().iterator();
         while (it.hasNext() && !it.next().ag(str)) {
         }
     }
 
     public boolean d(String str, int i) {
         d dVar;
-        if (i >= 0 && (dVar = this.tN.get(str)) != null) {
+        if (i >= 0 && (dVar = this.tL.get(str)) != null) {
             return dVar.J(i);
         }
         return false;
     }
 
     public int ah(String str) {
-        d dVar = this.tN.get(str);
+        d dVar = this.tL.get(str);
         if (dVar != null) {
             return dVar.getType();
         }
@@ -55,13 +55,13 @@ public class e {
     }
 
     public void clear() {
-        if (this.tN != null) {
+        if (this.tL != null) {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-            for (d dVar : this.tN.values()) {
+            for (d dVar : this.tL.values()) {
                 if (dVar != null) {
                     dVar.M(0);
-                    edit.putInt(String.valueOf(dVar.getName()) + d.tH, 0);
-                    edit.putInt(String.valueOf(dVar.getName()) + d.tI, dVar.getDefaultType());
+                    edit.putInt(String.valueOf(dVar.getName()) + d.tF, 0);
+                    edit.putInt(String.valueOf(dVar.getName()) + d.tG, dVar.getDefaultType());
                 }
             }
             edit.commit();

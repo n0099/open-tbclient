@@ -17,9 +17,10 @@ public class g implements a.c {
     public void J(String str, String str2) {
         PluginSetting findPluginSetting;
         boolean z;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mp().findPluginSetting(str)) != null) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mm().findPluginSetting(str)) != null) {
             if (!TextUtils.isEmpty(findPluginSetting.apkPath) && findPluginSetting.apkPath.equals(str2)) {
-                com.baidu.adp.plugin.packageManager.pluginSettings.c.mp().bB(str);
+                com.baidu.adp.plugin.b.a.lE().d("plugin_setting", "del_unuse_plugin_setting", findPluginSetting.packageName, "apkpath-" + findPluginSetting.apkPath + "-forbidden-" + findPluginSetting.forbidden + "-enable-" + findPluginSetting.enable + "-abandonapkpath-" + findPluginSetting.getAbandon_apk_path() + "-versioncode-" + findPluginSetting.versionCode);
+                com.baidu.adp.plugin.packageManager.pluginSettings.c.mm().bB(str);
             } else if (!TextUtils.isEmpty(findPluginSetting.getAbandon_apk_path())) {
                 String[] split = findPluginSetting.getAbandon_apk_path().split(",");
                 String str3 = "";
@@ -31,9 +32,9 @@ public class g implements a.c {
                         str3 = String.valueOf(str3) + str4;
                     }
                 }
-                com.baidu.adp.plugin.packageManager.pluginSettings.c mp = com.baidu.adp.plugin.packageManager.pluginSettings.c.mp();
+                com.baidu.adp.plugin.packageManager.pluginSettings.c mm = com.baidu.adp.plugin.packageManager.pluginSettings.c.mm();
                 z = this.this$0.Dt;
-                mp.b(str, str3, z);
+                mm.b(str, str3, z);
             }
         }
     }

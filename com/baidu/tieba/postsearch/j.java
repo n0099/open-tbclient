@@ -12,34 +12,35 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    public List<a> cmT = new ArrayList();
-    public com.baidu.tbadk.core.data.p coL = new com.baidu.tbadk.core.data.p();
+    public List<a> cnV = new ArrayList();
+    public com.baidu.tbadk.core.data.o cxi = new com.baidu.tbadk.core.data.o();
 
     /* loaded from: classes.dex */
     public static class a {
-        public int coM;
         public String content;
+        public int cxj;
         public String fname;
         public int is_floor;
         public String name;
         public String name_show;
         public long pid;
+        public int thread_type;
         public long tid;
         public long time;
         public String title;
     }
 
-    public boolean Wl() {
-        return (this.cmT == null || this.cmT.size() == 0) ? false : true;
+    public boolean Wn() {
+        return (this.cnV == null || this.cnV.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.coL != null && this.coL.rT() == 1;
+        return this.cxi != null && this.cxi.rQ() == 1;
     }
 
     public int getCurrentPage() {
-        if (this.coL != null) {
-            return this.coL.rR();
+        if (this.cxi != null) {
+            return this.cxi.rO();
         }
         return 0;
     }
@@ -56,10 +57,10 @@ public class j {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.coL.parserJson(jSONObject.getJSONObject("page"));
+                this.cxi.parserJson(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.cmT.clear();
+                    this.cnV.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -73,6 +74,7 @@ public class j {
                             long optLong2 = jSONObject2.optLong("tid", 0L);
                             int optInt = jSONObject2.optInt("is_floor", 0);
                             int optInt2 = jSONObject2.optInt("is_replay", 0);
+                            int optInt3 = jSONObject2.optInt("thread_type", 0);
                             a aVar = new a();
                             aVar.pid = optLong;
                             aVar.title = optString3;
@@ -81,10 +83,11 @@ public class j {
                             aVar.fname = optString5;
                             aVar.tid = optLong2;
                             aVar.is_floor = optInt;
-                            aVar.coM = optInt2;
+                            aVar.cxj = optInt2;
                             aVar.name = optString2;
                             aVar.name_show = optString;
-                            this.cmT.add(aVar);
+                            aVar.thread_type = optInt3;
+                            this.cnV.add(aVar);
                         }
                     }
                 }

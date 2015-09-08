@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ HorizontalTabView baR;
+    final /* synthetic */ HorizontalTabView bbl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(HorizontalTabView horizontalTabView) {
-        this.baR = horizontalTabView;
+        this.bbl = horizontalTabView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,15 +18,15 @@ public class b implements View.OnClickListener {
         f fVar2;
         TabItemView tabItemView2;
         if (view instanceof TabItemView) {
-            this.baR.a((TabItemView) view, false);
+            this.bbl.a((TabItemView) view, false);
         }
-        tabItemView = this.baR.baJ;
+        tabItemView = this.bbl.bbd;
         if (tabItemView != null) {
-            fVar = this.baR.baK;
+            fVar = this.bbl.bbe;
             if (fVar != null) {
-                fVar2 = this.baR.baK;
-                tabItemView2 = this.baR.baJ;
-                fVar2.fB(tabItemView2.getTabId());
+                fVar2 = this.bbl.bbe;
+                tabItemView2 = this.bbl.bbd;
+                fVar2.fK(tabItemView2.getTabId());
             }
         }
     }

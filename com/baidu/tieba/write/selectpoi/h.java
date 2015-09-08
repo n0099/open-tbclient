@@ -12,31 +12,31 @@ import com.baidu.tbadk.core.view.u;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private boolean aQA = false;
-    private u bhV;
-    private com.baidu.tieba.tbadkCore.location.i cRF;
-    private SearchLocationActivity cRG;
+    private boolean aQO = false;
+    private u bis;
+    private com.baidu.tieba.tbadkCore.location.i daq;
+    private SearchLocationActivity dar;
 
     public h(SearchLocationActivity searchLocationActivity) {
-        this.cRG = searchLocationActivity;
+        this.dar = searchLocationActivity;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cRF == null || this.cRF.aqL() == null || this.cRF.aqL().isEmpty()) {
-            this.aQA = false;
+        if (this.daq == null || this.daq.auZ() == null || this.daq.auZ().isEmpty()) {
+            this.aQO = false;
             return 1;
         }
-        this.aQA = true;
-        return this.cRF.aqL().size();
+        this.aQO = true;
+        return this.daq.auZ().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.cRF == null || this.cRF.aqL() == null || this.cRF.aqL().isEmpty()) {
+        if (this.daq == null || this.daq.auZ() == null || this.daq.auZ().isEmpty()) {
             return null;
         }
-        return this.cRF.aqL().get(i);
+        return this.daq.auZ().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -46,38 +46,38 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (!this.aQA) {
-            return A(viewGroup);
+        if (!this.aQO) {
+            return G(viewGroup);
         }
         a aVar = null;
         if (view != null && (view.getTag() instanceof a)) {
             aVar = (a) view.getTag();
         }
         if (aVar == null) {
-            view = LayoutInflater.from(this.cRG.getPageContext().getPageActivity()).inflate(i.g.location_search_item_layout, viewGroup, false);
-            aVar = ap(view);
+            view = LayoutInflater.from(this.dar.getPageContext().getPageActivity()).inflate(i.g.location_search_item_layout, viewGroup, false);
+            aVar = ay(view);
             view.setTag(aVar);
         }
         a aVar2 = aVar;
-        aVar2.cRH.setText(this.cRF.aqL().get(i).getName());
-        al.j(aVar2.line, i.c.cp_bg_line_b);
-        al.b(aVar2.cRH, i.c.cp_cont_b, 1);
-        al.i(view, i.e.home_recommend_item_bg);
+        aVar2.das.setText(this.daq.auZ().get(i).getName());
+        al.i(aVar2.line, i.c.cp_bg_line_b);
+        al.b(aVar2.das, i.c.cp_cont_b, 1);
+        al.h(view, i.e.home_recommend_item_bg);
         return view;
     }
 
     public void a(com.baidu.tieba.tbadkCore.location.i iVar) {
-        this.cRF = iVar;
+        this.daq = iVar;
     }
 
-    public boolean auh() {
-        return this.aQA;
+    public boolean ayA() {
+        return this.aQO;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        TextView cRH;
+        TextView das;
         View line;
 
         private a() {
@@ -88,18 +88,18 @@ public class h extends BaseAdapter {
         }
     }
 
-    public a ap(View view) {
+    public a ay(View view) {
         a aVar = new a(this, null);
-        aVar.cRH = (TextView) view.findViewById(i.f.location_search_address_name);
+        aVar.das = (TextView) view.findViewById(i.f.location_search_address_name);
         aVar.line = view.findViewById(i.f.location_search_line);
         return aVar;
     }
 
-    public View A(ViewGroup viewGroup) {
+    public View G(ViewGroup viewGroup) {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-        this.bhV = NoDataViewFactory.a(this.cRG.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cD(i.C0057i.text_try_to_chage_location), null);
-        this.bhV.onChangeSkinType(this.cRG.getPageContext(), skinType);
-        this.bhV.setVisibility(0);
-        return this.bhV;
+        this.bis = NoDataViewFactory.a(this.dar.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cJ(i.h.text_try_to_chage_location), null);
+        this.bis.onChangeSkinType(this.dar.getPageContext(), skinType);
+        this.bis.setVisibility(0);
+        return this.bis;
     }
 }

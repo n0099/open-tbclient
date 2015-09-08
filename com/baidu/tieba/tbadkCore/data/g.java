@@ -1,13 +1,13 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public interface g {
-    String apH();
+    String atU();
 
-    String apI();
+    String atV();
 
-    String apJ();
+    String atW();
 
-    String apK();
+    String atX();
 
-    long apL();
+    long atY();
 }

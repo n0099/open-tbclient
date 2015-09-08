@@ -9,18 +9,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 /* loaded from: classes.dex */
 class h implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext Sn;
-    final /* synthetic */ f adx;
+    private final /* synthetic */ TbPageContext Sk;
+    final /* synthetic */ f adH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar, TbPageContext tbPageContext) {
-        this.adx = fVar;
-        this.Sn = tbPageContext;
+        this.adH = fVar;
+        this.Sk = tbPageContext;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        RegisterActivityConfig registerActivityConfig = new RegisterActivityConfig(this.Sn.getPageActivity());
+        RegisterActivityConfig registerActivityConfig = new RegisterActivityConfig(this.Sk.getPageActivity());
         registerActivityConfig.setRequestCode(22002);
         registerActivityConfig.setIntentAction(IntentAction.ActivityForResult);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, registerActivityConfig));

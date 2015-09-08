@@ -12,13 +12,13 @@ import java.util.Set;
 /* loaded from: classes.dex */
 public class a {
     public static final List<Object> a(c cVar, int i) {
-        Class<?> fO = cVar.fO();
-        if (fO == List.class || fO == ArrayList.class) {
+        Class<?> fL = cVar.fL();
+        if (fL == List.class || fL == ArrayList.class) {
             return new ArrayList(i);
         }
-        Object a = com.baidu.adp.lib.a.a.a.a(fO, i);
+        Object a = com.baidu.adp.lib.a.a.a.a(fL, i);
         if (a == null) {
-            a = com.baidu.adp.lib.a.a.a.c(fO);
+            a = com.baidu.adp.lib.a.a.a.c(fL);
         }
         if (!(a instanceof List)) {
             return null;
@@ -27,13 +27,13 @@ public class a {
     }
 
     public static final Set<Object> b(c cVar, int i) {
-        Class<?> fO = cVar.fO();
-        if (fO == Set.class) {
+        Class<?> fL = cVar.fL();
+        if (fL == Set.class) {
             return new HashSet();
         }
-        Object a = com.baidu.adp.lib.a.a.a.a(fO, i);
+        Object a = com.baidu.adp.lib.a.a.a.a(fL, i);
         if (a == null) {
-            a = com.baidu.adp.lib.a.a.a.c(fO);
+            a = com.baidu.adp.lib.a.a.a.c(fL);
         }
         if (!(a instanceof Set)) {
             return null;
@@ -42,13 +42,13 @@ public class a {
     }
 
     public static final Queue<Object> c(c cVar, int i) {
-        Class<?> fO = cVar.fO();
-        if (fO == Queue.class) {
+        Class<?> fL = cVar.fL();
+        if (fL == Queue.class) {
             return new LinkedList();
         }
-        Object a = com.baidu.adp.lib.a.a.a.a(fO, i);
+        Object a = com.baidu.adp.lib.a.a.a.a(fL, i);
         if (a == null) {
-            a = com.baidu.adp.lib.a.a.a.c(fO);
+            a = com.baidu.adp.lib.a.a.a.c(fL);
         }
         if (!(a instanceof Queue)) {
             return null;
@@ -57,26 +57,26 @@ public class a {
     }
 
     public static final Map<String, Object> d(c cVar, int i) {
-        Class<?> fO = cVar.fO();
-        Type[] fN = cVar.fN();
-        if (com.baidu.adp.lib.a.a.a.a(fO, Map.class)) {
-            if (fN != null && fN.length >= 2 && fN[0] == String.class) {
-                if (fO == Map.class) {
+        Class<?> fL = cVar.fL();
+        Type[] fK = cVar.fK();
+        if (com.baidu.adp.lib.a.a.a.a(fL, Map.class)) {
+            if (fK != null && fK.length >= 2 && fK[0] == String.class) {
+                if (fL == Map.class) {
                     return new HashMap(i);
                 }
-                Object a = com.baidu.adp.lib.a.a.a.a(fO, i);
+                Object a = com.baidu.adp.lib.a.a.a.a(fL, i);
                 if (a == null) {
-                    a = com.baidu.adp.lib.a.a.a.c(fO);
+                    a = com.baidu.adp.lib.a.a.a.c(fL);
                 }
                 if (a instanceof Map) {
                     return (Map) a;
                 }
-            } else if (fO == Map.class) {
+            } else if (fL == Map.class) {
                 return new HashMap(i);
             } else {
-                Object a2 = com.baidu.adp.lib.a.a.a.a(fO, i);
+                Object a2 = com.baidu.adp.lib.a.a.a.a(fL, i);
                 if (a2 == null) {
-                    a2 = com.baidu.adp.lib.a.a.a.c(fO);
+                    a2 = com.baidu.adp.lib.a.a.a.c(fL);
                 }
                 if (a2 instanceof Map) {
                     return (Map) a2;

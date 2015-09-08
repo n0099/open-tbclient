@@ -8,15 +8,12 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class PhotoLiveListActivityConfig extends IntentConfig {
     public static final String CAN_SHOW_DELETE_BUTTON = "can_show_delete_button";
 
-    public PhotoLiveListActivityConfig(Context context) {
+    public PhotoLiveListActivityConfig(Context context, String str, boolean z, int i) {
         super(context);
-    }
-
-    public void createConfig(int i, boolean z, int i2) {
         Intent intent = getIntent();
-        intent.putExtra("forum_id", i);
+        intent.putExtra("forum_id", str);
         intent.putExtra(CAN_SHOW_DELETE_BUTTON, z);
-        setRequestCode(i2);
+        setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

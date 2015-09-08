@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 import com.baidu.tbadk.editortools.emotiontool.EmotionTabContentView;
 /* loaded from: classes.dex */
 class f implements AdapterView.OnItemClickListener {
-    final /* synthetic */ EmotionTabContentView.b apM;
+    final /* synthetic */ EmotionTabContentView.b arw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(EmotionTabContentView.b bVar) {
-        this.apM = bVar;
+        this.arw = bVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -24,16 +24,16 @@ class f implements AdapterView.OnItemClickListener {
         if (jVar != null) {
             com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
             EmotionTabContentView.a aVar = (EmotionTabContentView.a) adapterView.getAdapter();
-            if (aVar != null && aVar.AN() != null) {
-                o AN = aVar.AN();
-                int AM = aVar.AM();
-                v AR = AN.AR();
-                fVar.setName(AN.AR().dZ(AM + i));
-                fVar.a(AR.AZ());
-                fVar.dC(AR.getGroupName());
-                fVar.setPid(AR.getGroupId());
-                fVar.setWidth(AR.getWidth());
-                fVar.setHeight(AR.getHeight());
+            if (aVar != null && aVar.Ba() != null) {
+                o Ba = aVar.Ba();
+                int AZ = aVar.AZ();
+                v Be = Ba.Be();
+                fVar.setName(Ba.Be().eh(AZ + i));
+                fVar.a(Be.Bm());
+                fVar.dJ(Be.getGroupName());
+                fVar.setPid(Be.getGroupId());
+                fVar.setWidth(Be.getWidth());
+                fVar.setHeight(Be.getHeight());
                 emotionTabContentView2 = EmotionTabContentView.this;
                 jVar2 = emotionTabContentView2.Kz;
                 jVar2.b(new com.baidu.tbadk.editortools.a(24, -1, fVar));

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class LiveRecorderSwitchStatic extends a {
     static {
-        e.gy().e(LiveRecorderSwitchStatic.class);
+        e.gv().e(LiveRecorderSwitchStatic.class);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

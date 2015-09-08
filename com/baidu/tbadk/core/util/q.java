@@ -11,19 +11,19 @@ public interface q {
 
     void d(String str, byte[] bArr);
 
-    void gM();
+    void gJ();
 
-    void m(ArrayList<BasicNameValuePair> arrayList);
+    void l(ArrayList<BasicNameValuePair> arrayList);
 
     void o(String str, String str2);
 
-    ArrayList<BasicNameValuePair> tC();
+    ArrayList<BasicNameValuePair> tH();
 
-    String tD();
+    String tI();
 
-    byte[] tE();
+    byte[] tJ();
 
-    String tF();
+    String tK();
 
-    String tG();
+    String tL();
 }

@@ -5,28 +5,28 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ao;
-import com.baidu.tieba.frs.db;
-import com.baidu.tieba.frs.dc;
-import com.baidu.tieba.frs.de;
+import com.baidu.tieba.frs.dh;
+import com.baidu.tieba.frs.di;
+import com.baidu.tieba.frs.dj;
 import com.baidu.tieba.frs.view.FrsHeaderView;
 import java.net.URI;
 import java.net.URISyntaxException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements db {
-    final /* synthetic */ a bbz;
+public class b implements dh {
+    final /* synthetic */ a bbT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bbz = aVar;
+        this.bbT = aVar;
     }
 
-    @Override // com.baidu.tieba.frs.db
-    public void a(dc dcVar) {
+    @Override // com.baidu.tieba.frs.dh
+    public void a(di diVar) {
     }
 
-    @Override // com.baidu.tieba.frs.db
-    public void a(int i, int i2, de deVar) {
+    @Override // com.baidu.tieba.frs.dh
+    public void a(int i, int i2, dj djVar) {
         String str;
         String str2;
         com.baidu.tieba.frs.view.p pVar;
@@ -41,8 +41,8 @@ public class b implements db {
         BdListView bdListView3;
         FrsHeaderView frsHeaderView3;
         BdListView bdListView4;
-        db dbVar;
-        db dbVar2;
+        dh dhVar;
+        dh dhVar2;
         String str3;
         String str4;
         com.baidu.tieba.frs.view.p pVar4;
@@ -53,9 +53,9 @@ public class b implements db {
         FrsHeaderView frsHeaderView5;
         URI uri;
         if (i > 100) {
-            if (deVar != null && (deVar.aYH instanceof String)) {
+            if (djVar != null && (djVar.aYY instanceof String)) {
                 try {
-                    uri = new URI((String) deVar.aYH);
+                    uri = new URI((String) djVar.aYY);
                 } catch (URISyntaxException e) {
                     BdLog.e(e);
                     uri = null;
@@ -73,77 +73,77 @@ public class b implements db {
             TiebaStatic.log(aoVar2);
         }
         if (i != 1) {
-            str3 = this.bbz.bbp;
+            str3 = this.bbT.bbJ;
             if ("normal_page".equals(str3)) {
-                frsHeaderView4 = this.bbz.bbi;
+                frsHeaderView4 = this.bbT.bbC;
                 if (frsHeaderView4 != null) {
-                    bdListView6 = this.bbz.bbh;
-                    frsHeaderView5 = this.bbz.bbi;
-                    bdListView6.removeHeaderView(frsHeaderView5.NS());
-                    this.bbz.bbw = false;
+                    bdListView6 = this.bbT.bbB;
+                    frsHeaderView5 = this.bbT.bbC;
+                    bdListView6.removeHeaderView(frsHeaderView5.NT());
+                    this.bbT.bbQ = false;
                 }
             }
-            str4 = this.bbz.bbp;
+            str4 = this.bbT.bbJ;
             if ("frs_page".equals(str4)) {
-                pVar4 = this.bbz.bbj;
+                pVar4 = this.bbT.bbD;
                 if (pVar4 != null) {
-                    bdListView5 = this.bbz.bbh;
-                    pVar5 = this.bbz.bbj;
-                    bdListView5.removeHeaderView(pVar5.NS());
-                    this.bbz.bbw = false;
+                    bdListView5 = this.bbT.bbB;
+                    pVar5 = this.bbT.bbD;
+                    bdListView5.removeHeaderView(pVar5.NT());
+                    this.bbT.bbQ = false;
                 }
             }
         } else {
-            str = this.bbz.bbp;
+            str = this.bbT.bbJ;
             if ("normal_page".equals(str)) {
-                frsHeaderView = this.bbz.bbi;
+                frsHeaderView = this.bbT.bbC;
                 if (frsHeaderView != null) {
-                    frsHeaderView2 = this.bbz.bbi;
-                    if (frsHeaderView2.NS() != null) {
-                        z2 = this.bbz.bbw;
+                    frsHeaderView2 = this.bbT.bbC;
+                    if (frsHeaderView2.NT() != null) {
+                        z2 = this.bbT.bbQ;
                         if (!z2) {
-                            bdListView3 = this.bbz.bbh;
-                            frsHeaderView3 = this.bbz.bbi;
-                            View NS = frsHeaderView3.NS();
-                            bdListView4 = this.bbz.bbh;
-                            bdListView3.d(NS, bdListView4.getHeaderViewsCount());
-                            this.bbz.bbw = true;
+                            bdListView3 = this.bbT.bbB;
+                            frsHeaderView3 = this.bbT.bbC;
+                            View NT = frsHeaderView3.NT();
+                            bdListView4 = this.bbT.bbB;
+                            bdListView3.d(NT, bdListView4.getHeaderViewsCount());
+                            this.bbT.bbQ = true;
                         }
                     }
                 }
             }
-            str2 = this.bbz.bbp;
+            str2 = this.bbT.bbJ;
             if ("frs_page".equals(str2)) {
-                pVar = this.bbz.bbj;
+                pVar = this.bbT.bbD;
                 if (pVar != null) {
-                    pVar2 = this.bbz.bbj;
-                    if (pVar2.NS() != null) {
-                        z = this.bbz.bbw;
+                    pVar2 = this.bbT.bbD;
+                    if (pVar2.NT() != null) {
+                        z = this.bbT.bbQ;
                         if (!z) {
-                            bdListView = this.bbz.bbh;
-                            pVar3 = this.bbz.bbj;
-                            View NS2 = pVar3.NS();
-                            bdListView2 = this.bbz.bbh;
-                            bdListView.d(NS2, bdListView2.getHeaderViewsCount());
-                            this.bbz.bbw = true;
+                            bdListView = this.bbT.bbB;
+                            pVar3 = this.bbT.bbD;
+                            View NT2 = pVar3.NT();
+                            bdListView2 = this.bbT.bbB;
+                            bdListView.d(NT2, bdListView2.getHeaderViewsCount());
+                            this.bbT.bbQ = true;
                         }
                     }
                 }
             }
         }
-        dbVar = this.bbz.bby;
-        if (dbVar == null) {
+        dhVar = this.bbT.bbS;
+        if (dhVar == null) {
             return;
         }
-        dbVar2 = this.bbz.bby;
-        dbVar2.a(i, i2, deVar);
+        dhVar2 = this.bbT.bbS;
+        dhVar2.a(i, i2, djVar);
     }
 
-    @Override // com.baidu.tieba.frs.db
+    @Override // com.baidu.tieba.frs.dh
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.db
-    public void KL() {
+    @Override // com.baidu.tieba.frs.dh
+    public void Kz() {
     }
 }

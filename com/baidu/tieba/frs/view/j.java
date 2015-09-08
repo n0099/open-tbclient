@@ -8,30 +8,30 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.frs.be;
+import com.baidu.tieba.frs.bf;
 import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.GoodGridView;
 /* loaded from: classes.dex */
 public class j {
     private View LR;
-    private GoodGridView bcS;
-    private ImageView bcT;
+    private GoodGridView bdm;
+    private ImageView bdn;
 
     public j(Context context) {
         this.LR = null;
-        this.bcS = null;
-        this.bcT = null;
+        this.bdm = null;
+        this.bdn = null;
         this.LR = LayoutInflater.from(context).inflate(i.g.dialog_good, (ViewGroup) null);
-        this.bcS = (GoodGridView) this.LR.findViewById(i.f.good_gridview);
-        this.bcT = (ImageView) this.LR.findViewById(i.f.divider_line);
+        this.bdm = (GoodGridView) this.LR.findViewById(i.f.good_gridview);
+        this.bdn = (ImageView) this.LR.findViewById(i.f.divider_line);
     }
 
-    public void a(be beVar) {
-        this.bcS.setAdapter((ListAdapter) beVar);
+    public void a(bf bfVar) {
+        this.bdm.setAdapter((ListAdapter) bfVar);
     }
 
     public void b(AdapterView.OnItemClickListener onItemClickListener) {
-        this.bcS.setOnItemClickListener(onItemClickListener);
+        this.bdm.setOnItemClickListener(onItemClickListener);
     }
 
     public View getView() {
@@ -39,7 +39,7 @@ public class j {
     }
 
     public void changeSkinType(int i) {
-        al.j(this.bcS, i.c.cp_bg_line_d);
-        al.i(this.bcT, i.c.frs_goodheader_line_end);
+        al.i(this.bdm, i.c.cp_bg_line_d);
+        al.h(this.bdn, i.c.frs_goodheader_line_end);
     }
 }

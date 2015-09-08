@@ -27,7 +27,7 @@ public class f extends DataSetObserver {
         aVar = this.Hu.Ht;
         if (aVar != null) {
             aVar2 = this.Hu.Ht;
-            aVar2.nw();
+            aVar2.nt();
         }
     }
 

@@ -3,22 +3,22 @@ package com.baidu.tbadk.mainTab;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected c auD = Cz();
-    protected FragmentTabIndicator auE;
+    protected c mFragement = createFragmentTabStructure();
+    protected FragmentTabIndicator mIndicator;
 
-    public abstract c Cz();
+    public abstract c createFragmentTabStructure();
 
-    public abstract FragmentTabIndicator an(Context context);
+    public abstract FragmentTabIndicator getTabIndicator(Context context);
 
     public abstract boolean isAvailable();
 
-    public void Cy() {
+    public void onAdd() {
     }
 
-    public void ef() {
+    public void onRemove() {
     }
 
-    public c CA() {
-        return this.auD;
+    public c getFragmentTabStructure() {
+        return this.mFragement;
     }
 }

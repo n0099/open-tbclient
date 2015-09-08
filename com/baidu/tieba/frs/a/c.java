@@ -9,10 +9,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.m;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bc;
+import com.baidu.tieba.frs.bd;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class c extends bc<com.baidu.tbadk.core.data.c, d> {
+public class c extends bd<com.baidu.tbadk.core.data.c, d> {
     public c(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
     }
@@ -20,48 +20,48 @@ public class c extends bc<com.baidu.tbadk.core.data.c, d> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: r */
+    /* renamed from: t */
     public d a(ViewGroup viewGroup) {
         return new d(LayoutInflater.from(this.mContext).inflate(i.g.frs_locality_bar_normal, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bc, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.bd, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.c cVar, d dVar) {
         super.a(i, view, viewGroup, (ViewGroup) cVar, (com.baidu.tbadk.core.data.c) dVar);
-        dVar.ban.setPadding(0, i - this.aWl == 0 ? this.aTw : this.aTx, 0, 0);
-        this.aSJ.getLayoutMode().ad(this.mSkinType == 1);
-        this.aSJ.getLayoutMode().k(view);
-        if (!cVar.Uw && (this.aSJ instanceof FrsActivity)) {
-            cVar.Uw = true;
-            ((FrsActivity) this.aSJ).a(cVar, "show");
-            ((FrsActivity) this.aSJ).b(cVar, "show");
+        dVar.baI.setPadding(0, i - this.aWC == 0 ? this.aTK : this.aTL, 0, 0);
+        this.aSX.getLayoutMode().ad(this.mSkinType == 1);
+        this.aSX.getLayoutMode().k(view);
+        if (!cVar.Ux && (this.aSX instanceof FrsActivity)) {
+            cVar.Ux = true;
+            ((FrsActivity) this.aSX).a(cVar, "show");
+            ((FrsActivity) this.aSX).b(cVar, "show");
         }
-        if (m.rd().rf()) {
-            dVar.aIG.setVisibility(0);
-            dVar.aIG.d(cVar.Uv.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+        if (m.rb().rd()) {
+            dVar.aIT.setVisibility(0);
+            dVar.aIT.d(cVar.Uw.userPortrait, this.mIsFromCDN ? 13 : 14, false);
         } else {
-            dVar.aIG.setVisibility(8);
+            dVar.aIT.setVisibility(8);
         }
-        if (m.rd().rh() && !TextUtils.isEmpty(cVar.Uv.Uz)) {
-            dVar.bap.setVisibility(0);
-            dVar.bap.d(cVar.Uv.Uz, this.mIsFromCDN ? 30 : 31, false);
+        if (m.rb().rf() && !TextUtils.isEmpty(cVar.Uw.UA)) {
+            dVar.baK.setVisibility(0);
+            dVar.baK.d(cVar.Uw.UA, this.mIsFromCDN ? 30 : 31, false);
         } else {
-            dVar.bap.setVisibility(8);
+            dVar.baK.setVisibility(8);
         }
-        dVar.aPi.setText(cVar.Uv.userName);
-        if (StringUtils.isNull(cVar.Uv.Uy)) {
-            dVar.anH.setVisibility(8);
+        dVar.aPv.setText(cVar.Uw.userName);
+        if (StringUtils.isNull(cVar.Uw.Uz)) {
+            dVar.amV.setVisibility(8);
         } else {
-            dVar.anH.setVisibility(0);
-            dVar.anH.setText(cVar.Uv.Uy);
+            dVar.amV.setVisibility(0);
+            dVar.amV.setText(cVar.Uw.Uz);
         }
-        if (StringUtils.isNull(cVar.Uv.UC)) {
-            dVar.baq.setVisibility(8);
+        if (StringUtils.isNull(cVar.Uw.UD)) {
+            dVar.baL.setVisibility(8);
         } else {
-            dVar.baq.setVisibility(0);
-            dVar.baq.setText(cVar.Uv.UC);
+            dVar.baL.setVisibility(0);
+            dVar.baL.setText(cVar.Uw.UD);
         }
         return view;
     }

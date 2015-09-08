@@ -11,22 +11,22 @@ public class ah extends com.baidu.tbadk.mvc.model.d<ai, aj, SingleMentionActivit
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> oY() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> oV() {
         return ReplyMeHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> oX() {
+    protected Class<? extends MvcSocketResponsedMessage> oU() {
         return ReplyMeSocketResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oU() {
+    protected int oR() {
         return CmdConfigHttp.REPLYME_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String oV() {
+    protected String oS() {
         return "c/u/feed/replyme";
     }
 
@@ -36,7 +36,7 @@ public class ah extends com.baidu.tbadk.mvc.model.d<ai, aj, SingleMentionActivit
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oW() {
+    protected int oT() {
         return 303007;
     }
 }

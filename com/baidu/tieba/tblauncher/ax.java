@@ -1,20 +1,26 @@
 package com.baidu.tieba.tblauncher;
 
-import android.graphics.Canvas;
-import com.slidingmenu.lib.SlidingMenu;
+import android.support.v4.view.ViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements SlidingMenu.CanvasTransformer {
-    final /* synthetic */ ai cMQ;
+public class ax implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ am cVq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(ai aiVar) {
-        this.cMQ = aiVar;
+    public ax(am amVar) {
+        this.cVq = amVar;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.CanvasTransformer
-    public void transformCanvas(Canvas canvas, float f) {
-        float f2 = (0.2f * f) + 0.8f;
-        canvas.scale(f2, f2, 0.0f, canvas.getHeight() / 2);
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        com.baidu.adp.lib.g.h.hf().postDelayed(new ay(this), 200L);
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrolled(int i, float f, int i2) {
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
     }
 }

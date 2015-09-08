@@ -12,6 +12,7 @@ public class HistoryMessage extends CustomResponsedMessage<Boolean> {
     public String postID;
     public String threadId;
     public String threadName;
+    public int threadType;
     public long time;
 
     public HistoryMessage() {
@@ -24,5 +25,6 @@ public class HistoryMessage extends CustomResponsedMessage<Boolean> {
         this.postID = "";
         this.isHostOnly = false;
         this.isSquence = false;
+        this.threadType = 0;
     }
 }

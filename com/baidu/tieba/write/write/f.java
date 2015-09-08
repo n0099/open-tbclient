@@ -5,17 +5,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnTouchListener {
-    final /* synthetic */ AtListActivity cTk;
+    final /* synthetic */ AtListActivity dch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(AtListActivity atListActivity) {
-        this.cTk = atListActivity;
+        this.dch = atListActivity;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            com.baidu.adp.lib.util.k.c(this.cTk.getPageContext().getPageActivity(), this.cTk.bEb);
+            com.baidu.adp.lib.util.k.c(this.dch.getPageContext().getPageActivity(), this.dch.bEI);
             return false;
         }
         return false;

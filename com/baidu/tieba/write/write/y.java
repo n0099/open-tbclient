@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class y extends HttpMessageListener {
-    final /* synthetic */ WriteActivity cUM;
+    final /* synthetic */ WriteActivity ddQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y(WriteActivity writeActivity, int i) {
         super(i);
-        this.cUM = writeActivity;
+        this.ddQ = writeActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,22 +26,22 @@ class y extends HttpMessageListener {
         if (httpResponsedMessage.getError() == 0) {
             String str4 = (String) MessageManager.getInstance().runTask(CmdConfigCustom.CMD_DECODE_BUBBLE, String.class, httpResponsedMessage).getData();
             if (TextUtils.isEmpty(str4)) {
-                str3 = this.cUM.bRT;
+                str3 = this.ddQ.bSz;
                 if (!TextUtils.isEmpty(str3)) {
-                    this.cUM.bRT = str4;
+                    this.ddQ.bSz = str4;
                     TbadkCoreApplication.m411getInst().setDefaultBubble(str4);
-                    this.cUM.fZ(true);
+                    this.ddQ.gK(true);
                     return;
                 }
             }
             if (!TextUtils.isEmpty(str4)) {
-                str = this.cUM.bRT;
+                str = this.ddQ.bSz;
                 if (!str4.equals(str)) {
-                    this.cUM.bRT = str4;
+                    this.ddQ.bSz = str4;
                     TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                    str2 = this.cUM.bRT;
+                    str2 = this.ddQ.bSz;
                     m411getInst.setDefaultBubble(str2);
-                    this.cUM.fZ(true);
+                    this.ddQ.gK(true);
                 }
             }
         }

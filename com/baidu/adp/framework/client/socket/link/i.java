@@ -38,18 +38,18 @@ public class i extends Handler {
                 h hVar = this.qa;
                 i2 = hVar.pZ;
                 hVar.pZ = i2 + 1;
-                int[] eC = com.baidu.adp.framework.client.socket.j.eC();
-                if (eC != null) {
+                int[] eB = com.baidu.adp.framework.client.socket.j.eB();
+                if (eB != null) {
                     i3 = this.qa.pZ;
-                    if (i3 < eC.length) {
+                    if (i3 < eB.length) {
                         StringBuilder sb2 = new StringBuilder("Next will be delay:");
                         i4 = this.qa.pZ;
-                        BdLog.i(sb2.append(eC[i4]).toString());
+                        BdLog.i(sb2.append(eB[i4]).toString());
                         handler2 = this.qa.myHandler;
                         handler3 = this.qa.myHandler;
                         Message obtainMessage = handler3.obtainMessage(1);
                         i5 = this.qa.pZ;
-                        handler2.sendMessageDelayed(obtainMessage, eC[i5] * 1000);
+                        handler2.sendMessageDelayed(obtainMessage, eB[i5] * 1000);
                         return;
                     }
                 }

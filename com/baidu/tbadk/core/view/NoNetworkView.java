@@ -19,12 +19,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class NoNetworkView extends RelativeLayout implements View.OnClickListener {
-    private static ArrayList<NoNetworkView> aeK = new ArrayList<>();
-    private static boolean aeM;
-    private TextView aeL;
-    private boolean aeN;
-    private int aeO;
-    private final ArrayList<a> aeP;
+    private static ArrayList<NoNetworkView> aeU = new ArrayList<>();
+    private static boolean aeW;
+    private TextView aeV;
+    private boolean aeX;
+    private int aeY;
+    private final ArrayList<a> aeZ;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -34,37 +34,37 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     public NoNetworkView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aeO = 0;
-        this.aeP = new ArrayList<>();
+        this.aeY = 0;
+        this.aeZ = new ArrayList<>();
         init(context, attributeSet);
     }
 
     public NoNetworkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aeO = 0;
-        this.aeP = new ArrayList<>();
+        this.aeY = 0;
+        this.aeZ = new ArrayList<>();
         init(context, attributeSet);
     }
 
     public NoNetworkView(Context context) {
         super(context);
-        this.aeO = 0;
-        this.aeP = new ArrayList<>();
+        this.aeY = 0;
+        this.aeZ = new ArrayList<>();
         init(context, null);
     }
 
     public void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
         LayoutInflater.from(context).inflate(i.g.no_network_view, this);
-        this.aeL = (TextView) findViewById(i.f.no_network_guide);
+        this.aeV = (TextView) findViewById(i.f.no_network_guide);
         setOnClickListener(this);
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.k.noNetworkView);
-            this.aeN = obtainStyledAttributes.getBoolean(0, false);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.j.noNetworkView);
+            this.aeX = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();
         }
         try {
-            if (com.baidu.adp.lib.util.i.iO()) {
+            if (com.baidu.adp.lib.util.i.iL()) {
                 ax(false);
                 setIsHasNetwork(true);
                 return;
@@ -77,27 +77,27 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     }
 
     public void a(a aVar) {
-        if (aVar != null && !this.aeP.contains(aVar)) {
-            this.aeP.add(aVar);
+        if (aVar != null && !this.aeZ.contains(aVar)) {
+            this.aeZ.add(aVar);
         }
     }
 
     public void b(a aVar) {
-        if (aVar != null && this.aeP.contains(aVar)) {
-            this.aeP.remove(aVar);
+        if (aVar != null && this.aeZ.contains(aVar)) {
+            this.aeZ.remove(aVar);
         }
     }
 
     public static void setIsHasNetwork(boolean z) {
-        aeM = z;
-        if (aeM) {
-            Iterator<NoNetworkView> it = aeK.iterator();
+        aeW = z;
+        if (aeW) {
+            Iterator<NoNetworkView> it = aeU.iterator();
             while (it.hasNext()) {
                 it.next().ax(false);
             }
             return;
         }
-        Iterator<NoNetworkView> it2 = aeK.iterator();
+        Iterator<NoNetworkView> it2 = aeU.iterator();
         while (it2.hasNext()) {
             it2.next().ax(true);
         }
@@ -105,41 +105,41 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     public void ax(boolean z) {
         if (z) {
-            if (1 != this.aeO) {
-                this.aeO = 1;
-                this.aeL.setText(i.C0057i.no_network_guide);
+            if (1 != this.aeY) {
+                this.aeY = 1;
+                this.aeV.setText(i.h.no_network_guide);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i = 0; i < this.aeP.size(); i++) {
-                    this.aeP.get(i).ay(false);
+                for (int i = 0; i < this.aeZ.size(); i++) {
+                    this.aeZ.get(i).ay(false);
                 }
             }
-        } else if (this.aeN && !BdSocketLinkService.isAvailable()) {
-            if (2 != this.aeO) {
-                this.aeO = 2;
-                this.aeL.setText(i.C0057i.offline_guide);
+        } else if (this.aeX && !BdSocketLinkService.isAvailable()) {
+            if (2 != this.aeY) {
+                this.aeY = 2;
+                this.aeV.setText(i.h.offline_guide);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);
                 setVisibility(0);
                 startAnimation(alphaAnimation2);
-                for (int i2 = 0; i2 < this.aeP.size(); i2++) {
-                    this.aeP.get(i2).ay(false);
+                for (int i2 = 0; i2 < this.aeZ.size(); i2++) {
+                    this.aeZ.get(i2).ay(false);
                 }
             }
-        } else if (this.aeO != 0) {
-            this.aeO = 0;
+        } else if (this.aeY != 0) {
+            this.aeY = 0;
             if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation3 = new AlphaAnimation(1.0f, 0.8f);
                 alphaAnimation3.setFillAfter(true);
                 alphaAnimation3.setDuration(500L);
                 alphaAnimation3.setAnimationListener(new v(this));
                 startAnimation(alphaAnimation3);
-                for (int i3 = 0; i3 < this.aeP.size(); i3++) {
-                    this.aeP.get(i3).ay(true);
+                for (int i3 = 0; i3 < this.aeZ.size(); i3++) {
+                    this.aeZ.get(i3).ay(true);
                 }
             }
         }
@@ -157,14 +157,14 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        aeK.add(this);
+        aeU.add(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        aeK.remove(this);
-        this.aeP.clear();
+        aeU.remove(this);
+        this.aeZ.clear();
     }
 
     public void onChangeSkinType(com.baidu.adp.base.h<?> hVar, int i) {
@@ -175,8 +175,8 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         al.c(this, i.e.nonetworkview_bg_selector, i);
     }
 
-    public static void vz() {
-        if (com.baidu.adp.lib.util.i.iO()) {
+    public static void vE() {
+        if (com.baidu.adp.lib.util.i.iL()) {
             setIsHasNetwork(true);
         } else {
             setIsHasNetwork(false);

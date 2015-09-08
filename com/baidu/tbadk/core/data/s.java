@@ -1,42 +1,79 @@
 package com.baidu.tbadk.core.data;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.ForumRecommend.Banner;
+import com.baidu.tbadk.data.IconData;
+import org.json.JSONObject;
+import tbclient.FrsPage.UserInfo;
 /* loaded from: classes.dex */
 public class s {
-    protected String img_url = null;
-    protected String link = null;
+    private String Vw;
+    private String Vx;
+    private IconData Vy = new IconData();
+    private boolean isAdded;
+    private String name;
+    private int sex;
+    private long userId;
 
-    public String sj() {
-        return this.img_url;
+    public void sb() {
+        this.isAdded = true;
     }
 
-    public void cg(String str) {
-        this.img_url = str;
+    public boolean sc() {
+        return this.isAdded;
     }
 
-    public String getLink() {
-        return this.link;
-    }
-
-    public void setLink(String str) {
-        this.link = str;
-    }
-
-    public void a(Banner banner) {
-        if (banner != null) {
-            a(banner, null);
+    public void a(UserInfo userInfo) {
+        if (userInfo != null) {
+            this.isAdded = false;
+            this.userId = userInfo.user_id.longValue();
+            this.Vw = userInfo.portrait;
+            this.name = userInfo.user_name;
+            this.sex = userInfo.gender.intValue();
+            this.Vx = userInfo.intro;
+            if (userInfo.tshow_icon != null) {
+                this.Vy.setIcon(userInfo.tshow_icon.icon);
+                this.Vy.setIconName(userInfo.tshow_icon.name);
+                this.Vy.setUrl(userInfo.tshow_icon.url);
+            }
         }
     }
 
-    public void a(Banner banner, Context context) {
-        if (banner != null) {
-            try {
-                cg(banner.pic_url);
-                setLink(banner.link);
-            } catch (Exception e) {
-                BdLog.detailException(e);
+    public long getUserId() {
+        return this.userId;
+    }
+
+    public String sd() {
+        return this.Vw;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public boolean se() {
+        return 2 == this.sex;
+    }
+
+    public String sf() {
+        return this.Vx;
+    }
+
+    public IconData sg() {
+        return this.Vy;
+    }
+
+    public void i(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.userId = jSONObject.optLong("user_id");
+            this.name = jSONObject.optString("user_name");
+            this.Vw = jSONObject.optString("portait");
+            this.sex = jSONObject.optInt("gender");
+            this.isAdded = jSONObject.optBoolean("recommend_is_added");
+            this.Vx = jSONObject.optString("intro");
+            JSONObject optJSONObject = jSONObject.optJSONObject("crown_info");
+            if (optJSONObject != null) {
+                this.Vy.setIcon(optJSONObject.optString("icon"));
+                this.Vy.setIconName(optJSONObject.optString("user_name"));
+                this.Vy.setUrl(optJSONObject.optString("url"));
             }
         }
     }

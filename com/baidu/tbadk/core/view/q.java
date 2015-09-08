@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class q {
-    private View aeg;
-    private int aeh;
-    private ViewGroup.LayoutParams aei;
-    private Runnable aej;
+    private View aeq;
+    private int aer;
+    private ViewGroup.LayoutParams aes;
+    private Runnable aet;
     private int mScreenHeight;
 
     public static void r(Activity activity) {
@@ -35,53 +35,53 @@ public class q {
     private void b(Activity activity, boolean z) {
         FrameLayout frameLayout = (FrameLayout) activity.findViewById(16908290);
         if (z) {
-            al.j(frameLayout, i.c.usual_page_bg);
+            al.i(frameLayout, i.c.usual_page_bg);
         } else {
             al.d(frameLayout, i.c.usual_page_bg, 0);
         }
-        this.aeg = frameLayout.getChildAt(0);
-        this.aeg.getViewTreeObserver().addOnGlobalLayoutListener(new r(this));
-        this.aei = this.aeg.getLayoutParams();
+        this.aeq = frameLayout.getChildAt(0);
+        this.aeq.getViewTreeObserver().addOnGlobalLayoutListener(new r(this));
+        this.aes = this.aeq.getLayoutParams();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vv() {
-        int height = this.aeg.getHeight();
+    public void vA() {
+        int height = this.aeq.getHeight();
         if (height > this.mScreenHeight) {
             this.mScreenHeight = height;
         }
-        int vw = vw();
-        if (vw != this.aeh) {
+        int vB = vB();
+        if (vB != this.aer) {
             int i = this.mScreenHeight;
-            int i2 = i - vw;
+            int i2 = i - vB;
             if (i2 > i / 4) {
-                this.aei.height = i - i2;
-                cC(200);
+                this.aes.height = i - i2;
+                cI(200);
             } else {
-                this.aei.height = i;
-                vx();
+                this.aes.height = i;
+                vC();
             }
-            this.aeh = vw;
+            this.aer = vB;
         }
     }
 
-    private int vw() {
+    private int vB() {
         Rect rect = new Rect();
-        this.aeg.getWindowVisibleDisplayFrame(rect);
+        this.aeq.getWindowVisibleDisplayFrame(rect);
         return rect.bottom;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vx() {
-        this.aeg.requestLayout();
+    public void vC() {
+        this.aeq.requestLayout();
     }
 
-    private void cC(int i) {
-        if (this.aej != null) {
-            TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.aej);
-            this.aej = null;
+    private void cI(int i) {
+        if (this.aet != null) {
+            TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.aet);
+            this.aet = null;
         }
-        this.aej = new s(this);
-        TbadkCoreApplication.m411getInst().handler.postDelayed(this.aej, i);
+        this.aet = new s(this);
+        TbadkCoreApplication.m411getInst().handler.postDelayed(this.aet, i);
     }
 }

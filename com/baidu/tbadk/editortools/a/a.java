@@ -7,9 +7,17 @@ import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class a extends v {
     public a(Context context, int i) {
-        super(context, TbadkCoreApplication.m411getInst().getString(i.C0057i.editor_at), 9, i);
-        this.apf = i.e.btn_pb_add_add;
-        this.apg = false;
-        this.apk = new int[]{16};
+        super(context, TbadkCoreApplication.m411getInst().getString(i.h.editor_at), 9, i);
+        this.aqQ = i.e.btn_pb_add_add;
+        this.aqR = false;
+        this.aqV = new int[]{16};
+    }
+
+    public a(Context context, int i, int i2, boolean z) {
+        super(context, context.getString(i.h.editor_at), 9, i);
+        this.aqQ = i2;
+        this.aqU = z;
+        this.aqR = false;
+        this.aqV = new int[]{16};
     }
 }

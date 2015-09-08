@@ -6,46 +6,46 @@ import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ax;
-import com.baidu.tieba.recommendfrs.a.l;
+import com.baidu.tieba.recommendfrs.a.m;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommendfrs.data.a> {
-    final /* synthetic */ d csB;
+    final /* synthetic */ d cAT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.csB = dVar;
+        this.cAT = dVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.d
     public void o(int i, String str) {
-        l lVar;
+        m mVar;
         TbPageContext<?> tbPageContext;
-        lVar = this.csB.csn;
-        com.baidu.tieba.recommendfrs.data.a jh = lVar.jh(i);
-        if (jh != null) {
-            TiebaStatic.eventStat(this.csB.getContext(), "kantie_banner", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
-            String ajs = jh.ajs();
-            if (!StringUtils.isNull(ajs)) {
-                ax uR = ax.uR();
-                tbPageContext = this.csB.pageContext;
-                uR.b(tbPageContext, new String[]{ajs});
+        mVar = this.cAT.cAH;
+        com.baidu.tieba.recommendfrs.data.a jR = mVar.jR(i);
+        if (jR != null) {
+            TiebaStatic.eventStat(this.cAT.getContext(), "kantie_banner", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
+            String anw = jR.anw();
+            if (!StringUtils.isNull(anw)) {
+                ax uX = ax.uX();
+                tbPageContext = this.cAT.pageContext;
+                uX.b(tbPageContext, new String[]{anw});
                 return;
             }
-            this.csB.aX(str, jh.aju());
+            this.cAT.bb(str, jR.any());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.core.flow.a.d
     public void a(int i, com.baidu.tieba.recommendfrs.data.a aVar) {
-        l lVar;
-        l lVar2;
+        m mVar;
+        m mVar2;
         if (aVar != null) {
-            lVar = this.csB.csn;
-            if (lVar != null) {
-                lVar2 = this.csB.csn;
-                lVar2.setTitle(UtilHelper.getFixedText(aVar.ajt(), 14, true));
+            mVar = this.cAT.cAH;
+            if (mVar != null) {
+                mVar2 = this.cAT.cAH;
+                mVar2.setTitle(UtilHelper.getFixedText(aVar.anx(), 14, true));
             }
         }
     }

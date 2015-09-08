@@ -12,16 +12,16 @@ public class r extends z {
     }
 
     @Override // com.baidu.tbadk.core.view.x, com.baidu.adp.widget.ListView.d
-    public View nq() {
-        View nq = super.nq();
-        this.afa.setVisibility(4);
-        return nq;
+    public View nn() {
+        View nn = super.nn();
+        this.afk.setVisibility(4);
+        return nn;
     }
 
     @Override // com.baidu.tbadk.core.view.z
-    public void cG(int i) {
-        super.cG(i);
-        al.j(this.aeZ, i.c.cp_bg_line_d);
+    public void cM(int i) {
+        super.cM(i);
+        al.i(this.afj, i.c.cp_bg_line_d);
     }
 
     @Override // com.baidu.tbadk.core.view.z, com.baidu.tbadk.core.view.x, com.baidu.adp.widget.ListView.d
@@ -29,11 +29,11 @@ public class r extends z {
     }
 
     @Override // com.baidu.tbadk.core.view.x, com.baidu.adp.widget.ListView.d
-    public void nr() {
+    public void no() {
     }
 
     @Override // com.baidu.tbadk.core.view.z, com.baidu.tbadk.core.view.x, com.baidu.adp.widget.ListView.d
-    public void ns() {
+    public void np() {
     }
 
     @Override // com.baidu.tbadk.core.view.z, com.baidu.tbadk.core.view.x, com.baidu.adp.widget.ListView.d

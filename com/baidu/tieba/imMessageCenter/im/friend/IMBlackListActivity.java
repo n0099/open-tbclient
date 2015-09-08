@@ -8,23 +8,23 @@ import com.baidu.tieba.im.model.BlackListModel;
 /* loaded from: classes.dex */
 public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     private com.baidu.tbadk.core.dialog.a Lt;
-    private BlackListModel bIU;
-    private h bIV;
-    private com.baidu.tieba.im.data.a bIW;
+    private BlackListModel bJB;
+    private h bJC;
+    private com.baidu.tieba.im.data.a bJD;
     private com.baidu.adp.framework.listener.e mListener = new a(this, 0);
 
     private void initView() {
-        this.bIV = new h(this);
+        this.bJC = new h(this);
     }
 
-    private void HQ() {
-        this.bIU = new BlackListModel(this);
-        this.bIU.setUniqueId(getUniqueId());
+    private void HE() {
+        this.bJB = new BlackListModel(this);
+        this.bJB.setUniqueId(getUniqueId());
     }
 
-    private void JY() {
-        this.bIU.loadBlackList();
-        this.bIV.BQ();
+    private void JM() {
+        this.bJB.loadBlackList();
+        this.bJC.Ce();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,40 +34,40 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         registerListener(104103, this.mListener);
         registerListener(104102, this.mListener);
         initView();
-        HQ();
-        JY();
+        HE();
+        JM();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.bIU != null) {
-            this.bIU.cancelLoadData();
+        if (this.bJB != null) {
+            this.bJB.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Yv() {
+    public void Yx() {
         showLoadingDialog(null, new b(this));
     }
 
     private void a(com.baidu.tieba.im.data.a aVar) {
-        iv(String.format(getPageContext().getString(i.C0057i.black_list_ensure_toremove_text), aVar.getUserName()));
-        this.Lt.sP();
+        iE(String.format(getPageContext().getString(i.h.black_list_ensure_toremove_text), aVar.getUserName()));
+        this.Lt.sU();
     }
 
-    private void iv(String str) {
+    private void iE(String str) {
         this.Lt = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.Lt.cn(str);
-        this.Lt.a(i.C0057i.confirm, new c(this));
-        this.Lt.b(i.C0057i.alert_no_button, new d(this));
+        this.Lt.ct(str);
+        this.Lt.a(i.h.confirm, new c(this));
+        this.Lt.b(i.h.alert_no_button, new d(this));
         this.Lt.b(getPageContext());
     }
 
     public void a(View view, com.baidu.tieba.im.data.a aVar) {
         if (aVar != null && aVar.getUserId() > 0) {
-            this.bIW = aVar;
+            this.bJD = aVar;
             a(aVar);
         }
     }

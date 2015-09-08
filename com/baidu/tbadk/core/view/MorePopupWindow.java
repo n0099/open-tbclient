@@ -118,7 +118,7 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void showWindowInLeftCenterOfHost(View view, boolean z) {
-        setAnimationStyle(i.j.pop_window_anim);
+        setAnimationStyle(i.C0057i.pop_window_anim);
         setFocusable(z);
         com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(this, view, this.mShowLeftCenterXOff, (-this.mWindowHeight) + ((this.mWindowHeight - view.getHeight()) / 2));
     }

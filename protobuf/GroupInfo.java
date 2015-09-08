@@ -1,6 +1,5 @@
 package protobuf;
 
-import com.baidu.location.a0;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
@@ -43,7 +42,7 @@ public final class GroupInfo extends Message {
     public final Integer forumId;
     @ProtoField(tag = 25, type = Message.Datatype.STRING)
     public final String forumName;
-    @ProtoField(tag = a0.h, type = Message.Datatype.STRING)
+    @ProtoField(tag = 31, type = Message.Datatype.STRING)
     public final String forumShowName;
     @ProtoField(tag = 22, type = Message.Datatype.INT32)
     public final Integer grade;

@@ -6,8 +6,8 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
-    private int acI;
-    private int acJ;
+    private int acS;
+    private int acT;
     private String mUrl;
     private String user_id;
     private String user_name;
@@ -25,8 +25,8 @@ public class HeadImageView extends TbClipImageView {
         this.user_id = null;
         this.user_name = null;
         this.mUrl = null;
-        this.acI = i.e.icon_default_avatar100;
-        this.acJ = i.c.cp_cont_e;
+        this.acS = i.e.icon_default_avatar100;
+        this.acT = i.c.cp_cont_e;
         init();
     }
 
@@ -34,8 +34,8 @@ public class HeadImageView extends TbClipImageView {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultBgResource(this.acJ);
-        setDefaultResource(this.acI);
+        setDefaultBgResource(this.acT);
+        setDefaultResource(this.acS);
     }
 
     public void setUrl(String str) {
@@ -64,11 +64,11 @@ public class HeadImageView extends TbClipImageView {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
-    public void vu() {
-        if (!this.aAJ) {
-            this.aAJ = true;
-        } else if (this.aAM != null && this.aAM.axj) {
-            this.aAM.DW();
+    public void vz() {
+        if (!this.aCr) {
+            this.aCr = true;
+        } else if (this.aCu != null && this.aCu.ayR) {
+            this.aCu.Eg();
         }
     }
 }

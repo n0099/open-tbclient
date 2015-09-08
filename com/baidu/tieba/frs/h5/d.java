@@ -8,23 +8,23 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements BaseWebView.d {
-    final /* synthetic */ c aZU;
+    final /* synthetic */ c bao;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.aZU = cVar;
+        this.bao = cVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
     public void a(WebView webView, String str) {
         boolean z;
-        z = this.aZU.aZT;
+        z = this.bao.bam;
         if (!z) {
-            this.aZU.showLoading();
-            ViewGroup.LayoutParams layoutParams = this.aZU.getLayoutParams();
+            this.bao.showLoading();
+            ViewGroup.LayoutParams layoutParams = this.bao.getLayoutParams();
             layoutParams.height = (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds90);
-            this.aZU.setLayoutParams(layoutParams);
+            this.bao.setLayoutParams(layoutParams);
         }
-        this.aZU.isError = false;
+        this.bao.isError = false;
     }
 }

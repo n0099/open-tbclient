@@ -18,18 +18,18 @@ public class h {
         } else if (!this.pY) {
             this.pY = true;
             this.myHandler.removeMessages(1);
-            if (com.baidu.adp.lib.webSocket.h.jB().jE()) {
+            if (com.baidu.adp.lib.webSocket.h.jy().jB()) {
                 BdLog.d("启动重连策略失败，  WebSocketClient opened");
                 stop("in Opened");
                 return;
             }
-            eQ();
+            eP();
             BdLog.d("启动重连策略");
             this.pZ = 0;
-            int[] eC = com.baidu.adp.framework.client.socket.j.eC();
-            if (eC != null && eC.length >= 1) {
-                BdLog.i("start reconnStrategy... the first will be delay" + eC[0]);
-                this.myHandler.sendMessageDelayed(this.myHandler.obtainMessage(1), eC[0] * 1000);
+            int[] eB = com.baidu.adp.framework.client.socket.j.eB();
+            if (eB != null && eB.length >= 1) {
+                BdLog.i("start reconnStrategy... the first will be delay" + eB[0]);
+                this.myHandler.sendMessageDelayed(this.myHandler.obtainMessage(1), eB[0] * 1000);
                 return;
             }
             BdLog.i("don't have reconnStrategy!");
@@ -39,7 +39,7 @@ public class h {
         }
     }
 
-    private void eQ() {
+    private void eP() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

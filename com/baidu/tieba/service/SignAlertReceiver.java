@@ -25,15 +25,15 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 intent2.putExtra("locate_type", 1);
                 intent2.setFlags(603979776);
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-                String string = context.getString(i.C0057i.sign_notification_content);
-                NotificationHelper.showNotification(context, 12, context.getString(i.C0057i.app_name), string, string, service, false);
+                String string = context.getString(i.h.sign_notification_content);
+                NotificationHelper.showNotification(context, 12, context.getString(i.h.app_name), string, string, service, false);
             } catch (Throwable th) {
                 try {
                     if (BdLog.isDebugMode()) {
                         BdLog.e(th.getMessage());
                     }
                 } finally {
-                    com.baidu.tbadk.coreExtra.messageCenter.c.xq().updateSignAlarm();
+                    com.baidu.tbadk.coreExtra.messageCenter.c.xw().updateSignAlarm();
                 }
             }
         }

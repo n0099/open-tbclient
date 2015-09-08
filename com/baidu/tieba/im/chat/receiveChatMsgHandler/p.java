@@ -14,18 +14,18 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class p {
-    private static p bqK;
+    private static p brq;
 
     private p() {
     }
 
-    public static synchronized p Rs() {
+    public static synchronized p Ru() {
         p pVar;
         synchronized (p.class) {
-            if (bqK == null) {
-                bqK = new p();
+            if (brq == null) {
+                brq = new p();
             }
-            pVar = bqK;
+            pVar = brq;
         }
         return pVar;
     }
@@ -36,7 +36,7 @@ public class p {
         }
     }
 
-    public long gw(int i) {
+    public long gG(int i) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + i, -1L);
     }
 
@@ -71,7 +71,7 @@ public class p {
                 }
                 if (TbadkCoreApplication.m411getInst().isPromotedMessageOn()) {
                     CustomMessage customMessage = new CustomMessage(CmdConfigCustom.DEAL_YY_NOTIFICATION);
-                    customMessage.setData(new com.baidu.tbadk.core.data.o(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
+                    customMessage.setData(new com.baidu.tbadk.core.data.n(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
                     MessageManager.getInstance().sendMessage(customMessage);
                 } else {
                     return;

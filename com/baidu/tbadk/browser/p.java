@@ -4,15 +4,21 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ n SD;
+    final /* synthetic */ o SA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(n nVar) {
-        this.SD = nVar;
+    public p(o oVar) {
+        this.SA = oVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.SD.qA();
+        BaseWebViewActivity baseWebViewActivity;
+        BaseWebViewActivity baseWebViewActivity2;
+        baseWebViewActivity = this.SA.Ss;
+        if (baseWebViewActivity != null) {
+            baseWebViewActivity2 = this.SA.Ss;
+            baseWebViewActivity2.finish();
+        }
     }
 }

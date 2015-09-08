@@ -9,11 +9,11 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.write.write.VcodeActivity;
 /* loaded from: classes.dex */
 class v implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity cTX;
+    final /* synthetic */ VcodeActivity dcU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(VcodeActivity vcodeActivity) {
-        this.cTX = vcodeActivity;
+        this.dcU = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,25 +25,25 @@ class v implements View.OnClickListener {
         VcodeActivity.b bVar2;
         VcodeActivity.b bVar3;
         VcodeActivity.b bVar4;
-        VcodeActivity vcodeActivity = this.cTX;
-        inputMethodManager = this.cTX.mInputManager;
-        vcodeActivity.HidenSoftKeyPad(inputMethodManager, this.cTX.mEdit);
-        VcodeActivity vcodeActivity2 = this.cTX;
-        Activity pageActivity = this.cTX.getPageContext().getPageActivity();
-        String string = this.cTX.getPageContext().getString(i.C0057i.sending);
-        onCancelListener = this.cTX.cjo;
+        VcodeActivity vcodeActivity = this.dcU;
+        inputMethodManager = this.dcU.mInputManager;
+        vcodeActivity.HidenSoftKeyPad(inputMethodManager, this.dcU.mEdit);
+        VcodeActivity vcodeActivity2 = this.dcU;
+        Activity pageActivity = this.dcU.getPageContext().getPageActivity();
+        String string = this.dcU.getPageContext().getString(i.h.sending);
+        onCancelListener = this.dcU.ckj;
         vcodeActivity2.mWaitingDialog = ProgressDialog.show(pageActivity, "", string, true, false, onCancelListener);
-        progressDialog = this.cTX.mWaitingDialog;
+        progressDialog = this.dcU.mWaitingDialog;
         progressDialog.setCanceledOnTouchOutside(false);
-        bVar = this.cTX.cTV;
+        bVar = this.dcU.dcS;
         if (bVar != null) {
-            bVar4 = this.cTX.cTV;
+            bVar4 = this.dcU.dcS;
             bVar4.cancel();
         }
-        this.cTX.cTV = new VcodeActivity.b(this.cTX.cTH);
-        bVar2 = this.cTX.cTV;
+        this.dcU.dcS = new VcodeActivity.b(this.dcU.dcE);
+        bVar2 = this.dcU.dcS;
         bVar2.setPriority(3);
-        bVar3 = this.cTX.cTV;
+        bVar3 = this.dcU.dcS;
         bVar3.execute(0);
     }
 }

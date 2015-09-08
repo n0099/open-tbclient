@@ -1,47 +1,49 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.i;
-import java.io.File;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.tbadkCore.ae;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class af {
-    public static final void a(Context context, p pVar, int i) {
-        if (context != null && pVar != null) {
-            if (!(!TextUtils.isEmpty(pVar.getPkgName()))) {
-                com.baidu.adp.lib.util.k.showToast(context, i.C0057i.pb_app_error);
-            } else if (com.baidu.adp.lib.util.i.iO()) {
-                pVar.jE(1);
-                TiebaStatic.eventStat(context, "pb_dl_app", null, 1, "app_name", pVar.getPkgName());
-                com.baidu.tbadk.download.b.Ap().a(pVar.getPkgName(), pVar.getDownloadUrl(), pVar.getAppName(), i, 0);
-            } else {
-                com.baidu.adp.lib.util.k.showToast(context, i.C0057i.neterror);
-            }
-        }
+public class af extends HttpMessageListener {
+    final /* synthetic */ ae cQu;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public af(ae aeVar, int i) {
+        super(i);
+        this.cQu = aeVar;
     }
 
-    public static final void a(Context context, p pVar) {
-        if (context != null && pVar != null) {
-            String pkgName = pVar.getPkgName();
-            if (TextUtils.isEmpty(pkgName)) {
-                com.baidu.adp.lib.util.k.showToast(context, i.C0057i.pb_app_error);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        ae.a aVar;
+        ae.a aVar2;
+        ae.a aVar3;
+        ae.a aVar4;
+        ae.a aVar5;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
+            if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
+                aVar = this.cQu.cQt;
+                if (aVar != null) {
+                    aVar2 = this.cQu.cQt;
+                    aVar2.bF(null);
+                    return;
+                }
                 return;
             }
-            File cC = com.baidu.tbadk.core.util.n.cC(String.valueOf(pkgName.replace(".", "_")) + ".apk");
-            if (cC != null) {
-                Intent intent = new Intent();
-                intent.addFlags(268435456);
-                intent.setAction("android.intent.action.VIEW");
-                intent.setDataAndType(Uri.fromFile(cC), "application/vnd.android.package-archive");
-                context.startActivity(intent);
+            PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
+            if (praiseResponseMessage.getError() == 0) {
+                aVar5 = this.cQu.cQt;
+                aVar5.gb(praiseResponseMessage.getErrMsg());
+                return;
+            }
+            aVar3 = this.cQu.cQt;
+            if (aVar3 != null) {
+                aVar4 = this.cQu.cQt;
+                aVar4.bF(praiseResponseMessage.getErrMsg());
             }
         }
-    }
-
-    public static boolean isInstalledPackage(Context context, String str) {
-        return context.getPackageManager().getApplicationInfo(str, 8192) != null;
     }
 }

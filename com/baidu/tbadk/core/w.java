@@ -4,11 +4,11 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.tbadk.util.c;
 /* loaded from: classes.dex */
 class w implements c.a {
-    final /* synthetic */ v TM;
+    final /* synthetic */ v TO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(v vVar) {
-        this.TM = vVar;
+        this.TO = vVar;
     }
 
     @Override // com.baidu.tbadk.util.c.a

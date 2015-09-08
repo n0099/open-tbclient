@@ -14,11 +14,11 @@ public class d {
         this.type = i;
     }
 
-    public List<c> Ik() {
+    public List<c> HY() {
         return this.menu_list;
     }
 
-    public void G(List<c> list) {
+    public void H(List<c> list) {
         this.menu_list = list;
     }
 }

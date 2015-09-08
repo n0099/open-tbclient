@@ -14,8 +14,8 @@ public class af implements com.baidu.adp.lib.e.c<TbImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: vF */
-    public TbImageView hb() {
+    /* renamed from: vK */
+    public TbImageView gY() {
         return new TbImageView(this.val$context);
     }
 

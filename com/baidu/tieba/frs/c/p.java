@@ -2,33 +2,33 @@ package com.baidu.tieba.frs.c;
 
 import android.util.SparseArray;
 import com.baidu.adp.widget.ListView.u;
-import com.baidu.tieba.frs.bl;
+import com.baidu.tieba.frs.bi;
 import com.baidu.tieba.frs.c.n;
-import com.baidu.tieba.frs.dc;
-import com.baidu.tieba.frs.df;
+import com.baidu.tieba.frs.di;
+import com.baidu.tieba.frs.dl;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements dc {
-    final /* synthetic */ n bbG;
+public class p implements di {
+    final /* synthetic */ n bca;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(n nVar) {
-        this.bbG = nVar;
+        this.bca = nVar;
     }
 
-    @Override // com.baidu.tieba.frs.dc
-    public void a(int i, int i2, df dfVar, ArrayList<u> arrayList) {
+    @Override // com.baidu.tieba.frs.di
+    public void a(int i, int i2, dl dlVar, ArrayList<u> arrayList) {
         SparseArray sparseArray;
         int Y;
-        bl blVar;
-        sparseArray = this.bbG.aZL;
-        Y = this.bbG.Y(i, i2);
+        bi biVar;
+        sparseArray = this.bca.bad;
+        Y = this.bca.Y(i, i2);
         n.a aVar = (n.a) sparseArray.get(Y);
         if (aVar != null) {
-            blVar = this.bbG.aUw;
-            blVar.getListView().setSelectionFromTop(aVar.bbI, aVar.top);
+            biVar = this.bca.aUL;
+            biVar.getListView().setSelectionFromTop(aVar.bcc, aVar.top);
         }
-        com.baidu.adp.lib.g.h.hi().post(new q(this));
+        com.baidu.adp.lib.g.h.hf().post(new q(this));
     }
 }

@@ -54,7 +54,7 @@ public class j {
         return (i2 <= -300 || i2 > -200) ? app.getString(R.string.im_error_default) : app.getString(R.string.im_error_codec);
     }
 
-    public static int[] eC() {
+    public static int[] eB() {
         return pH;
     }
 
@@ -72,7 +72,7 @@ public class j {
         pE = str;
     }
 
-    public static String eD() {
+    public static String eC() {
         return pF;
     }
 
@@ -80,7 +80,7 @@ public class j {
         pF = str;
     }
 
-    public static ArrayList<BasicNameValuePair> eE() {
+    public static ArrayList<BasicNameValuePair> eD() {
         return pI;
     }
 

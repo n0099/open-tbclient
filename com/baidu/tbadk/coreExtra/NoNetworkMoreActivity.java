@@ -13,14 +13,13 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
-    private TextView agn;
-    private TextView ago;
+    private TextView agx;
+    private TextView agy;
     private View mBack;
     private NavigationBar mNavigationBar;
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
+    protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(i.g.no_network_more_view);
         initUI();
@@ -30,15 +29,15 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
         this.mBack.setOnClickListener(this);
-        this.mNavigationBar.setTitleText(i.C0057i.no_network);
-        this.agn = (TextView) findViewById(i.f.more_item1);
-        SpannableString spannableString = new SpannableString(getPageContext().getString(i.C0057i.no_network_guide_content1));
+        this.mNavigationBar.setTitleText(i.h.no_network);
+        this.agx = (TextView) findViewById(i.f.more_item1);
+        SpannableString spannableString = new SpannableString(getPageContext().getString(i.h.no_network_guide_content1));
         spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-        this.agn.setText(spannableString);
-        this.ago = (TextView) findViewById(i.f.more_item2);
-        SpannableString spannableString2 = new SpannableString(getPageContext().getString(i.C0057i.no_network_guide_content2));
+        this.agx.setText(spannableString);
+        this.agy = (TextView) findViewById(i.f.more_item2);
+        SpannableString spannableString2 = new SpannableString(getPageContext().getString(i.h.no_network_guide_content2));
         spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-        this.ago.setText(spannableString2);
+        this.agy.setText(spannableString2);
         ((Button) findViewById(i.f.network_setting_btn)).setOnClickListener(this);
     }
 
@@ -53,9 +52,8 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
+    protected void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

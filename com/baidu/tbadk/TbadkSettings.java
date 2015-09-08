@@ -24,42 +24,42 @@ public abstract class TbadkSettings {
     }
 
     public void saveString(String str, String str2) {
-        b.ts().putString(str, str2);
+        b.tx().putString(str, str2);
     }
 
     public String loadString(String str, String str2) {
-        return b.ts().getString(str, str2);
+        return b.tx().getString(str, str2);
     }
 
     public boolean loadBoolean(String str, boolean z) {
-        return b.ts().getBoolean(str, z);
+        return b.tx().getBoolean(str, z);
     }
 
     public boolean loadBooleanFromCommon(String str, boolean z) {
-        return b.ts().g(str, z);
+        return b.tx().g(str, z);
     }
 
     public void saveBoolean(String str, boolean z) {
-        b.ts().putBoolean(str, z);
+        b.tx().putBoolean(str, z);
     }
 
     public void saveBooleanFromCommon(String str, boolean z) {
-        b.ts().h(str, z);
+        b.tx().h(str, z);
     }
 
     public int loadInt(String str, int i) {
-        return b.ts().getInt(str, i);
+        return b.tx().getInt(str, i);
     }
 
     public void saveInt(String str, int i) {
-        b.ts().putInt(str, i);
+        b.tx().putInt(str, i);
     }
 
     public long loadLong(String str, long j) {
-        return b.ts().getLong(str, j);
+        return b.tx().getLong(str, j);
     }
 
     public void saveLong(String str, long j) {
-        b.ts().putLong(str, j);
+        b.tx().putLong(str, j);
     }
 }

@@ -7,28 +7,28 @@ import com.baidu.tieba.write.view.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements AdapterView.OnItemClickListener {
-    final /* synthetic */ a cSI;
+    final /* synthetic */ a dbw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cSI = aVar;
+        this.dbw = aVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         j jVar;
-        a.InterfaceC0076a interfaceC0076a;
-        a.InterfaceC0076a interfaceC0076a2;
-        jVar = this.cSI.cSF;
+        a.InterfaceC0079a interfaceC0079a;
+        a.InterfaceC0079a interfaceC0079a2;
+        jVar = this.dbw.dbt;
         com.baidu.tieba.write.album.b item = jVar.getItem(i);
         if (item instanceof com.baidu.tieba.write.album.b) {
             com.baidu.tieba.write.album.b bVar = item;
-            interfaceC0076a = this.cSI.cSH;
-            if (interfaceC0076a != null) {
-                interfaceC0076a2 = this.cSI.cSH;
-                interfaceC0076a2.a(i, bVar);
+            interfaceC0079a = this.dbw.dbv;
+            if (interfaceC0079a != null) {
+                interfaceC0079a2 = this.dbw.dbv;
+                interfaceC0079a2.a(i, bVar);
             }
         }
-        this.cSI.WN();
+        this.dbw.WP();
     }
 }

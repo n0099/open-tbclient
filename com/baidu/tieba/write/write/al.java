@@ -1,44 +1,33 @@
 package com.baidu.tieba.write.write;
 
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cUM;
+public class al implements View.OnTouchListener {
+    final /* synthetic */ WriteActivity ddQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(WriteActivity writeActivity) {
-        this.cUM = writeActivity;
+        this.ddQ = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TextView textView;
-        View view2;
-        bx bxVar;
-        com.baidu.tbadk.editortools.j jVar;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
         InputMethodManager inputMethodManager;
-        EditText editText;
+        EditText azL;
         InputMethodManager inputMethodManager2;
-        EditText editText2;
-        textView = this.cUM.cSq;
-        textView.setVisibility(0);
-        view2 = this.cUM.cSt;
-        view2.setSelected(true);
-        bxVar = this.cUM.cSr;
-        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(bxVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.cUM.getPageContext().getPageActivity(), 1.0f));
-        jVar = this.cUM.cUo;
-        jVar.zk();
-        WriteActivity writeActivity = this.cUM;
-        inputMethodManager = this.cUM.mInputManager;
-        editText = this.cUM.cSk;
-        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.cUM;
-        inputMethodManager2 = this.cUM.mInputManager;
-        editText2 = this.cUM.cSo;
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
+        EditText azK;
+        WriteActivity writeActivity = this.ddQ;
+        inputMethodManager = this.ddQ.mInputManager;
+        azL = this.ddQ.azL();
+        writeActivity.HidenSoftKeyPad(inputMethodManager, azL);
+        WriteActivity writeActivity2 = this.ddQ;
+        inputMethodManager2 = this.ddQ.mInputManager;
+        azK = this.ddQ.azK();
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, azK);
+        return false;
     }
 }

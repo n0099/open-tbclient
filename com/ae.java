@@ -69,7 +69,7 @@ public class ae extends ArrayAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.ArrayAdapter, android.widget.Adapter
-    /* renamed from: kC */
+    /* renamed from: lp */
     public MediaType getItem(int i) {
         return (MediaType) this.b.get(i);
     }

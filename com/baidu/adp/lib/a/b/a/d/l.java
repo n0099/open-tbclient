@@ -3,14 +3,14 @@ package com.baidu.adp.lib.a.b.a.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l implements h {
-    private List<Object> rT;
+    private List<Object> rR;
 
     public l(List<Object> list) {
-        this.rT = list;
+        this.rR = list;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.d.h
     public Object g(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return com.baidu.adp.lib.a.b.a.e.b.a(this.rT, cVar);
+        return com.baidu.adp.lib.a.b.a.e.b.a(this.rR, cVar);
     }
 }

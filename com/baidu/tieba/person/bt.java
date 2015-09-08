@@ -8,13 +8,13 @@ import com.baidu.tieba.person.bs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bt extends HttpMessageListener {
-    final /* synthetic */ bs ckq;
+    final /* synthetic */ bs cll;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bt(bs bsVar, int i) {
         super(i);
-        this.ckq = bsVar;
+        this.cll = bsVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,26 +30,26 @@ public class bt extends HttpMessageListener {
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (statusCode != 200 || error != 0) {
-                aVar = this.ckq.ckc;
+                aVar = this.cll.ckX;
                 if (aVar != null) {
                     if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                        personListActivity = this.ckq.cko;
-                        errorString = personListActivity.getResources().getString(i.C0057i.neterror);
+                        personListActivity = this.cll.clj;
+                        errorString = personListActivity.getResources().getString(i.h.neterror);
                     } else {
                         errorString = httpResponsedMessage.getErrorString();
                     }
-                    aVar2 = this.ckq.ckc;
-                    aVar2.B(errorString, false);
+                    aVar2 = this.cll.ckX;
+                    aVar2.D(errorString, false);
                     return;
                 }
                 return;
             }
             ResponseNetPersonListMessage responseNetPersonListMessage = (ResponseNetPersonListMessage) httpResponsedMessage;
-            responseNetPersonListMessage.setModel(this.ckq);
+            responseNetPersonListMessage.setModel(this.cll);
             com.baidu.tieba.person.a.a data = responseNetPersonListMessage.getData();
-            aVar3 = this.ckq.ckc;
+            aVar3 = this.cll.ckX;
             if (aVar3 != null) {
-                aVar4 = this.ckq.ckc;
+                aVar4 = this.cll.ckX;
                 aVar4.d(data, false);
             }
         }

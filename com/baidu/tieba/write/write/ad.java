@@ -1,24 +1,29 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements View.OnClickListener {
-    final /* synthetic */ WriteActivity cUM;
+public class ad implements View.OnFocusChangeListener {
+    final /* synthetic */ WriteActivity ddQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(WriteActivity writeActivity) {
-        this.cUM = writeActivity;
+        this.ddQ = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        EditText editText;
+    @Override // android.view.View.OnFocusChangeListener
+    public void onFocusChange(View view, boolean z) {
         com.baidu.tbadk.editortools.j jVar;
-        editText = this.cUM.cSo;
-        editText.requestFocus();
-        jVar = this.cUM.cUo;
-        jVar.zk();
+        com.baidu.tbadk.editortools.j jVar2;
+        if (z) {
+            this.ddQ.ddJ = false;
+            this.ddQ.ddN = false;
+            this.ddQ.azv();
+            jVar = this.ddQ.ddl;
+            if (jVar != null) {
+                jVar2 = this.ddQ.ddl;
+                jVar2.zr();
+            }
+        }
     }
 }

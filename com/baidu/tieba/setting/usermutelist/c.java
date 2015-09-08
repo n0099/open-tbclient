@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import tbclient.UserMuteQuery.MuteUser;
 /* loaded from: classes.dex */
 class c extends CustomMessageListener {
-    final /* synthetic */ UserMuteListActivity czi;
+    final /* synthetic */ UserMuteListActivity cHG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(UserMuteListActivity userMuteListActivity, int i) {
         super(i);
-        this.czi = userMuteListActivity;
+        this.cHG = userMuteListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,25 +29,25 @@ class c extends CustomMessageListener {
         l lVar;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
             String str = (String) customResponsedMessage.getData();
-            arrayList = this.czi.Xe;
+            arrayList = this.cHG.Xn;
             if (arrayList != null) {
-                arrayList2 = this.czi.Xe;
+                arrayList2 = this.cHG.Xn;
                 if (arrayList2.size() > 0) {
                     int i = 0;
                     while (true) {
                         int i2 = i;
-                        arrayList3 = this.czi.Xe;
+                        arrayList3 = this.cHG.Xn;
                         if (i2 < arrayList3.size()) {
-                            arrayList4 = this.czi.Xe;
+                            arrayList4 = this.cHG.Xn;
                             MuteUser muteUser = (MuteUser) arrayList4.get(i2);
                             if (muteUser != null && new StringBuilder().append(muteUser.user_id).toString().equals(str)) {
-                                arrayList5 = this.czi.Xe;
+                                arrayList5 = this.cHG.Xn;
                                 arrayList5.remove(i2);
-                                hVar = this.czi.czb;
+                                hVar = this.cHG.cHz;
                                 hVar.notifyDataSetChanged();
-                                arrayList6 = this.czi.Xe;
+                                arrayList6 = this.cHG.Xn;
                                 if (arrayList6.size() == 0) {
-                                    lVar = this.czi.cza;
+                                    lVar = this.cHG.cHy;
                                     lVar.showNoData();
                                     return;
                                 }

@@ -13,11 +13,11 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.c {
-    final /* synthetic */ a bDl;
+    final /* synthetic */ a bDS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(a aVar) {
-        this.bDl = aVar;
+        this.bDS = aVar;
     }
 
     @Override // com.baidu.tbadk.img.a.c
@@ -32,10 +32,10 @@ public class o implements a.c {
         int i2 = 0;
         synchronized (this) {
             synchronized (a.class) {
-                hashMap = this.bDl.bDg;
+                hashMap = this.bDS.bDN;
                 aVar = (com.baidu.tbadk.img.a) hashMap.remove(str);
             }
-            if (aVar != null && (chatMessage = (ChatMessage) aVar.Ch()) != null) {
+            if (aVar != null && (chatMessage = (ChatMessage) aVar.Cv()) != null) {
                 if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
                     if (imageUploadResult != null) {
                         com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", imageUploadResult.error_code, imageUploadResult.error_msg, new Object[0]);
@@ -60,17 +60,17 @@ public class o implements a.c {
                         str2 = imageUploadResult.picInfo.smallPic.picUrl;
                         i2 = imageUploadResult.picInfo.smallPic.width;
                         i = imageUploadResult.picInfo.smallPic.height;
-                        this.bDl.aI(str, str2);
+                        this.bDS.aK(str, str2);
                     } else {
                         i = 0;
                         str2 = null;
                     }
                     chatMessage.setContent(a.b(str3, str2, i2, i));
-                    a.Ws().n(chatMessage);
-                    aeVar = this.bDl.mSendCallback;
+                    a.Wu().n(chatMessage);
+                    aeVar = this.bDS.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.bDl.mSendCallback;
-                        aeVar2.hj(1);
+                        aeVar2 = this.bDS.mSendCallback;
+                        aeVar2.ht(1);
                     }
                 }
             }

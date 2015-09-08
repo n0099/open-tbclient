@@ -30,6 +30,7 @@ public class XiaoyingDownloadService extends IntentService {
         super.onCreate();
         if (XiaoyingPlugin.getDownloadService() != null) {
             XiaoyingPlugin.getDownloadService().onCreate();
+            XiaoyingPlugin.getDownloadService().setIntentRedelivery(false);
         }
     }
 

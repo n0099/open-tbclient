@@ -4,11 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.ViewConfiguration;
 import android.widget.FrameLayout;
+import com.baidu.adp.lib.g.h;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.i;
 import com.tencent.mm.sdk.modelbase.BaseReq;
@@ -17,14 +17,13 @@ import com.tencent.mm.sdk.modelmsg.SendAuth;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-import java.util.Timer;
 /* loaded from: classes.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
-    private SapiWebView agw;
-    private FrameLayout agy;
-    private IWXAPI cVq;
-    private boolean cVr;
-    private Intent cVs;
+    private SapiWebView agG;
+    private FrameLayout agI;
+    private IWXAPI deu;
+    private boolean dev;
+    private Intent dew;
     private NavigationBar mNavigationBar;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -33,24 +32,23 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         setContentView(i.g.layout_sapi_webview_login);
         this.mNavigationBar = (NavigationBar) findViewById(i.f.sapi_login_navi);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(getResources().getString(i.C0057i.login));
-        this.agy = (FrameLayout) findViewById(i.f.webview_container);
-        bd.ai(getApplicationContext());
-        this.agw = new SapiWebView(getPageContext().getPageActivity());
-        this.agy.removeAllViews();
-        this.agy.addView(this.agw);
-        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.agw);
-        this.agw.setOnBackCallback(new a(this));
-        this.agw.setOnFinishCallback(new b(this));
-        this.agw.setWeixinHandler(new c(this));
-        this.agw.setAuthorizationListener(new d(this));
-        this.cVq = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
-        this.cVs = getIntent();
-        if (this.cVs != null) {
-            this.cVq.handleIntent(getIntent(), this);
+        this.mNavigationBar.setTitleText(getResources().getString(i.h.login));
+        this.agI = (FrameLayout) findViewById(i.f.webview_container);
+        this.agG = new SapiWebView(getPageContext().getPageActivity());
+        this.agI.removeAllViews();
+        this.agI.addView(this.agG);
+        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.agG);
+        this.agG.setOnBackCallback(new a(this));
+        this.agG.setOnFinishCallback(new b(this));
+        this.agG.setWeixinHandler(new c(this));
+        this.agG.setAuthorizationListener(new d(this));
+        this.deu = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
+        this.dew = getIntent();
+        if (this.dew != null) {
+            this.deu.handleIntent(getIntent(), this);
         }
-        if (!this.cVr) {
-            this.agw.loadWeixinSSOLogin();
+        if (!this.dev) {
+            this.agG.loadWeixinSSOLogin();
         }
     }
 
@@ -58,9 +56,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.cVs = intent;
-        if (this.cVs != null) {
-            this.cVq.handleIntent(intent, this);
+        this.dew = intent;
+        if (this.dew != null) {
+            this.deu.handleIntent(intent, this);
         }
     }
 
@@ -80,8 +78,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
     public void onReq(BaseReq baseReq) {
-        if (this.cVs != null) {
-            f.avs().Z(this.cVs);
+        if (this.dew != null) {
+            f.azY().ad(this.dew);
         }
         closeActivity();
     }
@@ -90,13 +88,13 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     public void onResp(BaseResp baseResp) {
         if (baseResp != null) {
             if (1 == baseResp.getType()) {
-                this.cVr = true;
+                this.dev = true;
                 if (baseResp.errCode == 0) {
                     if (baseResp instanceof SendAuth.Resp) {
                         String str = ((SendAuth.Resp) baseResp).state;
                         String str2 = ((SendAuth.Resp) baseResp).code;
-                        if (this.agw != null) {
-                            this.agw.weixinSSOLogin(str2, str);
+                        if (this.agG != null) {
+                            this.agG.weixinSSOLogin(str2, str);
                             return;
                         }
                         return;
@@ -106,7 +104,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                 setResult(230014);
                 closeActivity();
             } else if (2 == baseResp.getType()) {
-                this.cVr = true;
+                this.dev = true;
                 closeActivity();
             }
         }
@@ -115,19 +113,19 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
+        if (this.agI != null) {
+            this.agI.removeAllViews();
+        }
+        if (this.agG != null) {
+            this.agG.setAuthorizationListener(null);
+            this.agG.setSocialLoginHandler(null);
+            this.agG.setWeixinHandler(null);
+            this.agG.setOnBackCallback(null);
+            this.agG.setOnFinishCallback(null);
+            this.agG.getSettings().setBuiltInZoomControls(true);
+            this.agG.setVisibility(8);
+            h.hf().postDelayed(new e(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
+        }
         super.onDestroy();
-        if (this.agy != null) {
-            this.agy.removeAllViews();
-        }
-        if (this.agw != null) {
-            this.agw.setAuthorizationListener(null);
-            this.agw.setSocialLoginHandler(null);
-            this.agw.setWeixinHandler(null);
-            this.agw.setOnBackCallback(null);
-            this.agw.setOnFinishCallback(null);
-            this.agw.getSettings().setBuiltInZoomControls(true);
-            this.agw.setVisibility(8);
-            new Timer().schedule(new e(this), ViewConfiguration.getZoomControlsTimeout());
-        }
     }
 }

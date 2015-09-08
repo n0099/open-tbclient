@@ -1,7 +1,7 @@
 package com.baidu.adp.plugin.packageManager.pluginSettings;
 /* loaded from: classes.dex */
 public interface e {
-    void ms();
+    void mp();
 
-    void mt();
+    void mq();
 }

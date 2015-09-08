@@ -11,7 +11,7 @@ public class a extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        c.wR().n(sQLiteDatabase);
+        c.wX().n(sQLiteDatabase);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper

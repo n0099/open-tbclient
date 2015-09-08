@@ -8,24 +8,24 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements View.OnClickListener {
-    private final /* synthetic */ long aHo;
-    private final /* synthetic */ String aHr;
-    private final /* synthetic */ String bnZ;
-    final /* synthetic */ aq bol;
+    private final /* synthetic */ long aHB;
+    private final /* synthetic */ String aHE;
+    final /* synthetic */ aq boJ;
+    private final /* synthetic */ String box;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(aq aqVar, long j, String str, String str2) {
-        this.bol = aqVar;
-        this.aHo = j;
-        this.bnZ = str;
-        this.aHr = str2;
+        this.boJ = aqVar;
+        this.aHB = j;
+        this.box = str;
+        this.aHE = str2;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.adp.base.h hVar;
         MessageManager messageManager = MessageManager.getInstance();
-        hVar = this.bol.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(hVar.getPageActivity(), String.valueOf(this.aHo), this.bnZ, this.aHr, "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
+        hVar = this.boJ.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(hVar.getPageActivity(), String.valueOf(this.aHB), this.box, this.aHE, "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class bx {
     public static ImMessageCenterPojo l(ImMessageCenterPojo imMessageCenterPojo) {
-        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -8 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : a(imMessageCenterPojo, b.Vl().Vs());
+        return (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != -8 || imMessageCenterPojo.getUnread_count() <= 0) ? imMessageCenterPojo : a(imMessageCenterPojo, b.Vn().Vu());
     }
 
     private static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
@@ -28,16 +28,16 @@ public class bx {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
             if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 4) {
-                if (!com.baidu.tieba.im.settingcache.h.Wx().aK(currentAccount, imMessageCenterPojo3.getGid())) {
+                if (!com.baidu.tieba.im.settingcache.h.Wz().aM(currentAccount, imMessageCenterPojo3.getGid())) {
                     imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
                 } else {
-                    com.baidu.tieba.im.settingcache.g.Ww().setAcceptNotify(true);
+                    com.baidu.tieba.im.settingcache.g.Wy().setAcceptNotify(true);
                 }
             }
         }
         if (imMessageCenterPojo2.getUnread_count() <= 0) {
             imMessageCenterPojo2.setUnread_count(1);
-            com.baidu.tieba.im.settingcache.g.Ww().setAcceptNotify(false);
+            com.baidu.tieba.im.settingcache.g.Wy().setAcceptNotify(false);
         }
         return imMessageCenterPojo2;
     }

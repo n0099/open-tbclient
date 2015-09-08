@@ -8,51 +8,51 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class y {
-    private static String axL = "tb_perfor_samllflow_time";
-    private static volatile y axO;
-    private long axN;
-    private boolean axJ = false;
-    private long axM = 86400;
-    private long axK = com.baidu.tbadk.core.sharedPref.b.ts().getLong(axL, 0);
+    private static String azt = "tb_perfor_samllflow_time";
+    private static volatile y azw;
+    private long azv;
+    private boolean azr = false;
+    private long azu = 86400;
+    private long azs = com.baidu.tbadk.core.sharedPref.b.tx().getLong(azt, 0);
 
-    public static y Ee() {
-        if (axO == null) {
+    public static y Eo() {
+        if (azw == null) {
             synchronized (y.class) {
-                if (axO == null) {
-                    axO = new y();
+                if (azw == null) {
+                    azw = new y();
                 }
             }
         }
-        return axO;
+        return azw;
     }
 
     private y() {
-        this.axN = 0L;
-        this.axN = this.axM;
+        this.azv = 0L;
+        this.azv = this.azu;
     }
 
-    public boolean Ef() {
-        if (!this.axJ || (System.currentTimeMillis() - this.axK) / 1000 <= this.axN) {
-            return this.axJ;
+    public boolean Ep() {
+        if (!this.azr || (System.currentTimeMillis() - this.azs) / 1000 <= this.azv) {
+            return this.azr;
         }
         return false;
     }
 
-    public void bl(boolean z) {
+    public void bs(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.axK || currentTimeMillis - this.axK >= this.axN) {
-                this.axK = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.ts().putLong(axL, this.axK);
+            if (0 == this.azs || currentTimeMillis - this.azs >= this.azv) {
+                this.azs = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.tx().putLong(azt, this.azs);
             }
         } else {
-            this.axK = 0L;
-            com.baidu.tbadk.core.sharedPref.b.ts().putLong(axL, this.axK);
+            this.azs = 0L;
+            com.baidu.tbadk.core.sharedPref.b.tx().putLong(azt, this.azs);
         }
-        this.axJ = z;
+        this.azr = z;
     }
 
-    public String Eg() {
+    public String Eq() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -66,7 +66,7 @@ public class y {
         }
     }
 
-    public final String Eh() {
+    public final String Er() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / 1024);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / 1024);
@@ -82,25 +82,25 @@ public class y {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.i.iO()) {
+        if (!com.baidu.adp.lib.util.i.iL()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.i.iP()) {
+        if (com.baidu.adp.lib.util.i.iM()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.iR()) {
+        if (com.baidu.adp.lib.util.i.iO()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.i.iS()) {
+        if (com.baidu.adp.lib.util.i.iP()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.i.iT()) {
+        if (!com.baidu.adp.lib.util.i.iQ()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String er(int i) {
+    public static String ez(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -113,8 +113,8 @@ public class y {
         return "WIFI";
     }
 
-    public x es(int i) {
-        if (Ef()) {
+    public x eA(int i) {
+        if (Ep()) {
             switch (i) {
                 case 1000:
                     aa aaVar = new aa();
@@ -143,9 +143,9 @@ public class y {
         return null;
     }
 
-    public void v(long j) {
+    public void w(long j) {
         if (j > 0) {
-            this.axN = j;
+            this.azv = j;
         }
     }
 
@@ -164,7 +164,7 @@ public class y {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int Ei() {
+    public int Es() {
         BufferedReader bufferedReader;
         Process process;
         String str;

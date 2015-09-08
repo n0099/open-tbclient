@@ -9,7 +9,7 @@ public interface n<T> {
 
     void ab(String str);
 
-    f gf();
+    f gb();
 
     T l(String str, String str2);
 

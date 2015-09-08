@@ -10,11 +10,11 @@ import com.baidu.tieba.i;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a<T> {
-    private WeakReference<InterfaceC0050a<T>> atN = null;
-    private c atO = null;
-    private a<T>.b atP = null;
-    public T atQ;
-    private final com.baidu.tbadk.img.c atR;
+    public T avA;
+    private final com.baidu.tbadk.img.c avB;
+    private WeakReference<InterfaceC0050a<T>> avx = null;
+    private c avy = null;
+    private a<T>.b avz = null;
     private String mPath;
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
@@ -31,17 +31,17 @@ public class a<T> {
     public a(String str, String str2) {
         this.mPath = null;
         this.mPath = str;
-        this.atR = new com.baidu.tbadk.img.c(str2);
+        this.avB = new com.baidu.tbadk.img.c(str2);
     }
 
     public void i(int i, int i2, int i3, int i4) {
-        this.atR.i(i, i2, i3, i4);
+        this.avB.i(i, i2, i3, i4);
     }
 
-    public void Cg() {
-        if (this.atP == null) {
-            this.atP = new b(this, null);
-            this.atP.execute(new String[0]);
+    public void Cu() {
+        if (this.avz == null) {
+            this.avz = new b(this, null);
+            this.avz.execute(new String[0]);
         }
     }
 
@@ -58,16 +58,16 @@ public class a<T> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: k */
+        /* renamed from: l */
         public ImageUploadResult doInBackground(String... strArr) {
-            return Cj();
+            return Cx();
         }
 
-        private ImageUploadResult Cj() {
-            a.this.atR.a(this, null);
-            ImageUploadResult fc = a.this.atR.fc(a.this.mPath);
+        private ImageUploadResult Cx() {
+            a.this.avB.a(this, null);
+            ImageUploadResult fk = a.this.avB.fk(a.this.mPath);
             publishProgress(100);
-            return fc;
+            return fk;
         }
 
         @Override // com.baidu.tbadk.img.c.a
@@ -89,8 +89,8 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public void onProgressUpdate(Integer... numArr) {
-            if (numArr != null && numArr.length != 0 && a.this.atN != null && a.this.atN.get() != null) {
-                ((InterfaceC0050a) a.this.atN.get()).b(numArr[0].intValue(), a.this.atQ);
+            if (numArr != null && numArr.length != 0 && a.this.avx != null && a.this.avx.get() != null) {
+                ((InterfaceC0050a) a.this.avx.get()).b(numArr[0].intValue(), a.this.avA);
             }
         }
 
@@ -98,19 +98,19 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            if (a.this.atO != null) {
+            if (a.this.avy != null) {
                 ImageUploadResult imageUploadResult = new ImageUploadResult();
                 imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
-                imageUploadResult.error_msg = TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.send_error);
-                a.this.atO.a(a.this.mPath, imageUploadResult);
+                imageUploadResult.error_msg = TbadkCoreApplication.m411getInst().getApp().getString(i.h.send_error);
+                a.this.avy.a(a.this.mPath, imageUploadResult);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            a.this.atP = null;
-            a.this.atR.cancel();
+            a.this.avz = null;
+            a.this.avB.cancel();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -119,42 +119,42 @@ public class a<T> {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            a.this.atP = null;
-            if (a.this.atO != null) {
+            a.this.avz = null;
+            if (a.this.avy != null) {
                 if (imageUploadResult == null) {
                     imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
-                    imageUploadResult.error_msg = TbadkCoreApplication.m411getInst().getApp().getString(i.C0057i.send_error);
+                    imageUploadResult.error_msg = TbadkCoreApplication.m411getInst().getApp().getString(i.h.send_error);
                     TiebaStatic.imgError(TbErrInfo.ERR_IMG_SEND, imageUploadResult.error_msg, "");
                 }
-                a.this.atO.a(a.this.mPath, imageUploadResult);
+                a.this.avy.a(a.this.mPath, imageUploadResult);
             }
         }
     }
 
     public void a(InterfaceC0050a<T> interfaceC0050a) {
-        this.atN = new WeakReference<>(interfaceC0050a);
+        this.avx = new WeakReference<>(interfaceC0050a);
     }
 
     public void a(c cVar) {
-        this.atO = cVar;
+        this.avy = cVar;
     }
 
     public void setGroupId(String str) {
-        this.atR.setGroupId(str);
+        this.avB.setGroupId(str);
     }
 
-    public T Ch() {
-        return this.atQ;
+    public T Cv() {
+        return this.avA;
     }
 
-    public void x(T t) {
-        this.atQ = t;
+    public void y(T t) {
+        this.avA = t;
     }
 
-    public void Ci() {
-        LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.tY().getMsgSPicMaxSize();
-        LocalViewSize.ImageSize ua = LocalViewSize.tY().ua();
-        i(ua.width, ua.height, msgSPicMaxSize.width, msgSPicMaxSize.height);
+    public void Cw() {
+        LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.ud().getMsgSPicMaxSize();
+        LocalViewSize.ImageSize uf = LocalViewSize.ud().uf();
+        i(uf.width, uf.height, msgSPicMaxSize.width, msgSPicMaxSize.height);
     }
 }

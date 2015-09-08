@@ -10,14 +10,14 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class o extends r {
-    public static int axe = 0;
-    public static int axf = 1;
-    public static int axg = 2;
+    public static int ayM = 0;
+    public static int ayN = 1;
+    public static int ayO = 2;
     private static CustomMessageTask customNormalTask = new CustomMessageTask(CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new p());
-    private ArrayList<String> awB;
-    private ArrayList<String> awC;
-    private ArrayList<String> axc;
-    private boolean axd;
+    private ArrayList<String> ayK;
+    private boolean ayL;
+    private ArrayList<String> ayj;
+    private ArrayList<String> ayk;
     private CustomMessageListener customNormalListener = new q(this, CmdConfigCustom.CMD_PERF_LIVE_SAMPLE);
 
     static {
@@ -26,109 +26,109 @@ public class o extends r {
     }
 
     public o() {
-        DI();
+        DS();
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public boolean DS() {
-        return this.axd;
+    public boolean Ec() {
+        return this.ayL;
     }
 
-    public void bk(boolean z) {
-        this.axd = z;
+    public void br(boolean z) {
+        this.ayL = z;
     }
 
-    public void DH() {
-        DJ();
+    public void DR() {
+        DT();
     }
 
     public void K(int i, int i2) {
         if (i != 0) {
             SparseArray sparseArray = new SparseArray();
-            sparseArray.put(axe, 6);
-            sparseArray.put(axf, Integer.valueOf((int) a0.f37long));
-            sparseArray.put(axg, Integer.valueOf(i));
+            sparseArray.put(ayM, 6);
+            sparseArray.put(ayN, Integer.valueOf((int) a0.f37long));
+            sparseArray.put(ayO, Integer.valueOf(i));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ADD_TRAFFIC_DATA, sparseArray));
         }
         if (i2 != 0) {
             SparseArray sparseArray2 = new SparseArray();
-            sparseArray2.put(axe, 6);
-            sparseArray2.put(axf, Integer.valueOf((int) a0.t));
-            sparseArray2.put(axg, Integer.valueOf(i2));
+            sparseArray2.put(ayM, 6);
+            sparseArray2.put(ayN, Integer.valueOf((int) a0.t));
+            sparseArray2.put(ayO, Integer.valueOf(i2));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ADD_TRAFFIC_DATA, sparseArray2));
         }
     }
 
-    public void DT() {
-        DV();
-        if (this.awC != null) {
-            this.awC.clear();
+    public void Ed() {
+        Ef();
+        if (this.ayk != null) {
+            this.ayk.clear();
         }
-        if (this.awB != null) {
-            this.awB.clear();
+        if (this.ayj != null) {
+            this.ayj.clear();
         }
-        if (this.axc != null) {
-            this.axc.clear();
+        if (this.ayK != null) {
+            this.ayK.clear();
         }
     }
 
-    private void DI() {
+    private void DS() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void DJ() {
+    private void DT() {
         CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new a());
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fo(String str) {
-        if (this.awB == null) {
-            this.awB = new ArrayList<>();
+    public void fw(String str) {
+        if (this.ayj == null) {
+            this.ayj = new ArrayList<>();
         }
         if (str != null) {
-            this.awB.add(str);
+            this.ayj.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fp(String str) {
-        if (this.axc == null) {
-            this.axc = new ArrayList<>();
+    public void fx(String str) {
+        if (this.ayK == null) {
+            this.ayK = new ArrayList<>();
         }
         if (str != null) {
-            this.axc.add(str);
+            this.ayK.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ep(int i) {
+    public void ex(int i) {
         String valueOf = String.valueOf(i);
-        if (this.awC == null) {
-            this.awC = new ArrayList<>();
+        if (this.ayk == null) {
+            this.ayk = new ArrayList<>();
         }
-        this.awC.add(valueOf);
+        this.ayk.add(valueOf);
     }
 
-    public String DU() {
-        return s(this.axc);
+    public String Ee() {
+        return r(this.ayK);
     }
 
-    public String DM() {
-        return s(this.awB);
+    public String DW() {
+        return r(this.ayj);
     }
 
     public String getCpuString() {
-        return s(this.awC);
+        return r(this.ayk);
     }
 
-    private String s(ArrayList<String> arrayList) {
+    private String r(ArrayList<String> arrayList) {
         if (arrayList == null || arrayList.size() == 0) {
             return "()";
         }
@@ -147,18 +147,18 @@ public class o extends r {
         return stringBuffer.toString();
     }
 
-    private void DV() {
+    private void Ef() {
         w wVar;
-        if (this.awB != null && this.awB.size() > 0 && this.awC != null && this.awC.size() > 0 && this.axc != null && this.axc.size() > 0 && (wVar = (w) y.Ee().es(this.mSubType)) != null) {
+        if (this.ayj != null && this.ayj.size() > 0 && this.ayk != null && this.ayk.size() > 0 && this.ayK != null && this.ayK.size() > 0 && (wVar = (w) y.Eo().eA(this.mSubType)) != null) {
             wVar.b(this);
         }
     }
 
     /* loaded from: classes.dex */
     public class a {
-        public String awM;
-        public int awN;
-        public String axi;
+        public String ayQ;
+        public String ayu;
+        public int ayv;
 
         public a() {
         }

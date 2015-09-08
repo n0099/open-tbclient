@@ -5,11 +5,11 @@ import android.location.LocationManager;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class f implements Runnable {
-    final /* synthetic */ c bPB;
+    final /* synthetic */ c bQh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.bPB = cVar;
+        this.bQh = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,11 +17,11 @@ class f implements Runnable {
         LocationManager locationManager;
         LocationManager locationManager2;
         LocationListener locationListener;
-        locationManager = this.bPB.bPv;
+        locationManager = this.bQh.bQb;
         if (locationManager != null) {
             try {
-                locationManager2 = this.bPB.bPv;
-                locationListener = this.bPB.bPz;
+                locationManager2 = this.bQh.bQb;
+                locationListener = this.bQh.bQf;
                 locationManager2.requestLocationUpdates("network", 10000L, 100.0f, locationListener);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());

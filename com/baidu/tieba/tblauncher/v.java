@@ -23,7 +23,7 @@ class v extends com.baidu.adp.framework.listener.e {
             if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
                 return;
             }
-            this.this$0.kF(configVersion.sync);
+            this.this$0.lk(configVersion.sync);
         }
     }
 }

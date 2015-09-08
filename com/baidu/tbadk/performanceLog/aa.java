@@ -4,84 +4,84 @@ import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 /* loaded from: classes.dex */
 public class aa extends x {
     public void a(t tVar) {
-        if (y.Ee().Ef()) {
-            com.baidu.adp.lib.stats.d hd = hd();
-            hd.q("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-            hd.q("ishttp", tVar.axw ? "1" : "0");
-            hd.q("issuccess", tVar.isSuccess ? "1" : "0");
-            hd.q("nettype", y.Ee().getNetType());
-            hd.q("ct", String.valueOf(tVar.axk));
-            hd.q("wt", String.valueOf(tVar.axr));
-            hd.q("qt", String.valueOf(tVar.axl));
-            hd.q("connt", String.valueOf(tVar.axm));
-            hd.q("rwt", String.valueOf(tVar.axn));
-            hd.q("dect", String.valueOf(tVar.axo));
-            hd.q("parset", String.valueOf(tVar.axp));
-            hd.q("rendert", String.valueOf(tVar.axq));
-            hd.q("ss", String.valueOf(tVar.axu));
-            hd.q("hs", String.valueOf(tVar.axv));
-            com.baidu.adp.lib.stats.a.hk().a(this.subType, hd);
+        if (y.Eo().Ep()) {
+            com.baidu.adp.lib.stats.d ha = ha();
+            ha.q("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
+            ha.q("ishttp", tVar.aze ? "1" : "0");
+            ha.q("issuccess", tVar.isSuccess ? "1" : "0");
+            ha.q("nettype", y.Eo().getNetType());
+            ha.q("ct", String.valueOf(tVar.ayS));
+            ha.q("wt", String.valueOf(tVar.ayZ));
+            ha.q("qt", String.valueOf(tVar.ayT));
+            ha.q("connt", String.valueOf(tVar.ayU));
+            ha.q("rwt", String.valueOf(tVar.ayV));
+            ha.q("dect", String.valueOf(tVar.ayW));
+            ha.q("parset", String.valueOf(tVar.ayX));
+            ha.q("rendert", String.valueOf(tVar.ayY));
+            ha.q("ss", String.valueOf(tVar.azc));
+            ha.q("hs", String.valueOf(tVar.azd));
+            com.baidu.adp.lib.stats.a.hh().a(this.subType, ha);
         }
     }
 
     public void b(t tVar) {
-        if (y.Ee().Ef() && tVar.axr > 0) {
-            com.baidu.adp.lib.stats.d hd = hd();
-            hd.q("action", "white");
-            hd.q("ct", String.valueOf(tVar.axk));
-            hd.q("wt", String.valueOf(tVar.axr));
-            com.baidu.adp.lib.stats.a.hk().a(this.subType, hd);
+        if (y.Eo().Ep() && tVar.ayZ > 0) {
+            com.baidu.adp.lib.stats.d ha = ha();
+            ha.q("action", "white");
+            ha.q("ct", String.valueOf(tVar.ayS));
+            ha.q("wt", String.valueOf(tVar.ayZ));
+            com.baidu.adp.lib.stats.a.hh().a(this.subType, ha);
         }
     }
 
     public void c(t tVar) {
-        if (y.Ee().Ef() && tVar.axs > 0) {
-            com.baidu.adp.lib.stats.d hd = hd();
-            hd.q("action", "readCache");
-            hd.q("rct", String.valueOf(tVar.axs));
-            com.baidu.adp.lib.stats.a.hk().a(this.subType, hd);
+        if (y.Eo().Ep() && tVar.aza > 0) {
+            com.baidu.adp.lib.stats.d ha = ha();
+            ha.q("action", "readCache");
+            ha.q("rct", String.valueOf(tVar.aza));
+            com.baidu.adp.lib.stats.a.hh().a(this.subType, ha);
         }
     }
 
     public void d(t tVar) {
-        if (y.Ee().Ef() && tVar.axt > 0) {
-            com.baidu.adp.lib.stats.d hd = hd();
-            hd.q("action", "writeCache");
-            hd.q("wct", String.valueOf(tVar.axt));
-            com.baidu.adp.lib.stats.a.hk().a(this.subType, hd);
+        if (y.Eo().Ep() && tVar.azb > 0) {
+            com.baidu.adp.lib.stats.d ha = ha();
+            ha.q("action", "writeCache");
+            ha.q("wct", String.valueOf(tVar.azb));
+            com.baidu.adp.lib.stats.a.hh().a(this.subType, ha);
         }
     }
 
     public void a(s sVar, String str) {
-        if (sVar != null && str != null && y.Ee().Ef()) {
-            com.baidu.adp.lib.stats.d hd = hd();
-            hd.q("action", "resource");
-            hd.q("actype", str);
-            hd.q("issuccess", sVar.isSuccess ? "1" : "0");
-            hd.q("isfs", sVar.axj ? "1" : "0");
-            hd.q("ct", String.valueOf(sVar.Gq));
-            hd.q("from", String.valueOf(sVar.Gp));
-            com.baidu.adp.lib.stats.a.hk().a(this.subType, hd);
+        if (sVar != null && str != null && y.Eo().Ep()) {
+            com.baidu.adp.lib.stats.d ha = ha();
+            ha.q("action", "resource");
+            ha.q("actype", str);
+            ha.q("issuccess", sVar.isSuccess ? "1" : "0");
+            ha.q("isfs", sVar.ayR ? "1" : "0");
+            ha.q("ct", String.valueOf(sVar.Gq));
+            ha.q("from", String.valueOf(sVar.Gp));
+            com.baidu.adp.lib.stats.a.hh().a(this.subType, ha);
         }
     }
 
     public void g(e eVar) {
-        if (eVar != null && y.Ee().Ef()) {
-            com.baidu.adp.lib.stats.d hd = hd();
-            hd.q("action", "fluency");
-            hd.q("fps", String.valueOf(eVar.DK()));
-            hd.q("memp", String.valueOf(eVar.DM()));
-            hd.q("cpu", String.valueOf(eVar.getCpuString()));
-            com.baidu.adp.lib.stats.a.hk().a(this.subType, hd);
+        if (eVar != null && y.Eo().Ep()) {
+            com.baidu.adp.lib.stats.d ha = ha();
+            ha.q("action", "fluency");
+            ha.q("fps", String.valueOf(eVar.DU()));
+            ha.q("memp", String.valueOf(eVar.DW()));
+            ha.q("cpu", String.valueOf(eVar.getCpuString()));
+            com.baidu.adp.lib.stats.a.hh().a(this.subType, ha);
         }
     }
 
     public void h(e eVar) {
-        if (y.Ee().Ef()) {
-            com.baidu.adp.lib.stats.d hd = hd();
-            hd.q("action", "gc");
-            hd.q("gc", String.valueOf(eVar.DL()));
-            com.baidu.adp.lib.stats.a.hk().a(this.subType, hd);
+        if (y.Eo().Ep()) {
+            com.baidu.adp.lib.stats.d ha = ha();
+            ha.q("action", "gc");
+            ha.q("gc", String.valueOf(eVar.DV()));
+            com.baidu.adp.lib.stats.a.hh().a(this.subType, ha);
         }
     }
 }

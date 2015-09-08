@@ -18,6 +18,10 @@ public class PhotoLiveCommentActivityConfig extends IntentConfig {
         super(context);
     }
 
+    public PhotoLiveCommentActivityConfig createPhotoLiveCommentActivityConfig(String str, String str2, boolean z) {
+        return createPhotoLiveCommentActivityConfig(str, str2, null, 0, false, z);
+    }
+
     public PhotoLiveCommentActivityConfig createPhotoLiveCommentActivityConfig(String str, String str2, String str3, int i, boolean z, boolean z2) {
         return createPhotoLiveCommentActivityConfig(str, str2, str3, i, z, z2, -1);
     }

@@ -9,7 +9,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.text.style.DynamicDrawableSpan;
-import android.util.Log;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class e extends DynamicDrawableSpan {
@@ -52,48 +51,40 @@ public class e extends DynamicDrawableSpan {
 
     @Override // android.text.style.DynamicDrawableSpan
     public Drawable getDrawable() {
-        Drawable drawable;
-        Drawable drawable2;
-        Exception e;
-        Drawable drawable3 = null;
+        Drawable drawable = null;
         if (this.Gv != null) {
-            drawable3 = this.Gv;
+            drawable = this.Gv;
         } else if (this.Jc != null) {
-            drawable3 = this.Jc.a(this);
+            drawable = this.Jc.a(this);
         }
-        if (drawable3 != null) {
-            return drawable3;
+        if (drawable != null) {
+            return drawable;
         }
         if (this.Ja != null) {
             try {
                 InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.Ja);
-                drawable2 = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
                 try {
-                    drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+                    bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
                     openInputStream.close();
-                    return drawable2;
-                } catch (Exception e2) {
-                    e = e2;
-                    Log.e("sms", "Failed to loaded content " + this.Ja, e);
-                    return drawable2;
+                    return bitmapDrawable;
+                } catch (Exception e) {
+                    return bitmapDrawable;
                 }
-            } catch (Exception e3) {
-                drawable2 = drawable3;
-                e = e3;
+            } catch (Exception e2) {
+                return drawable;
             }
-        } else {
+        }
+        try {
+            Drawable drawable2 = this.mContext.getResources().getDrawable(this.Jb);
             try {
-                drawable = this.mContext.getResources().getDrawable(this.Jb);
-                try {
-                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                    return drawable;
-                } catch (Exception e4) {
-                    Log.e("sms", "Unable to find resource: " + this.Jb);
-                    return drawable;
-                }
-            } catch (Exception e5) {
-                drawable = drawable3;
+                drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+                return drawable2;
+            } catch (Exception e3) {
+                return drawable2;
             }
+        } catch (Exception e4) {
+            return drawable;
         }
     }
 

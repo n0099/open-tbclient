@@ -1,30 +1,41 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.coreExtra.live.LiveStatusChangeMessage;
-import com.baidu.tbadk.coreExtra.view.LivePlayingStatusMgr;
+import android.view.View;
+import android.widget.Button;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u extends CustomMessageListener {
-    final /* synthetic */ LivePlayingStatusMgr alz;
+public class u implements View.OnClickListener {
+    final /* synthetic */ MultiImageView amq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u(LivePlayingStatusMgr livePlayingStatusMgr, int i) {
-        super(i);
-        this.alz = livePlayingStatusMgr;
+    public u(MultiImageView multiImageView) {
+        this.amq = multiImageView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        LiveStatusChangeMessage.LiveStatusData data;
-        if (customResponsedMessage.getCmd() == 2001161 && (customResponsedMessage instanceof LiveStatusChangeMessage) && (data = ((LiveStatusChangeMessage) customResponsedMessage).getData()) != null) {
-            if (LiveStatusChangeMessage.isPlayingLive(data) || LiveStatusChangeMessage.isPublishing(data)) {
-                this.alz.a(com.baidu.adp.lib.g.b.g(data.groupId, 0), LivePlayingStatusMgr.LivePlayingStatus.PLAYING);
-            } else if (20 != data.status && 4 != data.status) {
-                this.alz.a(0, LivePlayingStatusMgr.LivePlayingStatus.IDEL);
+    /* JADX WARN: Code restructure failed: missing block: B:10:0x001c, code lost:
+        r0 = r1.amq.getCurrentImageView();
+     */
+    @Override // android.view.View.OnClickListener
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onClick(View view) {
+        Button button;
+        Button button2;
+        com.baidu.tbadk.widget.a currentImageView;
+        com.baidu.tbadk.widget.a currentImageView2;
+        button = this.amq.amh;
+        if (view != button) {
+            button2 = this.amq.ami;
+            if (view == button2 && currentImageView != null) {
+                currentImageView.zoomOutBitmap();
+                return;
             }
+            return;
+        }
+        currentImageView2 = this.amq.getCurrentImageView();
+        if (currentImageView2 != null) {
+            currentImageView2.zoomInBitmap();
         }
     }
 }

@@ -28,15 +28,15 @@ public class l implements com.baidu.adp.plugin.packageManager.pluginSettings.f {
             if (pluginSettings != null) {
                 M = this.this$0.M(this.DH, pluginSettings.getContainerVersion());
             }
-            this.this$0.lX();
+            this.this$0.lU();
             if (Build.VERSION.SDK_INT > 10) {
-                this.this$0.lZ();
+                this.this$0.lW();
                 return;
             }
             return;
         }
         this.this$0.Dw = System.currentTimeMillis();
-        this.this$0.lY();
         this.this$0.lV();
+        this.this$0.lS();
     }
 }

@@ -1,19 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.location.BDLocationStatusCodes;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.pb.pb.main.bk;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bn extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ bk ccq;
+    final /* synthetic */ bk cdn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bn(bk bkVar, int i, int i2) {
         super(i, i2);
-        this.ccq = bkVar;
+        this.cdn = bkVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0046  */
@@ -21,10 +20,10 @@ public class bn extends com.baidu.adp.framework.listener.a {
     /* JADX WARN: Removed duplicated region for block: B:22:0x00a1  */
     /* JADX WARN: Removed duplicated region for block: B:25:0x00b3  */
     /* JADX WARN: Removed duplicated region for block: B:28:0x00ca  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x013d  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0140  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0143  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0147  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0143  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0146  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0149  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x014d  */
     /* JADX WARN: Removed duplicated region for block: B:40:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.adp.framework.listener.a
     /*
@@ -40,19 +39,19 @@ public class bn extends com.baidu.adp.framework.listener.a {
         bk.a aVar2;
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
-        if (((responsedMessage instanceof PbPageSocketResponseMessage) || (responsedMessage instanceof PbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.ccq.getUniqueId()) {
+        if (((responsedMessage instanceof PbPageSocketResponseMessage) || (responsedMessage instanceof PbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.cdn.getUniqueId()) {
             boolean z4 = true;
             if (responsedMessage.hasError()) {
                 z4 = false;
                 if (responsedMessage.getError() == 4) {
-                    baseActivity2 = this.ccq.aSJ;
+                    baseActivity2 = this.cdn.aSX;
                     baseActivity2.showToast(responsedMessage.getErrorString());
                     z = false;
                     if (responsedMessage instanceof PbPageSocketResponseMessage) {
                         i = 0;
                     } else {
                         PbPageSocketResponseMessage pbPageSocketResponseMessage = (PbPageSocketResponseMessage) responsedMessage;
-                        this.ccq.a(pbPageSocketResponseMessage);
+                        this.cdn.a(pbPageSocketResponseMessage);
                         i = pbPageSocketResponseMessage.getDownSize();
                     }
                     if (responsedMessage instanceof PbPageHttpResponseMessage) {
@@ -60,7 +59,7 @@ public class bn extends com.baidu.adp.framework.listener.a {
                         z2 = false;
                     } else {
                         PbPageHttpResponseMessage pbPageHttpResponseMessage = (PbPageHttpResponseMessage) responsedMessage;
-                        this.ccq.a(pbPageHttpResponseMessage);
+                        this.cdn.a(pbPageHttpResponseMessage);
                         i2 = pbPageHttpResponseMessage.getDownSize();
                         z2 = true;
                     }
@@ -75,31 +74,31 @@ public class bn extends com.baidu.adp.framework.listener.a {
                     objArr[2] = "ThreadId";
                     objArr[3] = pbPageRequestMessage == null ? String.valueOf(pbPageRequestMessage.get_kz()) : null;
                     com.baidu.tbadk.core.log.b.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
-                    z3 = this.ccq.ccm;
+                    z3 = this.cdn.cdh;
                     if (z3) {
-                        this.ccq.ccm = true;
+                        this.cdn.cdh = true;
                         com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
-                        tVar.eq(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-                        tVar.axw = z2;
+                        tVar.ey(this.cdn.adJ());
+                        tVar.aze = z2;
                         tVar.isSuccess = z;
-                        tVar.axl = responsedMessage.performanceData.qy;
-                        tVar.axm = responsedMessage.performanceData.qz;
-                        tVar.axn = responsedMessage.performanceData.qA;
-                        tVar.axo = responsedMessage.performanceData.qB;
-                        tVar.axp = responsedMessage.performanceData.qC;
-                        tVar.axu = i;
-                        tVar.axv = i2;
-                        aVar = this.ccq.cci;
+                        tVar.ayT = responsedMessage.performanceData.qw;
+                        tVar.ayU = responsedMessage.performanceData.qx;
+                        tVar.ayV = responsedMessage.performanceData.qy;
+                        tVar.ayW = responsedMessage.performanceData.qz;
+                        tVar.ayX = responsedMessage.performanceData.qA;
+                        tVar.azc = i;
+                        tVar.azd = i2;
+                        aVar = this.cdn.cdd;
                         if (aVar != null) {
-                            aVar2 = this.ccq.cci;
+                            aVar2 = this.cdn.cdd;
                             aVar2.e(tVar);
                             return;
                         }
                         return;
                     }
                     return;
-                } else if (com.baidu.adp.lib.util.i.iO()) {
-                    baseActivity = this.ccq.aSJ;
+                } else if (com.baidu.adp.lib.util.i.iL()) {
+                    baseActivity = this.cdn.aSX;
                     baseActivity.showToast(responsedMessage.getErrorString());
                 }
             }
@@ -119,7 +118,7 @@ public class bn extends com.baidu.adp.framework.listener.a {
             objArr2[2] = "ThreadId";
             objArr2[3] = pbPageRequestMessage2 == null ? String.valueOf(pbPageRequestMessage2.get_kz()) : null;
             com.baidu.tbadk.core.log.b.a("pb", clientLogID2, cmd2, "resp", error2, errorString2, objArr2);
-            z3 = this.ccq.ccm;
+            z3 = this.cdn.cdh;
             if (z3) {
             }
         }

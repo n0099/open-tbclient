@@ -13,7 +13,7 @@ public class c {
     private ArrayList<String> Df = new ArrayList<>();
     private a Do;
 
-    public static c lS() {
+    public static c lP() {
         if (Dn == null) {
             synchronized (c.class) {
                 if (Dn == null) {
@@ -45,12 +45,12 @@ public class c {
             if (!z) {
                 this.Df.add(pluginSetting.packageName);
             }
-            lO();
+            lL();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lO() {
+    public void lL() {
         if (this.Df.size() > 0 && this.Do == null) {
             this.Do = new a(this.Df.get(0));
             this.Do.execute(new String[0]);
@@ -69,7 +69,7 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: f */
+        /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
             if (this.packageName != null) {
                 bk(this.packageName);
@@ -97,18 +97,18 @@ public class c {
                     }
                 }
             }
-            c.this.lO();
+            c.this.lL();
         }
 
         private void bk(String str) {
             File[] listFiles;
-            File my = Util.my();
+            File mv = Util.mv();
             String bJ = Util.bJ(str);
-            if (my != null && my.exists() && (listFiles = my.listFiles()) != null) {
+            if (mv != null && mv.exists() && (listFiles = mv.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
                     if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bJ)) {
-                        com.baidu.adp.plugin.b.a.lH().g("plugin_del_temp", "todel" + listFiles[i].getName(), str);
+                        com.baidu.adp.plugin.b.a.lE().g("plugin_del_temp", "todel" + listFiles[i].getName(), str);
                         com.baidu.adp.lib.util.e.f(listFiles[i]);
                     }
                 }

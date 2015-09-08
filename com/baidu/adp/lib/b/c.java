@@ -7,7 +7,7 @@ public class c {
     private String mName;
     private a mSwitchListener;
     private int mMaxCrashTimes = 0;
-    private String[] tG = null;
+    private String[] tE = null;
     private int mOffType = 0;
 
     /* loaded from: classes.dex */
@@ -29,7 +29,7 @@ public class c {
 
     public void a(int i, String[] strArr, int i2) {
         this.mMaxCrashTimes = i;
-        this.tG = strArr;
+        this.tE = strArr;
         this.mOffType = i2;
     }
 
@@ -41,8 +41,8 @@ public class c {
         return this.mMaxCrashTimes;
     }
 
-    public String[] gv() {
-        return this.tG;
+    public String[] gs() {
+        return this.tE;
     }
 
     public int getOffType() {

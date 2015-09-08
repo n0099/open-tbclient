@@ -22,14 +22,14 @@ public class g extends a {
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
         com.baidu.adp.widget.a.a c = super.c(str, str2, objArr);
-        if (c != null && c.nc() != null && c.nc().isRecycled()) {
+        if (c != null && c.mZ() != null && c.mZ().isRecycled()) {
             return null;
         }
         return c;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.f.e
-    public boolean hf() {
+    public boolean hc() {
         return true;
     }
 
@@ -49,12 +49,12 @@ public class g extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vi() {
+    public boolean vn() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vj() {
+    public boolean vo() {
         return false;
     }
 }

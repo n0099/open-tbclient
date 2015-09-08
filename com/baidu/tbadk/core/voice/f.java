@@ -86,9 +86,9 @@ public class f extends BroadcastReceiver {
                     VoiceManager.b playView4 = this.this$0.getPlayView();
                     if (playView4 != null) {
                         if (intExtra2 == 2) {
-                            string = l.getString(i.C0057i.voice_err_io);
+                            string = l.getString(i.h.voice_err_io);
                         } else {
-                            string = l.getString(i.C0057i.voice_err_play);
+                            string = l.getString(i.h.voice_err_play);
                         }
                         playView4.onShowErr(5, string);
                     }
@@ -105,7 +105,7 @@ public class f extends BroadcastReceiver {
                 }
                 VoiceManager.b playView5 = this.this$0.getPlayView();
                 if (playView5 != null) {
-                    playView5.oF();
+                    playView5.oC();
                 }
                 MediaService.startPlay(context);
             } else {

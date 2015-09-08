@@ -1,36 +1,23 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.view.NavigationBar;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class bi implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity this$0;
+class bi extends CustomMessageListener {
+    final /* synthetic */ WriteActivity ddQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bi(WriteImageActivity writeImageActivity) {
-        this.this$0 = writeImageActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bi(WriteActivity writeActivity, int i) {
+        super(i);
+        this.ddQ = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        NavigationBar navigationBar;
-        NavigationBar navigationBar2;
-        LinearLayout linearLayout;
-        NavigationBar navigationBar3;
-        LinearLayout linearLayout2;
-        navigationBar = this.this$0.mNavigationBar;
-        if (navigationBar.getVisibility() == 0) {
-            navigationBar3 = this.this$0.mNavigationBar;
-            navigationBar3.setVisibility(8);
-            linearLayout2 = this.this$0.chM;
-            linearLayout2.setVisibility(8);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001310) {
+            this.ddQ.avO();
         }
-        navigationBar2 = this.this$0.mNavigationBar;
-        navigationBar2.setVisibility(0);
-        linearLayout = this.this$0.chM;
-        linearLayout.setVisibility(0);
     }
 }

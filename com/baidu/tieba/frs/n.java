@@ -3,44 +3,44 @@ package com.baidu.tieba.frs;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 class n implements NoNetworkView.a {
-    final /* synthetic */ FrsActivity this$0;
+    final /* synthetic */ FrsActivity aVz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.this$0 = frsActivity;
+        this.aVz = frsActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
     public void ay(boolean z) {
-        bl blVar;
-        com.baidu.tieba.tbadkCore.n nVar;
-        bl blVar2;
+        bi biVar;
+        com.baidu.tieba.tbadkCore.o oVar;
+        bi biVar2;
         boolean z2;
-        bl blVar3;
-        bl blVar4;
-        com.baidu.tieba.tbadkCore.n nVar2;
+        bi biVar3;
+        bi biVar4;
+        com.baidu.tieba.tbadkCore.o oVar2;
         if (z) {
-            blVar = this.this$0.aUw;
-            if (!blVar.Lv()) {
-                nVar = this.this$0.aUy;
-                if (nVar != null) {
-                    nVar2 = this.this$0.aUy;
-                    if (nVar2.getThreadList().size() != 0) {
+            biVar = this.aVz.aUL;
+            if (!biVar.Lm()) {
+                oVar = this.aVz.aUN;
+                if (oVar != null) {
+                    oVar2 = this.aVz.aUN;
+                    if (oVar2.getThreadList().size() != 0) {
                         return;
                     }
                 }
-                FrsActivity frsActivity = this.this$0;
-                blVar2 = this.this$0.aUw;
-                frsActivity.hideNetRefreshView(blVar2.getRootView());
-                z2 = this.this$0.aUm;
+                FrsActivity frsActivity = this.aVz;
+                biVar2 = this.aVz.aUL;
+                frsActivity.hideNetRefreshView(biVar2.getRootView());
+                z2 = this.aVz.aUA;
                 if (!z2) {
-                    FrsActivity frsActivity2 = this.this$0;
-                    blVar3 = this.this$0.aUw;
-                    frsActivity2.showLoadingView(blVar3.getRootView(), true);
-                    blVar4 = this.this$0.aUw;
-                    blVar4.Mi();
+                    FrsActivity frsActivity2 = this.aVz;
+                    biVar3 = this.aVz.aUL;
+                    frsActivity2.showLoadingView(biVar3.getRootView(), true);
+                    biVar4 = this.aVz.aUL;
+                    biVar4.LZ();
                 }
-                this.this$0.refresh();
+                this.aVz.refresh();
             }
         }
     }

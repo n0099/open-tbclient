@@ -29,7 +29,7 @@ public class b {
     private PluginSettings Ec = new PluginSettings();
     private final int BUFFER_SIZE = 1024;
 
-    public static b ml() {
+    public static b mi() {
         if (Ea == null) {
             synchronized (b.class) {
                 if (Ea == null) {
@@ -43,7 +43,7 @@ public class b {
     private b() {
     }
 
-    public PluginSettings mm() {
+    public PluginSettings mj() {
         return this.Ec;
     }
 
@@ -51,25 +51,26 @@ public class b {
         if (!this.Ed) {
             this.Ee = fVar;
             this.Ed = true;
-            PluginSettings mn = mn();
+            PluginSettings mk = mk();
             this.Ed = false;
-            if (mn != null) {
-                this.Ec = mn;
+            if (mk != null) {
+                this.Ec = mk;
             }
             if (this.Ee != null) {
-                this.Ee.a(mn);
+                this.Ee.a(mk);
                 this.Ee = null;
             }
         }
     }
 
-    private PluginSettings mn() {
-        byte[] bz = bz(ml().mo());
-        if (bz == null) {
-            return null;
-        }
+    private PluginSettings mk() {
+        Wire wire = new Wire(new Class[0]);
         try {
-            WriteSettingsReqIdl writeSettingsReqIdl = (WriteSettingsReqIdl) new Wire(new Class[0]).parseFrom(bz, WriteSettingsReqIdl.class);
+            byte[] bz = bz(mi().ml());
+            if (bz == null) {
+                return null;
+            }
+            WriteSettingsReqIdl writeSettingsReqIdl = (WriteSettingsReqIdl) wire.parseFrom(bz, WriteSettingsReqIdl.class);
             if (writeSettingsReqIdl == null || writeSettingsReqIdl.data == null) {
                 return null;
             }
@@ -120,29 +121,32 @@ public class b {
             }
             return pluginSettings;
         } catch (Throwable th) {
-            com.baidu.adp.plugin.b.a.lH().bi("settings_read_error");
+            com.baidu.adp.plugin.b.a.lE().bi("plugin_settings_read_error");
+            com.baidu.adp.plugin.b.a.lE().d("plugin_setting", "settings_read_error", null, th.getMessage());
             th.printStackTrace();
             return null;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [197=4, 198=4] */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0054 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v0, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r1v1, types: [java.io.OutputStream] */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v8 */
     private byte[] bz(String str) {
         FileInputStream fileInputStream;
-        OutputStream outputStream;
-        ByteArrayOutputStream byteArrayOutputStream;
+        Exception e;
         byte[] bArr = null;
+        ?? isEmpty = TextUtils.isEmpty(str);
         try {
-            if (!TextUtils.isEmpty(str)) {
+            if (isEmpty == 0) {
                 try {
                     File file = new File(str);
-                    if (file == null || !file.exists()) {
-                        com.baidu.adp.lib.g.a.d(null);
-                        com.baidu.adp.lib.g.a.b((OutputStream) null);
-                    } else {
+                    if (file != null && file.exists()) {
                         fileInputStream = new FileInputStream(file);
                         try {
-                            byteArrayOutputStream = new ByteArrayOutputStream(1024);
+                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                             try {
                                 byte[] bArr2 = new byte[1024];
                                 while (true) {
@@ -155,32 +159,30 @@ public class b {
                                 bArr = byteArrayOutputStream.toByteArray();
                                 com.baidu.adp.lib.g.a.d(fileInputStream);
                                 com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
-                            } catch (Exception e) {
-                                e = e;
+                            } catch (Exception e2) {
+                                e = e2;
                                 BdLog.e(e.getMessage());
-                                com.baidu.adp.lib.g.a.d(fileInputStream);
-                                com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
-                                return bArr;
+                                throw new RuntimeException(e);
                             }
-                        } catch (Exception e2) {
-                            e = e2;
-                            byteArrayOutputStream = null;
+                        } catch (Exception e3) {
+                            e = e3;
                         } catch (Throwable th) {
-                            outputStream = null;
+                            isEmpty = 0;
                             th = th;
                             com.baidu.adp.lib.g.a.d(fileInputStream);
-                            com.baidu.adp.lib.g.a.b(outputStream);
+                            com.baidu.adp.lib.g.a.b((OutputStream) isEmpty);
                             throw th;
                         }
+                    } else {
+                        com.baidu.adp.lib.g.a.d(null);
+                        com.baidu.adp.lib.g.a.b((OutputStream) null);
                     }
-                } catch (Exception e3) {
-                    e = e3;
-                    byteArrayOutputStream = null;
-                    fileInputStream = null;
+                } catch (Exception e4) {
+                    e = e4;
                 } catch (Throwable th2) {
-                    outputStream = null;
                     fileInputStream = null;
                     th = th2;
+                    isEmpty = 0;
                 }
             }
             return bArr;
@@ -224,7 +226,7 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: f */
+        /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
             if (this.Ef == null || this.Ef.getPlugins() == null) {
                 return false;
@@ -270,8 +272,14 @@ public class b {
             builder.container_version = this.Ef.getContainerVersion();
             builder.forbidden_feature = this.Ef.getForbiddenFeatures();
             WriteSettingsReqIdl.Builder builder3 = new WriteSettingsReqIdl.Builder();
-            builder3.data = builder.build(false);
-            return Boolean.valueOf(b.this.f(b.this.mo(), builder3.build(false).toByteArray()));
+            try {
+                builder3.data = builder.build(false);
+                return Boolean.valueOf(b.this.f(b.this.ml(), builder3.build(false).toByteArray()));
+            } catch (Throwable th) {
+                com.baidu.adp.plugin.b.a.lE().bi("plugin_settings_write_error");
+                com.baidu.adp.plugin.b.a.lE().d("plugin_setting", "settings_write_error", null, th.getMessage());
+                return false;
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -282,9 +290,9 @@ public class b {
             super.onPostExecute(bool);
             if (this.Eg != null) {
                 if (bool != null && bool.booleanValue()) {
-                    this.Eg.ms();
+                    this.Eg.mp();
                 } else {
-                    this.Eg.mt();
+                    this.Eg.mq();
                 }
             }
         }
@@ -293,12 +301,11 @@ public class b {
         public void cancel() {
             super.cancel();
             if (this.Eg != null) {
-                this.Eg.mt();
+                this.Eg.mq();
             }
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [346=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public boolean f(String str, byte[] bArr) {
         if (TextUtils.isEmpty(str)) {
@@ -311,30 +318,29 @@ public class b {
                 if (file.exists()) {
                     file.delete();
                 }
-                if (bArr == null) {
-                    com.baidu.adp.lib.g.a.b((OutputStream) null);
-                    return false;
-                }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
                 if (bArr != null) {
-                    try {
-                        fileOutputStream2.write(bArr);
-                    } catch (Exception e) {
-                        e = e;
-                        fileOutputStream = fileOutputStream2;
-                        BdLog.e(e.getMessage());
-                        com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
-                        return false;
-                    } catch (Throwable th) {
-                        th = th;
-                        fileOutputStream = fileOutputStream2;
-                        com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
-                        throw th;
+                    FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                    if (bArr != null) {
+                        try {
+                            fileOutputStream2.write(bArr);
+                        } catch (Exception e) {
+                            e = e;
+                            fileOutputStream = fileOutputStream2;
+                            BdLog.e(e.getMessage());
+                            throw new RuntimeException(e);
+                        } catch (Throwable th) {
+                            th = th;
+                            fileOutputStream = fileOutputStream2;
+                            com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
+                            throw th;
+                        }
                     }
+                    fileOutputStream2.flush();
+                    com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
+                    return true;
                 }
-                fileOutputStream2.flush();
-                com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
-                return true;
+                com.baidu.adp.lib.g.a.b((OutputStream) null);
+                return false;
             } catch (Exception e2) {
                 e = e2;
             }
@@ -343,10 +349,10 @@ public class b {
         }
     }
 
-    public String mo() {
-        if (Util.my() == null) {
+    public String ml() {
+        if (Util.mv() == null) {
             return null;
         }
-        return Util.my().getAbsoluteFile() + File.separator + "plugin_settings";
+        return Util.mv().getAbsoluteFile() + File.separator + "plugin_settings";
     }
 }

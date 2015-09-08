@@ -6,11 +6,11 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class m implements a.d {
-    final /* synthetic */ NewSubPbActivity cfY;
+    final /* synthetic */ NewSubPbActivity cgV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(NewSubPbActivity newSubPbActivity) {
-        this.cfY = newSubPbActivity;
+        this.cgV = newSubPbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -20,16 +20,16 @@ class m implements a.d {
         com.baidu.tbadk.editortools.c.n nVar2;
         com.baidu.tbadk.editortools.c.n nVar3;
         if (z) {
-            nVar = this.cfY.bWp;
+            nVar = this.cgV.bWV;
             if (nVar != null) {
-                nVar2 = this.cfY.bWp;
-                if (nVar2.Ay() != null) {
-                    nVar3 = this.cfY.bWp;
-                    nVar3.Ay().hide();
+                nVar2 = this.cgV.bWV;
+                if (nVar2.AL() != null) {
+                    nVar3 = this.cgV.bWV;
+                    nVar3.AL().hide();
                 }
             }
         }
-        tVar = this.cfY.cfR;
-        tVar.afc();
+        tVar = this.cgV.cgO;
+        tVar.afq();
     }
 }

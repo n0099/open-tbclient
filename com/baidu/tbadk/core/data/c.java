@@ -7,75 +7,75 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 import tbclient.LogTogether.AdReq;
 /* loaded from: classes.dex */
-public class c extends v {
-    public static final BdUniqueId Ub = BdUniqueId.gen();
+public class c extends x {
     public static final BdUniqueId Uc = BdUniqueId.gen();
     public static final BdUniqueId Ud = BdUniqueId.gen();
     public static final BdUniqueId Ue = BdUniqueId.gen();
     public static final BdUniqueId Uf = BdUniqueId.gen();
-    public int Ug;
-    public String Uh;
+    public static final BdUniqueId Ug = BdUniqueId.gen();
+    public int Uh;
     public String Ui;
-    public int Uj;
-    public String Uk;
+    public String Uj;
+    public int Uk;
     public String Ul;
     public String Um;
-    public int Un;
-    public String Uo;
+    public String Un;
+    public int Uo;
     public String Up;
-    public int Uq;
+    public String Uq;
     public int Ur;
-    public String Us;
+    public int Us;
     public String Ut;
-    public long Uu;
-    public a Uv = new a();
-    public boolean Uw = false;
+    public String Uu;
+    public long Uv;
+    public a Uw = new a();
+    public boolean Ux = false;
     public String abtest;
     public String price;
     public String userId;
 
-    public boolean rv() {
-        if (this.Un <= 0 || TextUtils.isEmpty(this.Uh) || TextUtils.isEmpty(this.Uh.trim()) || this.Uj == 2) {
+    public boolean ru() {
+        if (this.Uo <= 0 || TextUtils.isEmpty(this.Ui) || TextUtils.isEmpty(this.Ui.trim()) || this.Uk == 2) {
             return false;
         }
-        return rw() || rx();
+        return rv() || rw();
+    }
+
+    public boolean rv() {
+        return (this.Uk != 3 || TextUtils.isEmpty(this.Un) || TextUtils.isEmpty(this.Um) || TextUtils.isEmpty(this.Un.trim()) || TextUtils.isEmpty(this.Um.trim())) ? false : true;
     }
 
     public boolean rw() {
-        return (this.Uj != 3 || TextUtils.isEmpty(this.Um) || TextUtils.isEmpty(this.Ul) || TextUtils.isEmpty(this.Um.trim()) || TextUtils.isEmpty(this.Ul.trim())) ? false : true;
-    }
-
-    public boolean rx() {
-        return (this.Uj != 1 || TextUtils.isEmpty(this.Uk) || TextUtils.isEmpty(this.Uk.trim())) ? false : true;
+        return (this.Uk != 1 || TextUtils.isEmpty(this.Ul) || TextUtils.isEmpty(this.Ul.trim())) ? false : true;
     }
 
     public void a(App app) {
         if (app != null) {
-            this.Uh = app.id;
-            this.Ui = app.name;
-            this.Uj = app.url_type.intValue();
-            this.Uk = app.url;
-            this.Ul = app.apk_url;
-            this.Um = app.apk_name;
+            this.Ui = app.id;
+            this.Uj = app.name;
+            this.Uk = app.url_type.intValue();
+            this.Ul = app.url;
+            this.Um = app.apk_url;
+            this.Un = app.apk_name;
             if (TextUtils.isEmpty(app.pos_name) || TextUtils.isEmpty(app.pos_name.trim())) {
-                this.Un = 3;
+                this.Uo = 3;
             } else {
-                this.Un = com.baidu.adp.lib.g.b.g(app.pos_name.trim(), 3);
+                this.Uo = com.baidu.adp.lib.g.b.g(app.pos_name.trim(), 3);
             }
-            this.Uo = app.first_name;
-            this.Up = app.second_name;
-            this.Uq = app.cpid.intValue();
+            this.Up = app.first_name;
+            this.Uq = app.second_name;
+            this.Ur = app.cpid.intValue();
             this.abtest = app.abtest;
-            this.Ur = app.plan_id.intValue();
+            this.Us = app.plan_id.intValue();
             this.userId = app.user_id;
-            this.Us = app.verify;
+            this.Ut = app.verify;
             this.price = app.price;
-            this.Ut = app.ext_info;
-            this.Uu = app.app_time.intValue() * 1000;
+            this.Uu = app.ext_info;
+            this.Uv = app.app_time.intValue() * 1000;
             if (app.goods_info != null) {
                 for (GoodsInfo goodsInfo : app.goods_info) {
                     if (goodsInfo != null) {
-                        this.Uv.a(goodsInfo);
+                        this.Uw.a(goodsInfo);
                         return;
                     }
                 }
@@ -85,66 +85,66 @@ public class c extends v {
 
     public AdReq b(String str, long j, String str2, String str3) {
         AdReq.Builder builder = new AdReq.Builder();
-        builder.da_cpid = String.valueOf(this.Uq);
-        builder.da_ext_info = this.Ut;
+        builder.da_cpid = String.valueOf(this.Ur);
+        builder.da_ext_info = this.Uu;
         builder.da_fid = Integer.valueOf(com.baidu.adp.lib.g.b.g(str, 0));
-        builder.da_good_id = String.valueOf(this.Uv.Ux);
-        builder.da_locate = String.valueOf(this.Un);
-        builder.da_obj_id = this.Uh;
+        builder.da_good_id = String.valueOf(this.Uw.Uy);
+        builder.da_locate = String.valueOf(this.Uo);
+        builder.da_obj_id = this.Ui;
         builder.da_page = str2;
         builder.da_threadid = Long.valueOf(j);
-        builder.da_plan_id = String.valueOf(this.Ur);
+        builder.da_plan_id = String.valueOf(this.Us);
         builder.da_price = this.price;
         builder.da_task = "tbda";
         builder.da_type = str3;
         builder.da_user_id = this.userId;
-        builder.da_verify = this.Us;
+        builder.da_verify = this.Ut;
         return builder.build(false);
     }
 
     /* loaded from: classes.dex */
     public static class a {
         public String UA;
-        public int UB;
-        public String UC;
+        public String UB;
+        public int UC;
         public String UD;
         public String UE;
-        public int Ux;
-        public String Uy;
+        public String UF;
+        public int Uy;
         public String Uz;
         public String userName;
         public String userPortrait;
 
         public void a(GoodsInfo goodsInfo) {
             if (goodsInfo != null) {
-                this.Ux = goodsInfo.id.intValue();
+                this.Uy = goodsInfo.id.intValue();
                 this.userName = goodsInfo.user_name;
                 this.userPortrait = goodsInfo.user_portrait;
-                this.Uy = goodsInfo.thread_title;
-                this.Uz = goodsInfo.thread_pic;
-                this.UA = goodsInfo.pop_window_text;
-                this.UB = goodsInfo.goods_style.intValue();
-                this.UC = goodsInfo.card_desc;
-                this.UD = goodsInfo.card_tag;
-                this.UE = goodsInfo.button_text;
+                this.Uz = goodsInfo.thread_title;
+                this.UA = goodsInfo.thread_pic;
+                this.UB = goodsInfo.pop_window_text;
+                this.UC = goodsInfo.goods_style.intValue();
+                this.UD = goodsInfo.card_desc;
+                this.UE = goodsInfo.card_tag;
+                this.UF = goodsInfo.button_text;
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.v, com.baidu.adp.widget.ListView.u
+    @Override // com.baidu.tbadk.core.data.x, com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        if (this.Uv.UB == 2) {
-            return Uc;
+        if (this.Uw.UC == 2) {
+            return Ud;
         }
-        if (this.Uv.UB == 4) {
-            if (StringUtils.isNull(this.Uv.UD)) {
-                return Ud;
+        if (this.Uw.UC == 4) {
+            if (StringUtils.isNull(this.Uw.UE)) {
+                return Ue;
             }
-            return Ue;
-        } else if (this.Uv.UB == 5) {
             return Uf;
+        } else if (this.Uw.UC == 5) {
+            return Ug;
         } else {
-            return Ub;
+            return Uc;
         }
     }
 }

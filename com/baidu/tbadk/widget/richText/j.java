@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class j {
-    private int aBD;
+    private int aDl;
     private int height;
     private String thumbUrl;
     private String videoUrl;
@@ -17,7 +17,7 @@ public class j {
             this.thumbUrl = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.aBD = pbContent.e_type.intValue();
+            this.aDl = pbContent.e_type.intValue();
         }
     }
 
@@ -37,7 +37,7 @@ public class j {
         return this.height;
     }
 
-    public SpannableString fF(String str) {
+    public SpannableString fN(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -46,8 +46,8 @@ public class j {
         return spannableString;
     }
 
-    public boolean Fq() {
-        return this.aBD == 12;
+    public boolean FA() {
+        return this.aDl == 12;
     }
 
     public boolean isAvaliable() {

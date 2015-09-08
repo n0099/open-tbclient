@@ -7,40 +7,40 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 class u implements SlidingMenu.OnOpenedListener {
-    final /* synthetic */ FrsActivity this$0;
+    final /* synthetic */ FrsActivity aVz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(FrsActivity frsActivity) {
-        this.this$0 = frsActivity;
+        this.aVz = frsActivity;
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
     public void onOpened() {
-        bl blVar;
-        cn cnVar;
+        bi biVar;
+        cr crVar;
         com.baidu.tieba.frs.c.k kVar;
-        cn cnVar2;
-        com.baidu.tieba.tbadkCore.n nVar;
-        com.baidu.tieba.tbadkCore.n nVar2;
-        com.baidu.tieba.tbadkCore.n nVar3;
-        this.this$0.setSwipeBackEnabled(false);
-        blVar = this.this$0.aUw;
-        cnVar = this.this$0.aUz;
-        blVar.a(cnVar);
-        kVar = this.this$0.aUN;
-        cnVar2 = this.this$0.aUz;
-        kVar.a(cnVar2);
-        TiebaStatic.eventStat(this.this$0.getPageContext().getPageActivity(), "frs_total_more", "frsclick", 1, new Object[0]);
-        nVar = this.this$0.aUy;
-        if (nVar != null) {
-            nVar2 = this.this$0.aUy;
-            if (nVar2.acG() != null) {
-                nVar3 = this.this$0.aUy;
-                ArrayList<RecommendForumData> recommendForumData = nVar3.acG().getRecommendForumData();
+        cr crVar2;
+        com.baidu.tieba.tbadkCore.o oVar;
+        com.baidu.tieba.tbadkCore.o oVar2;
+        com.baidu.tieba.tbadkCore.o oVar3;
+        this.aVz.setSwipeBackEnabled(false);
+        biVar = this.aVz.aUL;
+        crVar = this.aVz.aUO;
+        biVar.a(crVar);
+        kVar = this.aVz.aVc;
+        crVar2 = this.aVz.aUO;
+        kVar.a(crVar2);
+        TiebaStatic.eventStat(this.aVz.getPageContext().getPageActivity(), "frs_total_more", "frsclick", 1, new Object[0]);
+        oVar = this.aVz.aUN;
+        if (oVar != null) {
+            oVar2 = this.aVz.aUN;
+            if (oVar2.acP() != null) {
+                oVar3 = this.aVz.aUN;
+                ArrayList<RecommendForumData> recommendForumData = oVar3.acP().getRecommendForumData();
                 if (recommendForumData != null) {
                     Iterator<RecommendForumData> it = recommendForumData.iterator();
                     while (it.hasNext()) {
-                        TiebaStatic.eventStat(this.this$0.getPageContext().getPageActivity(), "sidebar_show", "sidebar_click", 1, "st_param", it.next().mParam);
+                        TiebaStatic.eventStat(this.aVz.getPageContext().getPageActivity(), "sidebar_show", "sidebar_click", 1, "st_param", it.next().mParam);
                     }
                 }
             }

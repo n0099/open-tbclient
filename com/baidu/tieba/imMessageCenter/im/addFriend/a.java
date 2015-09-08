@@ -11,13 +11,13 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ AddFriendActivity bFx;
+    final /* synthetic */ AddFriendActivity bGe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AddFriendActivity addFriendActivity, int i) {
         super(i);
-        this.bFx = addFriendActivity;
+        this.bGe = addFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,19 +31,19 @@ public class a extends com.baidu.adp.framework.listener.e {
             int error = responseAddFriendMessage.getError();
             String errorString = responseAddFriendMessage.getErrorString();
             if (error == 0) {
-                str = this.bFx.userId;
-                str2 = this.bFx.name;
+                str = this.bGe.userId;
+                str2 = this.bGe.name;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RESPONSE_ADD_FRIEND, new i(str, str2)));
-                z = this.bFx.bFw;
+                z = this.bGe.bGd;
                 if (z) {
-                    this.bFx.showToast(this.bFx.getPageContext().getPageActivity().getString(i.C0057i.add_ok_but_level_is_lower), false);
+                    this.bGe.showToast(this.bGe.getPageContext().getPageActivity().getString(i.h.add_ok_but_level_is_lower), false);
                 } else {
-                    this.bFx.showToast(this.bFx.getPageContext().getPageActivity().getString(i.C0057i.group_apply_succ), false);
+                    this.bGe.showToast(this.bGe.getPageContext().getPageActivity().getString(i.h.group_apply_succ), false);
                 }
-                this.bFx.finish();
+                this.bGe.finish();
                 return;
             }
-            BdToast.a(this.bFx.getPageContext().getPageActivity(), errorString, BdToast.DefaultIcon.NOT).sX();
+            BdToast.a(this.bGe.getPageContext().getPageActivity(), errorString, BdToast.DefaultIcon.NOT).tc();
         }
     }
 }

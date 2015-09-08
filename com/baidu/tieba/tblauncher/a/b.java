@@ -11,65 +11,65 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.tbadkCore.f.a, com.baidu.tbadk.mvc.d.b> {
-    private View Xi;
-    private ImageView aLK;
-    private ImageView aLP;
-    private TextView aOb;
+    private View Xr;
+    private ImageView aLX;
+    private ImageView aMc;
+    private TextView aOo;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aOb = (TextView) view.findViewById(i.f.textview);
-        this.aLK = (ImageView) view.findViewById(i.f.red_tip);
-        this.aLP = (ImageView) view.findViewById(i.f.red_new_tip);
-        this.Xi = view.findViewById(i.f.divider);
+        this.aOo = (TextView) view.findViewById(i.f.textview);
+        this.aLX = (ImageView) view.findViewById(i.f.red_tip);
+        this.aMc = (ImageView) view.findViewById(i.f.red_new_tip);
+        this.Xr = view.findViewById(i.f.divider);
     }
 
-    @Override // com.baidu.tieba.tbadkCore.r
+    @Override // com.baidu.tieba.tbadkCore.s
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.f.a.a(tbPageContext, getRootView());
+        com.baidu.tbadk.h.a.a(tbPageContext, getRootView());
         return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.g.e
     /* renamed from: a */
-    public void A(com.baidu.tieba.tbadkCore.f.a aVar) {
-        super.A(aVar);
+    public void B(com.baidu.tieba.tbadkCore.f.a aVar) {
+        super.B(aVar);
         if (aVar != null) {
-            if (this.aOb != null) {
+            if (this.aOo != null) {
                 String str = "";
                 try {
-                    str = TbadkCoreApplication.m411getInst().getString(aVar.aqv());
+                    str = TbadkCoreApplication.m411getInst().getString(aVar.auJ());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                this.aOb.setText(str);
-                this.aOb.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(aVar.aqw()), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.aOo.setText(str);
+                this.aOo.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(aVar.auK()), (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            switch (aVar.aqx()) {
+            switch (aVar.auL()) {
                 case 1:
-                    this.aLK.setImageDrawable(null);
-                    this.aLK.setVisibility(8);
-                    al.c(this.aLP, i.e.icon_news_head_new);
-                    this.aLP.setVisibility(0);
+                    this.aLX.setImageDrawable(null);
+                    this.aLX.setVisibility(8);
+                    al.c(this.aMc, i.e.icon_news_head_new);
+                    this.aMc.setVisibility(0);
                     break;
                 case 2:
-                    al.c(this.aLK, i.e.icon_news_down_bar_one);
-                    this.aLK.setVisibility(0);
-                    this.aLP.setImageDrawable(null);
-                    this.aLP.setVisibility(8);
+                    al.c(this.aLX, i.e.icon_news_down_bar_one);
+                    this.aLX.setVisibility(0);
+                    this.aMc.setImageDrawable(null);
+                    this.aMc.setVisibility(8);
                     break;
                 default:
-                    this.aLK.setImageDrawable(null);
-                    this.aLK.setVisibility(8);
-                    this.aLP.setImageDrawable(null);
-                    this.aLP.setVisibility(8);
+                    this.aLX.setImageDrawable(null);
+                    this.aLX.setVisibility(8);
+                    this.aMc.setImageDrawable(null);
+                    this.aMc.setVisibility(8);
                     break;
             }
             if (aVar.getType() == 4) {
-                this.Xi.setVisibility(0);
+                this.Xr.setVisibility(0);
             } else {
-                this.Xi.setVisibility(8);
+                this.Xr.setVisibility(8);
             }
         }
     }

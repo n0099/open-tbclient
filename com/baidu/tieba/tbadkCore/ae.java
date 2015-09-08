@@ -1,49 +1,65 @@
 package com.baidu.tieba.tbadkCore;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tieba.tbadkCore.ad;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
-public class ae extends HttpMessageListener {
-    final /* synthetic */ ad cHU;
+public class ae extends com.baidu.adp.base.e {
+    private static final String aIh = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
+    private static TbHttpMessageTask aIi = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, aIh);
+    private final HttpMessageListener aIj;
+    private a cQt;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae(ad adVar, int i) {
-        super(i);
-        this.cHU = adVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void bF(String str);
+
+        void gb(String str);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        ad.a aVar;
-        ad.a aVar2;
-        ad.a aVar3;
-        ad.a aVar4;
-        ad.a aVar5;
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
-            if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                aVar = this.cHU.cHT;
-                if (aVar != null) {
-                    aVar2 = this.cHU.cHT;
-                    aVar2.bF(null);
-                    return;
-                }
-                return;
-            }
-            PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
-            if (praiseResponseMessage.getError() == 0) {
-                aVar5 = this.cHU.cHT;
-                aVar5.fU(praiseResponseMessage.getErrMsg());
-                return;
-            }
-            aVar3 = this.cHU.cHT;
-            if (aVar3 != null) {
-                aVar4 = this.cHU.cHT;
-                aVar4.bF(praiseResponseMessage.getErrMsg());
-            }
+    static {
+        aIi.setResponsedClass(PraiseResponseMessage.class);
+        MessageManager.getInstance().registerTask(aIi);
+    }
+
+    public ae(TbPageContext tbPageContext, a aVar) {
+        super(tbPageContext);
+        this.cQt = null;
+        this.aIj = new af(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.cQt = aVar;
+    }
+
+    public void registerListener() {
+        registerListener(this.aIj);
+    }
+
+    public void a(String str, String str2, int i, String str3) {
+        String str4;
+        if (i == 1) {
+            str4 = "unlike";
+        } else {
+            str4 = "like";
         }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        httpMessage.addParam("st_type", str4);
+        httpMessage.addParam("action", str4);
+        httpMessage.addParam("post_id", new StringBuilder(String.valueOf(str)).toString());
+        httpMessage.addParam("thread_id", new StringBuilder(String.valueOf(str2)).toString());
+        httpMessage.addParam("st_param", str3);
+        sendMessage(httpMessage);
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

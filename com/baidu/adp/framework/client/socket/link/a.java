@@ -23,7 +23,7 @@ class a implements ServiceConnection {
         gVar = BdSocketDaemonService.sCallBack;
         if (gVar != null) {
             gVar2 = BdSocketDaemonService.sCallBack;
-            gVar2.eP();
+            gVar2.eO();
             return;
         }
         BdSocketLinkService.startService(false, "restart");

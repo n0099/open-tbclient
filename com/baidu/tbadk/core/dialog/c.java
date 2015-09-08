@@ -21,28 +21,28 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static final HashMap<Integer, Integer[]> WP = new HashMap<>(2);
-    private List<CharSequence> WI;
-    private b WJ;
-    private final ViewGroup WK;
-    private final TextView WL;
-    private final View WM;
-    private AlertDialog Ww;
+    private static final HashMap<Integer, Integer[]> WY = new HashMap<>(2);
+    private AlertDialog WE;
+    private List<CharSequence> WR;
+    private b WS;
+    private final ViewGroup WT;
+    private final TextView WU;
+    private final View WV;
     private final Activity mActivity;
     private h<?> mContext;
     private final ViewGroup mRootView;
     private String mTitle;
-    private int WO = -1;
-    private int Wn = -1;
-    private boolean Wy = false;
-    private int WN = i.g.dialog_bdlist_item;
+    private int WX = -1;
+    private int Wv = -1;
+    private boolean WG = false;
+    private int WW = i.g.dialog_bdlist_item;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int WS = i.j.dialog_ani_b2t;
-        public static final int WT = i.j.dialog_ani_t2b;
-        public static final int WU = i.j.dialog_ani_l2r;
-        public static final int WV = i.j.dialog_ani_r2l;
+        public static final int Xb = i.C0057i.dialog_ani_b2t;
+        public static final int Xc = i.C0057i.dialog_ani_t2b;
+        public static final int Xd = i.C0057i.dialog_ani_l2r;
+        public static final int Xe = i.C0057i.dialog_ani_r2l;
     }
 
     /* loaded from: classes.dex */
@@ -51,29 +51,29 @@ public class c {
     }
 
     static {
-        WP.put(0, new Integer[]{Integer.valueOf(i.e.dialg_alert_btn_bg), Integer.valueOf(i.e.dialog_bdalert_button_textcolor_pressed)});
-        WP.put(1, new Integer[]{Integer.valueOf(i.e.btn_blue_square), Integer.valueOf(i.c.cp_bg_line_d)});
+        WY.put(0, new Integer[]{Integer.valueOf(i.e.dialg_alert_btn_bg), Integer.valueOf(i.e.dialog_bdalert_button_textcolor_pressed)});
+        WY.put(1, new Integer[]{Integer.valueOf(i.e.btn_blue_square), Integer.valueOf(i.c.cp_bg_line_d)});
     }
 
     public c(Activity activity) {
         this.mActivity = activity;
         this.mRootView = (ViewGroup) LayoutInflater.from(activity).inflate(i.g.dialog_bdlist, (ViewGroup) null);
-        this.WL = (TextView) this.mRootView.findViewById(i.f.dialog_title_list);
-        this.WK = (ViewGroup) this.mRootView.findViewById(i.f.dialog_content);
-        this.WM = this.mRootView.findViewById(i.f.line_bg);
+        this.WU = (TextView) this.mRootView.findViewById(i.f.dialog_title_list);
+        this.WT = (ViewGroup) this.mRootView.findViewById(i.f.dialog_content);
+        this.WV = this.mRootView.findViewById(i.f.line_bg);
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public c co(String str) {
+    public c cu(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public c bF(int i) {
-        return co(this.mActivity.getResources().getString(i));
+    public c bI(int i) {
+        return cu(this.mActivity.getResources().getString(i));
     }
 
     public c a(CharSequence[] charSequenceArr, b bVar) {
@@ -85,40 +85,40 @@ public class c {
 
     public c a(List<CharSequence> list, b bVar) {
         if (list != null && list.size() > 0) {
-            this.WI = list;
+            this.WR = list;
             if (bVar != null) {
-                this.WJ = bVar;
+                this.WS = bVar;
             }
         }
         return this;
     }
 
-    public c bG(int i) {
-        this.WO = i;
+    public c bJ(int i) {
+        this.WX = i;
         return this;
     }
 
-    public c bH(int i) {
-        this.Wn = i;
+    public c bK(int i) {
+        this.Wv = i;
         return this;
     }
 
     public c d(h<?> hVar) {
-        if (!this.Wy) {
+        if (!this.WG) {
             this.mContext = hVar;
-            this.Wy = true;
+            this.WG = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
-                this.WL.setText(this.mTitle);
-                this.WL.setVisibility(0);
-                this.WM.setVisibility(0);
+                this.WU.setText(this.mTitle);
+                this.WU.setVisibility(0);
+                this.WV.setVisibility(0);
             } else {
-                this.WL.setVisibility(8);
-                this.WM.setVisibility(8);
+                this.WU.setVisibility(8);
+                this.WV.setVisibility(8);
             }
-            if (this.WI != null && this.WI.size() > 0) {
-                int size = this.WI.size();
+            if (this.WR != null && this.WR.size() > 0) {
+                int size = this.WR.size();
                 for (int i = 0; i < size; i++) {
-                    bI(i);
+                    bL(i);
                 }
             }
             c(hVar);
@@ -126,27 +126,27 @@ public class c {
         return this;
     }
 
-    public c sS() {
-        if (!this.Wy) {
+    public c sX() {
+        if (!this.WG) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.Ww != null) {
-            j.a(this.Ww, this.mActivity);
+        if (this.WE != null) {
+            j.a(this.WE, this.mActivity);
         } else {
-            this.Ww = new AlertDialog.Builder(this.mActivity).create();
-            this.Ww.setCanceledOnTouchOutside(true);
-            if (j.a(this.Ww, this.mActivity)) {
-                Window window = this.Ww.getWindow();
-                if (this.WO == -1) {
-                    this.WO = a.WS;
+            this.WE = new AlertDialog.Builder(this.mActivity).create();
+            this.WE.setCanceledOnTouchOutside(true);
+            if (j.a(this.WE, this.mActivity)) {
+                Window window = this.WE.getWindow();
+                if (this.WX == -1) {
+                    this.WX = a.Xb;
                 }
-                if (this.Wn == -1) {
-                    this.Wn = 17;
+                if (this.Wv == -1) {
+                    this.Wv = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.Wn);
+                window.setGravity(this.Wv);
                 window.setBackgroundDrawableResource(i.e.transparent_bg);
                 window.setContentView(this.mRootView);
             }
@@ -164,42 +164,42 @@ public class c {
     }
 
     public void dismiss() {
-        if (this.Ww != null) {
-            j.b(this.Ww, this.mActivity);
+        if (this.WE != null) {
+            j.b(this.WE, this.mActivity);
         }
     }
 
-    private View bI(int i) {
-        View inflate = LayoutInflater.from(this.mActivity).inflate(this.WN, this.WK, false);
+    private View bL(int i) {
+        View inflate = LayoutInflater.from(this.mActivity).inflate(this.WW, this.WT, false);
         LinearLayout linearLayout = (LinearLayout) inflate;
         TextView textView = (TextView) inflate.findViewById(i.f.dialog_item_btn);
         View findViewById = inflate.findViewById(i.f.line);
-        CharSequence charSequence = this.WI.get(i);
+        CharSequence charSequence = this.WR.get(i);
         if (charSequence.length() <= 0) {
             charSequence = "";
         }
         textView.setText(charSequence);
-        if (i == this.WI.size() - 1) {
+        if (i == this.WR.size() - 1) {
             findViewById.setVisibility(8);
-            al.i(inflate, i.e.dialog_single_button_bg_selector);
+            al.h(inflate, i.e.dialog_single_button_bg_selector);
         } else {
-            al.i(inflate, i.e.dialg_alert_btn_bg);
+            al.h(inflate, i.e.dialg_alert_btn_bg);
         }
-        if (this.WJ != null) {
+        if (this.WS != null) {
             linearLayout.setOnClickListener(new d(this, i, textView));
         }
-        this.WK.addView(inflate);
+        this.WT.addView(inflate);
         return inflate;
     }
 
-    public View bJ(int i) {
-        if (this.WK == null) {
+    public View bM(int i) {
+        if (this.WT == null) {
             return null;
         }
-        int childCount = this.WK.getChildCount();
+        int childCount = this.WT.getChildCount();
         if (i < 0 || i > childCount - 1) {
             return null;
         }
-        return this.WK.getChildAt(i);
+        return this.WT.getChildAt(i);
     }
 }

@@ -2,15 +2,15 @@ package com.baidu.tieba.screenlocknotify;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements Runnable {
-    final /* synthetic */ g cuF;
+    final /* synthetic */ f cDb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(g gVar) {
-        this.cuF = gVar;
+    public l(f fVar) {
+        this.cDb = fVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.cuF.cuw.akl();
+        this.cDb.cCR.aos();
     }
 }

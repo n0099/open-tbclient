@@ -1,22 +1,22 @@
 package com.baidu.tieba.recommendfrs.data;
 /* loaded from: classes.dex */
 public class i {
-    private String cth;
-    private boolean cti = true;
+    private boolean anu = true;
+    private String cBA;
 
-    public void jW(String str) {
-        this.cth = str;
+    public void kB(String str) {
+        this.cBA = str;
     }
 
-    public String ajR() {
-        return this.cth;
+    public String anX() {
+        return this.cBA;
     }
 
-    public void eS(boolean z) {
-        this.cti = z;
+    public void setShowImage(boolean z) {
+        this.anu = z;
     }
 
-    public boolean ajP() {
-        return this.cti;
+    public boolean anV() {
+        return this.anu;
     }
 }

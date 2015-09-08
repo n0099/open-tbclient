@@ -6,41 +6,41 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import protobuf.GetOnlineInfo.Game;
 /* loaded from: classes.dex */
 public class MainTabActivityStatic {
-    private static Game cMA;
+    private static Game cVc;
 
     static {
-        LC();
-        arN();
-        HL();
-        arM();
-        MessageManager.getInstance().registerListener(new ac(CmdConfigCustom.START_GO_HOME));
+        Lt();
+        awa();
+        Hz();
+        avZ();
+        MessageManager.getInstance().registerListener(new ag(CmdConfigCustom.START_GO_HOME));
     }
 
-    private static void LC() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MAINTAB, new ad());
+    private static void Lt() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MAINTAB, new ah());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void HL() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new ae());
+    private static void Hz() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new ai());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void arM() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHOW_GAME_ICON, new af());
+    private static void avZ() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHOW_GAME_ICON, new aj());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void arN() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new ag());
+    private static void awa() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new ak());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public static Game getGame() {
-        return cMA;
+        return cVc;
     }
 }

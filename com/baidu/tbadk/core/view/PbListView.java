@@ -18,19 +18,19 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     private ProgressBar mProgressBar = null;
     private View.OnClickListener mOnClickListener = null;
     private View mRoot = null;
-    private View aeR = null;
-    private String aeS = null;
-    private LinearLayout adt = null;
+    private View afb = null;
+    private String afc = null;
+    private LinearLayout adD = null;
     private int mTextColor = 0;
-    private ImageView aeT = null;
-    private int aeU = 0;
+    private ImageView afd = null;
+    private int afe = 0;
 
     /* loaded from: classes.dex */
     public enum IconType {
         ICON_DOWN_WARD,
         ICON_UP_WARD;
 
-        /* JADX DEBUG: Replace access to removed values field (aeV) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aff) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static IconType[] valuesCustom() {
             IconType[] valuesCustom = values();
@@ -47,49 +47,55 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public View nq() {
+    public View nn() {
         this.mRoot = LayoutInflater.from(this.mContext).inflate(i.g.new_pb_list_more, (ViewGroup) null);
-        this.adt = (LinearLayout) this.mRoot.findViewById(i.f.pb_more_view);
+        this.adD = (LinearLayout) this.mRoot.findViewById(i.f.pb_more_view);
         this.mTextView = (TextView) this.mRoot.findViewById(i.f.pb_more_text);
         this.mProgressBar = (ProgressBar) this.mRoot.findViewById(i.f.progress);
-        this.aeT = (ImageView) this.mRoot.findViewById(i.f.pb_more_view_top_line);
-        this.aeR = this.mRoot.findViewById(i.f.empty_view);
+        this.afd = (ImageView) this.mRoot.findViewById(i.f.pb_more_view_top_line);
+        this.afb = this.mRoot.findViewById(i.f.empty_view);
         return this.mRoot;
     }
 
-    public void vA() {
-        this.aeT.setVisibility(0);
+    public void vF() {
+        this.afd.setVisibility(0);
     }
 
     public void startLoadData() {
         this.mProgressBar.setVisibility(0);
-        this.mTextView.setText(this.mContext.getText(i.C0057i.loading));
-        cG(TbadkCoreApplication.m411getInst().getSkinType());
+        this.mTextView.setText(this.mContext.getText(i.h.loading));
+        cM(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    public void vB() {
+    public void vG() {
         this.mProgressBar.setVisibility(8);
-        if (this.aeS != null) {
-            this.mTextView.setText(this.aeS);
+        if (this.afc != null) {
+            this.mTextView.setText(this.afc);
         } else {
-            this.mTextView.setText(this.mContext.getText(i.C0057i.pb_load_more));
+            this.mTextView.setText(this.mContext.getText(i.h.pb_load_more));
         }
-        cG(TbadkCoreApplication.m411getInst().getSkinType());
+        cM(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     public void showLoading() {
         this.mProgressBar.setVisibility(0);
-        this.mTextView.setText(this.mContext.getText(i.C0057i.loading));
+        this.mTextView.setText(this.mContext.getText(i.h.loading));
     }
 
-    public void cE(int i) {
-        al.i(this.adt, i);
+    public void cK(int i) {
+        al.h(this.adD, i);
+    }
+
+    public void setHeight(int i) {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.adD.getLayoutParams());
+        layoutParams.height = i;
+        this.adD.setLayoutParams(layoutParams);
     }
 
     public void setText(String str) {
-        this.aeS = str;
+        this.afc = str;
         this.mTextView.setText(str);
-        cG(TbadkCoreApplication.m411getInst().getSkinType());
+        cM(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     public void setTextColor(int i) {
@@ -107,18 +113,18 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         }
     }
 
-    public void cF(int i) {
-        this.aeU = i;
+    public void cL(int i) {
+        this.afe = i;
     }
 
-    public void cG(int i) {
+    public void cM(int i) {
         String charSequence = this.mTextView.getText().toString();
         int i2 = 0;
-        if (charSequence.equals(this.mContext.getText(i.C0057i.pb_load_more))) {
+        if (charSequence.equals(this.mContext.getText(i.h.pb_load_more))) {
             i2 = al.getColor(i.c.pb_more_txt);
-        } else if (charSequence.equals(this.mContext.getText(i.C0057i.loading))) {
+        } else if (charSequence.equals(this.mContext.getText(i.h.loading))) {
             i2 = al.getColor(i.c.pb_more_txt);
-        } else if (charSequence.equals(this.mContext.getText(i.C0057i.list_no_more))) {
+        } else if (charSequence.equals(this.mContext.getText(i.h.list_no_more))) {
             i2 = al.getColor(i.c.pb_list_morebutton_nomore_text);
         }
         if (this.mTextColor != 0) {
@@ -127,22 +133,22 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         if (i2 != 0) {
             this.mTextView.setTextColor(i2);
         }
-        al.c(this.aeT, i.c.cp_bg_line_b);
-        if (this.aeU == 0) {
-            al.i(this.adt, i.c.cp_bg_line_d);
-        } else if (this.aeU > 0) {
-            al.i(this.adt, this.aeU);
+        al.c(this.afd, i.c.cp_bg_line_b);
+        if (this.afe == 0) {
+            al.h(this.adD, i.c.cp_bg_line_d);
+        } else if (this.afe > 0) {
+            al.h(this.adD, this.afe);
         }
     }
 
-    public void cH(int i) {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.aeR.getLayoutParams());
+    public void cN(int i) {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.afb.getLayoutParams());
         layoutParams.height = i;
-        this.aeR.setLayoutParams(layoutParams);
-        this.aeR.setVisibility(0);
+        this.afb.setLayoutParams(layoutParams);
+        this.afb.setVisibility(0);
     }
 
-    public void vC() {
-        this.aeR.setVisibility(8);
+    public void vH() {
+        this.afb.setVisibility(8);
     }
 }

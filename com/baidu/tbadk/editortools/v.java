@@ -3,21 +3,21 @@ package com.baidu.tbadk.editortools;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class v {
-    public w aox;
-    public int apf;
-    public int aph;
-    public int api;
-    public int[] apk;
+    public int aqQ;
+    public int aqS;
+    public int aqT;
+    public int[] aqV;
+    public w aqi;
     private Context context;
     public int id;
     public String name;
-    public boolean apg = true;
-    public boolean apj = false;
+    public boolean aqR = true;
+    public boolean aqU = false;
 
     public v(String str, int i, int i2) {
         this.name = str;
         this.id = i;
-        this.aph = i2;
+        this.aqS = i2;
     }
 
     public v(Context context, String str, int i) {
@@ -30,7 +30,7 @@ public class v {
         this.name = str;
         this.id = i;
         this.context = context;
-        this.aph = i2;
+        this.aqS = i2;
     }
 
     protected Context getContext() {

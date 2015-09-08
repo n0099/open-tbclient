@@ -3,11 +3,11 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class ci implements a.b {
-    final /* synthetic */ cb cfj;
+    final /* synthetic */ cb cgg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ci(cb cbVar) {
-        this.cfj = cbVar;
+        this.cgg = cbVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

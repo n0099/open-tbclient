@@ -8,7 +8,7 @@ public class c extends com.baidu.adp.lib.a.b.a.a.i {
     protected long Cx;
     protected String pkgName;
 
-    public long lq() {
+    public long ln() {
         return Math.max(Math.min(this.Cx * 80, 240000L), (long) TbConfig.USE_TIME_INTERVAL);
     }
 }

@@ -6,34 +6,34 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.base.e {
-    private a arH;
+    private a atr;
     private String filename;
 
     public c(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.arH = null;
+        this.atr = null;
         this.filename = null;
     }
 
-    public boolean eJ(String str) {
+    public boolean eR(String str) {
         this.filename = str;
         return LoadData();
     }
 
     @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
-        if (this.arH != null) {
-            this.arH.cancel();
+        if (this.atr != null) {
+            this.atr.cancel();
         }
-        this.arH = new a(this.filename);
-        this.arH.execute(new Object[0]);
+        this.atr = new a(this.filename);
+        this.atr.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.arH != null) {
-            this.arH.cancel();
+        if (this.atr != null) {
+            this.atr.cancel();
             return true;
         }
         return true;
@@ -62,7 +62,7 @@ public class c extends com.baidu.adp.base.e {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            c.this.arH = null;
+            c.this.atr = null;
             if (c.this.mLoadDataCallBack != null) {
                 c.this.mLoadDataCallBack.d(null);
             }
@@ -80,7 +80,7 @@ public class c extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            c.this.arH = null;
+            c.this.atr = null;
             if (c.this.mLoadDataCallBack != null) {
                 c.this.mLoadDataCallBack.d(bitmap);
             }

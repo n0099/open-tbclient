@@ -35,7 +35,7 @@ public class i extends ContextWrapper {
         if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.getInstance().getPlugin(this.mPackageName).ks();
+        return PluginCenter.getInstance().getPlugin(this.mPackageName).kp();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -57,7 +57,7 @@ public class i extends ContextWrapper {
         } else if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         } else {
-            return PluginCenter.getInstance().getPlugin(this.mPackageName).kt();
+            return PluginCenter.getInstance().getPlugin(this.mPackageName).kq();
         }
     }
 

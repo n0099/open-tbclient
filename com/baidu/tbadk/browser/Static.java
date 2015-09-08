@@ -22,13 +22,13 @@ import java.net.URLEncoder;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static boolean Sm = true;
+    public static boolean Sj = true;
 
     static {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new g(0));
-        ax.uR().a(new h());
-        ax.uR().a(new i());
-        com.baidu.adp.lib.b.e.gy().a(new com.baidu.adp.lib.b.c("switch_mbaidu_startup", 1, null));
+        MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new h(0));
+        ax.uX().a(new i());
+        ax.uX().a(new j());
+        com.baidu.adp.lib.b.e.gv().a(new com.baidu.adp.lib.b.c("switch_mbaidu_startup", 1, null));
     }
 
     private static String bQ(String str) {
@@ -96,7 +96,7 @@ public class Static {
     public static void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
         String bQ = bQ(str);
-        if (!bT(bQ) && qw() && bV("com.baidu.searchbox") && bU(bQ) && Sm) {
+        if (!bT(bQ) && qt() && bV("com.baidu.searchbox") && bU(bQ) && Sj) {
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_2", null);
             b(tbPageContext, str, str2, z, z2, z3, z4);
             return;
@@ -108,8 +108,8 @@ public class Static {
         return WhiteListData.createBySP().checkUrl(str);
     }
 
-    private static boolean qw() {
-        return com.baidu.adp.lib.b.e.gy().ah("switch_mbaidu_startup") == 1;
+    private static boolean qt() {
+        return com.baidu.adp.lib.b.e.gv().ah("switch_mbaidu_startup") == 1;
     }
 
     private static boolean bU(String str) {
@@ -129,8 +129,8 @@ public class Static {
     }
 
     private static void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        j jVar = new j(tbPageContext, str, str2, z, z2, z3, z4);
-        String T = f.T(str, null);
+        k kVar = new k(tbPageContext, str, str2, z, z2, z3, z4);
+        String T = g.T(str, null);
         Intent intent = new Intent();
         intent.setAction("com.baidu.searchbox.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
@@ -140,19 +140,19 @@ public class Static {
         try {
             try {
                 TbadkCoreApplication.m411getInst().startActivity(intent);
-                jVar.sendEmptyMessageDelayed(1, 2000L);
+                kVar.sendEmptyMessageDelayed(1, 2000L);
             } catch (ActivityNotFoundException e) {
                 BdLog.e(e);
-                jVar.sendEmptyMessageDelayed(1, 2000L);
+                kVar.sendEmptyMessageDelayed(1, 2000L);
             }
         } catch (Throwable th) {
-            jVar.sendEmptyMessageDelayed(1, 2000L);
+            kVar.sendEmptyMessageDelayed(1, 2000L);
             throw th;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean qx() {
+    public static boolean qu() {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TbadkCoreApplication.m411getInst().getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses != null && runningAppProcesses.size() > 0) {
             ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(0);
@@ -167,9 +167,9 @@ public class Static {
     public static void c(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         String bR = bR(str);
         if (z) {
-            com.baidu.tbadk.coreExtra.util.a.a(tbPageContext, new k(tbPageContext, str2, bR), new l(), bR);
+            com.baidu.tbadk.coreExtra.util.a.a(tbPageContext, new l(tbPageContext, str2, bR), new m(), bR);
         } else {
-            f.f(tbPageContext.getPageActivity(), str2, bR);
+            g.f(tbPageContext.getPageActivity(), str2, bR);
         }
     }
 }

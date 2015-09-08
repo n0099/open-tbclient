@@ -4,36 +4,36 @@ import com.baidu.adp.widget.ListView.BdExpandListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements BdExpandListView.a {
-    final /* synthetic */ PersonInfoActivity clO;
+    final /* synthetic */ PersonInfoActivity cmR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PersonInfoActivity personInfoActivity) {
-        this.clO = personInfoActivity;
+        this.cmR = personInfoActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
-    public void np() {
+    public void nm() {
         w wVar;
         ag agVar;
         ag agVar2;
-        wVar = this.clO.clC;
-        wVar.ahB();
-        agVar = this.clO.clD;
-        if (agVar.ahF() != null) {
-            agVar2 = this.clO.clD;
-            agVar2.ahF().nn();
+        wVar = this.cmR.cmF;
+        wVar.ahT();
+        agVar = this.cmR.cmG;
+        if (agVar.ahX() != null) {
+            agVar2 = this.cmR.cmG;
+            agVar2.ahX().nk();
         }
-        this.clO.agO();
+        this.cmR.ahg();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
-    public void no() {
+    public void nl() {
         ag agVar;
         ag agVar2;
-        agVar = this.clO.clD;
-        if (agVar.ahF() != null) {
-            agVar2 = this.clO.clD;
-            agVar2.ahF().hideProgress();
+        agVar = this.cmR.cmG;
+        if (agVar.ahX() != null) {
+            agVar2 = this.cmR.cmG;
+            agVar2.ahX().hideProgress();
         }
     }
 
@@ -41,10 +41,10 @@ public class f implements BdExpandListView.a {
     public void k(float f) {
         ag agVar;
         ag agVar2;
-        agVar = this.clO.clD;
-        if (agVar.ahF() != null) {
-            agVar2 = this.clO.clD;
-            agVar2.ahF().j(f);
+        agVar = this.cmR.cmG;
+        if (agVar.ahX() != null) {
+            agVar2 = this.cmR.cmG;
+            agVar2.ahX().j(f);
         }
     }
 }

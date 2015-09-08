@@ -30,6 +30,7 @@ public class XiaoyingSocialService extends IntentService {
         super.onCreate();
         if (XiaoyingPlugin.getSocialService() != null) {
             XiaoyingPlugin.getSocialService().onCreate();
+            XiaoyingPlugin.getSocialService().setIntentRedelivery(false);
         }
     }
 

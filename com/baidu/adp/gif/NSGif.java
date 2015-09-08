@@ -6,11 +6,11 @@ import com.baidu.adp.lib.g.k;
 import com.baidu.adp.lib.util.g;
 /* loaded from: classes.dex */
 public class NSGif implements b {
-    public static boolean qU = g.iB().a("nsgif_jni", 2, new c());
+    public static boolean qS = g.iy().a("nsgif_jni", 2, new c());
     private final int mHeight;
     private final int mWidth;
-    private int qV;
-    private final int qW;
+    private int qT;
+    private final int qU;
 
     private static native int nativeCreate(String str);
 
@@ -32,10 +32,10 @@ public class NSGif implements b {
     private static native boolean nativeWriteTo(int i, Bitmap bitmap);
 
     private NSGif(int i) {
-        this.qV = i;
+        this.qT = i;
         this.mWidth = nativeGetWidth(i);
         this.mHeight = nativeGetHeight(i);
-        this.qW = nativeGetFrameCount(i);
+        this.qU = nativeGetFrameCount(i);
     }
 
     public static NSGif L(String str) {
@@ -56,10 +56,10 @@ public class NSGif implements b {
 
     @Override // com.baidu.adp.gif.b
     public void close() {
-        if (this.qV != 0) {
-            int i = this.qV;
-            this.qV = 0;
-            k.hj().b(new d(this, i));
+        if (this.qT != 0) {
+            int i = this.qT;
+            this.qT = 0;
+            k.hg().b(new d(this, i));
         }
     }
 
@@ -82,13 +82,13 @@ public class NSGif implements b {
     }
 
     @Override // com.baidu.adp.gif.b
-    public int fi() {
-        return this.qW;
+    public int ff() {
+        return this.qU;
     }
 
     @Override // com.baidu.adp.gif.b
     public int G(int i) {
-        int nativeGetFrameDelay = nativeGetFrameDelay(this.qV, i);
+        int nativeGetFrameDelay = nativeGetFrameDelay(this.qT, i);
         if (nativeGetFrameDelay <= 0) {
             return 100;
         }
@@ -97,7 +97,7 @@ public class NSGif implements b {
 
     @Override // com.baidu.adp.gif.b
     public boolean F(int i) {
-        return nativeDecodeFrame(this.qV, i);
+        return nativeDecodeFrame(this.qT, i);
     }
 
     @Override // com.baidu.adp.gif.b
@@ -105,6 +105,6 @@ public class NSGif implements b {
         if (bitmap == null) {
             return false;
         }
-        return nativeWriteTo(this.qV, bitmap);
+        return nativeWriteTo(this.qT, bitmap);
     }
 }

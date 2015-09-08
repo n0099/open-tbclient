@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class t {
-    private static final char[] yT = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] yR = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String B(byte[] bArr) {
         try {
@@ -23,8 +23,8 @@ public class t {
         }
         StringBuilder sb = new StringBuilder(bArr.length * 2);
         for (int i = 0; i < bArr.length; i++) {
-            sb.append(yT[(bArr[i] & 240) >>> 4]);
-            sb.append(yT[bArr[i] & 15]);
+            sb.append(yR[(bArr[i] & 240) >>> 4]);
+            sb.append(yR[bArr[i] & 15]);
         }
         return sb.toString();
     }

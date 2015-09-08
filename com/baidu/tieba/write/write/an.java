@@ -1,46 +1,44 @@
 package com.baidu.tieba.write.write;
 
 import android.view.View;
-import com.baidu.tieba.i;
-import java.util.ArrayList;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class an extends com.baidu.adp.base.g {
-    final /* synthetic */ WriteActivity cUM;
+public class an implements View.OnClickListener {
+    final /* synthetic */ WriteActivity ddQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(WriteActivity writeActivity) {
-        this.cUM = writeActivity;
+        this.ddQ = writeActivity;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.write.write.WriteActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        FeedBackTopListView feedBackTopListView;
-        View view;
-        FeedBackTopListView feedBackTopListView2;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TextView textView;
         View view2;
-        FeedBackTopListView feedBackTopListView3;
-        this.cUM.hideProgressBar();
-        if (obj == null || !(obj instanceof o)) {
-            feedBackTopListView = this.cUM.cUe;
-            feedBackTopListView.setVisibility(8);
-            view = this.cUM.cUf;
-            view.setVisibility(8);
-            this.cUM.showToast(i.C0057i.neterror);
-            return;
-        }
-        o oVar = (o) obj;
-        if (oVar.getErrCode() != 0) {
-            feedBackTopListView2 = this.cUM.cUe;
-            feedBackTopListView2.setVisibility(8);
-            view2 = this.cUM.cUf;
-            view2.setVisibility(8);
-            return;
-        }
-        ArrayList<com.baidu.tbadk.core.data.v> auJ = oVar.auJ();
-        feedBackTopListView3 = this.cUM.cUe;
-        feedBackTopListView3.a(auJ, this.cUM.getPageContext());
+        cb cbVar;
+        com.baidu.tbadk.editortools.j jVar;
+        InputMethodManager inputMethodManager;
+        EditText editText;
+        InputMethodManager inputMethodManager2;
+        EditText editText2;
+        textView = this.ddQ.dbd;
+        textView.setVisibility(0);
+        view2 = this.ddQ.dbg;
+        view2.setSelected(true);
+        cbVar = this.ddQ.dbe;
+        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(cbVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.ddQ.getPageContext().getPageActivity(), 1.0f));
+        jVar = this.ddQ.ddl;
+        jVar.zr();
+        WriteActivity writeActivity = this.ddQ;
+        inputMethodManager = this.ddQ.mInputManager;
+        editText = this.ddQ.daX;
+        writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
+        WriteActivity writeActivity2 = this.ddQ;
+        inputMethodManager2 = this.ddQ.mInputManager;
+        editText2 = this.ddQ.dbb;
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
     }
 }

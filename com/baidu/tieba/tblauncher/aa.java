@@ -2,8 +2,8 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import java.util.ArrayList;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 class aa extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -18,30 +18,16 @@ class aa extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> CB;
-        ai aiVar;
-        boolean z;
-        ai aiVar2;
-        int i;
-        boolean z2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (CB = ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).CB()) != null && CB.size() != 0) {
-            aiVar = this.this$0.cLT;
-            aiVar.aa(CB);
-            z = this.this$0.cLN;
-            if (!z) {
-                z2 = this.this$0.cLO;
-                if (!z2) {
-                    this.this$0.T(this.this$0.getIntent());
-                    this.this$0.cLN = false;
-                    this.this$0.cLO = false;
-                }
+        am amVar;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
+            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
+                BdLog.e("transform error");
+            } else if (MainTabActivity.cUl) {
+                NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
+                int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme();
+                amVar = this.this$0.cUv;
+                amVar.kJ(msgReplyme);
             }
-            aiVar2 = this.this$0.cLT;
-            FragmentTabHost arW = aiVar2.arW();
-            i = this.this$0.cLM;
-            arW.setCurrentTabByType(i);
-            this.this$0.cLN = false;
-            this.this$0.cLO = false;
         }
     }
 }

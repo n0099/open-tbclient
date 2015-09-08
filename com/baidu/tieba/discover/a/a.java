@@ -16,9 +16,9 @@ import com.baidu.tieba.discover.u;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
-    private TbImageView MF;
-    private ImageView aLK;
-    private TextView anH;
+    private TbImageView MD;
+    private ImageView aLX;
+    private TextView amV;
 
     public a(Context context) {
         this(context, null);
@@ -31,40 +31,40 @@ public class a extends RelativeLayout {
     }
 
     private void init() {
-        this.MF = (TbImageView) findViewById(i.f.icon);
-        this.anH = (TextView) findViewById(i.f.title);
-        this.aLK = (ImageView) findViewById(i.f.red_tip);
-        this.MF.setDefaultBgResource(0);
+        this.MD = (TbImageView) findViewById(i.f.icon);
+        this.amV = (TextView) findViewById(i.f.title);
+        this.aLX = (ImageView) findViewById(i.f.red_tip);
+        this.MD.setDefaultBgResource(0);
     }
 
-    public void ar(String str, String str2) {
-        if (this.MF != null) {
-            this.MF.setDefaultResource(u.gf(str2));
+    public void as(String str, String str2) {
+        if (this.MD != null) {
+            this.MD.setDefaultResource(u.gm(str2));
             if (!StringUtils.isNull(str)) {
-                this.MF.d(str, 10, false);
+                this.MD.d(str, 10, false);
             }
         }
     }
 
     public void setTitle(String str) {
-        if (this.anH != null) {
-            this.anH.setText(str);
+        if (this.amV != null) {
+            this.amV.setText(str);
         }
     }
 
-    public void bH(boolean z) {
-        if (this.aLK != null) {
+    public void bM(boolean z) {
+        if (this.aLX != null) {
             if (z) {
-                this.aLK.setVisibility(0);
+                this.aLX.setVisibility(0);
             } else {
-                this.aLK.setVisibility(8);
+                this.aLX.setVisibility(8);
             }
         }
     }
 
     public void e(TbPageContext<?> tbPageContext) {
-        com.baidu.tbadk.f.a.a(tbPageContext, this);
-        al.i(this, i.e.addresslist_item_bg);
-        this.MF.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
+        com.baidu.tbadk.h.a.a(tbPageContext, this);
+        al.h(this, i.e.addresslist_item_bg);
+        this.MD.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
     }
 }

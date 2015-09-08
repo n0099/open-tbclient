@@ -3,50 +3,50 @@ package com.baidu.adp.newwidget.a;
 import android.graphics.drawable.BitmapDrawable;
 /* loaded from: classes.dex */
 public class d {
-    public BitmapDrawable Bw;
-    public com.baidu.adp.widget.a.a Bx;
+    public BitmapDrawable Bu;
+    public com.baidu.adp.widget.a.a Bv;
     public volatile boolean isDefault = true;
 
-    public boolean kj() {
-        return (this.Bw == null || this.Bw.getBitmap() == null) ? false : true;
+    public boolean kg() {
+        return (this.Bu == null || this.Bu.getBitmap() == null) ? false : true;
     }
 
-    public boolean kk() {
-        return this.Bx != null && this.Bx.nd();
+    public boolean kh() {
+        return this.Bv != null && this.Bv.na();
     }
 
     public boolean isAvailable() {
-        return kj() || kk();
+        return kg() || kh();
     }
 
     public int getWidth() {
-        if (kj()) {
-            return this.Bw.getIntrinsicWidth();
+        if (kg()) {
+            return this.Bu.getIntrinsicWidth();
         }
-        if (kk()) {
-            return this.Bx.getWidth();
+        if (kh()) {
+            return this.Bv.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
-        if (kj()) {
-            return this.Bw.getIntrinsicHeight();
+        if (kg()) {
+            return this.Bu.getIntrinsicHeight();
         }
-        if (kk()) {
-            return this.Bx.getHeight();
+        if (kh()) {
+            return this.Bv.getHeight();
         }
         return 0;
     }
 
     public void reset() {
-        this.Bx = null;
-        this.Bw = null;
+        this.Bv = null;
+        this.Bu = null;
     }
 
-    public boolean fI() {
-        if (kk()) {
-            return this.Bx.fI();
+    public boolean fF() {
+        if (kh()) {
+            return this.Bv.fF();
         }
         return false;
     }

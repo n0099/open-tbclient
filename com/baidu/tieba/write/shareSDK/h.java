@@ -3,22 +3,22 @@ package com.baidu.tieba.write.shareSDK;
 import com.baidu.tieba.write.view.e;
 /* loaded from: classes.dex */
 class h implements e.b {
-    final /* synthetic */ WriteShareActivity cSj;
+    final /* synthetic */ WriteShareActivity daW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(WriteShareActivity writeShareActivity) {
-        this.cSj = writeShareActivity;
+        this.daW = writeShareActivity;
     }
 
     @Override // com.baidu.tieba.write.view.e.b
     public void a(com.baidu.tieba.write.view.e eVar) {
         boolean z;
         eVar.dismiss();
-        z = this.cSj.cRW;
+        z = this.daW.daJ;
         if (!z) {
-            this.cSj.setResult(0);
+            this.daW.setResult(0);
         }
-        com.baidu.tbadk.core.c.b.a(this.cSj.getPageContext().getPageActivity(), 200, false);
-        this.cSj.finish();
+        com.baidu.tbadk.core.c.b.a(this.daW.getPageContext().getPageActivity(), 200, false);
+        this.daW.finish();
     }
 }

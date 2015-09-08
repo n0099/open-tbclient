@@ -5,12 +5,12 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m {
-    private int apO;
-    private List<b> cQc;
-    private String cQj;
-    private List<ImageFileInfo> cQp;
-    private List<ImageFileInfo> cQq;
-    private String cQr;
+    private int ary;
+    private List<b> cYN;
+    private String cYU;
+    private List<ImageFileInfo> cZa;
+    private List<ImageFileInfo> cZb;
+    private String cZc;
     private WriteImagesInfo mWriteImagesInfo;
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
@@ -33,7 +33,7 @@ public class m {
         return this.mWriteImagesInfo.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> atL() {
+    public List<ImageFileInfo> aye() {
         if (this.mWriteImagesInfo != null) {
             return this.mWriteImagesInfo.getChosedFiles();
         }
@@ -69,44 +69,44 @@ public class m {
         return 0;
     }
 
-    public String atM() {
-        return this.cQj;
+    public String ayf() {
+        return this.cYU;
     }
 
-    public void kX(String str) {
-        this.cQj = str;
+    public void lE(String str) {
+        this.cYU = str;
     }
 
-    public List<ImageFileInfo> atN() {
-        return this.cQp;
+    public List<ImageFileInfo> ayg() {
+        return this.cZa;
     }
 
-    public void bn(List<ImageFileInfo> list) {
-        this.cQp = list;
+    public void bw(List<ImageFileInfo> list) {
+        this.cZa = list;
     }
 
     public int getCurrentIndex() {
-        return this.apO;
+        return this.ary;
     }
 
-    public void kj(int i) {
-        this.apO = i;
+    public void kU(int i) {
+        this.ary = i;
     }
 
-    public List<b> atO() {
-        return this.cQc;
+    public List<b> ayh() {
+        return this.cYN;
     }
 
-    public void bo(List<b> list) {
-        this.cQc = list;
+    public void bx(List<b> list) {
+        this.cYN = list;
     }
 
-    public List<ImageFileInfo> atP() {
-        return this.cQq;
+    public List<ImageFileInfo> ayi() {
+        return this.cZb;
     }
 
-    public void bp(List<ImageFileInfo> list) {
-        this.cQq = list;
+    public void by(List<ImageFileInfo> list) {
+        this.cZb = list;
     }
 
     public int size() {
@@ -116,11 +116,11 @@ public class m {
         return this.mWriteImagesInfo.size();
     }
 
-    public String atQ() {
-        return this.cQr;
+    public String ayj() {
+        return this.cZc;
     }
 
-    public void kY(String str) {
-        this.cQr = str;
+    public void lF(String str) {
+        this.cZc = str;
     }
 }

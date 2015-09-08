@@ -1,21 +1,22 @@
 package com.baidu.tieba.tblauncher;
 
-import com.slidingmenu.lib.SlidingMenu;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class av implements SlidingMenu.OnAboveViewScrollListener {
-    final /* synthetic */ ai cMQ;
+public class av implements View.OnClickListener {
+    final /* synthetic */ am cVq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public av(ai aiVar) {
-        this.cMQ = aiVar;
+    public av(am amVar) {
+        this.cVq = amVar;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnAboveViewScrollListener
-    public void onPageScrolled(int i, float f, int i2) {
-        SlidingMenu slidingMenu;
-        ai aiVar = this.cMQ;
-        slidingMenu = this.cMQ.bbA;
-        aiVar.y(1.0f - slidingMenu.getPercentOpen());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CANCEL));
+        com.baidu.tbadk.core.sharedPref.b.tx().putBoolean("enter_forum_edit_mode", false);
     }
 }

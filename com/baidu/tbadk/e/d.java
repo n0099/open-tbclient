@@ -1,28 +1,24 @@
 package com.baidu.tbadk.e;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
-public class d extends com.baidu.adp.framework.a.d {
-    public d(int i) {
-        super(i);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.a.f
-    /* renamed from: d */
-    public HttpMessage a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
-            TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
-            if (httpMessage.removeParam("reloin_key") == null && ReloginManager.tn().tp() && tbHttpMessageTask.isNeedLogin()) {
-                httpMessage.addParam("reloin_key", "reloin_value");
-                ReloginManager.tn().a(httpMessage);
-                return null;
-            }
-            return httpMessage;
+public class d {
+    public static c w(View view) {
+        if (view == null) {
+            return null;
         }
-        return httpMessage;
+        if (view instanceof LinearLayout) {
+            return new e();
+        }
+        if (view instanceof RelativeLayout) {
+            return new i();
+        }
+        if (view instanceof FrameLayout) {
+            return new b();
+        }
+        return null;
     }
 }

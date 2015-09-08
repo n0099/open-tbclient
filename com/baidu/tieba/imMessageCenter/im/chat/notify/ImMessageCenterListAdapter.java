@@ -9,7 +9,9 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.i;
 import com.baidu.tieba.im.chat.notify.b;
 import com.baidu.tieba.im.settingcache.GroupSettingItemData;
@@ -18,11 +20,11 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b {
-    private e bGr;
+    private e bGY;
 
     public ImMessageCenterListAdapter(Context context) {
         super(context);
-        this.bGr = null;
+        this.bGY = null;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.b
@@ -30,9 +32,9 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
         super.setData(list);
         if (TbadkCoreApplication.isLogin()) {
             if (this.mList.size() <= 0) {
-                this.bGr.dq(true);
+                this.bGY.dv(true);
             } else {
-                this.bGr.dq(false);
+                this.bGY.dv(false);
             }
         }
         notifyDataSetChanged();
@@ -40,21 +42,21 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
 
     @Override // com.baidu.tieba.im.chat.notify.b, android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ImMessageCenterShowItemData gu = getItem(i);
-        if (gu != null && String.valueOf(String.valueOf(2)).equals(gu.getOwnerName())) {
-            if (gu.getUnReadCount() >= 30) {
-                if (this.bGr != null) {
-                    this.bGr.dp(true);
+        ImMessageCenterShowItemData gE = getItem(i);
+        if (gE != null && String.valueOf(String.valueOf(2)).equals(gE.getOwnerName())) {
+            if (gE.getUnReadCount() >= 30) {
+                if (this.bGY != null) {
+                    this.bGY.du(true);
                 }
-            } else if (this.bGr != null) {
-                this.bGr.dp(false);
+            } else if (this.bGY != null) {
+                this.bGY.du(false);
             }
         }
         return super.getView(i, view, viewGroup);
     }
 
     public void g(e eVar) {
-        this.bGr = eVar;
+        this.bGY = eVar;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.b
@@ -69,15 +71,15 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             str = "";
             i = 0;
         } else if (String.valueOf(7).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xq().xu()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xw().xA()) {
                 str = "";
                 i = 0;
-            } else if (!com.baidu.tieba.im.settingcache.l.Wz().isAcceptNotify()) {
+            } else if (!com.baidu.tieba.im.settingcache.l.WB().isAcceptNotify()) {
                 str = "";
                 i = 0;
             }
         } else if (String.valueOf(1).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xq().xF()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xw().xL()) {
                 str = "";
                 i = 0;
             } else {
@@ -88,7 +90,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
                 }
             }
         } else if (String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xq().xy()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xw().xE()) {
                 str = "";
                 i = 0;
             } else {
@@ -99,15 +101,15 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
                 }
             }
         } else if (String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xq().xy() || !TbadkCoreApplication.m411getInst().isPromotedMessageOn()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xw().xE() || !TbadkCoreApplication.m411getInst().isPromotedMessageOn()) {
                 str = "";
                 i = 0;
             }
         } else if (String.valueOf(5).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xq().xy()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xw().xE()) {
                 str = "";
                 i = 0;
-            } else if (!com.baidu.tieba.im.settingcache.g.Ww().isAcceptNotify()) {
+            } else if (!com.baidu.tieba.im.settingcache.g.Wy().isAcceptNotify()) {
                 str = "";
                 i = 0;
             }
@@ -133,115 +135,117 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
 
     @Override // com.baidu.tieba.im.chat.notify.b
     protected void f(b.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.Mv.setDrawerType(1);
-        aVar.Mv.setRadius(com.baidu.adp.lib.util.k.dip2px(this.mContext, 4.0f));
+        aVar.Mt.setDrawerType(1);
+        aVar.Mt.setRadius(com.baidu.adp.lib.util.k.dip2px(this.mContext, 4.0f));
         if (String.valueOf(2).equals(imMessageCenterShowItemData.getOwnerName())) {
-            aVar.Mv.setDrawBorder(false);
-            aVar.Mv.setAutoChangeStyle(true);
-            aVar.Mv.setTag(imMessageCenterShowItemData.getOwnerName());
+            aVar.Mt.setDrawBorder(false);
+            aVar.Mt.setAutoChangeStyle(true);
+            aVar.Mt.setTag(imMessageCenterShowItemData.getOwnerName());
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_VALIDATE_ICON, Integer.class);
             if (runTask != null) {
-                al.c(aVar.Mv, ((Integer) runTask.getData()).intValue());
+                al.c(aVar.Mt, ((Integer) runTask.getData()).intValue());
             }
-            aVar.Mv.setUserName(String.valueOf(2));
-            aVar.Mv.setUserId(imMessageCenterShowItemData.getFriendId());
-            aVar.Mv.setIsRound(false);
-            aVar.Mv.invalidate();
+            aVar.Mt.setUserName(String.valueOf(2));
+            aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
+            aVar.Mt.setIsRound(false);
+            aVar.Mt.invalidate();
         } else if (String.valueOf(3).equals(imMessageCenterShowItemData.getOwnerName())) {
-            aVar.Mv.setDrawBorder(false);
-            aVar.Mv.setAutoChangeStyle(true);
-            aVar.Mv.setTag(imMessageCenterShowItemData.getOwnerName());
-            aVar.Mv.setUserName(String.valueOf(3));
-            aVar.Mv.setUserId(imMessageCenterShowItemData.getFriendId());
+            aVar.Mt.setDrawBorder(false);
+            aVar.Mt.setAutoChangeStyle(true);
+            aVar.Mt.setTag(imMessageCenterShowItemData.getOwnerName());
+            aVar.Mt.setUserName(String.valueOf(3));
+            aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
             CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_UPDATES_ICON, Integer.class);
             if (runTask2 != null) {
-                al.c(aVar.Mv, ((Integer) runTask2.getData()).intValue());
+                al.c(aVar.Mt, ((Integer) runTask2.getData()).intValue());
             }
-            aVar.Mv.setIsRound(false);
-            aVar.Mv.invalidate();
+            aVar.Mt.setIsRound(false);
+            aVar.Mt.invalidate();
         } else if (String.valueOf(6).equals(imMessageCenterShowItemData.getOwnerName())) {
-            aVar.Mv.setDrawBorder(false);
-            aVar.Mv.setAutoChangeStyle(true);
-            aVar.Mv.setTag(imMessageCenterShowItemData.getOwnerName());
-            aVar.Mv.setUserName(String.valueOf(6));
-            aVar.Mv.setUserId(imMessageCenterShowItemData.getFriendId());
+            aVar.Mt.setDrawBorder(false);
+            aVar.Mt.setAutoChangeStyle(true);
+            aVar.Mt.setTag(imMessageCenterShowItemData.getOwnerName());
+            aVar.Mt.setUserName(String.valueOf(6));
+            aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
             CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_LIVE_NOTIFY_ICON, Integer.class);
             if (runTask3 != null) {
-                al.c(aVar.Mv, ((Integer) runTask3.getData()).intValue());
+                al.c(aVar.Mt, ((Integer) runTask3.getData()).intValue());
             }
-            aVar.Mv.setIsRound(false);
-            aVar.Mv.invalidate();
+            aVar.Mt.setIsRound(false);
+            aVar.Mt.invalidate();
         } else if (String.valueOf(1).equals(imMessageCenterShowItemData.getOwnerName())) {
-            aVar.Mv.setDrawBorder(true);
-            aVar.Mv.setAutoChangeStyle(true);
-            aVar.Mv.setUserId(imMessageCenterShowItemData.getFriendId());
+            aVar.Mt.setDrawBorder(true);
+            aVar.Mt.setAutoChangeStyle(true);
+            aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
             String friendPortrait = imMessageCenterShowItemData.getFriendPortrait();
-            aVar.Mv.setImageDrawable(null);
+            aVar.Mt.setImageDrawable(null);
             if (TextUtils.isEmpty(friendPortrait)) {
-                aVar.Mv.d(String.valueOf(i.e.icon_default_avatar100), 24, false);
+                aVar.Mt.d(String.valueOf(i.e.icon_default_avatar100), 24, false);
             } else {
-                aVar.Mv.d(friendPortrait, 10, false);
+                aVar.Mt.d(friendPortrait, 10, false);
             }
-            aVar.Mv.setClickable(false);
-            aVar.Mv.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.Mv.setUserId(imMessageCenterShowItemData.getFriendId());
-            aVar.Mv.setUserName(String.valueOf(1));
-            aVar.Mv.setIsRound(false);
-            aVar.Mv.invalidate();
+            aVar.Mt.setClickable(false);
+            aVar.Mt.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
+            aVar.Mt.setUserName(String.valueOf(1));
+            aVar.Mt.setIsRound(false);
+            aVar.Mt.invalidate();
         } else if (String.valueOf(5).equals(imMessageCenterShowItemData.getOwnerName())) {
-            aVar.Mv.setDrawBorder(false);
-            aVar.Mv.setAutoChangeStyle(true);
-            aVar.Mv.setTag(imMessageCenterShowItemData.getOwnerName());
-            aVar.Mv.setUserName(String.valueOf(5));
-            aVar.Mv.setUserId(imMessageCenterShowItemData.getFriendId());
+            aVar.Mt.setDrawBorder(false);
+            aVar.Mt.setAutoChangeStyle(true);
+            aVar.Mt.setTag(imMessageCenterShowItemData.getOwnerName());
+            aVar.Mt.setUserName(String.valueOf(5));
+            aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
             CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_OFFICIAL_MERGE_ICON, Integer.class);
             if (runTask4 != null) {
-                al.c(aVar.Mv, ((Integer) runTask4.getData()).intValue());
+                al.c(aVar.Mt, ((Integer) runTask4.getData()).intValue());
             }
-            aVar.Mv.setIsRound(false);
-            aVar.Mv.invalidate();
+            aVar.Mt.setIsRound(false);
+            aVar.Mt.invalidate();
+            TiebaStatic.log(new ao("c10321").r("obj_type", 2).af("obj_name", "show"));
         } else if (String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName())) {
-            aVar.Mv.setDrawBorder(true);
-            aVar.Mv.setAutoChangeStyle(true);
+            aVar.Mt.setDrawBorder(true);
+            aVar.Mt.setAutoChangeStyle(true);
             String friendPortrait2 = imMessageCenterShowItemData.getFriendPortrait();
-            aVar.Mv.setImageDrawable(null);
+            aVar.Mt.setImageDrawable(null);
             if (!TextUtils.isEmpty(friendPortrait2)) {
-                aVar.Mv.d(friendPortrait2, 12, false);
+                aVar.Mt.d(friendPortrait2, 12, false);
             } else {
                 CustomResponsedMessage runTask5 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_OFFICIAL_MERGE_ICON, Integer.class);
                 if (runTask5 != null && runTask5.getData() != null) {
-                    aVar.Mv.d(((Integer) runTask5.getData()).toString(), 24, false);
+                    aVar.Mt.d(((Integer) runTask5.getData()).toString(), 24, false);
                 }
             }
-            aVar.Mv.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.Mv.setUserId(imMessageCenterShowItemData.getFriendId());
-            aVar.Mv.setUserName(imMessageCenterShowItemData.getFriendName());
-            aVar.Mv.setIsRound(false);
-            aVar.Mv.invalidate();
+            aVar.Mt.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
+            aVar.Mt.setUserName(imMessageCenterShowItemData.getFriendName());
+            aVar.Mt.setIsRound(false);
+            aVar.Mt.invalidate();
+            TiebaStatic.log(new ao("c10321").r("obj_type", 2).af("obj_name", "show"));
         } else if (String.valueOf(7).equals(imMessageCenterShowItemData.getOwnerName())) {
-            aVar.Mv.setDrawBorder(false);
-            aVar.Mv.setAutoChangeStyle(true);
-            aVar.Mv.setTag(imMessageCenterShowItemData.getOwnerName());
-            aVar.Mv.setUserName(String.valueOf(7));
-            aVar.Mv.setUserId(imMessageCenterShowItemData.getFriendId());
-            al.c(aVar.Mv, i.e.icon_new_stranger);
-            aVar.Mv.setIsRound(false);
-            aVar.Mv.invalidate();
+            aVar.Mt.setDrawBorder(false);
+            aVar.Mt.setAutoChangeStyle(true);
+            aVar.Mt.setTag(imMessageCenterShowItemData.getOwnerName());
+            aVar.Mt.setUserName(String.valueOf(7));
+            aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
+            al.c(aVar.Mt, i.e.icon_new_stranger);
+            aVar.Mt.setIsRound(false);
+            aVar.Mt.invalidate();
         } else {
-            aVar.Mv.setDrawBorder(true);
-            aVar.Mv.setAutoChangeStyle(true);
+            aVar.Mt.setDrawBorder(true);
+            aVar.Mt.setAutoChangeStyle(true);
             String friendPortrait3 = imMessageCenterShowItemData.getFriendPortrait();
-            aVar.Mv.setImageDrawable(null);
+            aVar.Mt.setImageDrawable(null);
             if (!TextUtils.isEmpty(friendPortrait3)) {
-                aVar.Mv.d(friendPortrait3, 12, false);
+                aVar.Mt.d(friendPortrait3, 12, false);
             } else {
-                aVar.Mv.d(String.valueOf(i.e.person_photo), 24, false);
+                aVar.Mt.d(String.valueOf(i.e.person_photo), 24, false);
             }
-            aVar.Mv.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.Mv.setUserId(imMessageCenterShowItemData.getFriendId());
-            aVar.Mv.setUserName(imMessageCenterShowItemData.getFriendName());
-            aVar.Mv.setIsRound(false);
-            aVar.Mv.invalidate();
+            aVar.Mt.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
+            aVar.Mt.setUserName(imMessageCenterShowItemData.getFriendName());
+            aVar.Mt.setIsRound(false);
+            aVar.Mt.invalidate();
         }
     }
 }

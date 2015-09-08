@@ -25,25 +25,25 @@ public class ae extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         MemoryModifyVisibilityMessage.a data;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016005 && (customResponsedMessage instanceof MemoryModifyVisibilityMessage) && (data = ((MemoryModifyVisibilityMessage) customResponsedMessage).getData()) != null) {
-            ImMessageCenterPojo G = b.Vl().G(data.id, data.customGroupType);
-            int i = data.apm ? 0 : 1;
-            if (G != null && i != G.getIs_hidden()) {
+            ImMessageCenterPojo H = b.Vn().H(data.id, data.customGroupType);
+            int i = data.aqX ? 0 : 1;
+            if (H != null && i != H.getIs_hidden()) {
                 if (data.customGroupType == 2) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.wT().dN(data.id);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.wZ().dU(data.id);
                 } else if (data.customGroupType == 4) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.wT().cR(com.baidu.adp.lib.g.b.g(data.id, 0));
+                    com.baidu.tbadk.coreExtra.messageCenter.a.wZ().cX(com.baidu.adp.lib.g.b.g(data.id, 0));
                 } else if (data.customGroupType == -3) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.wT().cS(2);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.wZ().cY(2);
                 } else if (data.customGroupType == -4) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.wT().cS(1);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.wZ().cY(1);
                 } else if (data.customGroupType == -5) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.wT().cS(3);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.wZ().cY(3);
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.wT().dM(data.id);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.wZ().dT(data.id);
                 }
-                b.Vl().f(data.id, data.customGroupType, data.apm);
-                G.setIs_hidden(i);
-                CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new af(this, G));
+                b.Vn().f(data.id, data.customGroupType, data.aqX);
+                H.setIs_hidden(i);
+                CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new af(this, H));
                 customMessageTask.setParallel(TiebaIMConfig.getParallel());
                 customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
                 customMessageTask.setPriority(4);

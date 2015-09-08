@@ -1,24 +1,54 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.slidingmenu.lib.SlidingMenu;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class al implements View.OnClickListener {
-    final /* synthetic */ ai cMQ;
+public class al implements com.baidu.tbadk.core.c.a {
+    private a cVd;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ai aiVar) {
-        this.cMQ = aiVar;
+    @Override // com.baidu.tbadk.core.c.a
+    public void e(Context context, int i) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i)));
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        SlidingMenu slidingMenu;
-        if (MainTabActivityConfig.IS_SUPPORT_LEFT_BAR) {
-            slidingMenu = this.cMQ.bbA;
-            slidingMenu.toggle(true);
+    @Override // com.baidu.tbadk.core.c.a
+    public void aa(Context context) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount != null && currentAccount.length() > 0) {
+            e(context, 1);
+        } else {
+            e(context, 0);
         }
+    }
+
+    @Override // com.baidu.tbadk.core.c.a
+    public void a(Context context, int i, boolean z) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
+    }
+
+    @Override // com.baidu.tbadk.core.c.a
+    public Class<?> tq() {
+        return MainTabActivity.class;
+    }
+
+    @Override // com.baidu.tbadk.core.c.a
+    public String tr() {
+        return MainTabActivity.class.getName();
+    }
+
+    @Override // com.baidu.tbadk.core.c.a
+    public int getCurrentTabType() {
+        if (this.cVd != null) {
+            return this.cVd.getCurrentTabType();
+        }
+        return -1;
+    }
+
+    public void a(a aVar) {
+        this.cVd = aVar;
     }
 }

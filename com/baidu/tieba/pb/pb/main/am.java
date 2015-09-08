@@ -8,11 +8,11 @@ import com.baidu.tieba.pb.FileDownloader;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements a.b {
-    final /* synthetic */ PbActivity cbo;
+    final /* synthetic */ PbActivity ccj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(PbActivity pbActivity) {
-        this.cbo = pbActivity;
+        this.ccj = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -20,18 +20,18 @@ public class am implements a.b {
         com.baidu.tbadk.core.dialog.a aVar2;
         String str;
         String str2;
-        aVar2 = this.cbo.caB;
+        aVar2 = this.ccj.cbw;
         aVar2.dismiss();
-        if (com.baidu.tbadk.core.util.n.fl()) {
-            str = this.cbo.aPL;
-            if (!TextUtils.isEmpty(str) && com.baidu.adp.lib.util.i.iP()) {
-                Activity pageActivity = this.cbo.getPageContext().getPageActivity();
-                str2 = this.cbo.aPL;
-                FileDownloader.download(pageActivity, str2, null, this.cbo.getPageContext().getString(i.C0057i.download_iqiyi_app));
+        if (com.baidu.tbadk.core.util.n.fi()) {
+            str = this.ccj.aPZ;
+            if (!TextUtils.isEmpty(str) && com.baidu.adp.lib.util.i.iM()) {
+                Activity pageActivity = this.ccj.getPageContext().getPageActivity();
+                str2 = this.ccj.aPZ;
+                FileDownloader.download(pageActivity, str2, null, this.ccj.getPageContext().getString(i.h.download_iqiyi_app));
                 return;
             }
             return;
         }
-        this.cbo.showToast(com.baidu.tbadk.core.util.n.ty());
+        this.ccj.showToast(com.baidu.tbadk.core.util.n.tD());
     }
 }

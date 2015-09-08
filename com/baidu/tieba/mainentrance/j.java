@@ -1,16 +1,16 @@
 package com.baidu.tieba.mainentrance;
 /* loaded from: classes.dex */
 class j implements Runnable {
-    final /* synthetic */ SquareSearchActivity bQZ;
+    final /* synthetic */ SquareSearchActivity bRF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(SquareSearchActivity squareSearchActivity) {
-        this.bQZ = squareSearchActivity;
+        this.bRF = squareSearchActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bQZ.bQb.requestFocus();
-        com.baidu.adp.lib.util.k.d(this.bQZ.getPageContext().getPageActivity(), this.bQZ.bQb);
+        this.bRF.bQH.requestFocus();
+        com.baidu.adp.lib.util.k.d(this.bRF.getPageContext().getPageActivity(), this.bRF.bQH);
     }
 }

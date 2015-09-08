@@ -9,11 +9,11 @@ import com.baidu.tieba.pb.chosen.a.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ i bZP;
+    final /* synthetic */ i caJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(i iVar) {
-        this.bZP = iVar;
+        this.caJ = iVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,23 +21,23 @@ public class l implements View.OnClickListener {
         boolean z;
         Context context;
         ImageView imageView;
-        Animation acE;
+        Animation acN;
         i.a aVar;
         i.a aVar2;
         boolean z2;
-        z = this.bZP.bZL;
+        z = this.caJ.caF;
         if (!z) {
-            context = this.bZP.context;
+            context = this.caJ.context;
             if (bb.ah(context)) {
-                this.bZP.bZL = true;
-                imageView = this.bZP.bZF;
-                acE = this.bZP.acE();
-                imageView.startAnimation(acE);
-                aVar = this.bZP.bZI;
+                this.caJ.caF = true;
+                imageView = this.caJ.caz;
+                acN = this.caJ.acN();
+                imageView.startAnimation(acN);
+                aVar = this.caJ.caC;
                 if (aVar != null) {
-                    aVar2 = this.bZP.bZI;
-                    z2 = this.bZP.bZJ;
-                    aVar2.dX(z2);
+                    aVar2 = this.caJ.caC;
+                    z2 = this.caJ.caD;
+                    aVar2.ee(z2);
                 }
             }
         }

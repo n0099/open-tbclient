@@ -4,17 +4,17 @@ import android.widget.CompoundButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cj implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ cb cfj;
+    final /* synthetic */ cb cgg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cj(cb cbVar) {
-        this.cfj = cbVar;
+        this.cgg = cbVar;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         if (z) {
-            this.cfj.ceH = (String) compoundButton.getTag();
+            this.cgg.cfE = (String) compoundButton.getTag();
         }
     }
 }

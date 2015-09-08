@@ -2,21 +2,20 @@ package com.baidu.tbadk.core.data;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.i;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Random;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class PhotoLiveCardData implements Serializable {
-    public static final String FROM_FRS = "from_frs";
     public static final String FROM_FRS_THREAD = "frs_thread";
-    public static final String FROM_OHTERS = "from_others";
-    public static final String FROM_PHOTO_LIVE_LIST = "from_photo_live_list";
     private static final long serialVersionUID = 1;
     private String authorId;
     private String authorName;
@@ -25,17 +24,45 @@ public class PhotoLiveCardData implements Serializable {
     private String content;
     private String cover;
     private int discussNum;
+    private int fansNum;
     private long forumId;
     private String forumName;
-    private String from = "from_frs";
+    private boolean isHeadLive;
     private long lastModifiedTime;
     private String liveCoverSrcBsize;
-    private String photoLiveAbstract;
+    private String nickName;
     private int postNum;
     private int praiseNum;
     private String refreshTime;
     private long threadId;
     private String title;
+    private int mShowStye = -1;
+    private ArrayList<Integer> showExpressionViewIndex = new ArrayList<>();
+    private ArrayList<com.baidu.tbadk.coreExtra.view.p> expressionList = new ArrayList<>();
+
+    public void setNickName(String str) {
+        this.nickName = str;
+    }
+
+    public String getNickName() {
+        return this.nickName;
+    }
+
+    public void setFansNum(int i) {
+        this.fansNum = i;
+    }
+
+    public int getFansNum() {
+        return this.fansNum;
+    }
+
+    public void setHeadlive(boolean z) {
+        this.isHeadLive = z;
+    }
+
+    public boolean isHeadLive() {
+        return this.isHeadLive;
+    }
 
     public void setForumId(long j) {
         this.forumId = j;
@@ -82,11 +109,20 @@ public class PhotoLiveCardData implements Serializable {
     }
 
     public String getRefreshTime() {
-        return TextUtils.isEmpty(this.refreshTime) ? rV() : this.refreshTime;
+        return TextUtils.isEmpty(this.refreshTime) ? buildRefreshTime() : this.refreshTime;
     }
 
-    private String rV() {
-        return String.valueOf(aq.m(this.lastModifiedTime * 1000)) + TbadkCoreApplication.m411getInst().getString(i.C0057i.update_floor_num, new Object[]{aq.o(this.postNum)});
+    @Deprecated
+    public String buildRefreshTime() {
+        return String.valueOf(aq.m(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(i.h.update_floor_num, new Object[]{aq.o(this.postNum)});
+    }
+
+    public String buildRefreshTimeWithPostNum() {
+        return String.valueOf(aq.m(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(i.h.update_floor_num, new Object[]{aq.o(this.postNum)});
+    }
+
+    public String buildRefreshTimeWithoutPostNum() {
+        return TbadkCoreApplication.m411getInst().getString(i.h.photo_live_thread_expression_time, new Object[]{aq.m(this.lastModifiedTime * 1000)});
     }
 
     public void setPhotoLiveCover(String str) {
@@ -121,35 +157,35 @@ public class PhotoLiveCardData implements Serializable {
         return this.canDeleteLivePost;
     }
 
-    public void setPhotoLiveAbstract(String str) {
-        this.photoLiveAbstract = str;
-    }
-
-    public String getPhotoLiveAbstract() {
-        return this.photoLiveAbstract;
-    }
-
-    public void setFrom(String str) {
-        this.from = str;
-    }
-
-    public String geFrom() {
-        return this.from;
-    }
-
     public void setTitle(String str) {
         this.title = str;
     }
 
+    public void setExpressionDatas(ArrayList<com.baidu.tbadk.coreExtra.view.p> arrayList) {
+        this.expressionList = arrayList;
+    }
+
+    public ArrayList<com.baidu.tbadk.coreExtra.view.p> getExpressionDatas() {
+        return this.expressionList;
+    }
+
     public SpannableStringBuilder getTitleWithLabel() {
-        if (StringUtils.isNull(this.title)) {
-            this.title = "";
+        return getLiveIconTitle(this.title);
+    }
+
+    public static SpannableStringBuilder getLiveIconTitle(CharSequence charSequence) {
+        if (charSequence == null || charSequence.length() == 0) {
+            return null;
         }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("  " + this.title);
-        Bitmap cq = al.cq(i.e.icon_live);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cq);
-        bitmapDrawable.setBounds(0, 0, cq.getWidth(), cq.getHeight());
-        spannableStringBuilder.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), 0, 1, 33);
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf("live") + "space" + ((Object) charSequence));
+        Bitmap cu = al.cu(i.e.icon_zhibo);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cu);
+        int height = cu.getHeight();
+        bitmapDrawable.setBounds(0, 0, cu.getWidth(), height);
+        spannableStringBuilder.setSpan(new com.baidu.adp.widget.d(bitmapDrawable, 1), 0, "live".length(), 33);
+        ColorDrawable colorDrawable = new ColorDrawable();
+        colorDrawable.setBounds(0, 0, 10, height);
+        spannableStringBuilder.setSpan(new com.baidu.adp.widget.d(colorDrawable, 1), 1, "live".length() + "space".length(), 33);
         return aq.a(spannableStringBuilder);
     }
 
@@ -224,7 +260,86 @@ public class PhotoLiveCardData implements Serializable {
                 this.authorId = String.valueOf(zhiBoInfoTW.user.id);
                 this.authorName = zhiBoInfoTW.user.name;
                 this.authorPortrait = zhiBoInfoTW.user.portrait;
+                this.nickName = zhiBoInfoTW.user.fans_nickname;
+                this.fansNum = zhiBoInfoTW.user.fans_num.intValue();
+            }
+            if (zhiBoInfoTW.labelInfo != null) {
+                int size = zhiBoInfoTW.labelInfo.size();
+                for (int i = 0; i < size; i++) {
+                    if (zhiBoInfoTW.labelInfo.get(i) != null) {
+                        com.baidu.tbadk.coreExtra.view.p pVar = new com.baidu.tbadk.coreExtra.view.p();
+                        pVar.dC(zhiBoInfoTW.labelInfo.get(i).labelHot.intValue());
+                        pVar.setLabelId(zhiBoInfoTW.labelInfo.get(i).labelId);
+                        pVar.setLabelName(zhiBoInfoTW.labelInfo.get(i).labelContent);
+                        this.expressionList.add(pVar);
+                    }
+                }
+                this.isHeadLive = zhiBoInfoTW.is_headline.intValue() == 1;
             }
         }
+    }
+
+    public String deleteBlackSpace(String str) {
+        if (str == null) {
+            return "";
+        }
+        return str.replaceAll("\n", "").trim();
+    }
+
+    public void setShowStyle(int i) {
+        this.mShowStye = i;
+    }
+
+    public int getShowStyle() {
+        return this.mShowStye;
+    }
+
+    public int getRandom(int i, int i2) {
+        int nextInt = new Random().nextInt(i);
+        if (nextInt == i2) {
+            return (nextInt + 1) % i;
+        }
+        return nextInt;
+    }
+
+    public void setShowExpressionViewIndexList(ArrayList<com.baidu.tbadk.coreExtra.view.p> arrayList) {
+        int size = arrayList.size();
+        int i = 0;
+        int i2 = -1;
+        int i3 = -1;
+        while (i < size && i < 3) {
+            if (arrayList.get(i) != null) {
+                int random = getRandom(3, -1);
+                if (random == i2 || random == i3) {
+                    random = m(size, i2, i3);
+                }
+                if (i == 0) {
+                    i2 = random;
+                }
+                if (i == 1) {
+                    i3 = random;
+                }
+                this.showExpressionViewIndex.add(Integer.valueOf(random));
+            }
+            i++;
+            i2 = i2;
+        }
+    }
+
+    public void setShowExpressionViewIndex(ArrayList<Integer> arrayList) {
+        this.showExpressionViewIndex.addAll(arrayList);
+    }
+
+    private int m(int i, int i2, int i3) {
+        for (int i4 = 0; i4 < i && i4 < 3; i4++) {
+            if (i4 != i2 && i4 != i3) {
+                return i4;
+            }
+        }
+        return -1;
+    }
+
+    public ArrayList<Integer> getShowExpressionViewIndex() {
+        return this.showExpressionViewIndex;
     }
 }

@@ -4,11 +4,11 @@ import android.view.View;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* loaded from: classes.dex */
 class g implements BdSwitchView.a {
-    final /* synthetic */ f cwO;
+    final /* synthetic */ f cFl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.cwO = fVar;
+        this.cFl = fVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a

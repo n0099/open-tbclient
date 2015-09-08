@@ -1,32 +1,20 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.graphics.Canvas;
+import com.slidingmenu.lib.SlidingMenu;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba implements a.b {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aKF;
-    private final /* synthetic */ int bpw;
-    final /* synthetic */ ai cMQ;
+public class ba implements SlidingMenu.CanvasTransformer {
+    final /* synthetic */ am cVq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(ai aiVar, com.baidu.tbadk.core.dialog.a aVar, int i) {
-        this.cMQ = aiVar;
-        this.aKF = aVar;
-        this.bpw = i;
+    public ba(am amVar) {
+        this.cVq = amVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        MainTabActivity mainTabActivity;
-        MainTabActivity mainTabActivity2;
-        this.aKF.dismiss();
-        if (this.bpw == 0) {
-            mainTabActivity2 = this.cMQ.cMK;
-            TiebaStatic.eventStat(mainTabActivity2.getPageContext().getPageActivity(), "user_overdue_know", "click", 1, new Object[0]);
-        } else if (this.bpw == 1) {
-            mainTabActivity = this.cMQ.cMK;
-            TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "user_expire_know", "click", 1, new Object[0]);
-        }
+    @Override // com.slidingmenu.lib.SlidingMenu.CanvasTransformer
+    public void transformCanvas(Canvas canvas, float f) {
+        float f2 = 1.0f - (0.2f * f);
+        canvas.scale(f2, f2, 0.0f, canvas.getHeight() / 2);
     }
 }

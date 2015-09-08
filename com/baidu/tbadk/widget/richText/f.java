@@ -5,39 +5,39 @@ import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.lib.a.b.a.a.i {
-    private boolean aBA;
-    private String aBw;
-    private String aBx;
-    private String aBy;
-    private boolean aBz;
+    private String aDe;
+    private String aDf;
+    private String aDg;
+    private boolean aDh;
+    private boolean aDi;
     private int mHeight;
     private int mWidth;
 
     public f() {
-        this.aBw = null;
-        this.aBx = null;
-        this.aBy = null;
+        this.aDe = null;
+        this.aDf = null;
+        this.aDg = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aBz = false;
-        this.aBA = true;
+        this.aDh = false;
+        this.aDi = true;
     }
 
     public f(PbContent pbContent) {
-        this.aBw = null;
-        this.aBx = null;
-        this.aBy = null;
+        this.aDe = null;
+        this.aDf = null;
+        this.aDg = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aBz = false;
-        this.aBA = true;
+        this.aDh = false;
+        this.aDi = true;
         if (pbContent != null) {
-            this.aBw = pbContent.src;
-            this.aBx = pbContent.cdn_src;
-            if (this.aBx == null || this.aBx.length() == 0) {
-                this.aBx = this.aBw;
+            this.aDe = pbContent.src;
+            this.aDf = pbContent.cdn_src;
+            if (this.aDf == null || this.aDf.length() == 0) {
+                this.aDf = this.aDe;
             }
-            this.aBy = pbContent.big_cdn_src;
+            this.aDg = pbContent.big_cdn_src;
             String str = pbContent.bsize;
             if (str != null) {
                 try {
@@ -54,27 +54,27 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.aBx != null && this.aBx.indexOf(".baidu.com") != -1) {
-                this.aBz = true;
+            if (this.aDf != null && this.aDf.indexOf(".baidu.com") != -1) {
+                this.aDh = true;
             }
         }
     }
 
     public f(JSONObject jSONObject) {
-        this.aBw = null;
-        this.aBx = null;
-        this.aBy = null;
+        this.aDe = null;
+        this.aDf = null;
+        this.aDg = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aBz = false;
-        this.aBA = true;
+        this.aDh = false;
+        this.aDi = true;
         if (jSONObject != null) {
-            this.aBw = jSONObject.optString("src");
-            this.aBx = jSONObject.optString("cdn_src", "");
-            if (this.aBx == null || this.aBx.length() == 0) {
-                this.aBx = this.aBw;
+            this.aDe = jSONObject.optString("src");
+            this.aDf = jSONObject.optString("cdn_src", "");
+            if (this.aDf == null || this.aDf.length() == 0) {
+                this.aDf = this.aDe;
             }
-            this.aBy = jSONObject.optString("big_cdn_src", null);
+            this.aDg = jSONObject.optString("big_cdn_src", null);
             try {
                 String[] split = jSONObject.optString("bsize").split(",");
                 this.mWidth = Integer.valueOf(split[0]).intValue();
@@ -88,14 +88,14 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.aBx != null && this.aBx.indexOf(".baidu.com") != -1) {
-                this.aBz = true;
+            if (this.aDf != null && this.aDf.indexOf(".baidu.com") != -1) {
+                this.aDh = true;
             }
         }
     }
 
-    public String Fi() {
-        return this.aBy;
+    public String Fs() {
+        return this.aDg;
     }
 
     public int getHeight() {
@@ -114,23 +114,23 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
         this.mWidth = i;
     }
 
-    public boolean Fj() {
-        return this.aBz;
+    public boolean Ft() {
+        return this.aDh;
     }
 
     public String getSrc() {
-        return this.aBw;
+        return this.aDe;
     }
 
-    public String Fk() {
-        return this.aBx;
+    public String Fu() {
+        return this.aDf;
     }
 
-    public boolean Fl() {
-        return this.aBA;
+    public boolean Fv() {
+        return this.aDi;
     }
 
-    public void bq(boolean z) {
-        this.aBA = z;
+    public void bx(boolean z) {
+        this.aDi = z;
     }
 }

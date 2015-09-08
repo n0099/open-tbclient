@@ -8,125 +8,101 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class az extends bc<com.baidu.tbadk.core.data.c, bb> {
-    private View.OnClickListener aVa;
-    private View.OnClickListener aVb;
+public class az extends bd<com.baidu.tbadk.core.data.c, bb> {
+    private View.OnClickListener aVo;
+    private View.OnClickListener aVp;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public az(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
     }
 
-    public void i(View.OnClickListener onClickListener) {
-        this.aVb = onClickListener;
+    private void a(boolean z, bb bbVar) {
+        if (z) {
+            com.baidu.tbadk.core.util.al.h((View) bbVar.aWt, i.e.frs_praise_btn_bg);
+            com.baidu.tbadk.core.util.al.b(bbVar.aWt, i.c.cp_cont_f, 1);
+            return;
+        }
+        com.baidu.tbadk.core.util.al.h((View) bbVar.aWt, i.e.btn_content_download_d);
+        com.baidu.tbadk.core.util.al.b(bbVar.aWt, i.c.faceshop_downloaded_text, 1);
     }
 
     public void h(View.OnClickListener onClickListener) {
-        this.aVa = onClickListener;
+        this.aVo = onClickListener;
     }
 
-    private void a(boolean z, bb bbVar) {
-        if (z) {
-            com.baidu.tbadk.core.util.al.i((View) bbVar.aWj, i.e.btn_appdownload);
-            com.baidu.tbadk.core.util.al.b(bbVar.aWj, i.c.cp_cont_i, 1);
-            return;
-        }
-        com.baidu.tbadk.core.util.al.i((View) bbVar.aWj, i.e.btn_content_download_d);
-        com.baidu.tbadk.core.util.al.b(bbVar.aWj, i.c.faceshop_downloaded_text, 1);
-    }
-
-    private String gF(String str) {
-        if (!TextUtils.isEmpty(str) && str.length() > 14) {
-            return str.substring(0, 14);
-        }
-        return str;
+    public void i(View.OnClickListener onClickListener) {
+        this.aVp = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: g */
+    /* renamed from: f */
     public bb a(ViewGroup viewGroup) {
-        return new bb(LayoutInflater.from(this.mContext).inflate(i.g.frs_item_app_new, (ViewGroup) null));
+        return new bb(LayoutInflater.from(this.mContext).inflate(i.g.frs_item_app, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bc, com.baidu.adp.widget.ListView.a
+    @Override // com.baidu.tieba.frs.bd, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.c cVar, bb bbVar) {
         super.a(i, view, viewGroup, (ViewGroup) cVar, (com.baidu.tbadk.core.data.c) bbVar);
-        if (this.aSJ == null) {
+        if (this.aSX == null) {
             return null;
         }
-        if (this.aSJ != null && (this.aSJ instanceof FrsActivity)) {
-            ((FrsActivity) this.aSJ).Lz().Nb();
+        if (this.aSX != null && (this.aSX instanceof FrsActivity)) {
+            ((FrsActivity) this.aSX).Lq().Nc();
         }
-        bbVar.aWd.setPadding(0, i - this.aWl == 0 ? this.aTw : this.aTx, 0, 0);
-        this.aSJ.getLayoutMode().ad(this.mSkinType == 1);
-        this.aSJ.getLayoutMode().k(view);
+        bbVar.aWp.setPadding(0, i - this.aWC == 0 ? this.aTK : this.aTL, 0, 0);
+        this.aSX.getLayoutMode().ad(this.mSkinType == 1);
+        this.aSX.getLayoutMode().k(view);
         if (cVar instanceof com.baidu.tbadk.core.data.c) {
-            if (!cVar.Uw && this.aSJ != null && (this.aSJ instanceof FrsActivity)) {
-                cVar.Uw = true;
-                ((FrsActivity) this.aSJ).a(cVar, "show");
-                ((FrsActivity) this.aSJ).b(cVar, "show");
+            if (!cVar.Ux && (this.aSX instanceof FrsActivity)) {
+                cVar.Ux = true;
+                ((FrsActivity) this.aSX).a(cVar, "show");
+                ((FrsActivity) this.aSX).b(cVar, "show");
             }
-            bbVar.aWf.setText(gF(cVar.Uv.userName));
-            if (cVar.Uv == null) {
-                return null;
-            }
-            if (TextUtils.isEmpty(cVar.Uv.Uy) || TextUtils.isEmpty(cVar.Uv.Uy.trim())) {
-                bbVar.aWh.setVisibility(8);
+            bbVar.aQj.setText(cVar.Uw.userName);
+            bbVar.aWs.setText(cVar.Uw.Uz);
+            if (com.baidu.tbadk.core.m.rb().rf()) {
+                bbVar.aWr.setVisibility(0);
+                bbVar.aWr.d(cVar.Uw.userPortrait, this.mIsFromCDN ? 13 : 14, false);
             } else {
-                bbVar.aWh.setVisibility(0);
-                bbVar.aWh.setText(cVar.Uv.Uy);
+                bbVar.aWr.setVisibility(8);
             }
-            bbVar.aWg.setText(com.baidu.tbadk.core.util.aq.m(cVar.Uu));
-            if (com.baidu.tbadk.core.m.rd().rf()) {
-                bbVar.aWe.setVisibility(0);
-                bbVar.aWe.d(cVar.Uv.userPortrait, this.mIsFromCDN ? 13 : 14, false);
-            } else {
-                bbVar.aWe.setVisibility(8);
-            }
-            bbVar.aWe.setTag(cVar.Uv.userPortrait);
-            if (com.baidu.tbadk.core.m.rd().rh() && !TextUtils.isEmpty(cVar.Uv.Uz)) {
-                bbVar.aWi.setVisibility(0);
-                bbVar.aWi.d(cVar.Uv.Uz, this.mIsFromCDN ? 30 : 31, false);
-                bbVar.aWh.setPadding(0, 0, 0, 0);
-            } else {
-                bbVar.aWi.setVisibility(8);
-                bbVar.aWh.setPadding(0, 0, 0, this.mContext.getResources().getDimensionPixelSize(i.d.ds30));
-            }
-            bbVar.aWj.setTag(Integer.valueOf(i));
-            if (cVar.rx()) {
-                if (!TextUtils.isEmpty(cVar.Uv.UE) && !TextUtils.isEmpty(cVar.Uv.UE.trim())) {
-                    a(true, bbVar);
-                    bbVar.aWj.setText(cVar.Uv.UE);
-                    bbVar.aWj.setOnClickListener(this.aVa);
-                    return view;
+            bbVar.aWr.setTag(cVar.Uw.userPortrait);
+            bbVar.aWt.setTag(Integer.valueOf(i));
+            com.baidu.tbadk.core.util.al.h((View) bbVar.aWq, i.e.bg_label);
+            if (cVar.rw()) {
+                a(true, bbVar);
+                if (TextUtils.isEmpty(cVar.Uw.UF) || TextUtils.isEmpty(cVar.Uw.UF.trim())) {
+                    bbVar.aWt.setText(i.h.view);
+                } else {
+                    bbVar.aWt.setText(cVar.Uw.UF);
                 }
-                bbVar.aWj.setVisibility(8);
+                bbVar.aWt.setOnClickListener(this.aVo);
                 return view;
-            } else if (cVar.rw()) {
-                bbVar.aWj.setVisibility(0);
-                switch (cVar.Ug) {
+            } else if (cVar.rv()) {
+                switch (cVar.Uh) {
                     case 0:
-                        if (TextUtils.isEmpty(cVar.Uv.UE) || TextUtils.isEmpty(cVar.Uv.UE.trim())) {
-                            bbVar.aWj.setText(i.C0057i.pb_app_download);
+                        if (TextUtils.isEmpty(cVar.Uw.UF) || TextUtils.isEmpty(cVar.Uw.UF.trim())) {
+                            bbVar.aWt.setText(i.h.game_center_download);
                         } else {
-                            bbVar.aWj.setText(cVar.Uv.UE);
+                            bbVar.aWt.setText(cVar.Uw.UF);
                         }
                         a(true, bbVar);
-                        bbVar.aWj.setOnClickListener(this.aVb);
+                        bbVar.aWt.setOnClickListener(this.aVp);
                         return view;
                     case 1:
                         a(false, bbVar);
-                        bbVar.aWj.setText(i.C0057i.downloading2);
-                        bbVar.aWj.setOnClickListener(null);
+                        bbVar.aWt.setText(i.h.downloading2);
+                        bbVar.aWt.setOnClickListener(null);
                         return view;
                     case 2:
                         a(true, bbVar);
-                        bbVar.aWj.setText(i.C0057i.frs_new_style_download_text);
-                        bbVar.aWj.setOnClickListener(this.aVb);
+                        bbVar.aWt.setText(i.h.frs_old_style_download_text);
+                        bbVar.aWt.setOnClickListener(this.aVp);
                         return view;
                     default:
                         return view;

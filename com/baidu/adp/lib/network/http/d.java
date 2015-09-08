@@ -1,15 +1,15 @@
 package com.baidu.adp.lib.network.http;
 /* loaded from: classes.dex */
 public class d {
-    public int uM = -1;
-    public int uN = -1;
-    public long uO = -1;
+    public int uK = -1;
+    public int uL = -1;
+    public long uM = -1;
+    public long uN = -1;
+    public int uO = 0;
     public long uP = -1;
-    public int uQ = 0;
-    public long uR = -1;
-    public long uS = -1;
-    public String uT = "";
-    public int uU = -1;
-    public int uV = 0;
-    public String uW = null;
+    public long uQ = -1;
+    public String uR = "";
+    public int uS = -1;
+    public int uT = 0;
+    public String uU = null;
 }

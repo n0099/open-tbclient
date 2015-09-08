@@ -42,7 +42,7 @@ public class c {
         TextView textView2 = (TextView) inflate.findViewById(i.f.pre_msg);
         TextView textView3 = (TextView) inflate.findViewById(i.f.color_msg);
         if (StringUtils.isNull(str)) {
-            str = context.getString(i.C0057i.send_success);
+            str = context.getString(i.h.send_success);
         }
         textView.setText(str);
         if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
@@ -56,15 +56,15 @@ public class c {
     public static void a(v vVar, WriteData writeData) {
         if (writeData != null && writeData.isHasLocationData()) {
             vVar.o("is_location", "2");
-            Address y = com.baidu.adp.lib.d.a.gF().y(false);
+            Address y = com.baidu.adp.lib.d.a.gC().y(false);
             if (y != null) {
                 vVar.o("lat", String.valueOf(y.getLatitude()));
                 vVar.o("lng", String.valueOf(y.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.aqC().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.auQ().getLocationData();
             if (locationData != null) {
-                vVar.o("name", locationData.aqy());
-                vVar.o("sn", locationData.aqA());
+                vVar.o("name", locationData.auM());
+                vVar.o("sn", locationData.auO());
             }
         }
     }

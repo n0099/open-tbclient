@@ -4,17 +4,17 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class e implements com.baidu.tbadk.mvc.b.a {
-    private String aMg;
-    private int aMh;
-    private int aMi;
-    private String aMj;
+    private String aMt;
+    private int aMu;
+    private int aMv;
+    private String aMw;
     private long mForumId;
     private String mForumName;
     private int mThreadNum;
     private int mType;
 
     public String getAvatar() {
-        return this.aMg;
+        return this.aMt;
     }
 
     public long getForumId() {
@@ -25,28 +25,28 @@ public class e implements com.baidu.tbadk.mvc.b.a {
         return this.mForumName;
     }
 
-    public int Iu() {
-        return this.aMi;
+    public int Ii() {
+        return this.aMv;
     }
 
-    public int Iv() {
+    public int Ij() {
         return this.mThreadNum;
     }
 
     public String getSlogan() {
-        return this.aMj;
+        return this.aMw;
     }
 
     public void b(RecommendForumInfo recommendForumInfo) {
         if (recommendForumInfo != null) {
             try {
-                this.aMg = recommendForumInfo.avatar;
+                this.aMt = recommendForumInfo.avatar;
                 this.mForumId = recommendForumInfo.forum_id.longValue();
                 this.mForumName = recommendForumInfo.forum_name;
-                this.aMh = recommendForumInfo.is_like.intValue();
-                this.aMi = recommendForumInfo.member_count.intValue();
+                this.aMu = recommendForumInfo.is_like.intValue();
+                this.aMv = recommendForumInfo.member_count.intValue();
                 this.mThreadNum = recommendForumInfo.thread_count.intValue();
-                this.aMj = recommendForumInfo.slogan;
+                this.aMw = recommendForumInfo.slogan;
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

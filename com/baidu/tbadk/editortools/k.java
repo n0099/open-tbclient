@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ j aoU;
+    final /* synthetic */ j aqF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.aoU = jVar;
+        this.aqF = jVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -16,24 +16,25 @@ public class k implements View.OnClickListener {
         g gVar;
         if (view instanceof p) {
             p pVar = (p) view;
-            gVar = this.aoU.aoF;
-            gVar.a(this.aoU.dL(pVar.getToolId()));
+            this.aqF.b(new a(31, 0, Integer.valueOf(pVar.getToolId())));
+            gVar = this.aqF.aqq;
+            gVar.a(this.aqF.dT(pVar.getToolId()));
             if (pVar.getToolId() == 1) {
                 pVar.hide();
-                this.aoU.oy();
-                this.aoU.b(new a(1, 3, null));
+                this.aqF.ov();
+                this.aqF.b(new a(1, 3, null));
                 return;
             }
             int toolId = pVar.getToolId();
-            v dL = this.aoU.dL(toolId);
-            if (dL.aox == null) {
-                if (dL.apk != null && dL.apk.length > 0) {
-                    this.aoU.b(new a(dL.apk[0], -1, null));
+            v dT = this.aqF.dT(toolId);
+            if (dT.aqi == null) {
+                if (dT.aqV != null && dT.aqV.length > 0) {
+                    this.aqF.b(new a(dT.aqV[0], -1, null));
                     return;
                 }
                 return;
             }
-            this.aoU.b(new a(1, toolId, null));
+            this.aqF.b(new a(1, toolId, null));
         }
     }
 }

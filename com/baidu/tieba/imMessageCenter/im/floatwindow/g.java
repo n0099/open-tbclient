@@ -8,65 +8,65 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class g extends j {
-    private int aQl;
-    private long bHj;
-    private Point bHp;
-    protected final int bHq;
-    private i bHr;
-    private boolean bHs;
+    private int aQz;
+    private long bHQ;
+    private Point bHW;
+    protected final int bHX;
+    private i bHY;
+    private boolean bHZ;
 
     public g(View view) {
         super(view);
-        this.bHs = true;
-        this.aQl = 0;
-        this.bHq = k.K(TbadkCoreApplication.m411getInst());
-        this.bHp = new Point();
-        this.bHu.setOnTouchListener(new h(this));
-        this.aQl = com.baidu.adp.lib.util.a.G(TbadkCoreApplication.m411getInst());
-        if (this.aQl == 0) {
-            this.aQl = 25;
+        this.bHZ = true;
+        this.aQz = 0;
+        this.bHX = k.K(TbadkCoreApplication.m411getInst());
+        this.bHW = new Point();
+        this.bIb.setOnTouchListener(new h(this));
+        this.aQz = com.baidu.adp.lib.util.a.G(TbadkCoreApplication.m411getInst());
+        if (this.aQz == 0) {
+            this.aQz = 25;
         }
     }
 
     public void setTouchable(boolean z) {
-        this.bHs = z;
+        this.bHZ = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ak(int i, int i2) {
-        this.bHj = SystemClock.elapsedRealtime();
-        this.bHp.x = i;
-        this.bHp.y = i2;
-        if (this.bHr != null) {
-            this.bHr.ak(i, i2);
+        this.bHQ = SystemClock.elapsedRealtime();
+        this.bHW.x = i;
+        this.bHW.y = i2;
+        if (this.bHY != null) {
+            this.bHY.ak(i, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aj(int i, int i2) {
-        an(this.bHp.x + i, (i2 - this.bHp.y) - this.aQl);
-        if (this.bHr != null) {
-            this.bHr.aj(i, i2);
+        an(this.bHW.x + i, (i2 - this.bHW.y) - this.aQz);
+        if (this.bHY != null) {
+            this.bHY.aj(i, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void XH() {
-        if (this.bHr != null) {
-            if (SystemClock.elapsedRealtime() - this.bHj > 200) {
-                this.bHr.XH();
+    public void XJ() {
+        if (this.bHY != null) {
+            if (SystemClock.elapsedRealtime() - this.bHQ > 200) {
+                this.bHY.XJ();
             } else {
-                this.bHr.XI();
+                this.bHY.XK();
             }
         }
     }
 
     public void a(i iVar) {
-        this.bHr = iVar;
+        this.bHY = iVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.j
-    public WindowManager.LayoutParams XL() {
+    public WindowManager.LayoutParams XN() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
         layoutParams.type = 2002;
         layoutParams.width = -2;
@@ -78,28 +78,28 @@ public class g extends j {
     }
 
     public void am(int i, int i2) {
-        if (this.bHw != null) {
+        if (this.bId != null) {
             if (i >= 0) {
-                this.bHw.x = i;
+                this.bId.x = i;
             }
             if (i2 >= 0) {
-                this.bHw.y = i2;
+                this.bId.y = i2;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void an(int i, int i2) {
-        if (this.bHw != null) {
-            int i3 = this.bHq - i;
+        if (this.bId != null) {
+            int i3 = this.bHX - i;
             if (i3 >= 0) {
-                this.bHw.x = i3;
+                this.bId.x = i3;
             }
             if (i2 >= 0) {
-                this.bHw.y = i2;
+                this.bId.y = i2;
             }
-            if (this.bHv != null && this.bHu.getParent() != null) {
-                this.bHv.updateViewLayout(this.bHu, this.bHw);
+            if (this.bIc != null && this.bIb.getParent() != null) {
+                this.bIc.updateViewLayout(this.bIb, this.bId);
             }
         }
     }

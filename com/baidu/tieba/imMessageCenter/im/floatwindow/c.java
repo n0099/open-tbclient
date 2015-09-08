@@ -8,87 +8,87 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements i {
-    private long bHj = 0;
-    final /* synthetic */ b bHk;
+    private long bHQ = 0;
+    final /* synthetic */ b bHR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.bHk = bVar;
+        this.bHR = bVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
     public void aj(int i, int i2) {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XD;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF;
         Handler handler;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XC;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XD2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XE;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF2;
         boolean a;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XD3;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XD4;
-        if (SystemClock.elapsedRealtime() - this.bHj <= 300) {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF3;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF4;
+        if (SystemClock.elapsedRealtime() - this.bHQ <= 300) {
             return;
         }
-        XD = this.bHk.XD();
-        handler = this.bHk.handler;
-        XD.b(handler);
-        b bVar = this.bHk;
-        XC = this.bHk.XC();
-        e XK = XC.XK();
-        XD2 = this.bHk.XD();
-        a = bVar.a(XK, XD2.Yb());
+        XF = this.bHR.XF();
+        handler = this.bHR.handler;
+        XF.b(handler);
+        b bVar = this.bHR;
+        XE = this.bHR.XE();
+        e XM = XE.XM();
+        XF2 = this.bHR.XF();
+        a = bVar.a(XM, XF2.Yd());
         if (a) {
-            XD4 = this.bHk.XD();
-            XD4.Yc();
+            XF4 = this.bHR.XF();
+            XF4.Ye();
             return;
         }
-        XD3 = this.bHk.XD();
-        XD3.Yd();
+        XF3 = this.bHR.XF();
+        XF3.Yf();
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
     public void ak(int i, int i2) {
-        this.bHj = SystemClock.elapsedRealtime();
+        this.bHQ = SystemClock.elapsedRealtime();
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
-    public void XH() {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XC;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XD;
+    public void XJ() {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XE;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF;
         boolean a;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XC2;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XD2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XE2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF2;
         Handler handler;
-        b bVar = this.bHk;
-        XC = this.bHk.XC();
-        e XK = XC.XK();
-        XD = this.bHk.XD();
-        a = bVar.a(XK, XD.Yb());
+        b bVar = this.bHR;
+        XE = this.bHR.XE();
+        e XM = XE.XM();
+        XF = this.bHR.XF();
+        a = bVar.a(XM, XF.Yd());
         if (a) {
-            this.bHk.dx(true);
+            this.bHR.dC(true);
         } else {
-            XC2 = this.bHk.XC();
-            XC2.XY();
+            XE2 = this.bHR.XE();
+            XE2.Ya();
         }
-        XD2 = this.bHk.XD();
-        handler = this.bHk.handler;
-        XD2.c(handler);
+        XF2 = this.bHR.XF();
+        handler = this.bHR.handler;
+        XF2.c(handler);
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
-    public void XI() {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XC;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XC2;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XD;
+    public void XK() {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XE;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XE2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF;
         Handler handler;
-        XC = this.bHk.XC();
-        if (!XC.XX()) {
+        XE = this.bHR.XE();
+        if (!XE.XZ()) {
             Point point = new Point(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds30), TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds20));
-            this.bHk.bGW = false;
-            XC2 = this.bHk.XC();
-            XC2.b(point);
-            XD = this.bHk.XD();
-            handler = this.bHk.handler;
-            XD.c(handler);
+            this.bHR.bHD = false;
+            XE2 = this.bHR.XE();
+            XE2.b(point);
+            XF = this.bHR.XF();
+            handler = this.bHR.handler;
+            XF.c(handler);
         }
     }
 }

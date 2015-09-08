@@ -16,83 +16,83 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.bo;
 /* loaded from: classes.dex */
 public class a {
-    public final View ayN;
-    private PbActivity cbx;
-    public final TextView cfr;
-    public final ImageView cfs;
-    public final ImageView cft;
-    public final ImageView cfu;
+    public final View aAv;
+    private PbActivity ccs;
+    public final TextView cgo;
+    public final ImageView cgp;
+    public final ImageView cgq;
+    public final ImageView cgr;
     public final NavigationBar mNavigationBar;
     private MorePopupWindow mPopWindow = null;
-    private bo cfv = null;
+    private bo cgs = null;
 
     public a(PbActivity pbActivity) {
-        this.cbx = pbActivity;
-        this.mNavigationBar = (NavigationBar) this.cbx.findViewById(i.f.view_navigation_bar);
+        this.ccs = pbActivity;
+        this.mNavigationBar = (NavigationBar) this.ccs.findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.setOnClickListener(new b(this));
-        this.ayN = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.aXl);
-        this.cfr = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, i.g.pb_title_textview, (View.OnClickListener) null);
-        this.cfu = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.widget_nb_add_floor, pbActivity.aXl);
-        this.cfs = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.nb_item_floor_host, pbActivity.aXl);
-        this.cft = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.nb_item_floor_more, pbActivity.aXl);
-        this.cfr.setOnClickListener(pbActivity.aXl);
+        this.aAv = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, pbActivity.aXl);
+        this.cgo = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, i.g.pb_title_textview, (View.OnClickListener) null);
+        this.cgr = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.widget_nb_add_floor, pbActivity.aXl);
+        this.cgp = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.nb_item_floor_host, pbActivity.aXl);
+        this.cgq = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.nb_item_floor_more, pbActivity.aXl);
+        this.cgo.setOnClickListener(pbActivity.aXl);
     }
 
-    public void et(boolean z) {
-        this.cft.setVisibility(z ? 0 : 8);
+    public void eB(boolean z) {
+        this.cgq.setVisibility(z ? 0 : 8);
     }
 
-    public NavigationBar aeH() {
+    public NavigationBar aeV() {
         return this.mNavigationBar;
     }
 
-    public void jp(String str) {
+    public void jx(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.cfr.setVisibility(0);
-            this.cfr.setText(String.valueOf(str) + this.cbx.getPageContext().getString(i.C0057i.bar));
+            this.cgo.setVisibility(0);
+            this.cgo.setText(String.valueOf(str) + this.ccs.getPageContext().getString(i.h.bar));
         }
     }
 
-    public void aeI() {
-        this.cfs.setVisibility(4);
-        this.cfs.setEnabled(false);
+    public void aeW() {
+        this.cgp.setVisibility(4);
+        this.cgp.setEnabled(false);
     }
 
-    public void ey(boolean z) {
+    public void eG(boolean z) {
         if (z) {
-            al.c(this.cfs, i.e.icon_floor_host_s);
+            al.c(this.cgp, i.e.icon_floor_host_s);
         } else {
-            al.c(this.cfs, i.e.icon_floor_host_n);
+            al.c(this.cgp, i.e.icon_floor_host_n);
         }
     }
 
-    public void eD(boolean z) {
+    public void eL(boolean z) {
         if (z) {
-            this.cfu.setVisibility(0);
+            this.cgr.setVisibility(0);
         } else {
-            this.cfu.setVisibility(8);
+            this.cgr.setVisibility(8);
         }
     }
 
     public void c(boolean z, boolean z2, boolean z3) {
-        if (!this.cbx.isProgressBarShown()) {
+        if (!this.ccs.isProgressBarShown()) {
             if (this.mPopWindow == null) {
-                this.cfv = new bo((PbActivity) this.cbx.getPageContext().getOrignalPage(), this.cbx.aXl);
+                this.cgs = new bo((PbActivity) this.ccs.getPageContext().getOrignalPage(), this.ccs.aXl);
                 int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-                this.mPopWindow = new MorePopupWindow(this.cbx.getPageContext().getPageActivity(), this.cfv.getView(), this.mNavigationBar, al.getDrawable(i.e.bg_pull_down_right_n), new c(this));
-                this.mPopWindow.onChangeSkinType(this.cbx, skinType, al.getDrawable(i.e.bg_pull_down_right_n));
+                this.mPopWindow = new MorePopupWindow(this.ccs.getPageContext().getPageActivity(), this.cgs.getView(), this.mNavigationBar, al.getDrawable(i.e.bg_pull_down_right_n), new c(this));
+                this.mPopWindow.onChangeSkinType(this.ccs, skinType, al.getDrawable(i.e.bg_pull_down_right_n));
             }
             if (z3) {
-                this.cfv.eo(false);
+                this.cgs.ew(false);
             } else {
-                this.cfv.eo(true);
+                this.cgs.ew(true);
             }
-            if (h.ak(this.cbx.getPageContext().getPageActivity())) {
-                this.cfv.adN().setVisibility(0);
-                this.cfv.adO().setVisibility(0);
+            if (h.ak(this.ccs.getPageContext().getPageActivity())) {
+                this.cgs.aeb().setVisibility(0);
+                this.cgs.aec().setVisibility(0);
             } else {
-                this.cfv.adN().setVisibility(8);
-                this.cfv.adO().setVisibility(8);
+                this.cgs.aeb().setVisibility(8);
+                this.cgs.aec().setVisibility(8);
             }
             if (this.mPopWindow != null) {
                 this.mPopWindow.refresh();
@@ -103,36 +103,36 @@ public class a {
     }
 
     private void i(boolean z, boolean z2) {
-        if (this.cfv != null) {
+        if (this.cgs != null) {
             if (!z) {
-                this.cfv.adQ().setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_recommend_see_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cgs.aee().setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_recommend_see_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.cfv.adQ().setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_recommend_see_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cgs.aee().setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_recommend_see_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
             if (z2) {
-                this.cfv.adM().setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_recommend_collect_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cgs.aea().setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_recommend_collect_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.cfv.adM().setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_recommend_collect_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cgs.aea().setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_recommend_collect_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
         }
     }
 
-    public void qB() {
+    public void qy() {
         if (this.mPopWindow != null) {
-            j.a(this.mPopWindow, this.cbx.getPageContext().getPageActivity());
+            j.a(this.mPopWindow, this.ccs.getPageContext().getPageActivity());
         }
     }
 
-    public bo aeJ() {
-        return this.cfv;
+    public bo aeX() {
+        return this.cgs;
     }
 
-    public boolean aeK() {
+    public boolean aeY() {
         return this.mPopWindow != null && this.mPopWindow.isShowing();
     }
 
-    public void Zw() {
+    public void ZA() {
         this.mPopWindow = null;
-        this.cfv = null;
+        this.cgs = null;
     }
 }

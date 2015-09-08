@@ -4,163 +4,163 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.App;
 /* loaded from: classes.dex */
 public class h extends i implements f {
-    private int Ug;
-    public String aZG;
-    private a cIC;
-    public boolean cID = false;
-    public String cIE;
+    private int Uh;
+    public String aZY;
+    private a cRc;
+    public boolean cRd = false;
+    public String cRe;
     public long threadId;
 
     public void b(App app) {
-        this.cIC = new a(app);
+        this.cRc = new a(app);
     }
 
-    public a apM() {
-        return this.cIC;
+    public a atZ() {
+        return this.cRc;
     }
 
-    public String apN() {
-        return this.cIC == null ? "" : this.cIC.id;
+    public String aua() {
+        return this.cRc == null ? "" : this.cRc.id;
     }
 
-    public int apO() {
-        return this.Ug;
+    public int aub() {
+        return this.Uh;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.p
-    public void jE(int i) {
-        this.Ug = i;
+    @Override // com.baidu.tieba.tbadkCore.q
+    public void kp(int i) {
+        this.Uh = i;
     }
 
-    public boolean rv() {
-        if (this.cIC == null) {
+    public boolean ru() {
+        if (this.cRc == null) {
             return false;
         }
-        return this.cIC.rv();
+        return this.cRc.ru();
     }
 
     public boolean isApp() {
-        if (this.cIC == null) {
+        if (this.cRc == null) {
             return false;
         }
-        return this.cIC.rw();
+        return this.cRc.rv();
     }
 
-    public boolean apP() {
-        if (this.cIC == null) {
+    public boolean auc() {
+        if (this.cRc == null) {
             return false;
         }
-        return this.cIC.rx();
+        return this.cRc.rw();
     }
 
-    @Override // com.baidu.tieba.tbadkCore.p
+    @Override // com.baidu.tieba.tbadkCore.q
     public String getPkgName() {
-        if (this.cIC == null) {
+        if (this.cRc == null) {
             return null;
         }
-        return this.cIC.apk_name;
+        return this.cRc.apk_name;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.p
+    @Override // com.baidu.tieba.tbadkCore.q
     public String getDownloadUrl() {
-        if (this.cIC == null) {
+        if (this.cRc == null) {
             return null;
         }
-        return this.cIC.apk_url;
+        return this.cRc.apk_url;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.p
+    @Override // com.baidu.tieba.tbadkCore.q
     public String getAppName() {
-        return this.cIC == null ? "" : this.cIC.name;
+        return this.cRc == null ? "" : this.cRc.name;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.g
-    public String apH() {
-        if (this.cIC == null || this.cIC.cIv == null) {
+    public String atU() {
+        if (this.cRc == null || this.cRc.cQV == null) {
             return null;
         }
-        return this.cIC.cIv.user_name;
+        return this.cRc.cQV.user_name;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.g
-    public String apI() {
-        if (this.cIC == null || this.cIC.cIv == null) {
+    public String atV() {
+        if (this.cRc == null || this.cRc.cQV == null) {
             return null;
         }
-        return this.cIC.cIv.user_portrait;
+        return this.cRc.cQV.user_portrait;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.g
-    public String apJ() {
-        if (this.cIC == null || this.cIC.cIv == null) {
+    public String atW() {
+        if (this.cRc == null || this.cRc.cQV == null) {
             return null;
         }
-        return this.cIC.cIv.thread_title;
+        return this.cRc.cQV.thread_title;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.g
-    public String apK() {
-        if (this.cIC == null || this.cIC.cIv == null) {
+    public String atX() {
+        if (this.cRc == null || this.cRc.cQV == null) {
             return null;
         }
-        return this.cIC.cIv.thread_pic;
+        return this.cRc.cQV.thread_pic;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.g
-    public long apL() {
-        if (this.cIC == null) {
+    public long atY() {
+        if (this.cRc == null) {
             return 0L;
         }
-        return this.cIC.cIt * 1000;
+        return this.cRc.cQT * 1000;
     }
 
-    public int apQ() {
-        if (this.cIC == null || this.cIC.cIv == null) {
+    public int aud() {
+        if (this.cRc == null || this.cRc.cQV == null) {
             return -1;
         }
-        return this.cIC.cIv.cIw;
+        return this.cRc.cQV.cQW;
     }
 
     public int getPosition() {
-        int g = this.cIC != null ? com.baidu.adp.lib.g.b.g(this.cIC.pos_name, 0) : 0;
+        int g = this.cRc != null ? com.baidu.adp.lib.g.b.g(this.cRc.pos_name, 0) : 0;
         if (g < 2 || g > 30) {
             return 7;
         }
         return g;
     }
 
-    public com.baidu.tbadk.core.data.c apR() {
+    public com.baidu.tbadk.core.data.c aue() {
         com.baidu.tbadk.core.data.c cVar = new com.baidu.tbadk.core.data.c();
-        if (this.cIC != null) {
-            cVar.Uh = this.cIC.id;
-            cVar.Ui = this.cIC.name;
-            cVar.Uj = this.cIC.cIr;
-            cVar.Uk = this.cIC.url;
-            cVar.Ul = this.cIC.apk_url;
-            cVar.Um = this.cIC.apk_name;
+        if (this.cRc != null) {
+            cVar.Ui = this.cRc.id;
+            cVar.Uj = this.cRc.name;
+            cVar.Uk = this.cRc.cQR;
+            cVar.Ul = this.cRc.url;
+            cVar.Um = this.cRc.apk_url;
+            cVar.Un = this.cRc.apk_name;
             try {
-                cVar.Un = Integer.parseInt(this.cIC.pos_name.trim());
+                cVar.Uo = Integer.parseInt(this.cRc.pos_name.trim());
             } catch (Exception e) {
-                cVar.Un = -1;
+                cVar.Uo = -1;
             }
-            cVar.Uo = this.cIC.first_name;
-            cVar.Up = this.cIC.second_name;
-            cVar.Uq = this.cIC.Uq;
-            cVar.abtest = this.cIC.abtest;
-            cVar.Ur = this.cIC.cIs;
-            cVar.userId = this.cIC.user_id;
-            cVar.Us = this.cIC.verify;
-            cVar.price = this.cIC.price;
-            cVar.Ut = this.cIC.ext_info;
-            cVar.Uu = this.cIC.cIt * 1000;
-            if (this.cIC.cIv != null) {
-                cVar.Uv.UA = this.cIC.cIv.pop_window_text;
-                cVar.Uv.Ux = this.cIC.cIv.id;
-                cVar.Uv.Uz = this.cIC.cIv.thread_pic;
-                cVar.Uv.UB = this.cIC.cIv.cIw;
-                cVar.Uv.Uy = this.cIC.cIv.thread_title;
-                cVar.Uv.userName = this.cIC.cIv.user_name;
-                cVar.Uv.userPortrait = this.cIC.cIv.user_portrait;
+            cVar.Up = this.cRc.first_name;
+            cVar.Uq = this.cRc.second_name;
+            cVar.Ur = this.cRc.Ur;
+            cVar.abtest = this.cRc.abtest;
+            cVar.Us = this.cRc.cQS;
+            cVar.userId = this.cRc.user_id;
+            cVar.Ut = this.cRc.verify;
+            cVar.price = this.cRc.price;
+            cVar.Uu = this.cRc.ext_info;
+            cVar.Uv = this.cRc.cQT * 1000;
+            if (this.cRc.cQV != null) {
+                cVar.Uw.UB = this.cRc.cQV.pop_window_text;
+                cVar.Uw.Uy = this.cRc.cQV.id;
+                cVar.Uw.UA = this.cRc.cQV.thread_pic;
+                cVar.Uw.UC = this.cRc.cQV.cQW;
+                cVar.Uw.Uz = this.cRc.cQV.thread_title;
+                cVar.Uw.userName = this.cRc.cQV.user_name;
+                cVar.Uw.userPortrait = this.cRc.cQV.user_portrait;
             }
         }
         return cVar;
@@ -168,6 +168,6 @@ public class h extends i implements f {
 
     @Override // com.baidu.tieba.tbadkCore.data.i, com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return apQ() == 2 ? com.baidu.tbadk.core.data.c.Uc : com.baidu.tbadk.core.data.c.Ub;
+        return aud() == 2 ? com.baidu.tbadk.core.data.c.Ud : com.baidu.tbadk.core.data.c.Uc;
     }
 }

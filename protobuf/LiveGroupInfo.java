@@ -1,6 +1,5 @@
 package protobuf;
 
-import com.baidu.location.a0;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
@@ -28,7 +27,7 @@ public final class LiveGroupInfo extends Message {
     public final Photo avatar;
     @ProtoField(tag = 14, type = Message.Datatype.STRING)
     public final String background;
-    @ProtoField(label = Message.Label.REPEATED, tag = a0.h)
+    @ProtoField(label = Message.Label.REPEATED, tag = 31)
     public final List<Photo> backgrounds;
     @ProtoField(tag = 9, type = Message.Datatype.INT32)
     public final Integer createTime;

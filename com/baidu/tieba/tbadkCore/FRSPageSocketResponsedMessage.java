@@ -5,10 +5,10 @@ import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes.dex */
-public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<l, FrsPageResIdl> {
+public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<m, FrsPageResIdl> {
     private boolean hasNetworkError;
     private boolean needCache;
-    private l responseData;
+    private m responseData;
     private int updateType;
 
     public boolean hasNetworkError() {
@@ -29,10 +29,10 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<l, 
             this.hasNetworkError = hasError();
         } else if (message.getExtra() instanceof MvcNetMessage) {
             MvcNetMessage mvcNetMessage = (MvcNetMessage) message.getExtra();
-            if (mvcNetMessage.getRequestData() instanceof k) {
-                k kVar = (k) mvcNetMessage.getRequestData();
-                this.updateType = kVar.getUpdateType();
-                this.needCache = kVar.isNeedCache();
+            if (mvcNetMessage.getRequestData() instanceof l) {
+                l lVar = (l) mvcNetMessage.getRequestData();
+                this.updateType = lVar.getUpdateType();
+                this.needCache = lVar.isNeedCache();
                 this.hasNetworkError = hasError();
             }
         }
@@ -40,7 +40,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<l, 
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
     public void decodeInBackGround(int i, byte[] bArr) {
-        this.responseData = new l();
+        this.responseData = new m();
         FrsPageResIdl U = this.responseData.U(bArr);
         setError(U.error.errorno.intValue());
         setErrorString(U.error.usermsg);
@@ -50,8 +50,8 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<l, 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.responseData != null && this.responseData.acG() != null) {
-            c.aoQ().a(this.responseData.acG().getName(), bArr, true);
+        if (!hasError() && this.needCache && this.responseData != null && this.responseData.acP() != null) {
+            d.asX().a(this.responseData.acP().getName(), bArr, true);
         }
     }
 
@@ -68,11 +68,11 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<l, 
         this.updateType = i;
     }
 
-    public l getResponseData() {
+    public m getResponseData() {
         return this.responseData;
     }
 
-    public void setResponseData(l lVar) {
-        this.responseData = lVar;
+    public void setResponseData(m mVar) {
+        this.responseData = mVar;
     }
 }

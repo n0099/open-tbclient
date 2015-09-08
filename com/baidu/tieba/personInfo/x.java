@@ -9,13 +9,13 @@ import tbclient.PostInfoList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends CustomMessageListener {
-    final /* synthetic */ w cmY;
+    final /* synthetic */ w coa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(w wVar, int i) {
         super(i);
-        this.cmY = wVar;
+        this.coa = wVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,31 +36,31 @@ public class x extends CustomMessageListener {
         List list2;
         if (customResponsedMessage instanceof ResponsePersonInfoMessage) {
             ResponsePersonInfoMessage responsePersonInfoMessage = (ResponsePersonInfoMessage) customResponsedMessage;
-            userData = this.cmY.mUserData;
+            userData = this.coa.mUserData;
             if (userData == null) {
-                this.cmY.mUserData = new UserData();
+                this.coa.mUserData = new UserData();
             }
-            userData2 = this.cmY.mUserData;
+            userData2 = this.coa.mUserData;
             userData2.parserProtobuf(responsePersonInfoMessage.getUser());
-            personTainInfo = this.cmY.cmU;
+            personTainInfo = this.coa.cnW;
             if (personTainInfo == null) {
-                this.cmY.cmU = new PersonTainInfo();
+                this.coa.cnW = new PersonTainInfo();
             }
-            personTainInfo2 = this.cmY.cmU;
+            personTainInfo2 = this.coa.cnW;
             personTainInfo2.parseProto(responsePersonInfoMessage.getTainfo());
-            antiData = this.cmY.cao;
+            antiData = this.coa.cbj;
             if (antiData == null) {
-                this.cmY.cao = new AntiData();
+                this.coa.cbj = new AntiData();
             }
-            antiData2 = this.cmY.cao;
+            antiData2 = this.coa.cbj;
             antiData2.parserProtobuf(responsePersonInfoMessage.getAnti_stat());
-            antiData3 = this.cmY.cao;
-            userData3 = this.cmY.mUserData;
+            antiData3 = this.coa.cbj;
+            userData3 = this.coa.mUserData;
             antiData3.setUser_id(userData3.getUserId());
-            antiData4 = this.cmY.cao;
-            userData4 = this.cmY.mUserData;
+            antiData4 = this.coa.cbj;
+            userData4 = this.coa.mUserData;
             antiData4.setUser_name(userData4.getUserName());
-            list = this.cmY.cmT;
+            list = this.coa.cnV;
             list.clear();
             List<PostInfoList> post_list = responsePersonInfoMessage.getPost_list();
             if (post_list != null) {
@@ -72,12 +72,12 @@ public class x extends CustomMessageListener {
                     }
                     PersonInfoPostList personInfoPostList = new PersonInfoPostList();
                     personInfoPostList.parseProto(post_list.get(i2));
-                    list2 = this.cmY.cmT;
+                    list2 = this.coa.cnV;
                     list2.add(personInfoPostList);
                     i = i2 + 1;
                 }
             }
-            gVar = this.cmY.mLoadDataCallBack;
+            gVar = this.coa.mLoadDataCallBack;
             gVar.d(true);
         }
     }

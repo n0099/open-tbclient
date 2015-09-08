@@ -16,9 +16,9 @@ class aq extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
             if (TbadkCoreApplication.isLogin()) {
-                u.abC().start();
+                u.abH().start();
             } else {
-                u.abC().destroy();
+                u.abH().destroy();
             }
         }
     }

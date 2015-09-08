@@ -240,6 +240,7 @@ public class CmdConfigCustom {
     public static final int CMD_RECORDER_MANAGER_INSTANCE = 2001278;
     public static final int CMD_REFRESH = 2003003;
     public static final int CMD_RELEASE_T5 = 2001259;
+    public static final int CMD_REMIND_RECOMMEND_SWITCH = 2001363;
     public static final int CMD_REQUEST_ENTER_FORUM_MESSAGE = 2001330;
     public static final int CMD_REQUEST_GROUP_ACTIVITY_BY_ID_LOCAL = 2001127;
     public static final int CMD_REQUEST_GROUP_BY_LOCATION_LOCAL = 2001115;
@@ -259,6 +260,7 @@ public class CmdConfigCustom {
     public static final int CMD_SAVE_DRAFT_GROUP = 2001152;
     public static final int CMD_SAVE_DRAFT_OFFICIAL = 2001154;
     public static final int CMD_SAVE_DRAFT_PERSONAL = 2001153;
+    public static final int CMD_SCREEN_DIALOG = 2001362;
     public static final int CMD_SCREEN_LOCK_NOTIFY = 2016200;
     public static final int CMD_SELECT_LOCATION = 2001232;
     public static final int CMD_SETTING_READ_FINISH = 2001318;
@@ -269,6 +271,7 @@ public class CmdConfigCustom {
     public static final int CMD_SHOW_GAME_ICON = 2001258;
     public static final int CMD_SHOW_GAME_MSG_TIP = 2001236;
     public static final int CMD_SHOW_GIFT_MSG_TIP = 2001237;
+    public static final int CMD_SHOW_GO_TO_MY_LIVE_TIPS = 2016305;
     public static final int CMD_SHOW_SPRING_EGG = 2001125;
     public static final int CMD_SIGNALL_ON_CLICK = 2001260;
     public static final int CMD_SIGN_REFRESH_SIGN_STATE = 2001228;
@@ -318,6 +321,9 @@ public class CmdConfigCustom {
     public static final int CMD_WRITE_SEARCHPERSON_HISTORY = 2001194;
     public static final int CMD_XIAOMI_PUSH_SWITCH_CHANGE = 2001317;
     public static final int CMD_ZXING_CAPTURE = 2902030;
+    public static final int COLLECT_TAB_ADD_FRAGMENT = 2016207;
+    public static final int COLLECT_TAB_NAVI_EDIT_ACTION = 2022208;
+    public static final int COLLECT_TAB_NAVI_EDIT_ENABLE = 2022209;
     public static final int DAILY_CLASSICLA_CUSTOM_CMD = 2010021;
     public static final int DAILY_RECOMMEND_CUSTOM_CMD = 2010020;
     public static final int DEAL_INTENT = 2012000;
@@ -425,6 +431,8 @@ public class CmdConfigCustom {
     public static final int MSG_NEW = 2012111;
     public static final int MSG_READ = 2012112;
     public static final int MSG_SETTINGS_SYNC = 2001010;
+    public static final int MYLIVE_TAB_ADD_FRAGMENT = 2016220;
+    public static final int MYLIVE_TAB_EDIT_ENABLE = 2016221;
     public static final int NEW_USER_GUIDE_PAGE = 2012116;
     public static final int PB_ACTION_PRAISE = 2004004;
     public static final int PB_ADAPTER_CHANGE_CMD = 2004005;
@@ -458,6 +466,7 @@ public class CmdConfigCustom {
     public static final int START_PB_ACTIVITY = 2004001;
     public static final int START_PERSONAL_CHAT = 2002005;
     public static final int START_PERSON_INFO = 2002003;
+    public static final int START_PHOTOLIVE_ACTIVITY = 2004502;
     public static final int START_PRAISE_LIST = 2002007;
     public static final int START_RELOGIN_SHARE = 2002002;
     public static final int START_SEARCH_LOCATION_PAGE = 2002012;

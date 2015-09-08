@@ -10,11 +10,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements a.InterfaceC0052a<com.baidu.tieba.discover.data.a> {
-    final /* synthetic */ u aLC;
+    final /* synthetic */ u aLP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar) {
-        this.aLC = uVar;
+        this.aLP = uVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a
@@ -26,23 +26,23 @@ public class v implements a.InterfaceC0052a<com.baidu.tieba.discover.data.a> {
         com.baidu.tieba.discover.data.b bVar;
         u.a aVar4;
         if (readCacheRespMsg == null || readCacheRespMsg.getData() == null || readCacheRespMsg.getData().size() <= 0 || readCacheRespMsg.getData().get(0) == null) {
-            aVar = this.aLC.aLB;
+            aVar = this.aLP.aLO;
             if (aVar != null) {
-                aVar2 = this.aLC.aLB;
-                aVar2.a(false, this.aLC.HZ(), true);
+                aVar2 = this.aLP.aLO;
+                aVar2.a(false, this.aLP.HN(), true);
             }
         } else {
             com.baidu.tieba.discover.data.a aVar5 = readCacheRespMsg.getData().get(0);
-            aVar3 = this.aLC.aLB;
+            aVar3 = this.aLP.aLO;
             if (aVar3 != null) {
-                aVar4 = this.aLC.aLB;
+                aVar4 = this.aLP.aLO;
                 aVar4.a(false, aVar5, true);
             }
-            bVar = this.aLC.aLA;
-            bVar.P(aVar5.Ia());
+            bVar = this.aLP.aLN;
+            bVar.Q(aVar5.HO());
         }
-        xVar = this.aLC.aLz;
-        xVar.CV();
+        xVar = this.aLP.aLM;
+        xVar.Df();
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a

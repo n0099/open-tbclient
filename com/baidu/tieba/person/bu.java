@@ -6,13 +6,13 @@ import com.baidu.tieba.person.bs;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bu extends CustomMessageListener {
-    final /* synthetic */ bs ckq;
+    final /* synthetic */ bs cll;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bu(bs bsVar, int i) {
         super(i);
-        this.ckq = bsVar;
+        this.cll = bsVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,18 +25,18 @@ public class bu extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
             com.baidu.tieba.person.a.a data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
             if (data2 != null) {
-                aVar3 = this.ckq.ckc;
+                aVar3 = this.cll.ckX;
                 if (aVar3 != null) {
-                    aVar4 = this.ckq.ckc;
+                    aVar4 = this.cll.ckX;
                     aVar4.d(data2, true);
                     return;
                 }
                 return;
             }
-            aVar = this.ckq.ckc;
+            aVar = this.cll.ckX;
             if (aVar != null) {
-                aVar2 = this.ckq.ckc;
-                aVar2.B("", true);
+                aVar2 = this.cll.ckX;
+                aVar2.D("", true);
             }
         }
     }

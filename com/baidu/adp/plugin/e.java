@@ -10,7 +10,7 @@ public class e {
     private int Cs = 0;
     private int Ct = 0;
 
-    public static e kF() {
+    public static e kC() {
         if (Cr == null) {
             synchronized (e.class) {
                 if (Cr == null) {

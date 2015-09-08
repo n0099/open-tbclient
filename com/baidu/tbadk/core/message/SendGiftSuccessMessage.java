@@ -24,30 +24,42 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
 
     /* loaded from: classes.dex */
     public static class a {
-        private int XK;
-        private String XL;
+        private int XT;
+        private String XU;
         private int count;
         private String name;
         private String url;
 
         public void setId(int i) {
-            this.XK = i;
+            this.XT = i;
+        }
+
+        public String getName() {
+            return this.name;
         }
 
         public void setName(String str) {
             this.name = str;
         }
 
+        public int getCount() {
+            return this.count;
+        }
+
         public void setCount(int i) {
             this.count = i;
+        }
+
+        public String getUrl() {
+            return this.url;
         }
 
         public void setUrl(String str) {
             this.url = str;
         }
 
-        public void cq(String str) {
-            this.XL = str;
+        public void cw(String str) {
+            this.XU = str;
         }
     }
 }

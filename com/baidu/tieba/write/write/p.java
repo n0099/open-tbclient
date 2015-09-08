@@ -5,25 +5,34 @@ import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    private final /* synthetic */ String ayD;
-    final /* synthetic */ FeedBackTopListView cTw;
+    private final /* synthetic */ String aAl;
+    private final /* synthetic */ com.baidu.tbadk.core.data.x aXM;
+    final /* synthetic */ FeedBackTopListView dct;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(FeedBackTopListView feedBackTopListView, String str) {
-        this.cTw = feedBackTopListView;
-        this.ayD = str;
+    public p(FeedBackTopListView feedBackTopListView, com.baidu.tbadk.core.data.x xVar, String str) {
+        this.dct = feedBackTopListView;
+        this.aXM = xVar;
+        this.aAl = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
+        Context context2;
+        if (this.aXM.sv() == 33) {
+            context2 = this.dct.mContext;
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, this.aXM.getTid()).cf(this.aXM.sx()).ro()));
+            return;
+        }
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.cTw.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(context).createNormalCfg(this.ayD, null, WriteActivityConfig.FEED_BACK)));
+        context = this.dct.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(context).createNormalCfg(this.aAl, null, WriteActivityConfig.FEED_BACK)));
     }
 }

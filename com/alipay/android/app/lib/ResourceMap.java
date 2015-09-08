@@ -4,47 +4,47 @@ import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class ResourceMap {
     public static int getString_confirm_title() {
-        return i.C0057i.confirm_title;
+        return i.h.confirm_title;
     }
 
     public static int getString_ensure() {
-        return i.C0057i.ensure;
+        return i.h.ensure;
     }
 
     public static int getString_cancel() {
-        return i.C0057i.cancel;
+        return i.h.cancel;
     }
 
     public static int getString_processing() {
-        return i.C0057i.processing;
+        return i.h.processing;
     }
 
     public static int getString_download() {
-        return i.C0057i.download;
+        return i.h.download;
     }
 
     public static int getString_cancelInstallTips() {
-        return i.C0057i.cancel_install_msp;
+        return i.h.cancel_install_msp;
     }
 
     public static int getString_cancelInstallAlipayTips() {
-        return i.C0057i.cancel_install_alipay;
+        return i.h.cancel_install_alipay;
     }
 
     public static int getString_download_fail() {
-        return i.C0057i.download_fail;
+        return i.h.download_fail;
     }
 
     public static int getString_redo() {
-        return i.C0057i.redo;
+        return i.h.redo;
     }
 
     public static int getString_install_msp() {
-        return i.C0057i.install_msp;
+        return i.h.install_msp;
     }
 
     public static int getString_install_alipay() {
-        return i.C0057i.install_alipay;
+        return i.h.install_alipay;
     }
 
     public static int getLayout_pay_main() {
@@ -56,7 +56,7 @@ public class ResourceMap {
     }
 
     public static int getStyle_alert_dialog() {
-        return i.j.AlertDialog;
+        return i.C0057i.AlertDialog;
     }
 
     public static int getImage_title() {

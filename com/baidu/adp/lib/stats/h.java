@@ -7,20 +7,20 @@ import com.baidu.location.LocationClientOption;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class h {
-    private static h wy;
-    private HashMap<String, a> ww = new HashMap<>();
-    private HashMap<String, b> wx = new HashMap<>();
+    private static h ww;
+    private HashMap<String, a> wu = new HashMap<>();
+    private HashMap<String, b> wv = new HashMap<>();
     private Handler mHandler = new i(this, Looper.getMainLooper());
 
-    public static h hC() {
-        if (wy == null) {
+    public static h hz() {
+        if (ww == null) {
             synchronized (h.class) {
-                if (wy == null) {
-                    wy = new h();
+                if (ww == null) {
+                    ww = new h();
                 }
             }
         }
-        return wy;
+        return ww;
     }
 
     public h() {
@@ -28,54 +28,54 @@ public class h {
         bVar.Y(LocationClientOption.MIN_SCAN_SPAN_NETWORK);
         bVar.Z(120000);
         bVar.aa(500);
-        this.wx.put("net", bVar);
-        this.wx.put("op", bVar);
-        this.wx.put("stat", bVar);
-        this.wx.put("crash", bVar);
-        this.wx.put("pfmonitor", bVar);
+        this.wv.put("net", bVar);
+        this.wv.put("op", bVar);
+        this.wv.put("stat", bVar);
+        this.wv.put("crash", bVar);
+        this.wv.put("pfmonitor", bVar);
         b bVar2 = new b(this, null);
         bVar2.Y(LocationClientOption.MIN_SCAN_SPAN_NETWORK);
         bVar2.Z(120000);
         bVar2.aa(1500);
-        this.wx.put("file", bVar2);
-        this.wx.put("db", bVar2);
-        this.wx.put("img", bVar2);
-        this.wx.put("voice", bVar2);
-        this.wx.put("error", bVar2);
+        this.wv.put("file", bVar2);
+        this.wv.put("db", bVar2);
+        this.wv.put("img", bVar2);
+        this.wv.put("voice", bVar2);
+        this.wv.put("error", bVar2);
         b bVar3 = new b(this, null);
         bVar3.Y(LocationClientOption.MIN_SCAN_SPAN_NETWORK);
         bVar3.Z(120000);
         bVar3.aa(1500);
-        this.wx.put("dbg", bVar3);
+        this.wv.put("dbg", bVar3);
     }
 
     public boolean as(String str) {
         a aVar;
-        b bVar = this.wx.get(str);
+        b bVar = this.wv.get(str);
         if (bVar == null) {
             return false;
         }
-        a aVar2 = this.ww.get(str);
+        a aVar2 = this.wu.get(str);
         long currentTimeMillis = System.currentTimeMillis();
         if (aVar2 == null) {
             a aVar3 = new a(this, null);
             aVar3.C(false);
             aVar3.B(false);
             aVar3.e(currentTimeMillis);
-            this.ww.put(str, aVar3);
+            this.wu.put(str, aVar3);
             aVar = aVar3;
         } else {
             aVar = aVar2;
         }
-        if (aVar.hD()) {
+        if (aVar.hA()) {
             return true;
         }
-        if (aVar.hH()) {
-            aVar.X(aVar.hF() + 1);
-            if (currentTimeMillis - aVar.hE() < bVar.hJ()) {
-                if (aVar.hF() >= bVar.hK()) {
+        if (aVar.hE()) {
+            aVar.X(aVar.hC() + 1);
+            if (currentTimeMillis - aVar.hB() < bVar.hG()) {
+                if (aVar.hC() >= bVar.hH()) {
                     aVar.B(true);
-                    com.baidu.adp.lib.stats.a.hk().a(false, "d", "logfast", (String) null, 0L, 99999, str, new Object[0]);
+                    com.baidu.adp.lib.stats.a.hh().a(false, "d", "logfast", (String) null, 0L, 99999, str, new Object[0]);
                     a(aVar);
                     return true;
                 }
@@ -85,7 +85,7 @@ public class h {
             aVar.X(0);
             aVar.e(currentTimeMillis);
             return false;
-        } else if (currentTimeMillis - aVar.hG() < bVar.hI()) {
+        } else if (currentTimeMillis - aVar.hD() < bVar.hF()) {
             aVar.C(true);
             aVar.d(currentTimeMillis);
             return false;
@@ -106,69 +106,69 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        private long wA;
-        private boolean wB;
-        private int wC;
-        private long wD;
-        private boolean wE;
+        private int wA;
+        private long wB;
+        private boolean wC;
+        private long wy;
+        private boolean wz;
 
         private a() {
-            this.wB = false;
-            this.wC = 0;
-            this.wE = false;
+            this.wz = false;
+            this.wA = 0;
+            this.wC = false;
         }
 
         /* synthetic */ a(h hVar, a aVar) {
             this();
         }
 
-        public boolean hD() {
-            return this.wE;
-        }
-
-        public void B(boolean z) {
-            this.wE = z;
-        }
-
-        public long hE() {
-            return this.wD;
-        }
-
-        public void d(long j) {
-            this.wD = j;
-        }
-
-        public int hF() {
+        public boolean hA() {
             return this.wC;
         }
 
-        public void X(int i) {
-            this.wC = i;
+        public void B(boolean z) {
+            this.wC = z;
         }
 
-        public long hG() {
-            return this.wA;
-        }
-
-        public void e(long j) {
-            this.wA = j;
-        }
-
-        public boolean hH() {
+        public long hB() {
             return this.wB;
         }
 
+        public void d(long j) {
+            this.wB = j;
+        }
+
+        public int hC() {
+            return this.wA;
+        }
+
+        public void X(int i) {
+            this.wA = i;
+        }
+
+        public long hD() {
+            return this.wy;
+        }
+
+        public void e(long j) {
+            this.wy = j;
+        }
+
+        public boolean hE() {
+            return this.wz;
+        }
+
         public void C(boolean z) {
-            this.wB = z;
+            this.wz = z;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
+        private int wD;
+        private int wE;
         private int wF;
-        private int wG;
-        private int wH;
 
         private b() {
         }
@@ -177,28 +177,28 @@ public class h {
             this();
         }
 
-        public int hI() {
-            return this.wF;
+        public int hF() {
+            return this.wD;
         }
 
         public void Y(int i) {
-            this.wF = i;
+            this.wD = i;
         }
 
-        public int hJ() {
-            return this.wG;
+        public int hG() {
+            return this.wE;
         }
 
         public void Z(int i) {
-            this.wG = i;
+            this.wE = i;
         }
 
-        public int hK() {
-            return this.wH;
+        public int hH() {
+            return this.wF;
         }
 
         public void aa(int i) {
-            this.wH = i;
+            this.wF = i;
         }
     }
 }

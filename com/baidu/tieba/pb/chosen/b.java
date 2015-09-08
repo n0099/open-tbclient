@@ -13,34 +13,34 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.pb.chosen.a.e;
 /* loaded from: classes.dex */
 class b implements e.b {
-    final /* synthetic */ PbChosenActivity bYY;
+    final /* synthetic */ PbChosenActivity bZS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PbChosenActivity pbChosenActivity) {
-        this.bYY = pbChosenActivity;
+        this.bZS = pbChosenActivity;
     }
 
     @Override // com.baidu.tieba.pb.chosen.a.e.b
-    public void aT(String str, String str2) {
-        this.bYY.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.bYY.getPageContext().getPageActivity(), str, str2)));
+    public void aV(String str, String str2) {
+        this.bZS.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.bZS.getPageContext().getPageActivity(), str, str2)));
     }
 
     @Override // com.baidu.tieba.pb.chosen.a.e.b
-    public void jb(String str) {
+    public void jj(String str) {
         com.baidu.tieba.pb.chosen.net.a aVar;
         com.baidu.tieba.pb.chosen.net.a aVar2;
         com.baidu.tieba.pb.chosen.net.a aVar3;
         com.baidu.tieba.pb.chosen.net.a aVar4;
         if (!StringUtils.isNull(str)) {
-            this.bYY.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bYY.getPageContext().getPageActivity()).createNormalCfg(str, "from_chosen_pb")));
-            aVar = this.bYY.chosenData;
+            this.bZS.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bZS.getPageContext().getPageActivity()).createNormalCfg(str, "from_chosen_pb")));
+            aVar = this.bZS.chosenData;
             if (aVar != null) {
-                aVar2 = this.bYY.chosenData;
+                aVar2 = this.bZS.chosenData;
                 if (aVar2.getForumInfo() != null) {
-                    aVar3 = this.bYY.chosenData;
+                    aVar3 = this.bZS.chosenData;
                     if (aVar3.getForumInfo().ftid != null) {
-                        Activity pageActivity = this.bYY.getPageContext().getPageActivity();
-                        aVar4 = this.bYY.chosenData;
+                        Activity pageActivity = this.bZS.getPageContext().getPageActivity();
+                        aVar4 = this.bZS.chosenData;
                         TiebaStatic.eventStat(pageActivity, "pb_new_sourcefid", null, 1, PbChosenActivityConfig.KEY_TID, aVar4.getForumInfo().ftid);
                     }
                 }
@@ -49,35 +49,36 @@ class b implements e.b {
     }
 
     @Override // com.baidu.tieba.pb.chosen.a.e.b
-    public void acy() {
+    public void acH() {
         com.baidu.tieba.pb.chosen.net.a aVar;
         com.baidu.tieba.pb.chosen.net.a aVar2;
         com.baidu.tieba.pb.chosen.net.a aVar3;
-        com.baidu.tieba.tbadkCore.v vVar;
-        com.baidu.tieba.tbadkCore.v vVar2;
-        com.baidu.tieba.tbadkCore.v vVar3;
+        com.baidu.tieba.tbadkCore.w wVar;
+        com.baidu.tieba.tbadkCore.w wVar2;
+        com.baidu.tieba.tbadkCore.w wVar3;
         com.baidu.tieba.pb.chosen.net.a aVar4;
         com.baidu.tieba.pb.chosen.net.a aVar5;
-        if (!com.baidu.adp.lib.util.i.iO()) {
-            BdToast.b(this.bYY.getPageContext().getPageActivity(), this.bYY.getResources().getString(i.C0057i.neterror)).sX();
-        } else if (this.bYY.checkUpIsLogin()) {
-            aVar = this.bYY.chosenData;
+        if (!com.baidu.adp.lib.util.i.iL()) {
+            BdToast.b(this.bZS.getPageContext().getPageActivity(), this.bZS.getResources().getString(i.h.neterror)).tc();
+        } else if (this.bZS.checkUpIsLogin()) {
+            aVar = this.bZS.chosenData;
             if (aVar != null) {
-                aVar2 = this.bYY.chosenData;
+                aVar2 = this.bZS.chosenData;
                 if (aVar2.getForumInfo() != null) {
-                    aVar3 = this.bYY.chosenData;
+                    aVar3 = this.bZS.chosenData;
                     if (aVar3.getForumInfo().fromfid != null) {
-                        vVar = this.bYY.bYJ;
-                        if (vVar == null) {
-                            this.bYY.bYJ = new com.baidu.tieba.tbadkCore.v(this.bYY.getPageContext());
+                        wVar = this.bZS.bZD;
+                        if (wVar == null) {
+                            this.bZS.bZD = new com.baidu.tieba.tbadkCore.w(this.bZS.getPageContext());
                         }
-                        vVar2 = this.bYY.bYJ;
-                        vVar2.setFrom("from_frs");
-                        vVar3 = this.bYY.bYJ;
-                        aVar4 = this.bYY.chosenData;
+                        wVar2 = this.bZS.bZD;
+                        wVar2.setFrom("from_frs");
+                        wVar3 = this.bZS.bZD;
+                        aVar4 = this.bZS.chosenData;
                         String str = aVar4.getForumInfo().fromfname;
-                        aVar5 = this.bYY.chosenData;
-                        vVar3.ba(str, String.valueOf(aVar5.getForumInfo().fromfid));
+                        aVar5 = this.bZS.chosenData;
+                        wVar3.be(str, String.valueOf(aVar5.getForumInfo().fromfid));
+                        TiebaStatic.log("c10322");
                     }
                 }
             }

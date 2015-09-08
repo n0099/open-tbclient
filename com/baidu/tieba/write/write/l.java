@@ -5,11 +5,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements View.OnClickListener {
-    final /* synthetic */ AtListActivity cTk;
+    final /* synthetic */ AtListActivity dch;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(AtListActivity atListActivity) {
-        this.cTk = atListActivity;
+        this.dch = atListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,12 +17,12 @@ public class l implements View.OnClickListener {
         TextView textView;
         View view2;
         View view3;
-        textView = this.cTk.cTf;
+        textView = this.dch.dcc;
         textView.setVisibility(8);
-        view2 = this.cTk.bJK;
+        view2 = this.dch.bKr;
         view2.setVisibility(8);
-        view3 = this.cTk.bJJ;
+        view3 = this.dch.bKq;
         view3.setVisibility(0);
-        this.cTk.bEb.requestFocus();
+        this.dch.bEI.requestFocus();
     }
 }

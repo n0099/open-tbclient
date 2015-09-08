@@ -6,35 +6,35 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class a {
-    private o<byte[]> aRx;
-    private final long aRy = TbConfig.APP_OVERDUR_DRAFT_BOX;
+    private o<byte[]> aRL;
+    private final long aRM = TbConfig.APP_OVERDUR_DRAFT_BOX;
 
     public a() {
-        KG();
+        Ku();
     }
 
-    public void KG() {
-        if (this.aRx == null) {
-            this.aRx = com.baidu.tbadk.core.b.a.sM().cj("tb.forum_hot_thread");
+    public void Ku() {
+        if (this.aRL == null) {
+            this.aRL = com.baidu.tbadk.core.b.a.sR().cp("tb.forum_hot_thread");
         }
     }
 
-    public byte[] gz(String str) {
+    public byte[] gG(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        o.b<byte[]> ac = this.aRx != null ? this.aRx.ac(String.valueOf(str) + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
-        if (ac == null || ac.so == null) {
+        o.b<byte[]> ac = this.aRL != null ? this.aRL.ac(String.valueOf(str) + "/" + TbadkCoreApplication.getCurrentAccount()) : null;
+        if (ac == null || ac.sl == null) {
             return null;
         }
-        return ac.so;
+        return ac.sl;
     }
 
     public void k(String str, byte[] bArr) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(str)) {
-            KG();
-            this.aRx.a(String.valueOf(str) + "/" + currentAccount, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+            Ku();
+            this.aRL.a(String.valueOf(str) + "/" + currentAccount, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }
 }

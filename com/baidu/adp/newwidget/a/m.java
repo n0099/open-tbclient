@@ -10,23 +10,23 @@ public class m extends j {
 
     @Override // com.baidu.adp.newwidget.a.c, com.baidu.adp.newwidget.a.a
     public void b(Canvas canvas, d dVar, ImageView imageView) {
-        if (this.AX != null) {
-            canvas.concat(this.AX);
+        if (this.AV != null) {
+            canvas.concat(this.AV);
         }
         canvas.save();
-        if (this.BS) {
+        if (this.BQ) {
             try {
-                canvas.clipPath(this.BP);
+                canvas.clipPath(this.BN);
             } catch (Error e) {
             }
         }
-        if (dVar.kj()) {
-            Bitmap bitmap = dVar.Bw.getBitmap();
+        if (dVar.kg()) {
+            Bitmap bitmap = dVar.Bu.getBitmap();
             this.mRect.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            canvas.drawBitmap(bitmap, this.mRect, this.AY, this.mPaint);
+            canvas.drawBitmap(bitmap, this.mRect, this.AW, this.mPaint);
         } else {
             this.mRect.set(0, 0, dVar.getWidth(), dVar.getHeight());
-            dVar.Bx.a(canvas, this.mRect, this.AY, this.mPaint);
+            dVar.Bv.a(canvas, this.mRect, this.AW, this.mPaint);
         }
         canvas.restore();
     }

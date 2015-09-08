@@ -1,27 +1,27 @@
 package com.baidu.tieba.frs.c;
 
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bl;
+import com.baidu.tieba.frs.bi;
 /* loaded from: classes.dex */
 class q implements Runnable {
-    final /* synthetic */ p bbH;
+    final /* synthetic */ p bcb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.bbH = pVar;
+        this.bcb = pVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         n nVar;
-        bl blVar;
+        bi biVar;
         n nVar2;
         FrsActivity frsActivity;
-        nVar = this.bbH.bbG;
-        blVar = nVar.aUw;
-        if (blVar.Le()) {
-            nVar2 = this.bbH.bbG;
-            frsActivity = nVar2.bat;
+        nVar = this.bcb.bca;
+        biVar = nVar.aUL;
+        if (biVar.KS()) {
+            nVar2 = this.bcb.bca;
+            frsActivity = nVar2.baN;
             frsActivity.loadMore();
         }
     }

@@ -2,11 +2,11 @@ package com.baidu.tieba.frs.hot;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.frs.cu;
+import com.baidu.tieba.frs.da;
 /* loaded from: classes.dex */
 public class FrsHotThreadStatic {
     static {
-        cu.My().fu(2);
+        da.Mx().fC(2);
         MessageManager.getInstance().registerListener(new c(CmdConfigCustom.CMD_FRS_ADD_MODEL));
     }
 }

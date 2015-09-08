@@ -11,19 +11,19 @@ import java.security.InvalidParameterException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class e {
-    private static /* synthetic */ int[] rp;
+    private static /* synthetic */ int[] rm;
     protected final int BUFFER_SIZE = 1024;
-    protected b rd;
-    protected AtomicBoolean rm;
-    private DiskFileOperate ro;
+    protected b rb;
+    protected AtomicBoolean rk;
+    private DiskFileOperate rl;
 
     /* loaded from: classes.dex */
     public interface a {
         boolean a(e eVar, DiskFileOperate diskFileOperate, b bVar);
     }
 
-    static /* synthetic */ int[] ft() {
-        int[] iArr = rp;
+    static /* synthetic */ int[] fq() {
+        int[] iArr = rm;
         if (iArr == null) {
             iArr = new int[DiskFileOperate.Action.valuesCustom().length];
             try {
@@ -66,31 +66,31 @@ public class e {
                 iArr[DiskFileOperate.Action.WRITE_FORCE.ordinal()] = 3;
             } catch (NoSuchFieldError e10) {
             }
-            rp = iArr;
+            rm = iArr;
         }
         return iArr;
     }
 
     public void cancel() {
-        this.rm.set(true);
+        this.rk.set(true);
     }
 
     public e(b bVar, DiskFileOperate diskFileOperate) {
-        this.rd = null;
-        this.rm = null;
-        this.ro = null;
-        if (bVar == null || diskFileOperate == null || diskFileOperate.fv() == null) {
+        this.rb = null;
+        this.rk = null;
+        this.rl = null;
+        if (bVar == null || diskFileOperate == null || diskFileOperate.fs() == null) {
             throw new InvalidParameterException("DiskWorker Parameter is null");
         }
-        this.rm = new AtomicBoolean(false);
-        this.rd = bVar;
-        this.ro = diskFileOperate;
+        this.rk = new AtomicBoolean(false);
+        this.rb = bVar;
+        this.rl = diskFileOperate;
     }
 
-    public boolean fn() {
-        switch (ft()[this.ro.fv().ordinal()]) {
+    public boolean fk() {
+        switch (fq()[this.rl.fs().ordinal()]) {
             case 1:
-                return fp();
+                return fm();
             case 2:
                 return m(false);
             case 3:
@@ -102,27 +102,27 @@ public class e {
             case 6:
                 return delete();
             case 7:
-                return fo();
+                return fl();
             case 8:
-                return fq();
+                return fn();
             case 9:
-                return fr();
+                return fo();
             case 10:
-                return fs();
+                return fp();
             default:
                 return false;
         }
     }
 
     private boolean d(File file) {
-        if (file == null || !(this.ro instanceof com.baidu.adp.lib.Disk.a)) {
+        if (file == null || !(this.rl instanceof com.baidu.adp.lib.Disk.a)) {
             return false;
         }
-        com.baidu.adp.lib.Disk.a aVar = (com.baidu.adp.lib.Disk.a) this.ro;
+        com.baidu.adp.lib.Disk.a aVar = (com.baidu.adp.lib.Disk.a) this.rl;
         if (file.isDirectory()) {
             File[] listFiles = file.listFiles();
             if (listFiles != null) {
-                for (int i = 0; i < listFiles.length && !this.rm.get(); i++) {
+                for (int i = 0; i < listFiles.length && !this.rk.get(); i++) {
                     if (listFiles[i].isDirectory()) {
                         d(listFiles[i]);
                     } else if (aVar.c(listFiles[i])) {
@@ -137,19 +137,19 @@ public class e {
         return true;
     }
 
-    private boolean fo() {
+    private boolean fl() {
         boolean z = false;
         try {
-            File c = this.rd.c(this.ro.getPath(), false, this.ro.fC());
+            File c = this.rb.c(this.rl.getPath(), false, this.rl.fz());
             z = d(c);
             if (z) {
-                this.ro.e(c);
-                this.ro.setSuccess(true);
+                this.rl.e(c);
+                this.rl.setSuccess(true);
             }
         } catch (Exception e) {
             e.getMessage();
         } finally {
-            this.ro.fu();
+            this.rl.fr();
         }
         return z;
     }
@@ -157,34 +157,34 @@ public class e {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [167=4] */
     private boolean delete() {
         try {
-            File a2 = this.rd.a(this.ro.fx(), this.ro.getName(), false, this.ro.fC());
-            if (a2 != null && !this.rm.get()) {
+            File a2 = this.rb.a(this.rl.fu(), this.rl.getName(), false, this.rl.fz());
+            if (a2 != null && !this.rk.get()) {
                 r0 = a2.exists() ? a2.delete() : false;
                 if (r0) {
-                    this.ro.e(a2);
-                    this.ro.setSuccess(true);
+                    this.rl.e(a2);
+                    this.rl.setSuccess(true);
                 }
             }
         } catch (Exception e) {
             e.getMessage();
         } finally {
-            this.ro.fu();
+            this.rl.fr();
         }
         return r0;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [203=4, 204=4, 208=4] */
-    private boolean fp() {
+    private boolean fm() {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2 = null;
         boolean z = false;
         try {
-            File a2 = this.rd.a(this.ro.fx(), this.ro.getName(), false, this.ro.fC());
-            if (a2 == null || !a2.exists() || this.rm.get()) {
+            File a2 = this.rb.a(this.rl.fu(), this.rl.getName(), false, this.rl.fz());
+            if (a2 == null || !a2.exists() || this.rk.get()) {
                 com.baidu.adp.lib.g.a.d(null);
                 com.baidu.adp.lib.g.a.b((OutputStream) null);
-                this.ro.fu();
+                this.rl.fr();
             } else {
                 fileInputStream = new FileInputStream(a2);
                 try {
@@ -201,24 +201,24 @@ public class e {
                     byte[] bArr = new byte[1024];
                     while (true) {
                         int read = fileInputStream.read(bArr, 0, 1024);
-                        if (read == -1 || this.rm.get()) {
+                        if (read == -1 || this.rk.get()) {
                             break;
                         }
                         byteArrayOutputStream.write(bArr, 0, read);
                     }
-                    if (!this.rm.get()) {
+                    if (!this.rk.get()) {
                         byte[] byteArray = byteArrayOutputStream.toByteArray();
-                        if (!this.ro.fA() || this.ro.x(byteArray)) {
-                            this.ro.setData(byteArray);
+                        if (!this.rl.fx() || this.rl.x(byteArray)) {
+                            this.rl.setData(byteArray);
                             z = true;
                         }
                     }
                     com.baidu.adp.lib.g.a.d(fileInputStream);
                     com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
                     if (z) {
-                        this.ro.setSuccess(true);
+                        this.rl.setSuccess(true);
                     }
-                    this.ro.fu();
+                    this.rl.fr();
                 } catch (Exception e2) {
                     e = e2;
                     fileInputStream2 = fileInputStream;
@@ -226,21 +226,21 @@ public class e {
                         BdLog.e(e.getMessage());
                         com.baidu.adp.lib.g.a.d(fileInputStream2);
                         com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
-                        this.ro.fu();
+                        this.rl.fr();
                         return z;
                     } catch (Throwable th2) {
                         th = th2;
                         fileInputStream = fileInputStream2;
                         com.baidu.adp.lib.g.a.d(fileInputStream);
                         com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
-                        this.ro.fu();
+                        this.rl.fr();
                         throw th;
                     }
                 } catch (Throwable th3) {
                     th = th3;
                     com.baidu.adp.lib.g.a.d(fileInputStream);
                     com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
-                    this.ro.fu();
+                    this.rl.fr();
                     throw th;
                 }
             }
@@ -260,43 +260,43 @@ public class e {
         FileOutputStream fileOutputStream = null;
         try {
             try {
-                File a2 = this.rd.a(this.ro.fx(), this.ro.getName(), true, this.ro.fC());
-                if (a2 == null || this.rm.get()) {
+                File a2 = this.rb.a(this.rl.fu(), this.rl.getName(), true, this.rl.fz());
+                if (a2 == null || this.rk.get()) {
                     com.baidu.adp.lib.g.a.b((OutputStream) null);
-                    this.ro.fu();
+                    this.rl.fr();
                     return false;
                 }
                 if (a2.exists()) {
                     if (!z) {
                         com.baidu.adp.lib.g.a.b((OutputStream) null);
-                        this.ro.fu();
+                        this.rl.fr();
                         return true;
                     }
                     a2.delete();
                 }
-                byte[] fw = this.ro.fw();
-                byte[] data = this.ro.getData();
-                if ((fw == null && data == null) || this.rm.get()) {
+                byte[] ft = this.rl.ft();
+                byte[] data = this.rl.getData();
+                if ((ft == null && data == null) || this.rk.get()) {
                     com.baidu.adp.lib.g.a.b((OutputStream) null);
-                    this.ro.fu();
+                    this.rl.fr();
                     return false;
                 }
                 FileOutputStream fileOutputStream2 = new FileOutputStream(a2);
-                if (fw != null) {
+                if (ft != null) {
                     try {
-                        fileOutputStream2.write(fw);
+                        fileOutputStream2.write(ft);
                     } catch (Exception e) {
                         e = e;
                         fileOutputStream = fileOutputStream2;
                         BdLog.e(e.getMessage());
                         com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
-                        this.ro.fu();
+                        this.rl.fr();
                         return false;
                     } catch (Throwable th) {
                         th = th;
                         fileOutputStream = fileOutputStream2;
                         com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
-                        this.ro.fu();
+                        this.rl.fr();
                         throw th;
                     }
                 }
@@ -305,9 +305,9 @@ public class e {
                 }
                 fileOutputStream2.flush();
                 com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
-                this.ro.e(a2);
-                this.ro.setSuccess(true);
-                this.ro.fu();
+                this.rl.e(a2);
+                this.rl.setSuccess(true);
+                this.rl.fr();
                 return true;
             } catch (Exception e2) {
                 e = e2;
@@ -320,85 +320,85 @@ public class e {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, INVOKE, INVOKE, IGET, INVOKE] complete} */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [300=5, 301=5, 305=5] */
     public boolean n(boolean z) {
-        OutputStream outputStream = this.ro.getOutputStream();
-        File fB = this.ro.fB();
+        OutputStream outputStream = this.rl.getOutputStream();
+        File fy = this.rl.fy();
         if (outputStream == null) {
             try {
                 try {
-                    fB = this.rd.a(this.ro.fx(), this.ro.getName(), true, this.ro.fC());
-                    if (fB == null || this.rm.get()) {
+                    fy = this.rb.a(this.rl.fu(), this.rl.getName(), true, this.rl.fz());
+                    if (fy == null || this.rk.get()) {
                         if (!z) {
                             com.baidu.adp.lib.g.a.b(outputStream);
                         }
-                        this.ro.fu();
+                        this.rl.fr();
                         return false;
                     }
-                    outputStream = new FileOutputStream(fB, true);
+                    outputStream = new FileOutputStream(fy, true);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     if (!z) {
                         com.baidu.adp.lib.g.a.b(outputStream);
                     }
-                    this.ro.fu();
+                    this.rl.fr();
                     return false;
                 }
             } catch (Throwable th) {
                 if (!z) {
                     com.baidu.adp.lib.g.a.b(outputStream);
                 }
-                this.ro.fu();
+                this.rl.fr();
                 throw th;
             }
         }
-        byte[] fw = this.ro.fw();
-        byte[] data = this.ro.getData();
-        if ((fw == null && data == null) || this.rm.get()) {
+        byte[] ft = this.rl.ft();
+        byte[] data = this.rl.getData();
+        if ((ft == null && data == null) || this.rk.get()) {
             if (!z) {
                 com.baidu.adp.lib.g.a.b(outputStream);
             }
-            this.ro.fu();
+            this.rl.fr();
             return false;
         }
-        if (fw != null) {
-            outputStream.write(fw);
+        if (ft != null) {
+            outputStream.write(ft);
         }
         if (data != null) {
             outputStream.write(data);
         }
         outputStream.flush();
-        this.ro.e(fB);
-        this.ro.setSuccess(true);
+        this.rl.e(fy);
+        this.rl.setSuccess(true);
         if (z) {
-            this.ro.setOutputStream(outputStream);
+            this.rl.setOutputStream(outputStream);
         } else {
             com.baidu.adp.lib.g.a.b(outputStream);
         }
-        this.ro.fu();
+        this.rl.fr();
         return true;
     }
 
-    public boolean fq() {
+    public boolean fn() {
         File c;
-        if (this.ro.getName() != null) {
-            c = this.rd.a(this.ro.fx(), this.ro.getName(), false, this.ro.fC());
+        if (this.rl.getName() != null) {
+            c = this.rb.a(this.rl.fu(), this.rl.getName(), false, this.rl.fz());
         } else {
-            c = this.rd.c(this.ro.fx(), false, this.ro.fC());
+            c = this.rb.c(this.rl.fu(), false, this.rl.fz());
         }
         if (c != null && c.exists()) {
-            this.ro.e(c);
-            this.ro.setSuccess(true);
-            this.ro.fu();
+            this.rl.e(c);
+            this.rl.setSuccess(true);
+            this.rl.fr();
             return true;
         }
-        this.ro.fu();
+        this.rl.fr();
         return false;
     }
 
-    public boolean fr() {
+    public boolean fo() {
         boolean z = false;
         try {
-            File a2 = this.rd.a(this.ro.fx(), this.ro.getName(), false, this.ro.fC());
-            File a3 = this.rd.a(this.ro.fy(), this.ro.fF(), true, this.ro.fC());
+            File a2 = this.rb.a(this.rl.fu(), this.rl.getName(), false, this.rl.fz());
+            File a3 = this.rb.a(this.rl.fv(), this.rl.fC(), true, this.rl.fz());
             if (a2 != null) {
                 if (a3 != null) {
                     a3.delete();
@@ -406,29 +406,29 @@ public class e {
                 z = a2.renameTo(a3);
             }
             if (z) {
-                this.ro.setSuccess(true);
+                this.rl.setSuccess(true);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
-            this.ro.fu();
+            this.rl.fr();
         }
         return z;
     }
 
-    public boolean fs() {
+    public boolean fp() {
         boolean z = false;
         try {
-            if (this.ro.fG() != null) {
-                z = this.ro.fG().a(this, this.ro, this.rd);
+            if (this.rl.fD() != null) {
+                z = this.rl.fD().a(this, this.rl, this.rb);
             }
             if (z) {
-                this.ro.setSuccess(true);
+                this.rl.setSuccess(true);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
-            this.ro.fu();
+            this.rl.fr();
         }
         return z;
     }

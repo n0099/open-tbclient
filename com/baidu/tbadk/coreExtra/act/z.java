@@ -9,6 +9,6 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 class z implements CustomMessageTask.CustomRunnable<Activity> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<l> run(CustomMessage<Activity> customMessage) {
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PASS_MANAGER, x.wk());
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PASS_MANAGER, x.wp());
     }
 }

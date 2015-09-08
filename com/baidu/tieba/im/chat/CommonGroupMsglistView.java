@@ -11,9 +11,9 @@ public class CommonGroupMsglistView extends AbsMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void initExpression(TalkableActivity talkableActivity) {
         super.initExpression(talkableActivity);
-        v dL = this.mTool.dL(5);
-        if (dL != null && (dL.aox instanceof com.baidu.tbadk.editortools.emotiontool.j)) {
-            ((com.baidu.tbadk.editortools.emotiontool.j) dL.aox).setFrom(3);
+        v dT = this.mTool.dT(5);
+        if (dT != null && (dT.aqi instanceof com.baidu.tbadk.editortools.emotiontool.j)) {
+            ((com.baidu.tbadk.editortools.emotiontool.j) dT.aqi).setFrom(3);
         }
     }
 

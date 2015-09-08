@@ -1,39 +1,50 @@
 package com.baidu.tieba.tbadkCore;
 
 import android.os.Handler;
-import android.os.Message;
-import com.baidu.tieba.tbadkCore.z;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.MotionEvent;
+import android.view.View;
 /* loaded from: classes.dex */
-public class aa extends Handler {
-    final /* synthetic */ z cHO;
+public class aa implements View.OnTouchListener {
+    private a cQn;
+    private int count = 0;
+    private long cbm = 0;
+    private long cbn = 0;
+    private long cbp = 500;
+    private Handler mHandler = new ab(this);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(z zVar) {
-        this.cHO = zVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void Mj();
+
+        void Mk();
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        int i;
-        z.a aVar;
-        z.a aVar2;
-        if (message.what == 2) {
-            this.cHO.count = 0;
-            this.cHO.car = 0L;
-            this.cHO.cas = 0L;
-        } else if (message.what == 1) {
-            i = this.cHO.count;
-            if (i == 1) {
-                aVar = this.cHO.cHN;
-                if (aVar != null) {
-                    aVar2 = this.cHO.cHN;
-                    aVar2.Ms();
+    public aa(a aVar) {
+        this.cQn = aVar;
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getAction() == 0) {
+            if (this.cQn == null) {
+                return false;
+            }
+            this.count++;
+            if (this.count == 1) {
+                this.cbm = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.cbp);
+                return true;
+            } else if (this.count == 2) {
+                this.cbn = System.currentTimeMillis();
+                if (this.cbn - this.cbm < this.cbp) {
+                    this.cQn.Mk();
                 }
-                this.cHO.count = 0;
-                this.cHO.car = 0L;
-                this.cHO.cas = 0L;
+                this.mHandler.sendEmptyMessage(2);
+                return true;
+            } else {
+                return true;
             }
         }
+        return true;
     }
 }

@@ -1,54 +1,46 @@
 package com.baidu.tieba.write.write;
 
-import android.os.Handler;
-import android.widget.EditText;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import android.view.View;
 import com.baidu.tieba.i;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ap implements a.b {
-    final /* synthetic */ WriteActivity cUM;
+public class ap extends com.baidu.adp.base.g {
+    final /* synthetic */ WriteActivity ddQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(WriteActivity writeActivity) {
-        this.cUM = writeActivity;
+        this.ddQ = writeActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        WriteData writeData;
-        EditText editText;
-        WriteData writeData2;
-        EditText editText2;
-        WriteData writeData3;
-        WriteData writeData4;
-        WriteData writeData5;
-        Handler handler;
-        WriteData writeData6;
-        WriteData writeData7;
-        aVar.dismiss();
-        writeData = this.cUM.cKS;
-        editText = this.cUM.cSk;
-        writeData.setTitle(editText.getText().toString());
-        writeData2 = this.cUM.cKS;
-        editText2 = this.cUM.cSo;
-        writeData2.setContent(editText2.getText().toString());
-        writeData3 = this.cUM.cKS;
-        int type = writeData3.getType();
-        if (type == 0) {
-            writeData6 = this.cUM.cKS;
-            String forumId = writeData6.getForumId();
-            writeData7 = this.cUM.cKS;
-            com.baidu.tieba.tbadkCore.ac.b(forumId, writeData7);
-        } else if (type == 1) {
-            writeData4 = this.cUM.cKS;
-            String threadId = writeData4.getThreadId();
-            writeData5 = this.cUM.cKS;
-            com.baidu.tieba.tbadkCore.ac.c(threadId, writeData5);
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.write.write.WriteActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        FeedBackTopListView feedBackTopListView;
+        View view;
+        FeedBackTopListView feedBackTopListView2;
+        View view2;
+        FeedBackTopListView feedBackTopListView3;
+        this.ddQ.hideProgressBar();
+        if (obj == null || !(obj instanceof o)) {
+            feedBackTopListView = this.ddQ.ddb;
+            feedBackTopListView.setVisibility(8);
+            view = this.ddQ.ddc;
+            view.setVisibility(8);
+            this.ddQ.showToast(i.h.neterror);
+            return;
         }
-        this.cUM.showToast(i.C0057i.draft_save_success);
-        handler = this.cUM.mHandler;
-        handler.postDelayed(new aq(this), 1000L);
+        o oVar = (o) obj;
+        if (oVar.getErrCode() != 0) {
+            feedBackTopListView2 = this.ddQ.ddb;
+            feedBackTopListView2.setVisibility(8);
+            view2 = this.ddQ.ddc;
+            view2.setVisibility(8);
+            return;
+        }
+        ArrayList<com.baidu.tbadk.core.data.x> azh = oVar.azh();
+        feedBackTopListView3 = this.ddQ.ddb;
+        feedBackTopListView3.a(azh, this.ddQ.getPageContext());
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.write.album;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class ae implements x {
-    final /* synthetic */ ad cRf;
+    final /* synthetic */ ad cZQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ad adVar) {
-        this.cRf = adVar;
+        this.cZQ = adVar;
     }
 
     @Override // com.baidu.tieba.write.album.x
@@ -15,10 +15,10 @@ class ae implements x {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
         if (z) {
-            albumActivity2 = this.cRf.cPQ;
+            albumActivity2 = this.cZQ.cYB;
             return albumActivity2.c(imageFileInfo);
         }
-        albumActivity = this.cRf.cPQ;
+        albumActivity = this.cZQ.cYB;
         return albumActivity.d(imageFileInfo);
     }
 }

@@ -12,58 +12,58 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class EditHeadsImageView extends a {
-    private Paint aAo;
-    private Paint aAp;
-    private int aAq;
-    private int aAr;
-    private float aAs;
-    private int aAt;
-    private float aAu;
+    private Paint aBW;
+    private Paint aBX;
+    private int aBY;
+    private int aBZ;
+    private float aCa;
+    private int aCb;
+    private float aCc;
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aAo = null;
-        this.aAp = null;
-        this.aAq = 0;
-        this.aAr = 0;
-        this.aAs = 0.42857143f;
-        this.aAt = 0;
-        this.aAu = 1.0f;
+        this.aBW = null;
+        this.aBX = null;
+        this.aBY = 0;
+        this.aBZ = 0;
+        this.aCa = 0.42857143f;
+        this.aCb = 0;
+        this.aCc = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aAo = null;
-        this.aAp = null;
-        this.aAq = 0;
-        this.aAr = 0;
-        this.aAs = 0.42857143f;
-        this.aAt = 0;
-        this.aAu = 1.0f;
+        this.aBW = null;
+        this.aBX = null;
+        this.aBY = 0;
+        this.aBZ = 0;
+        this.aCa = 0.42857143f;
+        this.aCb = 0;
+        this.aCc = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context) {
         super(context);
-        this.aAo = null;
-        this.aAp = null;
-        this.aAq = 0;
-        this.aAr = 0;
-        this.aAs = 0.42857143f;
-        this.aAt = 0;
-        this.aAu = 1.0f;
+        this.aBW = null;
+        this.aBX = null;
+        this.aBY = 0;
+        this.aBZ = 0;
+        this.aCa = 0.42857143f;
+        this.aCb = 0;
+        this.aCc = 1.0f;
         init();
     }
 
     private void init() {
-        this.aAo = new Paint();
-        this.aAo.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.aAo.setAlpha(153);
-        this.aAp = new Paint();
-        this.aAp.setStyle(Paint.Style.STROKE);
-        this.aAp.setColor(-1);
-        this.aAt = getResources().getColor(i.c.editimage_bg);
+        this.aBW = new Paint();
+        this.aBW.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.aBW.setAlpha(153);
+        this.aBX = new Paint();
+        this.aBX.setStyle(Paint.Style.STROKE);
+        this.aBX.setColor(-1);
+        this.aCb = getResources().getColor(i.c.editimage_bg);
         setDrawingCacheEnabled(true);
         setImageMode(1);
         CompatibleUtile.getInstance().noneViewGpu(this);
@@ -78,33 +78,33 @@ public class EditHeadsImageView extends a {
     @Override // com.baidu.tbadk.widget.a, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.aAu * getWidth();
+        float width = this.aCc * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.aAq = (int) (((i4 - i2) - width) * this.aAs);
-        this.aAr = (int) (((i4 - i2) - width) * (1.0f - this.aAs));
-        setOffset(0, this.aAq, 0, this.aAr);
+        this.aBY = (int) (((i4 - i2) - width) * this.aCa);
+        this.aBZ = (int) (((i4 - i2) - width) * (1.0f - this.aCa));
+        setOffset(0, this.aBY, 0, this.aBZ);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.a, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        canvas.drawColor(this.aAt);
+        canvas.drawColor(this.aCb);
         super.onDraw(canvas);
         int scrollX = getScrollX();
         int scrollY = getScrollY();
-        canvas.drawRect(scrollX, scrollY, getWidth() + scrollX, this.aAq + scrollY, this.aAo);
-        canvas.drawRect(scrollX, (getHeight() + scrollY) - this.aAr, getWidth() + scrollX, getHeight() + scrollY, this.aAo);
-        canvas.drawRect(scrollX, this.aAq + scrollY, (getWidth() + scrollX) - 1, (getHeight() + scrollY) - this.aAr, this.aAp);
+        canvas.drawRect(scrollX, scrollY, getWidth() + scrollX, this.aBY + scrollY, this.aBW);
+        canvas.drawRect(scrollX, (getHeight() + scrollY) - this.aBZ, getWidth() + scrollX, getHeight() + scrollY, this.aBW);
+        canvas.drawRect(scrollX, this.aBY + scrollY, (getWidth() + scrollX) - 1, (getHeight() + scrollY) - this.aBZ, this.aBX);
     }
 
-    public Bitmap bo(boolean z) {
+    public Bitmap bv(boolean z) {
         Bitmap bitmap = null;
         try {
             Bitmap visableBitmap = getVisableBitmap();
             if (visableBitmap != null) {
-                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.aAq, getWidth(), (getHeight() - this.aAr) - this.aAq);
+                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.aBY, getWidth(), (getHeight() - this.aBZ) - this.aBY);
                 bitmap = z ? Bitmap.createScaledBitmap(createBitmap, TbConfig.HEAD_IMG_SIZE, TbConfig.HEAD_IMG_SIZE, false) : createBitmap;
                 if (bitmap != createBitmap) {
                     createBitmap.recycle();
@@ -117,7 +117,7 @@ public class EditHeadsImageView extends a {
     }
 
     public void setCutImageHeightScale(float f) {
-        this.aAu = f;
+        this.aCc = f;
         invalidate();
     }
 }

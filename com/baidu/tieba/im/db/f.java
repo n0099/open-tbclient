@@ -13,9 +13,9 @@ import java.util.LinkedList;
 public class f {
     private static String nD = null;
     private static volatile SQLiteDatabase nz = null;
-    public static HashMap<String, SQLiteDatabase> bsX = new HashMap<>();
+    public static HashMap<String, SQLiteDatabase> btD = new HashMap<>();
 
-    public static synchronized SQLiteDatabase SX() {
+    public static synchronized SQLiteDatabase SZ() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (f.class) {
             try {
@@ -26,8 +26,8 @@ public class f {
                 sQLiteDatabase = null;
             } else {
                 String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db";
-                if (bsX.containsKey(str)) {
-                    sQLiteDatabase = bsX.get(str);
+                if (btD.containsKey(str)) {
+                    sQLiteDatabase = btD.get(str);
                 } else if (nz != null && str.equals(nD) && nz.isOpen()) {
                     sQLiteDatabase = nz;
                 } else {
@@ -44,16 +44,16 @@ public class f {
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> SY() {
+    public static LinkedList<String> Ta() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase SX = SX();
+        SQLiteDatabase SZ = SZ();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (SX != null) {
+        if (SZ != null) {
             try {
-                cursor2 = SX.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = SZ.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -92,20 +92,20 @@ public class f {
         return linkedList;
     }
 
-    public static void hB(String str) {
+    public static void hK(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                g.SZ().Ta();
-                Iterator<String> it = SY().iterator();
+                g.Tb().Tc();
+                Iterator<String> it = Ta().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            g.SZ().update("tb_message_center", contentValues, null, null);
+                            g.Tb().update("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            g.SZ().a(next, null, null);
+                            g.Tb().a(next, null, null);
                         }
                     }
                 }
@@ -114,7 +114,7 @@ public class f {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            g.SZ().endTransaction();
+            g.Tb().endTransaction();
         }
     }
 }

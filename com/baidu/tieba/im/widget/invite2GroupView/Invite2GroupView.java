@@ -13,11 +13,11 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.im.data.InviteMsgData;
 /* loaded from: classes.dex */
 public final class Invite2GroupView extends LinearLayout {
-    private TextView anH;
-    private TbImageView bFj;
-    private TextView bFk;
-    private TextView bFl;
-    private InviteMsgData bFm;
+    private TextView amV;
+    private TbImageView bFQ;
+    private TextView bFR;
+    private TextView bFS;
+    private InviteMsgData bFT;
 
     public Invite2GroupView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -32,11 +32,11 @@ public final class Invite2GroupView extends LinearLayout {
     private void initUI() {
         LayoutInflater.from(getContext()).inflate(i.g.invite_to_group_view, this);
         setOrientation(1);
-        this.anH = (TextView) findViewById(i.f.chat_title);
-        this.bFj = (TbImageView) findViewById(i.f.chat_group_img);
-        this.bFk = (TextView) findViewById(i.f.chat_group_desc);
-        this.bFl = (TextView) findViewById(i.f.invite_btn);
-        this.bFj.setIsRound(false);
+        this.amV = (TextView) findViewById(i.f.chat_title);
+        this.bFQ = (TbImageView) findViewById(i.f.chat_group_img);
+        this.bFR = (TextView) findViewById(i.f.chat_group_desc);
+        this.bFS = (TextView) findViewById(i.f.invite_btn);
+        this.bFQ.setIsRound(false);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup
@@ -45,29 +45,29 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     public void a(TbPageContext<?> tbPageContext, InviteMsgData inviteMsgData) {
-        this.bFm = inviteMsgData;
+        this.bFT = inviteMsgData;
         j(tbPageContext);
     }
 
     private void j(TbPageContext<?> tbPageContext) {
-        this.bFl.setEnabled(true);
-        this.bFl.setTag(String.valueOf(this.bFm.getGroupId()));
-        this.bFl.setText(i.C0057i.i_want_attent);
-        this.bFl.setTextColor(getContext().getResources().getColor(i.c.cp_bg_line_d));
-        this.bFl.setOnClickListener(new a(this));
-        this.anH.setText(this.bFm.getTitle());
-        this.bFj.setTag(this.bFm.getPortrait());
-        this.bFj.d(this.bFm.getPortrait(), 10, false);
-        this.bFk.setText(this.bFm.getNotice());
+        this.bFS.setEnabled(true);
+        this.bFS.setTag(String.valueOf(this.bFT.getGroupId()));
+        this.bFS.setText(i.h.i_want_attent);
+        this.bFS.setTextColor(getContext().getResources().getColor(i.c.cp_bg_line_d));
+        this.bFS.setOnClickListener(new a(this));
+        this.amV.setText(this.bFT.getTitle());
+        this.bFQ.setTag(this.bFT.getPortrait());
+        this.bFQ.d(this.bFT.getPortrait(), 10, false);
+        this.bFR.setText(this.bFT.getNotice());
         setOnClickListener(new b(this, tbPageContext));
-        if (com.baidu.tieba.im.memorycache.b.Vl().G(String.valueOf(this.bFm.getGroupId()), 1) != null) {
-            if (String.valueOf(this.bFm.getGroupId()).equals(this.bFl.getTag())) {
-                this.bFl.setText(i.C0057i.i_want_talk);
-                this.bFl.setOnClickListener(new c(this));
+        if (com.baidu.tieba.im.memorycache.b.Vn().H(String.valueOf(this.bFT.getGroupId()), 1) != null) {
+            if (String.valueOf(this.bFT.getGroupId()).equals(this.bFS.getTag())) {
+                this.bFS.setText(i.h.i_want_talk);
+                this.bFS.setOnClickListener(new c(this));
                 return;
             }
             return;
         }
-        com.baidu.tieba.im.settingcache.c.Wv().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.bFm.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this, tbPageContext));
+        com.baidu.tieba.im.settingcache.c.Wx().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.bFT.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this, tbPageContext));
     }
 }

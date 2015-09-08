@@ -20,11 +20,11 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a bbz;
+    final /* synthetic */ a bbT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bbz = aVar;
+        this.bbT = aVar;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v10, resolved type: com.baidu.tieba.frs.FrsActivity */
@@ -43,81 +43,81 @@ public class c implements View.OnClickListener {
         FrsActivity frsActivity7;
         FrsActivity frsActivity8;
         FrsActivity frsActivity9;
-        frsActivity = this.bbz.bat;
-        com.baidu.tieba.tbadkCore.n Lu = frsActivity.Lu();
-        if (Lu != null && Lu.acG() != null) {
-            if (this.bbz.Nm() != null && (view == this.bbz.Nm().NE() || view == this.bbz.Nm().NT())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(this.bbz.getPageContext().getPageActivity(), Lu.acG().getId(), ForumDetailActivityConfig.FromType.FRS)));
+        frsActivity = this.bbT.baN;
+        com.baidu.tieba.tbadkCore.o Ll = frsActivity.Ll();
+        if (Ll != null && Ll.acP() != null) {
+            if (this.bbT.Nn() != null && (view == this.bbT.Nn().NF() || view == this.bbT.Nn().NU())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(this.bbT.getPageContext().getPageActivity(), Ll.acP().getId(), ForumDetailActivityConfig.FromType.FRS)));
                 return;
-            } else if (this.bbz.Nn() != null && (view == this.bbz.Nn().NE() || view == this.bbz.Nn().NT())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(this.bbz.getPageContext().getPageActivity(), Lu.acG().getId(), ForumDetailActivityConfig.FromType.FRS)));
+            } else if (this.bbT.No() != null && (view == this.bbT.No().NF() || view == this.bbT.No().NU())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(this.bbT.getPageContext().getPageActivity(), Ll.acP().getId(), ForumDetailActivityConfig.FromType.FRS)));
                 return;
             }
         }
-        FrsHeaderView Nm = this.bbz.Nm();
-        com.baidu.tieba.frs.view.p Nn = this.bbz.Nn();
-        if ((Nm != null && Nm.E(view)) || (Nn != null && Nn.E(view))) {
+        FrsHeaderView Nn = this.bbT.Nn();
+        com.baidu.tieba.frs.view.p No = this.bbT.No();
+        if ((Nn != null && Nn.E(view)) || (No != null && No.E(view))) {
             TiebaStatic.log("forum_fortune_click");
             if (TbadkCoreApplication.isLogin()) {
-                frsActivity8 = this.bbz.bat;
-                frsActivity8.Lr();
+                frsActivity8 = this.bbT.baN;
+                frsActivity8.Lg();
             } else {
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                frsActivity9 = this.bbz.bat;
-                m411getInst.login(frsActivity9.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.bbz.getPageContext().getPageActivity(), (String) null, true, 18004)));
+                frsActivity9 = this.bbT.baN;
+                m411getInst.login(frsActivity9.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.bbT.getPageContext().getPageActivity(), (String) null, true, 18004)));
             }
         }
         int id = view.getId();
         if (id == i.f.btn_love) {
-            frsActivity6 = this.bbz.bat;
-            if (!frsActivity6.Lv() && com.baidu.adp.lib.util.i.iO()) {
-                frsActivity7 = this.bbz.bat;
+            frsActivity6 = this.bbT.baN;
+            if (!frsActivity6.Lm() && com.baidu.adp.lib.util.i.iL()) {
+                frsActivity7 = this.bbT.baN;
                 if (frsActivity7.checkUpIsLogin()) {
-                    this.bbz.oP();
+                    this.bbT.oM();
                 }
             }
         } else if (id == i.f.btn_sign) {
-            frsActivity4 = this.bbz.bat;
-            if (!frsActivity4.Lv() && com.baidu.adp.lib.util.i.iO()) {
-                frsActivity5 = this.bbz.bat;
-                if (frsActivity5.checkUpIsLogin() && !this.bbz.NC()) {
-                    this.bbz.NF();
+            frsActivity4 = this.bbT.baN;
+            if (!frsActivity4.Lm() && com.baidu.adp.lib.util.i.iL()) {
+                frsActivity5 = this.bbT.baN;
+                if (frsActivity5.checkUpIsLogin() && !this.bbT.ND()) {
+                    this.bbT.NG();
                 }
             }
         } else if (id == i.f.frs_header_games) {
-            frsActivity3 = this.bbz.bat;
-            if (frsActivity3.checkUpIsLogin() && Lu != null && Lu.apb() != null) {
-                String apb = Lu.apb();
-                int cQ = com.baidu.tbadk.core.util.o.cQ(apb);
-                if (cQ == 2) {
-                    ax.uR().a((TbPageContext) this.bbz.getPageContext(), new String[]{apb}, true);
-                } else if (cQ == 1) {
-                    String kC = com.baidu.tieba.tbadkCore.util.l.kC(apb);
-                    if (TextUtils.isEmpty(kC) || Build.VERSION.SDK_INT < 11) {
-                        com.baidu.adp.lib.util.k.showToast(this.bbz.getPageContext().getPageActivity(), this.bbz.getPageContext().getPageActivity().getString(i.C0057i.frs_header_games_unavailable));
+            frsActivity3 = this.bbT.baN;
+            if (frsActivity3.checkUpIsLogin() && Ll != null && Ll.atj() != null) {
+                String atj = Ll.atj();
+                int cW = com.baidu.tbadk.core.util.o.cW(atj);
+                if (cW == 2) {
+                    ax.uX().a((TbPageContext) this.bbT.getPageContext(), new String[]{atj}, true);
+                } else if (cW == 1) {
+                    String lh = com.baidu.tieba.tbadkCore.util.l.lh(atj);
+                    if (TextUtils.isEmpty(lh) || Build.VERSION.SDK_INT < 11) {
+                        com.baidu.adp.lib.util.k.showToast(this.bbT.getPageContext().getPageActivity(), this.bbT.getPageContext().getPageActivity().getString(i.h.frs_header_games_unavailable));
                         return;
                     }
-                    TiebaStatic.eventStat(this.bbz.getPageContext().getPageActivity(), "frs_ourgame", "click", 1, "dev_id", kC, "ref_id", "1000601", "ref_type", "603");
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(this.bbz.getPageContext().getPageActivity(), kC, "1000601")));
-                } else if (cQ == 3) {
-                    com.baidu.tbadk.core.util.o.a(this.bbz.getPageContext(), apb);
+                    TiebaStatic.eventStat(this.bbT.getPageContext().getPageActivity(), "frs_ourgame", "click", 1, "dev_id", lh, "ref_id", "1000601", "ref_type", "603");
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(this.bbT.getPageContext().getPageActivity(), lh, "1000601")));
+                } else if (cW == 3) {
+                    com.baidu.tbadk.core.util.o.a(this.bbT.getPageContext(), atj);
                 }
             }
         } else if (id == i.f.btn_love_content) {
-            frsActivity2 = this.bbz.bat;
-            if (!frsActivity2.Lv()) {
-                i = this.bbz.mScrollState;
+            frsActivity2 = this.bbT.baN;
+            if (!frsActivity2.Lm()) {
+                i = this.bbT.mScrollState;
                 if (i == 0) {
-                    str = this.bbz.mPageType;
+                    str = this.bbT.mPageType;
                     if (!str.equals("normal_page")) {
-                        str2 = this.bbz.mPageType;
+                        str2 = this.bbT.mPageType;
                         if (str2.equals("frs_page")) {
-                            this.bbz.C(view);
+                            this.bbT.C(view);
                             return;
                         }
                         return;
                     }
-                    this.bbz.B(view);
+                    this.bbT.B(view);
                 }
             }
         }

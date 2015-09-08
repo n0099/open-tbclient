@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c aui = new c();
-    private final HashMap<String, Class<? extends b>> auj = new HashMap<>();
+    private static c avS = new c();
+    private final HashMap<String, Class<? extends b>> avT = new HashMap<>();
 
-    public static c Cm() {
-        return aui;
+    public static c CA() {
+        return avS;
     }
 
     private c() {
@@ -99,20 +99,20 @@ public class c {
         } else {
             dVar = null;
         }
-        Bitmap ff = dVar != null ? dVar.ff(str) : null;
+        Bitmap fn = dVar != null ? dVar.fn(str) : null;
         if (list == null) {
-            return ff;
+            return fn;
         }
         while (true) {
-            Bitmap bitmap = ff;
+            Bitmap bitmap = fn;
             if (i2 < list.size()) {
                 b a = a(list.get(i2));
                 if (a == null) {
-                    ff = bitmap;
+                    fn = bitmap;
                 } else if (bitmap == null) {
-                    ff = a.ff(str);
+                    fn = a.fn(str);
                 } else {
-                    ff = a.b(bitmap, true);
+                    fn = a.b(bitmap, true);
                 }
                 i2++;
             } else {
@@ -123,9 +123,9 @@ public class c {
 
     protected b a(ImageOperation imageOperation) {
         b i;
-        Class<? extends b> cls = this.auj.get(imageOperation.actionName);
+        Class<? extends b> cls = this.avT.get(imageOperation.actionName);
         if (cls != null && (i = i(cls)) != null) {
-            i.fe(imageOperation.actionParam);
+            i.fm(imageOperation.actionParam);
             return i;
         }
         return null;
@@ -134,7 +134,7 @@ public class c {
     private void h(Class<? extends b> cls) {
         b i = i(cls);
         if (i != null) {
-            this.auj.put(i.getActionName(), cls);
+            this.avT.put(i.getActionName(), cls);
         }
     }
 

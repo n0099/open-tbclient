@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cd implements Animation.AnimationListener {
-    final /* synthetic */ cb cfj;
+    final /* synthetic */ cb cgg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cd(cb cbVar) {
-        this.cfj = cbVar;
+        this.cgg = cbVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -22,15 +22,15 @@ public class cd implements Animation.AnimationListener {
         com.baidu.tbadk.editortools.j jVar;
         View view2;
         com.baidu.tbadk.editortools.j jVar2;
-        cb cbVar = this.cfj;
-        view = this.cfj.ceN;
-        cbVar.ceR = view.getVisibility() == 0;
-        jVar = this.cfj.Kz;
+        cb cbVar = this.cgg;
+        view = this.cgg.cfK;
+        cbVar.cfO = view.getVisibility() == 0;
+        jVar = this.cgg.Kz;
         if (jVar != null) {
-            jVar2 = this.cfj.Kz;
+            jVar2 = this.cgg.Kz;
             jVar2.hide();
         }
-        view2 = this.cfj.ceN;
+        view2 = this.cgg.cfK;
         view2.setVisibility(8);
     }
 

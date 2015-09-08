@@ -9,22 +9,22 @@ import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class h {
-    private static c ajN = null;
-    private static boolean ajO = false;
-    private a ajP;
-    private b ajQ;
+    private static c ajW = null;
+    private static boolean ajX = false;
+    private a ajY;
+    private b ajZ;
     private final Context mContext;
 
     public h(Context context, a aVar) {
-        this.ajP = null;
-        this.ajQ = null;
+        this.ajY = null;
+        this.ajZ = null;
         this.mContext = context;
         if (aVar != null) {
-            this.ajP = aVar;
+            this.ajY = aVar;
         }
         ak(this.mContext);
-        if (ajN != null) {
-            this.ajQ = ajN.createWorker(this.mContext, this.ajP);
+        if (ajW != null) {
+            this.ajZ = ajW.createWorker(this.mContext, this.ajY);
         }
     }
 
@@ -32,67 +32,67 @@ public class h {
         if (context == null) {
             return false;
         }
-        if (!ajO) {
+        if (!ajX) {
             try {
-                ajN = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
+                ajW = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            ajO = true;
+            ajX = true;
         }
-        return ajN != null;
+        return ajW != null;
     }
 
     public void b(f fVar) {
-        if (this.ajQ != null && fVar != null) {
-            if (!StringUtils.isNull(fVar.ajJ)) {
-                fVar.content = fVar.ajJ;
+        if (this.ajZ != null && fVar != null) {
+            if (!StringUtils.isNull(fVar.ajS)) {
+                fVar.content = fVar.ajS;
             }
-            this.ajQ.a(a(fVar, "weixin"), 3, false);
+            this.ajZ.a(a(fVar, "weixin"), 3, false);
         }
     }
 
     public void c(f fVar) {
-        if (this.ajQ != null && fVar != null) {
-            if (StringUtils.isNull(fVar.ajK)) {
+        if (this.ajZ != null && fVar != null) {
+            if (StringUtils.isNull(fVar.ajT)) {
                 fVar.title = fVar.content;
             } else {
-                fVar.title = fVar.ajK;
+                fVar.title = fVar.ajT;
             }
-            this.ajQ.a(a(fVar, "weixin_timeline"), 2, false);
+            this.ajZ.a(a(fVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void d(f fVar) {
-        if (this.ajQ != null) {
+        if (this.ajZ != null) {
             fVar.content = e(fVar.content, 80, 32);
-            this.ajQ.a(a(fVar, "qzone"), 4, true);
+            this.ajZ.a(a(fVar, "qzone"), 4, true);
         }
     }
 
     public void e(f fVar) {
-        if (this.ajQ != null) {
+        if (this.ajZ != null) {
             fVar.content = e(fVar.content, 140, 20);
-            this.ajQ.a(a(fVar, "tencent_weibo"), 5, true);
+            this.ajZ.a(a(fVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void f(f fVar) {
-        if (this.ajQ != null) {
+        if (this.ajZ != null) {
             fVar.content = e(fVar.content, 140, 20);
-            this.ajQ.a(a(fVar, "sina_weibo"), 6, true);
+            this.ajZ.a(a(fVar, "sina_weibo"), 6, true);
         }
     }
 
     public void g(f fVar) {
-        if (this.ajQ != null) {
+        if (this.ajZ != null) {
             fVar.content = e(fVar.content, 140, 20);
-            this.ajQ.a(a(fVar, "renren"), 7, true);
+            this.ajZ.a(a(fVar, "renren"), 7, true);
         }
     }
 
     private String e(String str, int i, int i2) {
-        String string = TbadkCoreApplication.m411getInst().getContext().getString(i.C0057i.share_tail);
+        String string = TbadkCoreApplication.m411getInst().getContext().getString(i.h.share_tail);
         if (str != null) {
             int min = Math.min((i - string.length()) - i2, str.length());
             if (min < str.length()) {

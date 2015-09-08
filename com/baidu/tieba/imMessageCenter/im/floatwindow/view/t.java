@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class t implements View.OnClickListener {
-    final /* synthetic */ FloatingPersonalChatActivity bIA;
+    final /* synthetic */ FloatingPersonalChatActivity bJh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(FloatingPersonalChatActivity floatingPersonalChatActivity) {
-        this.bIA = floatingPersonalChatActivity;
+        this.bJh = floatingPersonalChatActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,21 +26,21 @@ class t implements View.OnClickListener {
         String str4;
         for (UserData userData : FloatingPersonalChatActivityStatic.getList()) {
             if (userData != null) {
-                str = this.bIA.azh;
+                str = this.bJh.aAP;
                 if (TextUtils.equals(str, userData.getUserId())) {
-                    floatingPersonalChatView = this.bIA.bIy;
-                    str2 = this.bIA.azh;
-                    int it = floatingPersonalChatView.it(str2);
-                    if (it == 0) {
+                    floatingPersonalChatView = this.bJh.bJf;
+                    str2 = this.bJh.aAP;
+                    int iC = floatingPersonalChatView.iC(str2);
+                    if (iC == 0) {
                         MessageManager messageManager = MessageManager.getInstance();
-                        Context context = this.bIA.getPageContext().getContext();
-                        str4 = this.bIA.azh;
+                        Context context = this.bJh.getPageContext().getContext();
+                        str4 = this.bJh.aAP;
                         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context, String.valueOf(str4), userData.getUserName(), userData.getPortrait(), null, false, AddFriendActivityConfig.TYPE_FRS_RECOM)));
                         return;
-                    } else if (it == 4) {
-                        com.baidu.tbadk.newFriends.a Du = com.baidu.tbadk.newFriends.a.Du();
-                        str3 = this.bIA.azh;
-                        Du.b(com.baidu.adp.lib.g.b.c(str3, 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);
+                    } else if (iC == 4) {
+                        com.baidu.tbadk.newFriends.a DE = com.baidu.tbadk.newFriends.a.DE();
+                        str3 = this.bJh.aAP;
+                        DE.b(com.baidu.adp.lib.g.b.c(str3, 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);
                         return;
                     } else {
                         return;

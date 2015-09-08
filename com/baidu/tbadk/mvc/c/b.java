@@ -5,60 +5,60 @@ import com.baidu.adp.BdUniqueId;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class b {
-    private int auU;
-    private boolean auV = true;
-    private com.baidu.tbadk.mvc.b.a auW;
-    private com.baidu.tbadk.mvc.d.b auX;
-    private com.baidu.tbadk.mvc.a.a auY;
-    private int auZ;
-    private Object ava;
-    private WeakReference<View> avb;
+    private int awC;
+    private boolean awD = true;
+    private com.baidu.tbadk.mvc.b.a awE;
+    private com.baidu.tbadk.mvc.d.b awF;
+    private com.baidu.tbadk.mvc.a.a awG;
+    private int awH;
+    private Object awI;
+    private WeakReference<View> awJ;
     private BdUniqueId uniqueId;
 
     public b(int i, com.baidu.tbadk.mvc.b.a aVar, com.baidu.tbadk.mvc.d.b bVar, com.baidu.tbadk.mvc.a.a aVar2) {
-        this.auU = i;
-        this.auW = aVar;
-        this.auX = bVar;
-        this.auY = aVar2;
+        this.awC = i;
+        this.awE = aVar;
+        this.awF = bVar;
+        this.awG = aVar2;
     }
 
-    public int CG() {
-        return this.auU;
+    public int CQ() {
+        return this.awC;
     }
 
-    public com.baidu.tbadk.mvc.b.a CH() {
-        return this.auW;
+    public com.baidu.tbadk.mvc.b.a CR() {
+        return this.awE;
     }
 
     public Object getExtra() {
-        return this.ava;
+        return this.awI;
     }
 
     public void setExtra(Object obj) {
-        this.ava = obj;
+        this.awI = obj;
     }
 
     public View getView() {
-        if (this.avb != null) {
-            return this.avb.get();
+        if (this.awJ != null) {
+            return this.awJ.get();
         }
         return null;
     }
 
     public void setView(View view) {
-        this.avb = new WeakReference<>(view);
+        this.awJ = new WeakReference<>(view);
     }
 
-    public int CI() {
-        return this.auZ;
+    public int CS() {
+        return this.awH;
     }
 
-    public void eh(int i) {
-        this.auZ = i;
+    public void ep(int i) {
+        this.awH = i;
     }
 
-    public boolean CJ() {
-        return this.auV;
+    public boolean CT() {
+        return this.awD;
     }
 
     public BdUniqueId getUniqueId() {

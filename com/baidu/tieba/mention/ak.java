@@ -20,21 +20,21 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.mention.ae;
 /* loaded from: classes.dex */
 public class ak extends k {
-    private com.baidu.tbadk.mvc.g.d<FeedData, com.baidu.tbadk.mvc.d.b, z> aLd;
-    private com.baidu.tbadk.editortools.c.a<SingleMentionActivity> aTi;
-    private final AbsListView.OnScrollListener aTm;
-    private int anz;
-    private String arM;
-    private com.baidu.tbadk.mvc.f.a.b bVM;
-    private final SingleMentionActivity bWg;
-    private BdListView bWn;
-    private ae bWo;
-    private com.baidu.tbadk.editortools.c.n bWp;
-    private FeedData bWq;
-    private long bWr;
-    private long bWs;
-    private final ae.a bWt;
-    private com.baidu.tbadk.editortools.emotiontool.s bWu;
+    private com.baidu.tbadk.mvc.g.d<FeedData, com.baidu.tbadk.mvc.d.b, z> aLq;
+    private final AbsListView.OnScrollListener aTA;
+    private com.baidu.tbadk.editortools.c.a<SingleMentionActivity> aTw;
+    private int apk;
+    private String atw;
+    private final SingleMentionActivity bWM;
+    private BdListView bWT;
+    private ae bWU;
+    private com.baidu.tbadk.editortools.c.n bWV;
+    private FeedData bWW;
+    private long bWX;
+    private long bWY;
+    private final ae.a bWZ;
+    private com.baidu.tbadk.mvc.f.a.b bWs;
+    private com.baidu.tbadk.editortools.emotiontool.s bXa;
     private int mBottom;
     private String mForumId;
     private NavigationBar mNavigationBar;
@@ -42,12 +42,12 @@ public class ak extends k {
 
     public ak(SingleMentionActivity singleMentionActivity) {
         super(singleMentionActivity);
-        this.bWn = null;
-        this.bWo = null;
-        this.bWt = new al(this);
-        this.bWu = null;
-        this.aTm = new am(this);
-        this.bWg = singleMentionActivity;
+        this.bWT = null;
+        this.bWU = null;
+        this.bWZ = new al(this);
+        this.bXa = null;
+        this.aTA = new am(this);
+        this.bWM = singleMentionActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -55,121 +55,121 @@ public class ak extends k {
     public void h(Bundle bundle) {
         super.h(bundle);
         if (bundle != null) {
-            this.bWq = (FeedData) bundle.getSerializable("reply_thread");
-            this.arM = bundle.getString(WriteActivityConfig.PHOTO_NAME);
+            this.bWW = (FeedData) bundle.getSerializable("reply_thread");
+            this.atw = bundle.getString(WriteActivityConfig.PHOTO_NAME);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof t) {
-            this.aLd.r(((t) aVar).abF());
+            this.aLq.s(((t) aVar).abK());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.mention.k
-    public View pb() {
-        this.rootView = this.bVG.getLayoutInflater().inflate(i.g.reply_me_activity, (ViewGroup) null);
-        this.aKx = (BdListView) getView().findViewById(i.f.replyme_lv);
-        oS();
+    public View oY() {
+        this.rootView = this.bWm.getLayoutInflater().inflate(i.g.reply_me_activity, (ViewGroup) null);
+        this.aKK = (BdListView) getView().findViewById(i.f.replyme_lv);
+        oP();
         return this.rootView;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.mention.k
-    public void oS() {
-        super.oS();
-        this.bWo = new ae(this.bWg);
-        this.bWo.a(this.bWt);
+    public void oP() {
+        super.oP();
+        this.bWU = new ae(this.bWM);
+        this.bWU.a(this.bWZ);
         this.mRootView = (RelativeLayout) getView().findViewById(i.f.mention_layout_replyme1);
-        this.bWn = (BdListView) getView().findViewById(i.f.replyme_lv);
-        this.bWn.setOnScrollListener(this.aTm);
-        this.aLd = new com.baidu.tbadk.mvc.g.d<>(this.bVG.getPageContext(), z.class, i.g.mention_replyme_item, this.bVG.oH());
-        this.aLd.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.bVG.getResources().getDimension(i.d.ds80)), NoDataViewFactory.d.cD(i.C0057i.mention_replyme_nodata), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
-        this.bWn.setAdapter((ListAdapter) this.aLd);
-        this.aTi = new an(this, this.bVG.getPageContext());
-        this.bWp = (com.baidu.tbadk.editortools.c.n) new com.baidu.tbadk.editortools.c.r().al(this.bVG.getPageContext().getPageActivity());
-        this.bWp.b(this.bVG);
-        this.bWp.b(this.aTi);
-        this.bWp.c(this.bVG);
-        this.bWp.Ay().onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-        if (this.bWp.Ay() != null) {
+        this.bWT = (BdListView) getView().findViewById(i.f.replyme_lv);
+        this.bWT.setOnScrollListener(this.aTA);
+        this.aLq = new com.baidu.tbadk.mvc.g.d<>(this.bWm.getPageContext(), z.class, i.g.mention_replyme_item, this.bWm.oE());
+        this.aLq.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.bWm.getResources().getDimension(i.d.ds80)), NoDataViewFactory.d.cJ(i.h.mention_replyme_nodata), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+        this.bWT.setAdapter((ListAdapter) this.aLq);
+        this.aTw = new an(this, this.bWm.getPageContext());
+        this.bWV = (com.baidu.tbadk.editortools.c.n) new com.baidu.tbadk.editortools.c.r().al(this.bWm.getPageContext().getPageActivity());
+        this.bWV.b(this.bWm);
+        this.bWV.b(this.aTw);
+        this.bWV.c(this.bWm);
+        this.bWV.AL().onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+        if (this.bWV.AL() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.mRootView.addView(this.bWp.Ay(), layoutParams);
-            this.bWp.Ay().hide();
+            this.mRootView.addView(this.bWV.AL(), layoutParams);
+            this.bWV.AL().hide();
         }
-        this.bWp.a(new ao(this));
-        this.bWp.b(new ap(this));
+        this.bWV.a(new ao(this));
+        this.bWV.b(new ap(this));
     }
 
     @Override // com.baidu.tieba.mention.k, com.baidu.tbadk.mvc.f.a.a
-    public void Dj() {
-        super.Dj();
-        if (this.bWp != null && this.bWp.Ay() != null) {
-            this.bWp.Ay().hide();
+    public void Dt() {
+        super.Dt();
+        if (this.bWV != null && this.bWV.AL() != null) {
+            this.bWV.AL().hide();
         }
     }
 
     public boolean onBackPressed() {
-        if (this.bWp == null || this.bWp.Ay() == null || !this.bWp.Ay().AB()) {
+        if (this.bWV == null || this.bWV.AL() == null || !this.bWV.AL().AO()) {
             return false;
         }
-        this.bWp.BL();
+        this.bWV.BZ();
         return true;
     }
 
     public void d(com.baidu.tbadk.mvc.c.b bVar) {
         long c;
-        if (bVar != null && bVar.CG() == 9486) {
-            FeedData feedData = (FeedData) bVar.CH();
+        if (bVar != null && bVar.CQ() == 9486) {
+            FeedData feedData = (FeedData) bVar.CR();
             ViewParent viewParent = (ViewParent) bVar.getView();
-            while (viewParent != null && (viewParent instanceof View) && viewParent != this.bWn) {
+            while (viewParent != null && (viewParent instanceof View) && viewParent != this.bWT) {
                 viewParent = viewParent.getParent();
             }
-            if (viewParent == this.bWn && viewParent != null) {
+            if (viewParent == this.bWT && viewParent != null) {
                 Rect rect = new Rect();
                 bVar.getView().getDrawingRect(rect);
-                this.bWn.offsetDescendantRectToMyCoords(bVar.getView(), rect);
+                this.bWT.offsetDescendantRectToMyCoords(bVar.getView(), rect);
                 this.mBottom = rect.bottom;
-                this.anz = bVar.CI();
-                this.bWq = feedData;
+                this.apk = bVar.CS();
+                this.bWW = feedData;
                 if (feedData.getIsFloor()) {
                     c = com.baidu.adp.lib.g.b.c(feedData.getQuote_pid(), 0L);
                 } else {
                     c = com.baidu.adp.lib.g.b.c(feedData.getPost_id(), 0L);
                 }
-                this.bWo.a(c, 2, feedData.getFname());
+                this.bWU.a(c, 2, feedData.getFname());
             }
         }
     }
 
     @Override // com.baidu.tbadk.mvc.f.a.a
-    public com.baidu.tbadk.mvc.f.a.b Di() {
-        if (this.bVM == null) {
-            this.bVM = new com.baidu.tbadk.mvc.f.a.b();
-            this.bVM.setTitle(this.bVG.getPageContext().getString(i.C0057i.mention_replyme));
-            this.bVM.ei(1);
+    public com.baidu.tbadk.mvc.f.a.b Ds() {
+        if (this.bWs == null) {
+            this.bWs = new com.baidu.tbadk.mvc.f.a.b();
+            this.bWs.setTitle(this.bWm.getPageContext().getString(i.h.mention_replyme));
+            this.bWs.eq(1);
             FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-            aVar.view = this.bVG.getLayoutInflater().inflate(i.g.message_tip_item, (ViewGroup) null);
-            this.bVM.a(aVar);
-            this.bVM.fl("msg_tip_key");
+            aVar.view = this.bWm.getLayoutInflater().inflate(i.g.message_tip_item, (ViewGroup) null);
+            this.bWs.a(aVar);
+            this.bWs.ft("msg_tip_key");
         }
-        return this.bVM;
+        return this.bWs;
     }
 
     public boolean onActivityResult(int i, int i2, Intent intent) {
-        if (this.bWp != null) {
-            this.bWp.onActivityResult(i, i2, intent);
+        if (this.bWV != null) {
+            this.bWV.onActivityResult(i, i2, intent);
             return false;
         }
         return false;
     }
 
     public void onSaveInstanceState(Bundle bundle) {
-        bundle.putString(WriteActivityConfig.PHOTO_NAME, this.arM);
-        bundle.putSerializable("reply_thread", this.bWq);
+        bundle.putString(WriteActivityConfig.PHOTO_NAME, this.atw);
+        bundle.putSerializable("reply_thread", this.bWW);
     }
 
     public void a(NavigationBar navigationBar) {
@@ -178,8 +178,8 @@ public class ak extends k {
 
     @Override // com.baidu.adp.base.f
     public void destroy() {
-        if (this.bWp != null) {
-            this.bWp.onDestory();
+        if (this.bWV != null) {
+            this.bWV.onDestory();
         }
     }
 }

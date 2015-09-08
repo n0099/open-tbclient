@@ -7,22 +7,22 @@ import com.baidu.adp.widget.f;
 import com.baidu.tbadk.widget.TbViewPager;
 /* loaded from: classes.dex */
 public class SquareViewPager extends TbViewPager {
-    private boolean adR;
-    private f.b adT;
+    private boolean aeb;
+    private f.b aed;
 
     public SquareViewPager(Context context) {
         super(context);
-        this.adR = true;
+        this.aeb = true;
     }
 
     public SquareViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.adR = true;
+        this.aeb = true;
     }
 
     @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.adR) {
+        if (this.aeb) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -30,28 +30,28 @@ public class SquareViewPager extends TbViewPager {
         }
         int action = motionEvent.getAction();
         if (action == 3 || action == 1) {
-            if (this.adT != null) {
-                this.adT.od();
+            if (this.aed != null) {
+                this.aed.oa();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
         switch (action) {
             case 0:
-                if (this.adT != null) {
-                    this.adT.oe();
+                if (this.aed != null) {
+                    this.aed.ob();
                     break;
                 }
                 break;
             case 1:
             default:
-                if (this.adT != null) {
-                    this.adT.od();
+                if (this.aed != null) {
+                    this.aed.oa();
                     break;
                 }
                 break;
             case 2:
-                if (this.adT != null) {
-                    this.adT.oe();
+                if (this.aed != null) {
+                    this.aed.ob();
                     break;
                 }
                 break;
@@ -61,7 +61,7 @@ public class SquareViewPager extends TbViewPager {
 
     @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.adR) {
+        if (this.aeb) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -69,26 +69,26 @@ public class SquareViewPager extends TbViewPager {
         }
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.adT != null) {
-                    this.adT.oe();
+                if (this.aed != null) {
+                    this.aed.ob();
                     break;
                 }
                 break;
             case 1:
-                if (this.adT != null) {
-                    this.adT.od();
+                if (this.aed != null) {
+                    this.aed.oa();
                     break;
                 }
                 break;
             case 2:
-                if (this.adT != null) {
-                    this.adT.oe();
+                if (this.aed != null) {
+                    this.aed.ob();
                     break;
                 }
                 break;
             default:
-                if (this.adT != null) {
-                    this.adT.od();
+                if (this.aed != null) {
+                    this.aed.oa();
                     break;
                 }
                 break;
@@ -97,10 +97,10 @@ public class SquareViewPager extends TbViewPager {
     }
 
     public void setSwipeControlInterface(f.b bVar) {
-        this.adT = bVar;
+        this.aed = bVar;
     }
 
     public void setDisableParentEvent(boolean z) {
-        this.adR = z;
+        this.aeb = z;
     }
 }

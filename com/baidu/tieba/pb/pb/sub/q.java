@@ -10,11 +10,11 @@ import java.text.MessageFormat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements a.InterfaceC0039a {
-    final /* synthetic */ NewSubPbActivity cfY;
+    final /* synthetic */ NewSubPbActivity cgV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(NewSubPbActivity newSubPbActivity) {
-        this.cfY = newSubPbActivity;
+        this.cgV = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0039a
@@ -29,41 +29,41 @@ public class q implements a.InterfaceC0039a {
         ak akVar5;
         com.baidu.tbadk.baseEditMark.a aVar4;
         if (z) {
-            aVar = this.cfY.caM;
+            aVar = this.cgV.cbH;
             if (aVar != null) {
-                aVar4 = this.cfY.caM;
+                aVar4 = this.cgV.cbH;
                 aVar4.ab(z2);
             }
-            aVar2 = this.cfY.caM;
-            MarkData qu = aVar2.qu();
+            aVar2 = this.cgV.cbH;
+            MarkData qr = aVar2.qr();
             am amVar = new am();
             amVar.setType(2);
             if (z2) {
-                amVar.setData(qu);
-                aVar3 = this.cfY.caM;
+                amVar.setData(qr);
+                aVar3 = this.cgV.cbH;
                 if (aVar3 != null) {
-                    if (qu != null) {
-                        akVar3 = this.cfY.cfP;
-                        akVar3.eF(true);
-                        akVar4 = this.cfY.cfP;
-                        akVar5 = this.cfY.cfP;
-                        akVar4.ju(akVar5.Bl());
-                        this.cfY.showToast(MessageFormat.format(this.cfY.getPageContext().getString(i.C0057i.add_mark_on_pb), Integer.valueOf(qu.getFloor())));
+                    if (qr != null) {
+                        akVar3 = this.cgV.cgM;
+                        akVar3.eN(true);
+                        akVar4 = this.cgV.cgM;
+                        akVar5 = this.cgV.cgM;
+                        akVar4.jC(akVar5.By());
+                        this.cgV.showToast(MessageFormat.format(this.cgV.getPageContext().getString(i.h.add_mark_on_pb), Integer.valueOf(qr.getFloor())));
                     } else {
-                        this.cfY.showToast(this.cfY.getPageContext().getString(i.C0057i.add_mark));
+                        this.cgV.showToast(this.cgV.getPageContext().getString(i.h.add_mark));
                     }
                 }
             } else {
                 amVar.setData(null);
-                akVar = this.cfY.cfP;
-                akVar.eF(false);
-                akVar2 = this.cfY.cfP;
-                akVar2.ju(null);
-                this.cfY.showToast(this.cfY.getPageContext().getString(i.C0057i.remove_mark));
+                akVar = this.cgV.cgM;
+                akVar.eN(false);
+                akVar2 = this.cgV.cgM;
+                akVar2.jC(null);
+                this.cgV.showToast(this.cgV.getPageContext().getString(i.h.remove_mark));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, amVar));
             return;
         }
-        this.cfY.showToast(this.cfY.getPageContext().getString(i.C0057i.update_mark_failed));
+        this.cgV.showToast(this.cgV.getPageContext().getString(i.h.update_mark_failed));
     }
 }

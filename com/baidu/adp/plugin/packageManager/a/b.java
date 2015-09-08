@@ -19,7 +19,7 @@ public class b {
     private b() {
     }
 
-    public static b mv() {
+    public static b ms() {
         if (Es == null) {
             synchronized (b.class) {
                 if (Es == null) {
@@ -31,14 +31,14 @@ public class b {
     }
 
     public void bE(String str) {
-        a bG = mv().bG(str);
+        a bG = ms().bG(str);
         if (bG != null) {
             bG.Ep = PluginPackageManager.PluginStatus.NROMAL;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, bG));
     }
 
-    public void h(String str, String str2, String str3) {
+    public void j(String str, String str2, String str3) {
         String string;
         String string2;
         int i = 2;
@@ -48,7 +48,6 @@ public class b {
         } else if (!"plugin_install_retry_timeout".equals(str2) && !"plugin_install_timeout".equals(str2)) {
             if (str3 != null) {
                 if (str3.toLowerCase(Locale.getDefault()).contains("no_space_left_on_device")) {
-                    com.baidu.adp.plugin.b.a.lH().I("plugin_rom_small", str);
                     string = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_rom_too_small);
                     string2 = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_rom_too_small);
                 } else if (str3.toLowerCase(Locale.getDefault()).contains("read-only_file_system")) {
@@ -100,7 +99,7 @@ public class b {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, bG));
     }
 
-    public List<a> mw() {
+    public List<a> mt() {
         ArrayList arrayList;
         a value;
         synchronized (this.Et) {

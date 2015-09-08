@@ -11,48 +11,48 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class y {
-    private PersonInfoActivity cjU;
-    private View clV;
-    private RelativeLayout cmZ;
-    private TextView cna;
-    private ImageView cnb;
-    private ImageView cnc;
+    private PersonInfoActivity ckP;
+    private View cmY;
+    private RelativeLayout cob;
+    private TextView coc;
+    private ImageView cod;
+    private ImageView coe;
     private View mRootView;
 
     public y(PersonInfoActivity personInfoActivity) {
-        this.cjU = personInfoActivity;
-        this.mRootView = LayoutInflater.from(this.cjU.getPageContext().getPageActivity()).inflate(i.g.personinfo_my_mark_view, (ViewGroup) null);
+        this.ckP = personInfoActivity;
+        this.mRootView = LayoutInflater.from(this.ckP.getPageContext().getPageActivity()).inflate(i.g.personinfo_my_mark_view, (ViewGroup) null);
         initView();
     }
 
     private void initView() {
-        this.clV = this.mRootView.findViewById(i.f.root_next);
-        this.cmZ = (RelativeLayout) this.mRootView.findViewById(i.f.bookmark);
-        this.cna = (TextView) this.mRootView.findViewById(i.f.bookmark_num);
-        this.cnb = (ImageView) this.mRootView.findViewById(i.f.bookmark_icon);
-        this.cnc = (ImageView) this.mRootView.findViewById(i.f.bookmark_arrow);
-        this.cmZ.setOnClickListener(this.cjU);
+        this.cmY = this.mRootView.findViewById(i.f.root_next);
+        this.cob = (RelativeLayout) this.mRootView.findViewById(i.f.bookmark);
+        this.coc = (TextView) this.mRootView.findViewById(i.f.bookmark_num);
+        this.cod = (ImageView) this.mRootView.findViewById(i.f.bookmark_icon);
+        this.coe = (ImageView) this.mRootView.findViewById(i.f.bookmark_arrow);
+        this.cob.setOnClickListener(this.ckP);
     }
 
-    public RelativeLayout agY() {
-        return this.cmZ;
+    public RelativeLayout ahq() {
+        return this.cob;
     }
 
-    public void ahi() {
-        UserData userData = this.cjU.agL().getUserData();
+    public void ahA() {
+        UserData userData = this.ckP.ahd().getUserData();
         if (userData != null) {
-            this.cna.setText(String.valueOf(userData.getMarkCount()));
+            this.coc.setText(String.valueOf(userData.getMarkCount()));
             if (userData.getMarkCount() <= 0) {
-                al.b(this.cna, i.c.cp_cont_e, 1);
-                this.cnc.setVisibility(8);
+                al.b(this.coc, i.c.cp_cont_e, 1);
+                this.coe.setVisibility(8);
             } else {
-                al.b(this.cna, i.c.cp_cont_b, 1);
-                this.cnc.setVisibility(0);
+                al.b(this.coc, i.c.cp_cont_b, 1);
+                this.coe.setVisibility(0);
             }
             if (userData.getNewMarkCount() > 0) {
-                this.cnb.setVisibility(0);
+                this.cod.setVisibility(0);
             } else {
-                this.cnb.setVisibility(8);
+                this.cod.setVisibility(8);
             }
         }
     }

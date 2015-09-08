@@ -5,24 +5,24 @@ import com.baidu.tbadk.widget.TbImageView;
 import java.util.Map;
 /* loaded from: classes.dex */
 class i implements com.baidu.tbadk.imageManager.b {
-    final /* synthetic */ h cQh;
-    private final /* synthetic */ ViewGroup cQi;
+    final /* synthetic */ h cYS;
+    private final /* synthetic */ ViewGroup cYT;
     private final /* synthetic */ int val$position;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, ViewGroup viewGroup, int i) {
-        this.cQh = hVar;
-        this.cQi = viewGroup;
+        this.cYS = hVar;
+        this.cYT = viewGroup;
         this.val$position = i;
     }
 
     @Override // com.baidu.tbadk.imageManager.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         Map map;
-        TbImageView tbImageView = (TbImageView) this.cQi.findViewWithTag(str);
+        TbImageView tbImageView = (TbImageView) this.cYT.findViewWithTag(str);
         if (tbImageView != null && aVar != null) {
             tbImageView.invalidate();
-            map = this.cQh.cQg;
+            map = this.cYS.cYR;
             map.put(Integer.valueOf(this.val$position), true);
         }
     }

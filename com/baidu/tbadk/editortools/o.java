@@ -6,9 +6,9 @@ public class o {
     public static p a(Context context, v vVar, int i) {
         switch (i) {
             case 1:
-                return new c(context, vVar.apf, vVar.id);
+                return new c(context, vVar.aqQ, vVar.id);
             default:
-                return new e(context, vVar.apf, vVar.name, vVar.id);
+                return new e(context, vVar.aqQ, vVar.name, vVar.id);
         }
     }
 }

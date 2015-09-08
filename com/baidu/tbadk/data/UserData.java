@@ -387,6 +387,7 @@ public class UserData extends MetaData {
         return this.concern_num;
     }
 
+    @Override // com.baidu.tbadk.data.MetaData
     public int getFansNum() {
         return this.mFansNum;
     }

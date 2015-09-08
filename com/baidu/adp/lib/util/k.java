@@ -20,7 +20,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.tbadk.TbConfig;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
@@ -28,13 +27,13 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class k {
-    private static float yB;
-    static int yC;
-    static int yD;
-    private static String yG;
-    static boolean yA = false;
-    private static Toast yE = null;
-    private static a yF = null;
+    static int yA;
+    static int yB;
+    private static String yE;
+    private static float yz;
+    static boolean yy = false;
+    private static Toast yC = null;
+    private static a yD = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new l();
 
@@ -42,7 +41,7 @@ public class k {
     public interface a {
         void aU(String str);
 
-        View jm();
+        View jj();
     }
 
     public static void J(Context context) {
@@ -51,72 +50,72 @@ public class k {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            yC = displayMetrics.heightPixels;
-            yD = displayMetrics.widthPixels;
+            yA = displayMetrics.heightPixels;
+            yB = displayMetrics.widthPixels;
         } else {
-            yC = displayMetrics.widthPixels;
-            yD = displayMetrics.heightPixels;
+            yA = displayMetrics.widthPixels;
+            yB = displayMetrics.heightPixels;
         }
-        yB = displayMetrics.density;
-        yA = true;
+        yz = displayMetrics.density;
+        yy = true;
     }
 
     public static int K(Context context) {
-        if (!yA) {
+        if (!yy) {
             J(context);
         }
-        return yC;
+        return yA;
     }
 
     public static int L(Context context) {
-        if (!yA) {
-            J(context);
-        }
-        return yD;
-    }
-
-    public static int dip2px(Context context, float f) {
-        if (!yA) {
-            J(context);
-        }
-        return (int) ((yB * f) + 0.5f);
-    }
-
-    public static float M(Context context) {
-        if (!yA) {
+        if (!yy) {
             J(context);
         }
         return yB;
     }
 
+    public static int dip2px(Context context, float f) {
+        if (!yy) {
+            J(context);
+        }
+        return (int) ((yz * f) + 0.5f);
+    }
+
+    public static float M(Context context) {
+        if (!yy) {
+            J(context);
+        }
+        return yz;
+    }
+
     public static void showToast(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (yE == null) {
-                if (yF == null || yF.jm() == null) {
-                    yE = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
+            if (yC == null) {
+                if (yD == null || yD.jj() == null) {
+                    yC = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
                 } else {
-                    yE = new Toast(BdBaseApplication.getInst().getApp());
-                    yE.setDuration(0);
-                    yF.aU(str);
-                    yE.setView(yF.jm());
+                    yC = new Toast(BdBaseApplication.getInst().getApp());
+                    yC.setDuration(0);
+                    yD.aU(str);
+                    yC.setView(yD.jj());
                 }
-                yE.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
-            } else if (!str.equals(yG)) {
-                if (yF == null || yF.jm() == null) {
-                    yE.setText(str);
+                yC.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+            } else if (!str.equals(yE)) {
+                if (yD == null || yD.jj() == null) {
+                    yC.setText(str);
                 } else {
-                    yF.aU(str);
+                    yD.aU(str);
                 }
             }
-            yG = str;
+            yE = str;
             mHandler.postDelayed(mRunnable, i);
-            yE.show();
+            yC.show();
         }
     }
 
     public static void showToast(Context context, String str) {
-        showToast(context, str, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
+        showToast(context, str, 2000);
     }
 
     public static void showToast(Context context, int i) {
@@ -308,7 +307,7 @@ public class k {
         return false;
     }
 
-    public static void jd() {
+    public static void ja() {
         if (BdBaseApplication.getInst().isDebugMode()) {
             boolean z = false;
             if ((Looper.myLooper() == null || Looper.getMainLooper() != Looper.myLooper()) ? true : true) {
@@ -328,12 +327,12 @@ public class k {
         }
     }
 
-    public static boolean je() {
+    public static boolean jb() {
         return Looper.getMainLooper() == Looper.myLooper();
     }
 
-    public static boolean jf() {
-        return i.iO();
+    public static boolean jc() {
+        return i.iL();
     }
 
     public static void a(Context context, View view, int i, int i2, int i3, int i4) {
@@ -345,7 +344,7 @@ public class k {
         view2.post(new m(view, dip2px3, dip2px, dip2px4, dip2px2, view2));
     }
 
-    public static String jg() {
+    public static String jd() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -378,7 +377,7 @@ public class k {
         return str;
     }
 
-    public static String jh() {
+    public static String je() {
         BufferedReader bufferedReader;
         Throwable th;
         String str = null;
@@ -411,11 +410,11 @@ public class k {
         return str;
     }
 
-    public static boolean ji() {
+    public static boolean jf() {
         return Build.VERSION.SDK_INT > 9;
     }
 
-    public static boolean jj() {
+    public static boolean jg() {
         String aT;
         String str = Build.DISPLAY;
         if (str != null && str.contains("Flyme") && (aT = aT(str)) != null && aT.length() >= 3) {
@@ -438,11 +437,11 @@ public class k {
         return Pattern.compile("[^0-9]").matcher(str).replaceAll("").trim();
     }
 
-    public static a jk() {
-        return yF;
+    public static a jh() {
+        return yD;
     }
 
     public static void a(a aVar) {
-        yF = aVar;
+        yD = aVar;
     }
 }

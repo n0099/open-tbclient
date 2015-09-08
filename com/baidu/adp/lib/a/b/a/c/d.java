@@ -5,24 +5,24 @@ import java.lang.reflect.Type;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class d implements c {
-    private a sd;
+    private a sb;
 
     public d(Intent intent) {
-        this.sd = new a(intent.getExtras());
+        this.sb = new a(intent.getExtras());
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
-    public Set<String> fM() {
-        return this.sd.fM();
+    public Set<String> fJ() {
+        return this.sb.fJ();
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
     public void e(String str, Object obj) {
-        this.sd.e(str, obj);
+        this.sb.e(str, obj);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.c.c
     public Object a(String str, Type type) {
-        return this.sd.a(str, type);
+        return this.sb.a(str, type);
     }
 }

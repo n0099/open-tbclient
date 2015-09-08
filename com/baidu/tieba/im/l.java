@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TiebaIMConfig;
 /* loaded from: classes.dex */
 public class l {
-    private static final BdUniqueId bmO = BdUniqueId.gen();
+    private static final BdUniqueId bnm = BdUniqueId.gen();
 
     public static <T> void a(h<T> hVar, g<T> gVar) {
         if (hVar != null) {
             a aVar = new a(hVar, gVar);
             aVar.setParallel(TiebaIMConfig.getParallel());
-            aVar.setTag(bmO);
+            aVar.setTag(bnm);
             aVar.setPriority(4);
             aVar.execute(new String[0]);
         }
@@ -20,14 +20,14 @@ public class l {
 
     /* loaded from: classes.dex */
     private static class a<T> extends BdAsyncTask<String, Object, T> {
-        private h<T> bmP;
-        private g<T> bmQ;
+        private h<T> bnn;
+        private g<T> bno;
 
         public a(h<T> hVar, g<T> gVar) {
-            this.bmP = null;
-            this.bmQ = null;
-            this.bmP = hVar;
-            this.bmQ = gVar;
+            this.bnn = null;
+            this.bno = null;
+            this.bnn = hVar;
+            this.bno = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,10 +36,10 @@ public class l {
         /* renamed from: d */
         public T doInBackground(String... strArr) {
             try {
-                if (this.bmP == null) {
+                if (this.bnn == null) {
                     return null;
                 }
-                return this.bmP.doInBackground();
+                return this.bnn.doInBackground();
             } catch (Throwable th) {
                 BdLog.detailException(th);
                 return null;
@@ -49,13 +49,13 @@ public class l {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(T t) {
-            if (this.bmQ != null) {
-                this.bmQ.onReturnDataInUI(t);
+            if (this.bno != null) {
+                this.bno.onReturnDataInUI(t);
             }
         }
     }
 
-    public static void QD() {
-        BdAsyncTask.removeAllTask(bmO);
+    public static void QF() {
+        BdAsyncTask.removeAllTask(bnm);
     }
 }

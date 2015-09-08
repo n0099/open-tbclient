@@ -8,35 +8,35 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ n cAI;
-    private final /* synthetic */ e cAJ;
-    private final /* synthetic */ n.b cAK;
+    final /* synthetic */ n cJg;
+    private final /* synthetic */ e cJh;
+    private final /* synthetic */ n.b cJi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar, e eVar, n.b bVar) {
-        this.cAI = nVar;
-        this.cAJ = eVar;
-        this.cAK = bVar;
+        this.cJg = nVar;
+        this.cJh = eVar;
+        this.cJi = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         SignAllForumActivity signAllForumActivity;
         HashMap hashMap;
-        if (!this.cAJ.anf()) {
-            this.cAK.cAV.setVisibility(4);
-            this.cAK.cAW.setVisibility(0);
-            this.cAK.cAX.setText(i.C0057i.signallforum_resigning);
-            this.cAJ.fm(true);
-            signAllForumActivity = this.cAI.cAG;
+        if (!this.cJh.aro()) {
+            this.cJi.cJt.setVisibility(4);
+            this.cJi.cJu.setVisibility(0);
+            this.cJi.cJv.setText(i.h.signallforum_resigning);
+            this.cJh.fX(true);
+            signAllForumActivity = this.cJg.cJe;
             ab abVar = new ab(signAllForumActivity);
-            abVar.a(this.cAI);
-            String sb = new StringBuilder(String.valueOf(this.cAJ.getForumId())).toString();
-            synchronized (this.cAI) {
-                hashMap = this.cAI.cAH;
+            abVar.a(this.cJg);
+            String sb = new StringBuilder(String.valueOf(this.cJh.getForumId())).toString();
+            synchronized (this.cJg) {
+                hashMap = this.cJg.cJf;
                 hashMap.put(sb, abVar);
             }
-            abVar.au(this.cAJ.getForumName(), sb);
+            abVar.av(this.cJh.getForumName(), sb);
             TiebaStatic.log("signall_resign_click");
         }
     }

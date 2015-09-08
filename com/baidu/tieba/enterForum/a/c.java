@@ -1,9 +1,9 @@
 package com.baidu.tieba.enterForum.a;
 /* loaded from: classes.dex */
 public interface c {
-    void Il();
+    void HZ();
 
     void R(int i, int i2);
 
-    void eI(int i);
+    void eP(int i);
 }

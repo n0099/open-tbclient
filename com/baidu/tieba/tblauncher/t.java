@@ -1,11 +1,9 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.Intent;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
 /* loaded from: classes.dex */
-public class t implements a.b {
+class t implements Runnable {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,13 +11,12 @@ public class t implements a.b {
         this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        try {
-            this.this$0.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-            aVar.dismiss();
-        } catch (Exception e) {
-            this.this$0.showToast(i.C0057i.goto_developActivity_error_toast);
+    @Override // java.lang.Runnable
+    public void run() {
+        boolean z;
+        z = this.this$0.cUC;
+        if (!z) {
+            MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
         }
     }
 }

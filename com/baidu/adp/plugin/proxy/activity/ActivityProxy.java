@@ -43,7 +43,7 @@ import com.baidu.megapp.ma.MAActivity;
 public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.a {
     private c EA = null;
 
-    public void mx() {
+    public void mu() {
         if (this.EA == null && !super.isFinishing()) {
             Intent intent = getIntent();
             if (intent == null) {
@@ -60,12 +60,12 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
                 String stringExtra2 = intent.getStringExtra("intent_extra_activity");
                 if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
                     com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
-                    this.EA = (c) plugin2.ks().loadClass(stringExtra2).asSubclass(c.class).newInstance();
+                    this.EA = (c) plugin2.kp().loadClass(stringExtra2).asSubclass(c.class).newInstance();
                     this.EA.setActivityProxy(this);
                     this.EA.setPluginPackageName(stringExtra);
-                    setTheme(plugin2.kv());
+                    setTheme(plugin2.ks());
                 } else {
-                    this.EA = (c) PluginCenter.getInstance().getPlugin(stringExtra).ks().loadClass(stringExtra2).asSubclass(c.class).newInstance();
+                    this.EA = (c) PluginCenter.getInstance().getPlugin(stringExtra).kp().loadClass(stringExtra2).asSubclass(c.class).newInstance();
                     this.EA.setActivityProxy(this);
                     this.EA.setPluginPackageName(stringExtra);
                 }
@@ -410,7 +410,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     protected void onCreate(Bundle bundle) {
         requestWindowFeature(1);
         this.EA = null;
-        mx();
+        mu();
         if (this.EA != null) {
             f.a(this.EA, "onCreate", new Class[]{Bundle.class}, new Object[]{bundle});
         } else {
@@ -741,12 +741,12 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void kH() {
+    public void kE() {
         super.closeContextMenu();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void kI() {
+    public void kF() {
         super.closeOptionsMenu();
     }
 
@@ -781,7 +781,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void kJ() {
+    public void kG() {
         super.finish();
     }
 
@@ -801,42 +801,42 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public ComponentName kL() {
+    public ComponentName kI() {
         return null;
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public String kM() {
+    public String kJ() {
         return super.getCallingPackage();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public int kN() {
+    public int kK() {
         return super.getChangingConfigurations();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public View kO() {
+    public View kL() {
         return super.getCurrentFocus();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public Intent kP() {
+    public Intent kM() {
         return super.getIntent();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public LayoutInflater kQ() {
+    public LayoutInflater kN() {
         return super.getLayoutInflater();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public String kR() {
+    public String kO() {
         return super.getLocalClassName();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public MenuInflater kS() {
+    public MenuInflater kP() {
         return super.getMenuInflater();
     }
 
@@ -851,7 +851,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public int kT() {
+    public int kQ() {
         return super.getRequestedOrientation();
     }
 
@@ -861,42 +861,42 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public int kU() {
+    public int kR() {
         return super.getTaskId();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public int kV() {
+    public int kS() {
         return super.getWallpaperDesiredMinimumHeight();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public int kW() {
+    public int kT() {
         return super.getWallpaperDesiredMinimumWidth();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public Window kX() {
+    public Window kU() {
         return super.getWindow();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public WindowManager kY() {
+    public WindowManager kV() {
         return super.getWindowManager();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public boolean kZ() {
+    public boolean kW() {
         return super.hasWindowFocus();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public boolean la() {
+    public boolean kX() {
         return super.isFinishing();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public boolean lb() {
+    public boolean kY() {
         return super.isTaskRoot();
     }
 
@@ -916,12 +916,12 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lc() {
+    public void kZ() {
         super.onAttachedToWindow();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void ld() {
+    public void la() {
         super.onBackPressed();
     }
 
@@ -936,7 +936,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void le() {
+    public void lb() {
         super.onContentChanged();
     }
 
@@ -976,7 +976,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lf() {
+    public void lc() {
         super.onDetachedFromWindow();
     }
 
@@ -1031,7 +1031,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lg() {
+    public void ld() {
         super.onPause();
     }
 
@@ -1041,7 +1041,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lh() {
+    public void le() {
         super.onPostResume();
     }
 
@@ -1061,7 +1061,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void li() {
+    public void lf() {
         super.onRestart();
     }
 
@@ -1071,12 +1071,12 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lj() {
+    public void lg() {
         super.onResume();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public Object lk() {
+    public Object lh() {
         return super.onRetainNonConfigurationInstance();
     }
 
@@ -1086,17 +1086,17 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public boolean ll() {
+    public boolean li() {
         return super.onSearchRequested();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lm() {
+    public void lj() {
         super.onStart();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void ln() {
+    public void lk() {
         super.onStop();
     }
 
@@ -1116,7 +1116,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lo() {
+    public void ll() {
         super.onUserInteraction();
     }
 
@@ -1136,7 +1136,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lp() {
+    public void lm() {
         super.openOptionsMenu();
     }
 
@@ -1491,7 +1491,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public c kG() {
+    public c kD() {
         return this.EA;
     }
 
@@ -1506,7 +1506,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public Context kK() {
+    public Context kH() {
         return super.getApplicationContext();
     }
 }

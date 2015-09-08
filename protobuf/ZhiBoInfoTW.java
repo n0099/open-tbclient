@@ -2,6 +2,8 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes.dex */
 public final class ZhiBoInfoTW extends Message {
     public static final String DEFAULT_CONTENT = "";
@@ -15,6 +17,12 @@ public final class ZhiBoInfoTW extends Message {
     public final Long forumId;
     @ProtoField(tag = 7, type = Message.Datatype.STRING)
     public final String forumName;
+    @ProtoField(tag = 15, type = Message.Datatype.UINT32)
+    public final Integer isHeadline;
+    @ProtoField(tag = 16, type = Message.Datatype.UINT32)
+    public final Integer isNewHeadline;
+    @ProtoField(label = Message.Label.REPEATED, tag = 13)
+    public final List<LabelInfoForLivePost> labels;
     @ProtoField(tag = 9, type = Message.Datatype.UINT64)
     public final Long lastModifiedTime;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
@@ -23,6 +31,8 @@ public final class ZhiBoInfoTW extends Message {
     public final String livecoverSrcBsize;
     @ProtoField(tag = 4, type = Message.Datatype.UINT32)
     public final Integer postNum;
+    @ProtoField(tag = 14, type = Message.Datatype.UINT32)
+    public final Integer rank;
     @ProtoField(tag = 5, type = Message.Datatype.UINT32)
     public final Integer replyNum;
     @ProtoField(tag = 1, type = Message.Datatype.UINT64)
@@ -38,6 +48,10 @@ public final class ZhiBoInfoTW extends Message {
     public static final Integer DEFAULT_REPLYNUM = 0;
     public static final Long DEFAULT_FORUMID = 0L;
     public static final Long DEFAULT_LASTMODIFIEDTIME = 0L;
+    public static final List<LabelInfoForLivePost> DEFAULT_LABELS = Collections.emptyList();
+    public static final Integer DEFAULT_RANK = 0;
+    public static final Integer DEFAULT_ISHEADLINE = 0;
+    public static final Integer DEFAULT_ISNEWHEADLINE = 0;
 
     /* synthetic */ ZhiBoInfoTW(Builder builder, boolean z, ZhiBoInfoTW zhiBoInfoTW) {
         this(builder, z);
@@ -98,7 +112,28 @@ public final class ZhiBoInfoTW extends Message {
                 this.content = builder.content;
             }
             this.userInfo = builder.userInfo;
-            return;
+            if (builder.labels == null) {
+                this.labels = DEFAULT_LABELS;
+            } else {
+                this.labels = immutableCopyOf(builder.labels);
+            }
+            if (builder.rank == null) {
+                this.rank = DEFAULT_RANK;
+            } else {
+                this.rank = builder.rank;
+            }
+            if (builder.isHeadline == null) {
+                this.isHeadline = DEFAULT_ISHEADLINE;
+            } else {
+                this.isHeadline = builder.isHeadline;
+            }
+            if (builder.isNewHeadline == null) {
+                this.isNewHeadline = DEFAULT_ISNEWHEADLINE;
+                return;
+            } else {
+                this.isNewHeadline = builder.isNewHeadline;
+                return;
+            }
         }
         this.threadId = builder.threadId;
         this.livecoverSrc = builder.livecoverSrc;
@@ -112,6 +147,10 @@ public final class ZhiBoInfoTW extends Message {
         this.title = builder.title;
         this.content = builder.content;
         this.userInfo = builder.userInfo;
+        this.labels = immutableCopyOf(builder.labels);
+        this.rank = builder.rank;
+        this.isHeadline = builder.isHeadline;
+        this.isNewHeadline = builder.isNewHeadline;
     }
 
     /* loaded from: classes.dex */
@@ -119,10 +158,14 @@ public final class ZhiBoInfoTW extends Message {
         public String content;
         public Long forumId;
         public String forumName;
+        public Integer isHeadline;
+        public Integer isNewHeadline;
+        public List<LabelInfoForLivePost> labels;
         public Long lastModifiedTime;
         public String livecoverSrc;
         public String livecoverSrcBsize;
         public Integer postNum;
+        public Integer rank;
         public Integer replyNum;
         public Long threadId;
         public String title;
@@ -147,6 +190,10 @@ public final class ZhiBoInfoTW extends Message {
                 this.title = zhiBoInfoTW.title;
                 this.content = zhiBoInfoTW.content;
                 this.userInfo = zhiBoInfoTW.userInfo;
+                this.labels = ZhiBoInfoTW.copyOf(zhiBoInfoTW.labels);
+                this.rank = zhiBoInfoTW.rank;
+                this.isHeadline = zhiBoInfoTW.isHeadline;
+                this.isNewHeadline = zhiBoInfoTW.isNewHeadline;
             }
         }
 

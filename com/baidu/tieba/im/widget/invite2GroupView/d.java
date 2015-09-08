@@ -7,13 +7,13 @@ import com.baidu.tieba.im.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements g<Boolean> {
-    private final /* synthetic */ TbPageContext Sn;
-    final /* synthetic */ Invite2GroupView bFn;
+    private final /* synthetic */ TbPageContext Sk;
+    final /* synthetic */ Invite2GroupView bFU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Invite2GroupView invite2GroupView, TbPageContext tbPageContext) {
-        this.bFn = invite2GroupView;
-        this.Sn = tbPageContext;
+        this.bFU = invite2GroupView;
+        this.Sk = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,10 +25,10 @@ public class d implements g<Boolean> {
             bool = false;
         }
         if (!bool.booleanValue()) {
-            textView = this.bFn.bFl;
-            textView.setTextColor(this.bFn.getContext().getResources().getColor(i.c.group_info_join_disable_color));
-            textView2 = this.bFn.bFl;
-            textView2.setOnClickListener(new e(this, this.Sn));
+            textView = this.bFU.bFS;
+            textView.setTextColor(this.bFU.getContext().getResources().getColor(i.c.group_info_join_disable_color));
+            textView2 = this.bFU.bFS;
+            textView2.setOnClickListener(new e(this, this.Sk));
         }
     }
 }

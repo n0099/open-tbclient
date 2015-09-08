@@ -1,32 +1,14 @@
 package com.baidu.tieba.tbadkCore;
-
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ FrsCommonImageLayout cGS;
+public class e {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(FrsCommonImageLayout frsCommonImageLayout) {
-        this.cGS = frsCommonImageLayout;
-    }
-
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewRemoved(View view, View view2) {
-        com.baidu.adp.lib.e.b bVar;
-        com.baidu.adp.lib.e.b bVar2;
-        if (view2 instanceof TbImageView) {
-            bVar = this.cGS.cGL;
-            if (bVar != null) {
-                bVar2 = this.cGS.cGL;
-                bVar2.k((TbImageView) view2);
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup.OnHierarchyChangeListener
-    public void onChildViewAdded(View view, View view2) {
+    /* loaded from: classes.dex */
+    public static class a {
+        public boolean cPd = false;
+        public boolean isSuccess = false;
+        public int errorCode = 0;
+        public String errorMsg = "";
+        public long cPe = 0;
+        public boolean isWifi = false;
     }
 }

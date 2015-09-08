@@ -30,6 +30,7 @@ public class XiaoyingShareService extends IntentService {
         super.onCreate();
         if (XiaoyingPlugin.getShareService() != null) {
             XiaoyingPlugin.getShareService().onCreate();
+            XiaoyingPlugin.getShareService().setIntentRedelivery(false);
         }
     }
 

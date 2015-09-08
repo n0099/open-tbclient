@@ -1,20 +1,25 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import android.os.Handler;
-import android.os.Message;
+import android.view.View;
 import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class s extends Handler {
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        switch (message.what) {
-            case 1:
-                LiveBroadcastCard.c.ze().sendTimeUpdateMessage();
-                removeMessages(1);
-                sendEmptyMessageDelayed(1, 1000L);
-                return;
-            default:
-                return;
+public class s implements View.OnClickListener {
+    final /* synthetic */ LiveBroadcastCard amf;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(LiveBroadcastCard liveBroadcastCard) {
+        this.amf = liveBroadcastCard;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        LiveBroadcastCard.d dVar;
+        LiveBroadcastCard.d dVar2;
+        dVar = this.amf.mDeleteListener;
+        if (dVar != null) {
+            dVar2 = this.amf.mDeleteListener;
+            dVar2.onDeleteClick(view);
         }
     }
 }

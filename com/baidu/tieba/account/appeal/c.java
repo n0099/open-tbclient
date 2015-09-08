@@ -5,20 +5,20 @@ import com.baidu.tieba.account.appeal.f;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class c implements f.b {
-    final /* synthetic */ b aFt;
+    final /* synthetic */ b aGp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.aFt = bVar;
+        this.aGp = bVar;
     }
 
     @Override // com.baidu.tieba.account.appeal.f.b
     public void a(AppealData appealData) {
         AppealActivity appealActivity;
         AppealActivity appealActivity2;
-        appealActivity = this.aFt.aFs;
-        appealActivity2 = this.aFt.aFs;
-        appealActivity.r(appealActivity2.getPageContext().getString(i.C0057i.appeal_post_success), true);
+        appealActivity = this.aGp.aGo;
+        appealActivity2 = this.aGp.aGo;
+        appealActivity.t(appealActivity2.getPageContext().getString(i.h.appeal_post_success), true);
     }
 
     @Override // com.baidu.tieba.account.appeal.f.b
@@ -26,13 +26,13 @@ class c implements f.b {
         AppealActivity appealActivity;
         AppealActivity appealActivity2;
         String string;
-        appealActivity = this.aFt.aFs;
+        appealActivity = this.aGp.aGo;
         if (aq.isEmpty(appealData.errMsg)) {
-            appealActivity2 = this.aFt.aFs;
-            string = appealActivity2.getPageContext().getString(i.C0057i.appeal_post_failure);
+            appealActivity2 = this.aGp.aGo;
+            string = appealActivity2.getPageContext().getString(i.h.appeal_post_failure);
         } else {
             string = appealData.errMsg;
         }
-        appealActivity.r(string, false);
+        appealActivity.t(string, false);
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.adp.plugin.proxy.activity;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import com.baidu.adp.plugin.a;
 import com.baidu.adp.plugin.util.e;
 /* loaded from: classes.dex */
 class b implements e {
@@ -15,7 +16,7 @@ class b implements e {
     }
 
     @Override // com.baidu.adp.plugin.util.e
-    public void c(boolean z, String str) {
+    public void a(a.b bVar, String str) {
         LoadingActivity loadingActivity;
         LoadingActivity loadingActivity2;
         LoadingActivity loadingActivity3;

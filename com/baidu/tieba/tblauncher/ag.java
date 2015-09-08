@@ -1,21 +1,21 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import android.app.Activity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveRequestMessage;
-import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
-class ag implements CustomMessageTask.CustomRunnable<Integer> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Integer> customMessage) {
-        if (customMessage != null && (customMessage instanceof NewMsgArriveRequestMessage)) {
-            int intValue = ((NewMsgArriveRequestMessage) customMessage).getData().intValue();
-            if (intValue == 2) {
-                MainTabActivity.cLK = true;
-            }
-            return new NewMsgArriveResponsedMessage(intValue);
+class ag extends CustomMessageListener {
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public ag(int i) {
+        super(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Object data = customResponsedMessage.getData();
+        if (data instanceof Activity) {
+            com.baidu.tbadk.core.c.b.aa((Activity) data);
         }
-        return null;
     }
 }

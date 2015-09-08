@@ -4,25 +4,25 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.lib.g.d {
-    final /* synthetic */ e bIm;
+    final /* synthetic */ e bIT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.bIm = eVar;
+        this.bIT = eVar;
     }
 
     @Override // com.baidu.adp.lib.g.d, android.view.animation.Animation.AnimationListener
     public void onAnimationStart(Animation animation) {
-        this.bIm.bIg = true;
+        this.bIT.bIN = true;
     }
 
     @Override // com.baidu.adp.lib.g.d, android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         Animation animation2;
-        this.bIm.bIg = false;
-        animation2 = this.bIm.bIj;
-        if (animation == animation2 && this.bIm.XM()) {
-            this.bIm.XO();
+        this.bIT.bIN = false;
+        animation2 = this.bIT.bIQ;
+        if (animation == animation2 && this.bIT.XO()) {
+            this.bIT.XQ();
         }
     }
 }

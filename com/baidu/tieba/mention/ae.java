@@ -1,8 +1,8 @@
 package com.baidu.tieba.mention;
 /* loaded from: classes.dex */
 public class ae extends com.baidu.adp.base.e<SingleMentionActivity> {
-    private SingleMentionActivity bWg;
-    private a bWh;
+    private SingleMentionActivity bWM;
+    private a bWN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -16,8 +16,8 @@ public class ae extends com.baidu.adp.base.e<SingleMentionActivity> {
 
     public ae(SingleMentionActivity singleMentionActivity) {
         super(singleMentionActivity.getPageContext());
-        this.bWg = singleMentionActivity;
-        abG();
+        this.bWM = singleMentionActivity;
+        abL();
     }
 
     public void a(long j, int i, String str) {
@@ -28,7 +28,7 @@ public class ae extends com.baidu.adp.base.e<SingleMentionActivity> {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void abG() {
+    public void abL() {
         registerListener(new af(this, 303010));
     }
 
@@ -43,6 +43,6 @@ public class ae extends com.baidu.adp.base.e<SingleMentionActivity> {
     }
 
     public void a(a aVar) {
-        this.bWh = aVar;
+        this.bWN = aVar;
     }
 }

@@ -5,17 +5,17 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements Runnable {
-    private final /* synthetic */ AccountData TO;
+    private final /* synthetic */ AccountData TP;
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(AccountData accountData, Context context) {
-        this.TO = accountData;
+        this.TP = accountData;
         this.val$context = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        TbadkCoreApplication.setCurrentAccountInUI(this.TO, this.val$context);
+        TbadkCoreApplication.setCurrentAccountInUI(this.TP, this.val$context);
     }
 }

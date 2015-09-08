@@ -1,30 +1,29 @@
 package com.baidu.tieba.frs;
 
+import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.i;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ca implements View.OnClickListener {
-    final /* synthetic */ bz aXQ;
+    final /* synthetic */ bv aXL;
+    private final /* synthetic */ com.baidu.tbadk.core.data.x aXM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(bz bzVar) {
-        this.aXQ = bzVar;
+    public ca(bv bvVar, com.baidu.tbadk.core.data.x xVar) {
+        this.aXL = bvVar;
+        this.aXM = xVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.widget.ListView.u aA;
-        BaseActivity baseActivity;
-        if (this.aXQ.aA(((Integer) view.getTag()).intValue()) instanceof com.baidu.tbadk.core.data.v) {
-            String str = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((com.baidu.tbadk.core.data.v) aA).getAuthor().getUserId();
-            String string = TbadkCoreApplication.m411getInst().getString(i.C0057i.user_icon_web_view_title);
-            baseActivity = this.aXQ.aSJ;
-            com.baidu.tbadk.browser.f.a(baseActivity.getApplicationContext(), string, str, true, true, false);
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ao("c10134").r("obj_type", 3));
-        }
+        Context context;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.aXL.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXM.getAuthor().getUserId(), this.aXM.getAuthor().getName_show(), this.aXL.aUN.acP().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

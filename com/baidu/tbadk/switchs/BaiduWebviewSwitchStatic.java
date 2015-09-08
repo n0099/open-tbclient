@@ -4,11 +4,11 @@ import com.baidu.adp.lib.b.a;
 import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class BaiduWebviewSwitchStatic extends a {
-    public static final String[] ayI;
+    public static final String[] aAq;
 
     static {
-        e.gy().e(BaiduWebviewSwitchStatic.class);
-        ayI = new String[]{"com.baidu.browser"};
+        e.gv().e(BaiduWebviewSwitchStatic.class);
+        aAq = new String[]{"com.baidu.browser"};
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -23,7 +23,7 @@ public class BaiduWebviewSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] getCrashKeys() {
-        return ayI;
+        return aAq;
     }
 
     @Override // com.baidu.adp.lib.b.a

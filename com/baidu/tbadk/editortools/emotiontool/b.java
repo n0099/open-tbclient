@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class b extends LinearLayout {
-    private View apl;
-    private boolean apm;
+    private View aqW;
+    private boolean aqX;
 
     public b(Context context) {
         super(context);
@@ -16,8 +16,8 @@ public class b extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.apl != null) {
-            this.apl.measure(getChildMeasureSpec(i, 0, this.apl.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.apl.getLayoutParams().height));
+        if (this.aqW != null) {
+            this.aqW.measure(getChildMeasureSpec(i, 0, this.aqW.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.aqW.getLayoutParams().height));
         }
     }
 
@@ -25,29 +25,29 @@ public class b extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         View childAt = getChildAt(0);
-        if (this.apl != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.apl.getMeasuredWidth();
-            this.apl.layout(measuredWidth, 0, this.apl.getMeasuredWidth() + measuredWidth, this.apl.getMeasuredHeight());
+        if (this.aqW != null && childAt != null) {
+            int measuredWidth = childAt.getMeasuredWidth() - this.aqW.getMeasuredWidth();
+            this.aqW.layout(measuredWidth, 0, this.aqW.getMeasuredWidth() + measuredWidth, this.aqW.getMeasuredHeight());
         }
     }
 
     public void setNewView(View view) {
-        this.apl = view;
+        this.aqW = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.apm) {
+        if (this.aqX) {
             canvas.save();
-            canvas.translate(this.apl.getLeft(), this.apl.getTop());
-            this.apl.draw(canvas);
+            canvas.translate(this.aqW.getLeft(), this.aqW.getTop());
+            this.aqW.draw(canvas);
             canvas.restore();
         }
     }
 
     public void setNewViewVisible(boolean z) {
-        this.apm = z;
+        this.aqX = z;
         invalidate();
     }
 }

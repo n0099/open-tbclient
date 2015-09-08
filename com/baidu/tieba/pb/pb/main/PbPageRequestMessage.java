@@ -16,6 +16,9 @@ public class PbPageRequestMessage extends NetMessage {
     private Context context;
     private Integer floor_rn;
     private boolean isFromMark;
+    private boolean isJumpFloor;
+    private boolean isSubPostDataReverse;
+    private int jumpFloorNum;
     private long kz;
     private Integer last;
     private String lastids;
@@ -45,6 +48,9 @@ public class PbPageRequestMessage extends NetMessage {
 
     public PbPageRequestMessage() {
         super(CmdConfigHttp.PB_PAGE_HTTP_CMD, 302001);
+        this.isSubPostDataReverse = false;
+        this.isJumpFloor = false;
+        this.jumpFloorNum = 0;
         this.opType = null;
         this.opUrl = null;
     }
@@ -321,6 +327,18 @@ public class PbPageRequestMessage extends NetMessage {
         this.lastids = str;
     }
 
+    public void setIsSubPostDataReverse(boolean z) {
+        this.isSubPostDataReverse = z;
+    }
+
+    public void setIsJumpFloor(boolean z) {
+        this.isJumpFloor = z;
+    }
+
+    public void setJumpFloorNum(int i) {
+        this.jumpFloorNum = i;
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
@@ -351,6 +369,9 @@ public class PbPageRequestMessage extends NetMessage {
             builder.msg_click = get_message_click();
             builder.last = get_last();
             builder.lastids = getLastids();
+            builder.is_comm_reverse = Integer.valueOf(this.isSubPostDataReverse ? 1 : 0);
+            builder.is_jumpfloor = Integer.valueOf(this.isJumpFloor ? 1 : 0);
+            builder.jumpfloor_num = Integer.valueOf(this.jumpFloorNum);
             if (this.opType != null) {
                 builder.st_from = this.opType;
                 builder.st_link = this.opUrl;

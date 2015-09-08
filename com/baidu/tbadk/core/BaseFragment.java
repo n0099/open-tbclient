@@ -16,14 +16,13 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.megapp.ma.MAFragment;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.av;
 /* loaded from: classes.dex */
 public abstract class BaseFragment extends MAFragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     private com.baidu.tbadk.core.util.g customToast;
     private boolean isPrimary;
-    private com.baidu.tbadk.c.f loadingView;
+    private com.baidu.tbadk.e.f loadingView;
     private String mTag;
     private BdUniqueId mId = null;
     protected int mSkinType = -1;
@@ -42,7 +41,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     @Override // android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         this.mId = BdUniqueId.gen();
-        this.customToast = com.baidu.tbadk.core.util.g.tx();
+        this.customToast = com.baidu.tbadk.core.util.g.tC();
         super.onCreate(bundle);
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
@@ -81,7 +80,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             String name = getClass().getName();
             String str2 = String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".chat";
             if (name.startsWith(String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".im") || name.startsWith(str2)) {
-                this.customToast.showToast(str, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
+                this.customToast.showToast(str, 2000);
             } else {
                 com.baidu.adp.lib.util.k.showToast(getActivity(), str);
             }
@@ -93,7 +92,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             String name = getClass().getName();
             String str = String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".chat";
             if (name.startsWith(String.valueOf(getActivity().getApplicationContext().getPackageName()) + ".im") || name.startsWith(str)) {
-                this.customToast.showToast(i, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
+                this.customToast.showToast(i, 2000);
             } else {
                 com.baidu.adp.lib.util.k.showToast(getActivity(), i);
             }
@@ -102,7 +101,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
 
     public void showToast(String str, boolean z) {
         if (z) {
-            this.customToast.showToast(str, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
+            this.customToast.showToast(str, 2000);
         } else {
             com.baidu.adp.lib.util.k.showToast(TbadkCoreApplication.m411getInst().getApp(), str);
         }
@@ -110,7 +109,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
 
     public void showToast(int i, boolean z) {
         if (z) {
-            this.customToast.showToast(i, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
+            this.customToast.showToast(i, 2000);
         } else {
             com.baidu.adp.lib.util.k.showToast(TbadkCoreApplication.m411getInst().getApp(), i);
         }
@@ -129,7 +128,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         super.onResume();
         if (isShow()) {
             changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-            av.dd(getClass().getName());
+            av.dj(getClass().getName());
             if (this.isPrimary) {
                 onPrimary();
             }
@@ -180,7 +179,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
 
     public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.ta();
+            this.loadingView.tf();
         }
     }
 
@@ -239,11 +238,11 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     public void showLoadingView(View view, boolean z, int i) {
         if (this.loadingView == null) {
             if (i < 0) {
-                this.loadingView = new com.baidu.tbadk.c.f(getActivity());
+                this.loadingView = new com.baidu.tbadk.e.f(getActivity());
             } else {
-                this.loadingView = new com.baidu.tbadk.c.f(getActivity(), i);
+                this.loadingView = new com.baidu.tbadk.e.f(getActivity(), i);
             }
-            this.loadingView.ta();
+            this.loadingView.tf();
         }
         this.loadingView.b(view, z);
     }
@@ -252,7 +251,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Cq();
+        return this.loadingView.CE();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

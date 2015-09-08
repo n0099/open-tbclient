@@ -6,27 +6,27 @@ import android.view.ViewTreeObserver;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 /* loaded from: classes.dex */
 class f implements ViewTreeObserver.OnGlobalLayoutListener {
-    final /* synthetic */ BaseFragmentActivity Tt;
+    final /* synthetic */ BaseFragmentActivity Tu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(BaseFragmentActivity baseFragmentActivity) {
-        this.Tt = baseFragmentActivity;
+        this.Tu = baseFragmentActivity;
     }
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
         Rect rect = new Rect();
-        this.Tt.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-        int height = this.Tt.getWindow().getDecorView().getRootView().getHeight();
+        this.Tu.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
+        int height = this.Tu.getWindow().getDecorView().getRootView().getHeight();
         int i = height - (rect.bottom - rect.top);
-        Context applicationContext = this.Tt.getApplicationContext();
+        Context applicationContext = this.Tu.getApplicationContext();
         int identifier = applicationContext.getResources().getIdentifier("status_bar_height", "dimen", SocialConstants.ANDROID_CLIENT_TYPE);
         if (identifier > 0) {
             i -= applicationContext.getResources().getDimensionPixelSize(identifier);
         }
         if (TbadkCoreApplication.m411getInst().isKeyboardHeightCanSet(i) && i < (height * 2) / 3 && TbadkCoreApplication.m411getInst().getKeyboardHeight() != i) {
             TbadkCoreApplication.m411getInst().setKeyboardHeight(i);
-            this.Tt.onKeyboardHeightChanged(i);
+            this.Tu.onKeyboardHeightChanged(i);
         }
     }
 }

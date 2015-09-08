@@ -11,13 +11,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class be extends CustomMessageListener {
-    final /* synthetic */ bd cbL;
+    final /* synthetic */ bd ccG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public be(bd bdVar, int i) {
         super(i);
-        this.cbL = bdVar;
+        this.ccG = bdVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
@@ -33,35 +33,35 @@ public class be extends CustomMessageListener {
         com.baidu.tieba.pb.a.b bVar2;
         PbActivity pbActivity;
         if (customResponsedMessage != null) {
-            bVar = this.cbL.cbC;
+            bVar = this.ccG.ccx;
             if (bVar != null && customResponsedMessage.getCmd() == 2001122 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
-                bVar2 = this.cbL.cbC;
-                ArrayList<com.baidu.tieba.tbadkCore.data.h> acO = bVar2.acO();
-                if (acO != null && acO.size() != 0) {
-                    Iterator<com.baidu.tieba.tbadkCore.data.h> it = acO.iterator();
+                bVar2 = this.ccG.ccx;
+                ArrayList<com.baidu.tieba.tbadkCore.data.h> acY = bVar2.acY();
+                if (acY != null && acY.size() != 0) {
+                    Iterator<com.baidu.tieba.tbadkCore.data.h> it = acY.iterator();
                     boolean z = false;
                     while (it.hasNext()) {
                         com.baidu.tieba.tbadkCore.data.h next = it.next();
-                        if (next != null && next.apM() != null && !TextUtils.isEmpty(next.apM().apk_name)) {
-                            com.baidu.tieba.tbadkCore.data.a apM = next.apM();
+                        if (next != null && next.atZ() != null && !TextUtils.isEmpty(next.atZ().apk_name)) {
+                            com.baidu.tieba.tbadkCore.data.a atZ = next.atZ();
                             Iterator<DownloadData> it2 = data.iterator();
                             while (true) {
                                 if (!it2.hasNext()) {
                                     break;
                                 }
                                 DownloadData next2 = it2.next();
-                                if (next2 != null && apM.apk_name.equals(next2.getId())) {
+                                if (next2 != null && atZ.apk_name.equals(next2.getId())) {
                                     int status = next2.getStatus();
                                     if (status == 3 || status == 0) {
-                                        next.jE(2);
+                                        next.kp(2);
                                     } else if (status == 2 || status == 4) {
                                         if (!com.baidu.tbadk.core.util.aq.isEmpty(next2.getStatusMsg())) {
-                                            pbActivity = this.cbL.cbx;
+                                            pbActivity = this.ccG.ccs;
                                             com.baidu.adp.lib.util.k.showToast(pbActivity.getPageContext().getContext(), next2.getStatusMsg());
                                         }
-                                        next.jE(0);
+                                        next.kp(0);
                                     } else if (status == 1) {
-                                        next.jE(1);
+                                        next.kp(1);
                                     }
                                     z = true;
                                 }
@@ -69,7 +69,7 @@ public class be extends CustomMessageListener {
                         }
                     }
                     if (z) {
-                        this.cbL.notifyDataSetChanged();
+                        this.ccG.notifyDataSetChanged();
                     }
                 }
             }

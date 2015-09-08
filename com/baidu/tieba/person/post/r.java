@@ -1,35 +1,32 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.person.PersonPostModel;
-import com.baidu.tieba.person.UserPostPageHttpResponseMessage;
-import com.baidu.tieba.person.UserPostPageRequestMessage;
 /* loaded from: classes.dex */
-class r extends HttpMessageListener {
-    final /* synthetic */ p clq;
+class r implements View.OnClickListener {
+    final /* synthetic */ p cmh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r(p pVar, int i) {
-        super(i);
-        this.clq = pVar;
+    public r(p pVar) {
+        this.cmh = pVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        PersonPostModel.a aVar;
-        if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
-            UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
-            if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
-                this.clq.b(null, false);
-                return;
-            }
-            UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
-            if (userPostPageRequestMessage.isThread() && (aVar = userPostPageRequestMessage.getmCallbackWeakReference().get()) != null) {
-                aVar.a(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        BaseFragmentActivity baseFragmentActivity;
+        BaseFragmentActivity baseFragmentActivity2;
+        Object tag = view.getTag();
+        if (tag instanceof PersonPostModel.PostInfoList) {
+            TiebaStatic.log("c10254");
+            baseFragmentActivity = this.cmh.mActivity;
+            PhotoLiveActivityConfig ro = new PhotoLiveActivityConfig.a(baseFragmentActivity.getPageContext().getContext(), String.valueOf(((PersonPostModel.PostInfoList) tag).thread_id)).ch(PhotoLiveActivityConfig.KEY_FROM_MY_OR_HIS_THREAD).bs(23014).ro();
+            baseFragmentActivity2 = this.cmh.mActivity;
+            baseFragmentActivity2.getPageContext().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, ro));
         }
     }
 }

@@ -13,9 +13,9 @@ class p implements CustomMessageTask.CustomRunnable<o.a> {
             return null;
         }
         o.a data = customMessage.getData();
-        data.awM = y.Ee().Eg();
-        data.awN = y.Ee().Ei();
-        data.axi = y.Ee().Eh();
+        data.ayu = y.Eo().Eq();
+        data.ayv = y.Eo().Es();
+        data.ayQ = y.Eo().Er();
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, data);
     }
 }

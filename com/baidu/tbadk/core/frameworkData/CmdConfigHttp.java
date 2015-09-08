@@ -10,6 +10,7 @@ public class CmdConfigHttp {
     public static final int CMD_ADD_USER_ATTR_URL = 1003018;
     public static final int CMD_APPLY_GAME_CODE = 1003015;
     public static final int CMD_CHOSEN_PB_PRAISE = 1003007;
+    public static final int CMD_CLIENT_CONFIG = 1003024;
     public static final int CMD_FOUND_NEW = 1003003;
     public static final int CMD_GET_FINE_PB = 1003006;
     public static final int CMD_GET_FRIEND_LIST = 1003004;
@@ -21,7 +22,6 @@ public class CmdConfigHttp {
     public static final int CMD_GET_MY_POST = 1003010;
     public static final int CMD_GET_OPEN_USERINFO = 1003012;
     public static final int CMD_GET_ORDER = 1003029;
-    public static final int CMD_GET_PAY_CONFIG = 1003024;
     public static final int CMD_GET_RECOMMEND_DETAIL = 1001535;
     public static final int CMD_GET_SUGGESTLOCSTION_BY_NAME = 1003002;
     public static final int CMD_GET_USER_INFO = 1003001;
@@ -39,6 +39,7 @@ public class CmdConfigHttp {
     public static final int CMD_USER_MUTE_CHECK = 1003025;
     public static final int CMD_USER_MUTE_DEL = 1003028;
     public static final int CMD_USER_MUTE_QUERY = 1003026;
+    public static final int CMG_SET_FANS_NICKNAME = 1003030;
     public static final int COMMON_PRAISE_Y_OR_N = 1001600;
     public static final int DISCOVER_TAB_HTTP_CMD = 1001300;
     public static final int DISTRIBUTE_ACTRUAL_CMD = 1003000;
@@ -77,7 +78,11 @@ public class CmdConfigHttp {
     public static final int MSG_REMINDER_CMD = 1002500;
     public static final int PB_HTTP_CMD = 1001800;
     public static final int PB_PAGE_HTTP_CMD = 1001801;
-    public static final int PHOTO_LIVE_SET_COVER_HTTP_CMD = 1001802;
+    public static final int PHOTO_LIVE_ADD_BLACK_LIST_HTTP_CMD = 1003103;
+    public static final int PHOTO_LIVE_DEL_BLACK_LIST_HTTP_CMD = 1003104;
+    public static final int PHOTO_LIVE_GET_BLACK_LIST_HTTP_CMD = 1003102;
+    public static final int PHOTO_LIVE_HTTP_CMD = 1003100;
+    public static final int PHOTO_LIVE_SET_COVER_HTTP_CMD = 1003101;
     public static final int PIC_BASE_CMD = 1002000;
     public static final int PIC_DEL_LIKE_BAR_CMD = 1002003;
     public static final int PIC_FRIEND_CMD = 1002001;

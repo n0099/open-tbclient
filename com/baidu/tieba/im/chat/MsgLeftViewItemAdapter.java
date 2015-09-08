@@ -15,16 +15,16 @@ public class MsgLeftViewItemAdapter extends ap<MsgleftView> {
         this.mNeedShowName = true;
     }
 
-    public void cF(boolean z) {
+    public void cK(boolean z) {
         this.mNeedShowName = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: t */
+    /* renamed from: v */
     public ap.a<MsgleftView> a(ViewGroup viewGroup) {
-        MsgleftView msgleftView = new MsgleftView(this.Mr);
+        MsgleftView msgleftView = new MsgleftView(this.mPageContext);
         return new a(msgleftView.getConvertView(), msgleftView);
     }
 
@@ -32,19 +32,19 @@ public class MsgLeftViewItemAdapter extends ap<MsgleftView> {
     @Override // com.baidu.tieba.im.chat.ap
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<MsgleftView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
-        MsgleftView Rg = aVar.Rg();
-        Rg.gs(this.boe);
-        Rg.cF(this.mNeedShowName);
+        MsgleftView Ri = aVar.Ri();
+        Ri.gC(this.boC);
+        Ri.cK(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        Rg.a(this.bnV);
-        Rg.setOnItemViewLongClickListener(this.bnW);
-        Rg.setPosition(i);
-        Rg.af(this.mCurrentTime);
-        Rg.ae(chatMessage.getCacheData().getLastMsgTime());
-        Rg.a(viewGroup, chatMessage);
-        Rg.b(viewGroup, chatMessage);
-        this.Mr.getLayoutMode().ad(false);
-        this.Mr.getLayoutMode().k(view);
+        Ri.a(this.bot);
+        Ri.setOnItemViewLongClickListener(this.bou);
+        Ri.setPosition(i);
+        Ri.ag(this.mCurrentTime);
+        Ri.af(chatMessage.getCacheData().getLastMsgTime());
+        Ri.a(viewGroup, chatMessage);
+        Ri.b(viewGroup, chatMessage);
+        this.mPageContext.getLayoutMode().ad(false);
+        this.mPageContext.getLayoutMode().k(view);
         return view;
     }
 

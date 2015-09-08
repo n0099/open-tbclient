@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.util.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements c.b {
-    final /* synthetic */ x aZz;
+    final /* synthetic */ x aZS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(x xVar) {
-        this.aZz = xVar;
+        this.aZS = xVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -19,10 +19,10 @@ public class ad implements c.b {
         FrsGoodActivity frsGoodActivity2;
         cVar.dismiss();
         if (i == 0) {
-            frsGoodActivity2 = this.aZz.aWu;
+            frsGoodActivity2 = this.aZS.aWL;
             ak.c(frsGoodActivity2.getPageContext());
         } else if (i == 1) {
-            frsGoodActivity = this.aZz.aWu;
+            frsGoodActivity = this.aZS.aWL;
             ak.p(frsGoodActivity.getPageContext().getPageActivity());
         }
     }

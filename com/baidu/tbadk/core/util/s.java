@@ -1,47 +1,47 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 public class s {
-    private static s ZH;
-    private long ZC = 0;
-    private long ZD = 0;
-    private String ZE = "";
-    private String ZF = "";
-    private final long ZG = 120000;
+    private static s ZQ;
+    private long ZL = 0;
+    private long ZM = 0;
+    private String ZN = "";
+    private String ZO = "";
+    private final long ZP = 120000;
 
-    public static s tW() {
-        if (ZH == null) {
+    public static s ub() {
+        if (ZQ == null) {
             synchronized (s.class) {
-                if (ZH == null) {
-                    ZH = new s();
+                if (ZQ == null) {
+                    ZQ = new s();
                 }
             }
         }
-        return ZH;
+        return ZQ;
     }
 
-    public String tX() {
+    public String uc() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.ZC > 120000) {
-            if (com.baidu.adp.lib.util.k.je()) {
+        if (currentTimeMillis - this.ZL > 120000) {
+            if (com.baidu.adp.lib.util.k.jb()) {
                 return "";
             }
-            this.ZC = currentTimeMillis;
-            this.ZE = UtilHelper.getIpFromDomain("tieba.baidu.com");
+            this.ZL = currentTimeMillis;
+            this.ZN = UtilHelper.getIpFromDomain("tieba.baidu.com");
         }
-        return this.ZE;
+        return this.ZN;
     }
 
-    public String cS(String str) {
+    public String cY(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.ZD > 120000) {
+        if (currentTimeMillis - this.ZM > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");
-            if (indexOf <= 0 || com.baidu.adp.lib.util.k.je()) {
+            if (indexOf <= 0 || com.baidu.adp.lib.util.k.jb()) {
                 return "";
             }
-            this.ZD = currentTimeMillis;
-            this.ZF = UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com");
-            return this.ZF;
+            this.ZM = currentTimeMillis;
+            this.ZO = UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com");
+            return this.ZO;
         }
-        return this.ZF;
+        return this.ZO;
     }
 }

@@ -26,8 +26,6 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
 import com.baidu.adp.plugin.pluginBase.a;
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tbadk.c.f;
-import com.baidu.tbadk.c.h;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.c;
 import com.baidu.tbadk.core.dialog.BdToast;
@@ -38,6 +36,8 @@ import com.baidu.tbadk.core.util.av;
 import com.baidu.tbadk.core.util.g;
 import com.baidu.tbadk.core.view.i;
 import com.baidu.tbadk.core.view.q;
+import com.baidu.tbadk.e.f;
+import com.baidu.tbadk.e.h;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.i;
 import com.compatible.menukey.MenuKeyUtils;
@@ -103,7 +103,7 @@ public class ProxyAdkBaseActivity<T> extends a {
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = g.tx();
+        this.customToast = g.tC();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new com.baidu.tbadk.core.a();
@@ -116,7 +116,7 @@ public class ProxyAdkBaseActivity<T> extends a {
             UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        av.dd(getClass().getName());
+        av.dj(getClass().getName());
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
         this.mIsLogin = TbadkCoreApplication.isLogin();
@@ -229,7 +229,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.vt();
+            this.mGuidPage.vy();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -317,7 +317,7 @@ public class ProxyAdkBaseActivity<T> extends a {
 
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
         if (!isFinishing() && j.k(getActivity())) {
-            String string = str != null ? str : TbadkCoreApplication.m411getInst().getResources().getString(i.C0057i.Waiting);
+            String string = str != null ? str : TbadkCoreApplication.m411getInst().getResources().getString(i.h.Waiting);
             if (onCancelListener != null) {
                 this.mWaitingDialog = ProgressDialog.show(getActivity(), "", string, true, true, onCancelListener);
             } else {
@@ -344,19 +344,19 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.b(getActivity(), str, i).sX();
+        BdToast.b(getActivity(), str, i).tc();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2).sX();
+        BdToast.a(getActivity(), str, i, i2).tc();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).sX();
+        BdToast.a(getActivity(), str, defaultIcon).tc();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).sX();
+        BdToast.a(getActivity(), str, defaultIcon, i).tc();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.a
@@ -364,25 +364,25 @@ public class ProxyAdkBaseActivity<T> extends a {
         String name = getClass().getName();
         String str2 = String.valueOf(getApplicationContext().getPackageName()) + ".chat";
         if (name.startsWith(String.valueOf(getApplicationContext().getPackageName()) + ".im") || name.startsWith(str2)) {
-            this.customToast.showToast(str, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
+            this.customToast.showToast(str, 2000);
         } else {
             k.showToast(getActivity(), str);
         }
     }
 
     public void showToast(String str, int i) {
-        this.customToast.c(str, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI, i);
+        this.customToast.c(str, 2000, i);
     }
 
     public void showToast(int i, int i2) {
-        this.customToast.n(i, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI, i2);
+        this.customToast.n(i, 2000, i2);
     }
 
     public void showToast(int i) {
         String name = getClass().getName();
         String str = String.valueOf(getApplicationContext().getPackageName()) + ".chat";
         if (name.startsWith(String.valueOf(getApplicationContext().getPackageName()) + ".im") || name.startsWith(str)) {
-            this.customToast.showToast(i, TbConfig.READ_IMAGE_CACHE_TIMEOUT_NOT_WIFI);
+            this.customToast.showToast(i, 2000);
         } else {
             k.showToast(getActivity(), i);
         }
@@ -427,7 +427,7 @@ public class ProxyAdkBaseActivity<T> extends a {
 
     protected AlertDialog newListMenu(String[] strArr, DialogInterface.OnClickListener onClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(TbadkCoreApplication.m411getInst().getResources().getString(i.C0057i.operation));
+        builder.setTitle(TbadkCoreApplication.m411getInst().getResources().getString(i.h.operation));
         builder.setItems(strArr, onClickListener);
         this.mListMenu = builder.create();
         this.mListMenu.setCanceledOnTouchOutside(true);
@@ -474,7 +474,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
         TbadkCoreApplication.m411getInst().AddResumeNum();
-        av.dd(getClass().getName());
+        av.dj(getClass().getName());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
             this.mIsLogin = isLogin;
@@ -768,7 +768,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Cq();
+        return this.loadingView.CE();
     }
 
     public void hideLoadingView(View view) {
@@ -781,7 +781,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.refreshView == null) {
             this.refreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.refreshView.fi(str);
+        this.refreshView.fq(str);
         this.refreshView.b(view, z);
     }
 

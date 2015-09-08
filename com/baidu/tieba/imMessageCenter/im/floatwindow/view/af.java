@@ -9,11 +9,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements FloatingPersonalChatView.a {
-    final /* synthetic */ FloatingPersonalChatView bIP;
+    final /* synthetic */ FloatingPersonalChatView bJw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(FloatingPersonalChatView floatingPersonalChatView) {
-        this.bIP = floatingPersonalChatView;
+        this.bJw = floatingPersonalChatView;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.FloatingPersonalChatView.a
@@ -23,34 +23,34 @@ public class af implements FloatingPersonalChatView.a {
         List list3;
         List list4;
         List list5;
-        list = this.bIP.mUserDataList;
+        list = this.bJw.mUserDataList;
         if (list != null) {
-            list2 = this.bIP.mUserDataList;
+            list2 = this.bJw.mUserDataList;
             if (!list2.isEmpty()) {
-                list3 = this.bIP.mUserDataList;
+                list3 = this.bJw.mUserDataList;
                 UserData userData = (UserData) list3.remove(i);
                 if (userData != null) {
-                    com.baidu.tieba.imMessageCenter.im.floatwindow.b.Xx().iq(userData.getUserId());
-                    Iterator<ImMessageCenterShowItemData> it = this.bIP.mList.iterator();
+                    com.baidu.tieba.imMessageCenter.im.floatwindow.b.Xz().iz(userData.getUserId());
+                    Iterator<ImMessageCenterShowItemData> it = this.bJw.mList.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         ImMessageCenterShowItemData next = it.next();
                         if (next != null && TextUtils.equals(userData.getUserId(), next.getFriendId())) {
-                            this.bIP.mList.remove(next);
+                            this.bJw.mList.remove(next);
                             break;
                         }
                     }
-                    list4 = this.bIP.mUserDataList;
+                    list4 = this.bJw.mUserDataList;
                     if (list4.size() <= 0) {
-                        this.bIP.Yq();
+                        this.bJw.Ys();
                         return;
                     }
-                    FloatingPersonalChatView floatingPersonalChatView = this.bIP;
-                    list5 = this.bIP.mUserDataList;
-                    floatingPersonalChatView.hw(list5.size() - 1);
-                    this.bIP.hx(i);
+                    FloatingPersonalChatView floatingPersonalChatView = this.bJw;
+                    list5 = this.bJw.mUserDataList;
+                    floatingPersonalChatView.hG(list5.size() - 1);
+                    this.bJw.hH(i);
                 }
             }
         }

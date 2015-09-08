@@ -28,17 +28,17 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
-    private LinearLayout Mg;
-    private TextView aFj;
-    private View agA;
-    private SapiWebView ags;
-    private boolean agx;
+    private LinearLayout Mf;
+    private TextView aGf;
+    private SapiWebView agC;
+    private boolean agH;
+    private View agK;
     private View mBack;
     private int mFrom;
     private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.coreExtra.view.l agt = null;
-    private String aFi = null;
-    private final a.InterfaceC0040a XQ = new ae(this);
+    private com.baidu.tbadk.coreExtra.view.k agD = null;
+    private String aGe = null;
+    private final a.InterfaceC0040a XZ = new z(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -47,80 +47,80 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
         setSwipeBackEnabled(false);
         setContentView(i.g.layout_sapi_webview_fastreg);
         initData(bundle);
-        wb();
+        wg();
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            bb.a((View) this.ags, i.c.cp_link_tip_b, false);
+            bb.a((View) this.agC, i.c.cp_link_tip_b, false);
         }
     }
 
-    protected void wb() {
-        this.Mg = (LinearLayout) findViewById(i.f.layout_root);
+    protected void wg() {
+        this.Mf = (LinearLayout) findViewById(i.f.layout_root);
         this.mNavigationBar = (NavigationBar) findViewById(i.f.sapi_reg_navi);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mBack.setOnClickListener(this);
-        this.mNavigationBar.setTitleText(getPageContext().getString(i.C0057i.account_regedit));
-        this.agA = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.navigation_right_button_layout, (View.OnClickListener) null);
-        this.aFj = (TextView) this.agA.findViewById(i.f.right_textview);
-        this.aFj.setText(getPageContext().getString(i.C0057i.login));
-        al.b(this.aFj, i.c.navi_op_text, 1);
-        this.aFj.setOnClickListener(this);
-        this.ags = (SapiWebView) findViewById(i.f.sapi_webview);
-        com.baidu.tbadk.core.a.d.a(getPageContext().getContext(), this.ags);
-        this.ags.setOnFinishCallback(new af(this));
-        this.ags.setAuthorizationListener(new ag(this));
-        this.ags.loadFastReg();
+        this.mNavigationBar.setTitleText(getPageContext().getString(i.h.account_regedit));
+        this.agK = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.navigation_right_button_layout, (View.OnClickListener) null);
+        this.aGf = (TextView) this.agK.findViewById(i.f.right_textview);
+        this.aGf.setText(getPageContext().getString(i.h.login));
+        al.b(this.aGf, i.c.navi_op_text, 1);
+        this.aGf.setOnClickListener(this);
+        this.agC = (SapiWebView) findViewById(i.f.sapi_webview);
+        com.baidu.tbadk.core.a.d.a(getPageContext().getContext(), this.agC);
+        this.agC.setOnFinishCallback(new aa(this));
+        this.agC.setAuthorizationListener(new ab(this));
+        this.agC.loadFastReg();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(AccountData accountData) {
-        if (this.agt == null) {
-            this.agt = new com.baidu.tbadk.coreExtra.view.l(getPageContext());
-            this.agt.a(new ah(this));
+        if (this.agD == null) {
+            this.agD = new com.baidu.tbadk.coreExtra.view.k(getPageContext());
+            this.agD.a(new ac(this));
         }
-        this.agt.zc();
-        this.agt.l(accountData);
-        this.agt.yY();
+        this.agD.zi();
+        this.agD.k(accountData);
+        this.agD.ze();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Gj() {
+    public void Gh() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            com.baidu.tbadk.core.a.a.rj().a(session.username, session.bduss, session.ptoken, this.XQ);
+            com.baidu.tbadk.core.a.a.rh().a(session.username, session.bduss, session.ptoken, this.XZ);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void r(AccountData accountData) {
+    public void q(AccountData accountData) {
         com.baidu.tbadk.core.a.b.b(accountData);
         TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
         if (this.mFrom == 4) {
             Intent intent = new Intent();
-            intent.putExtra(RegisterActivityConfig.FAST_REG_USER_TYPE, this.aFi);
+            intent.putExtra(RegisterActivityConfig.FAST_REG_USER_TYPE, this.aGe);
             setResult(-1, intent);
             finish();
             return;
         }
+        wm();
         wh();
-        wc();
     }
 
     private void initData(Bundle bundle) {
         if (bundle == null) {
             this.mFrom = getIntent().getIntExtra("from", -1);
-            this.agx = getIntent().getBooleanExtra(IntentConfig.CLOSE, false);
+            this.agH = getIntent().getBooleanExtra(IntentConfig.CLOSE, false);
             return;
         }
         this.mFrom = bundle.getInt("from", -1);
-        this.agx = bundle.getBoolean(IntentConfig.CLOSE, false);
+        this.agH = bundle.getBoolean(IntentConfig.CLOSE, false);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.mBack) {
             finish();
-        } else if (view == this.aFj) {
+        } else if (view == this.aGf) {
             if (this.mFrom == 1) {
                 finish();
             } else {
@@ -145,10 +145,10 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
         this.mNavigationBar.onChangeSkinType(getPageContext(), 0);
     }
 
-    private void wc() {
+    private void wh() {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.m411getInst().onUserChanged();
-        if (this.agx) {
+        if (this.agH) {
             Intent intent = new Intent();
             intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
             setResult(-1, intent);
@@ -156,8 +156,8 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
         } else {
             int intExtra = getIntent().getIntExtra("locate_type", -1);
             if (intExtra == -1) {
-                if (com.baidu.tbadk.core.sharedPref.b.ts().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                    com.baidu.tbadk.core.sharedPref.b.ts().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+                if (com.baidu.tbadk.core.sharedPref.b.tx().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                    com.baidu.tbadk.core.sharedPref.b.tx().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
                     intExtra = 1;
                 } else {
                     intExtra = 1;
@@ -168,9 +168,9 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
         finish();
     }
 
-    private void wh() {
+    private void wm() {
         if (this.mFrom == 3 && TbadkCoreApplication.m411getInst().getIsFirstUse()) {
-            com.baidu.adp.lib.g.k.hj().b(new ai(this));
+            com.baidu.adp.lib.g.k.hg().b(new ad(this));
         }
     }
 
@@ -178,14 +178,14 @@ public class SapiFastRegActivity extends BaseActivity<SapiFastRegActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.agt != null) {
-            this.agt.onDestroy();
+        if (this.agD != null) {
+            this.agD.onDestroy();
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.release();
         }
-        if (this.Mg != null) {
-            this.Mg.removeAllViews();
+        if (this.Mf != null) {
+            this.Mf.removeAllViews();
         }
     }
 }

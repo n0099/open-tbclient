@@ -1,20 +1,20 @@
 package com.baidu.adp.lib.a.b.a.b;
 /* loaded from: classes.dex */
 public class p implements h {
-    private short rZ;
+    private short rX;
 
     public p(short s) {
-        this.rZ = s;
+        this.rX = s;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Integer.valueOf(this.rZ);
+        return Integer.valueOf(this.rX);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object b(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Short.valueOf(this.rZ);
+        return Short.valueOf(this.rX);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -24,16 +24,16 @@ public class p implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Short.valueOf(this.rZ);
+        return Short.valueOf(this.rX);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object e(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Short.valueOf(this.rZ);
+        return Short.valueOf(this.rX);
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return Short.valueOf(this.rZ);
+        return Short.valueOf(this.rX);
     }
 }

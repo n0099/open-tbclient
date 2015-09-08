@@ -2,61 +2,61 @@ package com.baidu.tieba.enterForum.b;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.t;
+import com.baidu.tbadk.core.data.v;
 import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes.dex */
 public class b {
-    private int aLZ;
-    private int aMa;
-    private int aMb;
-    private String aMc;
-    private int aMd;
-    private boolean ahA;
-    private boolean atZ;
+    private boolean Ci;
+    private int aMm;
+    private int aMn;
+    private int aMo;
+    private String aMp;
+    private int aMq;
+    private boolean avJ;
     private int time = 0;
-    private c aLW = new c();
-    private t aLX = new t();
-    private f aLY = new f();
+    private c aMj = new c();
+    private v aMk = new v();
+    private f aMl = new f();
 
-    public void bI(boolean z) {
-        this.atZ = z;
+    public void bN(boolean z) {
+        this.avJ = z;
     }
 
     public b() {
-        this.ahA = true;
-        this.ahA = false;
+        this.Ci = true;
+        this.Ci = false;
     }
 
     public void setTime(int i) {
         this.time = i;
     }
 
-    public void eJ(int i) {
-        this.aMb = i;
+    public void eQ(int i) {
+        this.aMo = i;
     }
 
     public void setIsMem(int i) {
-        this.aMd = i;
+        this.aMq = i;
     }
 
-    public void eK(int i) {
-        this.aLZ = i;
+    public void eR(int i) {
+        this.aMm = i;
     }
 
-    public void eL(int i) {
-        this.aMa = i;
+    public void eS(int i) {
+        this.aMn = i;
     }
 
-    public void gj(String str) {
-        this.aMc = str;
+    public void gq(String str) {
+        this.aMp = str;
     }
 
     public void a(f fVar) {
-        this.aLY = fVar;
+        this.aMl = fVar;
     }
 
-    public f Io() {
-        return this.aLY;
+    public f Ic() {
+        return this.aMl;
     }
 
     public void a(DataRes dataRes) {
@@ -68,21 +68,21 @@ public class b {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                eK(dataRes.msign_valid.intValue());
-                eL(dataRes.msign_level.intValue());
-                eJ(dataRes.is_login.intValue());
-                gj(dataRes.msign_text);
+                eR(dataRes.msign_valid.intValue());
+                eS(dataRes.msign_level.intValue());
+                eQ(dataRes.is_login.intValue());
+                gq(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.aLW.setLevel(this.aMa);
+                this.aMj.setLevel(this.aMn);
                 if (dataRes.like_forum != null) {
-                    this.aLW.j(dataRes.like_forum);
+                    this.aMj.k(dataRes.like_forum);
                 }
                 if (dataRes.banner != null) {
-                    this.aLX.j(dataRes.banner);
+                    this.aMk.k(dataRes.banner);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.aLY.H(dataRes.recommend_forum_info);
+                    this.aMl.I(dataRes.recommend_forum_info);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -90,38 +90,38 @@ public class b {
         }
     }
 
-    public t Ip() {
-        return this.aLX;
+    public v Id() {
+        return this.aMk;
     }
 
-    public void a(t tVar) {
-        this.aLX = tVar;
+    public void a(v vVar) {
+        this.aMk = vVar;
     }
 
-    public c Iq() {
-        return this.aLW;
+    public c Ie() {
+        return this.aMj;
     }
 
     public void a(c cVar) {
-        this.aLW = cVar;
+        this.aMj = cVar;
     }
 
     public void ap(boolean z) {
-        this.ahA = z;
+        this.Ci = z;
     }
 
     public boolean isSuccess() {
-        return this.ahA;
+        return this.Ci;
     }
 
-    public boolean Ir() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.b.amX.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.amX.longValue();
+    public boolean If() {
+        return System.currentTimeMillis() / com.baidu.tbadk.data.b.aoJ.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.aoJ.longValue();
     }
 
     public boolean isEmpty() {
         boolean z = false;
-        if (this.ahA) {
-            if (this.aLW == null || this.aLW.Is() == null || this.aLW.Is().size() < 1) {
+        if (this.Ci) {
+            if (this.aMj == null || this.aMj.Ig() == null || this.aMj.Ig().size() < 1) {
                 z = true;
             }
             return z;

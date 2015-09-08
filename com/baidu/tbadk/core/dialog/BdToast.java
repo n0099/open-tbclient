@@ -12,20 +12,20 @@ import java.lang.ref.SoftReference;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class BdToast {
-    private static SoftReference<Toast> WX;
-    private static HashMap<DefaultIcon, Integer> Xc = new HashMap<>(2);
-    private final ImageView WY;
-    private CharSequence WZ;
+    private static SoftReference<Toast> Xg;
+    private static HashMap<DefaultIcon, Integer> Xl = new HashMap<>(2);
+    private final ImageView Xh;
+    private CharSequence Xi;
     private final Context mContext;
     private final ViewGroup mRootView;
     private final TextView mTextView;
-    private Toast yE;
-    private int Xa = -1;
+    private Toast yC;
+    private int Xj = -1;
     private int mGravity = 16;
     private int Ih = 0;
-    private int uq = 0;
-    private int ur = 0;
-    private int Xb = 0;
+    private int uo = 0;
+    private int up = 0;
+    private int Xk = 0;
 
     /* loaded from: classes.dex */
     public enum DefaultIcon {
@@ -33,7 +33,7 @@ public class BdToast {
         FAILURE,
         NOT;
 
-        /* JADX DEBUG: Replace access to removed values field (Xd) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (Xm) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static DefaultIcon[] valuesCustom() {
             DefaultIcon[] valuesCustom = values();
@@ -45,103 +45,103 @@ public class BdToast {
     }
 
     static {
-        Xc.put(DefaultIcon.SUCCESS, Integer.valueOf(i.e.icon_unite_pass));
-        Xc.put(DefaultIcon.FAILURE, Integer.valueOf(i.e.icon_unite_lose));
-        Xc.put(DefaultIcon.NOT, 0);
+        Xl.put(DefaultIcon.SUCCESS, Integer.valueOf(i.e.icon_unite_pass));
+        Xl.put(DefaultIcon.FAILURE, Integer.valueOf(i.e.icon_unite_lose));
+        Xl.put(DefaultIcon.NOT, 0);
     }
 
     private BdToast(Context context) {
         this.mContext = context;
         this.mRootView = (ViewGroup) LayoutInflater.from(context).inflate(i.g.dialog_bdtoast, (ViewGroup) null);
-        this.WY = (ImageView) this.mRootView.findViewById(i.f.toast_icon);
+        this.Xh = (ImageView) this.mRootView.findViewById(i.f.toast_icon);
         this.mTextView = (TextView) this.mRootView.findViewById(i.f.toast_message);
     }
 
     public BdToast c(CharSequence charSequence) {
-        this.WZ = charSequence;
+        this.Xi = charSequence;
         return this;
     }
 
-    public void bM(int i) {
-        this.Xb = i;
+    public void bP(int i) {
+        this.Xk = i;
     }
 
-    public BdToast bN(int i) {
-        this.Xa = i;
+    public BdToast bQ(int i) {
+        this.Xj = i;
         return this;
     }
 
-    public BdToast bO(int i) {
+    public BdToast bR(int i) {
         this.mGravity = i;
         return this;
     }
 
-    public BdToast bP(int i) {
+    public BdToast bS(int i) {
         this.Ih = i;
         return this;
     }
 
-    public void bQ(int i) {
-        this.ur = i;
+    public void bT(int i) {
+        this.up = i;
     }
 
-    public BdToast sV() {
-        this.yE = new Toast(this.mContext);
-        sW();
-        if (this.Xa != -1) {
-            al.c(this.WY, this.Xa);
-            this.WY.setVisibility(0);
+    public BdToast ta() {
+        this.yC = new Toast(this.mContext);
+        tb();
+        if (this.Xj != -1) {
+            al.c(this.Xh, this.Xj);
+            this.Xh.setVisibility(0);
         } else {
-            this.WY.setVisibility(8);
+            this.Xh.setVisibility(8);
         }
         al.b(this.mTextView, i.c.toast_text, 1);
-        this.mTextView.setText(this.WZ);
-        bR(this.Xb);
-        this.yE.setView(this.mRootView);
-        this.yE.setGravity(this.mGravity, this.uq, this.ur);
-        this.yE.setDuration(this.Ih);
+        this.mTextView.setText(this.Xi);
+        bU(this.Xk);
+        this.yC.setView(this.mRootView);
+        this.yC.setGravity(this.mGravity, this.uo, this.up);
+        this.yC.setDuration(this.Ih);
         return this;
     }
 
-    private void sW() {
-        if (WX != null && WX.get() != null) {
-            WX.get().cancel();
+    private void tb() {
+        if (Xg != null && Xg.get() != null) {
+            Xg.get().cancel();
         }
-        WX = new SoftReference<>(this.yE);
+        Xg = new SoftReference<>(this.yC);
     }
 
-    private void bR(int i) {
+    private void bU(int i) {
         if (i > 0) {
             this.mRootView.setPadding(i, this.mRootView.getTop(), i, this.mRootView.getBottom());
         }
     }
 
-    public BdToast sX() {
-        this.yE.show();
+    public BdToast tc() {
+        this.yC.show();
         return this;
     }
 
     public static BdToast b(Context context, CharSequence charSequence) {
-        return new BdToast(context).c(charSequence).sV();
+        return new BdToast(context).c(charSequence).ta();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).c(charSequence).bP(i).sV();
+        return new BdToast(context).c(charSequence).bS(i).ta();
     }
 
     public static BdToast b(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).c(charSequence).bN(i).sV();
+        return new BdToast(context).c(charSequence).bQ(i).ta();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, int i2) {
-        return new BdToast(context).c(charSequence).bN(i).bP(i2).sV();
+        return new BdToast(context).c(charSequence).bQ(i).bS(i2).ta();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
-        return new BdToast(context).c(charSequence).bN(Xc.get(defaultIcon).intValue()).sV();
+        return new BdToast(context).c(charSequence).bQ(Xl.get(defaultIcon).intValue()).ta();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).c(charSequence).bN(Xc.get(defaultIcon).intValue()).bP(i).sV();
+        return new BdToast(context).c(charSequence).bQ(Xl.get(defaultIcon).intValue()).bS(i).ta();
     }
 }

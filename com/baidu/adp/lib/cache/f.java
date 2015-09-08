@@ -6,9 +6,9 @@ public interface f {
     public interface a extends f {
         String d(h<?> hVar);
 
-        void gi();
+        void gf();
 
-        void gj();
+        void gg();
     }
 
     /* loaded from: classes.dex */
@@ -17,14 +17,14 @@ public interface f {
 
         String f(h<?> hVar);
 
-        void gk();
+        void gh();
 
-        void gl();
+        void gi();
 
         void release();
     }
 
-    int gg();
+    int gd();
 
-    boolean gh();
+    boolean ge();
 }

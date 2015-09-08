@@ -8,11 +8,11 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements CustomMessageTask.CustomRunnable<IntentConfig> {
-    final /* synthetic */ TbadkCoreApplication TJ;
+    final /* synthetic */ TbadkCoreApplication TK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(TbadkCoreApplication tbadkCoreApplication) {
-        this.TJ = tbadkCoreApplication;
+        this.TK = tbadkCoreApplication;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -20,7 +20,7 @@ public class x implements CustomMessageTask.CustomRunnable<IntentConfig> {
         HashMap hashMap;
         if (customMessage != null && customMessage.getData() != null) {
             IntentConfig data = customMessage.getData();
-            hashMap = this.TJ.mActicyConfig;
+            hashMap = this.TK.mActicyConfig;
             Class<?> cls = (Class) hashMap.get(data.getClass());
             if (cls != null) {
                 data.setComponentClass(cls);

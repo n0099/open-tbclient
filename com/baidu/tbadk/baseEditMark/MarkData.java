@@ -191,7 +191,7 @@ public class MarkData implements Serializable {
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
             this.mNewCounts = jSONObject.optInt(ImageViewerConfig.COUNT);
-            this.mIsPhotoLiveThread = jSONObject.optInt("thread_type") == 33;
+            this.mIsPhotoLiveThread = "33".equals(String.valueOf(jSONObject.optInt("thread_type")));
             int optInt = jSONObject.optInt("mark_status");
             if (optInt == 0) {
                 this.mSequence = true;

@@ -7,13 +7,13 @@ import com.baidu.tieba.tbadkCore.location.LocationSearchHttpResponsedMessage;
 import com.baidu.tieba.tbadkCore.location.LocationSearchResponseMessage;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ SearchLocationActivity cRE;
+    final /* synthetic */ SearchLocationActivity dap;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(SearchLocationActivity searchLocationActivity, int i, int i2) {
         super(i, i2);
-        this.cRE = searchLocationActivity;
+        this.dap = searchLocationActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -24,19 +24,19 @@ class a extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if ((responsedMessage instanceof LocationSearchHttpResponsedMessage) || (responsedMessage instanceof LocationSearchResponseMessage)) {
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    this.cRE.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.cRE.getResources().getString(i.C0057i.neterror) : responsedMessage.getErrorString());
+                    this.dap.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.dap.getResources().getString(i.h.neterror) : responsedMessage.getErrorString());
                     return;
                 }
                 if (responsedMessage instanceof LocationSearchHttpResponsedMessage) {
-                    this.cRE.cRx = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
+                    this.dap.dai = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
                 }
                 if (responsedMessage instanceof LocationSearchResponseMessage) {
-                    this.cRE.cRx = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
+                    this.dap.dai = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
                 }
-                hVar = this.cRE.cRy;
-                iVar = this.cRE.cRx;
+                hVar = this.dap.daj;
+                iVar = this.dap.dai;
                 hVar.a(iVar);
-                hVar2 = this.cRE.cRy;
+                hVar2 = this.dap.daj;
                 hVar2.notifyDataSetChanged();
             }
         }

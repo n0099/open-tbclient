@@ -8,17 +8,17 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj implements am {
-    final /* synthetic */ ad cRf;
-    private final /* synthetic */ String cRg;
+    final /* synthetic */ ad cZQ;
+    private final /* synthetic */ String cZR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ad adVar, String str) {
-        this.cRf = adVar;
-        this.cRg = str;
+        this.cZQ = adVar;
+        this.cZR = str;
     }
 
     @Override // com.baidu.tieba.write.album.am
-    public void nw() {
+    public void nt() {
     }
 
     @Override // com.baidu.tieba.write.album.am
@@ -31,20 +31,20 @@ public class aj implements am {
         m mVar2;
         ArrayList arrayList = new ArrayList();
         arrayList.addAll(list2);
-        if (!this.cRg.equals("-1")) {
-            textView = this.cRf.LM;
+        if (!this.cZR.equals("-1")) {
+            textView = this.cZQ.LM;
             textView.setText(str);
-            this.cRf.atX();
+            this.cZQ.ayq();
             z = false;
         } else {
             ArrayList arrayList2 = new ArrayList();
             arrayList2.addAll(list);
             b bVar = new b();
-            bVar.kU("-1");
-            albumActivity = this.cRf.cPQ;
-            String string = albumActivity.getPageContext().getString(i.C0057i.write_album_all);
+            bVar.lB("-1");
+            albumActivity = this.cZQ.cYB;
+            String string = albumActivity.getPageContext().getString(i.h.write_album_all);
             bVar.setName(string);
-            bVar.kV(String.valueOf(arrayList.size()));
+            bVar.lC(String.valueOf(arrayList.size()));
             if (arrayList.size() > 0) {
                 bVar.e((ImageFileInfo) arrayList.get(0));
             }
@@ -52,14 +52,14 @@ public class aj implements am {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setAlbumnId("-2");
             arrayList.add(0, imageFileInfo);
-            textView2 = this.cRf.LM;
+            textView2 = this.cZQ.LM;
             textView2.setText(string);
-            mVar = this.cRf.cPJ;
-            mVar.bo(arrayList2);
-            mVar2 = this.cRf.cPJ;
-            mVar2.bp(arrayList);
+            mVar = this.cZQ.cYt;
+            mVar.bx(arrayList2);
+            mVar2 = this.cZQ.cYt;
+            mVar2.by(arrayList);
             z = true;
         }
-        this.cRf.setData(arrayList, z);
+        this.cZQ.setData(arrayList, z);
     }
 }

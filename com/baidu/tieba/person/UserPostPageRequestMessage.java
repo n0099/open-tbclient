@@ -14,7 +14,12 @@ public class UserPostPageRequestMessage extends NetMessage {
     private WeakReference<PersonPostModel.a> mCallbackWeakReference;
     private boolean needContent;
     private int pn;
+    private int q_type;
     private int rn;
+    private double scr_dip;
+    private int scr_h;
+    private int scr_w;
+    private int sub_type;
     private String uid;
 
     public UserPostPageRequestMessage() {
@@ -77,6 +82,46 @@ public class UserPostPageRequestMessage extends NetMessage {
         this.needContent = z;
     }
 
+    public int get_scr_w() {
+        return this.scr_w;
+    }
+
+    public void set_scr_w(int i) {
+        this.scr_w = i;
+    }
+
+    public int get_scr_h() {
+        return this.scr_h;
+    }
+
+    public void set_scr_h(int i) {
+        this.scr_h = i;
+    }
+
+    public double get_scr_dip() {
+        return this.scr_dip;
+    }
+
+    public void set_scr_dip(double d) {
+        this.scr_dip = d;
+    }
+
+    public int get_q_type() {
+        return this.q_type;
+    }
+
+    public void set_q_type(int i) {
+        this.q_type = i;
+    }
+
+    public void set_sub_type(int i) {
+        this.sub_type = i;
+    }
+
+    public int get_sub_type() {
+        return this.sub_type;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.NetMessage
     public Message encode(boolean z) {
@@ -86,6 +131,11 @@ public class UserPostPageRequestMessage extends NetMessage {
         builder.rn = Integer.valueOf(this.rn);
         builder.is_thread = Integer.valueOf(this.isThread ? 1 : 0);
         builder.need_content = Integer.valueOf(this.needContent ? 1 : 0);
+        builder.scr_dip = Double.valueOf(this.scr_dip);
+        builder.q_type = Integer.valueOf(this.q_type);
+        builder.scr_h = Integer.valueOf(this.scr_h);
+        builder.scr_w = Integer.valueOf(this.scr_w);
+        builder.subtype = Integer.valueOf(this.sub_type);
         if (z) {
             com.baidu.tbadk.util.g.a(builder, true);
         }

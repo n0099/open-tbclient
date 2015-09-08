@@ -3,7 +3,7 @@ package com.baidu.tbadk.performanceLog;
 public class x {
     public String subType = null;
 
-    public static com.baidu.adp.lib.stats.d hd() {
-        return com.baidu.adp.lib.stats.a.hk().ap("pfmonitor");
+    public static com.baidu.adp.lib.stats.d ha() {
+        return com.baidu.adp.lib.stats.a.hh().ap("pfmonitor");
     }
 }

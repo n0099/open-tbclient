@@ -6,18 +6,18 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class j {
-    private int UW;
-    private String UX;
+    private int UX;
     private String UY;
+    private String UZ;
     private int mType;
     private String mValue;
 
-    public int rH() {
-        return this.UW;
+    public int rG() {
+        return this.UX;
     }
 
-    public String rI() {
-        return this.UX;
+    public String rH() {
+        return this.UY;
     }
 
     public String getValue() {
@@ -31,11 +31,11 @@ public class j {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.UW = jSONObject.optInt("bannerType");
-                this.UX = jSONObject.optString("bannerUrl");
+                this.UX = jSONObject.optInt("bannerType");
+                this.UY = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString("value");
                 this.mType = jSONObject.optInt("type");
-                this.UY = jSONObject.optString("desc");
+                this.UZ = jSONObject.optString("desc");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -44,11 +44,11 @@ public class j {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.UW = banner.banner_type.intValue();
-            this.UX = banner.banner_url;
+            this.UX = banner.banner_type.intValue();
+            this.UY = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
-            this.UY = banner.desc;
+            this.UZ = banner.desc;
         }
     }
 
@@ -56,6 +56,6 @@ public class j {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.UW == 1 || this.UW == 4 || this.UW == 2 || this.UW == 3 : this.mType == 2 && !StringUtils.isNull(this.UY);
+        return this.mType == 1 ? this.UX == 1 || this.UX == 4 || this.UX == 2 || this.UX == 3 : this.mType == 2 && !StringUtils.isNull(this.UZ);
     }
 }
