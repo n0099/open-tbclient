@@ -1,7 +1,7 @@
 package com.baidu.tieba.person;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonFriendActivityConfig;
+import com.baidu.tieba.person.data.PersonFriendActivityConfig;
 /* loaded from: classes.dex */
 public class PersonFriendActivityStatic {
     static {

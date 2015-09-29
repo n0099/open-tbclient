@@ -3,48 +3,54 @@ package com.baidu.tbadk.core.c;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a XR = null;
+    private static a XJ = null;
 
     public static void e(Context context, int i) {
-        if (XR != null) {
-            XR.e(context, i);
-        }
-    }
-
-    public static void aa(Context context) {
-        if (XR != null) {
-            XR.aa(context);
+        if (XJ != null) {
+            XJ.e(context, i);
         }
     }
 
     public static void a(Context context, int i, boolean z) {
-        if (XR != null) {
-            XR.a(context, i, z);
+        if (XJ != null) {
+            XJ.a(context, i, z);
         }
     }
 
-    public static Class<?> tq() {
-        if (XR == null) {
-            return null;
+    public static void aa(Context context) {
+        if (XJ != null) {
+            XJ.aa(context);
         }
-        return XR.tq();
     }
 
-    public static String tr() {
-        if (XR == null) {
+    public static void b(Context context, int i, boolean z) {
+        if (XJ != null) {
+            XJ.b(context, i, z);
+        }
+    }
+
+    public static Class<?> tn() {
+        if (XJ == null) {
             return null;
         }
-        return XR.tr();
+        return XJ.tn();
+    }
+
+    public static String to() {
+        if (XJ == null) {
+            return null;
+        }
+        return XJ.to();
     }
 
     public static void a(a aVar) {
-        XR = aVar;
+        XJ = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (XR == null) {
+        if (XJ == null) {
             return -1;
         }
-        return XR.getCurrentTabType();
+        return XJ.getCurrentTabType();
     }
 }

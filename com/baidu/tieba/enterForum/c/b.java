@@ -5,17 +5,17 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b aNb;
+    private static b aLW;
 
-    public static b IA() {
-        if (aNb == null) {
+    public static b Iw() {
+        if (aLW == null) {
             synchronized (b.class) {
-                if (aNb == null) {
-                    aNb = new b();
+                if (aLW == null) {
+                    aLW = new b();
                 }
             }
         }
-        return aNb;
+        return aLW;
     }
 
     private b() {

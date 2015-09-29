@@ -2,39 +2,39 @@ package com.baidu.tieba.tbadkCore.imgView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    final /* synthetic */ DragHorizonScrollView cSB;
+    final /* synthetic */ DragHorizonScrollView daf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(DragHorizonScrollView dragHorizonScrollView) {
-        this.cSB = dragHorizonScrollView;
+        this.daf = dragHorizonScrollView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         boolean canScroll;
-        int auC;
-        int auC2;
+        int awR;
+        int awR2;
         boolean z;
-        this.cSB.cSw = false;
-        int childCount = this.cSB.getChildCount();
+        this.daf.daa = false;
+        int childCount = this.daf.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            this.cSB.getChildAt(i).clearAnimation();
+            this.daf.getChildAt(i).clearAnimation();
         }
-        canScroll = this.cSB.canScroll();
+        canScroll = this.daf.canScroll();
         if (!canScroll) {
-            this.cSB.scrollTo(0, 0);
+            this.daf.scrollTo(0, 0);
         } else {
-            int scrollX = this.cSB.getScrollX();
-            auC = this.cSB.auC();
-            if (scrollX > auC) {
-                DragHorizonScrollView dragHorizonScrollView = this.cSB;
-                auC2 = this.cSB.auC();
-                dragHorizonScrollView.scrollTo(auC2, 0);
+            int scrollX = this.daf.getScrollX();
+            awR = this.daf.awR();
+            if (scrollX > awR) {
+                DragHorizonScrollView dragHorizonScrollView = this.daf;
+                awR2 = this.daf.awR();
+                dragHorizonScrollView.scrollTo(awR2, 0);
             }
         }
-        z = this.cSB.cSx;
+        z = this.daf.dab;
         if (z) {
-            this.cSB.requestLayout();
+            this.daf.requestLayout();
         }
     }
 }

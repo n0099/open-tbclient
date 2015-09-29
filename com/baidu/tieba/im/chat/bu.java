@@ -1,21 +1,21 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.img.a;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu implements a.b {
-    final /* synthetic */ TalkableActivity bpt;
-    private final /* synthetic */ int bpu;
+public class bu implements a.InterfaceC0050a<ChatMessage> {
+    final /* synthetic */ TalkableActivity bst;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(TalkableActivity talkableActivity, int i) {
-        this.bpt = talkableActivity;
-        this.bpu = i;
+    public bu(TalkableActivity talkableActivity) {
+        this.bst = talkableActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
-        this.bpt.reSendMsg(this.bpu);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.img.a.InterfaceC0050a
+    /* renamed from: a */
+    public void b(int i, ChatMessage chatMessage) {
+        this.bst.mListView.updateAdapter(i, chatMessage);
     }
 }

@@ -1,24 +1,21 @@
 package com.baidu.tbadk.core.view;
 
-import android.widget.Toast;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements Runnable {
-    final /* synthetic */ n aeo;
+public class o implements View.OnClickListener {
+    final /* synthetic */ TbCheckBox aeu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(n nVar) {
-        this.aeo = nVar;
+    public o(TbCheckBox tbCheckBox) {
+        this.aeu = tbCheckBox;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Toast toast;
-        Toast toast2;
-        toast = this.aeo.yC;
-        if (toast != null) {
-            toast2 = this.aeo.yC;
-            toast2.cancel();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean vB;
+        TbCheckBox tbCheckBox = this.aeu;
+        vB = this.aeu.vB();
+        tbCheckBox.setChecked(!vB);
     }
 }

@@ -97,8 +97,8 @@ public class x extends BaseAdapter {
         if (this.In != null) {
             u item = getItem(i);
             com.baidu.adp.widget.ListView.a<u, a> valueAt = this.In.valueAt(getItemViewType(i));
-            if (valueAt != null && valueAt.ng() != null) {
-                valueAt.ng().a(view, item, valueAt.getType(), adapterView, i, j);
+            if (valueAt != null && valueAt.nh() != null) {
+                valueAt.nh().a(view, item, valueAt.getType(), adapterView, i, j);
             }
         }
     }
@@ -110,10 +110,10 @@ public class x extends BaseAdapter {
         }
         u item = getItem(i);
         com.baidu.adp.widget.ListView.a<u, a> valueAt = this.In.valueAt(getItemViewType(i));
-        if (valueAt == null || valueAt.nh() == null) {
+        if (valueAt == null || valueAt.ni() == null) {
             return false;
         }
-        return valueAt.nh().b(view, item, valueAt.getType(), adapterView, i, j);
+        return valueAt.ni().b(view, item, valueAt.getType(), adapterView, i, j);
     }
 
     /* loaded from: classes.dex */

@@ -1,6 +1,4 @@
 package com.baidu.tieba.tblauncher;
-
-import android.widget.PopupWindow;
 /* loaded from: classes.dex */
 class u implements Runnable {
     final /* synthetic */ MainTabActivity this$0;
@@ -12,8 +10,6 @@ class u implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        PopupWindow popupWindow;
-        popupWindow = this.this$0.cUm;
-        com.baidu.adp.lib.g.j.a(popupWindow);
+        this.this$0.dcw = true;
     }
 }

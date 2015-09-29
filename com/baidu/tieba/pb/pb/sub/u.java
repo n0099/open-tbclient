@@ -6,11 +6,11 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements View.OnClickListener {
-    final /* synthetic */ t chq;
+    final /* synthetic */ t cmM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(t tVar) {
-        this.chq = tVar;
+        this.cmM = tVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,17 +25,17 @@ public class u implements View.OnClickListener {
             if (booleanValue) {
                 if (booleanValue2) {
                     sparseArray.put(i.f.tag_from, 1);
-                    newSubPbActivity2 = this.chq.cgZ;
+                    newSubPbActivity2 = this.cmM.cmv;
                     newSubPbActivity2.d(sparseArray);
                     return;
                 }
-                this.chq.aa(view);
+                this.cmM.ac(view);
             } else if (booleanValue2) {
                 sparseArray.put(i.f.tag_from, 0);
-                newSubPbActivity = this.chq.cgZ;
+                newSubPbActivity = this.cmM.cmv;
                 newSubPbActivity.d(sparseArray);
             } else if (booleanValue3) {
-                this.chq.a(((Integer) sparseArray.get(i.f.tag_del_post_type)).intValue(), (String) sparseArray.get(i.f.tag_del_post_id), ((Integer) sparseArray.get(i.f.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(i.f.tag_del_post_is_self)).booleanValue());
+                this.cmM.a(((Integer) sparseArray.get(i.f.tag_del_post_type)).intValue(), (String) sparseArray.get(i.f.tag_del_post_id), ((Integer) sparseArray.get(i.f.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(i.f.tag_del_post_is_self)).booleanValue());
             }
         }
     }

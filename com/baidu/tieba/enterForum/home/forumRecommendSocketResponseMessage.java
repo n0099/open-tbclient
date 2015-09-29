@@ -12,6 +12,7 @@ import tbclient.RecommendForumInfo;
 /* loaded from: classes.dex */
 public class forumRecommendSocketResponseMessage extends SocketResponsedMessage {
     private List<Banner> banner;
+    private com.baidu.tieba.enterForum.b.c hotSearchInfo;
     private Integer is_login;
     private Integer is_mem;
     private List<LikeForum> like_forum;
@@ -66,6 +67,10 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
         return this.recommend_forum_info;
     }
 
+    public com.baidu.tieba.enterForum.b.c getHotSearchInfoData() {
+        return this.hotSearchInfo;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
@@ -88,6 +93,10 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
                 this.time = forumRecommendResIdl.data.time;
                 this.is_mem = forumRecommendResIdl.data.is_mem;
                 this.recommend_forum_info = forumRecommendResIdl.data.recommend_forum_info;
+                if (forumRecommendResIdl.data.hot_search != null) {
+                    this.hotSearchInfo = new com.baidu.tieba.enterForum.b.c();
+                    this.hotSearchInfo.a(forumRecommendResIdl.data.hot_search);
+                }
             }
         }
     }
@@ -96,7 +105,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.b.a.sR().U("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).g("forumRecommend_cache_key", bArr);
+            com.baidu.tbadk.core.b.a.sO().T("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).g("forumRecommend_cache_key", bArr);
         }
     }
 }

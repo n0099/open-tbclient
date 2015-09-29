@@ -1,74 +1,52 @@
 package com.baidu.tieba.account;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tieba.account.ActivationActivity;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.a.a;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class q implements View.OnClickListener {
-    final /* synthetic */ ActivationActivity aFV;
+class q implements a.InterfaceC0040a {
+    final /* synthetic */ NotLoginGuideActivity aEY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public q(ActivationActivity activationActivity) {
-        this.aFV = activationActivity;
+    public q(NotLoginGuideActivity notLoginGuideActivity) {
+        this.aEY = notLoginGuideActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
-        ImageView imageView;
-        ActivationActivity.b bVar;
-        ActivationActivity.a aVar;
-        ActivationActivity.b bVar2;
-        ActivationActivity.b bVar3;
-        ActivationActivity.a aVar2;
-        ActivationActivity.b bVar4;
-        ActivationActivity.a aVar3;
-        ActivationActivity.a aVar4;
-        view2 = this.aFV.mBack;
-        if (view != view2) {
-            if (view != this.aFV.aFI) {
-                if (view != this.aFV.aFJ) {
-                    imageView = this.aFV.aFD;
-                    if (view == imageView) {
-                        this.aFV.aFH.setText((CharSequence) null);
-                        return;
-                    }
-                    return;
-                } else if (this.aFV.aFM) {
-                    bVar = this.aFV.aFK;
-                    if (bVar == null) {
-                        aVar = this.aFV.aFL;
-                        if (aVar == null) {
-                            this.aFV.aFK = new ActivationActivity.b(this.aFV, null);
-                            bVar2 = this.aFV.aFK;
-                            bVar2.setPriority(3);
-                            bVar3 = this.aFV.aFK;
-                            bVar3.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                } else {
-                    return;
-                }
-            }
-            aVar2 = this.aFV.aFL;
-            if (aVar2 == null) {
-                bVar4 = this.aFV.aFK;
-                if (bVar4 == null) {
-                    this.aFV.aFL = new ActivationActivity.a(this.aFV, null);
-                    aVar3 = this.aFV.aFL;
-                    aVar3.setPriority(3);
-                    aVar4 = this.aFV.aFL;
-                    aVar4.execute(new String[0]);
-                    return;
-                }
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
+    public void cc(String str) {
+        if (this.aEY.getLoadingDialog() == null || !this.aEY.getLoadingDialog().isShowing()) {
+            this.aEY.showLoadingDialog(this.aEY.getPageContext().getString(i.h.sapi_logining), new r(this));
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
+    public void a(AccountData accountData) {
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_success", 0, "", new Object[0]);
+        this.aEY.closeLoadingDialog();
+        if (TextUtils.isEmpty(accountData.getAccount())) {
+            this.aEY.n(accountData);
+        } else {
+            this.aEY.o(accountData);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
+    public void c(String str, int i, String str2) {
+        int i2;
+        int i3;
+        com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_silent_fail", i, str2, new Object[0]);
+        this.aEY.closeLoadingDialog();
+        i2 = this.aEY.aEW;
+        if (i2 != 1) {
+            i3 = this.aEY.aEW;
+            if (i3 != 2) {
                 return;
             }
+            this.aEY.Gb();
             return;
         }
-        this.aFV.setResult(0);
-        this.aFV.finish();
+        this.aEY.Ga();
     }
 }

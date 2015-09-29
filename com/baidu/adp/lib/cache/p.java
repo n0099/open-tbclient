@@ -17,7 +17,7 @@ public class p<T> implements o.c<T> {
 
     @Override // com.baidu.adp.lib.cache.o
     public T get(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jb()) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jc()) {
             if (this.tw) {
                 throw new RuntimeException("access db in main thread!");
             }
@@ -28,7 +28,7 @@ public class p<T> implements o.c<T> {
 
     @Override // com.baidu.adp.lib.cache.o
     public o.b<T> ac(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jb()) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jc()) {
             if (this.tw) {
                 throw new RuntimeException("access db in main thread!");
             }
@@ -43,7 +43,7 @@ public class p<T> implements o.c<T> {
             throw new NullPointerException("BdKVCache key cannot be null!");
         }
         long currentTimeMillis = j <= 315532800000L ? j + System.currentTimeMillis() : j;
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jb()) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jc()) {
             if (this.tw) {
                 throw new RuntimeException("access db in main thread!");
             }
@@ -63,7 +63,7 @@ public class p<T> implements o.c<T> {
 
     @Override // com.baidu.adp.lib.cache.o
     public void remove(String str) {
-        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jb()) {
+        if (BdBaseApplication.getInst().isDebugMode() && com.baidu.adp.lib.util.k.jc()) {
             if (this.tw) {
                 throw new RuntimeException("access db in main thread!");
             }
@@ -74,12 +74,12 @@ public class p<T> implements o.c<T> {
 
     @Override // com.baidu.adp.lib.cache.o
     public void a(String str, o.a<T> aVar) {
-        com.baidu.adp.lib.g.k.hg().c(new q(this, str, aVar));
+        com.baidu.adp.lib.g.k.hh().c(new q(this, str, aVar));
     }
 
     @Override // com.baidu.adp.lib.cache.o
     public void b(String str, T t, long j) {
-        com.baidu.adp.lib.g.k.hg().c(new r(this, str, t, j));
+        com.baidu.adp.lib.g.k.hh().c(new r(this, str, t, j));
     }
 
     @Override // com.baidu.adp.lib.cache.o
@@ -89,7 +89,7 @@ public class p<T> implements o.c<T> {
 
     @Override // com.baidu.adp.lib.cache.o
     public void ad(String str) {
-        com.baidu.adp.lib.g.k.hg().c(new s(this, str));
+        com.baidu.adp.lib.g.k.hh().c(new s(this, str));
     }
 
     @Override // com.baidu.adp.lib.cache.o.c

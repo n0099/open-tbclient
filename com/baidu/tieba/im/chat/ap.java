@@ -9,11 +9,11 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    private boolean boA;
-    private boolean boB;
-    protected int boC;
-    protected com.baidu.adp.lib.c.a bot;
-    protected com.baidu.adp.lib.c.b bou;
+    private boolean brA;
+    protected int brB;
+    protected com.baidu.adp.lib.c.a brs;
+    protected com.baidu.adp.lib.c.b brt;
+    private boolean brz;
     protected long mCurrentTime;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
@@ -25,44 +25,44 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
 
     public ap(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.bot = null;
-        this.bou = null;
+        this.brs = null;
+        this.brt = null;
         this.mCurrentTime = 0L;
-        this.boA = false;
-        this.boB = false;
+        this.brz = false;
+        this.brA = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.bot = aVar;
+        this.brs = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.bou = bVar;
+        this.brt = bVar;
     }
 
-    private void Rf() {
+    private void RM() {
         this.mCurrentTime = System.currentTimeMillis() / 1000;
     }
 
-    public boolean Rg() {
-        return this.boA;
+    public boolean RN() {
+        return this.brz;
     }
 
     public void cI(boolean z) {
-        this.boA = z;
+        this.brz = z;
     }
 
-    public boolean Rh() {
-        return this.boB;
+    public boolean RO() {
+        return this.brA;
     }
 
     public void cJ(boolean z) {
-        this.boB = z;
+        this.brA = z;
     }
 
-    public void gC(int i) {
-        this.boC = i;
+    public void gI(int i) {
+        this.brB = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -70,21 +70,21 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        Rf();
+        RM();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a<T> extends x.a {
-        private T boD;
+        private T brC;
 
         public a(View view, T t) {
             super(view);
-            this.boD = t;
+            this.brC = t;
         }
 
-        public T Ri() {
-            return this.boD;
+        public T RP() {
+            return this.brC;
         }
     }
 }

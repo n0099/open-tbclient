@@ -1,40 +1,41 @@
 package com.baidu.tieba.mainentrance;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.cache.o;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.LinkedList;
-import java.util.List;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class h implements CustomMessageTask.CustomRunnable<Object> {
-    public static final List<String> aR(List<o.b<String>> list) {
-        LinkedList linkedList = new LinkedList();
-        if (list != null) {
-            for (o.b<String> bVar : list) {
-                String str = bVar.key;
-                if (!TextUtils.isEmpty(str)) {
-                    linkedList.add(str);
-                }
-            }
-        }
-        return linkedList;
+public class h {
+    private View aRl;
+    private View bTZ;
+    private TextView bUa;
+
+    public void hide() {
+        this.bUa.setVisibility(8);
+        this.aRl.setVisibility(8);
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        if (customMessage == null || !(customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
-            return null;
-        }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount == null) {
-            currentAccount = "";
-        }
-        List<String> aR = aR(com.baidu.adp.lib.util.s.b(com.baidu.tbadk.core.b.a.sR().V("tb.searchperson_history", currentAccount)));
-        ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
-        responseSearchPersonHistoryReadMessage.datas.addAll(aR);
-        return responseSearchPersonHistoryReadMessage;
+    public void show() {
+        this.bUa.setVisibility(0);
+        this.aRl.setVisibility(0);
+    }
+
+    public View getView() {
+        return this.bTZ;
+    }
+
+    public h(TbPageContext<?> tbPageContext) {
+        this.bTZ = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(i.g.square_search_recommand_fourm_header, (ViewGroup) null);
+        this.bUa = (TextView) this.bTZ.findViewById(i.f.square_search_fourm_header_text);
+        this.aRl = this.bTZ.findViewById(i.f.titleDivider);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aRl.getLayoutParams();
+        layoutParams.bottomMargin = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelOffset(i.d.ds10);
+        this.aRl.setLayoutParams(layoutParams);
+        this.bUa.setText(tbPageContext.getResources().getText(i.h.hot_forum_title));
+        hide();
     }
 }

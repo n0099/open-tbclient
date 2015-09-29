@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.LogoActivity;
 /* loaded from: classes.dex */
 class e implements a.b {
-    final /* synthetic */ c aEi;
+    final /* synthetic */ c aDn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.aEi = cVar;
+        this.aDn = cVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -17,10 +17,10 @@ class e implements a.b {
         LogoActivity logoActivity;
         LogoActivity.a aVar2;
         aVar.dismiss();
-        com.baidu.adp.lib.g.h hf = com.baidu.adp.lib.g.h.hf();
-        bVar = this.aEi.aEh;
-        logoActivity = bVar.aEg;
-        aVar2 = logoActivity.aEe;
-        hf.post(aVar2);
+        com.baidu.adp.lib.g.h hg = com.baidu.adp.lib.g.h.hg();
+        bVar = this.aDn.aDm;
+        logoActivity = bVar.aDl;
+        aVar2 = logoActivity.aDj;
+        hg.post(aVar2);
     }
 }

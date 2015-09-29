@@ -5,40 +5,40 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0067a cbo;
+    private InterfaceC0070a cgt;
     private int count = 0;
-    private long cbm = 0;
-    private long cbn = 0;
-    private long cbp = 500;
+    private long cgr = 0;
+    private long cgs = 0;
+    private long cgu = 500;
     private Handler mHandler = new b(this);
 
     /* renamed from: com.baidu.tieba.pb.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0067a {
-        void Mj();
+    public interface InterfaceC0070a {
+        void Mi();
 
-        void Mk();
+        void Mj();
     }
 
-    public a(InterfaceC0067a interfaceC0067a) {
-        this.cbo = interfaceC0067a;
+    public a(InterfaceC0070a interfaceC0070a) {
+        this.cgt = interfaceC0070a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.cbo == null) {
+            if (this.cgt == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.cbm = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.cbp);
+                this.cgr = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.cgu);
                 return true;
             } else if (this.count == 2) {
-                this.cbn = System.currentTimeMillis();
-                if (this.cbn - this.cbm < this.cbp) {
-                    this.cbo.Mk();
+                this.cgs = System.currentTimeMillis();
+                if (this.cgs - this.cgr < this.cgu) {
+                    this.cgt.Mj();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

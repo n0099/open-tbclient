@@ -1,42 +1,41 @@
 package com.baidu.tieba.image;
 
-import android.view.animation.Animation;
-import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.tbadkCore.ag;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f implements Animation.AnimationListener {
-    final /* synthetic */ e bMj;
+public class f implements a.b {
+    final /* synthetic */ a bOD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.bMj = eVar;
+    public f(a aVar) {
+        this.bOD = aVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        ImageViewerActivity imageViewerActivity;
-        ImageViewerActivity imageViewerActivity2;
-        boolean z;
-        ImageViewerActivity imageViewerActivity3;
-        ImageViewerActivity imageViewerActivity4;
-        NavigationBar navigationBar;
-        imageViewerActivity = this.bMj.this$0;
-        imageViewerActivity.bnw = true;
-        imageViewerActivity2 = this.bMj.this$0;
-        z = imageViewerActivity2.bnx;
-        if (z) {
-            imageViewerActivity3 = this.bMj.this$0;
-            imageViewerActivity3.bnx = false;
-            imageViewerActivity4 = this.bMj.this$0;
-            navigationBar = imageViewerActivity4.bdE;
-            navigationBar.setVisibility(8);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        i iVar;
+        com.baidu.tbadk.core.data.b bVar;
+        com.baidu.tbadk.core.data.b bVar2;
+        com.baidu.tbadk.core.data.b bVar3;
+        TbPageContext tbPageContext;
+        i iVar2;
+        com.baidu.tbadk.core.data.b bVar4;
+        iVar = this.bOD.bOA;
+        iVar.ZY();
+        bVar = this.bOD.bOx;
+        String str = bVar.TZ;
+        bVar2 = this.bOD.bOx;
+        String str2 = bVar2.TY;
+        bVar3 = this.bOD.bOx;
+        k kVar = new k(str, str2, bVar3.TV);
+        tbPageContext = this.bOD.mContext;
+        if (ag.a(tbPageContext.getPageActivity(), kVar, 0)) {
+            iVar2 = this.bOD.bOA;
+            bVar4 = this.bOD.bOx;
+            iVar2.iO(bVar4.TZ);
         }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
+        aVar.dismiss();
     }
 }

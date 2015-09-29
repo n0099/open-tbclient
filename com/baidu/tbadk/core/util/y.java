@@ -1,34 +1,34 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.os.Handler;
 /* loaded from: classes.dex */
-public class y {
-    private static y aak;
-    private static volatile int aal = 0;
-    private static int aam = 300000;
-    private static int aan = 10;
-    public static int aao;
+class y implements com.baidu.adp.lib.network.http.h {
+    int ZY = 0;
+    int ZZ = 0;
+    int aaa = 0;
+    final /* synthetic */ x aab;
+    private final /* synthetic */ Handler aac;
+    private final /* synthetic */ int aad;
 
-    private y() {
-        aao = TbadkCoreApplication.m411getInst().getNetWorkCoreType();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public y(x xVar, Handler handler, int i) {
+        this.aab = xVar;
+        this.aac = handler;
+        this.aad = i;
     }
 
-    public static synchronized y ur() {
-        y yVar;
-        synchronized (y.class) {
-            if (aak == null) {
-                aak = new y();
-            }
-            yVar = aak;
+    @Override // com.baidu.adp.lib.network.http.h
+    public void c(int i, int i2) {
+        if (i2 > 0) {
+            this.ZY = i2 / 50;
         }
-        return yVar;
-    }
-
-    public q a(com.baidu.tbadk.core.util.a.a aVar) {
-        return new w(aVar);
-    }
-
-    public static void ck(int i) {
-        aao = i;
+        this.ZZ += i - this.aaa;
+        this.aaa = i;
+        if (this.aac != null) {
+            if (this.ZZ > this.ZY || i == i2) {
+                this.ZZ = 0;
+                this.aac.sendMessage(this.aac.obtainMessage(this.aad, i, i2));
+            }
+        }
     }
 }

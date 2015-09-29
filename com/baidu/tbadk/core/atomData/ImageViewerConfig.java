@@ -2,6 +2,8 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import java.util.ArrayList;
@@ -16,10 +18,13 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String DATA_VALID = "data_valid";
     public static final String FORUM_ID = "fid";
     public static final String FORUM_NAME = "fname";
+    public static final String FROM_FRS = "frs";
+    public static final String FROM_PB = "pb";
     public static final String HAS_NEXT = "hasnext";
     public static final String INDEX = "index";
     public static final String IS_DATA_VALID = "is_data_valid";
     public static final String IS_PV = "is_pv";
+    public static final String IS_SHOW_AD = "is_show_ad";
     public static final String LAST_ID = "last_id";
     private static final int MAX_ASSIST_URLS = 20;
     public static final String NEED_BROADCAST = "need_broadcast";
@@ -31,12 +36,17 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String START_ACTIVITY_TYPE = "start_activity_type";
     public static final String THREAD_ID = "tid";
     public static final String URL = "url";
+    public static final String USER_ID = "user_id";
 
     public ImageViewerConfig(Context context) {
         super(context);
     }
 
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, HashMap<String, ImageUrlData> hashMap) {
+        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, hashMap, false);
+    }
+
+    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, HashMap<String, ImageUrlData> hashMap, boolean z3) {
         Intent intent = getIntent();
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
         if (arrayList != null && arrayList.size() > 0) {
@@ -53,6 +63,11 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(LAST_ID, str4);
             intent.putExtra(REVERSE_MODE, z2);
             intent.putExtra(ASSIST_URLS, hashMap);
+            intent.putExtra(IS_SHOW_AD, z3);
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null) {
+                intent.putExtra("user_id", currentAccountObj.getID());
+            }
         } else {
             intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);
         }

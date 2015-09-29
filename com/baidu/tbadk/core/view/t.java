@@ -1,37 +1,23 @@
 package com.baidu.tbadk.core.view;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.af;
 /* loaded from: classes.dex */
-public class t implements View.OnClickListener {
-    final /* synthetic */ NavigationBar aev;
+class t extends CustomMessageListener {
+    final /* synthetic */ r aeG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public t(NavigationBar navigationBar) {
-        this.aev = navigationBar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t(r rVar, int i) {
+        super(i);
+        this.aeG = rVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        Activity activity;
-        Activity activity2;
-        z = this.aev.mClickIsVaild;
-        if (z) {
-            int id = view.getId();
-            if (id == i.f.navigationBarGoBack) {
-                activity2 = this.aev.mCurrentActivity;
-                activity2.finish();
-            } else if (id == i.f.navigationBarHome) {
-                MessageManager messageManager = MessageManager.getInstance();
-                activity = this.aev.mCurrentActivity;
-                messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.START_GO_HOME, activity));
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.aeG.aew.setBackgroundColor(af.ut().cr(TbadkCoreApplication.m411getInst().getSkinType()));
     }
 }

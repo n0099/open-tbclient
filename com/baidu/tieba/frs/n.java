@@ -3,44 +3,44 @@ package com.baidu.tieba.frs;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 class n implements NoNetworkView.a {
-    final /* synthetic */ FrsActivity aVz;
+    final /* synthetic */ FrsActivity aUz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.aVz = frsActivity;
+        this.aUz = frsActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void ay(boolean z) {
-        bi biVar;
+    public void ax(boolean z) {
+        bs bsVar;
         com.baidu.tieba.tbadkCore.o oVar;
-        bi biVar2;
+        bs bsVar2;
         boolean z2;
-        bi biVar3;
-        bi biVar4;
+        bs bsVar3;
+        bs bsVar4;
         com.baidu.tieba.tbadkCore.o oVar2;
         if (z) {
-            biVar = this.aVz.aUL;
-            if (!biVar.Lm()) {
-                oVar = this.aVz.aUN;
+            bsVar = this.aUz.aTJ;
+            if (!bsVar.Li()) {
+                oVar = this.aUz.aTL;
                 if (oVar != null) {
-                    oVar2 = this.aVz.aUN;
+                    oVar2 = this.aUz.aTL;
                     if (oVar2.getThreadList().size() != 0) {
                         return;
                     }
                 }
-                FrsActivity frsActivity = this.aVz;
-                biVar2 = this.aVz.aUL;
-                frsActivity.hideNetRefreshView(biVar2.getRootView());
-                z2 = this.aVz.aUA;
+                FrsActivity frsActivity = this.aUz;
+                bsVar2 = this.aUz.aTJ;
+                frsActivity.hideNetRefreshView(bsVar2.getRootView());
+                z2 = this.aUz.aTw;
                 if (!z2) {
-                    FrsActivity frsActivity2 = this.aVz;
-                    biVar3 = this.aVz.aUL;
-                    frsActivity2.showLoadingView(biVar3.getRootView(), true);
-                    biVar4 = this.aVz.aUL;
-                    biVar4.LZ();
+                    FrsActivity frsActivity2 = this.aUz;
+                    bsVar3 = this.aUz.aTJ;
+                    frsActivity2.showLoadingView(bsVar3.getRootView(), true);
+                    bsVar4 = this.aUz.aTJ;
+                    bsVar4.LY();
                 }
-                this.aVz.refresh();
+                this.aUz.refresh();
             }
         }
     }

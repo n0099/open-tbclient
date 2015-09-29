@@ -19,34 +19,34 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.i;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class m extends BaseAdapter {
-    private boolean bXM;
-    private boolean bXN;
+    private boolean cby;
+    private boolean cbz;
     private TbPageContext<?> mPageContext;
     private int mSize;
-    private final ArrayList<MarkData> Xn = new ArrayList<>();
-    private boolean aFm = false;
-    private ArrayList<ProgressBar> bXO = null;
-    private View.OnClickListener bXP = null;
-    private boolean bXQ = false;
+    private final ArrayList<MarkData> Xf = new ArrayList<>();
+    private boolean aEr = false;
+    private ArrayList<ProgressBar> cbA = null;
+    private View.OnClickListener cbB = null;
+    private boolean cbC = false;
     private boolean hasMore = true;
-    private boolean bXR = true;
+    private boolean cbD = true;
 
     public m(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        dZ(true);
-        acf();
+        ea(true);
+        adx();
     }
 
-    public void ace() {
-        if (this.bXO != null) {
-            Iterator<ProgressBar> it = this.bXO.iterator();
+    public void adw() {
+        if (this.cbA != null) {
+            Iterator<ProgressBar> it = this.cbA.iterator();
             while (it.hasNext()) {
                 it.next().setVisibility(8);
             }
@@ -57,16 +57,16 @@ public class m extends BaseAdapter {
         this.hasMore = z;
     }
 
-    public void acf() {
-        this.bXM = false;
-        if (this.Xn == null) {
+    public void adx() {
+        this.cby = false;
+        if (this.Xf == null) {
             this.mSize = 0;
         } else {
-            int size = this.Xn.size();
+            int size = this.Xf.size();
             if (size == 0) {
-                if (this.bXN) {
+                if (this.cbz) {
                     this.mSize = 0;
-                    this.bXM = true;
+                    this.cby = true;
                 } else {
                     this.mSize = 0;
                 }
@@ -77,32 +77,32 @@ public class m extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void dX(boolean z) {
-        this.bXQ = z;
+    public void dY(boolean z) {
+        this.cbC = z;
     }
 
     public void setData(ArrayList<MarkData> arrayList) {
-        this.Xn.clear();
+        this.Xf.clear();
         if (arrayList != null) {
-            this.Xn.addAll(arrayList);
+            this.Xf.addAll(arrayList);
         }
-        acf();
+        adx();
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Xn.size() == 0) {
+        if (this.Xf.size() == 0) {
             return this.mSize;
         }
-        if (this.bXR) {
+        if (this.cbD) {
             return this.mSize + 1;
         }
         return this.mSize;
     }
 
-    public void dY(boolean z) {
-        this.bXR = z;
+    public void dZ(boolean z) {
+        this.cbD = z;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -112,21 +112,21 @@ public class m extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return (getItemId(i) >= 0 || this.bXM) ? 0 : 1;
+        return (getItemId(i) >= 0 || this.cby) ? 0 : 1;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
         int size;
-        if (!this.bXM && (size = this.Xn.size()) > 0 && i < size) {
-            return this.Xn.get(i);
+        if (!this.cby && (size = this.Xf.size()) > 0 && i < size) {
+            return this.Xf.get(i);
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.Xn == null || i < this.Xn.size()) {
+        if (this.Xf == null || i < this.Xf.size()) {
             return i;
         }
         return -1L;
@@ -145,13 +145,13 @@ public class m extends BaseAdapter {
                     if (view == null || !(view.getTag() instanceof b)) {
                         view3 = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(i.g.home_mark_item, (ViewGroup) null);
                         bVar = new b(this, null);
-                        bVar.aUh = (TextView) view3.findViewById(i.f.home_lv_markitem_reply);
-                        bVar.bNK = (LinearLayout) view3.findViewById(i.f.home_lv_markitem_content);
-                        bVar.aQj = (TextView) view3.findViewById(i.f.home_lv_markitem_title);
-                        bVar.bXW = (Button) view3.findViewById(i.f.home_lv_markitem_delete);
-                        bVar.bXU = (ImageView) view3.findViewById(i.f.new_mark_mention_fack);
-                        bVar.bXV = (LinearLayout) view3.findViewById(i.f.new_mark);
-                        bVar.aOv = (TextView) view3.findViewById(i.f.home_lv_markitem_forum_name);
+                        bVar.aTd = (TextView) view3.findViewById(i.f.home_lv_markitem_reply);
+                        bVar.bRm = (LinearLayout) view3.findViewById(i.f.home_lv_markitem_content);
+                        bVar.aPf = (TextView) view3.findViewById(i.f.home_lv_markitem_title);
+                        bVar.cbI = (Button) view3.findViewById(i.f.home_lv_markitem_delete);
+                        bVar.cbG = (ImageView) view3.findViewById(i.f.new_mark_mention_fack);
+                        bVar.cbH = (LinearLayout) view3.findViewById(i.f.new_mark);
+                        bVar.aNr = (TextView) view3.findViewById(i.f.home_lv_markitem_forum_name);
                         view3.setTag(bVar);
                     } else {
                         bVar = (b) view.getTag();
@@ -163,12 +163,12 @@ public class m extends BaseAdapter {
                 } else if (view == null || !(view.getTag() instanceof a)) {
                     a aVar2 = new a(this, null);
                     view3 = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(i.g.page_item, (ViewGroup) null);
-                    aVar2.bXS = (TextView) view3.findViewById(i.f.page_text);
+                    aVar2.cbE = (TextView) view3.findViewById(i.f.page_text);
                     aVar2.mProgress = (ProgressBar) view3.findViewById(i.f.progress);
-                    if (this.bXO == null) {
-                        this.bXO = new ArrayList<>();
+                    if (this.cbA == null) {
+                        this.cbA = new ArrayList<>();
                     }
-                    this.bXO.add(aVar2.mProgress);
+                    this.cbA.add(aVar2.mProgress);
                     view3.setTag(aVar2);
                     bVar = null;
                     aVar = aVar2;
@@ -180,32 +180,32 @@ public class m extends BaseAdapter {
                 this.mPageContext.getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() == 1);
                 this.mPageContext.getLayoutMode().k(view3);
                 if (getItemViewType(i) == 1) {
-                    aVar.bXS.setVisibility(0);
-                    if (this.bXQ) {
+                    aVar.cbE.setVisibility(0);
+                    if (this.cbC) {
                         aVar.mProgress.setVisibility(0);
-                        aVar.bXS.setText(this.mPageContext.getString(i.h.loading));
-                        al.b(aVar.bXS, i.c.pb_more_txt, 1);
+                        aVar.cbE.setText(this.mPageContext.getString(i.h.loading));
+                        am.b(aVar.cbE, i.c.pb_more_txt, 1);
                     } else if (!this.hasMore) {
                         aVar.mProgress.setVisibility(8);
-                        aVar.bXS.setText(this.mPageContext.getString(i.h.no_more_mark));
-                        al.b(aVar.bXS, i.c.pb_list_morebutton_nomore_text, 1);
+                        aVar.cbE.setText(this.mPageContext.getString(i.h.no_more_mark));
+                        am.b(aVar.cbE, i.c.pb_list_morebutton_nomore_text, 1);
                     } else {
                         aVar.mProgress.setVisibility(8);
-                        aVar.bXS.setVisibility(8);
+                        aVar.cbE.setVisibility(8);
                     }
                 } else {
-                    if (this.bXM) {
-                        bVar.aUh.setVisibility(8);
-                        bVar.bNK.setVisibility(8);
-                        bVar.bXW.setVisibility(8);
+                    if (this.cby) {
+                        bVar.aTd.setVisibility(8);
+                        bVar.bRm.setVisibility(8);
+                        bVar.cbI.setVisibility(8);
                         a(bVar, false);
                     } else {
-                        bVar.aUh.setVisibility(0);
-                        bVar.bNK.setVisibility(0);
-                        if (this.aFm) {
-                            bVar.bXW.setVisibility(0);
+                        bVar.aTd.setVisibility(0);
+                        bVar.bRm.setVisibility(0);
+                        if (this.aEr) {
+                            bVar.cbI.setVisibility(0);
                         } else {
-                            bVar.bXW.setVisibility(8);
+                            bVar.cbI.setVisibility(8);
                         }
                     }
                     Object item = getItem(i);
@@ -218,34 +218,34 @@ public class m extends BaseAdapter {
                         }
                         int replyNum = markData.getReplyNum();
                         if (replyNum < 0) {
-                            bVar.aUh.setVisibility(8);
+                            bVar.aTd.setVisibility(8);
                         } else {
-                            bVar.aUh.setVisibility(0);
-                            bVar.aUh.setText(String.valueOf(replyNum));
+                            bVar.aTd.setVisibility(0);
+                            bVar.aTd.setText(String.valueOf(replyNum));
                         }
                         String title = markData.getTitle();
                         if (!TextUtils.isEmpty(title)) {
                             if (markData.isPhotoLiveThread()) {
-                                bVar.aQj.setText(a((int) bVar.aQj.getTextSize(), title));
+                                bVar.aPf.setText(a((int) bVar.aPf.getTextSize(), title));
                             } else {
-                                bVar.aQj.setText(title);
+                                bVar.aPf.setText(title);
                             }
                         } else {
-                            bVar.aQj.setText("");
+                            bVar.aPf.setText("");
                         }
                         if (!TextUtils.isEmpty(markData.getForumName())) {
-                            bVar.aOv.setText(String.valueOf(markData.getForumName()) + this.mPageContext.getString(i.h.bar));
+                            bVar.aNr.setText(String.valueOf(markData.getForumName()) + this.mPageContext.getString(i.h.bar));
                         } else {
-                            bVar.aOv.setText("");
+                            bVar.aNr.setText("");
                         }
-                        bVar.bXW.setOnClickListener(this.bXP);
-                        bVar.bXW.setFocusable(false);
-                        bVar.bXW.setTag(Integer.valueOf(i));
+                        bVar.cbI.setOnClickListener(this.cbB);
+                        bVar.cbI.setFocusable(false);
+                        bVar.cbI.setTag(Integer.valueOf(i));
                     } else {
                         return view3;
                     }
                 }
-                bVar.aUh.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_comment_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                bVar.aTd.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(i.e.icon_comment_n), (Drawable) null, (Drawable) null, (Drawable) null);
                 view2 = view3;
             } catch (Exception e) {
                 view2 = view3;
@@ -265,62 +265,62 @@ public class m extends BaseAdapter {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf("live") + "space" + ((Object) charSequence));
-        Bitmap cu = al.cu(i.e.icon_zhibo);
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(cu);
-        bitmapDrawable.setBounds(0, 0, cu.getWidth(), i);
-        spannableStringBuilder.setSpan(new com.baidu.tbadk.widget.i(bitmapDrawable), 0, "live".length(), 33);
+        Bitmap cw = am.cw(i.e.icon_zhibo);
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(cw);
+        bitmapDrawable.setBounds(0, 0, cw.getWidth(), i);
+        spannableStringBuilder.setSpan(new com.baidu.tbadk.widget.g(bitmapDrawable), 0, "live".length(), 33);
         ColorDrawable colorDrawable = new ColorDrawable();
         colorDrawable.setBounds(0, 0, 10, i);
-        spannableStringBuilder.setSpan(new com.baidu.tbadk.widget.i(colorDrawable), 1, "live".length() + "space".length(), 33);
-        return aq.a(spannableStringBuilder);
+        spannableStringBuilder.setSpan(new com.baidu.tbadk.widget.g(colorDrawable), 1, "live".length() + "space".length(), 33);
+        return ar.a(spannableStringBuilder);
     }
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (this.bXM || (!this.hasMore && getItemViewType(i) == 1)) {
+        if (this.cby || (!this.hasMore && getItemViewType(i) == 1)) {
             return false;
         }
         return super.isEnabled(i);
     }
 
-    public void dZ(boolean z) {
-        this.bXN = z;
+    public void ea(boolean z) {
+        this.cbz = z;
     }
 
     public void setEditState(boolean z) {
-        this.aFm = z;
+        this.aEr = z;
     }
 
-    public boolean Gb() {
-        return this.aFm;
+    public boolean FV() {
+        return this.aEr;
     }
 
-    public void w(View.OnClickListener onClickListener) {
-        this.bXP = onClickListener;
+    public void x(View.OnClickListener onClickListener) {
+        this.cbB = onClickListener;
     }
 
     private void a(b bVar, boolean z) {
-        if (bVar != null && bVar.bXV != null && bVar.bXU != null) {
+        if (bVar != null && bVar.cbH != null && bVar.cbG != null) {
             if (z) {
-                bVar.bXV.setVisibility(0);
-                bVar.bXU.setVisibility(4);
+                bVar.cbH.setVisibility(0);
+                bVar.cbG.setVisibility(4);
                 return;
             }
-            bVar.bXV.setVisibility(8);
-            bVar.bXU.setVisibility(8);
+            bVar.cbH.setVisibility(8);
+            bVar.cbG.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        TextView aOv;
-        TextView aQj;
-        TextView aUh;
-        LinearLayout bNK;
-        ImageView bXU;
-        LinearLayout bXV;
-        Button bXW;
+        TextView aNr;
+        TextView aPf;
+        TextView aTd;
+        LinearLayout bRm;
+        ImageView cbG;
+        LinearLayout cbH;
+        Button cbI;
 
         private b() {
         }
@@ -332,7 +332,7 @@ public class m extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class a {
-        TextView bXS;
+        TextView cbE;
         ProgressBar mProgress;
 
         private a() {

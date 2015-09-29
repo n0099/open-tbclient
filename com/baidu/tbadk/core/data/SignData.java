@@ -16,6 +16,8 @@ public class SignData implements Serializable {
     private int forum_rank = 0;
     private int sign_bonus_point = 3;
     private int sign_count = 0;
+    private int errorCode = 0;
+    private String errorMsg = "";
 
     public void setForumRank(int i) {
         this.forum_rank = i;
@@ -91,6 +93,22 @@ public class SignData implements Serializable {
 
     public void setLevelUpScore(int i) {
         this.levelup_score = i;
+    }
+
+    public int getErrorCode() {
+        return this.errorCode;
+    }
+
+    public void setErrorCode(int i) {
+        this.errorCode = i;
+    }
+
+    public String getErrorMsg() {
+        return this.errorMsg;
+    }
+
+    public void setErrorMsg(String str) {
+        this.errorMsg = str;
     }
 
     public void parserJson(String str) {

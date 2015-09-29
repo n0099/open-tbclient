@@ -3,46 +3,46 @@ package com.baidu.adp.plugin.packageManager.pluginFileDownload;
 import android.text.TextUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c DL;
-    private b DM;
+    private static volatile c DM;
+    private b DN;
 
-    public static c me() {
-        if (DL == null) {
+    public static c mf() {
+        if (DM == null) {
             synchronized (c.class) {
-                if (DL == null) {
-                    DL = new c();
+                if (DM == null) {
+                    DM = new c();
                 }
             }
         }
-        return DL;
+        return DM;
     }
 
     private c() {
     }
 
     public void a(BdFileDownloadData bdFileDownloadData, a aVar) {
-        if (bdFileDownloadData != null && this.DM != null) {
+        if (bdFileDownloadData != null && this.DN != null) {
             bdFileDownloadData.setCallback(aVar);
-            this.DM.h(bdFileDownloadData);
+            this.DN.h(bdFileDownloadData);
         }
     }
 
-    public void bx(String str) {
-        if (this.DM != null) {
-            this.DM.bw(str);
+    public void by(String str) {
+        if (this.DN != null) {
+            this.DN.bx(str);
         }
     }
 
     public void a(b bVar) {
-        this.DM = bVar;
+        this.DN = bVar;
     }
 
-    public boolean bu(String str) {
+    public boolean bv(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.DM != null) {
-            for (BdFileDownloadData bdFileDownloadData : this.DM.md()) {
+        if (this.DN != null) {
+            for (BdFileDownloadData bdFileDownloadData : this.DN.me()) {
                 if (str.equals(bdFileDownloadData.getId())) {
                     return true;
                 }

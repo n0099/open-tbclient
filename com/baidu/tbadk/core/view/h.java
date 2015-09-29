@@ -1,28 +1,38 @@
 package com.baidu.tbadk.core.view;
 
+import android.content.Context;
+import android.view.KeyEvent;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.RegisterActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-class h implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext Sk;
-    final /* synthetic */ f adH;
+public class h extends LinearLayout {
+    private a adB;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public h(f fVar, TbPageContext tbPageContext) {
-        this.adH = fVar;
-        this.Sk = tbPageContext;
+    /* loaded from: classes.dex */
+    public interface a {
+        void qw();
+
+        void qx();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        RegisterActivityConfig registerActivityConfig = new RegisterActivityConfig(this.Sk.getPageActivity());
-        registerActivityConfig.setRequestCode(22002);
-        registerActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, registerActivityConfig));
+    public h(Context context, View view, a aVar) {
+        super(context);
+        this.adB = null;
+        setFocusableInTouchMode(true);
+        this.adB = aVar;
+        setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
+        addView(view);
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
+        if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 82) {
+            if (this.adB != null) {
+                this.adB.qw();
+            }
+        } else if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4 && this.adB != null) {
+            this.adB.qx();
+        }
+        return super.dispatchKeyEvent(keyEvent);
     }
 }

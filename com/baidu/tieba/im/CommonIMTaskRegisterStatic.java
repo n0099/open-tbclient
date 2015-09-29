@@ -2,6 +2,7 @@ package com.baidu.tieba.im;
 
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.im.e.a.g;
 import com.baidu.tieba.im.message.ResponseAddGroupUserMessage;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
 import com.baidu.tieba.im.message.ResponseDelSystemMessage;
@@ -22,7 +23,7 @@ public class CommonIMTaskRegisterStatic {
         e.b(103102, ResponseUpdateGroupMessage.class, false).a(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
         e.b(103104, ResponseDismissGroupMessage.class, false);
         e.b(CmdConfigCustom.CMD_LOAD_DRAFT_GROUP, com.baidu.tieba.im.e.a.e.class);
-        e.b(CmdConfigCustom.CMD_LOAD_HISTORY_GROUP, com.baidu.tieba.im.e.a.g.class);
+        e.b(CmdConfigCustom.CMD_LOAD_HISTORY_GROUP, g.class);
         e.b(CmdConfigCustom.CMD_SAVE_DRAFT_GROUP, com.baidu.tieba.im.e.a.f.class);
     }
 }

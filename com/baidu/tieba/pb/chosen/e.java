@@ -1,38 +1,37 @@
 package com.baidu.tieba.pb.chosen;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
-import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tieba.i;
+import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
 /* loaded from: classes.dex */
-class e extends CustomMessageListener {
-    final /* synthetic */ PbChosenActivity bZS;
+class e extends com.baidu.adp.framework.listener.a {
+    final /* synthetic */ PbChosenActivity cfa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(PbChosenActivity pbChosenActivity, int i) {
-        super(i);
-        this.bZS = pbChosenActivity;
+    public e(PbChosenActivity pbChosenActivity, int i, int i2) {
+        super(i, i2);
+        this.cfa = pbChosenActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tieba.pb.chosen.net.b bVar;
-        com.baidu.tieba.pb.chosen.net.b bVar2;
-        if (customResponsedMessage instanceof ReadChosenPbCacheResponse) {
-            long longExtra = this.bZS.getIntent().getLongExtra(PbChosenActivityConfig.KEY_TID, 0L);
-            com.baidu.tieba.pb.chosen.net.a chosenData = ((ReadChosenPbCacheResponse) customResponsedMessage).getChosenData();
-            if (chosenData != null && chosenData.getForumInfo() != null && chosenData.getForumInfo().ftid != null && longExtra == chosenData.getForumInfo().ftid.longValue()) {
-                this.bZS.bZI = true;
-                this.bZS.a(chosenData);
+    @Override // com.baidu.adp.framework.listener.a
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        com.baidu.tieba.pb.chosen.a.i iVar;
+        com.baidu.tieba.pb.chosen.a.i iVar2;
+        if (responsedMessage != null) {
+            iVar = this.cfa.ceF;
+            iVar.aeJ();
+            if (responsedMessage.hasError()) {
+                BdToast.b(this.cfa.getPageContext().getPageActivity(), StringUtils.isNull(responsedMessage.getErrorString()) ? this.cfa.getResources().getString(i.h.neterror) : responsedMessage.getErrorString()).sZ();
+                return;
             }
-            bVar = this.bZS.bZF;
-            if (bVar == null) {
-                this.bZS.bZF = new com.baidu.tieba.pb.chosen.net.b();
+            Object extra = responsedMessage.getOrginalMessage().getExtra();
+            if (extra instanceof ChosenZanNetMessage) {
+                iVar2 = this.cfa.ceF;
+                iVar2.em(((ChosenZanNetMessage) extra).isPraise());
             }
-            bVar2 = this.bZS.bZF;
-            bVar2.a(this.bZS, longExtra);
         }
     }
 }

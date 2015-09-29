@@ -4,16 +4,16 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements a.b {
-    final /* synthetic */ p cmh;
+    final /* synthetic */ p crK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(p pVar) {
-        this.cmh = pVar;
+        this.crK = pVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        this.cmh.agZ();
+        this.crK.aiZ();
     }
 }

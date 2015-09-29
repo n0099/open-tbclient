@@ -21,6 +21,8 @@ public interface h<T> {
 
     BdUniqueId getUniqueId();
 
+    void registerListener(int i, MessageListener<?> messageListener);
+
     void registerListener(MessageListener<?> messageListener);
 
     void registerListener(com.baidu.adp.framework.listener.a aVar);

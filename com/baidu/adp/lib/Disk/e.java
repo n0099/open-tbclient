@@ -214,7 +214,7 @@ public class e {
                         }
                     }
                     com.baidu.adp.lib.g.a.d(fileInputStream);
-                    com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
+                    com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
                     if (z) {
                         this.rl.setSuccess(true);
                     }
@@ -225,21 +225,21 @@ public class e {
                     try {
                         BdLog.e(e.getMessage());
                         com.baidu.adp.lib.g.a.d(fileInputStream2);
-                        com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
+                        com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
                         this.rl.fr();
                         return z;
                     } catch (Throwable th2) {
                         th = th2;
                         fileInputStream = fileInputStream2;
                         com.baidu.adp.lib.g.a.d(fileInputStream);
-                        com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
+                        com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
                         this.rl.fr();
                         throw th;
                     }
                 } catch (Throwable th3) {
                     th = th3;
                     com.baidu.adp.lib.g.a.d(fileInputStream);
-                    com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
+                    com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
                     this.rl.fr();
                     throw th;
                 }
@@ -289,13 +289,13 @@ public class e {
                         e = e;
                         fileOutputStream = fileOutputStream2;
                         BdLog.e(e.getMessage());
-                        com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
+                        com.baidu.adp.lib.g.a.b(fileOutputStream);
                         this.rl.fr();
                         return false;
                     } catch (Throwable th) {
                         th = th;
                         fileOutputStream = fileOutputStream2;
-                        com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
+                        com.baidu.adp.lib.g.a.b(fileOutputStream);
                         this.rl.fr();
                         throw th;
                     }
@@ -304,7 +304,7 @@ public class e {
                     fileOutputStream2.write(data);
                 }
                 fileOutputStream2.flush();
-                com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
+                com.baidu.adp.lib.g.a.b(fileOutputStream2);
                 this.rl.e(a2);
                 this.rl.setSuccess(true);
                 this.rl.fr();

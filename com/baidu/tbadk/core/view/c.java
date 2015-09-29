@@ -1,35 +1,28 @@
 package com.baidu.tbadk.core.view;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
+import android.database.DataSetObserver;
 /* loaded from: classes.dex */
-class c implements com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.square.a> {
-    final /* synthetic */ b adf;
+class c extends DataSetObserver {
+    final /* synthetic */ HorizontalListView ads;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar) {
-        this.adf = bVar;
+    public c(HorizontalListView horizontalListView) {
+        this.ads = horizontalListView;
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.d
-    public void o(int i, String str) {
-        TbPageContext<?> tbPageContext;
-        TbPageContext tbPageContext2;
-        String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i));
-        ax uX = ax.uX();
-        tbPageContext = this.adf.mContext;
-        String[] strArr = new String[3];
-        strArr[0] = str;
-        strArr[2] = makeStatisticsParam;
-        uX.b(tbPageContext, strArr);
-        tbPageContext2 = this.adf.mContext;
-        TiebaStatic.eventStat(tbPageContext2.getPageActivity(), "square_banner_picture", "click", 1, "loc", new StringBuilder(String.valueOf(i - 1)).toString());
+    @Override // android.database.DataSetObserver
+    public void onChanged() {
+        synchronized (this.ads) {
+            this.ads.adl = true;
+        }
+        this.ads.invalidate();
+        this.ads.requestLayout();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.core.flow.a.d
-    public void a(int i, com.baidu.tieba.square.a aVar) {
+    @Override // android.database.DataSetObserver
+    public void onInvalidated() {
+        this.ads.reset();
+        this.ads.invalidate();
+        this.ads.requestLayout();
     }
 }

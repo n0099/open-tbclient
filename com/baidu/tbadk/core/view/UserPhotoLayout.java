@@ -33,9 +33,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public interface d {
         ListView getListView();
 
-        int vN();
+        int vG();
 
-        com.baidu.adp.lib.e.b<HeadImageView> vO();
+        com.baidu.adp.lib.e.b<HeadImageView> vH();
     }
 
     public void setAutoChangeStyle(boolean z) {
@@ -75,13 +75,13 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mItemSize = (int) this.mContext.getResources().getDimension(i.d.ds60);
         if (this.mContext instanceof d) {
             d dVar = (d) this.mContext;
-            this.mUserPhotoPool = dVar.vO();
+            this.mUserPhotoPool = dVar.vH();
             if (dVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new c(dVar.vN());
+                this.mTbRecyclerListener = new c(dVar.vG());
                 dVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }
-        setOnHierarchyChangeListener(new ag(this));
+        setOnHierarchyChangeListener(new y(this));
     }
 
     @Override // android.view.ViewGroup
@@ -206,10 +206,14 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         }
     }
 
+    public static com.baidu.adp.lib.e.b<HeadImageView> createUserPhotoPool(Context context, int i) {
+        return new com.baidu.adp.lib.e.b<>(new z(context), i, 0);
+    }
+
     private HeadImageView getImageView(Context context) {
         HeadImageView headImageView = null;
         if (this.mUserPhotoPool != null) {
-            headImageView = this.mUserPhotoPool.gX();
+            headImageView = this.mUserPhotoPool.gY();
         }
         if (headImageView == null || headImageView.getParent() != null) {
             return new HeadImageView(context);

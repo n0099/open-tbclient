@@ -7,12 +7,12 @@ import java.util.Timer;
 class d implements Runnable {
     private final /* synthetic */ Timer Iu;
     final /* synthetic */ c Iv;
-    private final /* synthetic */ View yF;
+    private final /* synthetic */ View yG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, View view, Timer timer) {
         this.Iv = cVar;
-        this.yF = view;
+        this.yG = view;
         this.Iu = timer;
     }
 
@@ -31,7 +31,7 @@ class d implements Runnable {
         b bVar6;
         int i3;
         b bVar7;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.yF.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.yG.getLayoutParams();
         int i4 = layoutParams.bottomMargin;
         bVar = this.Iv.It;
         i = bVar.Ic;
@@ -47,7 +47,7 @@ class d implements Runnable {
             bVar7 = this.Iv.It;
             bVar7.Is = true;
         }
-        this.yF.setLayoutParams(layoutParams);
+        this.yG.setLayoutParams(layoutParams);
         bVar3 = this.Iv.It;
         z = bVar3.Is;
         if (z) {
@@ -56,7 +56,7 @@ class d implements Runnable {
             if (gVar != null) {
                 bVar5 = this.Iv.It;
                 gVar2 = bVar5.Ie;
-                gVar2.nz();
+                gVar2.nA();
             }
         }
     }

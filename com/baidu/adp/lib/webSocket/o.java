@@ -13,32 +13,32 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class o extends Thread {
-    private static long Az = 0;
-    private boolean AA;
-    private int AB;
-    private a AC;
-    private int AD;
-    private final f AE;
-    private int AF;
-    private final Handler Aw;
-    private final ByteBuffer Ax;
-    private final d Ay;
+    private static long AA = 0;
+    private boolean AB;
+    private int AC;
+    private a AD;
+    private int AE;
+    private final f AF;
+    private int AG;
+    private final Handler Ax;
+    private final ByteBuffer Ay;
+    private final d Az;
     private int mState;
     private boolean mStopped;
-    private final e.a zI;
-    private final n zQ;
+    private final e.a zJ;
+    private final n zR;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public int AG;
-        public boolean AH;
-        public int AI;
+        public int AH;
+        public boolean AI;
         public int AJ;
         public int AK;
         public int AL;
-        public byte[] AM;
+        public int AM;
         public byte[] AN;
+        public byte[] AO;
 
         private a() {
         }
@@ -51,91 +51,91 @@ public class o extends Thread {
     public o(Handler handler, e.a aVar, n nVar, String str) {
         super(str);
         this.mStopped = false;
-        this.AA = false;
-        this.AE = new f();
-        this.AF = 0;
-        this.Aw = handler;
-        this.zI = aVar;
-        this.zQ = nVar;
-        this.Ax = ByteBuffer.allocateDirect(nVar.jO() + 14);
-        this.Ay = new d(nVar.jP());
-        this.AC = null;
+        this.AB = false;
+        this.AF = new f();
+        this.AG = 0;
+        this.Ax = handler;
+        this.zJ = aVar;
+        this.zR = nVar;
+        this.Ay = ByteBuffer.allocateDirect(nVar.jP() + 14);
+        this.Az = new d(nVar.jQ());
+        this.AD = null;
         this.mState = 1;
     }
 
     protected void q(Object obj) {
-        Message obtainMessage = this.Aw.obtainMessage();
+        Message obtainMessage = this.Ax.obtainMessage();
         obtainMessage.obj = obj;
-        this.Aw.sendMessage(obtainMessage);
+        this.Ax.sendMessage(obtainMessage);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [219=8] */
-    private boolean jV() {
+    private boolean jW() {
         int i;
         long j;
         int i2 = 2;
-        if (this.AC != null) {
-            if (this.AD < this.AC.AK) {
-                int position = this.Ax.position();
-                if (this.AC.AK - this.AD < position) {
-                    position = this.AC.AK - this.AD;
+        if (this.AD != null) {
+            if (this.AE < this.AD.AL) {
+                int position = this.Ay.position();
+                if (this.AD.AL - this.AE < position) {
+                    position = this.AD.AL - this.AE;
                 }
                 byte[] bArr = null;
-                int position2 = this.Ax.position();
-                if (this.AC.AK > 0) {
+                int position2 = this.Ay.position();
+                if (this.AD.AL > 0) {
                     bArr = new byte[position];
-                    this.Ax.position(0);
-                    this.Ax.get(bArr, 0, position);
+                    this.Ay.position(0);
+                    this.Ay.get(bArr, 0, position);
                 }
-                this.Ax.position(position);
-                this.Ax.limit(position2);
-                this.Ax.compact();
+                this.Ay.position(position);
+                this.Ay.limit(position2);
+                this.Ay.compact();
                 if (bArr != null) {
-                    this.Ay.write(bArr);
+                    this.Az.write(bArr);
                 }
-                this.AD = position + this.AD;
-                return this.AD >= this.AC.AK;
+                this.AE = position + this.AE;
+                return this.AE >= this.AD.AL;
             }
-            if (this.AC.AG <= 7) {
-                if (!this.AA) {
-                    this.AA = true;
-                    this.AB = this.AC.AG;
-                    if (this.AB == 1 && this.zQ.jS()) {
-                        this.AE.reset();
+            if (this.AD.AH <= 7) {
+                if (!this.AB) {
+                    this.AB = true;
+                    this.AC = this.AD.AH;
+                    if (this.AC == 1 && this.zR.jT()) {
+                        this.AF.reset();
                     }
                 }
-                if (this.AB == 1 && this.zQ.jS() && !this.AE.E(this.Ay.toByteArray())) {
+                if (this.AC == 1 && this.zR.jT() && !this.AF.E(this.Az.toByteArray())) {
                     throw new WebSocketException("invalid UTF-8 in text message payload");
                 }
-                if (this.AC.AH) {
-                    if (this.AB == 1) {
-                        if (this.zQ.jS() && !this.AE.isValid()) {
+                if (this.AD.AI) {
+                    if (this.AC == 1) {
+                        if (this.zR.jT() && !this.AF.isValid()) {
                             throw new WebSocketException("UTF-8 text message payload ended within Unicode code point");
                         }
-                        if (this.zQ.jN()) {
-                            F(this.Ay.toByteArray());
+                        if (this.zR.jO()) {
+                            F(this.Az.toByteArray());
                         } else {
-                            I(new String(this.Ay.toByteArray(), "UTF-8"));
+                            I(new String(this.Az.toByteArray(), "UTF-8"));
                         }
-                    } else if (this.AB != 2) {
+                    } else if (this.AC != 2) {
                         throw new Exception("BdLogic error");
                     } else {
-                        w(this.Ay.toByteArray());
+                        w(this.Az.toByteArray());
                     }
-                    this.AA = false;
-                    this.Ay.reset();
+                    this.AB = false;
+                    this.Az.reset();
                 }
-            } else if (this.AC.AG == 8) {
+            } else if (this.AD.AH == 8) {
                 int i3 = 1005;
                 String str = null;
-                if (this.AC.AK >= 2) {
-                    i3 = ((this.AC.AN[0] & 255) * 256) + (this.AC.AN[1] & 255);
+                if (this.AD.AL >= 2) {
+                    i3 = ((this.AD.AO[0] & 255) * 256) + (this.AD.AO[1] & 255);
                     if (i3 < 1000 || (!(i3 < 1000 || i3 > 2999 || i3 == 1000 || i3 == 1001 || i3 == 1002 || i3 == 1003 || i3 == 1007 || i3 == 1008 || i3 == 1009 || i3 == 1010 || i3 == 1011) || i3 >= 5000)) {
                         throw new WebSocketException("invalid close code " + i3);
                     }
-                    if (this.AC.AK > 2) {
-                        byte[] bArr2 = new byte[this.AC.AK - 2];
-                        System.arraycopy(this.AC.AN, 2, bArr2, 0, this.AC.AK - 2);
+                    if (this.AD.AL > 2) {
+                        byte[] bArr2 = new byte[this.AD.AL - 2];
+                        System.arraycopy(this.AD.AO, 2, bArr2, 0, this.AD.AL - 2);
                         f fVar = new f();
                         fVar.E(bArr2);
                         if (!fVar.isValid()) {
@@ -145,22 +145,22 @@ public class o extends Thread {
                     }
                 }
                 l(i3, str);
-            } else if (this.AC.AG == 9) {
-                G(this.Ay.toByteArray());
-            } else if (this.AC.AG != 10) {
+            } else if (this.AD.AH == 9) {
+                G(this.Az.toByteArray());
+            } else if (this.AD.AH != 10) {
                 throw new Exception("BdLogic error");
             } else {
-                H(this.Ay.toByteArray());
+                H(this.Az.toByteArray());
             }
-            this.AC = null;
-            this.AD = 0;
-            return this.Ax.position() > 0;
-        } else if (this.Ax.position() >= 2) {
-            byte b = this.Ax.get(0);
+            this.AD = null;
+            this.AE = 0;
+            return this.Ay.position() > 0;
+        } else if (this.Ay.position() >= 2) {
+            byte b = this.Ay.get(0);
             boolean z = (b & 128) != 0;
             int i4 = (b & 112) >> 4;
             int i5 = b & 15;
-            byte b2 = this.Ax.get(1);
+            byte b2 = this.Ay.get(1);
             boolean z2 = (b2 & 128) != 0;
             int i6 = b2 & Byte.MAX_VALUE;
             if (i4 != 0) {
@@ -185,10 +185,10 @@ public class o extends Thread {
             } else if (i5 != 0 && i5 != 1 && i5 != 2) {
                 throw new WebSocketException("data frame using reserved opcode " + i5);
             } else {
-                if (!this.AA && i5 == 0) {
+                if (!this.AB && i5 == 0) {
                     throw new WebSocketException("received continuation data frame outside fragmented message");
                 }
-                if (this.AA && i5 != 0) {
+                if (this.AB && i5 != 0) {
                     throw new WebSocketException("received non-continuation data frame while inside fragmented message");
                 }
             }
@@ -202,48 +202,48 @@ public class o extends Thread {
             } else {
                 i = i7 + 10;
             }
-            if (this.Ax.position() >= i) {
+            if (this.Ay.position() >= i) {
                 if (i6 == 126) {
-                    j = ((this.Ax.get(2) & 255) << 8) | (this.Ax.get(3) & 255);
+                    j = ((this.Ay.get(2) & 255) << 8) | (this.Ay.get(3) & 255);
                     if (j < 126) {
                         throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                     }
                     i2 = 4;
                 } else if (i6 != 127) {
                     j = i6;
-                } else if ((this.Ax.get(2) & 128) != 0) {
+                } else if ((this.Ay.get(2) & 128) != 0) {
                     throw new WebSocketException("invalid data frame length (> 2^63)");
                 } else {
-                    j = ((this.Ax.get(2) & 255) << 56) | ((this.Ax.get(3) & 255) << 48) | ((this.Ax.get(4) & 255) << 40) | ((this.Ax.get(5) & 255) << 32) | ((this.Ax.get(6) & 255) << 24) | ((this.Ax.get(7) & 255) << 16) | ((this.Ax.get(8) & 255) << 8) | (this.Ax.get(9) & 255);
+                    j = ((this.Ay.get(2) & 255) << 56) | ((this.Ay.get(3) & 255) << 48) | ((this.Ay.get(4) & 255) << 40) | ((this.Ay.get(5) & 255) << 32) | ((this.Ay.get(6) & 255) << 24) | ((this.Ay.get(7) & 255) << 16) | ((this.Ay.get(8) & 255) << 8) | (this.Ay.get(9) & 255);
                     if (j < 65536) {
                         throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
                     }
                     i2 = 10;
                 }
-                this.AC = new a(null);
-                this.AC.AG = i5;
-                this.AC.AH = z;
-                this.AC.AI = i4;
-                this.AC.AK = (int) j;
-                this.AC.AJ = i;
-                this.AC.AL = this.AC.AJ + this.AC.AK;
+                this.AD = new a(null);
+                this.AD.AH = i5;
+                this.AD.AI = z;
+                this.AD.AJ = i4;
+                this.AD.AL = (int) j;
+                this.AD.AK = i;
+                this.AD.AM = this.AD.AK + this.AD.AL;
                 if (z2) {
-                    this.AC.AM = new byte[4];
+                    this.AD.AN = new byte[4];
                     for (int i8 = 0; i8 < 4; i8++) {
-                        this.AC.AM[i2] = (byte) (this.Ax.get(i2 + i8) & 255);
+                        this.AD.AN[i2] = (byte) (this.Ay.get(i2 + i8) & 255);
                     }
                     int i9 = i2 + 4;
                 } else {
-                    this.AC.AM = null;
+                    this.AD.AN = null;
                 }
-                int position3 = this.Ax.position();
-                this.AC.AN = new byte[this.AC.AJ];
-                this.Ax.position(0);
-                this.Ax.get(this.AC.AN, 0, this.AC.AJ);
-                this.Ax.position(this.AC.AJ);
-                this.Ax.limit(position3);
-                this.Ax.compact();
-                return this.AC.AK == 0 || this.Ax.position() >= this.AC.AK;
+                int position3 = this.Ay.position();
+                this.AD.AO = new byte[this.AD.AK];
+                this.Ay.position(0);
+                this.Ay.get(this.AD.AO, 0, this.AD.AK);
+                this.Ay.position(this.AD.AK);
+                this.Ay.limit(position3);
+                this.Ay.compact();
+                return this.AD.AL == 0 || this.Ay.position() >= this.AD.AL;
             }
             return false;
         } else {
@@ -279,45 +279,45 @@ public class o extends Thread {
         q(new m.a(bArr));
     }
 
-    private boolean jW() {
+    private boolean jX() {
         boolean z;
         boolean z2;
-        int position = this.Ax.position() - 4;
+        int position = this.Ay.position() - 4;
         while (true) {
             if (position < 0) {
                 break;
-            } else if (this.Ax.get(position + 0) != 13 || this.Ax.get(position + 1) != 10 || this.Ax.get(position + 2) != 13 || this.Ax.get(position + 3) != 10) {
+            } else if (this.Ay.get(position + 0) != 13 || this.Ay.get(position + 1) != 10 || this.Ay.get(position + 2) != 13 || this.Ay.get(position + 3) != 10) {
                 position--;
             } else {
-                int position2 = this.Ax.position();
+                int position2 = this.Ay.position();
                 Map<String, String> map = null;
-                if (this.Ax.get(0) == 72 && this.Ax.get(1) == 84 && this.Ax.get(2) == 84 && this.Ax.get(3) == 80) {
-                    Pair<Integer, String> jX = jX();
-                    if (((Integer) jX.first).intValue() >= 300) {
-                        q(new m.p(((Integer) jX.first).intValue(), (String) jX.second));
+                if (this.Ay.get(0) == 72 && this.Ay.get(1) == 84 && this.Ay.get(2) == 84 && this.Ay.get(3) == 80) {
+                    Pair<Integer, String> jY = jY();
+                    if (((Integer) jY.first).intValue() >= 300) {
+                        q(new m.p(((Integer) jY.first).intValue(), (String) jY.second));
                         z = true;
                     } else {
                         z = false;
                     }
                     if (position > 0) {
-                        this.Ax.position(0);
+                        this.Ay.position(0);
                         byte[] bArr = new byte[position];
-                        this.Ax.get(bArr);
+                        this.Ay.get(bArr);
                         map = I(bArr);
                     }
                 } else {
                     z = false;
                 }
-                this.Ax.position(position + 4);
-                this.Ax.limit(position2);
-                this.Ax.compact();
-                if (this.AF < this.zI.jw() && map.size() == 0) {
-                    this.AF++;
+                this.Ay.position(position + 4);
+                this.Ay.limit(position2);
+                this.Ay.compact();
+                if (this.AG < this.zJ.jx() && map.size() == 0) {
+                    this.AG++;
                     return true;
                 }
-                this.AF = 0;
+                this.AG = 0;
                 if (!z) {
-                    z2 = this.Ax.position() > 0;
+                    z2 = this.Ay.position() > 0;
                     this.mState = 3;
                 } else {
                     this.mState = 0;
@@ -346,38 +346,38 @@ public class o extends Thread {
         return hashMap;
     }
 
-    private Pair<Integer, String> jX() {
+    private Pair<Integer, String> jY() {
         int i = 4;
-        while (i < this.Ax.position() && this.Ax.get(i) != 32) {
+        while (i < this.Ay.position() && this.Ay.get(i) != 32) {
             i++;
         }
         int i2 = i + 1;
-        while (i2 < this.Ax.position() && this.Ax.get(i2) != 32) {
+        while (i2 < this.Ay.position() && this.Ay.get(i2) != 32) {
             i2++;
         }
         int i3 = i + 1;
         int i4 = 0;
         for (int i5 = 0; i3 + i5 < i2; i5++) {
-            i4 = (i4 * 10) + (this.Ax.get(i3 + i5) - 48);
+            i4 = (i4 * 10) + (this.Ay.get(i3 + i5) - 48);
         }
         int i6 = i2 + 1;
         int i7 = i6;
-        while (i7 < this.Ax.position() && this.Ax.get(i7) != 13) {
+        while (i7 < this.Ay.position() && this.Ay.get(i7) != 13) {
             i7++;
         }
         int i8 = i7 - i6;
         byte[] bArr = new byte[i8];
-        this.Ax.position(i6);
-        this.Ax.get(bArr, 0, i8);
+        this.Ay.position(i6);
+        this.Ay.get(bArr, 0, i8);
         return new Pair<>(Integer.valueOf(i4), new String(bArr, "UTF-8"));
     }
 
-    private boolean jY() {
+    private boolean jZ() {
         if (this.mState == 3 || this.mState == 2) {
-            return jV();
+            return jW();
         }
         if (this.mState == 1) {
-            return jW();
+            return jX();
         }
         if (this.mState == 0) {
         }
@@ -387,7 +387,7 @@ public class o extends Thread {
     public void quit() {
         this.mStopped = true;
         try {
-            this.zI.close();
+            this.zJ.close();
         } catch (Throwable th) {
             BdLog.e(th);
         }
@@ -397,24 +397,24 @@ public class o extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         try {
-            this.Ax.clear();
+            this.Ay.clear();
             do {
                 try {
-                    int read = this.zI.read(this.Ax);
+                    int read = this.zJ.read(this.Ay);
                     if (read > 0) {
                         synchronized (o.class) {
-                            Az += read;
+                            AA += read;
                         }
                     }
                     if (read > 0) {
                         do {
-                        } while (jY());
+                        } while (jZ());
                     } else if (read < 0) {
                         q(new m.d(new SocketException("len < 0")));
                         this.mStopped = true;
                     }
                 } catch (SocketTimeoutException e) {
-                    if (!com.baidu.adp.lib.util.i.iL()) {
+                    if (!com.baidu.adp.lib.util.i.iM()) {
                         this.mStopped = true;
                         q(new m.d(new SocketException("not net")));
                         return;
@@ -432,16 +432,16 @@ public class o extends Thread {
         }
     }
 
-    public void jE() {
+    public void jF() {
         synchronized (o.class) {
-            Az = 0L;
+            AA = 0L;
         }
     }
 
     public long getDownFlowSize() {
         long j;
         synchronized (o.class) {
-            j = Az;
+            j = AA;
         }
         return j;
     }

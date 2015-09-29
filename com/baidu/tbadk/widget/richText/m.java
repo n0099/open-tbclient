@@ -15,8 +15,8 @@ class m implements com.baidu.adp.lib.e.c<TextView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: FF */
-    public TextView gY() {
+    /* renamed from: Ft */
+    public TextView gZ() {
         return new TbListTextView(this.val$context);
     }
 
@@ -27,6 +27,7 @@ class m implements com.baidu.adp.lib.e.c<TextView> {
         textView.setText((CharSequence) null);
         textView.setTag(null);
         textView.setSingleLine(false);
+        textView.setEllipsize(null);
         textView.setBackgroundResource(0);
         textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
         textView.setTextColor(0);
@@ -52,6 +53,7 @@ class m implements com.baidu.adp.lib.e.c<TextView> {
         textView.setText((CharSequence) null);
         textView.setTag(null);
         textView.setSingleLine(false);
+        textView.setEllipsize(null);
         textView.setBackgroundResource(0);
         textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
         textView.setTextColor(0);

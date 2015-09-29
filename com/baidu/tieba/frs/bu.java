@@ -1,14 +1,23 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.coreExtra.view.BannerView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bu extends x.a {
-    public TextView aXD;
+public class bu implements BannerView.a {
+    final /* synthetic */ bs aWS;
 
-    public bu(View view) {
-        super(view);
-        this.aXD = (TextView) view;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bu(bs bsVar) {
+        this.aWS = bsVar;
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void yK() {
+        this.aWS.LG();
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
+    public void yL() {
+        this.aWS.LU();
     }
 }

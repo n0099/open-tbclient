@@ -12,7 +12,7 @@ public class p implements com.baidu.adp.widget.ScrollView.g {
     }
 
     @Override // com.baidu.adp.widget.ScrollView.g
-    public void nz() {
+    public void nA() {
         this.Ib.done();
     }
 }

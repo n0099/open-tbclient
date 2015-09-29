@@ -21,7 +21,7 @@ public class o {
         }
     }
 
-    public static void b(Closeable closeable) {
+    public static void c(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();

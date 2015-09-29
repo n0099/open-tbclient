@@ -2,23 +2,21 @@ package com.baidu.tieba.write.album;
 
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
-class ae implements x {
-    final /* synthetic */ ad cZQ;
+class ae implements v {
+    final /* synthetic */ ac dkO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(ad adVar) {
-        this.cZQ = adVar;
+    public ae(ac acVar) {
+        this.dkO = acVar;
     }
 
-    @Override // com.baidu.tieba.write.album.x
-    public boolean a(int i, ImageFileInfo imageFileInfo, boolean z) {
+    @Override // com.baidu.tieba.write.album.v
+    public void a(int i, ImageFileInfo imageFileInfo) {
+        l lVar;
         AlbumActivity albumActivity;
-        AlbumActivity albumActivity2;
-        if (z) {
-            albumActivity2 = this.cZQ.cYB;
-            return albumActivity2.c(imageFileInfo);
-        }
-        albumActivity = this.cZQ.cYB;
-        return albumActivity.d(imageFileInfo);
+        lVar = this.dkO.djp;
+        lVar.lJ(i);
+        albumActivity = this.dkO.djw;
+        albumActivity.lE(1);
     }
 }

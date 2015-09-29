@@ -2,16 +2,17 @@ package com.baidu.tieba.account;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ AccountActivity aFg;
+    final /* synthetic */ AccountActivity aEl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AccountActivity accountActivity) {
-        this.aFg = accountActivity;
+        this.aEl = accountActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,20 +21,26 @@ public class d implements View.OnClickListener {
         TextView textView2;
         TextView textView3;
         TextView textView4;
-        if (!this.aFg.aFa.Gb()) {
-            this.aFg.aFa.setEditState(true);
-            textView3 = this.aFg.aFc;
+        TextView textView5;
+        if (!this.aEl.aEf.FV()) {
+            this.aEl.aEf.setEditState(true);
+            textView3 = this.aEl.aEh;
             textView3.setText(i.h.done);
-            textView4 = this.aFg.aFc;
-            al.b(textView4, i.c.cp_link_tip_a, 1);
-            this.aFg.aFa.notifyDataSetChanged();
+            if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
+                textView5 = this.aEl.aEh;
+                am.b(textView5, i.c.navi_op_text, 1);
+            } else {
+                textView4 = this.aEl.aEh;
+                am.b(textView4, i.c.cp_link_tip_a, 1);
+            }
+            this.aEl.aEf.notifyDataSetChanged();
             return;
         }
-        this.aFg.aFa.setEditState(false);
-        textView = this.aFg.aFc;
+        this.aEl.aEf.setEditState(false);
+        textView = this.aEl.aEh;
         textView.setText(i.h.edit);
-        textView2 = this.aFg.aFc;
-        al.b(textView2, i.c.navi_op_text, 1);
-        this.aFg.aFa.notifyDataSetChanged();
+        textView2 = this.aEl.aEh;
+        am.b(textView2, i.c.navi_op_text, 1);
+        this.aEl.aEf.notifyDataSetChanged();
     }
 }

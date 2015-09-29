@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class t implements View.OnLongClickListener {
-    final /* synthetic */ PbActivity ccj;
+    final /* synthetic */ PbActivity ciz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PbActivity pbActivity) {
-        this.ccj = pbActivity;
+        this.ciz = pbActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -19,9 +19,9 @@ class t implements View.OnLongClickListener {
         com.baidu.tbadk.baseEditMark.a aVar;
         com.baidu.tbadk.baseEditMark.a aVar2;
         boolean z;
-        cb cbVar;
+        cc ccVar;
         c.b bVar;
-        bk bkVar;
+        bl blVar;
         try {
             sparseArray = (SparseArray) view.getTag();
         } catch (ClassCastException e) {
@@ -29,27 +29,27 @@ class t implements View.OnLongClickListener {
             sparseArray = null;
         }
         if (sparseArray != null) {
-            this.ccj.cch = (com.baidu.tieba.tbadkCore.data.i) sparseArray.get(i.f.tag_clip_board);
-            if (this.ccj.cch != null) {
-                aVar = this.ccj.cbH;
+            this.ciz.cix = (com.baidu.tieba.tbadkCore.data.k) sparseArray.get(i.f.tag_clip_board);
+            if (this.ciz.cix != null) {
+                aVar = this.ciz.chW;
                 if (aVar != null) {
-                    aVar2 = this.ccj.cbH;
-                    if (aVar2.qo() && this.ccj.cch.getId() != null) {
-                        String id = this.ccj.cch.getId();
-                        bkVar = this.ccj.cbG;
-                        if (id.equals(bkVar.ss())) {
+                    aVar2 = this.ciz.chW;
+                    if (aVar2.qk() && this.ciz.cix.getId() != null) {
+                        String id = this.ciz.cix.getId();
+                        blVar = this.ciz.chV;
+                        if (id.equals(blVar.sn())) {
                             z = true;
                             boolean booleanValue = ((Boolean) sparseArray.get(i.f.tag_is_subpb)).booleanValue();
-                            cbVar = this.ccj.cbL;
-                            bVar = this.ccj.cci;
-                            cbVar.a(bVar, z, booleanValue);
+                            ccVar = this.ciz.cia;
+                            bVar = this.ciz.ciy;
+                            ccVar.a(bVar, z, booleanValue);
                         }
                     }
                     z = false;
                     boolean booleanValue2 = ((Boolean) sparseArray.get(i.f.tag_is_subpb)).booleanValue();
-                    cbVar = this.ccj.cbL;
-                    bVar = this.ccj.cci;
-                    cbVar.a(bVar, z, booleanValue2);
+                    ccVar = this.ciz.cia;
+                    bVar = this.ciz.ciy;
+                    ccVar.a(bVar, z, booleanValue2);
                 }
             }
         }

@@ -10,31 +10,31 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.UserData;
-import com.baidu.tbadk.data.f;
+import com.baidu.tbadk.data.e;
 /* loaded from: classes.dex */
 public class b {
-    private static b auE;
+    private static b atb;
 
     private b() {
     }
 
-    public static b Cl() {
-        if (auE == null) {
+    public static b BY() {
+        if (atb == null) {
             synchronized (b.class) {
-                if (auE == null) {
-                    auE = new b();
+                if (atb == null) {
+                    atb = new b();
                 }
             }
         }
-        return auE;
+        return atb;
     }
 
-    public void Cm() {
+    public void BZ() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void Cn() {
+    public void Ca() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -57,15 +57,15 @@ public class b {
             }
             currentAccountObj.setSex(userData.getSex());
             currentAccountObj.setMemberType(userData.getIsMem());
-            f payMemberInfoData = userData.getPayMemberInfoData();
-            if (payMemberInfoData != null && userData.getIsMem() != 0 && payMemberInfoData.rs() * 1000 > System.currentTimeMillis() && !StringUtils.isNull(payMemberInfoData.getUrl())) {
+            e payMemberInfoData = userData.getPayMemberInfoData();
+            if (payMemberInfoData != null && userData.getIsMem() != 0 && payMemberInfoData.rn() * 1000 > System.currentTimeMillis() && !StringUtils.isNull(payMemberInfoData.getUrl())) {
                 currentAccountObj.setMemberIconUrl(payMemberInfoData.getUrl());
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            k.hg().b(new c(this, currentAccountObj));
+            k.hh().b(new c(this, currentAccountObj));
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_PERSON_INFO_CHANGED, payMemberInfoData));
         }
     }

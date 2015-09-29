@@ -78,24 +78,24 @@ public class MvcJsonHttpResponsedMessage<D extends j> extends MvcHttpResponsedMe
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        o<String> V;
+        o<String> U;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
             MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
             if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof com.baidu.tbadk.mvc.b.e)) {
                 com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) mvcHttpMessage.getRequestData();
                 String cacheKey = eVar.getCacheKey();
-                String CN = eVar.CN();
+                String CA = eVar.CA();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(CN) && bArr != null) {
-                    if (eVar.CO()) {
-                        o<byte[]> U = a.sR().U(CN, currentAccount);
-                        if (U != null) {
-                            U.f(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(CA) && bArr != null) {
+                    if (eVar.CB()) {
+                        o<byte[]> T = a.sO().T(CA, currentAccount);
+                        if (T != null) {
+                            T.f(cacheKey, bArr);
                         }
-                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (V = a.sR().V(CN, currentAccount)) != null) {
+                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (U = a.sO().U(CA, currentAccount)) != null) {
                         try {
-                            V.f(cacheKey, new String(bArr, "UTF-8"));
+                            U.f(cacheKey, new String(bArr, "UTF-8"));
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();
                         }

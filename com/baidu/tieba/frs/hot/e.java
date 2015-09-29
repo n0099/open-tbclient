@@ -2,39 +2,39 @@ package com.baidu.tieba.frs.hot;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.widget.ListView.u;
-import com.baidu.tbadk.core.data.o;
-import com.baidu.tieba.frs.di;
-import com.baidu.tieba.frs.dl;
+import com.baidu.tbadk.core.data.n;
+import com.baidu.tieba.frs.eb;
+import com.baidu.tieba.frs.ee;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d bay;
+    final /* synthetic */ d baq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i, int i2) {
         super(i, i2);
-        this.bay = dVar;
+        this.baq = dVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
         int i;
-        o oVar;
+        n nVar;
         ArrayList<u> arrayList;
-        di diVar;
+        eb ebVar;
         ArrayList arrayList2;
-        dl dlVar;
-        di diVar2;
-        dl dlVar2;
+        ee eeVar;
+        eb ebVar2;
+        ee eeVar2;
         ArrayList<u> arrayList3;
         ArrayList arrayList4;
-        dl dlVar3;
-        dl dlVar4;
-        dl dlVar5;
-        dl dlVar6;
-        dl dlVar7;
+        ee eeVar3;
+        ee eeVar4;
+        ee eeVar5;
+        ee eeVar6;
+        ee eeVar7;
         int i2;
         ArrayList arrayList5;
         ArrayList arrayList6;
@@ -46,72 +46,72 @@ public class e extends com.baidu.adp.framework.listener.a {
             if (responsedMessage instanceof ResponsedFrsHotHttpMessage) {
                 ResponsedFrsHotHttpMessage responsedFrsHotHttpMessage = (ResponsedFrsHotHttpMessage) responsedMessage;
                 arrayList = responsedFrsHotHttpMessage.getThreadList();
-                oVar = responsedFrsHotHttpMessage.getPage();
+                nVar = responsedFrsHotHttpMessage.getPage();
                 i = responsedFrsHotHttpMessage.getError();
                 str = responsedFrsHotHttpMessage.getErrorString();
             } else if (responsedMessage instanceof ResponsedFrsHotSocketMessage) {
                 ResponsedFrsHotSocketMessage responsedFrsHotSocketMessage = (ResponsedFrsHotSocketMessage) responsedMessage;
                 arrayList = responsedFrsHotSocketMessage.getThreadList();
-                oVar = responsedFrsHotSocketMessage.getPage();
+                nVar = responsedFrsHotSocketMessage.getPage();
                 i = responsedFrsHotSocketMessage.getError();
                 str = responsedFrsHotSocketMessage.getErrorString();
             } else {
                 i = 0;
-                oVar = null;
+                nVar = null;
                 arrayList = null;
             }
-            if (oVar != null) {
+            if (nVar != null) {
                 if (arrayList != null && arrayList.size() != 0) {
-                    int rO = oVar.rO();
-                    i2 = this.bay.bat;
-                    if (rO > i2) {
-                        i3 = this.bay.bat;
+                    int rJ = nVar.rJ();
+                    i2 = this.baq.bal;
+                    if (rJ > i2) {
+                        i3 = this.baq.bal;
                         if (i3 > 0) {
-                            z = this.bay.aSd;
+                            z = this.baq.aQZ;
                             if (!z) {
-                                arrayList7 = this.bay.baw;
+                                arrayList7 = this.baq.bao;
                                 arrayList7.addAll(arrayList);
                             }
                         }
                     }
-                    if (oVar.rO() > 0) {
-                        arrayList5 = this.bay.baw;
+                    if (nVar.rJ() > 0) {
+                        arrayList5 = this.baq.bao;
                         arrayList5.clear();
-                        arrayList6 = this.bay.baw;
+                        arrayList6 = this.baq.bao;
                         arrayList6.addAll(arrayList);
                     }
                 }
-                dlVar4 = this.bay.bav;
-                dlVar4.errCode = i;
-                dlVar5 = this.bay.bav;
-                dlVar5.errMsg = str;
-                dlVar6 = this.bay.bav;
-                dlVar6.pn = oVar.rO();
-                dlVar7 = this.bay.bav;
-                dlVar7.hasMore = oVar.rQ() == 1;
-                this.bay.bat = oVar.rO();
+                eeVar4 = this.baq.ban;
+                eeVar4.errCode = i;
+                eeVar5 = this.baq.ban;
+                eeVar5.errMsg = str;
+                eeVar6 = this.baq.ban;
+                eeVar6.pn = nVar.rJ();
+                eeVar7 = this.baq.ban;
+                eeVar7.hasMore = nVar.rL() == 1;
+                this.baq.bal = nVar.rJ();
             }
-            this.bay.aSd = false;
-            diVar = this.bay.bau;
-            if (diVar != null) {
-                arrayList2 = this.bay.baw;
+            this.baq.aQZ = false;
+            ebVar = this.baq.bam;
+            if (ebVar != null) {
+                arrayList2 = this.baq.bao;
                 if (arrayList2 != null) {
-                    arrayList4 = this.bay.baw;
+                    arrayList4 = this.baq.bao;
                     if (arrayList4.size() != 0) {
-                        dlVar3 = this.bay.bav;
-                        dlVar3.aZb = true;
-                        diVar2 = this.bay.bau;
-                        dlVar2 = this.bay.bav;
-                        arrayList3 = this.bay.baw;
-                        diVar2.a(2, 0, dlVar2, arrayList3);
+                        eeVar3 = this.baq.ban;
+                        eeVar3.aYQ = true;
+                        ebVar2 = this.baq.bam;
+                        eeVar2 = this.baq.ban;
+                        arrayList3 = this.baq.bao;
+                        ebVar2.a(2, 0, eeVar2, arrayList3);
                     }
                 }
-                dlVar = this.bay.bav;
-                dlVar.aZb = false;
-                diVar2 = this.bay.bau;
-                dlVar2 = this.bay.bav;
-                arrayList3 = this.bay.baw;
-                diVar2.a(2, 0, dlVar2, arrayList3);
+                eeVar = this.baq.ban;
+                eeVar.aYQ = false;
+                ebVar2 = this.baq.bam;
+                eeVar2 = this.baq.ban;
+                arrayList3 = this.baq.bao;
+                ebVar2.a(2, 0, eeVar2, arrayList3);
             }
         }
     }

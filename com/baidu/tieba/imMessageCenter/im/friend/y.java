@@ -3,14 +3,14 @@ package com.baidu.tieba.imMessageCenter.im.friend;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.tbadk.core.atomData.InviteFriendListActivityConfig;
-import com.baidu.tieba.im.message.RequestCommitInviteMessage;
+import com.baidu.tieba.imMessageCenter.RequestCommitInviteMessage;
 import protobuf.CommitInviteMsg.DataReq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y extends com.baidu.adp.base.e<InviteFriendListActivity> {
-    private RequestCommitInviteMessage bKu;
-    private int bKv;
-    private int bKw;
+    private int bNA;
+    private int bNB;
+    private RequestCommitInviteMessage bNz;
 
     public y(InviteFriendListActivity inviteFriendListActivity) {
         super(inviteFriendListActivity.getPageContext());
@@ -23,26 +23,26 @@ public class y extends com.baidu.adp.base.e<InviteFriendListActivity> {
 
     public void initWithIntent(Intent intent) {
         if (intent != null) {
-            this.bKv = intent.getIntExtra("gid", -1);
-            this.bKw = intent.getIntExtra(InviteFriendListActivityConfig.GROUP_ID, -1);
+            this.bNA = intent.getIntExtra("gid", -1);
+            this.bNB = intent.getIntExtra(InviteFriendListActivityConfig.GROUP_ID, -1);
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
-            this.bKv = bundle.getInt("gid", -1);
-            this.bKw = bundle.getInt(InviteFriendListActivityConfig.GROUP_ID, -1);
+            this.bNA = bundle.getInt("gid", -1);
+            this.bNB = bundle.getInt(InviteFriendListActivityConfig.GROUP_ID, -1);
         }
     }
 
-    public void i(Bundle bundle) {
-        bundle.putInt("gid", this.bKv);
-        bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.bKw);
+    public void j(Bundle bundle) {
+        bundle.putInt("gid", this.bNA);
+        bundle.putInt(InviteFriendListActivityConfig.GROUP_ID, this.bNB);
     }
 
-    public void iF(String str) {
-        this.bKu = c(this.bKv, this.bKw, str);
-        super.sendMessage(this.bKu);
+    public void iJ(String str) {
+        this.bNz = c(this.bNA, this.bNB, str);
+        super.sendMessage(this.bNz);
     }
 
     private RequestCommitInviteMessage c(int i, int i2, String str) {

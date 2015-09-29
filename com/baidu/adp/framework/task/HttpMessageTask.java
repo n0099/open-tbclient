@@ -45,6 +45,12 @@ public class HttpMessageTask extends MessageTask {
         return this.mUrl;
     }
 
+    public String setUrl(String str) {
+        String str2 = this.mUrl;
+        this.mUrl = str;
+        return str2;
+    }
+
     public HTTP_METHOD getMethod() {
         return this.mMethod;
     }
@@ -65,8 +71,16 @@ public class HttpMessageTask extends MessageTask {
         return this.mIsImm;
     }
 
+    public void setIsImm(boolean z) {
+        this.mIsImm = z;
+    }
+
     public a getDownloadTask() {
         return this.mDownloadTask;
+    }
+
+    public void setDownloadTask(a aVar) {
+        this.mDownloadTask = aVar;
     }
 
     public Class<? extends HttpResponsedMessage> getResponsedClass() {

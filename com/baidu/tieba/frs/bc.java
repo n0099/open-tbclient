@@ -1,38 +1,45 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.i;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bc extends x.a {
-    static final /* synthetic */ boolean $assertionsDisabled;
-    public TextView aWA;
-    public LinearLayout aWu;
-    public HeadImageView aWv;
-    public TextView aWw;
-    public TextView aWx;
-    public TextView aWy;
-    public TbImageView aWz;
+public class bc extends CustomMessageListener {
+    final /* synthetic */ bb aVv;
 
-    static {
-        $assertionsDisabled = !bc.class.desiredAssertionStatus();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bc(bb bbVar, int i) {
+        super(i);
+        this.aVv = bbVar;
     }
 
-    public bc(View view) {
-        super(view);
-        if (!$assertionsDisabled && view == null) {
-            throw new AssertionError();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        FrsActivity frsActivity;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
+            AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
+            Iterator it = absDelegateAdapterList.iterator();
+            while (it.hasNext()) {
+                com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
+                if (aVar instanceof bn) {
+                    frsActivity = this.aVv.aUU;
+                    ((bn) aVar).d(frsActivity);
+                }
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(absDelegateAdapterList);
+            bdTypeListView = this.aVv.aUV;
+            if (bdTypeListView != null) {
+                bdTypeListView2 = this.aVv.aUV;
+                bdTypeListView2.h(arrayList);
+            }
         }
-        this.aWu = (LinearLayout) view.findViewById(i.f.frs_app_item_parent);
-        this.aWv = (HeadImageView) view.findViewById(i.f.frs_app_icon);
-        this.aWw = (TextView) view.findViewById(i.f.frs_app_name);
-        this.aWx = (TextView) view.findViewById(i.f.frs_app_time);
-        this.aWy = (TextView) view.findViewById(i.f.frs_app_desc);
-        this.aWz = (TbImageView) view.findViewById(i.f.frs_app_url);
-        this.aWA = (TextView) view.findViewById(i.f.frs_app_download);
     }
 }

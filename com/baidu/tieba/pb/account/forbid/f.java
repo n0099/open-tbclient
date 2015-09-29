@@ -5,12 +5,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.w;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    private static final String bZs = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORBID_USER_ADDRESS;
+    private static final String ceA = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -25,10 +25,10 @@ public class f {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidResultData> {
-        private String Af;
-        private WeakReference<b> aGw;
-        private String aju;
-        private String bZt;
+        private String Ag;
+        private WeakReference<b> aFp;
+        private String aiq;
+        private String ceB;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -38,33 +38,33 @@ public class f {
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
-            this.aju = str4;
-            this.bZt = str6;
-            this.Af = str7;
+            this.aiq = str4;
+            this.ceB = str6;
+            this.Ag = str7;
             this.mPostId = str5;
-            this.aGw = new WeakReference<>(bVar);
+            this.aFp = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: v */
+        /* renamed from: u */
         public ForbidResultData doInBackground(String... strArr) {
-            v vVar = new v(f.bZs);
-            vVar.o("day", this.bZt);
-            vVar.o("un", this.aju);
-            vVar.o(ImageViewerConfig.FORUM_ID, this.mForumId);
-            vVar.o("word", this.mForumName);
-            vVar.o("z", this.mThreadId);
-            vVar.o("reason", this.Af);
-            vVar.o("ntn", "banid");
-            vVar.o("post_id", this.mPostId);
-            vVar.uj().uZ().mIsNeedTbs = true;
-            String tI = vVar.tI();
-            if (vVar.uj().va().qZ()) {
+            w wVar = new w(f.ceA);
+            wVar.o("day", this.ceB);
+            wVar.o("un", this.aiq);
+            wVar.o(ImageViewerConfig.FORUM_ID, this.mForumId);
+            wVar.o("word", this.mForumName);
+            wVar.o("z", this.mThreadId);
+            wVar.o("reason", this.Ag);
+            wVar.o("ntn", "banid");
+            wVar.o("post_id", this.mPostId);
+            wVar.uh().uX().mIsNeedTbs = true;
+            String tG = wVar.tG();
+            if (wVar.uh().uY().qV()) {
                 try {
-                    return (ForbidResultData) i.objectWithJsonStr(tI, ForbidResultData.class);
+                    return (ForbidResultData) i.objectWithJsonStr(tG, ForbidResultData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidResultData forbidResultData = new ForbidResultData();
@@ -73,8 +73,8 @@ public class f {
                 }
             }
             ForbidResultData forbidResultData2 = new ForbidResultData();
-            forbidResultData2.error_code = vVar.un();
-            forbidResultData2.error_msg = vVar.getErrorString();
+            forbidResultData2.error_code = wVar.ul();
+            forbidResultData2.error_msg = wVar.getErrorString();
             return forbidResultData2;
         }
 
@@ -84,9 +84,9 @@ public class f {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.aGw.get();
+            b bVar = this.aFp.get();
             if (bVar != null) {
-                if (forbidResultData.error_code == 0 && aq.isEmpty(forbidResultData.error_msg)) {
+                if (forbidResultData.error_code == 0 && ar.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);
                 } else {
                     bVar.b(forbidResultData);

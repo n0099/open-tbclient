@@ -1,30 +1,32 @@
 package com.baidu.tieba.image;
-
-import android.content.Intent;
-import android.view.View;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.view.NavigationBar;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k implements View.OnClickListener {
-    final /* synthetic */ ImageViewerActivity this$0;
+public class k implements com.baidu.tieba.tbadkCore.q {
+    private String aOU;
+    private String bOW;
+    private String mPackageName;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(ImageViewerActivity imageViewerActivity) {
-        this.this$0 = imageViewerActivity;
+    public k(String str, String str2, String str3) {
+        this.mPackageName = str;
+        this.aOU = str2;
+        this.bOW = str3;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        NavigationBar navigationBar;
-        int i;
-        navigationBar = this.this$0.bdE;
-        if (navigationBar.getVisibility() != 8) {
-            Intent intent = new Intent();
-            i = this.this$0.mIndex;
-            intent.putExtra(ImageViewerConfig.INDEX, i);
-            this.this$0.setResult(-1, intent);
-            this.this$0.finish();
-        }
+    @Override // com.baidu.tieba.tbadkCore.q
+    public void hS(int i) {
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.q
+    public String getPkgName() {
+        return this.mPackageName;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.q
+    public String getDownloadUrl() {
+        return this.aOU;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.q
+    public String getAppName() {
+        return this.bOW;
     }
 }

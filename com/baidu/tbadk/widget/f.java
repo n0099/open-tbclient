@@ -1,74 +1,38 @@
 package com.baidu.tbadk.widget;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.widget.LinearLayout;
-import com.baidu.adp.lib.g.j;
-import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.gif.GiftGifView;
-import com.baidu.tieba.i;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements GiftGifView.a {
-    final /* synthetic */ e aCh;
+public class f extends CustomMessageListener {
+    final /* synthetic */ TbImageView aAR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(e eVar) {
-        this.aCh = eVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(TbImageView tbImageView, int i) {
+        super(i);
+        this.aAR = tbImageView;
     }
 
-    @Override // com.baidu.tbadk.gif.GiftGifView.a
-    public void onStop() {
-        GiftGifView giftGifView;
-        LinearLayout linearLayout;
-        Dialog dialog;
-        Activity activity;
-        giftGifView = this.aCh.aCg;
-        giftGifView.setIsHide(true);
-        linearLayout = this.aCh.aCf;
-        linearLayout.setVisibility(8);
-        dialog = this.aCh.aCe;
-        activity = this.aCh.mActivity;
-        j.b(dialog, activity);
-    }
-
-    @Override // com.baidu.tbadk.gif.GiftGifView.a
-    public void onStart() {
-        ProgressDialog progressDialog;
-        Dialog dialog;
-        Activity activity;
-        GiftGifView giftGifView;
-        LinearLayout linearLayout;
-        progressDialog = this.aCh.mWaitingDialog;
-        k.a(progressDialog);
-        dialog = this.aCh.aCe;
-        activity = this.aCh.mActivity;
-        j.a(dialog, activity);
-        giftGifView = this.aCh.aCg;
-        giftGifView.setVisibility(0);
-        linearLayout = this.aCh.aCf;
-        linearLayout.setVisibility(0);
-    }
-
-    @Override // com.baidu.tbadk.gif.GiftGifView.a
-    public void Cq() {
-        ProgressDialog progressDialog;
-        Dialog dialog;
-        Activity activity;
-        Activity activity2;
-        Activity activity3;
-        progressDialog = this.aCh.mWaitingDialog;
-        k.a(progressDialog);
-        dialog = this.aCh.aCe;
-        activity = this.aCh.mActivity;
-        j.b(dialog, activity);
-        if (k.jc()) {
-            activity3 = this.aCh.mActivity;
-            k.showToast(activity3, i.h.gif_play_failed_tip);
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        String str;
+        int i;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+            String str2 = (String) customResponsedMessage.getData();
+            com.baidu.adp.lib.f.c ha = com.baidu.adp.lib.f.c.ha();
+            str = this.aAR.mUrl;
+            i = this.aAR.mType;
+            String f = ha.f(str, i);
+            if (f != null && f.equals(str2)) {
+                this.aAR.destroyDrawingCache();
+                com.baidu.adp.lib.a.a.a.a("destroyLayer", this.aAR, TbImageView.class);
+                com.baidu.adp.lib.a.a.a.a("destroyLayer", this.aAR, TbImageView.class, false);
+                com.baidu.adp.lib.a.a.a.a("clearDisplayList", this.aAR, TbImageView.class);
+                com.baidu.adp.lib.a.a.a.a("resetDisplayList", this.aAR, TbImageView.class);
+                this.aAR.invalidate();
+            }
         }
-        activity2 = this.aCh.mActivity;
-        k.showToast(activity2, i.h.neterror);
     }
 }

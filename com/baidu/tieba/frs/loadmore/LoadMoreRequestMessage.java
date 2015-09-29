@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.loadmore;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.g;
+import com.baidu.tbadk.util.h;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
 /* loaded from: classes.dex */
@@ -34,7 +34,7 @@ public class LoadMoreRequestMessage extends NetMessage {
         builder.thread_ids = this.thread_ids;
         builder.need_abstract = Integer.valueOf(this.need_abstract);
         if (z) {
-            g.a(builder, true);
+            h.a(builder, true);
         }
         ThreadListReqIdl.Builder builder2 = new ThreadListReqIdl.Builder();
         builder2.data = builder.build(false);

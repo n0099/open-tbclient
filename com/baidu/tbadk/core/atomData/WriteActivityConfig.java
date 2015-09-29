@@ -57,7 +57,7 @@ public class WriteActivityConfig extends IntentConfig {
         getIntent().putExtra("forum_name", str2);
         getIntent().putExtra(REPLY_SUB_PB, z2);
         getIntent().putExtra("is_ad", z3);
-        getIntent().putExtra(MEMBER_TYPE, i4);
+        getIntent().putExtra("mem_type", i4);
         if (antiData != null) {
             getIntent().putExtra(ENABLE_AUDIO, antiData.isIfvoice());
             getIntent().putExtra(DISABLE_AUDIO_MESSAGE, antiData.getVoice_message());

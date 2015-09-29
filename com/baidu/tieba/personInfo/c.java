@@ -1,23 +1,25 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.usermute.i;
+import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
-class c extends CustomMessageListener {
-    final /* synthetic */ PersonInfoActivity cmR;
+class c implements i.a {
+    final /* synthetic */ PersonInfoActivity csx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(PersonInfoActivity personInfoActivity, int i) {
-        super(i);
-        this.cmR = personInfoActivity;
+    public c(PersonInfoActivity personInfoActivity) {
+        this.csx = personInfoActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ag agVar;
-        agVar = this.cmR.cmG;
-        agVar.jc(0);
+    @Override // com.baidu.tieba.usermute.i.a
+    public void a(DataRes dataRes, int i, String str, Object obj) {
+        if (i == 0 && !StringUtils.isNULL(dataRes.is_mute)) {
+            if (dataRes.is_mute.equals("0")) {
+                this.csx.csh = 0;
+            } else if (dataRes.is_mute.equals("1")) {
+                this.csx.csh = 1;
+            }
+        }
     }
 }

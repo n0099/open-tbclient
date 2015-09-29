@@ -10,126 +10,126 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tieba.i;
 import tbclient.FinePbPage.ForumInfo;
 /* loaded from: classes.dex */
 public class i {
-    private TextView caA;
-    private TextView caB;
-    private a caC;
-    private boolean caD;
-    private Animation caE;
-    private TextView caG;
-    private TextView caH;
-    private LinearLayout caI;
-    private View cax;
-    private TextView cay;
-    private ImageView caz;
+    private View cfC;
+    private TextView cfD;
+    private ImageView cfE;
+    private TextView cfF;
+    private TextView cfG;
+    private a cfH;
+    private boolean cfI;
+    private Animation cfJ;
+    private TextView cfL;
+    private TextView cfM;
+    private LinearLayout cfN;
     private Context context;
-    private long bqe = 0;
-    private boolean caF = false;
+    private long btf = 0;
+    private boolean cfK = false;
 
     /* loaded from: classes.dex */
     public interface a {
-        void d(long j, String str);
+        void e(long j, String str);
 
-        void ee(boolean z);
+        void ej(boolean z);
 
-        void jl(String str);
+        void jD(String str);
     }
 
     public i(Context context) {
         this.context = context;
-        this.cax = LayoutInflater.from(context).inflate(i.g.chosen_pb_post_info, (ViewGroup) null);
-        this.cay = (TextView) this.cax.findViewById(i.f.chosen_post_info_copyright);
-        this.caz = (ImageView) this.cax.findViewById(i.f.chosen_post_info_praise_icon);
-        this.caA = (TextView) this.cax.findViewById(i.f.chosen_post_info_praise_num);
-        this.caB = (TextView) this.cax.findViewById(i.f.chosen_post_info_original_post);
-        this.caI = (LinearLayout) this.cax.findViewById(i.f.chosen_post_info_tag_container);
-        this.caG = (TextView) this.cax.findViewById(i.f.chosen_post_info_tag);
-        this.caH = (TextView) this.cax.findViewById(i.f.chosen_post_info_mark);
+        this.cfC = LayoutInflater.from(context).inflate(i.g.chosen_pb_post_info, (ViewGroup) null);
+        this.cfD = (TextView) this.cfC.findViewById(i.f.chosen_post_info_copyright);
+        this.cfE = (ImageView) this.cfC.findViewById(i.f.chosen_post_info_praise_icon);
+        this.cfF = (TextView) this.cfC.findViewById(i.f.chosen_post_info_praise_num);
+        this.cfG = (TextView) this.cfC.findViewById(i.f.chosen_post_info_original_post);
+        this.cfN = (LinearLayout) this.cfC.findViewById(i.f.chosen_post_info_tag_container);
+        this.cfL = (TextView) this.cfC.findViewById(i.f.chosen_post_info_tag);
+        this.cfM = (TextView) this.cfC.findViewById(i.f.chosen_post_info_mark);
     }
 
-    public View acL() {
-        return this.cax;
+    public View aeI() {
+        return this.cfC;
     }
 
     public void a(a aVar) {
-        this.caC = aVar;
+        this.cfH = aVar;
     }
 
-    public void ix(int i) {
-        if (this.cay != null) {
-            this.cay.setText(i);
+    public void iH(int i) {
+        if (this.cfD != null) {
+            this.cfD.setText(i);
         }
     }
 
-    public void x(View.OnClickListener onClickListener) {
-        if (this.caB != null) {
-            this.caB.setOnClickListener(onClickListener);
+    public void y(View.OnClickListener onClickListener) {
+        if (this.cfG != null) {
+            this.cfG.setOnClickListener(onClickListener);
         }
     }
 
-    public void au(long j) {
+    public void aI(long j) {
         if (j >= 0) {
-            this.bqe = j;
-            if (this.caA != null) {
-                this.caA.setText(this.context.getString(i.h.chosen_pb_praise_num, aq.o(j)));
+            this.btf = j;
+            if (this.cfF != null) {
+                this.cfF.setText(this.context.getString(i.h.chosen_pb_praise_num, ar.s(j)));
             }
         }
     }
 
     public void aW(String str, String str2) {
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
-            this.caI.setVisibility(8);
+            this.cfN.setVisibility(8);
             return;
         }
-        this.caI.setVisibility(0);
-        this.caG.setText(this.context.getString(i.h.chosen_pb_tag_abstract, str));
-        this.caI.setOnClickListener(new j(this, str));
-        this.caH.setText(str2);
+        this.cfN.setVisibility(0);
+        this.cfL.setText(this.context.getString(i.h.chosen_pb_tag_abstract, str));
+        this.cfN.setOnClickListener(new j(this, str));
+        this.cfM.setText(str2);
     }
 
     public void a(ForumInfo forumInfo) {
         if (forumInfo != null) {
-            ix(i.h.chosen_pb_copyright);
-            au(forumInfo.zan.zansum.longValue());
-            ei(forumInfo.zan.is_zan.booleanValue());
-            x(new k(this, forumInfo));
-            this.caz.setOnClickListener(new l(this));
+            iH(i.h.chosen_pb_copyright);
+            aI(forumInfo.zan.zansum.longValue());
+            en(forumInfo.zan.is_zan.booleanValue());
+            y(new k(this, forumInfo));
+            this.cfE.setOnClickListener(new l(this));
         }
     }
 
-    public void acM() {
-        this.caF = false;
+    public void aeJ() {
+        this.cfK = false;
     }
 
-    public void eh(boolean z) {
-        ei(z);
+    public void em(boolean z) {
+        en(z);
         if (z) {
-            this.bqe++;
+            this.btf++;
         } else {
-            this.bqe--;
+            this.btf--;
         }
-        au(this.bqe);
+        aI(this.btf);
     }
 
-    private void ei(boolean z) {
-        this.caD = z;
+    private void en(boolean z) {
+        this.cfI = z;
         if (z) {
-            al.c(this.caz, i.e.btn_zambia_big_s);
+            am.c(this.cfE, i.e.btn_zambia_big_s);
         } else {
-            al.c(this.caz, i.e.btn_zambia_big_n);
+            am.c(this.cfE, i.e.btn_zambia_big_n);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation acN() {
-        if (this.caE == null) {
-            this.caE = AnimationUtils.loadAnimation(this.context, i.a.praise_animation_scale3);
+    public Animation aeK() {
+        if (this.cfJ == null) {
+            this.cfJ = AnimationUtils.loadAnimation(this.context, i.a.praise_animation_scale3);
         }
-        return this.caE;
+        return this.cfJ;
     }
 }

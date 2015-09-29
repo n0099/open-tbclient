@@ -7,15 +7,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements TextWatcher {
-    final /* synthetic */ PersonChangeActivity cko;
+    final /* synthetic */ PersonChangeActivity cpR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(PersonChangeActivity personChangeActivity) {
-        this.cko = personChangeActivity;
+        this.cpR = personChangeActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -29,23 +30,23 @@ public class ah implements TextWatcher {
         LinearLayout linearLayout;
         EditText editText2;
         EditText editText3;
-        editText = this.cko.mEdit;
+        editText = this.cpR.mEdit;
         Editable text = editText.getText();
         String replaceAll = text.toString().replaceAll("\\s*", "");
         int length = replaceAll.length();
-        textView = this.cko.ckb;
+        textView = this.cpR.cpE;
         textView.setText(String.valueOf(length));
-        linearLayout = this.cko.cka;
+        linearLayout = this.cpR.cpD;
         linearLayout.setVisibility(0);
-        this.cko.iV(0);
-        this.cko.agB();
+        this.cpR.jf(0);
+        this.cpR.aiA();
         if (length > 50) {
-            this.cko.showToast(i.h.over_limit_tip);
+            this.cpR.showToast(i.h.over_limit_tip);
             int selectionEnd = Selection.getSelectionEnd(text);
             String substring = replaceAll.substring(0, 50);
-            editText2 = this.cko.mEdit;
+            editText2 = this.cpR.mEdit;
             editText2.setText(substring);
-            editText3 = this.cko.mEdit;
+            editText3 = this.cpR.mEdit;
             Editable text2 = editText3.getText();
             int length2 = text2.length();
             if (selectionEnd <= length2) {
@@ -59,11 +60,17 @@ public class ah implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         View view;
         TextView textView;
-        if (!editable.toString().replaceAll("\\s*", "").equals(this.cko.ckf.xY().getIntro())) {
-            view = this.cko.cjU;
+        TextView textView2;
+        if (!editable.toString().replaceAll("\\s*", "").equals(this.cpR.cpI.aiE().getIntro())) {
+            view = this.cpR.cpx;
             view.setEnabled(true);
-            textView = this.cko.byj;
-            com.baidu.tbadk.core.util.al.b(textView, i.c.cp_link_tip_a, 1);
+            if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
+                textView2 = this.cpR.bBl;
+                com.baidu.tbadk.core.util.am.b(textView2, i.c.navi_op_text, 1);
+                return;
+            }
+            textView = this.cpR.bBl;
+            com.baidu.tbadk.core.util.am.b(textView, i.c.cp_link_tip_a, 1);
         }
     }
 }

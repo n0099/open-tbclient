@@ -1,23 +1,28 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class r implements Runnable {
+class r extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(MainTabActivity mainTabActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r(MainTabActivity mainTabActivity, int i) {
+        super(i);
         this.this$0 = mainTabActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        boolean z;
-        z = this.this$0.cUC;
-        if (!z) {
-            MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ao aoVar;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016305) {
+            aoVar = this.this$0.dcb;
+            if (aoVar.isMenuShowing()) {
+                return;
+            }
+            this.this$0.ayn();
         }
     }
 }

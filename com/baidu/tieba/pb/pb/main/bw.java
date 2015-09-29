@@ -1,129 +1,139 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.os.Parcelable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.i;
+import com.baidu.tieba.pb.pb.sub.SubPbLayout;
+import com.baidu.tieba.pb.view.BaobaoTailView;
+import com.baidu.tieba.tbadkCore.FrsPraiseView;
 /* loaded from: classes.dex */
-public class bw {
-    private boolean ccO;
-    private boolean ccP;
-    private com.baidu.tieba.pb.a.b cdb;
-    private boolean ceA;
-    private boolean ceB;
-    private Parcelable ceC;
-    private String cez;
+public class bw extends x.a {
+    public TextView aHN;
+    UserIconBox aSX;
+    public UserIconBox bcC;
+    public TextView bpA;
+    public View cgT;
+    public View cgU;
+    public View cgV;
+    public View cgW;
+    public View cgX;
+    public HeadImageView cgY;
+    public ImageView cgZ;
+    public TextView chA;
+    public ImageView chE;
+    public LinearLayout chF;
+    public ImageView chG;
+    public TextView chH;
+    public ImageView cha;
+    public TextView chb;
+    public ImageView chc;
+    public ImageView chd;
+    public TbRichTextView che;
+    public View chh;
+    public FrsPraiseView chi;
+    public ImageView chj;
+    public RelativeLayout chk;
+    public LinearLayout chl;
+    public ImageView chm;
+    public SubPbLayout chn;
+    public BaobaoTailView cho;
+    public LinearLayout chp;
+    public TextView chq;
+    public LinearLayout chr;
+    public Button chs;
+    public LinearLayout cht;
+    public TextView chu;
+    public View chv;
+    public View chw;
+    public LinearLayout chx;
+    public ImageView chy;
+    public TextView chz;
 
-    static {
-        MessageManager.getInstance().registerListener(new bx(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
-        MessageManager.getInstance().registerListener(new by(CmdConfigCustom.PB_RECORDER_RESET_CMD));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static class a {
-        private static bw ceD = new bw(null);
-    }
-
-    public static bw aeg() {
-        return a.ceD;
-    }
-
-    private bw() {
-        this.cez = null;
-        this.ceA = false;
-        this.cdb = null;
-        this.ceB = false;
-        this.ceC = null;
-        this.ccP = true;
-        this.ccO = false;
-    }
-
-    /* synthetic */ bw(bw bwVar) {
-        this();
-    }
-
-    public void A(String str, boolean z) {
-        this.ceA = false;
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [126=5] */
+    public bw(View view, boolean z, boolean z2, int i, boolean z3) {
+        super(view);
+        this.cgX = view.findViewById(i.f.sub_pb_more);
+        this.cgY = (HeadImageView) view.findViewById(i.f.photo);
+        this.aHN = (TextView) view.findViewById(i.f.user_name);
+        this.cgZ = (ImageView) view.findViewById(i.f.user_rank);
+        this.chE = (ImageView) view.findViewById(i.f.user_bawu);
+        this.cha = (ImageView) view.findViewById(i.f.user_gender);
+        this.chd = (ImageView) view.findViewById(i.f.reply);
+        this.che = (TbRichTextView) view.findViewById(i.f.richText);
+        this.chh = view.findViewById(i.f.pb_item_praise_topline);
+        this.chi = (FrsPraiseView) view.findViewById(i.f.pb_item_praise_view);
+        this.chj = (ImageView) view.findViewById(i.f.pb_item_praise_bottomline);
+        this.chx = (LinearLayout) view.findViewById(i.f.pb_item_location_container);
+        this.chz = (TextView) view.findViewById(i.f.pb_item_location_address);
+        this.chy = (ImageView) view.findViewById(i.f.pb_item_location_img);
+        this.chF = (LinearLayout) view.findViewById(i.f.pb_reply_location_container);
+        this.chH = (TextView) view.findViewById(i.f.pb_reply_location_address);
+        this.chG = (ImageView) view.findViewById(i.f.pb_reply_location_img);
+        this.chc = (ImageView) view.findViewById(i.f.floor_owner);
+        this.chb = (TextView) view.findViewById(i.f.floor);
+        this.bpA = (TextView) view.findViewById(i.f.time);
+        this.chk = (RelativeLayout) view.findViewById(i.f.pb_post_header_layout);
+        this.chn = (SubPbLayout) view.findViewById(i.f.pb_post_footer_layout);
+        this.chl = (LinearLayout) view.findViewById(i.f.pb_subpb_layout_root);
+        this.chm = (ImageView) view.findViewById(i.f.pb_post_footer_layout_line_top);
+        this.cgT = view;
+        this.cgU = view.findViewById(i.f.new_pb_list_item_line_top);
+        this.cgV = view.findViewById(i.f.new_pb_list_item_line_top_full);
+        this.cgW = view.findViewById(i.f.new_pb_list_item_blank_top);
+        this.che.Fq();
+        this.che.setImageViewStretch(true);
+        int min = Math.min(((((com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.che.getPaddingLeft()) - this.che.getPaddingRight()) - ((int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds60)), i);
+        this.che.setMaxImageWidth(min);
+        this.che.setMaxImageHeight((int) (min * 1.618f));
+        this.che.setTextSize(TbConfig.getContentSize());
         if (z) {
-            str = null;
-        }
-        if (str == null || str.length() < 1) {
-            reset();
-            this.cez = null;
-        } else if (!str.equals(this.cez)) {
-            reset();
-            this.cez = str;
+            ViewGroup.LayoutParams layoutParams = this.cgY.getLayoutParams();
+            layoutParams.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds60);
+            this.cgY.setLayoutParams(layoutParams);
+            this.cgY.setVisibility(0);
         } else {
-            this.ceA = true;
+            ViewGroup.LayoutParams layoutParams2 = this.cgY.getLayoutParams();
+            layoutParams2.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds30);
+            this.cgY.setLayoutParams(layoutParams2);
+            this.cgY.setVisibility(4);
         }
-    }
-
-    public com.baidu.tieba.pb.a.b getPbData() {
-        if (!this.ceA) {
-            this.ceB = false;
-            return null;
-        } else if (this.cdb != null && this.cdb.acR() != null && this.cdb.acR().size() > 0) {
-            this.ceB = true;
-            com.baidu.tieba.pb.a.b bVar = this.cdb;
-            this.cdb = null;
-            return bVar;
-        } else {
-            this.ceB = false;
-            this.cdb = null;
-            return null;
+        this.che.f(z2, false);
+        this.che.setVoiceViewRes(i.g.voice_play_btn);
+        this.bcC = (UserIconBox) view.findViewById(i.f.user_icon_box);
+        this.aSX = (UserIconBox) view.findViewById(i.f.user_tshow_icon_box);
+        this.chp = (LinearLayout) view.findViewById(i.f.add_post_footer_layout);
+        if (z3) {
+            this.chk.setVisibility(8);
+            this.chd.setVisibility(8);
+            this.che.setPadding(0, 0, 0, 0);
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.che.getLayoutParams();
+            layoutParams3.leftMargin = 0;
+            layoutParams3.rightMargin = 0;
+            layoutParams3.topMargin = 0;
+            layoutParams3.bottomMargin = 0;
+            this.che.setLayoutParams(layoutParams3);
+            view.findViewById(i.f.pb_list_item_layout).setPadding(0, 0, 0, 0);
+            this.chr = (LinearLayout) view.findViewById(i.f.add_time_container);
+            this.chq = (TextView) view.findViewById(i.f.add_time);
+            this.chs = (Button) view.findViewById(i.f.manage_btn);
+            this.chr.setVisibility(0);
         }
-    }
-
-    public Parcelable aeh() {
-        if (this.ceB) {
-            this.ceB = false;
-            Parcelable parcelable = this.ceC;
-            this.ceC = null;
-            return parcelable;
-        }
-        this.ceC = null;
-        return null;
-    }
-
-    public boolean adM() {
-        return this.ccP;
-    }
-
-    public boolean aei() {
-        return this.ccO;
-    }
-
-    public boolean a(com.baidu.tieba.pb.a.b bVar, Parcelable parcelable, boolean z, boolean z2) {
-        this.ceA = false;
-        if (this.cez == null) {
-            reset();
-            return false;
-        } else if (bVar == null) {
-            reset();
-            return false;
-        } else if (bVar.acR() == null) {
-            reset();
-            return false;
-        } else if (bVar.acR().size() < 1) {
-            reset();
-            return false;
-        } else if (parcelable == null) {
-            reset();
-            return false;
-        } else {
-            this.cdb = bVar;
-            this.ceB = false;
-            this.ceC = parcelable;
-            this.ccP = z;
-            this.ccO = z2;
-            return true;
-        }
-    }
-
-    public void reset() {
-        this.ceA = false;
-        this.cdb = null;
-        this.ceB = false;
-        this.ceC = null;
+        this.cht = (LinearLayout) view.findViewById(i.f.addition_more_container);
+        this.chu = (TextView) this.cht.findViewById(i.f.addition_more);
+        this.chv = this.cht.findViewById(i.f.addition_divider1);
+        this.chw = this.cht.findViewById(i.f.addition_divider2);
+        this.cho = (BaobaoTailView) view.findViewById(i.f.baobao_tail);
+        this.chA = (TextView) view.findViewById(i.f.pb_item_tail_content);
     }
 }

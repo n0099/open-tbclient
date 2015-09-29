@@ -12,6 +12,8 @@ public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
     private String pic_url = null;
     private String video_url = null;
     private String src_pic = null;
+    private String original_url = null;
+    private long original_size = 0;
 
     public boolean isXiaoying() {
         return this.type == 5 && this.e_type == 12;
@@ -53,6 +55,22 @@ public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
         this.video_url = str;
     }
 
+    public String getOriginalUrl() {
+        return this.original_url;
+    }
+
+    public void setOriginalUrl(String str) {
+        this.original_url = str;
+    }
+
+    public long getOriginalSize() {
+        return this.original_size;
+    }
+
+    public void setOriginalSize(long j) {
+        this.original_size = j;
+    }
+
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
@@ -64,6 +82,8 @@ public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
                     this.pic_url = jSONObject.optString("vpic");
                     this.video_url = jSONObject.optString("vsrc");
                 }
+                this.original_url = jSONObject.optString("original_url");
+                this.original_size = jSONObject.optLong("original_size");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -81,6 +101,8 @@ public class MediaData extends com.baidu.adp.lib.a.b.a.a.i implements Serializab
                 this.video_url = media.vsrc;
                 this.e_type = media.e_type.intValue();
             }
+            this.original_url = media.origin_pic;
+            this.original_size = media.origin_size.intValue();
         }
     }
 }

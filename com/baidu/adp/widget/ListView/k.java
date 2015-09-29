@@ -12,7 +12,7 @@ public class k implements e.a {
     }
 
     @Override // com.baidu.adp.widget.ListView.e.a
-    public void nt() {
+    public void nu() {
         Runnable runnable;
         Runnable runnable2;
         BdListView bdListView = this.HU;

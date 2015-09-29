@@ -17,7 +17,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.megapp.ma.MAFragment;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.av;
+import com.baidu.tbadk.core.util.aw;
 /* loaded from: classes.dex */
 public abstract class BaseFragment extends MAFragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     private com.baidu.tbadk.core.util.g customToast;
@@ -25,7 +25,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     private com.baidu.tbadk.e.f loadingView;
     private String mTag;
     private BdUniqueId mId = null;
-    protected int mSkinType = -1;
+    protected int mSkinType = 3;
     protected boolean mIsLogin = false;
 
     @Override // android.support.v4.app.Fragment
@@ -41,7 +41,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     @Override // android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         this.mId = BdUniqueId.gen();
-        this.customToast = com.baidu.tbadk.core.util.g.tC();
+        this.customToast = com.baidu.tbadk.core.util.g.tA();
         super.onCreate(bundle);
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
@@ -128,7 +128,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         super.onResume();
         if (isShow()) {
             changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-            av.dj(getClass().getName());
+            aw.dn(getClass().getName());
             if (this.isPrimary) {
                 onPrimary();
             }
@@ -143,7 +143,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     }
 
     public void changeSkinType(int i) {
-        if (i != this.mSkinType) {
+        if (i != this.mSkinType || TbadkCoreApplication.m411getInst().isUsedThemeChanged()) {
             this.mSkinType = i;
             onChangeSkinType(this.mSkinType);
         }
@@ -179,7 +179,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
 
     public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.tf();
+            this.loadingView.tc();
         }
     }
 
@@ -242,7 +242,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             } else {
                 this.loadingView = new com.baidu.tbadk.e.f(getActivity(), i);
             }
-            this.loadingView.tf();
+            this.loadingView.tc();
         }
         this.loadingView.b(view, z);
     }
@@ -251,7 +251,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.CE();
+        return this.loadingView.Cq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

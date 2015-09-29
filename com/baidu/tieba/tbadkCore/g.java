@@ -14,8 +14,8 @@ public class g implements com.baidu.adp.lib.e.c<TbImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: vK */
-    public TbImageView gY() {
+    /* renamed from: vC */
+    public TbImageView gZ() {
         return new TbImageView(this.val$context);
     }
 

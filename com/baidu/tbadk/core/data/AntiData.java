@@ -17,6 +17,7 @@ public class AntiData implements Serializable {
     private int ifpost;
     private int ifposta;
     private int need_vcode;
+    private String poll_message;
     private String tbs;
     private String user_id;
     private String user_name;
@@ -170,6 +171,7 @@ public class AntiData implements Serializable {
             this.days_tofree = anti.days_tofree.intValue();
             this.has_chance = anti.has_chance.intValue() == 1;
             this.ifaddition = anti.ifaddition.intValue();
+            this.poll_message = anti.poll_message;
         }
     }
 
@@ -203,6 +205,7 @@ public class AntiData implements Serializable {
                 this.days_tofree = jSONObject.optInt("days_tofree", 1);
                 this.has_chance = jSONObject.optInt("has_chance", 1) == 1;
                 this.ifaddition = jSONObject.optInt("ifaddition", 0);
+                this.poll_message = jSONObject.optString("poll_message");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -219,5 +222,9 @@ public class AntiData implements Serializable {
 
     public boolean isIfAddition() {
         return this.ifaddition == 1;
+    }
+
+    public String getPollMessage() {
+        return this.poll_message;
     }
 }

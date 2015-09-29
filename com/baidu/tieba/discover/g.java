@@ -6,11 +6,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements u.a {
-    final /* synthetic */ a aLD;
+    final /* synthetic */ a aKv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.aLD = aVar;
+        this.aKv = aVar;
     }
 
     @Override // com.baidu.tieba.discover.u.a
@@ -20,44 +20,44 @@ public class g implements u.a {
         List list2;
         List list3;
         List list4;
-        bdListView = this.aLD.aLm;
+        bdListView = this.aKv.aKe;
         bdListView.completePullRefresh();
         if (aVar != null) {
             if (!z) {
-                this.aLD.aLt = true;
+                this.aKv.aKl = true;
             } else {
-                this.aLD.aLu = true;
+                this.aKv.aKm = true;
             }
             if (z2) {
-                list = this.aLD.aLr;
+                list = this.aKv.aKj;
                 list.clear();
-                list2 = this.aLD.aLs;
+                list2 = this.aKv.aKk;
                 list2.clear();
-                if (aVar.HQ() != null && !aVar.HQ().isEmpty()) {
-                    for (com.baidu.tieba.discover.data.d dVar : aVar.HQ()) {
-                        if (dVar != null && dVar.HY() != null) {
+                if (aVar.HK() != null && !aVar.HK().isEmpty()) {
+                    for (com.baidu.tieba.discover.data.d dVar : aVar.HK()) {
+                        if (dVar != null && dVar.HS() != null) {
                             if (dVar.getType() == 1) {
-                                list3 = this.aLD.aLr;
+                                list3 = this.aKv.aKj;
                                 if (list3.isEmpty()) {
-                                    this.aLD.aLr = dVar.HY();
+                                    this.aKv.aKj = dVar.HS();
                                 }
                             } else {
-                                list4 = this.aLD.aLs;
+                                list4 = this.aKv.aKk;
                                 list4.add(dVar);
                             }
                         }
                     }
                 }
-                this.aLD.a(aVar.HP());
-                this.aLD.bH(true);
+                this.aKv.a(aVar.HJ());
+                this.aKv.bE(true);
             }
         }
     }
 
     @Override // com.baidu.tieba.discover.u.a
-    public void HK() {
+    public void HE() {
         BdListView bdListView;
-        bdListView = this.aLD.aLm;
+        bdListView = this.aKv.aKe;
         bdListView.completePullRefresh();
     }
 }

@@ -1,17 +1,24 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
-class ao implements CustomMessageTask.CustomRunnable {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<ArrayList<String>> run(CustomMessage customMessage) {
-        if (customMessage == null) {
-            return null;
+class ao extends CustomMessageListener {
+    final /* synthetic */ SquareSearchActivity bVr;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ao(SquareSearchActivity squareSearchActivity, int i) {
+        super(i);
+        this.bVr = squareSearchActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || !(customResponsedMessage instanceof ResponseSearchPersonHistoryReadMessage)) {
+            return;
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.GET_ALL_SEARCH_BAR_DATA, com.baidu.tieba.tbadkCore.util.k.avf());
+        this.bVr.a(6, ((ResponseSearchPersonHistoryReadMessage) customResponsedMessage).datas);
     }
 }

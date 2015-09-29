@@ -7,47 +7,47 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private ArrayList<i> aAG;
-    private int aAJ;
-    private int aAK;
+    private ArrayList<i> azh;
+    private int azk;
+    private int azl;
     private TbPageContext<?> mContext;
     private int padding;
-    private int aAz = -1;
+    private int aza = -1;
     private int rowSize = 0;
-    private int aAH = al.getColor(i.c.black_alpha10);
-    private int aAI = al.getColor(i.c.cp_link_tip_a);
+    private int azi = am.getColor(i.c.black_alpha10);
+    private int azj = am.getColor(i.c.cp_link_tip_a);
 
     public h(TbPageContext<?> tbPageContext) {
-        this.aAG = null;
+        this.azh = null;
         this.mContext = null;
         this.padding = 0;
         this.mContext = tbPageContext;
-        this.aAG = new ArrayList<>();
-        this.aAJ = k.d(tbPageContext.getPageActivity(), i.d.ds1);
-        this.aAK = k.d(this.mContext.getPageActivity(), i.d.ds4);
+        this.azh = new ArrayList<>();
+        this.azk = k.d(tbPageContext.getPageActivity(), i.d.ds1);
+        this.azl = k.d(this.mContext.getPageActivity(), i.d.ds4);
         this.padding = k.d(this.mContext.getPageActivity(), i.d.ds36);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aAG != null) {
-            return this.aAG.size();
+        if (this.azh != null) {
+            return this.azh.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aAG == null || i >= this.aAG.size()) {
+        if (this.azh == null || i >= this.azh.size()) {
             return null;
         }
-        return this.aAG.get(i);
+        return this.azh.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -63,34 +63,34 @@ public class h extends BaseAdapter {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.recommend_system_photo_item, viewGroup, false);
             aVar = new a(this, null);
             aVar.container = (LinearLayout) view.findViewById(i.f.photo_container);
-            aVar.aAL = (TbImageView) view.findViewById(i.f.photo);
+            aVar.azm = (TbImageView) view.findViewById(i.f.photo);
         } else {
             aVar = (a) view.getTag();
         }
-        if (eB(i) == 1) {
+        if (eC(i) == 1) {
             aVar.container.setPadding(0, this.padding, 0, 0);
-        } else if (eB(i) == 2) {
+        } else if (eC(i) == 2) {
             aVar.container.setPadding(0, 0, 0, this.padding);
         } else {
             aVar.container.setPadding(0, 0, 0, 0);
         }
-        aVar.aAL.setDrawerType(0);
-        aVar.aAL.setBorderSurroundContent(true);
-        aVar.aAL.setDrawBorder(true);
+        aVar.azm.setDrawerType(0);
+        aVar.azm.setBorderSurroundContent(true);
+        aVar.azm.setDrawBorder(true);
         if (itemViewType == 0) {
-            aVar.aAL.setBorderColor(this.aAH);
-            aVar.aAL.setBorderWidth(this.aAJ);
+            aVar.azm.setBorderColor(this.azi);
+            aVar.azm.setBorderWidth(this.azk);
         } else {
-            aVar.aAL.setBorderColor(this.aAI);
-            aVar.aAL.setBorderWidth(this.aAK);
+            aVar.azm.setBorderColor(this.azj);
+            aVar.azm.setBorderWidth(this.azl);
         }
-        aVar.aAL.setDefaultResource(i.e.icon_default_avatar100);
-        aVar.aAL.d(this.aAG.get(i).getUrl(), 10, false);
+        aVar.azm.setDefaultResource(i.e.icon_default_avatar100);
+        aVar.azm.d(this.azh.get(i).getUrl(), 10, false);
         view.setTag(aVar);
         return view;
     }
 
-    public int eB(int i) {
+    public int eC(int i) {
         if (i / 4 == 0) {
             return 1;
         }
@@ -102,7 +102,7 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return i == this.aAz ? 1 : 0;
+        return i == this.aza ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -111,7 +111,7 @@ public class h extends BaseAdapter {
     }
 
     public void s(ArrayList<i> arrayList) {
-        this.aAG = arrayList;
+        this.azh = arrayList;
         if (arrayList != null) {
             if (arrayList.size() % 4 == 0) {
                 this.rowSize = arrayList.size() / 4;
@@ -121,13 +121,13 @@ public class h extends BaseAdapter {
         }
     }
 
-    public void eC(int i) {
-        this.aAz = i;
+    public void eD(int i) {
+        this.aza = i;
     }
 
     /* loaded from: classes.dex */
     private class a {
-        TbImageView aAL;
+        TbImageView azm;
         LinearLayout container;
 
         private a() {

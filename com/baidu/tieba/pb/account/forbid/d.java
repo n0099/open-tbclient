@@ -9,11 +9,11 @@ import com.baidu.tieba.pb.account.forbid.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements g.b {
-    final /* synthetic */ ForbidActivity bZl;
+    final /* synthetic */ ForbidActivity cet;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ForbidActivity forbidActivity) {
-        this.bZl = forbidActivity;
+        this.cet = forbidActivity;
     }
 
     @Override // com.baidu.tieba.pb.account.forbid.g.b
@@ -22,21 +22,21 @@ public class d implements g.b {
         String str;
         BdListView bdListView;
         ForbidActivity.a aVar;
-        textView = this.bZl.bZi;
-        str = this.bZl.aju;
+        textView = this.cet.ceq;
+        str = this.cet.aiq;
         textView.setText(str);
         if (forbidTplData.type == 1) {
-            this.bZl.findViewById(i.f.radio_forbid_3).setVisibility(0);
-            this.bZl.findViewById(i.f.radio_forbid_10).setVisibility(0);
+            this.cet.findViewById(i.f.radio_forbid_3).setVisibility(0);
+            this.cet.findViewById(i.f.radio_forbid_10).setVisibility(0);
         }
-        this.bZl.bZj = new ForbidActivity.a(forbidTplData.reason);
-        bdListView = this.bZl.mListView;
-        aVar = this.bZl.bZj;
+        this.cet.cer = new ForbidActivity.a(forbidTplData.reason);
+        bdListView = this.cet.mListView;
+        aVar = this.cet.cer;
         bdListView.setAdapter((ListAdapter) aVar);
     }
 
     @Override // com.baidu.tieba.pb.account.forbid.g.b
     public void b(ForbidTplData forbidTplData) {
-        this.bZl.showToast(forbidTplData.error.errMsg);
+        this.cet.showToast(forbidTplData.error.errMsg);
     }
 }

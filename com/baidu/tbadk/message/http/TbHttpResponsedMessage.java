@@ -5,7 +5,7 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.network.http.d;
 import com.baidu.adp.lib.network.http.e;
 import com.baidu.adp.lib.util.i;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
 /* loaded from: classes.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public TbHttpResponsedMessage(int i) {
@@ -25,8 +25,7 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
         return new String(bArr, getCharset());
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String getCharset() {
+    protected String getCharset() {
         int indexOf;
         String contentType = getContentType();
         if (contentType == null || (indexOf = contentType.indexOf("charset")) == -1) {
@@ -55,14 +54,14 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     public void logStatInBackground(int i, e eVar) {
         if (eVar.gR().size() > 0) {
             d dVar = eVar.gR().get(eVar.gR().size() - 1);
-            z.aaq.addAndGet(eVar.gR().size() - 1);
-            z.a aVar = new z.a();
-            aVar.mMode = getMode(i.iR());
+            aa.aak.addAndGet(eVar.gR().size() - 1);
+            aa.a aVar = new aa.a();
+            aVar.mMode = getMode(i.iS());
             aVar.mSize = dVar.uL;
             aVar.mTime = dVar.uP;
-            aVar.aas = dVar.uO;
-            aVar.aar = eVar.gP().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
-            z.a(aVar);
+            aVar.aam = dVar.uO;
+            aVar.aal = eVar.gP().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
+            aa.a(aVar);
         }
     }
 }

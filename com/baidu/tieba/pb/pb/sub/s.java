@@ -10,50 +10,50 @@ import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity cgV;
+    final /* synthetic */ NewSubPbActivity cmr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(NewSubPbActivity newSubPbActivity) {
-        this.cgV = newSubPbActivity;
+        this.cmr = newSubPbActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
     public void d(Object obj) {
-        com.baidu.tieba.tbadkCore.h.a aVar;
+        com.baidu.tieba.tbadkCore.g.a aVar;
         ak akVar;
         ak akVar2;
         ak akVar3;
         ak akVar4;
-        com.baidu.tieba.tbadkCore.h.a aVar2;
+        com.baidu.tieba.tbadkCore.g.a aVar2;
         ak akVar5;
         ak akVar6;
         ak akVar7;
         Object[] objArr = (Object[]) obj;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            aVar = this.cgV.cgN;
-            if (!aVar.avb() && objArr != null && objArr.length >= 4) {
+            aVar = this.cmr.cmj;
+            if (!aVar.axm() && objArr != null && objArr.length >= 4) {
                 String valueOf = String.valueOf(objArr[0]);
                 int g = com.baidu.adp.lib.g.b.g(String.valueOf(objArr[1]), 0);
                 boolean d = com.baidu.adp.lib.g.b.d(String.valueOf(objArr[2]), false);
                 int g2 = com.baidu.adp.lib.g.b.g(String.valueOf(objArr[3]), 0);
-                akVar = this.cgV.cgM;
+                akVar = this.cmr.cmi;
                 if (akVar != null) {
-                    akVar2 = this.cgV.cgM;
-                    if (akVar2.afD() != null) {
-                        akVar3 = this.cgV.cgM;
-                        if (akVar3.afD().adi() != null) {
-                            akVar4 = this.cgV.cgM;
-                            if (akVar4.afD().adk() != null) {
-                                aVar2 = this.cgV.cgN;
-                                akVar5 = this.cgV.cgM;
-                                String id = akVar5.afD().adi().getId();
-                                akVar6 = this.cgV.cgM;
-                                String name = akVar6.afD().adi().getName();
-                                akVar7 = this.cgV.cgM;
-                                aVar2.a(id, name, akVar7.afD().adk().getId(), valueOf, g2, g, d);
+                    akVar2 = this.cmr.cmi;
+                    if (akVar2.ahA() != null) {
+                        akVar3 = this.cmr.cmi;
+                        if (akVar3.ahA().afg() != null) {
+                            akVar4 = this.cmr.cmi;
+                            if (akVar4.ahA().afi() != null) {
+                                aVar2 = this.cmr.cmj;
+                                akVar5 = this.cmr.cmi;
+                                String id = akVar5.ahA().afg().getId();
+                                akVar6 = this.cmr.cmi;
+                                String name = akVar6.ahA().afg().getName();
+                                akVar7 = this.cmr.cmi;
+                                aVar2.a(id, name, akVar7.ahA().afi().getId(), valueOf, g2, g, d);
                                 return;
                             }
                             return;
@@ -66,6 +66,6 @@ public class s implements NewSubPbActivity.a {
             }
             return;
         }
-        TbadkCoreApplication.m411getInst().login(this.cgV.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.cgV.getPageContext().getPageActivity(), this.cgV.getPageContext().getString(i.h.login_to_use), true, 11017)));
+        TbadkCoreApplication.m411getInst().login(this.cmr.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.cmr.getPageContext().getPageActivity(), this.cmr.getPageContext().getString(i.h.login_to_use), true, 11017)));
     }
 }

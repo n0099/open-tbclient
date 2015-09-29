@@ -7,7 +7,6 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.tieba.i;
 import java.security.MessageDigest;
@@ -68,40 +67,34 @@ public class XiubaTbJsBridge {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.AC().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m411getInst().getResources().getString(i.h.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.An().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m411getInst().getResources().getString(i.h.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void callDownloadListener(int i) {
-        if (this.mTbPageContext.getOrignalPage() instanceof TbWebViewActivity) {
-            TbWebViewActivity tbWebViewActivity = (TbWebViewActivity) this.mTbPageContext.getOrignalPage();
-            if (tbWebViewActivity.getWebView() instanceof BaseWebView) {
-                JSResultData jSResultData = new JSResultData();
-                jSResultData.setStatus(1);
-                jSResultData.setErrorCode("0");
-                jSResultData.setErrorMsg("");
-                JSResultData.Result result = new JSResultData.Result();
-                jSResultData.setResult(result);
-                result.setDownload(i);
-                ((BaseWebView) tbWebViewActivity.getWebView()).loadUrl("javascript:addEventLisener('download'," + com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(jSResultData) + ")");
-            }
+        if (this.mTbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
+            JSResultData jSResultData = new JSResultData();
+            jSResultData.setStatus(1);
+            jSResultData.setErrorCode("0");
+            jSResultData.setErrorMsg("");
+            JSResultData.Result result = new JSResultData.Result();
+            jSResultData.setResult(result);
+            result.setDownload(i);
+            ((BaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('download'," + com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(jSResultData) + ")");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void callInstallListener() {
-        if (this.mTbPageContext.getOrignalPage() instanceof TbWebViewActivity) {
-            TbWebViewActivity tbWebViewActivity = (TbWebViewActivity) this.mTbPageContext.getOrignalPage();
-            if (tbWebViewActivity.getWebView() instanceof BaseWebView) {
-                JSResultData jSResultData = new JSResultData();
-                jSResultData.setStatus(1);
-                jSResultData.setErrorCode("0");
-                jSResultData.setErrorMsg("");
-                JSResultData.Result result = new JSResultData.Result();
-                jSResultData.setResult(result);
-                result.setInstall(1);
-                ((BaseWebView) tbWebViewActivity.getWebView()).loadUrl("javascript:addEventLisener('install'," + com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(jSResultData) + ")");
-            }
+        if (this.mTbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
+            JSResultData jSResultData = new JSResultData();
+            jSResultData.setStatus(1);
+            jSResultData.setErrorCode("0");
+            jSResultData.setErrorMsg("");
+            JSResultData.Result result = new JSResultData.Result();
+            jSResultData.setResult(result);
+            result.setInstall(1);
+            ((BaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('install'," + com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(jSResultData) + ")");
         }
     }
 

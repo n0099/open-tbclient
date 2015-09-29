@@ -1,63 +1,116 @@
 package com.baidu.tieba.frs;
 
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class bh extends x.a {
-    public TextView aIK;
-    public TextView aIL;
-    public TextView aIM;
-    public TextView aIN;
-    public TbImageView aIO;
-    public TbImageView aIP;
-    public TbImageView aIQ;
-    public LinearLayout aIR;
-    public LinearLayout aIS;
-    public LinearLayout aWN;
-    public LinearLayout aWO;
-    public a aWP;
-    public View aWQ;
+public class bh extends bn<com.baidu.tbadk.core.data.b, bl> {
+    private View.OnClickListener aUo;
+    private View.OnClickListener aUp;
 
-    /* loaded from: classes.dex */
-    public static class a {
-        public TextView aHl;
-        public HeadImageView aIT;
-        public UserIconBox aIU;
-        public TextView aIV;
-        public TextView aIW;
-        public TextView aIZ;
-        public ImageView aJa;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public bh(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
+        super(baseActivity, bdUniqueId);
     }
 
-    public bh(View view) {
-        super(view);
-        this.aWN = (LinearLayout) view.findViewById(i.f.frs_recommend_friend_item_root);
-        this.aWO = (LinearLayout) view.findViewById(i.f.frs_recommend_friend_item_top);
-        this.aWQ = view.findViewById(i.f.line_3);
-        this.aWP = new a();
-        View findViewById = view.findViewById(i.f.recommend_similar_top);
-        this.aWP.aIT = (HeadImageView) findViewById.findViewById(i.f.recommend_new_head);
-        this.aWP.aIU = (UserIconBox) findViewById.findViewById(i.f.recommend_new_crown);
-        this.aWP.aIV = (TextView) findViewById.findViewById(i.f.recommend_new_user_name);
-        this.aWP.aIW = (TextView) findViewById.findViewById(i.f.recommend_new_introduce);
-        this.aWP.aHl = (TextView) findViewById.findViewById(i.f.recommond_detail_info_distance);
-        this.aWP.aIZ = (TextView) findViewById.findViewById(i.f.recommend_new_add_friend);
-        this.aWP.aJa = (ImageView) view.findViewById(i.f.recommend_new_user_sex);
-        this.aIK = (TextView) view.findViewById(i.f.recommend_similar_bar_names);
-        this.aIL = (TextView) view.findViewById(i.f.recommend_similar_bar_desc);
-        this.aIO = (TbImageView) view.findViewById(i.f.recommend_similar_pic_one);
-        this.aIP = (TbImageView) view.findViewById(i.f.recommend_similar_pic_two);
-        this.aIQ = (TbImageView) view.findViewById(i.f.recommend_similar_pic_thr);
-        this.aIM = (TextView) view.findViewById(i.f.recommend_similar_forum);
-        this.aIN = (TextView) view.findViewById(i.f.recommend_similar_common_conern);
-        this.aIR = (LinearLayout) view.findViewById(i.f.recommend_similar_forum_container);
-        this.aIS = (LinearLayout) view.findViewById(i.f.recommend_similar_commom_conern_container);
+    private void a(boolean z, bl blVar) {
+        if (z) {
+            com.baidu.tbadk.core.util.am.i((View) blVar.aVS, i.e.frs_praise_btn_bg);
+            com.baidu.tbadk.core.util.am.b(blVar.aVS, i.c.cp_cont_f, 1);
+            return;
+        }
+        com.baidu.tbadk.core.util.am.i((View) blVar.aVS, i.e.btn_content_download_d);
+        com.baidu.tbadk.core.util.am.b(blVar.aVS, i.c.faceshop_downloaded_text, 1);
+    }
+
+    public void h(View.OnClickListener onClickListener) {
+        this.aUo = onClickListener;
+    }
+
+    public void i(View.OnClickListener onClickListener) {
+        this.aUp = onClickListener;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: f */
+    public bl a(ViewGroup viewGroup) {
+        return new bl(LayoutInflater.from(this.mContext).inflate(i.g.frs_item_app, (ViewGroup) null));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.b bVar, bl blVar) {
+        super.a(i, view, viewGroup, (ViewGroup) bVar, (com.baidu.tbadk.core.data.b) blVar);
+        if (this.aRT == null) {
+            return null;
+        }
+        if (this.aRT != null && (this.aRT instanceof FrsActivity)) {
+            ((FrsActivity) this.aRT).Lm().Nb();
+        }
+        blVar.aVO.setPadding(0, i - this.aTF == 0 ? this.aSG : this.aSH, 0, 0);
+        this.aRT.getLayoutMode().ad(this.mSkinType == 1);
+        this.aRT.getLayoutMode().k(view);
+        if (bVar instanceof com.baidu.tbadk.core.data.b) {
+            if (!bVar.Uj && (this.aRT instanceof FrsActivity)) {
+                bVar.Uj = true;
+                ((FrsActivity) this.aRT).a(bVar, "show");
+                ((FrsActivity) this.aRT).b(bVar, "show");
+            }
+            blVar.aPf.setText(bVar.Ui.userName);
+            blVar.aVR.setText(bVar.Ui.Ul);
+            if (com.baidu.tbadk.core.m.qX().rb()) {
+                blVar.aVQ.setVisibility(0);
+                blVar.aVQ.d(bVar.Ui.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+            } else {
+                blVar.aVQ.setVisibility(8);
+            }
+            blVar.aVQ.setTag(bVar.Ui.userPortrait);
+            blVar.aVS.setTag(Integer.valueOf(i));
+            com.baidu.tbadk.core.util.am.i((View) blVar.aVP, i.e.bg_label);
+            if (bVar.rr()) {
+                a(true, blVar);
+                if (TextUtils.isEmpty(bVar.Ui.Us) || TextUtils.isEmpty(bVar.Ui.Us.trim())) {
+                    blVar.aVS.setText(i.h.view);
+                } else {
+                    blVar.aVS.setText(bVar.Ui.Us);
+                }
+                blVar.aVS.setOnClickListener(this.aUo);
+                return view;
+            } else if (bVar.rq()) {
+                switch (bVar.TT) {
+                    case 0:
+                        if (TextUtils.isEmpty(bVar.Ui.Us) || TextUtils.isEmpty(bVar.Ui.Us.trim())) {
+                            blVar.aVS.setText(i.h.game_center_download);
+                        } else {
+                            blVar.aVS.setText(bVar.Ui.Us);
+                        }
+                        a(true, blVar);
+                        blVar.aVS.setOnClickListener(this.aUp);
+                        return view;
+                    case 1:
+                        a(false, blVar);
+                        blVar.aVS.setText(i.h.downloading2);
+                        blVar.aVS.setOnClickListener(null);
+                        return view;
+                    case 2:
+                        a(true, blVar);
+                        blVar.aVS.setText(i.h.frs_old_style_download_text);
+                        blVar.aVS.setOnClickListener(this.aUp);
+                        return view;
+                    default:
+                        return view;
+                }
+            } else {
+                return view;
+            }
+        }
+        return view;
     }
 }

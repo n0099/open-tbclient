@@ -52,7 +52,7 @@ public class BdExpandImageView extends ImageView {
     public void setImageDrawable(Drawable drawable) {
         super.setImageDrawable(drawable);
         if (this.GU) {
-            ni();
+            nj();
         }
     }
 
@@ -60,17 +60,17 @@ public class BdExpandImageView extends ImageView {
     public void setImageBitmap(Bitmap bitmap) {
         super.setImageBitmap(bitmap);
         if (this.GU) {
-            ni();
+            nj();
         }
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
-        ni();
+        nj();
     }
 
-    private void ni() {
+    private void nj() {
         Drawable drawable = getDrawable();
         if (drawable != null) {
             int measuredHeight = getMeasuredHeight();

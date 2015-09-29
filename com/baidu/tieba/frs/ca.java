@@ -1,29 +1,24 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ca implements View.OnClickListener {
-    final /* synthetic */ bv aXL;
-    private final /* synthetic */ com.baidu.tbadk.core.data.x aXM;
+public class ca implements c.b {
+    final /* synthetic */ bs aWS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ca(bv bvVar, com.baidu.tbadk.core.data.x xVar) {
-        this.aXL = bvVar;
-        this.aXM = xVar;
+    public ca(bs bsVar) {
+        this.aWS = bsVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.aXL.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXM.getAuthor().getUserId(), this.aXM.getAuthor().getName_show(), this.aXL.aUN.acP().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        cVar.dismiss();
+        if (i == 0) {
+            com.baidu.tbadk.core.util.al.c(this.aWS.aUU.getPageContext());
+        } else if (i == 1) {
+            com.baidu.tbadk.core.util.al.p(this.aWS.aUU.getPageContext().getPageActivity());
+        }
     }
 }

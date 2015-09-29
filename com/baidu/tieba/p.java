@@ -13,7 +13,7 @@ public class p implements DialogInterface.OnDismissListener {
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        com.baidu.adp.lib.g.j.b(this.this$0.aEW, this.this$0.getPageContext());
+        this.this$0.aEb.dismiss();
         this.this$0.mHandler.postDelayed(new q(this), 100L);
     }
 }

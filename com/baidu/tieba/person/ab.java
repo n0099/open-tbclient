@@ -1,39 +1,39 @@
 package com.baidu.tieba.person;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.x;
+import com.baidu.tbadk.core.view.p;
 import com.baidu.tieba.im.message.RequestGetLivableForumList;
 /* loaded from: classes.dex */
-class ab implements x.a {
-    final /* synthetic */ r cjC;
+class ab implements p.a {
+    final /* synthetic */ r cpf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(r rVar) {
-        this.cjC = rVar;
+        this.cpf = rVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.x.a
+    @Override // com.baidu.tbadk.core.view.p.a
     public void onListPullRefresh(boolean z) {
-        PersonBarActivity agt;
-        PersonBarActivity agt2;
-        PersonBarActivity agt3;
-        agt = this.cjC.agt();
-        if (agt != null) {
-            this.cjC.cjp = 1;
-            agt2 = this.cjC.agt();
-            if (agt2 != null) {
-                agt3 = this.cjC.agt();
-                if (agt3.getRequestCode() == 23011) {
+        PersonBarActivity ais;
+        PersonBarActivity ais2;
+        PersonBarActivity ais3;
+        ais = this.cpf.ais();
+        if (ais != null) {
+            this.cpf.coS = 1;
+            ais2 = this.cpf.ais();
+            if (ais2 != null) {
+                ais3 = this.cpf.ais();
+                if (ais3.getRequestCode() == 23011) {
                     RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
                     requestGetLivableForumList.setGetLikeForum(1);
-                    requestGetLivableForumList.setPageNo(this.cjC.cjp);
-                    requestGetLivableForumList.setPageSize(this.cjC.pageSize);
+                    requestGetLivableForumList.setPageNo(this.cpf.coS);
+                    requestGetLivableForumList.setPageSize(this.cpf.pageSize);
                     requestGetLivableForumList.setUserId(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
-                    this.cjC.sendMessage(requestGetLivableForumList);
+                    this.cpf.sendMessage(requestGetLivableForumList);
                     return;
                 }
             }
-            this.cjC.Kt();
+            this.cpf.Ko();
         }
     }
 }

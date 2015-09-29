@@ -20,7 +20,7 @@ import java.io.File;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    public static void I(Context context, String str) {
+    public static void H(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             k.showToast(context, i.h.pb_app_error);
             return;
@@ -41,7 +41,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean J(Context context, String str) {
+    public static boolean I(Context context, String str) {
         Iterator<ActivityManager.RunningTaskInfo> it = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(10).iterator();
         while (true) {
             if (!it.hasNext()) {
@@ -56,7 +56,7 @@ public class a {
         }
     }
 
-    public static boolean K(Context context, String str) {
+    public static boolean J(Context context, String str) {
         String str2;
         String str3 = Build.MODEL;
         if (!TextUtils.isEmpty(str3) && str3.startsWith("MI")) {
@@ -74,7 +74,7 @@ public class a {
         return z;
     }
 
-    public static Intent L(Context context, String str) {
+    public static Intent K(Context context, String str) {
         Class<?> intentClass;
         if (str == null || str.length() <= 0 || (intentClass = TbadkCoreApplication.m411getInst().getIntentClass(LogoActivityConfig.class)) == null) {
             return null;
@@ -90,7 +90,7 @@ public class a {
         return intent;
     }
 
-    public static Intent M(Context context, String str) {
+    public static Intent L(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }

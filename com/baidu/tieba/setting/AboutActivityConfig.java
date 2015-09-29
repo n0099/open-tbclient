@@ -1,0 +1,10 @@
+package com.baidu.tieba.setting;
+
+import android.content.Context;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+/* loaded from: classes.dex */
+public class AboutActivityConfig extends IntentConfig {
+    public AboutActivityConfig(Context context) {
+        super(context);
+    }
+}

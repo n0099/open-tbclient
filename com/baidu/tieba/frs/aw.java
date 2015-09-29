@@ -1,43 +1,83 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.TextView;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class aw {
-    private Animation aWl;
-    private TbPageContext<FrsActivity> mContext;
-
-    public aw(TbPageContext<FrsActivity> tbPageContext) {
-        this.mContext = tbPageContext;
-        this.aWl = AnimationUtils.loadAnimation(this.mContext.getPageActivity(), i.a.frs_like);
-    }
-
-    public void z(View view) {
-        if (!this.mContext.getPageActivity().isFinishing()) {
-            View inflate = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.frs_like_cover, (ViewGroup) null);
-            Button button = (Button) inflate.findViewById(i.f.btn_love);
-            TextView textView = (TextView) inflate.findViewById(i.f.tv_love);
-            textView.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.al.getDrawable(i.e.icon_like), (Drawable) null, (Drawable) null, (Drawable) null);
-            textView.setShadowLayer(1.0f, 0.0f, 1.0f, com.baidu.tbadk.core.util.al.getColor(i.c.frs_like_shadow));
-            com.baidu.tbadk.core.util.al.h((View) button, i.e.frs_btn_like);
-            com.baidu.tbadk.core.util.al.b(textView, i.c.frs_like_txt, 1);
-            button.setLayoutParams(new FrameLayout.LayoutParams(view.getMeasuredWidth(), view.getMeasuredHeight()));
-            com.baidu.adp.lib.guide.g gVar = new com.baidu.adp.lib.guide.g();
-            gVar.u(false);
-            gVar.P(i.f.love).O(0).v(true);
-            gVar.a(new ax(this, inflate));
-            com.baidu.adp.lib.guide.d gy = gVar.gy();
-            gy.i(this.mContext.getPageActivity());
-            com.baidu.tieba.tbadkCore.a.a(this.mContext.getOrignalPage(), inflate, this.aWl, new ay(this, gy));
+class aw implements ay.a {
+    @Override // com.baidu.tbadk.core.util.ay.a
+    public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
+        boolean z;
+        boolean z2;
+        String str;
+        String str2 = null;
+        if (strArr == null || strArr[0] == null) {
+            return false;
+        }
+        String lowerCase = strArr[0].toLowerCase();
+        String str3 = strArr.length > 1 ? strArr[1] : null;
+        if (lowerCase != null && lowerCase.startsWith("http://tieba.baidu.com/f?")) {
+            String substring = lowerCase.substring("http://tieba.baidu.com/f?".length());
+            if (substring != null) {
+                String[] split = substring.split("&");
+                int i = 0;
+                while (true) {
+                    if (i < split.length) {
+                        if (split[i] == null || !split[i].startsWith("kw=")) {
+                            i++;
+                        } else {
+                            str = split[i].substring(3);
+                            z = true;
+                            break;
+                        }
+                    } else {
+                        z = false;
+                        str = null;
+                        break;
+                    }
+                }
+                if (TextUtils.isEmpty(str)) {
+                    z2 = false;
+                } else {
+                    str2 = str;
+                    z2 = false;
+                }
+            } else {
+                z = false;
+                z2 = false;
+            }
+        } else if (lowerCase.startsWith("frs:")) {
+            str2 = lowerCase.substring(4);
+            z = true;
+            z2 = false;
+        } else if (lowerCase.startsWith("homework:")) {
+            FrsActivityStatic.i(tbPageContext);
+            return true;
+        } else if (!lowerCase.startsWith("com.baidu.tieba://?tname=")) {
+            return false;
+        } else {
+            str2 = lowerCase.substring("com.baidu.tieba://?tname=".length());
+            z = false;
+            z2 = true;
+        }
+        if (!TextUtils.isEmpty(str2) && tbPageContext != null) {
+            tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(str2, str3)));
+            return true;
+        } else if (z2 && !TextUtils.isEmpty(str2)) {
+            com.baidu.adp.lib.g.i.f(TbadkCoreApplication.m411getInst(), com.baidu.tieba.frs.utils.a.L(TbadkCoreApplication.m411getInst(), str2));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ap("c10320").r("obj_locate", 2).r("obj_type", 2));
+            return true;
+        } else if (z) {
+            tbPageContext.showToast(i.h.page_not_found);
+            return true;
+        } else {
+            return false;
         }
     }
 }

@@ -6,13 +6,13 @@ import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 import com.baidu.tieba.im.model.CommonGroupMsglistModel;
 /* loaded from: classes.dex */
 class m extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ CommonGroupChatActiviy bnK;
+    final /* synthetic */ CommonGroupChatActiviy bqJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(CommonGroupChatActiviy commonGroupChatActiviy, int i) {
         super(i);
-        this.bnK = commonGroupChatActiviy;
+        this.bqJ = commonGroupChatActiviy;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,13 +24,13 @@ class m extends com.baidu.adp.framework.listener.e {
                 case 103101:
                 case 103110:
                 case 103112:
-                    this.bnK.mListView.refresh();
+                    this.bqJ.mListView.refresh();
                     return;
                 case 103104:
                     if (socketResponsedMessage instanceof ResponseDismissGroupMessage) {
                         ResponseDismissGroupMessage responseDismissGroupMessage = (ResponseDismissGroupMessage) socketResponsedMessage;
-                        if (responseDismissGroupMessage.getError() == 0 && (this.bnK.mListModel instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.bnK.mListModel).getGroup()) != null && group.getGroupId() == responseDismissGroupMessage.getGroupId()) {
-                            this.bnK.finish();
+                        if (responseDismissGroupMessage.getError() == 0 && (this.bqJ.mListModel instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.bqJ.mListModel).getGroup()) != null && group.getGroupId() == responseDismissGroupMessage.getGroupId()) {
+                            this.bqJ.finish();
                             return;
                         }
                         return;

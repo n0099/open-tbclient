@@ -20,11 +20,11 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             finish();
             return;
         }
-        bH(stringExtra);
-        PluginPackageManager.lQ().a(stringExtra, new a(this));
+        bI(stringExtra);
+        PluginPackageManager.lR().a(stringExtra, new a(this));
     }
 
-    private void bH(String str) {
+    private void bI(String str) {
         try {
             LinearLayout linearLayout = new LinearLayout(getPageContext().getPageActivity());
             linearLayout.setGravity(17);

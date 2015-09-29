@@ -156,6 +156,29 @@ public class ImageFileInfo implements Serializable {
         return true;
     }
 
+    public boolean hasActionsWithoutResize() {
+        if (this.persistActionsList == null && this.pageActionsList == null) {
+            return false;
+        }
+        if (this.persistActionsList != null && !this.persistActionsList.isEmpty()) {
+            Iterator<ImageOperation> it = this.persistActionsList.iterator();
+            while (it.hasNext()) {
+                if (!"resize".equals(it.next().actionName)) {
+                    return true;
+                }
+            }
+        }
+        if (this.pageActionsList != null && !this.pageActionsList.isEmpty()) {
+            Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
+            while (it2.hasNext()) {
+                if (!"resize".equals(it2.next().actionName)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public LinkedList<ImageOperation> getPageActionsList() {
         return this.pageActionsList;
     }

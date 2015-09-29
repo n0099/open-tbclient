@@ -1,20 +1,20 @@
 package com.baidu.tieba.chosen.posts;
 
-import com.baidu.tbadk.core.view.x;
+import com.baidu.tbadk.core.view.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements x.a {
-    final /* synthetic */ e aKQ;
+public class f implements p.a {
+    final /* synthetic */ e aJJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.aKQ = eVar;
+        this.aJJ = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.x.a
+    @Override // com.baidu.tbadk.core.view.p.a
     public void onListPullRefresh(boolean z) {
         ChosenPostActivity chosenPostActivity;
-        chosenPostActivity = this.aKQ.aKJ;
-        chosenPostActivity.Hp().bE(z);
+        chosenPostActivity = this.aJJ.aJC;
+        chosenPostActivity.Hj().bB(z);
     }
 }

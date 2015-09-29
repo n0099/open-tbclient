@@ -12,6 +12,6 @@ class by extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bw.aeg().reset();
+        bx.age().reset();
     }
 }

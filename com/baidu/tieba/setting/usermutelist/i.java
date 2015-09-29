@@ -6,23 +6,23 @@ import tbclient.UserMuteQuery.MuteUser;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-    final /* synthetic */ h cHI;
-    private final /* synthetic */ MuteUser cHJ;
+    final /* synthetic */ h cOJ;
+    private final /* synthetic */ MuteUser cOK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar, MuteUser muteUser) {
-        this.cHI = hVar;
-        this.cHJ = muteUser;
+        this.cOJ = hVar;
+        this.cOK = muteUser;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         h.b bVar;
         h.b bVar2;
-        bVar = this.cHI.cHE;
-        if (bVar != null && this.cHJ.user_id != null && this.cHJ.user_name != null) {
-            bVar2 = this.cHI.cHE;
-            bVar2.f(this.cHJ.user_id.longValue(), this.cHJ.user_name);
+        bVar = this.cOJ.cOF;
+        if (bVar != null && this.cOK.user_id != null && this.cOK.user_name != null) {
+            bVar2 = this.cOJ.cOF;
+            bVar2.g(this.cOK.user_id.longValue(), this.cOK.user_name);
         }
     }
 }

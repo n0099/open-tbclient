@@ -1,11 +1,8 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.Intent;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.PopupWindow;
 /* loaded from: classes.dex */
-public class w implements a.b {
+class w implements Runnable {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,13 +10,10 @@ public class w implements a.b {
         this.this$0 = mainTabActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        try {
-            this.this$0.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-            aVar.dismiss();
-        } catch (Exception e) {
-            this.this$0.showToast(i.h.goto_developActivity_error_toast);
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        PopupWindow popupWindow;
+        popupWindow = this.this$0.dbT;
+        com.baidu.adp.lib.g.j.a(popupWindow);
     }
 }

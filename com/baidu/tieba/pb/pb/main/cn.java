@@ -1,22 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class cn implements View.OnFocusChangeListener {
-    final /* synthetic */ cb cgg;
+class cn implements a.b {
+    final /* synthetic */ cc cly;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cn(cb cbVar) {
-        this.cgg = cbVar;
+    public cn(cc ccVar) {
+        this.cly = ccVar;
     }
 
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
-        PbActivity pbActivity;
-        if (!z) {
-            pbActivity = this.cgg.ccs;
-            com.baidu.adp.lib.util.k.c(pbActivity.getPageContext().getPageActivity(), view);
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.cly.agM();
+        aVar.dismiss();
     }
 }

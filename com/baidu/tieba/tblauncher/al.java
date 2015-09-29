@@ -1,54 +1,21 @@
 package com.baidu.tieba.tblauncher;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import protobuf.GetOnlineInfo.Game;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements com.baidu.tbadk.core.c.a {
-    private a cVd;
-
-    @Override // com.baidu.tbadk.core.c.a
-    public void e(Context context, int i) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createNormalCfg(i)));
-    }
-
-    @Override // com.baidu.tbadk.core.c.a
-    public void aa(Context context) {
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            e(context, 1);
-        } else {
-            e(context, 0);
+public class al implements CustomMessageTask.CustomRunnable<Game> {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Game> customMessage) {
+        if (customMessage == null) {
+            return null;
         }
-    }
-
-    @Override // com.baidu.tbadk.core.c.a
-    public void a(Context context, int i, boolean z) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
-    }
-
-    @Override // com.baidu.tbadk.core.c.a
-    public Class<?> tq() {
-        return MainTabActivity.class;
-    }
-
-    @Override // com.baidu.tbadk.core.c.a
-    public String tr() {
-        return MainTabActivity.class.getName();
-    }
-
-    @Override // com.baidu.tbadk.core.c.a
-    public int getCurrentTabType() {
-        if (this.cVd != null) {
-            return this.cVd.getCurrentTabType();
+        if (customMessage.getData() != null) {
+            MainTabActivityStatic.dcJ = customMessage.getData();
         }
-        return -1;
-    }
-
-    public void a(a aVar) {
-        this.cVd = aVar;
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_SHOW_GAME_ICON);
     }
 }

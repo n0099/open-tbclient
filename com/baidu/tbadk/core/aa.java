@@ -1,22 +1,22 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.data.n> {
-    final /* synthetic */ TbadkCoreApplication TK;
+public class aa extends com.baidu.tbadk.util.l<Boolean> {
+    final /* synthetic */ TbadkCoreApplication Tw;
+    private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(TbadkCoreApplication tbadkCoreApplication) {
-        this.TK = tbadkCoreApplication;
+    public aa(TbadkCoreApplication tbadkCoreApplication, Context context) {
+        this.Tw = tbadkCoreApplication;
+        this.val$context = context;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.data.n> customMessage) {
-        UtilHelper.showYYNotification(this.TK.getContext(), customMessage.getData(), 13);
-        return null;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // com.baidu.tbadk.util.l
+    public Boolean doInBackground() {
+        return Boolean.valueOf(com.baidu.tbadk.core.util.d.ab(this.val$context));
     }
 }

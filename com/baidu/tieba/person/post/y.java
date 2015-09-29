@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.person.PersonPostModel;
 /* loaded from: classes.dex */
 class y implements AdapterView.OnItemClickListener {
-    final /* synthetic */ u cmu;
+    final /* synthetic */ u crX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(u uVar) {
-        this.cmu = uVar;
+        this.crX = uVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -24,19 +24,19 @@ class y implements AdapterView.OnItemClickListener {
         p pVar2;
         p pVar3;
         if (i >= 0) {
-            pVar = this.cmu.cmr;
+            pVar = this.crX.crU;
             if (pVar != null) {
-                pVar2 = this.cmu.cmr;
+                pVar2 = this.crX.crU;
                 if (i < pVar2.getCount()) {
-                    pVar3 = this.cmu.cmr;
+                    pVar3 = this.crX.crU;
                     PersonPostModel.PostInfoList item = pVar3.getItem(i);
                     if (item != null) {
                         if (item.thread_type == 33) {
                             TiebaStatic.log("c10254");
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.cmu.getActivity(), String.valueOf(item.thread_id)).cf(String.valueOf(item.post_id)).bs(18005).ro()));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.crX.getActivity(), String.valueOf(item.thread_id)).cf(String.valueOf(item.post_id)).bs(18005).rk()));
                             return;
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.cmu.getActivity()).createCfgForPersonCenter(String.valueOf(item.thread_id), String.valueOf(item.post_id), "person_post", 18005)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.crX.getActivity()).createCfgForPersonCenter(String.valueOf(item.thread_id), String.valueOf(item.post_id), "person_post", 18005)));
                     }
                 }
             }

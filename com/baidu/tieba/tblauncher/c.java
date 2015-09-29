@@ -2,6 +2,8 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
 class c extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -14,36 +16,32 @@ class c extends CustomMessageListener {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:11:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:8:0x0019  */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        int i;
+        ArrayList<com.baidu.tbadk.mainTab.b> qz;
+        ao aoVar;
         boolean z;
-        am amVar;
-        am amVar2;
-        int i2;
-        this.this$0.cUF = false;
-        i = this.this$0.cUx;
-        if (i <= 0) {
-            i2 = this.this$0.cUA;
-            if (i2 <= 0) {
-                z = false;
-                if (z) {
-                    amVar = this.this$0.cUv;
-                    amVar.gr(false);
-                    amVar2 = this.this$0.cUv;
-                    amVar2.awl().gx(false);
-                    return;
+        ao aoVar2;
+        int i;
+        boolean z2;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (qz = ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).qz()) != null && qz.size() != 0) {
+            aoVar = this.this$0.dcb;
+            aoVar.L(qz);
+            z = this.this$0.isUserChanged;
+            if (!z) {
+                z2 = this.this$0.dbW;
+                if (!z2) {
+                    this.this$0.W(this.this$0.getIntent());
+                    this.this$0.isUserChanged = false;
+                    this.this$0.dbW = false;
                 }
-                return;
             }
-        }
-        z = true;
-        if (z) {
+            aoVar2 = this.this$0.dcb;
+            FragmentTabHost ayy = aoVar2.ayy();
+            i = this.this$0.dbV;
+            ayy.setCurrentTabByType(i);
+            this.this$0.isUserChanged = false;
+            this.this$0.dbW = false;
         }
     }
 }

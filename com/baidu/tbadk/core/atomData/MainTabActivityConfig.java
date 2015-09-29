@@ -7,6 +7,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class MainTabActivityConfig extends IntentConfig {
     public static final String IS_NEW_USER = "is_new_user";
+    public static final String NEED_CLOSE_MENU = "need_close_menu";
     public static boolean IS_SUPPORT_LEFT_BAR = true;
     public static boolean IS_BACK_CLOSE_ALL_ACTIVITY = false;
     public static boolean IS_INDICATOR_BOTTOM = true;
@@ -20,10 +21,14 @@ public class MainTabActivityConfig extends IntentConfig {
     }
 
     public MainTabActivityConfig createNormalCfg(int i) {
-        return createNewUserCfg(i, false);
+        return createNewUserCfg(i, false, false);
     }
 
-    public MainTabActivityConfig createNewUserCfg(int i, boolean z) {
+    public MainTabActivityConfig createNormalCfg(int i, boolean z) {
+        return createNewUserCfg(i, false, z);
+    }
+
+    public MainTabActivityConfig createNewUserCfg(int i, boolean z, boolean z2) {
         Intent intent = getIntent();
         intent.setFlags(603979776);
         if (!(getContext() instanceof Activity)) {
@@ -34,7 +39,12 @@ public class MainTabActivityConfig extends IntentConfig {
         }
         intent.putExtra("is_new_user", z);
         intent.putExtra("close_dialog", true);
+        intent.putExtra(NEED_CLOSE_MENU, z2);
         return this;
+    }
+
+    public MainTabActivityConfig createNewUserCfg(int i, boolean z) {
+        return createNewUserCfg(i, z, false);
     }
 
     public MainTabActivityConfig createRefreshCfg(int i, boolean z) {

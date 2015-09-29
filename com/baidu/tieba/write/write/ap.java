@@ -6,11 +6,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap extends com.baidu.adp.base.g {
-    final /* synthetic */ WriteActivity ddQ;
+    final /* synthetic */ WriteActivity dpI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(WriteActivity writeActivity) {
-        this.ddQ = writeActivity;
+        this.dpI = writeActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.write.write.WriteActivity */
@@ -22,25 +22,25 @@ public class ap extends com.baidu.adp.base.g {
         FeedBackTopListView feedBackTopListView2;
         View view2;
         FeedBackTopListView feedBackTopListView3;
-        this.ddQ.hideProgressBar();
+        this.dpI.hideProgressBar();
         if (obj == null || !(obj instanceof o)) {
-            feedBackTopListView = this.ddQ.ddb;
+            feedBackTopListView = this.dpI.doT;
             feedBackTopListView.setVisibility(8);
-            view = this.ddQ.ddc;
+            view = this.dpI.doU;
             view.setVisibility(8);
-            this.ddQ.showToast(i.h.neterror);
+            this.dpI.showToast(i.h.neterror);
             return;
         }
         o oVar = (o) obj;
         if (oVar.getErrCode() != 0) {
-            feedBackTopListView2 = this.ddQ.ddb;
+            feedBackTopListView2 = this.dpI.doT;
             feedBackTopListView2.setVisibility(8);
-            view2 = this.ddQ.ddc;
+            view2 = this.dpI.doU;
             view2.setVisibility(8);
             return;
         }
-        ArrayList<com.baidu.tbadk.core.data.x> azh = oVar.azh();
-        feedBackTopListView3 = this.ddQ.ddb;
-        feedBackTopListView3.a(azh, this.ddQ.getPageContext());
+        ArrayList<com.baidu.tbadk.core.data.v> aCN = oVar.aCN();
+        feedBackTopListView3 = this.dpI.doT;
+        feedBackTopListView3.a(aCN, this.dpI.getPageContext());
     }
 }

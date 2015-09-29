@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
@@ -46,7 +46,7 @@ public class b {
     public void setData(String str, String str2, long j, boolean z) {
         this.mItemName.setText(str);
         this.mItemHead.setImageDrawable(null);
-        this.mItemTime.setText(aq.m(j));
+        this.mItemTime.setText(ar.o(j));
         this.mItemHead.d(str2, 28, false);
     }
 }

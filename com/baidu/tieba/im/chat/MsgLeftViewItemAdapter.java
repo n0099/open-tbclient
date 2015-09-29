@@ -22,7 +22,7 @@ public class MsgLeftViewItemAdapter extends ap<MsgleftView> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: v */
+    /* renamed from: C */
     public ap.a<MsgleftView> a(ViewGroup viewGroup) {
         MsgleftView msgleftView = new MsgleftView(this.mPageContext);
         return new a(msgleftView.getConvertView(), msgleftView);
@@ -32,17 +32,17 @@ public class MsgLeftViewItemAdapter extends ap<MsgleftView> {
     @Override // com.baidu.tieba.im.chat.ap
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<MsgleftView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
-        MsgleftView Ri = aVar.Ri();
-        Ri.gC(this.boC);
-        Ri.cK(this.mNeedShowName);
+        MsgleftView RP = aVar.RP();
+        RP.gI(this.brB);
+        RP.cK(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        Ri.a(this.bot);
-        Ri.setOnItemViewLongClickListener(this.bou);
-        Ri.setPosition(i);
-        Ri.ag(this.mCurrentTime);
-        Ri.af(chatMessage.getCacheData().getLastMsgTime());
-        Ri.a(viewGroup, chatMessage);
-        Ri.b(viewGroup, chatMessage);
+        RP.a(this.brs);
+        RP.setOnItemViewLongClickListener(this.brt);
+        RP.setPosition(i);
+        RP.as(this.mCurrentTime);
+        RP.ar(chatMessage.getCacheData().getLastMsgTime());
+        RP.a(viewGroup, chatMessage);
+        RP.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().ad(false);
         this.mPageContext.getLayoutMode().k(view);
         return view;

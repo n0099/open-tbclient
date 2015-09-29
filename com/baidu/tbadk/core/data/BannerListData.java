@@ -13,9 +13,9 @@ import tbclient.BannerList;
 /* loaded from: classes.dex */
 public class BannerListData implements Serializable {
     private static final long serialVersionUID = 1630193525564805923L;
-    private ArrayList<c> advertAppList = new ArrayList<>();
+    private ArrayList<b> advertAppList = new ArrayList<>();
 
-    public ArrayList<c> getAllAdvertList() {
+    public ArrayList<b> getAllAdvertList() {
         return this.advertAppList;
     }
 
@@ -26,8 +26,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).Ui)) {
-                sb.append(this.advertAppList.get(i).Ui);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).TU)) {
+                sb.append(this.advertAppList.get(i).TU);
                 if (i != size - 1) {
                     sb.append(",");
                 }
@@ -66,9 +66,9 @@ public class BannerListData implements Serializable {
                 int i2 = i;
                 if (i2 < list.size()) {
                     if (list.get(i2) != null) {
-                        c cVar = new c();
-                        cVar.a(list.get(i2));
-                        this.advertAppList.add(cVar);
+                        b bVar = new b();
+                        bVar.a(list.get(i2));
+                        this.advertAppList.add(bVar);
                     }
                     i = i2 + 1;
                 } else {

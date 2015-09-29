@@ -6,6 +6,7 @@ import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.data.ValidateItemData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.ModelHelper;
+import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -72,7 +73,7 @@ public class GroupNewsPojo implements Serializable {
                 str2 = "live_group_update";
             } else if ("306".equals(str)) {
                 str2 = "publisher_update_livegroup";
-            } else if ("310".equals(str)) {
+            } else if (PaymentConfirmRequestData.TERMINAL_IOS.equals(str)) {
                 str2 = "dismiss_livegroup";
             } else if ("307".equals(str)) {
                 str2 = "livegroup_start";
@@ -99,7 +100,7 @@ public class GroupNewsPojo implements Serializable {
             setContent(chatMessage.getContent());
             setTime(chatMessage.getTime() * 1000);
             setNotice_id(String.valueOf(chatMessage.getMsgId()));
-            Tn();
+            TV();
             String content = getContent();
             if (!TextUtils.isEmpty(content)) {
                 try {
@@ -117,7 +118,7 @@ public class GroupNewsPojo implements Serializable {
         }
     }
 
-    private void Tn() {
+    private void TV() {
         UpdatesItemData convertToUpdatesItem;
         if (!TextUtils.isEmpty(getCmd())) {
             if ((getCmd().equals("group_intro_change") || getCmd().equals("group_name_change") || getCmd().equals("group_notice_change")) && ModelHelper.getInstance().getUpdatasModel() != null && (convertToUpdatesItem = ModelHelper.getInstance().getUpdatasModel().convertToUpdatesItem(this)) != null) {

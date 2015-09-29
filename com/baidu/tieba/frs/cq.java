@@ -1,31 +1,47 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cq implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.core.data.r aYA;
-    final /* synthetic */ cn aYy;
+public class cq extends bn<com.baidu.tbadk.core.data.o, cv> implements View.OnClickListener {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public cq(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
+        super(baseActivity, bdUniqueId);
+    }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cq(cn cnVar, com.baidu.tbadk.core.data.r rVar) {
-        this.aYy = cnVar;
-        this.aYA = rVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: m */
+    public cv a(ViewGroup viewGroup) {
+        return new cv(LayoutInflater.from(this.mContext).inflate(i.g.frs_photo_live_view_pager_div, viewGroup, false));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.o oVar, cv cvVar) {
+        super.a(i, view, viewGroup, (ViewGroup) oVar, (com.baidu.tbadk.core.data.o) cvVar);
+        cvVar.aXL.a(oVar);
+        cvVar.aXK.setTag(oVar);
+        cvVar.aXK.setOnClickListener(this);
+        com.baidu.tbadk.h.a.a(this.aRT.getPageContext(), view);
+        return view;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Context context;
-        com.baidu.tbadk.core.data.r rVar = (com.baidu.tbadk.core.data.r) view.getTag(i.f.tag_first);
-        int intValue = ((Integer) view.getTag(i.f.tag_second)).intValue();
-        BaseActivity<?> baseActivity = this.aYy.aSX;
-        context = this.aYy.mContext;
-        baseActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(context).createConfig(this.aYA.rZ(), intValue, this.aYA.rV(), "", "", true, rVar.rZ().get(this.aYA.rZ().size() - 1), true)));
+        int id;
+        if ((view.getTag() instanceof com.baidu.tbadk.core.data.o) && (id = view.getId()) == i.f.all_live_list) {
+            this.aVV.a(id, 0, view, null, (com.baidu.tbadk.core.data.o) view.getTag());
+        }
+    }
+
+    public int Mm() {
+        return i.f.all_live_list;
     }
 }

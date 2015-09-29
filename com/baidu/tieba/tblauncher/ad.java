@@ -2,6 +2,8 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.data.NewsNotifyMessage;
 /* loaded from: classes.dex */
 class ad extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -16,17 +18,16 @@ class ad extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        am amVar;
-        am amVar2;
-        if (customResponsedMessage != null) {
-            this.this$0.avP();
-            if (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.f) {
-                this.this$0.a((com.baidu.tbadk.data.f) customResponsedMessage.getData());
+        ao aoVar;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
+            if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
+                BdLog.e("transform error");
+            } else if (MainTabActivity.dbS) {
+                NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
+                int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme();
+                aoVar = this.this$0.dcb;
+                aoVar.lm(msgReplyme);
             }
-            amVar = this.this$0.cUv;
-            amVar.awl().awt();
-            amVar2 = this.this$0.cUv;
-            amVar2.awg();
         }
     }
 }

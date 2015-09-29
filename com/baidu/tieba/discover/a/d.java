@@ -6,33 +6,33 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tbadk.util.k;
+import com.baidu.tbadk.util.n;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.discover.u;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.discover.data.c, com.baidu.tbadk.mvc.d.b> {
     private TbImageView MD;
-    private ImageView aLX;
-    private TextView aMb;
-    private ImageView aMc;
-    private View aMd;
-    private View aMe;
-    private View aMf;
-    private TextView amV;
+    private TextView aCy;
+    private ImageView aKP;
+    private ImageView aKT;
+    private View aKU;
+    private View aKV;
+    private View aKW;
+    private TextView alt;
 
     public d(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aMf = view.findViewById(i.f.root_view);
+        this.aKW = view.findViewById(i.f.root_view);
         this.MD = (TbImageView) view.findViewById(i.f.icon);
-        this.amV = (TextView) view.findViewById(i.f.title);
-        this.aMb = (TextView) view.findViewById(i.f.desc);
-        this.aLX = (ImageView) view.findViewById(i.f.red_tip);
-        this.aMc = (ImageView) view.findViewById(i.f.red_new_tip);
-        this.aMd = view.findViewById(i.f.top_divider);
-        this.aMe = view.findViewById(i.f.bottom_divider);
+        this.alt = (TextView) view.findViewById(i.f.title);
+        this.aCy = (TextView) view.findViewById(i.f.desc);
+        this.aKP = (ImageView) view.findViewById(i.f.red_tip);
+        this.aKT = (ImageView) view.findViewById(i.f.red_new_tip);
+        this.aKU = view.findViewById(i.f.top_divider);
+        this.aKV = view.findViewById(i.f.bottom_divider);
         a(tbPageContext, TbadkApplication.getInst().getSkinType());
     }
 
@@ -42,38 +42,38 @@ public class d extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.discover.data.c, 
     public void B(com.baidu.tieba.discover.data.c cVar) {
         super.B(cVar);
         if (cVar != null) {
-            this.MD.setDefaultResource(u.gm(cVar.HT()));
+            this.MD.setDefaultResource(u.gp(cVar.HN()));
             if (!StringUtils.isNull(cVar.getIcon_url())) {
                 this.MD.d(cVar.getIcon_url(), 10, false);
             }
-            this.amV.setText(k.f(cVar.getTitle(), 0, 16));
-            this.aMb.setText(cVar.HS());
-            if (cVar.HU()) {
-                this.aMc.setVisibility(0);
+            this.alt.setText(n.e(cVar.getTitle(), 0, 16));
+            this.aCy.setText(cVar.HM());
+            if (cVar.HO()) {
+                this.aKT.setVisibility(0);
             } else {
-                this.aMc.setVisibility(8);
+                this.aKT.setVisibility(8);
             }
-            if (cVar.HV()) {
-                this.aLX.setVisibility(0);
+            if (cVar.HP()) {
+                this.aKP.setVisibility(0);
             } else {
-                this.aLX.setVisibility(8);
+                this.aKP.setVisibility(8);
             }
-            switch (cVar.HW()) {
+            switch (cVar.HQ()) {
                 case 1:
-                    this.aMd.setVisibility(0);
-                    this.aMe.setVisibility(0);
+                    this.aKU.setVisibility(0);
+                    this.aKV.setVisibility(0);
                     return;
                 case 2:
-                    this.aMd.setVisibility(8);
-                    this.aMe.setVisibility(8);
+                    this.aKU.setVisibility(8);
+                    this.aKV.setVisibility(8);
                     return;
                 case 3:
-                    this.aMd.setVisibility(0);
-                    this.aMe.setVisibility(8);
+                    this.aKU.setVisibility(0);
+                    this.aKV.setVisibility(8);
                     return;
                 default:
-                    this.aMd.setVisibility(8);
-                    this.aMe.setVisibility(0);
+                    this.aKU.setVisibility(8);
+                    this.aKV.setVisibility(0);
                     return;
             }
         }
@@ -82,7 +82,7 @@ public class d extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.discover.data.c, 
     @Override // com.baidu.tieba.tbadkCore.s
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.h.a.a(tbPageContext, getRootView());
-        al.h(this.aMf, i.e.addresslist_item_bg);
+        am.i(this.aKW, i.e.addresslist_item_bg);
         this.MD.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
         return true;
     }

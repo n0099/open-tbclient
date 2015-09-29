@@ -6,11 +6,11 @@ import com.baidu.tieba.setting.im.more.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ i cEq;
+    final /* synthetic */ i cLr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.cEq = iVar;
+        this.cLr = iVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,49 +30,49 @@ public class j implements View.OnClickListener {
         i.a aVar6;
         i.a aVar7;
         i.a aVar8;
-        aVar = this.cEq.cEp;
+        aVar = this.cLr.cLq;
         if (aVar != null) {
-            view2 = this.cEq.mBack;
+            view2 = this.cLr.mBack;
             if (view != view2) {
-                tbSettingTextTipView = this.cEq.cEa;
+                tbSettingTextTipView = this.cLr.cLb;
                 if (view != tbSettingTextTipView) {
-                    tbSettingTextTipView2 = this.cEq.cEb;
+                    tbSettingTextTipView2 = this.cLr.cLc;
                     if (view != tbSettingTextTipView2) {
-                        tbSettingTextTipView3 = this.cEq.cEc;
+                        tbSettingTextTipView3 = this.cLr.cLd;
                         if (view != tbSettingTextTipView3) {
-                            tbSettingTextTipView4 = this.cEq.cEf;
+                            tbSettingTextTipView4 = this.cLr.cLg;
                             if (view != tbSettingTextTipView4) {
-                                tbSettingTextTipView5 = this.cEq.cEk;
+                                tbSettingTextTipView5 = this.cLr.cLl;
                                 if (view != tbSettingTextTipView5) {
-                                    tbSettingTextTipView6 = this.cEq.cEd;
+                                    tbSettingTextTipView6 = this.cLr.cLe;
                                     if (view != tbSettingTextTipView6) {
                                         return;
                                     }
-                                    aVar2 = this.cEq.cEp;
-                                    aVar2.aoK();
+                                    aVar2 = this.cLr.cLq;
+                                    aVar2.arc();
                                     return;
                                 }
-                                aVar3 = this.cEq.cEp;
-                                aVar3.aoL();
+                                aVar3 = this.cLr.cLq;
+                                aVar3.ard();
                                 return;
                             }
-                            aVar4 = this.cEq.cEp;
-                            aVar4.aoH();
+                            aVar4 = this.cLr.cLq;
+                            aVar4.aqZ();
                             return;
                         }
-                        aVar5 = this.cEq.cEp;
-                        aVar5.aoI();
+                        aVar5 = this.cLr.cLq;
+                        aVar5.ara();
                         return;
                     }
-                    aVar6 = this.cEq.cEp;
-                    aVar6.aoJ();
+                    aVar6 = this.cLr.cLq;
+                    aVar6.arb();
                     return;
                 }
-                aVar7 = this.cEq.cEp;
-                aVar7.aoG();
+                aVar7 = this.cLr.cLq;
+                aVar7.aqY();
                 return;
             }
-            aVar8 = this.cEq.cEp;
+            aVar8 = this.cLr.cLq;
             aVar8.onBackPressed();
         }
     }

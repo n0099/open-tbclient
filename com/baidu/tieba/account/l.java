@@ -1,48 +1,74 @@
 package com.baidu.tieba.account;
 
-import com.baidu.tbadk.core.a.a;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.relogin.ReloginManager;
-import com.baidu.tieba.account.k;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.tieba.account.ActivationActivity;
 /* loaded from: classes.dex */
-public class l implements a.InterfaceC0040a {
-    final /* synthetic */ k aFw;
+class l implements View.OnClickListener {
+    final /* synthetic */ ActivationActivity aER;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar) {
-        this.aFw = kVar;
+    public l(ActivationActivity activationActivity) {
+        this.aER = activationActivity;
     }
 
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
-    public void cc(String str) {
-        k.a aVar;
-        k.a aVar2;
-        aVar = this.aFw.aFt;
-        if (aVar != null) {
-            aVar2 = this.aFw.aFt;
-            aVar2.cc(str);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
+        ImageView imageView;
+        ActivationActivity.b bVar;
+        ActivationActivity.a aVar;
+        ActivationActivity.b bVar2;
+        ActivationActivity.b bVar3;
+        ActivationActivity.a aVar2;
+        ActivationActivity.b bVar4;
+        ActivationActivity.a aVar3;
+        ActivationActivity.a aVar4;
+        view2 = this.aER.mBack;
+        if (view != view2) {
+            if (view != this.aER.aEE) {
+                if (view != this.aER.aEF) {
+                    imageView = this.aER.aEz;
+                    if (view == imageView) {
+                        this.aER.aED.setText((CharSequence) null);
+                        return;
+                    }
+                    return;
+                } else if (this.aER.aEI) {
+                    bVar = this.aER.aEG;
+                    if (bVar == null) {
+                        aVar = this.aER.aEH;
+                        if (aVar == null) {
+                            this.aER.aEG = new ActivationActivity.b(this.aER, null);
+                            bVar2 = this.aER.aEG;
+                            bVar2.setPriority(3);
+                            bVar3 = this.aER.aEG;
+                            bVar3.execute(new String[0]);
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                } else {
+                    return;
+                }
+            }
+            aVar2 = this.aER.aEH;
+            if (aVar2 == null) {
+                bVar4 = this.aER.aEG;
+                if (bVar4 == null) {
+                    this.aER.aEH = new ActivationActivity.a(this.aER, null);
+                    aVar3 = this.aER.aEH;
+                    aVar3.setPriority(3);
+                    aVar4 = this.aER.aEH;
+                    aVar4.execute(new String[0]);
+                    return;
+                }
+                return;
+            }
+            return;
         }
-    }
-
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
-    public void a(AccountData accountData) {
-        k.a aVar;
-        k.a aVar2;
-        aVar = this.aFw.aFt;
-        if (aVar != null) {
-            aVar2 = this.aFw.aFt;
-            aVar2.onSuccess();
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
-    public void c(String str, int i, String str2) {
-        if (i == 1) {
-            ReloginManager.ts().e(null);
-        }
-        m mVar = new m(this, str);
-        mVar.setPriority(3);
-        mVar.execute(new Void[0]);
+        this.aER.setResult(0);
+        this.aER.finish();
     }
 }

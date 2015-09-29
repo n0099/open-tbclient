@@ -1,34 +1,35 @@
 package com.baidu.tbadk.util;
-
-import android.content.Context;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class e extends ClickableSpan {
-    private Context mContext;
-
-    public e(Context context) {
-        this.mContext = null;
-        this.mContext = context;
+public class e {
+    public static boolean Ez() {
+        return EA();
     }
 
-    public Context getContext() {
-        return this.mContext;
+    public static boolean EA() {
+        return com.baidu.tbadk.core.util.n.fi() && com.baidu.adp.gif.e.fh();
     }
 
-    public void fH(String str) {
-        com.baidu.tbadk.browser.g.B(this.mContext, str);
+    public static boolean fJ(String str) {
+        if (str == null) {
+            return false;
+        }
+        if (fK(str)) {
+            return true;
+        }
+        int indexOf = str.indexOf("imgsrc");
+        if (indexOf <= 0 || indexOf >= 20) {
+            return (com.baidu.adp.lib.b.e.gv().ah("portrait_cdn_open") != 0) && fL(str);
+        }
+        return true;
     }
 
-    public void fI(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
+    public static boolean fK(String str) {
+        int indexOf;
+        return str != null && (indexOf = str.indexOf("hiphotos")) > 0 && indexOf < 20;
     }
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
+    public static boolean fL(String str) {
+        int indexOf;
+        return str != null && (indexOf = str.indexOf("tb.himg")) > 0 && indexOf < 20;
     }
 }

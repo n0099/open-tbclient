@@ -5,28 +5,28 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.imMessageCenter.im.friend.InviteFriendCandidateList;
 /* loaded from: classes.dex */
 class i implements View.OnClickListener {
-    final /* synthetic */ InviteFriendCandidateList bJR;
+    final /* synthetic */ InviteFriendCandidateList bMW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(InviteFriendCandidateList inviteFriendCandidateList) {
-        this.bJR = inviteFriendCandidateList;
+        this.bMW = inviteFriendCandidateList;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         LinearLayout linearLayout;
-        boolean YC;
+        boolean Zk;
         InviteFriendCandidateList.a aVar;
         InviteFriendCandidateList.a aVar2;
-        linearLayout = this.bJR.bJL;
+        linearLayout = this.bMW.bMQ;
         linearLayout.removeView(view);
-        YC = this.bJR.YC();
-        if (!YC) {
-            this.bJR.YA();
+        Zk = this.bMW.Zk();
+        if (!Zk) {
+            this.bMW.Zi();
         }
-        aVar = this.bJR.bJQ;
+        aVar = this.bMW.bMV;
         if (aVar != null) {
-            aVar2 = this.bJR.bJQ;
+            aVar2 = this.bMW.bMV;
             aVar2.a(view, view.getTag());
         }
     }

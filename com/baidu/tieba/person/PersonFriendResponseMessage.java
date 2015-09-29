@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     private static final int CACHETIME = 604800000;
-    private com.baidu.tieba.person.a.a data;
+    private com.baidu.tieba.person.data.a data;
     private int errCode;
     private String resultString;
 
@@ -24,14 +24,14 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public PersonFriendResponseMessage(int i) {
         super(i);
         this.errCode = -1;
-        this.data = new com.baidu.tieba.person.a.a();
+        this.data = new com.baidu.tieba.person.data.a();
     }
 
-    public void setPersonListData(com.baidu.tieba.person.a.a aVar) {
+    public void setPersonListData(com.baidu.tieba.person.data.a aVar) {
         this.data = aVar;
     }
 
-    public com.baidu.tieba.person.a.a getPersonListData() {
+    public com.baidu.tieba.person.data.a getPersonListData() {
         return this.data;
     }
 
@@ -67,7 +67,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString != null && (cq = com.baidu.tbadk.core.b.a.sR().cq("tb.my_pages")) != null) {
+                    if (parseToString != null && (cq = com.baidu.tbadk.core.b.a.sO().cq("tb.my_pages")) != null) {
                         cq.a(String.valueOf("personal_myfollow") + "_" + str, parseToString, TbConfig.APP_OVERDUR_DRAFT_BOX);
                     }
                 } catch (Exception e) {

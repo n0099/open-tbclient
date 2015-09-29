@@ -14,24 +14,24 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingActivity> implements BdSwitchView.a {
-    private av cHm = null;
-    private com.baidu.tieba.setting.model.j cHn = null;
-    private com.baidu.tbadk.core.dialog.a cHo;
+    private av cOn = null;
+    private com.baidu.tieba.setting.model.j cOo = null;
+    private com.baidu.tbadk.core.dialog.a cOp;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cHm = new av(this);
-        this.cHn = new com.baidu.tieba.setting.model.j(this);
+        this.cOn = new av(this);
+        this.cOo = new com.baidu.tieba.setting.model.j(this);
         if (TbadkCoreApplication.m411getInst().isHeadsetModeOn()) {
-            this.cHm.aqH().mA();
+            this.cOn.asZ().mB();
         } else {
-            this.cHm.aqH().mB();
+            this.cOn.asZ().mC();
         }
-        this.cHm.aqI().setTip(getPageContext().getString(i.h.calc_cache_size));
-        this.cHm.aqI().displayTip();
-        this.cHn.a(new ap(this, this));
+        this.cOn.ata().setTip(getPageContext().getString(i.h.calc_cache_size));
+        this.cOn.ata().displayTip();
+        this.cOo.a(new ap(this, this));
         registerListener(new aq(this, CmdConfigCustom.IM_CLEAR_MSG));
     }
 
@@ -39,57 +39,57 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.cHn != null) {
-            this.cHn.aoV();
+        if (this.cOo != null) {
+            this.cOo.arn();
         }
-        aoX();
+        arp();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cHm.onChangeSkinType(i);
+        this.cOn.onChangeSkinType(i);
     }
 
-    private void aoX() {
-        this.cHm.aqL().refresh();
+    private void arp() {
+        this.cOn.atd().refresh();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.cHm != null) {
-            if (view == this.cHm.aqI()) {
-                if (this.cHn != null) {
-                    if (TextUtils.isEmpty(this.cHm.aqI().getTip())) {
+        if (this.cOn != null) {
+            if (view == this.cOn.ata()) {
+                if (this.cOo != null) {
+                    if (TextUtils.isEmpty(this.cOn.ata().getTip())) {
                         showToast(i.h.no_cache_delete);
                     } else {
-                        this.cHo = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bF(i.h.alert_clear_all_cache).a(i.h.alert_yes_button, new ar(this)).b(i.h.alert_no_button, new as(this)).b(getPageContext()).sU();
+                        this.cOp = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bF(i.h.alert_clear_all_cache).a(i.h.alert_yes_button, new ar(this)).b(i.h.alert_no_button, new as(this)).b(getPageContext()).sR();
                     }
                 }
-            } else if (view == this.cHm.aqJ()) {
-                if (this.cHn != null) {
-                    this.cHo = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bF(i.h.alert_clear_cache).a(i.h.alert_yes_button, new at(this)).b(i.h.alert_no_button, new au(this)).b(getPageContext()).sU();
+            } else if (view == this.cOn.atb()) {
+                if (this.cOo != null) {
+                    this.cOp = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bF(i.h.alert_clear_cache).a(i.h.alert_yes_button, new at(this)).b(i.h.alert_no_button, new au(this)).b(getPageContext()).sR();
                 }
-            } else if (view == this.cHm.aqL()) {
+            } else if (view == this.cOn.atd()) {
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginCenterActivityConfig(getPageContext().getPageActivity())));
-            } else if (view == this.cHm.aqK()) {
-                aqG();
+            } else if (view == this.cOn.atc()) {
+                asY();
             }
         }
     }
 
-    private void aqG() {
+    private void asY() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_MY_WALLET, new IntentConfig(getPageContext().getPageActivity())));
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view != null && view.equals(this.cHm.aqH())) {
+        if (view != null && view.equals(this.cOn.asZ())) {
             if (BdSwitchView.SwitchState.ON == switchState) {
-                this.cHn.setHeadsetModeOn(true);
+                this.cOo.setHeadsetModeOn(true);
             } else {
-                this.cHn.setHeadsetModeOn(false);
+                this.cOo.setHeadsetModeOn(false);
             }
         }
     }
@@ -97,8 +97,8 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.cHo != null && this.cHo.isShowing()) {
-            this.cHo.dismiss();
+        if (this.cOp != null && this.cOp.isShowing()) {
+            this.cOp.dismiss();
         }
         super.onDestroy();
     }

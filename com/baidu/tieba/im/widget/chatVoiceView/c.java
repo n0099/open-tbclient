@@ -1,26 +1,26 @@
 package com.baidu.tieba.im.widget.chatVoiceView;
 
-import com.baidu.tieba.im.db.l;
+import com.baidu.tbadk.util.l;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c extends com.baidu.tieba.im.h<Boolean> {
-    final /* synthetic */ ChatVoiceView bFN;
+public class c extends l<Boolean> {
+    final /* synthetic */ ChatVoiceView bIS;
     private final /* synthetic */ CommonGroupChatMessage val$groupMsg;
     private final /* synthetic */ LinkedList val$list;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ChatVoiceView chatVoiceView, CommonGroupChatMessage commonGroupChatMessage, LinkedList linkedList) {
-        this.bFN = chatVoiceView;
+        this.bIS = chatVoiceView;
         this.val$groupMsg = commonGroupChatMessage;
         this.val$list = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.im.h
+    @Override // com.baidu.tbadk.util.l
     public Boolean doInBackground() {
-        return Boolean.valueOf(l.Tm().a(com.baidu.tieba.im.util.h.o(this.val$groupMsg), this.val$list, false));
+        return Boolean.valueOf(com.baidu.tieba.im.db.l.TU().a(com.baidu.tieba.im.util.h.o(this.val$groupMsg), this.val$list, false));
     }
 }

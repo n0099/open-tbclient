@@ -1,26 +1,40 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.ArrayList;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.cache.o;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-class k extends CustomMessageListener {
-    final /* synthetic */ SquareSearchActivity bRF;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(SquareSearchActivity squareSearchActivity, int i) {
-        super(i);
-        this.bRF = squareSearchActivity;
+public class k implements CustomMessageTask.CustomRunnable<Object> {
+    public static final List<String> aT(List<o.b<String>> list) {
+        LinkedList linkedList = new LinkedList();
+        if (list != null) {
+            for (o.b<String> bVar : list) {
+                String str = bVar.key;
+                if (!TextUtils.isEmpty(str)) {
+                    linkedList.add(str);
+                }
+            }
+        }
+        return linkedList;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        Object data;
-        if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof ArrayList)) {
-            return;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage == null || !(customMessage instanceof RequestSearchPersonHistoryReadMessage)) {
+            return null;
         }
-        this.bRF.a(5, (ArrayList) data);
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount == null) {
+            currentAccount = "";
+        }
+        List<String> aT = aT(com.baidu.adp.lib.util.s.b(com.baidu.tbadk.core.b.a.sO().U("tb.searchperson_history", currentAccount)));
+        ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
+        responseSearchPersonHistoryReadMessage.datas.addAll(aT);
+        return responseSearchPersonHistoryReadMessage;
     }
 }

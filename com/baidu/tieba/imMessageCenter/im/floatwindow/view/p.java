@@ -8,11 +8,11 @@ import com.baidu.tieba.im.model.MsglistModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements al {
-    final /* synthetic */ FloatingPersonalChatActivity bJh;
+    final /* synthetic */ FloatingPersonalChatActivity bMm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(FloatingPersonalChatActivity floatingPersonalChatActivity) {
-        this.bJh = floatingPersonalChatActivity;
+        this.bMm = floatingPersonalChatActivity;
     }
 
     @Override // com.baidu.tieba.im.chat.al
@@ -20,10 +20,10 @@ public class p implements al {
         String str;
         AbsMsglistView absMsglistView;
         MsglistModel msglistModel;
-        str = this.bJh.aAP;
+        str = this.bMm.azq;
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(str, 2)));
-        absMsglistView = this.bJh.mListView;
-        msglistModel = this.bJh.mListModel;
+        absMsglistView = this.bMm.mListView;
+        msglistModel = this.bMm.mListModel;
         absMsglistView.refreshGo2New(msglistModel.getData());
     }
 }

@@ -19,15 +19,15 @@ public abstract class a {
 
     public abstract void ab(boolean z);
 
-    public abstract String qn();
+    public abstract String qj();
 
-    public abstract boolean qo();
+    public abstract boolean qk();
 
-    public abstract void qp();
+    public abstract void ql();
 
-    public abstract void qq();
+    public abstract void qm();
 
-    public abstract MarkData qr();
+    public abstract MarkData qn();
 
     public static a a(BaseActivity baseActivity) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_MARK_MANAGER, a.class, baseActivity);

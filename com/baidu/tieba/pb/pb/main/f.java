@@ -4,40 +4,40 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class f implements a.b {
-    final /* synthetic */ PbActivity ccj;
+    final /* synthetic */ PbActivity ciz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PbActivity pbActivity) {
-        this.ccj = pbActivity;
+        this.ciz = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        bk bkVar;
-        cb cbVar;
-        cb cbVar2;
-        cb cbVar3;
-        bk bkVar2;
-        cb cbVar4;
-        this.ccj.Lk();
-        bkVar = this.ccj.cbG;
-        com.baidu.tbadk.core.data.o adR = bkVar.adR();
-        cbVar = this.ccj.cbL;
-        int pageNum = cbVar.getPageNum();
+        bl blVar;
+        cc ccVar;
+        cc ccVar2;
+        cc ccVar3;
+        bl blVar2;
+        cc ccVar4;
+        this.ciz.Lg();
+        blVar = this.ciz.chV;
+        com.baidu.tbadk.core.data.n QV = blVar.QV();
+        ccVar = this.ciz.cia;
+        int pageNum = ccVar.getPageNum();
         if (pageNum <= 0) {
-            this.ccj.showToast(i.h.pb_page_error);
-        } else if (adR == null || pageNum <= adR.rM()) {
-            cbVar2 = this.ccj.cbL;
-            cbVar2.aeO();
-            this.ccj.stopVoice();
-            cbVar3 = this.ccj.cbL;
-            cbVar3.aez();
-            bkVar2 = this.ccj.cbG;
-            cbVar4 = this.ccj.cbL;
-            bkVar2.iC(cbVar4.getPageNum());
+            this.ciz.showToast(i.h.pb_page_error);
+        } else if (QV == null || pageNum <= QV.rH()) {
+            ccVar2 = this.ciz.cia;
+            ccVar2.agM();
+            this.ciz.stopVoice();
+            ccVar3 = this.ciz.cia;
+            ccVar3.agx();
+            blVar2 = this.ciz.chV;
+            ccVar4 = this.ciz.cia;
+            blVar2.iM(ccVar4.getPageNum());
             aVar.dismiss();
         } else {
-            this.ccj.showToast(i.h.pb_page_error);
+            this.ciz.showToast(i.h.pb_page_error);
         }
     }
 }

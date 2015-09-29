@@ -1,83 +1,37 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
-import com.baidu.tieba.i;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
-class ao implements ax.a {
-    @Override // com.baidu.tbadk.core.util.ax.a
-    public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
-        boolean z;
-        boolean z2;
-        String str;
-        String str2 = null;
-        if (strArr == null || strArr[0] == null) {
-            return false;
-        }
-        String lowerCase = strArr[0].toLowerCase();
-        String str3 = strArr.length > 1 ? strArr[1] : null;
-        if (lowerCase != null && lowerCase.startsWith("http://tieba.baidu.com/f?")) {
-            String substring = lowerCase.substring("http://tieba.baidu.com/f?".length());
-            if (substring != null) {
-                String[] split = substring.split("&");
-                int i = 0;
-                while (true) {
-                    if (i < split.length) {
-                        if (split[i] == null || !split[i].startsWith("kw=")) {
-                            i++;
-                        } else {
-                            str = split[i].substring(3);
-                            z = true;
-                            break;
-                        }
-                    } else {
-                        z = false;
-                        str = null;
-                        break;
-                    }
-                }
-                if (TextUtils.isEmpty(str)) {
-                    z2 = false;
-                } else {
-                    str2 = str;
-                    z2 = false;
-                }
-            } else {
-                z = false;
-                z2 = false;
+class ao extends CustomMessageListener {
+    final /* synthetic */ FrsActivity aUz;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ao(FrsActivity frsActivity, int i) {
+        super(i);
+        this.aUz = frsActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2012111) {
+            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
+            if (intValue == 1 || intValue == 4 || intValue == 3) {
+                FrsActivityStatic.aUQ = true;
+            } else if (intValue == 2) {
+                FrsActivityStatic.aUR = true;
             }
-        } else if (lowerCase.startsWith("frs:")) {
-            str2 = lowerCase.substring(4);
-            z = true;
-            z2 = false;
-        } else if (lowerCase.startsWith("homework:")) {
-            FrsActivityStatic.i(tbPageContext);
-            return true;
-        } else if (!lowerCase.startsWith("com.baidu.tieba://?tname=")) {
-            return false;
-        } else {
-            str2 = lowerCase.substring("com.baidu.tieba://?tname=".length());
-            z = false;
-            z2 = true;
-        }
-        if (!TextUtils.isEmpty(str2) && tbPageContext != null) {
-            tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(str2, str3)));
-            return true;
-        } else if (z2 && !TextUtils.isEmpty(str2)) {
-            com.baidu.adp.lib.g.i.f(TbadkCoreApplication.m411getInst(), com.baidu.tieba.frs.utils.a.M(TbadkCoreApplication.m411getInst(), str2));
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ao("c10320").r("obj_locate", 2).r("obj_type", 2));
-            return true;
-        } else if (z) {
-            tbPageContext.showToast(i.h.page_not_found);
-            return true;
-        } else {
-            return false;
+            boolean z = intValue == 3;
+            boolean Ls = FrsActivityStatic.Ls();
+            if (z && Ls) {
+                FrsActivityStatic.aUP = false;
+            } else {
+                FrsActivityStatic.aUP = true;
+            }
+            this.aUz.KR();
         }
     }
 }

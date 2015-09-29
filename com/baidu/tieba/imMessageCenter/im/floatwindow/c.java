@@ -8,87 +8,87 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements i {
-    private long bHQ = 0;
-    final /* synthetic */ b bHR;
+    private long bKV = 0;
+    final /* synthetic */ b bKW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.bHR = bVar;
-    }
-
-    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
-    public void aj(int i, int i2) {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF;
-        Handler handler;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XE;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF2;
-        boolean a;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF3;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF4;
-        if (SystemClock.elapsedRealtime() - this.bHQ <= 300) {
-            return;
-        }
-        XF = this.bHR.XF();
-        handler = this.bHR.handler;
-        XF.b(handler);
-        b bVar = this.bHR;
-        XE = this.bHR.XE();
-        e XM = XE.XM();
-        XF2 = this.bHR.XF();
-        a = bVar.a(XM, XF2.Yd());
-        if (a) {
-            XF4 = this.bHR.XF();
-            XF4.Ye();
-            return;
-        }
-        XF3 = this.bHR.XF();
-        XF3.Yf();
+        this.bKW = bVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
     public void ak(int i, int i2) {
-        this.bHQ = SystemClock.elapsedRealtime();
-    }
-
-    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
-    public void XJ() {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XE;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn;
+        Handler handler;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Ym;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn2;
         boolean a;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XE2;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF2;
-        Handler handler;
-        b bVar = this.bHR;
-        XE = this.bHR.XE();
-        e XM = XE.XM();
-        XF = this.bHR.XF();
-        a = bVar.a(XM, XF.Yd());
-        if (a) {
-            this.bHR.dC(true);
-        } else {
-            XE2 = this.bHR.XE();
-            XE2.Ya();
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn3;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn4;
+        if (SystemClock.elapsedRealtime() - this.bKV <= 300) {
+            return;
         }
-        XF2 = this.bHR.XF();
-        handler = this.bHR.handler;
-        XF2.c(handler);
+        Yn = this.bKW.Yn();
+        handler = this.bKW.handler;
+        Yn.b(handler);
+        b bVar = this.bKW;
+        Ym = this.bKW.Ym();
+        e Yu = Ym.Yu();
+        Yn2 = this.bKW.Yn();
+        a = bVar.a(Yu, Yn2.YL());
+        if (a) {
+            Yn4 = this.bKW.Yn();
+            Yn4.YM();
+            return;
+        }
+        Yn3 = this.bKW.Yn();
+        Yn3.YN();
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
-    public void XK() {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XE;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a XE2;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e XF;
+    public void al(int i, int i2) {
+        this.bKV = SystemClock.elapsedRealtime();
+    }
+
+    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
+    public void Yr() {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Ym;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn;
+        boolean a;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Ym2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn2;
         Handler handler;
-        XE = this.bHR.XE();
-        if (!XE.XZ()) {
+        b bVar = this.bKW;
+        Ym = this.bKW.Ym();
+        e Yu = Ym.Yu();
+        Yn = this.bKW.Yn();
+        a = bVar.a(Yu, Yn.YL());
+        if (a) {
+            this.bKW.dC(true);
+        } else {
+            Ym2 = this.bKW.Ym();
+            Ym2.YI();
+        }
+        Yn2 = this.bKW.Yn();
+        handler = this.bKW.handler;
+        Yn2.c(handler);
+    }
+
+    @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
+    public void Ys() {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Ym;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Ym2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn;
+        Handler handler;
+        Ym = this.bKW.Ym();
+        if (!Ym.YH()) {
             Point point = new Point(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds30), TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds20));
-            this.bHR.bHD = false;
-            XE2 = this.bHR.XE();
-            XE2.b(point);
-            XF = this.bHR.XF();
-            handler = this.bHR.handler;
-            XF.c(handler);
+            this.bKW.bKI = false;
+            Ym2 = this.bKW.Ym();
+            Ym2.b(point);
+            Yn = this.bKW.Yn();
+            handler = this.bKW.handler;
+            Yn.c(handler);
         }
     }
 }

@@ -4,10 +4,10 @@ import com.baidu.tbadk.TbadkApplication;
 import tbclient.FoundNew.Menu;
 /* loaded from: classes.dex */
 public class c {
-    private boolean aLT;
-    private boolean aLU;
-    private int aLV;
-    private boolean aLW;
+    private boolean aKL;
+    private boolean aKM;
+    private int aKN;
+    private boolean aKO;
     private String describe;
     private String icon_url;
     private String link_url;
@@ -32,11 +32,11 @@ public class c {
         this.link_url = menu.link_url;
         this.describe = menu.describe;
         this.statistics = menu.statistics;
-        this.aLT = menu.is_new != null && menu.is_new.intValue() == 1;
+        this.aKL = menu.is_new != null && menu.is_new.intValue() == 1;
         if (menu.is_red_point == null || menu.is_red_point.intValue() != 1) {
             z = false;
         }
-        this.aLU = z;
+        this.aKM = z;
         return this;
     }
 
@@ -44,7 +44,7 @@ public class c {
         return this.icon_url;
     }
 
-    public void go(String str) {
+    public void gr(String str) {
         this.icon_url = str;
     }
 
@@ -56,51 +56,51 @@ public class c {
         this.title = str;
     }
 
-    public String HR() {
+    public String HL() {
         return this.link_url;
     }
 
-    public String HS() {
+    public String HM() {
         return this.describe;
     }
 
-    public String HT() {
+    public String HN() {
         return this.statistics;
     }
 
-    public void gp(String str) {
+    public void gs(String str) {
         this.statistics = str;
     }
 
-    public boolean HU() {
-        return this.aLT;
+    public boolean HO() {
+        return this.aKL;
     }
 
-    public void bJ(boolean z) {
-        this.aLT = z;
+    public void bG(boolean z) {
+        this.aKL = z;
     }
 
-    public boolean HV() {
-        return this.aLU;
+    public boolean HP() {
+        return this.aKM;
     }
 
-    public void bK(boolean z) {
-        this.aLU = z;
+    public void bH(boolean z) {
+        this.aKM = z;
     }
 
-    public int HW() {
-        return this.aLV;
+    public int HQ() {
+        return this.aKN;
     }
 
-    public void eO(int i) {
-        this.aLV = i;
+    public void eT(int i) {
+        this.aKN = i;
     }
 
-    public boolean HX() {
-        return this.aLW;
+    public boolean HR() {
+        return this.aKO;
     }
 
-    public void bL(boolean z) {
-        this.aLW = z;
+    public void bI(boolean z) {
+        this.aKO = z;
     }
 }

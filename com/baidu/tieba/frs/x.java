@@ -5,27 +5,27 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class x extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aVz;
+    final /* synthetic */ FrsActivity aUz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(FrsActivity frsActivity, int i) {
         super(i);
-        this.aVz = frsActivity;
+        this.aUz = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         String str;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.x)) {
-            com.baidu.tbadk.core.data.x xVar = (com.baidu.tbadk.core.data.x) customResponsedMessage.getData();
-            this.aVz.aTt = xVar.getId();
-            str = this.aVz.aTt;
-            if (TextUtils.isEmpty(str) || xVar.getPraise() == null) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.v)) {
+            com.baidu.tbadk.core.data.v vVar = (com.baidu.tbadk.core.data.v) customResponsedMessage.getData();
+            this.aUz.aSp = vVar.getId();
+            str = this.aUz.aSp;
+            if (TextUtils.isEmpty(str) || vVar.getPraise() == null) {
                 return;
             }
-            this.aVz.fk(xVar.getPraise().getIsLike());
+            this.aUz.fp(vVar.getPraise().getIsLike());
         }
     }
 }

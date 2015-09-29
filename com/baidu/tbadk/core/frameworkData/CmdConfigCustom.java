@@ -76,6 +76,8 @@ public class CmdConfigCustom {
     public static final int CMD_DELETE_ACCOUNT = 2001193;
     public static final int CMD_DELETE_CONTACT = 2001184;
     public static final int CMD_DELETE_MSG = 2001113;
+    public static final int CMD_DELETE_SKINT_DATA_FROM_DB = 2001371;
+    public static final int CMD_DELETE_SKIN_TEMP_FILE = 2001373;
     public static final int CMD_DEL_OFFICIAL_DB = 2001155;
     public static final int CMD_DISMISS_LIVEGROUP = 2001204;
     public static final int CMD_DOWNLOAD_BUTTON_STATUS_CHANGED = 2001270;
@@ -102,6 +104,7 @@ public class CmdConfigCustom {
     public static final int CMD_FRS_EXPERIENCE_TIP = 2001359;
     public static final int CMD_FRS_GROUP_MENU = 2003013;
     public static final int CMD_FRS_HOT_CACHE = 2003012;
+    public static final int CMD_FRS_LIVE_CACHE = 2003014;
     public static final int CMD_FRS_MEMBER_INFO_CACHE = 2003009;
     public static final int CMD_GAME_ADD_ITEM = 2001248;
     public static final int CMD_GAME_DELETE_ITEM = 2001249;
@@ -113,6 +116,7 @@ public class CmdConfigCustom {
     public static final int CMD_GAME_SHARE_ITEM_CLICK = 2001262;
     public static final int CMD_GAME_UPDATE_DOWNLAOD_TIME = 2001251;
     public static final int CMD_GAME_UPDATE_STATUS = 2001250;
+    public static final int CMD_GC_VIEW_DRAW_CACHE = 2016306;
     public static final int CMD_GET_GIFT_SUCCEED = 2001238;
     public static final int CMD_GET_GROUP_INFO = 2001287;
     public static final int CMD_GET_LEVEL_INFO_CACHE = 2003007;
@@ -145,8 +149,10 @@ public class CmdConfigCustom {
     public static final int CMD_IM_PUSH_NOTIFY_KICK_OUT = 2001132;
     public static final int CMD_IM_SYSTEM_SHOW_NOTIFY = 2001128;
     public static final int CMD_INSERT_CONTACT = 2001183;
+    public static final int CMD_INSERT_SKINT_DATA_TO_DB = 2001367;
     public static final int CMD_LEAKCANARY_INSTALL = 2010003;
     public static final int CMD_LEFT_NAVI_SCAN = 2001309;
+    public static final int CMD_LEFT_NAV_DRESSUP_CENTER_TIP = 2001372;
     public static final int CMD_LIGHT_APP_RUNTIME_INITED = 2001276;
     public static final int CMD_LIKE_FORUM = 2001342;
     public static final int CMD_LIVEGROUP_END = 2001208;
@@ -182,6 +188,8 @@ public class CmdConfigCustom {
     public static final int CMD_MENTION_CACHE = 2001229;
     public static final int CMD_MENTION_REPLYME_CACHE = 2001264;
     public static final int CMD_MESSAGE_NOTIFY_LOCAL = 2001124;
+    public static final int CMD_MOPLUS_GET_SERVICE = 2902080;
+    public static final int CMD_MOPLUS_START_SERVICE = 2902081;
     public static final int CMD_MSG_LIST_ADAPTER_SCAN = 2001282;
     public static final int CMD_MY_COLLECTION_RES_TOOL = 2001302;
     public static final int CMD_MY_HISTORY_RES_TOOL = 2001303;
@@ -233,12 +241,15 @@ public class CmdConfigCustom {
     public static final int CMD_READ_PERSON_LIST = 2001192;
     public static final int CMD_READ_RECOMMEND_GAME_LIST = 2001240;
     public static final int CMD_READ_SEARCHPERSON_HISTORY = 2001195;
+    public static final int CMD_READ_SKIN_DATA_FROM_DB = 2001368;
     public static final int CMD_RECOMMEMD_FRS_SWITCH_TAB = 2001328;
     public static final int CMD_RECOMMEND_FRS_BACK_PRESSED = 2001341;
     public static final int CMD_RECOMMEND_FRS_READ_CACHE = 2001322;
     public static final int CMD_RECOMMEND_FRS_WRITE_CACHE = 2001323;
     public static final int CMD_RECORDER_MANAGER_INSTANCE = 2001278;
     public static final int CMD_REFRESH = 2003003;
+    public static final int CMD_REFRESH_BACKGROUND_LIST = 2001370;
+    public static final int CMD_REFRESH_THEME_LIST = 2001369;
     public static final int CMD_RELEASE_T5 = 2001259;
     public static final int CMD_REMIND_RECOMMEND_SWITCH = 2001363;
     public static final int CMD_REQUEST_ENTER_FORUM_MESSAGE = 2001330;
@@ -293,6 +304,9 @@ public class CmdConfigCustom {
     public static final int CMD_TAIL_REFRESH = 2001347;
     public static final int CMD_TAIL_TOOL_CRTL = 2001349;
     public static final int CMD_TAIL_TOOL_RED_DOT = 2001351;
+    public static final int CMD_TDOU_PAY_BUNDING_PHONE = 2001366;
+    public static final int CMD_TEXT_CHANGED = 2001364;
+    public static final int CMD_THEME_CENTER_RES_TOOL = 2001365;
     public static final int CMD_TRAFFICS_STATS = 2902050;
     public static final int CMD_UNINSTALL_BY_SWITCH = 2001334;
     public static final int CMD_UNINSTALL_BY_SYNC = 2001335;

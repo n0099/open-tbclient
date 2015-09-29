@@ -6,18 +6,18 @@ import com.baidu.tieba.pb.b.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements c.a {
-    final /* synthetic */ t chq;
+    final /* synthetic */ t cmM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(t tVar) {
-        this.chq = tVar;
+        this.cmM = tVar;
     }
 
     @Override // com.baidu.tieba.pb.b.c.a
     public boolean a(View view, MotionEvent motionEvent) {
-        this.chq.eD(false);
-        this.chq.Z(view);
-        this.chq.eD(true);
+        this.cmM.eI(false);
+        this.cmM.ab(view);
+        this.cmM.eI(true);
         return true;
     }
 

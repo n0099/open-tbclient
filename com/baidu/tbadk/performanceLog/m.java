@@ -6,22 +6,22 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class m extends r {
     public long Gq;
-    public long ayD;
-    public long ayE;
-    public long ayF;
-    public int ayG;
-    private a ayH = null;
-    private final Handler ayI = new n(this, Looper.getMainLooper());
-    public int ayv;
+    public int awU;
+    public long axc;
+    public long axd;
+    public long axe;
+    public int axf;
+    private a axg = null;
+    private final Handler axh = new n(this, Looper.getMainLooper());
     public long uF;
 
-    public void Ea() {
-        this.ayI.sendEmptyMessage(0);
+    public void DN() {
+        this.axh.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Eb() {
-        u uVar = (u) y.Eo().eA(this.mSubType);
+    public void DO() {
+        u uVar = (u) y.Eb().eB(this.mSubType);
         if (uVar != null) {
             uVar.c(this);
         }
@@ -38,8 +38,8 @@ public class m extends r {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
-            m.this.ayv = y.Eo().Es();
-            m.this.Eb();
+            m.this.awU = y.Eb().Ef();
+            m.this.DO();
             return Boolean.TRUE;
         }
 

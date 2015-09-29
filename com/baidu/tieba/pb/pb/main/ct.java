@@ -1,38 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.animation.Animation;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ct implements Animation.AnimationListener {
-    final /* synthetic */ cb cgg;
-    private final /* synthetic */ View cgi;
+public class ct implements Runnable {
+    final /* synthetic */ cc cly;
+    private final /* synthetic */ boolean clz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ct(cb cbVar, View view) {
-        this.cgg = cbVar;
-        this.cgi = view;
+    public ct(cc ccVar, boolean z) {
+        this.cly = ccVar;
+        this.clz = z;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        this.cgi.setVisibility(0);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        RelativeLayout relativeLayout;
-        relativeLayout = this.cgg.cfd;
-        relativeLayout.setVisibility(8);
-        this.cgi.setVisibility(8);
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.cgg.eE(true);
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    @Override // java.lang.Runnable
+    public void run() {
+        BdTypeListView bdTypeListView;
+        bdTypeListView = this.cly.aUV;
+        bdTypeListView.setEnabled(this.clz);
     }
 }

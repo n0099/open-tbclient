@@ -6,24 +6,24 @@ import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 /* loaded from: classes.dex */
 class bc implements TbFaceManager.a {
-    final /* synthetic */ WriteActivity ddQ;
+    final /* synthetic */ WriteActivity dpI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(WriteActivity writeActivity) {
-        this.ddQ = writeActivity;
+        this.dpI = writeActivity;
     }
 
     @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
-    public ImageSpan fg(String str) {
-        com.baidu.adp.widget.a.a eN = com.baidu.tbadk.editortools.emotiontool.t.Bp().eN(str);
-        if (eN == null) {
-            eN = com.baidu.tbadk.editortools.emotiontool.t.Bp().am(null, str);
+    public ImageSpan fl(String str) {
+        com.baidu.adp.widget.a.a eS = com.baidu.tbadk.editortools.emotiontool.r.Bc().eS(str);
+        if (eS == null) {
+            eS = com.baidu.tbadk.editortools.emotiontool.r.Bc().al(null, str);
         }
-        if (eN == null) {
+        if (eS == null) {
             return null;
         }
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(eN.mZ());
-        int width = eN.getWidth();
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(eS.na());
+        int width = eS.getWidth();
         bitmapDrawable.setBounds(0, 0, width, width);
         bitmapDrawable.setGravity(SocialAPIErrorCodes.ERROR_INVALID_SECRET_KEY);
         return new ImageSpan(bitmapDrawable, 0);

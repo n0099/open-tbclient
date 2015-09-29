@@ -1,22 +1,29 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.k;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements Runnable {
-    final /* synthetic */ TbadkCoreApplication TK;
-    private final /* synthetic */ boolean TM;
+public class u implements k.a {
+    final /* synthetic */ TbadkCoreApplication Tw;
+    private final /* synthetic */ View yG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(TbadkCoreApplication tbadkCoreApplication, boolean z) {
-        this.TK = tbadkCoreApplication;
-        this.TM = z;
+    public u(TbadkCoreApplication tbadkCoreApplication, View view) {
+        this.Tw = tbadkCoreApplication;
+        this.yG = view;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_EMOTION, new com.baidu.tbadk.mainTab.a(this.TM)));
+    @Override // com.baidu.adp.lib.util.k.a
+    public void aV(String str) {
+        if (jk() instanceof TextView) {
+            ((TextView) jk()).setText(str);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.util.k.a
+    public View jk() {
+        return this.yG;
     }
 }

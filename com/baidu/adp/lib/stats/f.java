@@ -4,8 +4,7 @@ public class f {
     public String mClientId;
     public String mCuid;
     public String mNetType;
-    public String vZ;
-    public String wj;
+    public String wa;
     public String wk;
     public String wl;
     public String wm;
@@ -16,4 +15,5 @@ public class f {
     public String wr;
     public String ws;
     public String wt;
+    public String wu;
 }

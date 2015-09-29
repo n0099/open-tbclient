@@ -5,11 +5,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ AtListActivity dch;
+    final /* synthetic */ AtListActivity dnY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(AtListActivity atListActivity) {
-        this.dch = atListActivity;
+        this.dnY = atListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,22 +19,22 @@ public class k implements View.OnClickListener {
         View view4;
         TextView textView;
         View view5;
-        view2 = this.dch.bKq;
+        view2 = this.dnY.bNv;
         if (view2 != null) {
-            view3 = this.dch.bKq;
+            view3 = this.dnY.bNv;
             if (view3.getVisibility() == 0) {
-                com.baidu.adp.lib.util.k.c(this.dch.getPageContext().getPageActivity(), this.dch.bEI);
-                view4 = this.dch.bKq;
+                com.baidu.adp.lib.util.k.c(this.dnY.getPageContext().getPageActivity(), this.dnY.bHL);
+                view4 = this.dnY.bNv;
                 view4.setVisibility(8);
-                textView = this.dch.dcc;
+                textView = this.dnY.dnT;
                 textView.setVisibility(0);
-                view5 = this.dch.bKr;
+                view5 = this.dnY.bNw;
                 view5.setVisibility(0);
-                this.dch.bEI.getText().clear();
+                this.dnY.bHL.getText().clear();
                 return;
             }
         }
-        com.baidu.adp.lib.util.k.c(this.dch.getPageContext().getPageActivity(), this.dch.bEI);
-        this.dch.finish();
+        com.baidu.adp.lib.util.k.c(this.dnY.getPageContext().getPageActivity(), this.dnY.bHL);
+        this.dnY.finish();
     }
 }

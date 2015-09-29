@@ -18,7 +18,7 @@ class g extends CustomMessageListener {
             RecommendFrsDelegateStatic recommendFrsDelegateStatic = new RecommendFrsDelegateStatic();
             ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(recommendFrsDelegateStatic);
             if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (fragmentTabStructure = recommendFrsDelegateStatic.getFragmentTabStructure()) != null) {
-                fragmentTabStructure.awz.setArguments(new Bundle());
+                fragmentTabStructure.auY.setArguments(new Bundle());
             }
         }
     }

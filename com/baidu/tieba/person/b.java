@@ -5,19 +5,19 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
-    final /* synthetic */ BasePersonInfoActivity ciq;
+    final /* synthetic */ BasePersonInfoActivity cnM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BasePersonInfoActivity basePersonInfoActivity) {
-        this.ciq = basePersonInfoActivity;
+        this.cnM = basePersonInfoActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ciq.cim && this.ciq.requestCode != 23011) {
+        if (this.cnM.cnI && this.cnM.requestCode != 23011) {
             MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(false));
-            com.baidu.tbadk.core.c.b.a(this.ciq.getPageContext().getPageActivity(), 200, false);
+            com.baidu.tbadk.core.c.b.b(this.cnM.getPageContext().getPageActivity(), 200, false);
         }
-        this.ciq.finish();
+        this.cnM.finish();
     }
 }

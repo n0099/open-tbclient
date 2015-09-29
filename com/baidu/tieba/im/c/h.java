@@ -2,19 +2,19 @@ package com.baidu.tieba.im.c;
 
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 /* loaded from: classes.dex */
-class h implements com.baidu.tieba.im.g<Boolean> {
-    final /* synthetic */ b bDT;
-    private final /* synthetic */ OfficialChatMessage bDW;
+class h implements com.baidu.tbadk.util.d<Boolean> {
+    final /* synthetic */ b bGV;
+    private final /* synthetic */ OfficialChatMessage bGY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(b bVar, OfficialChatMessage officialChatMessage) {
-        this.bDT = bVar;
-        this.bDW = officialChatMessage;
+        this.bGV = bVar;
+        this.bGY = officialChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.g
+    @Override // com.baidu.tbadk.util.d
     public void onReturnDataInUI(Boolean bool) {
-        a.i(this.bDW);
+        a.i(this.bGY);
     }
 }

@@ -1,61 +1,30 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
-import com.baidu.tieba.frs.bv;
-import com.baidu.tieba.i;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tieba.tbadkCore.aa;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bx implements com.baidu.adp.lib.e.c<bv.a> {
-    final /* synthetic */ bv aXL;
+public class bx implements aa.a {
+    final /* synthetic */ bs aWS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bx(bv bvVar) {
-        this.aXL = bvVar;
+    public bx(bs bsVar) {
+        this.aWS = bsVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Ml */
-    public bv.a gY() {
-        Context context;
-        BaseActivity baseActivity;
-        BaseActivity baseActivity2;
-        context = this.aXL.mContext;
-        View inflate = LayoutInflater.from(context).inflate(i.g.frs_item_livecard, (ViewGroup) null);
-        bv.a aVar = new bv.a();
-        aVar.aUm = (LinearLayout) inflate.findViewById(i.f.live_card_layout);
-        aVar.aUn = (LiveBroadcastCard) inflate.findViewById(i.f.item_card);
-        baseActivity = this.aXL.aSX;
-        baseActivity.getLayoutMode().ad(this.aXL.mSkinType == 1);
-        baseActivity2 = this.aXL.aSX;
-        baseActivity2.getLayoutMode().k(inflate);
-        aVar.arr = this.aXL.mSkinType;
-        return aVar;
+    @Override // com.baidu.tieba.tbadkCore.aa.a
+    public void Mi() {
+        this.aWS.aUU.Lg();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void l(bv.a aVar) {
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public bv.a m(bv.a aVar) {
-        return aVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public bv.a n(bv.a aVar) {
-        return aVar;
+    @Override // com.baidu.tieba.tbadkCore.aa.a
+    public void Mj() {
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        bdTypeListView = this.aWS.aWs;
+        if (bdTypeListView != null) {
+            bdTypeListView2 = this.aWS.aWs;
+            bdTypeListView2.setSelection(0);
+        }
     }
 }

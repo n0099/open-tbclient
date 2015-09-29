@@ -1,134 +1,142 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class z extends x {
-    private static z azK = null;
-    private boolean azx = false;
-    private boolean azy = false;
-    private long azz = -1;
-    private long azA = -1;
-    private long azB = -1;
-    private long azC = -1;
-    private long azD = -1;
-    private long azE = -1;
-    private long azF = -1;
-    private long azG = -1;
-    private long azH = -1;
-    private long azI = -1;
-    private long azJ = -1;
+    private static z ayj = null;
+    private boolean axW = false;
+    private boolean axX = false;
+    private long axY = -1;
+    private long axZ = -1;
+    private long aya = -1;
+    private long ayb = -1;
+    private long ayc = -1;
+    private long ayd = -1;
+    private long aye = -1;
+    private long ayf = -1;
+    private long ayg = -1;
+    private long ayh = -1;
+    private long ayi = -1;
 
-    public boolean Et() {
-        return this.azy;
+    public boolean Eg() {
+        return this.axX;
     }
 
-    public void bt(boolean z) {
-        this.azx = z;
-    }
-
-    public void x(long j) {
-        this.azz = j;
-    }
-
-    public void y(long j) {
-        this.azA = j;
-    }
-
-    public void z(long j) {
-        this.azB = j;
-    }
-
-    public void A(long j) {
-        this.azC = j;
-    }
-
-    public void B(long j) {
-        this.azD = j;
-    }
-
-    public void C(long j) {
-        this.azE = j;
-    }
-
-    public void D(long j) {
-        this.azF = j;
+    public void br(boolean z) {
+        this.axW = z;
     }
 
     public void E(long j) {
-        this.azI = j;
+        this.axY = j;
     }
 
     public void F(long j) {
-        this.azJ = j;
-        this.azy = true;
+        this.axZ = j;
     }
 
-    public static z Eu() {
-        if (azK == null) {
+    public void G(long j) {
+        this.aya = j;
+    }
+
+    public void H(long j) {
+        this.ayb = j;
+    }
+
+    public void I(long j) {
+        this.ayc = j;
+    }
+
+    public void J(long j) {
+        this.ayd = j;
+    }
+
+    public void K(long j) {
+        this.aye = j;
+    }
+
+    public void L(long j) {
+        this.ayf = j;
+    }
+
+    public void M(long j) {
+        this.ayg = j;
+    }
+
+    public void N(long j) {
+        this.ayh = j;
+    }
+
+    public void O(long j) {
+        this.ayi = j;
+        this.axX = true;
+    }
+
+    public static z Eh() {
+        if (ayj == null) {
             synchronized (z.class) {
-                if (azK == null) {
-                    azK = new z();
+                if (ayj == null) {
+                    ayj = new z();
                 }
             }
         }
-        return azK;
+        return ayj;
     }
 
-    public void Ev() {
-        if (this.azz > 0) {
-            if (y.Eo().Ep()) {
-                long j = this.azA - this.azz;
-                long j2 = this.azF - this.azA;
-                long j3 = this.azH - this.azG;
-                long j4 = this.azI - this.azH;
-                long j5 = this.azJ - this.azI;
-                long j6 = this.azJ - this.azz;
-                com.baidu.adp.lib.stats.d ha = ha();
-                ha.q("procname", "main");
-                ha.q("appc", String.valueOf(j));
-                ha.q("loadclass", String.valueOf(this.azB));
-                ha.q("sapiinit", String.valueOf(this.azC));
-                ha.q("acctinit", String.valueOf(this.azD));
-                ha.q("iminit", String.valueOf(this.azE));
-                ha.q("logores", String.valueOf(j2));
-                if (this.azG > 0 && j3 > 0 && this.azH > 0 && j4 > 0) {
-                    ha.q("adc", String.valueOf(j3));
-                    ha.q("adshow", String.valueOf(j4));
-                    ha.q("hasad", "1");
+    public void Ei() {
+        if (this.axY > 0) {
+            if (y.Eb().Ec()) {
+                long j = this.axZ - this.axY;
+                long j2 = this.aye - this.axZ;
+                long j3 = this.ayg - this.ayf;
+                long j4 = this.ayh - this.ayg;
+                long j5 = this.ayi - this.ayh;
+                long j6 = this.ayi - this.axY;
+                com.baidu.adp.lib.stats.d hb = hb();
+                hb.q("procname", "main");
+                hb.q("appc", String.valueOf(j));
+                hb.q("loadclass", String.valueOf(this.aya));
+                hb.q("sapiinit", String.valueOf(this.ayb));
+                hb.q("acctinit", String.valueOf(this.ayc));
+                hb.q("iminit", String.valueOf(this.ayd));
+                hb.q("logores", String.valueOf(j2));
+                if (this.ayf > 0 && j3 > 0 && this.ayg > 0 && j4 > 0) {
+                    hb.q("adc", String.valueOf(j3));
+                    hb.q("adshow", String.valueOf(j4));
+                    hb.q("hasad", "1");
                 } else {
-                    ha.q("hasad", "0");
+                    hb.q("hasad", "0");
                 }
-                ha.q("tabc", String.valueOf(j5));
-                ha.q("costt", String.valueOf(j6));
-                ha.q("newinst", this.azx ? "1" : "0");
-                com.baidu.adp.lib.stats.a.hh().a("startt", ha);
+                hb.q("tabc", String.valueOf(j5));
+                hb.q("costt", String.valueOf(j6));
+                hb.q("newinst", this.axW ? "1" : "0");
+                com.baidu.adp.lib.stats.a.hi().a("startt", hb);
             } else {
                 return;
             }
         }
-        Ew();
+        Ej();
     }
 
-    public void G(long j) {
-        if (y.Eo().Ep()) {
-            com.baidu.adp.lib.stats.d ha = ha();
-            ha.q("procname", "remote");
-            ha.q("costt", String.valueOf(j));
-            com.baidu.adp.lib.stats.a.hh().a("startt", ha);
+    public void P(long j) {
+        if (y.Eb().Ec()) {
+            com.baidu.adp.lib.stats.d hb = hb();
+            hb.q("procname", "remote");
+            hb.q("costt", String.valueOf(j));
+            com.baidu.adp.lib.stats.a.hi().a("startt", hb);
         }
     }
 
-    private void Ew() {
-        this.azx = false;
-        this.azy = false;
-        this.azz = -1L;
-        this.azA = -1L;
-        this.azB = -1L;
-        this.azC = -1L;
-        this.azD = -1L;
-        this.azE = -1L;
-        this.azF = -1L;
-        this.azG = -1L;
-        this.azH = -1L;
-        this.azI = -1L;
-        this.azJ = -1L;
+    private void Ej() {
+        this.axW = false;
+        this.axX = false;
+        this.axY = -1L;
+        this.axZ = -1L;
+        this.aya = -1L;
+        this.ayb = -1L;
+        this.ayc = -1L;
+        this.ayd = -1L;
+        this.aye = -1L;
+        this.ayf = -1L;
+        this.ayg = -1L;
+        this.ayh = -1L;
+        this.ayi = -1L;
     }
 }

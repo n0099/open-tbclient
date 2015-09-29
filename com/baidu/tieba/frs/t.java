@@ -6,72 +6,72 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class t implements com.baidu.adp.widget.ListView.w {
-    final /* synthetic */ FrsActivity aVz;
+    final /* synthetic */ FrsActivity aUz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(FrsActivity frsActivity) {
-        this.aVz = frsActivity;
+        this.aUz = frsActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.w
     public boolean b(View view, com.baidu.adp.widget.ListView.u uVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j) {
-        com.baidu.tbadk.core.data.x xVar;
-        com.baidu.tbadk.core.data.x xVar2;
-        com.baidu.tbadk.core.data.x xVar3;
-        com.baidu.tbadk.core.data.x xVar4;
-        com.baidu.tbadk.core.data.x xVar5;
-        com.baidu.tbadk.core.data.x xVar6;
-        com.baidu.tbadk.core.data.x xVar7;
-        bi biVar;
+        com.baidu.tbadk.core.data.v vVar;
+        com.baidu.tbadk.core.data.v vVar2;
+        com.baidu.tbadk.core.data.v vVar3;
+        com.baidu.tbadk.core.data.v vVar4;
+        com.baidu.tbadk.core.data.v vVar5;
+        com.baidu.tbadk.core.data.v vVar6;
+        com.baidu.tbadk.core.data.v vVar7;
+        bs bsVar;
         if (bdUniqueId == null) {
             return false;
         }
-        if (bdUniqueId.getId() == com.baidu.tbadk.core.data.c.Uc.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.Ud.getId()) {
-            this.aVz.aUP = (com.baidu.tbadk.core.data.x) uVar;
-            xVar = this.aVz.aUP;
-            if (xVar instanceof com.baidu.tbadk.core.data.c) {
-                xVar2 = this.aVz.aUP;
-                com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) xVar2;
-                if (cVar.rw()) {
+        if (bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TM.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TO.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TP.getId()) {
+            this.aUz.aTN = (com.baidu.tbadk.core.data.v) uVar;
+            vVar = this.aUz.aTN;
+            if (vVar instanceof com.baidu.tbadk.core.data.b) {
+                vVar2 = this.aUz.aTN;
+                com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) vVar2;
+                if (bVar.rr()) {
                     return false;
                 }
-                if (cVar.Uh == 0) {
-                    this.aVz.a(cVar, i);
+                if (bVar.TT == 0) {
+                    this.aUz.a(bVar, i);
                 }
-                TiebaStatic.eventStat(this.aVz.getPageContext().getPageActivity(), "frs_tb_arc", "");
+                TiebaStatic.eventStat(this.aUz.getPageContext().getPageActivity(), "frs_tb_arc", "");
             }
-        } else if (bdUniqueId.getId() != com.baidu.tieba.tbadkCore.z.cQk.getId()) {
-            if (bdUniqueId.getId() == com.baidu.tbadk.core.data.c.Ue.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.Uf.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.c.Ug.getId()) {
-                if (uVar instanceof com.baidu.tbadk.core.data.c) {
-                    com.baidu.tbadk.core.data.c cVar2 = (com.baidu.tbadk.core.data.c) uVar;
-                    if (cVar2.rv()) {
-                        if (cVar2.Uh == 0) {
-                            this.aVz.a(cVar2, i);
+        } else if (bdUniqueId.getId() != com.baidu.tieba.tbadkCore.z.cXD.getId()) {
+            if (bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TQ.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TR.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TS.getId()) {
+                if (uVar instanceof com.baidu.tbadk.core.data.b) {
+                    com.baidu.tbadk.core.data.b bVar2 = (com.baidu.tbadk.core.data.b) uVar;
+                    if (bVar2.rq()) {
+                        if (bVar2.TT == 0) {
+                            this.aUz.a(bVar2, i);
                         }
-                        TiebaStatic.eventStat(this.aVz.getPageContext().getPageActivity(), "frs_tb_arc", "");
+                        TiebaStatic.eventStat(this.aUz.getPageContext().getPageActivity(), "frs_tb_arc", "");
                     }
                 }
-            } else if (uVar instanceof com.baidu.tbadk.core.data.x) {
-                this.aVz.aUP = (com.baidu.tbadk.core.data.x) uVar;
-                xVar3 = this.aVz.aUP;
-                if (!xVar3.isPhotoLiveThread()) {
-                    xVar4 = this.aVz.aUP;
-                    if (!(xVar4 instanceof com.baidu.tbadk.core.data.q)) {
-                        FrsActivity frsActivity = this.aVz;
-                        xVar5 = this.aVz.aUP;
-                        frsActivity.mThreadId = xVar5.getId();
-                        xVar6 = this.aVz.aUP;
-                        String sq = xVar6.sq();
-                        if (sq == null || sq.equals("")) {
-                            this.aVz.aUJ = false;
+            } else if (uVar instanceof com.baidu.tbadk.core.data.v) {
+                this.aUz.aTN = (com.baidu.tbadk.core.data.v) uVar;
+                vVar3 = this.aUz.aTN;
+                if (!vVar3.isPhotoLiveThread()) {
+                    vVar4 = this.aUz.aTN;
+                    if (!(vVar4 instanceof com.baidu.tbadk.core.data.p)) {
+                        FrsActivity frsActivity = this.aUz;
+                        vVar5 = this.aUz.aTN;
+                        frsActivity.mThreadId = vVar5.getId();
+                        vVar6 = this.aUz.aTN;
+                        String sl = vVar6.sl();
+                        if (sl == null || sl.equals("")) {
+                            this.aUz.aTH = false;
                         } else {
-                            this.aVz.aUJ = true;
+                            this.aUz.aTH = true;
                         }
-                        FrsActivity frsActivity2 = this.aVz;
-                        xVar7 = this.aVz.aUP;
-                        frsActivity2.b(xVar7);
-                        biVar = this.aVz.aUL;
-                        biVar.LO();
+                        FrsActivity frsActivity2 = this.aUz;
+                        vVar7 = this.aUz.aTN;
+                        frsActivity2.a(vVar7);
+                        bsVar = this.aUz.aTJ;
+                        bsVar.LN();
                     }
                 }
             }

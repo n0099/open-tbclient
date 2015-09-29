@@ -7,47 +7,47 @@ import com.baidu.tieba.setting.im.more.i;
 import com.baidu.tieba.tbadkCore.data.VoiceCheckResult;
 /* loaded from: classes.dex */
 class b implements i.a {
-    final /* synthetic */ SecretSettingActivity cDW;
+    final /* synthetic */ SecretSettingActivity cKX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(SecretSettingActivity secretSettingActivity) {
-        this.cDW = secretSettingActivity;
+        this.cKX = secretSettingActivity;
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void aoG() {
-        this.cDW.aoE();
+    public void aqY() {
+        this.cKX.aqW();
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
     public void onBackPressed() {
-        this.cDW.finish();
+        this.cKX.finish();
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void aoH() {
-        this.cDW.bc("group", this.cDW.getPageContext().getString(i.h.privacy_setting_attention_group));
+    public void aqZ() {
+        this.cKX.bc("group", this.cKX.getPageContext().getString(i.h.privacy_setting_attention_group));
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void aoI() {
-        this.cDW.bc("post", this.cDW.getPageContext().getString(i.h.privacy_setting_attention_forum));
+    public void ara() {
+        this.cKX.bc("post", this.cKX.getPageContext().getString(i.h.privacy_setting_attention_forum));
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void aoJ() {
-        this.cDW.bc("like", this.cDW.getPageContext().getString(i.h.privacy_setting_attention_bar));
+    public void arb() {
+        this.cKX.bc("like", this.cKX.getPageContext().getString(i.h.privacy_setting_attention_bar));
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void aoK() {
-        this.cDW.aoF();
+    public void arc() {
+        this.cKX.aqX();
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
     public void a(BdSwitchView.SwitchState switchState) {
-        this.cDW.Z("location", BdSwitchView.SwitchState.ON == switchState ? 1 : 3);
-        this.cDW.showProgressBar();
+        this.cKX.ab("location", BdSwitchView.SwitchState.ON == switchState ? 1 : 3);
+        this.cKX.showProgressBar();
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
@@ -56,12 +56,12 @@ class b implements i.a {
         VoiceCheckResult voiceCheckResult2;
         boolean z = switchState == BdSwitchView.SwitchState.ON;
         if (z) {
-            voiceCheckResult = this.cDW.cDM;
+            voiceCheckResult = this.cKX.cKN;
             if (voiceCheckResult != null) {
-                voiceCheckResult2 = this.cDW.cDM;
-                if (!voiceCheckResult2.aut()) {
-                    this.cDW.aoC();
-                    this.cDW.aoB();
+                voiceCheckResult2 = this.cKX.cKN;
+                if (!voiceCheckResult2.awI()) {
+                    this.cKX.aqU();
+                    this.cKX.aqT();
                     return;
                 }
             }
@@ -70,16 +70,16 @@ class b implements i.a {
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void aoL() {
+    public void ard() {
         VoiceCheckResult voiceCheckResult;
         VoiceCheckResult voiceCheckResult2;
-        voiceCheckResult = this.cDW.cDM;
+        voiceCheckResult = this.cKX.cKN;
         if (voiceCheckResult != null) {
-            voiceCheckResult2 = this.cDW.cDM;
-            if (!voiceCheckResult2.aut()) {
+            voiceCheckResult2 = this.cKX.cKN;
+            if (!voiceCheckResult2.awI()) {
                 return;
             }
-            this.cDW.aoC();
+            this.cKX.aqU();
         }
     }
 }

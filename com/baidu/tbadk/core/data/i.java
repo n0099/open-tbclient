@@ -1,71 +1,61 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.HeadImgs;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import org.json.JSONObject;
+import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
-public class i implements com.baidu.tbadk.core.flow.a.a {
-    private String UT;
-    private String UU;
-    private String UV;
-    private boolean UW;
-    private String mImageUrl;
-    private String mTitle;
+public class i {
+    private int UL;
+    private String UM;
+    private String UN;
+    private int mType;
+    private String mValue;
 
-    public i(String str, String str2, String str3) {
-        this.mImageUrl = str;
-        this.UT = str2;
-        this.mTitle = str3;
+    public int rB() {
+        return this.UL;
     }
 
-    public i() {
+    public String rC() {
+        return this.UM;
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String getPicUrl() {
-        return this.mImageUrl;
+    public String getValue() {
+        return this.mValue;
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String rD() {
-        return this.UT;
+    public int getType() {
+        return this.mType;
     }
 
-    public String getTitle() {
-        return this.mTitle;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: rE */
-    public i clone() {
-        i iVar = new i();
-        iVar.mImageUrl = this.mImageUrl;
-        iVar.UT = this.UT;
-        iVar.mTitle = this.mTitle;
-        iVar.UU = this.UU;
-        iVar.UV = this.UV;
-        return iVar;
-    }
-
-    public void a(HeadImgs headImgs) {
-        if (headImgs != null) {
-            this.mImageUrl = headImgs.img_url;
-            this.UT = headImgs.pc_url;
-            if (headImgs.title != null) {
-                this.mTitle = headImgs.title.trim();
-            }
-            if (headImgs.subtitle != null) {
-                this.UU = headImgs.subtitle.trim();
-            }
-            if (headImgs.btn_text != null) {
-                this.UV = headImgs.btn_text.trim();
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.UL = jSONObject.optInt("bannerType");
+                this.UM = jSONObject.optString("bannerUrl");
+                this.mValue = jSONObject.optString("value");
+                this.mType = jSONObject.optInt("type");
+                this.UN = jSONObject.optString("desc");
+            } catch (Exception e) {
+                BdLog.e(e.toString());
             }
         }
     }
 
-    public boolean rF() {
-        return this.UW;
+    public void a(Banner banner) {
+        if (banner != null) {
+            this.UL = banner.banner_type.intValue();
+            this.UM = banner.banner_url;
+            this.mValue = banner.value;
+            this.mType = banner.type.intValue();
+            this.UN = banner.desc;
+        }
     }
 
-    public void ah(boolean z) {
-        this.UW = z;
+    public boolean isValid() {
+        if (StringUtils.isNull(this.mValue)) {
+            return false;
+        }
+        return this.mType == 1 ? this.UL == 1 || this.UL == 4 || this.UL == 2 || this.UL == 3 : this.mType == 2 && !StringUtils.isNull(this.UN);
     }
 }

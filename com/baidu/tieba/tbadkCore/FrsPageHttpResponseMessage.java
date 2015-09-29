@@ -1,6 +1,7 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.framework.message.Message;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import tbclient.FrsPage.FrsPageResIdl;
@@ -15,8 +16,8 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         return this.hasNetworkError;
     }
 
-    public FrsPageHttpResponseMessage(int i) {
-        super(i);
+    public FrsPageHttpResponseMessage() {
+        super(CmdConfigHttp.FRS_HTTP_CMD);
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
@@ -51,11 +52,10 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         setData(this.responseData);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.responseData != null && this.responseData.acP() != null) {
-            d.asX().a(this.responseData.acP().getName(), bArr, true);
+    @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
+        if (!hasError() && this.needCache && this.responseData != null && this.responseData.aeN() != null) {
+            d.avn().a(this.responseData.aeN().getName(), bArr, true);
         }
     }
 

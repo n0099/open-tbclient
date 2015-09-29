@@ -6,7 +6,7 @@ import com.baidu.adp.lib.g.k;
 import com.baidu.adp.lib.util.g;
 /* loaded from: classes.dex */
 public class NSGif implements b {
-    public static boolean qS = g.iy().a("nsgif_jni", 2, new c());
+    public static boolean qS = g.iz().a("nsgif_jni", 2, new c());
     private final int mHeight;
     private final int mWidth;
     private int qT;
@@ -59,7 +59,7 @@ public class NSGif implements b {
         if (this.qT != 0) {
             int i = this.qT;
             this.qT = 0;
-            k.hg().b(new d(this, i));
+            k.hh().b(new d(this, i));
         }
     }
 

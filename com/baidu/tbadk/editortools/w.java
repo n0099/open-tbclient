@@ -11,7 +11,7 @@ public interface w extends b {
 
     void onChangeSkinType(int i);
 
-    void ov();
+    void ow();
 
     void setEditorTools(j jVar);
 

@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c Dn;
-    private ArrayList<String> Df = new ArrayList<>();
-    private a Do;
+    private static volatile c Do;
+    private ArrayList<String> Dg = new ArrayList<>();
+    private a Dp;
 
-    public static c lP() {
-        if (Dn == null) {
+    public static c lQ() {
+        if (Do == null) {
             synchronized (c.class) {
-                if (Dn == null) {
-                    Dn = new c();
+                if (Do == null) {
+                    Do = new c();
                 }
             }
         }
-        return Dn;
+        return Do;
     }
 
     private c() {
@@ -30,7 +30,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.Df.iterator();
+            Iterator<String> it = this.Dg.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -43,17 +43,17 @@ public class c {
                 }
             }
             if (!z) {
-                this.Df.add(pluginSetting.packageName);
+                this.Dg.add(pluginSetting.packageName);
             }
-            lL();
+            lM();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lL() {
-        if (this.Df.size() > 0 && this.Do == null) {
-            this.Do = new a(this.Df.get(0));
-            this.Do.execute(new String[0]);
+    public void lM() {
+        if (this.Dg.size() > 0 && this.Dp == null) {
+            this.Dp = new a(this.Dg.get(0));
+            this.Dp.execute(new String[0]);
         }
     }
 
@@ -72,7 +72,7 @@ public class c {
         /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
             if (this.packageName != null) {
-                bk(this.packageName);
+                bl(this.packageName);
             }
             return true;
         }
@@ -83,32 +83,32 @@ public class c {
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
-            c.this.Do = null;
-            if (c.this.Df.size() > 0) {
-                Iterator it = c.this.Df.iterator();
+            c.this.Dp = null;
+            if (c.this.Dg.size() > 0) {
+                Iterator it = c.this.Dg.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.Df.remove(str);
+                        c.this.Dg.remove(str);
                         break;
                     }
                 }
             }
-            c.this.lL();
+            c.this.lM();
         }
 
-        private void bk(String str) {
+        private void bl(String str) {
             File[] listFiles;
-            File mv = Util.mv();
-            String bJ = Util.bJ(str);
-            if (mv != null && mv.exists() && (listFiles = mv.listFiles()) != null) {
+            File mw = Util.mw();
+            String bK = Util.bK(str);
+            if (mw != null && mw.exists() && (listFiles = mw.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
-                    if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bJ)) {
-                        com.baidu.adp.plugin.b.a.lE().g("plugin_del_temp", "todel" + listFiles[i].getName(), str);
+                    if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bK)) {
+                        com.baidu.adp.plugin.b.a.lF().g("plugin_del_temp", "todel" + listFiles[i].getName(), str);
                         com.baidu.adp.lib.util.e.f(listFiles[i]);
                     }
                 }

@@ -3,6 +3,7 @@ package com.baidu.adp.lib.a.a;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.LinkedList;
 import java.util.List;
@@ -80,6 +81,86 @@ public class a {
             return true;
         }
         return cls2.isAssignableFrom(cls);
+    }
+
+    public static final Object a(String str, Object obj, Class<?> cls, Object... objArr) {
+        Method a = a(cls, str, objArr);
+        if (a == null) {
+            return null;
+        }
+        try {
+            a.setAccessible(true);
+            return a.invoke(obj, objArr);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        } catch (IllegalArgumentException e2) {
+            e2.printStackTrace();
+            return null;
+        } catch (InvocationTargetException e3) {
+            e3.printStackTrace();
+            return null;
+        }
+    }
+
+    public static final Object a(String str, Object obj, Class<?> cls) {
+        Method a = a(cls, str, new Object[0]);
+        if (a == null) {
+            return null;
+        }
+        try {
+            a.setAccessible(true);
+            return a.invoke(obj, new Object[0]);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        } catch (IllegalArgumentException e2) {
+            e2.printStackTrace();
+            return null;
+        } catch (InvocationTargetException e3) {
+            e3.printStackTrace();
+            return null;
+        }
+    }
+
+    public static final Method a(Class<?> cls, String str, Object... objArr) {
+        Method method;
+        Method method2 = null;
+        while (cls != Object.class && method2 == null) {
+            Method[] declaredMethods = cls.getDeclaredMethods();
+            int length = declaredMethods.length;
+            int i = 0;
+            while (true) {
+                if (i >= length) {
+                    method = method2;
+                    break;
+                }
+                method = declaredMethods[i];
+                if (method != null && method.getName().equals(str)) {
+                    Class<?>[] parameterTypes = method.getParameterTypes();
+                    if (parameterTypes != null || objArr != null) {
+                        if (parameterTypes != null && objArr != null && parameterTypes.length == objArr.length) {
+                            boolean z = true;
+                            for (int i2 = 0; i2 < parameterTypes.length; i2++) {
+                                if (parameterTypes[i2].isPrimitive()) {
+                                    if ((parameterTypes[i2] != Integer.TYPE || objArr[i2].getClass() != Integer.class) && ((parameterTypes[i2] != Short.TYPE || objArr[i2].getClass() != Short.class) && ((parameterTypes[i2] != Long.TYPE || objArr[i2].getClass() != Long.class) && ((parameterTypes[i2] != Float.TYPE || objArr[i2].getClass() != Float.class) && ((parameterTypes[i2] != Double.TYPE || objArr[i2].getClass() != Double.class) && ((parameterTypes[i2] != Boolean.TYPE || objArr[i2].getClass() != Boolean.class) && ((parameterTypes[i2] != Byte.TYPE || objArr[i2].getClass() != Byte.class) && (parameterTypes[i2] != Character.TYPE || objArr[i2].getClass() != Character.class)))))))) {
+                                        z = false;
+                                    }
+                                } else if (objArr[i2].getClass() != parameterTypes[i2]) {
+                                    z = false;
+                                }
+                            }
+                            if (!z) {
+                            }
+                        }
+                    }
+                }
+                i++;
+            }
+            cls = cls.getSuperclass();
+            method2 = method;
+        }
+        return method2;
     }
 
     public static final List<Field> d(Class<?> cls) {

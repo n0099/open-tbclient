@@ -9,13 +9,13 @@ import java.util.ArrayList;
 public class b {
     public static File[] c(boolean z, boolean z2) {
         File[] listFiles;
-        DiskFileOperate diskFileOperate = new DiskFileOperate(com.baidu.adp.lib.stats.a.hh().hl(), null, DiskFileOperate.Action.INFO);
+        DiskFileOperate diskFileOperate = new DiskFileOperate(com.baidu.adp.lib.stats.a.hi().hm(), null, DiskFileOperate.Action.INFO);
         diskFileOperate.q(z);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
         com.baidu.adp.lib.Disk.d.fj().b(diskFileOperate);
         File[] listFiles2 = (diskFileOperate.fy() == null || diskFileOperate.fy().listFiles() == null) ? null : diskFileOperate.fy().listFiles();
         if (z2) {
-            DiskFileOperate diskFileOperate2 = new DiskFileOperate(com.baidu.adp.lib.stats.a.hh().hm(), null, DiskFileOperate.Action.INFO);
+            DiskFileOperate diskFileOperate2 = new DiskFileOperate(com.baidu.adp.lib.stats.a.hi().hn(), null, DiskFileOperate.Action.INFO);
             diskFileOperate2.q(z);
             diskFileOperate2.a(DiskFileOperate.OperateType.MUST_SUCCESS);
             com.baidu.adp.lib.Disk.d.fj().b(diskFileOperate2);
@@ -49,7 +49,7 @@ public class b {
     }
 
     public static void a(ArrayList<String> arrayList, boolean z) {
-        e eVar = new e(com.baidu.adp.lib.stats.a.hh().hl(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
+        e eVar = new e(com.baidu.adp.lib.stats.a.hi().hm(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
         eVar.q(z);
         eVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
         com.baidu.adp.lib.Disk.d.fj().c(eVar);

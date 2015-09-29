@@ -19,6 +19,6 @@ class b extends CustomMessageListener {
         if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2009503) {
             return;
         }
-        this.this$0.avO();
+        this.this$0.ayc();
     }
 }

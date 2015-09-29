@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class r implements Runnable {
-    @Override // java.lang.Runnable
-    public void run() {
-        com.baidu.tieba.tbadkCore.util.k.cashNoAccountData("", 7);
+public class r implements com.baidu.adp.framework.client.socket.link.g {
+    @Override // com.baidu.adp.framework.client.socket.link.g
+    public void eO() {
+        com.baidu.tbadk.util.c.Ex().a(new s(this));
     }
 }

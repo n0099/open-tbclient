@@ -5,8 +5,8 @@ import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.t;
-import com.baidu.tbadk.core.data.x;
+import com.baidu.tbadk.core.data.s;
+import com.baidu.tbadk.core.data.v;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +30,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
+        int i2 = 0;
         ThreadListResIdl threadListResIdl = (ThreadListResIdl) new Wire(new Class[0]).parseFrom(bArr, ThreadListResIdl.class);
         setError(threadListResIdl.error.errorno.intValue());
         setErrorString(threadListResIdl.error.usermsg);
@@ -37,9 +38,9 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
             this.userMap = new HashMap<>();
             List<User> list = threadListResIdl.data.user_list;
             if (list != null) {
-                for (int i2 = 0; i2 < list.size(); i2++) {
+                for (int i3 = 0; i3 < list.size(); i3++) {
                     MetaData metaData = new MetaData();
-                    metaData.parserProtobuf(list.get(i2));
+                    metaData.parserProtobuf(list.get(i3));
                     String userId = metaData.getUserId();
                     if (userId != null && !userId.equals("0")) {
                         this.userMap.put(metaData.getUserId(), metaData);
@@ -49,19 +50,30 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
             this.threadList = new ArrayList<>();
             List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
             if (list2 != null) {
-                for (int i3 = 0; i3 < list2.size(); i3++) {
-                    x xVar = new x();
-                    xVar.setUserMap(this.userMap);
-                    xVar.a(list2.get(i3));
-                    xVar.parser_title();
-                    if (xVar.sv() == 33) {
-                        t tVar = new t();
-                        tVar.a(xVar);
-                        if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                            this.threadList.add(tVar);
+                int i4 = -1;
+                while (true) {
+                    int i5 = i4;
+                    if (i2 < list2.size()) {
+                        v vVar = new v();
+                        vVar.setUserMap(this.userMap);
+                        vVar.a(list2.get(i2));
+                        vVar.parser_title();
+                        if (vVar.sq() == 33) {
+                            s sVar = new s();
+                            sVar.a(vVar, i5);
+                            if (sVar.sc() != null) {
+                                i5 = sVar.sc().getShowStyle();
+                            }
+                            if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                                this.threadList.add(sVar);
+                            }
+                        } else {
+                            this.threadList.add(vVar);
                         }
+                        i4 = i5;
+                        i2++;
                     } else {
-                        this.threadList.add(xVar);
+                        return;
                     }
                 }
             }

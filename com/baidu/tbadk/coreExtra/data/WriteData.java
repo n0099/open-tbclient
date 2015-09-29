@@ -11,6 +11,7 @@ import org.json.JSONObject;
 public class WriteData implements Serializable {
     public static final int NEW = 0;
     public static final int NEW_PHOTO_LIVE = 4;
+    public static final int NEW_VOTE = 6;
     public static final int REPLY = 1;
     public static final int REPLY_FLOOR = 2;
     public static final int SHARE_SDK = 3;
@@ -58,6 +59,7 @@ public class WriteData implements Serializable {
     private String mVcodeMD5;
     private String mVcodeUrl;
     private String mVoiceMd5;
+    private VoteInfo mVoteInfo;
     private VideoInfo videoInfo;
     private WriteImagesInfo writeImagesInfo;
 
@@ -627,5 +629,13 @@ public class WriteData implements Serializable {
 
     public void setIsGiftPost(boolean z) {
         this.mIsGiftPost = z;
+    }
+
+    public void setVoteInfo(VoteInfo voteInfo) {
+        this.mVoteInfo = voteInfo;
+    }
+
+    public VoteInfo getVoteInfo() {
+        return this.mVoteInfo;
     }
 }

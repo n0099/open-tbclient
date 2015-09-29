@@ -9,18 +9,18 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.location.BDLocationStatusCodes;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.u;
+import com.baidu.tbadk.core.view.m;
 import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.f<PraiseListActivity> {
-    private c cgI;
-    private PraiseListActivity cgJ;
-    private View cgK;
-    private ProgressBar cgL;
+    private c cme;
+    private PraiseListActivity cmf;
+    private View cmg;
+    private ProgressBar cmh;
     private TextView mPageFootTextContinue;
     private TextView mPageFootTextMore;
     private View mPageFootView;
@@ -29,14 +29,14 @@ public class f extends com.baidu.adp.base.f<PraiseListActivity> {
     private View mPageHeadView;
     private BdListView mPageListView;
     private NavigationBar mPageNavigationBar;
-    private u mPageNoDataView;
+    private m mPageNoDataView;
     private ProgressBar mPageProgressBar;
 
     public f(PraiseListActivity praiseListActivity, String str) {
         super(praiseListActivity.getPageContext());
-        this.cgI = null;
-        this.cgJ = null;
-        this.cgK = null;
+        this.cme = null;
+        this.cmf = null;
+        this.cmg = null;
         this.mPageNavigationBar = null;
         this.mPageHasDataParent = null;
         this.mPageNoDataView = null;
@@ -47,18 +47,18 @@ public class f extends com.baidu.adp.base.f<PraiseListActivity> {
         this.mPageFootTextContinue = null;
         this.mPageFootTextMore = null;
         this.mPageProgressBar = null;
-        this.cgL = null;
-        this.cgJ = praiseListActivity;
+        this.cmh = null;
+        this.cmf = praiseListActivity;
         praiseListActivity.setContentView(i.g.zan_list_activity);
-        this.cgK = praiseListActivity.findViewById(i.f.zan_list_page_parent);
+        this.cmg = praiseListActivity.findViewById(i.f.zan_list_page_parent);
         this.mPageNavigationBar = (NavigationBar) praiseListActivity.findViewById(i.f.zan_list_page_navigationbar);
         this.mPageHasDataParent = praiseListActivity.findViewById(i.f.zan_list_page_frame);
-        this.mPageNoDataView = NoDataViewFactory.a(this.cgJ.getPageContext().getContext(), this.cgK, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cJ(i.h.praise_list_no_data), null);
+        this.mPageNoDataView = NoDataViewFactory.a(this.cmf.getPageContext().getContext(), this.cmg, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cK(i.h.praise_list_no_data), null);
         this.mPageListView = (BdListView) praiseListActivity.findViewById(i.f.zan_list_page_list);
         this.mPageProgressBar = (ProgressBar) praiseListActivity.findViewById(i.f.zan_list_page_progress);
-        this.cgI = new c(praiseListActivity);
-        this.mPageListView.setAdapter((ListAdapter) this.cgI);
-        this.mPageListView.setOnScrollListener(this.cgI);
+        this.cme = new c(praiseListActivity);
+        this.mPageListView.setAdapter((ListAdapter) this.cme);
+        this.mPageListView.setOnScrollListener(this.cme);
         this.mPageNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mPageNavigationBar.setTitleText("");
         this.mPageHeadView = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(i.g.zan_list_head, (ViewGroup) null);
@@ -69,21 +69,21 @@ public class f extends com.baidu.adp.base.f<PraiseListActivity> {
         this.mPageFootView = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(i.g.zan_list_foot, (ViewGroup) null);
         this.mPageFootTextContinue = (TextView) this.mPageFootView.findViewById(i.f.zan_list_foot_text_continue);
         this.mPageFootTextMore = (TextView) this.mPageFootView.findViewById(i.f.zan_list_foot_text_more);
-        this.cgL = (ProgressBar) this.mPageFootView.findViewById(i.f.zan_list_foot_progress);
+        this.cmh = (ProgressBar) this.mPageFootView.findViewById(i.f.zan_list_foot_progress);
         this.mPageFootTextContinue.setOnClickListener(praiseListActivity);
         this.mPageListView.addFooterView(this.mPageFootView);
         this.mPageListView.setOnItemClickListener(praiseListActivity);
     }
 
     public void refreshList() {
-        if (this.cgI != null) {
-            this.cgI.notifyDataSetChanged();
+        if (this.cme != null) {
+            this.cme.notifyDataSetChanged();
         }
     }
 
-    public void eM(boolean z) {
+    public void eR(boolean z) {
         if (z) {
-            this.cgL.setVisibility(0);
+            this.cmh.setVisibility(0);
         } else {
             this.mPageProgressBar.setVisibility(0);
         }
@@ -91,18 +91,18 @@ public class f extends com.baidu.adp.base.f<PraiseListActivity> {
 
     public void stopLoadData() {
         this.mPageProgressBar.setVisibility(8);
-        this.cgL.setVisibility(8);
+        this.cmh.setVisibility(8);
     }
 
     public boolean isLoading() {
-        return this.mPageProgressBar.getVisibility() == 0 || this.cgL.getVisibility() == 0;
+        return this.mPageProgressBar.getVisibility() == 0 || this.cmh.getVisibility() == 0;
     }
 
     public void updateData(int i, List<a> list, int i2, int i3) {
         this.mPageProgressBar.setVisibility(8);
-        this.cgL.setVisibility(8);
+        this.cmh.setVisibility(8);
         if (i > 0) {
-            this.mPageNavigationBar.setTitleText(String.format(this.cgJ.getResources().getString(i.h.praise_list_title_count), Integer.valueOf(i)));
+            this.mPageNavigationBar.setTitleText(String.format(this.cmf.getResources().getString(i.h.praise_list_title_count), Integer.valueOf(i)));
         } else {
             this.mPageNavigationBar.setTitleText("");
         }
@@ -112,8 +112,8 @@ public class f extends com.baidu.adp.base.f<PraiseListActivity> {
         }
         this.mPageHasDataParent.setVisibility(0);
         this.mPageNoDataView.setVisibility(8);
-        this.cgI.setZanItemDataList(list);
-        this.cgI.notifyDataSetChanged();
+        this.cme.setZanItemDataList(list);
+        this.cme.notifyDataSetChanged();
         switch (i2) {
             case BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES /* 1001 */:
                 this.mPageFootView.setVisibility(0);
@@ -126,10 +126,10 @@ public class f extends com.baidu.adp.base.f<PraiseListActivity> {
             case 1003:
                 this.mPageFootView.setVisibility(0);
                 TbadkCoreApplication.m411getInst().getSkinType();
-                al.h(this.mPageFootView, i.e.bg_pack);
+                am.i(this.mPageFootView, i.e.bg_pack);
                 this.mPageFootTextContinue.setVisibility(8);
                 this.mPageFootTextMore.setVisibility(0);
-                this.mPageFootTextMore.setText(String.format(this.cgJ.getResources().getString(i.h.praise_item_more), Integer.valueOf(i3)));
+                this.mPageFootTextMore.setText(String.format(this.cmf.getResources().getString(i.h.praise_item_more), Integer.valueOf(i3)));
                 return;
             default:
                 this.mPageFootView.setVisibility(8);
@@ -139,7 +139,7 @@ public class f extends com.baidu.adp.base.f<PraiseListActivity> {
 
     public void showNoData() {
         this.mPageProgressBar.setVisibility(8);
-        this.cgL.setVisibility(8);
+        this.cmh.setVisibility(8);
         this.mPageHasDataParent.setVisibility(8);
         this.mPageNoDataView.setVisibility(0);
     }
@@ -147,13 +147,13 @@ public class f extends com.baidu.adp.base.f<PraiseListActivity> {
     public void changeSkinType(com.baidu.tbadk.core.c cVar, int i) {
         if (cVar != null) {
             cVar.ad(i == 1);
-            cVar.k(this.cgK);
+            cVar.k(this.cmg);
             cVar.k(this.mPageHeadView);
             cVar.k(this.mPageFootView);
-            this.mPageNavigationBar.onChangeSkinType(this.cgJ.getPageContext(), i);
-            al.h(this.mPageFootView, i.e.bg_pack);
+            this.mPageNavigationBar.onChangeSkinType(this.cmf.getPageContext(), i);
+            am.i(this.mPageFootView, i.e.bg_pack);
             if (this.mPageNoDataView != null) {
-                this.mPageNoDataView.onChangeSkinType(this.cgJ.getPageContext(), i);
+                this.mPageNoDataView.onChangeSkinType(this.cmf.getPageContext(), i);
             }
         }
     }

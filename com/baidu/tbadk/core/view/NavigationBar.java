@@ -3,22 +3,27 @@ package com.baidu.tbadk.core.view;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.BitmapDrawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class NavigationBar extends RelativeLayout {
+    private static final int ID_STATEBAR_FILL_VIEW = 1;
     private int containerWidth;
+    private boolean isFixedHeight;
+    private ImageView mBackImageView;
     private LinearLayout mCenterBox;
     private boolean mClickIsVaild;
     private Activity mCurrentActivity;
@@ -40,7 +45,7 @@ public class NavigationBar extends RelativeLayout {
         HORIZONTAL_CENTER,
         HORIZONTAL_RIGHT;
 
-        /* JADX DEBUG: Replace access to removed values field (aew) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (adI) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlAlign[] valuesCustom() {
             ControlAlign[] valuesCustom = values();
@@ -55,7 +60,7 @@ public class NavigationBar extends RelativeLayout {
     public enum ControlType {
         BACK_BUTTON;
 
-        /* JADX DEBUG: Replace access to removed values field (aex) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (adJ) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlType[] valuesCustom() {
             ControlType[] valuesCustom = values();
@@ -69,24 +74,27 @@ public class NavigationBar extends RelativeLayout {
     public NavigationBar(Context context) {
         super(context);
         this.mClickIsVaild = true;
+        this.isFixedHeight = true;
         this.containerWidth = 0;
-        this.mOnClickListener = new t(this);
+        this.mOnClickListener = new l(this);
         init(context, null);
     }
 
     public NavigationBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mClickIsVaild = true;
+        this.isFixedHeight = true;
         this.containerWidth = 0;
-        this.mOnClickListener = new t(this);
+        this.mOnClickListener = new l(this);
         init(context, attributeSet);
     }
 
     public NavigationBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mClickIsVaild = true;
+        this.isFixedHeight = true;
         this.containerWidth = 0;
-        this.mOnClickListener = new t(this);
+        this.mOnClickListener = new l(this);
         init(context, attributeSet);
     }
 
@@ -98,7 +106,6 @@ public class NavigationBar extends RelativeLayout {
         this.mCenterBox = (LinearLayout) this.mRootView.findViewById(i.f.centerBox);
         this.mRightBox = (LinearLayout) this.mRootView.findViewById(i.f.rightBox);
         this.mNavBottomLine = (TextView) this.mRootView.findViewById(i.f.navBottomLine);
-        this.mNavBottomLine.setVisibility(8);
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i.j.NavigationBar);
             z = obtainStyledAttributes.getBoolean(0, true);
@@ -176,6 +183,9 @@ public class NavigationBar extends RelativeLayout {
 
     @Override // android.widget.RelativeLayout, android.view.View
     protected void onMeasure(int i, int i2) {
+        if (this.isFixedHeight) {
+            i2 = View.MeasureSpec.makeMeasureSpec(com.baidu.adp.lib.util.k.d(getContext(), i.d.ds100), View.MeasureSpec.getMode(i2));
+        }
         super.onMeasure(i, i2);
         this.containerWidth = View.MeasureSpec.getSize(i);
         int measuredWidth = this.mLeftBox.getMeasuredWidth() + getPaddingLeft();
@@ -197,12 +207,30 @@ public class NavigationBar extends RelativeLayout {
         return this.mTextTitle;
     }
 
+    public TextView setTitleText(String str, float f) {
+        if (this.mTextTitle == null) {
+            this.mTextTitle = (TextView) getViewFromLayoutFile(i.g.widget_nb_item_title);
+            this.mTextTitle.setTextSize(0, f);
+            getViewGroup(ControlAlign.HORIZONTAL_CENTER).addView(this.mTextTitle);
+        }
+        this.mTextTitle.setText(str);
+        return this.mTextTitle;
+    }
+
     public TextView setTitleText(int i) {
         return setTitleText(this.mCurrentActivity.getString(i));
     }
 
     public View setTitleView(View view, View.OnClickListener onClickListener) {
         return addCustomView(ControlAlign.HORIZONTAL_CENTER, view, onClickListener);
+    }
+
+    public boolean isFixedHeight() {
+        return this.isFixedHeight;
+    }
+
+    public void setFixedHeight(boolean z) {
+        this.isFixedHeight = z;
     }
 
     public View setTitleView(int i, View.OnClickListener onClickListener) {
@@ -215,10 +243,15 @@ public class NavigationBar extends RelativeLayout {
 
     public View addSystemImageButton(ControlAlign controlAlign, ControlType controlType, View.OnClickListener onClickListener) {
         LinearLayout linearLayout = null;
-        if (controlType == ControlType.BACK_BUTTON && (linearLayout = (LinearLayout) findViewById(i.f.navigationBarGoBack)) == null && (linearLayout = (LinearLayout) getViewFromLayoutFile(i.g.widget_nb_item_back)) != null) {
-            getViewGroup(controlAlign).addView(linearLayout);
-            if (onClickListener != null) {
-                linearLayout.setOnClickListener(onClickListener);
+        if (controlType == ControlType.BACK_BUTTON && (linearLayout = (LinearLayout) findViewById(i.f.navigationBarGoBack)) == null) {
+            linearLayout = (LinearLayout) getViewFromLayoutFile(i.g.widget_nb_item_back);
+            this.mBackImageView = (ImageView) linearLayout.findViewById(i.f.widget_navi_back_button);
+            am.a(this.mBackImageView, i.e.icon_return_bg_s, i.e.icon_return_bg);
+            if (linearLayout != null) {
+                getViewGroup(controlAlign).addView(linearLayout);
+                if (onClickListener != null) {
+                    linearLayout.setOnClickListener(onClickListener);
+                }
             }
         }
         return linearLayout;
@@ -226,6 +259,21 @@ public class NavigationBar extends RelativeLayout {
 
     public TextView addTextButton(ControlAlign controlAlign, String str) {
         return addTextButton(controlAlign, str, null);
+    }
+
+    public TextView addCreateGroupButton(ControlAlign controlAlign, View.OnClickListener onClickListener) {
+        TextView textView = (TextView) getViewFromLayoutFile(i.g.widget_nb_item_create_group);
+        if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
+            int dimension = (int) getResources().getDimension(i.d.navi_btn_margin_right);
+            layoutParams.setMargins(0, dimension, dimension, dimension);
+            textView.setLayoutParams(layoutParams);
+        }
+        getViewGroup(controlAlign).addView(textView);
+        if (onClickListener != null) {
+            textView.setOnClickListener(onClickListener);
+        }
+        return textView;
     }
 
     public Button addRightButton(ControlAlign controlAlign, String str) {
@@ -246,20 +294,33 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public TextView addTextButton(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
-        TextView textView = (TextView) getViewFromLayoutFile(i.g.widget_nb_item_textbtn);
+        return addTextButton(controlAlign, str, onClickListener, false);
+    }
+
+    public TextView addTextButton(ControlAlign controlAlign, String str, View.OnClickListener onClickListener, boolean z) {
+        View viewFromLayoutFile = getViewFromLayoutFile(i.g.navigation_right_button_layout);
+        TextView textView = (TextView) viewFromLayoutFile.findViewById(i.f.right_textview);
         textView.setText(str);
         if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             int dimension = (int) getResources().getDimension(i.d.navi_btn_margin_right);
-            layoutParams.setMargins(0, dimension, dimension, dimension);
+            if (z) {
+                layoutParams.setMargins(dimension, dimension, dimension, dimension);
+            } else {
+                layoutParams.setMargins(dimension, dimension, 0, dimension);
+            }
             textView.setLayoutParams(layoutParams);
         } else if (ControlAlign.HORIZONTAL_LEFT == controlAlign) {
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
             int dimension2 = (int) getResources().getDimension(i.d.navi_btn_margin_right);
-            layoutParams2.setMargins(dimension2, dimension2, 0, dimension2);
+            if (z) {
+                layoutParams2.setMargins(dimension2, dimension2, dimension2, dimension2);
+            } else {
+                layoutParams2.setMargins(dimension2, dimension2, 0, dimension2);
+            }
             textView.setLayoutParams(layoutParams2);
         }
-        getViewGroup(controlAlign).addView(textView);
+        getViewGroup(controlAlign).addView(viewFromLayoutFile);
         if (onClickListener != null) {
             textView.setOnClickListener(onClickListener);
         }
@@ -299,13 +360,22 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public void onChangeSkinType(com.baidu.adp.base.h<?> hVar, int i) {
-        al.h(this, i.e.bg_bar);
-        al.i((View) this.mNavBottomLine, i.c.cp_other_f_1);
+        setBackgroundDrawable(new BitmapDrawable(am.cx(i.e.s_navbar_bg)));
+        am.j((View) this.mNavBottomLine, i.c.navbar_under_line_color);
+        am.a(this.mBackImageView, i.e.icon_return_bg_s, i.e.icon_return_bg);
         initPadding();
         if (hVar instanceof TbPageContext) {
             ((TbPageContext) hVar).getLayoutMode().ad(i == 1);
             ((TbPageContext) hVar).getLayoutMode().k(this);
         }
+    }
+
+    public void onBackBtnOnChangeSkin() {
+        am.a(this.mBackImageView, i.e.icon_return_bg_s, i.e.icon_return_bg);
+    }
+
+    public ImageView getBackImageView() {
+        return this.mBackImageView;
     }
 
     public void release() {

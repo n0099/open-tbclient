@@ -2,20 +2,20 @@ package com.baidu.tieba.imMessageCenter.im.chat;
 
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-class n extends com.baidu.tieba.im.h<Void> {
-    final /* synthetic */ m bGt;
-    private final /* synthetic */ LinkedList bqp;
+class n extends com.baidu.tbadk.util.l<Void> {
+    final /* synthetic */ m bJy;
+    private final /* synthetic */ LinkedList btq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar, LinkedList linkedList) {
-        this.bGt = mVar;
-        this.bqp = linkedList;
+        this.bJy = mVar;
+        this.btq = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.h
-    /* renamed from: Gr */
+    @Override // com.baidu.tbadk.util.l
+    /* renamed from: Gl */
     public Void doInBackground() {
-        return com.baidu.tieba.im.db.l.Tm().k(this.bqp);
+        return com.baidu.tieba.im.db.l.TU().k(this.btq);
     }
 }

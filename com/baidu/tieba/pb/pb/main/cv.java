@@ -1,29 +1,33 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.view.animation.Animation;
+import android.widget.RelativeLayout;
+import com.baidu.tbadk.core.util.UtilHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cv implements CustomMessageTask.CustomRunnable<Object> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        if (customMessage == null || !(customMessage instanceof PbPageReadLocalRequestMessage)) {
-            return null;
+public class cv implements Animation.AnimationListener {
+    final /* synthetic */ cc cly;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cv(cc ccVar) {
+        this.cly = ccVar;
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        RelativeLayout relativeLayout;
+        relativeLayout = this.cly.ckw;
+        relativeLayout.setVisibility(0);
+        if (UtilHelper.canUseStyleImmersiveSticky()) {
+            this.cly.eJ(false);
         }
-        PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
-        byte[] z = bi.adI().z(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
-        PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
-        pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
-        pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
-        pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
-        pbPageReadLocalResponseMessage.setContext(pbPageReadLocalRequestMessage.getContext());
-        try {
-            pbPageReadLocalResponseMessage.decodeInBackGround(CmdConfigCustom.PB_PAGE_CACHE_CMD, z);
-            return pbPageReadLocalResponseMessage;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return pbPageReadLocalResponseMessage;
-        }
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

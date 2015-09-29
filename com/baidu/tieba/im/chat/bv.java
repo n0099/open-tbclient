@@ -1,21 +1,18 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv implements a.b {
-    final /* synthetic */ TalkableActivity bpt;
-    private final /* synthetic */ int bpu;
+public class bv implements Runnable {
+    final /* synthetic */ TalkableActivity bst;
+    private final /* synthetic */ String bsu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(TalkableActivity talkableActivity, int i) {
-        this.bpt = talkableActivity;
-        this.bpu = i;
+    public bv(TalkableActivity talkableActivity, String str) {
+        this.bst = talkableActivity;
+        this.bsu = str;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
-        this.bpt.deleteMsg(this.bpu);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.bst.mListModel.sendTextMessage(this.bsu);
     }
 }

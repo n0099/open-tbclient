@@ -137,7 +137,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        com.baidu.adp.lib.f.c.gZ().d(this.mId);
+        com.baidu.adp.lib.f.c.ha().d(this.mId);
         com.baidu.adp.base.a.dF().h(getActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
@@ -146,7 +146,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
     @Override // com.baidu.adp.plugin.pluginBase.c
     public void onPause() {
         super.onPause();
-        com.baidu.adp.lib.f.c.gZ().e(this.mId);
+        com.baidu.adp.lib.f.c.ha().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -163,7 +163,7 @@ public class a extends c implements DialogInterface.OnClickListener, Handler.Cal
         super.onStop();
         BdListView onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
-            onGetPreLoadListView.nu();
+            onGetPreLoadListView.nv();
         }
     }
 

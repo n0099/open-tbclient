@@ -3,11 +3,11 @@ package com.baidu.ueg.lib;
 import java.util.Arrays;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected final byte dfI = 61;
-    private final int dfJ;
-    private final int dfK;
-    private final int dfL;
-    protected final int xJ;
+    protected final byte drE = 61;
+    private final int drF;
+    private final int drG;
+    private final int drH;
+    protected final int xK;
 
     abstract void a(byte[] bArr, int i, int i2, a aVar);
 
@@ -19,11 +19,11 @@ public abstract class b {
     /* loaded from: classes.dex */
     public static class a {
         byte[] buffer;
-        int dfM;
-        long dfN;
-        int dfO;
-        int dfP;
-        int dfQ;
+        int drI;
+        long drJ;
+        int drK;
+        int drL;
+        int drM;
         boolean eof;
         int pos;
 
@@ -31,34 +31,34 @@ public abstract class b {
         }
 
         public String toString() {
-            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.dfP), Boolean.valueOf(this.eof), Integer.valueOf(this.dfM), Long.valueOf(this.dfN), Integer.valueOf(this.dfQ), Integer.valueOf(this.pos), Integer.valueOf(this.dfO));
+            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.drL), Boolean.valueOf(this.eof), Integer.valueOf(this.drI), Long.valueOf(this.drJ), Integer.valueOf(this.drM), Integer.valueOf(this.pos), Integer.valueOf(this.drK));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(int i, int i2, int i3, int i4) {
-        this.dfJ = i;
-        this.dfK = i2;
-        this.xJ = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
-        this.dfL = i4;
+        this.drF = i;
+        this.drG = i2;
+        this.xK = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
+        this.drH = i4;
     }
 
     int a(a aVar) {
         if (aVar.buffer != null) {
-            return aVar.pos - aVar.dfO;
+            return aVar.pos - aVar.drK;
         }
         return 0;
     }
 
-    protected int aAj() {
+    protected int aDO() {
         return 8192;
     }
 
     private byte[] b(a aVar) {
         if (aVar.buffer == null) {
-            aVar.buffer = new byte[aAj()];
+            aVar.buffer = new byte[aDO()];
             aVar.pos = 0;
-            aVar.dfO = 0;
+            aVar.drK = 0;
         } else {
             byte[] bArr = new byte[aVar.buffer.length * 2];
             System.arraycopy(aVar.buffer, 0, bArr, 0, aVar.buffer.length);
@@ -77,9 +77,9 @@ public abstract class b {
             return aVar.eof ? -1 : 0;
         }
         int min = Math.min(a(aVar), i2);
-        System.arraycopy(aVar.buffer, aVar.dfO, bArr, i, min);
-        aVar.dfO += min;
-        if (aVar.dfO >= aVar.pos) {
+        System.arraycopy(aVar.buffer, aVar.drK, bArr, i, min);
+        aVar.drK += min;
+        if (aVar.drK >= aVar.pos) {
             aVar.buffer = null;
             return min;
         }
@@ -87,7 +87,7 @@ public abstract class b {
     }
 
     public byte[] decode(String str) {
-        return decode(d.lQ(str));
+        return decode(d.my(str));
     }
 
     public byte[] decode(byte[] bArr) {
@@ -107,7 +107,7 @@ public abstract class b {
             a aVar = new a();
             a(bArr, 0, bArr.length, aVar);
             a(bArr, 0, -1, aVar);
-            byte[] bArr2 = new byte[aVar.pos - aVar.dfO];
+            byte[] bArr2 = new byte[aVar.pos - aVar.drK];
             c(bArr2, 0, bArr2.length, aVar);
             return bArr2;
         }
@@ -128,9 +128,9 @@ public abstract class b {
     }
 
     public long X(byte[] bArr) {
-        long length = (((bArr.length + this.dfJ) - 1) / this.dfJ) * this.dfK;
-        if (this.xJ > 0) {
-            return length + ((((this.xJ + length) - 1) / this.xJ) * this.dfL);
+        long length = (((bArr.length + this.drF) - 1) / this.drF) * this.drG;
+        if (this.xK > 0) {
+            return length + ((((this.xK + length) - 1) / this.xK) * this.drH);
         }
         return length;
     }

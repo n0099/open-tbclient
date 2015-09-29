@@ -3,7 +3,7 @@ package com.baidu.tieba.mention;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes.dex */
-public class ReplyMeSocketResponseMessage extends MvcSocketResponsedMessage<aj, ReplyMeResIdl> {
+public class ReplyMeSocketResponseMessage extends MvcSocketResponsedMessage<ak, ReplyMeResIdl> {
     public ReplyMeSocketResponseMessage(int i) {
         super(i);
     }

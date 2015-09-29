@@ -2,8 +2,9 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.newFriends.RequestUnreadPointNum;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class t implements Runnable {
+public class t implements Runnable {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,7 +15,7 @@ class t implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         boolean z;
-        z = this.this$0.cUC;
+        z = this.this$0.dci;
         if (!z) {
             MessageManager.getInstance().dispatchResponsedMessage(new RequestUnreadPointNum());
         }

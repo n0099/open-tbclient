@@ -9,14 +9,14 @@ import com.baidu.tieba.i;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class a extends e {
-    private c SM;
-    private final com.baidu.adp.framework.listener.a SN;
+    private c Sy;
+    private final com.baidu.adp.framework.listener.a Sz;
 
     public a(BdBaseFragmentActivity<?> bdBaseFragmentActivity, c cVar) {
         super(bdBaseFragmentActivity.getPageContext());
-        this.SN = new b(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.SM = cVar;
-        registerListener(this.SN);
+        this.Sz = new b(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
+        this.Sy = cVar;
+        registerListener(this.Sz);
     }
 
     @Override // com.baidu.adp.base.e
@@ -43,11 +43,11 @@ public class a extends e {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DataRes dataRes) {
         if (dataRes == null) {
-            if (this.SM != null) {
-                this.SM.onError(TbadkCoreApplication.m411getInst().getString(i.h.data_load_error));
+            if (this.Sy != null) {
+                this.Sy.onError(TbadkCoreApplication.m411getInst().getString(i.h.data_load_error));
             }
-        } else if (this.SM != null) {
-            this.SM.w(dataRes);
+        } else if (this.Sy != null) {
+            this.Sy.w(dataRes);
         }
     }
 }

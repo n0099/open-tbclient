@@ -8,9 +8,9 @@ import com.baidu.tbadk.editortools.view.b;
 /* loaded from: classes.dex */
 public abstract class a implements com.baidu.tbadk.editortools.b {
     private j Kz;
-    private b auj;
-    private InterfaceC0047a auk;
-    private b.a aul;
+    private b asG;
+    private InterfaceC0047a asH;
+    private b.a asI;
     private int column = 0;
     private int row = 0;
     private int verticalSpacing = 0;
@@ -24,18 +24,18 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
 
     /* loaded from: classes.dex */
     public static class b {
-        public int aum;
-        public int aun;
+        public int asJ;
+        public int asK;
     }
 
-    public abstract void AT();
+    public abstract void AG();
 
     public abstract int getCount();
 
     public abstract void init(Context context);
 
     public void a(b.a aVar) {
-        this.aul = aVar;
+        this.asI = aVar;
     }
 
     public void setEditorTools(j jVar) {
@@ -48,27 +48,27 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         }
     }
 
-    public b Ca() {
-        return this.auj;
+    public b BN() {
+        return this.asG;
     }
 
     public void a(b bVar) {
-        this.auj = bVar;
+        this.asG = bVar;
     }
 
-    public InterfaceC0047a Cb() {
-        return this.auk;
+    public InterfaceC0047a BO() {
+        return this.asH;
     }
 
     public void a(InterfaceC0047a interfaceC0047a) {
-        this.auk = interfaceC0047a;
+        this.asH = interfaceC0047a;
     }
 
-    public int Cc() {
+    public int BP() {
         return this.column;
     }
 
-    public void eb(int i) {
+    public void ec(int i) {
         this.column = i;
     }
 
@@ -76,7 +76,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         return this.row;
     }
 
-    public void ea(int i) {
+    public void eb(int i) {
         this.row = i;
     }
 
@@ -96,7 +96,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.horizontalSpacing = i;
     }
 
-    public b.a Cd() {
-        return this.aul;
+    public b.a BQ() {
+        return this.asI;
     }
 }

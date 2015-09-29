@@ -1,5 +1,5 @@
 package com.baidu.tieba.im.c;
 /* loaded from: classes.dex */
 public interface ae {
-    void ht(int i);
+    void hz(int i);
 }

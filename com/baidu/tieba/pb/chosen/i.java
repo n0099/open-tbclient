@@ -1,61 +1,34 @@
 package com.baidu.tieba.pb.chosen;
 
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i extends com.baidu.tbadk.editortools.c.a<PbChosenActivity> {
-    final /* synthetic */ PbChosenActivity bZS;
+public class i implements View.OnClickListener {
+    final /* synthetic */ PbChosenActivity cfa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(PbChosenActivity pbChosenActivity, com.baidu.adp.base.h hVar) {
-        super(hVar);
-        this.bZS = pbChosenActivity;
+    public i(PbChosenActivity pbChosenActivity) {
+        this.cfa = pbChosenActivity;
     }
 
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.editortools.c.a
-    public boolean Bx() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.editortools.c.a
-    public WriteData eQ(String str) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
         com.baidu.tieba.pb.chosen.net.a aVar;
         com.baidu.tieba.pb.chosen.net.a aVar2;
         com.baidu.tieba.pb.chosen.net.a aVar3;
-        com.baidu.tieba.pb.chosen.net.a aVar4;
-        com.baidu.tieba.pb.chosen.net.a aVar5;
-        aVar = this.bZS.chosenData;
+        aVar = this.cfa.chosenData;
         if (aVar != null) {
-            aVar2 = this.bZS.chosenData;
+            aVar2 = this.cfa.chosenData;
             if (aVar2.getForumInfo() != null) {
-                WriteData writeData = new WriteData();
-                aVar3 = this.bZS.chosenData;
-                writeData.setForumId(String.valueOf(aVar3.getForumInfo().fromfid));
-                aVar4 = this.bZS.chosenData;
-                writeData.setForumName(aVar4.getForumInfo().fromfname);
-                aVar5 = this.bZS.chosenData;
-                writeData.setThreadId(String.valueOf(aVar5.getForumInfo().tid));
-                writeData.setIsAd(false);
-                writeData.setType(1);
-                return writeData;
+                TiebaStatic.log("c10091");
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.cfa.getPageContext().getPageActivity());
+                aVar3 = this.cfa.chosenData;
+                this.cfa.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createNormalCfg(aVar3.getForumInfo().originalurl, null, null)));
             }
         }
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.editortools.c.a
-    public String By() {
-        return null;
     }
 }

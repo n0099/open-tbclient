@@ -9,13 +9,13 @@ import com.baidu.tieba.i;
 public class a extends v {
     public a(Context context) {
         super(context, (String) null, 14);
-        this.aqU = true;
-        this.aqT = 6;
+        this.apv = true;
+        this.apu = 6;
         MultiImgToolView multiImgToolView = (MultiImgToolView) c.h(context, 1);
         multiImgToolView.setDefaultTip(context.getString(i.h.baobao_remind));
         multiImgToolView.setDeleteAction(23);
         multiImgToolView.setTargetToolId(13);
-        this.aqi = multiImgToolView;
-        this.aqV = new int[]{12, 13, 9};
+        this.aoI = multiImgToolView;
+        this.apw = new int[]{12, 13, 9};
     }
 }

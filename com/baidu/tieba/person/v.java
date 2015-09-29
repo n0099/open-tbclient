@@ -13,13 +13,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v extends HttpMessageListener {
-    final /* synthetic */ r cjC;
+    final /* synthetic */ r cpf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(r rVar, int i) {
         super(i);
-        this.cjC = rVar;
+        this.cpf = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,45 +39,45 @@ public class v extends HttpMessageListener {
         ac acVar2;
         ac acVar3;
         ad adVar3;
-        this.cjC.cjr = false;
+        this.cpf.coU = false;
         if (httpResponsedMessage.getError() == 0) {
-            adVar = this.cjC.cjb;
-            ArrayList<ForumData> agr = adVar.agw().agr();
-            adVar2 = this.cjC.cjb;
-            int agl = adVar2.agw().agl();
-            i = this.cjC.bXD;
-            if (i < agl) {
-                adVar3 = this.cjC.cjb;
-                adVar3.agw().iQ(agl - 1);
+            adVar = this.cpf.coE;
+            ArrayList<ForumData> aiq = adVar.aiv().aiq();
+            adVar2 = this.cpf.coE;
+            int aik = adVar2.aiv().aik();
+            i = this.cpf.cbp;
+            if (i < aik) {
+                adVar3 = this.cpf.coE;
+                adVar3.aiv().ja(aik - 1);
             }
-            if (agr != null) {
-                i2 = this.cjC.bXD;
+            if (aiq != null) {
+                i2 = this.cpf.cbp;
                 if (i2 >= 0) {
-                    i3 = this.cjC.bXD;
-                    if (i3 < agr.size()) {
-                        i4 = this.cjC.bXD;
-                        agr.remove(i4);
+                    i3 = this.cpf.cbp;
+                    if (i3 < aiq.size()) {
+                        i4 = this.cpf.cbp;
+                        aiq.remove(i4);
                         TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                        str = this.cjC.cjn;
+                        str = this.cpf.coQ;
                         m411getInst.delLikeForum(str);
-                        acVar = this.cjC.cjm;
+                        acVar = this.cpf.coP;
                         if (acVar != null) {
-                            this.cjC.eP(true);
-                            acVar2 = this.cjC.cjm;
-                            acVar2.R(agr);
-                            acVar3 = this.cjC.cjm;
+                            this.cpf.eV(true);
+                            acVar2 = this.cpf.coP;
+                            acVar2.S(aiq);
+                            acVar3 = this.cpf.coP;
                             acVar3.notifyDataSetChanged();
                         }
                     }
                 }
             }
-            this.cjC.showToast(i.h.success);
-            forumData = this.cjC.cjq;
+            this.cpf.showToast(i.h.success);
+            forumData = this.cpf.coT;
             if (forumData != null) {
-                forumData2 = this.cjC.cjq;
+                forumData2 = this.cpf.coT;
                 if (!TextUtils.isEmpty(forumData2.getId())) {
-                    r rVar = this.cjC;
-                    forumData3 = this.cjC.cjq;
+                    r rVar = this.cpf;
+                    forumData3 = this.cpf.coT;
                     rVar.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, forumData3.getId()));
                     return;
                 }
@@ -85,6 +85,6 @@ public class v extends HttpMessageListener {
             }
             return;
         }
-        this.cjC.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.cjC.getResources().getString(i.h.neterror) : httpResponsedMessage.getErrorString());
+        this.cpf.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.cpf.getResources().getString(i.h.neterror) : httpResponsedMessage.getErrorString());
     }
 }

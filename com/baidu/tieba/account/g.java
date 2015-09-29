@@ -4,21 +4,21 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements DialogInterface.OnCancelListener {
-    final /* synthetic */ AccountActivity aFg;
-    private final /* synthetic */ boolean aFj;
+    final /* synthetic */ AccountActivity aEl;
+    private final /* synthetic */ boolean aEo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(AccountActivity accountActivity, boolean z) {
-        this.aFg = accountActivity;
-        this.aFj = z;
+        this.aEl = accountActivity;
+        this.aEo = z;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.aFg.destroyWaitingDialog();
-        if (this.aFj) {
-            this.aFg.fQ("account delete cancel");
+        this.aEl.destroyWaitingDialog();
+        if (this.aEo) {
+            this.aEl.fU("account delete cancel");
         }
-        this.aFg.aFf = null;
+        this.aEl.aEk = null;
     }
 }

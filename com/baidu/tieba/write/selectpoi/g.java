@@ -3,7 +3,7 @@ package com.baidu.tieba.write.selectpoi;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.SearchLocationActivityConfig;
+import com.baidu.tieba.write.data.SearchLocationActivityConfig;
 /* loaded from: classes.dex */
 class g implements CustomMessageTask.CustomRunnable<SearchLocationActivityConfig> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable

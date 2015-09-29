@@ -1,23 +1,22 @@
 package com.baidu.tbadk.core;
 
-import android.content.Intent;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.base.BdBaseService;
+import com.baidu.tbadk.util.c;
 /* loaded from: classes.dex */
-public class y implements CustomMessageTask.CustomRunnable<Intent> {
-    final /* synthetic */ TbadkCoreApplication TK;
+class y implements c.a {
+    final /* synthetic */ x TA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(TbadkCoreApplication tbadkCoreApplication) {
-        this.TK = tbadkCoreApplication;
+    public y(x xVar) {
+        this.TA = xVar;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
-        UtilHelper.commenDealIntent(this.TK.getApp(), customMessage.getData());
-        return null;
+    @Override // com.baidu.tbadk.util.c.a
+    public void ag(boolean z) {
+        if (z) {
+            BdBaseService.serviceStartFlag = 2;
+        } else {
+            BdBaseService.serviceStartFlag = 1;
+        }
     }
 }

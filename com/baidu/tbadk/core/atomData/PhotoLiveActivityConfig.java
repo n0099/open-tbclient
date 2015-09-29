@@ -9,6 +9,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class PhotoLiveActivityConfig extends IntentConfig {
     public static final String KEY_FROM_FRS = "from_frs";
     public static final String KEY_FROM_MARK = "from_mark";
+    public static final String KEY_FROM_MESSAGE = "from_message";
     public static final String KEY_FROM_MY_OR_HIS_THREAD = "from_my_or_his_thread";
     public static final String KEY_FROM_WRITE = "from_write";
     public static final String KEY_POST_ID = "post_id";
@@ -59,6 +60,8 @@ public class PhotoLiveActivityConfig extends IntentConfig {
                 intent.putExtra(KEY_FROM_WRITE, true);
             } else if (KEY_FROM_MY_OR_HIS_THREAD.equals(str4)) {
                 intent.putExtra(KEY_FROM_MY_OR_HIS_THREAD, true);
+            } else if (KEY_FROM_MESSAGE.equals(str4)) {
+                intent.putExtra(KEY_FROM_MESSAGE, true);
             }
             if (!(this.mContext instanceof Activity)) {
                 intent.addFlags(268435456);
@@ -101,7 +104,7 @@ public class PhotoLiveActivityConfig extends IntentConfig {
             return this;
         }
 
-        public PhotoLiveActivityConfig ro() {
+        public PhotoLiveActivityConfig rk() {
             return new PhotoLiveActivityConfig(this, null);
         }
     }

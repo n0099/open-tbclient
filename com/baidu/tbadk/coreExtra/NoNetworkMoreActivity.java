@@ -13,13 +13,14 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
-    private TextView agx;
-    private TextView agy;
+    private TextView afK;
+    private TextView afL;
     private View mBack;
     private NavigationBar mNavigationBar;
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(i.g.no_network_more_view);
         initUI();
@@ -30,14 +31,14 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
         this.mBack.setOnClickListener(this);
         this.mNavigationBar.setTitleText(i.h.no_network);
-        this.agx = (TextView) findViewById(i.f.more_item1);
+        this.afK = (TextView) findViewById(i.f.more_item1);
         SpannableString spannableString = new SpannableString(getPageContext().getString(i.h.no_network_guide_content1));
         spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-        this.agx.setText(spannableString);
-        this.agy = (TextView) findViewById(i.f.more_item2);
+        this.afK.setText(spannableString);
+        this.afL = (TextView) findViewById(i.f.more_item2);
         SpannableString spannableString2 = new SpannableString(getPageContext().getString(i.h.no_network_guide_content2));
         spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
-        this.agy.setText(spannableString2);
+        this.afL.setText(spannableString2);
         ((Button) findViewById(i.f.network_setting_btn)).setOnClickListener(this);
     }
 
@@ -52,8 +53,9 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
-    protected void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

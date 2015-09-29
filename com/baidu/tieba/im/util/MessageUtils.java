@@ -14,7 +14,7 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class MessageUtils {
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3) {
-        createPersonalChatMessage(b.Vn().M(String.valueOf(j), 2), i, str, j, str2, str3);
+        createPersonalChatMessage(b.VW().O(String.valueOf(j), 2), i, str, j, str2, str3);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3) {
@@ -52,12 +52,12 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             personalChatMessage.setLocalData(msgLocalData);
-            a.Wu().n(personalChatMessage);
+            a.Xd().n(personalChatMessage);
         }
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(b.Vn().M(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(b.VW().O(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createGroupChatMessage(long j, int i, String str, long j2) {
@@ -89,16 +89,16 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             groupChatMessage.setLocalData(msgLocalData);
-            a.Wu().n(groupChatMessage);
+            a.Xd().n(groupChatMessage);
         }
     }
 
     public static void sendHasReadMessage(String str, int i) {
-        ImMessageCenterPojo H;
-        if (!StringUtils.isNull(str) && i == 2 && (H = b.Vn().H(str, 2)) != null) {
-            long pulled_msgId = H.getPulled_msgId();
-            if (pulled_msgId > H.getSent_msgId()) {
-                RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(g.ar(pulled_msgId), Long.parseLong(str));
+        ImMessageCenterPojo J;
+        if (!StringUtils.isNull(str) && i == 2 && (J = b.VW().J(str, 2)) != null) {
+            long pulled_msgId = J.getPulled_msgId();
+            if (pulled_msgId > J.getSent_msgId()) {
+                RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(g.aC(pulled_msgId), Long.parseLong(str));
                 if (!MessageManager.getInstance().getSocketClient().a(requestPersonalMsgReadMessage)) {
                     MessageManager.getInstance().sendMessage(requestPersonalMsgReadMessage);
                 }

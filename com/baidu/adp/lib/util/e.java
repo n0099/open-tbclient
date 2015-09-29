@@ -13,15 +13,15 @@ import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 /* loaded from: classes.dex */
 public class e {
-    private static String xS = "baidu";
-    public static final File xT = Environment.getExternalStorageDirectory();
-    private static final char xU = File.separatorChar;
+    private static String xT = "baidu";
+    public static final File xU = Environment.getExternalStorageDirectory();
+    private static final char xV = File.separatorChar;
 
     public static boolean fi() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static int iv() {
+    public static int iw() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("mounted")) {
             return 0;
@@ -37,21 +37,21 @@ public class e {
 
     public static String aC(String str) {
         if (str != null) {
-            return xT + "/" + xS + "/" + str + "/";
+            return xU + "/" + xT + "/" + str + "/";
         }
-        return xT + "/" + xS + "/";
+        return xU + "/" + xT + "/";
     }
 
     public static String s(String str, String str2) {
         if (str != null) {
-            return xT + "/" + xS + "/" + str + "/" + str2;
+            return xU + "/" + xT + "/" + str + "/" + str2;
         }
-        return xT + "/" + xS + "/" + str2;
+        return xU + "/" + xT + "/" + str2;
     }
 
-    public static boolean iw() {
+    public static boolean ix() {
         try {
-            StatFs statFs = new StatFs(xT.getPath());
+            StatFs statFs = new StatFs(xU.getPath());
             return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
         } catch (Exception e) {
             return false;
@@ -267,12 +267,12 @@ public class e {
                                 }
                                 bArr = byteArrayOutputStream.toByteArray();
                                 o.d(fileInputStream);
-                                o.b((OutputStream) byteArrayOutputStream);
+                                o.b(byteArrayOutputStream);
                             } catch (IOException e) {
                                 e = e;
                                 BdLog.e(e.getMessage());
                                 o.d(fileInputStream);
-                                o.b((OutputStream) byteArrayOutputStream);
+                                o.b(byteArrayOutputStream);
                                 return bArr;
                             }
                         } catch (IOException e2) {
@@ -367,9 +367,9 @@ public class e {
                             long size = fileChannel2.size();
                             for (long j = 0; j < size; j += channel.transferFrom(fileChannel2, j, size - j > 31457280 ? 31457280L : size - j)) {
                             }
-                            o.b(channel);
-                            o.b((OutputStream) fileOutputStream);
-                            o.b(fileChannel2);
+                            o.c(channel);
+                            o.b(fileOutputStream);
+                            o.c(fileChannel2);
                             o.d(fileInputStream2);
                             if (file.length() != file2.length()) {
                                 throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
@@ -382,9 +382,9 @@ public class e {
                             th = th3;
                             fileChannel = fileChannel2;
                             closeable = channel;
-                            o.b(closeable);
-                            o.b((OutputStream) fileOutputStream);
-                            o.b(fileChannel);
+                            o.c(closeable);
+                            o.b(fileOutputStream);
+                            o.c(fileChannel);
                             o.d(fileInputStream);
                             throw th;
                         }
@@ -398,9 +398,9 @@ public class e {
                             fileChannel = fileChannel2;
                             closeable = null;
                             th = th4;
-                            o.b(closeable);
-                            o.b((OutputStream) fileOutputStream);
-                            o.b(fileChannel);
+                            o.c(closeable);
+                            o.b(fileOutputStream);
+                            o.c(fileChannel);
                             o.d(fileInputStream);
                             throw th;
                         }
@@ -533,7 +533,7 @@ public class e {
         if (file == null) {
             throw new NullPointerException("File must not be null");
         }
-        if (ix()) {
+        if (iy()) {
             return false;
         }
         if (file.getParent() != null) {
@@ -542,8 +542,8 @@ public class e {
         return !file.getCanonicalFile().equals(file.getAbsoluteFile());
     }
 
-    static boolean ix() {
-        return xU == '\\';
+    static boolean iy() {
+        return xV == '\\';
     }
 
     public static void k(File file) {

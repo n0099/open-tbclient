@@ -3,18 +3,18 @@ package com.baidu.tieba.pb.pb.main;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 class au implements com.baidu.adp.lib.e.c<LinearLayout> {
-    final /* synthetic */ PbActivity ccj;
+    final /* synthetic */ PbActivity ciz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(PbActivity pbActivity) {
-        this.ccj = pbActivity;
+        this.ciz = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: adE */
-    public LinearLayout gY() {
-        LinearLayout linearLayout = new LinearLayout(this.ccj.getPageContext().getPageActivity());
+    /* renamed from: afD */
+    public LinearLayout gZ() {
+        LinearLayout linearLayout = new LinearLayout(this.ciz.getPageContext().getPageActivity());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         linearLayout.setLayoutParams(layoutParams);
         linearLayout.setGravity(16);

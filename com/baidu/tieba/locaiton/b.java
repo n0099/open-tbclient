@@ -14,9 +14,9 @@ class b extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001337 && (customResponsedMessage.getData() instanceof Boolean)) {
             if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                com.baidu.adp.lib.d.a.gC().a(a.ZO());
+                com.baidu.adp.lib.d.a.gC().a(a.aaY());
             } else {
-                com.baidu.adp.lib.d.a.gC().b(a.ZO());
+                com.baidu.adp.lib.d.a.gC().b(a.aaY());
             }
         }
     }

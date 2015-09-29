@@ -3,11 +3,11 @@ package com.baidu.tbadk.system.portrait;
 import com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ ChangeSystemPhotoActivity aAF;
+    final /* synthetic */ ChangeSystemPhotoActivity azg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
-        this.aAF = changeSystemPhotoActivity;
+        this.azg = changeSystemPhotoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,14 +19,14 @@ class a extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
         ChangeSystemPhotoActivity.a aVar4;
         super.a((a) aVar, str, i);
         if (aVar != null) {
-            this.aAF.aAB = aVar;
-            aVar2 = this.aAF.aAA;
+            this.azg.azc = aVar;
+            aVar2 = this.azg.azb;
             if (aVar2 != null) {
-                aVar4 = this.aAF.aAA;
+                aVar4 = this.azg.azb;
                 aVar4.cancel();
             }
-            this.aAF.aAA = new ChangeSystemPhotoActivity.a(this.aAF, null);
-            aVar3 = this.aAF.aAA;
+            this.azg.azb = new ChangeSystemPhotoActivity.a(this.azg, null);
+            aVar3 = this.azg.azb;
             aVar3.execute(new String[0]);
         }
     }

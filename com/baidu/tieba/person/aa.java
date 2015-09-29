@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class aa implements AdapterView.OnItemClickListener {
-    final /* synthetic */ r cjC;
+    final /* synthetic */ r cpf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(r rVar) {
-        this.cjC = rVar;
+        this.cpf = rVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -22,36 +22,36 @@ class aa implements AdapterView.OnItemClickListener {
         ac acVar;
         boolean z;
         ac acVar2;
-        PersonBarActivity agt;
+        PersonBarActivity ais;
         boolean z2;
-        PersonBarActivity agt2;
-        PersonBarActivity agt3;
-        PersonBarActivity agt4;
-        acVar = this.cjC.cjm;
+        PersonBarActivity ais2;
+        PersonBarActivity ais3;
+        PersonBarActivity ais4;
+        acVar = this.cpf.coP;
         if (acVar.getItem(i) != null) {
-            z = this.cjC.cjr;
+            z = this.cpf.coU;
             if (!z) {
-                this.cjC.bXD = i;
-                acVar2 = this.cjC.cjm;
+                this.cpf.cbp = i;
+                acVar2 = this.cpf.coP;
                 ForumData forumData = (ForumData) acVar2.getItem(i);
                 if (forumData != null) {
-                    agt = this.cjC.agt();
-                    if (agt != null) {
-                        z2 = this.cjC.cim;
+                    ais = this.cpf.ais();
+                    if (ais != null) {
+                        z2 = this.cpf.cnI;
                         if (z2) {
                             Intent intent = new Intent();
                             intent.putExtra(PersonBarActivityConfig.BAR_NAME, forumData.getName());
                             intent.putExtra(PersonBarActivityConfig.BAR_ID, forumData.getId());
-                            agt3 = this.cjC.agt();
-                            this.cjC.agt();
-                            agt3.setResult(-1, intent);
-                            agt4 = this.cjC.agt();
-                            agt4.finish();
+                            ais3 = this.cpf.ais();
+                            this.cpf.ais();
+                            ais3.setResult(-1, intent);
+                            ais4 = this.cpf.ais();
+                            ais4.finish();
                             return;
                         }
-                        r rVar = this.cjC;
-                        agt2 = this.cjC.agt();
-                        rVar.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(agt2.getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba")));
+                        r rVar = this.cpf;
+                        ais2 = this.cpf.ais();
+                        rVar.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ais2.getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba")));
                     }
                 }
             }

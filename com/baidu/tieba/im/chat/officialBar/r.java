@@ -12,11 +12,11 @@ public class r {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String bpQ;
-        public String bqb;
-        public long bqc;
-        public String bqd;
-        public long bqe;
+        public String bsR;
+        public String btc;
+        public long btd;
+        public String bte;
+        public long btf;
         public String fid;
         public long picId;
         public String src;
@@ -25,7 +25,7 @@ public class r {
         public String url;
     }
 
-    public static List<a> aE(String str, String str2) {
+    public static List<a> aD(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -52,11 +52,11 @@ public class r {
                 aVar.src = optString3;
                 aVar.fid = str2;
                 aVar.picId = optLong;
-                aVar.bqc = optLong2;
-                aVar.bqb = optString5;
-                aVar.bqd = optString6;
-                aVar.bqe = optLong3;
-                aVar.bpQ = optString7;
+                aVar.btd = optLong2;
+                aVar.btc = optString5;
+                aVar.bte = optString6;
+                aVar.btf = optLong3;
+                aVar.bsR = optString7;
                 linkedList.add(aVar);
             }
             return linkedList;

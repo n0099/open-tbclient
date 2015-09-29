@@ -1,32 +1,38 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import android.widget.AbsListView;
-import com.baidu.tbadk.core.view.UserPhotoLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-class bm implements AbsListView.RecyclerListener {
-    final /* synthetic */ bi aXy;
+public class bm extends x.a {
+    static final /* synthetic */ boolean $assertionsDisabled;
+    public LinearLayout aVA;
+    public HeadImageView aVC;
+    public TextView aVD;
+    public TextView aVE;
+    public TextView aVG;
+    public TbImageView aVT;
+    public TextView aVU;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(bi biVar) {
-        this.aXy = biVar;
+    static {
+        $assertionsDisabled = !bm.class.desiredAssertionStatus();
     }
 
-    @Override // android.widget.AbsListView.RecyclerListener
-    public void onMovedToScrapHeap(View view) {
-        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(i.f.abstract_voice);
-        if (playVoiceBnt != null) {
-            playVoiceBnt.reset();
+    public bm(View view) {
+        super(view);
+        if (!$assertionsDisabled && view == null) {
+            throw new AssertionError();
         }
-        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(i.f.abstract_img_layout);
-        if (frsCommonImageLayout != null) {
-            frsCommonImageLayout.reset();
-        }
-        if (view != null && (view instanceof UserPhotoLayout)) {
-            ((UserPhotoLayout) view).reset();
-        }
+        this.aVA = (LinearLayout) view.findViewById(i.f.frs_app_item_parent);
+        this.aVC = (HeadImageView) view.findViewById(i.f.frs_app_icon);
+        this.aVD = (TextView) view.findViewById(i.f.frs_app_name);
+        this.aVE = (TextView) view.findViewById(i.f.frs_app_time);
+        this.aVG = (TextView) view.findViewById(i.f.frs_app_desc);
+        this.aVT = (TbImageView) view.findViewById(i.f.frs_app_url);
+        this.aVU = (TextView) view.findViewById(i.f.frs_app_download);
     }
 }

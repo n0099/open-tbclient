@@ -14,32 +14,32 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.selectpoi.NavigationBarActivity;
 /* loaded from: classes.dex */
 public class SelectLocationActivity extends NavigationBarActivity {
-    private BdListView aKK;
-    private ImageView dav;
-    private l daw;
-    private AdapterView.OnItemClickListener dax = new i(this);
-    private CustomMessageListener daz = new j(this, CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY);
+    private BdListView aJD;
+    private ImageView dlt;
+    private l dlu;
+    private AdapterView.OnItemClickListener bqk = new i(this);
+    private CustomMessageListener dlv = new j(this, CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(i.g.select_location_activity);
-        this.aIp.setTitleText(i.h.select_position_title);
-        this.dav = (ImageView) this.aIp.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.widget_nb_item_search, (View.OnClickListener) null);
-        this.dav.setOnClickListener(new k(this));
-        this.aKK = (BdListView) findViewById(i.f.select_position_list);
-        this.daw = new l(this);
-        this.aKK.setAdapter((ListAdapter) this.daw);
-        this.aKK.setOnItemClickListener(this.dax);
-        registerListener(this.daz);
+        this.aHi.setTitleText(i.h.select_position_title);
+        this.dlt = (ImageView) this.aHi.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.widget_nb_item_search, (View.OnClickListener) null);
+        this.dlt.setOnClickListener(new k(this));
+        this.aJD = (BdListView) findViewById(i.f.select_position_list);
+        this.dlu = new l(this);
+        this.aJD.setAdapter((ListAdapter) this.dlu);
+        this.aJD.setOnItemClickListener(this.bqk);
+        registerListener(this.dlv);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.selectpoi.NavigationBarActivity, com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.daw.notifyDataSetChanged();
+        this.dlu.notifyDataSetChanged();
     }
 
     @Override // android.app.Activity

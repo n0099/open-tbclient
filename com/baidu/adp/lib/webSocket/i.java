@@ -7,17 +7,17 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements g.a {
-    final /* synthetic */ h zE;
+    final /* synthetic */ h zF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.zE = hVar;
+        this.zF = hVar;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
     public void I(String str) {
         ArrayList arrayList;
-        arrayList = this.zE.zC;
+        arrayList = this.zF.zD;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((g.a) it.next()).I(str);
@@ -27,7 +27,7 @@ public class i implements g.a {
     @Override // com.baidu.adp.lib.webSocket.g.a
     public void F(byte[] bArr) {
         ArrayList arrayList;
-        arrayList = this.zE.zC;
+        arrayList = this.zF.zD;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((g.a) it.next()).F(bArr);
@@ -37,7 +37,7 @@ public class i implements g.a {
     @Override // com.baidu.adp.lib.webSocket.g.a
     public void w(byte[] bArr) {
         ArrayList arrayList;
-        arrayList = this.zE.zC;
+        arrayList = this.zF.zD;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((g.a) it.next()).w(bArr);
@@ -45,20 +45,20 @@ public class i implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void c(Map<String, String> map) {
+    public void d(Map<String, String> map) {
         ArrayList arrayList;
-        arrayList = this.zE.zC;
+        arrayList = this.zF.zD;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            ((g.a) it.next()).c(map);
+            ((g.a) it.next()).d(map);
         }
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
     public void l(int i, String str) {
         ArrayList arrayList;
-        this.zE.zB = null;
-        arrayList = this.zE.zC;
+        this.zF.zC = null;
+        arrayList = this.zF.zD;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((g.a) it.next()).l(i, str);
@@ -68,7 +68,7 @@ public class i implements g.a {
     @Override // com.baidu.adp.lib.webSocket.g.a
     public void a(c cVar) {
         ArrayList arrayList;
-        arrayList = this.zE.zC;
+        arrayList = this.zF.zD;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             ((g.a) it.next()).a(cVar);
@@ -76,12 +76,12 @@ public class i implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void jx() {
+    public void jy() {
         ArrayList arrayList;
-        arrayList = this.zE.zC;
+        arrayList = this.zF.zD;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            ((g.a) it.next()).jx();
+            ((g.a) it.next()).jy();
         }
     }
 

@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.n;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.i;
 import java.io.File;
@@ -199,11 +199,11 @@ public class TiebaUpdateService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
-        private v Tv;
-        private volatile boolean aPE;
+        private w Th;
+        private volatile boolean aOz;
 
         private a() {
-            this.aPE = false;
+            this.aOz = false;
         }
 
         /* synthetic */ a(TiebaUpdateService tiebaUpdateService, a aVar) {
@@ -218,13 +218,13 @@ public class TiebaUpdateService extends BdBaseService {
             Boolean bool;
             Exception e;
             Boolean bool2 = false;
-            while (!this.aPE) {
+            while (!this.aOz) {
                 try {
-                    this.Tv = new v(TiebaUpdateService.this.mMainApkUrl);
-                    bool2 = Boolean.valueOf(this.Tv.a(String.valueOf(TiebaUpdateService.this.mMainApkFileName) + ".tmp", TiebaUpdateService.this.mMainApkHandler, 0));
+                    this.Th = new w(TiebaUpdateService.this.mMainApkUrl);
+                    bool2 = Boolean.valueOf(this.Th.a(String.valueOf(TiebaUpdateService.this.mMainApkFileName) + ".tmp", TiebaUpdateService.this.mMainApkHandler, 0));
                     if (!bool2.booleanValue()) {
-                        if (this.Tv.un() != -2) {
-                            if (!this.Tv.uj().va().gK()) {
+                        if (this.Th.ul() != -2) {
+                            if (!this.Th.uh().uY().gK()) {
                                 try {
                                     Thread.sleep(10000L);
                                 } catch (Exception e2) {
@@ -264,9 +264,9 @@ public class TiebaUpdateService extends BdBaseService {
         public void cancel() {
             super.cancel(true);
             TiebaUpdateService.this.mDowndMainApkTask = null;
-            this.aPE = true;
-            if (this.Tv != null) {
-                this.Tv.gJ();
+            this.aOz = true;
+            if (this.Th != null) {
+                this.Th.gJ();
             }
         }
 
@@ -291,12 +291,12 @@ public class TiebaUpdateService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends BdAsyncTask<String, Integer, Boolean> {
-        private v Tv;
-        private volatile boolean aPE;
+        private w Th;
+        private volatile boolean aOz;
 
         private b() {
-            this.Tv = null;
-            this.aPE = false;
+            this.Th = null;
+            this.aOz = false;
         }
 
         /* synthetic */ b(TiebaUpdateService tiebaUpdateService, b bVar) {
@@ -306,16 +306,16 @@ public class TiebaUpdateService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         /* JADX WARN: Code restructure failed: missing block: B:24:0x0096, code lost:
-            if (r7.cDD.mHasTieba != false) goto L36;
+            if (r7.cKE.mHasTieba != false) goto L36;
          */
         /* JADX WARN: Code restructure failed: missing block: B:26:0x009e, code lost:
-            if (r7.cDD.mHasAs == false) goto L26;
+            if (r7.cKE.mHasAs == false) goto L26;
          */
         /* JADX WARN: Code restructure failed: missing block: B:28:0x00a6, code lost:
-            if (r7.cDD.mIsMainApkDone == false) goto L26;
+            if (r7.cKE.mIsMainApkDone == false) goto L26;
          */
         /* JADX WARN: Code restructure failed: missing block: B:29:0x00a8, code lost:
-            r7.cDD.downloadError();
+            r7.cKE.downloadError();
          */
         /* JADX WARN: Code restructure failed: missing block: B:30:0x00ad, code lost:
             r0 = r1;
@@ -331,12 +331,12 @@ public class TiebaUpdateService extends BdBaseService {
             Boolean bool2 = false;
             while (true) {
                 try {
-                    if (!this.aPE) {
-                        this.Tv = new v(TiebaUpdateService.this.mOtherApkUrl);
-                        bool2 = Boolean.valueOf(this.Tv.a(String.valueOf(TiebaUpdateService.this.mOtherApkFileName) + ".tmp", TiebaUpdateService.this.mOtherApkHandler, 0));
+                    if (!this.aOz) {
+                        this.Th = new w(TiebaUpdateService.this.mOtherApkUrl);
+                        bool2 = Boolean.valueOf(this.Th.a(String.valueOf(TiebaUpdateService.this.mOtherApkFileName) + ".tmp", TiebaUpdateService.this.mOtherApkHandler, 0));
                         if (!bool2.booleanValue()) {
-                            if (this.Tv.un() != -2) {
-                                if (!this.Tv.uj().va().gK()) {
+                            if (this.Th.ul() != -2) {
+                                if (!this.Th.uh().uY().gK()) {
                                     try {
                                         Thread.sleep(10000L);
                                     } catch (Exception e2) {
@@ -377,9 +377,9 @@ public class TiebaUpdateService extends BdBaseService {
         public void cancel() {
             super.cancel(true);
             TiebaUpdateService.this.mDowndOtherApkTask = null;
-            this.aPE = true;
-            if (this.Tv != null) {
-                this.Tv.gJ();
+            this.aOz = true;
+            if (this.Th != null) {
+                this.Th.gJ();
             }
             if (!TiebaUpdateService.this.mHasTieba && !TiebaUpdateService.this.mHasAs) {
                 TiebaUpdateService.sHasStart = false;
@@ -410,10 +410,10 @@ public class TiebaUpdateService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void renameFile(String str) {
-        File cJ;
-        n.cO(str);
+        File cL;
+        n.cQ(str);
         File cI = n.cI(String.valueOf(str) + ".tmp");
-        if (cI != null && (cJ = n.cJ(str)) != null && !cI.renameTo(cJ)) {
+        if (cI != null && (cL = n.cL(str)) != null && !cI.renameTo(cL)) {
             TiebaStatic.file("renameTo erro", "TiebaUpdateService.DownLoadingOtherAsyncTask");
         }
     }

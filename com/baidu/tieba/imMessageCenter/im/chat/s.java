@@ -7,17 +7,17 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements Animation.AnimationListener {
-    final /* synthetic */ PersonalChatView bGD;
-    private final /* synthetic */ Animation bGE;
-    private final /* synthetic */ String bGF;
-    private final /* synthetic */ String box;
+    final /* synthetic */ PersonalChatView bJI;
+    private final /* synthetic */ Animation bJJ;
+    private final /* synthetic */ String bJK;
+    private final /* synthetic */ String brw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PersonalChatView personalChatView, String str, String str2, Animation animation) {
-        this.bGD = personalChatView;
-        this.box = str;
-        this.bGF = str2;
-        this.bGE = animation;
+        this.bJI = personalChatView;
+        this.brw = str;
+        this.bJK = str2;
+        this.bJJ = animation;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -35,14 +35,14 @@ public class s implements Animation.AnimationListener {
         PersonalChatActivity personalChatActivity;
         TextView textView2;
         LinearLayout linearLayout2;
-        linearLayout = this.bGD.bGw;
+        linearLayout = this.bJI.bJB;
         linearLayout.clearAnimation();
-        textView = this.bGD.bGx;
-        personalChatActivity = this.bGD.bGu;
-        textView.setText(personalChatActivity.getResources().getString(i.h.add_friend_agree_title, this.box));
-        textView2 = this.bGD.bGy;
-        textView2.setText(this.bGF);
-        linearLayout2 = this.bGD.bGw;
-        linearLayout2.setAnimation(this.bGE);
+        textView = this.bJI.bJC;
+        personalChatActivity = this.bJI.bJz;
+        textView.setText(personalChatActivity.getResources().getString(i.h.add_friend_agree_title, this.brw));
+        textView2 = this.bJI.bJD;
+        textView2.setText(this.bJK);
+        linearLayout2 = this.bJI.bJB;
+        linearLayout2.setAnimation(this.bJJ);
     }
 }

@@ -10,91 +10,91 @@ import android.widget.TextView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class e {
-    private ImageView cBK;
-    private TextView cBL;
-    private SlidingTabLayout cBM;
-    private Animation cBN;
-    private Animation cBO;
+    private ImageView cIL;
+    private TextView cIM;
+    private SlidingTabLayout cIN;
+    private Animation cIO;
+    private Animation cIP;
     private Context mContext;
     private View rootView;
-    private boolean cBP = true;
-    private com.baidu.adp.lib.g.d bIS = new f(this);
+    private boolean cIQ = true;
+    private com.baidu.adp.lib.g.d bLX = new f(this);
 
     public e(Context context, View view) {
         this.rootView = view;
         this.mContext = context;
-        this.cBL = (TextView) view.findViewById(i.f.tab_widget_switch);
-        this.cBK = (ImageView) view.findViewById(i.f.tab_widget_more);
-        this.cBM = (SlidingTabLayout) view.findViewById(i.f.tab_widget_sliding_tab);
+        this.cIM = (TextView) view.findViewById(i.f.tab_widget_switch);
+        this.cIL = (ImageView) view.findViewById(i.f.tab_widget_more);
+        this.cIN = (SlidingTabLayout) view.findViewById(i.f.tab_widget_sliding_tab);
     }
 
-    public void G(View.OnClickListener onClickListener) {
-        if (this.cBK != null) {
-            this.cBK.setOnClickListener(onClickListener);
+    public void H(View.OnClickListener onClickListener) {
+        if (this.cIL != null) {
+            this.cIL.setOnClickListener(onClickListener);
         }
     }
 
     public void setViewPager(ViewPager viewPager) {
-        if (this.cBM != null) {
-            this.cBM.setViewPager(viewPager);
+        if (this.cIN != null) {
+            this.cIN.setViewPager(viewPager);
         }
     }
 
     public void onChangeSkinType(int i) {
-        al.i(this.rootView, i.c.cp_bg_line_e);
-        al.i((View) this.cBL, i.c.cp_bg_line_e);
-        al.b(this.cBL, i.c.cp_cont_f, 1);
-        if (this.cBP) {
-            al.c(this.cBK, i.e.icon_triangle_down_normal);
+        am.j(this.rootView, i.c.cp_bg_line_e);
+        am.j((View) this.cIM, i.c.cp_bg_line_e);
+        am.b(this.cIM, i.c.cp_cont_f, 1);
+        if (this.cIQ) {
+            am.c(this.cIL, i.e.icon_triangle_down_normal);
         } else {
-            al.c(this.cBK, i.e.icon_triangle_up_normal);
+            am.c(this.cIL, i.e.icon_triangle_up_normal);
         }
-        al.h(this.cBK, i.e.rec_frs_btn_more_selector);
-        if (this.cBM != null) {
-            this.cBM.onChangeSkinType(i);
+        am.i(this.cIL, i.e.rec_frs_btn_more_selector);
+        if (this.cIN != null) {
+            this.cIN.onChangeSkinType(i);
         }
     }
 
-    public void aod() {
-        this.cBP = false;
+    public void aqv() {
+        this.cIQ = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, true));
-        if (this.cBL != null) {
-            this.cBL.clearAnimation();
-            this.cBL.setVisibility(0);
-            this.cBL.startAnimation(getInAnimation());
+        if (this.cIM != null) {
+            this.cIM.clearAnimation();
+            this.cIM.setVisibility(0);
+            this.cIM.startAnimation(getInAnimation());
         }
-        al.c(this.cBK, i.e.icon_triangle_up_normal);
-        this.cBM.setDrawBottomLine(false);
+        am.c(this.cIL, i.e.icon_triangle_up_normal);
+        this.cIN.setDrawBottomLine(false);
     }
 
-    public void aoe() {
-        this.cBP = true;
+    public void aqw() {
+        this.cIQ = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, false));
-        if (this.cBL != null) {
-            this.cBL.clearAnimation();
-            this.cBL.startAnimation(getOutAnimation());
+        if (this.cIM != null) {
+            this.cIM.clearAnimation();
+            this.cIM.startAnimation(getOutAnimation());
         }
-        al.c(this.cBK, i.e.icon_triangle_down_normal);
-        this.cBM.setDrawBottomLine(true);
+        am.c(this.cIL, i.e.icon_triangle_down_normal);
+        this.cIN.setDrawBottomLine(true);
     }
 
     private Animation getInAnimation() {
-        if (this.cBN == null) {
-            this.cBN = AnimationUtils.loadAnimation(this.mContext, i.a.fade_in);
-            this.cBN.setAnimationListener(this.bIS);
+        if (this.cIO == null) {
+            this.cIO = AnimationUtils.loadAnimation(this.mContext, i.a.fade_in);
+            this.cIO.setAnimationListener(this.bLX);
         }
-        return this.cBN;
+        return this.cIO;
     }
 
     private Animation getOutAnimation() {
-        if (this.cBO == null) {
-            this.cBO = AnimationUtils.loadAnimation(this.mContext, i.a.fade_out);
-            this.cBO.setAnimationListener(this.bIS);
+        if (this.cIP == null) {
+            this.cIP = AnimationUtils.loadAnimation(this.mContext, i.a.fade_out);
+            this.cIP.setAnimationListener(this.bLX);
         }
-        return this.cBO;
+        return this.cIP;
     }
 }

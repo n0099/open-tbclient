@@ -10,119 +10,119 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.IMBlackListActivityConfig;
-import com.baidu.tbadk.core.atomData.UserMuteListActivityConfig;
 import com.baidu.tbadk.core.atomData.VoicePasswordVerifyActivityConfig;
 import com.baidu.tbadk.core.atomData.VoiceSettingActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.i;
+import com.baidu.tieba.setting.UserMuteListActivityConfig;
 import com.baidu.tieba.setting.im.more.i;
 import com.baidu.tieba.tbadkCore.data.VoiceCheckResult;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
-    private i cDJ;
-    private a cDK;
-    private VoiceCheckResult cDM;
-    private ArrayList<com.baidu.tbadk.core.dialog.g> cDN;
-    private int cDO;
-    private int cDP;
-    private int cDQ;
-    private com.baidu.tbadk.core.dialog.e cDR;
-    private boolean cDL = false;
-    private i.a cDS = new b(this);
-    private HttpMessageListener cDT = new c(this, CmdConfigHttp.SET_PRIVATE_CMD, true);
-    private com.baidu.adp.framework.listener.a cDU = new e(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
-    private CustomMessageListener cDV = new f(this, CmdConfigCustom.CMD_VOICE_CHECK);
+    private i cKK;
+    private a cKL;
+    private VoiceCheckResult cKN;
+    private ArrayList<com.baidu.tbadk.core.dialog.g> cKO;
+    private int cKP;
+    private int cKQ;
+    private int cKR;
+    private com.baidu.tbadk.core.dialog.e cKS;
+    private boolean cKM = false;
+    private i.a cKT = new b(this);
+    private HttpMessageListener cKU = new c(this, CmdConfigHttp.SET_PRIVATE_CMD, true);
+    private com.baidu.adp.framework.listener.a cKV = new e(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
+    private CustomMessageListener cKW = new f(this, CmdConfigCustom.CMD_VOICE_CHECK);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aoB() {
+    public void aqT() {
         new Handler().postDelayed(new g(this), 500L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aoC() {
-        if (this.cDM.auu()) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoicePasswordVerifyActivityConfig(getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentBduss(), this.cDM.auw(), 230010)));
+    public void aqU() {
+        if (this.cKN.awJ()) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoicePasswordVerifyActivityConfig(getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentBduss(), this.cKN.awL(), 230010)));
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoiceSettingActivityConfig(getPageContext().getPageActivity(), this.cDM.auv(), 230011)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoiceSettingActivityConfig(getPageContext().getPageActivity(), this.cKN.awK(), 230011)));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cDJ = new i(this);
-        this.cDK = new a();
-        this.cDJ.a(this.cDS);
-        if (this.cDK.aov()) {
-            this.cDJ.fH(true);
-            this.cDJ.c(this.cDK);
-            b(this.cDK);
+        this.cKK = new i(this);
+        this.cKL = new a();
+        this.cKK.a(this.cKT);
+        if (this.cKL.aqN()) {
+            this.cKK.fS(true);
+            this.cKK.c(this.cKL);
+            b(this.cKL);
         } else {
-            this.cDJ.fH(false);
+            this.cKK.fS(false);
         }
-        this.cDJ.fI(TbadkCoreApplication.m411getInst().getLocationShared());
-        this.cDJ.fK(TbadkCoreApplication.m411getInst().isVoiceLoginOn(TbadkCoreApplication.getCurrentAccountName()));
-        registerListener(this.cDU);
-        registerListener(this.cDT);
-        registerListener(this.cDV);
-        aoD();
+        this.cKK.fT(TbadkCoreApplication.m411getInst().getLocationShared());
+        this.cKK.fV(TbadkCoreApplication.m411getInst().isVoiceLoginOn(TbadkCoreApplication.getCurrentAccountName()));
+        registerListener(this.cKV);
+        registerListener(this.cKU);
+        registerListener(this.cKW);
+        aqV();
         sendMessage(new PrivateInfoNetMessage());
     }
 
-    private void aoD() {
+    private void aqV() {
         if (!TbadkCoreApplication.m411getInst().isVoiceLoginCanUse()) {
-            this.cDJ.fJ(false);
+            this.cKK.fU(false);
             return;
         }
-        this.cDJ.fJ(true);
+        this.cKK.fU(true);
         sendMessage(new CustomMessage(CmdConfigCustom.CMD_VOICE_CHECK));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(a aVar) {
-        this.cDO = aVar.aoy();
-        this.cDP = aVar.aow();
-        this.cDQ = aVar.Ap();
+        this.cKP = aVar.aqQ();
+        this.cKQ = aVar.aqO();
+        this.cKR = aVar.Aa();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cDJ.onChangeSkinType(i);
+        this.cKK.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         super.onResourceRecycle();
-        this.cDJ.aoM();
+        this.cKK.are();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bc(String str, String str2) {
-        if (this.cDL) {
+        if (this.cKM) {
             if ("group".equals(str)) {
-                this.cDN = jX(this.cDQ);
+                this.cKO = kw(this.cKR);
             } else if ("post".equals(str)) {
-                this.cDN = jX(this.cDP);
+                this.cKO = kw(this.cKQ);
             } else if ("like".equals(str)) {
-                this.cDN = jX(this.cDO);
+                this.cKO = kw(this.cKP);
             }
-            if (this.cDR != null) {
-                this.cDR.dismiss();
+            if (this.cKS != null) {
+                this.cKS.dismiss();
             }
-            this.cDR = new com.baidu.tbadk.core.dialog.e(getPageContext());
-            this.cDR.cv(str2);
-            this.cDR.a(this.cDN, new h(this, str)).cv(str2);
-            this.cDR.sY().sZ();
+            this.cKS = new com.baidu.tbadk.core.dialog.e(getPageContext());
+            this.cKS.cv(str2);
+            this.cKS.a(this.cKO, new h(this, str)).cv(str2);
+            this.cKS.sV().sW();
         }
     }
 
-    private ArrayList<com.baidu.tbadk.core.dialog.g> jX(int i) {
+    private ArrayList<com.baidu.tbadk.core.dialog.g> kw(int i) {
         ArrayList<com.baidu.tbadk.core.dialog.g> arrayList = new ArrayList<>();
         arrayList.add(new com.baidu.tbadk.core.dialog.g(getPageContext().getString(i.h.info_privacy_all), "", i == 1));
         arrayList.add(new com.baidu.tbadk.core.dialog.g(getPageContext().getString(i.h.info_privacy_friend), "", i == 2));
@@ -131,17 +131,17 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aoE() {
+    public void aqW() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_IMBLACK_LIST, new IMBlackListActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aoF() {
+    public void aqX() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_USER_MUTE_LIST_ACTIVITY, new UserMuteListActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Z(String str, int i) {
+    public void ab(String str, int i) {
         PrivacySettingMessage privacySettingMessage = new PrivacySettingMessage(str, i);
         privacySettingMessage.addParam("opt", str);
         privacySettingMessage.addParam("val", String.valueOf(i));
@@ -154,10 +154,10 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         if (i == 230010 && i2 == -1) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoiceSettingActivityConfig(getPageContext().getPageActivity(), intent.getStringExtra(VoicePasswordVerifyActivityConfig.AUTH_SID), 230011)));
         }
-        if (i == 230011 && i2 == -1 && this.cDM != null && !this.cDM.aut()) {
-            this.cDJ.fK(true);
+        if (i == 230011 && i2 == -1 && this.cKN != null && !this.cKN.awI()) {
+            this.cKK.fV(true);
             TbadkCoreApplication.m411getInst().setVoiceLoginOn(true);
-            aoD();
+            aqV();
         }
     }
 
@@ -165,8 +165,8 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.cDR != null) {
-            this.cDR.dismiss();
+        if (this.cKS != null) {
+            this.cKS.dismiss();
         }
     }
 }

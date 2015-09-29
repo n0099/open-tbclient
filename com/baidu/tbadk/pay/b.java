@@ -9,14 +9,14 @@ import com.baidu.tieba.i;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.e {
-    private a axR;
-    private final com.baidu.adp.framework.listener.a axS;
+    private a awq;
+    private final com.baidu.adp.framework.listener.a awr;
 
     public b(BaseActivity<?> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.axS = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.axR = aVar;
-        registerListener(this.axS);
+        this.awr = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
+        this.awq = aVar;
+        registerListener(this.awr);
     }
 
     @Override // com.baidu.adp.base.e
@@ -29,10 +29,10 @@ public class b extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void DM() {
-        if (!e.DN().DO()) {
-            if (this.axR != null) {
-                this.axR.DK();
+    public void Dz() {
+        if (!e.DA().DB()) {
+            if (this.awq != null) {
+                this.awq.Dx();
                 return;
             }
             return;
@@ -50,19 +50,19 @@ public class b extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         if (dataRes == null || dataRes.payType == null) {
-            if (this.axR != null) {
-                this.axR.onError(TbadkCoreApplication.m411getInst().getString(i.h.data_load_error));
+            if (this.awq != null) {
+                this.awq.onError(TbadkCoreApplication.m411getInst().getString(i.h.data_load_error));
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
-            if (this.axR != null) {
-                this.axR.DL();
+            if (this.awq != null) {
+                this.awq.Dy();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
-            if (this.axR != null) {
-                this.axR.DK();
+            if (this.awq != null) {
+                this.awq.Dx();
             }
-        } else if (this.axR != null) {
-            this.axR.onError("");
+        } else if (this.awq != null) {
+            this.awq.onError("");
         }
     }
 }

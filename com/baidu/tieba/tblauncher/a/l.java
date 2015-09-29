@@ -1,29 +1,21 @@
 package com.baidu.tieba.tblauncher.a;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.tblauncher.LeftNaviScanMessage;
+import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements TbImageView.a {
-    final /* synthetic */ d cVQ;
+public class l implements LeftNaviScanMessage.b {
+    final /* synthetic */ e ddy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(d dVar) {
-        this.cVQ = dVar;
+    public l(e eVar) {
+        this.ddy = eVar;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onComplete(String str, boolean z) {
-        AccountData currentAccountObj;
-        c cVar;
-        if (z && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && currentAccountObj.getMemberIconUrl() != null && currentAccountObj.getMemberIconUrl().equals(str)) {
-            cVar = this.cVQ.cVK;
-            cVar.gw(true);
-        }
-    }
-
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
+    @Override // com.baidu.tieba.tblauncher.LeftNaviScanMessage.b
+    public void bv(List<a> list) {
+        com.baidu.tbadk.mvc.g.d dVar;
+        dVar = this.ddy.ddt;
+        dVar.r(list);
     }
 }

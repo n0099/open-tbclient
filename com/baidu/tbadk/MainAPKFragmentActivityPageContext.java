@@ -50,6 +50,7 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFra
         this.activity.registerListener(messageListener);
     }
 
+    @Override // com.baidu.adp.base.h
     public void registerListener(int i, MessageListener<?> messageListener) {
         this.activity.registerListener(i, messageListener);
     }

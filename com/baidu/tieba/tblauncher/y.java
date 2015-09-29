@@ -1,14 +1,11 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.MyLiveActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import android.content.Intent;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class y implements View.OnClickListener {
+public class y implements a.b {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -16,11 +13,13 @@ public class y implements View.OnClickListener {
         this.this$0 = mainTabActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PopupWindow popupWindow;
-        popupWindow = this.this$0.cUm;
-        com.baidu.adp.lib.g.j.a(popupWindow, this.this$0.getPageContext().getPageActivity());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyLiveActivityConfig(this.this$0.getPageContext().getPageActivity())));
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        try {
+            this.this$0.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
+            aVar.dismiss();
+        } catch (Exception e) {
+            this.this$0.showToast(i.h.goto_developActivity_error_toast);
+        }
     }
 }

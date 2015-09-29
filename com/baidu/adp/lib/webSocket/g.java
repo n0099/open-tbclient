@@ -18,9 +18,9 @@ public interface g {
 
         void c(c cVar);
 
-        void c(Map<String, String> map);
+        void d(Map<String, String> map);
 
-        void jx();
+        void jy();
 
         void l(int i, String str);
 

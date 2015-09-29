@@ -77,7 +77,7 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     @Override // com.baidu.adp.framework.b
     /* renamed from: a */
     public void sendMessage(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        com.baidu.adp.lib.util.k.ja();
+        com.baidu.adp.lib.util.k.jb();
         if (socketMessage != null && socketMessageTask != null) {
             if (a(socketMessage, socketMessageTask.fd())) {
                 k.a("queue", socketMessage, 0, "sendMessage", j.ps, "duplicate message be removed");
@@ -274,7 +274,7 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
         if (this.oP != null) {
             this.oP.dW();
         }
-        if (!com.baidu.adp.lib.util.k.jc() || c.f(this.oM) || c.f(this.oL) || c.f(this.oK) || !BdSocketLinkService.isAvailable()) {
+        if (!com.baidu.adp.lib.util.k.jd() || c.f(this.oM) || c.f(this.oL) || c.f(this.oK) || !BdSocketLinkService.isAvailable()) {
             ev();
             return false;
         }
@@ -298,15 +298,15 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.e
-    public void b(Map<String, String> map) {
-        g.et().a(map);
+    public void c(Map<String, String> map) {
+        g.et().b(map);
         if (this.oP != null) {
             this.oP.dX();
         }
         this.oO = true;
         k.a("queue", 0, 0, "onConnected", j.pA, "Queue blocked");
         if (this.oN != null) {
-            this.oN.b(map);
+            this.oN.c(map);
         }
     }
 

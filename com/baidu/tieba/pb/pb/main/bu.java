@@ -1,25 +1,39 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.content.Context;
 import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bu implements View.OnClickListener {
-    final /* synthetic */ br cdH;
-    private final /* synthetic */ int cdL;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.i cdM;
-    private final /* synthetic */ int val$count;
+    private final /* synthetic */ String cgO;
+    private final /* synthetic */ String cgP;
+    private final /* synthetic */ String cgQ;
+    final /* synthetic */ bs cjP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(br brVar, int i, int i2, com.baidu.tieba.tbadkCore.data.i iVar) {
-        this.cdH = brVar;
-        this.cdL = i;
-        this.val$count = i2;
-        this.cdM = iVar;
+    public bu(bs bsVar, String str, String str2, String str3) {
+        this.cjP = bsVar;
+        this.cgO = str;
+        this.cgP = str2;
+        this.cgQ = str3;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cdM.ku(Math.min(this.cdL + 5, this.val$count));
-        this.cdH.notifyDataSetChanged();
+        Context context;
+        Context context2;
+        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.cgO) && !StringUtils.isNull(this.cgP)) {
+            if (com.baidu.adp.lib.util.i.iM()) {
+                context = this.cjP.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.cgO) + "," + this.cgP, this.cgQ, this.cgQ, context.getString(i.h.app_info_for_map));
+                context2 = this.cjP.mContext;
+                com.baidu.tbadk.browser.g.B(context2, format);
+                return;
+            }
+            this.cjP.ciJ.showToast(i.h.neterror);
+        }
     }
 }

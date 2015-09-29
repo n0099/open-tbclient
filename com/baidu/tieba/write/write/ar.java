@@ -8,19 +8,19 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ar implements a.b {
-    final /* synthetic */ WriteActivity ddQ;
+    final /* synthetic */ WriteActivity dpI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(WriteActivity writeActivity) {
-        this.ddQ = writeActivity;
+        this.dpI = writeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         WriteData writeData;
-        EditText azL;
+        EditText aDn;
         WriteData writeData2;
-        EditText azK;
+        EditText aDm;
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
@@ -28,27 +28,27 @@ public class ar implements a.b {
         WriteData writeData6;
         WriteData writeData7;
         aVar.dismiss();
-        writeData = this.ddQ.cTs;
-        azL = this.ddQ.azL();
-        writeData.setTitle(azL.getText().toString());
-        writeData2 = this.ddQ.cTs;
-        azK = this.ddQ.azK();
-        writeData2.setContent(azK.getText().toString());
-        writeData3 = this.ddQ.cTs;
+        writeData = this.dpI.daX;
+        aDn = this.dpI.aDn();
+        writeData.setTitle(aDn.getText().toString());
+        writeData2 = this.dpI.daX;
+        aDm = this.dpI.aDm();
+        writeData2.setContent(aDm.getText().toString());
+        writeData3 = this.dpI.daX;
         int type = writeData3.getType();
         if (type == 0) {
-            writeData6 = this.ddQ.cTs;
+            writeData6 = this.dpI.daX;
             String forumId = writeData6.getForumId();
-            writeData7 = this.ddQ.cTs;
+            writeData7 = this.dpI.daX;
             com.baidu.tieba.tbadkCore.ad.b(forumId, writeData7);
         } else if (type == 1) {
-            writeData4 = this.ddQ.cTs;
+            writeData4 = this.dpI.daX;
             String threadId = writeData4.getThreadId();
-            writeData5 = this.ddQ.cTs;
+            writeData5 = this.dpI.daX;
             com.baidu.tieba.tbadkCore.ad.c(threadId, writeData5);
         }
-        this.ddQ.showToast(i.h.draft_save_success);
-        handler = this.ddQ.mHandler;
+        this.dpI.showToast(i.h.draft_save_success);
+        handler = this.dpI.mHandler;
         handler.postDelayed(new as(this), 1000L);
     }
 }

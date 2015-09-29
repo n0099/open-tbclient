@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ce implements Animation.AnimationListener {
-    final /* synthetic */ cb cgg;
+    final /* synthetic */ cc cly;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ce(cb cbVar) {
-        this.cgg = cbVar;
+    public ce(cc ccVar) {
+        this.cly = ccVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -18,30 +18,20 @@ public class ce implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        boolean z;
-        com.baidu.tbadk.editortools.j jVar;
-        com.baidu.tbadk.editortools.j jVar2;
         View view;
-        boolean z2;
-        z = this.cgg.cfO;
-        if (!z) {
-            jVar = this.cgg.Kz;
-            if (jVar != null) {
-                jVar2 = this.cgg.Kz;
-                jVar2.ov();
-                return;
-            }
-            return;
+        com.baidu.tbadk.editortools.j jVar;
+        View view2;
+        com.baidu.tbadk.editortools.j jVar2;
+        cc ccVar = this.cly;
+        view = this.cly.cld;
+        ccVar.clh = view.getVisibility() == 0;
+        jVar = this.cly.Kz;
+        if (jVar != null) {
+            jVar2 = this.cly.Kz;
+            jVar2.hide();
         }
-        view = this.cgg.cfK;
-        if (view != null) {
-            z2 = this.cgg.cfI;
-            if (z2) {
-                this.cgg.ez(false);
-            } else {
-                this.cgg.eA(false);
-            }
-        }
+        view2 = this.cly.cld;
+        view2.setVisibility(8);
     }
 
     @Override // android.view.animation.Animation.AnimationListener

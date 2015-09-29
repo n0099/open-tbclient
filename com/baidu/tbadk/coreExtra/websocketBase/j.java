@@ -5,37 +5,37 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements g.a {
-    final /* synthetic */ i aox;
+    final /* synthetic */ i amZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.aox = iVar;
+        this.amZ = iVar;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void c(Map<String, String> map) {
+    public void d(Map<String, String> map) {
         int i;
-        i = this.aox.aos;
+        i = this.amZ.amU;
         if (i >= 5) {
             com.baidu.adp.framework.client.socket.k.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + com.baidu.adp.framework.client.socket.j.getUrl());
-            a.zB().eu(com.baidu.adp.framework.client.socket.j.getUrl());
-            a.zB().zF();
+            a.zq().ey(com.baidu.adp.framework.client.socket.j.getUrl());
+            a.zq().zu();
         }
-        this.aox.aos = 0;
+        this.amZ.amU = 0;
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
     public void l(int i, String str) {
         int i2;
         int i3;
-        if ((i == 2 || i == 9) && com.baidu.adp.lib.util.i.iL()) {
-            i iVar = this.aox;
-            i2 = iVar.aos;
-            iVar.aos = i2 + 1;
-            i3 = this.aox.aos;
+        if ((i == 2 || i == 9) && com.baidu.adp.lib.util.i.iM()) {
+            i iVar = this.amZ;
+            i2 = iVar.amU;
+            iVar.amU = i2 + 1;
+            i3 = this.amZ.amU;
             if (i3 >= 5) {
                 com.baidu.adp.framework.client.socket.k.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist");
-                this.aox.zX();
+                this.amZ.zM();
             }
         }
     }
@@ -45,7 +45,7 @@ public class j implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void jx() {
+    public void jy() {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a

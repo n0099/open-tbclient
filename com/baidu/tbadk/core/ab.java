@@ -1,21 +1,19 @@
 package com.baidu.tbadk.core;
-
-import android.content.Context;
-import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements Runnable {
-    private final /* synthetic */ AccountData TP;
-    private final /* synthetic */ Context val$context;
+public class ab implements com.baidu.tbadk.util.d<Boolean> {
+    final /* synthetic */ TbadkCoreApplication Tw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(AccountData accountData, Context context) {
-        this.TP = accountData;
-        this.val$context = context;
+    public ab(TbadkCoreApplication tbadkCoreApplication) {
+        this.Tw = tbadkCoreApplication;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        TbadkCoreApplication.setCurrentAccountInUI(this.TP, this.val$context);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.util.d
+    public void onReturnDataInUI(Boolean bool) {
+        if (bool != null) {
+            this.Tw.mIsOfficial = bool.booleanValue();
+        }
     }
 }

@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class b extends LinearLayout {
-    private View aqW;
-    private boolean aqX;
+    private View apx;
+    private boolean visible;
 
     public b(Context context) {
         super(context);
@@ -16,8 +16,8 @@ public class b extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.aqW != null) {
-            this.aqW.measure(getChildMeasureSpec(i, 0, this.aqW.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.aqW.getLayoutParams().height));
+        if (this.apx != null) {
+            this.apx.measure(getChildMeasureSpec(i, 0, this.apx.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.apx.getLayoutParams().height));
         }
     }
 
@@ -25,29 +25,29 @@ public class b extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         View childAt = getChildAt(0);
-        if (this.aqW != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.aqW.getMeasuredWidth();
-            this.aqW.layout(measuredWidth, 0, this.aqW.getMeasuredWidth() + measuredWidth, this.aqW.getMeasuredHeight());
+        if (this.apx != null && childAt != null) {
+            int measuredWidth = childAt.getMeasuredWidth() - this.apx.getMeasuredWidth();
+            this.apx.layout(measuredWidth, 0, this.apx.getMeasuredWidth() + measuredWidth, this.apx.getMeasuredHeight());
         }
     }
 
     public void setNewView(View view) {
-        this.aqW = view;
+        this.apx = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.aqX) {
+        if (this.visible) {
             canvas.save();
-            canvas.translate(this.aqW.getLeft(), this.aqW.getTop());
-            this.aqW.draw(canvas);
+            canvas.translate(this.apx.getLeft(), this.apx.getTop());
+            this.apx.draw(canvas);
             canvas.restore();
         }
     }
 
     public void setNewViewVisible(boolean z) {
-        this.aqX = z;
+        this.visible = z;
         invalidate();
     }
 }

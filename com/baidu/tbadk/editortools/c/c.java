@@ -6,34 +6,34 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.base.e {
-    private a atr;
+    private a arO;
     private String filename;
 
     public c(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.atr = null;
+        this.arO = null;
         this.filename = null;
     }
 
-    public boolean eR(String str) {
+    public boolean eW(String str) {
         this.filename = str;
         return LoadData();
     }
 
     @Override // com.baidu.adp.base.e
     protected boolean LoadData() {
-        if (this.atr != null) {
-            this.atr.cancel();
+        if (this.arO != null) {
+            this.arO.cancel();
         }
-        this.atr = new a(this.filename);
-        this.atr.execute(new Object[0]);
+        this.arO = new a(this.filename);
+        this.arO.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.atr != null) {
-            this.atr.cancel();
+        if (this.arO != null) {
+            this.arO.cancel();
             return true;
         }
         return true;
@@ -55,14 +55,14 @@ public class c extends com.baidu.adp.base.e {
         /* renamed from: j */
         public Bitmap doInBackground(Object... objArr) {
             if (this.filename != null && !this.filename.equals(TbConfig.IMAGE_RESIZED_FILE)) {
-                com.baidu.tbadk.core.util.n.ad("photos/" + this.filename, TbConfig.IMAGE_RESIZED_FILE);
+                com.baidu.tbadk.core.util.n.ac("photos/" + this.filename, TbConfig.IMAGE_RESIZED_FILE);
             }
-            return com.baidu.tbadk.core.util.c.a(com.baidu.tbadk.core.util.c.g(com.baidu.tbadk.core.util.n.ab(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
+            return com.baidu.tbadk.core.util.c.a(com.baidu.tbadk.core.util.c.g(com.baidu.tbadk.core.util.n.aa(null, TbConfig.IMAGE_RESIZED_FILE)), 5.0f, true);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            c.this.atr = null;
+            c.this.arO = null;
             if (c.this.mLoadDataCallBack != null) {
                 c.this.mLoadDataCallBack.d(null);
             }
@@ -80,7 +80,7 @@ public class c extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            c.this.atr = null;
+            c.this.arO = null;
             if (c.this.mLoadDataCallBack != null) {
                 c.this.mLoadDataCallBack.d(bitmap);
             }

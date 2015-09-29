@@ -1,15 +1,15 @@
 package com.baidu.tieba.imMessageCenter.im.chat;
 /* loaded from: classes.dex */
 class c implements Runnable {
-    final /* synthetic */ PersonalChatActivity bGq;
+    final /* synthetic */ PersonalChatActivity bJv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PersonalChatActivity personalChatActivity) {
-        this.bGq = personalChatActivity;
+        this.bJv = personalChatActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bGq.QK();
+        this.bJv.Rr();
     }
 }

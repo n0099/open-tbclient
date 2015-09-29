@@ -26,9 +26,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.message.UninstallInquirerBySwitchMessage;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.coreExtra.message.UninstallInquirerBySwitchMessage;
 import com.baidu.tbadk.f.a;
 import com.baidu.tbadk.performanceLog.z;
 import com.baidu.tieba.i;
@@ -78,18 +78,18 @@ public class TbadkApplication extends TbadkCoreApplication {
         } else {
             string = resources.getString(i.h.register_tip);
         }
-        boolean z = b.tx().getBoolean("is_domain_qa", false);
+        boolean z = b.tu().getBoolean("is_domain_qa", false);
         boolean isVoiceLoginCanUse = TbadkCoreApplication.m411getInst().isVoiceLoginCanUse();
         if (z) {
             build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(Domain.DOMAIN_QA).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).fastLoginSupport(generateFastLoginFeatures(isVoiceLoginCanUse)).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
         } else {
-            build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.act.b.agB).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).fastLoginSupport(generateFastLoginFeatures(isVoiceLoginCanUse)).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
+            build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.afO).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).fastLoginSupport(generateFastLoginFeatures(isVoiceLoginCanUse)).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
         }
         try {
             SapiAccountManager.getInstance().init(build);
         } catch (Exception e) {
         }
-        z.Eu().A(System.currentTimeMillis() - currentTimeMillis);
+        z.Eh().H(System.currentTimeMillis() - currentTimeMillis);
     }
 
     private FastLoginFeature[] generateFastLoginFeatures(boolean z) {
@@ -115,7 +115,7 @@ public class TbadkApplication extends TbadkCoreApplication {
             initSapi();
         }
         init(getContext());
-        PluginPackageManager.lQ().a(a.EA(), new com.baidu.tbadk.f.c(), String.valueOf(TbConfig.getVersion()) + "." + TbConfig.BUILD_NUMBER, isMainProcess(false));
+        PluginPackageManager.lR().a(a.En(), new com.baidu.tbadk.f.c(), String.valueOf(TbConfig.getVersion()) + ".116", isMainProcess(false));
         initSettings();
         if (isMainProcess(true)) {
             MessageManager.getInstance().dispatchResponsedMessage(new UninstallInquirerBySwitchMessage());
@@ -128,23 +128,23 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
         MessageManager.getInstance().registerListener(this.mMemListener);
         if (this.isRemoteProcess) {
-            z.Eu().G(System.currentTimeMillis() - this.processCreateTime);
+            z.Eh().P(System.currentTimeMillis() - this.processCreateTime);
         }
         if (isMainProcess(true)) {
             NASLib.onAppStart(this);
             NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.3
                 @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                 public void callback(String str, String str2) {
-                    ax.uX().b(null, new String[]{str2});
+                    ay.uV().b(null, new String[]{str2});
                 }
             });
         }
-        z.Eu().y(System.currentTimeMillis());
+        z.Eh().F(System.currentTimeMillis());
     }
 
     private void initSettings() {
         getInst().mViewImageQuality = TbadkSettings.getInst().loadInt("view_image_quality", 0);
-        getInst().setSkinTypeValue(TbadkSettings.getInst().loadInt("skin", 0));
+        getInst().setSkinTypeValue(TbadkSettings.getInst().loadInt("skin_" + TbadkCoreApplication.getCurrentAccount(), 0));
     }
 
     public boolean isSignAlertOn() {
@@ -245,7 +245,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     public void loginShareRemove() {
-        b.tx().remove("account_share");
+        b.tu().remove("account_share");
     }
 
     public String loginShareRead() {
@@ -264,8 +264,9 @@ public class TbadkApplication extends TbadkCoreApplication {
         return mForumName;
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.TbadkCoreApplication
-    protected void initSetting() {
+    public void initSetting() {
         super.initSetting();
         upgradeAbstractOnInMemory(TbadkSettings.getInst().loadInt("new_abstract_state", 0));
     }

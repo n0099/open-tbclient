@@ -49,7 +49,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public ArrayList<T> eR() {
-        k.ja();
+        k.jb();
         ArrayList<T> arrayList = new ArrayList<>();
         int size = this.ql.size();
         for (int i = 0; i < size; i++) {
@@ -65,7 +65,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public void registerListener(int i, MessageListener<N> messageListener) {
-        k.ja();
+        k.jb();
         if (messageListener != null) {
             if ((i == 0 && messageListener.getCmd() == 0) || (i != 0 && messageListener.getCmd() != 0)) {
                 throw new InvalidParameterException("registerListener cmd error");
@@ -88,7 +88,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public void unRegisterListener(MessageListener<?> messageListener) {
-        k.ja();
+        k.jb();
         if (messageListener != null) {
             int cmd = messageListener.getCmd();
             if (cmd == 0) {
@@ -112,7 +112,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public void unRegisterListener(BdUniqueId bdUniqueId) {
-        k.ja();
+        k.jb();
         if (bdUniqueId != null) {
             int size = this.qn.size();
             for (int i = 0; i < size; i++) {
@@ -130,7 +130,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
     }
 
     public boolean d(M m, T t) {
-        k.ja();
+        k.jb();
         if (m == null) {
             return false;
         }
@@ -178,7 +178,7 @@ public abstract class c<M extends Message<?>, T extends MessageTask, R extends f
 
     public void dispatchResponsedMessage(N n) {
         BdUniqueId bdUniqueId;
-        k.ja();
+        k.jb();
         if (n != null) {
             int cmd = n.getCmd();
             Message<?> orginalMessage = n.getOrginalMessage();

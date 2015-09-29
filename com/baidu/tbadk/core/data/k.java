@@ -1,44 +1,55 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
 /* loaded from: classes.dex */
 public class k {
-    private String class_name = null;
-    private int Va = 0;
+    private ArrayList<String> US;
+    private int smsCodeTime = 0;
+    private UserData UQ = new UserData();
+    private AntiData UR = new AntiData();
 
-    public void ci(String str) {
-        this.class_name = str;
+    public k() {
+        this.US = null;
+        this.US = new ArrayList<>();
+        setSmsCodeTime(0);
     }
 
-    public String rI() {
-        return this.class_name;
+    public UserData getUser() {
+        return this.UQ;
     }
 
-    public void bt(int i) {
-        this.Va = i;
+    public AntiData rF() {
+        return this.UR;
     }
 
-    public int rJ() {
-        return this.Va;
+    public void parserJson(String str) {
+        try {
+            parserJson(new JSONObject(str));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 
     public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.Va = jSONObject.optInt("class_id", 0);
-                this.class_name = jSONObject.optString("class_name");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        try {
+            this.UQ.parserJson(jSONObject.optJSONObject("user"));
+            this.UR.parserJson(jSONObject.optJSONObject("anti"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    this.US.add(optJSONArray.optString(i, null));
+                }
             }
+            setSmsCodeTime(jSONObject.optInt("retrytime"));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
-    public void a(Classify classify) {
-        if (classify != null) {
-            this.Va = classify.class_id.intValue();
-            this.class_name = classify.class_name;
-        }
+    public void setSmsCodeTime(int i) {
+        this.smsCodeTime = i;
     }
 }

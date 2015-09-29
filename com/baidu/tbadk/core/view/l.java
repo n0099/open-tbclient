@@ -1,115 +1,37 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.Rect;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
+import android.app.Activity;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.i;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l extends GestureDetector.SimpleOnGestureListener {
-    final /* synthetic */ HorizontalListView aeg;
+public class l implements View.OnClickListener {
+    final /* synthetic */ NavigationBar adH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(HorizontalListView horizontalListView) {
-        this.aeg = horizontalListView;
+    public l(NavigationBar navigationBar) {
+        this.adH = navigationBar;
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
-        return this.aeg.onDown(motionEvent);
-    }
-
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        return this.aeg.onFling(motionEvent, motionEvent2, f, f2);
-    }
-
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        synchronized (this.aeg) {
-            this.aeg.adS += (int) f;
-        }
-        this.aeg.requestLayout();
-        return true;
-    }
-
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnDoubleTapListener
-    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        AdapterView.OnItemClickListener onItemClickListener;
-        AdapterView.OnItemSelectedListener onItemSelectedListener;
-        AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        int i;
-        int i2;
-        AdapterView.OnItemClickListener onItemClickListener2;
-        int i3;
-        int i4;
-        int i5 = 0;
-        while (true) {
-            int i6 = i5;
-            if (i6 < this.aeg.getChildCount()) {
-                View childAt = this.aeg.getChildAt(i6);
-                if (a(motionEvent, childAt)) {
-                    onItemClickListener = this.aeg.adY;
-                    if (onItemClickListener != null) {
-                        onItemClickListener2 = this.aeg.adY;
-                        HorizontalListView horizontalListView = this.aeg;
-                        i3 = this.aeg.adP;
-                        ListAdapter listAdapter = this.aeg.mAdapter;
-                        i4 = this.aeg.adP;
-                        onItemClickListener2.onItemClick(horizontalListView, childAt, i3 + 1 + i6, listAdapter.getItemId(i4 + 1 + i6));
-                    }
-                    onItemSelectedListener = this.aeg.adX;
-                    if (onItemSelectedListener != null) {
-                        onItemSelectedListener2 = this.aeg.adX;
-                        HorizontalListView horizontalListView2 = this.aeg;
-                        i = this.aeg.adP;
-                        ListAdapter listAdapter2 = this.aeg.mAdapter;
-                        i2 = this.aeg.adP;
-                        onItemSelectedListener2.onItemSelected(horizontalListView2, childAt, i + 1 + i6, listAdapter2.getItemId(i2 + 1 + i6));
-                        return true;
-                    }
-                    return true;
-                }
-                i5 = i6 + 1;
-            } else {
-                return true;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        Activity activity;
+        Activity activity2;
+        z = this.adH.mClickIsVaild;
+        if (z) {
+            int id = view.getId();
+            if (id == i.f.navigationBarGoBack) {
+                activity2 = this.adH.mCurrentActivity;
+                activity2.finish();
+            } else if (id == i.f.navigationBarHome) {
+                MessageManager messageManager = MessageManager.getInstance();
+                activity = this.adH.mCurrentActivity;
+                messageManager.dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.START_GO_HOME, activity));
             }
         }
-    }
-
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
-        AdapterView.OnItemLongClickListener onItemLongClickListener;
-        AdapterView.OnItemLongClickListener onItemLongClickListener2;
-        int i;
-        int i2;
-        int childCount = this.aeg.getChildCount();
-        for (int i3 = 0; i3 < childCount; i3++) {
-            View childAt = this.aeg.getChildAt(i3);
-            if (a(motionEvent, childAt)) {
-                onItemLongClickListener = this.aeg.adZ;
-                if (onItemLongClickListener != null) {
-                    onItemLongClickListener2 = this.aeg.adZ;
-                    HorizontalListView horizontalListView = this.aeg;
-                    i = this.aeg.adP;
-                    ListAdapter listAdapter = this.aeg.mAdapter;
-                    i2 = this.aeg.adP;
-                    onItemLongClickListener2.onItemLongClick(horizontalListView, childAt, i + 1 + i3, listAdapter.getItemId(i3 + i2 + 1));
-                    return;
-                }
-                return;
-            }
-        }
-    }
-
-    private boolean a(MotionEvent motionEvent, View view) {
-        Rect rect = new Rect();
-        int[] iArr = new int[2];
-        view.getLocationOnScreen(iArr);
-        int i = iArr[0];
-        int i2 = iArr[1];
-        rect.set(i, i2, view.getWidth() + i, view.getHeight() + i2);
-        return rect.contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY());
     }
 }

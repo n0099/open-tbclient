@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class a {
-    private ConcurrentHashMap<String, ImMessageCenterPojo> bAn = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, ImMessageCenterPojo> bDp = new ConcurrentHashMap<>();
 
     /* renamed from: com.baidu.tieba.im.memorycache.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -15,27 +15,27 @@ public class a {
     }
 
     public void a(InterfaceC0059a interfaceC0059a) {
-        interfaceC0059a.a(this.bAn.values().iterator());
+        interfaceC0059a.a(this.bDp.values().iterator());
     }
 
-    public void Vm() {
-        this.bAn.clear();
+    public void VV() {
+        this.bDp.clear();
     }
 
-    public void b(ImMessageCenterPojo imMessageCenterPojo) {
+    public void d(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            this.bAn.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+            this.bDp.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
         }
     }
 
-    public ImMessageCenterPojo ia(String str) {
+    public ImMessageCenterPojo ie(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.bAn.get(str);
+        return this.bDp.get(str);
     }
 
-    public boolean ib(String str) {
-        return (TextUtils.isEmpty(str) || this.bAn.remove(str) == null) ? false : true;
+    public boolean ig(String str) {
+        return (TextUtils.isEmpty(str) || this.bDp.remove(str) == null) ? false : true;
     }
 }

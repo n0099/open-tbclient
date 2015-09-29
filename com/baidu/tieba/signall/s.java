@@ -12,20 +12,20 @@ import android.widget.ProgressBar;
 import android.widget.Scroller;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.i;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class s extends FrameLayout {
-    private TextView aQl;
-    private boolean cIh;
-    private int cJL;
-    private ImageView cJM;
-    private TextView cJN;
-    private TextView cJO;
-    private Runnable cJP;
-    private Runnable cJQ;
-    private Runnable cJR;
+    private TextView aPh;
+    private boolean cPc;
+    private int cQG;
+    private ImageView cQH;
+    private TextView cQI;
+    private TextView cQJ;
+    private Runnable cQK;
+    private Runnable cQL;
+    private Runnable cQM;
     private int duration;
     private Context mContext;
     private ProgressBar mProgress;
@@ -33,11 +33,11 @@ public class s extends FrameLayout {
 
     public s(Context context) {
         super(context);
-        this.cJL = 0;
+        this.cQG = 0;
         this.duration = 2000;
-        this.cJP = new t(this);
-        this.cJQ = new u(this);
-        this.cJR = new v(this);
+        this.cQK = new t(this);
+        this.cQL = new u(this);
+        this.cQM = new v(this);
         init();
     }
 
@@ -45,11 +45,11 @@ public class s extends FrameLayout {
         this.mContext = getContext();
         LayoutInflater.from(this.mContext).inflate(i.g.signallforum_progress_view, this);
         this.mProgress = (ProgressBar) findViewById(i.f.signallforum_progress);
-        this.cJM = (ImageView) findViewById(i.f.signallforum_icon);
-        this.aQl = (TextView) findViewById(i.f.signallforun_status);
-        this.cJN = (TextView) findViewById(i.f.signallforun_message1);
-        this.cJO = (TextView) findViewById(i.f.signallforun_message2);
-        vE();
+        this.cQH = (ImageView) findViewById(i.f.signallforum_icon);
+        this.aPh = (TextView) findViewById(i.f.signallforun_status);
+        this.cQI = (TextView) findViewById(i.f.signallforun_message1);
+        this.cQJ = (TextView) findViewById(i.f.signallforun_message2);
+        vw();
         this.mScroller = new Scroller(this.mContext, new DecelerateInterpolator());
         BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), i.e.bg_all_sign));
         bitmapDrawable.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
@@ -60,68 +60,68 @@ public class s extends FrameLayout {
     protected void dispatchSetPressed(boolean z) {
     }
 
-    public void vE() {
-        removeCallbacks(this.cJP);
-        removeCallbacks(this.cJQ);
+    public void vw() {
+        removeCallbacks(this.cQK);
+        removeCallbacks(this.cQL);
         TbadkCoreApplication.m411getInst().getSkinType();
-        if (this.cIh) {
+        if (this.cPc) {
             this.mProgress.setProgressDrawable(getResources().getDrawable(i.e.vip_singnallforum_progress));
         } else {
             this.mProgress.setProgressDrawable(getResources().getDrawable(i.e.singnallforum_progress));
         }
-        switch (this.cJL) {
+        switch (this.cQG) {
             case 0:
                 this.mProgress.setClickable(true);
                 this.mProgress.setProgress(0);
                 this.mProgress.setSecondaryProgress(0);
-                if (this.cIh) {
-                    al.h(this.mProgress, i.e.btn_vip_all_sign);
-                    al.c(this.cJM, i.e.icon_vip_sign);
+                if (this.cPc) {
+                    am.i(this.mProgress, i.e.btn_vip_all_sign);
+                    am.c(this.cQH, i.e.icon_vip_sign);
                 } else {
-                    al.h(this.mProgress, i.e.btn_all_sign);
-                    al.c(this.cJM, i.e.icon_all_sign);
+                    am.i(this.mProgress, i.e.btn_all_sign);
+                    am.c(this.cQH, i.e.icon_all_sign);
                 }
-                this.aQl.setText(i.h.signallforum_begin);
+                this.aPh.setText(i.h.signallforum_begin);
                 return;
             case 1:
-                post(this.cJR);
+                post(this.cQM);
                 this.mProgress.setClickable(false);
-                al.h(this.mProgress, i.e.bg_all_sign_conduct);
-                if (this.cIh) {
-                    al.c(this.cJM, i.e.icon_vip_sign);
+                am.i(this.mProgress, i.e.bg_all_sign_conduct);
+                if (this.cPc) {
+                    am.c(this.cQH, i.e.icon_vip_sign);
                 } else {
-                    al.c(this.cJM, i.e.icon_all_sign);
+                    am.c(this.cQH, i.e.icon_all_sign);
                 }
-                this.aQl.setText(i.h.signallforum_ing);
+                this.aPh.setText(i.h.signallforum_ing);
                 int nextInt = ((new Random(System.currentTimeMillis()).nextInt(30) + 50) * this.mProgress.getMax()) / 100;
                 if (nextInt - this.mProgress.getProgress() < 0) {
                     this.mScroller.startScroll(nextInt, 0, this.mProgress.getProgress() - nextInt, 0, this.duration);
                 } else {
                     this.mScroller.startScroll(this.mProgress.getProgress(), 0, nextInt - this.mProgress.getProgress(), 0, this.duration);
                 }
-                post(this.cJP);
+                post(this.cQK);
                 return;
             case 2:
                 this.mProgress.setClickable(true);
-                if (this.cIh) {
-                    al.h(this.mProgress, i.e.bg_vip_sign_ok_d);
-                    al.c(this.cJM, i.e.icon_vip_sign_ok);
+                if (this.cPc) {
+                    am.i(this.mProgress, i.e.bg_vip_sign_ok_d);
+                    am.c(this.cQH, i.e.icon_vip_sign_ok);
                 } else {
-                    al.h(this.mProgress, i.e.bg_all_sign_ok_d);
-                    al.c(this.cJM, i.e.icon_all_sign_ok);
+                    am.i(this.mProgress, i.e.bg_all_sign_ok_d);
+                    am.c(this.cQH, i.e.icon_all_sign_ok);
                 }
                 this.mProgress.setProgress(0);
-                this.aQl.setText(i.h.signallforum_success);
+                this.aPh.setText(i.h.signallforum_success);
                 return;
             case 3:
                 this.mProgress.setClickable(false);
-                if (this.cIh) {
-                    al.c(this.cJM, i.e.icon_vip_sign);
+                if (this.cPc) {
+                    am.c(this.cQH, i.e.icon_vip_sign);
                 } else {
-                    al.c(this.cJM, i.e.icon_all_sign);
+                    am.c(this.cQH, i.e.icon_all_sign);
                 }
-                al.h(this.mProgress, i.e.bg_all_sign_conduct);
-                this.aQl.setText(i.h.can_not_sign);
+                am.i(this.mProgress, i.e.bg_all_sign_conduct);
+                this.aPh.setText(i.h.can_not_sign);
                 return;
             default:
                 return;
@@ -129,21 +129,21 @@ public class s extends FrameLayout {
     }
 
     public int getCurrentStatus() {
-        return this.cJL;
+        return this.cQG;
     }
 
     public void setSigning(int i) {
-        if (this.cJL != 1 && this.cJL == 0) {
+        if (this.cQG != 1 && this.cQG == 0) {
             this.mProgress.setProgress(i);
-            this.cJL = 1;
-            vE();
+            this.cQG = 1;
+            vw();
         }
     }
 
-    public void arB() {
-        if (this.cJL != 2) {
-            this.cJL = 2;
-            vE();
+    public void atP() {
+        if (this.cQG != 2) {
+            this.cQG = 2;
+            vw();
         }
     }
 
@@ -152,19 +152,19 @@ public class s extends FrameLayout {
     }
 
     public ImageView getIcon() {
-        return this.cJM;
+        return this.cQH;
     }
 
     public TextView getmStatus() {
-        return this.aQl;
+        return this.aPh;
     }
 
     public TextView getMessage1() {
-        return this.cJN;
+        return this.cQI;
     }
 
     public TextView getMessage2() {
-        return this.cJO;
+        return this.cQJ;
     }
 
     public int getProgress() {
@@ -176,8 +176,8 @@ public class s extends FrameLayout {
     }
 
     public void setmCurrentStatus(int i) {
-        this.cJL = i;
-        vE();
+        this.cQG = i;
+        vw();
     }
 
     public void setmContext(Context context) {
@@ -189,19 +189,19 @@ public class s extends FrameLayout {
     }
 
     public void setmIcon(ImageView imageView) {
-        this.cJM = imageView;
+        this.cQH = imageView;
     }
 
     public void setmStatus(TextView textView) {
-        this.aQl = textView;
+        this.aPh = textView;
     }
 
     public void setmMessage1(TextView textView) {
-        this.cJN = textView;
+        this.cQI = textView;
     }
 
     public void setmMessage2(TextView textView) {
-        this.cJO = textView;
+        this.cQJ = textView;
     }
 
     public void setmScroller(Scroller scroller) {
@@ -209,19 +209,19 @@ public class s extends FrameLayout {
     }
 
     public void setHasPrivilege(boolean z) {
-        this.cIh = z;
-        vE();
+        this.cPc = z;
+        vw();
     }
 
     public void setProgressAnimation(Runnable runnable) {
-        this.cJP = runnable;
+        this.cQK = runnable;
     }
 
     public void setCheckRunnable(Runnable runnable) {
-        this.cJQ = runnable;
+        this.cQL = runnable;
     }
 
     public void setChangeSizeRunnable(Runnable runnable) {
-        this.cJR = runnable;
+        this.cQM = runnable;
     }
 }

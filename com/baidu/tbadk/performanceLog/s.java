@@ -3,19 +3,19 @@ package com.baidu.tbadk.performanceLog;
 public class s extends r {
     public String Gp;
     public long Gq;
-    public boolean ayR;
+    public boolean axq;
     public boolean isSuccess;
 
-    public void Eg() {
+    public void DT() {
         aa aaVar;
-        if (y.Eo().Ep() && (aaVar = (aa) y.Eo().eA(this.mSubType)) != null) {
+        if (y.Eb().Ec() && (aaVar = (aa) y.Eb().eB(this.mSubType)) != null) {
             aaVar.a(this, "head");
         }
     }
 
-    public void Eh() {
+    public void DU() {
         aa aaVar;
-        if (y.Eo().Ep() && (aaVar = (aa) y.Eo().eA(this.mSubType)) != null) {
+        if (y.Eb().Ec() && (aaVar = (aa) y.Eb().eB(this.mSubType)) != null) {
             aaVar.a(this, "img");
         }
     }

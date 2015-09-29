@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements View.OnClickListener {
-    final /* synthetic */ ReplyLinearLayout cmy;
+    final /* synthetic */ ReplyLinearLayout csb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(ReplyLinearLayout replyLinearLayout) {
-        this.cmy = replyLinearLayout;
+        this.csb = replyLinearLayout;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,11 +24,11 @@ public class ac implements View.OnClickListener {
         boolean z;
         String[] strArr = (String[]) view.getTag();
         if (strArr != null) {
-            Context context = this.cmy.getContext();
+            Context context = this.csb.getContext();
             if (strArr.length < 6 || strArr[5] == null || com.baidu.adp.lib.g.b.g(strArr[5], 0) != 33) {
                 z = false;
             } else if ("0".equals(strArr[3])) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context, strArr[1]).ro()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context, strArr[1]).rk()));
                 z = true;
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(context).createPhotoLiveCommentActivityConfig(strArr[1], strArr[2], false)));

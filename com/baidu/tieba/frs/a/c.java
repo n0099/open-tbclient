@@ -9,10 +9,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.m;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.bd;
+import com.baidu.tieba.frs.bn;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class c extends bd<com.baidu.tbadk.core.data.c, d> {
+public class c extends bn<com.baidu.tbadk.core.data.b, d> {
     public c(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
     }
@@ -20,48 +20,48 @@ public class c extends bd<com.baidu.tbadk.core.data.c, d> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: t */
+    /* renamed from: w */
     public d a(ViewGroup viewGroup) {
         return new d(LayoutInflater.from(this.mContext).inflate(i.g.frs_locality_bar_normal, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bd, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.c cVar, d dVar) {
-        super.a(i, view, viewGroup, (ViewGroup) cVar, (com.baidu.tbadk.core.data.c) dVar);
-        dVar.baI.setPadding(0, i - this.aWC == 0 ? this.aTK : this.aTL, 0, 0);
-        this.aSX.getLayoutMode().ad(this.mSkinType == 1);
-        this.aSX.getLayoutMode().k(view);
-        if (!cVar.Ux && (this.aSX instanceof FrsActivity)) {
-            cVar.Ux = true;
-            ((FrsActivity) this.aSX).a(cVar, "show");
-            ((FrsActivity) this.aSX).b(cVar, "show");
+    @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.b bVar, d dVar) {
+        super.a(i, view, viewGroup, (ViewGroup) bVar, (com.baidu.tbadk.core.data.b) dVar);
+        dVar.baB.setPadding(0, i - this.aTF == 0 ? this.aSG : this.aSH, 0, 0);
+        this.aRT.getLayoutMode().ad(this.mSkinType == 1);
+        this.aRT.getLayoutMode().k(view);
+        if (!bVar.Uj && (this.aRT instanceof FrsActivity)) {
+            bVar.Uj = true;
+            ((FrsActivity) this.aRT).a(bVar, "show");
+            ((FrsActivity) this.aRT).b(bVar, "show");
         }
-        if (m.rb().rd()) {
-            dVar.aIT.setVisibility(0);
-            dVar.aIT.d(cVar.Uw.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+        if (m.qX().qZ()) {
+            dVar.aHL.setVisibility(0);
+            dVar.aHL.d(bVar.Ui.userPortrait, this.mIsFromCDN ? 13 : 14, false);
         } else {
-            dVar.aIT.setVisibility(8);
+            dVar.aHL.setVisibility(8);
         }
-        if (m.rb().rf() && !TextUtils.isEmpty(cVar.Uw.UA)) {
-            dVar.baK.setVisibility(0);
-            dVar.baK.d(cVar.Uw.UA, this.mIsFromCDN ? 30 : 31, false);
+        if (m.qX().rb() && !TextUtils.isEmpty(bVar.Ui.Un)) {
+            dVar.baD.setVisibility(0);
+            dVar.baD.d(bVar.Ui.Un, this.mIsFromCDN ? 30 : 31, false);
         } else {
-            dVar.baK.setVisibility(8);
+            dVar.baD.setVisibility(8);
         }
-        dVar.aPv.setText(cVar.Uw.userName);
-        if (StringUtils.isNull(cVar.Uw.Uz)) {
-            dVar.amV.setVisibility(8);
+        dVar.aDa.setText(bVar.Ui.userName);
+        if (StringUtils.isNull(bVar.Ui.Ul)) {
+            dVar.alt.setVisibility(8);
         } else {
-            dVar.amV.setVisibility(0);
-            dVar.amV.setText(cVar.Uw.Uz);
+            dVar.alt.setVisibility(0);
+            dVar.alt.setText(bVar.Ui.Ul);
         }
-        if (StringUtils.isNull(cVar.Uw.UD)) {
-            dVar.baL.setVisibility(8);
+        if (StringUtils.isNull(bVar.Ui.Uq)) {
+            dVar.baE.setVisibility(8);
         } else {
-            dVar.baL.setVisibility(0);
-            dVar.baL.setText(cVar.Uw.UD);
+            dVar.baE.setVisibility(0);
+            dVar.baE.setText(bVar.Ui.Uq);
         }
         return view;
     }

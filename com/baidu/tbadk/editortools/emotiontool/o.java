@@ -3,35 +3,35 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class o {
-    private EmotionGroupType asg;
-    private int ash;
-    private int asi;
-    private int asj;
-    private int ask;
-    private v asl;
-    private int asm;
-    private int asn;
+    private EmotionGroupType aqG;
+    private int aqH;
+    private int aqI;
+    private int aqJ;
+    private int aqK;
+    private t aqL;
+    private int aqM;
+    private int aqN;
     private int column;
     private int index;
     private int row;
 
-    public void e(v vVar) {
-        this.asl = vVar;
+    public void e(t tVar) {
+        this.aqL = tVar;
     }
 
-    public v Be() {
-        return this.asl;
+    public t AR() {
+        return this.aqL;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.asg = emotionGroupType;
+        this.aqG = emotionGroupType;
     }
 
-    public EmotionGroupType Bf() {
-        return this.asg;
+    public EmotionGroupType AS() {
+        return this.aqG;
     }
 
-    public void ea(int i) {
+    public void eb(int i) {
         this.row = i;
     }
 
@@ -39,48 +39,48 @@ public class o {
         return this.row;
     }
 
-    public void eb(int i) {
+    public void ec(int i) {
         this.column = i;
     }
 
-    public int Bg() {
+    public int AT() {
         return this.column;
     }
 
-    public void ec(int i) {
-        this.asn = i;
-    }
-
-    public int Bh() {
-        return this.asn;
-    }
-
     public void ed(int i) {
-        this.asm = i;
+        this.aqN = i;
     }
 
-    public int Bi() {
-        return this.asm;
+    public int AU() {
+        return this.aqN;
     }
 
     public void ee(int i) {
-        this.ash = i;
+        this.aqM = i;
     }
 
-    public int Bj() {
-        return this.ash;
+    public int AV() {
+        return this.aqM;
     }
 
     public void ef(int i) {
-        this.asj = i;
+        this.aqH = i;
     }
 
-    public int Bk() {
-        return this.asj;
+    public int AW() {
+        return this.aqH;
+    }
+
+    public void eg(int i) {
+        this.aqJ = i;
+    }
+
+    public int AX() {
+        return this.aqJ;
     }
 
     public void setEndIndex(int i) {
-        this.ask = i;
+        this.aqK = i;
     }
 
     public void setIndex(int i) {
@@ -91,11 +91,11 @@ public class o {
         return this.index;
     }
 
-    public void eg(int i) {
-        this.asi = i;
+    public void eh(int i) {
+        this.aqI = i;
     }
 
-    public int Bl() {
-        return this.asi;
+    public int AY() {
+        return this.aqI;
     }
 }

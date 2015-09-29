@@ -16,11 +16,11 @@ import com.baidu.tieba.tbadkCore.writeModel.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements a.d {
-    final /* synthetic */ d atO;
+    final /* synthetic */ d asl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(d dVar) {
-        this.atO = dVar;
+        this.asl = dVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -34,46 +34,46 @@ public class g implements a.d {
         String str;
         com.baidu.tieba.tbadkCore.writeModel.a aVar2;
         if (writeData == null) {
-            aVar2 = this.atO.aty;
-            writeData2 = aVar2.avr();
+            aVar2 = this.asl.arV;
+            writeData2 = aVar2.axE();
         } else {
             writeData2 = writeData;
         }
         if (!z) {
-            if (writeData2 != null && lVar != null && !TextUtils.isEmpty(lVar.wI())) {
+            if (writeData2 != null && lVar != null && !TextUtils.isEmpty(lVar.ws())) {
                 writeData2.setVcodeMD5(lVar.getVcode_md5());
                 writeData2.setVcodeUrl(lVar.getVcode_pic_url());
-                if (lVar.wI().equals("4")) {
+                if (lVar.ws().equals("4")) {
                     MessageManager messageManager = MessageManager.getInstance();
-                    baseActivity2 = this.atO.atD;
+                    baseActivity2 = this.asl.asa;
                     messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(baseActivity2.getActivity(), 12006, writeData2, false)));
                 } else {
                     MessageManager messageManager2 = MessageManager.getInstance();
-                    baseActivity = this.atO.atD;
+                    baseActivity = this.asl.asa;
                     messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(baseActivity.getActivity(), writeData2, 12006)));
                 }
             }
         } else {
-            this.atO.bi(true);
-            aVar = this.atO.aty;
-            WriteData avr = aVar.avr();
-            this.atO.resetData();
-            str = this.atO.mThreadId;
+            this.asl.bg(true);
+            aVar = this.asl.arV;
+            WriteData axE = aVar.axE();
+            this.asl.resetData();
+            str = this.asl.mThreadId;
             ad.c(str, (WriteData) null);
-            if (avr != null) {
-                if (avr != null && avr.getType() == 2) {
-                    ad.a(avr.getThreadId(), this.atO);
+            if (axE != null) {
+                if (axE != null && axE.getType() == 2) {
+                    ad.a(axE.getThreadId(), this.asl);
                 }
-                if (postWriteCallBackData != null && avr != null && avr.getVideoInfo() != null) {
-                    XiaoyingUtil.reportEvent(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), avr.getForumId(), avr.getVideoInfo().getVideoUrl(), avr.getForumName());
+                if (postWriteCallBackData != null && axE != null && axE.getVideoInfo() != null) {
+                    XiaoyingUtil.reportEvent(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), axE.getForumId(), axE.getVideoInfo().getVideoUrl(), axE.getForumName());
                 }
             } else {
                 return;
             }
         }
-        dVar = this.atO.atI;
+        dVar = this.asl.asf;
         if (dVar != null) {
-            dVar2 = this.atO.atI;
+            dVar2 = this.asl.asf;
             dVar2.a(z, postWriteCallBackData, lVar, writeData2, antiData);
         }
     }

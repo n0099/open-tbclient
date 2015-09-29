@@ -1,7 +1,7 @@
 package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonalTalkSettingActivityConfig;
+import com.baidu.tieba.imMessageCenter.PersonalTalkSettingActivityConfig;
 /* loaded from: classes.dex */
 public class PersonalTalkSettingActivityStatic {
     static {

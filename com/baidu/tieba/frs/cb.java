@@ -1,62 +1,65 @@
 package com.baidu.tieba.frs;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tieba.frs.bv;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.frs.db;
 import com.baidu.tieba.i;
-import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class cb extends x.a {
-    public TextView aQj;
-    public LinearLayout aTU;
-    public LinearLayout aTV;
-    public TextView aTW;
-    public PlayVoiceBnt aTX;
-    public FrsCommonImageLayout aTY;
-    public TextView aTZ;
-    public TextView aUa;
-    public UserIconBox aUb;
-    public HeadImageView aUc;
-    public TextView aUf;
-    public TextView aUh;
-    public TextView aUj;
-    public LinearLayout aUl;
-    public LinearLayout aXN;
-    public UserIconBox aXO;
-    public TextView aXP;
-    public bv.a aXQ;
-    public TextView aXR;
-    public View aXS;
-    public int arr;
+public class cb extends com.baidu.adp.widget.ListView.c {
+    private final int aSG;
+    private boolean aWT;
+    private db.a aWU;
+    private View.OnClickListener adX;
+    private Context mContext;
 
-    public cb(View view, int i) {
-        super(view);
-        this.arr = -1;
-        this.aTU = (LinearLayout) view.findViewById(i.f.frs_list);
-        this.aUl = (LinearLayout) view.findViewById(i.f.frs_item_user_info_view);
-        this.aTV = (LinearLayout) view.findViewById(i.f.frs_list_item_top_linear_layout);
-        this.aXN = (LinearLayout) view.findViewById(i.f.new_year_color_egg);
-        this.aUc = (HeadImageView) view.findViewById(i.f.frs_photo);
-        this.aUb = (UserIconBox) view.findViewById(i.f.frs_user_tshow_icon_box);
-        this.aXO = (UserIconBox) view.findViewById(i.f.frs_user_icon_box);
-        this.aUa = (TextView) view.findViewById(i.f.frs_lv_author);
-        this.aTZ = (TextView) view.findViewById(i.f.frs_lv_reply_time);
-        this.aQj = (TextView) view.findViewById(i.f.frs_lv_title);
-        this.aTW = (TextView) view.findViewById(i.f.abstract_text);
-        this.aTX = (PlayVoiceBnt) view.findViewById(i.f.abstract_voice);
-        this.aTY = (FrsCommonImageLayout) view.findViewById(i.f.abstract_img_layout);
-        this.aUf = (TextView) view.findViewById(i.f.frs_praise_num);
-        this.aXP = (TextView) view.findViewById(i.f.action_button);
-        this.aUh = (TextView) view.findViewById(i.f.frs_reply_num);
-        this.aUj = (TextView) view.findViewById(i.f.frs_more_abstract);
-        this.aXR = (TextView) view.findViewById(i.f.frs_item_location_address);
-        this.aXS = view.findViewById(i.f.frs_item_location_sep);
-        this.aTU.setBackgroundResource(i.c.transparent);
-        this.aTU.setPadding(0, i, 0, 0);
+    @Override // com.baidu.adp.widget.ListView.c
+    public View no() {
+        View inflate = LayoutInflater.from(this.mContext).inflate(i.g.frs_item_control, (ViewGroup) null);
+        this.aWU = new db.a();
+        this.aWU.aXV = (FrameLayout) inflate.findViewById(i.f.frs_list_control);
+        this.aWU.aXW = (LinearLayout) inflate.findViewById(i.f.frs_list_control_in);
+        this.aWU.aXY = (ProgressBar) inflate.findViewById(i.f.frs_list_control_progress);
+        this.aWU.aXX = (TextView) inflate.findViewById(i.f.frs_list_control_tv);
+        inflate.setTag(this.aWU);
+        return inflate;
+    }
+
+    public void onChangeSkinType(int i) {
+        if (this.aWU != null) {
+            com.baidu.tbadk.core.util.am.i(this.aWU.aXW, i.e.frs_item_control_bg);
+            com.baidu.tbadk.core.util.am.c(this.aWU.aXX, i);
+        }
+    }
+
+    public void ca(boolean z) {
+        this.aWT = z;
+        this.aWU.aXV.setVisibility(0);
+        this.aWU.aXV.setPadding(0, this.aSG, 0, this.aSG);
+        if (this.aWT) {
+            this.aWU.aXX.setText(i.h.loading);
+            this.aWU.aXY.setVisibility(0);
+        } else {
+            this.aWU.aXX.setText(i.h.frs_next);
+            this.aWU.aXY.setVisibility(8);
+        }
+        onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+    }
+
+    public void m(View.OnClickListener onClickListener) {
+        this.adX = onClickListener;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c
+    public void onClick() {
+        if (this.adX != null) {
+            this.adX.onClick(getView());
+        }
     }
 }

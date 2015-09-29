@@ -3,11 +3,11 @@ package com.baidu.tieba.myCollection.history;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class e implements a.b {
-    final /* synthetic */ c bYt;
+    final /* synthetic */ c ccf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.bYt = cVar;
+        this.ccf = cVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

@@ -1,25 +1,29 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tieba.i;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ SquareSearchActivity bRF;
+public class ag implements View.OnClickListener {
+    final /* synthetic */ SquareSearchActivity bVr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag(SquareSearchActivity squareSearchActivity, int i, boolean z) {
-        super(i, z);
-        this.bRF = squareSearchActivity;
+    public ag(SquareSearchActivity squareSearchActivity) {
+        this.bVr = squareSearchActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        this.bRF.asX = true;
-        if (!(socketResponsedMessage instanceof FRSPageSocketResponsedMessage)) {
-            return;
-        }
-        this.bRF.a(socketResponsedMessage, !((FRSPageSocketResponsedMessage) socketResponsedMessage).hasNetworkError());
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        View view2;
+        FragmentTabIndicator fragmentTabIndicator;
+        FragmentTabIndicator fragmentTabIndicator2;
+        view2 = this.bVr.bUu;
+        view2.setVisibility(8);
+        fragmentTabIndicator = this.bVr.bUl;
+        fragmentTabIndicator.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down_s);
+        fragmentTabIndicator2 = this.bVr.bUl;
+        fragmentTabIndicator2.cP(TbadkCoreApplication.m411getInst().getSkinType());
     }
 }

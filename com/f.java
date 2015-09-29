@@ -23,6 +23,7 @@ import com.baidu.cloudsdk.social.core.util.RequestCodeManager;
 import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.cloudsdk.social.share.SocialShareConfig;
 import com.baidu.cloudsdk.social.share.handler.SocialShareStatisticsManager;
+import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 /* loaded from: classes.dex */
 public class f extends c {
     private String a;
@@ -84,7 +85,7 @@ public class f extends c {
         if (imageUri != null) {
             String realPathFromUri = Utils.getRealPathFromUri((Activity) this.mContext, imageUri);
             if (realPathFromUri.startsWith("file")) {
-                realPathFromUri = realPathFromUri.replace("file://", "");
+                realPathFromUri = realPathFromUri.replace(SkiaImageDecoder.FILE_PREFIX, "");
                 Log.d("QZoneSharehandler", "path= " + realPathFromUri);
             }
             if (!TextUtils.isEmpty(realPathFromUri)) {

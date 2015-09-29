@@ -14,11 +14,11 @@ import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.b {
-    final /* synthetic */ UserMuteAddAndDelModel cXA;
+    final /* synthetic */ UserMuteAddAndDelModel diB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(UserMuteAddAndDelModel userMuteAddAndDelModel) {
-        this.cXA = userMuteAddAndDelModel;
+        this.diB = userMuteAddAndDelModel;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -29,25 +29,25 @@ public class f implements a.b {
         BaseActivity baseActivity2;
         if (Build.VERSION.SDK_INT < 11) {
             aVar.dismiss();
-            baseActivity2 = this.cXA.aSX;
+            baseActivity2 = this.diB.aRT;
             baseActivity2.showToast(i.h.frs_header_games_unavailable);
             return;
         }
         int i = -1;
-        from = this.cXA.cXt;
+        from = this.diB.diu;
         if (from != UserMuteAddAndDelModel.From.PB) {
-            from2 = this.cXA.cXt;
+            from2 = this.diB.diu;
             if (from2 == UserMuteAddAndDelModel.From.PersonInfo) {
-                TiebaStatic.log(m.cXP);
+                TiebaStatic.log("c10038");
                 i = 5;
             }
         } else {
-            TiebaStatic.log(m.cXK);
+            TiebaStatic.log("c10025");
             i = 4;
         }
         aVar.dismiss();
         MessageManager messageManager = MessageManager.getInstance();
-        baseActivity = this.cXA.aSX;
+        baseActivity = this.diB.aRT;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig((Context) baseActivity.getPageContext().getPageActivity(), 2, true, i)));
     }
 }

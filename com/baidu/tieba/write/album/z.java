@@ -1,28 +1,31 @@
 package com.baidu.tieba.write.album;
 
-import android.view.ViewGroup;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.write.album.y;
+import android.view.View;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.write.album.x;
 /* loaded from: classes.dex */
-class z implements com.baidu.tbadk.imageManager.b {
-    private final /* synthetic */ ViewGroup asZ;
-    final /* synthetic */ y cZD;
-    private final /* synthetic */ y.a cZE;
+class z implements View.OnClickListener {
+    final /* synthetic */ x dkB;
+    private final /* synthetic */ x.a dkC;
+    private final /* synthetic */ ImageFileInfo dkD;
+    private final /* synthetic */ int val$position;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(y yVar, ViewGroup viewGroup, y.a aVar) {
-        this.cZD = yVar;
-        this.asZ = viewGroup;
-        this.cZE = aVar;
+    public z(x xVar, x.a aVar, int i, ImageFileInfo imageFileInfo) {
+        this.dkB = xVar;
+        this.dkC = aVar;
+        this.val$position = i;
+        this.dkD = imageFileInfo;
     }
 
-    @Override // com.baidu.tbadk.imageManager.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        HeadImageView headImageView = (HeadImageView) this.asZ.findViewWithTag(str);
-        if (headImageView != null && aVar != null) {
-            headImageView.invalidate();
-        } else {
-            this.cZE.cZI = false;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        v vVar;
+        v vVar2;
+        vVar = this.dkB.dky;
+        if (vVar != null && this.dkC.dkG) {
+            vVar2 = this.dkB.dky;
+            vVar2.a(this.val$position, this.dkD);
         }
     }
 }

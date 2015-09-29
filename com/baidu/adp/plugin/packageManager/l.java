@@ -5,13 +5,13 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements com.baidu.adp.plugin.packageManager.pluginSettings.f {
-    private final /* synthetic */ String DH;
+    private final /* synthetic */ String DI;
     final /* synthetic */ PluginPackageManager this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(PluginPackageManager pluginPackageManager, String str) {
         this.this$0 = pluginPackageManager;
-        this.DH = str;
+        this.DI = str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:6:0x0016, code lost:
@@ -23,20 +23,20 @@ public class l implements com.baidu.adp.plugin.packageManager.pluginSettings.f {
     */
     public void a(PluginSettings pluginSettings) {
         boolean M;
-        this.this$0.Dx = true;
+        this.this$0.Dy = true;
         if (pluginSettings != null) {
             if (pluginSettings != null) {
-                M = this.this$0.M(this.DH, pluginSettings.getContainerVersion());
+                M = this.this$0.M(this.DI, pluginSettings.getContainerVersion());
             }
-            this.this$0.lU();
+            this.this$0.lV();
             if (Build.VERSION.SDK_INT > 10) {
-                this.this$0.lW();
+                this.this$0.lX();
                 return;
             }
             return;
         }
-        this.this$0.Dw = System.currentTimeMillis();
-        this.this$0.lV();
-        this.this$0.lS();
+        this.this$0.Dx = System.currentTimeMillis();
+        this.this$0.lW();
+        this.this$0.lT();
     }
 }

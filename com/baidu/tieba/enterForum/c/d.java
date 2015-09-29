@@ -9,13 +9,13 @@ import tbclient.ForumRecommend.ForumRecommendResIdl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements o.a<byte[]> {
-    final /* synthetic */ c aNk;
-    private final /* synthetic */ com.baidu.tieba.enterForum.b.b aNl;
+    final /* synthetic */ c aMf;
+    private final /* synthetic */ com.baidu.tieba.enterForum.b.b aMg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, com.baidu.tieba.enterForum.b.b bVar) {
-        this.aNk = cVar;
-        this.aNl = bVar;
+        this.aMf = cVar;
+        this.aMg = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,22 +24,22 @@ public class d implements o.a<byte[]> {
     public void onItemGet(String str, byte[] bArr) {
         Handler handler;
         if (bArr != null) {
-            this.aNl.ap(true);
+            this.aMg.ap(true);
             try {
                 ForumRecommendResIdl forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class);
                 if (forumRecommendResIdl.data != null && (forumRecommendResIdl.data instanceof DataRes)) {
-                    this.aNl.a(forumRecommendResIdl.data);
-                    this.aNl.bN(true);
+                    this.aMg.a(forumRecommendResIdl.data);
+                    this.aMg.bK(true);
                 }
             } catch (Exception e) {
-                this.aNl.ap(false);
+                this.aMg.ap(false);
             }
-            if (this.aNl.isSuccess() && !this.aNl.If()) {
-                this.aNl.Ie().Ih();
+            if (this.aMg.isSuccess() && !this.aMg.HZ()) {
+                this.aMg.HY().Ic();
             }
-            BdLog.d("EnterForumTask,TYPE_DB,data.isEmpty=" + this.aNl.isEmpty());
-            handler = this.aNk.mUIHandler;
-            handler.post(new e(this, this.aNl));
+            BdLog.d("EnterForumTask,TYPE_DB,data.isEmpty=" + this.aMg.isEmpty());
+            handler = this.aMf.mUIHandler;
+            handler.post(new e(this, this.aMg));
         }
     }
 }

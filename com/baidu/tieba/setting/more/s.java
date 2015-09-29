@@ -6,9 +6,9 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.SystemHelpSettingActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.setting.SystemHelpSettingActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements r {
@@ -20,7 +20,7 @@ public class s implements r {
     }
 
     @Override // com.baidu.tieba.setting.more.r
-    public void jY(int i) {
+    public void kx(int i) {
         if (i != 0) {
             if (i != 1) {
                 if (i != 2) {
@@ -34,55 +34,55 @@ public class s implements r {
                                             return;
                                         } else if (i != 9) {
                                             if (i == 10) {
-                                                this.this$0.cFT.apJ();
+                                                this.this$0.cMU.asb();
                                                 return;
                                             } else if (i == 12) {
                                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                                                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
                                                 TbadkCoreApplication.m411getInst().deleteAccountAllInfo(currentAccount);
                                                 TbadkCoreApplication.setCurrentAccount(null, this.this$0.getPageContext().getPageActivity());
-                                                com.baidu.tbadk.coreExtra.act.a.we().wj();
+                                                com.baidu.tbadk.coreExtra.a.a.vX().vZ();
                                                 TbadkCoreApplication.m411getInst().onUserChanged();
-                                                com.baidu.tbadk.core.c.b.a(this.this$0.getPageContext().getPageActivity(), 11, false);
+                                                com.baidu.tbadk.core.c.b.b(this.this$0.getPageContext().getPageActivity(), 11, false);
                                                 return;
                                             } else if (i == 11) {
                                                 TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", true);
                                                 BdSocketLinkService.close("exit app");
-                                                com.baidu.tbadk.core.c.b.a(this.this$0.getPageContext().getPageActivity(), 12, false);
+                                                com.baidu.tbadk.core.c.b.b(this.this$0.getPageContext().getPageActivity(), 12, false);
                                                 return;
                                             } else if (i != 13) {
                                                 return;
                                             } else {
-                                                this.this$0.apz();
+                                                this.this$0.arR();
                                                 TiebaStatic.log("c10017");
                                                 return;
                                             }
                                         } else {
-                                            this.this$0.apG();
+                                            this.this$0.arY();
                                             return;
                                         }
                                     }
-                                    this.this$0.apy();
+                                    this.this$0.arQ();
                                     return;
                                 }
                                 this.this$0.goToFeedBack();
                                 return;
                             }
-                            this.this$0.apA();
+                            this.this$0.arS();
                             return;
                         }
-                        this.this$0.apF();
+                        this.this$0.arX();
                         return;
                     }
-                    this.this$0.apB();
+                    this.this$0.arT();
                     return;
                 }
-                this.this$0.apC();
+                this.this$0.arU();
                 return;
             }
-            this.this$0.apD();
+            this.this$0.arV();
             return;
         }
-        this.this$0.apE();
+        this.this$0.arW();
     }
 }

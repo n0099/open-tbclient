@@ -3,11 +3,11 @@ package com.baidu.tieba.myCollection;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class f implements a.b {
-    final /* synthetic */ EditMarkActivity bXF;
+    final /* synthetic */ EditMarkActivity cbr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(EditMarkActivity editMarkActivity) {
-        this.bXF = editMarkActivity;
+        this.cbr = editMarkActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -16,10 +16,10 @@ class f implements a.b {
         com.baidu.tieba.myCollection.baseEditMark.a aVar2;
         com.baidu.tieba.myCollection.baseEditMark.a aVar3;
         aVar.dismiss();
-        jVar = this.bXF.bXC;
-        aVar2 = this.bXF.bXB;
-        jVar.iq(aVar2.getOffset());
-        aVar3 = this.bXF.bXB;
+        jVar = this.cbr.cbo;
+        aVar2 = this.cbr.cbn;
+        jVar.iy(aVar2.getOffset());
+        aVar3 = this.cbr.cbn;
         aVar3.f(true);
     }
 }

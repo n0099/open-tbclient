@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.j;
 /* loaded from: classes.dex */
 class l implements View.OnClickListener {
-    final /* synthetic */ j aEP;
+    final /* synthetic */ j aDU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(j jVar) {
-        this.aEP = jVar;
+        this.aDU = jVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,16 +19,16 @@ class l implements View.OnClickListener {
         TextView textView;
         j.a aVar;
         boolean z2;
-        z = this.aEP.aEO;
+        z = this.aDU.aDT;
         if (z) {
             TiebaStatic.log("c10001");
         } else {
             TiebaStatic.log("c10009");
         }
-        textView = this.aEP.aEB;
+        textView = this.aDU.aDG;
         textView.setEnabled(false);
-        aVar = this.aEP.aEK;
-        z2 = this.aEP.aEp;
-        aVar.bA(z2);
+        aVar = this.aDU.aDP;
+        z2 = this.aDU.aDu;
+        aVar.bx(z2);
     }
 }

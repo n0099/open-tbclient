@@ -24,14 +24,14 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
 
     /* loaded from: classes.dex */
     public static class a {
-        private int XT;
-        private String XU;
+        private int XK;
+        private String XL;
         private int count;
         private String name;
         private String url;
 
         public void setId(int i) {
-            this.XT = i;
+            this.XK = i;
         }
 
         public String getName() {
@@ -59,7 +59,7 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
         }
 
         public void cw(String str) {
-            this.XU = str;
+            this.XL = str;
         }
     }
 }

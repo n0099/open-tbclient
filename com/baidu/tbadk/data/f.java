@@ -1,53 +1,57 @@
 package com.baidu.tbadk.data;
 
+import com.baidu.adp.lib.a.b.a.a.i;
 import org.json.JSONObject;
-import tbclient.PayMemberInfo;
+import tbclient.PrivSets;
 /* loaded from: classes.dex */
-public class f {
-    private int Ub;
-    private int apc;
-    private String expire_remind;
-    private String url;
+public class f extends i {
+    private int anD = 1;
+    private int anE = 1;
+    private int anF = 1;
+    private int anG = 1;
+    private int anH = 1;
 
-    public void parseJson(JSONObject jSONObject) {
+    public int zY() {
+        return this.anD;
+    }
+
+    public int zZ() {
+        return this.anE;
+    }
+
+    public int Aa() {
+        return this.anF;
+    }
+
+    public int Ab() {
+        return this.anG;
+    }
+
+    public int Ac() {
+        return this.anH;
+    }
+
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.apc = jSONObject.optInt("props_id");
-            this.Ub = jSONObject.optInt("end_time", 0);
-            this.url = jSONObject.optString(this.url, "");
-            this.expire_remind = jSONObject.optString("expire_remind");
+            this.anD = jSONObject.optInt("location", 1);
+            this.anE = jSONObject.optInt("like", 1);
+            this.anF = jSONObject.optInt("group", 1);
+            this.anG = jSONObject.optInt("post", 1);
+            this.anH = jSONObject.optInt("friend", 1);
         }
     }
 
-    public void a(PayMemberInfo payMemberInfo) {
-        if (payMemberInfo != null) {
-            if (payMemberInfo.props_id != null) {
-                this.apc = payMemberInfo.props_id.intValue();
+    public void a(PrivSets privSets) {
+        if (privSets != null) {
+            try {
+                this.anD = privSets.location.intValue();
+                this.anE = privSets.like.intValue();
+                this.anF = privSets.group.intValue();
+                this.anG = privSets.post.intValue();
+                this.anH = privSets.friend.intValue();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            if (payMemberInfo.end_time != null) {
-                this.Ub = payMemberInfo.end_time.intValue();
-            }
-            this.url = payMemberInfo.url;
-            this.expire_remind = payMemberInfo.expire_remind;
         }
-    }
-
-    public int Al() {
-        return this.apc;
-    }
-
-    public int rs() {
-        return this.Ub;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public String Am() {
-        return this.expire_remind;
-    }
-
-    public void eB(String str) {
-        this.expire_remind = str;
     }
 }
