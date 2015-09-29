@@ -7,37 +7,37 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.widget.TbViewPager;
 /* loaded from: classes.dex */
 public class BaseViewPager extends TbViewPager implements GestureDetector.OnGestureListener {
+    private a acT;
     private a acU;
-    private a acV;
     private GestureDetector mGestureDetector;
 
     /* loaded from: classes.dex */
     public interface a {
-        void cA(int i);
+        void cC(int i);
     }
 
     public BaseViewPager(Context context) {
         super(context);
         this.mGestureDetector = null;
+        this.acT = null;
         this.acU = null;
-        this.acV = null;
         init();
     }
 
     public BaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mGestureDetector = null;
+        this.acT = null;
         this.acU = null;
-        this.acV = null;
         init();
     }
 
     public void setOnFlipOutListener(a aVar) {
-        this.acU = aVar;
+        this.acT = aVar;
     }
 
     public void setOnScrollOutListener(a aVar) {
-        this.acV = aVar;
+        this.acU = aVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbViewPager, android.support.v4.view.ViewPager, android.view.View
@@ -60,12 +60,12 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.acU != null) {
+        if (this.acT != null) {
             if (f < 0.0f && getAdapter().getCount() == getCurrentItem() + 1) {
-                this.acU.cA(0);
+                this.acT.cC(0);
                 return true;
             } else if (f > 0.0f && getCurrentItem() == 0) {
-                this.acU.cA(1);
+                this.acT.cC(1);
                 return true;
             }
         }
@@ -78,12 +78,12 @@ public class BaseViewPager extends TbViewPager implements GestureDetector.OnGest
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.acV != null) {
+        if (this.acU != null) {
             if (f > 0.0f && getAdapter().getCount() == getCurrentItem() + 1) {
-                this.acV.cA(0);
+                this.acU.cC(0);
                 return true;
             } else if (f < 0.0f && getCurrentItem() == 0) {
-                this.acV.cA(1);
+                this.acU.cC(1);
                 return true;
             }
         }

@@ -6,21 +6,21 @@ import com.baidu.tieba.tbadkCore.ad;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements ad.a {
-    final /* synthetic */ n atY;
+    final /* synthetic */ n asv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(n nVar) {
-        this.atY = nVar;
+        this.asv = nVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.ad.a
     public void a(WriteData writeData) {
         String str;
         if (writeData != null && !StringUtils.isNull(writeData.getContent())) {
-            this.atY.att = writeData.getContent();
-            n nVar = this.atY;
-            str = this.atY.att;
-            nVar.fb(str);
+            this.asv.arQ = writeData.getContent();
+            n nVar = this.asv;
+            str = this.asv.arQ;
+            nVar.fg(str);
         }
     }
 }

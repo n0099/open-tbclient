@@ -19,6 +19,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -27,22 +28,23 @@ import java.lang.ref.SoftReference;
 /* loaded from: classes.dex */
 public class c {
     public static final Object Gl = new Object();
-    private static volatile SparseArray<SoftReference<Bitmap>> xQ = new SparseArray<>();
-    private static volatile SparseArray<SoftReference<Bitmap>> Zb = new SparseArray<>();
+    private static volatile SparseArray<SoftReference<Bitmap>> xR = new SparseArray<>();
+    private static volatile SparseArray<SoftReference<Bitmap>> YU = new SparseArray<>();
+    private static volatile SparseArray<SoftReference<Bitmap>> YV = new SparseArray<>();
 
     public static synchronized Bitmap a(int i, BitmapFactory.Options options) {
         Bitmap bitmap;
         synchronized (c.class) {
-            SoftReference<Bitmap> softReference = xQ.get(i);
+            SoftReference<Bitmap> softReference = xR.get(i);
             bitmap = softReference != null ? softReference.get() : null;
             if (bitmap == null && (bitmap = a(TbadkCoreApplication.m411getInst().getApp(), i, options)) != null) {
-                xQ.put(i, new SoftReference<>(bitmap));
+                xR.put(i, new SoftReference<>(bitmap));
             }
         }
         return bitmap;
     }
 
-    public static synchronized Bitmap cd(int i) {
+    public static synchronized Bitmap cf(int i) {
         Bitmap a;
         synchronized (c.class) {
             a = a(i, new BitmapFactory.Options());
@@ -53,7 +55,7 @@ public class c {
     public static synchronized Bitmap a(Resources resources, int i, int i2, BitmapFactory.Options options) {
         Bitmap bitmap;
         synchronized (c.class) {
-            SoftReference<Bitmap> softReference = Zb.get(i2);
+            SoftReference<Bitmap> softReference = YU.get(i2);
             bitmap = softReference != null ? softReference.get() : null;
             if (bitmap == null) {
                 try {
@@ -62,24 +64,51 @@ public class c {
                     TbadkCoreApplication.m411getInst().onAppMemoryLow();
                 }
                 if (bitmap != null) {
-                    Zb.put(i2, new SoftReference<>(bitmap));
+                    YU.put(i2, new SoftReference<>(bitmap));
                 }
             }
         }
         return bitmap;
     }
 
-    public static synchronized void ce(int i) {
+    public static synchronized Bitmap b(Resources resources, int i, int i2, BitmapFactory.Options options) {
+        Bitmap bitmap;
         synchronized (c.class) {
-            xQ.remove(i);
-            Zb.remove(i);
+            SoftReference<Bitmap> softReference = YV.get(i2);
+            bitmap = softReference != null ? softReference.get() : null;
+            if (bitmap == null) {
+                try {
+                    bitmap = BitmapFactory.decodeResource(resources, i, options);
+                } catch (OutOfMemoryError e) {
+                    TbadkCoreApplication.m411getInst().onAppMemoryLow();
+                }
+                if (bitmap != null) {
+                    YV.put(i2, new SoftReference<>(bitmap));
+                }
+            }
+        }
+        return bitmap;
+    }
+
+    public static synchronized void cg(int i) {
+        synchronized (c.class) {
+            xR.remove(i);
+            YU.remove(i);
+            YV.remove(i);
         }
     }
 
-    public static synchronized void iu() {
+    public static synchronized void iv() {
         synchronized (c.class) {
-            xQ.clear();
-            Zb.clear();
+            xR.clear();
+            YU.clear();
+            YV.clear();
+        }
+    }
+
+    public static synchronized void ty() {
+        synchronized (c.class) {
+            YV.clear();
         }
     }
 
@@ -353,19 +382,19 @@ public class c {
             synchronized (Gl) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream cM = n.cM(str);
-                BitmapFactory.decodeStream(cM, null, options);
+                InputStream cO = n.cO(str);
+                BitmapFactory.decodeStream(cO, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.o.d(cM);
+                com.baidu.adp.lib.util.o.d(cO);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream cM2 = n.cM(str);
-                        decodeStream = BitmapFactory.decodeStream(cM2, null, options);
-                        com.baidu.adp.lib.util.o.d(cM2);
+                        InputStream cO2 = n.cO(str);
+                        decodeStream = BitmapFactory.decodeStream(cO2, null, options);
+                        com.baidu.adp.lib.util.o.d(cO2);
                     }
                 }
             }
@@ -507,7 +536,7 @@ public class c {
         return a(bArr, (StringBuilder) null);
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [595=4, 628=5, 629=5, 630=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [650=4, 683=5, 684=5, 685=5] */
     public static Bitmap a(byte[] bArr, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -604,7 +633,7 @@ public class c {
         return bitmap2;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [648=4, 675=5, 676=5, 677=5, 679=5, 681=5, 682=5, 683=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [730=5, 731=5, 732=5, 734=5, 736=5, 737=5, 738=5, 703=4] */
     public static Bitmap a(byte[] bArr, Rect rect, StringBuilder sb) {
         boolean z;
         Bitmap bitmap;
@@ -791,7 +820,7 @@ public class c {
         try {
             switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
                 case 3:
-                    return 180;
+                    return SubsamplingScaleImageView.ORIENTATION_180;
                 case 4:
                 case 5:
                 case 7:
@@ -800,7 +829,7 @@ public class c {
                 case 6:
                     return 90;
                 case 8:
-                    return 270;
+                    return SubsamplingScaleImageView.ORIENTATION_270;
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -832,7 +861,7 @@ public class c {
         return createBitmap;
     }
 
-    public static int cf(int i) {
+    public static int ch(int i) {
         switch (i) {
             case 1:
                 return i.e.icon_grade_lv1;
@@ -875,7 +904,7 @@ public class c {
         }
     }
 
-    public static int cg(int i) {
+    public static int ci(int i) {
         switch (i) {
             case 1:
                 return i.e.icon_small_grade_lv1;

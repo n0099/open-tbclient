@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.view.MorePopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad implements View.OnTouchListener {
-    final /* synthetic */ t chq;
+    final /* synthetic */ t cmM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(t tVar) {
-        this.chq = tVar;
+        this.cmM = tVar;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -26,28 +26,28 @@ public class ad implements View.OnTouchListener {
         MorePopupWindow morePopupWindow8;
         int x = (int) motionEvent.getX();
         int y = (int) motionEvent.getY();
-        morePopupWindow = this.chq.cbP;
+        morePopupWindow = this.cmM.cif;
         if (morePopupWindow.getContentView() == null) {
             return false;
         }
-        morePopupWindow2 = this.chq.cbP;
+        morePopupWindow2 = this.cmM.cif;
         int top = morePopupWindow2.getContentView().getTop();
-        morePopupWindow3 = this.chq.cbP;
+        morePopupWindow3 = this.cmM.cif;
         int right = morePopupWindow3.getContentView().getRight();
-        morePopupWindow4 = this.chq.cbP;
+        morePopupWindow4 = this.cmM.cif;
         int bottom = morePopupWindow4.getContentView().getBottom();
         if (motionEvent.getAction() == 4 && x > right && y > top && y < bottom) {
-            morePopupWindow6 = this.chq.cbP;
+            morePopupWindow6 = this.cmM.cif;
             if (morePopupWindow6.isShowing()) {
-                morePopupWindow7 = this.chq.cbP;
-                newSubPbActivity = this.chq.cgZ;
+                morePopupWindow7 = this.cmM.cif;
+                newSubPbActivity = this.cmM.cmv;
                 com.baidu.adp.lib.g.j.a(morePopupWindow7, newSubPbActivity.getPageContext().getPageActivity());
-                morePopupWindow8 = this.chq.cbP;
+                morePopupWindow8 = this.cmM.cif;
                 morePopupWindow8.setIsIntercepted(true);
                 return true;
             }
         }
-        morePopupWindow5 = this.chq.cbP;
+        morePopupWindow5 = this.cmM.cif;
         morePopupWindow5.setIsIntercepted(false);
         return false;
     }

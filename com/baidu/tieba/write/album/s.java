@@ -1,29 +1,47 @@
 package com.baidu.tieba.write.album;
 
-import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements View.OnClickListener {
-    final /* synthetic */ r cZu;
-    private final /* synthetic */ ImageFileInfo cZv;
+public class s implements com.baidu.tbadk.imageManager.b {
+    final /* synthetic */ q dks;
+    private final /* synthetic */ ImageFileInfo dkt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(r rVar, ImageFileInfo imageFileInfo) {
-        this.cZu = rVar;
-        this.cZv = imageFileInfo;
+    public s(q qVar, ImageFileInfo imageFileInfo) {
+        this.dks = qVar;
+        this.dkt = imageFileInfo;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        AlbumActivity albumActivity;
-        AlbumActivity albumActivity2;
-        AlbumActivity albumActivity3;
-        albumActivity = this.cZu.cYB;
-        albumActivity.d(this.cZv);
-        albumActivity2 = this.cZu.cYB;
-        albumActivity2.c(this.cZv, false);
-        albumActivity3 = this.cZu.cYB;
-        albumActivity3.d(this.cZv, false);
+    @Override // com.baidu.tbadk.imageManager.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
+        LinearLayout linearLayout;
+        LinearLayout linearLayout2;
+        LinearLayout linearLayout3;
+        LinearLayout linearLayout4;
+        TbImageView a;
+        if (aVar != null) {
+            linearLayout = this.dks.dkj;
+            int childCount = linearLayout.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                linearLayout2 = this.dks.dkj;
+                if (linearLayout2.getChildAt(i) != null) {
+                    linearLayout3 = this.dks.dkj;
+                    if (linearLayout3.getChildAt(i) instanceof FrameLayout) {
+                        linearLayout4 = this.dks.dkj;
+                        a = this.dks.a((FrameLayout) linearLayout4.getChildAt(i));
+                        if (a != null && a.getTag() != null && a.getTag().equals(this.dkt.toCachedKey(false))) {
+                            aVar.a(a);
+                            return;
+                        }
+                    } else {
+                        continue;
+                    }
+                }
+            }
+        }
     }
 }

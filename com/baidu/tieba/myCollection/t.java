@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends CustomMessageListener {
-    final /* synthetic */ p bXY;
+    final /* synthetic */ p cbK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(p pVar, int i) {
         super(i);
-        this.bXY = pVar;
+        this.cbK = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,9 +21,9 @@ public class t extends CustomMessageListener {
         u uVar;
         if (customResponsedMessage.getData() instanceof Bundle) {
             Bundle bundle = (Bundle) customResponsedMessage.getData();
-            if (bundle.getInt(com.baidu.tbadk.b.b.FRAGMENT_TYPE, -1) == this.bXY.getType()) {
+            if (bundle.getInt(com.baidu.tbadk.b.b.FRAGMENT_TYPE, -1) == this.cbK.getType()) {
                 boolean z = bundle.getBoolean(com.baidu.tbadk.b.b.EDITOR_STATE_EXTRA, false);
-                uVar = this.bXY.bXX;
+                uVar = this.cbK.cbJ;
                 uVar.changeEditState(z);
             }
         }

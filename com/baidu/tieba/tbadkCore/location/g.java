@@ -6,13 +6,13 @@ import com.baidu.tieba.tbadkCore.location.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends CustomMessageListener {
-    final /* synthetic */ d cSP;
+    final /* synthetic */ d dau;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(d dVar, int i) {
         super(i);
-        this.cSP = dVar;
+        this.dau = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,21 +25,21 @@ public class g extends CustomMessageListener {
         if (customResponsedMessage instanceof ResponsedSelectLocation) {
             ResponsedSelectLocation responsedSelectLocation = (ResponsedSelectLocation) customResponsedMessage;
             if (responsedSelectLocation.isShowLocation()) {
-                this.cSP.gl(false);
-                this.cSP.bg(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
-                bVar3 = this.cSP.cSJ;
+                this.dau.gv(false);
+                this.dau.bg(responsedSelectLocation.getName(), responsedSelectLocation.getScreatString());
+                bVar3 = this.dau.dan;
                 if (bVar3 != null) {
-                    bVar4 = this.cSP.cSJ;
-                    bVar4.eX(responsedSelectLocation.getName());
+                    bVar4 = this.dau.dan;
+                    bVar4.fc(responsedSelectLocation.getName());
                     return;
                 }
                 return;
             }
-            this.cSP.gl(true);
-            bVar = this.cSP.cSJ;
+            this.dau.gv(true);
+            bVar = this.dau.dan;
             if (bVar != null) {
-                bVar2 = this.cSP.cSJ;
-                bVar2.BT();
+                bVar2 = this.dau.dan;
+                bVar2.BG();
             }
         }
     }

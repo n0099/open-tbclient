@@ -8,12 +8,12 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.setting.more.AboutActivity;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e<AboutActivity> {
-    private C0070a cEr;
+    private C0073a cLs;
     private Context mContext;
 
     public a(AboutActivity aboutActivity, com.baidu.adp.base.g gVar) {
@@ -29,31 +29,31 @@ public class a extends com.baidu.adp.base.e<AboutActivity> {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.cEr != null) {
-            this.cEr.cancel();
+        if (this.cLs != null) {
+            this.cLs.cancel();
             return false;
         }
         return false;
     }
 
-    public void aoO() {
-        if (this.cEr == null) {
-            this.cEr = new C0070a(this, null);
+    public void arg() {
+        if (this.cLs == null) {
+            this.cLs = new C0073a(this, null);
         }
-        this.cEr.setPriority(3);
-        this.cEr.execute(new String[0]);
+        this.cLs.setPriority(3);
+        this.cLs.execute(new String[0]);
     }
 
     /* renamed from: com.baidu.tieba.setting.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0070a extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.c.e> {
-        v Tv;
+    private class C0073a extends BdAsyncTask<String, Integer, com.baidu.tbadk.coreExtra.d.d> {
+        w Th;
 
-        private C0070a() {
-            this.Tv = null;
+        private C0073a() {
+            this.Th = null;
         }
 
-        /* synthetic */ C0070a(a aVar, C0070a c0070a) {
+        /* synthetic */ C0073a(a aVar, C0073a c0073a) {
             this();
         }
 
@@ -66,57 +66,57 @@ public class a extends com.baidu.adp.base.e<AboutActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: z */
-        public com.baidu.tbadk.coreExtra.c.e doInBackground(String... strArr) {
-            com.baidu.tbadk.coreExtra.c.e eVar;
+        /* renamed from: y */
+        public com.baidu.tbadk.coreExtra.d.d doInBackground(String... strArr) {
+            com.baidu.tbadk.coreExtra.d.d dVar;
             Exception e;
             try {
-                this.Tv = new v(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_SYNC_ADDRESS);
-                this.Tv.o("_os_version", Build.VERSION.RELEASE);
+                this.Th = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GET_SYNC_ADDRESS);
+                this.Th.o("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
                 stringBuffer.append(String.valueOf(k.K(TbadkCoreApplication.m411getInst().getApp())));
                 stringBuffer.append(",");
                 stringBuffer.append(String.valueOf(k.L(TbadkCoreApplication.m411getInst().getApp())));
-                this.Tv.o("_phone_screen", stringBuffer.toString());
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.xw().xz() > 0) {
-                    this.Tv.o("_msg_status", "0");
+                this.Th.o("_phone_screen", stringBuffer.toString());
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.xh().xk() > 0) {
+                    this.Th.o("_msg_status", "0");
                 } else {
-                    this.Tv.o("_msg_status", "1");
+                    this.Th.o("_msg_status", "1");
                 }
                 String packageName = TbadkCoreApplication.m411getInst().getPackageName();
-                this.Tv.o("package", packageName);
-                this.Tv.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m411getInst().getVersionCode())).toString());
-                this.Tv.o("signmd5", as.b(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.Tv.o("md5", UtilHelper.getTiebaApkMd5());
-                String tI = this.Tv.tI();
-                if (!this.Tv.uj().va().qZ()) {
+                this.Th.o("package", packageName);
+                this.Th.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m411getInst().getVersionCode())).toString());
+                this.Th.o("signmd5", at.b(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.Th.o("md5", UtilHelper.getTiebaApkMd5());
+                String tG = this.Th.tG();
+                if (!this.Th.uh().uY().qV()) {
                     return null;
                 }
-                eVar = new com.baidu.tbadk.coreExtra.c.e();
+                dVar = new com.baidu.tbadk.coreExtra.d.d();
                 try {
-                    eVar.parserJson(tI);
-                    if (TbadkCoreApplication.getClientId() == null && eVar.yd().getClientId() != null && eVar.yd().getClientId().length() > 0) {
-                        TbadkCoreApplication.saveClientId(a.this.mContext, eVar.yd().getClientId());
-                        TbadkCoreApplication.setClientId(eVar.yd().getClientId());
-                        return eVar;
+                    dVar.parserJson(tG);
+                    if (TbadkCoreApplication.getClientId() == null && dVar.xN().getClientId() != null && dVar.xN().getClientId().length() > 0) {
+                        TbadkCoreApplication.saveClientId(a.this.mContext, dVar.xN().getClientId());
+                        TbadkCoreApplication.setClientId(dVar.xN().getClientId());
+                        return dVar;
                     }
-                    return eVar;
+                    return dVar;
                 } catch (Exception e2) {
                     e = e2;
                     BdLog.e(e.getMessage());
-                    return eVar;
+                    return dVar;
                 }
             } catch (Exception e3) {
-                eVar = null;
+                dVar = null;
                 e = e3;
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            a.this.cEr = null;
-            if (this.Tv != null) {
-                this.Tv.gJ();
+            a.this.cLs = null;
+            if (this.Th != null) {
+                this.Th.gJ();
             }
             super.cancel(true);
         }
@@ -125,10 +125,10 @@ public class a extends com.baidu.adp.base.e<AboutActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
-        public void onPostExecute(com.baidu.tbadk.coreExtra.c.e eVar) {
-            super.onPostExecute(eVar);
-            a.this.cEr = null;
-            a.this.mLoadDataCallBack.d(eVar);
+        public void onPostExecute(com.baidu.tbadk.coreExtra.d.d dVar) {
+            super.onPostExecute(dVar);
+            a.this.cLs = null;
+            a.this.mLoadDataCallBack.d(dVar);
         }
     }
 }

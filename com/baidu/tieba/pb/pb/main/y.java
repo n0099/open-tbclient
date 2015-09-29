@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements c.b {
-    final /* synthetic */ PbActivity ccj;
+    final /* synthetic */ PbActivity ciz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(PbActivity pbActivity) {
-        this.ccj = pbActivity;
+        this.ciz = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -21,44 +21,44 @@ public class y implements c.b {
         String str2;
         String str3;
         String str4;
-        bk bkVar;
+        bl blVar;
         String str5;
         String str6;
         String str7;
-        bk bkVar2;
+        bl blVar2;
         String str8;
         if (i == 0) {
-            TiebaStatic.eventStat(this.ccj.getPageContext().getPageActivity(), "pb_phone_call", "call");
-            PbActivity pbActivity = this.ccj;
-            str6 = this.ccj.cbt;
-            pbActivity.cbt = str6.trim();
-            Activity pageActivity = this.ccj.getPageContext().getPageActivity();
-            str7 = this.ccj.cbt;
+            TiebaStatic.eventStat(this.ciz.getPageContext().getPageActivity(), "pb_phone_call", "call");
+            PbActivity pbActivity = this.ciz;
+            str6 = this.ciz.chI;
+            pbActivity.chI = str6.trim();
+            Activity pageActivity = this.ciz.getPageContext().getPageActivity();
+            str7 = this.ciz.chI;
             UtilHelper.callPhone(pageActivity, str7);
-            bkVar2 = this.ccj.cbG;
-            String threadID = bkVar2.getThreadID();
-            str8 = this.ccj.cbt;
+            blVar2 = this.ciz.chV;
+            String threadID = blVar2.getThreadID();
+            str8 = this.ciz.chI;
             new a(threadID, str8, "1").start();
             cVar.dismiss();
         } else if (i == 1) {
-            TiebaStatic.eventStat(this.ccj.getPageContext().getPageActivity(), "pb_phone_sms", "sms");
-            PbActivity pbActivity2 = this.ccj;
-            str3 = this.ccj.cbt;
-            pbActivity2.cbt = str3.trim();
-            Activity pageActivity2 = this.ccj.getPageContext().getPageActivity();
-            str4 = this.ccj.cbt;
+            TiebaStatic.eventStat(this.ciz.getPageContext().getPageActivity(), "pb_phone_sms", "sms");
+            PbActivity pbActivity2 = this.ciz;
+            str3 = this.ciz.chI;
+            pbActivity2.chI = str3.trim();
+            Activity pageActivity2 = this.ciz.getPageContext().getPageActivity();
+            str4 = this.ciz.chI;
             UtilHelper.smsPhone(pageActivity2, str4);
-            bkVar = this.ccj.cbG;
-            String threadID2 = bkVar.getThreadID();
-            str5 = this.ccj.cbt;
+            blVar = this.ciz.chV;
+            String threadID2 = blVar.getThreadID();
+            str5 = this.ciz.chI;
             new a(threadID2, str5, "2").start();
             cVar.dismiss();
         } else if (i == 2) {
-            PbActivity pbActivity3 = this.ccj;
-            str = this.ccj.cbt;
-            pbActivity3.cbt = str.trim();
-            Activity pageActivity3 = this.ccj.getPageContext().getPageActivity();
-            str2 = this.ccj.cbt;
+            PbActivity pbActivity3 = this.ciz;
+            str = this.ciz.chI;
+            pbActivity3.chI = str.trim();
+            Activity pageActivity3 = this.ciz.getPageContext().getPageActivity();
+            str2 = this.ciz.chI;
             UtilHelper.startBaiDuBar(pageActivity3, str2);
             cVar.dismiss();
         }

@@ -1,15 +1,15 @@
 package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 /* loaded from: classes.dex */
 class o implements Runnable {
-    final /* synthetic */ FloatingPersonalChatActivity bJh;
+    final /* synthetic */ FloatingPersonalChatActivity bMm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(FloatingPersonalChatActivity floatingPersonalChatActivity) {
-        this.bJh = floatingPersonalChatActivity;
+        this.bMm = floatingPersonalChatActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bJh.QK();
+        this.bMm.Rr();
     }
 }

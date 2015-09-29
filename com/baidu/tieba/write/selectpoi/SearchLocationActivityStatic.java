@@ -6,20 +6,20 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.tbadkCore.location.LocationSearchHttpResponsedMessage;
-import com.baidu.tieba.tbadkCore.location.LocationSearchResponseMessage;
+import com.baidu.tieba.write.data.LocationSearchHttpResponsedMessage;
+import com.baidu.tieba.write.data.LocationSearchResponseMessage;
 /* loaded from: classes.dex */
 public class SearchLocationActivityStatic {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_SEARCH_LOCATION_PAGE, new g());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        ayz();
+        aBG();
         com.baidu.tieba.tbadkCore.a.a.c(303018, LocationSearchResponseMessage.class, false);
     }
 
-    public static void ayz() {
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, com.baidu.tieba.tbadkCore.a.a.ab(TbConfig.GET_SUGGEST_LOCATION_BY_NAME, 303018));
+    public static void aBG() {
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUGGESTLOCSTION_BY_NAME, com.baidu.tieba.tbadkCore.a.a.ad(TbConfig.GET_SUGGEST_LOCATION_BY_NAME, 303018));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

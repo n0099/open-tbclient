@@ -4,42 +4,42 @@ import com.baidu.location.LocationClientOption;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public int SD = 300;
-    public int SE = 5000;
-    public int SF = 10000;
-    public int SG = 1500;
-    public int SH = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
-    public int SI = 6000;
-    public boolean SJ = true;
+    public int Sp = 300;
+    public int Sq = 5000;
+    public int Sr = 10000;
+    public int Ss = 1500;
+    public int St = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+    public int Su = 6000;
+    public boolean Sv = true;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 int optInt = jSONObject.optInt("wifiSlow", -1);
                 if (optInt > 0) {
-                    this.SD = optInt;
+                    this.Sp = optInt;
                 }
                 int optInt2 = jSONObject.optInt("threeGSlow", -1);
                 if (optInt2 > 0) {
-                    this.SE = optInt2;
+                    this.Sq = optInt2;
                 }
                 int optInt3 = jSONObject.optInt("twoGSlow", -1);
                 if (optInt3 > 0) {
-                    this.SF = optInt3;
+                    this.Sr = optInt3;
                 }
                 int optInt4 = jSONObject.optInt("wifiLog", -1);
                 if (optInt4 > 0) {
-                    this.SG = optInt4;
+                    this.Ss = optInt4;
                 }
                 int optInt5 = jSONObject.optInt("threeGLog", -1);
                 if (optInt5 > 0) {
-                    this.SH = optInt5;
+                    this.St = optInt5;
                 }
                 int optInt6 = jSONObject.optInt("twoGLog", -1);
                 if (optInt6 > 0) {
-                    this.SI = optInt6;
+                    this.Su = optInt6;
                 }
-                this.SJ = jSONObject.optInt("mobile_cdn_switch", 1) == 1;
+                this.Sv = jSONObject.optInt("mobile_cdn_switch", 1) == 1;
             } catch (Exception e) {
             }
         }

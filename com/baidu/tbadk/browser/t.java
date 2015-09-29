@@ -7,14 +7,14 @@ import com.baidu.tbadk.download.DownloadMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends CustomMessageListener {
-    final /* synthetic */ XiubaTbJsBridge SB;
-    private boolean SC;
+    final /* synthetic */ XiubaTbJsBridge Sn;
+    private boolean So;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(XiubaTbJsBridge xiubaTbJsBridge, int i) {
         super(i);
-        this.SB = xiubaTbJsBridge;
+        this.Sn = xiubaTbJsBridge;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,16 +26,16 @@ public class t extends CustomMessageListener {
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                         if (downloadData.getStatus() == 5) {
-                            if (!this.SC) {
-                                this.SC = true;
-                                this.SB.callDownloadListener(1);
+                            if (!this.So) {
+                                this.So = true;
+                                this.Sn.callDownloadListener(1);
                             }
                         } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
-                            this.SB.callDownloadListener(2);
-                            this.SC = false;
-                        } else if (downloadData.getStatus() == 2) {
-                            this.SB.callDownloadListener(0);
-                            this.SC = false;
+                            this.Sn.callDownloadListener(2);
+                            this.So = false;
+                        } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
+                            this.Sn.callDownloadListener(0);
+                            this.So = false;
                         }
                     }
                 }

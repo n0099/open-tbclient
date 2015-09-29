@@ -1,61 +1,44 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import org.json.JSONObject;
-import tbclient.FrsPage.Banner;
+import tbclient.FrsPage.Classify;
 /* loaded from: classes.dex */
 public class j {
-    private int UX;
-    private String UY;
-    private String UZ;
-    private int mType;
-    private String mValue;
+    private String class_name = null;
+    private int UO = 0;
 
-    public int rG() {
-        return this.UX;
+    public void ci(String str) {
+        this.class_name = str;
     }
 
-    public String rH() {
-        return this.UY;
+    public String rD() {
+        return this.class_name;
     }
 
-    public String getValue() {
-        return this.mValue;
+    public void bt(int i) {
+        this.UO = i;
     }
 
-    public int getType() {
-        return this.mType;
+    public int rE() {
+        return this.UO;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.UX = jSONObject.optInt("bannerType");
-                this.UY = jSONObject.optString("bannerUrl");
-                this.mValue = jSONObject.optString("value");
-                this.mType = jSONObject.optInt("type");
-                this.UZ = jSONObject.optString("desc");
+                this.UO = jSONObject.optInt("class_id", 0);
+                this.class_name = jSONObject.optString("class_name");
             } catch (Exception e) {
-                BdLog.e(e.toString());
+                BdLog.e(e.getMessage());
             }
         }
     }
 
-    public void a(Banner banner) {
-        if (banner != null) {
-            this.UX = banner.banner_type.intValue();
-            this.UY = banner.banner_url;
-            this.mValue = banner.value;
-            this.mType = banner.type.intValue();
-            this.UZ = banner.desc;
+    public void a(Classify classify) {
+        if (classify != null) {
+            this.UO = classify.class_id.intValue();
+            this.class_name = classify.class_name;
         }
-    }
-
-    public boolean isValid() {
-        if (StringUtils.isNull(this.mValue)) {
-            return false;
-        }
-        return this.mType == 1 ? this.UX == 1 || this.UX == 4 || this.UX == 2 || this.UX == 3 : this.mType == 2 && !StringUtils.isNull(this.UZ);
     }
 }

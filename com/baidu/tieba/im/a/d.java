@@ -6,11 +6,11 @@ import com.baidu.adp.framework.MessageManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends Handler {
-    final /* synthetic */ c bAm;
+    final /* synthetic */ c bDo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.bAm = cVar;
+        this.bDo = cVar;
     }
 
     @Override // android.os.Handler
@@ -19,82 +19,82 @@ public class d extends Handler {
         Handler handler2;
         Handler handler3;
         Handler handler4;
-        long Vl;
+        long VU;
         Handler handler5;
         Handler handler6;
-        long Vj;
+        long VS;
         Handler handler7;
         Handler handler8;
         Handler handler9;
-        long Vl2;
+        long VU2;
         Handler handler10;
         Handler handler11;
         Handler handler12;
-        long Vj2;
+        long VS2;
         Handler handler13;
-        boolean Vh;
+        boolean VQ;
         Handler handler14;
         Handler handler15;
-        long Vj3;
+        long VS3;
         if (message.what == 2) {
-            handler13 = this.bAm.mHandler;
+            handler13 = this.bDo.mHandler;
             handler13.removeMessages(2);
-            Vh = this.bAm.Vh();
-            if (Vh) {
-                this.bAm.wM = System.currentTimeMillis();
+            VQ = this.bDo.VQ();
+            if (VQ) {
+                this.bDo.wN = System.currentTimeMillis();
                 if (MessageManager.getInstance().getSocketClient().isValid()) {
-                    this.bAm.Ve();
+                    this.bDo.VN();
                 }
             }
-            handler14 = this.bAm.mHandler;
-            handler15 = this.bAm.mHandler;
+            handler14 = this.bDo.mHandler;
+            handler15 = this.bDo.mHandler;
             Message obtainMessage = handler15.obtainMessage(2);
-            Vj3 = this.bAm.Vj();
-            handler14.sendMessageDelayed(obtainMessage, Vj3);
+            VS3 = this.bDo.VS();
+            handler14.sendMessageDelayed(obtainMessage, VS3);
         }
         if (message.what == 1) {
-            handler10 = this.bAm.mHandler;
+            handler10 = this.bDo.mHandler;
             handler10.removeMessages(2);
-            this.bAm.wM = System.currentTimeMillis();
+            this.bDo.wN = System.currentTimeMillis();
             if (MessageManager.getInstance().getSocketClient().isValid()) {
-                this.bAm.Ve();
+                this.bDo.VN();
             }
-            handler11 = this.bAm.mHandler;
-            handler12 = this.bAm.mHandler;
+            handler11 = this.bDo.mHandler;
+            handler12 = this.bDo.mHandler;
             Message obtainMessage2 = handler12.obtainMessage(2);
-            Vj2 = this.bAm.Vj();
-            handler11.sendMessageDelayed(obtainMessage2, Vj2);
+            VS2 = this.bDo.VS();
+            handler11.sendMessageDelayed(obtainMessage2, VS2);
         }
         if (message.what == 3) {
-            handler7 = this.bAm.mHandler;
+            handler7 = this.bDo.mHandler;
             handler7.removeMessages(3);
-            this.bAm.Vd();
-            handler8 = this.bAm.mHandler;
-            handler9 = this.bAm.mHandler;
+            this.bDo.VM();
+            handler8 = this.bDo.mHandler;
+            handler9 = this.bDo.mHandler;
             Message obtainMessage3 = handler9.obtainMessage(3);
-            Vl2 = this.bAm.Vl();
-            handler8.sendMessageDelayed(obtainMessage3, Vl2);
+            VU2 = this.bDo.VU();
+            handler8.sendMessageDelayed(obtainMessage3, VU2);
         }
         if (message.what == 4) {
-            handler = this.bAm.mHandler;
+            handler = this.bDo.mHandler;
             handler.removeMessages(3);
-            handler2 = this.bAm.mHandler;
+            handler2 = this.bDo.mHandler;
             handler2.removeMessages(2);
-            this.bAm.wM = System.currentTimeMillis();
-            this.bAm.Vd();
+            this.bDo.wN = System.currentTimeMillis();
+            this.bDo.VM();
             if (MessageManager.getInstance().getSocketClient().isValid()) {
-                this.bAm.Ve();
+                this.bDo.VN();
             }
-            handler3 = this.bAm.mHandler;
-            handler4 = this.bAm.mHandler;
+            handler3 = this.bDo.mHandler;
+            handler4 = this.bDo.mHandler;
             Message obtainMessage4 = handler4.obtainMessage(3);
-            Vl = this.bAm.Vl();
-            handler3.sendMessageDelayed(obtainMessage4, Vl);
-            handler5 = this.bAm.mHandler;
-            handler6 = this.bAm.mHandler;
+            VU = this.bDo.VU();
+            handler3.sendMessageDelayed(obtainMessage4, VU);
+            handler5 = this.bDo.mHandler;
+            handler6 = this.bDo.mHandler;
             Message obtainMessage5 = handler6.obtainMessage(2);
-            Vj = this.bAm.Vj();
-            handler5.sendMessageDelayed(obtainMessage5, Vj);
+            VS = this.bDo.VS();
+            handler5.sendMessageDelayed(obtainMessage5, VS);
         }
     }
 }

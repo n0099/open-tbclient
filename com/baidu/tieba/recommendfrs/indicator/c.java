@@ -3,19 +3,19 @@ package com.baidu.tieba.recommendfrs.indicator;
 import android.view.View;
 /* loaded from: classes.dex */
 class c implements View.OnClickListener {
-    final /* synthetic */ ScrollFragmentTabHost cBJ;
+    final /* synthetic */ ScrollFragmentTabHost cIK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ScrollFragmentTabHost scrollFragmentTabHost) {
-        this.cBJ = scrollFragmentTabHost;
+        this.cIK = scrollFragmentTabHost;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.cBJ.anY()) {
-            this.cBJ.aoa();
+        if (this.cIK.aqq()) {
+            this.cIK.aqs();
         } else {
-            this.cBJ.anZ();
+            this.cIK.aqr();
         }
     }
 }

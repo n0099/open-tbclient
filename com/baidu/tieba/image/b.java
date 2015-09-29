@@ -1,95 +1,90 @@
 package com.baidu.tieba.image;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.i;
+import com.baidu.tieba.tbadkCore.ag;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b {
-    private n bLC;
-    private ArrayList<com.baidu.tieba.tbadkCore.data.b> bLD;
-    private Context mContext;
-    private String bLB = null;
-    private String imageUrl = null;
-    private String aDf = null;
-    private String aDg = null;
-    private int width = 0;
-    private int height = 0;
-    private String bLE = null;
-    private String bLF = null;
-    private String userName = null;
-    private String userID = null;
-    private int index = -1;
+public class b implements View.OnClickListener {
+    final /* synthetic */ a bOD;
 
-    public b(Context context) {
-        this.bLC = null;
-        this.bLD = null;
-        this.mContext = null;
-        this.mContext = context;
-        this.bLC = new n();
-        this.bLD = new ArrayList<>();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(a aVar) {
+        this.bOD = aVar;
     }
 
-    public String getImageUrl() {
-        return this.imageUrl;
-    }
-
-    public String getImageID() {
-        return this.bLB;
-    }
-
-    public int getWidth() {
-        return this.width;
-    }
-
-    public int getHeight() {
-        return this.height;
-    }
-
-    public int getIndex() {
-        return this.index;
-    }
-
-    public String Fs() {
-        return this.aDg;
-    }
-
-    public void paserJson(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        try {
-            this.bLE = jSONObject.optString("post_id");
-            this.userName = jSONObject.optString("user_name");
-            this.userID = jSONObject.optString("user_id");
-            this.bLF = jSONObject.optString("comment_amount");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
-            this.index = jSONObject.optInt(ImageViewerConfig.INDEX, -1);
-            if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.bLB = optJSONObject.optString("id");
-                this.imageUrl = optJSONObject.optString("url");
-                this.width = optJSONObject.optInt("width", 0);
-                this.height = optJSONObject.optInt("height", 0);
-                this.aDf = optJSONObject.optString("cdn_src", "");
-                if (this.aDf == null || this.aDf.length() == 0) {
-                    this.aDf = this.imageUrl;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        com.baidu.tbadk.core.data.b bVar;
+        i iVar;
+        com.baidu.tbadk.core.data.b bVar2;
+        com.baidu.tbadk.core.data.b bVar3;
+        com.baidu.tbadk.core.data.b bVar4;
+        com.baidu.tbadk.core.data.b bVar5;
+        com.baidu.tbadk.core.data.b bVar6;
+        com.baidu.tbadk.core.data.b bVar7;
+        TbPageContext tbPageContext;
+        i iVar2;
+        com.baidu.tbadk.core.data.b bVar8;
+        com.baidu.tbadk.core.data.b bVar9;
+        com.baidu.tbadk.core.data.b bVar10;
+        TbPageContext tbPageContext2;
+        i iVar3;
+        com.baidu.tbadk.core.data.b bVar11;
+        TbPageContext tbPageContext3;
+        com.baidu.tbadk.core.data.b bVar12;
+        bVar = this.bOD.bOx;
+        if (bVar != null) {
+            iVar = this.bOD.bOA;
+            iVar.aac();
+            bVar2 = this.bOD.bOx;
+            int i = bVar2.TT;
+            if (i == 0) {
+                if (!com.baidu.adp.lib.util.i.iM() || com.baidu.adp.lib.util.i.iN()) {
+                    iVar2 = this.bOD.bOA;
+                    iVar2.aab();
+                    bVar8 = this.bOD.bOx;
+                    String str = bVar8.TV;
+                    if (StringUtils.isNull(str)) {
+                        tbPageContext3 = this.bOD.mContext;
+                        str = tbPageContext3.getString(i.h.app_name);
+                    }
+                    bVar9 = this.bOD.bOx;
+                    String str2 = bVar9.TZ;
+                    bVar10 = this.bOD.bOx;
+                    k kVar = new k(str2, bVar10.TY, str);
+                    tbPageContext2 = this.bOD.mContext;
+                    if (ag.a(tbPageContext2.getPageActivity(), kVar, 0)) {
+                        iVar3 = this.bOD.bOA;
+                        bVar11 = this.bOD.bOx;
+                        iVar3.iO(bVar11.TZ);
+                        return;
+                    }
+                    return;
                 }
-                this.aDg = optJSONObject.optString("big_cdn_src", null);
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("descr");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    com.baidu.tieba.tbadkCore.data.b bVar = new com.baidu.tieba.tbadkCore.data.b();
-                    bVar.parserJson(optJSONArray.optJSONObject(i));
-                    this.bLD.add(bVar);
+                a aVar = this.bOD;
+                bVar12 = this.bOD.bOx;
+                aVar.b(bVar12);
+            } else if (i == 2) {
+                com.baidu.tbadk.download.b An = com.baidu.tbadk.download.b.An();
+                bVar3 = this.bOD.bOx;
+                if (An.eI(bVar3.TZ)) {
+                    bVar5 = this.bOD.bOx;
+                    String str3 = bVar5.TZ;
+                    bVar6 = this.bOD.bOx;
+                    String str4 = bVar6.TY;
+                    bVar7 = this.bOD.bOx;
+                    k kVar2 = new k(str3, str4, bVar7.TV);
+                    tbPageContext = this.bOD.mContext;
+                    ag.a(tbPageContext.getPageActivity(), kVar2);
+                    return;
                 }
+                bVar4 = this.bOD.bOx;
+                bVar4.TT = 0;
+                this.bOD.ZN();
             }
-            this.bLC.setContent(this.bLD);
-            if (this.mContext != null) {
-                this.bLC.aB(this.mContext);
-            }
-        } catch (Exception e) {
-            BdLog.detailException(e);
         }
     }
 }

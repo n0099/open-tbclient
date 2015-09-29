@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements AdapterView.OnItemClickListener {
-    final /* synthetic */ AccountActivity aFg;
+    final /* synthetic */ AccountActivity aEl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AccountActivity accountActivity) {
-        this.aFg = accountActivity;
+        this.aEl = accountActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.account.AccountActivity */
@@ -24,14 +24,14 @@ public class e implements AdapterView.OnItemClickListener {
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         AccountData accountData;
-        if (this.aFg.aFa.getItemId(i) >= 0) {
-            if (!this.aFg.aFa.Gb() && (accountData = (AccountData) this.aFg.aFa.getItem(i)) != null && accountData.getIsActive() != 1) {
+        if (this.aEl.aEf.getItemId(i) >= 0) {
+            if (!this.aEl.aEf.FV() && (accountData = (AccountData) this.aEl.aEf.getItem(i)) != null && accountData.getIsActive() != 1) {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_ACCOUNT, TbadkCoreApplication.getCurrentAccount()));
-                this.aFg.l(accountData);
+                this.aEl.j(accountData);
                 return;
             }
             return;
         }
-        TbadkCoreApplication.m411getInst().login(this.aFg.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.aFg.getPageContext().getPageActivity())));
+        TbadkCoreApplication.m411getInst().login(this.aEl.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.aEl.getPageContext().getPageActivity())));
     }
 }

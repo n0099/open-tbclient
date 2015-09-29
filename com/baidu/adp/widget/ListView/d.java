@@ -18,11 +18,11 @@ public abstract class d {
 
     public abstract void T(boolean z);
 
-    public abstract View nn();
-
-    public abstract void no();
+    public abstract View no();
 
     public abstract void np();
+
+    public abstract void nq();
 
     public d(Context context) {
         this.mContext = null;
@@ -38,7 +38,7 @@ public abstract class d {
 
     public final View getView() {
         if (this.mView == null) {
-            this.mView = nn();
+            this.mView = no();
             if (this.mView == null) {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
@@ -79,7 +79,7 @@ public abstract class d {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int nq() {
+    public int nr() {
         return this.Hm;
     }
 }

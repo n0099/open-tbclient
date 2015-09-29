@@ -1,22 +1,25 @@
 package com.baidu.tieba.tblauncher.a;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f implements a.b {
-    final /* synthetic */ d cVQ;
+public class f extends CustomMessageListener {
+    final /* synthetic */ e ddy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public f(d dVar) {
-        this.cVQ = dVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f(e eVar, int i) {
+        super(i);
+        this.ddy = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        TiebaStatic.log("c10073");
-        aVar.dismiss();
-        com.baidu.tbadk.core.c.b.a(TbadkCoreApplication.m411getInst(), 12, false);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001274) {
+            return;
+        }
+        this.ddy.ayc();
     }
 }

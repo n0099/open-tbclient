@@ -1,11 +1,9 @@
 package com.baidu.tieba.tblauncher;
 
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.PopupWindow;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z implements View.OnTouchListener {
+public class z implements a.b {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,14 +11,9 @@ public class z implements View.OnTouchListener {
         this.this$0 = mainTabActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        PopupWindow popupWindow;
-        if (motionEvent.getAction() == 4) {
-            popupWindow = this.this$0.cUm;
-            com.baidu.adp.lib.g.j.a(popupWindow);
-            return false;
-        }
-        return false;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+        this.this$0.ayk();
     }
 }

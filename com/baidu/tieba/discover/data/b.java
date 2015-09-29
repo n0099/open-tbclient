@@ -1,34 +1,33 @@
 package com.baidu.tieba.discover.data;
 
 import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.util.g;
 import java.util.HashMap;
 import tbclient.FoundNew.DataReq;
 import tbclient.FoundNew.FoundNewReqIdl;
 /* loaded from: classes.dex */
 public class b implements h {
-    private long aLQ;
+    private long aKI;
 
-    public void Q(long j) {
-        this.aLQ = j;
+    public void Z(long j) {
+        this.aKI = j;
     }
 
-    public long HO() {
-        return this.aLQ;
+    public long HI() {
+        return this.aKI;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> oW() {
+    public HashMap<String, Object> oX() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
     public Object aa(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.timestamp = Long.valueOf(this.aLQ);
+        builder.timestamp = Long.valueOf(this.aKI);
         FoundNewReqIdl.Builder builder2 = new FoundNewReqIdl.Builder();
         builder2.data = builder.build(false);
-        g.a(builder2.data, true);
+        com.baidu.tbadk.util.h.a(builder2.data, true);
         return builder2.build(false);
     }
 }

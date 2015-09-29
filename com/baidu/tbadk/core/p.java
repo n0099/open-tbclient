@@ -1,9 +1,21 @@
 package com.baidu.tbadk.core;
+
+import android.content.Context;
+import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements com.baidu.adp.framework.client.socket.link.g {
-    @Override // com.baidu.adp.framework.client.socket.link.g
-    public void eO() {
-        com.baidu.tbadk.util.c.EJ().a(new q(this));
+public class p implements Runnable {
+    private final /* synthetic */ AccountData Tx;
+    private final /* synthetic */ Context val$context;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public p(AccountData accountData, Context context) {
+        this.Tx = accountData;
+        this.val$context = context;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        TbadkCoreApplication.setCurrentAccountInUI(this.Tx, this.val$context);
     }
 }

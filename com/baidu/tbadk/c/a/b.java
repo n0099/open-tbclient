@@ -9,14 +9,14 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private ArrayList<com.baidu.tbadk.c.a.a> apr;
+    private ArrayList<com.baidu.tbadk.c.a.a> anQ;
     private Context mContext;
 
     /* loaded from: classes.dex */
     private class a {
-        public TextView amV;
-        public HeadImageView aps;
-        public TextView apt;
+        public TextView alt;
+        public HeadImageView anR;
+        public TextView anS;
     }
 
     public Context getContext() {
@@ -24,25 +24,25 @@ public class b extends BaseAdapter {
     }
 
     public void a(com.baidu.tbadk.c.a.a aVar) {
-        if (this.apr != null && aVar != null) {
-            this.apr.add(aVar);
+        if (this.anQ != null && aVar != null) {
+            this.anQ.add(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.apr == null) {
+        if (this.anQ == null) {
             return 0;
         }
-        return this.apr.size();
+        return this.anQ.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: dK */
+    /* renamed from: dL */
     public com.baidu.tbadk.c.a.a getItem(int i) {
-        if (this.apr != null && i < this.apr.size()) {
-            return this.apr.get(i);
+        if (this.anQ != null && i < this.anQ.size()) {
+            return this.anQ.get(i);
         }
         return null;
     }
@@ -56,9 +56,9 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view != null) {
             a aVar = (a) view.getTag();
-            aVar.aps.setImageResource(this.apr.get(i).At());
-            aVar.amV.setText(this.apr.get(i).Au());
-            aVar.apt.setText(i);
+            aVar.anR.setImageResource(this.anQ.get(i).Ae());
+            aVar.alt.setText(this.anQ.get(i).Af());
+            aVar.anS.setText(i);
             return view;
         }
         return null;

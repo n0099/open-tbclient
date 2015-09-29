@@ -1,143 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.i;
-import com.baidu.tieba.pb.pb.sub.SubPbLayout;
-import com.baidu.tieba.pb.view.BaobaoTailView;
-import com.baidu.tieba.tbadkCore.FrsPraiseView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bv extends x.a {
-    public TextView aIV;
-    UserIconBox aUb;
-    public UserIconBox bcI;
-    public View cdN;
-    public View cdO;
-    public View cdP;
-    public View cdQ;
-    public View cdR;
-    public HeadImageView cdS;
-    public ImageView cdT;
-    public ImageView cdU;
-    public TextView cdV;
-    public TextView cdW;
-    public ImageView cdX;
-    public ImageView cdY;
-    public TbRichTextView cdZ;
-    public TextView cea;
-    public TbRichTextView ceb;
-    public View cec;
-    public FrsPraiseView ced;
-    public ImageView cee;
-    public RelativeLayout cef;
-    public LinearLayout ceg;
-    public ImageView ceh;
-    public SubPbLayout cei;
-    public BaobaoTailView cej;
-    public LinearLayout cek;
-    public TextView cel;
-    public LinearLayout cem;
-    public Button cen;
-    public LinearLayout ceo;
-    public TextView cep;
-    public View ceq;
-    public View cer;
-    public LinearLayout ces;
-    public ImageView cet;
-    public TextView ceu;
-    public LinearLayout cev;
-    public ImageView cew;
-    public TextView cex;
-    public TextView cey;
+public class bv implements View.OnClickListener {
+    private final /* synthetic */ int cgR;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.k cgS;
+    final /* synthetic */ bs cjP;
+    private final /* synthetic */ int val$count;
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [132=5] */
-    public bv(View view, boolean z, boolean z2, int i, boolean z3) {
-        super(view);
-        this.cdR = view.findViewById(i.f.sub_pb_more);
-        this.cdS = (HeadImageView) view.findViewById(i.f.photo);
-        this.aIV = (TextView) view.findViewById(i.f.user_name);
-        this.cdT = (ImageView) view.findViewById(i.f.user_rank);
-        this.cdU = (ImageView) view.findViewById(i.f.user_gender);
-        this.cdY = (ImageView) view.findViewById(i.f.reply);
-        this.cdZ = (TbRichTextView) view.findViewById(i.f.richText);
-        this.cea = (TextView) view.findViewById(i.f.pb_act_btn);
-        this.ceb = (TbRichTextView) view.findViewById(i.f.pb_act_img);
-        this.cec = view.findViewById(i.f.pb_item_praise_topline);
-        this.ced = (FrsPraiseView) view.findViewById(i.f.pb_item_praise_view);
-        this.cee = (ImageView) view.findViewById(i.f.pb_item_praise_bottomline);
-        this.ces = (LinearLayout) view.findViewById(i.f.pb_item_location_container);
-        this.ceu = (TextView) view.findViewById(i.f.pb_item_location_address);
-        this.cet = (ImageView) view.findViewById(i.f.pb_item_location_img);
-        this.cev = (LinearLayout) view.findViewById(i.f.pb_reply_location_container);
-        this.cex = (TextView) view.findViewById(i.f.pb_reply_location_address);
-        this.cew = (ImageView) view.findViewById(i.f.pb_reply_location_img);
-        this.cdX = (ImageView) view.findViewById(i.f.floor_owner);
-        this.cdV = (TextView) view.findViewById(i.f.floor);
-        this.cdW = (TextView) view.findViewById(i.f.time);
-        this.cef = (RelativeLayout) view.findViewById(i.f.pb_post_header_layout);
-        this.cei = (SubPbLayout) view.findViewById(i.f.pb_post_footer_layout);
-        this.ceg = (LinearLayout) view.findViewById(i.f.pb_subpb_layout_root);
-        this.ceh = (ImageView) view.findViewById(i.f.pb_post_footer_layout_line_top);
-        this.cdN = view;
-        this.cdO = view.findViewById(i.f.new_pb_list_item_line_top);
-        this.cdP = view.findViewById(i.f.new_pb_list_item_line_top_full);
-        this.cdQ = view.findViewById(i.f.new_pb_list_item_blank_top);
-        this.cdZ.FC();
-        this.cdZ.setImageViewStretch(true);
-        this.ceb.setMaxImageWidth(com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst()) - (((int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds30)) * 2));
-        this.ceb.setMaxImageHeight((int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds484));
-        int min = Math.min(((((com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.cdZ.getPaddingLeft()) - this.cdZ.getPaddingRight()) - ((int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds60)), i);
-        this.cdZ.setMaxImageWidth(min);
-        this.cdZ.setMaxImageHeight((int) (min * 1.618f));
-        this.cdZ.setTextSize(TbConfig.getContentSize());
-        if (z) {
-            ViewGroup.LayoutParams layoutParams = this.cdS.getLayoutParams();
-            layoutParams.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds60);
-            this.cdS.setLayoutParams(layoutParams);
-            this.cdS.setVisibility(0);
-        } else {
-            ViewGroup.LayoutParams layoutParams2 = this.cdS.getLayoutParams();
-            layoutParams2.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds30);
-            this.cdS.setLayoutParams(layoutParams2);
-            this.cdS.setVisibility(4);
-        }
-        this.cdZ.f(z2, false);
-        this.cdZ.setVoiceViewRes(i.g.voice_play_btn);
-        this.bcI = (UserIconBox) view.findViewById(i.f.user_icon_box);
-        this.aUb = (UserIconBox) view.findViewById(i.f.user_tshow_icon_box);
-        this.cek = (LinearLayout) view.findViewById(i.f.add_post_footer_layout);
-        if (z3) {
-            this.cef.setVisibility(8);
-            this.cdY.setVisibility(8);
-            this.cdZ.setPadding(0, 0, 0, 0);
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.cdZ.getLayoutParams();
-            layoutParams3.leftMargin = 0;
-            layoutParams3.rightMargin = 0;
-            layoutParams3.topMargin = 0;
-            layoutParams3.bottomMargin = 0;
-            this.cdZ.setLayoutParams(layoutParams3);
-            view.findViewById(i.f.pb_list_item_layout).setPadding(0, 0, 0, 0);
-            this.cem = (LinearLayout) view.findViewById(i.f.add_time_container);
-            this.cel = (TextView) view.findViewById(i.f.add_time);
-            this.cen = (Button) view.findViewById(i.f.manage_btn);
-            this.cem.setVisibility(0);
-        }
-        this.ceo = (LinearLayout) view.findViewById(i.f.addition_more_container);
-        this.cep = (TextView) this.ceo.findViewById(i.f.addition_more);
-        this.ceq = this.ceo.findViewById(i.f.addition_divider1);
-        this.cer = this.ceo.findViewById(i.f.addition_divider2);
-        this.cej = (BaobaoTailView) view.findViewById(i.f.baobao_tail);
-        this.cey = (TextView) view.findViewById(i.f.pb_item_tail_content);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bv(bs bsVar, int i, int i2, com.baidu.tieba.tbadkCore.data.k kVar) {
+        this.cjP = bsVar;
+        this.cgR = i;
+        this.val$count = i2;
+        this.cgS = kVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.cgS.kV(Math.min(this.cgR + 5, this.val$count));
+        this.cjP.notifyDataSetChanged();
     }
 }

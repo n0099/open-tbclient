@@ -1,19 +1,19 @@
 package com.baidu.tieba.person.post;
 
-import com.baidu.tbadk.core.view.x;
+import com.baidu.tbadk.core.view.p;
 /* loaded from: classes.dex */
-class n implements x.a {
-    final /* synthetic */ j cmb;
+class n implements p.a {
+    final /* synthetic */ j crF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(j jVar) {
-        this.cmb = jVar;
+        this.crF = jVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.x.a
+    @Override // com.baidu.tbadk.core.view.p.a
     public void onListPullRefresh(boolean z) {
         g gVar;
-        gVar = this.cmb.clS;
-        gVar.eR(true);
+        gVar = this.crF.crw;
+        gVar.eX(true);
     }
 }

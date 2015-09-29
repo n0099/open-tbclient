@@ -1,45 +1,29 @@
 package com.baidu.tieba.tblauncher.a;
 
-import com.baidu.tbadk.core.message.LeftNaviScanMessage;
-import java.util.List;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements LeftNaviScanMessage.b {
-    final /* synthetic */ d cVQ;
-    private final /* synthetic */ int cVR;
-    private final /* synthetic */ int cVS;
+public class m implements TbImageView.a {
+    final /* synthetic */ e ddy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(d dVar, int i, int i2) {
-        this.cVQ = dVar;
-        this.cVR = i;
-        this.cVS = i2;
+    public m(e eVar) {
+        this.ddy = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.message.LeftNaviScanMessage.b
-    public void l(List<com.baidu.tieba.tbadkCore.f.a> list) {
-        com.baidu.tbadk.mvc.g.d dVar;
-        com.baidu.tbadk.mvc.g.d dVar2;
-        int size = list.size();
-        a aVar = null;
-        int i = 0;
-        while (true) {
-            if (i >= size) {
-                break;
-            }
-            if (list.get(i) instanceof a) {
-                aVar = (a) list.get(i);
-                if (aVar.getType() == this.cVR) {
-                    aVar.kK(this.cVS);
-                    break;
-                }
-            }
-            i++;
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onComplete(String str, boolean z) {
+        AccountData currentAccountObj;
+        d dVar;
+        if (z && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && currentAccountObj.getMemberIconUrl() != null && currentAccountObj.getMemberIconUrl().equals(str)) {
+            dVar = this.ddy.dds;
+            dVar.gG(true);
         }
-        dVar = this.cVQ.cVL;
-        if (dVar != null && aVar != null) {
-            dVar2 = this.cVQ.cVL;
-            dVar2.A(aVar);
-        }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onCancel() {
     }
 }

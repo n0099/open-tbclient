@@ -7,61 +7,61 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class u {
-    private static HashMap<String, Integer> aLK;
-    private r aLL;
-    private x aLM;
-    private com.baidu.tieba.discover.data.b aLN = new com.baidu.tieba.discover.data.b();
-    private a aLO;
+    private static HashMap<String, Integer> aKC;
+    private r aKD;
+    private x aKE;
+    private com.baidu.tieba.discover.data.b aKF = new com.baidu.tieba.discover.data.b();
+    private a aKG;
 
     /* loaded from: classes.dex */
     public interface a {
-        void HK();
+        void HE();
 
         void a(boolean z, com.baidu.tieba.discover.data.a aVar, boolean z2);
     }
 
     public u(TbPageContext<BaseFragmentActivity> tbPageContext) {
-        this.aLL = new r(tbPageContext);
-        this.aLM = new x(tbPageContext, this.aLN);
-        this.aLL.a(new v(this));
-        this.aLM.a(new w(this));
+        this.aKD = new r(tbPageContext);
+        this.aKE = new x(tbPageContext, this.aKF);
+        this.aKD.a(new v(this));
+        this.aKE.a(new w(this));
     }
 
-    public void HL() {
-        this.aLL.CV();
+    public void HF() {
+        this.aKD.CI();
     }
 
-    public void GD() {
-        this.aLM.Df();
+    public void Gx() {
+        this.aKE.CS();
     }
 
     public void a(a aVar) {
-        this.aLO = aVar;
+        this.aKG = aVar;
     }
 
-    private static void HM() {
-        aLK = new HashMap<>();
-        aLK.put("discover_friend", Integer.valueOf(i.e.icon_find_trends));
-        aLK.put("discover_nearby", Integer.valueOf(i.e.icon_find_nearby));
-        aLK.put("discover_square", Integer.valueOf(i.e.icon_find_square));
-        aLK.put("discover_hot_video", Integer.valueOf(i.e.icon_live_telecast));
-        aLK.put("discover_one_sign", Integer.valueOf(i.e.icon_all_sign_dis));
-        aLK.put("discover_look_shop", Integer.valueOf(i.e.icon_more_store));
-        aLK.put("discover_rand_friend", Integer.valueOf(i.e.icon_find_chat));
-        aLK.put("discover_beauty_show", Integer.valueOf(i.e.icon_find_shawty));
-        aLK.put("discover_game_center", Integer.valueOf(i.e.icon_frs_game));
-        aLK.put("discover_square_trend", Integer.valueOf(i.e.icon_find_myba));
+    private static void HG() {
+        aKC = new HashMap<>();
+        aKC.put("discover_friend", Integer.valueOf(i.e.icon_find_trends));
+        aKC.put("discover_nearby", Integer.valueOf(i.e.icon_find_nearby));
+        aKC.put("discover_square", Integer.valueOf(i.e.icon_find_square));
+        aKC.put("discover_hot_video", Integer.valueOf(i.e.icon_live_telecast));
+        aKC.put("discover_one_sign", Integer.valueOf(i.e.icon_all_sign_dis));
+        aKC.put("discover_look_shop", Integer.valueOf(i.e.icon_more_store));
+        aKC.put("discover_rand_friend", Integer.valueOf(i.e.icon_find_chat));
+        aKC.put("discover_beauty_show", Integer.valueOf(i.e.icon_find_shawty));
+        aKC.put("discover_game_center", Integer.valueOf(i.e.icon_frs_game));
+        aKC.put("discover_square_trend", Integer.valueOf(i.e.icon_find_myba));
     }
 
-    public static int gm(String str) {
-        if (aLK == null) {
-            HM();
+    public static int gp(String str) {
+        if (aKC == null) {
+            HG();
         }
-        Integer num = aLK.get(str);
+        Integer num = aKC.get(str);
         return num == null ? i.e.img_default_100 : num.intValue();
     }
 
-    public com.baidu.tieba.discover.data.a HN() {
+    public com.baidu.tieba.discover.data.a HH() {
         com.baidu.tieba.discover.data.a aVar = new com.baidu.tieba.discover.data.a();
         ArrayList arrayList = new ArrayList();
         com.baidu.tieba.discover.data.d dVar = new com.baidu.tieba.discover.data.d();
@@ -91,7 +91,7 @@ public class u {
         return aVar;
     }
 
-    public String gn(String str) {
+    public String gq(String str) {
         if ("com.baidu.tieba.pluginNeighbors".equals(str)) {
             return "discover_nearby";
         }

@@ -7,27 +7,27 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements View.OnTouchListener {
-    final /* synthetic */ WriteActivity ddQ;
+    final /* synthetic */ WriteActivity dpI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(WriteActivity writeActivity) {
-        this.ddQ = writeActivity;
+        this.dpI = writeActivity;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         InputMethodManager inputMethodManager;
-        EditText azL;
+        EditText aDn;
         InputMethodManager inputMethodManager2;
-        EditText azK;
-        WriteActivity writeActivity = this.ddQ;
-        inputMethodManager = this.ddQ.mInputManager;
-        azL = this.ddQ.azL();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, azL);
-        WriteActivity writeActivity2 = this.ddQ;
-        inputMethodManager2 = this.ddQ.mInputManager;
-        azK = this.ddQ.azK();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, azK);
+        EditText aDm;
+        WriteActivity writeActivity = this.dpI;
+        inputMethodManager = this.dpI.mInputManager;
+        aDn = this.dpI.aDn();
+        writeActivity.HidenSoftKeyPad(inputMethodManager, aDn);
+        WriteActivity writeActivity2 = this.dpI;
+        inputMethodManager2 = this.dpI.mInputManager;
+        aDm = this.dpI.aDm();
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, aDm);
         return false;
     }
 }

@@ -1,50 +1,18 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.widget.ListView.BdExpandListView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
+import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 /* loaded from: classes.dex */
-public class f implements BdExpandListView.a {
-    final /* synthetic */ PersonInfoActivity cmR;
+class f implements UserMuteAddAndDelModel.b {
+    final /* synthetic */ PersonInfoActivity csx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PersonInfoActivity personInfoActivity) {
-        this.cmR = personInfoActivity;
+        this.csx = personInfoActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
-    public void nm() {
-        w wVar;
-        ag agVar;
-        ag agVar2;
-        wVar = this.cmR.cmF;
-        wVar.ahT();
-        agVar = this.cmR.cmG;
-        if (agVar.ahX() != null) {
-            agVar2 = this.cmR.cmG;
-            agVar2.ahX().nk();
-        }
-        this.cmR.ahg();
-    }
-
-    @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
-    public void nl() {
-        ag agVar;
-        ag agVar2;
-        agVar = this.cmR.cmG;
-        if (agVar.ahX() != null) {
-            agVar2 = this.cmR.cmG;
-            agVar2.ahX().hideProgress();
-        }
-    }
-
-    @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
-    public void k(float f) {
-        ag agVar;
-        ag agVar2;
-        agVar = this.cmR.cmG;
-        if (agVar.ahX() != null) {
-            agVar2 = this.cmR.cmG;
-            agVar2.ahX().j(f);
-        }
+    @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.b
+    public void a(UserMuteDelResponseMessage userMuteDelResponseMessage) {
+        this.csx.csh = 0;
     }
 }

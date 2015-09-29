@@ -23,7 +23,7 @@ public class LiveGroupManagerCheckerService extends Service {
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
         if (intent != null) {
-            this.targetComponent = intent.getStringExtra("LiveGroupServiceName");
+            this.targetComponent = intent.getStringExtra(LIVE_GROUP_SERVICE_NAME);
             if (this.mMessenger == null) {
                 this.mMessenger = new Messenger(new ServerHandler());
             }

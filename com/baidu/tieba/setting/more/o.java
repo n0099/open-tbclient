@@ -5,18 +5,18 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l cFS;
+    final /* synthetic */ l cMT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(l lVar) {
-        this.cFS = lVar;
+        this.cMT = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         com.baidu.tbadk.core.dialog.e eVar;
         int i2;
-        eVar = this.cFS.cFF;
+        eVar = this.cMT.cMG;
         eVar.bO(i);
         switch (i) {
             case 1:
@@ -32,9 +32,9 @@ public class o implements AdapterView.OnItemClickListener {
                 i2 = 0;
                 break;
         }
-        com.baidu.tbadk.core.m.rb().bp(i2);
-        this.cFS.kb(i2);
-        this.cFS.app();
-        com.baidu.tbadk.core.util.ar.uK().uT();
+        com.baidu.tbadk.core.m.qX().bp(i2);
+        this.cMT.kA(i2);
+        this.cMT.arH();
+        com.baidu.tbadk.core.util.as.uI().uR();
     }
 }

@@ -1,87 +1,58 @@
 package com.baidu.tbadk.core.view;
 
+import android.content.Context;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class f<T> extends com.baidu.adp.base.f<T> {
-    private final TbPageContext<T> adB;
-    private final View adC;
-    private final LinearLayout adD;
-    private final TbImageView adE;
-    private final Button adF;
-    private final Button adG;
-    private int mSkinType;
-    private final TextView mTip;
+public class f {
+    private View adv;
+    private TextView adw;
+    private ImageView adx;
+    private TbPageContext<?> mContext;
+    private Toast yD;
+    private int adt = -1;
+    private int adu = -1;
+    private Runnable adz = new g(this);
+    private Handler ady = new Handler();
 
-    public void setSkinType(int i) {
-        this.mSkinType = i;
+    public f(TbPageContext<?> tbPageContext) {
+        this.mContext = null;
+        this.adv = null;
+        this.adw = null;
+        this.adx = null;
+        this.mContext = tbPageContext;
+        this.adv = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(i.g.image_toast_view, (ViewGroup) null);
+        this.adw = (TextView) this.adv.findViewById(i.f.tip_text);
+        this.adx = (ImageView) this.adv.findViewById(i.f.tip_iamge);
     }
 
-    public int getSkinType() {
-        return this.mSkinType;
-    }
-
-    public f(TbPageContext<T> tbPageContext, String str, String str2, int i) {
-        super(tbPageContext);
-        this.mSkinType = -1;
-        this.adB = tbPageContext;
-        this.adC = LayoutInflater.from(tbPageContext.getContext()).inflate(i.g.enter_forum_login, (ViewGroup) null);
-        this.adD = (LinearLayout) this.adC;
-        this.mTip = (TextView) this.adC.findViewById(i.f.tip);
-        this.adE = (TbImageView) this.adC.findViewById(i.f.img_bg);
-        this.adF = (Button) this.adC.findViewById(i.f.login_btn);
-        if (str != null) {
-            this.mTip.setText(str);
+    public void e(Context context, View view) {
+        this.ady.removeCallbacks(this.adz);
+        if (this.yD == null) {
+            this.yD = new Toast(context);
+            this.ady.postDelayed(this.adz, 3000L);
         }
-        this.adF.setOnClickListener(new g(this, tbPageContext, i, str2));
-        this.adG = (Button) this.adC.findViewById(i.f.reg_btn);
-        this.adG.setOnClickListener(new h(this, tbPageContext));
-        int dip2px = com.baidu.adp.lib.util.k.dip2px(tbPageContext.getContext(), 7.0f);
-        int dip2px2 = com.baidu.adp.lib.util.k.dip2px(tbPageContext.getContext(), 5.0f);
-        this.adD.setPadding(dip2px, dip2px2, dip2px, dip2px2);
+        this.yD.setView(view);
+        this.yD.setGravity(17, 0, 0);
+        this.yD.show();
     }
 
-    public View getView() {
-        TiebaStatic.eventStat(this.adB.getContext(), "home_login_show", "loginshow", 1, new Object[0]);
-        return this.adC;
+    public void dA(String str) {
+        this.adw.setText(str);
+        this.adx.setImageResource(i.e.icon_toast_game_ok);
+        e(this.mContext.getPageActivity(), this.adv);
     }
 
-    private boolean cC(int i) {
-        if (i == getSkinType()) {
-            return false;
-        }
-        setSkinType(i);
-        return true;
-    }
-
-    public void onStop() {
-        this.mSkinType = -1;
-        this.adE.setBackgroundDrawable(null);
-        this.adF.setBackgroundDrawable(null);
-        this.adG.setBackgroundDrawable(null);
-    }
-
-    public void cD(int i) {
-        if (cC(i)) {
-            if (i == 1) {
-                this.mTip.setTextColor(-11444363);
-                this.adE.d(com.baidu.tbadk.util.b.EI().fD("pic_emotion01_1.png"), 10, false);
-                this.adF.setTextColor(-5454368);
-                this.adG.setTextColor(-9207399);
-                return;
-            }
-            this.mTip.setTextColor(-5065030);
-            this.adE.d(com.baidu.tbadk.util.b.EI().fD("pic_emotion01.png"), 10, false);
-            this.adF.setTextColor(-1);
-            this.adG.setTextColor(-14277082);
-        }
+    public void dB(String str) {
+        this.adw.setText(str);
+        this.adx.setImageResource(i.e.icon_toast_game_error);
+        e(this.mContext.getPageActivity(), this.adv);
     }
 }

@@ -11,182 +11,181 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextNewDotView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class v extends com.baidu.adp.base.f<MoreActivity> {
-    private MoreActivity cFZ;
-    private r cGa;
-    private AlertDialog cGb;
-    private View cGc;
-    private TbSettingTextTipView cGd;
-    private SettingTextImageView cGe;
-    private TbSettingTextTipView cGf;
-    private TbSettingTextTipView cGg;
-    private TbSettingTextTipView cGh;
-    private TbSettingTextTipView cGi;
-    private SettingTextVersionView cGj;
-    private TbSettingTextTipView cGk;
-    private TbSettingTextTipView cGl;
-    private View cGm;
-    private TbSettingTextNewDotView cGn;
-    private TextView cGo;
-    private RelativeLayout cGp;
-    private View cGq;
+    private MoreActivity cNa;
+    private r cNb;
+    private AlertDialog cNc;
+    private View cNd;
+    private TbSettingTextTipView cNe;
+    private SettingTextImageView cNf;
+    private TbSettingTextTipView cNg;
+    private TbSettingTextTipView cNh;
+    private TbSettingTextTipView cNi;
+    private TbSettingTextTipView cNj;
+    private SettingTextVersionView cNk;
+    private TbSettingTextTipView cNl;
+    private TbSettingTextTipView cNm;
+    private View cNn;
+    private TbSettingTextNewDotView cNo;
+    private TextView cNp;
+    private RelativeLayout cNq;
+    private View cNr;
     private NavigationBar mNavigationBar;
 
     public v(MoreActivity moreActivity, r rVar) {
         super(moreActivity.getPageContext());
-        this.cFZ = moreActivity;
-        this.cGa = rVar;
-        this.cFZ.setContentView(i.g.more_activity);
-        zy();
+        this.cNa = moreActivity;
+        this.cNb = rVar;
+        this.cNa.setContentView(i.g.more_activity);
+        zk();
     }
 
-    public void apH() {
+    public void arZ() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            this.cGe.setVisibility(8);
+            this.cNf.setVisibility(8);
         } else {
-            this.cGe.setVisibility(0);
+            this.cNf.setVisibility(0);
         }
     }
 
-    public void E(String str, boolean z) {
+    public void F(String str, boolean z) {
         if (str == null || str.length() <= 0) {
-            if (this.cGe != null) {
-                this.cGe.aqE();
+            if (this.cNf != null) {
+                this.cNf.asW();
                 return;
             }
             return;
         }
-        this.cGe.aqF();
-        this.cGe.F(str, z);
+        this.cNf.asX();
+        this.cNf.G(str, z);
     }
 
     public void refreshNewVersion() {
-        if (this.cGj != null) {
-            this.cGj.refresh();
+        if (this.cNk != null) {
+            this.cNk.refresh();
         }
-        if (this.cGn != null) {
-            this.cGn.refresh();
+        if (this.cNo != null) {
+            this.cNo.refresh();
         }
     }
 
-    public void aoM() {
-        this.cGe.recycle();
-        this.cGf.recycle();
-        this.cGg.recycle();
-        this.cGh.recycle();
-        this.cGi.recycle();
-        this.cGj.recycle();
-        this.cGk.recycle();
-        this.cGl.recycle();
+    public void are() {
+        this.cNf.recycle();
+        this.cNg.recycle();
+        this.cNh.recycle();
+        this.cNi.recycle();
+        this.cNj.recycle();
+        this.cNk.recycle();
+        this.cNl.recycle();
+        this.cNm.recycle();
     }
 
     public void onChangeSkinType(int i) {
-        dE(i);
-        if (this.cGc != null) {
-            this.cFZ.getLayoutMode().ad(i == 1);
-            this.cFZ.getLayoutMode().k(this.cGc);
+        dF(i);
+        if (this.cNd != null) {
+            this.cNa.getLayoutMode().ad(i == 1);
+            this.cNa.getLayoutMode().k(this.cNd);
         }
     }
 
-    public void dE(int i) {
-        com.baidu.tbadk.core.util.al.i(this.cGp, i.c.cp_bg_line_d);
+    public void dF(int i) {
+        com.baidu.tbadk.core.util.am.j(this.cNq, i.c.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.cGe.dE(i);
-        this.cFZ.getLayoutMode().ad(i == 1);
-        this.cFZ.getLayoutMode().k(this.cGp);
+        this.cNf.dF(i);
+        this.cNa.getLayoutMode().ad(i == 1);
+        this.cNa.getLayoutMode().k(this.cNq);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         refreshNewVersion();
     }
 
-    private void zy() {
-        View.OnClickListener apI = apI();
-        this.cGp = (RelativeLayout) this.cFZ.findViewById(i.f.parent);
-        this.mNavigationBar = (NavigationBar) this.cFZ.findViewById(i.f.view_navigation_bar);
-        this.cGq = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.cFZ.getPageContext().getString(i.h.setup));
-        this.cGd = (TbSettingTextTipView) this.cFZ.findViewById(i.f.accountSafeSetting);
-        this.cGe = (SettingTextImageView) this.cFZ.findViewById(i.f.personInfo);
-        this.cGf = (TbSettingTextTipView) this.cFZ.findViewById(i.f.accountManager);
-        this.cGg = (TbSettingTextTipView) this.cFZ.findViewById(i.f.browseSetting);
-        this.cGh = (TbSettingTextTipView) this.cFZ.findViewById(i.f.messageSetting);
-        this.cGi = (TbSettingTextTipView) this.cFZ.findViewById(i.f.secretSetting);
-        this.cGj = (SettingTextVersionView) this.cFZ.findViewById(i.f.versionInfo);
-        this.cGk = (TbSettingTextTipView) this.cFZ.findViewById(i.f.feedBack);
-        this.cGl = (TbSettingTextTipView) this.cFZ.findViewById(i.f.recommend);
-        this.cGm = this.cFZ.findViewById(i.f.line_recommend);
+    private void zk() {
+        View.OnClickListener asa = asa();
+        this.cNq = (RelativeLayout) this.cNa.findViewById(i.f.parent);
+        this.mNavigationBar = (NavigationBar) this.cNa.findViewById(i.f.view_navigation_bar);
+        this.cNr = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setTitleText(this.cNa.getPageContext().getString(i.h.setup));
+        this.cNe = (TbSettingTextTipView) this.cNa.findViewById(i.f.accountSafeSetting);
+        this.cNf = (SettingTextImageView) this.cNa.findViewById(i.f.personInfo);
+        this.cNg = (TbSettingTextTipView) this.cNa.findViewById(i.f.accountManager);
+        this.cNh = (TbSettingTextTipView) this.cNa.findViewById(i.f.browseSetting);
+        this.cNi = (TbSettingTextTipView) this.cNa.findViewById(i.f.messageSetting);
+        this.cNj = (TbSettingTextTipView) this.cNa.findViewById(i.f.secretSetting);
+        this.cNk = (SettingTextVersionView) this.cNa.findViewById(i.f.versionInfo);
+        this.cNl = (TbSettingTextTipView) this.cNa.findViewById(i.f.feedBack);
+        this.cNm = (TbSettingTextTipView) this.cNa.findViewById(i.f.recommend);
+        this.cNn = this.cNa.findViewById(i.f.line_recommend);
         if (!TbadkCoreApplication.m411getInst().getIsAppOn()) {
-            this.cGl.setVisibility(8);
-            this.cGm.setVisibility(8);
+            this.cNm.setVisibility(8);
+            this.cNn.setVisibility(8);
         } else {
-            this.cGl.setVisibility(0);
-            this.cGm.setVisibility(0);
+            this.cNm.setVisibility(0);
+            this.cNn.setVisibility(0);
         }
-        this.cGn = (TbSettingTextNewDotView) this.cFZ.findViewById(i.f.systemhelpsetting);
-        this.cGo = (TextView) this.cFZ.findViewById(i.f.quit);
+        this.cNo = (TbSettingTextNewDotView) this.cNa.findViewById(i.f.systemhelpsetting);
+        this.cNp = (TextView) this.cNa.findViewById(i.f.quit);
         refreshNewVersion();
-        apH();
-        this.cGe.aqE();
-        dE(TbadkCoreApplication.m411getInst().getSkinType());
-        H(apI);
-        if (!MA()) {
-            this.cGg.setTip(this.cFZ.getResources().getString(i.h.browsing_settings_tip_no_night));
+        arZ();
+        this.cNf.asW();
+        dF(TbadkCoreApplication.m411getInst().getSkinType());
+        I(asa);
+        if (!Mz()) {
+            this.cNh.setTip(this.cNa.getResources().getString(i.h.browsing_settings_tip_no_night));
         }
     }
 
-    private boolean MA() {
+    private boolean Mz() {
         return MessageManager.getInstance().runTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, Boolean.class) != null;
     }
 
     private void createDialog() {
-        this.cGc = LayoutInflater.from(this.cFZ.getPageContext().getPageActivity()).inflate(i.g.quit_dialog, (ViewGroup) null);
-        this.cFZ.getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() == 1);
-        this.cFZ.getLayoutMode().k(this.cGc);
-        ((TextView) this.cGc.findViewById(i.f.id_close_tv)).setOnClickListener(new w(this));
-        ((TextView) this.cGc.findViewById(i.f.id_quit_tv)).setOnClickListener(new x(this));
-        this.cGb = new AlertDialog.Builder(this.mContext.getPageActivity()).create();
-        com.baidu.adp.lib.g.j.a(this.cGb, this.mContext.getPageActivity());
-        if (this.cGb.getWindow() != null) {
-            WindowManager.LayoutParams attributes = this.cGb.getWindow().getAttributes();
+        this.cNd = LayoutInflater.from(this.cNa.getPageContext().getPageActivity()).inflate(i.g.quit_dialog, (ViewGroup) null);
+        this.cNa.getLayoutMode().ad(TbadkCoreApplication.m411getInst().getSkinType() == 1);
+        this.cNa.getLayoutMode().k(this.cNd);
+        ((TextView) this.cNd.findViewById(i.f.id_close_tv)).setOnClickListener(new w(this));
+        ((TextView) this.cNd.findViewById(i.f.id_quit_tv)).setOnClickListener(new x(this));
+        this.cNc = new AlertDialog.Builder(this.mContext.getPageActivity()).create();
+        com.baidu.adp.lib.g.j.a(this.cNc, this.mContext.getPageActivity());
+        if (this.cNc.getWindow() != null) {
+            WindowManager.LayoutParams attributes = this.cNc.getWindow().getAttributes();
             attributes.dimAmount = 0.7f;
-            this.cGb.getWindow().setAttributes(attributes);
-            this.cGb.getWindow().setContentView(this.cGc);
+            this.cNc.getWindow().setAttributes(attributes);
+            this.cNc.getWindow().setContentView(this.cNd);
         }
     }
 
-    private void H(View.OnClickListener onClickListener) {
-        this.cGd.setOnClickListener(onClickListener);
-        this.cGq.setOnClickListener(onClickListener);
-        this.cGe.setOnClickListener(onClickListener);
-        this.cGf.setOnClickListener(onClickListener);
-        this.cGg.setOnClickListener(onClickListener);
-        this.cGh.setOnClickListener(onClickListener);
-        this.cGi.setOnClickListener(onClickListener);
-        this.cGj.setOnClickListener(onClickListener);
-        this.cGk.setOnClickListener(onClickListener);
-        this.cGl.setOnClickListener(onClickListener);
-        this.cGn.setOnClickListener(onClickListener);
-        this.cGo.setOnClickListener(onClickListener);
+    private void I(View.OnClickListener onClickListener) {
+        this.cNe.setOnClickListener(onClickListener);
+        this.cNr.setOnClickListener(onClickListener);
+        this.cNf.setOnClickListener(onClickListener);
+        this.cNg.setOnClickListener(onClickListener);
+        this.cNh.setOnClickListener(onClickListener);
+        this.cNi.setOnClickListener(onClickListener);
+        this.cNj.setOnClickListener(onClickListener);
+        this.cNk.setOnClickListener(onClickListener);
+        this.cNl.setOnClickListener(onClickListener);
+        this.cNm.setOnClickListener(onClickListener);
+        this.cNo.setOnClickListener(onClickListener);
+        this.cNp.setOnClickListener(onClickListener);
     }
 
-    private View.OnClickListener apI() {
+    private View.OnClickListener asa() {
         return new y(this);
     }
 
-    public void apJ() {
-        if (this.cGb == null) {
+    public void asb() {
+        if (this.cNc == null) {
             createDialog();
         }
-        com.baidu.adp.lib.g.j.a(this.cGb, this.cFZ.getPageContext());
+        com.baidu.adp.lib.g.j.a(this.cNc, this.cNa.getPageContext());
     }
 
-    public void apK() {
-        if (this.cGb == null) {
-            com.baidu.adp.lib.g.j.b(this.cGb, this.cFZ.getPageContext());
+    public void asc() {
+        if (this.cNc == null) {
+            com.baidu.adp.lib.g.j.b(this.cNc, this.cNa.getPageContext());
         }
     }
 }

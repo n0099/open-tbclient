@@ -6,26 +6,26 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.FinePbPage.Content;
 /* loaded from: classes.dex */
 public class g implements c {
-    private SpannableStringBuilder cie;
-    private int cif;
+    private SpannableStringBuilder cnA;
+    private int cnB;
     private String color;
     private int textSize;
 
     public g() {
-        this.cif = 0;
+        this.cnB = 0;
         this.textSize = -1;
-        this.cie = new SpannableStringBuilder();
+        this.cnA = new SpannableStringBuilder();
     }
 
     public g(Context context, Content content) {
-        this.cif = 0;
+        this.cnB = 0;
         this.textSize = -1;
-        this.cie = new SpannableStringBuilder();
+        this.cnA = new SpannableStringBuilder();
         if (content != null) {
-            this.cie.append((CharSequence) content.text);
+            this.cnA.append((CharSequence) content.text);
         }
         if (content.align != null) {
-            this.cif = content.align.intValue();
+            this.cnB = content.align.intValue();
         }
         if (!StringUtils.isNull(content.color)) {
             this.color = content.color;
@@ -40,7 +40,7 @@ public class g implements c {
 
     public void e(CharSequence charSequence) {
         if (charSequence != null) {
-            this.cie.append(charSequence);
+            this.cnA.append(charSequence);
         }
     }
 
@@ -50,21 +50,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public CharSequence afR() {
-        return this.cie;
+    public CharSequence ahQ() {
+        return this.cnA;
     }
 
-    public int afT() {
-        return this.cif;
+    public int ahS() {
+        return this.cnB;
     }
 
-    public String afU() {
+    public String ahT() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public boolean afS() {
-        return (this.cif > 0 && this.cif < 3) || !StringUtils.isNull(this.color);
+    public boolean ahR() {
+        return (this.cnB > 0 && this.cnB < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

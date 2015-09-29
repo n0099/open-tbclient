@@ -5,20 +5,20 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.text.InputFilter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class TabItemView extends TextView {
-    public static int bbp = 0;
-    public static int bbq = 1;
-    public static int bbr = 2;
-    private g bbs;
+    public static int bbi = 0;
+    public static int bbj = 1;
+    public static int bbk = 2;
+    private g bbl;
     private int mState;
 
     public TabItemView(Context context, g gVar, int i) {
         super(context);
-        this.mState = bbp;
-        this.bbs = gVar;
+        this.mState = bbi;
+        this.bbl = gVar;
         j(context, i);
     }
 
@@ -26,29 +26,29 @@ public class TabItemView extends TextView {
         setGravity(17);
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.bbs != null) {
-            setText(this.bbs.name);
+        if (this.bbl != null) {
+            setText(this.bbl.name);
         }
-        vI();
+        vA();
     }
 
     public void setState(int i) {
-        if (this.bbs != null && this.bbs.bbo != null && this.bbs.bbo.size() > 0) {
-            if (i == bbr) {
-                Drawable drawable = al.getDrawable(i.e.icon_toolbar_arrow_up);
+        if (this.bbl != null && this.bbl.bbh != null && this.bbl.bbh.size() > 0) {
+            if (i == bbk) {
+                Drawable drawable = am.getDrawable(i.e.icon_toolbar_arrow_up);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 setCompoundDrawables(null, null, drawable, null);
             } else {
-                Drawable drawable2 = al.getDrawable(i.e.icon_toolbar_arrow_down);
+                Drawable drawable2 = am.getDrawable(i.e.icon_toolbar_arrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
                 setCompoundDrawables(null, null, drawable2, null);
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(i.d.ds16));
         }
-        if (i == bbq || i == bbr) {
-            al.b(this, i.c.cp_link_tip_a, 1);
+        if (i == bbj || i == bbk) {
+            am.b(this, i.c.s_actionbar_text_line_color_s, 1);
         } else {
-            al.b(this, i.c.cp_cont_f, 1);
+            am.b(this, i.c.cp_cont_f, 1);
         }
         setGravity(17);
         this.mState = i;
@@ -56,17 +56,17 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.bbs == null) {
+        if (this.bbl == null) {
             return -1;
         }
-        return this.bbs.bbn;
+        return this.bbl.bbg;
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void vI() {
+    public void vA() {
         setState(this.mState);
     }
 

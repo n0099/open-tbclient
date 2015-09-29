@@ -1,28 +1,17 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
 /* loaded from: classes.dex */
-public class bn extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ bm bpr;
+class bn implements View.OnClickListener {
+    final /* synthetic */ MsgrightView bsq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bn(bm bmVar) {
-        this.bpr = bmVar;
+    public bn(MsgrightView msgrightView) {
+        this.bsq = msgrightView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        String l;
-        super.a((bn) aVar, str, i);
-        if (aVar != null) {
-            bm bmVar = this.bpr;
-            l = this.bpr.l(this.bpr.mUrl, aVar.nc());
-            bmVar.showToast(l);
-            return;
-        }
-        this.bpr.showToast(this.bpr.aSX.getPageContext().getString(i.h.save_error));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bsq.brs.onItemViewClick(view, 1, this.bsq.anK, 0L);
     }
 }

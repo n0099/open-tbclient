@@ -3,16 +3,18 @@ package com.baidu.tbadk.core.view;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.PopupWindow;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.view.p;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.view.h;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class MorePopupWindow extends PopupWindow {
     private Activity mActivity;
-    private p mContainer;
+    private h mContainer;
     private View mContentView;
     private View mHostView;
     private boolean mIsIntercepted;
@@ -21,7 +23,7 @@ public class MorePopupWindow extends PopupWindow {
     private int mShowRightTopXOff;
     private int mWindowHeight;
 
-    public MorePopupWindow(Activity activity, View view, View view2, Drawable drawable, p.a aVar) {
+    public MorePopupWindow(Activity activity, View view, View view2, Drawable drawable, h.a aVar) {
         super(activity);
         this.mShowRightTopXOff = 0;
         this.mShowLeftCenterXOff = 0;
@@ -35,7 +37,7 @@ public class MorePopupWindow extends PopupWindow {
         init(activity, view, drawable, aVar);
     }
 
-    public MorePopupWindow(Activity activity, View view, Drawable drawable, p.a aVar) {
+    public MorePopupWindow(Activity activity, View view, Drawable drawable, h.a aVar) {
         super(activity);
         this.mShowRightTopXOff = 0;
         this.mShowLeftCenterXOff = 0;
@@ -48,10 +50,10 @@ public class MorePopupWindow extends PopupWindow {
         init(activity, view, drawable, aVar);
     }
 
-    private void init(Activity activity, View view, Drawable drawable, p.a aVar) {
+    private void init(Activity activity, View view, Drawable drawable, h.a aVar) {
         this.mActivity = activity;
         this.mContentView = view;
-        this.mContainer = new p(activity, this.mContentView, aVar);
+        this.mContainer = new h(activity, this.mContentView, aVar);
         setContentView(this.mContainer);
         setOutsideTouchable(true);
         setFocusable(true);
@@ -64,8 +66,24 @@ public class MorePopupWindow extends PopupWindow {
         return this.mContentView;
     }
 
+    protected MorePopupWindow(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+        this.mShowRightTopXOff = 0;
+        this.mShowLeftCenterXOff = 0;
+        this.mWindowHeight = 0;
+        this.mHostView = null;
+        this.mContainer = null;
+        this.mContentView = null;
+        this.mPadding_10 = 0;
+        this.mIsIntercepted = false;
+    }
+
     public void onChangeSkinType(BaseActivity baseActivity, int i, Drawable drawable) {
         applaySkin(baseActivity.getLayoutMode(), i, drawable);
+    }
+
+    public void onChangeSkinType(BaseFragmentActivity baseFragmentActivity, int i, Drawable drawable) {
+        applaySkin(baseFragmentActivity.getLayoutMode(), i, drawable);
     }
 
     public void onChangeSkinType(com.baidu.tbadk.core.c cVar, int i, Drawable drawable) {

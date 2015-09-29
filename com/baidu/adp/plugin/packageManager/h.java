@@ -16,29 +16,29 @@ public class h implements com.baidu.adp.plugin.install.a {
         String str;
         long j;
         String str2;
-        if (PluginPackageManager.lQ().ho()) {
-            PluginSettings mj = com.baidu.adp.plugin.packageManager.pluginSettings.c.mm().mj();
-            com.baidu.adp.plugin.b.a lE = com.baidu.adp.plugin.b.a.lE();
-            str2 = this.this$0.Du;
-            lE.d("plugin_setting", "version_update", null, String.valueOf(str2) + "-" + (mj == null ? "" : mj.getContainerVersion()));
+        if (PluginPackageManager.lR().hp()) {
+            PluginSettings mk = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().mk();
+            com.baidu.adp.plugin.b.a lF = com.baidu.adp.plugin.b.a.lF();
+            str2 = this.this$0.Dv;
+            lF.d("plugin_setting", "version_update", null, String.valueOf(str2) + "-" + (mk == null ? "" : mk.getContainerVersion()));
         }
         if (z) {
-            com.baidu.adp.plugin.packageManager.pluginSettings.c mm = com.baidu.adp.plugin.packageManager.pluginSettings.c.mm();
-            str = this.this$0.Du;
-            mm.bA(str);
-            if (PluginPackageManager.lQ().ho()) {
-                com.baidu.adp.plugin.b.a lE2 = com.baidu.adp.plugin.b.a.lE();
+            com.baidu.adp.plugin.packageManager.pluginSettings.c mn = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn();
+            str = this.this$0.Dv;
+            mn.bB(str);
+            if (PluginPackageManager.lR().hp()) {
+                com.baidu.adp.plugin.b.a lF2 = com.baidu.adp.plugin.b.a.lF();
                 long currentTimeMillis = System.currentTimeMillis();
-                j = this.this$0.Dw;
-                lE2.e("plugin_install", currentTimeMillis - j);
+                j = this.this$0.Dx;
+                lF2.e("plugin_install", currentTimeMillis - j);
             }
         }
-        this.this$0.lU();
-        this.this$0.lW();
+        this.this$0.lV();
+        this.this$0.lX();
     }
 
     @Override // com.baidu.adp.plugin.install.a
-    public void bc(String str) {
-        com.baidu.adp.plugin.packageManager.pluginSettings.c.mm().f(str, true);
+    public void bd(String str) {
+        com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().f(str, true);
     }
 }

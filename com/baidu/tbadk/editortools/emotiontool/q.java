@@ -1,93 +1,61 @@
 package com.baidu.tbadk.editortools.emotiontool;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tieba.i;
-import java.util.Map;
+import com.baidu.tbadk.editortools.emotiontool.a;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes.dex */
-public class q extends v {
-    public q() {
-        init();
+public class q extends a {
+    private static q aqO = new q();
+    private LinkedList<t> aqP;
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.a
+    public int getIndex() {
+        return 1;
     }
 
-    private void init() {
-        super.ei(7);
-        super.ej(3);
-        com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(BitmapFactory.decodeResource(TbadkCoreApplication.m411getInst().getApp().getResources(), i.e.icon_face_original_s), false);
-        super.c(aVar);
-        super.b(aVar);
-    }
-
-    @Override // com.baidu.tbadk.editortools.emotiontool.v
-    public String eh(int i) {
-        int i2;
-        if (i < 0 || i >= n.asd.size()) {
-            i2 = 0;
-        } else {
-            i2 = n.asd.get(i).intValue();
+    public static synchronized q Bb() {
+        q qVar;
+        synchronized (q.class) {
+            qVar = aqO;
         }
-        for (Map.Entry<String, Integer> entry : n.ase.entrySet()) {
-            if (entry.getValue().intValue() == i2) {
-                return entry.getKey();
+        return qVar;
+    }
+
+    public List<t> getGroups() {
+        return this.aqP;
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.a
+    public void a(a.InterfaceC0046a interfaceC0046a) {
+        if (this.aqP == null || this.aqP.isEmpty()) {
+            this.aqP = new LinkedList<>();
+            if (TbFaceManager.Ce().AQ() > 0) {
+                p pVar = new p();
+                this.aqP.add(pVar);
+                if (interfaceC0046a != null) {
+                    interfaceC0046a.a(pVar);
+                    return;
+                }
+                return;
+            }
+            return;
+        }
+        Iterator<t> it = this.aqP.iterator();
+        while (it.hasNext()) {
+            t next = it.next();
+            if (interfaceC0046a != null) {
+                interfaceC0046a.a(next);
             }
         }
-        return null;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.v
-    public boolean eK(String str) {
-        return n.ase.get(str) != null;
+    @Override // com.baidu.tbadk.editortools.emotiontool.a
+    public void AJ() {
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.v
-    public com.baidu.adp.widget.a.a eL(String str) {
-        Bitmap b;
-        Integer num = n.ase.get(str);
-        if (num != null && (b = com.baidu.adp.lib.util.d.it().b(TbadkCoreApplication.m411getInst().getApp(), num.intValue())) != null) {
-            return new com.baidu.adp.widget.a.a(b, false, str);
-        }
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.editortools.emotiontool.v
-    public int getEmotionsCount() {
-        return n.asd.size();
-    }
-
-    @Override // com.baidu.tbadk.editortools.emotiontool.v
-    public com.baidu.adp.widget.a.a eM(String str) {
-        return eL(str);
-    }
-
-    @Override // com.baidu.tbadk.editortools.emotiontool.v
-    public EmotionGroupType Bm() {
-        return EmotionGroupType.LOCAL;
-    }
-
-    @Override // com.baidu.tbadk.editortools.emotiontool.v
-    public String getGroupId() {
-        return "_local";
-    }
-
-    @Override // com.baidu.tbadk.editortools.emotiontool.v
-    public String getGroupName() {
-        return "_local";
-    }
-
-    @Override // com.baidu.tbadk.editortools.emotiontool.v
-    public int getWidth() {
-        return 0;
-    }
-
-    @Override // com.baidu.tbadk.editortools.emotiontool.v
-    public int getHeight() {
-        return 0;
-    }
-
-    @Override // com.baidu.tbadk.editortools.emotiontool.v
-    public boolean Bn() {
-        return true;
+    public boolean isEmpty() {
+        return this.aqP == null || this.aqP.size() == 0;
     }
 }

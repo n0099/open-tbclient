@@ -12,11 +12,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class a {
-    private AlertDialog adb;
+    private AlertDialog acV;
     private Activity mActivity;
     private TbPageContext<?> mContext;
-    private String adc = null;
-    private TextView Xo = null;
+    private String acW = null;
+    private TextView Xg = null;
 
     public a(TbPageContext<?> tbPageContext) {
         this.mContext = null;
@@ -29,46 +29,46 @@ public class a {
 
     public a b(DialogInterface.OnCancelListener onCancelListener) {
         if (this.mActivity != null) {
-            this.adb = new AlertDialog.Builder(this.mActivity).create();
+            this.acV = new AlertDialog.Builder(this.mActivity).create();
             View inflate = LayoutInflater.from(this.mActivity).inflate(i.g.custom_loading_toast, (ViewGroup) null);
-            this.Xo = (TextView) inflate.findViewById(i.f.custom_loading_text);
-            com.baidu.adp.lib.g.j.a(this.adb, this.mActivity);
-            if (this.adb != null && this.adb.getWindow() != null) {
-                this.adb.getWindow().setContentView(inflate);
+            this.Xg = (TextView) inflate.findViewById(i.f.custom_loading_text);
+            com.baidu.adp.lib.g.j.a(this.acV, this.mActivity);
+            if (this.acV != null && this.acV.getWindow() != null) {
+                this.acV.getWindow().setContentView(inflate);
                 if (onCancelListener != null) {
-                    this.adb.setCancelable(true);
-                    this.adb.setCanceledOnTouchOutside(true);
-                    this.adb.setOnCancelListener(onCancelListener);
+                    this.acV.setCancelable(true);
+                    this.acV.setCanceledOnTouchOutside(true);
+                    this.acV.setOnCancelListener(onCancelListener);
                 } else {
-                    this.adb.setCanceledOnTouchOutside(false);
-                    this.adb.setCancelable(false);
+                    this.acV.setCanceledOnTouchOutside(false);
+                    this.acV.setCancelable(false);
                 }
             }
         }
         return this;
     }
 
-    public a vs() {
+    public a vp() {
         return b(null);
     }
 
     public void av(boolean z) {
         if (z) {
-            if (this.adb == null) {
-                vs();
+            if (this.acV == null) {
+                vp();
             }
-            if (!StringUtils.isNull(this.adc) && this.Xo != null) {
-                this.Xo.setText(this.adc);
+            if (!StringUtils.isNull(this.acW) && this.Xg != null) {
+                this.Xg.setText(this.acW);
             }
-            com.baidu.adp.lib.g.j.a(this.adb, this.mActivity);
+            com.baidu.adp.lib.g.j.a(this.acV, this.mActivity);
             return;
         }
-        com.baidu.adp.lib.g.j.b(this.adb, this.mActivity);
+        com.baidu.adp.lib.g.j.b(this.acV, this.mActivity);
     }
 
-    public void cB(int i) {
+    public void cD(int i) {
         if (this.mActivity != null) {
-            this.adc = this.mActivity.getString(i);
+            this.acW = this.mActivity.getString(i);
         }
     }
 }

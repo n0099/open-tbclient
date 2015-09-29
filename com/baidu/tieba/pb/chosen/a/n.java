@@ -5,69 +5,69 @@ import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public final class n extends LinearLayout {
-    private TextView aMb;
-    private TextView amV;
-    private EditText bFt;
-    private TbImageView bFu;
+    private TextView aCy;
+    private TextView alt;
+    private TbImageView bIw;
+    private EditText bdw;
     private LinearLayout mRootView;
 
     public EditText getChatMsgView() {
-        return this.bFt;
+        return this.bdw;
     }
 
-    public void x(String str, boolean z) {
-        if (this.bFu != null) {
-            this.bFu.d(str, z ? 17 : 18, false);
+    public void w(String str, boolean z) {
+        if (this.bIw != null) {
+            this.bIw.d(str, z ? 17 : 18, false);
         }
     }
 
     public n(Context context) {
         super(context);
-        aA(context);
+        at(context);
     }
 
-    private void aA(Context context) {
+    private void at(Context context) {
         LayoutInflater.from(context).inflate(i.g.thread_to_group_share_view, this);
         setOrientation(1);
         this.mRootView = (LinearLayout) findViewById(i.f.share_content);
-        this.amV = (TextView) findViewById(i.f.share_title_view);
-        al.b(this.amV, i.c.cp_cont_b, 1);
-        this.bFt = (EditText) findViewById(i.f.chat_msg);
-        this.bFu = (TbImageView) findViewById(i.f.chat_group_img);
-        this.aMb = (TextView) findViewById(i.f.chat_group_desc);
-        al.b(this.bFt, i.c.cp_cont_b, 2);
-        al.b(this.aMb, i.c.cp_cont_f, 1);
-        this.bFt.setHintTextColor(al.getColor(i.c.cp_cont_e));
-        this.bFt.setPadding(context.getResources().getDimensionPixelSize(i.d.ds20), 0, 0, 0);
-        WT();
+        this.alt = (TextView) findViewById(i.f.share_title_view);
+        am.b(this.alt, i.c.cp_cont_b, 1);
+        this.bdw = (EditText) findViewById(i.f.chat_msg);
+        this.bIw = (TbImageView) findViewById(i.f.chat_group_img);
+        this.aCy = (TextView) findViewById(i.f.chat_group_desc);
+        am.b(this.bdw, i.c.cp_cont_b, 2);
+        am.b(this.aCy, i.c.cp_cont_f, 1);
+        this.bdw.setHintTextColor(am.getColor(i.c.cp_cont_e));
+        this.bdw.setPadding(context.getResources().getDimensionPixelSize(i.d.ds20), 0, 0, 0);
+        Od();
     }
 
-    public void WT() {
+    public void Od() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
     public void setDesc(String str) {
-        if (this.aMb != null) {
-            this.aMb.setText(str);
+        if (this.aCy != null) {
+            this.aCy.setText(str);
         }
     }
 
     public void setTitle(String str) {
-        if (this.amV != null) {
-            this.amV.setText(str);
+        if (this.alt != null) {
+            this.alt.setText(str);
         }
     }
 
     public String getLeaveMsg() {
-        if (this.bFt != null) {
-            return com.baidu.adp.lib.util.j.a(this.bFt.getText(), null);
+        if (this.bdw != null) {
+            return com.baidu.adp.lib.util.j.a(this.bdw.getText(), null);
         }
         return null;
     }

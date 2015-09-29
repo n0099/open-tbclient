@@ -10,11 +10,11 @@ import com.baidu.tieba.person.EditHeadActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements a.b {
-    final /* synthetic */ EditHeadActivity.a ciZ;
+    final /* synthetic */ EditHeadActivity.a cov;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(EditHeadActivity.a aVar) {
-        this.ciZ = aVar;
+        this.cov = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class o {
-    public void is() {
+    public void it() {
         new a(null).execute(new String[0]);
     }
 
@@ -24,11 +24,11 @@ public class o {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            is();
+            it();
             return null;
         }
 
-        private void is() {
+        private void it() {
             int i;
             ArrayList<com.baidu.adp.lib.stats.base.c> E = com.baidu.adp.lib.stats.base.b.E(true);
             if (E != null && E.size() != 0) {
@@ -39,7 +39,7 @@ public class o {
                     if (!it.hasNext()) {
                         break;
                     }
-                    i2 = (int) (it.next().wU + i);
+                    i2 = (int) (it.next().wV + i);
                 }
                 int i3 = i - 31457280;
                 ArrayList arrayList = new ArrayList();
@@ -53,7 +53,7 @@ public class o {
                         }
                         com.baidu.adp.lib.stats.base.c next = it2.next();
                         arrayList.add(next.mFileName);
-                        i3 = (int) (i4 - next.wU);
+                        i3 = (int) (i4 - next.wV);
                         if (i3 <= 0) {
                             break;
                         }
@@ -64,7 +64,7 @@ public class o {
                 while (it3.hasNext()) {
                     com.baidu.adp.lib.stats.base.c next2 = it3.next();
                     if (next2 != null) {
-                        long j = next2.wV;
+                        long j = next2.wW;
                         if (j != 0 && j + TbConfig.APP_OVERDUR_DRAFT_BOX < currentTimeMillis && !arrayList.contains(next2.mFileName)) {
                             arrayList.add(next2.mFileName);
                         }

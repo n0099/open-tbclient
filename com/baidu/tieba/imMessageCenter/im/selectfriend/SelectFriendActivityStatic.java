@@ -5,8 +5,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.coreExtra.message.ResponseFriendListMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.imMessageCenter.ResponseFriendListMessage;
 /* loaded from: classes.dex */
 public class SelectFriendActivityStatic {
     static {

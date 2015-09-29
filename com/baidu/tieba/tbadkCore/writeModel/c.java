@@ -1,71 +1,21 @@
 package com.baidu.tieba.tbadkCore.writeModel;
 
-import android.content.Context;
-import android.location.Address;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.location.LocationClientOption;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class c {
-    public static void Q(Context context, String str) {
-        if (!StringUtils.isNull(str)) {
-            Toast makeText = Toast.makeText(context, str, 0);
-            if (makeText.getView() != null) {
-                View findViewById = makeText.getView().findViewById(16908299);
-                if (findViewById instanceof TextView) {
-                    ((TextView) findViewById).setGravity(17);
-                }
-                makeText.show();
-            }
-        }
+public class c implements a.b {
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a aml;
+    final /* synthetic */ a dbg;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public c(a aVar, com.baidu.tbadk.core.dialog.a aVar2) {
+        this.dbg = aVar;
+        this.aml = aVar2;
     }
 
-    public static void e(Context context, View view) {
-        Toast toast = new Toast(context);
-        toast.setView(view);
-        toast.setGravity(17, 0, 0);
-        toast.setDuration(LocationClientOption.MIN_SCAN_SPAN_NETWORK);
-        toast.show();
-    }
-
-    public static void d(Context context, String str, String str2, String str3) {
-        View inflate = LayoutInflater.from(context).inflate(i.g.post_write_or_reply_lay, (ViewGroup) null);
-        View findViewById = inflate.findViewById(i.f.experience_score);
-        TextView textView = (TextView) inflate.findViewById(i.f.success_text);
-        TextView textView2 = (TextView) inflate.findViewById(i.f.pre_msg);
-        TextView textView3 = (TextView) inflate.findViewById(i.f.color_msg);
-        if (StringUtils.isNull(str)) {
-            str = context.getString(i.h.send_success);
-        }
-        textView.setText(str);
-        if (!StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
-            findViewById.setVisibility(0);
-            textView2.setText(str2);
-            textView3.setText(str3);
-        }
-        e(context, inflate);
-    }
-
-    public static void a(v vVar, WriteData writeData) {
-        if (writeData != null && writeData.isHasLocationData()) {
-            vVar.o("is_location", "2");
-            Address y = com.baidu.adp.lib.d.a.gC().y(false);
-            if (y != null) {
-                vVar.o("lat", String.valueOf(y.getLatitude()));
-                vVar.o("lng", String.valueOf(y.getLongitude()));
-            }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.auQ().getLocationData();
-            if (locationData != null) {
-                vVar.o("name", locationData.auM());
-                vVar.o("sn", locationData.auO());
-            }
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.aml.dismiss();
+        this.dbg.cancel();
     }
 }

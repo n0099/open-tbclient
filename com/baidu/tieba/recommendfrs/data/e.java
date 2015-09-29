@@ -13,44 +13,44 @@ import tbclient.FineFrsPage.FineThreadInfo;
 import tbclient.FineFrsPage.Hot_Thread;
 /* loaded from: classes.dex */
 public class e {
-    private boolean cAS;
-    private List<a> cBp;
-    private long cBq;
-    private int cBr;
+    private boolean cHU;
+    private List<a> cIr;
+    private long cIs;
+    private int cIt;
     private boolean hasMore;
     private final String tag;
-    private List<Object> axA = new ArrayList();
-    private boolean cBs = false;
-    private boolean cBt = false;
-    private boolean cBu = false;
+    private List<Object> avZ = new ArrayList();
+    private boolean cIu = false;
+    private boolean cIv = false;
+    private boolean cIw = false;
 
     public e(String str) {
         this.tag = str;
         if (TextUtils.equals(this.tag, "头条")) {
-            this.cAS = true;
+            this.cHU = true;
         } else {
-            this.cAS = false;
+            this.cHU = false;
         }
     }
 
-    public boolean anK() {
-        return this.cAS;
+    public boolean aqc() {
+        return this.cHU;
     }
 
-    public void jO(int i) {
-        this.cBr = i;
+    public void kn(int i) {
+        this.cIt = i;
     }
 
-    public int anL() {
-        return this.cBr;
+    public int aqd() {
+        return this.cIt;
     }
 
-    public boolean anM() {
-        return this.cBt;
+    public boolean aqe() {
+        return this.cIv;
     }
 
-    public boolean anN() {
-        return this.cBu;
+    public boolean aqf() {
+        return this.cIw;
     }
 
     public String getTag() {
@@ -63,34 +63,34 @@ public class e {
 
     public void a(boolean z, g gVar, boolean z2) {
         if (z) {
-            this.cBu = true;
+            this.cIw = true;
         } else {
-            this.cBt = true;
+            this.cIv = true;
         }
         if (gVar != null) {
             if (!z2) {
-                this.cBs = false;
+                this.cIu = false;
             }
             this.hasMore = gVar.getHasMore();
             List<Object> a = a(z2, gVar);
             if (z2) {
-                this.axA.addAll(a);
+                this.avZ.addAll(a);
                 return;
             }
-            this.axA = a;
-            if (this.axA != null && this.axA.size() > 0) {
-                this.cBp = gVar.anR();
+            this.avZ = a;
+            if (this.avZ != null && this.avZ.size() > 0) {
+                this.cIr = gVar.aqj();
             } else {
-                this.cBp = null;
+                this.cIr = null;
             }
         }
     }
 
     private boolean b(FineThreadInfo fineThreadInfo) {
         int size;
-        if (fineThreadInfo != null && (size = this.axA.size()) > 0) {
+        if (fineThreadInfo != null && (size = this.avZ.size()) > 0) {
             for (int i = 0; i < size; i++) {
-                Object obj = this.axA.get(i);
+                Object obj = this.avZ.get(i);
                 if ((obj instanceof FineThreadInfo) && fineThreadInfo.ftid == ((FineThreadInfo) obj).ftid) {
                     return true;
                 }
@@ -101,24 +101,24 @@ public class e {
     }
 
     private List<Object> a(boolean z, g gVar) {
-        List<Hot_Thread> anS;
+        List<Hot_Thread> aqk;
         ArrayList arrayList = new ArrayList();
-        if (gVar == null || gVar.anT() == null) {
+        if (gVar == null || gVar.aql() == null) {
             return arrayList;
         }
         String str = null;
         int i = 0;
-        for (EverydayThread everydayThread : gVar.anT()) {
+        for (EverydayThread everydayThread : gVar.aql()) {
             if (everydayThread.show_time != null) {
                 i = everydayThread.show_time.intValue();
             }
-            if (this.cAS && ((z || !arrayList.isEmpty()) && i != this.cBq)) {
+            if (this.cHU && ((z || !arrayList.isEmpty()) && i != this.cIs)) {
                 str = j.d(new Date(i * 1000));
                 arrayList.add(str);
             }
             List<FineThreadInfo> list = everydayThread.fine_thread_list;
             if (list != null) {
-                if (this.cAS && StringUtils.isNull(str)) {
+                if (this.cHU && StringUtils.isNull(str)) {
                     str = j.d(new Date(i * 1000));
                 }
                 int size = list.size();
@@ -128,10 +128,10 @@ public class e {
                     if (fineThreadInfo != null && (!z || !b(fineThreadInfo))) {
                         b bVar = new b();
                         bVar.a(fineThreadInfo);
-                        bVar.kB(str);
-                        bVar.setShowImage(gVar.anV());
-                        bVar.fD(i2 != size + (-1));
-                        if (bVar.anH() != 33) {
+                        bVar.kZ(str);
+                        bVar.setShowImage(gVar.aqn());
+                        bVar.fO(i2 != size + (-1));
+                        if (bVar.apZ() != 33) {
                             arrayList.add(bVar);
                         } else if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                             arrayList.add(bVar);
@@ -141,23 +141,23 @@ public class e {
                 }
             }
         }
-        if (i >= this.cBq && !this.cBs && (anS = gVar.anS()) != null && anS.size() > 0) {
-            this.cBs = true;
+        if (i >= this.cIs && !this.cIu && (aqk = gVar.aqk()) != null && aqk.size() > 0) {
+            this.cIu = true;
             arrayList.add(new d("text_type_title", str));
-            arrayList.addAll(a(anS, str, gVar.anV()));
+            arrayList.addAll(a(aqk, str, gVar.aqn()));
             arrayList.add(new d("text_type_check_more", str));
         }
-        this.cBq = i;
+        this.cIs = i;
         if (arrayList.isEmpty()) {
             return arrayList;
         }
         Object obj = arrayList.get(arrayList.size() - 1);
         if (obj instanceof b) {
             b bVar2 = (b) obj;
-            if (this.cAS) {
-                bVar2.fD(false);
+            if (this.cHU) {
+                bVar2.fO(false);
             } else {
-                bVar2.fD(true);
+                bVar2.fO(true);
             }
         }
         return arrayList;
@@ -178,11 +178,11 @@ public class e {
         return arrayList;
     }
 
-    public List<Object> anO() {
-        return this.axA;
+    public List<Object> aqg() {
+        return this.avZ;
     }
 
-    public List<a> anP() {
-        return this.cBp;
+    public List<a> aqh() {
+        return this.cIr;
     }
 }

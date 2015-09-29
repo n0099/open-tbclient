@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.NetWorkChangedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends CustomMessageListener {
-    final /* synthetic */ p bXY;
+    final /* synthetic */ p cbK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(p pVar, int i) {
         super(i);
-        this.bXY = pVar;
+        this.cbK = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,17 +23,17 @@ public class q extends CustomMessageListener {
         u uVar2;
         u uVar3;
         if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
-            if (com.baidu.adp.lib.util.i.iL()) {
-                aVar = this.bXY.bXB;
+            if (com.baidu.adp.lib.util.i.iM()) {
+                aVar = this.cbK.cbn;
                 aVar.f(false);
                 return;
             }
-            uVar = this.bXY.bXX;
-            uVar.MX();
-            uVar2 = this.bXY.bXX;
+            uVar = this.cbK.cbJ;
+            uVar.MW();
+            uVar2 = this.cbK.cbJ;
             uVar2.completePullRefresh();
-            uVar3 = this.bXY.bXX;
-            uVar3.bl(false);
+            uVar3 = this.cbK.cbJ;
+            uVar3.bj(false);
         }
     }
 }

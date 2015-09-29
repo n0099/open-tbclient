@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.chosen.net.zan;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.g;
+import com.baidu.tbadk.util.h;
 import tbclient.FineZan.DataReq;
 import tbclient.FineZan.FineZanReqIdl;
 /* loaded from: classes.dex */
@@ -32,7 +32,7 @@ public class ChosenZanNetMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.action = this.action;
         builder.ftid = Long.valueOf(this.ftid);
-        g.a(builder, true);
+        h.a(builder, true);
         FineZanReqIdl.Builder builder2 = new FineZanReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

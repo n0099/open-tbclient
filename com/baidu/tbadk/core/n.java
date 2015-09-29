@@ -9,42 +9,42 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aj;
+import com.baidu.tbadk.core.util.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements Handler.Callback {
-    final /* synthetic */ TbadkCoreApplication TK;
+    final /* synthetic */ TbadkCoreApplication Tw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(TbadkCoreApplication tbadkCoreApplication) {
-        this.TK = tbadkCoreApplication;
+        this.Tw = tbadkCoreApplication;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                TbadkCoreApplication.setCurrentAccount(null, this.TK.getContext());
+                TbadkCoreApplication.setCurrentAccount(null, this.Tw.getContext());
                 if (message.getData().getString(LoginActivityConfig.ACCOUNT) == null) {
                 }
-                NotLoginGuideActivityConfig notLoginGuideActivityConfig = new NotLoginGuideActivityConfig(this.TK.getContext(), NotLoginGuideActivityConfig.FROM_ACCOUNT);
+                NotLoginGuideActivityConfig notLoginGuideActivityConfig = new NotLoginGuideActivityConfig(this.Tw.getContext(), NotLoginGuideActivityConfig.FROM_ACCOUNT);
                 notLoginGuideActivityConfig.getIntent().setFlags(268435456);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, notLoginGuideActivityConfig));
                 break;
             case 4:
-                long nanoTime = (((System.nanoTime() - this.TK.mStartTime) / 1000000) - TbConfig.USE_TIME_INTERVAL) / 1000;
+                long nanoTime = (((System.nanoTime() - this.Tw.mStartTime) / 1000000) - TbConfig.USE_TIME_INTERVAL) / 1000;
                 if (nanoTime > 0) {
-                    new aj(TbConfig.ST_TYPE_USE, String.valueOf(nanoTime)).start();
+                    new ak(TbConfig.ST_TYPE_USE, String.valueOf(nanoTime)).start();
                     TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getApp(), TbConfig.ST_TYPE_USE, null, 1, "st_param", String.valueOf(nanoTime));
                 }
-                this.TK.mStartTime = 0L;
+                this.Tw.mStartTime = 0L;
                 break;
             case 5:
                 if (Boolean.TRUE.equals(message.obj)) {
-                    this.TK.notifyAppEnterBackground();
+                    this.Tw.notifyAppEnterBackground();
                     break;
                 } else {
-                    this.TK.notifyAppEnterForehead();
+                    this.Tw.notifyAppEnterForehead();
                     break;
                 }
         }

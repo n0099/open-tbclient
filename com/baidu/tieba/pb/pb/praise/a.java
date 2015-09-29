@@ -1,23 +1,23 @@
 package com.baidu.tieba.pb.pb.praise;
 /* loaded from: classes.dex */
 public class a {
-    private String aju;
-    private String cgu;
-    private long cgv;
+    private String aiq;
+    private String clP;
+    private long clQ;
     private String mPortrait;
     private String mUserId;
 
     public a(String str, String str2, String str3, String str4, long j) {
         this.mUserId = null;
-        this.aju = null;
+        this.aiq = null;
         this.mPortrait = null;
-        this.cgu = null;
-        this.cgv = 0L;
+        this.clP = null;
+        this.clQ = 0L;
         this.mUserId = str;
-        this.aju = str2;
+        this.aiq = str2;
         this.mPortrait = str3;
-        this.cgu = str4;
-        this.cgv = j;
+        this.clP = str4;
+        this.clQ = j;
     }
 
     public String getUserId() {
@@ -25,18 +25,18 @@ public class a {
     }
 
     public String getUserName() {
-        return this.aju;
+        return this.aiq;
     }
 
     public String getPortrait() {
         return this.mPortrait;
     }
 
-    public String aeZ() {
-        return this.cgu;
+    public String agY() {
+        return this.clP;
     }
 
-    public long afa() {
-        return this.cgv;
+    public long agZ() {
+        return this.clQ;
     }
 }

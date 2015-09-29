@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.v;
+import com.baidu.tbadk.core.util.w;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -87,11 +87,11 @@ public class VideoInfo implements Serializable {
 
     public String getPictureIdInBackground(String str) {
         JSONArray optJSONArray;
-        v vVar = new v(TbConfig.TRANSFER_PICTURE_ID);
-        vVar.o("urls[]", this.thumbUrl);
-        vVar.o("kw", str);
+        w wVar = new w(TbConfig.TRANSFER_PICTURE_ID);
+        wVar.o("urls[]", this.thumbUrl);
+        wVar.o("kw", str);
         try {
-            JSONObject jSONObject = new JSONObject(vVar.tI());
+            JSONObject jSONObject = new JSONObject(wVar.tG());
             if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("pics")) != null) {
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {

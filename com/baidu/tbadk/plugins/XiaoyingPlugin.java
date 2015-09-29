@@ -4,49 +4,49 @@ import android.app.IntentService;
 import android.content.ContentProvider;
 /* loaded from: classes.dex */
 public class XiaoyingPlugin {
-    private static ContentProvider aAe;
-    private static IntentService aAf;
-    private static IntentService aAg;
-    private static IntentService aAh;
-    private static IntentService aAi;
+    private static ContentProvider ayE;
+    private static IntentService ayF;
+    private static IntentService ayG;
+    private static IntentService ayH;
+    private static IntentService ayI;
 
     public static IntentService getDownloadService() {
-        return aAg;
+        return ayG;
     }
 
     public static void setDownloadService(IntentService intentService) {
-        aAg = intentService;
+        ayG = intentService;
     }
 
     public static IntentService getTaskService() {
-        return aAh;
+        return ayH;
     }
 
     public static void setTaskService(IntentService intentService) {
-        aAh = intentService;
+        ayH = intentService;
     }
 
     public static IntentService getShareService() {
-        return aAi;
+        return ayI;
     }
 
     public static void setShareService(IntentService intentService) {
-        aAi = intentService;
+        ayI = intentService;
     }
 
     public static final void setSocialService(IntentService intentService) {
-        aAf = intentService;
+        ayF = intentService;
     }
 
     public static final IntentService getSocialService() {
-        return aAf;
+        return ayF;
     }
 
     public static final void setContentProvider(ContentProvider contentProvider) {
-        aAe = contentProvider;
+        ayE = contentProvider;
     }
 
     public static final ContentProvider getContentProvider() {
-        return aAe;
+        return ayE;
     }
 }

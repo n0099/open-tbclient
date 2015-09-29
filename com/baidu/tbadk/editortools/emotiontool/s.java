@@ -1,23 +1,19 @@
 package com.baidu.tbadk.editortools.emotiontool;
 
-import android.app.Activity;
-import android.widget.ListView;
+import com.baidu.tbadk.editortools.emotiontool.a;
+import com.baidu.tbadk.editortools.emotiontool.r;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class s implements Runnable {
-    private com.baidu.tbadk.editortools.c.d asq;
-    private ListView asr;
-    private Activity ass;
-    private int ast;
-    private int distance;
-    private int position;
+public class s implements a.InterfaceC0046a {
+    final /* synthetic */ r.a aqX;
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int[] iArr = new int[2];
-        if (this.asq != null && this.asq.AL() != null) {
-            this.asq.AL().getLocationInWindow(iArr);
-            this.asr.setSelectionFromTop(this.position + this.asr.getHeaderViewsCount(), ((iArr[1] - this.distance) - this.ast) - com.baidu.adp.lib.util.k.l(this.ass));
-            this.asr.invalidate();
-        }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public s(r.a aVar) {
+        this.aqX = aVar;
+    }
+
+    @Override // com.baidu.tbadk.editortools.emotiontool.a.InterfaceC0046a
+    public void a(t tVar) {
+        this.aqX.aqU.add(tVar);
     }
 }

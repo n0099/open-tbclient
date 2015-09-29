@@ -19,7 +19,7 @@ class s extends CustomMessageListener {
             DiscoverDelegateStatic discoverDelegateStatic = new DiscoverDelegateStatic();
             ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(discoverDelegateStatic);
             if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (fragmentTabStructure = discoverDelegateStatic.getFragmentTabStructure()) != null) {
-                fragmentTabStructure.awz.setArguments(new Bundle());
+                fragmentTabStructure.auY.setArguments(new Bundle());
             }
         }
     }

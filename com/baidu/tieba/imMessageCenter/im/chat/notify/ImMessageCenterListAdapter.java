@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.i;
 import com.baidu.tieba.im.chat.notify.b;
 import com.baidu.tieba.im.settingcache.GroupSettingItemData;
@@ -20,11 +20,11 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b {
-    private e bGY;
+    private e bKd;
 
     public ImMessageCenterListAdapter(Context context) {
         super(context);
-        this.bGY = null;
+        this.bKd = null;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.b
@@ -32,9 +32,9 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
         super.setData(list);
         if (TbadkCoreApplication.isLogin()) {
             if (this.mList.size() <= 0) {
-                this.bGY.dv(true);
+                this.bKd.dv(true);
             } else {
-                this.bGY.dv(false);
+                this.bKd.dv(false);
             }
         }
         notifyDataSetChanged();
@@ -42,21 +42,21 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
 
     @Override // com.baidu.tieba.im.chat.notify.b, android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ImMessageCenterShowItemData gE = getItem(i);
-        if (gE != null && String.valueOf(String.valueOf(2)).equals(gE.getOwnerName())) {
-            if (gE.getUnReadCount() >= 30) {
-                if (this.bGY != null) {
-                    this.bGY.du(true);
+        ImMessageCenterShowItemData gK = getItem(i);
+        if (gK != null && String.valueOf(String.valueOf(2)).equals(gK.getOwnerName())) {
+            if (gK.getUnReadCount() >= 30) {
+                if (this.bKd != null) {
+                    this.bKd.du(true);
                 }
-            } else if (this.bGY != null) {
-                this.bGY.du(false);
+            } else if (this.bKd != null) {
+                this.bKd.du(false);
             }
         }
         return super.getView(i, view, viewGroup);
     }
 
     public void g(e eVar) {
-        this.bGY = eVar;
+        this.bKd = eVar;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.b
@@ -71,15 +71,15 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             str = "";
             i = 0;
         } else if (String.valueOf(7).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xw().xA()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xl()) {
                 str = "";
                 i = 0;
-            } else if (!com.baidu.tieba.im.settingcache.l.WB().isAcceptNotify()) {
+            } else if (!com.baidu.tieba.im.settingcache.l.Xk().isAcceptNotify()) {
                 str = "";
                 i = 0;
             }
         } else if (String.valueOf(1).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xw().xL()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xw()) {
                 str = "";
                 i = 0;
             } else {
@@ -90,7 +90,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
                 }
             }
         } else if (String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xw().xE()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xp()) {
                 str = "";
                 i = 0;
             } else {
@@ -101,15 +101,15 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
                 }
             }
         } else if (String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xw().xE() || !TbadkCoreApplication.m411getInst().isPromotedMessageOn()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xp() || !TbadkCoreApplication.m411getInst().isPromotedMessageOn()) {
                 str = "";
                 i = 0;
             }
         } else if (String.valueOf(5).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xw().xE()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xp()) {
                 str = "";
                 i = 0;
-            } else if (!com.baidu.tieba.im.settingcache.g.Wy().isAcceptNotify()) {
+            } else if (!com.baidu.tieba.im.settingcache.g.Xh().isAcceptNotify()) {
                 str = "";
                 i = 0;
             }
@@ -143,7 +143,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             aVar.Mt.setTag(imMessageCenterShowItemData.getOwnerName());
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_VALIDATE_ICON, Integer.class);
             if (runTask != null) {
-                al.c(aVar.Mt, ((Integer) runTask.getData()).intValue());
+                am.c(aVar.Mt, ((Integer) runTask.getData()).intValue());
             }
             aVar.Mt.setUserName(String.valueOf(2));
             aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
@@ -157,7 +157,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
             CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_UPDATES_ICON, Integer.class);
             if (runTask2 != null) {
-                al.c(aVar.Mt, ((Integer) runTask2.getData()).intValue());
+                am.c(aVar.Mt, ((Integer) runTask2.getData()).intValue());
             }
             aVar.Mt.setIsRound(false);
             aVar.Mt.invalidate();
@@ -169,7 +169,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
             CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_LIVE_NOTIFY_ICON, Integer.class);
             if (runTask3 != null) {
-                al.c(aVar.Mt, ((Integer) runTask3.getData()).intValue());
+                am.c(aVar.Mt, ((Integer) runTask3.getData()).intValue());
             }
             aVar.Mt.setIsRound(false);
             aVar.Mt.invalidate();
@@ -198,11 +198,11 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
             CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_OFFICIAL_MERGE_ICON, Integer.class);
             if (runTask4 != null) {
-                al.c(aVar.Mt, ((Integer) runTask4.getData()).intValue());
+                am.c(aVar.Mt, ((Integer) runTask4.getData()).intValue());
             }
             aVar.Mt.setIsRound(false);
             aVar.Mt.invalidate();
-            TiebaStatic.log(new ao("c10321").r("obj_type", 2).af("obj_name", "show"));
+            TiebaStatic.log(new ap("c10321").r("obj_type", 2).ae("obj_name", "show"));
         } else if (String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName())) {
             aVar.Mt.setDrawBorder(true);
             aVar.Mt.setAutoChangeStyle(true);
@@ -221,14 +221,14 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             aVar.Mt.setUserName(imMessageCenterShowItemData.getFriendName());
             aVar.Mt.setIsRound(false);
             aVar.Mt.invalidate();
-            TiebaStatic.log(new ao("c10321").r("obj_type", 2).af("obj_name", "show"));
+            TiebaStatic.log(new ap("c10321").r("obj_type", 2).ae("obj_name", "show"));
         } else if (String.valueOf(7).equals(imMessageCenterShowItemData.getOwnerName())) {
             aVar.Mt.setDrawBorder(false);
             aVar.Mt.setAutoChangeStyle(true);
             aVar.Mt.setTag(imMessageCenterShowItemData.getOwnerName());
             aVar.Mt.setUserName(String.valueOf(7));
             aVar.Mt.setUserId(imMessageCenterShowItemData.getFriendId());
-            al.c(aVar.Mt, i.e.icon_new_stranger);
+            am.c(aVar.Mt, i.e.icon_new_stranger);
             aVar.Mt.setIsRound(false);
             aVar.Mt.invalidate();
         } else {

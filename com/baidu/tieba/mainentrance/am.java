@@ -1,27 +1,24 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import java.util.ArrayList;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.CreateBarGuideActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.bc;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class am extends CustomMessageListener {
-    final /* synthetic */ SquareSearchActivity bRF;
+public class am implements View.OnClickListener {
+    final /* synthetic */ SquareSearchActivity bVr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public am(SquareSearchActivity squareSearchActivity, int i) {
-        super(i);
-        this.bRF = squareSearchActivity;
+    public am(SquareSearchActivity squareSearchActivity) {
+        this.bVr = squareSearchActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            Object data = customResponsedMessage.getData();
-            if (data instanceof ArrayList) {
-                this.bRF.a(4, (ArrayList) data);
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (bc.ah(this.bVr.getPageContext().getPageActivity())) {
+            this.bVr.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CreateBarGuideActivityConfig(this.bVr.getPageContext().getPageActivity(), this.bVr.bUK)));
         }
     }
 }

@@ -1,28 +1,26 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i;
-import com.baidu.tieba.im.model.LocalPicModel;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.widget.richText.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br extends com.baidu.adp.base.g {
-    final /* synthetic */ TalkableActivity bpt;
+public class br extends CustomMessageListener {
+    final /* synthetic */ TalkableActivity bst;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(TalkableActivity talkableActivity) {
-        this.bpt = talkableActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public br(TalkableActivity talkableActivity, int i) {
+        super(i);
+        this.bst = talkableActivity;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        if (obj != null && (obj instanceof LocalPicModel.ResponseData)) {
-            LocalPicModel.ResponseData responseData = (LocalPicModel.ResponseData) obj;
-            if (this.bpt.mListModel != null) {
-                this.bpt.mListModel.sendPicMessage(responseData.getSPathGen(), responseData.getBitmap());
-                return;
-            }
-            return;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof g.a)) {
+            g.a aVar = (g.a) customResponsedMessage.getData();
+            com.baidu.tbadk.widget.richText.g.a(this.bst.getPageContext(), aVar.type, aVar.url, aVar.subType);
         }
-        this.bpt.showToast(TbadkCoreApplication.m411getInst().getString(i.h.pic_parser_error));
     }
 }

@@ -49,6 +49,7 @@ public class KuangAPKActivityPageContext<T> implements TbPageContext<T> {
         this.orginal.registerListener(messageListener);
     }
 
+    @Override // com.baidu.adp.base.h
     public void registerListener(int i, MessageListener<?> messageListener) {
         this.orginal.registerListener(i, messageListener);
     }

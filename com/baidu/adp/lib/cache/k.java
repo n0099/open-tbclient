@@ -38,10 +38,10 @@ public class k<T> extends e<T> {
     @Override // com.baidu.adp.lib.cache.n
     public void ab(String str) {
         if (this.sW instanceof f.b) {
-            com.baidu.adp.lib.g.k.hg().c(new l(this, str));
+            com.baidu.adp.lib.g.k.hh().c(new l(this, str));
         }
         if (this.sW instanceof f.a) {
-            com.baidu.adp.lib.g.k.hg().c(new m(this, str));
+            com.baidu.adp.lib.g.k.hh().c(new m(this, str));
         }
     }
 

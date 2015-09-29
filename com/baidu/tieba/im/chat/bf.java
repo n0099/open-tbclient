@@ -3,19 +3,16 @@ package com.baidu.tieba.im.chat;
 import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bf implements View.OnLongClickListener {
-    final /* synthetic */ MsgleftView bpg;
+public class bf implements View.OnClickListener {
+    final /* synthetic */ as bsa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(MsgleftView msgleftView) {
-        this.bpg = msgleftView;
+    public bf(as asVar) {
+        this.bsa = asVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        TouchType touchType;
-        touchType = this.bpg.bpe;
-        touchType.set(true);
-        return true;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.bsa.brs.onItemViewClick(view, 10, this.bsa.anK, 0L);
     }
 }

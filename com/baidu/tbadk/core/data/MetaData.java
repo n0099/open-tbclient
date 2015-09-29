@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.tbadk.core.util.ImageInfo;
-import com.baidu.tbadk.core.util.ac;
 import com.baidu.tbadk.core.util.ad;
+import com.baidu.tbadk.core.util.ae;
 import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class MetaData extends com.baidu.tbadk.data.MetaData implements ad, com.baidu.tbadk.core.util.t, TbCheckBox.b {
+public class MetaData extends com.baidu.tbadk.data.MetaData implements ae, com.baidu.tbadk.core.util.t, TbCheckBox.b {
     private static final long serialVersionUID = -5772546803814127750L;
     private boolean mIsChecked = false;
 
@@ -55,13 +55,13 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements ad, com.b
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.util.ad
-    public ArrayList<ac> getImages() {
-        ArrayList<ac> arrayList = new ArrayList<>();
-        ac acVar = new ac();
-        acVar.Wg = getPortrait();
-        acVar.aaD = 12;
-        arrayList.add(acVar);
+    @Override // com.baidu.tbadk.core.util.ae
+    public ArrayList<ad> getImages() {
+        ArrayList<ad> arrayList = new ArrayList<>();
+        ad adVar = new ad();
+        adVar.VY = getPortrait();
+        adVar.aax = 12;
+        arrayList.add(adVar);
         return arrayList;
     }
 }

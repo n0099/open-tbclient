@@ -1,51 +1,76 @@
 package com.baidu.tieba.mainentrance;
 
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity bRF;
-    private final /* synthetic */ TextView bRG;
-    private final /* synthetic */ ImageView bRH;
-    private final /* synthetic */ TextView bRI;
-    private final /* synthetic */ ImageView bRJ;
+public class aa implements FragmentTabWidget.a {
+    final /* synthetic */ SquareSearchActivity bVr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aa(SquareSearchActivity squareSearchActivity, TextView textView, ImageView imageView, TextView textView2, ImageView imageView2) {
-        this.bRF = squareSearchActivity;
-        this.bRG = textView;
-        this.bRH = imageView;
-        this.bRI = textView2;
-        this.bRJ = imageView2;
+    public aa(SquareSearchActivity squareSearchActivity) {
+        this.bVr = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        View view2;
+    @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
+    public void c(int i, boolean z) {
+        FragmentTabWidget fragmentTabWidget;
         FragmentTabIndicator fragmentTabIndicator;
         FragmentTabIndicator fragmentTabIndicator2;
-        this.bRF.bRh = true;
-        this.bRG.setTextColor(com.baidu.tbadk.core.util.al.getColor(i.c.cp_cont_c));
-        this.bRH.setVisibility(8);
-        this.bRI.setTextColor(com.baidu.tbadk.core.util.al.getColor(i.c.cp_link_tip_a));
-        this.bRJ.setVisibility(0);
-        view2 = this.bRF.bQM;
-        view2.setVisibility(8);
-        fragmentTabIndicator = this.bRF.bQD;
-        fragmentTabIndicator.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down);
-        fragmentTabIndicator2 = this.bRF.bQD;
-        fragmentTabIndicator2.cO(TbadkCoreApplication.m411getInst().getSkinType());
-        this.bRF.ZZ();
-        if (!TextUtils.isEmpty(this.bRF.bQZ)) {
-            this.bRF.E(1, this.bRF.bQZ);
+        FragmentTabIndicator fragmentTabIndicator3;
+        FragmentTabIndicator fragmentTabIndicator4;
+        FragmentTabWidget fragmentTabWidget2;
+        View view;
+        FragmentTabIndicator fragmentTabIndicator5;
+        View view2;
+        FragmentTabIndicator fragmentTabIndicator6;
+        FragmentTabWidget fragmentTabWidget3;
+        FragmentTabIndicator fragmentTabIndicator7;
+        FragmentTabIndicator fragmentTabIndicator8;
+        if (i == 0) {
+            this.bVr.ib(0);
+            fragmentTabWidget3 = this.bVr.bUk;
+            fragmentTabWidget3.d(i, true);
+            fragmentTabIndicator7 = this.bVr.bUl;
+            fragmentTabIndicator7.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down);
+            fragmentTabIndicator8 = this.bVr.bUl;
+            fragmentTabIndicator8.cP(TbadkCoreApplication.m411getInst().getSkinType());
         }
-        TiebaStatic.eventStat(this.bRF.getPageContext().getPageActivity(), "search_3", "click", 1, new Object[0]);
+        if (i == 1) {
+            if (!z || this.bVr.mMode != 1) {
+                fragmentTabIndicator3 = this.bVr.bUl;
+                fragmentTabIndicator3.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down_s);
+            } else {
+                view = this.bVr.bUu;
+                if (view.getVisibility() == 0) {
+                    view2 = this.bVr.bUu;
+                    view2.setVisibility(8);
+                    this.bVr.abl();
+                    fragmentTabIndicator6 = this.bVr.bUl;
+                    fragmentTabIndicator6.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down_s);
+                } else {
+                    this.bVr.abz();
+                    fragmentTabIndicator5 = this.bVr.bUl;
+                    fragmentTabIndicator5.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_up_s);
+                }
+            }
+            fragmentTabIndicator4 = this.bVr.bUl;
+            fragmentTabIndicator4.cP(TbadkCoreApplication.m411getInst().getSkinType());
+            this.bVr.ib(1);
+            fragmentTabWidget2 = this.bVr.bUk;
+            fragmentTabWidget2.d(i, true);
+        }
+        if (i == 2) {
+            this.bVr.ib(3);
+            fragmentTabWidget = this.bVr.bUk;
+            fragmentTabWidget.d(i, true);
+            fragmentTabIndicator = this.bVr.bUl;
+            fragmentTabIndicator.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down);
+            fragmentTabIndicator2 = this.bVr.bUl;
+            fragmentTabIndicator2.cP(TbadkCoreApplication.m411getInst().getSkinType());
+        }
     }
 }

@@ -7,11 +7,13 @@ public interface a {
 
     void aa(Context context);
 
+    void b(Context context, int i, boolean z);
+
     void e(Context context, int i);
 
     int getCurrentTabType();
 
-    Class<?> tq();
+    Class<?> tn();
 
-    String tr();
+    String to();
 }

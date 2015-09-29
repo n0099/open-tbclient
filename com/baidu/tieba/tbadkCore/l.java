@@ -109,7 +109,7 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> oW() {
+    public HashMap<String, Object> oX() {
         return null;
     }
 
@@ -134,7 +134,7 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
         if (z) {
-            com.baidu.tbadk.util.g.a(builder, true);
+            com.baidu.tbadk.util.h.a(builder, true);
         }
         FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
         builder2.data = builder.build(false);
@@ -142,12 +142,12 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String CN() {
+    public String CA() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean CO() {
+    public boolean CB() {
         return false;
     }
 

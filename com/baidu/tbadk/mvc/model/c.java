@@ -8,13 +8,13 @@ import com.baidu.tbadk.mvc.model.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ a awS;
+    final /* synthetic */ a avr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(a aVar, int i) {
         super(i);
-        this.awS = aVar;
+        this.avr = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,16 +22,16 @@ public class c extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         a.InterfaceC0052a interfaceC0052a;
         a.InterfaceC0052a interfaceC0052a2;
-        this.awS.awR = false;
+        this.avr.avq = false;
         if (customResponsedMessage != null && (customResponsedMessage instanceof WriteCacheRespMsg)) {
             WriteCacheRespMsg writeCacheRespMsg = (WriteCacheRespMsg) customResponsedMessage;
             WriteCacheMessage writeCacheMessage = null;
             if (writeCacheRespMsg.getOrginalMessage() != null && (writeCacheRespMsg.getOrginalMessage() instanceof WriteCacheMessage)) {
                 writeCacheMessage = (WriteCacheMessage) writeCacheRespMsg.getOrginalMessage();
             }
-            interfaceC0052a = this.awS.awM;
+            interfaceC0052a = this.avr.avl;
             if (interfaceC0052a != null) {
-                interfaceC0052a2 = this.awS.awM;
+                interfaceC0052a2 = this.avr.avl;
                 interfaceC0052a2.a(writeCacheRespMsg, writeCacheMessage);
             }
         }

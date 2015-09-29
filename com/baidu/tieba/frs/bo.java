@@ -1,43 +1,30 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.coreExtra.view.BannerView;
-import com.baidu.tbadk.widget.TbImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class bo implements TbImageView.a {
-    final /* synthetic */ bi aXy;
+public class bo implements com.baidu.adp.widget.ListView.u {
+    public static final BdUniqueId aVW = BdUniqueId.gen();
+    private int height = 0;
+    private int aVX = 0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bo(bi biVar) {
-        this.aXy = biVar;
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return aVW;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onComplete(String str, boolean z) {
-        BannerView bannerView;
-        boolean z2;
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        BannerView bannerView2;
-        if (z) {
-            bannerView = this.aXy.aLp;
-            if (bannerView.yZ()) {
-                z2 = this.aXy.aXo;
-                if (!z2) {
-                    bdTypeListView = this.aXy.aWY;
-                    if (bdTypeListView != null) {
-                        this.aXy.aXo = true;
-                        bdTypeListView2 = this.aXy.aWY;
-                        bannerView2 = this.aXy.aLp;
-                        bdTypeListView2.d(bannerView2, 1);
-                    }
-                }
-            }
-        }
+    public int getHeight() {
+        return this.height;
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView.a
-    public void onCancel() {
+    public void setHeight(int i) {
+        this.height = i;
+    }
+
+    public int LD() {
+        return this.aVX;
+    }
+
+    public void fv(int i) {
+        this.aVX = i;
     }
 }

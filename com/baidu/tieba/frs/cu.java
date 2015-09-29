@@ -1,68 +1,40 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.RelativeLayout;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i;
-import java.util.LinkedList;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.tbadk.core.data.PhotoLiveCardData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.frs.cr;
+import com.baidu.tieba.tbadkCore.ChildViewPager;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cu extends bd<cv, cw> {
-    private final LinkedList<com.baidu.tbadk.e.f> aYG;
-    private final LinkedList<RelativeLayout> aYH;
+public class cu implements ChildViewPager.a {
+    final /* synthetic */ cr aXA;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public cu(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
-        this.aYG = new LinkedList<>();
-        this.aYH = new LinkedList<>();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cu(cr crVar) {
+        this.aXA = crVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: o */
-    public cw a(ViewGroup viewGroup) {
-        RelativeLayout relativeLayout = new RelativeLayout(this.mContext);
-        relativeLayout.setLayoutParams(new AbsListView.LayoutParams(-1, (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds90)));
-        relativeLayout.setGravity(17);
-        com.baidu.tbadk.e.f fVar = new com.baidu.tbadk.e.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(i.d.ds140));
-        fVar.v(relativeLayout);
-        this.aYG.add(fVar);
-        this.aYH.add(relativeLayout);
-        cw cwVar = new cw(relativeLayout);
-        cwVar.aYJ = fVar;
-        return cwVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bd, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, cv cvVar, cw cwVar) {
-        if (cwVar != null && cwVar.aYJ != null) {
-            cwVar.aYJ.tf();
+    @Override // com.baidu.tieba.tbadkCore.ChildViewPager.a
+    public void fC(int i) {
+        cr.a aVar;
+        com.baidu.tbadk.core.data.o oVar;
+        Context context;
+        aVar = this.aXA.aXx;
+        int fE = aVar.fE(i);
+        oVar = this.aXA.aXy;
+        List<PhotoLiveCardData> rN = oVar.rN();
+        if (rN != null && fE >= 0 && fE < rN.size()) {
+            PhotoLiveCardData photoLiveCardData = rN.get(fE);
+            context = this.aXA.mContext;
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context, String.valueOf(photoLiveCardData.getThreadId())).ch("from_frs").bs(18003).rk()));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ap("c10242").ae(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())).r("obj_locate", fE + 1));
         }
-        return view;
-    }
-
-    @Override // com.baidu.tieba.frs.bd
-    public void release() {
-        super.release();
-        if (this.aYG.size() != 0 && this.aYH.size() == this.aYG.size()) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= this.aYG.size()) {
-                    break;
-                }
-                this.aYG.get(i2).u(this.aYH.get(i2));
-                i = i2 + 1;
-            }
-        }
-        this.aYG.clear();
-        this.aYH.clear();
     }
 }

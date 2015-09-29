@@ -3,7 +3,6 @@ package com.baidu.tieba.person;
 import android.graphics.Bitmap;
 import android.view.View;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.widget.EditHeadsImageView;
 import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -23,23 +22,23 @@ public class h implements View.OnClickListener {
         int i3;
         boolean z;
         String str = TbConfig.PERSON_HEAD_FILE;
-        i = this.this$0.bEF;
+        i = this.this$0.bHI;
         if (i != 0) {
             str = TbConfig.GROUP_HEAD_FILE;
         }
-        EditHeadsImageView editHeadsImageView = this.this$0.ciw;
-        i2 = this.this$0.bEF;
-        Bitmap bv = editHeadsImageView.bv(i2 == 0);
-        if (bv == null) {
+        EditHeadsImageView editHeadsImageView = this.this$0.cnS;
+        i2 = this.this$0.bHI;
+        Bitmap eU = editHeadsImageView.eU(i2 == 0);
+        if (eU == null) {
             return;
         }
-        b = this.this$0.b(str, bv);
+        b = this.this$0.b(str, eU);
         if (b) {
-            i3 = this.this$0.bEF;
+            i3 = this.this$0.bHI;
             if (i3 == 0) {
-                z = this.this$0.aAD;
+                z = this.this$0.aze;
                 if (z) {
-                    this.this$0.agi();
+                    this.this$0.aih();
                     return;
                 }
                 this.this$0.setResult(-1);
@@ -47,9 +46,9 @@ public class h implements View.OnClickListener {
                 return;
             }
             com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.n.cH(TbConfig.GROUP_HEAD_FILE), "head");
-            aVar.Cw();
+            aVar.Cj();
             aVar.a(new i(this));
-            aVar.Cu();
+            aVar.Ch();
             this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(i.h.uploading));
         }
     }

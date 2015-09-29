@@ -6,25 +6,25 @@ import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj implements a.b {
-    final /* synthetic */ PersonChangeActivity cko;
+    final /* synthetic */ PersonChangeActivity cpR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(PersonChangeActivity personChangeActivity) {
-        this.cko = personChangeActivity;
+        this.cpR = personChangeActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        if (this.cko.ckf.xY().getPhotoChanged()) {
+        if (this.cpR.cpI.aiE().getPhotoChanged()) {
             Intent intent = new Intent();
-            if (this.cko.cjT.booleanValue()) {
-                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cko.ckf.xY());
+            if (this.cpR.cpw.booleanValue()) {
+                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cpR.cpI.aiE());
             } else {
-                intent.putExtra("data", this.cko.ckf.xY());
+                intent.putExtra("data", this.cpR.cpI.aiE());
             }
-            this.cko.setResult(-1, intent);
+            this.cpR.setResult(-1, intent);
         }
-        this.cko.finish();
+        this.cpR.finish();
     }
 }

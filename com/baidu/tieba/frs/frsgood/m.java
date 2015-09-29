@@ -1,37 +1,37 @@
 package com.baidu.tieba.frs.frsgood;
 
-import com.baidu.tieba.frs.dh;
-import com.baidu.tieba.frs.di;
-import com.baidu.tieba.frs.dj;
+import com.baidu.tieba.frs.ea;
+import com.baidu.tieba.frs.eb;
+import com.baidu.tieba.frs.ec;
 import com.baidu.tieba.tbadkCore.e;
 /* loaded from: classes.dex */
-class m implements dh {
-    final /* synthetic */ FrsGoodActivity aZI;
+class m implements ea {
+    final /* synthetic */ FrsGoodActivity aZB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FrsGoodActivity frsGoodActivity) {
-        this.aZI = frsGoodActivity;
+        this.aZB = frsGoodActivity;
     }
 
-    @Override // com.baidu.tieba.frs.dh
-    public void a(di diVar) {
+    @Override // com.baidu.tieba.frs.ea
+    public void a(eb ebVar) {
     }
 
-    @Override // com.baidu.tieba.frs.dh
-    public void a(int i, int i2, dj djVar) {
-        this.aZI.aZG = i;
-        if (!com.baidu.adp.lib.util.i.iL()) {
-            this.aZI.b((e.a) null);
+    @Override // com.baidu.tieba.frs.ea
+    public void a(int i, int i2, ec ecVar) {
+        this.aZB.aZz = i;
+        if (!com.baidu.adp.lib.util.i.iM()) {
+            this.aZB.b((e.a) null);
         } else {
-            this.aZI.cl(false);
+            this.aZB.ci(false);
         }
     }
 
-    @Override // com.baidu.tieba.frs.dh
+    @Override // com.baidu.tieba.frs.ea
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.dh
-    public void Kz() {
+    @Override // com.baidu.tieba.frs.ea
+    public void Ku() {
     }
 }

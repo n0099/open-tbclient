@@ -1,25 +1,26 @@
 package com.baidu.tieba.mainentrance;
 
-import android.app.Activity;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.ScrollView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class o implements View.OnTouchListener {
-    final /* synthetic */ SquareSearchActivity bRF;
+class o extends CustomMessageListener {
+    final /* synthetic */ SquareSearchActivity bVr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public o(SquareSearchActivity squareSearchActivity) {
-        this.bRF = squareSearchActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o(SquareSearchActivity squareSearchActivity, int i) {
+        super(i);
+        this.bVr = squareSearchActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        ScrollView scrollView;
-        Activity pageActivity = this.bRF.getPageContext().getPageActivity();
-        scrollView = this.bRF.bRl;
-        com.baidu.adp.lib.util.k.c(pageActivity, scrollView);
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Object data;
+        if (customResponsedMessage == null || (data = customResponsedMessage.getData()) == null || !(data instanceof ArrayList)) {
+            return;
+        }
+        this.bVr.a(5, (ArrayList) data);
     }
 }

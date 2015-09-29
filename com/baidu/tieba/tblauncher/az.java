@@ -1,21 +1,26 @@
 package com.baidu.tieba.tblauncher;
 
-import com.slidingmenu.lib.SlidingMenu;
+import android.support.v4.view.ViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class az implements SlidingMenu.OnAboveViewScrollListener {
-    final /* synthetic */ am cVq;
+public class az implements ViewPager.OnPageChangeListener {
+    final /* synthetic */ ao dcY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public az(am amVar) {
-        this.cVq = amVar;
+    public az(ao aoVar) {
+        this.dcY = aoVar;
     }
 
-    @Override // com.slidingmenu.lib.SlidingMenu.OnAboveViewScrollListener
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageSelected(int i) {
+        com.baidu.adp.lib.g.h.hg().postDelayed(new ba(this), 200L);
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        SlidingMenu slidingMenu;
-        am amVar = this.cVq;
-        slidingMenu = this.cVq.bbU;
-        amVar.z(1.0f - slidingMenu.getPercentOpen());
+    }
+
+    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
+    public void onPageScrollStateChanged(int i) {
     }
 }

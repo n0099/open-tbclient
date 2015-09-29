@@ -1,22 +1,22 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.adp.base.BdBaseService;
-import com.baidu.tbadk.util.c;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w implements c.a {
-    final /* synthetic */ v TO;
+public class w implements Runnable {
+    final /* synthetic */ TbadkCoreApplication Tw;
+    private final /* synthetic */ boolean Tz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(v vVar) {
-        this.TO = vVar;
+    public w(TbadkCoreApplication tbadkCoreApplication, boolean z) {
+        this.Tw = tbadkCoreApplication;
+        this.Tz = z;
     }
 
-    @Override // com.baidu.tbadk.util.c.a
-    public void ag(boolean z) {
-        if (z) {
-            BdBaseService.serviceStartFlag = 2;
-        } else {
-            BdBaseService.serviceStartFlag = 1;
-        }
+    @Override // java.lang.Runnable
+    public void run() {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_EMOTION, new com.baidu.tbadk.mainTab.a(this.Tz)));
     }
 }

@@ -6,58 +6,58 @@ import android.os.PowerManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class o {
-    private KeyguardManager cCO;
-    private PowerManager cDn;
-    private PowerManager.WakeLock cDo;
-    private KeyguardManager.KeyguardLock cDp;
+    private KeyguardManager cJP;
+    private PowerManager cKo;
+    private PowerManager.WakeLock cKp;
+    private KeyguardManager.KeyguardLock cKq;
     private Context mContext;
 
     public o() {
         try {
             this.mContext = TbadkCoreApplication.m411getInst().getApp();
-            this.cDn = (PowerManager) this.mContext.getSystemService("power");
-            this.cDo = this.cDn.newWakeLock(268435462, "ScreenLockNotify");
-            this.cDo.setReferenceCounted(false);
-            this.cCO = (KeyguardManager) this.mContext.getSystemService("keyguard");
-            this.cDp = this.cCO.newKeyguardLock("ScreenLockUtils");
+            this.cKo = (PowerManager) this.mContext.getSystemService("power");
+            this.cKp = this.cKo.newWakeLock(268435462, "ScreenLockNotify");
+            this.cKp.setReferenceCounted(false);
+            this.cJP = (KeyguardManager) this.mContext.getSystemService("keyguard");
+            this.cKq = this.cJP.newKeyguardLock("ScreenLockUtils");
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    public void aor() {
+    public void aqJ() {
         try {
-            this.cDp.reenableKeyguard();
-            f.aoj().cCV++;
-            if (this.cDo != null) {
-                this.cDo.release();
-                this.cDo = null;
+            this.cKq.reenableKeyguard();
+            f.aqB().cJW++;
+            if (this.cKp != null) {
+                this.cKp.release();
+                this.cKp = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    public void aos() {
+    public void aqK() {
         try {
-            if (this.cDo == null) {
-                this.cDo = this.cDn.newWakeLock(268435462, "ScreenLockNotify");
-                this.cDo.setReferenceCounted(false);
+            if (this.cKp == null) {
+                this.cKp = this.cKo.newWakeLock(268435462, "ScreenLockNotify");
+                this.cKp.setReferenceCounted(false);
             }
-            if (this.cDo != null) {
-                this.cDo.acquire(10000L);
-                this.cDp.disableKeyguard();
-                f.aoj().cCS = 0;
-                f.aoj().cCW++;
+            if (this.cKp != null) {
+                this.cKp.acquire(10000L);
+                this.cKq.disableKeyguard();
+                f.aqB().cJT = 0;
+                f.aqB().cJX++;
             }
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    public boolean aot() {
+    public boolean aqL() {
         try {
-            return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.cCO, new Object[0])).booleanValue();
+            return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.cJP, new Object[0])).booleanValue();
         } catch (Throwable th) {
             th.printStackTrace();
             return false;
@@ -65,6 +65,6 @@ public class o {
     }
 
     public boolean isScreenOn() {
-        return this.cDn.isScreenOn();
+        return this.cKo.isScreenOn();
     }
 }

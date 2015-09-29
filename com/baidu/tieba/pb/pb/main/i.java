@@ -7,41 +7,41 @@ import com.baidu.location.BDLocationStatusCodes;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tieba.i;
-import com.baidu.tieba.pb.pb.main.bk;
+import com.baidu.tieba.pb.pb.main.bl;
 /* loaded from: classes.dex */
-class i implements bk.a {
-    final /* synthetic */ PbActivity ccj;
+class i implements bl.a {
+    final /* synthetic */ PbActivity ciz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(PbActivity pbActivity) {
-        this.ccj = pbActivity;
+        this.ciz = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.bk.a
+    @Override // com.baidu.tieba.pb.pb.main.bl.a
     public void a(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.a.b bVar, String str, int i4) {
-        cb cbVar;
-        cb cbVar2;
-        cb cbVar3;
+        cc ccVar;
+        cc ccVar2;
+        cc ccVar3;
+        cc ccVar4;
         boolean z2;
         boolean z3;
-        cb cbVar4;
-        cb cbVar5;
-        cb cbVar6;
-        cb cbVar7;
-        cb cbVar8;
+        cc ccVar5;
+        cc ccVar6;
+        cc ccVar7;
+        cc ccVar8;
+        cc ccVar9;
         com.baidu.tbadk.editortools.c.d dVar;
-        cb cbVar9;
         com.baidu.tbadk.editortools.c.d dVar2;
         com.baidu.tbadk.baseEditMark.a aVar;
-        cb cbVar10;
+        cc ccVar10;
         boolean z4;
-        cb cbVar11;
-        bk bkVar;
-        bk bkVar2;
-        cb cbVar12;
-        bk bkVar3;
-        cb cbVar13;
-        bk bkVar4;
+        cc ccVar11;
+        bl blVar;
+        bl blVar2;
+        cc ccVar12;
+        bl blVar3;
+        cc ccVar13;
+        bl blVar4;
         String str2;
         com.baidu.tbadk.editortools.c.d dVar3;
         com.baidu.tbadk.editortools.c.d dVar4;
@@ -51,88 +51,88 @@ class i implements bk.a {
         com.baidu.tbadk.baseEditMark.a aVar2;
         com.baidu.tbadk.editortools.c.d dVar6;
         com.baidu.tbadk.editortools.c.d dVar7;
-        cb cbVar14;
+        cc ccVar14;
         com.baidu.tbadk.editortools.c.d dVar8;
-        cb cbVar15;
-        this.ccj.bZI = true;
+        cc ccVar15;
+        this.ciz.ceQ = true;
         long currentTimeMillis = System.currentTimeMillis();
-        cbVar = this.ccj.cbL;
-        cbVar.aeD();
-        PbActivity pbActivity = this.ccj;
-        cbVar2 = this.ccj.cbL;
-        pbActivity.hideLoadingView(cbVar2.getView());
-        cbVar3 = this.ccj.cbL;
-        cbVar3.UM();
-        z2 = this.ccj.auW;
+        ccVar = this.ciz.cia;
+        ccVar.agB();
+        PbActivity pbActivity = this.ciz;
+        ccVar2 = this.ciz.cia;
+        pbActivity.hideLoadingView(ccVar2.getView());
+        ccVar3 = this.ciz.cia;
+        ccVar3.Vv();
+        ccVar4 = this.ciz.cia;
+        ccVar4.eP(false);
+        z2 = this.ciz.att;
         if (z2) {
-            this.ccj.auW = false;
-            cbVar15 = this.ccj.cbL;
-            cbVar15.ceJ.cgp.setEnabled(true);
+            this.ciz.att = false;
+            ccVar15 = this.ciz.cia;
+            ccVar15.cka.clK.setEnabled(true);
         }
         if (i4 == 0 && bVar != null) {
-            this.ccj.aUA = true;
+            this.ciz.aTw = true;
         }
         if (z && bVar != null) {
-            cbVar8 = this.ccj.cbL;
-            cbVar8.LQ();
-            dVar = this.ccj.cbS;
+            ccVar9 = this.ciz.cia;
+            ccVar9.LP();
+            dVar = this.ciz.cij;
             if (dVar != null) {
-                cbVar14 = this.ccj.cbL;
-                dVar8 = this.ccj.cbS;
-                cbVar14.eI(dVar8.BE());
+                ccVar14 = this.ciz.cia;
+                dVar8 = this.ciz.cij;
+                ccVar14.eN(dVar8.Br());
             }
-            cbVar9 = this.ccj.cbL;
-            cbVar9.eK(false);
             TbadkCoreApplication.m411getInst().setDefaultBubble(bVar.getUserData().getBimg_url());
             TbadkCoreApplication.m411getInst().setDefaultBubbleEndTime(bVar.getUserData().getBimg_end_time());
-            dVar2 = this.ccj.cbS;
+            dVar2 = this.ciz.cij;
             if (dVar2 != null) {
-                dVar6 = this.ccj.cbS;
-                dVar6.a(bVar.rK());
-                dVar7 = this.ccj.cbS;
-                dVar7.a(bVar.acP(), bVar.getUserData());
+                dVar6 = this.ciz.cij;
+                dVar6.a(bVar.rF());
+                dVar7 = this.ciz.cij;
+                dVar7.a(bVar.aeN(), bVar.getUserData());
             }
-            aVar = this.ccj.cbH;
+            aVar = this.ciz.chW;
             if (aVar != null) {
-                aVar2 = this.ccj.cbH;
-                aVar2.ab(bVar.qo());
+                aVar2 = this.ciz.chW;
+                aVar2.ab(bVar.qk());
             }
-            if (bVar == null || bVar.acV() != 1) {
-                this.ccj.mIsFromCDN = false;
+            if (bVar == null || bVar.aeT() != 1) {
+                this.ciz.mIsFromCDN = false;
             } else {
-                this.ccj.mIsFromCDN = true;
+                this.ciz.mIsFromCDN = true;
             }
-            cbVar10 = this.ccj.cbL;
-            z4 = this.ccj.mIsFromCDN;
-            cbVar10.eJ(z4);
-            cbVar11 = this.ccj.cbL;
-            bkVar = this.ccj.cbG;
-            boolean adM = bkVar.adM();
-            bkVar2 = this.ccj.cbG;
-            cbVar11.a(bVar, i2, i3, adM, i4, bkVar2.getIsFromMark());
-            cbVar12 = this.ccj.cbL;
-            bkVar3 = this.ccj.cbG;
-            cbVar12.a(bVar, bkVar3.adM(), false, i2);
-            cbVar13 = this.ccj.cbL;
-            bkVar4 = this.ccj.cbG;
-            cbVar13.eG(bkVar4.getHostMode());
-            this.ccj.adA();
-            AntiData rK = bVar.rK();
-            if (rK != null) {
-                this.ccj.atE = rK.getVoice_message();
-                str2 = this.ccj.atE;
+            ccVar10 = this.ciz.cia;
+            z4 = this.ciz.mIsFromCDN;
+            ccVar10.eO(z4);
+            ccVar11 = this.ciz.cia;
+            blVar = this.ciz.chV;
+            boolean afL = blVar.afL();
+            blVar2 = this.ciz.chV;
+            ccVar11.a(bVar, i2, i3, afL, i4, blVar2.getIsFromMark());
+            ccVar12 = this.ciz.cia;
+            blVar3 = this.ciz.chV;
+            ccVar12.a(bVar, blVar3.afL(), false, i2);
+            ccVar13 = this.ciz.cia;
+            blVar4 = this.ciz.chV;
+            ccVar13.eL(blVar4.getHostMode());
+            this.ciz.afy();
+            AntiData rF = bVar.rF();
+            if (rF != null) {
+                this.ciz.asb = rF.getVoice_message();
+                str2 = this.ciz.asb;
                 if (!StringUtils.isNull(str2)) {
-                    dVar3 = this.ccj.cbS;
+                    dVar3 = this.ciz.cij;
                     if (dVar3 != null) {
-                        dVar4 = this.ccj.cbS;
-                        if (dVar4.AL() != null) {
-                            dVar5 = this.ccj.cbS;
-                            com.baidu.tbadk.editortools.p dR = dVar5.AL().dR(6);
-                            if (dR != null) {
-                                str3 = this.ccj.atE;
+                        dVar4 = this.ciz.cij;
+                        if (dVar4.Ax() != null) {
+                            dVar5 = this.ciz.cij;
+                            com.baidu.tbadk.editortools.p dS = dVar5.Ax().dS(6);
+                            if (dS != null) {
+                                str3 = this.ciz.asb;
                                 if (!TextUtils.isEmpty(str3)) {
-                                    onClickListener = this.ccj.cbV;
-                                    ((View) dR).setOnClickListener(onClickListener);
+                                    onClickListener = this.ciz.cim;
+                                    ((View) dS).setOnClickListener(onClickListener);
                                 }
                             }
                         }
@@ -140,54 +140,54 @@ class i implements bk.a {
                 }
             }
         } else if (str != null) {
-            z3 = this.ccj.aUA;
+            z3 = this.ciz.aTw;
             if (!z3 && i4 == 1) {
                 if (i2 == 3 || i2 == 4 || i2 == 6) {
-                    PbActivity pbActivity2 = this.ccj;
-                    cbVar6 = this.ccj.cbL;
-                    pbActivity2.showNetRefreshView(cbVar6.getView(), this.ccj.getPageContext().getResources().getString(i.h.net_error_text, str, Integer.valueOf(i)), true);
-                    cbVar7 = this.ccj.cbL;
-                    cbVar7.aeS();
+                    PbActivity pbActivity2 = this.ciz;
+                    ccVar7 = this.ciz.cia;
+                    pbActivity2.showNetRefreshView(ccVar7.getView(), this.ciz.getPageContext().getResources().getString(i.h.net_error_text, str, Integer.valueOf(i)), true);
+                    ccVar8 = this.ciz.cia;
+                    ccVar8.agQ();
                 }
             } else {
-                this.ccj.showToast(str);
+                this.ciz.showToast(str);
             }
-            cbVar4 = this.ccj.cbL;
-            cbVar4.jw(this.ccj.getResources().getString(i.h.list_no_more));
-            cbVar5 = this.ccj.cbL;
-            cbVar5.vG();
+            ccVar5 = this.ciz.cia;
+            ccVar5.jQ(this.ciz.getResources().getString(i.h.list_no_more));
+            ccVar6 = this.ciz.cia;
+            ccVar6.vy();
         }
-        this.ccj.ayY = System.currentTimeMillis() - currentTimeMillis;
+        this.ciz.axx = System.currentTimeMillis() - currentTimeMillis;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.bk.a
-    public void a(com.baidu.tieba.pb.a.b bVar) {
-        cb cbVar;
-        cbVar = this.ccj.cbL;
-        cbVar.h(bVar);
+    @Override // com.baidu.tieba.pb.pb.main.bl.a
+    public void b(com.baidu.tieba.pb.a.b bVar) {
+        cc ccVar;
+        ccVar = this.ciz.cia;
+        ccVar.h(bVar);
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.bk.a
-    public void em(boolean z) {
+    @Override // com.baidu.tieba.pb.pb.main.bl.a
+    public void eu(boolean z) {
         long j;
         long j2;
         long j3;
-        PbActivity pbActivity = this.ccj;
+        PbActivity pbActivity = this.ciz;
         long currentTimeMillis = System.currentTimeMillis();
-        j = this.ccj.aMD;
-        pbActivity.ayZ = currentTimeMillis - j;
+        j = this.ciz.aLy;
+        pbActivity.axy = currentTimeMillis - j;
         if (z) {
             com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
-            tVar.ey(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-            j2 = this.ccj.createTime;
-            tVar.ayS = j2;
-            j3 = this.ccj.ayZ;
-            tVar.ayZ = j3;
-            tVar.Ei();
+            tVar.ez(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+            j2 = this.ciz.createTime;
+            tVar.axr = j2;
+            j3 = this.ciz.axy;
+            tVar.axy = j3;
+            tVar.DV();
         }
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.bk.a
+    @Override // com.baidu.tieba.pb.pb.main.bl.a
     public void e(com.baidu.tbadk.performanceLog.t tVar) {
         long j;
         long j2;
@@ -195,21 +195,21 @@ class i implements bk.a {
         long j4;
         long j5;
         if (tVar != null) {
-            j = this.ccj.createTime;
-            tVar.ayS = j;
-            this.ccj.createTime = 0L;
-            j2 = this.ccj.ayY;
-            tVar.ayY = j2;
-            j3 = this.ccj.ayZ;
+            j = this.ciz.createTime;
+            tVar.axr = j;
+            this.ciz.createTime = 0L;
+            j2 = this.ciz.axx;
+            tVar.axx = j2;
+            j3 = this.ciz.axy;
             if (j3 == 0) {
                 long currentTimeMillis = System.currentTimeMillis();
-                j5 = this.ccj.aMD;
+                j5 = this.ciz.aLy;
                 j4 = currentTimeMillis - j5;
             } else {
-                j4 = this.ccj.ayZ;
+                j4 = this.ciz.axy;
             }
-            tVar.ayZ = j4;
-            tVar.Ej();
+            tVar.axy = j4;
+            tVar.DW();
         }
     }
 }

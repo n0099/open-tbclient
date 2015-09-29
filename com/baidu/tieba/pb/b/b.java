@@ -6,33 +6,33 @@ import com.baidu.tieba.pb.b.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ a cbq;
+    final /* synthetic */ a cgv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cbq = aVar;
+        this.cgv = aVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         int i;
-        a.InterfaceC0067a interfaceC0067a;
-        a.InterfaceC0067a interfaceC0067a2;
+        a.InterfaceC0070a interfaceC0070a;
+        a.InterfaceC0070a interfaceC0070a2;
         if (message.what == 2) {
-            this.cbq.count = 0;
-            this.cbq.cbm = 0L;
-            this.cbq.cbn = 0L;
+            this.cgv.count = 0;
+            this.cgv.cgr = 0L;
+            this.cgv.cgs = 0L;
         } else if (message.what == 1) {
-            i = this.cbq.count;
+            i = this.cgv.count;
             if (i == 1) {
-                interfaceC0067a = this.cbq.cbo;
-                if (interfaceC0067a != null) {
-                    interfaceC0067a2 = this.cbq.cbo;
-                    interfaceC0067a2.Mj();
+                interfaceC0070a = this.cgv.cgt;
+                if (interfaceC0070a != null) {
+                    interfaceC0070a2 = this.cgv.cgt;
+                    interfaceC0070a2.Mi();
                 }
-                this.cbq.count = 0;
-                this.cbq.cbm = 0L;
-                this.cbq.cbn = 0L;
+                this.cgv.count = 0;
+                this.cgv.cgr = 0L;
+                this.cgv.cgs = 0L;
             }
         }
     }

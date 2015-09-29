@@ -8,7 +8,6 @@ import android.support.v4.view.KeyEventCompat;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.location.a0;
-import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class TransportMediator extends TransportController {
@@ -42,7 +41,7 @@ public class TransportMediator extends TransportController {
             case 87:
             case 88:
             case 89:
-            case TbConfig.PHOTO_DELAY_TIME /* 90 */:
+            case 90:
             case a0.v /* 91 */:
             case KEYCODE_MEDIA_PLAY /* 126 */:
             case KEYCODE_MEDIA_PAUSE /* 127 */:

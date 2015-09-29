@@ -1,42 +1,38 @@
 package com.baidu.tieba.account;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tieba.a.a;
+import android.text.Editable;
+import android.text.TextWatcher;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class m extends BdAsyncTask<Void, Void, AccountData> {
-    final /* synthetic */ l aFx;
-    private final /* synthetic */ String aFy;
+class m implements TextWatcher {
+    final /* synthetic */ ActivationActivity aER;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(l lVar, String str) {
-        this.aFx = lVar;
-        this.aFy = str;
+    public m(ActivationActivity activationActivity) {
+        this.aER = activationActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: g */
-    public AccountData doInBackground(Void... voidArr) {
-        return com.baidu.tbadk.core.a.b.ce(this.aFy);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: o */
-    public void onPostExecute(AccountData accountData) {
-        k kVar;
-        a.InterfaceC0055a interfaceC0055a;
-        super.onPostExecute(accountData);
-        if (accountData != null && !aq.isEmpty(accountData.getPassword())) {
-            String account = accountData.getAccount();
-            String password = accountData.getPassword();
-            kVar = this.aFx.aFw;
-            interfaceC0055a = kVar.aFv;
-            com.baidu.tieba.a.a.a(account, password, interfaceC0055a);
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        int i;
+        if (editable.length() == 6) {
+            this.aER.aEE.setEnabled(true);
+        } else {
+            this.aER.aEE.setEnabled(false);
         }
+        i = this.aER.aEO;
+        if (i != 0) {
+            this.aER.aEO = 0;
+            this.aER.aEy.setBackgroundResource(i.e.pass_input);
+            this.aER.aEy.setPadding(this.aER.aEM, 0, this.aER.aEN, 0);
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

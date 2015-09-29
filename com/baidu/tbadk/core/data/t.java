@@ -1,57 +1,43 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.ForumRecommend.Banner;
 /* loaded from: classes.dex */
-public class t extends x {
-    public static final BdUniqueId Vz = BdUniqueId.gen();
-    private PhotoLiveCardData VA;
+public class t {
+    protected String img_url = null;
+    protected String link = null;
 
-    public PhotoLiveCardData a(x xVar) {
-        if (this.VA == null) {
-            if (xVar == null) {
-                return null;
-            }
-            this.VA = new PhotoLiveCardData();
-            MetaData author = xVar.getAuthor();
-            if (author != null) {
-                this.VA.setAuthorName(author.getUserName());
-                this.VA.setAuthorPortrait(author.getPortrait());
-                this.VA.setFansNum(author.getFansNum());
-                this.VA.setNickName(author.getFansNickName());
-                this.VA.setAuthorId(author.getUserId());
-            }
-            PraiseData praise = xVar.getPraise();
-            if (praise != null) {
-                this.VA.setPraiseNum((int) praise.getNum());
-            }
-            this.VA.setDiscussNum(xVar.getReply_num());
-            this.VA.setPostNum(xVar.getPost_num());
-            this.VA.setTitle(xVar.getTitle());
-            this.VA.setLastModifiedTime(xVar.getLast_time_int());
-            this.VA.setPhotoLiveCover(xVar.getPhotoLiveCover());
-            this.VA.setContent(xVar.sr());
-            this.VA.setThreadId(com.baidu.adp.lib.g.b.c(xVar.getTid(), 0L));
-            this.VA.setHeadlive(xVar.isHeadLive());
-            this.VA.setExpressionDatas(xVar.sz());
-            if (this.VA.getShowStyle() < 0) {
-                this.VA.setShowStyle(this.VA.getRandom(3, -1));
-            }
-            this.VA.getShowStyle();
-            this.VA.setShowExpressionViewIndexList(this.VA.getExpressionDatas());
+    public String sf() {
+        return this.img_url;
+    }
+
+    public void cl(String str) {
+        this.img_url = str;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String str) {
+        this.link = str;
+    }
+
+    public void a(Banner banner) {
+        if (banner != null) {
+            a(banner, null);
         }
-        cm(xVar.getTid());
-        setId(xVar.getId());
-        bC(xVar.sv());
-        cn(xVar.so());
-        return this.VA;
     }
 
-    public PhotoLiveCardData sh() {
-        return this.VA;
-    }
-
-    @Override // com.baidu.tbadk.core.data.x, com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return Vz;
+    public void a(Banner banner, Context context) {
+        if (banner != null) {
+            try {
+                cl(banner.pic_url);
+                setLink(banner.link);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
     }
 }

@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.i;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-class bc implements ax.a {
-    Pattern ccr = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
+class bc implements ay.a {
+    Pattern ciI = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
 
-    @Override // com.baidu.tbadk.core.util.ax.a
+    @Override // com.baidu.tbadk.core.util.ay.a
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
         String substring;
         boolean z;
@@ -26,7 +26,7 @@ class bc implements ax.a {
             return false;
         }
         String lowerCase = strArr[0].toLowerCase();
-        Matcher matcher = this.ccr.matcher(lowerCase);
+        Matcher matcher = this.ciI.matcher(lowerCase);
         if (matcher.find()) {
             substring = matcher.group(1);
             str = "allthread";
@@ -88,8 +88,8 @@ class bc implements ax.a {
             tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(substring, null, str)));
             return true;
         } else if (z2 && !TextUtils.isEmpty(substring)) {
-            com.baidu.adp.lib.g.i.f(TbadkCoreApplication.m411getInst(), ca.M(TbadkCoreApplication.m411getInst(), substring));
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ao("c10320").r("obj_locate", 3).r("obj_type", 2));
+            com.baidu.adp.lib.g.i.f(TbadkCoreApplication.m411getInst(), cb.L(TbadkCoreApplication.m411getInst(), substring));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.ap("c10320").r("obj_locate", 3).r("obj_type", 2));
             return true;
         } else if (z) {
             tbPageContext.showToast(i.h.page_not_found);

@@ -40,7 +40,7 @@ public class q {
             this.mScroller = new Scroller(context);
         }
 
-        private void nA() {
+        private void nB() {
             if (q.this.mHandler != null) {
                 q.this.mHandler.removeCallbacks(q.this.Ii);
             }
@@ -79,7 +79,7 @@ public class q {
         public void j(int i, int i2) {
             if (q.this.mView != null && this.mScroller != null) {
                 int i3 = i == 0 ? i - 1 : i;
-                nA();
+                nB();
                 this.Ik = 0;
                 this.mScroller.startScroll(0, 0, 0, i3, i2);
                 q.this.mView.post(this);
@@ -97,7 +97,7 @@ public class q {
                 q.this.mView.removeCallbacks(this);
             }
             if (q.this.Ie != null) {
-                q.this.Ie.nz();
+                q.this.Ie.nA();
             }
         }
     }

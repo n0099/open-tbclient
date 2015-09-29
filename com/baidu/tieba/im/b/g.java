@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
 class g extends CustomMessageListener {
-    final /* synthetic */ b bCo;
+    final /* synthetic */ b bFs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(b bVar, int i) {
         super(i);
-        this.bCo = bVar;
+        this.bFs = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,9 +19,9 @@ class g extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof BackgroundSwitchMessage) {
             if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                this.bCo.VR();
+                this.bFs.WA();
             } else {
-                this.bCo.VQ();
+                this.bFs.Wz();
             }
         }
     }

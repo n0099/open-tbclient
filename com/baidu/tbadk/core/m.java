@@ -1,89 +1,89 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class m {
-    private static m TG;
-    private int TH = 1;
+    private static m Ts;
+    private int Tt = 1;
     private int mIsAbstractOn = 1;
-    private int TI = 0;
-    private boolean TJ = true;
+    private int Tu = 0;
+    private boolean Tv = true;
     private int mViewImageQuality = 0;
 
-    public static m rb() {
+    public static m qX() {
         m mVar;
-        if (TG == null) {
+        if (Ts == null) {
             synchronized (m.class) {
-                if (TG == null) {
-                    TG = new m();
+                if (Ts == null) {
+                    Ts = new m();
                 }
-                mVar = TG;
+                mVar = Ts;
             }
             return mVar;
         }
-        return TG;
+        return Ts;
     }
 
     private m() {
     }
 
     public void initSetting() {
-        this.TI = com.baidu.tbadk.core.sharedPref.b.tx().getInt("image_quality", 0);
-        this.TH = com.baidu.tbadk.core.sharedPref.b.tx().getInt("new_display_photo", 1);
-        this.mIsAbstractOn = com.baidu.tbadk.core.sharedPref.b.tx().getInt("new_abstract_state", 0);
-        this.mViewImageQuality = com.baidu.tbadk.core.sharedPref.b.tx().getInt("view_image_quality", 0);
-        this.TJ = com.baidu.tbadk.core.sharedPref.b.tx().getBoolean("show_images", true);
+        this.Tu = com.baidu.tbadk.core.sharedPref.b.tu().getInt("image_quality", 0);
+        this.Tt = com.baidu.tbadk.core.sharedPref.b.tu().getInt("new_display_photo", 1);
+        this.mIsAbstractOn = com.baidu.tbadk.core.sharedPref.b.tu().getInt("new_abstract_state", 0);
+        this.mViewImageQuality = com.baidu.tbadk.core.sharedPref.b.tu().getInt("view_image_quality", 0);
+        this.Tv = com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("show_images", true);
     }
 
     public void bo(int i) {
-        this.TH = i;
-        com.baidu.tbadk.core.sharedPref.b.tx().putInt("new_display_photo", i);
+        this.Tt = i;
+        com.baidu.tbadk.core.sharedPref.b.tu().putInt("new_display_photo", i);
     }
 
-    public int rc() {
-        return this.TH;
+    public int qY() {
+        return this.Tt;
     }
 
-    public boolean rd() {
-        if (this.TH == 0) {
-            if (com.baidu.adp.lib.util.i.iM()) {
+    public boolean qZ() {
+        if (this.Tt == 0) {
+            if (com.baidu.adp.lib.util.i.iN()) {
                 return true;
             }
-        } else if (this.TH == 1) {
+        } else if (this.Tt == 1) {
             return true;
         }
         return false;
     }
 
     public void bp(int i) {
-        if (this.TI != i) {
-            this.TI = i;
-            com.baidu.tbadk.core.sharedPref.b.tx().putInt("image_quality", i);
+        if (this.Tu != i) {
+            this.Tu = i;
+            com.baidu.tbadk.core.sharedPref.b.tu().putInt("image_quality", i);
         }
     }
 
-    public int re() {
-        this.TI = com.baidu.tbadk.core.sharedPref.b.tx().getInt("image_quality", 0);
-        return this.TI;
+    public int ra() {
+        this.Tu = com.baidu.tbadk.core.sharedPref.b.tu().getInt("image_quality", 0);
+        return this.Tu;
     }
 
-    public boolean rf() {
-        return this.TJ;
+    public boolean rb() {
+        return this.Tv;
     }
 
     public void ae(boolean z) {
-        if (this.TJ != z) {
-            this.TJ = z;
-            com.baidu.tbadk.core.sharedPref.b.tx().putBoolean("show_images", z);
+        if (this.Tv != z) {
+            this.Tv = z;
+            com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("show_images", z);
         }
     }
 
     public void bq(int i) {
         if (this.mViewImageQuality != i) {
             this.mViewImageQuality = i;
-            com.baidu.tbadk.core.sharedPref.b.tx().putInt("view_image_quality", i);
-            ar.uK().uR();
-            ar.uK().uS();
+            com.baidu.tbadk.core.sharedPref.b.tu().putInt("view_image_quality", i);
+            as.uI().uP();
+            as.uI().uQ();
         }
     }
 
@@ -105,7 +105,7 @@ public class m {
         bq(1);
     }
 
-    public boolean rg() {
-        return this.TH == 0 || this.TI == 0 || this.mViewImageQuality == 0;
+    public boolean rc() {
+        return this.Tt == 0 || this.Tu == 0 || this.mViewImageQuality == 0;
     }
 }

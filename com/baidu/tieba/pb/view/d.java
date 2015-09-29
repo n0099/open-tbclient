@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class d {
@@ -24,9 +24,9 @@ public class d {
         float dimension2 = resources.getDimension(i.d.ds594) - resources.getDimension(i.d.ds14);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
         if (z2) {
-            drawable = al.getDrawable(i.e.icon_pb_tail_long);
+            drawable = am.getDrawable(i.e.icon_pb_tail_long);
         } else {
-            drawable = al.getDrawable(i.e.icon_pb_tail_short);
+            drawable = am.getDrawable(i.e.icon_pb_tail_short);
             dimension = dimension2;
         }
         if (z2 && z3) {

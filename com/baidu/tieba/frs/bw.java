@@ -1,30 +1,32 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.widget.AbsListView;
+import com.baidu.tbadk.core.view.UserPhotoLayout;
 import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class bw implements View.OnClickListener {
-    final /* synthetic */ bv aXL;
+class bw implements AbsListView.RecyclerListener {
+    final /* synthetic */ bs aWS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bw(bv bvVar) {
-        this.aXL = bvVar;
+    public bw(bs bsVar) {
+        this.aWS = bsVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.widget.ListView.u aA;
-        BaseActivity baseActivity;
-        if (this.aXL.aA(((Integer) view.getTag()).intValue()) instanceof com.baidu.tbadk.core.data.x) {
-            String str = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((com.baidu.tbadk.core.data.x) aA).getAuthor().getUserId();
-            String string = TbadkCoreApplication.m411getInst().getString(i.h.user_icon_web_view_title);
-            baseActivity = this.aXL.aSX;
-            com.baidu.tbadk.browser.g.a(baseActivity.getApplicationContext(), string, str, true, true, false);
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ao("c10134").r("obj_type", 3));
+    @Override // android.widget.AbsListView.RecyclerListener
+    public void onMovedToScrapHeap(View view) {
+        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view.findViewById(i.f.abstract_voice);
+        if (playVoiceBnt != null) {
+            playVoiceBnt.reset();
+        }
+        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view.findViewById(i.f.abstract_img_layout);
+        if (frsCommonImageLayout != null) {
+            frsCommonImageLayout.reset();
+        }
+        if (view != null && (view instanceof UserPhotoLayout)) {
+            ((UserPhotoLayout) view).reset();
         }
     }
 }

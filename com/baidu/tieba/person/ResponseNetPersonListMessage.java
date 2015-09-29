@@ -9,10 +9,10 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
-    private com.baidu.tieba.person.a.a data;
+    private com.baidu.tieba.person.data.a data;
     private int mErrCode;
     private String mErrMsg;
-    private bs mModel;
+    private bt mModel;
 
     public ResponseNetPersonListMessage(int i) {
         super(CmdConfigHttp.PIC_PERSONAL_LIST);
@@ -28,12 +28,12 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         return this.mErrMsg;
     }
 
-    public com.baidu.tieba.person.a.a getData() {
+    public com.baidu.tieba.person.data.a getData() {
         return this.data;
     }
 
-    public void setModel(bs bsVar) {
-        this.mModel = bsVar;
+    public void setModel(bt btVar) {
+        this.mModel = btVar;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -43,7 +43,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         if (statusCode == 200 && error == 0) {
             this.mErrCode = jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE);
             this.mErrMsg = jSONObject.optString(SocialConstants.PARAM_ERROR_MSG);
-            this.data = new com.baidu.tieba.person.a.a();
+            this.data = new com.baidu.tieba.person.data.a();
             this.data.parserJson(jSONObject);
         }
     }
@@ -54,9 +54,9 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && this.mModel != null && this.mModel.getPage() == 1 && (getOrginalMessage() instanceof HttpMessage)) {
             BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
-            boolean z = tag != null && tag.equals(bs.clh);
+            boolean z = tag != null && tag.equals(bt.cqL);
             String str = new String(bArr);
-            com.baidu.adp.lib.cache.o<String> cq = com.baidu.tbadk.core.b.a.sR().cq("tb.my_pages");
+            com.baidu.adp.lib.cache.o<String> cq = com.baidu.tbadk.core.b.a.sO().cq("tb.my_pages");
             if (cq != null) {
                 cq.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.mModel.getId(), str, TbConfig.APP_OVERDUR_DRAFT_BOX);
             }

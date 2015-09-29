@@ -1,37 +1,26 @@
 package com.baidu.tieba.frs;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class af extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aVz;
+public class af implements View.OnClickListener {
+    final /* synthetic */ FrsActivity aUz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public af(FrsActivity frsActivity, int i) {
-        super(i);
-        this.aVz = frsActivity;
+    public af(FrsActivity frsActivity) {
+        this.aUz = frsActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bi biVar;
-        bi biVar2;
-        bi biVar3;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.coreExtra.data.i)) {
-            com.baidu.tbadk.coreExtra.data.i iVar = (com.baidu.tbadk.coreExtra.data.i) customResponsedMessage.getData();
-            if (!TextUtils.isEmpty(iVar.userId) && !TextUtils.isEmpty(iVar.userName)) {
-                biVar = this.aVz.aUL;
-                if (biVar != null) {
-                    biVar2 = this.aVz.aUL;
-                    if (biVar2.Ma() != null) {
-                        biVar3 = this.aVz.aUL;
-                        biVar3.Ma().ar(iVar.userId, iVar.userName);
-                    }
-                }
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.aUz.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonGroupActivityConfig(this.aUz.getPageContext().getPageActivity(), 23003)));
+        TiebaStatic.log(new com.baidu.tbadk.core.util.ap("c10125").ae(ImageViewerConfig.FORUM_ID, this.aUz.getForumId()).r("obj_type", 2));
     }
 }

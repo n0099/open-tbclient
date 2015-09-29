@@ -4,32 +4,32 @@ import com.baidu.tbadk.performanceLog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements a.InterfaceC0053a {
-    final /* synthetic */ e ayt;
+    final /* synthetic */ e awS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.ayt = eVar;
+        this.awS = eVar;
     }
 
     @Override // com.baidu.tbadk.performanceLog.a.InterfaceC0053a
-    public void ev(int i) {
+    public void ew(int i) {
         int i2;
         int i3;
         int i4;
         a aVar;
         a aVar2;
-        e eVar = this.ayt;
-        i2 = eVar.ayr;
-        eVar.ayr = i2 + 1;
-        i3 = this.ayt.aym;
-        i4 = this.ayt.ayr;
+        e eVar = this.awS;
+        i2 = eVar.awQ;
+        eVar.awQ = i2 + 1;
+        i3 = this.awS.awL;
+        i4 = this.awS.awQ;
         if (i3 == i4) {
-            aVar = this.ayt.ayp;
+            aVar = this.awS.awO;
             aVar.a((a.InterfaceC0053a) null);
-            aVar2 = this.ayt.ayp;
+            aVar2 = this.awS.awO;
             aVar2.stop();
-            this.ayt.DX();
+            this.awS.DK();
         }
-        this.ayt.ew(i);
+        this.awS.ex(i);
     }
 }

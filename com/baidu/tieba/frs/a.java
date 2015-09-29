@@ -1,122 +1,124 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tieba.frs.c.n;
+import com.baidu.tieba.frs.b.o;
 import com.baidu.tieba.tbadkCore.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-class a implements di {
-    final /* synthetic */ FrsActivity aVz;
+class a implements eb {
+    final /* synthetic */ FrsActivity aUz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(FrsActivity frsActivity) {
-        this.aVz = frsActivity;
+        this.aUz = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.di
-    public void a(int i, int i2, dl dlVar, ArrayList<com.baidu.adp.widget.ListView.u> arrayList) {
-        bi biVar;
+    @Override // com.baidu.tieba.frs.eb
+    public void a(int i, int i2, ee eeVar, ArrayList<com.baidu.adp.widget.ListView.u> arrayList) {
+        bs bsVar;
         int i3;
         int i4;
-        com.baidu.tieba.frs.c.n nVar;
-        bi biVar2;
-        bi biVar3;
-        bi biVar4;
-        com.baidu.tieba.frs.c.n nVar2;
-        com.baidu.tieba.frs.c.n nVar3;
-        com.baidu.tieba.frs.b.a aVar;
-        com.baidu.tieba.frs.c.a aVar2;
-        com.baidu.tieba.frs.c.a aVar3;
-        bi biVar5;
-        com.baidu.tieba.frs.c.n nVar4;
-        bi biVar6;
-        bi biVar7;
-        bi biVar8;
-        bi biVar9;
+        com.baidu.tieba.frs.b.o oVar;
+        bs bsVar2;
+        bs bsVar3;
+        bs bsVar4;
+        com.baidu.tieba.frs.b.o oVar2;
+        com.baidu.tieba.frs.b.o oVar3;
+        com.baidu.tieba.frs.mc.a aVar;
+        com.baidu.tieba.frs.b.a aVar2;
+        com.baidu.tieba.frs.b.a aVar3;
+        bs bsVar5;
+        com.baidu.tieba.frs.b.o oVar4;
+        bs bsVar6;
+        bs bsVar7;
+        bs bsVar8;
+        bs bsVar9;
         int i5;
         int i6;
-        bi biVar10;
-        bi biVar11;
+        bs bsVar10;
+        bs bsVar11;
         e.a aVar4 = new e.a();
-        if (dlVar != null) {
-            aVar4.isSuccess = dlVar.errCode == 0;
-            aVar4.errorCode = dlVar.errCode;
-            aVar4.errorMsg = dlVar.errMsg;
-            if (arrayList == null || arrayList.size() == 0) {
-                biVar7 = this.aVz.aUL;
-                biVar7.Mh();
-            } else if (dlVar.hasMore) {
-                biVar11 = this.aVz.aUL;
-                biVar11.Mf();
-            } else if (dlVar.aZb) {
-                biVar9 = this.aVz.aUL;
-                i5 = FrsActivity.aUx;
-                int size = arrayList.size();
-                i6 = FrsActivity.aUy;
-                biVar9.fw(i5 - (size * i6));
-                biVar10 = this.aVz.aUL;
-                biVar10.Mg();
-            } else {
-                biVar8 = this.aVz.aUL;
-                biVar8.Mh();
+        if (eeVar != null) {
+            aVar4.isSuccess = eeVar.errCode == 0;
+            aVar4.errorCode = eeVar.errCode;
+            aVar4.errorMsg = eeVar.errMsg;
+            if (aVar4.isSuccess) {
+                if (arrayList == null || arrayList.size() == 0) {
+                    bsVar7 = this.aUz.aTJ;
+                    bsVar7.Mg();
+                } else if (eeVar.hasMore) {
+                    bsVar11 = this.aUz.aTJ;
+                    bsVar11.Me();
+                } else if (eeVar.aYQ) {
+                    bsVar9 = this.aUz.aTJ;
+                    i5 = FrsActivity.aTt;
+                    int size = arrayList.size();
+                    i6 = FrsActivity.aTu;
+                    bsVar9.fB(i5 - (size * i6));
+                    bsVar10 = this.aUz.aTJ;
+                    bsVar10.Mf();
+                } else {
+                    bsVar8 = this.aUz.aTJ;
+                    bsVar8.Mg();
+                }
             }
         } else {
-            dlVar = new dl();
-            dlVar.pn = 1;
-            dlVar.hasMore = false;
-            dlVar.aZb = false;
+            eeVar = new ee();
+            eeVar.pn = 1;
+            eeVar.hasMore = false;
+            eeVar.aYQ = false;
             if (arrayList != null) {
-                biVar = this.aVz.aUL;
-                i3 = FrsActivity.aUx;
+                bsVar = this.aUz.aTJ;
+                i3 = FrsActivity.aTt;
                 int size2 = arrayList.size();
-                i4 = FrsActivity.aUy;
-                biVar.fw(i3 - (size2 * i4));
+                i4 = FrsActivity.aTu;
+                bsVar.fB(i3 - (size2 * i4));
             }
         }
-        nVar = this.aVz.aVa;
-        if (!nVar.Z(i, i2)) {
-            aVar2 = this.aVz.aVb;
+        oVar = this.aUz.aTY;
+        if (!oVar.Z(i, i2)) {
+            aVar2 = this.aUz.aTZ;
             if (aVar2.NJ()) {
-                n.a aVar5 = new n.a();
-                aVar3 = this.aVz.aVb;
+                o.a aVar5 = new o.a();
+                aVar3 = this.aUz.aTZ;
                 if (aVar3.NL()) {
-                    biVar6 = this.aVz.aUL;
-                    aVar5.bcc = biVar6.getListView().getHeaderViewsCount() - 2;
+                    bsVar6 = this.aUz.aTJ;
+                    aVar5.bbW = bsVar6.getListView().getHeaderViewsCount() - 2;
                 } else {
-                    biVar5 = this.aVz.aUL;
-                    aVar5.bcc = biVar5.getListView().getHeaderViewsCount() - 1;
+                    bsVar5 = this.aUz.aTJ;
+                    aVar5.bbW = bsVar5.getListView().getHeaderViewsCount() - 1;
                 }
                 aVar5.top = 0;
-                nVar4 = this.aVz.aVa;
-                nVar4.a(i, i2, aVar5);
+                oVar4 = this.aUz.aTY;
+                oVar4.a(i, i2, aVar5);
             }
         }
         if (i == 1) {
-            com.baidu.tieba.tbadkCore.r rVar = this.aVz.aVj;
-            aVar = this.aVz.aUZ;
+            com.baidu.tieba.tbadkCore.r rVar = this.aUz.aUj;
+            aVar = this.aUz.aTX;
             rVar.a(aVar.getType(), false, aVar4);
         } else {
-            if (dlVar.errCode != 0 || arrayList == null || arrayList.size() == 0) {
+            if (eeVar.errCode != 0 || arrayList == null || arrayList.size() == 0) {
                 if (340001 == aVar4.errorCode) {
-                    FrsActivity frsActivity = this.aVz;
-                    biVar3 = this.aVz.aUL;
-                    frsActivity.showNetRefreshViewNoClick(biVar3.getRootView(), aVar4.errorMsg, true);
+                    FrsActivity frsActivity = this.aUz;
+                    bsVar3 = this.aUz.aTJ;
+                    frsActivity.showNetRefreshViewNoClick(bsVar3.getRootView(), aVar4.errorMsg, true);
                 } else {
-                    FrsActivity frsActivity2 = this.aVz;
-                    biVar2 = this.aVz.aUL;
-                    frsActivity2.showNetRefreshView(biVar2.getRootView(), aVar4.errorMsg, true);
+                    FrsActivity frsActivity2 = this.aUz;
+                    bsVar2 = this.aUz.aTJ;
+                    frsActivity2.showNetRefreshView(bsVar2.getRootView(), aVar4.errorMsg, true);
                 }
             }
-            biVar4 = this.aVz.aUL;
-            biVar4.cf(false);
-            if (this.aVz.Lq().MS() != null) {
-                this.aVz.aUN = this.aVz.Lq().MS();
+            bsVar4 = this.aUz.aTJ;
+            bsVar4.cc(false);
+            if (this.aUz.Lm().MR() != null) {
+                this.aUz.aTL = this.aUz.Lm().MR();
             }
-            this.aVz.Le();
+            this.aUz.La();
         }
-        nVar2 = this.aVz.aVa;
-        if (nVar2.NQ() != null) {
-            nVar3 = this.aVz.aVa;
-            nVar3.NQ().a(i, i2, dlVar, arrayList);
+        oVar2 = this.aUz.aTY;
+        if (oVar2.NQ() != null) {
+            oVar3 = this.aUz.aTY;
+            oVar3.NQ().a(i, i2, eeVar, arrayList);
         }
     }
 }

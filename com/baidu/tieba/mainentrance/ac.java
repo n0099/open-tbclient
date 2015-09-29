@@ -1,75 +1,67 @@
 package com.baidu.tieba.mainentrance;
 
-import android.widget.ScrollView;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.i;
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
+import com.baidu.tbadk.core.atomData.PhotoLiveCommentActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.mainentrance.ForumSuggestModel;
+import com.baidu.tieba.postsearch.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ac implements a.b {
-    final /* synthetic */ SquareSearchActivity bRF;
+public class ac implements AdapterView.OnItemClickListener {
+    final /* synthetic */ SquareSearchActivity bVr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(SquareSearchActivity squareSearchActivity) {
-        this.bRF = squareSearchActivity;
+        this.bVr = squareSearchActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        ScrollView scrollView;
-        ScrollView scrollView2;
-        boolean z;
-        List list;
-        ScrollView scrollView3;
-        SearchPageFocusBar searchPageFocusBar;
-        List list2;
-        aVar.dismiss();
-        if (this.bRF.mMode != 0) {
-            if (this.bRF.mMode == 3) {
-                this.bRF.bQG.setVisibility(8);
-                SquareSearchActivity squareSearchActivity = this.bRF;
-                scrollView2 = this.bRF.bRl;
-                squareSearchActivity.P(scrollView2);
-                this.bRF.mNoDataView.setVisibility(0);
-                this.bRF.mNoDataView.setTextOption(NoDataViewFactory.d.cJ(i.h.text_no_search_record));
-                z = this.bRF.awR;
-                if (!z) {
-                    RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = new RequestSearchPersonHistoryWriteMessage();
-                    requestSearchPersonHistoryWriteMessage.setClear(true);
-                    this.bRF.sendMessage(requestSearchPersonHistoryWriteMessage);
-                    this.bRF.awR = true;
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x009b: IGET  (r4v12 long A[REMOVE]) = (r0v5 com.baidu.tieba.postsearch.j$a) com.baidu.tieba.postsearch.j.a.tid long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x00d0: IGET  (r5v3 long A[REMOVE]) = (r0v5 com.baidu.tieba.postsearch.j$a) com.baidu.tieba.postsearch.j.a.tid long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0101: IGET  (r3v1 long A[REMOVE]) = (r0v5 com.baidu.tieba.postsearch.j$a) com.baidu.tieba.postsearch.j.a.tid long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0110: IGET  (r4v6 long A[REMOVE]) = (r0v5 com.baidu.tieba.postsearch.j$a) com.baidu.tieba.postsearch.j.a.pid long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0142: IGET  (r5v0 long A[REMOVE]) = (r0v5 com.baidu.tieba.postsearch.j$a) com.baidu.tieba.postsearch.j.a.tid long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0151: IGET  (r6v1 long A[REMOVE]) = (r0v5 com.baidu.tieba.postsearch.j$a) com.baidu.tieba.postsearch.j.a.pid long)] */
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        j.a aVar;
+        ListAdapter adapter;
+        if (this.bVr.mMode != 0) {
+            Object item = this.bVr.bUE.getItem(i);
+            if ((item instanceof j.a) && (aVar = (j.a) item) != null) {
+                if (aVar.is_floor != 1) {
+                    if (aVar.thread_type == 33) {
+                        TiebaStatic.log("c10257");
+                        this.bVr.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.bVr.getPageContext().getPageActivity(), new StringBuilder().append(aVar.tid).toString()).rk()));
+                        return;
+                    }
+                    this.bVr.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.bVr.getPageContext().getPageActivity()).createNormalCfg(new StringBuilder().append(aVar.tid).toString(), null, "search_post")));
+                    return;
+                } else if (aVar.thread_type == 33) {
+                    this.bVr.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(this.bVr.getPageContext().getPageActivity()).createPhotoLiveCommentActivityConfig(new StringBuilder().append(aVar.tid).toString(), new StringBuilder().append(aVar.pid).toString(), false)));
+                    return;
+                } else {
+                    this.bVr.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.bVr.getPageContext().getPageActivity()).createNormalCfg(new StringBuilder().append(aVar.tid).toString(), new StringBuilder().append(aVar.pid).toString(), "search_post")));
                     return;
                 }
-                return;
             }
-            SquareSearchActivity squareSearchActivity2 = this.bRF;
-            scrollView = this.bRF.bRl;
-            squareSearchActivity2.P(scrollView);
-            this.bRF.bQG.setVisibility(8);
-            this.bRF.mNoDataView.setVisibility(0);
-            this.bRF.mNoDataView.setTextOption(NoDataViewFactory.d.cJ(i.h.text_no_search_record));
-            com.baidu.tieba.tbadkCore.util.k.avi();
             return;
         }
-        com.baidu.adp.lib.g.k.hg().c(new ad(this));
-        list = this.bRF.bQu;
-        if (list != null) {
-            list2 = this.bRF.bQu;
-            if (list2.size() > 0) {
-                this.bRF.a(4, (ArrayList<String>) null);
-                return;
+        ListView listView = (ListView) adapterView;
+        if (listView != null && (adapter = listView.getAdapter()) != null && adapter.getCount() != 0 && i < adapter.getCount()) {
+            Object item2 = adapter.getItem(i);
+            if (item2 instanceof ForumSuggestModel.Forum) {
+                String str = ((ForumSuggestModel.Forum) item2).forum_name;
+                TiebaStatic.eventStat(this.bVr.getPageContext().getPageActivity(), "search_bar_result_click", "click", 1, new Object[0]);
+                this.bVr.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bVr.getPageContext().getPageActivity()).createFlagCfg(str, FrsActivityConfig.FRS_FROM_SEARCH, 1)));
             }
         }
-        SquareSearchActivity squareSearchActivity3 = this.bRF;
-        scrollView3 = this.bRF.bRl;
-        squareSearchActivity3.P(scrollView3);
-        SquareSearchActivity squareSearchActivity4 = this.bRF;
-        searchPageFocusBar = this.bRF.bRm;
-        squareSearchActivity4.P(searchPageFocusBar);
-        this.bRF.bQG.setVisibility(8);
-        this.bRF.mNoDataView.setVisibility(0);
-        this.bRF.mNoDataView.setTextOption(NoDataViewFactory.d.cJ(i.h.text_no_search_record));
     }
 }

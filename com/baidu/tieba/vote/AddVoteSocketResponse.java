@@ -1,0 +1,33 @@
+package com.baidu.tieba.vote;
+
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.squareup.wire.Wire;
+import tbclient.AddPollPost.AddPollPostResIdl;
+import tbclient.AddPollPost.DataRes;
+/* loaded from: classes.dex */
+public class AddVoteSocketResponse extends SocketResponsedMessage {
+    private DataRes mData;
+
+    public AddVoteSocketResponse() {
+        super(309006);
+    }
+
+    public DataRes getData() {
+        return this.mData;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.a
+    public void decodeInBackGround(int i, byte[] bArr) {
+        AddPollPostResIdl addPollPostResIdl = (AddPollPostResIdl) new Wire(new Class[0]).parseFrom(bArr, AddPollPostResIdl.class);
+        if (addPollPostResIdl != null) {
+            if (addPollPostResIdl.error != null) {
+                setError(addPollPostResIdl.error.errorno.intValue());
+                setErrorString(addPollPostResIdl.error.errmsg);
+            }
+            if (addPollPostResIdl.data != null) {
+                this.mData = addPollPostResIdl.data;
+            }
+        }
+    }
+}

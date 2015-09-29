@@ -1,20 +1,21 @@
 package com.baidu.tieba.im.widget;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a<T> {
-    private T bFs;
+    private T bIv;
     private int subType;
     private String title;
 
-    /* JADX WARN: Type inference failed for: r1v2, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T] */
-    /* JADX WARN: Type inference failed for: r2v1, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int aQ(String str, String str2) {
+    /* JADX WARN: Type inference failed for: r1v3, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
+    /* JADX WARN: Type inference failed for: r1v4, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T] */
+    /* JADX WARN: Type inference failed for: r2v10, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
+    public int aP(String str, String str2) {
         int i = -1;
         if (str != null) {
             try {
@@ -22,8 +23,8 @@ public class a<T> {
                 if (jSONArray.length() == 3) {
                     this.title = jSONArray.optString(0);
                     this.subType = jSONArray.optInt(1);
+                    JSONObject optJSONObject = jSONArray.optJSONObject(2);
                     if (1 == this.subType) {
-                        JSONObject optJSONObject = jSONArray.optJSONObject(2);
                         String optString = optJSONObject.optString("button");
                         String optString2 = optJSONObject.optString("shareSourceIcon");
                         String optString3 = optJSONObject.optString("shareSource");
@@ -32,18 +33,18 @@ public class a<T> {
                         if (TextUtils.isEmpty(optString4)) {
                             ?? r2 = (T) new ShareFromPBMsgData();
                             r2.setContent(optJSONObject.optString("themeContent"));
-                            r2.setForumName(optJSONObject.optString(TbTitleActivityConfig.FORUM_NAME));
+                            r2.setForumName(optJSONObject.optString("forumName"));
                             r2.setImageUrl(optJSONObject.optString("themeImageUrl"));
                             r2.setPostId(optJSONObject.optString("postID"));
                             r2.setThreadId(optJSONObject.optString("themeID"));
                             r2.setTitle(optJSONObject.optString("themeTitle"));
                             r2.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
-                            this.bFs = r2;
+                            this.bIv = r2;
                             i = 0;
                         } else {
                             ?? r1 = (T) new ShareFromGameCenterMsgData();
                             r1.setContent(optJSONObject.optString("themeContent"));
-                            r1.setForumName(optJSONObject.optString(TbTitleActivityConfig.FORUM_NAME));
+                            r1.setForumName(optJSONObject.optString("forumName"));
                             r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
                             r1.setPostId(optJSONObject.optString("postID"));
                             r1.setThreadId(optJSONObject.optString("themeID"));
@@ -53,9 +54,17 @@ public class a<T> {
                             r1.setShareSourceIcon(optString2);
                             r1.setShareSourceUrl(optString5);
                             r1.setShareUrl(optString4);
-                            this.bFs = r1;
+                            this.bIv = r1;
                             i = 1;
                         }
+                    } else if (4 == this.subType) {
+                        ?? r12 = (T) new ShareFromFrsMsgData();
+                        r12.setName(optJSONObject.optString("forumName"));
+                        r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
+                        r12.setMemberNum(optJSONObject.optInt("memberNum"));
+                        r12.setPostNum(optJSONObject.optInt("postNum"));
+                        this.bIv = r12;
+                        i = 2;
                     }
                 }
             } catch (Exception e) {
@@ -64,11 +73,11 @@ public class a<T> {
         return i;
     }
 
-    public int WR() {
+    public int XA() {
         return this.subType;
     }
 
-    public T WS() {
-        return this.bFs;
+    public T XB() {
+        return this.bIv;
     }
 }

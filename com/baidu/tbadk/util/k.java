@@ -1,82 +1,33 @@
 package com.baidu.tbadk.util;
 
-import android.text.TextUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.w;
 /* loaded from: classes.dex */
-public class k {
-    public static boolean e(char c) {
-        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
+public class k extends Thread {
+    private int azA;
+    private int azz;
+    private String type = null;
+
+    public k(int i, int i2) {
+        this.azz = 0;
+        this.azA = 0;
+        this.azz = i;
+        this.azA = i2;
     }
 
-    public static int fJ(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return 0;
-        }
-        int i = 0;
-        for (int i2 = 0; i2 < str.length(); i2++) {
-            if (e(str.charAt(i2))) {
-                i++;
-            } else {
-                i += 2;
-            }
-        }
-        return i;
+    public void setType(String str) {
+        this.type = str;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public static String eE(int i) {
-        if (i >= 100000000) {
-            return String.valueOf(i / 100000000) + "亿+";
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        w wVar = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
+        wVar.o("img_num", String.valueOf(this.azz));
+        wVar.o("img_total", String.valueOf(this.azA));
+        if (this.type != null) {
+            wVar.o("img_type", this.type);
         }
-        if (i >= 10000) {
-            return String.valueOf(i / 10000) + "万+";
-        }
-        return new StringBuilder().append(i).toString();
-    }
-
-    public static String f(String str, int i, int i2) {
-        StringBuilder sb = new StringBuilder();
-        if (TextUtils.isEmpty(str) || i > i2) {
-            return sb.toString();
-        }
-        if (i >= 0 && i2 >= 0) {
-            int i3 = 0;
-            for (int i4 = 0; i4 < str.length(); i4++) {
-                char charAt = str.charAt(i4);
-                if (i3 >= i2) {
-                    return sb.toString();
-                }
-                if (i3 >= i) {
-                    sb.append(charAt);
-                }
-                if (e(charAt)) {
-                    i3++;
-                } else {
-                    i3 += 2;
-                }
-            }
-        }
-        return sb.toString();
-    }
-
-    public static boolean g(String str, int i, int i2) {
-        if (TextUtils.isEmpty(str) || i > i2 || i < 0 || i2 < 0) {
-            return false;
-        }
-        int i3 = 0;
-        boolean z = false;
-        for (int i4 = 0; i4 < str.length(); i4++) {
-            char charAt = str.charAt(i4);
-            if (i3 >= i2) {
-                return z;
-            }
-            if (e(charAt)) {
-                i3++;
-                z = true;
-            } else {
-                i3 += 2;
-                z = false;
-            }
-        }
-        return false;
+        wVar.tG();
     }
 }

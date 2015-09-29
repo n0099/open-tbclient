@@ -1,42 +1,53 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
+import tbclient.PayMemberInfo;
 /* loaded from: classes.dex */
 public class e {
-    private int aoX = 0;
-    private int aoY = 0;
-    private int fans = 0;
-    private int chat = 0;
-    private int bookmark = 0;
+    private int TL;
+    private int anC;
+    private String expire_remind;
+    private String url;
 
-    public int Ah() {
-        return this.aoX;
-    }
-
-    public int Ai() {
-        return this.aoY;
-    }
-
-    public int Aj() {
-        return this.fans;
-    }
-
-    public int Ak() {
-        return this.bookmark;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
+    public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            try {
-                this.aoX = jSONObject.optInt("replyme", 0);
-                this.aoY = jSONObject.optInt("atme", 0);
-                this.fans = jSONObject.optInt("fans", 0);
-                this.chat = jSONObject.optInt("pletter", 0);
-                this.bookmark = jSONObject.optInt("bookmark", 0);
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
+            this.anC = jSONObject.optInt("props_id");
+            this.TL = jSONObject.optInt("end_time", 0);
+            this.url = jSONObject.optString(this.url, "");
+            this.expire_remind = jSONObject.optString("expire_remind");
         }
+    }
+
+    public void a(PayMemberInfo payMemberInfo) {
+        if (payMemberInfo != null) {
+            if (payMemberInfo.props_id != null) {
+                this.anC = payMemberInfo.props_id.intValue();
+            }
+            if (payMemberInfo.end_time != null) {
+                this.TL = payMemberInfo.end_time.intValue();
+            }
+            this.url = payMemberInfo.url;
+            this.expire_remind = payMemberInfo.expire_remind;
+        }
+    }
+
+    public int zW() {
+        return this.anC;
+    }
+
+    public int rn() {
+        return this.TL;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public String zX() {
+        return this.expire_remind;
+    }
+
+    public void eF(String str) {
+        this.expire_remind = str;
     }
 }

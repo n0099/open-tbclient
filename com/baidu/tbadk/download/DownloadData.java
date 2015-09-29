@@ -12,12 +12,16 @@ public class DownloadData implements Serializable {
     public static final int FILE_DOWNLOAD_TYPE_APP = 12;
     public static final int FILE_DOWNLOAD_TYPE_EMOYION_APCKAGE = 11;
     public static final int FILE_DOWNLOAD_TYPE_NORMAL = 10;
-    private transient c apO;
+    public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
+    private transient c aoo;
     private String check;
     private String description;
     private int errorCode;
     private int height;
     private String id;
+    private boolean isForceDownload;
+    private boolean isNeedInvokeApk;
+    private boolean isNeedNotify;
     private long length;
     private String name;
     private int notifyId;
@@ -47,9 +51,12 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.apO = null;
+        this.aoo = null;
         this.position = 0;
         this.notifyId = 0;
+        this.isNeedInvokeApk = true;
+        this.isForceDownload = false;
+        this.isNeedNotify = true;
         this.id = str;
     }
 
@@ -61,9 +68,12 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.apO = null;
+        this.aoo = null;
         this.position = 0;
         this.notifyId = 0;
+        this.isNeedInvokeApk = true;
+        this.isForceDownload = false;
+        this.isNeedNotify = true;
         this.id = str;
         this.url = str2;
     }
@@ -76,13 +86,16 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.apO = null;
+        this.aoo = null;
         this.position = 0;
         this.notifyId = 0;
+        this.isNeedInvokeApk = true;
+        this.isForceDownload = false;
+        this.isNeedNotify = true;
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.apO = cVar;
+        this.aoo = cVar;
         this.status = 5;
     }
 
@@ -183,11 +196,11 @@ public class DownloadData implements Serializable {
     }
 
     public c getCallback() {
-        return this.apO;
+        return this.aoo;
     }
 
     public void setCallback(c cVar) {
-        this.apO = cVar;
+        this.aoo = cVar;
     }
 
     public String getStatusMsg() {
@@ -227,5 +240,29 @@ public class DownloadData implements Serializable {
             return (int) ((getLength() * 100) / getSize());
         }
         return 0;
+    }
+
+    public boolean isNeedInvokeApk() {
+        return this.isNeedInvokeApk;
+    }
+
+    public void setNeedInvokeApk(boolean z) {
+        this.isNeedInvokeApk = z;
+    }
+
+    public boolean isForceDownload() {
+        return this.isForceDownload;
+    }
+
+    public void setForceDownload(boolean z) {
+        this.isForceDownload = z;
+    }
+
+    public boolean isNeedNotify() {
+        return this.isNeedNotify;
+    }
+
+    public void setNeedNotify(boolean z) {
+        this.isNeedNotify = z;
     }
 }

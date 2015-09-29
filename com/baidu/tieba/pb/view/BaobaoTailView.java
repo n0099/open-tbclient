@@ -6,34 +6,34 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class BaobaoTailView extends LinearLayout {
-    private TextView aFo;
-    private TbImageView aOU;
-    private View.OnClickListener aeL;
-    private com.baidu.tbadk.data.a cig;
+    private TextView aEt;
+    private TbImageView aNQ;
+    private View.OnClickListener adX;
+    private com.baidu.tbadk.data.a cnC;
 
     public BaobaoTailView(Context context) {
         super(context);
-        this.aeL = new a(this);
+        this.adX = new a(this);
         init();
     }
 
     public BaobaoTailView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aeL = new a(this);
+        this.adX = new a(this);
         init();
     }
 
     private void init() {
         setOrientation(0);
         LayoutInflater.from(getContext()).inflate(i.g.baobao_tail_layout, this);
-        this.aOU = (TbImageView) findViewById(i.f.baobao_icon);
-        this.aFo = (TextView) findViewById(i.f.baobao_tail_text);
-        setOnClickListener(this.aeL);
+        this.aNQ = (TbImageView) findViewById(i.f.baobao_icon);
+        this.aEt = (TextView) findViewById(i.f.baobao_tail_text);
+        setOnClickListener(this.adX);
     }
 
     public void setData(com.baidu.tbadk.data.a aVar) {
@@ -41,12 +41,12 @@ public class BaobaoTailView extends LinearLayout {
             setVisibility(8);
             return;
         }
-        this.cig = aVar;
-        this.aFo.setText(aVar.getContent());
-        this.aOU.d(aVar.getIconUrl(), 10, false);
+        this.cnC = aVar;
+        this.aEt.setText(aVar.getContent());
+        this.aNQ.d(aVar.getIconUrl(), 10, false);
     }
 
     public void changeSkinType(int i) {
-        al.b(this.aFo, i.c.cp_link_tip_c, 1);
+        am.b(this.aEt, i.c.cp_link_tip_c, 1);
     }
 }

@@ -4,28 +4,29 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.cache.o;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.util.m;
 /* loaded from: classes.dex */
 public class h extends a {
-    private static h bEr = new h();
+    private static h bHu = new h();
 
     private h() {
     }
 
-    public static h Wz() {
-        return bEr;
+    public static h Xi() {
+        return bHu;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: aO */
-    public OfficialSettingItemData aL(String str, String str2) {
+    /* renamed from: aN */
+    public OfficialSettingItemData aK(String str, String str2) {
         OfficialSettingItemData officialSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.bEj) {
-            com.baidu.tieba.im.pushNotify.a aVar = this.bEj.get(str3);
+        synchronized (this.bHm) {
+            com.baidu.tieba.im.pushNotify.a aVar = this.bHm.get(str3);
             officialSettingItemData = (aVar == null || !(aVar instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) aVar;
         }
         if (officialSettingItemData == null) {
@@ -33,7 +34,7 @@ public class h extends a {
             officialSettingItemData2.setMyUid(str);
             officialSettingItemData2.setToUid(str2);
             officialSettingItemData2.setAcceptNotify(true);
-            if (com.baidu.adp.lib.util.k.jb()) {
+            if (com.baidu.adp.lib.util.k.jc()) {
                 a(officialSettingItemData2, null);
                 return officialSettingItemData2;
             }
@@ -43,23 +44,23 @@ public class h extends a {
         return officialSettingItemData;
     }
 
-    public void SW() {
+    public void TE() {
         super.l(OfficialSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        OfficialSettingItemData aL;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (aL = aL(str, str2)) != null) {
-            aL.setToPortrait(userData.getPortrait());
-            aL.setToName(userData.getUserName());
-            a(aL);
+        OfficialSettingItemData aK;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (aK = aK(str, str2)) != null) {
+            aK.setToPortrait(userData.getPortrait());
+            aK.setToName(userData.getUserName());
+            a(aK);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public o<String> Ww() {
-        return com.baidu.tbadk.core.b.a.sR().cq("tb.im_official_chat_setting");
+    public o<String> Xf() {
+        return com.baidu.tbadk.core.b.a.sO().cq("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -74,18 +75,18 @@ public class h extends a {
                 }
                 return;
             }
-            o<String> Ww = Ww();
+            o<String> Xf = Xf();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.bEj) {
-                this.bEj.put(str, officialSettingItemData);
+            synchronized (this.bHm) {
+                this.bHm.put(str, officialSettingItemData);
             }
-            Ww.f(str, jsonStrWithObject);
+            Xf.f(str, jsonStrWithObject);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    public void a(com.baidu.tieba.im.pushNotify.a aVar, com.baidu.tieba.im.g<Void> gVar) {
+    public void a(com.baidu.tieba.im.pushNotify.a aVar, com.baidu.tbadk.util.d<Void> dVar) {
         if (aVar != null && (aVar instanceof OfficialSettingItemData)) {
             OfficialSettingItemData officialSettingItemData = (OfficialSettingItemData) aVar;
             String myUid = officialSettingItemData.getMyUid();
@@ -97,10 +98,10 @@ public class h extends a {
                 return;
             }
             String str = String.valueOf(myUid) + "@" + toUid;
-            synchronized (this.bEj) {
-                this.bEj.put(str, officialSettingItemData);
+            synchronized (this.bHm) {
+                this.bHm.put(str, officialSettingItemData);
             }
-            com.baidu.tieba.im.l.a(new i(this, officialSettingItemData, str), gVar);
+            m.b(new i(this, officialSettingItemData, str), dVar);
         }
     }
 }

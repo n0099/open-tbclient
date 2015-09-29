@@ -7,6 +7,7 @@ public final class DataReq extends Message {
     public static final String DEFAULT_BUSINESS = "";
     public static final String DEFAULT_INTRO = "";
     public static final String DEFAULT_NAME = "";
+    public static final String DEFAULT_PAGE_FROM_DIM = "";
     public static final String DEFAULT_PORTRAIT = "";
     public static final String DEFAULT_POSITION = "";
     @ProtoField(tag = 6, type = Message.Datatype.STRING)
@@ -25,6 +26,8 @@ public final class DataReq extends Message {
     public final Double lng;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String name;
+    @ProtoField(tag = 11, type = Message.Datatype.STRING)
+    public final String page_from_dim;
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
     public final String portrait;
     @ProtoField(tag = 5, type = Message.Datatype.STRING)
@@ -89,9 +92,14 @@ public final class DataReq extends Message {
             }
             if (builder.flag == null) {
                 this.flag = DEFAULT_FLAG;
-                return;
             } else {
                 this.flag = builder.flag;
+            }
+            if (builder.page_from_dim == null) {
+                this.page_from_dim = "";
+                return;
+            } else {
+                this.page_from_dim = builder.page_from_dim;
                 return;
             }
         }
@@ -105,6 +113,7 @@ public final class DataReq extends Message {
         this.lat = builder.lat;
         this.groupType = builder.groupType;
         this.flag = builder.flag;
+        this.page_from_dim = builder.page_from_dim;
     }
 
     /* loaded from: classes.dex */
@@ -117,6 +126,7 @@ public final class DataReq extends Message {
         public Double lat;
         public Double lng;
         public String name;
+        public String page_from_dim;
         public String portrait;
         public String position;
 
@@ -136,6 +146,7 @@ public final class DataReq extends Message {
                 this.lat = dataReq.lat;
                 this.groupType = dataReq.groupType;
                 this.flag = dataReq.flag;
+                this.page_from_dim = dataReq.page_from_dim;
             }
         }
 

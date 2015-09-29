@@ -5,8 +5,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.e {
-    private a bEd;
-    private b bEe;
+    private a bHg;
+    private b bHh;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -28,24 +28,24 @@ public class af extends com.baidu.adp.base.e {
     }
 
     public void b(String str, ChatMessage chatMessage) {
-        this.bEd = new a(str, chatMessage);
-        this.bEd.execute(new Object[0]);
+        this.bHg = new a(str, chatMessage);
+        this.bHg.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.bEe = bVar;
+        this.bHh = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, String> {
-        private String bEf;
-        private ChatMessage bEg;
-        private ac bEh = new ac();
+        private String bHi;
+        private ChatMessage bHj;
+        private ac bHk = new ac();
 
         public a(String str, ChatMessage chatMessage) {
-            this.bEf = str;
-            this.bEg = chatMessage;
+            this.bHi = str;
+            this.bHj = chatMessage;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class af extends com.baidu.adp.base.e {
         /* renamed from: t */
         public String doInBackground(Object... objArr) {
             try {
-                return this.bEh.ih(this.bEf);
+                return this.bHk.il(this.bHi);
             } catch (Exception e) {
                 return null;
             }
@@ -65,8 +65,8 @@ public class af extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            if (af.this.bEe != null) {
-                af.this.bEe.a(str, this.bEg);
+            if (af.this.bHh != null) {
+                af.this.bHh.a(str, this.bHj);
             }
         }
     }

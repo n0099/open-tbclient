@@ -7,31 +7,31 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.frs.bf;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tieba.frs.bp;
 import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.GoodGridView;
 /* loaded from: classes.dex */
 public class j {
     private View LR;
-    private GoodGridView bdm;
-    private ImageView bdn;
+    private GoodGridView bdg;
+    private ImageView bdh;
 
     public j(Context context) {
         this.LR = null;
-        this.bdm = null;
-        this.bdn = null;
+        this.bdg = null;
+        this.bdh = null;
         this.LR = LayoutInflater.from(context).inflate(i.g.dialog_good, (ViewGroup) null);
-        this.bdm = (GoodGridView) this.LR.findViewById(i.f.good_gridview);
-        this.bdn = (ImageView) this.LR.findViewById(i.f.divider_line);
+        this.bdg = (GoodGridView) this.LR.findViewById(i.f.good_gridview);
+        this.bdh = (ImageView) this.LR.findViewById(i.f.divider_line);
     }
 
-    public void a(bf bfVar) {
-        this.bdm.setAdapter((ListAdapter) bfVar);
+    public void a(bp bpVar) {
+        this.bdg.setAdapter((ListAdapter) bpVar);
     }
 
     public void b(AdapterView.OnItemClickListener onItemClickListener) {
-        this.bdm.setOnItemClickListener(onItemClickListener);
+        this.bdg.setOnItemClickListener(onItemClickListener);
     }
 
     public View getView() {
@@ -39,7 +39,7 @@ public class j {
     }
 
     public void changeSkinType(int i) {
-        al.i(this.bdm, i.c.cp_bg_line_d);
-        al.h(this.bdn, i.c.frs_goodheader_line_end);
+        am.j(this.bdg, i.c.cp_bg_line_d);
+        am.i(this.bdh, i.c.frs_goodheader_line_end);
     }
 }

@@ -5,62 +5,62 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
-    private b cJF;
-    private p cJG;
-    private a cJH;
-    private c cJI;
+    private b cQA;
+    private p cQB;
+    private a cQC;
+    private c cQD;
     public boolean pY;
 
     /* loaded from: classes.dex */
     public interface a {
         void b(p pVar);
 
-        void hM(String str);
+        void hQ(String str);
     }
 
     public r(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.cJF = null;
-        this.cJG = null;
-        this.cJH = null;
-        this.cJG = new p();
+        this.cQA = null;
+        this.cQB = null;
+        this.cQC = null;
+        this.cQB = new p();
     }
 
     public void a(a aVar) {
-        this.cJH = aVar;
+        this.cQC = aVar;
     }
 
     public void c(c cVar) {
-        this.cJI = cVar;
+        this.cQD = cVar;
     }
 
-    public c arz() {
-        return this.cJI;
+    public c atN() {
+        return this.cQD;
     }
 
-    private String arA() {
-        ArrayList<e> aqZ = this.cJI.aqZ();
-        if (aqZ == null) {
+    private String atO() {
+        ArrayList<e> atn = this.cQD.atn();
+        if (atn == null) {
             return "";
         }
-        if (!this.cJI.ara()) {
+        if (!this.cQD.ato()) {
             ArrayList arrayList = new ArrayList();
-            Iterator<e> it = aqZ.iterator();
+            Iterator<e> it = atn.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next.arj() < this.cJI.getLevel()) {
+                if (next.atx() < this.cQD.getLevel()) {
                     arrayList.add(next);
                 }
             }
-            aqZ.removeAll(arrayList);
+            atn.removeAll(arrayList);
         }
-        int size = aqZ.size();
+        int size = atn.size();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            e eVar = aqZ.get(i);
-            if (eVar.arn()) {
-                if (!eVar.aro()) {
-                    eVar.fX(true);
+            e eVar = atn.get(i);
+            if (eVar.atB()) {
+                if (!eVar.atC()) {
+                    eVar.gi(true);
                 }
             }
             if (i > 0) {
@@ -74,19 +74,19 @@ public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.e
     public boolean LoadData() {
-        if (this.cJF != null) {
+        if (this.cQA != null) {
             return false;
         }
-        String arA = arA();
-        this.cJF = new b();
-        this.cJF.execute(arA);
+        String atO = atO();
+        this.cQA = new b();
+        this.cQA.execute(atO);
         return true;
     }
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.cJF != null) {
-            this.cJF.cancel();
+        if (this.cQA != null) {
+            this.cQA.cancel();
             return true;
         }
         return false;
@@ -94,7 +94,7 @@ public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<String, Integer, p> {
-        private h cJJ = null;
+        private h cQE = null;
 
         public b() {
             setPriority(3);
@@ -110,7 +110,7 @@ public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: A */
+        /* renamed from: z */
         public p doInBackground(String... strArr) {
             if (strArr[0] == null) {
                 return null;
@@ -127,30 +127,30 @@ public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
                         sb.append(String.valueOf(split[i2 + i3]) + ",");
                     }
                 }
-                this.cJJ = new h();
-                if (com.baidu.adp.lib.util.i.iL()) {
-                    kJ(sb.toString());
+                this.cQE = new h();
+                if (com.baidu.adp.lib.util.i.iM()) {
+                    lh(sb.toString());
                 }
             }
-            return r.this.cJG;
+            return r.this.cQB;
         }
 
-        private p kJ(String str) {
-            String kG = this.cJJ.kG(str);
-            if (this.cJJ.qZ()) {
-                r.this.cJG.parserJson(kG);
-                return r.this.cJG;
+        private p lh(String str) {
+            String le = this.cQE.le(str);
+            if (this.cQE.qV()) {
+                r.this.cQB.parserJson(le);
+                return r.this.cQB;
             }
-            r.this.cJG = null;
+            r.this.cQB = null;
             return null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            this.cJJ.cancel();
-            this.cJJ = null;
-            r.this.cJF = null;
+            this.cQE.cancel();
+            this.cQE = null;
+            r.this.cQA = null;
             r.this.pY = false;
         }
 
@@ -160,12 +160,12 @@ public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
         /* renamed from: c */
         public void onPostExecute(p pVar) {
             r.this.pY = false;
-            r.this.cJF = null;
-            if (r.this.cJH != null) {
-                if (r.this.cJG != null) {
-                    r.this.cJH.b(r.this.cJG);
+            r.this.cQA = null;
+            if (r.this.cQC != null) {
+                if (r.this.cQB != null) {
+                    r.this.cQC.b(r.this.cQB);
                 } else {
-                    r.this.cJH.hM(this.cJJ != null ? this.cJJ.ra() : null);
+                    r.this.cQC.hQ(this.cQE != null ? this.cQE.qW() : null);
                 }
             }
         }

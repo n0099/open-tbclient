@@ -14,47 +14,47 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b Dj;
-    private HashMap<String, String> Dk = new HashMap<>();
-    private a Dl = null;
+    private static volatile b Dk;
+    private HashMap<String, String> Dl = new HashMap<>();
+    private a Dm = null;
 
-    public static b lM() {
-        if (Dj == null) {
+    public static b lN() {
+        if (Dk == null) {
             synchronized (b.class) {
-                if (Dj == null) {
-                    Dj = new b();
+                if (Dk == null) {
+                    Dk = new b();
                 }
             }
         }
-        return Dj;
+        return Dk;
     }
 
     private b() {
     }
 
     public void clear(boolean z) {
-        if (z && this.Dl == null && lN()) {
-            this.Dl = new a();
-            this.Dl.execute(new Void[0]);
+        if (z && this.Dm == null && lO()) {
+            this.Dm = new a();
+            this.Dm.execute(new Void[0]);
         }
     }
 
-    private boolean lN() {
+    private boolean lO() {
         String[] split;
-        this.Dk.clear();
-        PluginSettings mj = com.baidu.adp.plugin.packageManager.pluginSettings.c.mm().mj();
-        if (mj == null) {
+        this.Dl.clear();
+        PluginSettings mk = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().mk();
+        if (mk == null) {
             return false;
         }
-        for (Map.Entry<String, PluginSetting> entry : mj.getPlugins().entrySet()) {
+        for (Map.Entry<String, PluginSetting> entry : mk.getPlugins().entrySet()) {
             PluginSetting value = entry.getValue();
             if (!TextUtils.isEmpty(value.apkPath)) {
-                this.Dk.put(value.apkPath, "");
+                this.Dl.put(value.apkPath, "");
             }
             if (!TextUtils.isEmpty(value.getAbandon_apk_path()) && (split = value.getAbandon_apk_path().split(",")) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str)) {
-                        this.Dk.put(str, "");
+                        this.Dl.put(str, "");
                     }
                 }
             }
@@ -73,11 +73,11 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public Boolean doInBackground(Void... voidArr) {
-            ArrayList<File> lO = lO();
-            if (lO == null || lO.size() == 0) {
+            ArrayList<File> lP = lP();
+            if (lP == null || lP.size() == 0) {
                 return false;
             }
-            f(lO);
+            f(lP);
             return true;
         }
 
@@ -87,28 +87,28 @@ public class b {
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
-            b.this.Dl = null;
+            b.this.Dm = null;
         }
 
-        private ArrayList<File> lO() {
+        private ArrayList<File> lP() {
             ArrayList<File> arrayList = null;
-            File mv = Util.mv();
-            if (mv != null) {
-                String ml = com.baidu.adp.plugin.packageManager.pluginSettings.b.mi().ml();
-                File[] listFiles = mv.listFiles();
+            File mw = Util.mw();
+            if (mw != null) {
+                String mm = com.baidu.adp.plugin.packageManager.pluginSettings.b.mj().mm();
+                File[] listFiles = mw.listFiles();
                 if (listFiles != null) {
                     arrayList = new ArrayList<>();
                     for (File file : listFiles) {
                         if (file != null) {
                             String absolutePath = file.getAbsolutePath();
                             BdLog.i("ClearRedunceFiles file: " + file.getAbsolutePath());
-                            if (!absolutePath.equals(ml) && System.currentTimeMillis() - file.lastModified() >= 86400000) {
+                            if (!absolutePath.equals(mm) && System.currentTimeMillis() - file.lastModified() >= 86400000) {
                                 if (file.isDirectory()) {
-                                    if (b.this.Dk.get(String.valueOf(absolutePath) + ".apk") == null) {
+                                    if (b.this.Dl.get(String.valueOf(absolutePath) + ".apk") == null) {
                                         arrayList.add(file);
                                     }
                                 } else if (absolutePath.endsWith(".apk")) {
-                                    if (b.this.Dk.get(absolutePath) == null) {
+                                    if (b.this.Dl.get(absolutePath) == null) {
                                         arrayList.add(file);
                                     }
                                 } else if (System.currentTimeMillis() - file.lastModified() > 259200000) {

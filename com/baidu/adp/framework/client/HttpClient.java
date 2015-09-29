@@ -159,7 +159,7 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                     newInstance.setOrginalMessage(this.oh);
                     if (cVar == null) {
                         try {
-                            newInstance.decodeInBackGround(this.oh.getCmd(), this.oj.gQ().ve);
+                            newInstance.decodeInBackGround(this.oh.getCmd(), this.oj.gQ().vf);
                             long currentTimeMillis2 = System.currentTimeMillis();
                             newInstance.performanceData.qw = j;
                             newInstance.performanceData.qx = j2;
@@ -167,7 +167,7 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                             newInstance.performanceData.qz = j4;
                             newInstance.performanceData.qA = currentTimeMillis2 - gO;
                             newInstance.setCostTime(currentTimeMillis2 - currentTimeMillis);
-                            newInstance.beforeDispatchInBackGround(this.oh.getCmd(), this.oj.gQ().ve);
+                            newInstance.beforeDispatchInBackGround(this.oh.getCmd(), this.oj.gQ().vf);
                         } catch (Exception e3) {
                             newInstance.setError(TbErrInfo.ERR_IMG_URL_IS_NULL);
                             newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.error_unkown_try_again));
@@ -229,18 +229,18 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                     str = str2;
                 }
                 newInstance.setStatusCode(this.oj.gQ().responseCode, str);
-                newInstance.setHeader(this.oj.gQ().vd);
+                newInstance.setHeader(this.oj.gQ().ve);
                 newInstance.setContentEncoding(this.oj.gQ().contentEncoding);
                 newInstance.setContentLength(this.oj.gQ().contentLength);
                 newInstance.setContentType(this.oj.gQ().contentType);
-                newInstance.setDownSize(this.oj.gQ().vf);
+                newInstance.setDownSize(this.oj.gQ().vg);
                 if (!newInstance.isSuccess()) {
                     newInstance.setError(newInstance.getStatusCode());
                 }
             }
             newInstance.setOrginalMessage(this.oh);
             if (cVar == null && newInstance.isSuccess()) {
-                newInstance.decodeInBackGround(this.oh.getCmd(), this.oj.gQ().ve);
+                newInstance.decodeInBackGround(this.oh.getCmd(), this.oj.gQ().vf);
                 long currentTimeMillis22 = System.currentTimeMillis();
                 newInstance.performanceData.qw = j;
                 newInstance.performanceData.qx = j2;
@@ -248,13 +248,13 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
                 newInstance.performanceData.qz = j4;
                 newInstance.performanceData.qA = currentTimeMillis22 - gO;
                 newInstance.setCostTime(currentTimeMillis22 - currentTimeMillis);
-                newInstance.beforeDispatchInBackGround(this.oh.getCmd(), this.oj.gQ().ve);
+                newInstance.beforeDispatchInBackGround(this.oh.getCmd(), this.oj.gQ().vf);
             }
             newInstance.logStatInBackground(this.oh.getCmd(), this.oj);
             publishProgress(newInstance);
             try {
                 if (newInstance.isSuccess()) {
-                    newInstance.afterDispatchInBackGround(this.oh.getCmd(), this.oj.gQ().ve);
+                    newInstance.afterDispatchInBackGround(this.oh.getCmd(), this.oj.gQ().vf);
                 }
             } catch (Exception e6) {
                 BdLog.e(e6.getMessage());

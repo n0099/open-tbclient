@@ -5,20 +5,20 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 /* loaded from: classes.dex */
 class m implements AdapterView.OnItemClickListener {
-    final /* synthetic */ FrsActivity aVz;
+    final /* synthetic */ FrsActivity aUz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FrsActivity frsActivity) {
-        this.aVz = frsActivity;
+        this.aUz = frsActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        com.baidu.tieba.frs.c.a aVar;
+        com.baidu.tieba.frs.b.a aVar;
         if (i >= 0) {
-            aVar = this.aVz.aVb;
-            aVar.fr(i);
-            this.aVz.Lq().fG(((com.baidu.tbadk.core.data.k) ((GridView) adapterView).getAdapter().getItem(i)).rJ());
+            aVar = this.aUz.aTZ;
+            aVar.fw(i);
+            this.aUz.Lm().fL(((com.baidu.tbadk.core.data.j) ((GridView) adapterView).getAdapter().getItem(i)).rE());
         }
     }
 }

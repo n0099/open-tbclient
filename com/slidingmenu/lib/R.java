@@ -14,7 +14,7 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class layout {
-        public static int slidingmenumain = com.baidu.tieba.R.drawable.activity_join_num_bg;
+        public static int slidingmenumain = com.baidu.tieba.R.drawable.account_active_account_check;
     }
 
     /* loaded from: classes.dex */

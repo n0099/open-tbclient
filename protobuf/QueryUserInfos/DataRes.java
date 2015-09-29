@@ -35,6 +35,8 @@ public final class DataRes extends Message {
     public final String portrait;
     @ProtoField(tag = 5, type = Message.Datatype.STRING)
     public final String portraith;
+    @ProtoField(tag = 16, type = Message.Datatype.INT32)
+    public final Integer remindMask;
     @ProtoField(tag = 7, type = Message.Datatype.INT32)
     public final Integer sex;
     @ProtoField(tag = 13, type = Message.Datatype.INT32)
@@ -51,6 +53,7 @@ public final class DataRes extends Message {
     public static final Integer DEFAULT_SUPERBOY = 0;
     public static final Integer DEFAULT_ISINTERESTMAN = 0;
     public static final List<IconInfo> DEFAULT_ICONINFO = Collections.emptyList();
+    public static final Integer DEFAULT_REMINDMASK = 0;
 
     /* synthetic */ DataRes(Builder builder, boolean z, DataRes dataRes) {
         this(builder, z);
@@ -131,9 +134,14 @@ public final class DataRes extends Message {
             }
             if (builder.iconInfo == null) {
                 this.iconInfo = DEFAULT_ICONINFO;
-                return;
             } else {
                 this.iconInfo = immutableCopyOf(builder.iconInfo);
+            }
+            if (builder.remindMask == null) {
+                this.remindMask = DEFAULT_REMINDMASK;
+                return;
+            } else {
+                this.remindMask = builder.remindMask;
                 return;
             }
         }
@@ -152,6 +160,7 @@ public final class DataRes extends Message {
         this.superboy = builder.superboy;
         this.isInterestman = builder.isInterestman;
         this.iconInfo = immutableCopyOf(builder.iconInfo);
+        this.remindMask = builder.remindMask;
     }
 
     /* loaded from: classes.dex */
@@ -168,6 +177,7 @@ public final class DataRes extends Message {
         public String nameShow;
         public String portrait;
         public String portraith;
+        public Integer remindMask;
         public Integer sex;
         public Integer superboy;
         public Integer userType;
@@ -193,6 +203,7 @@ public final class DataRes extends Message {
                 this.superboy = dataRes.superboy;
                 this.isInterestman = dataRes.isInterestman;
                 this.iconInfo = DataRes.copyOf(dataRes.iconInfo);
+                this.remindMask = dataRes.remindMask;
             }
         }
 

@@ -3,8 +3,8 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.FloatingPersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.imMessageCenter.FloatingPersonalChatActivityConfig;
 import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
@@ -17,7 +17,7 @@ public class z implements CustomMessageTask.CustomRunnable<FloatingPersonalChatA
             if (userData != null) {
                 LinkedList linkedList = new LinkedList();
                 linkedList.add(String.valueOf(userData.getUserId()));
-                com.baidu.tieba.im.l.a(new aa(this, linkedList), new ab(this, customMessage));
+                com.baidu.tbadk.util.m.b(new aa(this, linkedList), new ab(this, customMessage));
             }
         }
         return null;

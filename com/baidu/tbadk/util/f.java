@@ -1,16 +1,34 @@
 package com.baidu.tbadk.util;
 
+import android.content.Context;
+import android.text.style.ClickableSpan;
+import android.view.View;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
-public class f {
-    public static final <T extends IntentConfig> void c(T t) {
-        a(CmdConfigCustom.START_GO_ACTION, t);
+public class f extends ClickableSpan {
+    private Context mContext;
+
+    public f(Context context) {
+        this.mContext = null;
+        this.mContext = context;
     }
 
-    public static final <T extends IntentConfig> void a(int i, T t) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(i, t));
+    public Context getContext() {
+        return this.mContext;
+    }
+
+    public void fM(String str) {
+        com.baidu.tbadk.browser.g.B(this.mContext, str);
+    }
+
+    public void fN(String str) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
+    }
+
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View view) {
     }
 }

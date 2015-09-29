@@ -16,7 +16,11 @@ class i extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.this$0.mHasNewVersion = false;
-        this.this$0.go(false);
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001189 && customResponsedMessage.getError() == 0) {
+            this.this$0.dcj = false;
+            this.this$0.dch = 0;
+            this.this$0.aye();
+            this.this$0.gy(false);
+        }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.tbadkCore;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 /* loaded from: classes.dex */
 public class ad {
@@ -14,119 +14,119 @@ public class ad {
     }
 
     public static void a(String str, a aVar) {
-        if (aq.isEmpty(str)) {
+        if (ar.isEmpty(str)) {
             if (aVar != null) {
                 aVar.a(null);
                 return;
             }
             return;
         }
-        new b(kZ(str), aVar).execute(new String[0]);
+        new b(lx(str), aVar).execute(new String[0]);
     }
 
     public static void b(String str, a aVar) {
-        if (aq.isEmpty(str)) {
+        if (ar.isEmpty(str)) {
             if (aVar != null) {
                 aVar.a(null);
                 return;
             }
             return;
         }
-        new b(kY(str), aVar).execute(new String[0]);
+        new b(lw(str), aVar).execute(new String[0]);
     }
 
     public static void c(String str, a aVar) {
-        if (aq.isEmpty(str)) {
+        if (ar.isEmpty(str)) {
             if (aVar != null) {
                 aVar.a(null);
                 return;
             }
             return;
         }
-        new b(la(str), aVar).execute(new String[0]);
+        new b(ly(str), aVar).execute(new String[0]);
     }
 
     public static void a(int i, a aVar) {
-        new b(kr(i), aVar).execute(new String[0]);
+        new b(kR(i), aVar).execute(new String[0]);
     }
 
     public static void a(int i, WriteData writeData) {
-        com.baidu.adp.lib.cache.o<String> cq = com.baidu.tbadk.core.b.a.sR().cq("tb.pb_editor");
+        com.baidu.adp.lib.cache.o<String> cq = com.baidu.tbadk.core.b.a.sO().cq("tb.pb_editor");
         if (writeData != null && writeData.hasContentToSave()) {
-            cq.b(kr(i), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+            cq.b(kR(i), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
         } else {
-            cq.ad(kr(i));
+            cq.ad(kR(i));
         }
     }
 
     public static void b(String str, WriteData writeData) {
-        if (!aq.isEmpty(str)) {
-            com.baidu.adp.lib.cache.o<String> cq = com.baidu.tbadk.core.b.a.sR().cq("tb.pb_editor");
+        if (!ar.isEmpty(str)) {
+            com.baidu.adp.lib.cache.o<String> cq = com.baidu.tbadk.core.b.a.sO().cq("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
-                cq.b(la(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+                cq.b(ly(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
-                cq.ad(la(str));
+                cq.ad(ly(str));
             }
         }
     }
 
     public static void c(String str, WriteData writeData) {
-        if (!aq.isEmpty(str)) {
-            com.baidu.adp.lib.cache.o<String> cq = com.baidu.tbadk.core.b.a.sR().cq("tb.pb_editor");
+        if (!ar.isEmpty(str)) {
+            com.baidu.adp.lib.cache.o<String> cq = com.baidu.tbadk.core.b.a.sO().cq("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
-                cq.b(kZ(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+                cq.b(lx(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
-                cq.ad(kZ(str));
+                cq.ad(lx(str));
             }
         }
     }
 
     public static void d(String str, WriteData writeData) {
-        if (!aq.isEmpty(str)) {
-            com.baidu.adp.lib.cache.o<String> cq = com.baidu.tbadk.core.b.a.sR().cq("tb.pb_editor");
+        if (!ar.isEmpty(str)) {
+            com.baidu.adp.lib.cache.o<String> cq = com.baidu.tbadk.core.b.a.sO().cq("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
-                cq.b(kY(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
+                cq.b(lw(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
-                cq.ad(kY(str));
+                cq.ad(lw(str));
             }
         }
     }
 
-    protected static String kY(String str) {
+    protected static String lw(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@subpb" + str;
     }
 
-    protected static String kZ(String str) {
+    protected static String lx(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@pb" + str;
     }
 
-    protected static String la(String str) {
+    protected static String ly(String str) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@frs" + str;
     }
 
-    protected static String kr(int i) {
+    protected static String kR(int i) {
         return String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@live" + i;
     }
 
     /* loaded from: classes.dex */
     private static class b extends BdAsyncTask<String, String, WriteData> {
-        private final a cQs;
+        private final a cXL;
         private final String cacheKey;
 
         public b(String str, a aVar) {
             setPriority(3);
-            this.cQs = aVar;
+            this.cXL = aVar;
             this.cacheKey = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: B */
+        /* renamed from: A */
         public WriteData doInBackground(String... strArr) {
             String str;
             try {
-                str = com.baidu.tbadk.core.b.a.sR().cq("tb.pb_editor").get(this.cacheKey);
+                str = com.baidu.tbadk.core.b.a.sO().cq("tb.pb_editor").get(this.cacheKey);
             } catch (Exception e) {
                 str = null;
             }
@@ -139,8 +139,8 @@ public class ad {
         /* renamed from: b */
         public void onPostExecute(WriteData writeData) {
             super.onPostExecute(writeData);
-            if (this.cQs != null) {
-                this.cQs.a(writeData);
+            if (this.cXL != null) {
+                this.cXL.a(writeData);
             }
         }
     }

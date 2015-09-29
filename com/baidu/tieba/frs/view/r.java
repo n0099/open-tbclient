@@ -1,25 +1,22 @@
 package com.baidu.tieba.frs.view;
 
 import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.i;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    private final /* synthetic */ PopupWindow bdq;
-    final /* synthetic */ p bdt;
+    final /* synthetic */ q bdC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public r(p pVar, PopupWindow popupWindow) {
-        this.bdt = pVar;
-        this.bdq = popupWindow;
+    public r(q qVar) {
+        this.bdC = qVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.g.j.a(this.bdq, this.bdt.mContext.getPageActivity());
-        this.bdt.aVM.aUB = false;
-        com.baidu.tbadk.browser.g.a(this.bdt.mContext.getPageActivity(), this.bdt.mContext.getResources().getString(i.h.experion_speed), String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/tbeanrights?type=7&_client_version=" + TbConfig.getVersion() + "&nohead=1", true, true, true);
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_DETAIL, new ForumDetailActivityConfig(this.bdC.mContext.getContext(), this.bdC.mForumId, ForumDetailActivityConfig.FromType.FRS)));
     }
 }

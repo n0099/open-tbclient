@@ -2,30 +2,29 @@ package com.baidu.tieba.chosen.posts.request;
 
 import com.baidu.tbadk.mvc.b.e;
 import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.util.g;
 import java.util.HashMap;
 import tbclient.HotThread.DataReq;
 import tbclient.HotThread.HotThreadReqIdl;
 /* loaded from: classes.dex */
 public class c implements e, h {
-    private int aLj;
+    private int aKb;
 
-    public void Hx() {
-        this.aLj++;
+    public void Hr() {
+        this.aKb++;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> oW() {
+    public HashMap<String, Object> oX() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
     public Object aa(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.pn = Integer.valueOf(this.aLj);
+        builder.pn = Integer.valueOf(this.aKb);
         HotThreadReqIdl.Builder builder2 = new HotThreadReqIdl.Builder();
         builder2.data = builder.build(false);
-        g.a(builder2.data, true);
+        com.baidu.tbadk.util.h.a(builder2.data, true);
         return builder2.build(false);
     }
 
@@ -35,12 +34,12 @@ public class c implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String CN() {
+    public String CA() {
         return "tb.pb_normal";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean CO() {
+    public boolean CB() {
         return true;
     }
 

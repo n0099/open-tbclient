@@ -1,26 +1,63 @@
 package com.baidu.tbadk.util;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
-public class i extends CustomMessageListener {
-    final /* synthetic */ h aAW;
+public class i {
+    private static final byte[] azv = new byte[1];
+    private static i azw = null;
+    private CustomMessageListener xl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i(h hVar, int i) {
-        super(i);
-        this.aAW = hVar;
+    public static i EB() {
+        if (azw == null) {
+            synchronized (azv) {
+                if (azw == null) {
+                    azw = new i();
+                }
+            }
+        }
+        return azw;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError()) {
-            return;
+    private i() {
+        com.baidu.adp.lib.util.i.init();
+    }
+
+    public void EC() {
+        try {
+            if (this.xl == null) {
+                this.xl = ED();
+                MessageManager.getInstance().registerListener(this.xl);
+            }
+        } catch (Exception e) {
+            this.xl = null;
+            BdLog.e(e.getMessage());
         }
-        this.aAW.EQ();
+    }
+
+    private CustomMessageListener ED() {
+        return new j(this, 2000994);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void EE() {
+        try {
+            boolean iM = com.baidu.adp.lib.util.i.iM();
+            if (iM) {
+                if (com.baidu.adp.lib.util.i.iN()) {
+                    as.uI().as(true);
+                } else if (com.baidu.adp.lib.util.i.iO()) {
+                    as.uI().as(false);
+                }
+            }
+            NoNetworkView.setIsHasNetwork(iM);
+            CompatibleUtile.dealWebView(null);
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
+        }
     }
 }

@@ -6,13 +6,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends CustomMessageListener {
-    final /* synthetic */ s cxG;
+    final /* synthetic */ s cEo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(s sVar, int i) {
         super(i);
-        this.cxG = sVar;
+        this.cEo = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,9 +21,9 @@ public class u extends CustomMessageListener {
         Object data;
         PostSearchActivity postSearchActivity;
         if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
-            this.cxG.cxD = (ArrayList) data;
-            postSearchActivity = this.cxG.cxd;
-            postSearchActivity.alY();
+            this.cEo.cEl = (ArrayList) data;
+            postSearchActivity = this.cEo.cDL;
+            postSearchActivity.aoi();
         }
     }
 }

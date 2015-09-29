@@ -1,107 +1,139 @@
 package com.baidu.tieba.tblauncher.a;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.LeftNaviScanMessage;
+import com.baidu.tbadk.core.atomData.AddressListActivityConfig;
+import com.baidu.tbadk.core.atomData.DressupCenterActivityConfig;
+import com.baidu.tbadk.core.atomData.MemberPrivilegeActivityConfig;
+import com.baidu.tbadk.core.atomData.MyLiveActivityConfig;
+import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.i;
+import com.baidu.tieba.tblauncher.LeftNaviScanMessage;
 import java.util.ArrayList;
-/* JADX INFO: Access modifiers changed from: package-private */
+import java.util.List;
 /* loaded from: classes.dex */
-public class p extends CustomMessageListener {
-    final /* synthetic */ o cWa;
+public class p {
+    private static p ddB;
+    private b ddC;
+    private b ddD;
+    private b ddE;
+    private b ddF;
+    private b ddG;
+    private b ddH;
+    private CustomMessageListener ddI = new q(this, CmdConfigCustom.CMD_LEFT_NAVI_SCAN);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(o oVar, int i) {
-        super(i);
-        this.cWa = oVar;
+    public static p ayR() {
+        if (ddB == null) {
+            synchronized (p.class) {
+                if (ddB == null) {
+                    ddB = new p();
+                }
+            }
+        }
+        return ddB;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean awA;
-        boolean awB;
-        boolean awC;
-        boolean awD;
-        boolean awE;
-        a aVar;
-        a aVar2;
-        a aVar3;
-        a aVar4;
-        a aVar5;
-        a aVar6;
-        a aVar7;
-        a aVar8;
-        a aVar9;
-        a aVar10;
-        a aVar11;
-        a aVar12;
-        if (customResponsedMessage != null && (customResponsedMessage instanceof LeftNaviScanMessage) && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof LeftNaviScanMessage.a)) {
-            ArrayList arrayList = new ArrayList();
-            awA = this.cWa.awA();
-            if (awA) {
-                aVar11 = this.cWa.cVY;
-                if (aVar11 != null) {
-                    o oVar = this.cWa;
-                    aVar12 = this.cWa.cVY;
-                    oVar.b(aVar12, arrayList);
+    private p() {
+        this.ddI.setPriority(Integer.MAX_VALUE);
+        MessageManager.getInstance().registerListener(this.ddI);
+    }
+
+    public void n(TbPageContext<?> tbPageContext) {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_MY_COLLECTION_RES_TOOL, com.baidu.tieba.tbadkCore.h.a.class);
+        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_MY_HISTORY_RES_TOOL, com.baidu.tieba.tbadkCore.i.a.class);
+        CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_MY_LIVE_RES_TOOL, com.baidu.tieba.tbadkCore.j.a.class);
+        CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_MEMBER_CENTER_RES_TOOL, com.baidu.tieba.tbadkCore.f.a.class);
+        CustomResponsedMessage runTask5 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_ADDRESS_LIST_RES_TOOL, com.baidu.tieba.tbadkCore.b.a.class);
+        CustomResponsedMessage runTask6 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_THEME_CENTER_RES_TOOL, com.baidu.tieba.tbadkCore.k.a.class);
+        if (runTask != null && runTask.getData() != null) {
+            this.ddC = new b(i.h.my_mark, ((com.baidu.tieba.tbadkCore.h.a) runTask.getData()).ady(), 1);
+        }
+        if (runTask2 != null && runTask2.getData() != null) {
+            this.ddD = new b(i.h.my_history, ((com.baidu.tieba.tbadkCore.i.a) runTask2.getData()).adJ(), 2);
+        }
+        if (runTask3 != null && runTask3.getData() != null) {
+            this.ddE = new b(i.h.discover_item_mylive, ((com.baidu.tieba.tbadkCore.j.a) runTask3.getData()).getHomeMyLiveIconResId(), 3);
+        }
+        if (runTask4 != null && runTask4.getData() != null) {
+            this.ddF = new b(i.h.member_center, ((com.baidu.tieba.tbadkCore.f.a) runTask4.getData()).aca(), 4);
+        }
+        if (runTask5 != null && runTask5.getData() != null) {
+            this.ddG = new b(i.h.my_good_friends, ((com.baidu.tieba.tbadkCore.b.a) runTask5.getData()).Gf(), 0, 0);
+        }
+        if (runTask6 != null && runTask6.getData() != null) {
+            com.baidu.tieba.tbadkCore.k.a aVar = (com.baidu.tieba.tbadkCore.k.a) runTask6.getData();
+            this.ddH = new b(aVar.axo(), aVar.axn(), 5);
+        }
+    }
+
+    private void a(LeftNaviScanMessage.b bVar) {
+        LeftNaviScanMessage.a aVar = new LeftNaviScanMessage.a();
+        aVar.dbR = bVar;
+        aVar.list = new ArrayList();
+        MessageManager.getInstance().dispatchResponsedMessage(new LeftNaviScanMessage(aVar));
+    }
+
+    public void b(LeftNaviScanMessage.b bVar) {
+        a(bVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean ayS() {
+        return TbadkCoreApplication.m411getInst().appResponseToIntentClass(AddressListActivityConfig.class);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean ayT() {
+        return TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.START_EDITMARK);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean ayU() {
+        return TbadkCoreApplication.m411getInst().appResponseToIntentClass(PbHistoryActivityConfig.class);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean ayV() {
+        return TbadkCoreApplication.m411getInst().appResponseToIntentClass(MyLiveActivityConfig.class);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean ayW() {
+        return TbadkCoreApplication.m411getInst().appResponseToIntentClass(MemberPrivilegeActivityConfig.class);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean ayX() {
+        return TbadkCoreApplication.m411getInst().appResponseToIntentClass(DressupCenterActivityConfig.class);
+    }
+
+    private int a(a aVar, List<a> list) {
+        if (aVar == null || list == null) {
+            return -1;
+        }
+        if (list.size() != 0) {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (aVar.getType() < list.get(i).getType()) {
+                    return i;
                 }
             }
-            awB = this.cWa.awB();
-            if (awB) {
-                aVar9 = this.cWa.cVU;
-                if (aVar9 != null) {
-                    o oVar2 = this.cWa;
-                    aVar10 = this.cWa.cVU;
-                    oVar2.b(aVar10, arrayList);
-                }
+            return size;
+        }
+        return 0;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void b(a aVar, List<a> list) {
+        if (aVar != null) {
+            if (list == null) {
+                list = new ArrayList<>();
             }
-            awC = this.cWa.awC();
-            if (awC) {
-                aVar7 = this.cWa.cVV;
-                if (aVar7 != null) {
-                    o oVar3 = this.cWa;
-                    aVar8 = this.cWa.cVV;
-                    oVar3.b(aVar8, arrayList);
-                }
-            }
-            awD = this.cWa.awD();
-            if (awD) {
-                aVar4 = this.cWa.cVW;
-                if (aVar4 != null) {
-                    boolean z = com.baidu.tbadk.core.sharedPref.b.tx().getBoolean("show_my_new_icon" + TbadkCoreApplication.getCurrentAccount(), true);
-                    aVar5 = this.cWa.cVW;
-                    aVar5.kK(z ? 1 : 0);
-                    o oVar4 = this.cWa;
-                    aVar6 = this.cWa.cVW;
-                    oVar4.b(aVar6, arrayList);
-                }
-            }
-            awE = this.cWa.awE();
-            if (awE) {
-                aVar = this.cWa.cVX;
-                if (aVar != null) {
-                    boolean z2 = com.baidu.tbadk.core.sharedPref.b.tx().getBoolean("show_member_new_icon_" + TbadkCoreApplication.m411getInst().getVersionCode() + TbadkCoreApplication.getCurrentAccount(), true);
-                    aVar2 = this.cWa.cVX;
-                    aVar2.kK(z2 ? 1 : 0);
-                    o oVar5 = this.cWa;
-                    aVar3 = this.cWa.cVX;
-                    oVar5.b(aVar3, arrayList);
-                }
-            }
-            this.cWa.b(new a(i.h.account_manager, i.e.icon_home_change, 5), arrayList);
-            this.cWa.b(new a(i.h.app_tieba_exit, i.e.icon_home_quit, 7), arrayList);
-            LeftNaviScanMessage.a data = ((LeftNaviScanMessage) customResponsedMessage).getData();
-            if (data.list != null && data.list.size() > 0) {
-                for (com.baidu.tieba.tbadkCore.f.a aVar13 : data.list) {
-                    this.cWa.b(aVar13, arrayList);
-                }
-            }
-            if (data.XS != null) {
-                data.XS.l(arrayList);
-            }
+            list.add(a(aVar, list), aVar);
         }
     }
 }

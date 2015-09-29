@@ -7,32 +7,32 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class PbActivityStatic {
-    private static void In() {
-        com.baidu.tieba.tbadkCore.a.a.a(302001, PbPageSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.ab("c/f/pb/page", 302001));
+    private static void Ij() {
+        com.baidu.tieba.tbadkCore.a.a.a(302001, pbPageSocketResponseMessage.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.ad("c/f/pb/page", 302001));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-        tbHttpMessageTask.setResponsedClass(PbPageHttpResponseMessage.class);
+        tbHttpMessageTask.setResponsedClass(pbPageHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.tieba.tbadkCore.location.d.auW();
+        com.baidu.tieba.tbadkCore.location.d.axi();
     }
 
-    private static void adF() {
-        com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.PB_PAGE_CACHE_CMD, cv.class);
+    private static void afE() {
+        com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.PB_PAGE_CACHE_CMD, cw.class);
     }
 
     static {
-        In();
-        adF();
+        Ij();
+        afE();
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PB_ACTIVITY, new bb());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        adG();
+        afF();
     }
 
-    private static void adG() {
-        com.baidu.tbadk.core.util.ax.uX().a(new bc());
+    private static void afF() {
+        com.baidu.tbadk.core.util.ay.uV().a(new bc());
     }
 }

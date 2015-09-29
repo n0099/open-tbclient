@@ -21,6 +21,6 @@ public class c extends CustomMessageListener {
         if (getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError()) {
             return;
         }
-        this.this$0.ik();
+        this.this$0.il();
     }
 }

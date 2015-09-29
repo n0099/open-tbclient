@@ -12,7 +12,6 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.GroupSettingItemData;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import com.baidu.tieba.im.settingcache.c;
 import com.baidu.tieba.im.settingcache.j;
 /* loaded from: classes.dex */
 public class ImMessageCenterModel extends ImBaseMessageCenterModel {
@@ -35,9 +34,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(1));
-            GroupSettingItemData aL = c.Wx().aL(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-            if (aL != null) {
-                buildNormalItem.setGroupSetting(aL);
+            GroupSettingItemData aK = com.baidu.tieba.im.settingcache.c.Xg().aK(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            if (aK != null) {
+                buildNormalItem.setGroupSetting(aK);
             }
             if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountName())) {
                 if (TextUtils.isEmpty(buildNormalItem.getMsgContent())) {
@@ -57,9 +56,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
             if (buildNormalItem != null) {
                 buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
                 buildNormalItem.setOwnerName(String.valueOf(4));
-                PersonalSettingItemData aL = j.WA().aL(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
-                if (aL != null) {
-                    buildNormalItem.setGroupSetting(aL);
+                PersonalSettingItemData aK = j.Xj().aK(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                if (aK != null) {
+                    buildNormalItem.setGroupSetting(aK);
                 }
                 insertShowData(buildNormalItem, this.mList);
             }

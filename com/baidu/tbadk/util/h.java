@@ -1,63 +1,54 @@
 package com.baidu.tbadk.util;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.lang.reflect.Field;
+import tbclient.CommonReq;
 /* loaded from: classes.dex */
 public class h {
-    private static final byte[] aAU = new byte[1];
-    private static h aAV = null;
-    private CustomMessageListener xk;
+    public static void a(Object obj, boolean z) {
+        a(obj, z, false);
+    }
 
-    public static h EN() {
-        if (aAV == null) {
-            synchronized (aAU) {
-                if (aAV == null) {
-                    aAV = new h();
+    public static void a(Object obj, boolean z, boolean z2) {
+        if (obj != null) {
+            try {
+                Field field = obj.getClass().getField("common");
+                if (!field.isAccessible()) {
+                    field.setAccessible(true);
+                }
+                CommonReq.Builder builder = new CommonReq.Builder();
+                builder._client_type = 2;
+                builder._client_version = TbConfig.getVersion();
+                builder._client_id = TbadkCoreApplication.getClientId();
+                if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                    builder.subapp_type = TbConfig.getSubappType();
+                }
+                if (!TbadkCoreApplication.m411getInst().isOfficial()) {
+                    builder.apid = TbConfig.SW_APID;
+                }
+                builder._phone_imei = TbadkCoreApplication.m411getInst().getImei();
+                builder.from = TbadkCoreApplication.getFrom();
+                builder.cuid = TbadkCoreApplication.m411getInst().getCuid();
+                builder._timestamp = Long.valueOf(System.currentTimeMillis());
+                builder.model = Build.MODEL;
+                if (z) {
+                    builder.BDUSS = TbadkCoreApplication.getCurrentBduss();
+                }
+                if (z2) {
+                    builder.tbs = TbadkCoreApplication.m411getInst().getTbs();
+                }
+                builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+                field.set(obj, builder.build(false));
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    th.printStackTrace();
                 }
             }
-        }
-        return aAV;
-    }
-
-    private h() {
-        com.baidu.adp.lib.util.i.init();
-    }
-
-    public void EO() {
-        try {
-            if (this.xk == null) {
-                this.xk = EP();
-                MessageManager.getInstance().registerListener(this.xk);
-            }
-        } catch (Exception e) {
-            this.xk = null;
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    private CustomMessageListener EP() {
-        return new i(this, 2000994);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void EQ() {
-        try {
-            boolean iL = com.baidu.adp.lib.util.i.iL();
-            if (iL) {
-                if (com.baidu.adp.lib.util.i.iM()) {
-                    ar.uK().as(true);
-                } else if (com.baidu.adp.lib.util.i.iN()) {
-                    ar.uK().as(false);
-                }
-            }
-            NoNetworkView.setIsHasNetwork(iL);
-            CompatibleUtile.dealWebView(null);
-        } catch (Throwable th) {
-            BdLog.e(th.getMessage());
         }
     }
 }

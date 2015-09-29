@@ -2,61 +2,65 @@ package com.baidu.tieba.enterForum.b;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.v;
 import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes.dex */
 public class b {
-    private boolean Ci;
-    private int aMm;
-    private int aMn;
-    private int aMo;
-    private String aMp;
-    private int aMq;
-    private boolean avJ;
+    private boolean Cj;
+    private int aLd;
+    private int aLe;
+    private int aLf;
+    private String aLg;
+    private int aLh;
+    private c aLi;
+    private boolean aug;
     private int time = 0;
-    private c aMj = new c();
-    private v aMk = new v();
-    private f aMl = new f();
+    private d aLa = new d();
+    private h aLb = new h();
+    private g aLc = new g();
 
-    public void bN(boolean z) {
-        this.avJ = z;
+    public void bK(boolean z) {
+        this.aug = z;
     }
 
     public b() {
-        this.Ci = true;
-        this.Ci = false;
+        this.Cj = true;
+        this.Cj = false;
     }
 
     public void setTime(int i) {
         this.time = i;
     }
 
-    public void eQ(int i) {
-        this.aMo = i;
+    public void eV(int i) {
+        this.aLf = i;
     }
 
     public void setIsMem(int i) {
-        this.aMq = i;
+        this.aLh = i;
     }
 
-    public void eR(int i) {
-        this.aMm = i;
+    public void eW(int i) {
+        this.aLd = i;
     }
 
-    public void eS(int i) {
-        this.aMn = i;
+    public void eX(int i) {
+        this.aLe = i;
     }
 
-    public void gq(String str) {
-        this.aMp = str;
+    public void gt(String str) {
+        this.aLg = str;
     }
 
-    public void a(f fVar) {
-        this.aMl = fVar;
+    public void a(g gVar) {
+        this.aLc = gVar;
     }
 
-    public f Ic() {
-        return this.aMl;
+    public g HW() {
+        return this.aLc;
+    }
+
+    public c getHotSearchInfoData() {
+        return this.aLi;
     }
 
     public void a(DataRes dataRes) {
@@ -68,21 +72,25 @@ public class b {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                eR(dataRes.msign_valid.intValue());
-                eS(dataRes.msign_level.intValue());
-                eQ(dataRes.is_login.intValue());
-                gq(dataRes.msign_text);
+                eW(dataRes.msign_valid.intValue());
+                eX(dataRes.msign_level.intValue());
+                eV(dataRes.is_login.intValue());
+                gt(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.aMj.setLevel(this.aMn);
+                this.aLa.setLevel(this.aLe);
                 if (dataRes.like_forum != null) {
-                    this.aMj.k(dataRes.like_forum);
+                    this.aLa.I(dataRes.like_forum);
                 }
                 if (dataRes.banner != null) {
-                    this.aMk.k(dataRes.banner);
+                    this.aLb.I(dataRes.banner);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.aMl.I(dataRes.recommend_forum_info);
+                    this.aLc.J(dataRes.recommend_forum_info);
+                }
+                if (dataRes.hot_search != null) {
+                    this.aLi = new c();
+                    this.aLi.a(dataRes.hot_search);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -90,42 +98,46 @@ public class b {
         }
     }
 
-    public v Id() {
-        return this.aMk;
+    public h HX() {
+        return this.aLb;
     }
 
-    public void a(v vVar) {
-        this.aMk = vVar;
+    public void a(h hVar) {
+        this.aLb = hVar;
     }
 
-    public c Ie() {
-        return this.aMj;
+    public d HY() {
+        return this.aLa;
     }
 
-    public void a(c cVar) {
-        this.aMj = cVar;
+    public void a(d dVar) {
+        this.aLa = dVar;
     }
 
     public void ap(boolean z) {
-        this.Ci = z;
+        this.Cj = z;
     }
 
     public boolean isSuccess() {
-        return this.Ci;
+        return this.Cj;
     }
 
-    public boolean If() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.b.aoJ.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.aoJ.longValue();
+    public boolean HZ() {
+        return System.currentTimeMillis() / com.baidu.tbadk.data.b.anl.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.anl.longValue();
     }
 
     public boolean isEmpty() {
         boolean z = false;
-        if (this.Ci) {
-            if (this.aMj == null || this.aMj.Ig() == null || this.aMj.Ig().size() < 1) {
+        if (this.Cj) {
+            if (this.aLa == null || this.aLa.Ib() == null || this.aLa.Ib().size() < 1) {
                 z = true;
             }
             return z;
         }
         return true;
+    }
+
+    public void a(c cVar) {
+        this.aLi = cVar;
     }
 }

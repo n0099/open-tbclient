@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import com.baidu.adp.base.l;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
 import com.baidu.tieba.tbadkCore.a;
@@ -45,7 +45,7 @@ public class LocationInfoView extends EditorInfoView {
             }
             setText(str);
         }
-        AV();
+        AI();
     }
 
     public int getState() {
@@ -53,25 +53,25 @@ public class LocationInfoView extends EditorInfoView {
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView
-    protected void tf() {
-        super.tf();
-        AV();
+    protected void tc() {
+        super.tc();
+        AI();
     }
 
-    private void AV() {
+    private void AI() {
         if (this.mState == 1) {
-            Animatable animatable = (Animatable) al.getDrawable(i.e.icon_posts_pin_loading_anim);
+            Animatable animatable = (Animatable) am.getDrawable(i.e.icon_posts_pin_loading_anim);
             setCompoundDrawablesWithIntrinsicBounds((Drawable) animatable, (Drawable) null, (Drawable) null, (Drawable) null);
             a.a((TbPageContextSupport) l.B(getContext()), animatable);
-            setPadding(this.cQq + k.dip2px(getContext(), 3.0f), this.cQr, this.cQq, this.cQr);
+            setPadding(this.cXJ + k.dip2px(getContext(), 3.0f), this.cXK, this.cXJ, this.cXK);
             setCompoundDrawablePadding(k.dip2px(getContext(), 3.0f));
         } else if (this.mState == 2) {
-            setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_posts_pin_blue), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.cQq, this.cQr, this.cQq, this.cQr);
+            setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(i.e.icon_posts_pin_blue), (Drawable) null, (Drawable) null, (Drawable) null);
+            setPadding(this.cXJ, this.cXK, this.cXJ, this.cXK);
             setCompoundDrawablePadding(0);
         } else {
-            setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(i.e.icon_posts_pin_gray), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.cQq, this.cQr, this.cQq, this.cQr);
+            setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(i.e.icon_posts_pin_gray), (Drawable) null, (Drawable) null, (Drawable) null);
+            setPadding(this.cXJ, this.cXK, this.cXJ, this.cXK);
             setCompoundDrawablePadding(0);
         }
     }

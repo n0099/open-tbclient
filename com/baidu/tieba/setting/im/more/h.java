@@ -5,38 +5,38 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SecretSettingActivity cDW;
-    private final /* synthetic */ String cDZ;
+    final /* synthetic */ SecretSettingActivity cKX;
+    private final /* synthetic */ String cLa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(SecretSettingActivity secretSettingActivity, String str) {
-        this.cDW = secretSettingActivity;
-        this.cDZ = str;
+        this.cKX = secretSettingActivity;
+        this.cLa = str;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         com.baidu.tbadk.core.dialog.e eVar;
-        this.cDW.showProgressBar();
+        this.cKX.showProgressBar();
         switch (i) {
             case 0:
-                this.cDW.Z(this.cDZ, 1);
+                this.cKX.ab(this.cLa, 1);
                 break;
             case 1:
-                this.cDW.Z(this.cDZ, 2);
+                this.cKX.ab(this.cLa, 2);
                 break;
             case 2:
-                this.cDW.Z(this.cDZ, 3);
+                this.cKX.ab(this.cLa, 3);
                 break;
         }
-        eVar = this.cDW.cDR;
+        eVar = this.cKX.cKS;
         eVar.bO(i);
-        if ("group".equals(this.cDZ)) {
-            this.cDW.cDQ = i + 1;
-        } else if ("post".equals(this.cDZ)) {
-            this.cDW.cDP = i + 1;
-        } else if ("like".equals(this.cDZ)) {
-            this.cDW.cDO = i + 1;
+        if ("group".equals(this.cLa)) {
+            this.cKX.cKR = i + 1;
+        } else if ("post".equals(this.cLa)) {
+            this.cKX.cKQ = i + 1;
+        } else if ("like".equals(this.cLa)) {
+            this.cKX.cKP = i + 1;
         }
     }
 }

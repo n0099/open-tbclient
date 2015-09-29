@@ -1,26 +1,22 @@
 package com.baidu.tieba.tblauncher;
 
-import android.support.v4.view.ViewPager;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ax implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ am cVq;
+public class ax implements View.OnClickListener {
+    final /* synthetic */ ao dcY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ax(am amVar) {
-        this.cVq = amVar;
+    public ax(ao aoVar) {
+        this.dcY = aoVar;
     }
 
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageSelected(int i) {
-        com.baidu.adp.lib.g.h.hf().postDelayed(new ay(this), 200L);
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f, int i2) {
-    }
-
-    @Override // android.support.v4.view.ViewPager.OnPageChangeListener
-    public void onPageScrollStateChanged(int i) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CANCEL));
+        com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("enter_forum_edit_mode", false);
     }
 }

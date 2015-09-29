@@ -17,10 +17,10 @@ public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.awz = new a();
+        cVar.auY = new a();
         cVar.type = 2;
-        cVar.awA = i.h.recommend;
-        cVar.awB = i.e.icon_tabbar_essence;
+        cVar.auZ = i.h.recommend;
+        cVar.ava = i.e.s_icon_tabbar_essence;
         return cVar;
     }
 

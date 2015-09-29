@@ -4,19 +4,19 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements BdListView.f {
-    final /* synthetic */ k bWw;
+    final /* synthetic */ k cai;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(k kVar) {
-        this.bWw = kVar;
+        this.cai = kVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.f
     public void s(BdListView bdListView) {
-        if (this.bWw instanceof j) {
-            this.bWw.bWm.abP().Ht();
+        if (this.cai instanceof j) {
+            this.cai.bZY.adh().Hn();
         } else {
-            this.bWw.bWm.abO().Ht();
+            this.cai.bZY.adg().Hn();
         }
     }
 }

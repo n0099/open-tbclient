@@ -1,21 +1,36 @@
 package com.baidu.tieba.pb.chosen;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class o extends CustomMessageListener {
-    final /* synthetic */ PbChosenActivity bZS;
+class o implements View.OnClickListener {
+    final /* synthetic */ PbChosenActivity cfa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o(PbChosenActivity pbChosenActivity, int i) {
-        super(i);
-        this.bZS = pbChosenActivity;
+    public o(PbChosenActivity pbChosenActivity) {
+        this.cfa = pbChosenActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.bZS.a(true, customResponsedMessage);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        int i;
+        s sVar;
+        s sVar2;
+        com.baidu.tieba.pb.chosen.net.a aVar;
+        String str;
+        if (this.cfa.checkUpIsLogin()) {
+            i = this.cfa.from;
+            if (i == 2) {
+                TiebaStatic.log("c10148");
+            }
+            sVar = this.cfa.ceO;
+            if (sVar == null) {
+                this.cfa.ceO = new s(this.cfa);
+            }
+            sVar2 = this.cfa.ceO;
+            aVar = this.cfa.chosenData;
+            str = this.cfa.shareUrl;
+            sVar2.a(aVar, str);
+        }
     }
 }

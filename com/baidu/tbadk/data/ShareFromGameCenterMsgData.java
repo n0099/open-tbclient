@@ -2,7 +2,6 @@ package com.baidu.tbadk.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,11 +13,11 @@ public class ShareFromGameCenterMsgData extends ShareFromPBMsgData {
     protected String shareSourceUrl;
     protected String shareUrl;
 
-    @Override // com.baidu.tbadk.data.ShareFromPBMsgData
+    @Override // com.baidu.tbadk.data.ShareFromPBMsgData, com.baidu.tbadk.data.ShareBaseMsgData
     public String toChatMessageContent() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(TbTitleActivityConfig.FORUM_NAME, this.forumName);
+            jSONObject.put("forumName", this.forumName);
             jSONObject.put("postID", this.postId);
             jSONObject.put("themeContent", this.content);
             jSONObject.put("themeID", this.threadId);

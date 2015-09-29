@@ -5,13 +5,13 @@ import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 public class LocationProvidersStatic {
     static {
-        com.baidu.adp.lib.d.a.gC().a(c.ZP());
+        com.baidu.adp.lib.d.a.gC().a(c.aaZ());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            com.baidu.adp.lib.d.a.gC().a(a.ZO());
+            com.baidu.adp.lib.d.a.gC().a(a.aaY());
         }
     }
 }

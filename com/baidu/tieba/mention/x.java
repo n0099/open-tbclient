@@ -1,69 +1,34 @@
 package com.baidu.tieba.mention;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import tbclient.ReplyMe.DataRes;
-import tbclient.ReplyMe.ReplyList;
-import tbclient.ReplyMe.ReplyMeResIdl;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.framework.MessageManager;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements com.baidu.tbadk.mvc.b.j {
-    protected boolean Ci;
-    protected ArrayList<FeedData> bWH = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.o bWI = new com.baidu.tbadk.core.data.o();
-    protected com.baidu.tbadk.data.e bWJ = new com.baidu.tbadk.data.e();
+public class x extends Handler {
+    final /* synthetic */ v cau;
 
-    public ArrayList<FeedData> abK() {
-        return this.bWH;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public x(v vVar) {
+        this.cau = vVar;
     }
 
-    public com.baidu.tbadk.core.data.o getPage() {
-        return this.bWI;
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.j
-    public void g(JSONObject jSONObject) {
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
-            JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
-            if (optJSONArray2 != null) {
-                for (int i = 0; i < optJSONArray2.length(); i++) {
-                    FeedData feedData = new FeedData();
-                    feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.bWH.add(feedData);
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Handler handler;
+        Handler handler2;
+        boolean iM;
+        if (message.what == 1) {
+            this.cau.cat = System.currentTimeMillis();
+            if (!MessageManager.getInstance().getSocketClient().isValid()) {
+                iM = this.cau.iM();
+                if (iM) {
+                    this.cau.ada();
                 }
             }
-            this.bWJ.parserJson(jSONObject.optJSONObject("message"));
-            this.bWI.parserJson(jSONObject.optJSONObject("page"));
-            this.Ci = true;
-        } catch (Exception e) {
-            this.Ci = false;
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    @Override // com.baidu.tbadk.mvc.b.j
-    public void a(Message message) {
-        if (message instanceof ReplyMeResIdl) {
-            DataRes dataRes = ((ReplyMeResIdl) message).data;
-            try {
-                List<ReplyList> list = dataRes.reply_list;
-                if (list != null) {
-                    for (int i = 0; i < list.size(); i++) {
-                        FeedData feedData = new FeedData();
-                        feedData.parserProtoBuf(list.get(i));
-                        this.bWH.add(feedData);
-                    }
-                }
-                this.bWI.a(dataRes.page);
-                this.Ci = true;
-            } catch (Exception e) {
-                this.Ci = false;
-                BdLog.e(e.getMessage());
-            }
+            handler = this.cau.mHandler;
+            handler2 = this.cau.mHandler;
+            handler.sendMessageDelayed(handler2.obtainMessage(1), 600000L);
         }
     }
 }

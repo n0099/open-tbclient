@@ -7,41 +7,41 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a Db = null;
-    private HashMap<String, ArrayList<Message<?>>> Da = null;
+    private static volatile a Dc = null;
+    private HashMap<String, ArrayList<Message<?>>> Db = null;
 
-    public static a lH() {
-        if (Db == null) {
+    public static a lI() {
+        if (Dc == null) {
             synchronized (a.class) {
-                if (Db == null) {
-                    Db = new a();
+                if (Dc == null) {
+                    Dc = new a();
                 }
             }
         }
-        return Db;
+        return Dc;
     }
 
     public void init() {
-        this.Da = new HashMap<>();
+        this.Db = new HashMap<>();
+        lK();
         lJ();
-        lI();
-    }
-
-    private void lI() {
-        MessageManager.getInstance().registerListener(2000997, new b(this, 0));
     }
 
     private void lJ() {
+        MessageManager.getInstance().registerListener(2000997, new b(this, 0));
+    }
+
+    private void lK() {
         MessageManager.getInstance().setNotFindTaskListener(new c(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.Da.get(str);
+            ArrayList<Message<?>> arrayList = this.Db.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.Da.put(str, arrayList);
+                this.Db.put(str, arrayList);
             }
             arrayList.add(message);
         }

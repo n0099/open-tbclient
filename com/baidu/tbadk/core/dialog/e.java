@@ -20,34 +20,34 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e {
     private AdapterView.OnItemClickListener Hw;
-    private AlertDialog WE;
-    private TextView WU;
-    private View WV;
-    private f Xf;
+    private TextView WM;
+    private View WN;
+    private f WX;
+    private AlertDialog Ww;
     private TbPageContext<?> mContext;
     private ArrayList<g> mItems;
     private BdListView mListView;
     private ViewGroup mRootView;
     private String mTitle;
-    private int WX = -1;
-    private int Wv = -1;
-    private boolean WG = false;
+    private int WP = -1;
+    private int Wn = -1;
+    private boolean Wy = false;
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final int Xb = i.C0057i.dialog_ani_b2t;
-        public static final int Xc = i.C0057i.dialog_ani_t2b;
-        public static final int Xd = i.C0057i.dialog_ani_l2r;
-        public static final int Xe = i.C0057i.dialog_ani_r2l;
+        public static final int WT = i.C0057i.dialog_ani_b2t;
+        public static final int WU = i.C0057i.dialog_ani_t2b;
+        public static final int WV = i.C0057i.dialog_ani_l2r;
+        public static final int WW = i.C0057i.dialog_ani_r2l;
     }
 
     public e(TbPageContext<?> tbPageContext) {
         this.mContext = tbPageContext;
         this.mRootView = (ViewGroup) LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.dialog_rich_layout, (ViewGroup) null);
-        this.WU = (TextView) this.mRootView.findViewById(i.f.dialog_title_list);
+        this.WM = (TextView) this.mRootView.findViewById(i.f.dialog_title_list);
         this.mListView = (BdListView) this.mRootView.findViewById(i.f.dialog_content_list);
-        this.WV = this.mRootView.findViewById(i.f.line_bg);
-        this.Xf = new f(this.mContext);
+        this.WN = this.mRootView.findViewById(i.f.line_bg);
+        this.WX = new f(this.mContext);
     }
 
     public e cv(String str) {
@@ -70,19 +70,19 @@ public class e {
         return this;
     }
 
-    public e sY() {
-        if (!this.WG) {
-            this.WG = true;
+    public e sV() {
+        if (!this.Wy) {
+            this.Wy = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
-                this.WU.setText(this.mTitle);
-                this.WU.setVisibility(0);
-                this.WV.setVisibility(0);
+                this.WM.setText(this.mTitle);
+                this.WM.setVisibility(0);
+                this.WN.setVisibility(0);
             } else {
-                this.WU.setVisibility(8);
-                this.WV.setVisibility(8);
+                this.WM.setVisibility(8);
+                this.WN.setVisibility(8);
             }
-            this.mListView.setAdapter((ListAdapter) this.Xf);
-            this.Xf.setData(this.mItems);
+            this.mListView.setAdapter((ListAdapter) this.WX);
+            this.WX.setData(this.mItems);
             c(this.mContext);
         }
         return this;
@@ -96,30 +96,30 @@ public class e {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.Xf.setData(this.mItems);
+        this.WX.setData(this.mItems);
     }
 
-    public e sZ() {
-        if (!this.WG) {
+    public e sW() {
+        if (!this.Wy) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
-        if (this.WE != null) {
-            j.a(this.WE, this.mContext);
+        if (this.Ww != null) {
+            j.a(this.Ww, this.mContext);
         } else {
-            this.WE = new AlertDialog.Builder(this.mContext.getPageActivity()).create();
-            this.WE.setCanceledOnTouchOutside(true);
-            if (j.a(this.WE, this.mContext.getPageActivity())) {
-                Window window = this.WE.getWindow();
-                if (this.WX == -1) {
-                    this.WX = a.Xb;
+            this.Ww = new AlertDialog.Builder(this.mContext.getPageActivity()).create();
+            this.Ww.setCanceledOnTouchOutside(true);
+            if (j.a(this.Ww, this.mContext.getPageActivity())) {
+                Window window = this.Ww.getWindow();
+                if (this.WP == -1) {
+                    this.WP = a.WT;
                 }
-                if (this.Wv == -1) {
-                    this.Wv = 17;
+                if (this.Wn == -1) {
+                    this.Wn = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.Wv);
+                window.setGravity(this.Wn);
                 window.setBackgroundDrawableResource(i.e.transparent_bg);
                 window.setContentView(this.mRootView);
             }
@@ -137,8 +137,8 @@ public class e {
     }
 
     public void dismiss() {
-        if (this.WE != null) {
-            j.b(this.WE, this.mContext.getPageActivity());
+        if (this.Ww != null) {
+            j.b(this.Ww, this.mContext.getPageActivity());
         }
     }
 }

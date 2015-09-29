@@ -6,23 +6,23 @@ import tbclient.FinePbPage.ForumInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ i caJ;
-    private final /* synthetic */ ForumInfo caL;
+    final /* synthetic */ i cfO;
+    private final /* synthetic */ ForumInfo cfQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar, ForumInfo forumInfo) {
-        this.caJ = iVar;
-        this.caL = forumInfo;
+        this.cfO = iVar;
+        this.cfQ = forumInfo;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         i.a aVar;
         i.a aVar2;
-        aVar = this.caJ.caC;
+        aVar = this.cfO.cfH;
         if (aVar != null) {
-            aVar2 = this.caJ.caC;
-            aVar2.d(this.caL.fromfid.longValue(), this.caL.originalurl);
+            aVar2 = this.cfO.cfH;
+            aVar2.e(this.cfQ.fromfid.longValue(), this.cfQ.originalurl);
         }
     }
 }

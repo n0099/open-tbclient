@@ -5,7 +5,7 @@ public class BdStatisticsSwitchStatic extends com.baidu.adp.lib.b.a {
         com.baidu.adp.lib.b.e.gv().e(BdStatisticsSwitchStatic.class);
     }
 
-    public static boolean hw() {
+    public static boolean hx() {
         return com.baidu.adp.lib.b.e.gv().ah("newUrlForPerf") == 1;
     }
 

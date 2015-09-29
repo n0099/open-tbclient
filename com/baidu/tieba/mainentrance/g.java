@@ -1,24 +1,23 @@
 package com.baidu.tieba.mainentrance;
 
-import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import tbclient.HotForum.HotTopicList;
 /* loaded from: classes.dex */
-public class g implements View.OnClickListener {
-    final /* synthetic */ SearchPageFocusBar bQA;
-    private final /* synthetic */ TbPageContext bQB;
+public class g {
+    private long mId;
+    private String mName;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public g(SearchPageFocusBar searchPageFocusBar, TbPageContext tbPageContext) {
-        this.bQA = searchPageFocusBar;
-        this.bQB = tbPageContext;
+    public long getId() {
+        return this.mId;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.bQB.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.bQB.getPageActivity()).createNormalCfg(1)));
+    public String getName() {
+        return this.mName;
+    }
+
+    public void a(HotTopicList hotTopicList) {
+        if (hotTopicList != null) {
+            this.mId = hotTopicList.topic_id.longValue();
+            this.mName = hotTopicList.topic_name;
+        }
     }
 }

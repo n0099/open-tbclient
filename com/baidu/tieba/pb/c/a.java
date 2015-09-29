@@ -24,7 +24,7 @@ public class a {
                     if (a(content)) {
                         c a = f.a(tbPageContext, content);
                         if (a != null) {
-                            if (a.afS()) {
+                            if (a.ahR()) {
                                 if (gVar != null) {
                                     this.rK.add(gVar);
                                 }
@@ -32,7 +32,7 @@ public class a {
                                 gVar = null;
                             } else {
                                 g gVar2 = gVar == null ? new g() : gVar;
-                                gVar2.e(a.afR());
+                                gVar2.e(a.ahQ());
                                 gVar = gVar2;
                             }
                         }

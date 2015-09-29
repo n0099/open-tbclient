@@ -7,7 +7,7 @@ import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class ab {
     BdListView mBdListView;
-    com.baidu.tbadk.core.view.u mNoDataView = null;
+    com.baidu.tbadk.core.view.m mNoDataView = null;
 
     public BdListView getBdListView() {
         return this.mBdListView;

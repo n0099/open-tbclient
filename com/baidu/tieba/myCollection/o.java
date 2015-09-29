@@ -19,7 +19,7 @@ class o extends CustomMessageListener {
             ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
             aVar.a(threadDelegateStatic);
             if (aVar.getContext() != null && (fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure()) != null) {
-                fragmentTabStructure.awz.setArguments(new Bundle());
+                fragmentTabStructure.auY.setArguments(new Bundle());
             }
         }
     }

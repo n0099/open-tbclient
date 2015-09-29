@@ -9,32 +9,32 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ae extends com.baidu.adp.base.e {
-    private static final String aIh = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
-    private static TbHttpMessageTask aIi = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, aIh);
-    private final HttpMessageListener aIj;
-    private a cQt;
+    private static final String aHa = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
+    private static TbHttpMessageTask aHb = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, aHa);
+    private final HttpMessageListener aHc;
+    private a cXM;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bF(String str);
+        void ge(String str);
 
-        void gb(String str);
+        void y(int i, String str);
     }
 
     static {
-        aIi.setResponsedClass(PraiseResponseMessage.class);
-        MessageManager.getInstance().registerTask(aIi);
+        aHb.setResponsedClass(PraiseResponseMessage.class);
+        MessageManager.getInstance().registerTask(aHb);
     }
 
     public ae(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.cQt = null;
-        this.aIj = new af(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        this.cQt = aVar;
+        this.cXM = null;
+        this.aHc = new af(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.cXM = aVar;
     }
 
     public void registerListener() {
-        registerListener(this.aIj);
+        registerListener(this.aHc);
     }
 
     public void a(String str, String str2, int i, String str3) {

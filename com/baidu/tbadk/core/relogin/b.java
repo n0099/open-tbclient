@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.data.AccountData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements a.InterfaceC0040a {
-    final /* synthetic */ ReloginManager Ya;
+    final /* synthetic */ ReloginManager XR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ReloginManager reloginManager) {
-        this.Ya = reloginManager;
+        this.XR = reloginManager;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
@@ -21,23 +21,23 @@ public class b implements a.InterfaceC0040a {
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
     public void a(AccountData accountData) {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_auto_pass_success", 0, "", new Object[0]);
-        this.Ya.XV = false;
+        this.XR.XM = false;
         if (accountData != null) {
             com.baidu.tbadk.core.a.b.b(accountData);
             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.m411getInst().getApp().getApplicationContext());
-            this.Ya.tt();
+            this.XR.tq();
             return;
         }
-        this.Ya.e(TbadkCoreApplication.getCurrentAccountObj());
+        this.XR.e(TbadkCoreApplication.getCurrentAccountObj());
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
     public void c(String str, int i, String str2) {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_auto_pass_fail", i, str2, "uname", str);
-        this.Ya.XV = false;
+        this.XR.XM = false;
         if (i == 1) {
-            this.Ya.e(TbadkCoreApplication.getCurrentAccountObj());
+            this.XR.e(TbadkCoreApplication.getCurrentAccountObj());
         }
     }
 }

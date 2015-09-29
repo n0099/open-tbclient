@@ -11,11 +11,11 @@ import com.baidu.tieba.im.data.InviteMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ Invite2GroupView bFU;
+    final /* synthetic */ Invite2GroupView bIZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Invite2GroupView invite2GroupView) {
-        this.bFU = invite2GroupView;
+        this.bIZ = invite2GroupView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,14 +24,14 @@ public class a implements View.OnClickListener {
         InviteMsgData inviteMsgData;
         InviteMsgData inviteMsgData2;
         InviteMsgData inviteMsgData3;
-        textView = this.bFU.bFS;
+        textView = this.bIZ.bIX;
         Context context = textView.getContext();
         StringBuilder sb = new StringBuilder();
-        inviteMsgData = this.bFU.bFT;
+        inviteMsgData = this.bIZ.bIY;
         String sb2 = sb.append(inviteMsgData.getGroupId()).toString();
-        inviteMsgData2 = this.bFU.bFT;
+        inviteMsgData2 = this.bIZ.bIY;
         long fromUid = inviteMsgData2.getFromUid();
-        inviteMsgData3 = this.bFU.bFT;
+        inviteMsgData3 = this.bIZ.bIY;
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IM_APPLE_JOIN_GROUP_ACTIVITY_START, new ApplyJoinGroupActivityConfig(context, sb2, fromUid, inviteMsgData3.getText())));
     }
 }

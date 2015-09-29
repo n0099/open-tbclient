@@ -3,20 +3,20 @@ package com.baidu.tieba.im.c;
 import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class w extends com.baidu.tieba.im.h<LinkedHashMap<String, String>> {
-    final /* synthetic */ a bDS;
+public class w extends com.baidu.tbadk.util.l<LinkedHashMap<String, String>> {
+    final /* synthetic */ a bGU;
     private final /* synthetic */ String val$groupId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(a aVar, String str) {
-        this.bDS = aVar;
+        this.bGU = aVar;
         this.val$groupId = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.im.h
-    /* renamed from: Wv */
+    @Override // com.baidu.tbadk.util.l
+    /* renamed from: Xe */
     public LinkedHashMap<String, String> doInBackground() {
-        return com.baidu.tieba.im.db.c.SX().b(this.val$groupId, 2, (String) null, 1000);
+        return com.baidu.tieba.im.db.c.TF().b(this.val$groupId, 2, (String) null, 1000);
     }
 }

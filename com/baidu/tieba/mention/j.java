@@ -10,9 +10,9 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class j extends k {
-    private com.baidu.tbadk.mvc.g.d<FeedData, com.baidu.tbadk.mvc.d.b, b> aLq;
-    private com.baidu.tbadk.mvc.f.a.b bWs;
-    private BdListView bWt;
+    private com.baidu.tbadk.mvc.g.d<FeedData, com.baidu.tbadk.mvc.d.b, b> aKi;
+    private com.baidu.tbadk.mvc.f.a.b cae;
+    private BdListView caf;
 
     public j(SingleMentionActivity singleMentionActivity) {
         super(singleMentionActivity);
@@ -21,39 +21,39 @@ public class j extends k {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof t) {
-            this.aLq.s(((t) aVar).abK());
+            this.aKi.r(((t) aVar).adc());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.mention.k
-    public View oY() {
-        this.rootView = this.bWm.getLayoutInflater().inflate(i.g.at_me_activity, (ViewGroup) null);
-        this.aKK = (BdListView) getView().findViewById(i.f.atme_lv);
-        oP();
+    public View oZ() {
+        this.rootView = this.bZY.getLayoutInflater().inflate(i.g.at_me_activity, (ViewGroup) null);
+        this.aJD = (BdListView) getView().findViewById(i.f.atme_lv);
+        oQ();
         return this.rootView;
     }
 
     @Override // com.baidu.tieba.mention.k
-    protected void oP() {
-        super.oP();
-        this.bWt = (BdListView) getView().findViewById(i.f.atme_lv);
-        this.aLq = new com.baidu.tbadk.mvc.g.d<>(this.bWm.getPageContext(), b.class, i.g.mention_atme_item, this.bWm.oE());
-        this.aLq.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.bWm.getResources().getDimension(i.d.ds80)), NoDataViewFactory.d.cJ(i.h.mention_atme_nodata), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
-        this.bWt.setAdapter((ListAdapter) this.aLq);
+    protected void oQ() {
+        super.oQ();
+        this.caf = (BdListView) getView().findViewById(i.f.atme_lv);
+        this.aKi = new com.baidu.tbadk.mvc.g.d<>(this.bZY.getPageContext(), b.class, i.g.mention_atme_item, this.bZY.oF());
+        this.aKi.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.bZY.getResources().getDimension(i.d.ds80)), NoDataViewFactory.d.cK(i.h.mention_atme_nodata), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+        this.caf.setAdapter((ListAdapter) this.aKi);
     }
 
     @Override // com.baidu.tbadk.mvc.f.a.a
-    public com.baidu.tbadk.mvc.f.a.b Ds() {
-        if (this.bWs == null) {
-            this.bWs = new com.baidu.tbadk.mvc.f.a.b();
-            this.bWs.setTitle(this.bWm.getPageContext().getString(i.h.mention_atme));
-            this.bWs.eq(2);
+    public com.baidu.tbadk.mvc.f.a.b Df() {
+        if (this.cae == null) {
+            this.cae = new com.baidu.tbadk.mvc.f.a.b();
+            this.cae.setTitle(this.bZY.getPageContext().getString(i.h.mention_atme));
+            this.cae.er(2);
             FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-            aVar.view = this.bWm.getLayoutInflater().inflate(i.g.message_tip_item, (ViewGroup) null);
-            this.bWs.a(aVar);
-            this.bWs.ft("msg_tip_key");
+            aVar.view = this.bZY.getLayoutInflater().inflate(i.g.message_tip_item, (ViewGroup) null);
+            this.cae.a(aVar);
+            this.cae.fy("msg_tip_key");
         }
-        return this.bWs;
+        return this.cae;
     }
 }

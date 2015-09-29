@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements c.b {
-    final /* synthetic */ NewSubPbActivity cgV;
+    final /* synthetic */ NewSubPbActivity cmr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(NewSubPbActivity newSubPbActivity) {
-        this.cgV = newSubPbActivity;
+        this.cmr = newSubPbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -17,17 +17,17 @@ public class e implements c.b {
         ak akVar;
         ak akVar2;
         cVar.dismiss();
-        com.baidu.tieba.tbadkCore.data.i iVar = null;
-        akVar = this.cgV.cgM;
-        if (akVar.afD() != null) {
-            akVar2 = this.cgV.cgM;
-            iVar = akVar2.afD().adb();
+        com.baidu.tieba.tbadkCore.data.k kVar = null;
+        akVar = this.cmr.cmi;
+        if (akVar.ahA() != null) {
+            akVar2 = this.cmr.cmi;
+            kVar = akVar2.ahA().aeZ();
         }
-        if (iVar != null) {
+        if (kVar != null) {
             if (i == 0) {
-                iVar.aT(this.cgV.getPageContext().getPageActivity());
+                kVar.aS(this.cmr.getPageContext().getPageActivity());
             } else if (i == 1) {
-                this.cgV.b(iVar);
+                this.cmr.c(kVar);
             }
         }
     }

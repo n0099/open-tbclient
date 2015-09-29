@@ -2,8 +2,6 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import java.util.ArrayList;
 /* loaded from: classes.dex */
 class ae extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
@@ -18,30 +16,21 @@ class ae extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> qD;
-        am amVar;
+        ao aoVar;
         boolean z;
-        am amVar2;
-        int i;
-        boolean z2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (qD = ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).qD()) != null && qD.size() != 0) {
-            amVar = this.this$0.cUv;
-            amVar.L(qD);
-            z = this.this$0.cUp;
-            if (!z) {
-                z2 = this.this$0.cUq;
-                if (!z2) {
-                    this.this$0.X(this.this$0.getIntent());
-                    this.this$0.cUp = false;
-                    this.this$0.cUq = false;
+        ao aoVar2;
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            aoVar = this.this$0.dcb;
+            if (booleanValue) {
+                aoVar2 = this.this$0.dcb;
+                if (aoVar2.ayq()) {
+                    z = true;
+                    aoVar.gD(z);
                 }
             }
-            amVar2 = this.this$0.cUv;
-            FragmentTabHost awj = amVar2.awj();
-            i = this.this$0.cUo;
-            awj.setCurrentTabByType(i);
-            this.this$0.cUp = false;
-            this.this$0.cUq = false;
+            z = false;
+            aoVar.gD(z);
         }
     }
 }

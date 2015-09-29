@@ -11,62 +11,62 @@ import org.apache.http.message.BasicNameValuePair;
 public class d {
     private long mStartTime;
     public String mType;
-    public long we;
     public long wf;
-    boolean wg;
-    private ArrayList<BasicNameValuePair> wh;
-    private StringBuilder wi;
+    public long wg;
+    boolean wh;
+    private ArrayList<BasicNameValuePair> wi;
+    private StringBuilder wj;
 
     public d(String str) {
-        this.we = 1L;
-        this.wf = -1L;
-        this.wg = false;
+        this.wf = 1L;
+        this.wg = -1L;
+        this.wh = false;
         this.mType = null;
-        this.wi = new StringBuilder(100);
+        this.wj = new StringBuilder(100);
         this.mType = str;
-        this.wg = false;
-        this.we = -1L;
+        this.wh = false;
         this.wf = -1L;
+        this.wg = -1L;
     }
 
     public d() {
-        this.we = 1L;
-        this.wf = -1L;
-        this.wg = false;
+        this.wf = 1L;
+        this.wg = -1L;
+        this.wh = false;
         this.mType = null;
-        this.wi = new StringBuilder(100);
+        this.wj = new StringBuilder(100);
     }
 
     public void b(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.wh == null) {
-                this.wh = new ArrayList<>();
+            if (this.wi == null) {
+                this.wi = new ArrayList<>();
             }
-            this.wh.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.wi.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
-        if (this.wh != null) {
-            Iterator<BasicNameValuePair> it = this.wh.iterator();
+        if (this.wi != null) {
+            Iterator<BasicNameValuePair> it = this.wi.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
-                    if (this.wi.length() > 0) {
-                        this.wi.append('&');
+                    if (this.wj.length() > 0) {
+                        this.wj.append('&');
                     }
-                    this.wi.append(next.getName());
-                    this.wi.append('=');
+                    this.wj.append(next.getName());
+                    this.wj.append('=');
                     try {
-                        this.wi.append(URLEncoder.encode(aq(next.getValue()), "utf-8"));
+                        this.wj.append(URLEncoder.encode(aq(next.getValue()), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        this.wi.append(aq(next.getValue()));
+                        this.wj.append(aq(next.getValue()));
                     }
                 }
             }
         }
-        return this.wi.toString();
+        return this.wj.toString();
     }
 
     public void e(Object... objArr) {
@@ -84,25 +84,25 @@ public class d {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.wi.length() > 0) {
-                this.wi.append('&');
+            if (this.wj.length() > 0) {
+                this.wj.append('&');
             }
-            this.wi.append(str);
-            this.wi.append("=");
+            this.wj.append(str);
+            this.wj.append("=");
             try {
-                this.wi.append(URLEncoder.encode(aq(str2), "utf-8"));
+                this.wj.append(URLEncoder.encode(aq(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.wi.append(aq(str2));
+                this.wj.append(aq(str2));
             }
         }
     }
 
     public String getValue(String str) {
-        if (this.wh == null || this.wh.size() == 0 || TextUtils.isEmpty(str)) {
+        if (this.wi == null || this.wi.size() == 0 || TextUtils.isEmpty(str)) {
             return null;
         }
-        Iterator<BasicNameValuePair> it = this.wh.iterator();
+        Iterator<BasicNameValuePair> it = this.wi.iterator();
         while (it.hasNext()) {
             BasicNameValuePair next = it.next();
             if (next != null && next.getName() != null && next.getName().equals(str)) {
@@ -112,11 +112,11 @@ public class d {
         return null;
     }
 
-    public void hx() {
+    public void hy() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long hy() {
+    public long hz() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 

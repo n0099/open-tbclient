@@ -3,17 +3,17 @@ package com.baidu.tieba.tbadkCore;
 import tbclient.FrsPage.Group;
 /* loaded from: classes.dex */
 public class b {
-    private int cOU = 0;
-    private int cOV = 0;
+    private int cWl = 0;
+    private int cWm = 0;
 
-    public int asW() {
-        return this.cOV;
+    public int avm() {
+        return this.cWm;
     }
 
     public void a(Group group) {
         if (group != null) {
-            this.cOU = group.group_count.intValue();
-            this.cOV = group.hide_recommend_group.intValue();
+            this.cWl = group.group_count.intValue();
+            this.cWm = group.hide_recommend_group.intValue();
         }
     }
 }

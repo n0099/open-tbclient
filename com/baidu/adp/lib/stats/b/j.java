@@ -22,13 +22,13 @@ public class j extends Handler {
         ConcurrentHashMap concurrentHashMap;
         switch (message.what) {
             case 6:
-                concurrentHashMap = this.this$0.xx;
+                concurrentHashMap = this.this$0.xy;
                 for (Map.Entry entry : concurrentHashMap.entrySet()) {
                     com.baidu.adp.lib.stats.base.a aVar = (com.baidu.adp.lib.stats.base.a) entry.getValue();
-                    if (aVar.hQ() > 0) {
+                    if (aVar.hR() > 0) {
                         this.this$0.a(aVar, true, true);
                     }
-                    if (aVar.hP() > 0) {
+                    if (aVar.hQ() > 0) {
                         c.c(aVar, true, true, true);
                     }
                 }

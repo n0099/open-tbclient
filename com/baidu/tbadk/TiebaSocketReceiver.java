@@ -11,12 +11,12 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
-            if (i.iL()) {
+            if (i.iM()) {
                 BdSocketLinkService.setAvailable(true);
                 BdSocketLinkService.startService(false, "net succ");
                 synchronized (f.class) {
-                    f.acd.removeParameter("http.route.default-proxy");
-                    f.acb = null;
+                    f.acc.removeParameter("http.route.default-proxy");
+                    f.aca = null;
                 }
                 return;
             }

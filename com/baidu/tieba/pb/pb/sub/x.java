@@ -5,14 +5,14 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements Runnable {
-    final /* synthetic */ t chq;
+    final /* synthetic */ t cmM;
     private final /* synthetic */ int val$position;
-    private final /* synthetic */ View yF;
+    private final /* synthetic */ View yG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(t tVar, View view, int i) {
-        this.chq = tVar;
-        this.yF = view;
+        this.cmM = tVar;
+        this.yG = view;
         this.val$position = i;
     }
 
@@ -21,13 +21,13 @@ public class x implements Runnable {
         com.baidu.tbadk.editortools.c.n nVar;
         BdListView bdListView;
         BdListView bdListView2;
-        if (this.yF != null) {
+        if (this.yG != null) {
             int[] iArr = new int[2];
-            nVar = this.chq.bWV;
-            nVar.AL().getLocationInWindow(iArr);
-            bdListView = this.chq.mListView;
-            bdListView.setSelectionFromTop(this.val$position + 1, iArr[1] - this.yF.getHeight());
-            bdListView2 = this.chq.mListView;
+            nVar = this.cmM.caJ;
+            nVar.Ax().getLocationInWindow(iArr);
+            bdListView = this.cmM.mListView;
+            bdListView.setSelectionFromTop(this.val$position + 1, iArr[1] - this.yG.getHeight());
+            bdListView2 = this.cmM.mListView;
             bdListView2.invalidate();
         }
     }

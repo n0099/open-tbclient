@@ -1,27 +1,21 @@
 package com.baidu.tieba.mention;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 class ad implements View.OnClickListener {
-    final /* synthetic */ z bWL;
+    final /* synthetic */ aa caz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(z zVar) {
-        this.bWL = zVar;
+    public ad(aa aaVar) {
+        this.caz = aaVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        int i;
-        ViewEventCenter oE;
-        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9486, this.bWL.getData(), null, null);
-        bVar.setView(this.bWL.getRootView());
-        i = this.bWL.position;
-        bVar.ep(i);
-        oE = this.bWL.oE();
-        oE.dispatchMvcEvent(bVar);
-        TiebaStatic.log("c10096");
+        ViewEventCenter oF;
+        com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(9484, this.caz.getData(), null, null);
+        oF = this.caz.oF();
+        oF.dispatchMvcEvent(bVar);
     }
 }

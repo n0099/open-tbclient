@@ -15,7 +15,7 @@ public class i implements com.baidu.adp.plugin.packageManager.pluginServerConfig
     @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
     public void a(boolean z, PluginNetConfigInfos pluginNetConfigInfos) {
         int i;
-        i = PluginPackageManager.Dq;
+        i = PluginPackageManager.Dr;
         if (i != 1 && z && pluginNetConfigInfos != null) {
             String str = "";
             if (pluginNetConfigInfos.getConfigs() != null && pluginNetConfigInfos.getConfigs().size() > 0) {
@@ -23,8 +23,8 @@ public class i implements com.baidu.adp.plugin.packageManager.pluginServerConfig
                 this.this$0.e(configs);
                 str = this.this$0.f(configs);
             }
-            com.baidu.adp.plugin.packageManager.pluginSettings.c.mm().setForbiddenFeatures(str);
+            com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().setForbiddenFeatures(str);
         }
-        this.this$0.lX();
+        this.this$0.lY();
     }
 }

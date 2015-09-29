@@ -1,41 +1,33 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.newFriends.RequestApplyMessage;
-import com.baidu.tbadk.newFriends.ResponseApplyMessage;
-import com.baidu.tieba.i;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-class o extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity cmR;
+class o extends CustomMessageListener {
+    final /* synthetic */ PersonInfoActivity csx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.cmR = personInfoActivity;
+        this.csx = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        w wVar;
-        ag agVar;
-        if (socketResponsedMessage instanceof ResponseApplyMessage) {
-            ResponseApplyMessage responseApplyMessage = (ResponseApplyMessage) socketResponsedMessage;
-            if (responseApplyMessage.getError() != 0) {
-                this.cmR.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.cmR.getResources().getString(i.h.neterror) : socketResponsedMessage.getErrorString());
-                return;
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        int g;
+        y yVar;
+        aj ajVar;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001233 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.c) && (g = com.baidu.adp.lib.g.b.g(((com.baidu.tieba.tbadkCore.data.c) customResponsedMessage.getData()).awe(), 0)) > 0) {
+            yVar = this.csx.csk;
+            UserData userData = yVar.getUserData();
+            if (userData != null) {
+                userData.setTDouNum(userData.getTDouNum() + g);
+                ajVar = this.csx.csl;
+                ajVar.ake().notifyDataSetChanged();
             }
-            RequestApplyMessage requestApplyMessage = (RequestApplyMessage) responseApplyMessage.getOrginalMessage();
-            ReplyInfo replyInfo = new ReplyInfo();
-            replyInfo.setUserId(requestApplyMessage.getUid());
-            replyInfo.setFriendId(requestApplyMessage.getFriendId());
-            replyInfo.setMessage(requestApplyMessage.getMessage());
-            wVar = this.cmR.cmF;
-            wVar.ahM().getReplyInfo().add(replyInfo);
-            agVar = this.cmR.cmG;
-            agVar.ahZ();
         }
     }
 }

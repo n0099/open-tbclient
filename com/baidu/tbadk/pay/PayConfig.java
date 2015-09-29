@@ -12,6 +12,7 @@ public class PayConfig implements Serializable {
     private String mPropsId;
     private String mPropsMon;
     private String mTitle;
+    private int tBeanNum;
 
     public PayConfig(int i, String str, String str2, String str3, String str4, boolean z) {
         this.mOrderName = "";
@@ -98,5 +99,13 @@ public class PayConfig implements Serializable {
 
     public void setTitle(String str) {
         this.mTitle = str;
+    }
+
+    public int getTBeanNum() {
+        return this.tBeanNum;
+    }
+
+    public void setTBeanNum(int i) {
+        this.tBeanNum = i;
     }
 }

@@ -17,22 +17,22 @@ public class e extends com.baidu.tbadk.mvc.model.d<h, g, BaseFragmentActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage<g, FineFrsPageResIdl>> oV() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage<g, FineFrsPageResIdl>> oW() {
         return RecommendFrsHttpResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage<g, FineFrsPageResIdl>> oU() {
+    protected Class<? extends MvcSocketResponsedMessage<g, FineFrsPageResIdl>> oV() {
         return RecommendFrsSocketResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oR() {
+    protected int oS() {
         return CmdConfigHttp.CMD_RECOMMEND_FRS;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String oS() {
+    protected String oT() {
         return "c/f/choiceness/finefrspage";
     }
 
@@ -42,7 +42,7 @@ public class e extends com.baidu.tbadk.mvc.model.d<h, g, BaseFragmentActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oT() {
+    protected int oU() {
         return 307001;
     }
 }

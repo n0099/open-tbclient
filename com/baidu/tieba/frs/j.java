@@ -3,25 +3,25 @@ package com.baidu.tieba.frs;
 import android.view.View;
 /* loaded from: classes.dex */
 class j implements View.OnClickListener {
-    final /* synthetic */ FrsActivity aVz;
+    final /* synthetic */ FrsActivity aUz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(FrsActivity frsActivity) {
-        this.aVz = frsActivity;
+        this.aUz = frsActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bi biVar;
+        bs bsVar;
         int intValue = ((Integer) view.getTag()).intValue();
-        biVar = this.aVz.aUL;
-        com.baidu.adp.widget.ListView.u aA = biVar.Ma().aA(intValue);
-        if (aA instanceof com.baidu.tbadk.core.data.c) {
-            com.baidu.tbadk.core.data.c cVar = (com.baidu.tbadk.core.data.c) aA;
-            if (!cVar.rw()) {
+        bsVar = this.aUz.aTJ;
+        com.baidu.adp.widget.ListView.u aA = bsVar.LZ().aA(intValue);
+        if (aA instanceof com.baidu.tbadk.core.data.b) {
+            com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) aA;
+            if (!bVar.rr()) {
                 return;
             }
-            this.aVz.a(cVar);
+            this.aUz.a(bVar);
         }
     }
 }

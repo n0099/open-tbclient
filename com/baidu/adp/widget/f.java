@@ -50,9 +50,9 @@ public class f extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface b {
-        void oa();
-
         void ob();
+
+        void oc();
     }
 
     public f(Context context) {
@@ -99,19 +99,19 @@ public class f extends FrameLayout {
 
     public void onChangeSkinType(int i) {
         if (this.Jh) {
-            if (i == 0) {
-                this.Jd.setBackgroundResource(R.color.swipe_layout_normal_bg);
-            } else if (this.Jo) {
+            if (this.Jo && i == 1) {
                 this.Jd.setBackgroundResource(R.color.swipe_layout_night_bg);
+            } else {
+                this.Jd.setBackgroundResource(R.color.swipe_layout_normal_bg);
             }
         }
     }
 
     public void aD(int i) {
-        if (i == 0) {
-            this.Jd.setBackgroundResource(R.color.swipe_layout_normal_bg);
-        } else if (this.Jo) {
+        if (this.Jo && i == 1) {
             this.Jd.setBackgroundResource(R.color.swipe_layout_night_bg);
+        } else {
+            this.Jd.setBackgroundResource(R.color.swipe_layout_normal_bg);
         }
     }
 
@@ -206,18 +206,18 @@ public class f extends FrameLayout {
                 if (Math.abs(this.Jn) > this.mMinimumVelocity && f > this.mFlingDistance) {
                     if (this.Jn > 0.0f) {
                         this.Jg = true;
-                        nW();
+                        nX();
                         return true;
                     }
-                    nX();
+                    nY();
                     this.Jg = false;
                     return true;
                 } else if (this.mContentView.getScrollX() <= (-this.mViewWidth) / 2) {
                     this.Jg = true;
-                    nW();
+                    nX();
                     break;
                 } else {
-                    nX();
+                    nY();
                     this.Jg = false;
                     break;
                 }
@@ -244,7 +244,7 @@ public class f extends FrameLayout {
                 }
                 break;
             case 3:
-                nY();
+                nZ();
                 break;
         }
         return super.onTouchEvent(motionEvent);
@@ -279,7 +279,7 @@ public class f extends FrameLayout {
     private void endDrag() {
         this.Jf = false;
         this.mActivePointerId = -1;
-        nY();
+        nZ();
     }
 
     private boolean a(MotionEvent motionEvent, int i, int i2) {
@@ -302,13 +302,13 @@ public class f extends FrameLayout {
         return findPointerIndex;
     }
 
-    private void nW() {
+    private void nX() {
         this.Ji = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, (-(this.mViewWidth + this.mContentView.getScrollX())) + 1, 0);
         postInvalidate();
     }
 
-    private void nX() {
+    private void nY() {
         this.Ji = true;
         this.mScroller.startScroll(this.mContentView.getScrollX(), 0, -this.mContentView.getScrollX(), 0);
         postInvalidate();
@@ -349,7 +349,7 @@ public class f extends FrameLayout {
         }
     }
 
-    private void nY() {
+    private void nZ() {
         if (this.mVelocityTracker != null) {
             this.mVelocityTracker.clear();
             this.mVelocityTracker.recycle();
@@ -365,7 +365,7 @@ public class f extends FrameLayout {
         this.Jh = z;
     }
 
-    public void nZ() {
+    public void oa() {
         if (this.Jd != null) {
             this.Jd.setBackgroundResource(R.color.transparent);
         }

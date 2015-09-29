@@ -5,73 +5,73 @@ import com.baidu.tieba.i;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class y {
-    private a cxR;
-    private k cxS;
-    private x cxT;
-    private PostSearchActivity cxd;
+    private PostSearchActivity cDL;
+    private k cEA;
+    private x cEB;
+    private a cEz;
     private View mRootView;
 
     public y(PostSearchActivity postSearchActivity) {
-        this.cxd = postSearchActivity;
+        this.cDL = postSearchActivity;
     }
 
     public void initView() {
-        this.cxd.setContentView(i.g.post_search_activity);
-        this.mRootView = this.cxd.findViewById(i.f.search_rootview);
-        this.cxR = new a(this.cxd, this.mRootView);
-        this.cxS = new k(this.cxd, this.mRootView);
-        this.cxT = new x(this.cxd, this.mRootView);
+        this.cDL.setContentView(i.g.post_search_activity);
+        this.mRootView = this.cDL.findViewById(i.f.search_rootview);
+        this.cEz = new a(this.cDL, this.mRootView);
+        this.cEA = new k(this.cDL, this.mRootView);
+        this.cEB = new x(this.cDL, this.mRootView);
     }
 
-    public void aa(ArrayList<String> arrayList) {
-        this.cxT.fA(false);
-        this.cxS.aa(arrayList);
+    public void ac(ArrayList<String> arrayList) {
+        this.cEB.fL(false);
+        this.cEA.ac(arrayList);
     }
 
-    public void jG(int i) {
-        this.cxR.WT();
-        alU();
-        this.cxR.alV();
-        this.cxT.fA(true);
-        this.cxT.jG(i);
+    public void kb(int i) {
+        this.cEz.Od();
+        aoe();
+        this.cEz.aof();
+        this.cEB.fL(true);
+        this.cEB.kb(i);
     }
 
-    public void kj(String str) {
-        this.cxR.kj(str);
+    public void kI(String str) {
+        this.cEz.kI(str);
     }
 
     public void a(int i, j jVar, boolean z) {
-        this.cxT.a(i, jVar, z);
+        this.cEB.a(i, jVar, z);
     }
 
-    public boolean alZ() {
-        return this.cxS.amg();
+    public boolean aoj() {
+        return this.cEA.aoq();
     }
 
-    public void KG() {
-        this.cxS.KG();
+    public void KB() {
+        this.cEA.KB();
     }
 
-    public void akM() {
-        this.cxS.akM();
+    public void amT() {
+        this.cEA.amT();
     }
 
-    public void amf() {
-        this.cxS.amf();
+    public void aop() {
+        this.cEA.aop();
     }
 
-    public void alU() {
-        this.cxR.alU();
+    public void aoe() {
+        this.cEz.aoe();
     }
 
-    public void amq() {
-        this.cxS.ame();
+    public void aoA() {
+        this.cEA.aoo();
     }
 
     public void onChangeSkinType(int i) {
-        this.cxR.onChangeSkinType(i);
-        this.cxS.onChangeSkinType(i);
-        this.cxT.onChangeSkinType(i);
-        com.baidu.tbadk.h.a.a(this.cxd.getPageContext(), this.mRootView);
+        this.cEz.onChangeSkinType(i);
+        this.cEA.onChangeSkinType(i);
+        this.cEB.onChangeSkinType(i);
+        com.baidu.tbadk.h.a.a(this.cDL.getPageContext(), this.mRootView);
     }
 }

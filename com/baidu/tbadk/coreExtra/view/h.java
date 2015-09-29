@@ -3,11 +3,11 @@ package com.baidu.tbadk.coreExtra.view;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class h implements a.b {
-    final /* synthetic */ d akU;
+    final /* synthetic */ d ajN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(d dVar) {
-        this.akU = dVar;
+        this.ajN = dVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

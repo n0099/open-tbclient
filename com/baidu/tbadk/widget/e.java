@@ -1,66 +1,70 @@
 package com.baidu.tbadk.widget;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.adp.lib.g.j;
-import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.gif.GiftGifView;
-import com.baidu.tieba.i;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.performanceLog.s;
+import com.baidu.tbadk.widget.TbImageView;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements DialogInterface.OnCancelListener, View.OnClickListener {
-    private Dialog aCe;
-    private LinearLayout aCf;
-    private GiftGifView aCg;
-    private Activity mActivity;
-    private ProgressDialog mWaitingDialog;
+public class e extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ TbImageView aAR;
 
-    public e(Activity activity) {
-        this.mActivity = activity;
-        init();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public e(TbImageView tbImageView) {
+        this.aAR = tbImageView;
     }
 
-    private void init() {
-        this.aCe = Fd();
-        this.aCf = (LinearLayout) this.aCe.findViewById(i.f.gift_gif_ll);
-        this.aCg = (GiftGifView) this.aCe.findViewById(i.f.gift_gif_view);
-        this.aCf.setOnClickListener(this);
-        this.aCg.setOnClickListener(this);
-        this.aCg.setAutoPlay(true);
-        this.aCg.setPlayCallback(new f(this));
-    }
-
-    public void fK(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-            aVar.auI = str;
-            aVar.auK = str;
-            this.aCg.setIsHide(false);
-            this.aCg.a(aVar);
-            this.mWaitingDialog = k.a(this.mActivity, this.mActivity.getString(i.h.loading), this);
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        TbImageView.a aVar2;
+        long j;
+        TbImageView.a aVar3;
+        this.aAR.stopLoading();
+        BdLog.i("imagecallback. resourceFrom-" + i);
+        aVar2 = this.aAR.aAE;
+        if (aVar2 != null) {
+            if (aVar != null) {
+                this.aAR.aAP = aVar.getWidth();
+                this.aAR.aAQ = aVar.getHeight();
+            }
+            aVar3 = this.aAR.aAE;
+            aVar3.onComplete(str, aVar != null);
         }
+        if (aVar != null) {
+            if (aVar.Gn != null) {
+                this.aAR.aAN.Gp = aVar.Gn.Gp;
+                this.aAR.aAN.isSuccess = aVar.Gn.Gr;
+                this.aAR.aAN.Gq = aVar.Gn.Gq;
+            }
+        } else {
+            this.aAR.aAN.Gp = "net";
+            this.aAR.aAN.isSuccess = false;
+            s sVar = this.aAR.aAN;
+            long currentTimeMillis = System.currentTimeMillis();
+            j = this.aAR.aAO;
+            sVar.Gq = currentTimeMillis - j;
+        }
+        this.aAR.vr();
     }
 
-    private Dialog Fd() {
-        Dialog dialog = new Dialog(this.mActivity, i.C0057i.dialog_full_screen);
-        dialog.setContentView(i.g.gif_play_dialog);
-        dialog.setOnDismissListener(new g(this));
-        return dialog;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void onProgressUpdate(Object... objArr) {
+        super.onProgressUpdate(objArr);
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.aCg.Cp();
-        j.b(this.aCe, this.mActivity);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.aCg.stop();
-        j.b(this.aCe, this.mActivity);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void al(String str) {
+        TbImageView.a aVar;
+        TbImageView.a aVar2;
+        super.al(str);
+        this.aAR.stopLoading();
+        aVar = this.aAR.aAE;
+        if (aVar != null) {
+            aVar2 = this.aAR.aAE;
+            aVar2.onCancel();
+        }
     }
 }

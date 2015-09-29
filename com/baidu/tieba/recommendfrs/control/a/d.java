@@ -12,11 +12,11 @@ import com.baidu.tieba.recommendfrs.data.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements NetModel.b<h, g> {
-    final /* synthetic */ b cBf;
+    final /* synthetic */ b cIh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.cBf = bVar;
+        this.cIh = bVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.c
@@ -32,23 +32,23 @@ public class d implements NetModel.b<h, g> {
             if (requestData == null) {
                 str = null;
             } else {
-                str = requestData.anQ();
+                str = requestData.aqi();
             }
             if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.getError() != 0 || mvcHttpResponsedMessage.getData() == null) {
-                aVar = this.cBf.cBe;
+                aVar = this.cIh.cIg;
                 if (aVar != null) {
-                    aVar2 = this.cBf.cBe;
-                    aVar2.h(str, mvcHttpResponsedMessage.getErrorString(), mvcHttpResponsedMessage.getError());
+                    aVar2 = this.cIh.cIg;
+                    aVar2.i(str, mvcHttpResponsedMessage.getErrorString(), mvcHttpResponsedMessage.getError());
                     return;
                 }
                 return;
             }
             g data = mvcHttpResponsedMessage.getData();
-            aVar3 = this.cBf.cBe;
+            aVar3 = this.cIh.cIg;
             if (aVar3 != null) {
-                aVar4 = this.cBf.cBe;
-                hVar = this.cBf.cBd;
-                aVar4.a(true, data, hVar.anW() != 0, str);
+                aVar4 = this.cIh.cIg;
+                hVar = this.cIh.cIf;
+                aVar4.a(true, data, hVar.aqo() != 0, str);
             }
         }
     }
@@ -66,23 +66,23 @@ public class d implements NetModel.b<h, g> {
             if (requestData == null) {
                 str = null;
             } else {
-                str = requestData.anQ();
+                str = requestData.aqi();
             }
             if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.getError() != 0 || mvcSocketResponsedMessage.getData() == null) {
-                aVar = this.cBf.cBe;
+                aVar = this.cIh.cIg;
                 if (aVar != null) {
-                    aVar2 = this.cBf.cBe;
-                    aVar2.h(str, mvcSocketResponsedMessage.getErrorString(), mvcSocketResponsedMessage.getError());
+                    aVar2 = this.cIh.cIg;
+                    aVar2.i(str, mvcSocketResponsedMessage.getErrorString(), mvcSocketResponsedMessage.getError());
                     return;
                 }
                 return;
             }
             g data = mvcSocketResponsedMessage.getData();
-            aVar3 = this.cBf.cBe;
+            aVar3 = this.cIh.cIg;
             if (aVar3 != null) {
-                aVar4 = this.cBf.cBe;
-                hVar = this.cBf.cBd;
-                aVar4.a(true, data, hVar.anW() != 0, str);
+                aVar4 = this.cIh.cIg;
+                hVar = this.cIh.cIf;
+                aVar4.a(true, data, hVar.aqo() != 0, str);
             }
         }
     }

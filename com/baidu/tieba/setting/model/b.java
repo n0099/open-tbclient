@@ -3,13 +3,13 @@ package com.baidu.tieba.setting.model;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.e {
-    private boolean aAa;
-    private boolean cwF;
+    private boolean ayA;
+    private boolean cDn;
 
     public b() {
         super(null);
-        this.aAa = false;
-        this.cwF = false;
+        this.ayA = false;
+        this.cDn = false;
     }
 
     @Override // com.baidu.adp.base.e
@@ -19,38 +19,38 @@ public class b extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        this.aAa = false;
-        this.cwF = false;
+        this.ayA = false;
+        this.cDn = false;
         return false;
     }
 
-    private PrivateInfoNetMessage aoP() {
+    private PrivateInfoNetMessage arh() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean aoQ() {
-        if (this.aAa) {
+    public boolean ari() {
+        if (this.ayA) {
             return false;
         }
-        this.aAa = true;
-        this.cwF = false;
-        sendMessage(aoP());
+        this.ayA = true;
+        this.cDn = false;
+        sendMessage(arh());
         return true;
     }
 
     public boolean isLoading() {
-        return this.aAa;
+        return this.ayA;
     }
 
     public void setLoading(boolean z) {
-        this.aAa = z;
+        this.ayA = z;
     }
 
     public boolean isFinished() {
-        return this.cwF;
+        return this.cDn;
     }
 
-    public void fL(boolean z) {
-        this.cwF = z;
+    public void fW(boolean z) {
+        this.cDn = z;
     }
 }

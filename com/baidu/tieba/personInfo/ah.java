@@ -1,40 +1,18 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.View;
-import android.widget.AbsListView;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements AbsListView.OnScrollListener {
-    final /* synthetic */ ag coZ;
+public class ah implements a.b {
+    final /* synthetic */ ae cux;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ag agVar) {
-        this.coZ = agVar;
+    public ah(ae aeVar) {
+        this.cux = aeVar;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        View view;
-        View view2;
-        View view3;
-        View view4;
-        if (i == 0) {
-            view3 = this.coZ.line;
-            if (view3 != null) {
-                view4 = this.coZ.line;
-                view4.setVisibility(0);
-                return;
-            }
-            return;
-        }
-        view = this.coZ.line;
-        if (view != null) {
-            view2 = this.coZ.line;
-            view2.setVisibility(8);
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

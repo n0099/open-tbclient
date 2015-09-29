@@ -4,30 +4,30 @@ import android.text.TextUtils;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 public class a {
-    private static a aAN = null;
+    private static a azo = null;
 
     private a() {
     }
 
-    public static synchronized a EF() {
+    public static synchronized a Et() {
         a aVar;
         synchronized (a.class) {
-            if (aAN == null) {
-                aAN = new a();
+            if (azo == null) {
+                azo = new a();
             }
-            aVar = aAN;
+            aVar = azo;
         }
         return aVar;
     }
 
-    public void EG() {
-        String EH = EH();
-        if (!TextUtils.isEmpty(EH)) {
-            com.baidu.adp.lib.f.c.gZ().a(EH, 10, null, 0, 0, null, new Object[0]);
+    public void Eu() {
+        String Ev = Ev();
+        if (!TextUtils.isEmpty(Ev)) {
+            com.baidu.adp.lib.f.c.ha().a(Ev, 10, null, 0, 0, null, new Object[0]);
         }
     }
 
-    public String EH() {
+    public String Ev() {
         return TbadkSettings.getInst().loadString("ad_url", null);
     }
 }

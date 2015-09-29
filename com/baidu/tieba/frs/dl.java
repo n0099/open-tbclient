@@ -1,10 +1,12 @@
 package com.baidu.tieba.frs;
+
+import android.view.View;
+import com.baidu.adp.widget.ListView.x;
 /* loaded from: classes.dex */
-public class dl extends dj {
-    public int errCode;
-    public String errMsg;
-    public boolean isLocal = true;
-    public boolean hasMore = true;
-    public boolean aZa = true;
-    public boolean aZb = true;
+public class dl extends x.a {
+    public com.baidu.tbadk.e.f aYl;
+
+    public dl(View view) {
+        super(view);
+    }
 }

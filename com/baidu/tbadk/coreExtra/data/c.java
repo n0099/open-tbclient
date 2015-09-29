@@ -1,17 +1,17 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class c {
-    private b agX;
+    private b afU;
     private int mErrorCode;
     private String mErrorString;
     private boolean rr;
 
-    public b ww() {
-        return this.agX;
+    public b wh() {
+        return this.afU;
     }
 
     public void b(b bVar) {
-        this.agX = bVar;
+        this.afU = bVar;
     }
 
     public boolean isSuccess() {

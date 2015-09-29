@@ -7,11 +7,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t implements View.OnClickListener {
-    final /* synthetic */ p bKt;
+    final /* synthetic */ p bNy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(p pVar) {
-        this.bKt = pVar;
+        this.bNy = pVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,17 +22,17 @@ public class t implements View.OnClickListener {
         EditText editText;
         InviteFriendListActivity inviteFriendListActivity;
         EditText editText2;
-        textView = this.bKt.bKp;
+        textView = this.bNy.bNu;
         textView.setVisibility(8);
-        view2 = this.bKt.bKr;
+        view2 = this.bNy.bNw;
         view2.setVisibility(8);
-        view3 = this.bKt.bKq;
+        view3 = this.bNy.bNv;
         view3.setVisibility(0);
-        editText = this.bKt.bEI;
+        editText = this.bNy.bHL;
         editText.requestFocus();
-        inviteFriendListActivity = this.bKt.bKg;
+        inviteFriendListActivity = this.bNy.bNl;
         Activity pageActivity = inviteFriendListActivity.getPageContext().getPageActivity();
-        editText2 = this.bKt.bEI;
+        editText2 = this.bNy.bHL;
         com.baidu.adp.lib.util.k.d(pageActivity, editText2);
     }
 }

@@ -13,177 +13,177 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.service.SignAlertReceiver;
-import com.baidu.tieba.tbadkCore.util.k;
+import com.baidu.tieba.tbadkCore.util.m;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class c {
-    private static c aib = new c();
-    public int aic = 300;
-    public boolean aid = true;
-    public boolean aie = false;
-    public boolean aif = true;
-    public boolean aig = true;
-    public boolean aih = true;
-    public boolean aii = false;
-    public boolean aij = true;
-    public boolean aik = true;
-    public boolean ail = false;
-    public String aim = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
-    public String ain = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
+    private static c agY = new c();
+    public int agZ = 300;
+    public boolean aha = true;
+    public boolean ahb = false;
+    public boolean ahc = true;
+    public boolean ahd = true;
+    public boolean ahe = true;
+    public boolean ahf = false;
+    public boolean ahg = true;
+    public boolean ahh = true;
+    public boolean ahi = false;
+    public String ahj = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
+    public String ahk = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
 
     private c() {
     }
 
-    public static c xw() {
-        return aib;
+    public static c xh() {
+        return agY;
     }
 
     public void initSetting() {
-        k.avk();
+        m.axx();
     }
 
-    public void xx() {
-        k.xx();
+    public void xi() {
+        m.xi();
     }
 
-    public boolean xy() {
-        return this.aic > 0;
+    public boolean xj() {
+        return this.agZ > 0;
     }
 
-    public int xz() {
-        return this.aic;
+    public int xk() {
+        return this.agZ;
     }
 
-    public boolean xA() {
-        return this.aie;
+    public boolean xl() {
+        return this.ahb;
     }
 
-    public boolean xB() {
-        return this.aif;
+    public boolean xm() {
+        return this.ahc;
     }
 
-    public boolean xC() {
-        return this.aih;
+    public boolean xn() {
+        return this.ahe;
     }
 
-    public boolean xD() {
-        return this.aig;
+    public boolean xo() {
+        return this.ahd;
     }
 
-    public boolean xE() {
-        return this.aid;
+    public boolean xp() {
+        return this.aha;
     }
 
-    public boolean xF() {
-        return this.aij;
+    public boolean xq() {
+        return this.ahg;
     }
 
-    public boolean xG() {
-        return this.aik;
+    public boolean xr() {
+        return this.ahh;
     }
 
-    public boolean xH() {
-        return this.ail;
+    public boolean xs() {
+        return this.ahi;
     }
 
-    public boolean xI() {
-        return this.aii;
+    public boolean xt() {
+        return this.ahf;
     }
 
-    public String xJ() {
-        return this.aim;
+    public String xu() {
+        return this.ahj;
     }
 
-    public String xK() {
-        return this.ain;
+    public String xv() {
+        return this.ahk;
     }
 
-    public void aA(boolean z) {
-        this.aid = z;
+    public void az(boolean z) {
+        this.aha = z;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
-    public void db(int i) {
+    public void dc(int i) {
         if (i == 0) {
-            this.aic = i;
-            a.wZ().az(true);
+            this.agZ = i;
+            a.wK().ay(true);
         } else {
-            this.aic = 300;
+            this.agZ = 300;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
-    public boolean xL() {
+    public boolean xw() {
         return TbadkSettings.getInst().loadBoolean("group_notify", true) && TbadkCoreApplication.m411getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
     }
 
-    public void aB(boolean z) {
+    public void aA(boolean z) {
         TbadkSettings.getInst().saveBoolean("group_notify", z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
-    public boolean xM() {
+    public boolean xx() {
         return TbadkSettings.getInst().loadBoolean("zan_disjunctor_setting" + TbadkCoreApplication.getCurrentAccount(), true);
     }
 
-    public void aC(boolean z) {
+    public void aB(boolean z) {
         TbadkSettings.getInst().saveBoolean("zan_disjunctor_setting" + TbadkCoreApplication.getCurrentAccount(), z);
     }
 
+    public void aC(boolean z) {
+        this.ahb = z;
+    }
+
     public void aD(boolean z) {
-        this.aie = z;
+        this.ahi = z;
+    }
+
+    public void dY(String str) {
+        this.ahj = str;
+    }
+
+    public void dZ(String str) {
+        this.ahk = str;
     }
 
     public void aE(boolean z) {
-        this.ail = z;
-    }
-
-    public void dV(String str) {
-        this.aim = str;
-    }
-
-    public void dW(String str) {
-        this.ain = str;
+        this.ahf = z;
     }
 
     public void aF(boolean z) {
-        this.aii = z;
+        this.ahh = z;
     }
 
     public void aG(boolean z) {
-        this.aik = z;
+        this.ahg = z;
     }
 
     public void aH(boolean z) {
-        this.aij = z;
+        com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("chat_float_window_switch", z);
+    }
+
+    public boolean xy() {
+        return com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("chat_float_window_switch", true);
     }
 
     public void aI(boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.tx().putBoolean("chat_float_window_switch", z);
+        com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("permit_screen_lock", z);
     }
 
-    public boolean xN() {
-        return com.baidu.tbadk.core.sharedPref.b.tx().getBoolean("chat_float_window_switch", true);
+    public boolean xz() {
+        return com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("permit_screen_lock", true);
     }
 
     public void aJ(boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.tx().putBoolean("permit_screen_lock", z);
-    }
-
-    public boolean xO() {
-        return com.baidu.tbadk.core.sharedPref.b.tx().getBoolean("permit_screen_lock", true);
+        this.ahd = z;
     }
 
     public void aK(boolean z) {
-        this.aig = z;
+        this.ahc = z;
     }
 
     public void aL(boolean z) {
-        this.aif = z;
-    }
-
-    public void aM(boolean z) {
-        this.aih = z;
+        this.ahe = z;
     }
 
     public boolean isSignAlertOn() {
@@ -258,40 +258,40 @@ public class c {
         updateSignAlarm();
     }
 
-    public void dc(int i) {
+    public void dd(int i) {
         if (i == 0) {
-            aH(false);
-            aF(false);
+            aG(false);
+            aE(false);
         } else if (i == 1) {
-            aH(true);
-            aF(false);
+            aG(true);
+            aE(false);
         } else if (i == 2) {
-            aH(false);
-            aF(true);
+            aG(false);
+            aE(true);
         } else {
-            aH(true);
-            aF(true);
+            aG(true);
+            aE(true);
         }
     }
 
-    public int xP() {
-        if (!this.aij && !this.aii) {
+    public int xA() {
+        if (!this.ahg && !this.ahf) {
             return 0;
         }
-        if (this.aij && !this.aii) {
+        if (this.ahg && !this.ahf) {
             return 1;
         }
-        if (!this.aij && this.aii) {
+        if (!this.ahg && this.ahf) {
             return 2;
         }
         return 3;
     }
 
-    public void aN(boolean z) {
+    public void aM(boolean z) {
         TbadkSettings.getInst().saveBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_switch", z);
     }
 
-    public boolean xQ() {
+    public boolean xB() {
         return TbadkSettings.getInst().loadBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_switch", true);
     }
 }

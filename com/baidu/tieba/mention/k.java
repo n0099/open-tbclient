@@ -5,92 +5,92 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.view.x;
+import com.baidu.tbadk.core.view.p;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public abstract class k extends com.baidu.adp.base.f<SingleMentionActivity> implements x.b, com.baidu.tbadk.mvc.f.a.a {
-    protected BdListView aKK;
-    private com.baidu.tbadk.mvc.h.a aKM;
-    protected SingleMentionActivity bWm;
-    private boolean bWu;
-    private boolean bWv;
-    private com.baidu.tbadk.core.view.z mPullView;
+public abstract class k extends com.baidu.adp.base.f<SingleMentionActivity> implements p.b, com.baidu.tbadk.mvc.f.a.a {
+    protected BdListView aJD;
+    private com.baidu.tbadk.mvc.h.a aJF;
+    protected SingleMentionActivity bZY;
+    private boolean cag;
+    private boolean cah;
+    private com.baidu.tbadk.core.view.r mPullView;
     protected View rootView;
 
     public k(SingleMentionActivity singleMentionActivity) {
         super(singleMentionActivity.getPageContext());
-        this.bWu = true;
-        this.bWv = false;
-        this.bWm = singleMentionActivity;
+        this.cag = true;
+        this.cah = false;
+        this.bZY = singleMentionActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void d(com.baidu.tbadk.mvc.d.b bVar) {
         if (bVar instanceof com.baidu.tbadk.mvc.d.a) {
             com.baidu.tbadk.mvc.d.a aVar = (com.baidu.tbadk.mvc.d.a) bVar;
-            if (aVar.Dq()) {
-                this.aKM.ov();
-                if (aVar.Do()) {
-                    this.aKM.es(i.h.loading);
-                } else if (aVar.Dp()) {
-                    this.aKM.es(i.h.loading);
+            if (aVar.Dd()) {
+                this.aJF.ow();
+                if (aVar.Db()) {
+                    this.aJF.et(i.h.loading);
+                } else if (aVar.Dc()) {
+                    this.aJF.et(i.h.loading);
                 } else {
-                    this.aKM.et(i.h.no_more_msg);
+                    this.aJF.eu(i.h.no_more_msg);
                 }
             } else {
-                this.aKM.hide();
+                this.aJF.hide();
             }
             if (aVar.isPullRefreshing()) {
-                abA();
+                acO();
             } else {
-                abB();
+                acP();
             }
         }
     }
 
-    public void abA() {
-        this.mPullView.a((x.b) null);
-        this.aKK.nv();
+    public void acO() {
+        this.mPullView.a((p.b) null);
+        this.aJD.nw();
         this.mPullView.a(this);
     }
 
-    public void abB() {
-        this.aKK.completePullRefresh();
+    public void acP() {
+        this.aJD.completePullRefresh();
     }
 
-    @Override // com.baidu.tbadk.core.view.x.b
+    @Override // com.baidu.tbadk.core.view.p.b
     public void a(View view, boolean z) {
         if (this instanceof j) {
-            this.bWm.abP().bE(z);
+            this.bZY.adh().bB(z);
         } else {
-            this.bWm.abO().bE(z);
+            this.bZY.adg().bB(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(ErrorData errorData) {
-        abB();
-        if (this.aKM != null) {
-            this.aKM.et(i.h.no_more_msg);
+        acP();
+        if (this.aJF != null) {
+            this.aJF.eu(i.h.no_more_msg);
         }
     }
 
-    protected View oY() {
-        this.rootView = this.bWm.getLayoutInflater().inflate(i.g.mvc_template_list, (ViewGroup) null);
-        this.aKK = (BdListView) this.bWm.findViewById(i.f.view_list);
+    protected View oZ() {
+        this.rootView = this.bZY.getLayoutInflater().inflate(i.g.mvc_template_list, (ViewGroup) null);
+        this.aJD = (BdListView) this.bZY.findViewById(i.f.view_list);
         return this.rootView;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void oP() {
-        this.mPullView = new com.baidu.tbadk.core.view.z(this.bWm.getPageContext());
+    public void oQ() {
+        this.mPullView = new com.baidu.tbadk.core.view.r(this.bZY.getPageContext());
         this.mPullView.a(this);
-        this.aKK.setDividerHeight(0);
-        this.aKK.setExOnSrollToBottomListener(new l(this));
-        this.aKK.setPullRefresh(this.mPullView);
-        this.aKM = new com.baidu.tbadk.mvc.h.a(this.bWm);
-        this.aKM.nn();
-        this.aKK.setNextPage(this.aKM);
+        this.aJD.setDividerHeight(0);
+        this.aJD.setExOnSrollToBottomListener(new l(this));
+        this.aJD.setPullRefresh(this.mPullView);
+        this.aJF = new com.baidu.tbadk.mvc.h.a(this.bZY);
+        this.aJF.no();
+        this.aJD.setNextPage(this.aJF);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,33 +99,33 @@ public abstract class k extends com.baidu.adp.base.f<SingleMentionActivity> impl
 
     @Override // com.baidu.tbadk.mvc.f.a.a
     public void onPrimary() {
-        if (this.bWu || this.bWv) {
-            this.bWu = false;
-            this.bWv = false;
+        if (this.cag || this.cah) {
+            this.cag = false;
+            this.cah = false;
             if (this instanceof j) {
-                this.bWm.abP().oQ();
+                this.bZY.adh().oR();
             } else {
-                this.bWm.abO().oQ();
+                this.bZY.adg().oR();
             }
         }
     }
 
     @Override // com.baidu.tbadk.mvc.f.a.a
-    public void bp(boolean z) {
-        if (z && this.aKK != null && this.aKK.getWrappedAdapter() != null && this.aKK.getWrappedAdapter().getCount() <= 0) {
-            com.baidu.adp.lib.g.h.hf().post(new m(this));
+    public void bn(boolean z) {
+        if (z && this.aJD != null && this.aJD.getWrappedAdapter() != null && this.aJD.getWrappedAdapter().getCount() <= 0) {
+            com.baidu.adp.lib.g.h.hg().post(new m(this));
         }
     }
 
-    public void Dt() {
+    public void Dg() {
     }
 
     @Override // com.baidu.tbadk.mvc.f.a.a
-    public void Du() {
+    public void Dh() {
     }
 
-    public void dU(boolean z) {
-        this.bWv = z;
+    public void dV(boolean z) {
+        this.cah = z;
     }
 
     public View getView() {

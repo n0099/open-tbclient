@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 /* loaded from: classes.dex */
 class d extends CustomMessageListener {
-    final /* synthetic */ c bKD;
-    private final /* synthetic */ long bKE;
-    private final /* synthetic */ String bKF;
+    private final /* synthetic */ long aUJ;
+    private final /* synthetic */ String aUK;
+    final /* synthetic */ c bNP;
     private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i, long j, String str, String str2) {
         super(i);
-        this.bKD = cVar;
-        this.bKE = j;
+        this.bNP = cVar;
+        this.aUJ = j;
         this.val$name = str;
-        this.bKF = str2;
+        this.aUK = str2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,8 +25,8 @@ class d extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         SelectFriendActivity selectFriendActivity;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && customResponsedMessage.getCmd() == 2001268) {
-            selectFriendActivity = this.bKD.bKC;
-            selectFriendActivity.a((ShareFromGameCenterMsgData) customResponsedMessage.getData(), this.bKE, this.val$name, this.bKF);
+            selectFriendActivity = this.bNP.bNO;
+            selectFriendActivity.a((ShareFromGameCenterMsgData) customResponsedMessage.getData(), this.aUJ, this.val$name, this.aUK);
         }
     }
 }

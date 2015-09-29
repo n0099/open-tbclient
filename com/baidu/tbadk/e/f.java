@@ -7,22 +7,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class f extends a {
     private Runnable Ix;
-    private String[] acW;
-    private TextView any;
-    private ImageView awe;
-    private TextView awf;
-    private final int awg;
+    private TextView alP;
+    private ImageView auC;
+    private String[] auD;
+    private TextView auE;
+    private final int auF;
     private int currentIndex;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int CH() {
+    public int Ct() {
         this.currentIndex++;
-        if (this.currentIndex >= this.awg) {
+        if (this.currentIndex >= this.auF) {
             this.currentIndex = 0;
         }
         return this.currentIndex;
@@ -36,54 +36,54 @@ public class f extends a {
         super(LayoutInflater.from(context).inflate(i.g.loading_view_layout, (ViewGroup) null));
         this.currentIndex = 0;
         this.Ix = new g(this);
-        this.awe = (ImageView) this.awc.findViewById(i.f.loading_animate_view);
+        this.auC = (ImageView) this.auA.findViewById(i.f.loading_animate_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.awe.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.auC.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.awe.setLayoutParams(marginLayoutParams);
+                this.auC.setLayoutParams(marginLayoutParams);
             }
         }
-        this.any = (TextView) this.awc.findViewById(i.f.loading_anim_ellipsis);
-        this.awf = (TextView) this.awc.findViewById(i.f.loading_text);
-        this.acW = context.getResources().getStringArray(i.b.loading_anim_text_array);
-        this.awg = this.acW.length;
+        this.alP = (TextView) this.auA.findViewById(i.f.loading_anim_ellipsis);
+        this.auE = (TextView) this.auA.findViewById(i.f.loading_text);
+        this.auD = context.getResources().getStringArray(i.b.loading_anim_text_array);
+        this.auF = this.auD.length;
     }
 
-    private void CI() {
-        if (this.awe != null && (this.awe.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.awe.getBackground()).start();
+    private void Cu() {
+        if (this.auC != null && (this.auC.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.auC.getBackground()).start();
         }
     }
 
-    private void CJ() {
-        if (this.awe != null && (this.awe.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.awe.getBackground()).stop();
+    private void Cv() {
+        if (this.auC != null && (this.auC.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.auC.getBackground()).stop();
         }
     }
 
     @Override // com.baidu.tbadk.e.a
-    protected void CF() {
-        al.h(this.awe, i.e.loading_animation);
-        CI();
-        this.any.setText(this.acW[0]);
+    protected void Cr() {
+        am.i(this.auC, i.e.loading_animation);
+        Cu();
+        this.alP.setText(this.auD[0]);
         TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.Ix);
         TbadkCoreApplication.m411getInst().handler.postDelayed(this.Ix, 200L);
     }
 
     @Override // com.baidu.tbadk.e.a
-    protected void CG() {
-        CJ();
+    protected void Cs() {
+        Cv();
         TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.Ix);
-        this.awe.setBackgroundResource(0);
+        this.auC.setBackgroundResource(0);
     }
 
-    public void tf() {
-        al.h(this.awe, i.e.loading_animation);
-        CI();
-        al.b(this.any, i.c.cp_cont_c, 1);
-        al.b(this.awf, i.c.cp_cont_c, 1);
-        al.i(this.awc, i.c.cp_bg_line_d);
+    public void tc() {
+        am.i(this.auC, i.e.loading_animation);
+        Cu();
+        am.b(this.alP, i.c.cp_cont_c, 1);
+        am.b(this.auE, i.c.cp_cont_c, 1);
+        am.j(this.auA, i.c.cp_bg_line_d);
     }
 }

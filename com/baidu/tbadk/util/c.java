@@ -5,9 +5,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static c aAQ = new c();
-    private b aAR;
-    private a aAS;
+    private static c azr = new c();
+    private b azs;
+    private a azt;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -17,22 +17,22 @@ public class c {
     private c() {
     }
 
-    public static c EJ() {
-        return aAQ;
+    public static c Ex() {
+        return azr;
     }
 
     public void a(a aVar) {
-        this.aAS = aVar;
-        if (this.aAR != null) {
-            this.aAR.cancel();
+        this.azt = aVar;
+        if (this.azs != null) {
+            this.azs.cancel();
         }
-        this.aAR = new b(this, null);
-        this.aAR.setPriority(4);
-        this.aAR.execute(new String[0]);
+        this.azs = new b(this, null);
+        this.azs.setPriority(4);
+        this.azs.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean EK() {
+    public boolean Ey() {
         int i;
         long j = 0;
         byte[] aH = com.baidu.adp.lib.util.e.aH("crash_hour_record.log");
@@ -73,7 +73,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(c.this.EK());
+            return Boolean.valueOf(c.this.Ey());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,8 +81,8 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
-            if (c.this.aAS != null && bool != null) {
-                c.this.aAS.ag(bool.booleanValue());
+            if (c.this.azt != null && bool != null) {
+                c.this.azt.ag(bool.booleanValue());
             }
         }
     }

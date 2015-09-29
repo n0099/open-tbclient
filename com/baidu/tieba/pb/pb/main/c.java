@@ -6,36 +6,36 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.pb.b.c;
 /* loaded from: classes.dex */
 class c implements c.a {
-    final /* synthetic */ PbActivity ccj;
+    final /* synthetic */ PbActivity ciz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PbActivity pbActivity) {
-        this.ccj = pbActivity;
+        this.ciz = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.b.c.a
     public boolean a(View view, MotionEvent motionEvent) {
-        cb cbVar;
+        cc ccVar;
         com.baidu.tbadk.editortools.c.d dVar;
-        cb cbVar2;
-        cb cbVar3;
+        cc ccVar2;
+        cc ccVar3;
         com.baidu.tbadk.editortools.c.d dVar2;
-        cb cbVar4;
+        cc ccVar4;
         com.baidu.tbadk.editortools.c.d dVar3;
-        cbVar = this.ccj.cbL;
-        cbVar.eD(false);
-        dVar = this.ccj.cbS;
+        ccVar = this.ciz.cia;
+        ccVar.eI(false);
+        dVar = this.ciz.cij;
         if (dVar != null) {
-            cbVar4 = this.ccj.cbL;
-            dVar3 = this.ccj.cbS;
-            cbVar4.eI(dVar3.BE());
+            ccVar4 = this.ciz.cia;
+            dVar3 = this.ciz.cij;
+            ccVar4.eN(dVar3.Br());
         }
-        cbVar2 = this.ccj.cbL;
-        cbVar2.Z(view);
-        cbVar3 = this.ccj.cbL;
-        cbVar3.eD(true);
-        dVar2 = this.ccj.cbS;
-        dVar2.BH();
+        ccVar2 = this.ciz.cia;
+        ccVar2.ab(view);
+        ccVar3 = this.ciz.cia;
+        ccVar3.eI(true);
+        dVar2 = this.ciz.cij;
+        dVar2.Bu();
         return true;
     }
 
@@ -47,30 +47,30 @@ class c implements c.a {
     @Override // com.baidu.tieba.pb.b.c.a
     public boolean c(View view, MotionEvent motionEvent) {
         com.baidu.tbadk.editortools.c.d dVar;
-        cb cbVar;
+        cc ccVar;
         com.baidu.tbadk.editortools.c.d dVar2;
-        cb cbVar2;
-        cb cbVar3;
+        cc ccVar2;
+        cc ccVar3;
         com.baidu.tbadk.editortools.c.d dVar3;
-        boolean U;
+        boolean W;
         if (view != null && view.getId() == i.f.richText) {
-            U = this.ccj.U(view);
-            if (U) {
+            W = this.ciz.W(view);
+            if (W) {
                 return true;
             }
         }
-        dVar = this.ccj.cbS;
+        dVar = this.ciz.cij;
         if (dVar != null) {
-            cbVar3 = this.ccj.cbL;
-            dVar3 = this.ccj.cbS;
-            cbVar3.eI(dVar3.BE());
+            ccVar3 = this.ciz.cia;
+            dVar3 = this.ciz.cij;
+            ccVar3.eN(dVar3.Br());
         }
-        cbVar = this.ccj.cbL;
-        cbVar.aeq();
-        dVar2 = this.ccj.cbS;
-        dVar2.BH();
-        cbVar2 = this.ccj.cbL;
-        cbVar2.aeO();
+        ccVar = this.ciz.cia;
+        ccVar.ago();
+        dVar2 = this.ciz.cij;
+        dVar2.Bu();
+        ccVar2 = this.ciz.cia;
+        ccVar2.agM();
         return false;
     }
 }

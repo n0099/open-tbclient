@@ -13,11 +13,11 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.c {
-    final /* synthetic */ a bDS;
+    final /* synthetic */ a bGU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(a aVar) {
-        this.bDS = aVar;
+        this.bGU = aVar;
     }
 
     @Override // com.baidu.tbadk.img.a.c
@@ -32,10 +32,10 @@ public class o implements a.c {
         int i2 = 0;
         synchronized (this) {
             synchronized (a.class) {
-                hashMap = this.bDS.bDN;
+                hashMap = this.bGU.bGP;
                 aVar = (com.baidu.tbadk.img.a) hashMap.remove(str);
             }
-            if (aVar != null && (chatMessage = (ChatMessage) aVar.Cv()) != null) {
+            if (aVar != null && (chatMessage = (ChatMessage) aVar.Ci()) != null) {
                 if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
                     if (imageUploadResult != null) {
                         com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", imageUploadResult.error_code, imageUploadResult.error_msg, new Object[0]);
@@ -45,13 +45,13 @@ public class o implements a.c {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPLOAD_FAIL, chatMessage));
                     if (chatMessage instanceof CommonGroupChatMessage) {
                         CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
-                        com.baidu.tieba.im.l.a(new p(this, commonGroupChatMessage), new q(this, commonGroupChatMessage));
+                        com.baidu.tbadk.util.m.b(new p(this, commonGroupChatMessage), new q(this, commonGroupChatMessage));
                     } else if (chatMessage instanceof PersonalChatMessage) {
                         PersonalChatMessage personalChatMessage = (PersonalChatMessage) chatMessage;
-                        com.baidu.tieba.im.l.a(new r(this, personalChatMessage), new s(this, personalChatMessage));
+                        com.baidu.tbadk.util.m.b(new r(this, personalChatMessage), new s(this, personalChatMessage));
                     } else if (chatMessage instanceof OfficialChatMessage) {
                         OfficialChatMessage officialChatMessage = (OfficialChatMessage) chatMessage;
-                        com.baidu.tieba.im.l.a(new t(this, officialChatMessage), new u(this, officialChatMessage));
+                        com.baidu.tbadk.util.m.b(new t(this, officialChatMessage), new u(this, officialChatMessage));
                     }
                 } else {
                     com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", 0, null, new Object[0]);
@@ -60,17 +60,17 @@ public class o implements a.c {
                         str2 = imageUploadResult.picInfo.smallPic.picUrl;
                         i2 = imageUploadResult.picInfo.smallPic.width;
                         i = imageUploadResult.picInfo.smallPic.height;
-                        this.bDS.aK(str, str2);
+                        this.bGU.aJ(str, str2);
                     } else {
                         i = 0;
                         str2 = null;
                     }
                     chatMessage.setContent(a.b(str3, str2, i2, i));
-                    a.Wu().n(chatMessage);
-                    aeVar = this.bDS.mSendCallback;
+                    a.Xd().n(chatMessage);
+                    aeVar = this.bGU.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.bDS.mSendCallback;
-                        aeVar2.ht(1);
+                        aeVar2 = this.bGU.mSendCallback;
+                        aeVar2.hz(1);
                     }
                 }
             }

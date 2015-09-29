@@ -18,14 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends BaseFragment {
-    private com.baidu.tbadk.e.f cAP;
-    private ScrollFragmentTabHost cAU;
-    private com.baidu.tieba.recommendfrs.control.a.b cAV;
-    private CustomMessageTask cAX;
+    private com.baidu.tbadk.e.f cHR;
+    private ScrollFragmentTabHost cHW;
+    private com.baidu.tieba.recommendfrs.control.a.b cHX;
+    private CustomMessageTask cHZ;
     private h refreshView;
-    private List<String> cAW = new ArrayList();
-    private CustomMessageListener cAY = new b(this, CmdConfigCustom.CMD_RECOMMEMD_FRS_SWITCH_TAB);
-    private com.baidu.tieba.recommendfrs.a cAZ = new c(this);
+    private List<String> cHY = new ArrayList();
+    private CustomMessageListener cIa = new b(this, CmdConfigCustom.CMD_RECOMMEMD_FRS_SWITCH_TAB);
+    private com.baidu.tieba.recommendfrs.a cIb = new c(this);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
@@ -41,8 +41,8 @@ public class a extends BaseFragment {
             TiebaStatic.log("kantie_entry");
         }
         TbadkCoreApplication.m411getInst().setEnterRecommendFrs(true);
-        if (this.cAW == null || this.cAW.size() <= 0) {
-            this.cAV.kw("头条");
+        if (this.cHY == null || this.cHY.size() <= 0) {
+            this.cHX.kU("头条");
             a(getView(), false, getResources().getDimensionPixelSize(i.d.ds360));
         }
     }
@@ -50,15 +50,15 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        HE();
-        this.cAU = (ScrollFragmentTabHost) getView().findViewById(i.f.recommend_frs_tab_host);
+        Hy();
+        this.cHW = (ScrollFragmentTabHost) getView().findViewById(i.f.recommend_frs_tab_host);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.cAY);
-        anu();
+        registerListener(this.cIa);
+        apM();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -67,35 +67,35 @@ public class a extends BaseFragment {
         MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED);
     }
 
-    private void anu() {
-        this.cAX = new CustomMessageTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, new d(this));
-        this.cAX.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(this.cAX);
+    private void apM() {
+        this.cHZ = new CustomMessageTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, new d(this));
+        this.cHZ.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(this.cHZ);
     }
 
-    private void HE() {
-        this.cAV = new com.baidu.tieba.recommendfrs.control.a.b(getPageContext(), getUniqueId());
-        this.cAV.a(new e(this));
+    private void Hy() {
+        this.cHX = new com.baidu.tieba.recommendfrs.control.a.b(getPageContext(), getUniqueId());
+        this.cHX.a(new e(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, boolean z, int i) {
-        if (this.cAP == null) {
+        if (this.cHR == null) {
             if (i < 0) {
-                this.cAP = new com.baidu.tbadk.e.f(getActivity());
+                this.cHR = new com.baidu.tbadk.e.f(getActivity());
             } else {
-                this.cAP = new com.baidu.tbadk.e.f(getActivity(), i);
+                this.cHR = new com.baidu.tbadk.e.f(getActivity(), i);
             }
-            this.cAP.tf();
+            this.cHR.tc();
         }
-        this.cAP.b(view, z);
+        this.cHR.b(view, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ao(View view) {
-        if (this.cAP != null) {
-            this.cAP.u(view);
-            this.cAP = null;
+    public void ap(View view) {
+        if (this.cHR != null) {
+            this.cHR.u(view);
+            this.cHR = null;
         }
     }
 
@@ -104,14 +104,14 @@ public class a extends BaseFragment {
         if (this.refreshView == null) {
             this.refreshView = new h(getPageContext().getPageActivity(), new f(this));
         }
-        this.refreshView.eo(getResources().getDimensionPixelSize(i.d.ds160));
-        this.refreshView.fq(str);
+        this.refreshView.ep(getResources().getDimensionPixelSize(i.d.ds160));
+        this.refreshView.fv(str);
         this.refreshView.b(view, z);
-        this.refreshView.CK();
+        this.refreshView.Cw();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anv() {
+    public void apN() {
         if (this.refreshView != null) {
             this.refreshView.u(getView());
             this.refreshView = null;
@@ -121,8 +121,8 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.cAU != null) {
-            this.cAU.onChangeSkinType(i);
+        if (this.cHW != null) {
+            this.cHW.onChangeSkinType(i);
         }
     }
 }

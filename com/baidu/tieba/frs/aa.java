@@ -1,16 +1,15 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements c.b {
-    final /* synthetic */ FrsActivity aVz;
+    final /* synthetic */ FrsActivity aUz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(FrsActivity frsActivity) {
-        this.aVz = frsActivity;
+        this.aUz = frsActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -18,13 +17,15 @@ public class aa implements c.b {
         cVar.dismiss();
         switch (i) {
             case 0:
-                this.aVz.aUD = false;
-                break;
+                this.aUz.aTz = false;
+                this.aUz.fq(0);
+                return;
             case 1:
-                this.aVz.aUD = true;
-                com.baidu.tbadk.core.sharedPref.b.tx().putBoolean("isAlreadyShowIcon" + TbadkCoreApplication.getCurrentAccount(), true);
-                break;
+                this.aUz.aTz = false;
+                this.aUz.KY();
+                return;
+            default:
+                return;
         }
-        this.aVz.fl(0);
     }
 }

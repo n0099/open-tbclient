@@ -1,54 +1,75 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.BitmapDrawable;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class db extends bd<com.baidu.tbadk.core.data.x, dc> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public db(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
+public class db extends com.baidu.adp.widget.ListView.c {
+    private final int aSG;
+    private a aWU;
+    private boolean aXU;
+    private View.OnClickListener adX;
+    private Context mContext;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public static class a {
+        FrameLayout aXV;
+        LinearLayout aXW;
+        TextView aXX;
+        ProgressBar aXY;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: p */
-    public dc a(ViewGroup viewGroup) {
-        return new dc(LayoutInflater.from(this.mContext).inflate(i.g.frs_top_item, (ViewGroup) null));
+    @Override // com.baidu.adp.widget.ListView.c
+    public View no() {
+        View inflate = LayoutInflater.from(this.mContext).inflate(i.g.frs_item_control, (ViewGroup) null);
+        this.aWU = new a();
+        this.aWU.aXV = (FrameLayout) inflate.findViewById(i.f.frs_list_control);
+        this.aWU.aXW = (LinearLayout) inflate.findViewById(i.f.frs_list_control_in);
+        this.aWU.aXY = (ProgressBar) inflate.findViewById(i.f.frs_list_control_progress);
+        this.aWU.aXX = (TextView) inflate.findViewById(i.f.frs_list_control_tv);
+        inflate.setTag(this.aWU);
+        onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+        return inflate;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bd, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.x xVar, dc dcVar) {
-        BitmapDrawable bitmapDrawable;
-        super.a(i, view, viewGroup, (ViewGroup) xVar, (com.baidu.tbadk.core.data.x) dcVar);
-        this.aSX.getLayoutMode().ad(this.mSkinType == 1);
-        this.aSX.getLayoutMode().k(view);
-        if (xVar == null) {
-            return null;
+    public void onChangeSkinType(int i) {
+        if (this.aWU != null) {
+            com.baidu.tbadk.core.util.am.i(this.aWU.aXW, i.e.frs_item_control_bg);
+            com.baidu.tbadk.core.util.am.c(this.aWU.aXX, i);
         }
-        dcVar.aQj.setText(xVar.getTitle());
-        com.baidu.tieba.tbadkCore.util.m readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.lj(xVar.getId())) {
-            com.baidu.tbadk.core.util.al.b(dcVar.aQj, i.c.cp_cont_c, 1);
+    }
+
+    public void cb(boolean z) {
+        this.aXU = z;
+        if (this.aWU != null) {
+            this.aWU.aXV.setVisibility(0);
+            this.aWU.aXV.setPadding(0, this.aSG, 0, 0);
+            if (z) {
+                this.aWU.aXX.setText(i.h.loading);
+                this.aWU.aXY.setVisibility(0);
+                return;
+            }
+            this.aWU.aXX.setText(i.h.frs_pre);
+            this.aWU.aXY.setVisibility(8);
         }
-        if (xVar.getIs_top() == 1) {
-            bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.al.getDrawable(i.e.icon_top);
-        } else {
-            bitmapDrawable = xVar.getIs_top() == 2 ? (BitmapDrawable) com.baidu.tbadk.core.util.al.getDrawable(i.e.icon_notice) : null;
+    }
+
+    public void j(View.OnClickListener onClickListener) {
+        this.adX = onClickListener;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c
+    public void onClick() {
+        if (this.adX != null) {
+            this.adX.onClick(getView());
         }
-        com.baidu.tbadk.core.util.al.h(dcVar.aWp, i.e.frs_top_item_bg);
-        if (bitmapDrawable != null) {
-            bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-        }
-        dcVar.aQj.setCompoundDrawables(bitmapDrawable, null, null, null);
-        return view;
     }
 }

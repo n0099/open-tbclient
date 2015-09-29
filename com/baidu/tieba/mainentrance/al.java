@@ -1,37 +1,18 @@
 package com.baidu.tieba.mainentrance;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.mainentrance.SquareSearchActivity;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class al implements Runnable {
-    final /* synthetic */ SquareSearchActivity bRF;
+public class al implements a.b {
+    final /* synthetic */ SquareSearchActivity bVr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(SquareSearchActivity squareSearchActivity) {
-        this.bRF = squareSearchActivity;
+        this.bVr = squareSearchActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        SquareSearchActivity.a aVar;
-        SquareSearchActivity.a aVar2;
-        try {
-            if (this.bRF.bQZ != null && this.bRF.bQZ.length() > 0) {
-                StringBuffer stringBuffer = new StringBuffer(30);
-                stringBuffer.append(TbConfig.SERVER_ADDRESS);
-                stringBuffer.append("c/f/forum/search");
-                BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", this.bRF.bQZ.trim());
-                this.bRF.ZV();
-                this.bRF.bQX = new SquareSearchActivity.a(stringBuffer.toString(), basicNameValuePair, true);
-                aVar = this.bRF.bQX;
-                aVar.setPriority(3);
-                aVar2 = this.bRF.bQX;
-                aVar2.execute(stringBuffer.toString(), basicNameValuePair);
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

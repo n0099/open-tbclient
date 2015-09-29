@@ -1,21 +1,40 @@
 package com.baidu.tieba.frs;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class cc extends x.a {
-    View aXT;
-    TextView aXU;
-    View aXV;
-    TextView aXW;
+public class cc extends bn<cd, ce> {
+    private final int aWV;
 
-    public cc(View view) {
-        super(view);
-        this.aXU = (TextView) view.findViewById(i.f.frs_fortune_bag_content);
-        this.aXT = view.findViewById(i.f.frs_fortune_bag_item);
-        this.aXV = view.findViewById(i.f.frs_my_service_item);
-        this.aXW = (TextView) view.findViewById(i.f.frs_my_service_content);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public cc(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
+        super(baseActivity, bdUniqueId);
+        this.aWV = (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds90);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: i */
+    public ce a(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.mContext).inflate(i.g.frs_no_list_item_view, viewGroup, false);
+        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.aWV));
+        return new ce(inflate);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, cd cdVar, ce ceVar) {
+        super.a(i, view, viewGroup, (ViewGroup) cdVar, (cd) ceVar);
+        this.aRT.getLayoutMode().ad(this.mSkinType == 1);
+        this.aRT.getLayoutMode().k(view);
+        return view;
     }
 }

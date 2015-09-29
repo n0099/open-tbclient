@@ -1,25 +1,24 @@
 package com.baidu.tieba.tblauncher;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw implements View.OnClickListener {
-    final /* synthetic */ am cVq;
+    final /* synthetic */ ao dcY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aw(am amVar) {
-        this.cVq = amVar;
+    public aw(ao aoVar) {
+        this.dcY = aoVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cVq.dV(false);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CONFIRM));
-        com.baidu.tbadk.core.sharedPref.b.tx().putBoolean("enter_forum_edit_mode", false);
-        TiebaStatic.log("c10099");
+        MainTabActivity mainTabActivity;
+        MainTabActivity mainTabActivity2;
+        mainTabActivity = this.dcY.dcT;
+        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_3", "click", 1, new Object[0]);
+        mainTabActivity2 = this.dcY.dcT;
+        com.baidu.tbadk.core.util.bc.af(mainTabActivity2.getPageContext().getPageActivity());
     }
 }

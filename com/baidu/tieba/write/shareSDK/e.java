@@ -5,15 +5,15 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.write.shareSDK.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements a.InterfaceC0077a {
-    final /* synthetic */ WriteShareActivity daW;
+public class e implements a.InterfaceC0080a {
+    final /* synthetic */ WriteShareActivity dlY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(WriteShareActivity writeShareActivity) {
-        this.daW = writeShareActivity;
+        this.dlY = writeShareActivity;
     }
 
-    @Override // com.baidu.tieba.write.shareSDK.a.InterfaceC0077a
+    @Override // com.baidu.tieba.write.shareSDK.a.InterfaceC0080a
     public void a(boolean z, PostPrefixData postPrefixData) {
         o oVar;
         PostPrefixData postPrefixData2;
@@ -23,17 +23,17 @@ public class e implements a.InterfaceC0077a {
         o oVar3;
         PostPrefixData postPrefixData5;
         if (z) {
-            this.daW.mPrefixData = postPrefixData;
-            postPrefixData2 = this.daW.mPrefixData;
+            this.dlY.mPrefixData = postPrefixData;
+            postPrefixData2 = this.dlY.mPrefixData;
             if (postPrefixData2 != null) {
-                postPrefixData3 = this.daW.mPrefixData;
+                postPrefixData3 = this.dlY.mPrefixData;
                 if (postPrefixData3.getPrefixs().size() > 0) {
-                    postPrefixData4 = this.daW.mPrefixData;
-                    postPrefixData4.getPrefixs().add(this.daW.getPageContext().getString(i.h.write_no_prefix));
-                    oVar2 = this.daW.daG;
+                    postPrefixData4 = this.dlY.mPrefixData;
+                    postPrefixData4.getPrefixs().add(this.dlY.getPageContext().getString(i.h.write_no_prefix));
+                    oVar2 = this.dlY.dlI;
                     if (oVar2 != null) {
-                        oVar3 = this.daW.daG;
-                        postPrefixData5 = this.daW.mPrefixData;
+                        oVar3 = this.dlY.dlI;
+                        postPrefixData5 = this.dlY.mPrefixData;
                         oVar3.a(postPrefixData5);
                         return;
                     }
@@ -43,16 +43,16 @@ public class e implements a.InterfaceC0077a {
             }
             return;
         }
-        this.daW.mPrefixData = null;
-        oVar = this.daW.daG;
+        this.dlY.mPrefixData = null;
+        oVar = this.dlY.dlI;
         oVar.a((PostPrefixData) null);
     }
 
-    @Override // com.baidu.tieba.write.shareSDK.a.InterfaceC0077a
-    public void ayC() {
+    @Override // com.baidu.tieba.write.shareSDK.a.InterfaceC0080a
+    public void aBJ() {
         o oVar;
-        this.daW.mPrefixData = null;
-        oVar = this.daW.daG;
+        this.dlY.mPrefixData = null;
+        oVar = this.dlY.dlI;
         oVar.a((PostPrefixData) null);
     }
 }

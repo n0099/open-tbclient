@@ -8,11 +8,11 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.base.l;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect atq;
+    private Rect arN;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -25,14 +25,14 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.atq = new Rect(0, 0, getResources().getDimensionPixelSize(i.d.ds32), getResources().getDimensionPixelSize(i.d.ds32));
+        this.arN = new Rect(0, 0, getResources().getDimensionPixelSize(i.d.ds32), getResources().getDimensionPixelSize(i.d.ds32));
         r(0, null);
-        tf();
+        tc();
     }
 
-    public void tf() {
-        setTextColor(al.getColor(i.c.cp_cont_c));
-        AV();
+    public void tc() {
+        setTextColor(am.getColor(i.c.cp_cont_c));
+        AI();
     }
 
     public void r(int i, String str) {
@@ -53,26 +53,26 @@ public class PbLocationInfoView extends TextView {
             }
             setText(str);
         }
-        AV();
+        AI();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void AV() {
+    public void AI() {
         if (this.mState == 1) {
-            Drawable drawable = al.getDrawable(i.e.icon_posts_pin_loading_anim);
+            Drawable drawable = am.getDrawable(i.e.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.atq);
+                drawable.setBounds(this.arN);
             }
             setCompoundDrawables(drawable, null, null, null);
             com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) l.B(getContext()), (Animatable) drawable);
             return;
         }
-        Drawable drawable2 = al.getDrawable(i.e.icon_tips_site);
+        Drawable drawable2 = am.getDrawable(i.e.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.atq);
+            drawable2.setBounds(this.arN);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

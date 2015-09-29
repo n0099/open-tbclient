@@ -1,21 +1,27 @@
 package com.baidu.tbadk.coreExtra.view;
-
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ExceptionData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ae extends CustomMessageListener {
+public class ae extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ z ami;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ae(int i) {
-        super(i);
+    public ae(z zVar) {
+        this.ami = zVar;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void al(String str) {
+        this.ami.alV.setVisibility(0);
+        this.ami.mProgressBar.setVisibility(8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ((ExceptionData) customResponsedMessage.getData()).info.contains("java.lang.SecurityException: No permission to modify given thread")) {
-            TbadkCoreApplication.m411getInst().setWebviewCrashCount(TbadkCoreApplication.m411getInst().getWebviewCrashCount() + 1);
-        }
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        this.ami.ama = true;
+        this.ami.mProgressBar.setVisibility(8);
+        this.ami.b(aVar);
     }
 }

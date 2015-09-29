@@ -12,25 +12,25 @@ import java.util.List;
 public class a extends PagerAdapter {
     private Context mContext;
     private int mPrimaryPosition = -1;
-    private com.baidu.tieba.recommendfrs.b cAQ = new b(this);
+    private com.baidu.tieba.recommendfrs.b cHS = new b(this);
     private ArrayList<com.baidu.tieba.recommendfrs.data.e> rK = new ArrayList<>();
-    private ArrayList<com.baidu.tieba.recommendfrs.d> cBB = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.recommendfrs.d> boi = new ArrayList<>();
 
     public a(Context context, com.baidu.tieba.recommendfrs.a aVar) {
         this.mContext = context;
-        this.cBB.add(a(aVar));
-        this.cBB.add(a(aVar));
-        this.cBB.add(a(aVar));
+        this.boi.add(a(aVar));
+        this.boi.add(a(aVar));
+        this.boi.add(a(aVar));
     }
 
     private com.baidu.tieba.recommendfrs.d a(com.baidu.tieba.recommendfrs.a aVar) {
         com.baidu.tieba.recommendfrs.d dVar = new com.baidu.tieba.recommendfrs.d(this.mContext);
         dVar.setCallback(aVar);
-        dVar.setScrollCallback(this.cAQ);
+        dVar.setScrollCallback(this.cHS);
         return dVar;
     }
 
-    public void q(List<com.baidu.tieba.recommendfrs.data.e> list) {
+    public void ad(List<com.baidu.tieba.recommendfrs.data.e> list) {
         if (this.rK == null) {
             this.rK = new ArrayList<>();
         }
@@ -56,13 +56,13 @@ public class a extends PagerAdapter {
         }
     }
 
-    public void i(String str, String str2, int i) {
-        if (this.cBB != null) {
-            Iterator<com.baidu.tieba.recommendfrs.d> it = this.cBB.iterator();
+    public void j(String str, String str2, int i) {
+        if (this.boi != null) {
+            Iterator<com.baidu.tieba.recommendfrs.d> it = this.boi.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.recommendfrs.d next = it.next();
-                if (next != null && next.kv(str)) {
-                    next.X(str2, i);
+                if (next != null && next.kT(str)) {
+                    next.Z(str2, i);
                     return;
                 }
             }
@@ -70,11 +70,11 @@ public class a extends PagerAdapter {
     }
 
     private void a(String str, com.baidu.tieba.recommendfrs.data.e eVar) {
-        if (this.cBB != null) {
-            Iterator<com.baidu.tieba.recommendfrs.d> it = this.cBB.iterator();
+        if (this.boi != null) {
+            Iterator<com.baidu.tieba.recommendfrs.d> it = this.boi.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.recommendfrs.d next = it.next();
-                if (next != null && next.kv(str)) {
+                if (next != null && next.kT(str)) {
                     next.a(eVar, false);
                     return;
                 }
@@ -96,12 +96,12 @@ public class a extends PagerAdapter {
         if (this.mPrimaryPosition != i) {
             this.mPrimaryPosition = i;
             if (obj instanceof com.baidu.tieba.recommendfrs.d) {
-                ((com.baidu.tieba.recommendfrs.d) obj).ans();
+                ((com.baidu.tieba.recommendfrs.d) obj).apK();
             }
         }
     }
 
-    public int kC(String str) {
+    public int la(String str) {
         if (this.rK == null) {
             return -1;
         }
@@ -124,7 +124,7 @@ public class a extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        com.baidu.tieba.recommendfrs.d dVar = this.cBB.get(i % 3);
+        com.baidu.tieba.recommendfrs.d dVar = this.boi.get(i % 3);
         if (dVar.getParent() != null) {
             viewGroup.removeView(dVar);
         }
@@ -151,9 +151,9 @@ public class a extends PagerAdapter {
         return view == obj;
     }
 
-    public void cO(int i) {
-        if (this.cBB != null) {
-            Iterator<com.baidu.tieba.recommendfrs.d> it = this.cBB.iterator();
+    public void cP(int i) {
+        if (this.boi != null) {
+            Iterator<com.baidu.tieba.recommendfrs.d> it = this.boi.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.recommendfrs.d next = it.next();
                 if (next != null) {

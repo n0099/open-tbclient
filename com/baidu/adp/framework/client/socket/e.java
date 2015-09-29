@@ -91,7 +91,7 @@ public class e extends com.baidu.adp.lib.webSocket.c {
         if (this.oG == 0) {
             this.oG = System.currentTimeMillis();
         }
-        k.a("SenderData", this.oA.getCmd(), this.oA.getClientLogID(), this.ou, "StartSend", 0, "SenderData: start send size = " + (jt() != null ? jt().length : 0));
+        k.a("SenderData", this.oA.getCmd(), this.oA.getClientLogID(), this.ou, "StartSend", 0, "SenderData: start send size = " + (ju() != null ? ju().length : 0));
         oy.removeCallbacks(ed());
         if (this.ov.getTimeOut() != null) {
             oy.postDelayed(ed(), this.ov.getTimeOut().eX());
@@ -109,8 +109,8 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     public void eh() {
         int i;
         int cmd = this.oA.getCmd();
-        if (jt() != null) {
-            int length = jt().length;
+        if (ju() != null) {
+            int length = ju().length;
             this.oA.setEncodedBinarySize(length);
             i = length;
         } else {
@@ -145,16 +145,19 @@ public class e extends com.baidu.adp.lib.webSocket.c {
 
     @Override // com.baidu.adp.lib.webSocket.c
     protected byte[] em() {
+        if (this.oG == 0) {
+            this.oG = System.currentTimeMillis();
+        }
         this.oz = null;
         com.baidu.adp.framework.client.socket.coder.b eK = com.baidu.adp.framework.client.socket.coder.b.eK();
         this.ou = g.et().en();
-        com.baidu.adp.lib.stats.a hh = com.baidu.adp.lib.stats.a.hh();
+        com.baidu.adp.lib.stats.a hi = com.baidu.adp.lib.stats.a.hi();
         long clientLogID = this.oA == null ? -1L : this.oA.getClientLogID();
         String valueOf = String.valueOf(this.ou & 4294967295L);
         Object[] objArr = new Object[2];
         objArr[0] = IntentConfig.CMD;
         objArr[1] = Integer.valueOf(this.oA == null ? -1 : this.oA.getCmd());
-        hh.a("seqid", clientLogID, valueOf, objArr);
+        hi.a("seqid", clientLogID, valueOf, objArr);
         try {
             return eK.a(this.oA, this.ou, this.ov.fb(), this.ov.getNeedEncrypt());
         } catch (CoderException e) {

@@ -12,19 +12,19 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private c bXq;
-    final CustomMessageListener bXr = new a(this, CmdConfigCustom.COLLECT_TAB_ADD_FRAGMENT);
-    private CustomMessageListener bXs = new b(this, CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE);
+    private c cbc;
+    final CustomMessageListener cbd = new a(this, CmdConfigCustom.COLLECT_TAB_ADD_FRAGMENT);
+    private CustomMessageListener cbe = new b(this, CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(i.g.collect_tab_activity);
-        this.bXq = new c(this);
-        this.bXr.setPriority(100);
-        registerListener(this.bXr);
-        registerListener(this.bXs);
+        this.cbc = new c(this);
+        this.cbd.setPriority(100);
+        registerListener(this.cbd);
+        registerListener(this.cbe);
         initTabsOnActivityCreated();
     }
 
@@ -35,13 +35,14 @@ public class CollectTabActivity extends BaseFragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
-        this.bXq.onChangeSkinType(i);
+        super.changeSkinType(i);
+        this.cbc.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.bXq.abY()) {
-            this.bXq.dV(!this.bXq.abZ());
+        if (view == this.cbc.adq()) {
+            this.cbc.dW(!this.cbc.adr());
         }
     }
 
@@ -49,9 +50,18 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment abX = this.bXq.abX();
-        if (abX != null) {
-            abX.onActivityResult(i, i2, intent);
+        Fragment adp = this.cbc.adp();
+        if (adp != null) {
+            adp.onActivityResult(i, i2, intent);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // android.support.v4.app.FragmentActivity, android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        super.onSaveInstanceState(bundle);
+        if (bundle != null) {
+            bundle.remove("android:support:fragments");
         }
     }
 }

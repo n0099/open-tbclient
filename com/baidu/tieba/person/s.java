@@ -12,13 +12,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ r cjC;
+    final /* synthetic */ r cpf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(r rVar, int i) {
         super(i);
-        this.cjC = rVar;
+        this.cpf = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,7 +29,7 @@ public class s extends com.baidu.adp.framework.listener.e {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        PersonBarActivity agt;
+        PersonBarActivity ais;
         boolean z;
         View view;
         View view2;
@@ -41,66 +41,66 @@ public class s extends com.baidu.adp.framework.listener.e {
         ac acVar2;
         ArrayList<ForumData> arrayList2;
         ac acVar3;
-        PersonBarActivity agt2;
+        PersonBarActivity ais2;
         View view3;
         String str;
-        this.cjC.mListView.completePullRefresh();
+        this.cpf.mListView.completePullRefresh();
         if (socketResponsedMessage == null) {
-            this.cjC.showToast(this.cjC.getPageContext().getString(i.h.neterror));
+            this.cpf.showToast(this.cpf.getPageContext().getString(i.h.neterror));
         } else if (socketResponsedMessage.getCmd() == 107129 && (socketResponsedMessage instanceof ResponseGetLivableForumList)) {
             ResponseGetLivableForumList responseGetLivableForumList = (ResponseGetLivableForumList) socketResponsedMessage;
             if (responseGetLivableForumList.getError() == 0) {
-                agt = this.cjC.agt();
-                if (agt != null) {
-                    agt2 = this.cjC.agt();
-                    if (agt2.getRequestCode() != 23011) {
-                        view3 = this.cjC.cjt;
+                ais = this.cpf.ais();
+                if (ais != null) {
+                    ais2 = this.cpf.ais();
+                    if (ais2.getRequestCode() != 23011) {
+                        view3 = this.cpf.coW;
                         view3.setVisibility(8);
-                        acVar = this.cjC.cjm;
+                        acVar = this.cpf.coP;
                         if (acVar == null) {
-                            arrayList = this.cjC.rK;
+                            arrayList = this.cpf.rK;
                             arrayList.addAll(responseGetLivableForumList.getData());
-                            this.cjC.removalDuplicate();
-                            acVar2 = this.cjC.cjm;
-                            arrayList2 = this.cjC.rK;
-                            acVar2.R(arrayList2);
-                            this.cjC.hasMore = responseGetLivableForumList.hasMore();
-                            this.cjC.eP(true);
-                            acVar3 = this.cjC.cjm;
+                            this.cpf.removalDuplicate();
+                            acVar2 = this.cpf.coP;
+                            arrayList2 = this.cpf.rK;
+                            acVar2.S(arrayList2);
+                            this.cpf.hasMore = responseGetLivableForumList.hasMore();
+                            this.cpf.eV(true);
+                            acVar3 = this.cpf.coP;
                             acVar3.notifyDataSetChanged();
-                            this.cjC.cjp++;
+                            this.cpf.coS++;
                             return;
                         }
                         return;
                     }
                 }
-                z = this.cjC.cjx;
+                z = this.cpf.cpa;
                 if (!z) {
-                    this.cjC.cjx = true;
-                    BdListView bdListView = this.cjC.mListView;
-                    view2 = this.cjC.cjt;
+                    this.cpf.cpa = true;
+                    BdListView bdListView = this.cpf.mListView;
+                    view2 = this.cpf.coW;
                     bdListView.addHeaderView(view2);
                     int miniLevel = responseGetLivableForumList.getMiniLevel();
                     if (miniLevel <= 0) {
                         miniLevel = 0;
                     }
-                    textView = this.cjC.cju;
-                    textView.setText(this.cjC.getResources().getString(i.h.level_above_six_tip, Integer.valueOf(miniLevel)));
-                    textView2 = this.cjC.cju;
-                    com.baidu.tbadk.core.util.al.b(textView2, i.c.cp_cont_c, 1);
-                    textView3 = this.cjC.cju;
-                    com.baidu.tbadk.core.util.al.i((View) textView3, i.c.bg_page_setting);
+                    textView = this.cpf.coX;
+                    textView.setText(this.cpf.getResources().getString(i.h.level_above_six_tip, Integer.valueOf(miniLevel)));
+                    textView2 = this.cpf.coX;
+                    com.baidu.tbadk.core.util.am.b(textView2, i.c.cp_cont_c, 1);
+                    textView3 = this.cpf.coX;
+                    com.baidu.tbadk.core.util.am.j((View) textView3, i.c.bg_page_setting);
                 }
-                view = this.cjC.cjt;
+                view = this.cpf.coW;
                 view.setVisibility(0);
-                acVar = this.cjC.cjm;
+                acVar = this.cpf.coP;
                 if (acVar == null) {
                 }
             } else {
-                this.cjC.showToast(responseGetLivableForumList.getErrorString());
-                u.a aVar = this.cjC.cjl;
-                str = this.cjC.cjs;
-                aVar.jG(str);
+                this.cpf.showToast(responseGetLivableForumList.getErrorString());
+                u.a aVar = this.cpf.coO;
+                str = this.cpf.coV;
+                aVar.kb(str);
             }
         }
     }

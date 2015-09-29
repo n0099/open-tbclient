@@ -1,104 +1,82 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.tbadk.TbConfig;
+import android.content.pm.PackageInfo;
+import com.baidu.adp.lib.util.BdLog;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.security.MessageDigest;
 /* loaded from: classes.dex */
-public class at extends com.baidu.adp.base.a.c {
-    public at(Context context) {
-        super(context, TbConfig.PHONE_DATEBASE_NAME, 13);
+public class at {
+    private static final char[] yS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
+    public static String b(PackageInfo packageInfo) {
+        long j = 0;
+        String c = c(packageInfo);
+        if (c == null || c.length() < 32) {
+            return "-1";
+        }
+        String substring = c.substring(8, 24);
+        long j2 = 0;
+        for (int i = 0; i < 8; i++) {
+            j2 = (j2 * 16) + Integer.parseInt(substring.substring(i, i + 1), 16);
+        }
+        for (int i2 = 8; i2 < substring.length(); i2++) {
+            j = (j * 16) + Integer.parseInt(substring.substring(i2, i2 + 1), 16);
+        }
+        return String.valueOf((j + j2) & 4294967295L);
     }
 
-    @Override // com.baidu.adp.base.a.c
-    public void c(SQLiteDatabase sQLiteDatabase) {
+    private static String c(PackageInfo packageInfo) {
+        if (packageInfo == null || packageInfo.signatures == null || packageInfo.signatures.length == 0 || packageInfo.signatures[0] == null) {
+            return null;
+        }
         try {
-            b(sQLiteDatabase, "CREATE TABLE if not exists cash_data(type int,account varchar(30),data TEXT)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255))");
-            b(sQLiteDatabase, "CREATE TABLE if not exists search_data(key, account, time)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists mark_data(id,floor,time,title,sequence,hostmode,postid,account,authorname,replynum,subPost int,forumName varchar(30),forumId varchar(30),threadId varchar(30))");
-            b(sQLiteDatabase, "CREATE TABLE if not exists draft_box(account varchar(30),type int,forum_id varchar(20),forum_name TEXT,thread_id varchar(30),floor_id TEXT,title TEXT,content TEXT, time long)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists setting(account varchar(30),frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time varchar(30),nodisturb_end_time varchar(30),remind_light,stranger_chat_switch int)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
-            i(sQLiteDatabase);
-            j(sQLiteDatabase);
-            k(sQLiteDatabase);
+            return com.baidu.adp.lib.util.t.B(packageInfo.signatures[0].toCharsString().getBytes());
         } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "DatabaseHelper.createTables", new Object[0]);
+            BdLog.detailException(e);
+            return null;
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.adp.base.a.a
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i == 1) {
-            b(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
-        }
-        if (i < 3) {
-            b(sQLiteDatabase, "ALTER TABLE mark_data ADD subPost int");
-            b(sQLiteDatabase, "ALTER TABLE mark_data ADD forumName varchar(30)");
-            b(sQLiteDatabase, "ALTER TABLE mark_data ADD forumId varchar(30)");
-            b(sQLiteDatabase, "ALTER TABLE mark_data ADD threadId varchar(30)");
-        }
-        if (i < 4) {
-            b(sQLiteDatabase, "ALTER TABLE setting ADD remind_tone");
-        }
-        if (i < 5) {
-            b(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
-        }
-        if (i < 6) {
-            b(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
-        }
-        if (i < 7) {
-            i(sQLiteDatabase);
-        }
-        if (i < 8) {
-            b(sQLiteDatabase, "ALTER TABLE setting ADD msg_chat_switch DEFAULT 1");
-            b(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_switch");
-            b(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_start_time varchar(30)");
-            b(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_end_time varchar(30)");
-        }
-        if (i < 9) {
-            b(sQLiteDatabase, "ALTER TABLE account_data ADD portrait varchar(255)");
-        }
-        if (i < 10) {
-            b(sQLiteDatabase, "ALTER TABLE account_data ADD personal_gid int");
-        }
-        if (i < 11) {
-            j(sQLiteDatabase);
-        }
-        if (i < 12) {
-            k(sQLiteDatabase);
-        }
-        if (i < 13) {
-            b(sQLiteDatabase, "ALTER TABLE setting ADD stranger_chat_switch int");
-            l(sQLiteDatabase);
+    public static String P(byte[] bArr) {
+        int i = 0;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(bArr);
+            byte[] digest = messageDigest.digest();
+            char[] cArr = new char[32];
+            for (int i2 = 0; i2 < 16; i2++) {
+                byte b = digest[i2];
+                int i3 = i + 1;
+                cArr[i] = yS[(b >>> 4) & 15];
+                i = i3 + 1;
+                cArr[i3] = yS[b & 15];
+            }
+            return new String(cArr);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
-    protected void i(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "CREATE TABLE if not exists chat_msgs(pk INTEGER primary key autoincrement, msgId bigint,ownerId varchar(32), friendId varchar(32), msgType int(11) default 0, status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
-        b(sQLiteDatabase, "CREATE INDEX if not exists idx_c_msgs_of ON chat_msgs(ownerId, friendId, msgId)");
-        b(sQLiteDatabase, "CREATE TABLE if not exists chat_recent_friends(pk varchar(64) primary key, unReadCount int(11) default 0 ,ownerId varchar(32), friendId varchar(32), ownerName varchar(64), friendName varchar(64), friendPortrait varchar(64), status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
-        b(sQLiteDatabase, "CREATE INDEX if not exists idx_c_rfs_ost ON chat_recent_friends(ownerId, serverTime)");
+    public static String d(PackageInfo packageInfo) {
+        if (packageInfo == null) {
+            return null;
+        }
+        File file = new File(packageInfo.applicationInfo.publicSourceDir);
+        if (file.exists()) {
+            try {
+                return com.baidu.adp.lib.util.t.e(new FileInputStream(file));
+            } catch (FileNotFoundException e) {
+                BdLog.detailException(e);
+                return null;
+            }
+        }
+        return null;
     }
 
-    protected void j(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, " CREATE TABLE if not exists user_emotions(id INTEGER primary key autoincrement, uid varchar(128), groupId varchar(64), updateTime bigint(21) default 0)");
-        b(sQLiteDatabase, "CREATE INDEX if not exists idx_ue_uid ON user_emotions(uid)");
-        b(sQLiteDatabase, "CREATE TABLE if not exists emotion_group(groupId varchar(64) primary key, groupName varchar(128), groupDesc text, emotionsCount int(11) default 0, width  int(11) default 0, height  int(11) default 0, status  int(11) default 0, bytesLength int(11) default 0, bytesReceived int(11) default 0, downloadUrl varchar(512), downloadTime bigint(21) default 0)");
-        b(sQLiteDatabase, "CREATE INDEX if not exists idx_eg_gids ON emotion_group(groupId, status)");
-        b(sQLiteDatabase, "CREATE TABLE if not exists emotions(sharpText varchar(512) primary key, groupId varchar(64), orderId int(11) default 0)");
-        b(sQLiteDatabase, "CREATE INDEX if not exists idx_e_gido ON emotions(groupId, orderId)");
-    }
-
-    protected void k(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "CREATE TABLE if not exists local_game(gameId varchar(64) primary key, gameName varchar(128), gameType int default 0, iconUrl varchar(128), gameLink  varchar(2),packageName varchar(64), launcherActivity  varchar(64),downloadTime varchar(64),installTime varchar(64))");
-        b(sQLiteDatabase, "ALTER TABLE setting ADD remind_light int(11) default 1");
-    }
-
-    protected void l(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "ALTER TABLE account_data ADD gender int");
-        b(sQLiteDatabase, "ALTER TABLE account_data ADD member_iconurl varchar(255)");
+    public static String dm(String str) {
+        return com.baidu.adp.lib.util.t.toMd5(str);
     }
 }

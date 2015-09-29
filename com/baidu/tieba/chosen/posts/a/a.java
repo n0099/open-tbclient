@@ -6,29 +6,29 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
-import com.baidu.tieba.tbadkCore.util.m;
+import com.baidu.tieba.tbadkCore.util.p;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.mvc.g.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView aKT;
-    private TextView aKU;
-    private TextView aKV;
-    private TextView aKW;
-    private View aKX;
-    private TextView amV;
+    private TbImageView aJL;
+    private TextView aJM;
+    private TextView aJN;
+    private TextView aJO;
+    private View aJP;
+    private TextView alt;
 
     public a(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aKT = (TbImageView) view.findViewById(i.f.chosen_image_text_img);
-        this.amV = (TextView) view.findViewById(i.f.chosen_image_text_title);
-        this.aKX = view.findViewById(i.f.chosen_image_text_divider);
-        this.aKU = (TextView) view.findViewById(i.f.chosen_image_text_forum);
-        this.aKV = (TextView) view.findViewById(i.f.chosen_image_text_praise);
-        this.aKW = (TextView) view.findViewById(i.f.chosen_image_text_comment);
+        this.aJL = (TbImageView) view.findViewById(i.f.chosen_image_text_img);
+        this.alt = (TextView) view.findViewById(i.f.chosen_image_text_title);
+        this.aJP = view.findViewById(i.f.chosen_image_text_divider);
+        this.aJM = (TextView) view.findViewById(i.f.chosen_image_text_forum);
+        this.aJN = (TextView) view.findViewById(i.f.chosen_image_text_praise);
+        this.aJO = (TextView) view.findViewById(i.f.chosen_image_text_comment);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,27 +41,27 @@ public class a extends com.baidu.tbadk.mvc.g.a<tinfo, com.baidu.tbadk.mvc.d.b> {
             if (tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
                 str = tinfoVar.pics.get(0).small_pic;
             }
-            this.aKT.d(str, 10, false);
-            this.amV.setText(tinfoVar.title);
+            this.aJL.d(str, 10, false);
+            this.alt.setText(tinfoVar.title);
             if (StringUtils.isNull(tinfoVar.forum_name)) {
-                this.aKU.setVisibility(8);
+                this.aJM.setVisibility(8);
             } else {
-                this.aKU.setVisibility(0);
-                this.aKU.setText(UtilHelper.getFixedText(getContext().getString(i.h.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-                this.aKU.setOnClickListener(new b(this, tinfoVar));
+                this.aJM.setVisibility(0);
+                this.aJM.setText(UtilHelper.getFixedText(getContext().getString(i.h.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+                this.aJM.setOnClickListener(new b(this, tinfoVar));
             }
             if (tinfoVar.zan_num != null) {
-                this.aKV.setText(String.valueOf(tinfoVar.zan_num));
+                this.aJN.setText(String.valueOf(tinfoVar.zan_num));
             }
             if (tinfoVar.reply_num != null) {
-                this.aKW.setText(String.valueOf(tinfoVar.reply_num));
+                this.aJO.setText(String.valueOf(tinfoVar.reply_num));
             }
-            this.aKX.setVisibility(0);
-            m readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.lj(String.valueOf(tinfoVar.forum_id))) {
-                al.b(this.amV, i.c.cp_cont_d, 1);
+            this.aJP.setVisibility(0);
+            p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
+            if (readThreadHistory != null && readThreadHistory.lI(String.valueOf(tinfoVar.forum_id))) {
+                am.b(this.alt, i.c.cp_cont_d, 1);
             } else {
-                al.b(this.amV, i.c.cp_cont_b, 1);
+                am.b(this.alt, i.c.cp_cont_b, 1);
             }
         }
     }

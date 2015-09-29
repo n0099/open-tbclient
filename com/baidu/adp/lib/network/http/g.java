@@ -6,10 +6,10 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class g {
     public int responseCode;
-    public Map<String, List<String>> vd;
-    public byte[] ve;
-    public int vf;
-    public volatile boolean vc = false;
+    public Map<String, List<String>> ve;
+    public byte[] vf;
+    public int vg;
+    public volatile boolean vd = false;
     public String contentEncoding = "";
     public String contentType = "";
     public String contentLength = "";
@@ -21,11 +21,11 @@ public class g {
             this.contentEncoding = httpURLConnection.getContentEncoding();
             this.contentType = httpURLConnection.getContentType();
             this.contentLength = new StringBuilder(String.valueOf(httpURLConnection.getContentLength())).toString();
-            this.vd = httpURLConnection.getHeaderFields();
+            this.ve = httpURLConnection.getHeaderFields();
         }
     }
 
-    public boolean gV() {
+    public boolean gW() {
         return this.responseCode == 200;
     }
 }

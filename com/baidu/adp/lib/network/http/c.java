@@ -72,7 +72,7 @@ public class c {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z = true;
-        for (int i4 = 0; !this.oj.gQ().vc && z && i4 < i; i4++) {
+        for (int i4 = 0; !this.oj.gQ().vd && z && i4 < i; i4++) {
             d dVar = new d();
             try {
                 try {
@@ -136,7 +136,7 @@ public class c {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z = true;
-        for (int i4 = 0; !this.oj.gQ().vc && z && i4 < i; i4++) {
+        for (int i4 = 0; !this.oj.gQ().vd && z && i4 < i; i4++) {
             d dVar = new d();
             dVar.uO = i4 + 1;
             try {
@@ -191,7 +191,7 @@ public class c {
     }
 
     public void g(int i, int i2, int i3) {
-        if (this.oj.gP().gS()) {
+        if (this.oj.gP().gT()) {
             f(i, i2, i3);
         } else {
             h(i, i2, i3);
@@ -211,7 +211,7 @@ public class c {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z = true;
-        for (int i4 = 0; !this.oj.gQ().vc && z && i4 < i; i4++) {
+        for (int i4 = 0; !this.oj.gQ().vd && z && i4 < i; i4++) {
             d dVar = new d();
             dVar.uO = i4 + 1;
             try {
@@ -268,7 +268,7 @@ public class c {
         if (this.oj == null) {
             return false;
         }
-        return this.oj.gQ().vc;
+        return this.oj.gQ().vd;
     }
 
     public long gM() {
@@ -293,8 +293,8 @@ public class c {
     }
 
     private void a(String str, d dVar) {
-        if (com.baidu.adp.b.a.mx() != null && dVar != null && this.oj.gQ() != null) {
-            com.baidu.adp.b.a.mx().b(str == null ? this.oj.gQ().contentType : str, dVar.uK, dVar.uL);
+        if (com.baidu.adp.b.a.my() != null && dVar != null && this.oj.gQ() != null) {
+            com.baidu.adp.b.a.my().b(str == null ? this.oj.gQ().contentType : str, dVar.uK, dVar.uL);
         }
     }
 }

@@ -6,17 +6,17 @@ import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class a implements c {
     @Override // com.baidu.tbadk.download.c
-    public void a(DownloadData downloadData) {
+    public void b(DownloadData downloadData) {
         if (downloadData != null) {
             if (downloadData.getStatus() == 1) {
-                b.AC().f(downloadData);
+                b.An().f(downloadData);
             }
-            b.AC().e(downloadData);
+            b.An().e(downloadData);
         }
     }
 
     @Override // com.baidu.tbadk.download.c
-    public boolean b(DownloadData downloadData) {
+    public boolean a(DownloadData downloadData) {
         if (downloadData == null) {
             return false;
         }
@@ -36,11 +36,13 @@ public class a implements c {
     @Override // com.baidu.tbadk.download.c
     public void d(DownloadData downloadData) {
         NotificationHelper.cancelNotification(TbadkCoreApplication.m411getInst().getApp(), downloadData.getNotifyId());
-        UtilHelper.install_apk(TbadkCoreApplication.m411getInst().getApp(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
+        if (downloadData.isNeedInvokeApk()) {
+            UtilHelper.install_apk(TbadkCoreApplication.m411getInst().getApp(), String.valueOf(downloadData.getId().replace(".", "_")) + ".apk");
+        }
     }
 
     @Override // com.baidu.tbadk.download.c
     public void a(DownloadData downloadData, int i, String str) {
-        b.AC().g(downloadData);
+        b.An().g(downloadData);
     }
 }

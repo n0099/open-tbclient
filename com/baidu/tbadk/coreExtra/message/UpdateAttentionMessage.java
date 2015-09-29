@@ -7,8 +7,8 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean Ci;
-        public boolean ahK;
+        public boolean Cj;
+        public boolean agH;
         public String errorString;
         public String toUid;
     }
@@ -21,13 +21,13 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().Ci;
+        return getData().Cj;
     }
 
     public boolean isAttention() {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().ahK;
+        return getData().agH;
     }
 }

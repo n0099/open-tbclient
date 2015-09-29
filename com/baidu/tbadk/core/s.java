@@ -1,29 +1,20 @@
 package com.baidu.tbadk.core;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.k;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.tbadk.util.c;
 /* loaded from: classes.dex */
-public class s implements k.a {
-    final /* synthetic */ TbadkCoreApplication TK;
-    private final /* synthetic */ View yF;
+class s implements c.a {
+    final /* synthetic */ r Ty;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public s(TbadkCoreApplication tbadkCoreApplication, View view) {
-        this.TK = tbadkCoreApplication;
-        this.yF = view;
+    public s(r rVar) {
+        this.Ty = rVar;
     }
 
-    @Override // com.baidu.adp.lib.util.k.a
-    public void aU(String str) {
-        if (jj() instanceof TextView) {
-            ((TextView) jj()).setText(str);
+    @Override // com.baidu.tbadk.util.c.a
+    public void ag(boolean z) {
+        if (!z) {
+            BdSocketLinkService.startService(false, "restart");
         }
-    }
-
-    @Override // com.baidu.adp.lib.util.k.a
-    public View jj() {
-        return this.yF;
     }
 }

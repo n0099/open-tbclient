@@ -41,7 +41,7 @@ public class MainSharedPrefProvider extends ContentProvider {
                 edit.putString(lastPathSegment, asString);
                 edit.commit();
                 if (cx(lastPathSegment)) {
-                    X(lastPathSegment, asString);
+                    W(lastPathSegment, asString);
                     return null;
                 }
                 return null;
@@ -60,7 +60,7 @@ public class MainSharedPrefProvider extends ContentProvider {
             edit.remove(lastPathSegment);
             edit.commit();
             if (cx(lastPathSegment)) {
-                X(lastPathSegment, null);
+                W(lastPathSegment, null);
                 return 0;
             }
             return 0;
@@ -73,7 +73,7 @@ public class MainSharedPrefProvider extends ContentProvider {
         return 0;
     }
 
-    private void X(String str, String str2) {
+    private void W(String str, String str2) {
         Intent intent = new Intent();
         intent.setAction(TbConfig.getBroadcastActionChangeSharedPref());
         intent.putExtra("intent_key", str);
@@ -85,9 +85,9 @@ public class MainSharedPrefProvider extends ContentProvider {
         if (str == null || str.length() == 0) {
             return false;
         }
-        int length = a.Yn.length;
+        int length = a.Ye.length;
         for (int i = 0; i < length; i++) {
-            if (a.Yn[i].equals(str)) {
+            if (a.Ye[i].equals(str)) {
                 return true;
             }
         }

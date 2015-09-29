@@ -11,31 +11,32 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
+import com.baidu.tieba.tbadkCore.util.p;
 import tbclient.FineFrsPage.Hot_Thread;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data.c, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView aKT;
-    private TextView aKU;
-    private TextView aKV;
-    private TextView aKW;
-    private TextView amV;
-    private a cCf;
+    private TbImageView aJL;
+    private TextView aJM;
+    private TextView aJN;
+    private TextView aJO;
+    private TextView alt;
+    private a cJg;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aKT = (TbImageView) view.findViewById(i.f.img);
-        this.amV = (TextView) view.findViewById(i.f.title);
+        this.aJL = (TbImageView) view.findViewById(i.f.img);
+        this.alt = (TextView) view.findViewById(i.f.title);
         View findViewById = view.findViewById(i.f.hot_thread_comment);
-        this.aKU = (TextView) findViewById.findViewById(i.f.hot_thread_line_tag);
-        this.aKV = (TextView) findViewById.findViewById(i.f.hot_thread_line_praise);
-        this.aKW = (TextView) findViewById.findViewById(i.f.hot_thread_line_comment);
-        this.cCf = new a(this, null);
-        this.aKU.setOnClickListener(this.cCf);
+        this.aJM = (TextView) findViewById.findViewById(i.f.hot_thread_line_tag);
+        this.aJN = (TextView) findViewById.findViewById(i.f.hot_thread_line_praise);
+        this.aJO = (TextView) findViewById.findViewById(i.f.hot_thread_line_comment);
+        this.cJg = new a(this, null);
+        this.aJM.setOnClickListener(this.cJg);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,34 +44,34 @@ public class b extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
     /* renamed from: a */
     public void B(com.baidu.tieba.recommendfrs.data.c cVar) {
         super.B(cVar);
-        if (cVar != null && cVar.anJ() != null) {
-            Hot_Thread anJ = cVar.anJ();
-            String str = (anJ.pics == null || anJ.pics.size() <= 0) ? null : anJ.pics.get(0).small_pic;
-            TbImageView tbImageView = this.aKT;
-            if (!cVar.anV()) {
+        if (cVar != null && cVar.aqb() != null) {
+            Hot_Thread aqb = cVar.aqb();
+            String str = (aqb.pics == null || aqb.pics.size() <= 0) ? null : aqb.pics.get(0).small_pic;
+            TbImageView tbImageView = this.aJL;
+            if (!cVar.aqn()) {
                 str = null;
             }
             tbImageView.d(str, 10, false);
-            this.amV.setText(anJ.title);
-            if (StringUtils.isNull(anJ.forum_name)) {
-                this.aKU.setVisibility(8);
+            this.alt.setText(aqb.title);
+            if (StringUtils.isNull(aqb.forum_name)) {
+                this.aJM.setVisibility(8);
             } else {
-                this.aKU.setVisibility(0);
-                String string = getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(anJ.forum_name, 7, false));
-                this.cCf.setForumName(string);
-                this.aKU.setText(string);
+                this.aJM.setVisibility(0);
+                String string = getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(aqb.forum_name, 7, false));
+                this.cJg.setForumName(string);
+                this.aJM.setText(string);
             }
-            if (anJ.zan_num != null) {
-                this.aKV.setText(aq.o(anJ.zan_num.intValue()));
+            if (aqb.zan_num != null) {
+                this.aJN.setText(ar.s(aqb.zan_num.intValue()));
             }
-            if (anJ.reply_num != null) {
-                this.aKW.setText(aq.o(anJ.reply_num.intValue()));
+            if (aqb.reply_num != null) {
+                this.aJO.setText(ar.s(aqb.reply_num.intValue()));
             }
-            com.baidu.tieba.tbadkCore.util.m readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.lj(String.valueOf(anJ.forum_id))) {
-                al.b(this.amV, i.c.cp_cont_d, 1);
+            p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
+            if (readThreadHistory != null && readThreadHistory.lI(String.valueOf(aqb.forum_id))) {
+                am.b(this.alt, i.c.cp_cont_d, 1);
             } else {
-                al.b(this.amV, i.c.cp_cont_b, 1);
+                am.b(this.alt, i.c.cp_cont_b, 1);
             }
         }
     }
@@ -99,7 +100,7 @@ public class b extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (aq.aP(this.forumName)) {
+            if (ar.aP(this.forumName)) {
                 TiebaStatic.eventStat(b.this.getActivity(), "kantie_6", null, 1, new Object[0]);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(b.this.getActivity()).createNormalCfg(this.forumName, FrsActivityConfig.FRS_FROM_RECOMMEND)));
             }

@@ -1,23 +1,18 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.widget.ListView.BdListView;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq implements BdListView.e {
-    final /* synthetic */ PersonListActivity ckY;
+public class bq implements View.OnClickListener {
+    final /* synthetic */ PersonListActivity cqC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bq(PersonListActivity personListActivity) {
-        this.ckY = personListActivity;
+        this.cqC = personListActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void onScrollToBottom() {
-        br brVar;
-        brVar = this.ckY.ckT;
-        if (!brVar.isHasMore()) {
-            return;
-        }
-        this.ckY.agH();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.cqC.aiH();
     }
 }

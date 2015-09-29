@@ -1,79 +1,93 @@
 package com.baidu.tbadk.util;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.media.ExifInterface;
-import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class n {
-    public static int cB(String str) {
-        try {
-            switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
-                case 3:
-                    return 180;
-                case 4:
-                case 5:
-                case 7:
-                default:
-                    return 0;
-                case 6:
-                    return 90;
-                case 8:
-                    return 270;
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public static boolean e(char c) {
+        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
+    }
+
+    public static int fO(String str) {
+        if (TextUtils.isEmpty(str)) {
             return 0;
         }
+        int i = 0;
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            if (e(str.charAt(i2))) {
+                i++;
+            } else {
+                i += 2;
+            }
+        }
+        return i;
     }
 
-    private static Bitmap eF(int i) {
-        Exception e;
-        try {
-            int cB = cB(com.baidu.tbadk.core.util.n.cH("camera.jpg"));
-            Bitmap p = com.baidu.tbadk.core.util.c.p("camera.jpg", i);
-            if (cB != 0 && p != null) {
-                try {
-                    return com.baidu.tbadk.core.util.c.i(p, cB);
-                } catch (Exception e2) {
-                    e = e2;
-                    BdLog.e(e.getMessage());
-                    return null;
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
+    public static String eF(int i) {
+        if (i >= 100000000) {
+            return String.valueOf(i / 100000000) + "亿+";
+        }
+        if (i >= 10000) {
+            return String.valueOf(i / 10000) + "万+";
+        }
+        return new StringBuilder().append(i).toString();
+    }
+
+    public static String v(String str, int i) {
+        if (StringUtils.isNull(str)) {
+            return "";
+        }
+        if (fO(str) > i) {
+            return String.valueOf(e(str, 0, i - 2)) + "...";
+        }
+        return str;
+    }
+
+    public static String e(String str, int i, int i2) {
+        StringBuilder sb = new StringBuilder();
+        if (TextUtils.isEmpty(str) || i > i2) {
+            return sb.toString();
+        }
+        if (i >= 0 && i2 >= 0) {
+            int i3 = 0;
+            for (int i4 = 0; i4 < str.length(); i4++) {
+                char charAt = str.charAt(i4);
+                if (i3 >= i2) {
+                    return sb.toString();
+                }
+                if (i3 >= i) {
+                    sb.append(charAt);
+                }
+                if (e(charAt)) {
+                    i3++;
+                } else {
+                    i3 += 2;
                 }
             }
-            return p;
-        } catch (Exception e3) {
-            e = e3;
         }
+        return sb.toString();
     }
 
-    private static Bitmap b(Context context, String str, int i) {
-        try {
-            return com.baidu.tbadk.core.util.c.b(str, i, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
+    public static boolean f(String str, int i, int i2) {
+        if (TextUtils.isEmpty(str) || i > i2 || i < 0 || i2 < 0) {
+            return false;
         }
-    }
-
-    private static Bitmap b(Context context, Uri uri, int i) {
-        try {
-            return com.baidu.tbadk.core.util.c.a(context, uri, i);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-            return null;
+        int i3 = 0;
+        boolean z = false;
+        for (int i4 = 0; i4 < str.length(); i4++) {
+            char charAt = str.charAt(i4);
+            if (i3 >= i2) {
+                return z;
+            }
+            if (e(charAt)) {
+                i3++;
+                z = true;
+            } else {
+                i3 += 2;
+                z = false;
+            }
         }
-    }
-
-    public static Bitmap a(int i, Context context, Uri uri, String str, int i2) {
-        if (i == 12001) {
-            return eF(i2);
-        }
-        if (!TextUtils.isEmpty(str)) {
-            return b(context, str, i2);
-        }
-        return b(context, uri, i2);
+        return false;
     }
 }

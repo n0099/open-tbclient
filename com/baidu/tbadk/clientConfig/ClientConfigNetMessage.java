@@ -2,7 +2,7 @@ package com.baidu.tbadk.clientConfig;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.g;
+import com.baidu.tbadk.util.h;
 import tbclient.GetClientConfig.DataReq;
 import tbclient.GetClientConfig.GetClientConfigReqIdl;
 /* loaded from: classes.dex */
@@ -26,7 +26,7 @@ public class ClientConfigNetMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.type = this.mType;
         if (z) {
-            g.a(builder, true);
+            h.a(builder, true);
         }
         GetClientConfigReqIdl.Builder builder2 = new GetClientConfigReqIdl.Builder();
         builder2.data = builder.build(false);

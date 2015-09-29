@@ -9,13 +9,13 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ IMBlackListActivity bJE;
+    final /* synthetic */ IMBlackListActivity bMJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(IMBlackListActivity iMBlackListActivity, int i) {
         super(i);
-        this.bJE = iMBlackListActivity;
+        this.bMJ = iMBlackListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,46 +33,46 @@ class a extends com.baidu.adp.framework.listener.e {
         h hVar3;
         com.baidu.tbadk.core.dialog.a aVar6;
         h hVar4;
-        hVar = this.bJE.bJC;
-        hVar.Yz();
-        this.bJE.closeLoadingDialog();
+        hVar = this.bMJ.bMH;
+        hVar.Zh();
+        this.bMJ.closeLoadingDialog();
         if (socketResponsedMessage != null) {
             if (socketResponsedMessage.getCmd() == 104103 && (socketResponsedMessage instanceof ResponseGetMaskInfoMessage)) {
                 ResponseGetMaskInfoMessage responseGetMaskInfoMessage = (ResponseGetMaskInfoMessage) socketResponsedMessage;
                 if (responseGetMaskInfoMessage.getError() == 0) {
-                    aVar5 = this.bJE.Lt;
+                    aVar5 = this.bMJ.Lt;
                     if (aVar5 != null) {
-                        aVar6 = this.bJE.Lt;
+                        aVar6 = this.bMJ.Lt;
                         aVar6.dismiss();
                     }
-                    hVar3 = this.bJE.bJC;
+                    hVar3 = this.bMJ.bMH;
                     hVar3.F(responseGetMaskInfoMessage.getBlackList());
                     return;
                 }
-                this.bJE.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? this.bJE.getResources().getString(i.h.neterror) : responseGetMaskInfoMessage.getErrorString());
-                if (com.baidu.adp.lib.util.i.iL()) {
-                    hVar4 = this.bJE.bJC;
-                    hVar4.Kt();
+                this.bMJ.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? this.bMJ.getResources().getString(i.h.neterror) : responseGetMaskInfoMessage.getErrorString());
+                if (com.baidu.adp.lib.util.i.iM()) {
+                    hVar4 = this.bMJ.bMH;
+                    hVar4.Ko();
                 }
             } else if (socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage) && ((RequestUpdateMaskInfoMessage) orginalMessage).getMaskType() == 10) {
                 if (responseUpdateMaskInfoMessage.getError() == 0) {
-                    aVar = this.bJE.Lt;
+                    aVar = this.bMJ.Lt;
                     if (aVar != null) {
-                        aVar4 = this.bJE.Lt;
+                        aVar4 = this.bMJ.Lt;
                         aVar4.dismiss();
                     }
-                    this.bJE.showToast(this.bJE.getPageContext().getString(i.h.black_list_remove_success));
-                    aVar2 = this.bJE.bJD;
+                    this.bMJ.showToast(this.bMJ.getPageContext().getString(i.h.black_list_remove_success));
+                    aVar2 = this.bMJ.bMI;
                     if (aVar2 != null) {
-                        hVar2 = this.bJE.bJC;
-                        aVar3 = this.bJE.bJD;
+                        hVar2 = this.bMJ.bMH;
+                        aVar3 = this.bMJ.bMI;
                         hVar2.b(aVar3);
-                        this.bJE.bJD = null;
+                        this.bMJ.bMI = null;
                         return;
                     }
                     return;
                 }
-                this.bJE.showToast(responseUpdateMaskInfoMessage.getErrorString());
+                this.bMJ.showToast(responseUpdateMaskInfoMessage.getErrorString());
             }
         }
     }

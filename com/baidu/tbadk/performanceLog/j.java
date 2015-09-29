@@ -4,27 +4,27 @@ import android.os.Handler;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.a.a.a {
-    private String ayw = "dalvikvm";
-    private String[] ayx = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
-    private d ayy = null;
-    private int ayq = 0;
-    private final int ayz = 10000;
-    private a ayA = null;
-    private final Handler ayB = new k(this);
+    private String awV = "dalvikvm";
+    private String[] awW = {"GC_FOR_ALLOC", "GC_FOR_MALLOC", "GC_CONCURRENT", "GC_EXPLICIT", "GC_EXTERNAL_ALLOC", "GC_HPROF_DUMP_HEAP"};
+    private d awX = null;
+    private int awP = 0;
+    private final int awY = 10000;
+    private a awZ = null;
+    private final Handler axa = new k(this);
 
     /* loaded from: classes.dex */
     public interface a {
-        void ev(int i);
+        void ew(int i);
     }
 
     @Override // com.baidu.adp.a.a.a
     public void start() {
         if (!dO()) {
             super.start();
-            this.ayB.sendEmptyMessageDelayed(0, 10000L);
-            DY();
+            this.axa.sendEmptyMessageDelayed(0, 10000L);
+            DL();
             try {
-                d.a(this.ayw, new l(this));
+                d.a(this.awV, new l(this));
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -34,27 +34,27 @@ public class j extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        DZ();
+        DM();
     }
 
-    private void DY() {
-        if (this.ayy == null) {
-            this.ayy = new d();
+    private void DL() {
+        if (this.awX == null) {
+            this.awX = new d();
         }
-        if (!this.ayy.dO()) {
-            new Thread(this.ayy).start();
+        if (!this.awX.dO()) {
+            new Thread(this.awX).start();
         }
     }
 
-    private void DZ() {
-        if (this.ayy != null && this.ayy.dO()) {
-            this.ayy.stop();
+    private void DM() {
+        if (this.awX != null && this.awX.dO()) {
+            this.awX.stop();
         }
     }
 
     public void a(a aVar) {
-        if (this.ayA == null) {
-            this.ayA = aVar;
+        if (this.awZ == null) {
+            this.awZ = aVar;
         }
     }
 }

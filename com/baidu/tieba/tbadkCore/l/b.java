@@ -9,13 +9,13 @@ import com.baidu.tieba.im.message.PushMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class b extends CustomMessageListener {
-    final /* synthetic */ a cTb;
+    final /* synthetic */ a daG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i) {
         super(i);
-        this.cTb = aVar;
+        this.daG = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,7 +34,7 @@ class b extends CustomMessageListener {
                     if (jSONObject.optLong("continue_time") > 0) {
                         bdUploadStatMsgData.deadLineTime = System.currentTimeMillis() + (jSONObject.optLong("continue_time") * 1000);
                     }
-                    com.baidu.adp.lib.stats.a.hh().a(bdUploadStatMsgData.parentType, bdUploadStatMsgData.childType, bdUploadStatMsgData);
+                    com.baidu.adp.lib.stats.a.hi().a(bdUploadStatMsgData.parentType, bdUploadStatMsgData.childType, bdUploadStatMsgData);
                 } catch (Exception e) {
                 }
             }

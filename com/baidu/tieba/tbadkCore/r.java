@@ -7,5 +7,5 @@ public interface r {
 
     void b(m mVar);
 
-    void fo(int i);
+    void ft(int i);
 }

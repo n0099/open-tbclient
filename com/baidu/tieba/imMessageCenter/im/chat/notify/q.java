@@ -4,8 +4,8 @@ import android.support.v4.app.Fragment;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.InvokeNewImMessageCenterFragmentConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
 /* loaded from: classes.dex */
 class q implements CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFragmentConfig> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable

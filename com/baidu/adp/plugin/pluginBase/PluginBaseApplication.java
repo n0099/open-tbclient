@@ -29,9 +29,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class PluginBaseApplication extends Application {
-    private Application Ev = null;
-    private String Ew = null;
-    private com.baidu.adp.plugin.proxy.a Ex = null;
+    private Application Ew = null;
+    private String Ex = null;
+    private com.baidu.adp.plugin.proxy.a Ey = null;
 
     /* JADX WARN: Removed duplicated region for block: B:9:0x0047  */
     /*
@@ -40,7 +40,7 @@ public class PluginBaseApplication extends Application {
     public void a(Application application) {
         Context context;
         Class<?> cls;
-        this.Ev = application;
+        this.Ew = application;
         if (application != null) {
             Context context2 = null;
             try {
@@ -172,28 +172,28 @@ public class PluginBaseApplication extends Application {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.Ew);
-        return plugin2.kq() != null ? plugin2.kq() : this.Ev.getResources();
+        com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.Ex);
+        return plugin2.kr() != null ? plugin2.kr() : this.Ew.getResources();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public PackageManager getPackageManager() {
-        PackageManager packageManager = this.Ev.getPackageManager();
-        if (this.Ex == null && packageManager != null) {
-            this.Ex = new com.baidu.adp.plugin.proxy.a(packageManager);
-            this.Ex.setPackageName(getPackageName());
-            this.Ex.setPluginPackageName(this.Ew);
+        PackageManager packageManager = this.Ew.getPackageManager();
+        if (this.Ey == null && packageManager != null) {
+            this.Ey = new com.baidu.adp.plugin.proxy.a(packageManager);
+            this.Ey.setPackageName(getPackageName());
+            this.Ey.setPluginPackageName(this.Ex);
         }
-        return this.Ex;
+        return this.Ey;
     }
 
     public void setPluginPackageName(String str) {
-        this.Ew = str;
+        this.Ex = str;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public String getPackageName() {
-        return this.Ev.getPackageName();
+        return this.Ew.getPackageName();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -203,12 +203,12 @@ public class PluginBaseApplication extends Application {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SharedPreferences getSharedPreferences(String str, int i) {
-        return this.Ev.getSharedPreferences(str, i);
+        return this.Ew.getSharedPreferences(str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
-        return this.Ev.bindService(intent, serviceConnection, i);
+        return this.Ew.bindService(intent, serviceConnection, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -223,7 +223,7 @@ public class PluginBaseApplication extends Application {
 
     @Override // android.content.ContextWrapper
     public Context getBaseContext() {
-        return this.Ev.getBaseContext();
+        return this.Ew.getBaseContext();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -233,130 +233,130 @@ public class PluginBaseApplication extends Application {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ContentResolver getContentResolver() {
-        return this.Ev.getContentResolver();
+        return this.Ew.getContentResolver();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Looper getMainLooper() {
-        return this.Ev.getMainLooper();
+        return this.Ew.getMainLooper();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void setTheme(int i) {
-        this.Ev.setTheme(i);
+        this.Ew.setTheme(i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ClassLoader getClassLoader() {
-        return this.Ev.getClassLoader();
+        return this.Ew.getClassLoader();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ApplicationInfo getApplicationInfo() {
-        return this.Ev.getApplicationInfo();
+        return this.Ew.getApplicationInfo();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public String getPackageResourcePath() {
-        return this.Ev.getPackageResourcePath();
+        return this.Ew.getPackageResourcePath();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public String getPackageCodePath() {
-        return this.Ev.getPackageCodePath();
+        return this.Ew.getPackageCodePath();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public FileInputStream openFileInput(String str) {
-        return this.Ev.openFileInput(str);
+        return this.Ew.openFileInput(str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public FileOutputStream openFileOutput(String str, int i) {
-        return this.Ev.openFileOutput(str, i);
+        return this.Ew.openFileOutput(str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean deleteFile(String str) {
-        return this.Ev.deleteFile(str);
+        return this.Ew.deleteFile(str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getFileStreamPath(String str) {
-        return this.Ev.getFileStreamPath(str);
+        return this.Ew.getFileStreamPath(str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public String[] fileList() {
-        return this.Ev.fileList();
+        return this.Ew.fileList();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getFilesDir() {
-        return this.Ev.getFilesDir();
+        return this.Ew.getFilesDir();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getCacheDir() {
-        return this.Ev.getCacheDir();
+        return this.Ew.getCacheDir();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public File getDir(String str, int i) {
-        return this.Ev.getDir(str, i);
+        return this.Ew.getDir(str, i);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SQLiteDatabase openOrCreateDatabase(String str, int i, SQLiteDatabase.CursorFactory cursorFactory) {
-        return this.Ev.openOrCreateDatabase(str, i, cursorFactory);
+        return this.Ew.openOrCreateDatabase(str, i, cursorFactory);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void startActivity(Intent intent) {
-        com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.Ew);
+        com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.Ex);
         if (plugin2 != null && plugin2.D(intent)) {
-            this.Ev.startActivity(intent);
+            this.Ew.startActivity(intent);
         }
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
-        this.Ev.startIntentSender(intentSender, intent, i, i2, i3);
+        this.Ew.startIntentSender(intentSender, intent, i, i2, i3);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void sendBroadcast(Intent intent) {
-        this.Ev.sendBroadcast(intent);
+        this.Ew.sendBroadcast(intent);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void sendBroadcast(Intent intent, String str) {
-        this.Ev.sendBroadcast(intent, str);
+        this.Ew.sendBroadcast(intent, str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void sendOrderedBroadcast(Intent intent, String str) {
-        this.Ev.sendOrderedBroadcast(intent, str);
+        this.Ew.sendOrderedBroadcast(intent, str);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void sendOrderedBroadcast(Intent intent, String str, BroadcastReceiver broadcastReceiver, Handler handler, int i, String str2, Bundle bundle) {
-        this.Ev.sendOrderedBroadcast(intent, str, broadcastReceiver, handler, i, str2, bundle);
+        this.Ew.sendOrderedBroadcast(intent, str, broadcastReceiver, handler, i, str2, bundle);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void sendStickyBroadcast(Intent intent) {
-        this.Ev.sendStickyBroadcast(intent);
+        this.Ew.sendStickyBroadcast(intent);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void sendStickyOrderedBroadcast(Intent intent, BroadcastReceiver broadcastReceiver, Handler handler, int i, String str, Bundle bundle) {
-        this.Ev.sendStickyOrderedBroadcast(intent, broadcastReceiver, handler, i, str, bundle);
+        this.Ew.sendStickyOrderedBroadcast(intent, broadcastReceiver, handler, i, str, bundle);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void removeStickyBroadcast(Intent intent) {
-        this.Ev.removeStickyBroadcast(intent);
+        this.Ew.removeStickyBroadcast(intent);
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -366,24 +366,24 @@ public class PluginBaseApplication extends Application {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ComponentName startService(Intent intent) {
-        com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.Ew);
+        com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.Ex);
         if (plugin2 != null && plugin2.C(intent)) {
-            return this.Ev.startService(intent);
+            return this.Ew.startService(intent);
         }
         return null;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean stopService(Intent intent) {
-        com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.Ew);
+        com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.Ex);
         if (plugin2 != null && plugin2.C(intent)) {
-            return this.Ev.stopService(intent);
+            return this.Ew.stopService(intent);
         }
         return false;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void unbindService(ServiceConnection serviceConnection) {
-        this.Ev.unbindService(serviceConnection);
+        this.Ew.unbindService(serviceConnection);
     }
 }

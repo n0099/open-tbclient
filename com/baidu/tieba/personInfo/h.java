@@ -1,35 +1,21 @@
 package com.baidu.tieba.personInfo;
-
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.im.model.BlackListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements a.b {
-    final /* synthetic */ PersonInfoActivity cmR;
+public class h extends com.baidu.adp.base.g {
+    final /* synthetic */ PersonInfoActivity csx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PersonInfoActivity personInfoActivity) {
-        this.cmR = personInfoActivity;
+        this.csx = personInfoActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        w wVar;
-        BlackListModel blackListModel;
-        BlackListModel blackListModel2;
-        BlackListModel blackListModel3;
-        wVar = this.cmR.cmF;
-        long c = com.baidu.adp.lib.g.b.c(wVar.getId(), -1L);
-        if (c > 0) {
-            blackListModel = this.cmR.cmE;
-            if (blackListModel.getMaskType() == 1) {
-                blackListModel3 = this.cmR.cmE;
-                blackListModel3.removeFromBlackList(c);
-            } else {
-                blackListModel2 = this.cmR.cmE;
-                blackListModel2.addToBlackList(c);
-            }
-        }
-        aVar.dismiss();
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        aj ajVar;
+        aj ajVar2;
+        ajVar = this.csx.csl;
+        ajVar.hideProgress();
+        ajVar2 = this.csx.csl;
+        ajVar2.aka();
     }
 }

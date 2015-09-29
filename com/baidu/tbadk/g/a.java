@@ -11,7 +11,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.a.h;
-import com.baidu.tbadk.core.util.z;
+import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.List;
 import java.util.Map;
@@ -110,15 +110,15 @@ public class a extends com.baidu.adp.framework.a.d {
         }
         String netType = h.getNetType();
         if (netType != null) {
-            String ws = com.baidu.tbadk.coreExtra.a.a.wq().ws();
+            String wd = com.baidu.tbadk.coreExtra.b.a.wb().wd();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m411getInst().getKeepaliveWifi() == 1) {
-                    ws = String.valueOf(ws) + "ka=open";
+                    wd = String.valueOf(wd) + "ka=open";
                 }
             } else if (TbadkCoreApplication.m411getInst().getKeepaliveNonWifi() == 1) {
-                ws = String.valueOf(ws) + "ka=open";
+                wd = String.valueOf(wd) + "ka=open";
             }
-            httpMessage.addHeader("Cookie", ws);
+            httpMessage.addHeader("Cookie", wd);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.m411getInst().getTbs());
@@ -154,18 +154,18 @@ public class a extends com.baidu.adp.framework.a.d {
     }
 
     private void e(HttpMessage httpMessage) {
-        z.a us = z.us();
-        if (us != null) {
-            httpMessage.addParam("stTime", String.valueOf(us.mTime));
-            httpMessage.addParam("stSize", String.valueOf(us.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(us.aas));
-            httpMessage.addParam("stMode", String.valueOf(us.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(us.aar));
+        aa.a uq = aa.uq();
+        if (uq != null) {
+            httpMessage.addParam("stTime", String.valueOf(uq.mTime));
+            httpMessage.addParam("stSize", String.valueOf(uq.mSize));
+            httpMessage.addParam("stTimesNum", String.valueOf(uq.aam));
+            httpMessage.addParam("stMode", String.valueOf(uq.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(uq.aal));
         }
-        int cl = z.cl(0);
-        if (cl == 0 && us != null) {
-            cl = us.aas;
+        int cn = aa.cn(0);
+        if (cn == 0 && uq != null) {
+            cn = uq.aam;
         }
-        httpMessage.addParam("stErrorNums", String.valueOf(cl));
+        httpMessage.addParam("stErrorNums", String.valueOf(cn));
     }
 }

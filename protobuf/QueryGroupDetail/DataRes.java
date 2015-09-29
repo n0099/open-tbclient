@@ -10,8 +10,8 @@ import protobuf.Photo;
 import protobuf.UserInfo;
 /* loaded from: classes.dex */
 public final class DataRes extends Message {
-    @ProtoField(label = Message.Label.REPEATED, tag = 12)
-    public final List<ActivityInfo> activity;
+    @ProtoField(tag = 12)
+    public final ActivityInfo activity;
     @ProtoField(tag = 10, type = Message.Datatype.INT32)
     public final Integer alreadyCreateNum;
     @ProtoField(tag = 9, type = Message.Datatype.INT32)
@@ -44,7 +44,6 @@ public final class DataRes extends Message {
     public static final Integer DEFAULT_CANCREATEMEMBER = 0;
     public static final Integer DEFAULT_ALREADYCREATENUM = 0;
     public static final Integer DEFAULT_LEFTCREATENUM = 0;
-    public static final List<ActivityInfo> DEFAULT_ACTIVITY = Collections.emptyList();
 
     /* synthetic */ DataRes(Builder builder, boolean z, DataRes dataRes) {
         this(builder, z);
@@ -104,13 +103,8 @@ public final class DataRes extends Message {
             } else {
                 this.leftCreateNum = builder.leftCreateNum;
             }
-            if (builder.activity == null) {
-                this.activity = DEFAULT_ACTIVITY;
-                return;
-            } else {
-                this.activity = immutableCopyOf(builder.activity);
-                return;
-            }
+            this.activity = builder.activity;
+            return;
         }
         this.group = builder.group;
         this.photo = immutableCopyOf(builder.photo);
@@ -123,12 +117,12 @@ public final class DataRes extends Message {
         this.canCreateMember = builder.canCreateMember;
         this.alreadyCreateNum = builder.alreadyCreateNum;
         this.leftCreateNum = builder.leftCreateNum;
-        this.activity = immutableCopyOf(builder.activity);
+        this.activity = builder.activity;
     }
 
     /* loaded from: classes.dex */
     public static final class Builder extends Message.Builder<DataRes> {
-        public List<ActivityInfo> activity;
+        public ActivityInfo activity;
         public Integer alreadyCreateNum;
         public Integer canCreateMember;
         public Integer canJoinGroupNum;
@@ -158,7 +152,7 @@ public final class DataRes extends Message {
                 this.canCreateMember = dataRes.canCreateMember;
                 this.alreadyCreateNum = dataRes.alreadyCreateNum;
                 this.leftCreateNum = dataRes.leftCreateNum;
-                this.activity = DataRes.copyOf(dataRes.activity);
+                this.activity = dataRes.activity;
             }
         }
 

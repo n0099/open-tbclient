@@ -1,24 +1,20 @@
 package com.baidu.tieba.tblauncher;
 
 import android.view.View;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.slidingmenu.lib.SlidingMenu;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements View.OnClickListener {
-    final /* synthetic */ am cVq;
+    final /* synthetic */ ao dcY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ap(am amVar) {
-        this.cVq = amVar;
+    public ap(ao aoVar) {
+        this.dcY = aoVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        SlidingMenu slidingMenu;
-        if (MainTabActivityConfig.IS_SUPPORT_LEFT_BAR) {
-            slidingMenu = this.cVq.bbU;
-            slidingMenu.toggle(true);
-        }
+        MessageManager.getInstance().runTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, (Class) null);
     }
 }

@@ -5,17 +5,17 @@ import tbclient.FinePbPage.User_Info;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ e cav;
-    private final /* synthetic */ User_Info caw;
+    final /* synthetic */ e cfA;
+    private final /* synthetic */ User_Info cfB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar, User_Info user_Info) {
-        this.cav = eVar;
-        this.caw = user_Info;
+        this.cfA = eVar;
+        this.cfB = user_Info;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cav.e(this.caw.id.longValue(), this.caw.name);
+        this.cfA.f(this.cfB.id.longValue(), this.cfB.name);
     }
 }

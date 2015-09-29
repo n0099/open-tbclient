@@ -1,5 +1,7 @@
 package com.baidu.adp.widget;
 
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
@@ -8,6 +10,11 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d extends ImageSpan {
     private WeakReference<Drawable> Fe;
+    private int offset;
+
+    public d(Context context, Bitmap bitmap, int i) {
+        super(context, bitmap, i);
+    }
 
     public d(Drawable drawable, int i) {
         super(drawable, i);
@@ -15,15 +22,15 @@ public class d extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable mD = mD();
+        Drawable mE = mE();
         canvas.save();
         int i6 = paint.getFontMetricsInt().top;
-        canvas.translate(f, (i5 - mD.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i6) / 2) - ((mD.getBounds().top + mD.getBounds().bottom) / 2)));
-        mD.draw(canvas);
+        canvas.translate(f, ((i5 - mE.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - i6) / 2) - ((mE.getBounds().top + mE.getBounds().bottom) / 2))) + this.offset);
+        mE.draw(canvas);
         canvas.restore();
     }
 
-    private Drawable mD() {
+    private Drawable mE() {
         WeakReference<Drawable> weakReference = this.Fe;
         Drawable drawable = null;
         if (weakReference != null) {
@@ -35,5 +42,9 @@ public class d extends ImageSpan {
             return drawable2;
         }
         return drawable;
+    }
+
+    public void setOffset(int i) {
+        this.offset = i;
     }
 }

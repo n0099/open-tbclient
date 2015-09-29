@@ -4,18 +4,18 @@ import com.baidu.searchbox.plugin.api.HostInvokeCallback;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements HostInvokeCallback {
-    private final /* synthetic */ HostInvokeCallback awa;
+    private final /* synthetic */ HostInvokeCallback auy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(HostInvokeCallback hostInvokeCallback) {
-        this.awa = hostInvokeCallback;
+        this.auy = hostInvokeCallback;
     }
 
     @Override // com.baidu.searchbox.plugin.api.HostInvokeCallback
     public void onResult(int i, Object obj) {
         if (i == 0) {
             b.mUserId = (String) obj;
-            b.a("getBduss", new Class[0], new Object[0], this.awa);
+            b.a("getBduss", new Class[0], new Object[0], this.auy);
         }
     }
 }

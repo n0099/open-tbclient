@@ -6,9 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.HotForum.ForumInfo;
 import tbclient.HotForum.HotForumResIdl;
+import tbclient.HotForum.HotTopicList;
 /* loaded from: classes.dex */
 public class HotForumSocketResponseMessage extends SocketResponsedMessage {
     private List<c> forumInfoList;
+    private f mSearchInfo;
+    private List<g> mTopicInfoList;
 
     public HotForumSocketResponseMessage() {
         super(303116);
@@ -16,6 +19,14 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
 
     public List<c> getForumInfoList() {
         return this.forumInfoList;
+    }
+
+    public f getSearchInfo() {
+        return this.mSearchInfo;
+    }
+
+    public List<g> getTopicInfoList() {
+        return this.mTopicInfoList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,6 +46,20 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
                             c cVar = new c();
                             cVar.a(forumInfo);
                             this.forumInfoList.add(cVar);
+                        }
+                    }
+                }
+                if (hotForumResIdl.data.hot_search != null) {
+                    this.mSearchInfo = new f();
+                    this.mSearchInfo.a(hotForumResIdl.data.hot_search);
+                }
+                if (hotForumResIdl.data.hot_topic != null && hotForumResIdl.data.hot_topic.topic_list != null) {
+                    this.mTopicInfoList = new ArrayList();
+                    for (HotTopicList hotTopicList : hotForumResIdl.data.hot_topic.topic_list) {
+                        if (hotTopicList != null) {
+                            g gVar = new g();
+                            gVar.a(hotTopicList);
+                            this.mTopicInfoList.add(gVar);
                         }
                     }
                 }

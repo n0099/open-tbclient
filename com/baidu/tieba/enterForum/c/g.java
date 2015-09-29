@@ -5,122 +5,122 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.enterForum.d.i;
-import com.baidu.tieba.enterForum.d.l;
-import com.baidu.tieba.enterForum.d.t;
+import com.baidu.tieba.enterForum.d.m;
+import com.baidu.tieba.enterForum.d.u;
 import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.v;
 import java.lang.ref.SoftReference;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private ViewEventCenter aMG;
-    private SoftReference<i> aNq;
-    private com.baidu.tieba.enterForum.a.b aNr;
-    private com.baidu.tieba.enterForum.a.a aNs;
-    private int aNt;
+    private ViewEventCenter aLB;
+    private SoftReference<i> aMl;
+    private com.baidu.tieba.enterForum.a.b aMm;
+    private com.baidu.tieba.enterForum.a.a aMn;
+    private int aMo;
     private TbPageContext<?> mContext;
 
     public g(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
         this.mContext = tbPageContext;
-        this.aMG = viewEventCenter;
+        this.aLB = viewEventCenter;
     }
 
-    public i IL() {
-        if (this.aNq == null) {
+    public i IH() {
+        if (this.aMl == null) {
             return null;
         }
-        return this.aNq.get();
+        return this.aMl.get();
     }
 
-    public void IM() {
+    public void II() {
         i iVar = new i(this.mContext.getPageActivity());
-        iVar.setEventCenter(this.aMG);
-        this.aNq = new SoftReference<>(iVar);
+        iVar.setEventCenter(this.aLB);
+        this.aMl = new SoftReference<>(iVar);
     }
 
-    public int IN() {
-        return this.aNt;
+    public int IJ() {
+        return this.aMo;
     }
 
-    public List<v> Dz() {
-        return this.aNt == 2 ? this.aNs.Dz() : this.aNr.Dz();
+    public List<v> Dm() {
+        return this.aMo == 2 ? this.aMn.Dm() : this.aMm.Dm();
     }
 
     public void b(v vVar) {
-        List<v> Dz = Dz();
-        if (Dz != null) {
-            Dz.remove(vVar);
-            if (this.aNt == 2) {
-                this.aNs.s(Dz);
+        List<v> Dm = Dm();
+        if (Dm != null) {
+            Dm.remove(vVar);
+            if (this.aMo == 2) {
+                this.aMn.r(Dm);
             } else {
-                this.aNr.s(Dz);
+                this.aMm.r(Dm);
             }
         }
     }
 
-    public void IO() {
-        List<v> Dz = Dz();
-        if (this.aNt == 2) {
+    public void IK() {
+        List<v> Dm = Dm();
+        if (this.aMo == 2) {
             TiebaStatic.eventStat(this.mContext.getPageActivity(), "list_switch_btn", "is_single", 1, new Object[0]);
-            this.aNt = 1;
+            this.aMo = 1;
         } else {
             TiebaStatic.eventStat(this.mContext.getPageActivity(), "list_switch_btn", "is_single", 0, new Object[0]);
-            this.aNt = 2;
+            this.aMo = 2;
         }
-        a(this.aNt, Dz);
+        a(this.aMo, Dm);
     }
 
     public void a(int i, List<v> list) {
         i iVar;
-        this.aNt = i;
-        if (this.aNq != null && list != null && (iVar = this.aNq.get()) != null) {
+        this.aMo = i;
+        if (this.aMl != null && list != null && (iVar = this.aMl.get()) != null) {
             iVar.setColumnTypeAndRefeshView(i);
-            M(list);
+            N(list);
         }
     }
 
-    public void M(List<v> list) {
-        i iVar = this.aNq.get();
+    public void N(List<v> list) {
+        i iVar = this.aMl.get();
         if (iVar != null) {
-            if (this.aNt == 2) {
-                if (this.aNs == null) {
-                    IQ();
+            if (this.aMo == 2) {
+                if (this.aMn == null) {
+                    IM();
                 }
-                iVar.setGridAdapterIfNeeded(this.aNs);
-                this.aNs.s(list);
-                this.aNs.a(this.mContext, TbadkCoreApplication.m411getInst().getSkinType());
+                iVar.setGridAdapterIfNeeded(this.aMn);
+                this.aMn.r(list);
+                this.aMn.a(this.mContext, TbadkCoreApplication.m411getInst().getSkinType());
                 return;
             }
-            if (this.aNr == null) {
-                IP();
+            if (this.aMm == null) {
+                IL();
             }
-            iVar.setListAdapterIfNeeded(this.aNr);
-            this.aNr.s(list);
-            this.aNr.a(this.mContext, TbadkCoreApplication.m411getInst().getSkinType());
+            iVar.setListAdapterIfNeeded(this.aMm);
+            this.aMm.r(list);
+            this.aMm.a(this.mContext, TbadkCoreApplication.m411getInst().getSkinType());
         }
     }
 
-    private void IP() {
-        this.aNr = new com.baidu.tieba.enterForum.a.b(this.mContext, t.class, i.g.home_like_item_in_edit_list, this.aMG);
-        this.aNr.bq(false);
+    private void IL() {
+        this.aMm = new com.baidu.tieba.enterForum.a.b(this.mContext, u.class, i.g.home_like_item_in_edit_list, this.aLB);
+        this.aMm.bo(false);
     }
 
-    private void IQ() {
-        this.aNs = new com.baidu.tieba.enterForum.a.a(this.mContext, l.class, i.g.home_like_item_in_edit_grid, this.aMG);
-        this.aNs.bq(false);
+    private void IM() {
+        this.aMn = new com.baidu.tieba.enterForum.a.a(this.mContext, m.class, i.g.home_like_item_in_edit_grid, this.aLB);
+        this.aMn.bo(false);
     }
 
     public void e(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            if (this.aNq.get() != null) {
-                this.aNq.get().e(tbPageContext);
+            if (this.aMl.get() != null) {
+                this.aMl.get().e(tbPageContext);
             }
-            if (this.aNt == 2) {
-                if (this.aNs != null) {
-                    this.aNs.a(tbPageContext, TbadkCoreApplication.m411getInst().getSkinType());
+            if (this.aMo == 2) {
+                if (this.aMn != null) {
+                    this.aMn.a(tbPageContext, TbadkCoreApplication.m411getInst().getSkinType());
                 }
-            } else if (this.aNr != null) {
-                this.aNr.a(tbPageContext, TbadkCoreApplication.m411getInst().getSkinType());
+            } else if (this.aMm != null) {
+                this.aMm.a(tbPageContext, TbadkCoreApplication.m411getInst().getSkinType());
             }
         }
     }

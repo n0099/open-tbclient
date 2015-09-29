@@ -1,93 +1,51 @@
 package com.baidu.tieba.mainentrance;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.tieba.i;
-import java.util.ArrayList;
+import tbclient.HotForum.HotSearch;
 /* loaded from: classes.dex */
-public class f extends BaseAdapter {
-    private ArrayList<String> Xn;
-    private final String aUF;
-    private boolean bQi = true;
-    private final Context mContext;
+public class f {
+    private String aLj;
+    private long aLk;
+    private long mId;
+    private String mName;
 
-    public f(Context context, ArrayList<String> arrayList) {
-        this.mContext = context;
-        this.Xn = arrayList;
-        this.aUF = this.mContext.getText(i.h.forum).toString();
+    public String Ia() {
+        return this.aLj;
     }
 
-    public void setData(ArrayList<String> arrayList) {
-        this.Xn = arrayList;
+    public long getType() {
+        return this.aLk;
     }
 
-    public void dJ(boolean z) {
-        this.bQi = z;
+    public long getId() {
+        return this.mId;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        if (this.Xn == null) {
-            return 0;
+    public String getName() {
+        return this.mName;
+    }
+
+    public void a(HotSearch hotSearch) {
+        if (hotSearch != null && hotSearch.search_value != null) {
+            this.aLj = hotSearch.search_title;
+            this.mId = hotSearch.search_value.id.longValue();
+            this.mName = hotSearch.search_value.name;
+            this.aLk = hotSearch.search_value.type.longValue();
         }
-        return this.Xn.size();
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        int count = getCount();
-        if (count <= 0 || i >= count) {
-            return null;
-        }
-        return this.Xn.get(i);
+    public void iV(String str) {
+        this.aLj = str;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
+    public void aF(long j) {
+        this.aLk = j;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        a aVar;
-        if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(i.g.home_dialog_search_item, (ViewGroup) null);
-            aVar = new a(this, null);
-            aVar.aOv = (TextView) view.findViewById(i.f.home_lv_search_forum);
-            aVar.aEA = view.findViewById(i.f.home_dialog_lv_search_forum_divider);
-            view.setTag(aVar);
-        } else {
-            aVar = (a) view.getTag();
-        }
-        Object item = getItem(i);
-        if (item != null) {
-            String str = (String) item;
-            if (this.bQi) {
-                aVar.aOv.setText(str.concat(this.aUF));
-            } else {
-                aVar.aOv.setText(str);
-            }
-            com.baidu.tbadk.core.util.al.b(aVar.aOv, i.c.cp_cont_b, 1);
-            com.baidu.tbadk.core.util.al.i(aVar.aEA, i.c.cp_bg_line_b);
-            com.baidu.tbadk.core.util.al.h(view, i.e.addresslist_item_bg);
-        }
-        return view;
+    public void setId(long j) {
+        this.mId = j;
     }
 
-    /* loaded from: classes.dex */
-    private class a {
-        View aEA;
-        TextView aOv;
-
-        private a() {
-        }
-
-        /* synthetic */ a(f fVar, a aVar) {
-            this();
-        }
+    public void setName(String str) {
+        this.mName = str;
     }
 }

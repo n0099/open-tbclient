@@ -5,31 +5,31 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class f {
-    private static final HashMap<Class<?>, Class<?>> EF = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> EG = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
-        public final Class<? extends T> EG;
+        public final Class<? extends T> clazz;
         public final T obj;
     }
 
     static {
-        EF.put(Boolean.class, Boolean.TYPE);
-        EF.put(Byte.class, Byte.TYPE);
-        EF.put(Character.class, Character.TYPE);
-        EF.put(Short.class, Short.TYPE);
-        EF.put(Integer.class, Integer.TYPE);
-        EF.put(Float.class, Float.TYPE);
-        EF.put(Long.class, Long.TYPE);
-        EF.put(Double.class, Double.TYPE);
-        EF.put(Boolean.TYPE, Boolean.TYPE);
-        EF.put(Byte.TYPE, Byte.TYPE);
-        EF.put(Character.TYPE, Character.TYPE);
-        EF.put(Short.TYPE, Short.TYPE);
-        EF.put(Integer.TYPE, Integer.TYPE);
-        EF.put(Float.TYPE, Float.TYPE);
-        EF.put(Long.TYPE, Long.TYPE);
-        EF.put(Double.TYPE, Double.TYPE);
+        EG.put(Boolean.class, Boolean.TYPE);
+        EG.put(Byte.class, Byte.TYPE);
+        EG.put(Character.class, Character.TYPE);
+        EG.put(Short.class, Short.TYPE);
+        EG.put(Integer.class, Integer.TYPE);
+        EG.put(Float.class, Float.TYPE);
+        EG.put(Long.class, Long.TYPE);
+        EG.put(Double.class, Double.TYPE);
+        EG.put(Boolean.TYPE, Boolean.TYPE);
+        EG.put(Byte.TYPE, Byte.TYPE);
+        EG.put(Character.TYPE, Character.TYPE);
+        EG.put(Short.TYPE, Short.TYPE);
+        EG.put(Integer.TYPE, Integer.TYPE);
+        EG.put(Float.TYPE, Float.TYPE);
+        EG.put(Long.TYPE, Long.TYPE);
+        EG.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T a(Object obj, String str, Object[] objArr) {
@@ -67,7 +67,7 @@ public class f {
             return false;
         } else {
             for (int i = length - 1; i >= 0; i--) {
-                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (EF.containsKey(clsArr[i]) && EF.get(clsArr[i]).equals(EF.get(clsArr2[i])))) {
+                if (clsArr[i].isAssignableFrom(clsArr2[i]) || (EG.containsKey(clsArr[i]) && EG.get(clsArr[i]).equals(EG.get(clsArr2[i])))) {
                     return true;
                 }
             }
@@ -88,7 +88,7 @@ public class f {
             }
             Object obj = objArr[i2];
             if (obj != null && (obj instanceof a)) {
-                clsArr[i2] = ((a) obj).EG;
+                clsArr[i2] = ((a) obj).clazz;
             } else {
                 clsArr[i2] = obj == null ? null : obj.getClass();
             }

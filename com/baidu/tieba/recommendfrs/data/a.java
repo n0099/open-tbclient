@@ -1,57 +1,57 @@
 package com.baidu.tieba.recommendfrs.data;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.core.flow.a.a {
-    private String cBg;
-    private String cBh;
-    private String cBi;
+    private String cIi;
+    private String cIj;
+    private String cIk;
     private long ftid;
 
-    public void kx(String str) {
-        this.cBi = str;
+    public void kV(String str) {
+        this.cIk = str;
     }
 
-    public String anw() {
-        return this.cBi;
+    public String apO() {
+        return this.cIk;
     }
 
     public void setFtid(long j) {
         this.ftid = j;
     }
 
-    public String anx() {
-        return this.cBg;
+    public String apP() {
+        return this.cIi;
     }
 
-    public void ky(String str) {
-        this.cBg = str;
+    public void kW(String str) {
+        this.cIi = str;
     }
 
-    public String any() {
-        return this.cBh;
+    public String apQ() {
+        return this.cIj;
     }
 
-    public void kz(String str) {
-        this.cBh = str;
+    public void kX(String str) {
+        this.cIj = str;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.cBh;
+        return this.cIj;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String rD() {
+    public String ry() {
         return String.valueOf(this.ftid);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: anz */
+    /* renamed from: apR */
     public a clone() {
         a aVar = new a();
         aVar.ftid = this.ftid;
-        aVar.cBh = this.cBh;
-        aVar.cBg = this.cBg;
-        aVar.cBi = this.cBi;
+        aVar.cIj = this.cIj;
+        aVar.cIi = this.cIi;
+        aVar.cIk = this.cIk;
         return aVar;
     }
 }

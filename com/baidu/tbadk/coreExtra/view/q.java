@@ -1,28 +1,45 @@
 package com.baidu.tbadk.coreExtra.view;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class q extends CustomMessageListener {
-    final /* synthetic */ LiveBroadcastCard amf;
+public class q implements View.OnClickListener {
+    final /* synthetic */ LiveBroadcastCard akI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q(LiveBroadcastCard liveBroadcastCard, int i) {
-        super(i);
-        this.amf = liveBroadcastCard;
+    public q(LiveBroadcastCard liveBroadcastCard) {
+        this.akI = liveBroadcastCard;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        long j;
-        if (customResponsedMessage != null) {
-            j = this.amf.mStartTime;
-            if (j <= 0) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        LiveBroadcastCard.a aVar;
+        LiveBroadcastCard.b bVar;
+        LiveBroadcastCard.b bVar2;
+        String str;
+        String str2;
+        LiveBroadcastCard.a aVar2;
+        aVar = this.akI.mCardOnClickDispatch;
+        if (aVar != null) {
+            aVar2 = this.akI.mCardOnClickDispatch;
+            if (!aVar2.yX()) {
                 return;
             }
-            this.amf.dealStatusWillStart();
         }
+        bVar = this.akI.mCardListener;
+        if (bVar != null) {
+            bVar2 = this.akI.mCardListener;
+            bVar2.onClick(this.akI);
+            return;
+        }
+        str = this.akI.mStatisticsKey;
+        if (!TextUtils.isEmpty(str)) {
+            str2 = this.akI.mStatisticsKey;
+            TiebaStatic.log(str2);
+        }
+        this.akI.goToLiveBroadcastAcvitity();
     }
 }

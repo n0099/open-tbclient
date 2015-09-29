@@ -79,7 +79,7 @@ public abstract class c<T> {
             this.sR++;
             if (this.sR >= ((int) Math.min(this.sQ.gd() * 0.2d, 5.0d))) {
                 this.sR = 0;
-                com.baidu.adp.lib.g.k.hg().c(new d(this));
+                com.baidu.adp.lib.g.k.hh().c(new d(this));
             }
         }
     }

@@ -16,21 +16,8 @@ class af extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        am amVar;
-        am amVar2;
-        am amVar3;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007013) {
-            this.this$0.initTabsOnActivityCreated();
-            amVar = this.this$0.cUv;
-            if (amVar != null) {
-                amVar2 = this.this$0.cUv;
-                if (amVar2.awj() != null) {
-                    MainTabActivity mainTabActivity = this.this$0;
-                    amVar3 = this.this$0.cUv;
-                    mainTabActivity.cUo = amVar3.awj().getCurrentTabType();
-                }
-            }
-            this.this$0.cUq = true;
+        if (customResponsedMessage != null && customResponsedMessage.getError() == 0) {
+            this.this$0.ayc();
         }
     }
 }

@@ -4,32 +4,32 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class p implements BdListView.e {
-    final /* synthetic */ PbActivity ccj;
+    final /* synthetic */ PbActivity ciz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PbActivity pbActivity) {
-        this.ccj = pbActivity;
+        this.ciz = pbActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         boolean z;
-        bk bkVar;
-        cb cbVar;
-        bk bkVar2;
-        cb cbVar2;
-        z = this.ccj.mIsLogin;
+        bl blVar;
+        cc ccVar;
+        bl blVar2;
+        cc ccVar2;
+        z = this.ciz.mIsLogin;
         if (z) {
-            bkVar = this.ccj.cbG;
-            if (bkVar.es(false)) {
-                cbVar2 = this.ccj.cbL;
-                cbVar2.aeB();
-                TiebaStatic.eventStat(this.ccj.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
+            blVar = this.ciz.chV;
+            if (blVar.ex(false)) {
+                ccVar2 = this.ciz.cia;
+                ccVar2.agz();
+                TiebaStatic.eventStat(this.ciz.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
                 return;
             }
-            cbVar = this.ccj.cbL;
-            bkVar2 = this.ccj.cbG;
-            cbVar.k(bkVar2.getPbData());
+            ccVar = this.ciz.cia;
+            blVar2 = this.ciz.chV;
+            ccVar.k(blVar2.getPbData());
         }
     }
 }

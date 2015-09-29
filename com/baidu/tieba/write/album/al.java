@@ -1,24 +1,10 @@
 package com.baidu.tieba.write.album;
 
-import android.widget.GridView;
-import com.baidu.tbadk.core.view.HeadImageView;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.img.ImageFileInfo;
+import java.util.List;
 /* loaded from: classes.dex */
-public class al implements com.baidu.tbadk.imageManager.b {
-    final /* synthetic */ ad cZQ;
+public interface al {
+    void a(List<a> list, List<ImageFileInfo> list2, String str);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public al(ad adVar) {
-        this.cZQ = adVar;
-    }
-
-    @Override // com.baidu.tbadk.imageManager.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
-        GridView gridView;
-        gridView = this.cZQ.mGridView;
-        HeadImageView headImageView = (HeadImageView) gridView.findViewWithTag(str);
-        if (headImageView != null && aVar != null) {
-            headImageView.invalidate();
-        }
-    }
+    void nu();
 }

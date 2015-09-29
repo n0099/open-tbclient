@@ -8,23 +8,23 @@ import com.baidu.tieba.im.model.BlackListModel;
 /* loaded from: classes.dex */
 public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     private com.baidu.tbadk.core.dialog.a Lt;
-    private BlackListModel bJB;
-    private h bJC;
-    private com.baidu.tieba.im.data.a bJD;
+    private BlackListModel bMG;
+    private h bMH;
+    private com.baidu.tieba.im.data.a bMI;
     private com.baidu.adp.framework.listener.e mListener = new a(this, 0);
 
     private void initView() {
-        this.bJC = new h(this);
+        this.bMH = new h(this);
     }
 
-    private void HE() {
-        this.bJB = new BlackListModel(this);
-        this.bJB.setUniqueId(getUniqueId());
+    private void Hy() {
+        this.bMG = new BlackListModel(this);
+        this.bMG.setUniqueId(getUniqueId());
     }
 
-    private void JM() {
-        this.bJB.loadBlackList();
-        this.bJC.Ce();
+    private void JH() {
+        this.bMG.loadBlackList();
+        this.bMH.BR();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,30 +34,30 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         registerListener(104103, this.mListener);
         registerListener(104102, this.mListener);
         initView();
-        HE();
-        JM();
+        Hy();
+        JH();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.bJB != null) {
-            this.bJB.cancelLoadData();
+        if (this.bMG != null) {
+            this.bMG.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Yx() {
-        showLoadingDialog(null, new b(this));
+    public void Zf() {
+        showLoadingDialog((String) null, new b(this));
     }
 
     private void a(com.baidu.tieba.im.data.a aVar) {
-        iE(String.format(getPageContext().getString(i.h.black_list_ensure_toremove_text), aVar.getUserName()));
-        this.Lt.sU();
+        iI(String.format(getPageContext().getString(i.h.black_list_ensure_toremove_text), aVar.getUserName()));
+        this.Lt.sR();
     }
 
-    private void iE(String str) {
+    private void iI(String str) {
         this.Lt = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
         this.Lt.ct(str);
         this.Lt.a(i.h.confirm, new c(this));
@@ -67,7 +67,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
 
     public void a(View view, com.baidu.tieba.im.data.a aVar) {
         if (aVar != null && aVar.getUserId() > 0) {
-            this.bJD = aVar;
+            this.bMI = aVar;
             a(aVar);
         }
     }

@@ -1,30 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.app.Dialog;
 import android.view.View;
-import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cl implements View.OnClickListener {
-    final /* synthetic */ cb cgg;
+    final /* synthetic */ cc cly;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cl(cb cbVar) {
-        this.cgg = cbVar;
+    public cl(cc ccVar) {
+        this.cly = ccVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
+        Dialog dialog;
+        Dialog dialog2;
         PbActivity pbActivity;
-        boolean z;
-        pbActivity = this.cgg.ccs;
-        if (pbActivity.checkUpIsLogin()) {
-            this.cgg.Yx();
-            if (this.cgg.ccc != null) {
-                PbActivity.b bVar = this.cgg.ccc;
-                z = this.cgg.ccB;
-                bVar.en(z);
-            }
-            this.cgg.aeG();
+        dialog = this.cly.ckR;
+        if (dialog instanceof Dialog) {
+            dialog2 = this.cly.ckR;
+            pbActivity = this.cly.ciJ;
+            com.baidu.adp.lib.g.j.b(dialog2, pbActivity.getPageContext());
         }
     }
 }

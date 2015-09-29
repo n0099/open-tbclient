@@ -1,21 +1,25 @@
 package com.baidu.tieba.pb.pb.main.b;
 
 import android.view.View;
-import com.baidu.tieba.pb.pb.main.PbActivity;
+import android.widget.RadioButton;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a cgt;
+    final /* synthetic */ a clI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cgt = aVar;
+        this.clI = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        PbActivity pbActivity;
-        pbActivity = this.cgt.ccs;
-        pbActivity.Lk();
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        radioButton = this.clI.clH;
+        if (radioButton != null) {
+            radioButton2 = this.clI.clH;
+            radioButton2.toggle();
+        }
     }
 }

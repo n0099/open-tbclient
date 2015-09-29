@@ -5,34 +5,34 @@ import android.view.WindowManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class j {
-    protected View bIb;
-    private boolean awd = false;
-    protected WindowManager bIc = (WindowManager) TbadkCoreApplication.m411getInst().getSystemService("window");
-    protected WindowManager.LayoutParams bId = XN();
+    protected View bLg;
+    private boolean auB = false;
+    protected WindowManager bLh = (WindowManager) TbadkCoreApplication.m411getInst().getSystemService("window");
+    protected WindowManager.LayoutParams bLi = Yv();
 
-    public abstract WindowManager.LayoutParams XN();
+    public abstract WindowManager.LayoutParams Yv();
 
     public j(View view) {
-        this.bIb = view;
+        this.bLg = view;
     }
 
-    public boolean XO() {
-        return this.awd && this.bIb.getParent() != null;
+    public boolean Yw() {
+        return this.auB && this.bLg.getParent() != null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void XP() {
-        if (this.bIc != null && this.bId != null && this.bIb.getParent() == null) {
-            this.awd = true;
-            this.bIc.addView(this.bIb, this.bId);
+    public void Yx() {
+        if (this.bLh != null && this.bLi != null && this.bLg.getParent() == null) {
+            this.auB = true;
+            this.bLh.addView(this.bLg, this.bLi);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void XQ() {
-        if (this.bIc != null && this.bIb.getParent() != null) {
-            this.awd = false;
-            this.bIc.removeView(this.bIb);
+    public void Yy() {
+        if (this.bLh != null && this.bLg.getParent() != null) {
+            this.auB = false;
+            this.bLh.removeView(this.bLg);
         }
     }
 }

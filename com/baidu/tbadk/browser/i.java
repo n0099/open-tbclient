@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class i implements ax.a {
-    @Override // com.baidu.tbadk.core.util.ax.a
+class i implements ay.a {
+    @Override // com.baidu.tbadk.core.util.ay.a
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
         String str = strArr[0];
         String str2 = strArr.length > 2 ? strArr[2] : null;
@@ -33,10 +33,10 @@ class i implements ax.a {
                     Static.c(tbPageContext, str3, str.substring(6), false, true, true, false);
                 }
             } else {
-                Static.c(tbPageContext, g.T(str.replaceFirst("web:", ""), str2), null, false, true, true, true);
+                Static.c(tbPageContext, g.S(str.replaceFirst("web:", ""), str2), null, false, true, true, true);
             }
         } else {
-            Static.c(tbPageContext, g.T(str.replaceFirst("opfeature:", ""), str2), null, false, true, true, true);
+            Static.c(tbPageContext, g.S(str.replaceFirst("opfeature:", ""), str2), null, false, true, true, true);
         }
         return true;
     }

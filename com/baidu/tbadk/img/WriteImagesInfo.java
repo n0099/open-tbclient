@@ -3,7 +3,7 @@ package com.baidu.tbadk.img;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.img.effect.d;
 import java.io.Serializable;
 import java.util.Iterator;
@@ -14,14 +14,17 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class WriteImagesInfo implements Serializable {
     private LinkedList<ImageFileInfo> chosedFiles;
+    private boolean isOriginalImg;
     private String lastAlbumId;
     private int maxImagesAllowed;
 
     public WriteImagesInfo() {
+        this.isOriginalImg = false;
         this.maxImagesAllowed = 1;
     }
 
     public WriteImagesInfo(int i) {
+        this.isOriginalImg = false;
         this.maxImagesAllowed = i;
     }
 
@@ -121,6 +124,7 @@ public class WriteImagesInfo implements Serializable {
         if (this.chosedFiles != null) {
             this.chosedFiles.clear();
         }
+        this.isOriginalImg = false;
     }
 
     public void parseJson(String str) {
@@ -145,6 +149,7 @@ public class WriteImagesInfo implements Serializable {
         if (jSONObject != null) {
             this.lastAlbumId = jSONObject.optString("lastAlbumId", null);
             this.maxImagesAllowed = jSONObject.optInt("maxImagesAllowed");
+            this.isOriginalImg = jSONObject.optBoolean("isOriginalImg");
             JSONArray optJSONArray = jSONObject.optJSONArray("chosedFiles");
             this.chosedFiles = new LinkedList<>();
             if (optJSONArray != null) {
@@ -161,6 +166,7 @@ public class WriteImagesInfo implements Serializable {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("maxImagesAllowed", this.maxImagesAllowed);
+            jSONObject.put("isOriginalImg", this.isOriginalImg);
             if (this.lastAlbumId != null) {
                 jSONObject.put("lastAlbumId", this.lastAlbumId);
             }
@@ -190,10 +196,32 @@ public class WriteImagesInfo implements Serializable {
             for (int size = chosedFiles.size() - 1; size >= 0; size--) {
                 ImageFileInfo imageFileInfo = chosedFiles.get(size);
                 if (!imageFileInfo.isHasAddPostQualityAction()) {
-                    imageFileInfo.addPersistAction(d.J(ar.uK().uQ(), ar.uK().uQ()));
+                    imageFileInfo.addPersistAction(d.J(as.uI().uO(), as.uI().uO()));
                     imageFileInfo.setHasAddPostQualityAction(true);
                 }
             }
         }
+    }
+
+    public void setOriginalImg(boolean z) {
+        this.isOriginalImg = z;
+    }
+
+    public boolean isOriginalImg() {
+        return this.isOriginalImg;
+    }
+
+    public boolean hasActionsWithoutResize() {
+        LinkedList<ImageFileInfo> chosedFiles = getChosedFiles();
+        if (chosedFiles == null) {
+            return false;
+        }
+        Iterator<ImageFileInfo> it = chosedFiles.iterator();
+        while (it.hasNext()) {
+            if (it.next().hasActionsWithoutResize()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

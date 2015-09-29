@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import tbclient.GiftInfo;
 import tbclient.LikeForumInfo;
 import tbclient.MyGroupInfo;
+import tbclient.NewParrScores;
 import tbclient.PayMemberInfo;
 import tbclient.PrivSets;
 import tbclient.User;
@@ -19,6 +20,7 @@ import tbclient.User;
 public class UserData extends MetaData {
     private static final long serialVersionUID = -1871115639893992930L;
     private String BDUSS;
+    private String bg_pic;
     private int bimg_end_time;
     private String bimg_url;
     private int concern_num;
@@ -43,13 +45,14 @@ public class UserData extends MetaData {
     private List<MyGroup> mGroup;
     private boolean mIsSelectTail;
     private List<MyLikeForum> mLikeForum;
+    private long mTDouNum;
     private int managerLevel;
     private int markCount;
     private int newMarkCount;
     private String password;
-    private f payMemberInfo;
+    private e payMemberInfo;
     private Permission permission;
-    private g personPrivate;
+    private f personPrivate;
     private String position;
     private int posts_num;
     private int sex;
@@ -72,12 +75,12 @@ public class UserData extends MetaData {
         this.newMarkCount = i;
     }
 
-    public g getPersonPrivate() {
+    public f getPersonPrivate() {
         return this.personPrivate;
     }
 
-    public void setPersonPrivate(g gVar) {
-        this.personPrivate = gVar;
+    public void setPersonPrivate(f fVar) {
+        this.personPrivate = fVar;
     }
 
     public List<MyLikeForum> getLikeForum() {
@@ -228,17 +231,18 @@ public class UserData extends MetaData {
             if (user.is_mem != null) {
                 this.is_mem = user.is_mem.intValue();
             }
+            this.bg_pic = user.bg_pic;
             this.bimg_url = user.bimg_url;
             this.bimg_end_time = user.bimg_end_time.intValue();
             this.isFriend = user.is_friend.intValue();
             PrivSets privSets = user.priv_sets;
             if (privSets != null) {
-                this.personPrivate = new g();
+                this.personPrivate = new f();
                 this.personPrivate.a(privSets);
             }
             PayMemberInfo payMemberInfo = user.pay_member_info;
             if (payMemberInfo != null) {
-                this.payMemberInfo = new f();
+                this.payMemberInfo = new e();
                 this.payMemberInfo.a(payMemberInfo);
             }
             if (user.is_mask.intValue() == 1) {
@@ -274,6 +278,10 @@ public class UserData extends MetaData {
                     myGift.parserProtobuf(list3.get(i3));
                     this.mGift.add(myGift);
                 }
+            }
+            NewParrScores newParrScores = user.parr_scores;
+            if (newParrScores != null) {
+                this.mTDouNum = newParrScores.scores_total.longValue();
             }
         }
     }
@@ -321,18 +329,19 @@ public class UserData extends MetaData {
                 } else {
                     this.isManager = false;
                 }
+                this.bg_pic = jSONObject.optString("bg_pic");
                 this.bimg_url = jSONObject.optString("bimg_url");
                 this.bimg_end_time = jSONObject.optInt("bimg_end_time", 0);
                 this.is_mem = jSONObject.optInt(GroupLevelActivityConfig.IS_MEM);
                 this.mGiftNum = jSONObject.optInt("gift_num");
                 JSONObject optJSONObject = jSONObject.optJSONObject("priv_sets");
                 if (optJSONObject != null) {
-                    this.personPrivate = new g();
+                    this.personPrivate = new f();
                     this.personPrivate.parserJson(optJSONObject);
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("pay_member_info");
                 if (optJSONObject2 != null) {
-                    this.payMemberInfo = new f();
+                    this.payMemberInfo = new e();
                     this.payMemberInfo.parseJson(optJSONObject2);
                 }
                 if (jSONObject.optInt("is_mask") == 1) {
@@ -456,7 +465,7 @@ public class UserData extends MetaData {
         return this.sex;
     }
 
-    public f getPayMemberInfoData() {
+    public e getPayMemberInfoData() {
         return this.payMemberInfo;
     }
 
@@ -508,6 +517,14 @@ public class UserData extends MetaData {
         this.userType = i;
     }
 
+    public String getBg_pic() {
+        return this.bg_pic;
+    }
+
+    public void setBg_pic(String str) {
+        this.bg_pic = str;
+    }
+
     public String getBimg_url() {
         return this.bimg_url;
     }
@@ -518,6 +535,10 @@ public class UserData extends MetaData {
 
     public int getBimg_end_time() {
         return this.bimg_end_time;
+    }
+
+    public void setBimg_end_time(int i) {
+        this.bimg_end_time = i;
     }
 
     public boolean isMask() {
@@ -534,6 +555,14 @@ public class UserData extends MetaData {
 
     public void setIsOfficialAccount(int i) {
         this.isOfficialAccount = i;
+    }
+
+    public long getTDouNum() {
+        return this.mTDouNum;
+    }
+
+    public void setTDouNum(long j) {
+        this.mTDouNum = j;
     }
 
     /* loaded from: classes.dex */

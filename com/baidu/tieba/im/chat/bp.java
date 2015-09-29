@@ -1,26 +1,28 @@
 package com.baidu.tieba.im.chat;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.widget.richText.g;
+import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bp extends CustomMessageListener {
-    final /* synthetic */ TalkableActivity bpt;
+public class bp extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ bo bsr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bp(TalkableActivity talkableActivity, int i) {
-        super(i);
-        this.bpt = talkableActivity;
+    public bp(bo boVar) {
+        this.bsr = boVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof g.a)) {
-            g.a aVar = (g.a) customResponsedMessage.getData();
-            com.baidu.tbadk.widget.richText.g.a(this.bpt.getPageContext(), aVar.type, aVar.url, aVar.subType);
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        String l;
+        super.a((bp) aVar, str, i);
+        if (aVar != null) {
+            bo boVar = this.bsr;
+            l = this.bsr.l(this.bsr.mUrl, aVar.nd());
+            boVar.showToast(l);
+            return;
         }
+        this.bsr.showToast(this.bsr.aRT.getPageContext().getString(i.h.save_error));
     }
 }

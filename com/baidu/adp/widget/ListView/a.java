@@ -51,7 +51,7 @@ public abstract class a<T, V extends x.a> {
         this.GH = vVar;
     }
 
-    public v ng() {
+    public v nh() {
         return this.GH;
     }
 
@@ -59,7 +59,7 @@ public abstract class a<T, V extends x.a> {
         this.GI = wVar;
     }
 
-    public w nh() {
+    public w ni() {
         return this.GI;
     }
 

@@ -5,35 +5,35 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.newFriends.RequestNewFriendDataMessage;
 import com.baidu.tieba.im.chat.CommonPersonalChatActivity;
+import com.baidu.tieba.imMessageCenter.RequestNewFriendDataMessage;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aj {
-    private a bJz;
-    private final CustomMessageListener bJy = new ak(this, CmdConfigCustom.CMD_GET_NEW_FRIEND_DATA_BY_ID);
-    private final HashMap<String, Integer> bJx = new HashMap<>();
+    private a bME;
+    private final CustomMessageListener bMD = new ak(this, CmdConfigCustom.CMD_GET_NEW_FRIEND_DATA_BY_ID);
+    private final HashMap<String, Integer> bMC = new HashMap<>();
 
     /* loaded from: classes.dex */
     public interface a {
-        void Yw();
+        void Ze();
     }
 
     public void a(a aVar) {
-        this.bJz = aVar;
+        this.bME = aVar;
     }
 
     public void a(CommonPersonalChatActivity<FloatingPersonalChatActivity> commonPersonalChatActivity) {
-        commonPersonalChatActivity.registerListener(this.bJy);
+        commonPersonalChatActivity.registerListener(this.bMD);
     }
 
-    public void aO(List<UserData> list) {
+    public void aR(List<UserData> list) {
         if (list != null && !list.isEmpty()) {
             for (UserData userData : list) {
                 if (userData != null) {
                     if (userData.getIsFriend() == 1) {
-                        this.bJx.put(userData.getUserId(), 1);
+                        this.bMC.put(userData.getUserId(), 1);
                     } else {
                         d(userData);
                     }
@@ -46,24 +46,24 @@ public class aj {
         if (userData == null) {
             return 0;
         }
-        return iD(userData.getUserId());
+        return iH(userData.getUserId());
     }
 
-    public boolean iB(String str) {
-        int iD = iD(str);
-        return iD == 1 || iD == 3;
+    public boolean iF(String str) {
+        int iH = iH(str);
+        return iH == 1 || iH == 3;
     }
 
-    public int iD(String str) {
-        if (!StringUtils.isNull(str) && this.bJx.containsKey(str)) {
-            return this.bJx.get(str).intValue();
+    public int iH(String str) {
+        if (!StringUtils.isNull(str) && this.bMC.containsKey(str)) {
+            return this.bMC.get(str).intValue();
         }
         return 0;
     }
 
-    public void P(String str, int i) {
+    public void R(String str, int i) {
         if (!StringUtils.isNull(str)) {
-            this.bJx.put(str, Integer.valueOf(i));
+            this.bMC.put(str, Integer.valueOf(i));
         }
     }
 
@@ -85,9 +85,9 @@ public class aj {
             }
         }
         if (bVar != null && bVar.getId() != 0) {
-            this.bJx.put(String.valueOf(bVar.getId()), Integer.valueOf(r0));
-            if (this.bJz != null) {
-                this.bJz.Yw();
+            this.bMC.put(String.valueOf(bVar.getId()), Integer.valueOf(r0));
+            if (this.bME != null) {
+                this.bME.Ze();
             }
         }
     }

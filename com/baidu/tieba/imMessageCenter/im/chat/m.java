@@ -14,7 +14,7 @@ class m implements CustomMessageTask.CustomRunnable<PersonalChatActivityConfig> 
         if (customMessage != null && customMessage.getData() != null && (userData = customMessage.getData().getUserData()) != null) {
             LinkedList linkedList = new LinkedList();
             linkedList.add(String.valueOf(userData.getUserId()));
-            com.baidu.tieba.im.l.a(new n(this, linkedList), new o(this, customMessage));
+            com.baidu.tbadk.util.m.b(new n(this, linkedList), new o(this, customMessage));
         }
         return null;
     }

@@ -5,24 +5,24 @@ import com.baidu.adp.lib.voice.l;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class k extends MediaPlayer implements h {
-    private static Object ags = new Object();
-    private static k agt = null;
-    private boolean agu = false;
-    private boolean agv = true;
-    private int agw = -1;
+    private static Object afF = new Object();
+    private static k afG = null;
+    private boolean afH = false;
+    private boolean afI = true;
+    private int afJ = -1;
 
     private k() {
     }
 
-    public static k wd() {
-        if (agt == null) {
-            synchronized (ags) {
-                if (agt == null) {
-                    agt = new k();
+    public static k vW() {
+        if (afG == null) {
+            synchronized (afF) {
+                if (afG == null) {
+                    afG = new k();
                 }
             }
         }
-        return agt;
+        return afG;
     }
 
     public void setStreamType(int i) {
@@ -30,83 +30,83 @@ public class k extends MediaPlayer implements h {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public boolean dG(String str) {
-        this.agw = -1;
-        if (!this.agu) {
-            this.agv = true;
+    public boolean dK(String str) {
+        this.afJ = -1;
+        if (!this.afH) {
+            this.afI = true;
             reset();
             try {
                 setDataSource(str);
-                setStreamType(l.zh);
+                setStreamType(l.zi);
                 try {
                     prepare();
                 } catch (IOException e) {
                     e.printStackTrace();
-                    this.agw = 2;
+                    this.afJ = 2;
                     return false;
                 } catch (IllegalStateException e2) {
-                    this.agw = 1;
+                    this.afJ = 1;
                     return false;
                 }
             } catch (IOException e3) {
-                this.agw = 2;
+                this.afJ = 2;
                 return false;
             } catch (IllegalArgumentException e4) {
-                this.agw = 0;
+                this.afJ = 0;
                 return false;
             } catch (IllegalStateException e5) {
-                this.agw = 1;
+                this.afJ = 1;
                 return false;
             }
         }
-        this.agu = true;
+        this.afH = true;
         return true;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void vZ() {
+    public void vS() {
         start();
-        this.agv = false;
+        this.afI = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void vT() {
-        if (!this.agv) {
+    public void vM() {
+        if (!this.afI) {
             stop();
-            this.agv = true;
-            this.agu = false;
+            this.afI = true;
+            this.afH = false;
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void wa() {
+    public void vT() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void wb() {
+    public void vU() {
         reset();
-        this.agu = false;
-        this.agv = true;
-        this.agw = -1;
+        this.afH = false;
+        this.afI = true;
+        this.afJ = -1;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public int jo() {
+    public int jp() {
         return getCurrentPosition();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public boolean wc() {
-        return this.agu;
+    public boolean vV() {
+        return this.afH;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void cQ(int i) {
-        cS(i);
+    public void cR(int i) {
+        cT(i);
     }
 
-    public void cS(int i) {
+    public void cT(int i) {
         try {
             seekTo(i);
         } catch (Exception e) {
@@ -115,6 +115,6 @@ public class k extends MediaPlayer implements h {
 
     @Override // com.baidu.tbadk.core.voice.service.h
     public int getErrorNo() {
-        return this.agw;
+        return this.afJ;
     }
 }

@@ -8,6 +8,7 @@ public class e {
     protected f uV = new f();
     protected g uW = new g();
     private LinkedList<d> uX = new LinkedList<>();
+    private d uY = null;
 
     public f gP() {
         return this.uV;
@@ -25,5 +26,13 @@ public class e {
         if (dVar != null) {
             this.uX.add(dVar);
         }
+    }
+
+    public d gS() {
+        return this.uY;
+    }
+
+    public void b(d dVar) {
+        this.uY = dVar;
     }
 }

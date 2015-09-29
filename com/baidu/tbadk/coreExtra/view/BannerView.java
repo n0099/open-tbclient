@@ -13,24 +13,24 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    View.OnClickListener akA;
-    private String aks;
-    private String akt;
-    private Button aku;
-    private TbImageView akv;
-    private boolean akw;
-    private float akx;
-    private boolean aky;
-    private a akz;
+    View.OnClickListener ajA;
+    private String ajs;
+    private String ajt;
+    private Button aju;
+    private TbImageView ajv;
+    private boolean ajw;
+    private float ajx;
+    private boolean ajy;
+    private a ajz;
     private String link;
     private TbPageContext<?> mContext;
     private String type;
 
     /* loaded from: classes.dex */
     public interface a {
-        void za();
+        void yK();
 
-        void zb();
+        void yL();
     }
 
     public void setBannerType(String str) {
@@ -39,12 +39,12 @@ public class BannerView extends RelativeLayout {
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aks = "";
-        this.akt = "";
-        this.akw = false;
-        this.akx = 0.1388889f;
-        this.aky = false;
-        this.akA = new com.baidu.tbadk.coreExtra.view.a(this);
+        this.ajs = "";
+        this.ajt = "";
+        this.ajw = false;
+        this.ajx = 0.1388889f;
+        this.ajy = false;
+        this.ajA = new com.baidu.tbadk.coreExtra.view.a(this);
         init(context);
     }
 
@@ -54,29 +54,29 @@ public class BannerView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(i.g.bannerview, this);
-        this.aku = (Button) findViewById(i.f.btn_close);
-        this.aku.setOnClickListener(this.akA);
-        this.akv = (TbImageView) findViewById(i.f.banner_image);
-        this.akv.setAutoChangeStyle(true);
-        this.akv.setOnClickListener(this.akA);
+        this.aju = (Button) findViewById(i.f.btn_close);
+        this.aju.setOnClickListener(this.ajA);
+        this.ajv = (TbImageView) findViewById(i.f.banner_image);
+        this.ajv.setAutoChangeStyle(true);
+        this.ajv.setOnClickListener(this.ajA);
     }
 
     public void setBannerViewEvent(TbImageView.a aVar) {
-        if (this.akv != null && aVar != null) {
-            this.akv.setEvent(aVar);
+        if (this.ajv != null && aVar != null) {
+            this.ajv.setEvent(aVar);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, String str, String str2) {
         this.mContext = tbPageContext;
         this.link = str2;
-        this.aky = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.ajy = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.akw && this.aky) {
-            ViewGroup.LayoutParams layoutParams = this.akv.getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.K(getContext()) * this.akx) + 0.5d);
-            this.akv.setLayoutParams(layoutParams);
-            this.akv.a(str, 10, 720, 100, false);
+        if (!this.ajw && this.ajy) {
+            ViewGroup.LayoutParams layoutParams = this.ajv.getLayoutParams();
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.K(getContext()) * this.ajx) + 0.5d);
+            this.ajv.setLayoutParams(layoutParams);
+            this.ajv.a(str, 10, 720, 100, false);
             setVisibility(0);
         }
     }
@@ -86,19 +86,19 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewClickListener(a aVar) {
-        this.akz = aVar;
+        this.ajz = aVar;
     }
 
-    public boolean yZ() {
-        return this.aky;
+    public boolean yJ() {
+        return this.ajy;
     }
 
     public void reset() {
-        this.akw = false;
-        this.aky = false;
+        this.ajw = false;
+        this.ajy = false;
     }
 
-    public void oN() {
-        this.akv.postInvalidate();
+    public void oO() {
+        this.ajv.postInvalidate();
     }
 }

@@ -16,11 +16,7 @@ class k extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        am amVar;
-        if (customResponsedMessage != null) {
-            amVar = this.this$0.cUv;
-            amVar.kJ(0);
-            MainTabActivity.cUl = false;
-        }
+        this.this$0.mHasNewVersion = false;
+        this.this$0.gy(false);
     }
 }

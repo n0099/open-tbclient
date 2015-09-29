@@ -9,7 +9,6 @@ import com.baidu.adp.lib.util.v;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class b {
     private static b pP = null;
@@ -109,7 +108,7 @@ public class b {
             if (socketMessage != null) {
                 j = socketMessage.getClientLogID();
             }
-            com.baidu.adp.lib.stats.a.hh().b("im", j, (String) null, IntentConfig.CMD, Integer.valueOf(i), "byteslength", Integer.valueOf(bArr != null ? bArr.length : 0), "comment", th != null ? th.getMessage() : null);
+            com.baidu.adp.lib.stats.a.hi().b("im", j, (String) null, IntentConfig.CMD, Integer.valueOf(i), "byteslength", Integer.valueOf(bArr != null ? bArr.length : 0), "comment", th != null ? th.getMessage() : null);
             throw new CoderException(j.oW);
         }
     }
@@ -122,7 +121,7 @@ public class b {
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
+            com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
             com.baidu.adp.lib.g.a.d(byteArrayInputStream);
         }
     }
@@ -135,7 +134,7 @@ public class b {
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
+            com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
             com.baidu.adp.lib.g.a.d(byteArrayInputStream);
         }
     }

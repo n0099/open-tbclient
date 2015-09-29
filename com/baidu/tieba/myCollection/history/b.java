@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class b implements a.InterfaceC0052a<com.baidu.tieba.myCollection.baseHistory.b> {
-    final /* synthetic */ PbHistoryActivity bYs;
+    final /* synthetic */ PbHistoryActivity cce;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PbHistoryActivity pbHistoryActivity) {
-        this.bYs = pbHistoryActivity;
+        this.cce = pbHistoryActivity;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a
@@ -21,16 +21,16 @@ class b implements a.InterfaceC0052a<com.baidu.tieba.myCollection.baseHistory.b>
         if (readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
             return;
         }
-        this.bYs.aV(readCacheRespMsg.getData());
+        this.cce.aX(readCacheRespMsg.getData());
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a
     public void a(WriteCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.b>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.myCollection.baseHistory.b> writeCacheMessage) {
         if (writeCacheRespMsg != null && writeCacheRespMsg.isSuccess()) {
             if (!writeCacheMessage.isClear()) {
-                this.bYs.Kt();
+                this.cce.Ko();
             } else {
-                this.bYs.aV(new ArrayList());
+                this.cce.aX(new ArrayList());
             }
         }
     }

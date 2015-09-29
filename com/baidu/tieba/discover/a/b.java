@@ -12,7 +12,7 @@ import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends LinearLayout {
-    private y aLY;
+    private y aKQ;
     private List<com.baidu.tieba.discover.data.c> mData;
 
     public b(Context context) {
@@ -25,18 +25,18 @@ public class b extends LinearLayout {
     }
 
     public void setOnHeaderItemClickListener(y yVar) {
-        this.aLY = yVar;
+        this.aKQ = yVar;
     }
 
-    public void u(String str, boolean z) {
+    public void v(String str, boolean z) {
         if (str != null && this.mData != null && !this.mData.isEmpty()) {
             int size = this.mData.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.tieba.discover.data.c cVar = this.mData.get(i);
-                if (cVar != null && str.equals(cVar.HT())) {
-                    cVar.bK(z);
+                if (cVar != null && str.equals(cVar.HN())) {
+                    cVar.bH(z);
                     if (i < getChildCount() && (getChildAt(i) instanceof a)) {
-                        ((a) getChildAt(i)).bM(z);
+                        ((a) getChildAt(i)).bJ(z);
                         return;
                     }
                 }
@@ -58,9 +58,9 @@ public class b extends LinearLayout {
     private void a(com.baidu.tieba.discover.data.c cVar, int i, int i2) {
         if (cVar != null) {
             a aVar = new a(getContext());
-            aVar.as(cVar.getIcon_url(), cVar.HT());
+            aVar.ar(cVar.getIcon_url(), cVar.HN());
             aVar.setTitle(cVar.getTitle());
-            aVar.bM(cVar.HV());
+            aVar.bJ(cVar.HP());
             aVar.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1.0f));
             if (i2 > 1) {
                 if (i == 0) {

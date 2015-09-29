@@ -1,53 +1,41 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
-import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
-import com.baidu.tieba.i;
-import com.baidu.tieba.im.model.BlackListModel;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.ChangeSystemPhotoActivityConfig;
+import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.img.WriteImagesInfo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class k extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity cmR;
+public class k implements c.b {
+    final /* synthetic */ PersonInfoActivity csx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k(PersonInfoActivity personInfoActivity, int i) {
-        super(i);
-        this.cmR = personInfoActivity;
+    public k(PersonInfoActivity personInfoActivity) {
+        this.csx = personInfoActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage;
-        Message<?> orginalMessage;
-        BlackListModel blackListModel;
-        BlackListModel blackListModel2;
-        BlackListModel blackListModel3;
-        if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage)) {
-            RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
-            if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
-                if (requestUpdateMaskInfoMessage.getIsMask() == 1) {
-                    blackListModel3 = this.cmR.cmE;
-                    blackListModel3.setMaskType(1);
-                } else {
-                    blackListModel = this.cmR.cmE;
-                    blackListModel.setMaskType(0);
-                }
-                if (responseUpdateMaskInfoMessage.getError() == 0) {
-                    blackListModel2 = this.cmR.cmE;
-                    if (blackListModel2.getMaskType() == 1) {
-                        this.cmR.showToast(this.cmR.getPageContext().getString(i.h.chat_message_blocked));
-                        return;
-                    } else {
-                        this.cmR.showToast(this.cmR.getPageContext().getString(i.h.block_chat_remove_success));
-                        return;
-                    }
-                }
-                this.cmR.showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.cmR.getResources().getString(i.h.neterror) : responseUpdateMaskInfoMessage.getErrorString());
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        WriteImagesInfo writeImagesInfo;
+        if (i != 0) {
+            if (i == 1) {
+                Activity pageActivity = this.csx.getPageContext().getPageActivity();
+                writeImagesInfo = this.csx.writeImagesInfo;
+                AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) pageActivity, writeImagesInfo.toJsonString(), true);
+                albumActivityConfig.setRequestCode(12002);
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
+            } else if (i == 2) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChangeSystemPhotoActivityConfig(this.csx.getPageContext().getPageActivity(), 12014)));
             }
+        } else {
+            this.csx.ajm();
         }
+        cVar.dismiss();
     }
 }

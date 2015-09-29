@@ -4,20 +4,20 @@ import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements BannerView.a {
-    final /* synthetic */ x aZS;
+    final /* synthetic */ x aZL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(x xVar) {
-        this.aZS = xVar;
+        this.aZL = xVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void za() {
-        this.aZS.LH();
+    public void yK() {
+        this.aZL.LG();
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void zb() {
-        this.aZS.LV();
+    public void yL() {
+        this.aZL.LU();
     }
 }

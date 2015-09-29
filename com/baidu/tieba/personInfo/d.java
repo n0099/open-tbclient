@@ -1,18 +1,23 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
-import com.baidu.tieba.usermute.response.UserMuteAddResponseMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class d implements UserMuteAddAndDelModel.a {
-    final /* synthetic */ PersonInfoActivity cmR;
+class d extends CustomMessageListener {
+    final /* synthetic */ PersonInfoActivity csx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(PersonInfoActivity personInfoActivity) {
-        this.cmR = personInfoActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(PersonInfoActivity personInfoActivity, int i) {
+        super(i);
+        this.csx = personInfoActivity;
     }
 
-    @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.a
-    public void a(UserMuteAddResponseMessage userMuteAddResponseMessage) {
-        this.cmR.cmC = 1;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        aj ajVar;
+        ajVar = this.csx.csl;
+        ajVar.jm(0);
     }
 }

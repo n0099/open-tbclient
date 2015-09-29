@@ -117,7 +117,7 @@ public class a {
         this.Gk = true;
     }
 
-    public boolean mX() {
+    public boolean mY() {
         return this.Gk;
     }
 
@@ -181,7 +181,7 @@ public class a {
         return this.Gc.getHeight() * this.Gc.getRowBytes();
     }
 
-    public boolean mY() {
+    public boolean mZ() {
         if (this.Ge && !this.Gi.get()) {
             if (this.Gc != null) {
                 Bitmap bitmap = this.Gc;
@@ -198,16 +198,16 @@ public class a {
         return false;
     }
 
-    public Bitmap mZ() {
+    public Bitmap na() {
         this.Ge = false;
         return this.Gc;
     }
 
-    public boolean na() {
+    public boolean nb() {
         return this.Gc != null;
     }
 
-    public BitmapDrawable nb() {
+    public BitmapDrawable nc() {
         if (this.Gc == null) {
             return null;
         }
@@ -219,7 +219,7 @@ public class a {
         return this.url;
     }
 
-    public byte[] nc() {
+    public byte[] nd() {
         byte[] byteArray;
         if (this.Gc == null) {
             return null;
@@ -232,15 +232,15 @@ public class a {
         return byteArray;
     }
 
-    public Rect nd() {
+    public Rect ne() {
         return this.Gm;
     }
 
-    public byte[] ne() {
+    public byte[] nf() {
         return this.Gf;
     }
 
-    public BitmapShader nf() {
+    public BitmapShader ng() {
         if (this.Gc == null) {
             return null;
         }

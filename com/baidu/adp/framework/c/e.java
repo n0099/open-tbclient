@@ -24,7 +24,7 @@ public class e {
         if (this.qG == null || this.qG.length != 3) {
             return 0;
         }
-        switch (i.iR()) {
+        switch (i.iS()) {
             case 1:
                 return this.qG[2];
             case 2:

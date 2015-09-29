@@ -3,62 +3,98 @@ package com.baidu.tieba.frs;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class g implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity aVz;
+    final /* synthetic */ FrsActivity aUz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(FrsActivity frsActivity) {
-        this.aVz = frsActivity;
+        this.aUz = frsActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        com.baidu.tieba.frs.c.a aVar;
-        aVar = this.aVz.aVb;
+        com.baidu.tieba.frs.b.a aVar;
+        int i4;
+        bs bsVar;
+        int i5;
+        com.baidu.tieba.tbadkCore.data.b bVar;
+        com.baidu.tieba.tbadkCore.data.b bVar2;
+        com.baidu.tieba.tbadkCore.o oVar;
+        com.baidu.tieba.tbadkCore.o oVar2;
+        com.baidu.tieba.tbadkCore.data.b bVar3;
+        String str;
+        com.baidu.tieba.tbadkCore.data.b bVar4;
+        String str2;
+        aVar = this.aUz.aTZ;
         aVar.onScroll(absListView, i, i2, i3);
+        i4 = this.aUz.aTF;
+        int i6 = (i + i2) - i4;
+        bsVar = this.aUz.aTJ;
+        int Lt = i6 - bsVar.LZ().Lt();
+        i5 = this.aUz.aTF;
+        int i7 = (i5 + Lt) - 1;
+        bVar = this.aUz.aTG;
+        if (bVar != null) {
+            bVar2 = this.aUz.aTG;
+            if (bVar2.kS(Lt) && i7 >= 0) {
+                oVar = this.aUz.aTL;
+                if (i7 < oVar.getThreadList().size()) {
+                    oVar2 = this.aUz.aTL;
+                    if (oVar2.getThreadList().get(i7) instanceof com.baidu.tbadk.core.data.b) {
+                        bVar4 = this.aUz.aTG;
+                        str2 = this.aUz.forumId;
+                        bVar4.d(Lt, 1, str2);
+                        return;
+                    }
+                    bVar3 = this.aUz.aTG;
+                    str = this.aUz.forumId;
+                    bVar3.d(Lt, 2, str);
+                }
+            }
+        }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        com.baidu.tieba.frs.c.a aVar;
+        com.baidu.tieba.frs.b.a aVar;
         boolean z;
-        bi biVar;
-        bi biVar2;
-        bi biVar3;
-        bi biVar4;
+        bs bsVar;
+        bs bsVar2;
+        bs bsVar3;
+        bs bsVar4;
         com.baidu.adp.widget.ListView.w wVar;
-        bi biVar5;
-        com.baidu.tieba.frs.c.a aVar2;
-        aVar = this.aVz.aVb;
+        bs bsVar5;
+        com.baidu.tieba.frs.b.a aVar2;
+        aVar = this.aUz.aTZ;
         if (aVar != null) {
-            aVar2 = this.aVz.aVb;
+            aVar2 = this.aUz.aTZ;
             aVar2.setScrollState(i);
         }
         if (i == 2 || i == 1) {
-            z = this.aVz.aUV;
+            z = this.aUz.aTT;
             if (!z) {
-                this.aVz.aUV = true;
-                biVar = this.aVz.aUL;
-                biVar.Me();
+                this.aUz.aTT = true;
+                bsVar = this.aUz.aTJ;
+                bsVar.Md();
             }
         }
-        if (this.aVz.aUW == null) {
-            this.aVz.aUW = new com.baidu.tbadk.performanceLog.e();
-            this.aVz.aUW.ey(1000);
+        if (this.aUz.aTU == null) {
+            this.aUz.aTU = new com.baidu.tbadk.performanceLog.e();
+            this.aUz.aTU.ez(1000);
         }
         if (i == 0) {
-            biVar4 = this.aVz.aUL;
-            wVar = this.aVz.aVv;
-            biVar4.a(wVar);
-            biVar5 = this.aVz.aUL;
-            biVar5.ci(false);
-            this.aVz.Ji = false;
+            bsVar4 = this.aUz.aTJ;
+            wVar = this.aUz.aUv;
+            bsVar4.a(wVar);
+            bsVar5 = this.aUz.aTJ;
+            bsVar5.cf(false);
+            this.aUz.Ji = false;
         } else {
-            biVar2 = this.aVz.aUL;
-            biVar2.a((com.baidu.adp.widget.ListView.w) null);
-            biVar3 = this.aVz.aUL;
-            biVar3.ci(true);
-            this.aVz.Ji = true;
+            bsVar2 = this.aUz.aTJ;
+            bsVar2.a((com.baidu.adp.widget.ListView.w) null);
+            bsVar3 = this.aUz.aTJ;
+            bsVar3.cf(true);
+            this.aUz.Ji = true;
         }
-        this.aVz.aUW.DR();
+        this.aUz.aTU.DE();
     }
 }

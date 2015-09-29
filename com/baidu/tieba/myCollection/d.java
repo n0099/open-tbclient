@@ -4,11 +4,11 @@ import android.support.v4.view.ViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ c bXA;
+    final /* synthetic */ c cbm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.bXA = cVar;
+        this.cbm = cVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -17,8 +17,8 @@ public class d implements ViewPager.OnPageChangeListener {
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.bXA.io(i);
-        this.bXA.dV(false);
+        this.cbm.iw(i);
+        this.cbm.dW(false);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
