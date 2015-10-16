@@ -7,16 +7,16 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e implements ae {
     private String avatar;
-    private int cPA;
-    private int cPB;
-    private int cPC;
-    private boolean cPD;
-    private boolean cPE;
-    private boolean cPF;
-    private boolean cPG;
-    private int cPH;
-    private int cPy;
-    private int cPz;
+    private int cPX;
+    private int cPY;
+    private int cPZ;
+    private int cQa;
+    private int cQb;
+    private boolean cQc;
+    private boolean cQd;
+    private boolean cQe;
+    private boolean cQf;
+    private int cQg;
     private String errorMsg;
     private int forumId;
     private String forumName;
@@ -33,70 +33,70 @@ public class e implements ae {
         return this.avatar;
     }
 
-    public int atv() {
-        return this.cPy;
+    public int atB() {
+        return this.cPX;
     }
 
-    public int atw() {
-        return this.cPz;
-    }
-
-    public int atx() {
-        return this.cPA;
-    }
-
-    public int aty() {
-        return this.cPB;
-    }
-
-    public int atz() {
-        return this.cPC;
-    }
-
-    public void kB(int i) {
-        this.cPy = i;
-    }
-
-    public void kC(int i) {
-        this.cPz = i;
-    }
-
-    public void kD(int i) {
-        this.cPA = i;
-    }
-
-    public boolean atA() {
-        return this.cPD;
-    }
-
-    public void gg(boolean z) {
-        this.cPD = z;
-        this.cPy = 1;
-    }
-
-    public boolean atB() {
-        return this.cPF;
-    }
-
-    public void gh(boolean z) {
-        this.cPF = z;
-        this.cPy = 0;
-    }
-
-    public boolean atC() {
-        return this.cPG;
-    }
-
-    public void gi(boolean z) {
-        this.cPG = z;
+    public int atC() {
+        return this.cPY;
     }
 
     public int atD() {
-        return this.cPH;
+        return this.cPZ;
+    }
+
+    public int atE() {
+        return this.cQa;
+    }
+
+    public int atF() {
+        return this.cQb;
+    }
+
+    public void kD(int i) {
+        this.cPX = i;
     }
 
     public void kE(int i) {
-        this.cPH = i;
+        this.cPY = i;
+    }
+
+    public void kF(int i) {
+        this.cPZ = i;
+    }
+
+    public boolean atG() {
+        return this.cQc;
+    }
+
+    public void gg(boolean z) {
+        this.cQc = z;
+        this.cPX = 1;
+    }
+
+    public boolean atH() {
+        return this.cQe;
+    }
+
+    public void gh(boolean z) {
+        this.cQe = z;
+        this.cPX = 0;
+    }
+
+    public boolean atI() {
+        return this.cQf;
+    }
+
+    public void gi(boolean z) {
+        this.cQf = z;
+    }
+
+    public int atJ() {
+        return this.cQg;
+    }
+
+    public void kG(int i) {
+        this.cQg = i;
     }
 
     public String getErrorMsg() {
@@ -107,12 +107,12 @@ public class e implements ae {
         this.errorMsg = str;
     }
 
-    public boolean atE() {
-        return this.cPE;
+    public boolean atK() {
+        return this.cQd;
     }
 
     public void gj(boolean z) {
-        this.cPE = z;
+        this.cQd = z;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -120,14 +120,14 @@ public class e implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.cPy = jSONObject.optInt("is_sign_in");
-            this.cPz = jSONObject.optInt("cont_sign_num");
-            this.cPA = jSONObject.optInt("user_level");
-            this.cPB = jSONObject.optInt("user_exp");
-            this.cPC = jSONObject.optInt("need_exp");
-            if (this.cPy != 0) {
-                this.cPD = true;
-                this.cPF = false;
+            this.cPX = jSONObject.optInt("is_sign_in");
+            this.cPY = jSONObject.optInt("cont_sign_num");
+            this.cPZ = jSONObject.optInt("user_level");
+            this.cQa = jSONObject.optInt("user_exp");
+            this.cQb = jSONObject.optInt("need_exp");
+            if (this.cPX != 0) {
+                this.cQc = true;
+                this.cQe = false;
             }
         }
     }
@@ -136,8 +136,8 @@ public class e implements ae {
     public ArrayList<ad> getImages() {
         ArrayList<ad> arrayList = new ArrayList<>();
         ad adVar = new ad();
-        adVar.VY = this.avatar;
-        adVar.aax = 10;
+        adVar.Wa = this.avatar;
+        adVar.aaz = 10;
         arrayList.add(adVar);
         return arrayList;
     }

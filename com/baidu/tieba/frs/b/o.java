@@ -9,51 +9,51 @@ import com.baidu.tieba.frs.ea;
 import com.baidu.tieba.frs.eb;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.base.f<FrsActivity> {
-    private bs aTJ;
-    private SparseArray<a> aZW;
-    private eb aZZ;
-    private FrsActivity baG;
-    private Runnable bbS;
-    private ea bbT;
+    private bs aTU;
+    private FrsActivity baR;
+    private SparseArray<a> bah;
+    private eb bak;
+    private Runnable bcd;
+    private ea bce;
 
     /* loaded from: classes.dex */
     public static class a {
-        public int bbW;
+        public int bch;
         public int top;
     }
 
     public o(FrsActivity frsActivity) {
         super(frsActivity.getPageContext());
-        this.aZW = new SparseArray<>();
-        this.bbT = new p(this);
-        this.aZZ = new q(this);
-        this.baG = frsActivity;
+        this.bah = new SparseArray<>();
+        this.bce = new p(this);
+        this.bak = new q(this);
+        this.baR = frsActivity;
     }
 
     public void oQ() {
-        this.aTJ = new bs(this.baG, this.baG.aUm);
-        this.baG.a(this.aTJ);
+        this.aTU = new bs(this.baR, this.baR.aUx);
+        this.baR.a(this.aTU);
     }
 
     public void onActivityDestroy() {
-        if (this.bbS != null) {
-            com.baidu.adp.lib.g.h.hg().removeCallbacks(this.bbS);
+        if (this.bcd != null) {
+            com.baidu.adp.lib.g.h.hg().removeCallbacks(this.bcd);
         }
     }
 
     public void D(View view) {
-        View Ma = this.aTJ.Ma();
+        View Ma = this.aTU.Ma();
         if (Ma != null && (Ma instanceof FrameLayout)) {
             ((FrameLayout) Ma).addView(view);
         }
     }
 
     public ea NP() {
-        return this.bbT;
+        return this.bce;
     }
 
     public eb NQ() {
-        return this.aZZ;
+        return this.bak;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -62,11 +62,11 @@ public class o extends com.baidu.adp.base.f<FrsActivity> {
     }
 
     public boolean Z(int i, int i2) {
-        a aVar = this.aZW.get(Y(i, i2));
-        return aVar != null && aVar.bbW >= this.aTJ.getListView().getHeaderViewsCount() + (-1);
+        a aVar = this.bah.get(Y(i, i2));
+        return aVar != null && aVar.bch >= this.aTU.getListView().getHeaderViewsCount() + (-1);
     }
 
     public void a(int i, int i2, a aVar) {
-        this.aZW.put(Y(i, i2), aVar);
+        this.bah.put(Y(i, i2), aVar);
     }
 }

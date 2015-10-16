@@ -5,21 +5,21 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends Handler {
-    final /* synthetic */ h bRI;
+    final /* synthetic */ h bRT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.bRI = hVar;
+        this.bRT = hVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         switch (message.what) {
             case 0:
-                this.bRI.aaC();
+                this.bRT.aaC();
                 return;
             case 1:
-                this.bRI.aaB();
+                this.bRT.aaB();
                 return;
             default:
                 return;

@@ -6,16 +6,16 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class cm extends x.a {
-    View aXn;
-    TextView aXo;
-    View aXp;
-    TextView aXq;
+    View aXA;
+    TextView aXB;
+    View aXy;
+    TextView aXz;
 
     public cm(View view) {
         super(view);
-        this.aXo = (TextView) view.findViewById(i.f.frs_fortune_bag_content);
-        this.aXn = view.findViewById(i.f.frs_fortune_bag_item);
-        this.aXp = view.findViewById(i.f.frs_my_service_item);
-        this.aXq = (TextView) view.findViewById(i.f.frs_my_service_content);
+        this.aXz = (TextView) view.findViewById(i.f.frs_fortune_bag_content);
+        this.aXy = view.findViewById(i.f.frs_fortune_bag_item);
+        this.aXA = view.findViewById(i.f.frs_my_service_item);
+        this.aXB = (TextView) view.findViewById(i.f.frs_my_service_content);
     }
 }

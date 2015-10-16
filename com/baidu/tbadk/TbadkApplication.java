@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -15,6 +16,8 @@ import com.baidu.adp.lib.b.e;
 import com.baidu.adp.lib.g.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
+import com.baidu.adp.plugin.util.Util;
 import com.baidu.appsearchlib.NASLib;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -27,7 +30,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.sharedPref.b;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.coreExtra.message.UninstallInquirerBySwitchMessage;
 import com.baidu.tbadk.f.a;
 import com.baidu.tbadk.performanceLog.z;
@@ -83,7 +86,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (z) {
             build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(Domain.DOMAIN_QA).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).fastLoginSupport(generateFastLoginFeatures(isVoiceLoginCanUse)).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
         } else {
-            build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.afO).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).fastLoginSupport(generateFastLoginFeatures(isVoiceLoginCanUse)).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
+            build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.afP).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).fastLoginSupport(generateFastLoginFeatures(isVoiceLoginCanUse)).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
         }
         try {
             SapiAccountManager.getInstance().init(build);
@@ -115,7 +118,16 @@ public class TbadkApplication extends TbadkCoreApplication {
             initSapi();
         }
         init(getContext());
-        PluginPackageManager.lR().a(a.En(), new com.baidu.tbadk.f.c(), String.valueOf(TbConfig.getVersion()) + ".116", isMainProcess(false));
+        long currentTimeMillis = System.currentTimeMillis();
+        String str = String.valueOf(TbConfig.getVersion()) + ".47";
+        PluginPackageManager.lR().a(a.En(), new com.baidu.tbadk.f.c(), str, isMainProcess(false));
+        PluginSettings mk = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().mk();
+        if (mk != null) {
+            String containerVersion = mk.getContainerVersion();
+            if (!TextUtils.isEmpty(containerVersion) && Util.P(containerVersion, str) != Util.VersionCompare.EQUAL) {
+                z.Eh().I(System.currentTimeMillis() - currentTimeMillis);
+            }
+        }
         initSettings();
         if (isMainProcess(true)) {
             MessageManager.getInstance().dispatchResponsedMessage(new UninstallInquirerBySwitchMessage());
@@ -128,16 +140,18 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
         MessageManager.getInstance().registerListener(this.mMemListener);
         if (this.isRemoteProcess) {
-            z.Eh().P(System.currentTimeMillis() - this.processCreateTime);
+            z.Eh().Z(System.currentTimeMillis() - this.processCreateTime);
         }
         if (isMainProcess(true)) {
+            long currentTimeMillis2 = System.currentTimeMillis();
             NASLib.onAppStart(this);
             NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.3
                 @Override // com.baidu.appsearchlib.NASLib.NASCallBack
-                public void callback(String str, String str2) {
-                    ay.uV().b(null, new String[]{str2});
+                public void callback(String str2, String str3) {
+                    az.uW().b(null, new String[]{str3});
                 }
             });
+            z.Eh().R(System.currentTimeMillis() - currentTimeMillis2);
         }
         z.Eh().F(System.currentTimeMillis());
     }

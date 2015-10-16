@@ -9,30 +9,30 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class bj extends x.a {
-    public LinearLayout aVA;
-    public View aVB;
-    public HeadImageView aVC;
-    public TextView aVD;
-    public TextView aVE;
-    public TextView aVF;
-    public TextView aVG;
-    public TbImageView aVH;
-    public TbImageView aVI;
-    public TbImageView aVJ;
-    public TextView aVK;
+    public LinearLayout aVL;
+    public View aVM;
+    public HeadImageView aVN;
+    public TextView aVO;
+    public TextView aVP;
+    public TextView aVQ;
+    public TextView aVR;
+    public TbImageView aVS;
+    public TbImageView aVT;
+    public TbImageView aVU;
+    public TextView aVV;
 
     public bj(View view) {
         super(view);
-        this.aVA = (LinearLayout) view.findViewById(i.f.frs_app_item_parent);
-        this.aVC = (HeadImageView) view.findViewById(i.f.frs_app_multi_pic_icon);
-        this.aVD = (TextView) view.findViewById(i.f.frs_app_multi_pic_name);
-        this.aVE = (TextView) view.findViewById(i.f.frs_app_multi_pic_time);
-        this.aVF = (TextView) view.findViewById(i.f.frs_app_multi_pic_title);
-        this.aVG = (TextView) view.findViewById(i.f.frs_app_multi_pic_desc);
-        this.aVH = (TbImageView) view.findViewById(i.f.frs_app_multi_pic_left);
-        this.aVI = (TbImageView) view.findViewById(i.f.frs_app_multi_pic_center);
-        this.aVJ = (TbImageView) view.findViewById(i.f.frs_app_multi_pic_right);
-        this.aVK = (TextView) view.findViewById(i.f.frs_app_multi_pic_download);
-        this.aVB = view.findViewById(i.f.frs_app_multi_pic_container);
+        this.aVL = (LinearLayout) view.findViewById(i.f.frs_app_item_parent);
+        this.aVN = (HeadImageView) view.findViewById(i.f.frs_app_multi_pic_icon);
+        this.aVO = (TextView) view.findViewById(i.f.frs_app_multi_pic_name);
+        this.aVP = (TextView) view.findViewById(i.f.frs_app_multi_pic_time);
+        this.aVQ = (TextView) view.findViewById(i.f.frs_app_multi_pic_title);
+        this.aVR = (TextView) view.findViewById(i.f.frs_app_multi_pic_desc);
+        this.aVS = (TbImageView) view.findViewById(i.f.frs_app_multi_pic_left);
+        this.aVT = (TbImageView) view.findViewById(i.f.frs_app_multi_pic_center);
+        this.aVU = (TbImageView) view.findViewById(i.f.frs_app_multi_pic_right);
+        this.aVV = (TextView) view.findViewById(i.f.frs_app_multi_pic_download);
+        this.aVM = view.findViewById(i.f.frs_app_multi_pic_container);
     }
 }

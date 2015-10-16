@@ -14,12 +14,12 @@ class at extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
             if (com.baidu.adp.lib.g.b.g(customResponsedMessage.getData().toString(), 1) == 1) {
-                FrsActivityStatic.aUQ = false;
-                FrsActivityStatic.aUP = false;
+                FrsActivityStatic.aVb = false;
+                FrsActivityStatic.aVa = false;
                 return;
             }
-            FrsActivityStatic.aUR = false;
-            FrsActivityStatic.aUP = false;
+            FrsActivityStatic.aVc = false;
+            FrsActivityStatic.aVa = false;
         }
     }
 }

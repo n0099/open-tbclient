@@ -7,13 +7,13 @@ import com.baidu.tbadk.newFriends.ResponseApplyMessage;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class q extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity csx;
+    final /* synthetic */ PersonInfoActivity csI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.csx = personInfoActivity;
+        this.csI = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ class q extends com.baidu.adp.framework.listener.e {
         if (socketResponsedMessage instanceof ResponseApplyMessage) {
             ResponseApplyMessage responseApplyMessage = (ResponseApplyMessage) socketResponsedMessage;
             if (responseApplyMessage.getError() != 0) {
-                this.csx.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.csx.getResources().getString(i.h.neterror) : socketResponsedMessage.getErrorString());
+                this.csI.showToast(StringUtils.isNull(socketResponsedMessage.getErrorString()) ? this.csI.getResources().getString(i.h.neterror) : socketResponsedMessage.getErrorString());
                 return;
             }
             RequestApplyMessage requestApplyMessage = (RequestApplyMessage) responseApplyMessage.getOrginalMessage();
@@ -32,9 +32,9 @@ class q extends com.baidu.adp.framework.listener.e {
             replyInfo.setUserId(requestApplyMessage.getUid());
             replyInfo.setFriendId(requestApplyMessage.getFriendId());
             replyInfo.setMessage(requestApplyMessage.getMessage());
-            yVar = this.csx.csk;
+            yVar = this.csI.csv;
             yVar.ajN().getReplyInfo().add(replyInfo);
-            ajVar = this.csx.csl;
+            ajVar = this.csI.csw;
             ajVar.aka();
         }
     }

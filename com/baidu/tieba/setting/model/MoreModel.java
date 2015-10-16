@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.model;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
 public class MoreModel extends com.baidu.adp.base.e {
-    private boolean cLx;
+    private boolean cLW;
     private PersonChangeData mPersonChangeData;
 
     /* loaded from: classes.dex */
@@ -11,7 +11,7 @@ public class MoreModel extends com.baidu.adp.base.e {
         DO_CACHE_CLEAR,
         GET_SIZE;
 
-        /* JADX DEBUG: Replace access to removed values field (cLy) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (cLX) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static TaskType[] valuesCustom() {
             TaskType[] valuesCustom = values();
@@ -25,7 +25,7 @@ public class MoreModel extends com.baidu.adp.base.e {
     public MoreModel(PersonChangeData personChangeData) {
         super(null);
         this.mPersonChangeData = null;
-        this.cLx = false;
+        this.cLW = false;
         this.mPersonChangeData = personChangeData;
         if (this.mPersonChangeData == null) {
             this.mPersonChangeData = new PersonChangeData();
@@ -37,11 +37,11 @@ public class MoreModel extends com.baidu.adp.base.e {
     }
 
     public void fX(boolean z) {
-        this.cLx = z;
+        this.cLW = z;
     }
 
-    public boolean ark() {
-        return this.cLx;
+    public boolean arq() {
+        return this.cLW;
     }
 
     @Override // com.baidu.adp.base.e

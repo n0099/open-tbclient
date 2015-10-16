@@ -10,27 +10,27 @@ import com.baidu.tbadk.data.ShareFromFrsMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj implements a.b {
-    private final /* synthetic */ com.baidu.tieba.frs.view.p aUI;
-    private final /* synthetic */ long aUJ;
-    private final /* synthetic */ String aUK;
-    private final /* synthetic */ ShareFromFrsMsgData aUL;
-    final /* synthetic */ FrsActivity aUz;
+    final /* synthetic */ FrsActivity aUK;
+    private final /* synthetic */ com.baidu.tieba.frs.view.p aUT;
+    private final /* synthetic */ long aUU;
+    private final /* synthetic */ String aUV;
+    private final /* synthetic */ ShareFromFrsMsgData aUW;
     private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(FrsActivity frsActivity, com.baidu.tieba.frs.view.p pVar, long j, String str, String str2, ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.aUz = frsActivity;
-        this.aUI = pVar;
-        this.aUJ = j;
+        this.aUK = frsActivity;
+        this.aUT = pVar;
+        this.aUU = j;
         this.val$name = str;
-        this.aUK = str2;
-        this.aUL = shareFromFrsMsgData;
+        this.aUV = str2;
+        this.aUW = shareFromFrsMsgData;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.aUz.HidenSoftKeyPad((InputMethodManager) this.aUz.getSystemService("input_method"), this.aUI.getChatMsgView());
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.aUz.getPageContext().getPageActivity(), this.aUJ, this.val$name, this.aUK, 0, this.aUI.getLeaveMsg(), this.aUL.toChatMessageContent())));
+        this.aUK.HidenSoftKeyPad((InputMethodManager) this.aUK.getSystemService("input_method"), this.aUT.getChatMsgView());
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.aUK.getPageContext().getPageActivity(), this.aUU, this.val$name, this.aUV, 0, this.aUT.getLeaveMsg(), this.aUW.toChatMessageContent())));
         aVar.dismiss();
     }
 }

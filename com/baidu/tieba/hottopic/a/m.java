@@ -10,27 +10,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m extends PagerAdapter {
-    private HotTopicActivity bnS;
-    private List<RelateForumItemData> bof = new ArrayList();
-    private List<com.baidu.tieba.hottopic.view.b> bog = new ArrayList();
+    private HotTopicActivity bod;
+    private List<RelateForumItemData> boq = new ArrayList();
+    private List<com.baidu.tieba.hottopic.view.b> bor = new ArrayList();
 
     public m(HotTopicActivity hotTopicActivity) {
-        this.bnS = hotTopicActivity;
+        this.bod = hotTopicActivity;
     }
 
     public void setDatas(List<RelateForumItemData> list) {
         if (list != null && list.size() > 0) {
             destory();
-            this.bof = list;
-            for (int i = 0; i < this.bof.size(); i++) {
-                this.bog.add(a(this.bnS));
+            this.boq = list;
+            for (int i = 0; i < this.boq.size(); i++) {
+                this.bor.add(a(this.bod));
             }
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.bof.size();
+        return this.boq.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -40,14 +40,14 @@ public class m extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        if (this.bog.size() > 0 && i >= 0 && i < this.bog.size()) {
-            viewGroup.removeView(this.bog.get(i));
+        if (this.bor.size() > 0 && i >= 0 && i < this.bor.size()) {
+            viewGroup.removeView(this.bor.get(i));
         }
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (i >= this.bof.size()) {
+        if (i >= this.boq.size()) {
             return null;
         }
         View fJ = fJ(i);
@@ -59,12 +59,12 @@ public class m extends PagerAdapter {
     }
 
     public View fJ(int i) {
-        if (i >= this.bog.size()) {
+        if (i >= this.bor.size()) {
             return null;
         }
-        com.baidu.tieba.hottopic.view.b bVar = this.bog.get(i);
+        com.baidu.tieba.hottopic.view.b bVar = this.bor.get(i);
         if (bVar != null) {
-            bVar.setData(this.bof.get(i));
+            bVar.setData(this.boq.get(i));
             return bVar;
         }
         return bVar;
@@ -80,17 +80,17 @@ public class m extends PagerAdapter {
     }
 
     public void destory() {
-        if (this.bog != null) {
-            this.bog.clear();
+        if (this.bor != null) {
+            this.bor.clear();
         }
-        if (this.bof != null) {
-            this.bof.clear();
+        if (this.boq != null) {
+            this.boq.clear();
         }
     }
 
     public void QK() {
-        if (this.bog != null) {
-            for (com.baidu.tieba.hottopic.view.b bVar : this.bog) {
+        if (this.bor != null) {
+            for (com.baidu.tieba.hottopic.view.b bVar : this.bor) {
                 if (bVar != null) {
                     bVar.QK();
                 }

@@ -6,13 +6,13 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends l<Boolean> {
-    final /* synthetic */ ChatVoiceView bIS;
+    final /* synthetic */ ChatVoiceView bJd;
     private final /* synthetic */ CommonGroupChatMessage val$groupMsg;
     private final /* synthetic */ LinkedList val$list;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ChatVoiceView chatVoiceView, CommonGroupChatMessage commonGroupChatMessage, LinkedList linkedList) {
-        this.bIS = chatVoiceView;
+        this.bJd = chatVoiceView;
         this.val$groupMsg = commonGroupChatMessage;
         this.val$list = linkedList;
     }

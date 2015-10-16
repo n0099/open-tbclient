@@ -21,32 +21,32 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b bFc;
-    private List<GroupUpdateMessage> bFk;
-    private boolean bFq;
-    private int bFd = 900000;
-    private int bFe = 360000;
-    private int bFf = this.bFe;
-    private final int bFg = 0;
-    private final int bFh = 1;
-    private final int bFi = 2;
-    private int bFj = 0;
-    private int bFl = 0;
-    private long bFm = 0;
-    private int bFn = 0;
+    private static b bFn;
+    private boolean bFB;
+    private List<GroupUpdateMessage> bFv;
+    private int bFo = 900000;
+    private int bFp = 360000;
+    private int bFq = this.bFp;
+    private final int bFr = 0;
+    private final int bFs = 1;
+    private final int bFt = 2;
+    private int bFu = 0;
+    private int bFw = 0;
+    private long bFx = 0;
+    private int bFy = 0;
     private final BdUniqueId mTag = BdUniqueId.gen();
     private final Handler mHandler = new a(null);
-    private SparseArray<Long> bFo = null;
-    private SparseArray<Long> bFp = null;
+    private SparseArray<Long> bFz = null;
+    private SparseArray<Long> bFA = null;
     private final com.baidu.adp.framework.client.socket.link.e oN = new e(this);
     private final com.baidu.adp.framework.listener.e mListener = new f(this, 0);
     private final CustomMessageListener mCustomListener = new g(this, CmdConfigCustom.CMD_BACKGROUND_SWTICH);
-    private final CustomMessageListener bFr = new h(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private final CustomMessageListener bFC = new h(this, CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
 
     static {
         MessageManager.getInstance().registerListener(new c(CmdConfigCustom.IM_RESET_CONNECT_STRATEGY));
         MessageManager.getInstance().registerListener(new d(CmdConfigCustom.MEMORY_INIT_COMPLETED));
-        bFc = null;
+        bFn = null;
     }
 
     /* loaded from: classes.dex */
@@ -68,12 +68,12 @@ public class b {
                     return;
                 case 3:
                     b.Wx().mHandler.removeMessages(3);
-                    if (b.Wx().bFn == 3) {
+                    if (b.Wx().bFy == 3) {
                         b.Wx().WD();
                     } else {
                         b.Wx().WC();
                     }
-                    b.Wx().mHandler.sendMessageDelayed(b.Wx().mHandler.obtainMessage(3), b.Wx().bFf);
+                    b.Wx().mHandler.sendMessageDelayed(b.Wx().mHandler.obtainMessage(3), b.Wx().bFq);
                     return;
                 default:
                     return;
@@ -107,24 +107,24 @@ public class b {
         MessageManager.getInstance().sendMessage(b(sparseArray2, i));
         u.a(true, false, false);
         if (i == 3 || i == 1 || i == 2) {
-            if (this.bFo != null) {
-                this.bFo.clear();
+            if (this.bFz != null) {
+                this.bFz.clear();
             }
-            if (this.bFp != null) {
-                this.bFp.clear();
+            if (this.bFA != null) {
+                this.bFA.clear();
             }
         }
     }
 
     public void Wu() {
         boolean z;
-        if (this.bFk != null) {
+        if (this.bFv != null) {
             SparseArray<Long> Wg = com.baidu.tieba.im.memorycache.b.VW().Wg();
             if (Wg == null) {
-                this.bFk = null;
+                this.bFv = null;
                 return;
             }
-            Iterator<GroupUpdateMessage> it = this.bFk.iterator();
+            Iterator<GroupUpdateMessage> it = this.bFv.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -138,19 +138,19 @@ public class b {
                     }
                 }
             }
-            this.bFn = 3;
+            this.bFy = 3;
             if (z) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
             } else {
-                Wx().mHandler.sendMessageDelayed(Wx().mHandler.obtainMessage(3), Wx().bFf);
+                Wx().mHandler.sendMessageDelayed(Wx().mHandler.obtainMessage(3), Wx().bFq);
             }
-            this.bFk = null;
+            this.bFv = null;
         }
     }
 
     private void Wv() {
-        if (this.bFj != 0) {
-            if (this.bFj == 1) {
+        if (this.bFu != 0) {
+            if (this.bFu == 1) {
                 b(0L, 0L, 0L);
             } else {
                 WC();
@@ -166,10 +166,10 @@ public class b {
     public static synchronized b Wx() {
         b bVar;
         synchronized (b.class) {
-            if (bFc == null) {
-                bFc = new b();
+            if (bFn == null) {
+                bFn = new b();
             }
-            bVar = bFc;
+            bVar = bFn;
         }
         return bVar;
     }
@@ -179,7 +179,7 @@ public class b {
             throw new IllegalArgumentException("MessageSync init param illegal");
         }
         MessageManager.getInstance().registerListener(this.mCustomListener);
-        MessageManager.getInstance().registerListener(this.bFr);
+        MessageManager.getInstance().registerListener(this.bFC);
         n.zN().a(this.oN);
         MessageManager.getInstance().registerListener(1003, this.mListener);
         MessageManager.getInstance().registerListener(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES, this.mListener);
@@ -205,36 +205,36 @@ public class b {
     }
 
     public void Wz() {
-        this.bFf = this.bFe;
+        this.bFq = this.bFp;
     }
 
     public void WA() {
-        Wx().bFf = Wx().bFd;
+        Wx().bFq = Wx().bFo;
     }
 
     public void hq(int i) {
         if (i > 0) {
-            this.bFe = i;
+            this.bFp = i;
         }
     }
 
     public void hr(int i) {
         if (i > 0) {
-            this.bFd = i;
+            this.bFo = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void WB() {
-        if (System.currentTimeMillis() - this.bFm >= 180000) {
+        if (System.currentTimeMillis() - this.bFx >= 180000) {
             PushCountMessage pushCountMessage = new PushCountMessage();
-            pushCountMessage.setPusherCount(this.bFl);
+            pushCountMessage.setPusherCount(this.bFw);
             pushCountMessage.setUpFlowSize(com.baidu.adp.lib.webSocket.h.jz().getUpFlowSize());
             pushCountMessage.setDownFlowSize(com.baidu.adp.lib.webSocket.h.jz().getDownFlowSize());
             pushCountMessage.setEnterForeCount(TbadkCoreApplication.m411getInst().getEnterForeCount());
             MessageManager.getInstance().sendMessage(pushCountMessage);
-            this.bFm = System.currentTimeMillis();
-            this.bFl = 0;
+            this.bFx = System.currentTimeMillis();
+            this.bFw = 0;
             com.baidu.adp.lib.webSocket.h.jz().jF();
             com.baidu.adp.lib.webSocket.h.jz().jE();
             TbadkCoreApplication.m411getInst().clearEnterForeCount();
@@ -249,7 +249,7 @@ public class b {
         } else {
             messageSyncMessage.setGroupMids(com.baidu.tieba.im.memorycache.b.VW().Wg());
         }
-        messageSyncMessage.setForTimer(this.bFq);
+        messageSyncMessage.setForTimer(this.bFB);
         LocalViewSize.ImageSize ud = LocalViewSize.ub().ud();
         if (ud != null) {
             messageSyncMessage.setWidth(ud.width);
@@ -281,22 +281,22 @@ public class b {
 
     public synchronized void a(long j, long j2, long j3, boolean z) {
         long longValue;
-        this.bFl++;
-        this.bFq = false;
-        this.bFn = 1;
+        this.bFw++;
+        this.bFB = false;
+        this.bFy = 1;
         this.mHandler.removeMessages(3);
-        Wx().mHandler.sendMessageDelayed(Wx().mHandler.obtainMessage(3), Wx().bFf);
-        if (this.bFo == null) {
-            this.bFo = new SparseArray<>();
-            this.bFo.clear();
+        Wx().mHandler.sendMessageDelayed(Wx().mHandler.obtainMessage(3), Wx().bFq);
+        if (this.bFz == null) {
+            this.bFz = new SparseArray<>();
+            this.bFz.clear();
         }
-        if (this.bFp == null) {
-            this.bFp = new SparseArray<>();
+        if (this.bFA == null) {
+            this.bFA = new SparseArray<>();
         }
         SparseArray<Long> Wg = com.baidu.tieba.im.memorycache.b.VW().Wg();
         if (0 != j) {
             Long l = Wg.get((int) j);
-            Long l2 = this.bFo.get((int) j);
+            Long l2 = this.bFz.get((int) j);
             if (l == null) {
                 if (l2 == null) {
                     longValue = j2;
@@ -307,38 +307,38 @@ public class b {
                 longValue = l.longValue();
             }
             if (longValue > 0) {
-                this.bFo.put((int) j, Long.valueOf(longValue));
+                this.bFz.put((int) j, Long.valueOf(longValue));
             }
         }
-        if (this.bFo != null && this.bFo.size() > 0) {
-            for (int i = 0; i < this.bFo.size(); i++) {
-                int keyAt = this.bFo.keyAt(i);
+        if (this.bFz != null && this.bFz.size() > 0) {
+            for (int i = 0; i < this.bFz.size(); i++) {
+                int keyAt = this.bFz.keyAt(i);
                 Long l3 = Wg.get(keyAt);
                 if (l3 != null && l3.longValue() > 0) {
-                    this.bFo.put(keyAt, l3);
+                    this.bFz.put(keyAt, l3);
                 }
             }
         }
         if (!z) {
             if (j > 0 && j2 > 0) {
-                if (this.bFp.get((int) j) == null) {
-                    this.bFp.put((int) j, Long.valueOf(j2));
+                if (this.bFA.get((int) j) == null) {
+                    this.bFA.put((int) j, Long.valueOf(j2));
                 } else {
-                    long longValue2 = this.bFp.get((int) j).longValue();
+                    long longValue2 = this.bFA.get((int) j).longValue();
                     if (longValue2 > j2) {
                         j2 = longValue2;
                     }
-                    this.bFp.put((int) j, Long.valueOf(j2));
+                    this.bFA.put((int) j, Long.valueOf(j2));
                 }
             }
-            int size = this.bFo.size();
+            int size = this.bFz.size();
             ArrayList arrayList = new ArrayList();
             for (int i2 = 0; i2 < size; i2++) {
-                int keyAt2 = this.bFo.keyAt(i2);
-                long longValue3 = this.bFo.valueAt(i2).longValue();
+                int keyAt2 = this.bFz.keyAt(i2);
+                long longValue3 = this.bFz.valueAt(i2).longValue();
                 long j4 = 0;
-                if (this.bFp.get(keyAt2) != null) {
-                    j4 = this.bFp.get(keyAt2).longValue();
+                if (this.bFA.get(keyAt2) != null) {
+                    j4 = this.bFA.get(keyAt2).longValue();
                 }
                 if (longValue3 >= j4) {
                     arrayList.add(Integer.valueOf((int) j));
@@ -346,14 +346,14 @@ public class b {
             }
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                this.bFo.remove(((Integer) it.next()).intValue());
+                this.bFz.remove(((Integer) it.next()).intValue());
             }
         }
-        if (this.bFo.size() == 0) {
+        if (this.bFz.size() == 0) {
             WF();
-            this.bFp.clear();
+            this.bFA.clear();
         } else {
-            a(this.bFo, 1);
+            a(this.bFz, 1);
         }
     }
 
@@ -372,32 +372,32 @@ public class b {
     public synchronized void c(SparseArray<Long> sparseArray) {
         if (sparseArray != null) {
             if (sparseArray.size() != 0) {
-                this.bFq = false;
-                this.bFn = 4;
+                this.bFB = false;
+                this.bFy = 4;
                 this.mHandler.removeMessages(3);
-                Wx().mHandler.sendMessageDelayed(Wx().mHandler.obtainMessage(3), Wx().bFf);
+                Wx().mHandler.sendMessageDelayed(Wx().mHandler.obtainMessage(3), Wx().bFq);
                 a(sparseArray, 4);
             }
         }
     }
 
     private synchronized void hs(int i) {
-        this.bFq = true;
-        this.bFn = i;
+        this.bFB = true;
+        this.bFy = i;
         a((SparseArray<Long>) null, i);
     }
 
     private void ht(int i) {
         if (i == 1) {
-            if (this.bFj != 2) {
-                this.bFj = 1;
+            if (this.bFu != 2) {
+                this.bFu = 1;
             }
         } else if (i == 3 || i == 2) {
-            this.bFj = 2;
+            this.bFu = 2;
         }
     }
 
     private void WF() {
-        this.bFj = 0;
+        this.bFu = 0;
     }
 }

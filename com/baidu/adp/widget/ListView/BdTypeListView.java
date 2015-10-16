@@ -8,29 +8,29 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdTypeListView extends BdListView {
-    x Il;
+    x Im;
 
     public BdTypeListView(Context context) {
         super(context);
-        this.Il = null;
+        this.Im = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Il = null;
+        this.Im = null;
         init();
     }
 
     public BdTypeListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Il = null;
+        this.Im = null;
         init();
     }
 
     private void init() {
-        if (this.Il == null) {
-            this.Il = new x();
+        if (this.Im == null) {
+            this.Im = new x();
         }
         super.setOnItemClickListener(new s(this));
         super.setOnItemLongClickListener(new t(this));
@@ -49,20 +49,20 @@ public class BdTypeListView extends BdListView {
     public void h(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
-            this.Il.a(it.next());
+            this.Im.a(it.next());
         }
-        setAdapter((ListAdapter) this.Il);
+        setAdapter((ListAdapter) this.Im);
     }
 
     public void setData(List<u> list) {
-        this.Il.setData(list);
+        this.Im.setData(list);
     }
 
     public List<u> getData() {
-        return this.Il.getData();
+        return this.Im.getData();
     }
 
     public u aA(int i) {
-        return this.Il.getItem(i);
+        return this.Im.getItem(i);
     }
 }

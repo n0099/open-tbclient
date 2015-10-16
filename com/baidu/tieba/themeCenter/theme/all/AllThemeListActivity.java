@@ -6,31 +6,31 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.themeCenter.theme.top.d;
 /* loaded from: classes.dex */
 public class AllThemeListActivity extends BaseActivity<AllThemeListActivity> {
-    private d dfP;
-    private h dfQ;
-    private com.baidu.tieba.themeCenter.d dfR;
-    private d.a dfS = new a(this);
+    private d dgp;
+    private h dgq;
+    private com.baidu.tieba.themeCenter.d dgr;
+    private d.a dgs = new a(this);
     private BdListView.e mScrollToBottomListener = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dfR = new com.baidu.tieba.themeCenter.d(getPageContext());
-        this.dfQ = new h(this, this.dfR.azg());
-        this.dfQ.setOnSrollToBottomListener(this.mScrollToBottomListener);
-        this.dfP = new d();
-        this.dfP.a(this.dfS);
-        showLoadingView(this.dfQ.getRootView());
-        this.dfP.LoadData();
+        this.dgr = new com.baidu.tieba.themeCenter.d(getPageContext());
+        this.dgq = new h(this, this.dgr.azq());
+        this.dgq.setOnSrollToBottomListener(this.mScrollToBottomListener);
+        this.dgp = new d();
+        this.dgp.a(this.dgs);
+        showLoadingView(this.dgq.getRootView());
+        this.dgp.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dfQ != null) {
-            this.dfQ.tc();
+        if (this.dgq != null) {
+            this.dgq.tc();
         }
     }
 
@@ -38,16 +38,16 @@ public class AllThemeListActivity extends BaseActivity<AllThemeListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.dfP != null) {
-            this.dfP.destroy();
+        if (this.dgp != null) {
+            this.dgp.destroy();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
-        if (this.dfP != null && this.dfQ != null) {
-            showLoadingView(this.dfQ.getRootView());
-            this.dfP.LoadData();
+        if (this.dgp != null && this.dgq != null) {
+            showLoadingView(this.dgq.getRootView());
+            this.dgp.LoadData();
         }
     }
 }

@@ -1,15 +1,16 @@
 package com.baidu.tieba.write.album;
 
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class af implements u {
-    final /* synthetic */ ac dkO;
+    final /* synthetic */ ac dlo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(ac acVar) {
-        this.dkO = acVar;
+        this.dlo = acVar;
     }
 
     @Override // com.baidu.tieba.write.album.u
@@ -21,26 +22,26 @@ class af implements u {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
         l lVar5;
-        lVar = this.dkO.djp;
+        lVar = this.dlo.djP;
         int maxImagesAllowed = lVar.getMaxImagesAllowed();
-        lVar2 = this.dkO.djp;
+        lVar2 = this.dlo.djP;
         if (lVar2.size() < maxImagesAllowed) {
-            lVar3 = this.dkO.djp;
-            if (lVar3.aBo()) {
-                lVar5 = this.dkO.djp;
-                lVar5.mk(String.valueOf(System.currentTimeMillis()));
+            lVar3 = this.dlo.djP;
+            if (lVar3.aBy()) {
+                lVar5 = this.dlo.djP;
+                lVar5.mn(String.valueOf(System.currentTimeMillis()));
             }
-            lVar4 = this.dkO.djp;
-            String aBn = lVar4.aBn();
-            if (!StringUtils.isNull(aBn, true)) {
-                albumActivity2 = this.dkO.djw;
-                com.baidu.tbadk.core.util.al.a(albumActivity2.getPageContext(), aBn);
+            lVar4 = this.dlo.djP;
+            String aBx = lVar4.aBx();
+            if (!StringUtils.isNull(aBx, true)) {
+                albumActivity2 = this.dlo.djW;
+                am.a(albumActivity2.getPageContext(), aBx);
                 return;
             }
-            albumActivity = this.dkO.djw;
-            com.baidu.tbadk.core.util.al.c(albumActivity.getPageContext());
+            albumActivity = this.dlo.djW;
+            am.c(albumActivity.getPageContext());
             return;
         }
-        this.dkO.showToast(String.format(this.dkO.getPageContext().getString(i.h.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+        this.dlo.showToast(String.format(this.dlo.getPageContext().getString(i.h.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
     }
 }

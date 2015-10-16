@@ -5,75 +5,75 @@ import tbclient.FrsPage.Size;
 import tbclient.FrsPage.StarInfo;
 /* loaded from: classes.dex */
 public class n {
-    private int cXd = 0;
-    private int cXe = 0;
-    private String cXf = null;
-    private String cXg = null;
-    private int cXh = 0;
-    private int cXi = 0;
-    private int cXj = 0;
-    private int cXk = 0;
-    private int cXl = 0;
-    private int cXm = 0;
-    private long cXn = 0;
-    private long cXo = 0;
-    private boolean cXp = false;
-    private long cXq = 0;
-    private String cXr = null;
+    private int cXC = 0;
+    private int cXD = 0;
+    private String cXE = null;
+    private String cXF = null;
+    private int cXG = 0;
+    private int cXH = 0;
+    private int cXI = 0;
+    private int cXJ = 0;
+    private int cXK = 0;
+    private int cXL = 0;
+    private long cXM = 0;
+    private long cXN = 0;
+    private boolean cXO = false;
+    private long cXP = 0;
+    private String cXQ = null;
 
-    public int avE() {
-        return this.cXd;
+    public int avK() {
+        return this.cXC;
     }
 
-    public String avF() {
-        return this.cXf;
+    public String avL() {
+        return this.cXE;
     }
 
-    public String avG() {
-        return this.cXg;
+    public String avM() {
+        return this.cXF;
     }
 
-    public boolean avH() {
-        return this.cXp;
+    public boolean avN() {
+        return this.cXO;
     }
 
-    public long avI() {
-        return this.cXq;
+    public long avO() {
+        return this.cXP;
     }
 
-    public String avJ() {
-        return this.cXr;
+    public String avP() {
+        return this.cXQ;
     }
 
     public void a(StarInfo starInfo) {
         if (starInfo != null) {
-            this.cXd = starInfo.has_frs_star.intValue();
-            if (this.cXd == 1) {
-                this.cXf = starInfo.top;
-                this.cXg = starInfo.head;
+            this.cXC = starInfo.has_frs_star.intValue();
+            if (this.cXC == 1) {
+                this.cXE = starInfo.top;
+                this.cXF = starInfo.head;
                 Fans fans = starInfo.fans;
-                this.cXh = fans.is_get.intValue();
-                this.cXi = fans.num.intValue();
-                this.cXe = fans.open.intValue();
-                this.cXn = fans.left_time.intValue();
-                this.cXo = this.cXn;
+                this.cXG = fans.is_get.intValue();
+                this.cXH = fans.num.intValue();
+                this.cXD = fans.open.intValue();
+                this.cXM = fans.left_time.intValue();
+                this.cXN = this.cXM;
                 Size size = starInfo.top_size;
                 if (size != null) {
-                    this.cXj = size.width.intValue();
-                    this.cXk = size.height.intValue();
+                    this.cXI = size.width.intValue();
+                    this.cXJ = size.height.intValue();
                 }
                 Size size2 = starInfo.head_size;
                 if (size2 != null) {
-                    this.cXl = size2.width.intValue();
-                    this.cXm = size2.height.intValue();
+                    this.cXK = size2.width.intValue();
+                    this.cXL = size2.height.intValue();
                 }
             }
-            this.cXp = starInfo.trade != null;
-            if (this.cXp) {
+            this.cXO = starInfo.trade != null;
+            if (this.cXO) {
                 if (starInfo.trade.time != null) {
-                    this.cXq = starInfo.trade.time.intValue();
+                    this.cXP = starInfo.trade.time.intValue();
                 }
-                this.cXr = starInfo.trade.url;
+                this.cXQ = starInfo.trade.url;
             }
         }
     }

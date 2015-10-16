@@ -10,11 +10,11 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.pb.pb.main.bl;
 /* loaded from: classes.dex */
 class i implements bl.a {
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(PbActivity pbActivity) {
-        this.ciz = pbActivity;
+        this.ciK = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.bl.a
@@ -54,84 +54,84 @@ class i implements bl.a {
         cc ccVar14;
         com.baidu.tbadk.editortools.c.d dVar8;
         cc ccVar15;
-        this.ciz.ceQ = true;
+        this.ciK.cfb = true;
         long currentTimeMillis = System.currentTimeMillis();
-        ccVar = this.ciz.cia;
+        ccVar = this.ciK.cim;
         ccVar.agB();
-        PbActivity pbActivity = this.ciz;
-        ccVar2 = this.ciz.cia;
+        PbActivity pbActivity = this.ciK;
+        ccVar2 = this.ciK.cim;
         pbActivity.hideLoadingView(ccVar2.getView());
-        ccVar3 = this.ciz.cia;
+        ccVar3 = this.ciK.cim;
         ccVar3.Vv();
-        ccVar4 = this.ciz.cia;
+        ccVar4 = this.ciK.cim;
         ccVar4.eP(false);
-        z2 = this.ciz.att;
+        z2 = this.ciK.atu;
         if (z2) {
-            this.ciz.att = false;
-            ccVar15 = this.ciz.cia;
-            ccVar15.cka.clK.setEnabled(true);
+            this.ciK.atu = false;
+            ccVar15 = this.ciK.cim;
+            ccVar15.ckl.clV.setEnabled(true);
         }
         if (i4 == 0 && bVar != null) {
-            this.ciz.aTw = true;
+            this.ciK.aTH = true;
         }
         if (z && bVar != null) {
-            ccVar9 = this.ciz.cia;
+            ccVar9 = this.ciK.cim;
             ccVar9.LP();
-            dVar = this.ciz.cij;
+            dVar = this.ciK.ciu;
             if (dVar != null) {
-                ccVar14 = this.ciz.cia;
-                dVar8 = this.ciz.cij;
+                ccVar14 = this.ciK.cim;
+                dVar8 = this.ciK.ciu;
                 ccVar14.eN(dVar8.Br());
             }
             TbadkCoreApplication.m411getInst().setDefaultBubble(bVar.getUserData().getBimg_url());
             TbadkCoreApplication.m411getInst().setDefaultBubbleEndTime(bVar.getUserData().getBimg_end_time());
-            dVar2 = this.ciz.cij;
+            dVar2 = this.ciK.ciu;
             if (dVar2 != null) {
-                dVar6 = this.ciz.cij;
+                dVar6 = this.ciK.ciu;
                 dVar6.a(bVar.rF());
-                dVar7 = this.ciz.cij;
+                dVar7 = this.ciK.ciu;
                 dVar7.a(bVar.aeN(), bVar.getUserData());
             }
-            aVar = this.ciz.chW;
+            aVar = this.ciK.cii;
             if (aVar != null) {
-                aVar2 = this.ciz.chW;
+                aVar2 = this.ciK.cii;
                 aVar2.ab(bVar.qk());
             }
             if (bVar == null || bVar.aeT() != 1) {
-                this.ciz.mIsFromCDN = false;
+                this.ciK.mIsFromCDN = false;
             } else {
-                this.ciz.mIsFromCDN = true;
+                this.ciK.mIsFromCDN = true;
             }
-            ccVar10 = this.ciz.cia;
-            z4 = this.ciz.mIsFromCDN;
+            ccVar10 = this.ciK.cim;
+            z4 = this.ciK.mIsFromCDN;
             ccVar10.eO(z4);
-            ccVar11 = this.ciz.cia;
-            blVar = this.ciz.chV;
+            ccVar11 = this.ciK.cim;
+            blVar = this.ciK.cih;
             boolean afL = blVar.afL();
-            blVar2 = this.ciz.chV;
+            blVar2 = this.ciK.cih;
             ccVar11.a(bVar, i2, i3, afL, i4, blVar2.getIsFromMark());
-            ccVar12 = this.ciz.cia;
-            blVar3 = this.ciz.chV;
+            ccVar12 = this.ciK.cim;
+            blVar3 = this.ciK.cih;
             ccVar12.a(bVar, blVar3.afL(), false, i2);
-            ccVar13 = this.ciz.cia;
-            blVar4 = this.ciz.chV;
+            ccVar13 = this.ciK.cim;
+            blVar4 = this.ciK.cih;
             ccVar13.eL(blVar4.getHostMode());
-            this.ciz.afy();
+            this.ciK.afy();
             AntiData rF = bVar.rF();
             if (rF != null) {
-                this.ciz.asb = rF.getVoice_message();
-                str2 = this.ciz.asb;
+                this.ciK.asc = rF.getVoice_message();
+                str2 = this.ciK.asc;
                 if (!StringUtils.isNull(str2)) {
-                    dVar3 = this.ciz.cij;
+                    dVar3 = this.ciK.ciu;
                     if (dVar3 != null) {
-                        dVar4 = this.ciz.cij;
+                        dVar4 = this.ciK.ciu;
                         if (dVar4.Ax() != null) {
-                            dVar5 = this.ciz.cij;
+                            dVar5 = this.ciK.ciu;
                             com.baidu.tbadk.editortools.p dS = dVar5.Ax().dS(6);
                             if (dS != null) {
-                                str3 = this.ciz.asb;
+                                str3 = this.ciK.asc;
                                 if (!TextUtils.isEmpty(str3)) {
-                                    onClickListener = this.ciz.cim;
+                                    onClickListener = this.ciK.cix;
                                     ((View) dS).setOnClickListener(onClickListener);
                                 }
                             }
@@ -140,30 +140,30 @@ class i implements bl.a {
                 }
             }
         } else if (str != null) {
-            z3 = this.ciz.aTw;
+            z3 = this.ciK.aTH;
             if (!z3 && i4 == 1) {
                 if (i2 == 3 || i2 == 4 || i2 == 6) {
-                    PbActivity pbActivity2 = this.ciz;
-                    ccVar7 = this.ciz.cia;
-                    pbActivity2.showNetRefreshView(ccVar7.getView(), this.ciz.getPageContext().getResources().getString(i.h.net_error_text, str, Integer.valueOf(i)), true);
-                    ccVar8 = this.ciz.cia;
+                    PbActivity pbActivity2 = this.ciK;
+                    ccVar7 = this.ciK.cim;
+                    pbActivity2.showNetRefreshView(ccVar7.getView(), this.ciK.getPageContext().getResources().getString(i.h.net_error_text, str, Integer.valueOf(i)), true);
+                    ccVar8 = this.ciK.cim;
                     ccVar8.agQ();
                 }
             } else {
-                this.ciz.showToast(str);
+                this.ciK.showToast(str);
             }
-            ccVar5 = this.ciz.cia;
-            ccVar5.jQ(this.ciz.getResources().getString(i.h.list_no_more));
-            ccVar6 = this.ciz.cia;
+            ccVar5 = this.ciK.cim;
+            ccVar5.jQ(this.ciK.getResources().getString(i.h.list_no_more));
+            ccVar6 = this.ciK.cim;
             ccVar6.vy();
         }
-        this.ciz.axx = System.currentTimeMillis() - currentTimeMillis;
+        this.ciK.axy = System.currentTimeMillis() - currentTimeMillis;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.bl.a
     public void b(com.baidu.tieba.pb.a.b bVar) {
         cc ccVar;
-        ccVar = this.ciz.cia;
+        ccVar = this.ciK.cim;
         ccVar.h(bVar);
     }
 
@@ -172,17 +172,17 @@ class i implements bl.a {
         long j;
         long j2;
         long j3;
-        PbActivity pbActivity = this.ciz;
+        PbActivity pbActivity = this.ciK;
         long currentTimeMillis = System.currentTimeMillis();
-        j = this.ciz.aLy;
-        pbActivity.axy = currentTimeMillis - j;
+        j = this.ciK.aLJ;
+        pbActivity.axz = currentTimeMillis - j;
         if (z) {
             com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
             tVar.ez(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-            j2 = this.ciz.createTime;
-            tVar.axr = j2;
-            j3 = this.ciz.axy;
-            tVar.axy = j3;
+            j2 = this.ciK.createTime;
+            tVar.axs = j2;
+            j3 = this.ciK.axz;
+            tVar.axz = j3;
             tVar.DV();
         }
     }
@@ -195,20 +195,20 @@ class i implements bl.a {
         long j4;
         long j5;
         if (tVar != null) {
-            j = this.ciz.createTime;
-            tVar.axr = j;
-            this.ciz.createTime = 0L;
-            j2 = this.ciz.axx;
-            tVar.axx = j2;
-            j3 = this.ciz.axy;
+            j = this.ciK.createTime;
+            tVar.axs = j;
+            this.ciK.createTime = 0L;
+            j2 = this.ciK.axy;
+            tVar.axy = j2;
+            j3 = this.ciK.axz;
             if (j3 == 0) {
                 long currentTimeMillis = System.currentTimeMillis();
-                j5 = this.ciz.aLy;
+                j5 = this.ciK.aLJ;
                 j4 = currentTimeMillis - j5;
             } else {
-                j4 = this.ciz.axy;
+                j4 = this.ciK.axz;
             }
-            tVar.axy = j4;
+            tVar.axz = j4;
             tVar.DW();
         }
     }

@@ -5,14 +5,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
-    private final int bvZ;
-    private List<String> cHY = new ArrayList();
+    private final int bwk;
+    private List<String> cIx = new ArrayList();
     private Context mContext;
     private int padding;
     private int textSize;
@@ -23,30 +23,30 @@ public class g extends BaseAdapter {
         this.mContext = context;
         this.textSize = context.getResources().getDimensionPixelSize(i.d.fontsize28);
         this.padding = context.getResources().getDimensionPixelSize(i.d.ds16);
-        this.bvZ = i;
+        this.bwk = i;
     }
 
-    public void bp(List<String> list) {
-        this.cHY.clear();
+    public void bq(List<String> list) {
+        this.cIx.clear();
         if (list != null && list.size() > 0) {
-            this.cHY.addAll(list);
+            this.cIx.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.cHY.size();
+        return this.cIx.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: im */
     public String getItem(int i) {
-        if (i < 0 || i >= this.cHY.size()) {
+        if (i < 0 || i >= this.cIx.size()) {
             return null;
         }
-        return this.cHY.get(i);
+        return this.cIx.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,11 +66,11 @@ public class g extends BaseAdapter {
             textView.setPadding(0, this.padding, 0, this.padding);
         }
         textView.setText(getItem(i));
-        am.b(textView, i.c.cp_cont_f, 1);
-        if (i == this.bvZ) {
-            am.i((View) textView, i.e.btn_label_white_s);
+        an.b(textView, i.c.cp_cont_f, 1);
+        if (i == this.bwk) {
+            an.i((View) textView, i.e.btn_label_white_s);
         } else {
-            am.i((View) textView, i.e.rec_frs_btn_more_item);
+            an.i((View) textView, i.e.rec_frs_btn_more_item);
         }
         return textView;
     }

@@ -6,8 +6,8 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
-    private int acR;
     private int acS;
+    private int acT;
     private String mUrl;
     private String user_id;
     private String user_name;
@@ -25,8 +25,8 @@ public class HeadImageView extends TbClipImageView {
         this.user_id = null;
         this.user_name = null;
         this.mUrl = null;
-        this.acR = i.e.icon_default_avatar100;
-        this.acS = i.c.cp_cont_e;
+        this.acS = i.e.icon_default_avatar100;
+        this.acT = i.c.cp_cont_e;
         init();
     }
 
@@ -34,8 +34,8 @@ public class HeadImageView extends TbClipImageView {
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
-        setDefaultBgResource(this.acS);
-        setDefaultResource(this.acR);
+        setDefaultBgResource(this.acT);
+        setDefaultResource(this.acS);
     }
 
     public void setUrl(String str) {
@@ -65,10 +65,10 @@ public class HeadImageView extends TbClipImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView
     public void vr() {
-        if (!this.aAK) {
-            this.aAK = true;
-        } else if (this.aAN != null && this.aAN.axq) {
-            this.aAN.DT();
+        if (!this.aAV) {
+            this.aAV = true;
+        } else if (this.aAY != null && this.aAY.axr) {
+            this.aAY.DT();
         }
     }
 }

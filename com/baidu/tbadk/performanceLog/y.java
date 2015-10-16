@@ -8,32 +8,32 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class y {
-    private static String axS = "tb_perfor_samllflow_time";
-    private static volatile y axV;
-    private long axU;
-    private boolean axQ = false;
-    private long axT = 86400;
-    private long axR = com.baidu.tbadk.core.sharedPref.b.tu().getLong(axS, 0);
+    private static String axT = "tb_perfor_samllflow_time";
+    private static volatile y axW;
+    private long axV;
+    private boolean axR = false;
+    private long axU = 86400;
+    private long axS = com.baidu.tbadk.core.sharedPref.b.tu().getLong(axT, 0);
 
     public static y Eb() {
-        if (axV == null) {
+        if (axW == null) {
             synchronized (y.class) {
-                if (axV == null) {
-                    axV = new y();
+                if (axW == null) {
+                    axW = new y();
                 }
             }
         }
-        return axV;
+        return axW;
     }
 
     private y() {
-        this.axU = 0L;
-        this.axU = this.axT;
+        this.axV = 0L;
+        this.axV = this.axU;
     }
 
     public boolean Ec() {
-        if (!this.axQ || (System.currentTimeMillis() - this.axR) / 1000 <= this.axU) {
-            return this.axQ;
+        if (!this.axR || (System.currentTimeMillis() - this.axS) / 1000 <= this.axV) {
+            return this.axR;
         }
         return false;
     }
@@ -41,15 +41,15 @@ public class y {
     public void bq(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.axR || currentTimeMillis - this.axR >= this.axU) {
-                this.axR = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.tu().putLong(axS, this.axR);
+            if (0 == this.axS || currentTimeMillis - this.axS >= this.axV) {
+                this.axS = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.tu().putLong(axT, this.axS);
             }
         } else {
-            this.axR = 0L;
-            com.baidu.tbadk.core.sharedPref.b.tu().putLong(axS, this.axR);
+            this.axS = 0L;
+            com.baidu.tbadk.core.sharedPref.b.tu().putLong(axT, this.axS);
         }
-        this.axQ = z;
+        this.axR = z;
     }
 
     public String Ed() {
@@ -145,7 +145,7 @@ public class y {
 
     public void D(long j) {
         if (j > 0) {
-            this.axU = j;
+            this.axV = j;
         }
     }
 

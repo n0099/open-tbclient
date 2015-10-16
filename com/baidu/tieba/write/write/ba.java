@@ -6,27 +6,27 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ba extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    private final /* synthetic */ SpannableStringBuilder bZS;
-    private final /* synthetic */ EmotionGroupType bZU;
-    final /* synthetic */ WriteActivity dpI;
+    private final /* synthetic */ SpannableStringBuilder cad;
+    private final /* synthetic */ EmotionGroupType caf;
+    final /* synthetic */ WriteActivity dqi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
-        this.dpI = writeActivity;
-        this.bZS = spannableStringBuilder;
-        this.bZU = emotionGroupType;
+        this.dqi = writeActivity;
+        this.cad = spannableStringBuilder;
+        this.caf = emotionGroupType;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        EditText aDm;
+        EditText aDw;
         super.a((ba) aVar, str, i);
         if (aVar == null) {
             return;
         }
-        aDm = this.dpI.aDm();
-        this.dpI.a(this.bZS, aDm.getSelectionStart(), aVar, this.bZU);
+        aDw = this.dqi.aDw();
+        this.dqi.a(this.cad, aDw.getSelectionStart(), aVar, this.caf);
     }
 }

@@ -9,13 +9,13 @@ import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 class h extends CustomMessageListener {
-    final /* synthetic */ SkinProgressView dep;
+    final /* synthetic */ SkinProgressView deP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(SkinProgressView skinProgressView, int i) {
         super(i);
-        this.dep = skinProgressView;
+        this.deP = skinProgressView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ class h extends CustomMessageListener {
         b bVar5;
         b bVar6;
         if (customResponsedMessage instanceof DownloadMessage) {
-            bVar = this.dep.mSkinData;
+            bVar = this.deP.mSkinData;
             if (bVar != null) {
                 List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
                 int i = 0;
@@ -41,9 +41,9 @@ class h extends CustomMessageListener {
                         break;
                     }
                     downloadData = data.get(i2);
-                    bVar5 = this.dep.mSkinData;
+                    bVar5 = this.deP.mSkinData;
                     if (bVar5.getId() > 0) {
-                        bVar6 = this.dep.mSkinData;
+                        bVar6 = this.deP.mSkinData;
                         if (String.valueOf(bVar6.getId()).equals(downloadData.getId())) {
                             break;
                         }
@@ -55,27 +55,27 @@ class h extends CustomMessageListener {
                 }
                 switch (downloadData.getStatus()) {
                     case 0:
-                        this.dep.azh();
+                        this.deP.azr();
                         return;
                     case 1:
-                        this.dep.e(2, ((float) downloadData.getLength()) / ((float) downloadData.getSize()));
-                        bVar4 = this.dep.mSkinData;
-                        bVar4.lp(2);
+                        this.deP.e(2, ((float) downloadData.getLength()) / ((float) downloadData.getSize()));
+                        bVar4 = this.deP.mSkinData;
+                        bVar4.lr(2);
                         return;
                     case 2:
-                        this.dep.e(1, 0.0f);
-                        bVar2 = this.dep.mSkinData;
-                        bVar2.lp(1);
-                        context = this.dep.mContext;
+                        this.deP.e(1, 0.0f);
+                        bVar2 = this.deP.mSkinData;
+                        bVar2.lr(1);
+                        context = this.deP.mContext;
                         com.baidu.adp.lib.util.k.showToast(context, i.h.tip_download_error);
                         return;
                     case 3:
-                        this.dep.azh();
+                        this.deP.azr();
                         return;
                     case 4:
-                        this.dep.e(3, 0.0f);
-                        bVar3 = this.dep.mSkinData;
-                        bVar3.lp(3);
+                        this.deP.e(3, 0.0f);
+                        bVar3 = this.deP.mSkinData;
+                        bVar3.lr(3);
                         return;
                     default:
                         return;

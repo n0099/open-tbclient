@@ -13,10 +13,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class MemberRecommendView extends FrameLayout {
-    private TextView WM;
-    private TextView bla;
-    private TbImageView ddK;
-    private com.baidu.tieba.themeCenter.dressCenter.k ddL;
+    private TextView WO;
+    private TextView bll;
+    private TbImageView dek;
+    private com.baidu.tieba.themeCenter.dressCenter.k del;
     private int fromType;
     private Context mContext;
     private View mRootView;
@@ -41,25 +41,25 @@ public class MemberRecommendView extends FrameLayout {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(i.g.member_extend_view, this);
-        this.ddK = (TbImageView) this.mRootView.findViewById(i.f.vip_icon);
-        this.ddK.setDefaultResource(i.e.icon_vip_orange);
-        this.ddK.setDefaultBgResource(i.e.transparent_bg);
-        this.WM = (TextView) this.mRootView.findViewById(i.f.title_view);
-        this.bla = (TextView) this.mRootView.findViewById(i.f.jump_button);
-        this.bla.setOnClickListener(new a(this));
+        this.dek = (TbImageView) this.mRootView.findViewById(i.f.vip_icon);
+        this.dek.setDefaultResource(i.e.icon_vip_orange);
+        this.dek.setDefaultBgResource(i.e.transparent_bg);
+        this.WO = (TextView) this.mRootView.findViewById(i.f.title_view);
+        this.bll = (TextView) this.mRootView.findViewById(i.f.jump_button);
+        this.bll.setOnClickListener(new a(this));
     }
 
     public void a(com.baidu.tieba.themeCenter.dressCenter.k kVar) {
         if (kVar != null) {
-            this.ddL = kVar;
-            this.ddK.d(this.ddL.getIconUrl(), 10, false);
-            this.WM.setText(this.ddL.azq());
-            if (StringUtils.isNull(this.ddL.Ui())) {
-                this.bla.setVisibility(8);
+            this.del = kVar;
+            this.dek.d(this.del.getIconUrl(), 10, false);
+            this.WO.setText(this.del.azA());
+            if (StringUtils.isNull(this.del.Ui())) {
+                this.bll.setVisibility(8);
                 return;
             }
-            this.bla.setVisibility(0);
-            this.bla.setText(this.ddL.Ui());
+            this.bll.setVisibility(0);
+            this.bll.setText(this.del.Ui());
         }
     }
 

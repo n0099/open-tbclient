@@ -4,9 +4,9 @@ import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
 /* loaded from: classes.dex */
 public class a extends i {
-    PluginPackageManager.PluginStatus Eq;
-    String Er;
-    boolean Es;
+    PluginPackageManager.PluginStatus Er;
+    String Es;
+    boolean Et;
     int errorCode;
     String errorMsg;
     String pkgName;
@@ -29,6 +29,6 @@ public class a extends i {
     }
 
     public String ms() {
-        return this.Er;
+        return this.Es;
     }
 }

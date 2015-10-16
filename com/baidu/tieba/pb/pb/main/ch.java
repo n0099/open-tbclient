@@ -8,11 +8,11 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ch implements View.OnClickListener {
-    final /* synthetic */ cc cly;
+    final /* synthetic */ cc clJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ch(cc ccVar) {
-        this.cly = ccVar;
+        this.clJ = ccVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,12 +23,12 @@ public class ch implements View.OnClickListener {
         Dialog dialog2;
         Dialog dialog3;
         PbActivity pbActivity;
-        dialog = this.cly.ckF;
+        dialog = this.clJ.ckQ;
         if (dialog != null) {
-            dialog2 = this.cly.ckF;
+            dialog2 = this.clJ.ckQ;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.cly.ckF;
-                pbActivity = this.cly.ciJ;
+                dialog3 = this.clJ.ckQ;
+                pbActivity = this.clJ.ciU;
                 com.baidu.adp.lib.g.j.b(dialog3, pbActivity.getPageContext());
             }
         }
@@ -36,11 +36,11 @@ public class ch implements View.OnClickListener {
         if (sparseArray == null) {
             return;
         }
-        aVar = this.cly.clv;
+        aVar = this.clJ.clG;
         if (aVar == null) {
             return;
         }
-        aVar2 = this.cly.clv;
+        aVar2 = this.clJ.clG;
         aVar2.d(new Object[]{sparseArray.get(i.f.tag_manage_user_identity), sparseArray.get(i.f.tag_forbid_user_name), sparseArray.get(i.f.tag_forbid_user_post_id)});
     }
 }

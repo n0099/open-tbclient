@@ -8,10 +8,10 @@ import com.baidu.tieba.recommendfrs.data.g;
 import com.baidu.tieba.recommendfrs.data.h;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.recommendfrs.control.a.a cId;
-    private e cIe;
-    private h cIf = new h();
-    private a cIg;
+    private com.baidu.tieba.recommendfrs.control.a.a cIC;
+    private e cID;
+    private h cIE = new h();
+    private a cIF;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,28 +21,28 @@ public class b {
     }
 
     public b(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId) {
-        this.cId = new com.baidu.tieba.recommendfrs.control.a.a(tbPageContext);
-        this.cId.setUniqueId(bdUniqueId);
-        this.cIe = new e(tbPageContext, this.cIf);
-        this.cIe.setUniqueId(bdUniqueId);
-        this.cId.a(new c(this));
-        this.cIe.a(new d(this));
+        this.cIC = new com.baidu.tieba.recommendfrs.control.a.a(tbPageContext);
+        this.cIC.setUniqueId(bdUniqueId);
+        this.cID = new e(tbPageContext, this.cIE);
+        this.cID.setUniqueId(bdUniqueId);
+        this.cIC.a(new c(this));
+        this.cID.a(new d(this));
     }
 
-    public void kU(String str) {
-        this.cId.a((com.baidu.tbadk.mvc.b.e) new f(str));
+    public void kX(String str) {
+        this.cIC.a((com.baidu.tbadk.mvc.b.e) new f(str));
     }
 
     public void c(int i, String str, int i2) {
-        if (!this.cIe.isLoading()) {
-            this.cIf.kp(i);
-            this.cIf.kY(str);
-            this.cIf.ko(i2);
-            this.cIe.CS();
+        if (!this.cID.isLoading()) {
+            this.cIE.kr(i);
+            this.cIE.lb(str);
+            this.cIE.kq(i2);
+            this.cID.CS();
         }
     }
 
     public void a(a aVar) {
-        this.cIg = aVar;
+        this.cIF = aVar;
     }
 }

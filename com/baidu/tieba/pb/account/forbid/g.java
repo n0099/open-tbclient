@@ -4,12 +4,12 @@ import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.w;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class g {
-    private static final String ceC = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/bawu/listreason";
+    private static final String ceN = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/bawu/listreason";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -22,17 +22,16 @@ public class g {
         new a(str, str2, bVar).execute(new String[0]);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String aFl;
-        private String aFm;
-        private WeakReference<b> aFp;
+    private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
+        private WeakReference<b> aFA;
+        private String aFw;
+        private String aFx;
 
         public a(String str, String str2, b bVar) {
-            this.aFl = str;
-            this.aFm = str2;
-            this.aFp = new WeakReference<>(bVar);
+            this.aFw = str;
+            this.aFx = str2;
+            this.aFA = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -41,11 +40,11 @@ public class g {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: v */
         public ForbidTplData doInBackground(String... strArr) {
-            w wVar = new w(g.ceC);
-            wVar.o("forum_id", this.aFl);
-            wVar.o("user_id", this.aFm);
+            w wVar = new w(g.ceN);
+            wVar.o("forum_id", this.aFw);
+            wVar.o("user_id", this.aFx);
             String tG = wVar.tG();
-            if (wVar.uh().uY().qV()) {
+            if (wVar.uh().uZ().qV()) {
                 try {
                     return (ForbidTplData) i.objectWithJsonStr(tG, ForbidTplData.class);
                 } catch (Exception e) {
@@ -67,9 +66,9 @@ public class g {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            b bVar = this.aFp.get();
+            b bVar = this.aFA.get();
             if (bVar != null) {
-                if (forbidTplData.error.errno == 0 && ar.isEmpty(forbidTplData.error.errMsg)) {
+                if (forbidTplData.error.errno == 0 && as.isEmpty(forbidTplData.error.errMsg)) {
                     bVar.a(forbidTplData);
                 } else {
                     bVar.b(forbidTplData);

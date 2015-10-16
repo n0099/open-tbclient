@@ -23,19 +23,19 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b bGe;
+    private static volatile b bGp;
     private List<ImMessageCenterPojo> mList = new LinkedList();
-    private final CustomMessageListener btT = new c(this, 0);
+    private final CustomMessageListener bue = new c(this, 0);
 
     public static b WQ() {
-        if (bGe == null) {
+        if (bGp == null) {
             synchronized (b.class) {
-                if (bGe == null) {
-                    bGe = new b();
+                if (bGp == null) {
+                    bGp = new b();
                 }
             }
         }
-        return bGe;
+        return bGp;
     }
 
     private b() {
@@ -43,11 +43,11 @@ public class b {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CHANGED, this.btT);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.btT);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CLEAR, this.btT);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.btT);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.btT);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CHANGED, this.bue);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_REQUEST_MEMORY_LIST, this.bue);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_CLEAR, this.bue);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_SWITCH_CHANGE, this.bue);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_INIT_COMPLETED, this.bue);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -153,7 +153,7 @@ public class b {
                 if (bVar != null) {
                     for (e.b bVar2 : list2) {
                         if (bVar2 != null && bVar.gid == bVar2.gid) {
-                            bVar.ain = bVar2.unReadCount;
+                            bVar.aio = bVar2.unReadCount;
                         }
                     }
                 }
@@ -167,7 +167,7 @@ public class b {
                 if (aVar != null) {
                     for (e.a aVar2 : list2) {
                         if (aVar2 != null && aVar.gid == aVar2.gid) {
-                            aVar.ain = aVar2.unReadCount;
+                            aVar.aio = aVar2.unReadCount;
                         }
                     }
                 }
@@ -230,14 +230,14 @@ public class b {
             e.b bVar = new e.b();
             int userType = imMessageCenterPojo.getUserType();
             bVar.gid = com.baidu.adp.lib.g.b.g(imMessageCenterPojo.getGid(), 0);
-            bVar.aip = imMessageCenterPojo.getGroup_name();
+            bVar.aiq = imMessageCenterPojo.getGroup_name();
             if (userType == 4) {
                 bVar.title = imMessageCenterPojo.getGroup_name();
                 bVar.content = imMessageCenterPojo.getLast_content();
-                bVar.aio = String.valueOf(imMessageCenterPojo.getGroup_name()) + ":" + imMessageCenterPojo.getLast_content();
+                bVar.aip = String.valueOf(imMessageCenterPojo.getGroup_name()) + ":" + imMessageCenterPojo.getLast_content();
             } else {
                 bVar.content = String.valueOf(TbadkCoreApplication.m411getInst().getContext().getString(i.h.official_msg_list_name, imMessageCenterPojo.getGroup_name())) + " : " + imMessageCenterPojo.getLast_content();
-                bVar.aio = bVar.content;
+                bVar.aip = bVar.content;
             }
             bVar.userType = userType;
             bVar.unReadCount = imMessageCenterPojo.getUnread_count();

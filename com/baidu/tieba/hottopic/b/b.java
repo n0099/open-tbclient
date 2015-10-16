@@ -6,20 +6,20 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class b extends x.a {
-    public View aDF;
-    public TextView bps;
-    public TextView bpt;
-    public TextView bpu;
+    public View aDQ;
+    public TextView bpD;
+    public TextView bpE;
+    public TextView bpF;
 
     public b(View view) {
         super(view);
-        this.bps = null;
-        this.bpt = null;
-        this.bpu = null;
-        this.aDF = null;
-        this.bps = (TextView) view.findViewById(i.f.hot_topic_info_title);
-        this.bpt = (TextView) view.findViewById(i.f.hot_topic_info_threadcount);
-        this.bpu = (TextView) view.findViewById(i.f.hot_topic_info_abstract);
-        this.aDF = view.findViewById(i.f.divider_line);
+        this.bpD = null;
+        this.bpE = null;
+        this.bpF = null;
+        this.aDQ = null;
+        this.bpD = (TextView) view.findViewById(i.f.hot_topic_info_title);
+        this.bpE = (TextView) view.findViewById(i.f.hot_topic_info_threadcount);
+        this.bpF = (TextView) view.findViewById(i.f.hot_topic_info_abstract);
+        this.aDQ = view.findViewById(i.f.divider_line);
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.tieba.frs.ec;
 import com.baidu.tieba.tbadkCore.e;
 /* loaded from: classes.dex */
 class m implements ea {
-    final /* synthetic */ FrsGoodActivity aZB;
+    final /* synthetic */ FrsGoodActivity aZM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FrsGoodActivity frsGoodActivity) {
-        this.aZB = frsGoodActivity;
+        this.aZM = frsGoodActivity;
     }
 
     @Override // com.baidu.tieba.frs.ea
@@ -19,11 +19,11 @@ class m implements ea {
 
     @Override // com.baidu.tieba.frs.ea
     public void a(int i, int i2, ec ecVar) {
-        this.aZB.aZz = i;
+        this.aZM.aZK = i;
         if (!com.baidu.adp.lib.util.i.iM()) {
-            this.aZB.b((e.a) null);
+            this.aZM.b((e.a) null);
         } else {
-            this.aZB.ci(false);
+            this.aZM.ci(false);
         }
     }
 

@@ -34,7 +34,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class bq {
-    public static boolean bss = com.baidu.tbadk.util.e.Ez();
+    public static boolean bsD = com.baidu.tbadk.util.e.Ez();
 
     public static void a(Context context, TbRichTextView tbRichTextView, ChatMessage chatMessage, String str, int i) {
         if (chatMessage != null) {
@@ -215,12 +215,12 @@ public class bq {
         gifView.setVisibility(0);
         com.baidu.tbadk.gif.a gifInfo = chatMessage.getGifInfo();
         if (chatMessage.getGifInfo() != null) {
-            gifInfo.ati = gifInfo.ati > 0 ? gifInfo.ati : i;
-            if (gifInfo.atj > 0) {
-                i2 = gifInfo.atj;
+            gifInfo.atj = gifInfo.atj > 0 ? gifInfo.atj : i;
+            if (gifInfo.atk > 0) {
+                i2 = gifInfo.atk;
             }
-            gifInfo.atj = i2;
-            gifView.setLayoutParams(new FrameLayout.LayoutParams(gifInfo.ati, gifInfo.atj));
+            gifInfo.atk = i2;
+            gifView.setLayoutParams(new FrameLayout.LayoutParams(gifInfo.atj, gifInfo.atk));
             gifView.a(gifInfo);
             gifView.setVisibility(0);
             return;

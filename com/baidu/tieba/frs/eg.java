@@ -5,11 +5,11 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class eg implements BdSwitchView.a {
-    final /* synthetic */ ef aZo;
+    final /* synthetic */ ef aZz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public eg(ef efVar) {
-        this.aZo = efVar;
+        this.aZz = efVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
@@ -20,6 +20,6 @@ public class eg implements BdSwitchView.a {
         } else {
             com.baidu.tbadk.core.m.qX().ae(false);
         }
-        this.aZo.aZm = true;
+        this.aZz.aZx = true;
     }
 }

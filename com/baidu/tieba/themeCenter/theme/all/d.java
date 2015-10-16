@@ -14,35 +14,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<d> {
-    private List<com.baidu.tieba.themeCenter.b> dga;
-    private List<com.baidu.tieba.themeCenter.b> dgb;
-    private com.baidu.tieba.themeCenter.b dgc;
-    private com.baidu.tieba.themeCenter.b dgd;
-    private d.a dge;
+    private List<com.baidu.tieba.themeCenter.b> dgA;
+    private List<com.baidu.tieba.themeCenter.b> dgB;
+    private com.baidu.tieba.themeCenter.b dgC;
+    private com.baidu.tieba.themeCenter.b dgD;
+    private d.a dgE;
     private k mRecommand;
     private List<com.baidu.tieba.themeCenter.theme.top.a> mThemeList;
-    private final int dfg = 30;
-    private int MG = 0;
+    private final int dfG = 30;
+    private int MH = 0;
     private boolean hasMore = true;
-    private com.baidu.adp.framework.listener.a aQK = new e(this, CmdConfigHttp.CMD_ALL_THEME_LIST, 309011);
-    private CustomMessageListener dgf = new f(this, CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB);
-    private CustomMessageListener dgg = new g(this, CmdConfigCustom.CMD_REFRESH_THEME_LIST);
+    private com.baidu.adp.framework.listener.a aQV = new e(this, CmdConfigHttp.CMD_ALL_THEME_LIST, 309011);
+    private CustomMessageListener dgF = new f(this, CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB);
+    private CustomMessageListener dgG = new g(this, CmdConfigCustom.CMD_REFRESH_THEME_LIST);
 
     public d() {
         com.baidu.tieba.tbadkCore.a.a.a(309011, AllThemeListSocketResponsedMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309011, CmdConfigHttp.CMD_ALL_THEME_LIST, TbConfig.ALL_THEME_LIST_PAGE, AllThemeListHttpResponsedMessage.class, false, false, false, false);
-        this.dgc = new com.baidu.tieba.themeCenter.b();
-        this.dgc.setId(-1);
-        this.dgc.setTitle(TbadkCoreApplication.m411getInst().getString(i.h.default_theme));
-        this.dgd = new com.baidu.tieba.themeCenter.b();
-        this.dgd.setId(-2);
-        this.dgd.setTitle(TbadkCoreApplication.m411getInst().getString(i.h.night_theme));
-        this.dgb = new ArrayList();
-        this.dgb.add(this.dgc);
-        this.dgb.add(this.dgd);
-        registerListener(this.aQK);
-        registerListener(this.dgf);
-        registerListener(this.dgg);
+        this.dgC = new com.baidu.tieba.themeCenter.b();
+        this.dgC.setId(-1);
+        this.dgC.setTitle(TbadkCoreApplication.m411getInst().getString(i.h.default_theme));
+        this.dgD = new com.baidu.tieba.themeCenter.b();
+        this.dgD.setId(-2);
+        this.dgD.setTitle(TbadkCoreApplication.m411getInst().getString(i.h.night_theme));
+        this.dgB = new ArrayList();
+        this.dgB.add(this.dgC);
+        this.dgB.add(this.dgD);
+        registerListener(this.aQV);
+        registerListener(this.dgF);
+        registerListener(this.dgG);
         sendMessage(new CustomMessage(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB));
     }
 
@@ -50,18 +50,18 @@ public class d extends com.baidu.adp.base.e<d> {
     @Override // com.baidu.adp.base.e
     public boolean LoadData() {
         AllThemeListRequestMessage allThemeListRequestMessage = new AllThemeListRequestMessage();
-        this.MG = 1;
+        this.MH = 1;
         allThemeListRequestMessage.setPn(1);
         allThemeListRequestMessage.setRn(30);
         sendMessage(allThemeListRequestMessage);
         return false;
     }
 
-    public void azr() {
+    public void azB() {
         if (this.hasMore) {
-            this.MG++;
+            this.MH++;
             AllThemeListRequestMessage allThemeListRequestMessage = new AllThemeListRequestMessage();
-            allThemeListRequestMessage.setPn(this.MG);
+            allThemeListRequestMessage.setPn(this.MH);
             allThemeListRequestMessage.setRn(30);
             sendMessage(allThemeListRequestMessage);
         }
@@ -73,36 +73,36 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azs() {
-        if (this.dgb != null && this.dgb.size() > 0) {
-            if (this.dga == null || this.dga.size() <= 0) {
-                if (this.dgb.size() >= 2) {
-                    if (this.dgb.get(0) != null) {
-                        this.dgb.get(0).lp(com.baidu.tieba.themeCenter.i.a(this.dgb.get(0), this.dga));
+    public void azC() {
+        if (this.dgB != null && this.dgB.size() > 0) {
+            if (this.dgA == null || this.dgA.size() <= 0) {
+                if (this.dgB.size() >= 2) {
+                    if (this.dgB.get(0) != null) {
+                        this.dgB.get(0).lr(com.baidu.tieba.themeCenter.i.a(this.dgB.get(0), this.dgA));
                     }
-                    if (this.dgb.get(1) != null) {
-                        this.dgb.get(1).lp(com.baidu.tieba.themeCenter.i.a(this.dgb.get(1), this.dga));
+                    if (this.dgB.get(1) != null) {
+                        this.dgB.get(1).lr(com.baidu.tieba.themeCenter.i.a(this.dgB.get(1), this.dgA));
                     }
                 }
-                this.mThemeList = com.baidu.tieba.themeCenter.i.bx(this.dgb);
+                this.mThemeList = com.baidu.tieba.themeCenter.i.by(this.dgB);
                 return;
             }
-            for (com.baidu.tieba.themeCenter.b bVar : this.dgb) {
+            for (com.baidu.tieba.themeCenter.b bVar : this.dgB) {
                 if (bVar != null) {
-                    bVar.lp(com.baidu.tieba.themeCenter.i.a(bVar, this.dga));
+                    bVar.lr(com.baidu.tieba.themeCenter.i.a(bVar, this.dgA));
                 }
             }
-            this.mThemeList = com.baidu.tieba.themeCenter.i.bx(this.dgb);
+            this.mThemeList = com.baidu.tieba.themeCenter.i.by(this.dgB);
         }
     }
 
     public void a(d.a aVar) {
-        this.dge = aVar;
+        this.dgE = aVar;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.aQK);
-        MessageManager.getInstance().unRegisterListener(this.dgf);
-        MessageManager.getInstance().unRegisterListener(this.dgg);
+        MessageManager.getInstance().unRegisterListener(this.aQV);
+        MessageManager.getInstance().unRegisterListener(this.dgF);
+        MessageManager.getInstance().unRegisterListener(this.dgG);
     }
 }

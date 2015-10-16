@@ -9,13 +9,13 @@ import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ h boC;
+    final /* synthetic */ h boN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(h hVar, int i, int i2) {
         super(i, i2);
-        this.boC = hVar;
+        this.boN = hVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -23,17 +23,17 @@ public class i extends com.baidu.adp.framework.listener.a {
         h.a aVar;
         BaseActivity baseActivity;
         if (responsedMessage != null) {
-            if (((responsedMessage instanceof ResponseHttpHotTopicMessage) || (responsedMessage instanceof ResponseSocketHotTopicMessage)) && responsedMessage.getOrginalMessage().getTag() == this.boC.getUniqueId()) {
+            if (((responsedMessage instanceof ResponseHttpHotTopicMessage) || (responsedMessage instanceof ResponseSocketHotTopicMessage)) && responsedMessage.getOrginalMessage().getTag() == this.boN.getUniqueId()) {
                 if (responsedMessage.hasError()) {
                     if (!StringUtils.isNull(responsedMessage.getErrorString())) {
-                        baseActivity = this.boC.aRT;
+                        baseActivity = this.boN.aSe;
                         baseActivity.showToast(responsedMessage.getErrorString());
                     }
-                    aVar = this.boC.boB;
+                    aVar = this.boN.boM;
                     aVar.a(false, null);
                     return;
                 }
-                this.boC.h(responsedMessage);
+                this.boN.h(responsedMessage);
             }
         }
     }

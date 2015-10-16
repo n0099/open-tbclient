@@ -1,5 +1,5 @@
 package com.baidu.tieba.im.a;
 /* loaded from: classes.dex */
 public class a extends b {
-    public int bCY = 0;
+    public int bDj = 0;
 }

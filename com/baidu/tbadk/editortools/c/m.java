@@ -23,15 +23,15 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 /* loaded from: classes.dex */
 class m implements com.baidu.tbadk.editortools.b {
-    final /* synthetic */ l aso;
-    private final /* synthetic */ d asp;
-    private final /* synthetic */ com.baidu.tbadk.editortools.j asq;
+    final /* synthetic */ l asp;
+    private final /* synthetic */ d asq;
+    private final /* synthetic */ com.baidu.tbadk.editortools.j asr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar, d dVar, com.baidu.tbadk.editortools.j jVar) {
-        this.aso = lVar;
-        this.asp = dVar;
-        this.asq = jVar;
+        this.asp = lVar;
+        this.asq = dVar;
+        this.asr = jVar;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -44,15 +44,15 @@ class m implements com.baidu.tbadk.editortools.b {
         String str4;
         boolean z;
         boolean b2;
-        if (this.asp != null && this.asp.Ax() != null && aVar != null) {
+        if (this.asq != null && this.asq.Ax() != null && aVar != null) {
             switch (aVar.code) {
                 case 4:
-                    this.asp.eZ((String) aVar.data);
-                    this.aso.asm = false;
+                    this.asq.eZ((String) aVar.data);
+                    this.asp.asn = false;
                     return;
                 case 5:
-                    if (!this.asq.AA()) {
-                        TiebaStatic.eventStat(this.asq.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
+                    if (!this.asr.AA()) {
+                        TiebaStatic.eventStat(this.asr.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
                         return;
                     }
                     return;
@@ -70,134 +70,134 @@ class m implements com.baidu.tbadk.editortools.b {
                 default:
                     return;
                 case 7:
-                    this.asp.Bv().showToast(i.h.over_limit_tip);
-                    this.aso.asm = true;
+                    this.asq.Bv().showToast(i.h.over_limit_tip);
+                    this.asp.asn = true;
                     return;
                 case 8:
-                    b = this.aso.b(this.asp.Bv().getPageContext(), 11001);
+                    b = this.asp.b(this.asq.Bv().getPageContext(), 11001);
                     if (b) {
-                        this.asp.a((String) null, (WriteData) null);
+                        this.asq.a((String) null, (WriteData) null);
                         return;
                     }
                     return;
                 case 10:
                     if (aVar.data instanceof VoiceData.VoiceModel) {
-                        this.asp.setVoiceModel((VoiceData.VoiceModel) aVar.data);
+                        this.asq.setVoiceModel((VoiceData.VoiceModel) aVar.data);
                     }
-                    this.asq.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
+                    this.asr.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
                     return;
                 case 11:
-                    this.asp.setVoiceModel(null);
-                    this.asq.b(new com.baidu.tbadk.editortools.a(2, 6, null));
+                    this.asq.setVoiceModel(null);
+                    this.asr.b(new com.baidu.tbadk.editortools.a(2, 6, null));
                     return;
                 case 14:
-                    if ((aVar.data != null && aVar.data != null && (aVar.data instanceof Boolean) && ((Boolean) aVar.data).booleanValue()) || this.asp.getWriteImagesInfo().getChosedFiles() == null || this.asp.getWriteImagesInfo().getChosedFiles().size() == 0) {
-                        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.asp.Bv().getActivity(), this.asp.getWriteImagesInfo().toJsonString(), true, true);
-                        str = this.aso.from;
+                    if ((aVar.data != null && aVar.data != null && (aVar.data instanceof Boolean) && ((Boolean) aVar.data).booleanValue()) || this.asq.getWriteImagesInfo().getChosedFiles() == null || this.asq.getWriteImagesInfo().getChosedFiles().size() == 0) {
+                        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.asq.Bv().getActivity(), this.asq.getWriteImagesInfo().toJsonString(), true, true);
+                        str = this.asp.from;
                         if (!StringUtils.isNull(str, true)) {
                             Intent intent = albumActivityConfig.getIntent();
-                            str4 = this.aso.from;
+                            str4 = this.asp.from;
                             intent.putExtra("from", str4);
                         }
-                        str2 = this.aso.forumId;
+                        str2 = this.asp.forumId;
                         if (!StringUtils.isNull(str2, true)) {
                             Intent intent2 = albumActivityConfig.getIntent();
-                            str3 = this.aso.forumId;
+                            str3 = this.asp.forumId;
                             intent2.putExtra("forum_id", str3);
                         }
                         albumActivityConfig.setRequestCode(12002);
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, albumActivityConfig));
                         return;
                     }
-                    this.asp.BB();
+                    this.asq.BB();
                     return;
                 case 15:
                     int intValue = ((Integer) aVar.data).intValue();
-                    if (this.asp.getWriteImagesInfo() != null && this.asp.getWriteImagesInfo().getChosedFiles() != null && (size = this.asp.getWriteImagesInfo().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(this.asp.Bv().getActivity(), 12012, this.asp.getWriteImagesInfo(), intValue)));
+                    if (this.asq.getWriteImagesInfo() != null && this.asq.getWriteImagesInfo().getChosedFiles() != null && (size = this.asq.getWriteImagesInfo().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(this.asq.Bv().getActivity(), 12012, this.asq.getWriteImagesInfo(), intValue)));
                         return;
                     }
                     return;
                 case 16:
-                    z = this.aso.asm;
+                    z = this.asp.asn;
                     if (z) {
-                        this.asp.Bv().showToast(i.h.over_limit_tip);
+                        this.asq.Bv().showToast(i.h.over_limit_tip);
                     }
-                    b2 = this.aso.b(this.asp.Bv().getPageContext(), 11025);
+                    b2 = this.asp.b(this.asq.Bv().getPageContext(), 11025);
                     if (b2) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.asp.Bv().getActivity(), 12004, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.asq.Bv().getActivity(), 12004, true)));
                         return;
                     }
                     return;
                 case 18:
                     if (aVar.data != null) {
-                        this.asp.Bq();
+                        this.asq.Bq();
                         return;
                     }
-                    switch (this.asp.Bx()) {
+                    switch (this.asq.Bx()) {
                         case 0:
-                            this.asp.Bo();
+                            this.asq.Bo();
                             return;
                         case 1:
                         default:
                             return;
                         case 2:
-                            this.asp.Bn();
+                            this.asq.Bn();
                             return;
                     }
                 case 20:
-                    this.asp.Ax().b(new com.baidu.tbadk.editortools.a(2, 7, null));
-                    com.baidu.tieba.tbadkCore.location.c.axc().gu(true);
+                    this.asq.Ax().b(new com.baidu.tbadk.editortools.a(2, 7, null));
+                    com.baidu.tieba.tbadkCore.location.c.axm().gu(true);
                     MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                     return;
                 case 21:
-                    if (this.asp.getBaobaoImagesInfo() == null || this.asp.getBaobaoImagesInfo().getChosedFiles() == null || this.asp.getBaobaoImagesInfo().getChosedFiles().size() == 0) {
-                        com.baidu.tieba.tbadkCore.PbEditor.a.awa();
-                        if (TbadkCoreApplication.getCurrentMemberType() == 0 && !com.baidu.tieba.tbadkCore.PbEditor.a.avZ()) {
-                            this.asp.Bv().showToast(i.h.baobao_over_limit);
+                    if (this.asq.getBaobaoImagesInfo() == null || this.asq.getBaobaoImagesInfo().getChosedFiles() == null || this.asq.getBaobaoImagesInfo().getChosedFiles().size() == 0) {
+                        com.baidu.tieba.tbadkCore.PbEditor.a.awi();
+                        if (TbadkCoreApplication.getCurrentMemberType() == 0 && !com.baidu.tieba.tbadkCore.PbEditor.a.awh()) {
+                            this.asq.Bv().showToast(i.h.baobao_over_limit);
                             return;
                         }
-                        IntentConfig intentConfig = new IntentConfig(this.asp.Bv().getActivity());
-                        intentConfig.getIntent().putExtra("title", this.asp.Bv().getResources().getString(i.h.send_reply));
+                        IntentConfig intentConfig = new IntentConfig(this.asq.Bv().getActivity());
+                        intentConfig.getIntent().putExtra("title", this.asq.Bv().getResources().getString(i.h.send_reply));
                         intentConfig.getIntent().putExtra(GroupInfoActivityConfig.REQUEST_CODE, 12013);
-                        this.asp.Bv().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_BAOBAO_STARTMATCHIMAGE, intentConfig));
+                        this.asq.Bv().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_BAOBAO_STARTMATCHIMAGE, intentConfig));
                         return;
                     }
-                    this.asp.BD();
+                    this.asq.BD();
                     return;
                 case 23:
-                    if (this.asp.getBaobaoImagesInfo() != null && this.asp.getBaobaoImagesInfo().size() > 0) {
-                        this.asp.Bw().setIsBaobao(true);
+                    if (this.asq.getBaobaoImagesInfo() != null && this.asq.getBaobaoImagesInfo().size() > 0) {
+                        this.asq.Bw().setIsBaobao(true);
                         return;
                     } else {
-                        this.asp.Bw().setIsBaobao(false);
+                        this.asq.Bw().setIsBaobao(false);
                         return;
                     }
                 case 27:
-                    VideoInfo videoInfo = this.asp.getVideoInfo();
+                    VideoInfo videoInfo = this.asq.getVideoInfo();
                     if (videoInfo != null && videoInfo.isAvaliable()) {
-                        this.asp.Ax().b(new com.baidu.tbadk.editortools.a(28, 20, videoInfo));
+                        this.asq.Ax().b(new com.baidu.tbadk.editortools.a(28, 20, videoInfo));
                         return;
-                    } else if (this.asp.Bv() != null && this.asp.Bv().getResources() != null) {
-                        Resources resources = this.asp.Bv().getResources();
+                    } else if (this.asq.Bv() != null && this.asq.Bv().getResources() != null) {
+                        Resources resources = this.asq.Bv().getResources();
                         if (XiaoyingUtil.isXiaoyingInstalled()) {
                             if (XiaoyingUtil.isXiaoyingForbidden()) {
-                                XiaoyingUtil.showGoPluginDetailDialog(this.asp.Bv().getPageContext(), resources.getString(i.h.plugin_video_not_active), resources.getString(i.h.setup));
+                                XiaoyingUtil.showGoPluginDetailDialog(this.asq.Bv().getPageContext(), resources.getString(i.h.plugin_video_not_active), resources.getString(i.h.setup));
                                 return;
                             } else {
-                                XiaoyingUtil.startXiaoying(this.asp.Bv().getActivity());
+                                XiaoyingUtil.startXiaoying(this.asq.Bv().getActivity());
                                 return;
                             }
                         }
-                        XiaoyingUtil.showGoPluginDetailDialog(this.asp.Bv().getPageContext(), resources.getString(i.h.plugin_video_install_tips), resources.getString(i.h.plugin_go_install));
+                        XiaoyingUtil.showGoPluginDetailDialog(this.asq.Bv().getPageContext(), resources.getString(i.h.plugin_video_install_tips), resources.getString(i.h.plugin_go_install));
                         return;
                     } else {
                         return;
                     }
                 case DealIntentService.CLASS_TYPE_PUSH_RECOMMEND_PB /* 29 */:
-                    this.asp.Ax().b(new com.baidu.tbadk.editortools.a(2, 19, null));
-                    this.asp.Ax().b(new com.baidu.tbadk.editortools.a(1, 2, null));
-                    this.asp.Bs();
+                    this.asq.Ax().b(new com.baidu.tbadk.editortools.a(2, 19, null));
+                    this.asq.Ax().b(new com.baidu.tbadk.editortools.a(1, 2, null));
+                    this.asq.Bs();
                     return;
             }
         }

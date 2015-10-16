@@ -34,15 +34,15 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class LogoActivity extends BaseActivity<LogoActivity> {
-    private com.baidu.tbadk.core.dialog.a Lt;
+    private com.baidu.tbadk.core.dialog.a Lu;
     private View mRootView;
-    private ImageView aDf = null;
+    private ImageView aDq = null;
     private Bitmap mBitmap = null;
-    private Bitmap aDg = null;
-    private boolean aDh = false;
-    private int aDi = -1;
-    private a aDj = new a(this, null);
-    private Runnable aDk = new b(this);
+    private Bitmap aDr = null;
+    private boolean aDs = false;
+    private int aDt = -1;
+    private a aDu = new a(this, null);
+    private Runnable aDv = new b(this);
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
@@ -101,17 +101,17 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         getWindow().setFlags(1024, 1024);
         setContentView(i.g.logo_activity);
         this.mRootView = findViewById(i.f.layout_root);
-        this.aDf = (ImageView) findViewById(i.f.logo);
-        this.aDg = com.baidu.tbadk.core.util.c.f(getPageContext().getPageActivity(), i.e.logo_ad_bg);
-        if (this.aDg == null) {
+        this.aDq = (ImageView) findViewById(i.f.logo);
+        this.aDr = com.baidu.tbadk.core.util.c.f(getPageContext().getPageActivity(), i.e.logo_ad_bg);
+        if (this.aDr == null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = TbConfig.BitmapConfig;
             options.inSampleSize = 2;
-            this.aDg = com.baidu.tbadk.core.util.c.a(getPageContext().getPageActivity(), i.e.logo_ad_bg, options);
+            this.aDr = com.baidu.tbadk.core.util.c.a(getPageContext().getPageActivity(), i.e.logo_ad_bg, options);
         }
-        if (this.aDg != null) {
+        if (this.aDr != null) {
             try {
-                this.mRootView.setBackgroundDrawable(new BitmapDrawable(this.aDg));
+                this.mRootView.setBackgroundDrawable(new BitmapDrawable(this.aDr));
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
             }
@@ -121,8 +121,8 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
         } else {
             LogoActivityConfig.isFirst = true;
         }
-        this.aDh = TbadkCoreApplication.m411getInst().getIsFirstUse();
-        z.Eh().br(this.aDh);
+        this.aDs = TbadkCoreApplication.m411getInst().getIsFirstUse();
+        z.Eh().br(this.aDs);
         FD();
         this.mHandler.sendMessage(this.mHandler.obtainMessage());
         HashMap hashMap = new HashMap();
@@ -195,7 +195,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             finish();
             return;
         }
-        z.Eh().K(System.currentTimeMillis());
+        z.Eh().L(System.currentTimeMillis());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -203,8 +203,8 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     public void onDestroy() {
         super.onDestroy();
         FJ();
-        com.baidu.adp.lib.g.h.hg().removeCallbacks(this.aDj);
-        com.baidu.adp.lib.g.h.hg().removeCallbacks(this.aDk);
+        com.baidu.adp.lib.g.h.hg().removeCallbacks(this.aDu);
+        com.baidu.adp.lib.g.h.hg().removeCallbacks(this.aDv);
         LogoActivityConfig.isFirst = true;
     }
 
@@ -232,7 +232,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             eN(1);
             LogoActivityConfig.mFromSpacial = false;
         } else if (TbadkCoreApplication.isLogin()) {
-            if (this.aDh) {
+            if (this.aDs) {
                 if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) != null) {
                     sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_LOGO_PAGE)));
                 } else {
@@ -249,7 +249,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     }
 
     private void FF() {
-        if (this.aDh) {
+        if (this.aDs) {
             TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
             TbadkCoreApplication.m411getInst().setIsAbstractOn(0);
             com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("frs_first_in", true);
@@ -258,24 +258,25 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
 
     private void FG() {
         h hVar = new h();
-        z.Eh().L(System.currentTimeMillis());
+        long currentTimeMillis = System.currentTimeMillis();
         this.mBitmap = hVar.aq(getPageContext().getPageActivity());
-        if (k(this.mBitmap) == null || this.aDf == null) {
-            com.baidu.adp.lib.g.h.hg().postDelayed(this.aDj, 1000L);
+        z.Eh().M(System.currentTimeMillis() - currentTimeMillis);
+        if (k(this.mBitmap) == null || this.aDq == null) {
+            com.baidu.adp.lib.g.h.hg().postDelayed(this.aDu, 1000L);
         } else {
-            com.baidu.adp.lib.g.h.hg().postDelayed(this.aDk, 1000L);
+            com.baidu.adp.lib.g.h.hg().postDelayed(this.aDv, 1000L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void FH() {
-        if (this.aDi >= 0) {
-            eO(this.aDi);
+        if (this.aDt >= 0) {
+            eO(this.aDt);
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NotLoginGuideActivityConfig(getPageContext().getPageActivity(), NotLoginGuideActivityConfig.FROM_LOGO)));
             finish();
         }
-        z.Eh().M(System.currentTimeMillis());
+        z.Eh().O(System.currentTimeMillis());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -290,7 +291,7 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     }
 
     private void eN(int i) {
-        this.aDi = i;
+        this.aDt = i;
         FG();
     }
 
@@ -325,8 +326,8 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
     }
 
     private void FJ() {
-        if (this.aDf != null) {
-            this.aDf.setImageDrawable(null);
+        if (this.aDq != null) {
+            this.aDq.setImageDrawable(null);
         }
         if (this.mRootView != null) {
             this.mRootView.setBackgroundDrawable(null);
@@ -335,9 +336,9 @@ public class LogoActivity extends BaseActivity<LogoActivity> {
             this.mBitmap.recycle();
             this.mBitmap = null;
         }
-        if (this.aDg != null && !this.aDg.isRecycled()) {
-            this.aDg.recycle();
-            this.aDg = null;
+        if (this.aDr != null && !this.aDr.isRecycled()) {
+            this.aDr.recycle();
+            this.aDr = null;
         }
     }
 }

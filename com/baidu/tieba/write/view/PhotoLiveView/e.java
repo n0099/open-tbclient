@@ -4,12 +4,12 @@ import android.view.View;
 import com.baidu.tieba.write.view.PhotoLiveView.a;
 /* loaded from: classes.dex */
 class e implements View.OnClickListener {
-    final /* synthetic */ a dmN;
+    final /* synthetic */ a dnn;
     private final /* synthetic */ int val$position;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar, int i) {
-        this.dmN = aVar;
+        this.dnn = aVar;
         this.val$position = i;
     }
 
@@ -17,10 +17,10 @@ class e implements View.OnClickListener {
     public void onClick(View view) {
         a.InterfaceC0081a interfaceC0081a;
         a.InterfaceC0081a interfaceC0081a2;
-        interfaceC0081a = this.dmN.dmM;
+        interfaceC0081a = this.dnn.dnm;
         if (interfaceC0081a != null) {
-            interfaceC0081a2 = this.dmN.dmM;
-            interfaceC0081a2.lW(this.val$position);
+            interfaceC0081a2 = this.dnn.dnm;
+            interfaceC0081a2.lY(this.val$position);
         }
     }
 }

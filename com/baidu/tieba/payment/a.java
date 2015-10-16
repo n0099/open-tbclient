@@ -8,10 +8,10 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.payment.message.ResponsePayNewVcodeInfoMessage;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e<a> {
-    private com.baidu.adp.base.h<?> cdE;
+    private com.baidu.adp.base.h<?> cdP;
 
     public a(com.baidu.adp.base.h<?> hVar) {
-        this.cdE = hVar;
+        this.cdP = hVar;
     }
 
     @Override // com.baidu.adp.base.e
@@ -25,7 +25,7 @@ public class a extends com.baidu.adp.base.e<a> {
     }
 
     public void aej() {
-        this.cdE.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
+        this.cdP.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
     }
 
     public void aek() {

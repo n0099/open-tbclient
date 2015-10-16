@@ -9,11 +9,11 @@ import com.baidu.tieba.frs.ec;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements ea {
-    final /* synthetic */ o bbU;
+    final /* synthetic */ o bcf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.bbU = oVar;
+        this.bcf = oVar;
     }
 
     @Override // com.baidu.tieba.frs.ea
@@ -28,17 +28,17 @@ public class p implements ea {
         bs bsVar4;
         SparseArray sparseArray;
         int Y;
-        bsVar = this.bbU.aTJ;
+        bsVar = this.bcf.aTU;
         if (bsVar.getListView() != null) {
-            bsVar2 = this.bbU.aTJ;
+            bsVar2 = this.bcf.aTU;
             if (bsVar2.getListView().getChildAt(0) != null) {
                 o.a aVar = new o.a();
-                bsVar3 = this.bbU.aTJ;
-                aVar.bbW = bsVar3.getListView().getFirstVisiblePosition();
-                bsVar4 = this.bbU.aTJ;
+                bsVar3 = this.bcf.aTU;
+                aVar.bch = bsVar3.getListView().getFirstVisiblePosition();
+                bsVar4 = this.bcf.aTU;
                 aVar.top = bsVar4.getListView().getChildAt(0).getTop();
-                sparseArray = this.bbU.aZW;
-                Y = this.bbU.Y(i, i2);
+                sparseArray = this.bcf.bah;
+                Y = this.bcf.Y(i, i2);
                 sparseArray.put(Y, aVar);
             }
         }

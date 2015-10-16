@@ -13,17 +13,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class h implements bd {
-    final /* synthetic */ FrsActivity aUz;
+    final /* synthetic */ FrsActivity aUK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(FrsActivity frsActivity) {
-        this.aUz = frsActivity;
+        this.aUK = frsActivity;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v80, resolved type: com.baidu.tieba.frs.FrsActivity */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.tieba.frs.bd
-    public void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.v vVar) {
+    public void a(int i, int i2, View view, View view2, com.baidu.tbadk.core.data.w wVar) {
         bs bsVar;
         bs bsVar2;
         bs bsVar3;
@@ -37,43 +37,43 @@ class h implements bd {
         com.baidu.tieba.tbadkCore.o oVar2;
         com.baidu.tieba.tbadkCore.o oVar3;
         com.baidu.tieba.frs.mc.a aVar;
-        bsVar = this.aUz.aTJ;
+        bsVar = this.aUK.aTU;
         if (i != bsVar.LZ().Lw()) {
-            bsVar2 = this.aUz.aTJ;
+            bsVar2 = this.aUK.aTU;
             if (i != bsVar2.LZ().KM()) {
-                bsVar3 = this.aUz.aTJ;
+                bsVar3 = this.aUK.aTU;
                 if (i != bsVar3.LZ().Ly()) {
-                    bsVar4 = this.aUz.aTJ;
+                    bsVar4 = this.aUK.aTU;
                     if (i != bsVar4.LZ().Lx()) {
-                        bsVar5 = this.aUz.aTJ;
+                        bsVar5 = this.aUK.aTU;
                         if (i != bsVar5.LZ().Lz()) {
-                            bsVar6 = this.aUz.aTJ;
+                            bsVar6 = this.aUK.aTU;
                             if (i != bsVar6.LZ().LA()) {
-                                bsVar8 = this.aUz.aTJ;
+                                bsVar8 = this.aUK.aTU;
                                 if (i != bsVar8.LZ().LB()) {
-                                    bsVar9 = this.aUz.aTJ;
+                                    bsVar9 = this.aUK.aTU;
                                     if (i == bsVar9.LZ().LC()) {
-                                        this.aUz.aTA = vVar;
-                                        this.aUz.Le();
-                                        TiebaStatic.log(new com.baidu.tbadk.core.util.ap("c10179").ae(ImageViewerConfig.FORUM_ID, this.aUz.getForumId()));
+                                        this.aUK.aTL = wVar;
+                                        this.aUK.Le();
+                                        TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10179").ae(ImageViewerConfig.FORUM_ID, this.aUK.getForumId()));
                                         return;
                                     }
                                     return;
                                 }
                             }
-                            this.aUz.Ld();
-                            bsVar7 = this.aUz.aTJ;
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.ap(i == bsVar7.LZ().LA() ? "c10177" : "c10244").ae(ImageViewerConfig.FORUM_ID, this.aUz.getForumId()));
+                            this.aUK.Ld();
+                            bsVar7 = this.aUK.aTU;
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.aq(i == bsVar7.LZ().LA() ? "c10177" : "c10244").ae(ImageViewerConfig.FORUM_ID, this.aUK.getForumId()));
                             return;
-                        } else if (this.aUz.checkUpIsLogin()) {
+                        } else if (this.aUK.checkUpIsLogin()) {
                             TiebaStatic.log("my_service_ck");
-                            oVar = this.aUz.aTL;
+                            oVar = this.aUK.aTW;
                             if (oVar != null) {
-                                oVar2 = this.aUz.aTL;
+                                oVar2 = this.aUK.aTW;
                                 if (oVar2.aeN() != null) {
-                                    oVar3 = this.aUz.aTL;
+                                    oVar3 = this.aUK.aTW;
                                     ForumData aeN = oVar3.aeN();
-                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(this.aUz.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(aeN.getId(), 0L), aeN.getName(), aeN.getImage_url(), 0)));
+                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(this.aUK.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(aeN.getId(), 0L), aeN.getName(), aeN.getImage_url(), 0)));
                                     return;
                                 }
                                 return;
@@ -82,32 +82,32 @@ class h implements bd {
                         } else {
                             return;
                         }
-                    } else if (this.aUz.checkUpIsLogin()) {
+                    } else if (this.aUK.checkUpIsLogin()) {
                         TiebaStatic.log("forum_fortune_click");
-                        this.aUz.Lc();
+                        this.aUK.Lc();
                         return;
                     } else {
                         return;
                     }
                 }
-                TiebaStatic.eventStat(this.aUz.getPageContext().getPageActivity(), "consume_1", "click", 1, new Object[0]);
-                if (this.aUz.checkUpIsLogin()) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPrivilegeActivityConfig(this.aUz.getPageContext().getPageActivity())));
+                TiebaStatic.eventStat(this.aUK.getPageContext().getPageActivity(), "consume_1", "click", 1, new Object[0]);
+                if (this.aUK.checkUpIsLogin()) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPrivilegeActivityConfig(this.aUK.getPageContext().getPageActivity())));
                     return;
                 }
                 return;
             }
-            com.baidu.tbadk.core.util.ap apVar = new com.baidu.tbadk.core.util.ap("c10077");
-            aVar = this.aUz.aTX;
-            apVar.r("obj_source", aVar.Ng());
-            TiebaStatic.log(apVar);
-            this.aUz.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.aUz.getPageContext().getPageActivity()).createFromThreadCfg(vVar, this.aUz.aTB, null, 18003, true, false, false)));
-        } else if (this.aUz.checkUpIsLogin() && vVar != null && vVar.so() != null && vVar.so().get(0) != null && !StringUtils.isNull(vVar.so().get(0).getUrl())) {
-            com.baidu.tbadk.core.util.ay.uV().b(this.aUz.getPageContext(), new String[]{vVar.so().get(0).getUrl()});
-            if (vVar.so().get(0).rl() == 1) {
-                TiebaStatic.eventStat(this.aUz.getPageContext().getPageActivity(), "lottery", "click", 1, "page", "frs");
-            } else if (vVar.so().get(0).rl() == 2) {
-                TiebaStatic.eventStat(this.aUz.getPageContext().getPageActivity(), "show_picture", "click", 1, "page", "frs");
+            com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c10077");
+            aVar = this.aUK.aUi;
+            aqVar.r("obj_source", aVar.Ng());
+            TiebaStatic.log(aqVar);
+            this.aUK.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.aUK.getPageContext().getPageActivity()).createFromThreadCfg(wVar, this.aUK.aTM, null, 18003, true, false, false)));
+        } else if (this.aUK.checkUpIsLogin() && wVar != null && wVar.so() != null && wVar.so().get(0) != null && !StringUtils.isNull(wVar.so().get(0).getUrl())) {
+            com.baidu.tbadk.core.util.az.uW().b(this.aUK.getPageContext(), new String[]{wVar.so().get(0).getUrl()});
+            if (wVar.so().get(0).rl() == 1) {
+                TiebaStatic.eventStat(this.aUK.getPageContext().getPageActivity(), "lottery", "click", 1, "page", "frs");
+            } else if (wVar.so().get(0).rl() == 2) {
+                TiebaStatic.eventStat(this.aUK.getPageContext().getPageActivity(), "show_picture", "click", 1, "page", "frs");
             }
         }
     }

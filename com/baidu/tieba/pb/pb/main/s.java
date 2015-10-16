@@ -4,22 +4,22 @@ import android.view.View;
 import com.baidu.tbadk.core.dialog.c;
 /* loaded from: classes.dex */
 class s implements c.b {
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbActivity pbActivity) {
-        this.ciz = pbActivity;
+        this.ciK = pbActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
     public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
         cVar.dismiss();
-        if (this.ciz.cix != null) {
+        if (this.ciK.ciI != null) {
             if (i == 0) {
-                this.ciz.cix.aS(this.ciz.getPageContext().getPageActivity());
-                this.ciz.cix = null;
-            } else if (i == 1 && this.ciz.checkUpIsLogin()) {
-                this.ciz.c(this.ciz.cix);
+                this.ciK.ciI.aS(this.ciK.getPageContext().getPageActivity());
+                this.ciK.ciI = null;
+            } else if (i == 1 && this.ciK.checkUpIsLogin()) {
+                this.ciK.c(this.ciK.ciI);
             }
         }
     }

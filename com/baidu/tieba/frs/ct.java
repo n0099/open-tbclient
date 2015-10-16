@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.ChildViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ct implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ cr aXA;
+    final /* synthetic */ cr aXL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ct(cr crVar) {
-        this.aXA = crVar;
+        this.aXL = crVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -21,13 +21,13 @@ public class ct implements ViewPager.OnPageChangeListener {
         IndicatorView indicatorView;
         IndicatorView indicatorView2;
         cr.a aVar2;
-        aVar = this.aXA.aXx;
+        aVar = this.aXL.aXI;
         fD = aVar.fD(i);
         if (fD == i) {
-            indicatorView = this.aXA.apz;
+            indicatorView = this.aXL.apA;
             if (indicatorView != null) {
-                indicatorView2 = this.aXA.apz;
-                aVar2 = this.aXA.aXx;
+                indicatorView2 = this.aXL.apA;
+                aVar2 = this.aXL.aXI;
                 indicatorView2.setPosition(aVar2.fE(i));
             }
         }
@@ -45,26 +45,26 @@ public class ct implements ViewPager.OnPageChangeListener {
         ChildViewPager childViewPager3;
         if (i != 1) {
             if (i == 0) {
-                edVar = this.aXA.aXw;
+                edVar = this.aXL.aXH;
                 int count = edVar.getCount();
                 if (count >= 2) {
-                    childViewPager = this.aXA.aXv;
+                    childViewPager = this.aXL.aXG;
                     int currentItem = childViewPager.getCurrentItem();
                     int i2 = count - 2;
                     if (currentItem < 1) {
-                        childViewPager3 = this.aXA.aXv;
+                        childViewPager3 = this.aXL.aXG;
                         childViewPager3.setCurrentItem(i2, false);
                     } else if (currentItem > i2) {
-                        childViewPager2 = this.aXA.aXv;
+                        childViewPager2 = this.aXL.aXG;
                         childViewPager2.setCurrentItem(1, false);
                     }
-                    this.aXA.Mo();
+                    this.aXL.Mo();
                     return;
                 }
                 return;
             }
             return;
         }
-        this.aXA.Mp();
+        this.aXL.Mp();
     }
 }

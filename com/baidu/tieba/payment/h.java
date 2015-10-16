@@ -9,13 +9,13 @@ import com.baidu.tieba.payment.data.PayVcodeInfoData;
 import com.baidu.tieba.payment.message.ResponsePaymentPayMessage;
 /* loaded from: classes.dex */
 class h extends HttpMessageListener {
-    final /* synthetic */ PaymentConfirmActivity cdS;
+    final /* synthetic */ PaymentConfirmActivity ced;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h(PaymentConfirmActivity paymentConfirmActivity, int i) {
         super(i);
-        this.cdS = paymentConfirmActivity;
+        this.ced = paymentConfirmActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,8 +24,8 @@ class h extends HttpMessageListener {
         q qVar;
         PayResultData.UnusualInfo describe;
         PayVcodeInfoData vcode;
-        this.cdS.closeLoadingDialog();
-        qVar = this.cdS.cdK;
+        this.ced.closeLoadingDialog();
+        qVar = this.ced.cdV;
         qVar.eh(true);
         if (httpResponsedMessage != null && (httpResponsedMessage instanceof ResponsePaymentPayMessage)) {
             ResponsePaymentPayMessage responsePaymentPayMessage = (ResponsePaymentPayMessage) httpResponsedMessage;
@@ -33,32 +33,32 @@ class h extends HttpMessageListener {
                 int error = responsePaymentPayMessage.getError();
                 if (error == 0) {
                     r.jz("c10294");
-                    new com.baidu.tbadk.core.view.f(this.cdS.getPageContext()).dA(this.cdS.getResources().getString(i.h.payment_confirm_success));
+                    new com.baidu.tbadk.core.view.f(this.ced.getPageContext()).dA(this.ced.getResources().getString(i.h.payment_confirm_success));
                     return;
                 } else if (error == 2270018) {
                     PayResultData payRequestDataData = responsePaymentPayMessage.getPayRequestDataData();
                     if (payRequestDataData == null) {
                         return;
                     }
-                    this.cdS.I(5, payRequestDataData.getPubkey());
+                    this.ced.I(5, payRequestDataData.getPubkey());
                     return;
                 } else if (error == 2150040) {
                     PayResultData payRequestDataData2 = responsePaymentPayMessage.getPayRequestDataData();
                     if (payRequestDataData2 == null || (vcode = payRequestDataData2.getVcode()) == null) {
                         return;
                     }
-                    this.cdS.a(vcode);
+                    this.ced.a(vcode);
                     return;
                 } else if (error == 2) {
                     PayResultData payRequestDataData3 = responsePaymentPayMessage.getPayRequestDataData();
                     if (payRequestDataData3 == null) {
                         return;
                     }
-                    this.cdS.I(5 - payRequestDataData3.getWrongtime(), payRequestDataData3.getPubkey());
+                    this.ced.I(5 - payRequestDataData3.getWrongtime(), payRequestDataData3.getPubkey());
                     return;
                 } else if (error == 2190005) {
-                    this.cdS.cdO = true;
-                    this.cdS.I(0, null);
+                    this.ced.cdZ = true;
+                    this.ced.I(0, null);
                     return;
                 } else if (error != 2270066 && error != 2270040 && error != 2270041 && error != 2270042) {
                     PayResultData payRequestDataData4 = responsePaymentPayMessage.getPayRequestDataData();
@@ -66,23 +66,23 @@ class h extends HttpMessageListener {
                         String word = describe.getWord();
                         String url = describe.getUrl();
                         if (!StringUtils.isNull(word) && !StringUtils.isNull(url)) {
-                            this.cdS.aU(word, url);
+                            this.ced.aU(word, url);
                             return;
                         }
                     }
-                    com.baidu.tbadk.core.view.f fVar = new com.baidu.tbadk.core.view.f(this.cdS.getPageContext());
+                    com.baidu.tbadk.core.view.f fVar = new com.baidu.tbadk.core.view.f(this.ced.getPageContext());
                     String errorString = responsePaymentPayMessage.getErrorString();
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.cdS.getResources().getString(i.h.payment_pay_error);
+                        errorString = this.ced.getResources().getString(i.h.payment_pay_error);
                     }
                     fVar.dB(errorString);
                     return;
                 } else {
-                    this.cdS.iD(error);
+                    this.ced.iD(error);
                     return;
                 }
             }
-            this.cdS.showToast(i.h.neterror);
+            this.ced.showToast(i.h.neterror);
         }
     }
 }

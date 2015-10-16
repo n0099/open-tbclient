@@ -12,23 +12,23 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes.dex */
 public class m {
-    private AntiData bPf;
-    private LinkedList<l> bPg;
-    private String bPd = null;
+    private AntiData bPq;
+    private LinkedList<l> bPr;
+    private String bPo = null;
     private String fid = null;
-    private int bPe = 0;
+    private int bPp = 0;
     private Context mContext = null;
-    private String bPh = null;
-    private String bPi = null;
+    private String bPs = null;
+    private String bPt = null;
     private String tid = null;
-    private com.baidu.tbadk.core.data.b bPj = null;
-    private int bPk = 0;
+    private com.baidu.tbadk.core.data.b bPu = null;
+    private int bPv = 0;
 
     public m() {
-        this.bPf = null;
-        this.bPg = null;
-        this.bPg = new LinkedList<>();
-        this.bPf = new AntiData();
+        this.bPq = null;
+        this.bPr = null;
+        this.bPr = new LinkedList<>();
+        this.bPq = new AntiData();
     }
 
     public void y(String str, boolean z) {
@@ -40,11 +40,11 @@ public class m {
     }
 
     public LinkedList<l> aag() {
-        return this.bPg;
+        return this.bPr;
     }
 
     public int getImageNum() {
-        return this.bPe;
+        return this.bPp;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -53,10 +53,10 @@ public class m {
                 hT(jSONObject.optInt("is_new_url", 0));
                 JSONObject optJSONObject = jSONObject.optJSONObject("forum");
                 if (optJSONObject != null) {
-                    this.bPd = optJSONObject.optString("name");
+                    this.bPo = optJSONObject.optString("name");
                     this.fid = optJSONObject.optString("id");
                 }
-                this.bPe = jSONObject.optInt("pic_amount", 0);
+                this.bPp = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -64,8 +64,8 @@ public class m {
                             l lVar = new l(this.mContext);
                             lVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = lVar.getIndex();
-                            if (index >= 1 && index <= this.bPe) {
-                                this.bPg.addLast(lVar);
+                            if (index >= 1 && index <= this.bPp) {
+                                this.bPr.addLast(lVar);
                             }
                         }
                     } else {
@@ -73,8 +73,8 @@ public class m {
                             l lVar2 = new l(this.mContext);
                             lVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = lVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.bPe) {
-                                this.bPg.addFirst(lVar2);
+                            if (index2 >= 1 && index2 <= this.bPp) {
+                                this.bPr.addFirst(lVar2);
                             }
                         }
                     }
@@ -82,8 +82,8 @@ public class m {
                 l(jSONObject);
                 JSONObject optJSONObject2 = jSONObject.optJSONArray("album_list").optJSONObject(0);
                 if (optJSONObject2 != null) {
-                    this.bPh = optJSONObject2.optString("tid");
-                    this.bPi = optJSONObject2.optString("title");
+                    this.bPs = optJSONObject2.optString("tid");
+                    this.bPt = optJSONObject2.optString("title");
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -134,9 +134,9 @@ public class m {
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.bPj = new com.baidu.tbadk.core.data.b();
-            this.bPj.a(build);
-            this.bPj.Ua = "c0111";
+            this.bPu = new com.baidu.tbadk.core.data.b();
+            this.bPu.a(build);
+            this.bPu.Ub = "c0111";
         }
     }
 
@@ -165,10 +165,10 @@ public class m {
     }
 
     public void hT(int i) {
-        this.bPk = i;
+        this.bPv = i;
     }
 
     public com.baidu.tbadk.core.data.b aah() {
-        return this.bPj;
+        return this.bPu;
     }
 }

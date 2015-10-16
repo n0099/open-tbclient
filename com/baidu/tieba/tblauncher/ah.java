@@ -19,14 +19,14 @@ class ah extends CustomMessageListener {
         ao aoVar;
         ao aoVar2;
         if (customResponsedMessage != null) {
-            this.this$0.ayd();
+            this.this$0.ayn();
             if (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.e) {
                 this.this$0.a((com.baidu.tbadk.data.e) customResponsedMessage.getData());
             }
-            aoVar = this.this$0.dcb;
-            aoVar.ayA().ayL();
-            aoVar2 = this.this$0.dcb;
-            aoVar2.ayv();
+            aoVar = this.this$0.dcB;
+            aoVar.ayK().ayV();
+            aoVar2 = this.this$0.dcB;
+            aoVar2.ayF();
         }
     }
 }

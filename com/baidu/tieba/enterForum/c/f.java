@@ -4,11 +4,11 @@ import com.baidu.tieba.tbadkCore.v;
 import java.util.Comparator;
 /* loaded from: classes.dex */
 class f implements Comparator<v> {
-    final /* synthetic */ c aMf;
+    final /* synthetic */ c aMq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.aMf = cVar;
+        this.aMq = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

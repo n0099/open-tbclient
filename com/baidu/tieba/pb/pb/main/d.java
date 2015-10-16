@@ -5,18 +5,18 @@ import com.baidu.tieba.usermute.data.MuteUser;
 import com.baidu.tieba.usermute.response.UserMuteAddResponseMessage;
 /* loaded from: classes.dex */
 class d implements UserMuteAddAndDelModel.a {
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PbActivity pbActivity) {
-        this.ciz = pbActivity;
+        this.ciK = pbActivity;
     }
 
     @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.a
     public void a(UserMuteAddResponseMessage userMuteAddResponseMessage) {
         bl blVar;
         String str = (String) userMuteAddResponseMessage.getOrginalMessage().getExtra();
-        blVar = this.ciz.chV;
+        blVar = this.ciK.cih;
         com.baidu.tieba.pb.a.b pbData = blVar.getPbData();
         if (pbData != null) {
             MuteUser muteUser = new MuteUser();

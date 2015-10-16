@@ -16,7 +16,7 @@ class b extends CustomMessageListener {
         String[] strArr;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
             ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-            for (String str : Static.ayD) {
+            for (String str : Static.ayO) {
                 if (exceptionData != null && exceptionData.info != null && exceptionData.info.contains(str) && !exceptionData.info.contains("java.lang.OutOfMemoryError")) {
                     com.baidu.adp.plugin.b.a.lF().bj("plugin_crash_inflate");
                     com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("is_plugin_resource_open_local", false);

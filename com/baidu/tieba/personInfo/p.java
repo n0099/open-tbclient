@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* loaded from: classes.dex */
 class p extends CustomMessageListener {
-    final /* synthetic */ PersonInfoActivity csx;
+    final /* synthetic */ PersonInfoActivity csI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.csx = personInfoActivity;
+        this.csI = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,17 +35,17 @@ class p extends CustomMessageListener {
                     replyInfo.setUserId(c);
                     replyInfo.setFriendId(friendId);
                     replyInfo.setMessage(content);
-                    yVar3 = this.csx.csk;
+                    yVar3 = this.csI.csv;
                     yVar3.ajN().getReplyInfo().add(replyInfo);
-                    yVar4 = this.csx.csk;
+                    yVar4 = this.csI.csv;
                     yVar4.ajU();
                 }
             } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                yVar = this.csx.csk;
+                yVar = this.csI.csv;
                 if (yVar.ajN() != null) {
-                    yVar2 = this.csx.csk;
+                    yVar2 = this.csI.csv;
                     yVar2.ajN().setIsFriend(1);
-                    ajVar = this.csx.csl;
+                    ajVar = this.csI.csw;
                     ajVar.aka();
                 }
             }

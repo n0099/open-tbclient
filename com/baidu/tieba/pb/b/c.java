@@ -5,8 +5,8 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a cgw;
-    private View cgx;
+    private a cgH;
+    private View cgI;
     private GestureDetector mGestureDetector = new GestureDetector(this);
 
     /* loaded from: classes.dex */
@@ -19,12 +19,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.cgw = aVar;
+        this.cgH = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.cgx = view;
+        this.cgI = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -61,24 +61,24 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.cgw != null) {
-            return this.cgw.a(this.cgx, motionEvent);
+        if (this.cgH != null) {
+            return this.cgH.a(this.cgI, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.cgw != null) {
-            return this.cgw.b(this.cgx, motionEvent);
+        if (this.cgH != null) {
+            return this.cgH.b(this.cgI, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.cgw != null) {
-            return this.cgw.c(this.cgx, motionEvent);
+        if (this.cgH != null) {
+            return this.cgH.c(this.cgI, motionEvent);
         }
         return false;
     }

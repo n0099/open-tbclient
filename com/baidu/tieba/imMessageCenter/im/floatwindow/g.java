@@ -8,61 +8,61 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class g extends j {
-    private int aPv;
-    private long bKV;
-    private Point bLb;
-    protected final int bLc;
-    private i bLd;
-    private boolean bLe;
+    private int aPG;
+    private long bLg;
+    private Point bLm;
+    protected final int bLn;
+    private i bLo;
+    private boolean bLp;
 
     public g(View view) {
         super(view);
-        this.bLe = true;
-        this.aPv = 0;
-        this.bLc = k.K(TbadkCoreApplication.m411getInst());
-        this.bLb = new Point();
-        this.bLg.setOnTouchListener(new h(this));
-        this.aPv = com.baidu.adp.lib.util.a.G(TbadkCoreApplication.m411getInst());
-        if (this.aPv == 0) {
-            this.aPv = 25;
+        this.bLp = true;
+        this.aPG = 0;
+        this.bLn = k.K(TbadkCoreApplication.m411getInst());
+        this.bLm = new Point();
+        this.bLr.setOnTouchListener(new h(this));
+        this.aPG = com.baidu.adp.lib.util.a.G(TbadkCoreApplication.m411getInst());
+        if (this.aPG == 0) {
+            this.aPG = 25;
         }
     }
 
     public void setTouchable(boolean z) {
-        this.bLe = z;
+        this.bLp = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void al(int i, int i2) {
-        this.bKV = SystemClock.elapsedRealtime();
-        this.bLb.x = i;
-        this.bLb.y = i2;
-        if (this.bLd != null) {
-            this.bLd.al(i, i2);
+        this.bLg = SystemClock.elapsedRealtime();
+        this.bLm.x = i;
+        this.bLm.y = i2;
+        if (this.bLo != null) {
+            this.bLo.al(i, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ak(int i, int i2) {
-        ao(this.bLb.x + i, (i2 - this.bLb.y) - this.aPv);
-        if (this.bLd != null) {
-            this.bLd.ak(i, i2);
+        ao(this.bLm.x + i, (i2 - this.bLm.y) - this.aPG);
+        if (this.bLo != null) {
+            this.bLo.ak(i, i2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Yr() {
-        if (this.bLd != null) {
-            if (SystemClock.elapsedRealtime() - this.bKV > 200) {
-                this.bLd.Yr();
+        if (this.bLo != null) {
+            if (SystemClock.elapsedRealtime() - this.bLg > 200) {
+                this.bLo.Yr();
             } else {
-                this.bLd.Ys();
+                this.bLo.Ys();
             }
         }
     }
 
     public void a(i iVar) {
-        this.bLd = iVar;
+        this.bLo = iVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.j
@@ -78,28 +78,28 @@ public class g extends j {
     }
 
     public void an(int i, int i2) {
-        if (this.bLi != null) {
+        if (this.bLt != null) {
             if (i >= 0) {
-                this.bLi.x = i;
+                this.bLt.x = i;
             }
             if (i2 >= 0) {
-                this.bLi.y = i2;
+                this.bLt.y = i2;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ao(int i, int i2) {
-        if (this.bLi != null) {
-            int i3 = this.bLc - i;
+        if (this.bLt != null) {
+            int i3 = this.bLn - i;
             if (i3 >= 0) {
-                this.bLi.x = i3;
+                this.bLt.x = i3;
             }
             if (i2 >= 0) {
-                this.bLi.y = i2;
+                this.bLt.y = i2;
             }
-            if (this.bLh != null && this.bLg.getParent() != null) {
-                this.bLh.updateViewLayout(this.bLg, this.bLi);
+            if (this.bLs != null && this.bLr.getParent() != null) {
+                this.bLs.updateViewLayout(this.bLr, this.bLt);
             }
         }
     }

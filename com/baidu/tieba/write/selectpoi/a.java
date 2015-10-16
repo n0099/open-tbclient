@@ -7,13 +7,13 @@ import com.baidu.tieba.write.data.LocationSearchHttpResponsedMessage;
 import com.baidu.tieba.write.data.LocationSearchResponseMessage;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ SearchLocationActivity dlo;
+    final /* synthetic */ SearchLocationActivity dlO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(SearchLocationActivity searchLocationActivity, int i, int i2) {
         super(i, i2);
-        this.dlo = searchLocationActivity;
+        this.dlO = searchLocationActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -24,19 +24,19 @@ class a extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if ((responsedMessage instanceof LocationSearchHttpResponsedMessage) || (responsedMessage instanceof LocationSearchResponseMessage)) {
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    this.dlo.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.dlo.getResources().getString(i.h.neterror) : responsedMessage.getErrorString());
+                    this.dlO.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.dlO.getResources().getString(i.h.neterror) : responsedMessage.getErrorString());
                     return;
                 }
                 if (responsedMessage instanceof LocationSearchHttpResponsedMessage) {
-                    this.dlo.dlh = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
+                    this.dlO.dlH = ((LocationSearchHttpResponsedMessage) responsedMessage).getLocationData();
                 }
                 if (responsedMessage instanceof LocationSearchResponseMessage) {
-                    this.dlo.dlh = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
+                    this.dlO.dlH = ((LocationSearchResponseMessage) responsedMessage).getLocationData();
                 }
-                hVar = this.dlo.dli;
-                bVar = this.dlo.dlh;
+                hVar = this.dlO.dlI;
+                bVar = this.dlO.dlH;
                 hVar.a(bVar);
-                hVar2 = this.dlo.dli;
+                hVar2 = this.dlO.dlI;
                 hVar2.notifyDataSetChanged();
             }
         }

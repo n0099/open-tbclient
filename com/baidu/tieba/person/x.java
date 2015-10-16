@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class x implements View.OnClickListener {
-    final /* synthetic */ r cpf;
+    final /* synthetic */ r cpq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(r rVar) {
-        this.cpf = rVar;
+        this.cpq = rVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,32 +26,32 @@ class x implements View.OnClickListener {
         TextView textView4;
         ac acVar6;
         TextView textView5;
-        acVar = this.cpf.coP;
+        acVar = this.cpq.cpa;
         if (acVar != null) {
-            acVar2 = this.cpf.coP;
+            acVar2 = this.cpq.cpa;
             if (!acVar2.FV()) {
-                acVar5 = this.cpf.coP;
+                acVar5 = this.cpq.cpa;
                 acVar5.setEditState(true);
-                textView3 = this.cpf.aEh;
+                textView3 = this.cpq.aEs;
                 textView3.setText(i.h.done);
                 if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-                    textView5 = this.cpf.aEh;
-                    com.baidu.tbadk.core.util.am.b(textView5, i.c.navi_op_text, 1);
+                    textView5 = this.cpq.aEs;
+                    com.baidu.tbadk.core.util.an.b(textView5, i.c.navi_op_text, 1);
                 } else {
-                    textView4 = this.cpf.aEh;
-                    com.baidu.tbadk.core.util.am.b(textView4, i.c.cp_link_tip_a, 1);
+                    textView4 = this.cpq.aEs;
+                    com.baidu.tbadk.core.util.an.b(textView4, i.c.cp_link_tip_a, 1);
                 }
-                acVar6 = this.cpf.coP;
+                acVar6 = this.cpq.cpa;
                 acVar6.notifyDataSetChanged();
                 return;
             }
-            acVar3 = this.cpf.coP;
+            acVar3 = this.cpq.cpa;
             acVar3.setEditState(false);
-            textView = this.cpf.aEh;
+            textView = this.cpq.aEs;
             textView.setText(i.h.edit);
-            textView2 = this.cpf.aEh;
-            com.baidu.tbadk.core.util.am.b(textView2, i.c.navi_op_text, 1);
-            acVar4 = this.cpf.coP;
+            textView2 = this.cpq.aEs;
+            com.baidu.tbadk.core.util.an.b(textView2, i.c.navi_op_text, 1);
+            acVar4 = this.cpq.cpa;
             acVar4.notifyDataSetChanged();
         }
     }

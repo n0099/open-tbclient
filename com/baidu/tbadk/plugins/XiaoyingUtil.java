@@ -99,7 +99,7 @@ public class XiaoyingUtil {
         Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.ct(str);
+            aVar.cu(str);
             aVar.a(str2, new c(pageActivity, tbPageContext));
             aVar.b(i.h.cancel, new d());
             aVar.b(tbPageContext).sR();

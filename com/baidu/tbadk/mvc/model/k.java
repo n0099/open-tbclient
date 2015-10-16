@@ -19,7 +19,7 @@ public class k extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-            this.this$0.avD = com.baidu.adp.lib.util.i.iM();
+            this.this$0.avE = com.baidu.adp.lib.util.i.iM();
         }
     }
 }

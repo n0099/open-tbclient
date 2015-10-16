@@ -8,43 +8,43 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements TextWatcher {
-    final /* synthetic */ SquareSearchActivity bVr;
+    final /* synthetic */ SquareSearchActivity bVC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(SquareSearchActivity squareSearchActivity) {
-        this.bVr = squareSearchActivity;
+        this.bVC = squareSearchActivity;
     }
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         boolean z;
-        this.bVr.bUK = charSequence.toString();
-        if (this.bVr.bUK.trim().length() > 0) {
-            if (this.bVr.mMode != 0) {
-                if (this.bVr.mMode != 1) {
+        this.bVC.bUV = charSequence.toString();
+        if (this.bVC.bUV.trim().length() > 0) {
+            if (this.bVC.mMode != 0) {
+                if (this.bVC.mMode != 1) {
                     return;
                 }
-                this.bVr.G(1, this.bVr.bUK);
+                this.bVC.G(1, this.bVC.bUV);
                 return;
             }
-            this.bVr.abt();
+            this.bVC.abt();
             return;
         }
-        this.bVr.abf();
-        if (this.bVr.mMode != 0) {
-            if (this.bVr.mMode != 3) {
-                this.bVr.abq();
+        this.bVC.abf();
+        if (this.bVC.mMode != 0) {
+            if (this.bVC.mMode != 3) {
+                this.bVC.abq();
                 return;
             } else {
-                this.bVr.abr();
+                this.bVC.abr();
                 return;
             }
         }
-        z = this.bVr.bUQ;
+        z = this.bVC.bVb;
         if (!z && !SquareSearchActivityConfig.IS_SHOW_LIKE_FORUM) {
             return;
         }
-        this.bVr.abp();
+        this.bVC.abp();
     }
 
     @Override // android.text.TextWatcher
@@ -57,13 +57,13 @@ public class z implements TextWatcher {
         TextView textView2;
         TextView textView3;
         if (editable.toString().trim().length() == 0) {
-            textView3 = this.bVr.bUq;
+            textView3 = this.bVC.bUB;
             textView3.setVisibility(8);
         } else {
-            textView = this.bVr.bUq;
+            textView = this.bVC.bUB;
             textView.setVisibility(0);
         }
-        textView2 = this.bVr.bUr;
-        com.baidu.tbadk.core.util.am.b(textView2, i.c.cp_cont_i, 1);
+        textView2 = this.bVC.bUC;
+        com.baidu.tbadk.core.util.an.b(textView2, i.c.cp_cont_i, 1);
     }
 }

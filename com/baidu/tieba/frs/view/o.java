@@ -5,20 +5,20 @@ import android.view.View;
 import android.widget.PopupWindow;
 /* loaded from: classes.dex */
 class o implements View.OnTouchListener {
-    final /* synthetic */ FrsHeaderView bdj;
-    private final /* synthetic */ PopupWindow bdk;
+    final /* synthetic */ FrsHeaderView bdu;
+    private final /* synthetic */ PopupWindow bdv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(FrsHeaderView frsHeaderView, PopupWindow popupWindow) {
-        this.bdj = frsHeaderView;
-        this.bdk = popupWindow;
+        this.bdu = frsHeaderView;
+        this.bdv = popupWindow;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 4) {
-            com.baidu.adp.lib.g.j.a(this.bdk);
-            this.bdj.aUU.aTx = false;
+            com.baidu.adp.lib.g.j.a(this.bdv);
+            this.bdu.aVf.aTI = false;
         }
         return false;
     }

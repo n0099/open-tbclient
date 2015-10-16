@@ -10,11 +10,11 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class j implements a.c {
-    final /* synthetic */ WriteShareActivity dlY;
+    final /* synthetic */ WriteShareActivity dmy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(WriteShareActivity writeShareActivity) {
-        this.dlY = writeShareActivity;
+        this.dmy = writeShareActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.c
@@ -23,37 +23,37 @@ class j implements a.c {
         com.baidu.tieba.write.view.e eVar2;
         com.baidu.tieba.write.view.e eVar3;
         com.baidu.tieba.write.view.e eVar4;
-        this.dlY.closeLoadingDialog();
+        this.dmy.closeLoadingDialog();
         if (!z) {
             if (lVar != null && writeData != null && lVar.getVcode_pic_url() != null) {
                 writeData.setVcodeMD5(lVar.getVcode_md5());
                 writeData.setVcodeUrl(lVar.getVcode_pic_url());
-                this.dlY.dlK = true;
+                this.dmy.dmk = true;
                 if (lVar.ws().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.dlY.getPageContext().getPageActivity(), 12006, writeData, false)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.dmy.getPageContext().getPageActivity(), 12006, writeData, false)));
                     return;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.dlY.getPageContext().getPageActivity(), writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.dmy.getPageContext().getPageActivity(), writeData, 12006)));
                     return;
                 }
             }
-            this.dlY.aBQ();
-            eVar = this.dlY.dlN;
+            this.dmy.aCa();
+            eVar = this.dmy.dmn;
             if (eVar != null) {
-                this.dlY.dlL = false;
-                eVar2 = this.dlY.dlN;
-                eVar2.aCj();
+                this.dmy.dml = false;
+                eVar2 = this.dmy.dmn;
+                eVar2.aCt();
                 return;
             }
             return;
         }
-        this.dlY.aBP();
-        eVar3 = this.dlY.dlM;
+        this.dmy.aBZ();
+        eVar3 = this.dmy.dmm;
         if (eVar3 != null) {
-            this.dlY.dlL = true;
-            this.dlY.setResult(-1);
-            eVar4 = this.dlY.dlM;
-            eVar4.aCj();
+            this.dmy.dml = true;
+            this.dmy.setResult(-1);
+            eVar4 = this.dmy.dmm;
+            eVar4.aCt();
         }
     }
 }

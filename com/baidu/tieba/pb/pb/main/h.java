@@ -8,11 +8,11 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class h implements a.d {
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PbActivity pbActivity) {
-        this.ciz = pbActivity;
+        this.ciK = pbActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -36,8 +36,8 @@ class h implements a.d {
         cc ccVar7;
         cc ccVar8;
         com.baidu.tbadk.editortools.c.d dVar2;
-        this.ciz.stopVoice();
-        ccVar = this.ciz.cia;
+        this.ciK.stopVoice();
+        ccVar = this.ciK.cim;
         ccVar.eK(z);
         String str = "";
         int i = -1;
@@ -46,58 +46,58 @@ class h implements a.d {
             str = postWriteCallBackData.getErrorString();
         }
         if (z) {
-            ccVar2 = this.ciz.cia;
+            ccVar2 = this.ciK.cim;
             ccVar2.agM();
-            dVar = this.ciz.cij;
+            dVar = this.ciK.ciu;
             if (dVar != null) {
-                ccVar8 = this.ciz.cia;
-                dVar2 = this.ciz.cij;
+                ccVar8 = this.ciK.cim;
+                dVar2 = this.ciK.ciu;
                 ccVar8.eN(dVar2.Br());
             }
-            ccVar3 = this.ciz.cia;
+            ccVar3 = this.ciK.cim;
             ccVar3.agn();
-            ccVar4 = this.ciz.cia;
+            ccVar4 = this.ciK.cim;
             ccVar4.eP(true);
-            blVar = this.ciz.chV;
+            blVar = this.ciK.cih;
             blVar.afW();
-            this.ciz.a(antiData, postWriteCallBackData);
+            this.ciK.a(antiData, postWriteCallBackData);
             if (writeData != null) {
                 String floor = writeData.getFloor();
                 if (writeData == null || writeData.getType() != 2) {
-                    blVar2 = this.ciz.chV;
+                    blVar2 = this.ciK.cih;
                     if (blVar2.getHostMode()) {
-                        blVar4 = this.ciz.chV;
+                        blVar4 = this.ciK.cih;
                         com.baidu.tieba.pb.a.b pbData = blVar4.getPbData();
                         if (pbData != null && pbData.aeO() != null && pbData.aeO().getAuthor() != null && (userId = pbData.aeO().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
-                            blVar5 = this.ciz.chV;
+                            blVar5 = this.ciK.cih;
                             if (blVar5.afR()) {
-                                ccVar6 = this.ciz.cia;
+                                ccVar6 = this.ciK.cim;
                                 ccVar6.agx();
                             }
                         }
                     } else {
-                        blVar3 = this.ciz.chV;
+                        blVar3 = this.ciK.cih;
                         if (blVar3.afR()) {
-                            ccVar5 = this.ciz.cia;
+                            ccVar5 = this.ciK.cim;
                             ccVar5.agx();
                         }
                     }
                 } else if (floor != null) {
-                    blVar8 = this.ciz.chV;
+                    blVar8 = this.ciK.cih;
                     com.baidu.tieba.pb.a.b pbData2 = blVar8.getPbData();
-                    ccVar7 = this.ciz.cia;
+                    ccVar7 = this.ciK.cim;
                     ccVar7.h(pbData2);
                 }
-                blVar6 = this.ciz.chV;
+                blVar6 = this.ciK.cih;
                 if (blVar6.afN()) {
-                    com.baidu.tbadk.core.util.ap apVar = new com.baidu.tbadk.core.util.ap("c10369");
-                    blVar7 = this.ciz.chV;
-                    TiebaStatic.log(apVar.ae("tid", blVar7.getThreadID()));
+                    com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c10369");
+                    blVar7 = this.ciK.cih;
+                    TiebaStatic.log(aqVar.ae("tid", blVar7.getThreadID()));
                 }
             }
         } else if (lVar != null) {
         } else {
-            this.ciz.a(i, antiData, str);
+            this.ciK.a(i, antiData, str);
         }
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class di extends x.a {
-    public ViewGroup aYg;
-    public PhotoLiveCardView aYh;
+    public ViewGroup aYr;
+    public PhotoLiveCardView aYs;
 
     public di(View view) {
         super(view);
-        this.aYg = (ViewGroup) view.findViewById(i.f.live_card_layout);
-        this.aYh = (PhotoLiveCardView) view.findViewById(i.f.item_live_card);
-        this.aYh.setAllowGreyState(true);
+        this.aYr = (ViewGroup) view.findViewById(i.f.live_card_layout);
+        this.aYs = (PhotoLiveCardView) view.findViewById(i.f.item_live_card);
+        this.aYs.setAllowGreyState(true);
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class dh extends bn<com.baidu.tbadk.core.data.s, di> implements View.OnClickListener, PhotoLiveCardView.b {
+public class dh extends bn<com.baidu.tbadk.core.data.t, di> implements View.OnClickListener, PhotoLiveCardView.b {
     /* JADX INFO: Access modifiers changed from: protected */
     public dh(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
@@ -33,28 +33,28 @@ public class dh extends bn<com.baidu.tbadk.core.data.s, di> implements View.OnCl
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.s sVar, di diVar) {
-        super.a(i, view, viewGroup, (ViewGroup) sVar, (com.baidu.tbadk.core.data.s) diVar);
-        com.baidu.tbadk.h.a.a(this.aRT.getPageContext(), view);
-        PhotoLiveCardData sc = sVar.sc();
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.t tVar, di diVar) {
+        super.a(i, view, viewGroup, (ViewGroup) tVar, (com.baidu.tbadk.core.data.t) diVar);
+        com.baidu.tbadk.h.a.a(this.aSe.getPageContext(), view);
+        PhotoLiveCardData sc = tVar.sc();
         if (2 == b(sc)) {
-            diVar.aYh.setShowContent(true);
-            diVar.aYh.setShowCover(false);
-            diVar.aYh.setShowExpression(false);
+            diVar.aYs.setShowContent(true);
+            diVar.aYs.setShowCover(false);
+            diVar.aYs.setShowExpression(false);
         } else {
-            diVar.aYh.setShowContent(false);
-            diVar.aYh.setShowCover(true);
-            diVar.aYh.setShowExpression(true);
+            diVar.aYs.setShowContent(false);
+            diVar.aYs.setShowCover(true);
+            diVar.aYs.setShowExpression(true);
         }
-        diVar.aYh.setContentPaddingBottom(i.d.ds36);
-        diVar.aYh.setShowBottom(false);
-        diVar.aYh.setChooseStyle(sc.getShowStyle());
-        diVar.aYh.setShowRefreshTimeInHead(true);
-        diVar.aYh.setShowLiveIcon(true);
-        diVar.aYh.setHeadPaddingTop(i.d.ds24);
-        diVar.aYh.setPortraitClicklistener(this);
-        diVar.aYh.setShowImage(com.baidu.tbadk.core.m.qX().rb());
-        diVar.aYh.setData(sc);
+        diVar.aYs.setContentPaddingBottom(i.d.ds36);
+        diVar.aYs.setShowBottom(false);
+        diVar.aYs.setChooseStyle(sc.getShowStyle());
+        diVar.aYs.setShowRefreshTimeInHead(true);
+        diVar.aYs.setShowLiveIcon(true);
+        diVar.aYs.setHeadPaddingTop(i.d.ds24);
+        diVar.aYs.setPortraitClicklistener(this);
+        diVar.aYs.setShowImage(com.baidu.tbadk.core.m.qX().rb());
+        diVar.aYs.setData(sc);
         return view;
     }
 
@@ -64,7 +64,7 @@ public class dh extends bn<com.baidu.tbadk.core.data.s, di> implements View.OnCl
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() != i.f.live_card_layout || !this.aRT.checkUpIsLogin()) {
+        if (view.getId() != i.f.live_card_layout || !this.aSe.checkUpIsLogin()) {
         }
     }
 
@@ -74,7 +74,7 @@ public class dh extends bn<com.baidu.tbadk.core.data.s, di> implements View.OnCl
         if (tag instanceof PhotoLiveCardData) {
             PhotoLiveCardData photoLiveCardData = (PhotoLiveCardData) tag;
             if (!StringUtils.isNull(photoLiveCardData.getAuthorId())) {
-                TiebaStatic.log(new com.baidu.tbadk.core.util.ap("c10246").ae(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())));
+                TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10246").ae(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mContext, photoLiveCardData.getAuthorId(), null)));
             }
         }

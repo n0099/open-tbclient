@@ -4,16 +4,16 @@ import com.slidingmenu.lib.SlidingMenu;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class be implements SlidingMenu.OnOpenedListener {
-    final /* synthetic */ ao dcY;
+    final /* synthetic */ ao ddy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(ao aoVar) {
-        this.dcY = aoVar;
+        this.ddy = aoVar;
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnOpenedListener
     public void onOpened() {
-        this.dcY.gB(false);
-        this.dcY.z(0.0f);
+        this.ddy.gB(false);
+        this.ddy.z(0.0f);
     }
 }

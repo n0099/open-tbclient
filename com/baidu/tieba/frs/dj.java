@@ -11,14 +11,14 @@ import com.baidu.tieba.i;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class dj extends bn<dk, dl> {
-    private final LinkedList<com.baidu.tbadk.e.f> aYi;
-    private final LinkedList<RelativeLayout> aYj;
+    private final LinkedList<com.baidu.tbadk.e.f> aYt;
+    private final LinkedList<RelativeLayout> aYu;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public dj(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.aYi = new LinkedList<>();
-        this.aYj = new LinkedList<>();
+        this.aYt = new LinkedList<>();
+        this.aYu = new LinkedList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,10 +31,10 @@ public class dj extends bn<dk, dl> {
         relativeLayout.setGravity(17);
         com.baidu.tbadk.e.f fVar = new com.baidu.tbadk.e.f(this.mContext, this.mContext.getResources().getDimensionPixelSize(i.d.ds140));
         fVar.v(relativeLayout);
-        this.aYi.add(fVar);
-        this.aYj.add(relativeLayout);
+        this.aYt.add(fVar);
+        this.aYu.add(relativeLayout);
         dl dlVar = new dl(relativeLayout);
-        dlVar.aYl = fVar;
+        dlVar.aYw = fVar;
         return dlVar;
     }
 
@@ -42,8 +42,8 @@ public class dj extends bn<dk, dl> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, dk dkVar, dl dlVar) {
-        if (dlVar != null && dlVar.aYl != null) {
-            dlVar.aYl.tc();
+        if (dlVar != null && dlVar.aYw != null) {
+            dlVar.aYw.tc();
         }
         return view;
     }
@@ -51,18 +51,18 @@ public class dj extends bn<dk, dl> {
     @Override // com.baidu.tieba.frs.bn
     public void release() {
         super.release();
-        if (this.aYi.size() != 0 && this.aYj.size() == this.aYi.size()) {
+        if (this.aYt.size() != 0 && this.aYu.size() == this.aYt.size()) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 >= this.aYi.size()) {
+                if (i2 >= this.aYt.size()) {
                     break;
                 }
-                this.aYi.get(i2).u(this.aYj.get(i2));
+                this.aYt.get(i2).u(this.aYu.get(i2));
                 i = i2 + 1;
             }
         }
-        this.aYi.clear();
-        this.aYj.clear();
+        this.aYt.clear();
+        this.aYu.clear();
     }
 }

@@ -5,12 +5,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.w;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    private static final String aFk = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/bawu/appeal";
+    private static final String aFv = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/bawu/appeal";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -25,18 +25,18 @@ public class f {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, AppealData> {
-        private String aFl;
-        private String aFm;
-        private String aFn;
-        private String aFo;
-        private WeakReference<b> aFp;
+        private WeakReference<b> aFA;
+        private String aFw;
+        private String aFx;
+        private String aFy;
+        private String aFz;
 
         public a(String str, String str2, String str3, String str4, b bVar) {
-            this.aFl = str;
-            this.aFm = str2;
-            this.aFn = str3;
-            this.aFo = str4;
-            this.aFp = new WeakReference<>(bVar);
+            this.aFw = str;
+            this.aFx = str2;
+            this.aFy = str3;
+            this.aFz = str4;
+            this.aFA = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -45,13 +45,13 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: n */
         public AppealData doInBackground(String... strArr) {
-            w wVar = new w(f.aFk);
-            wVar.o("forum_id", this.aFl);
-            wVar.o("user_id", this.aFm);
-            wVar.o("user_name", this.aFn);
-            wVar.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, this.aFo);
+            w wVar = new w(f.aFv);
+            wVar.o("forum_id", this.aFw);
+            wVar.o("user_id", this.aFx);
+            wVar.o("user_name", this.aFy);
+            wVar.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, this.aFz);
             String tG = wVar.tG();
-            if (wVar.uh().uY().qV()) {
+            if (wVar.uh().uZ().qV()) {
                 try {
                     return (AppealData) i.objectWithJsonStr(tG, AppealData.class);
                 } catch (Exception e) {
@@ -73,9 +73,9 @@ public class f {
         /* renamed from: c */
         public void onPostExecute(AppealData appealData) {
             super.onPostExecute(appealData);
-            b bVar = this.aFp.get();
+            b bVar = this.aFA.get();
             if (bVar != null) {
-                if (appealData.errNo == 0 && ar.isEmpty(appealData.errMsg)) {
+                if (appealData.errNo == 0 && as.isEmpty(appealData.errMsg)) {
                     bVar.a(appealData);
                 } else {
                     bVar.b(appealData);

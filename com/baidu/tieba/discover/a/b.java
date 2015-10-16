@@ -12,7 +12,7 @@ import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends LinearLayout {
-    private y aKQ;
+    private y aLb;
     private List<com.baidu.tieba.discover.data.c> mData;
 
     public b(Context context) {
@@ -25,7 +25,7 @@ public class b extends LinearLayout {
     }
 
     public void setOnHeaderItemClickListener(y yVar) {
-        this.aKQ = yVar;
+        this.aLb = yVar;
     }
 
     public void v(String str, boolean z) {

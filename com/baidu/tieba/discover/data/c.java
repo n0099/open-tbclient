@@ -4,10 +4,10 @@ import com.baidu.tbadk.TbadkApplication;
 import tbclient.FoundNew.Menu;
 /* loaded from: classes.dex */
 public class c {
-    private boolean aKL;
-    private boolean aKM;
-    private int aKN;
-    private boolean aKO;
+    private boolean aKW;
+    private boolean aKX;
+    private int aKY;
+    private boolean aKZ;
     private String describe;
     private String icon_url;
     private String link_url;
@@ -32,11 +32,11 @@ public class c {
         this.link_url = menu.link_url;
         this.describe = menu.describe;
         this.statistics = menu.statistics;
-        this.aKL = menu.is_new != null && menu.is_new.intValue() == 1;
+        this.aKW = menu.is_new != null && menu.is_new.intValue() == 1;
         if (menu.is_red_point == null || menu.is_red_point.intValue() != 1) {
             z = false;
         }
-        this.aKM = z;
+        this.aKX = z;
         return this;
     }
 
@@ -73,34 +73,34 @@ public class c {
     }
 
     public boolean HO() {
-        return this.aKL;
+        return this.aKW;
     }
 
     public void bG(boolean z) {
-        this.aKL = z;
+        this.aKW = z;
     }
 
     public boolean HP() {
-        return this.aKM;
+        return this.aKX;
     }
 
     public void bH(boolean z) {
-        this.aKM = z;
+        this.aKX = z;
     }
 
     public int HQ() {
-        return this.aKN;
+        return this.aKY;
     }
 
     public void eT(int i) {
-        this.aKN = i;
+        this.aKY = i;
     }
 
     public boolean HR() {
-        return this.aKO;
+        return this.aKZ;
     }
 
     public void bI(boolean z) {
-        this.aKO = z;
+        this.aKZ = z;
     }
 }

@@ -4,8 +4,8 @@ public class t extends r {
     public long axA;
     public long axB;
     public long axC;
-    public boolean axD;
-    public long axr;
+    public long axD;
+    public boolean axE;
     public long axs;
     public long axt;
     public long axu;

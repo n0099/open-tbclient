@@ -5,15 +5,15 @@ import org.json.JSONObject;
 import tbclient.ActInfo;
 /* loaded from: classes.dex */
 public class a {
-    private int TJ;
     private int TK;
     private int TL;
+    private int TM;
     private int status;
     private int total_num;
     private String url;
 
     public int rl() {
-        return this.TJ;
+        return this.TK;
     }
 
     public int getStatus() {
@@ -21,11 +21,11 @@ public class a {
     }
 
     public int rm() {
-        return this.TK;
+        return this.TL;
     }
 
     public int rn() {
-        return this.TL;
+        return this.TM;
     }
 
     public String getUrl() {
@@ -38,10 +38,10 @@ public class a {
 
     public void a(ActInfo actInfo) {
         if (actInfo != null) {
-            this.TJ = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
+            this.TK = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
             this.status = actInfo.status != null ? actInfo.status.intValue() : -1;
-            this.TK = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
-            this.TL = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
+            this.TL = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
+            this.TM = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
             this.url = actInfo.url;
             this.total_num = actInfo.total_num != null ? actInfo.total_num.intValue() : -1;
         }
@@ -50,10 +50,10 @@ public class a {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.TJ = jSONObject.optInt("activity_type");
+                this.TK = jSONObject.optInt("activity_type");
                 this.status = jSONObject.optInt("status");
-                this.TK = jSONObject.optInt("begin_time");
-                this.TL = jSONObject.optInt("end_time");
+                this.TL = jSONObject.optInt("begin_time");
+                this.TM = jSONObject.optInt("end_time");
                 this.url = jSONObject.optString("url");
                 this.total_num = jSONObject.optInt("total_num");
             } catch (Exception e) {

@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
@@ -41,39 +41,39 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     }
 
     private void a(com.baidu.tieba.hottopic.b.b bVar, com.baidu.tieba.hottopic.data.c cVar) {
-        if (bVar != null && cVar != null && !StringUtils.isNull(cVar.bou)) {
-            bVar.bps.setSingleLine();
-            cVar.bou = cVar.bou.trim();
+        if (bVar != null && cVar != null && !StringUtils.isNull(cVar.boF)) {
+            bVar.bpD.setSingleLine();
+            cVar.boF = cVar.boF.trim();
             StringBuilder sb = new StringBuilder();
-            if (cVar.bou.length() > 14) {
-                String substring = cVar.bou.substring(1, 10);
-                sb.append(cVar.bou.charAt(0));
+            if (cVar.boF.length() > 14) {
+                String substring = cVar.boF.substring(1, 10);
+                sb.append(cVar.boF.charAt(0));
                 sb.append(substring);
                 sb.append("...");
-                sb.append(cVar.bou.charAt(cVar.bou.length() - 1));
-                bVar.bps.setText(sb);
+                sb.append(cVar.boF.charAt(cVar.boF.length() - 1));
+                bVar.bpD.setText(sb);
             } else {
-                bVar.bps.setText(cVar.bou);
+                bVar.bpD.setText(cVar.boF);
             }
-            bVar.bpt.setText(TbadkCoreApplication.m411getInst().getString(i.h.hot_topic_info_threadCount).replace("%s", ar.x(cVar.postNum)));
-            bVar.bpu.setMaxLines(3);
-            if (StringUtils.isNull(cVar.boN)) {
-                bVar.bpu.setVisibility(8);
+            bVar.bpE.setText(TbadkCoreApplication.m411getInst().getString(i.h.hot_topic_info_threadCount).replace("%s", as.x(cVar.postNum)));
+            bVar.bpF.setMaxLines(3);
+            if (StringUtils.isNull(cVar.boY)) {
+                bVar.bpF.setVisibility(8);
                 return;
             }
-            bVar.bpu.setVisibility(0);
-            bVar.bpu.setEllipsize(TextUtils.TruncateAt.END);
-            bVar.bpu.setText(cVar.boN);
+            bVar.bpF.setVisibility(0);
+            bVar.bpF.setEllipsize(TextUtils.TruncateAt.END);
+            bVar.bpF.setText(cVar.boY);
         }
     }
 
     private void a(com.baidu.tieba.hottopic.b.b bVar) {
         if (bVar != null) {
-            am.j(bVar.getView(), i.c.cp_bg_line_d);
-            am.b(bVar.bps, i.c.cp_cont_b, 1);
-            am.b(bVar.bpt, i.c.cp_cont_e, 1);
-            am.b(bVar.bpu, i.c.cp_cont_b, 1);
-            am.j(bVar.aDF, i.c.cp_bg_line_c);
+            an.j(bVar.getView(), i.c.cp_bg_line_d);
+            an.b(bVar.bpD, i.c.cp_cont_b, 1);
+            an.b(bVar.bpE, i.c.cp_cont_e, 1);
+            an.b(bVar.bpF, i.c.cp_cont_b, 1);
+            an.j(bVar.aDQ, i.c.cp_bg_line_c);
         }
     }
 }

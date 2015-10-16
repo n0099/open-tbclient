@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tbadk.core.data.v;
+import com.baidu.tbadk.core.data.w;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class PbActivityConfig extends IntentConfig {
@@ -173,15 +173,15 @@ public class PbActivityConfig extends IntentConfig {
         return this;
     }
 
-    public PbActivityConfig createFromThreadCfg(v vVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
-        if (vVar != null) {
+    public PbActivityConfig createFromThreadCfg(w wVar, String str, String str2, int i, boolean z, boolean z2, boolean z3) {
+        if (wVar != null) {
             Intent intent = getIntent();
-            intent.putExtra("thread_id", vVar.getId());
-            intent.putExtra(KEY_IS_GOOD, vVar.getIs_good());
-            intent.putExtra(KEY_IS_TOP, vVar.getIs_top());
-            intent.putExtra(KEY_THREAD_TIME, vVar.getLast_time_int());
+            intent.putExtra("thread_id", wVar.getId());
+            intent.putExtra(KEY_IS_GOOD, wVar.getIs_good());
+            intent.putExtra(KEY_IS_TOP, wVar.getIs_top());
+            intent.putExtra(KEY_THREAD_TIME, wVar.getLast_time_int());
             intent.putExtra("st_type", str2);
-            intent.putExtra("from_frs", vVar.getIs_top() != 2);
+            intent.putExtra("from_frs", wVar.getIs_top() != 2);
             intent.putExtra(KEY_SQUENCE, z);
             intent.putExtra(KEY_HOST_ONLY, z2);
             intent.putExtra("is_ad", z3);
@@ -189,7 +189,7 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra("TibaStatic.StartTime", System.currentTimeMillis());
             intent.putExtra(KYE_IS_START_FOR_RESULT, "1");
             intent.putExtra("request_code", i);
-            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (vVar.getPraise() == null ? 0L : vVar.getPraise().getNum()));
+            intent.putExtra(KEY_INTENT_EXTRA_PB_CACHE_KEY, "zan=" + (wVar.getPraise() == null ? 0L : wVar.getPraise().getNum()));
         }
         return this;
     }

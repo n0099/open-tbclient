@@ -4,16 +4,16 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 class a extends Handler {
-    final /* synthetic */ FrsGoodActivity aZB;
+    final /* synthetic */ FrsGoodActivity aZM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(FrsGoodActivity frsGoodActivity) {
-        this.aZB = frsGoodActivity;
+        this.aZM = frsGoodActivity;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         super.handleMessage(message);
-        this.aZB.ci(false);
+        this.aZM.ci(false);
     }
 }

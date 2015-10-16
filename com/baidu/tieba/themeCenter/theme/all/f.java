@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ d dgh;
+    final /* synthetic */ d dgH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar, int i) {
         super(i);
-        this.dgh = dVar;
+        this.dgH = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,23 +28,23 @@ public class f extends CustomMessageListener {
         k kVar;
         List<com.baidu.tieba.themeCenter.theme.top.a> list4;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            this.dgh.dga = (List) customResponsedMessage.getData();
-            list = this.dgh.dga;
+            this.dgH.dgA = (List) customResponsedMessage.getData();
+            list = this.dgH.dgA;
             if (list != null) {
-                list2 = this.dgh.dgb;
+                list2 = this.dgH.dgB;
                 if (list2 != null) {
-                    list3 = this.dgh.dgb;
+                    list3 = this.dgH.dgB;
                     if (list3.size() > 2) {
-                        aVar = this.dgh.dge;
+                        aVar = this.dgH.dgE;
                         if (aVar == null) {
                             return;
                         }
-                        this.dgh.azs();
-                        aVar2 = this.dgh.dge;
+                        this.dgH.azC();
+                        aVar2 = this.dgH.dgE;
                         int error = customResponsedMessage.getError();
                         String errorString = customResponsedMessage.getErrorString();
-                        kVar = this.dgh.mRecommand;
-                        list4 = this.dgh.mThemeList;
+                        kVar = this.dgH.mRecommand;
+                        list4 = this.dgH.mThemeList;
                         aVar2.a(error, errorString, kVar, list4);
                     }
                 }

@@ -12,9 +12,9 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private CustomMessageListener aKA;
-    private ImageView aKy;
-    private Boolean aKz = false;
+    private ImageView aKJ;
+    private Boolean aKK = false;
+    private CustomMessageListener aKL;
 
     static {
         s sVar = new s(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
@@ -30,26 +30,26 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.auY = new a();
+        cVar.auZ = new a();
         cVar.type = 6;
-        cVar.auZ = i.h.discover;
-        cVar.ava = i.e.s_icon_tabbar_discover;
+        cVar.ava = i.h.discover;
+        cVar.avb = i.e.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(i.g.fragmenttabindicator, (ViewGroup) null);
-        this.aKy = new ImageView(context);
+        this.aKJ = new ImageView(context);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.auX = this.mIndicator;
+        aVar.auY = this.mIndicator;
         aVar.uo = com.baidu.adp.lib.util.k.dip2px(context, 3.0f);
-        aVar.view = this.aKy;
-        aVar.auV = i.e.icon_news_down_bar_one;
-        if (this.aKz.booleanValue()) {
-            this.aKy.setVisibility(0);
+        aVar.view = this.aKJ;
+        aVar.auW = i.e.icon_news_down_bar_one;
+        if (this.aKK.booleanValue()) {
+            this.aKJ.setVisibility(0);
         } else {
-            this.aKy.setVisibility(8);
+            this.aKJ.setVisibility(8);
         }
         this.mIndicator.a("emotion", aVar);
         return this.mIndicator;
@@ -57,13 +57,13 @@ public class DiscoverDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        this.aKA = new t(this, CmdConfigCustom.MAINTAB_TAB_EMOTION);
-        this.aKA.setPriority(7);
-        MessageManager.getInstance().registerListener(this.aKA);
+        this.aKL = new t(this, CmdConfigCustom.MAINTAB_TAB_EMOTION);
+        this.aKL.setPriority(7);
+        MessageManager.getInstance().registerListener(this.aKL);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onRemove() {
-        MessageManager.getInstance().unRegisterListener(this.aKA);
+        MessageManager.getInstance().unRegisterListener(this.aKL);
     }
 }

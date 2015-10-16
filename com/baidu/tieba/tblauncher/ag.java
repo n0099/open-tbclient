@@ -17,7 +17,7 @@ class ag extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null) {
-            this.this$0.ayg();
+            this.this$0.ayq();
         }
     }
 }

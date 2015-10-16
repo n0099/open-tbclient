@@ -5,18 +5,18 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Handler.Callback {
-    final /* synthetic */ e bpQ;
+    final /* synthetic */ e bqb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.bpQ = eVar;
+        this.bqb = eVar;
     }
 
     @Override // android.os.Handler.Callback
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                this.bpQ.Mn();
+                this.bqb.Mn();
                 return false;
             default:
                 return false;

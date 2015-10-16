@@ -13,11 +13,11 @@ import com.baidu.tieba.tbadkCore.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.g {
-    final /* synthetic */ a bbN;
+    final /* synthetic */ a bbY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.bbN = aVar;
+        this.bbY = aVar;
     }
 
     @Override // com.baidu.adp.base.g
@@ -32,42 +32,42 @@ public class g extends com.baidu.adp.base.g {
         FrsActivity frsActivity4;
         FrsActivity frsActivity5;
         boolean z = false;
-        frsActivity = this.bbN.baG;
+        frsActivity = this.bbY.baR;
         com.baidu.tieba.tbadkCore.o Lh = frsActivity.Lh();
         if (Lh != null && Lh.aeN() != null) {
             String name = Lh.aeN().getName();
             if (obj != null && (obj instanceof x)) {
-                com.baidu.tieba.tbadkCore.d.avn().H(name, false);
+                com.baidu.tieba.tbadkCore.d.avt().H(name, false);
                 ((x) obj).setLike(1);
                 Lh.b((x) obj);
                 z = true;
             }
-            frsActivity2 = this.bbN.baG;
-            frsActivity2.aUy.d(Boolean.valueOf(z));
+            frsActivity2 = this.bbY.baR;
+            frsActivity2.aUJ.d(Boolean.valueOf(z));
             if (!z) {
-                wVar = this.bbN.LS;
+                wVar = this.bbY.LT;
                 if (wVar.getErrorCode() == 22) {
-                    frsActivity4 = this.bbN.baG;
-                    frsActivity4.showToast(this.bbN.getPageContext().getString(i.h.had_liked_forum));
+                    frsActivity4 = this.bbY.baR;
+                    frsActivity4.showToast(this.bbY.getPageContext().getString(i.h.had_liked_forum));
                     return;
                 }
-                wVar2 = this.bbN.LS;
-                if (!AntiHelper.la(wVar2.getErrorCode())) {
-                    frsActivity3 = this.bbN.baG;
-                    wVar3 = this.bbN.LS;
+                wVar2 = this.bbY.LT;
+                if (!AntiHelper.lc(wVar2.getErrorCode())) {
+                    frsActivity3 = this.bbY.baR;
+                    wVar3 = this.bbY.LT;
                     frsActivity3.showToast(wVar3.getErrorString());
                     return;
                 }
-                Activity pageActivity = this.bbN.getPageContext().getPageActivity();
-                wVar4 = this.bbN.LS;
+                Activity pageActivity = this.bbY.getPageContext().getPageActivity();
+                wVar4 = this.bbY.LT;
                 AntiHelper.P(pageActivity, wVar4.getErrorString());
                 return;
             }
-            this.bbN.a(Lh, true);
-            frsActivity5 = this.bbN.baG;
-            frsActivity5.showToast(this.bbN.getPageContext().getString(i.h.like_success));
+            this.bbY.a(Lh, true);
+            frsActivity5 = this.bbY.baR;
+            frsActivity5.showToast(this.bbY.getPageContext().getString(i.h.like_success));
             TbadkCoreApplication.m411getInst().addLikeForum(name);
-            this.bbN.e(true, Lh.aeN().getId());
+            this.bbY.e(true, Lh.aeN().getId());
             x xVar = (x) obj;
             xVar.setLike(1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, xVar));

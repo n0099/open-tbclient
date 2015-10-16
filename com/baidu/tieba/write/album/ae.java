@@ -3,20 +3,20 @@ package com.baidu.tieba.write.album;
 import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes.dex */
 class ae implements v {
-    final /* synthetic */ ac dkO;
+    final /* synthetic */ ac dlo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(ac acVar) {
-        this.dkO = acVar;
+        this.dlo = acVar;
     }
 
     @Override // com.baidu.tieba.write.album.v
     public void a(int i, ImageFileInfo imageFileInfo) {
         l lVar;
         AlbumActivity albumActivity;
-        lVar = this.dkO.djp;
-        lVar.lJ(i);
-        albumActivity = this.dkO.djw;
-        albumActivity.lE(1);
+        lVar = this.dlo.djP;
+        lVar.lL(i);
+        albumActivity = this.dlo.djW;
+        albumActivity.lG(1);
     }
 }

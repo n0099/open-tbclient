@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class i {
-    private com.baidu.tbadk.core.data.b bOx;
+    private com.baidu.tbadk.core.data.b bOI;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -16,7 +16,7 @@ public class i {
     }
 
     public void c(com.baidu.tbadk.core.data.b bVar) {
-        this.bOx = bVar;
+        this.bOI = bVar;
     }
 
     public void ZY() {
@@ -44,6 +44,6 @@ public class i {
     }
 
     public void iP(String str) {
-        com.baidu.tbadk.distribute.a.Ag().a(this.mContext, this.bOx, str, "pb", this.mForumId, com.baidu.adp.lib.g.b.c(this.mPostId, 0L));
+        com.baidu.tbadk.distribute.a.Ag().a(this.mContext, this.bOI, str, "pb", this.mForumId, com.baidu.adp.lib.g.b.c(this.mPostId, 0L));
     }
 }

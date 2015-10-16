@@ -5,19 +5,19 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements LeftNaviScanMessage.b {
-    private final /* synthetic */ int ddA;
-    final /* synthetic */ e ddy;
-    private final /* synthetic */ int ddz;
+    final /* synthetic */ e ddY;
+    private final /* synthetic */ int ddZ;
+    private final /* synthetic */ int dea;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(e eVar, int i, int i2) {
-        this.ddy = eVar;
-        this.ddz = i;
-        this.ddA = i2;
+        this.ddY = eVar;
+        this.ddZ = i;
+        this.dea = i2;
     }
 
     @Override // com.baidu.tieba.tblauncher.LeftNaviScanMessage.b
-    public void bv(List<a> list) {
+    public void bw(List<a> list) {
         com.baidu.tbadk.mvc.g.d dVar;
         com.baidu.tbadk.mvc.g.d dVar2;
         int size = list.size();
@@ -29,16 +29,16 @@ public class n implements LeftNaviScanMessage.b {
             }
             if (list.get(i) instanceof b) {
                 bVar = (b) list.get(i);
-                if (bVar.getType() == this.ddz) {
-                    bVar.ln(this.ddA);
+                if (bVar.getType() == this.ddZ) {
+                    bVar.lp(this.dea);
                     break;
                 }
             }
             i++;
         }
-        dVar = this.ddy.ddt;
+        dVar = this.ddY.ddT;
         if (dVar != null && bVar != null) {
-            dVar2 = this.ddy.ddt;
+            dVar2 = this.ddY.ddT;
             dVar2.A(bVar);
         }
     }

@@ -8,16 +8,16 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.a.a.a implements Runnable {
-    public static String awC = "logcat ";
-    private static Map<String, c> awE = new HashMap();
-    private InputStream awA;
-    private OutputStream awB;
-    private a awD;
-    private Process awz;
+    public static String awD = "logcat ";
+    private static Map<String, c> awF = new HashMap();
+    private Process awA;
+    private InputStream awB;
+    private OutputStream awC;
+    private a awE;
 
     public static void a(String str, c cVar) {
-        awE.put(str, cVar);
-        awC = String.valueOf(awC) + " -s " + str;
+        awF.put(str, cVar);
+        awD = String.valueOf(awD) + " -s " + str;
     }
 
     public void fA(String str) {
@@ -26,7 +26,7 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
         while (true) {
             int i2 = i;
             if (i2 < split.length) {
-                Iterator<Map.Entry<String, c>> it = awE.entrySet().iterator();
+                Iterator<Map.Entry<String, c>> it = awF.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -49,11 +49,11 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         try {
             Runtime.getRuntime().exec("logcat -c");
-            this.awz = Runtime.getRuntime().exec(awC);
-            this.awB = this.awz.getOutputStream();
-            this.awA = this.awz.getInputStream();
+            this.awA = Runtime.getRuntime().exec(awD);
+            this.awC = this.awA.getOutputStream();
+            this.awB = this.awA.getInputStream();
             DD();
-            this.awB.flush();
+            this.awC.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e2) {
@@ -62,25 +62,25 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
     }
 
     private void DD() {
-        this.awD = new a(this.awA);
-        this.awD.start();
+        this.awE = new a(this.awB);
+        this.awE.start();
     }
 
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
         try {
-            if (this.awz != null) {
-                this.awz.destroy();
-            }
-            if (this.awD != null) {
-                this.awD.finish();
-            }
             if (this.awA != null) {
-                this.awA.close();
+                this.awA.destroy();
+            }
+            if (this.awE != null) {
+                this.awE.finish();
             }
             if (this.awB != null) {
                 this.awB.close();
+            }
+            if (this.awC != null) {
+                this.awC.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -90,7 +90,7 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends Thread {
-        private boolean awF = false;
+        private boolean awG = false;
         private InputStream in;
 
         public a(InputStream inputStream) {
@@ -101,7 +101,7 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
         public void run() {
             int read;
             byte[] bArr = new byte[8192];
-            while (!this.awF && (read = this.in.read(bArr)) != -1) {
+            while (!this.awG && (read = this.in.read(bArr)) != -1) {
                 try {
                     String str = new String(bArr, 0, read);
                     if (str != null) {
@@ -115,7 +115,7 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
         }
 
         public synchronized void finish() {
-            this.awF = true;
+            this.awG = true;
         }
     }
 }

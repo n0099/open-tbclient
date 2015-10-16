@@ -13,20 +13,20 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class SkinProgressView extends View {
-    private String YZ;
-    private Paint aoA;
-    private int aoB;
-    private Paint dei;
-    private int dej;
-    private float dek;
-    private float del;
-    private boolean dem;
-    private boolean den;
-    private CustomMessageListener deo;
+    private String Zb;
+    private Paint aoB;
+    private int aoC;
+    private Paint deI;
+    private int deJ;
+    private float deK;
+    private float deL;
+    private boolean deM;
+    private boolean deN;
+    private CustomMessageListener deO;
     private float height;
     private Context mContext;
     private int mFontSize;
@@ -38,27 +38,27 @@ public class SkinProgressView extends View {
 
     public SkinProgressView(Context context) {
         super(context);
-        this.dem = false;
-        this.den = false;
-        this.deo = new h(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
+        this.deM = false;
+        this.deN = false;
+        this.deO = new h(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
         this.mContext = context;
         initView();
     }
 
     public SkinProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dem = false;
-        this.den = false;
-        this.deo = new h(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
+        this.deM = false;
+        this.deN = false;
+        this.deO = new h(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
         this.mContext = context;
         initView();
     }
 
     public SkinProgressView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dem = false;
-        this.den = false;
-        this.deo = new h(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
+        this.deM = false;
+        this.deN = false;
+        this.deO = new h(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
         this.mContext = context;
         initView();
     }
@@ -66,29 +66,29 @@ public class SkinProgressView extends View {
     private void initView() {
         this.radius = com.baidu.adp.lib.util.k.d(this.mContext, i.d.ds6);
         this.mFontSize = com.baidu.adp.lib.util.k.d(this.mContext, i.d.fontsize24);
-        this.dej = i.c.cp_link_tip_a;
+        this.deJ = i.c.cp_link_tip_a;
         this.mTextColor = i.c.cp_cont_c;
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.aoA = new Paint();
-        this.aoA.setAntiAlias(true);
-        this.dei = new Paint();
-        this.dei.setAntiAlias(true);
-        this.dei.setTextSize(this.mFontSize);
-        this.dei.setTextAlign(Paint.Align.CENTER);
-        MessageManager.getInstance().registerListener(this.deo);
+        this.aoB = new Paint();
+        this.aoB.setAntiAlias(true);
+        this.deI = new Paint();
+        this.deI.setAntiAlias(true);
+        this.deI.setTextSize(this.mFontSize);
+        this.deI.setTextAlign(Paint.Align.CENTER);
+        MessageManager.getInstance().registerListener(this.deO);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azh() {
-        if (this.mSkinData.azc() != 4 && this.mSkinData.azc() != 0) {
-            if (this.mSkinData.aze()) {
-                TbadkCoreApplication.m411getInst().setUsedTheme(this.mSkinData.getId(), this.mSkinData.azb());
+    public void azr() {
+        if (this.mSkinData.azm() != 4 && this.mSkinData.azm() != 0) {
+            if (this.mSkinData.azo()) {
+                TbadkCoreApplication.m411getInst().setUsedTheme(this.mSkinData.getId(), this.mSkinData.azl());
                 e(0, 0.0f);
-                this.mSkinData.lp(0);
+                this.mSkinData.lr(0);
             } else {
                 e(4, 0.0f);
-                this.mSkinData.lp(4);
+                this.mSkinData.lr(4);
             }
             if (this.mSkinData.getNewVersionCode() > 0) {
                 this.mSkinData.setVersionCode(this.mSkinData.getNewVersionCode());
@@ -107,25 +107,25 @@ public class SkinProgressView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.dem) {
+        if (this.deM) {
             RectF rectF = new RectF(0.0f, 0.0f, this.width, this.height);
-            this.aoA.setColor(am.getColor(this.aoB));
-            canvas.drawRoundRect(rectF, this.radius, this.radius, this.aoA);
+            this.aoB.setColor(an.getColor(this.aoC));
+            canvas.drawRoundRect(rectF, this.radius, this.radius, this.aoB);
         }
-        RectF rectF2 = new RectF(0.0f, 0.0f, this.width * this.dek, this.height);
-        this.mPaint.setColor(am.getColor(this.dej));
+        RectF rectF2 = new RectF(0.0f, 0.0f, this.width * this.deK, this.height);
+        this.mPaint.setColor(an.getColor(this.deJ));
         canvas.drawRoundRect(rectF2, this.radius, this.radius, this.mPaint);
-        if (!StringUtils.isNull(this.YZ)) {
-            this.dei.setColor(am.getColor(this.mTextColor));
-            this.dei.setTextSize(this.mFontSize);
-            this.del = this.dei.getFontMetrics().bottom - this.dei.getFontMetrics().top;
-            canvas.drawText(this.YZ, this.width / 2.0f, (this.height - ((this.height - this.del) / 2.0f)) - this.dei.getFontMetrics().bottom, this.dei);
+        if (!StringUtils.isNull(this.Zb)) {
+            this.deI.setColor(an.getColor(this.mTextColor));
+            this.deI.setTextSize(this.mFontSize);
+            this.deL = this.deI.getFontMetrics().bottom - this.deI.getFontMetrics().top;
+            canvas.drawText(this.Zb, this.width / 2.0f, (this.height - ((this.height - this.deL) / 2.0f)) - this.deI.getFontMetrics().bottom, this.deI);
         }
     }
 
     public void e(int i, float f) {
-        if (this.den) {
-            a(i, f, this.mSkinData != null ? this.mSkinData.azb() : 0);
+        if (this.deN) {
+            a(i, f, this.mSkinData != null ? this.mSkinData.azl() : 0);
             return;
         }
         setEnabled(true);
@@ -173,7 +173,7 @@ public class SkinProgressView extends View {
     }
 
     public void a(int i, float f, int i2) {
-        this.dem = false;
+        this.deM = false;
         setEnabled(true);
         switch (i) {
             case 0:
@@ -190,7 +190,7 @@ public class SkinProgressView extends View {
                     setText(i.h.become_member_download_free);
                     setTextColor(i.c.cp_cont_i);
                     setBgColor(i.c.cp_other_f);
-                    this.dem = true;
+                    this.deM = true;
                     break;
                 }
             case 2:
@@ -211,7 +211,7 @@ public class SkinProgressView extends View {
                     setText(i.h.become_member_download_free);
                     setTextColor(i.c.cp_cont_i);
                     setBgColor(i.c.cp_other_f);
-                    this.dem = true;
+                    this.deM = true;
                     break;
                 }
             case 4:
@@ -226,7 +226,7 @@ public class SkinProgressView extends View {
                 setText(i.h.activity_free_use);
                 setTextColor(i.c.cp_cont_b);
                 setBgColor(i.c.cp_other_f);
-                this.dem = true;
+                this.deM = true;
                 break;
             case 9:
                 if (i2 == 0) {
@@ -236,7 +236,7 @@ public class SkinProgressView extends View {
                     setText(i.h.become_member_free_use);
                     setTextColor(i.c.cp_cont_i);
                     setBgColor(i.c.cp_other_f);
-                    this.dem = true;
+                    this.deM = true;
                 }
                 setEnabled(true);
                 break;
@@ -246,8 +246,8 @@ public class SkinProgressView extends View {
     }
 
     public void setListenerTag(BdUniqueId bdUniqueId) {
-        if (this.deo != null) {
-            this.deo.setTag(bdUniqueId);
+        if (this.deO != null) {
+            this.deO.setTag(bdUniqueId);
         }
     }
 
@@ -260,23 +260,23 @@ public class SkinProgressView extends View {
     }
 
     public void setProgress(float f) {
-        this.dek = f;
+        this.deK = f;
     }
 
     public int getDrawColor() {
-        return this.dej;
+        return this.deJ;
     }
 
     public void setDrawColor(int i) {
-        this.dej = i;
+        this.deJ = i;
     }
 
     public void setText(int i) {
-        this.YZ = this.mContext.getResources().getString(i);
+        this.Zb = this.mContext.getResources().getString(i);
     }
 
     public void setText(String str) {
-        this.YZ = str;
+        this.Zb = str;
     }
 
     public int getTextColor() {
@@ -288,11 +288,11 @@ public class SkinProgressView extends View {
     }
 
     public int getBgColor() {
-        return this.aoB;
+        return this.aoC;
     }
 
     public void setBgColor(int i) {
-        this.aoB = i;
+        this.aoC = i;
     }
 
     public int getRadius() {
@@ -312,10 +312,10 @@ public class SkinProgressView extends View {
     }
 
     public void setNeedBg(boolean z) {
-        this.dem = z;
+        this.deM = z;
     }
 
     public void setSkinDetailPage(boolean z) {
-        this.den = z;
+        this.deN = z;
     }
 }

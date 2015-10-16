@@ -47,7 +47,7 @@ public final class ay implements Parcelable.Creator {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator
-    /* renamed from: mm */
+    /* renamed from: mo */
     public ShareContent[] newArray(int i) {
         return new ShareContent[i];
     }

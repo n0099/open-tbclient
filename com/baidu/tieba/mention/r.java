@@ -5,21 +5,21 @@ import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements FragmentTabWidget.a {
-    final /* synthetic */ n cao;
+    final /* synthetic */ n caz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(n nVar) {
-        this.cao = nVar;
+        this.caz = nVar;
     }
 
     @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
     public void c(int i, boolean z) {
         ViewPager viewPager;
         FragmentTabWidget fragmentTabWidget;
-        viewPager = this.cao.cal;
+        viewPager = this.caz.caw;
         viewPager.setCurrentItem(i);
-        fragmentTabWidget = this.cao.cak;
+        fragmentTabWidget = this.caz.cav;
         fragmentTabWidget.d(i, true);
-        this.cao.can = i;
+        this.caz.cay = i;
     }
 }

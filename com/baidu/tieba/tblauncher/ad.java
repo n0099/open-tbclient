@@ -22,11 +22,11 @@ class ad extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
             if (!(customResponsedMessage instanceof NewsNotifyMessage)) {
                 BdLog.e("transform error");
-            } else if (MainTabActivity.dbS) {
+            } else if (MainTabActivity.dcs) {
                 NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
                 int msgReplyme = newsNotifyMessage.getMsgReplyme() + newsNotifyMessage.getMsgAtme();
-                aoVar = this.this$0.dcb;
-                aoVar.lm(msgReplyme);
+                aoVar = this.this$0.dcB;
+                aoVar.lo(msgReplyme);
             }
         }
     }

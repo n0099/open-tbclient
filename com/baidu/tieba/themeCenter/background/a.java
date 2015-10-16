@@ -4,11 +4,11 @@ import com.baidu.tieba.themeCenter.background.d;
 import java.util.List;
 /* loaded from: classes.dex */
 class a implements d.a {
-    final /* synthetic */ BackgroundGroupActivity dey;
+    final /* synthetic */ BackgroundGroupActivity deY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BackgroundGroupActivity backgroundGroupActivity) {
-        this.dey = backgroundGroupActivity;
+        this.deY = backgroundGroupActivity;
     }
 
     @Override // com.baidu.tieba.themeCenter.background.d.a
@@ -16,16 +16,16 @@ class a implements d.a {
         g gVar;
         g gVar2;
         g gVar3;
-        BackgroundGroupActivity backgroundGroupActivity = this.dey;
-        gVar = this.dey.dev;
+        BackgroundGroupActivity backgroundGroupActivity = this.deY;
+        gVar = this.deY.deV;
         backgroundGroupActivity.hideLoadingView(gVar.getRootView());
         if (i == 0) {
-            gVar2 = this.dey.dev;
+            gVar2 = this.deY.deV;
             gVar2.a(kVar, list);
             return;
         }
-        this.dey.showToast(str);
-        gVar3 = this.dey.dev;
+        this.deY.showToast(str);
+        gVar3 = this.deY.deV;
         gVar3.Kr();
     }
 }

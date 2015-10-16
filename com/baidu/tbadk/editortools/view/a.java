@@ -7,10 +7,10 @@ import com.baidu.tbadk.editortools.j;
 import com.baidu.tbadk.editortools.view.b;
 /* loaded from: classes.dex */
 public abstract class a implements com.baidu.tbadk.editortools.b {
-    private j Kz;
-    private b asG;
-    private InterfaceC0047a asH;
-    private b.a asI;
+    private j KA;
+    private b asH;
+    private InterfaceC0047a asI;
+    private b.a asJ;
     private int column = 0;
     private int row = 0;
     private int verticalSpacing = 0;
@@ -24,8 +24,8 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
 
     /* loaded from: classes.dex */
     public static class b {
-        public int asJ;
         public int asK;
+        public int asL;
     }
 
     public abstract void AG();
@@ -35,33 +35,33 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
     public abstract void init(Context context);
 
     public void a(b.a aVar) {
-        this.asI = aVar;
+        this.asJ = aVar;
     }
 
     public void setEditorTools(j jVar) {
-        this.Kz = jVar;
+        this.KA = jVar;
     }
 
     protected void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.Kz != null) {
-            this.Kz.b(aVar);
+        if (this.KA != null) {
+            this.KA.b(aVar);
         }
     }
 
     public b BN() {
-        return this.asG;
-    }
-
-    public void a(b bVar) {
-        this.asG = bVar;
-    }
-
-    public InterfaceC0047a BO() {
         return this.asH;
     }
 
+    public void a(b bVar) {
+        this.asH = bVar;
+    }
+
+    public InterfaceC0047a BO() {
+        return this.asI;
+    }
+
     public void a(InterfaceC0047a interfaceC0047a) {
-        this.asH = interfaceC0047a;
+        this.asI = interfaceC0047a;
     }
 
     public int BP() {
@@ -97,6 +97,6 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
     }
 
     public b.a BQ() {
-        return this.asI;
+        return this.asJ;
     }
 }

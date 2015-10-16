@@ -19,18 +19,18 @@ import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 /* loaded from: classes.dex */
 public class FrsActivityStatic {
-    public static boolean aUP = true;
-    public static boolean aUQ = true;
-    public static boolean aUR = true;
-    public static final CustomMessageListener aUS = new as(CmdConfigCustom.MSG_NEW);
-    private static final CustomMessageListener aUT = new at(CmdConfigCustom.MSG_READ);
+    public static boolean aVa = true;
+    public static boolean aVb = true;
+    public static boolean aVc = true;
+    public static final CustomMessageListener aVd = new as(CmdConfigCustom.MSG_NEW);
+    private static final CustomMessageListener aVe = new at(CmdConfigCustom.MSG_READ);
 
     static {
         Lq();
         Lr();
         GW();
-        MessageManager.getInstance().registerListener(aUS);
-        MessageManager.getInstance().registerListener(aUT);
+        MessageManager.getInstance().registerListener(aVd);
+        MessageManager.getInstance().registerListener(aVe);
         com.baidu.tieba.tbadkCore.a.a.a(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.FRS_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.ad(TbConfig.FRS_ADDRESS, 301001));
         tbHttpMessageTask.setIsNeedLogin(false);
@@ -41,7 +41,7 @@ public class FrsActivityStatic {
         tbHttpMessageTask.setIsImm(true);
         tbHttpMessageTask.setPriority(4);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.tieba.tbadkCore.location.d.axi();
+        com.baidu.tieba.tbadkCore.location.d.axs();
     }
 
     private static void Lq() {
@@ -57,7 +57,7 @@ public class FrsActivityStatic {
     }
 
     private static void GW() {
-        com.baidu.tbadk.core.util.ay.uV().a(new aw());
+        com.baidu.tbadk.core.util.az.uW().a(new aw());
     }
 
     public static boolean Ls() {
@@ -108,7 +108,7 @@ public class FrsActivityStatic {
                 string = TbadkCoreApplication.m411getInst().getString(i.h.download);
             }
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-            aVar.ct(format);
+            aVar.cu(format);
             aVar.a(string, new az(tbPageContext, pluginConfig));
             aVar.b(TbadkCoreApplication.m411getInst().getString(i.h.cancel), new ba());
             aVar.b(tbPageContext);

@@ -8,9 +8,9 @@ import java.security.InvalidParameterException;
 public abstract class d {
     private Context mContext;
     private View mView = null;
-    private boolean Hl = true;
-    private int Hm = 0;
+    private boolean Hm = true;
     private int Hn = 0;
+    private int Ho = 0;
 
     public abstract void R(boolean z);
 
@@ -43,8 +43,8 @@ public abstract class d {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
             f(this.mView);
-            this.Hm = this.mView.getMeasuredHeight();
-            this.Hn = this.mView.getMeasuredWidth();
+            this.Hn = this.mView.getMeasuredHeight();
+            this.Ho = this.mView.getMeasuredWidth();
         }
         return this.mView;
     }
@@ -56,11 +56,11 @@ public abstract class d {
     }
 
     public boolean isEnable() {
-        return this.Hl;
+        return this.Hm;
     }
 
     public void U(boolean z) {
-        this.Hl = z;
+        this.Hm = z;
     }
 
     private void f(View view) {
@@ -80,6 +80,6 @@ public abstract class d {
     }
 
     public int nr() {
-        return this.Hm;
+        return this.Hn;
     }
 }

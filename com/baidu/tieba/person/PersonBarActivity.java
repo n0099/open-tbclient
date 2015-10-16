@@ -5,32 +5,32 @@ import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class PersonBarActivity extends BasePersonInfoActivity {
-    private p coD = null;
-    private ad coE = null;
+    private p coO = null;
+    private ad coP = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        if (this.cnI && this.requestCode != 23011) {
+        if (this.cnT && this.requestCode != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.coE = new ad(getPageContext(), WK());
-        this.coE.setSex(getSex());
-        this.coE.setId(getUid());
-        this.coE.setUniqueId(getUniqueId());
+        this.coP = new ad(getPageContext(), WK());
+        this.coP.setSex(getSex());
+        this.coP.setId(getUid());
+        this.coP.setUniqueId(getUniqueId());
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public d a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.coD == null) {
-            this.coD = new p(this, WK());
+        if (this.coO == null) {
+            this.coO = new p(this, WK());
         }
-        return this.coD;
+        return this.coO;
     }
 
     public ad aij() {
-        return this.coE;
+        return this.coP;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
@@ -73,7 +73,7 @@ public class PersonBarActivity extends BasePersonInfoActivity {
         BaseFragment baseFragment;
         ac ait;
         super.onPageSelected(i);
-        if (this.coD != null && this.coD.getItem(i) != null && (baseFragment = (BaseFragment) this.coD.getItem(i)) != null && (baseFragment instanceof r) && (ait = ((r) baseFragment).ait()) != null) {
+        if (this.coO != null && this.coO.getItem(i) != null && (baseFragment = (BaseFragment) this.coO.getItem(i)) != null && (baseFragment instanceof r) && (ait = ((r) baseFragment).ait()) != null) {
             ait.setEditState(false);
             ait.notifyDataSetChanged();
         }

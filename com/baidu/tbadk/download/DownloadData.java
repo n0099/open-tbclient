@@ -13,7 +13,7 @@ public class DownloadData implements Serializable {
     public static final int FILE_DOWNLOAD_TYPE_EMOYION_APCKAGE = 11;
     public static final int FILE_DOWNLOAD_TYPE_NORMAL = 10;
     public static final int FILE_DOWNLOAD_TYPE_ORIGINAL_IMAGE = 13;
-    private transient c aoo;
+    private transient c aop;
     private String check;
     private String description;
     private int errorCode;
@@ -51,7 +51,7 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aoo = null;
+        this.aop = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -68,7 +68,7 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aoo = null;
+        this.aop = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -86,7 +86,7 @@ public class DownloadData implements Serializable {
         this.width = 0;
         this.height = 0;
         this.statusMsg = null;
-        this.aoo = null;
+        this.aop = null;
         this.position = 0;
         this.notifyId = 0;
         this.isNeedInvokeApk = true;
@@ -95,7 +95,7 @@ public class DownloadData implements Serializable {
         this.id = str;
         this.name = str2;
         this.url = str3;
-        this.aoo = cVar;
+        this.aop = cVar;
         this.status = 5;
     }
 
@@ -196,11 +196,11 @@ public class DownloadData implements Serializable {
     }
 
     public c getCallback() {
-        return this.aoo;
+        return this.aop;
     }
 
     public void setCallback(c cVar) {
-        this.aoo = cVar;
+        this.aop = cVar;
     }
 
     public String getStatusMsg() {

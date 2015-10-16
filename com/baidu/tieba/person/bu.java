@@ -8,13 +8,13 @@ import com.baidu.tieba.person.bt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bu extends HttpMessageListener {
-    final /* synthetic */ bt cqP;
+    final /* synthetic */ bt cra;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bu(bt btVar, int i) {
         super(i);
-        this.cqP = btVar;
+        this.cra = btVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,26 +30,26 @@ public class bu extends HttpMessageListener {
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (statusCode != 200 || error != 0) {
-                aVar = this.cqP.cqB;
+                aVar = this.cra.cqM;
                 if (aVar != null) {
                     if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                        personListActivity = this.cqP.cqN;
+                        personListActivity = this.cra.cqY;
                         errorString = personListActivity.getResources().getString(i.h.neterror);
                     } else {
                         errorString = httpResponsedMessage.getErrorString();
                     }
-                    aVar2 = this.cqP.cqB;
+                    aVar2 = this.cra.cqM;
                     aVar2.E(errorString, false);
                     return;
                 }
                 return;
             }
             ResponseNetPersonListMessage responseNetPersonListMessage = (ResponseNetPersonListMessage) httpResponsedMessage;
-            responseNetPersonListMessage.setModel(this.cqP);
+            responseNetPersonListMessage.setModel(this.cra);
             com.baidu.tieba.person.data.a data = responseNetPersonListMessage.getData();
-            aVar3 = this.cqP.cqB;
+            aVar3 = this.cra.cqM;
             if (aVar3 != null) {
-                aVar4 = this.cqP.cqB;
+                aVar4 = this.cra.cqM;
                 aVar4.d(data, false);
             }
         }

@@ -5,35 +5,35 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.themeCenter.dressCenter.d;
 /* loaded from: classes.dex */
 public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
-    private f dfF;
-    private d dfG;
-    private d.a dfH = new a(this);
+    private f dgf;
+    private d dgg;
+    private d.a dgh = new a(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dfG = new d();
-        this.dfG.a(this.dfH);
-        this.dfF = new f(this);
-        showLoadingView(this.dfF.getRootView());
-        this.dfG.LoadData();
+        this.dgg = new d();
+        this.dgg.a(this.dgh);
+        this.dgf = new f(this);
+        showLoadingView(this.dgf.getRootView());
+        this.dgg.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dfF != null) {
-            this.dfF.oO();
+        if (this.dgf != null) {
+            this.dgf.oO();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
-        if (this.dfG != null && this.dfF != null) {
-            showLoadingView(this.dfF.getRootView());
-            this.dfG.LoadData();
+        if (this.dgg != null && this.dgf != null) {
+            showLoadingView(this.dgf.getRootView());
+            this.dgg.LoadData();
         }
     }
 
@@ -41,8 +41,8 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.dfG != null) {
-            this.dfG.destroy();
+        if (this.dgg != null) {
+            this.dgg.destroy();
         }
     }
 }

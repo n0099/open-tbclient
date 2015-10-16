@@ -10,23 +10,23 @@ public class a {
     private List<C0078a> poi_info;
     private String sn;
 
-    public String awY() {
+    public String axi() {
         return this.formatted_address;
     }
 
-    public List<C0078a> awZ() {
+    public List<C0078a> axj() {
         return this.poi_info;
     }
 
-    public void lA(String str) {
+    public void lD(String str) {
         this.formatted_address = str;
     }
 
-    public String axa() {
+    public String axk() {
         return this.sn;
     }
 
-    public void lB(String str) {
+    public void lE(String str) {
         this.sn = str;
     }
 
@@ -60,11 +60,11 @@ public class a {
             this.name = str;
         }
 
-        public String axb() {
+        public String axl() {
             return this.addr;
         }
 
-        public String axa() {
+        public String axk() {
             return this.sn;
         }
 

@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.i;
@@ -27,7 +27,7 @@ public class t {
                     str = com.baidu.tbadk.core.sharedPref.b.tu().getString("apk_md5", "");
                 } else {
                     com.baidu.tbadk.core.sharedPref.b.tu().putString("version_name", versionName);
-                    String d = at.d(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m411getInst().getContext().getPackageName(), 0));
+                    String d = au.d(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m411getInst().getContext().getPackageName(), 0));
                     com.baidu.tbadk.core.sharedPref.b.tu().putString("apk_md5", d);
                     str = d;
                 }
@@ -57,7 +57,7 @@ public class t {
     public static void a(Context context, VersionData versionData) {
         String str = "-1";
         try {
-            str = at.b(TbadkCoreApplication.m411getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.m411getInst().getContext().getPackageName(), 64));
+            str = au.b(TbadkCoreApplication.m411getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.m411getInst().getContext().getPackageName(), 64));
         } catch (PackageManager.NameNotFoundException e) {
             BdLog.detailException(e);
         } catch (NumberFormatException e2) {
@@ -77,7 +77,7 @@ public class t {
         bundle.putString("downurl", versionData.getUrl());
         bundle.putString("versionname", versionData.getNewVersion());
         bundle.putString("iconurl", versionData.getTiebaIconUrl());
-        bundle.putString("updatetime", ar.d(new Date(System.currentTimeMillis())));
+        bundle.putString("updatetime", as.d(new Date(System.currentTimeMillis())));
         bundle.putString("size", versionData.getSize());
         bundle.putString("signmd5", str);
         bundle.putString("tj", String.valueOf(str) + context.getString(i.h.app_name));

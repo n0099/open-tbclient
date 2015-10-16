@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import protobuf.GetOnlineInfo.Game;
 /* loaded from: classes.dex */
 public class MainTabActivityStatic {
-    private static Game dcJ;
+    private static Game ddj;
 
     static {
         Lq();
-        ayp();
+        ayz();
         Ht();
-        ayo();
+        ayy();
         MessageManager.getInstance().registerListener(new ai(CmdConfigCustom.START_GO_HOME));
     }
 
@@ -28,19 +28,19 @@ public class MainTabActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void ayo() {
+    private static void ayy() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHOW_GAME_ICON, new al());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void ayp() {
+    private static void ayz() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new am());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public static Game getGame() {
-        return dcJ;
+        return ddj;
     }
 }

@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ad extends com.baidu.adp.base.e {
-    private static final String aHa = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
-    private static TbHttpMessageTask aHb = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, aHa);
-    private int coS;
+    private static final String aHl = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
+    private static TbHttpMessageTask aHm = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, aHl);
+    private int cpd;
     private q mData;
     private String mId;
     private boolean mIsHost;
     private int mSex;
 
     static {
-        aHb.setResponsedClass(PersonBarResponseMessage.class);
-        MessageManager.getInstance().registerTask(aHb);
+        aHm.setResponsedClass(PersonBarResponseMessage.class);
+        MessageManager.getInstance().registerTask(aHm);
     }
 
     public ad(TbPageContext tbPageContext, boolean z) {
@@ -45,7 +45,7 @@ public class ad extends com.baidu.adp.base.e {
     }
 
     public void je(int i) {
-        this.coS = i;
+        this.cpd = i;
     }
 
     public q aiv() {
@@ -80,16 +80,16 @@ public class ad extends com.baidu.adp.base.e {
     }
 
     public void ka(String str) {
-        if (this.coS == 1 && this.mIsHost) {
+        if (this.cpd == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
             if (str != null) {
                 try {
-                    com.baidu.adp.lib.cache.o<String> cq = com.baidu.tbadk.core.b.a.sO().cq("tb.my_pages");
-                    if (cq != null) {
-                        cq.a(str2, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
+                    com.baidu.adp.lib.cache.o<String> cr = com.baidu.tbadk.core.b.a.sO().cr("tb.my_pages");
+                    if (cr != null) {
+                        cr.a(str2, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

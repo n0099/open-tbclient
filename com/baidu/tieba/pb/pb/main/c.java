@@ -6,11 +6,11 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.pb.b.c;
 /* loaded from: classes.dex */
 class c implements c.a {
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PbActivity pbActivity) {
-        this.ciz = pbActivity;
+        this.ciK = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.b.c.a
@@ -22,19 +22,19 @@ class c implements c.a {
         com.baidu.tbadk.editortools.c.d dVar2;
         cc ccVar4;
         com.baidu.tbadk.editortools.c.d dVar3;
-        ccVar = this.ciz.cia;
+        ccVar = this.ciK.cim;
         ccVar.eI(false);
-        dVar = this.ciz.cij;
+        dVar = this.ciK.ciu;
         if (dVar != null) {
-            ccVar4 = this.ciz.cia;
-            dVar3 = this.ciz.cij;
+            ccVar4 = this.ciK.cim;
+            dVar3 = this.ciK.ciu;
             ccVar4.eN(dVar3.Br());
         }
-        ccVar2 = this.ciz.cia;
+        ccVar2 = this.ciK.cim;
         ccVar2.ab(view);
-        ccVar3 = this.ciz.cia;
+        ccVar3 = this.ciK.cim;
         ccVar3.eI(true);
-        dVar2 = this.ciz.cij;
+        dVar2 = this.ciK.ciu;
         dVar2.Bu();
         return true;
     }
@@ -54,22 +54,22 @@ class c implements c.a {
         com.baidu.tbadk.editortools.c.d dVar3;
         boolean W;
         if (view != null && view.getId() == i.f.richText) {
-            W = this.ciz.W(view);
+            W = this.ciK.W(view);
             if (W) {
                 return true;
             }
         }
-        dVar = this.ciz.cij;
+        dVar = this.ciK.ciu;
         if (dVar != null) {
-            ccVar3 = this.ciz.cia;
-            dVar3 = this.ciz.cij;
+            ccVar3 = this.ciK.cim;
+            dVar3 = this.ciK.ciu;
             ccVar3.eN(dVar3.Br());
         }
-        ccVar = this.ciz.cia;
+        ccVar = this.ciK.cim;
         ccVar.ago();
-        dVar2 = this.ciz.cij;
+        dVar2 = this.ciK.ciu;
         dVar2.Bu();
-        ccVar2 = this.ciz.cia;
+        ccVar2 = this.ciK.cim;
         ccVar2.agM();
         return false;
     }

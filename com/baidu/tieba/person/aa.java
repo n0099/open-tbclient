@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class aa implements AdapterView.OnItemClickListener {
-    final /* synthetic */ r cpf;
+    final /* synthetic */ r cpq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(r rVar) {
-        this.cpf = rVar;
+        this.cpq = rVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -27,30 +27,30 @@ class aa implements AdapterView.OnItemClickListener {
         PersonBarActivity ais2;
         PersonBarActivity ais3;
         PersonBarActivity ais4;
-        acVar = this.cpf.coP;
+        acVar = this.cpq.cpa;
         if (acVar.getItem(i) != null) {
-            z = this.cpf.coU;
+            z = this.cpq.cpf;
             if (!z) {
-                this.cpf.cbp = i;
-                acVar2 = this.cpf.coP;
+                this.cpq.cbA = i;
+                acVar2 = this.cpq.cpa;
                 ForumData forumData = (ForumData) acVar2.getItem(i);
                 if (forumData != null) {
-                    ais = this.cpf.ais();
+                    ais = this.cpq.ais();
                     if (ais != null) {
-                        z2 = this.cpf.cnI;
+                        z2 = this.cpq.cnT;
                         if (z2) {
                             Intent intent = new Intent();
                             intent.putExtra(PersonBarActivityConfig.BAR_NAME, forumData.getName());
                             intent.putExtra(PersonBarActivityConfig.BAR_ID, forumData.getId());
-                            ais3 = this.cpf.ais();
-                            this.cpf.ais();
+                            ais3 = this.cpq.ais();
+                            this.cpq.ais();
                             ais3.setResult(-1, intent);
-                            ais4 = this.cpf.ais();
+                            ais4 = this.cpq.ais();
                             ais4.finish();
                             return;
                         }
-                        r rVar = this.cpf;
-                        ais2 = this.cpf.ais();
+                        r rVar = this.cpq;
+                        ais2 = this.cpq.ais();
                         rVar.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ais2.getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba")));
                     }
                 }

@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a.b {
-    final /* synthetic */ UserMuteAddAndDelModel diB;
+    final /* synthetic */ UserMuteAddAndDelModel djb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(UserMuteAddAndDelModel userMuteAddAndDelModel) {
-        this.diB = userMuteAddAndDelModel;
+        this.djb = userMuteAddAndDelModel;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

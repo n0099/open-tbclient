@@ -8,11 +8,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class h implements com.baidu.tbadk.core.flow.b {
-    final /* synthetic */ f dfO;
+    final /* synthetic */ f dgo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar) {
-        this.dfO = fVar;
+        this.dgo = fVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b

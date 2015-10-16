@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cf implements Animation.AnimationListener {
-    final /* synthetic */ cc cly;
+    final /* synthetic */ cc clJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cf(cc ccVar) {
-        this.cly = ccVar;
+        this.clJ = ccVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -23,23 +23,23 @@ public class cf implements Animation.AnimationListener {
         com.baidu.tbadk.editortools.j jVar2;
         View view;
         boolean z2;
-        z = this.cly.clh;
+        z = this.clJ.cls;
         if (!z) {
-            jVar = this.cly.Kz;
+            jVar = this.clJ.KA;
             if (jVar != null) {
-                jVar2 = this.cly.Kz;
+                jVar2 = this.clJ.KA;
                 jVar2.ow();
                 return;
             }
             return;
         }
-        view = this.cly.cld;
+        view = this.clJ.clo;
         if (view != null) {
-            z2 = this.cly.clb;
+            z2 = this.clJ.clm;
             if (z2) {
-                this.cly.eE(false);
+                this.clJ.eE(false);
             } else {
-                this.cly.eF(false);
+                this.clJ.eF(false);
             }
         }
     }

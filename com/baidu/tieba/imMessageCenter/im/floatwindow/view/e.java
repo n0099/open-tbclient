@@ -14,112 +14,112 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class e extends com.baidu.tieba.imMessageCenter.im.floatwindow.j {
-    private LinearLayout bLO;
-    private ScaleAnimation bLP;
-    private ScaleAnimation bLQ;
-    private boolean bLR;
-    private boolean bLS;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.e bLT;
-    private Animation bLU;
-    private Animation bLV;
-    private Runnable bLW;
-    private com.baidu.adp.lib.g.d bLX;
+    private LinearLayout bLZ;
+    private ScaleAnimation bMa;
+    private ScaleAnimation bMb;
+    private boolean bMc;
+    private boolean bMd;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.e bMe;
+    private Animation bMf;
+    private Animation bMg;
+    private Runnable bMh;
+    private com.baidu.adp.lib.g.d bMi;
     private ImageView deleteView;
 
     public e(Context context) {
         super(LayoutInflater.from(context).inflate(i.g.im_chat_tip_view, (ViewGroup) null));
-        this.bLR = false;
-        this.bLS = false;
-        this.bLW = new f(this);
-        this.bLX = new g(this);
-        this.deleteView = (ImageView) this.bLg.findViewById(i.f.im_chat_tip_view_delete);
-        this.bLO = (LinearLayout) this.bLg.findViewById(i.f.im_chat_tip_holder);
-        this.bLT = new com.baidu.tieba.imMessageCenter.im.floatwindow.e();
+        this.bMc = false;
+        this.bMd = false;
+        this.bMh = new f(this);
+        this.bMi = new g(this);
+        this.deleteView = (ImageView) this.bLr.findViewById(i.f.im_chat_tip_view_delete);
+        this.bLZ = (LinearLayout) this.bLr.findViewById(i.f.im_chat_tip_holder);
+        this.bMe = new com.baidu.tieba.imMessageCenter.im.floatwindow.e();
     }
 
     public com.baidu.tieba.imMessageCenter.im.floatwindow.e YL() {
-        if (this.bLT.isEmpty()) {
+        if (this.bMe.isEmpty()) {
             int[] iArr = new int[2];
             this.deleteView.getLocationOnScreen(iArr);
             if (iArr[0] != 0 && iArr[1] != 0) {
                 int measuredHeight = (this.deleteView.getMeasuredHeight() / 2) + 15;
-                this.bLT.t(iArr[0] + measuredHeight, iArr[1] + measuredHeight, measuredHeight);
+                this.bMe.t(iArr[0] + measuredHeight, iArr[1] + measuredHeight, measuredHeight);
             }
         }
-        return this.bLT;
+        return this.bMe;
     }
 
     public void b(Handler handler) {
         if (!Yw()) {
             Yx();
             if (handler != null) {
-                handler.removeCallbacks(this.bLW);
-                handler.post(this.bLW);
+                handler.removeCallbacks(this.bMh);
+                handler.post(this.bMh);
             }
         }
     }
 
     public void c(Handler handler) {
-        handler.removeCallbacks(this.bLW);
+        handler.removeCallbacks(this.bMh);
         this.deleteView.clearAnimation();
-        this.bLS = false;
-        this.bLR = false;
-        if (this.bLO.getWindowToken() != null) {
-            this.bLO.clearAnimation();
-            this.bLO.startAnimation(YQ());
+        this.bMd = false;
+        this.bMc = false;
+        if (this.bLZ.getWindowToken() != null) {
+            this.bLZ.clearAnimation();
+            this.bLZ.startAnimation(YQ());
             return;
         }
         Yy();
     }
 
     public void YM() {
-        if (!this.bLS && !this.bLR) {
-            this.bLR = true;
+        if (!this.bMd && !this.bMc) {
+            this.bMc = true;
             this.deleteView.startAnimation(YO());
         }
     }
 
     public void YN() {
-        if (!this.bLS && this.bLR) {
-            this.bLR = false;
+        if (!this.bMd && this.bMc) {
+            this.bMc = false;
             this.deleteView.startAnimation(YP());
         }
     }
 
     private ScaleAnimation YO() {
-        if (this.bLP == null) {
-            this.bLP = new ScaleAnimation(1.0f, 1.5f, 1.0f, 1.5f, 1, 0.5f, 1, 0.5f);
-            this.bLP.setDuration(150L);
-            this.bLP.setFillAfter(true);
-            this.bLP.setAnimationListener(this.bLX);
+        if (this.bMa == null) {
+            this.bMa = new ScaleAnimation(1.0f, 1.5f, 1.0f, 1.5f, 1, 0.5f, 1, 0.5f);
+            this.bMa.setDuration(150L);
+            this.bMa.setFillAfter(true);
+            this.bMa.setAnimationListener(this.bMi);
         }
-        return this.bLP;
+        return this.bMa;
     }
 
     private ScaleAnimation YP() {
-        if (this.bLQ == null) {
-            this.bLQ = new ScaleAnimation(1.5f, 1.0f, 1.5f, 1.0f, 1, 0.5f, 1, 0.5f);
-            this.bLQ.setDuration(150L);
-            this.bLQ.setFillAfter(true);
-            this.bLQ.setAnimationListener(this.bLX);
+        if (this.bMb == null) {
+            this.bMb = new ScaleAnimation(1.5f, 1.0f, 1.5f, 1.0f, 1, 0.5f, 1, 0.5f);
+            this.bMb.setDuration(150L);
+            this.bMb.setFillAfter(true);
+            this.bMb.setAnimationListener(this.bMi);
         }
-        return this.bLQ;
+        return this.bMb;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Animation YK() {
-        if (this.bLU == null) {
-            this.bLU = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), i.a.float_window_tip_in_anim);
+        if (this.bMf == null) {
+            this.bMf = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), i.a.float_window_tip_in_anim);
         }
-        return this.bLU;
+        return this.bMf;
     }
 
     private Animation YQ() {
-        if (this.bLV == null) {
-            this.bLV = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), i.a.float_window_tip_out_anim);
-            this.bLV.setAnimationListener(this.bLX);
+        if (this.bMg == null) {
+            this.bMg = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), i.a.float_window_tip_out_anim);
+            this.bMg.setAnimationListener(this.bMi);
         }
-        return this.bLV;
+        return this.bMg;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.j

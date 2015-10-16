@@ -11,33 +11,33 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s {
-    public String bUK;
-    private PostSearchActivity cDL;
-    private String cEc;
-    public ArrayList<String> cEl;
-    public int cEd = 0;
-    public int cEe = 0;
-    public int cEf = 1;
-    public int cEg = 1;
-    public int cEh = 1;
-    public boolean cEi = false;
-    public boolean cEj = false;
-    public boolean cEk = false;
-    private int cEm = 0;
-    private final HttpMessageListener cEn = new t(this, CmdConfigHttp.CMD_POST_SEARCH);
-    private CustomMessageListener bVo = new u(this, CmdConfigCustom.GET_ALL_SEARCH_POST_DATA);
+    public String bUV;
+    private PostSearchActivity cDW;
+    private String cEn;
+    public ArrayList<String> cEw;
+    public int cEo = 0;
+    public int cEp = 0;
+    public int cEq = 1;
+    public int cEr = 1;
+    public int cEs = 1;
+    public boolean cEt = false;
+    public boolean cEu = false;
+    public boolean cEv = false;
+    private int cEx = 0;
+    private final HttpMessageListener cEy = new t(this, CmdConfigHttp.CMD_POST_SEARCH);
+    private CustomMessageListener bVz = new u(this, CmdConfigCustom.GET_ALL_SEARCH_POST_DATA);
 
     public s(PostSearchActivity postSearchActivity) {
-        this.cDL = postSearchActivity;
-        this.cDL.registerListener(this.bVo);
-        this.cDL.registerListener(this.cEn);
+        this.cDW = postSearchActivity;
+        this.cDW.registerListener(this.bVz);
+        this.cDW.registerListener(this.cEy);
     }
 
     public boolean X(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.bUK)) {
+        if (!str.equals(this.bUV)) {
             aow();
         }
         switch (i) {
@@ -53,70 +53,70 @@ public class s {
     }
 
     public boolean kJ(String str) {
-        if (this.cEi) {
+        if (this.cEt) {
             return false;
         }
-        this.bUK = str;
-        this.cEm = 1;
-        this.cDL.sendMessage(jW(this.cEm));
-        this.cEi = true;
+        this.bUV = str;
+        this.cEx = 1;
+        this.cDW.sendMessage(jW(this.cEx));
+        this.cEt = true;
         return true;
     }
 
     public boolean kK(String str) {
-        if (this.cEj) {
+        if (this.cEu) {
             return false;
         }
-        this.bUK = str;
-        this.cEm = 2;
-        this.cDL.sendMessage(jW(this.cEm));
-        this.cEj = true;
+        this.bUV = str;
+        this.cEx = 2;
+        this.cDW.sendMessage(jW(this.cEx));
+        this.cEu = true;
         return true;
     }
 
     public boolean kL(String str) {
-        if (this.cEk) {
+        if (this.cEv) {
             return false;
         }
-        this.bUK = str;
-        this.cEm = 3;
-        this.cDL.sendMessage(jW(this.cEm));
-        this.cEk = true;
+        this.bUV = str;
+        this.cEx = 3;
+        this.cDW.sendMessage(jW(this.cEx));
+        this.cEv = true;
         return true;
     }
 
     public void aot() {
-        this.cDL.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
+        this.cDW.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
     }
 
     public void aou() {
-        if (!StringUtils.isNull(this.bUK) && !this.bUK.equals(this.cEc)) {
-            this.cDL.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.bUK));
-            this.cEc = this.bUK;
+        if (!StringUtils.isNull(this.bUV) && !this.bUV.equals(this.cEn)) {
+            this.cDW.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.bUV));
+            this.cEn = this.bUV;
         }
     }
 
     public void aov() {
-        if (this.cEl != null) {
-            this.cEl.clear();
+        if (this.cEw != null) {
+            this.cEw.clear();
         }
-        this.cDL.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
+        this.cDW.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
     }
 
     public void aow() {
-        this.cEf = 1;
-        this.cEg = 1;
-        this.cEh = 1;
+        this.cEq = 1;
+        this.cEr = 1;
+        this.cEs = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aox() {
-        if (this.cEl == null) {
-            this.cEl = new ArrayList<>();
+        if (this.cEw == null) {
+            this.cEw = new ArrayList<>();
         }
-        this.cEl.remove(this.bUK);
-        this.cEl.add(0, this.bUK);
-        bi(this.cEl);
+        this.cEw.remove(this.bUV);
+        this.cEw.add(0, this.bUV);
+        bi(this.cEw);
     }
 
     private void bi(List<String> list) {
@@ -131,25 +131,25 @@ public class s {
 
     private HttpMessage jW(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-        httpMessage.addParam("word", this.bUK);
+        httpMessage.addParam("word", this.bUV);
         httpMessage.addParam("rn", (Object) 30);
-        httpMessage.addParam("kw", this.cDL.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.cEm));
+        httpMessage.addParam("kw", this.cDW.mForumName);
+        httpMessage.setExtra(Integer.valueOf(this.cEx));
         switch (i) {
             case 1:
                 httpMessage.addParam("sm", (Object) 1);
                 httpMessage.addParam("only_thread", (Object) 0);
-                httpMessage.addParam("pn", Integer.valueOf(this.cEf));
+                httpMessage.addParam("pn", Integer.valueOf(this.cEq));
                 break;
             case 2:
                 httpMessage.addParam("sm", (Object) 2);
                 httpMessage.addParam("only_thread", (Object) 0);
-                httpMessage.addParam("pn", Integer.valueOf(this.cEg));
+                httpMessage.addParam("pn", Integer.valueOf(this.cEr));
                 break;
             case 3:
                 httpMessage.addParam("sm", (Object) 2);
                 httpMessage.addParam("only_thread", (Object) 1);
-                httpMessage.addParam("pn", Integer.valueOf(this.cEh));
+                httpMessage.addParam("pn", Integer.valueOf(this.cEs));
                 break;
         }
         return httpMessage;
@@ -159,13 +159,13 @@ public class s {
     public void jX(int i) {
         switch (i) {
             case 1:
-                this.cEf++;
+                this.cEq++;
                 return;
             case 2:
-                this.cEg++;
+                this.cEr++;
                 return;
             case 3:
-                this.cEh++;
+                this.cEs++;
                 return;
             default:
                 return;
@@ -176,11 +176,11 @@ public class s {
     public int jY(int i) {
         switch (i) {
             case 1:
-                return this.cEf;
+                return this.cEq;
             case 2:
-                return this.cEg;
+                return this.cEr;
             case 3:
-                return this.cEh;
+                return this.cEs;
             default:
                 return 0;
         }
@@ -190,13 +190,13 @@ public class s {
     public void jZ(int i) {
         switch (i) {
             case 1:
-                this.cEi = false;
+                this.cEt = false;
                 return;
             case 2:
-                this.cEj = false;
+                this.cEu = false;
                 return;
             case 3:
-                this.cEk = false;
+                this.cEv = false;
                 return;
             default:
                 return;

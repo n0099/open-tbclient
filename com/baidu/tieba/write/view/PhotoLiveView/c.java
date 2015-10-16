@@ -5,24 +5,24 @@ import android.widget.FrameLayout;
 import com.baidu.tbadk.widget.TbImageView;
 /* loaded from: classes.dex */
 class c implements com.baidu.tbadk.imageManager.b {
-    private final /* synthetic */ ViewGroup arw;
-    final /* synthetic */ a dmN;
-    private final /* synthetic */ FrameLayout dmO;
+    private final /* synthetic */ ViewGroup arx;
+    final /* synthetic */ a dnn;
+    private final /* synthetic */ FrameLayout dno;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar, ViewGroup viewGroup, FrameLayout frameLayout) {
-        this.dmN = aVar;
-        this.arw = viewGroup;
-        this.dmO = frameLayout;
+        this.dnn = aVar;
+        this.arx = viewGroup;
+        this.dno = frameLayout;
     }
 
     @Override // com.baidu.tbadk.imageManager.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         TbImageView tbImageView;
-        if (this.arw != null && (tbImageView = (TbImageView) this.arw.findViewWithTag(str)) != null && aVar != null) {
+        if (this.arx != null && (tbImageView = (TbImageView) this.arx.findViewWithTag(str)) != null && aVar != null) {
             tbImageView.invalidate();
             if (str.startsWith("android.resource://")) {
-                this.dmO.bringToFront();
+                this.dno.bringToFront();
             }
         }
     }

@@ -412,7 +412,7 @@ public class a {
 
     private void ky() {
         try {
-            this.Ce = Util.bJ(this.mPackageName);
+            this.Ce = Util.bK(this.mPackageName);
             this.Ce.mkdirs();
         } catch (Exception e) {
             BdLog.e(e);
@@ -471,7 +471,7 @@ public class a {
                 }
                 this.BZ = 1;
                 a.C0012a a = com.baidu.adp.plugin.util.a.a(classLoader, this.Cb, String.valueOf(this.mPackageName) + ".Static");
-                if (a != null && !a.EF) {
+                if (a != null && !a.EG) {
                     if (PluginPackageManager.lR().hp()) {
                         com.baidu.adp.plugin.b.a.lF().bj("plugin_inject_failed");
                     }
@@ -504,7 +504,7 @@ public class a {
                         str = sb2.substring(0, sb2.length() - 1);
                     }
                     a.C0012a a2 = com.baidu.adp.plugin.util.a.a(this.mContext, new DexClassLoader(str2, this.Ce.getAbsolutePath(), str, classLoader), String.valueOf(this.mPackageName) + ".Static");
-                    if (a2 != null && !a2.EF) {
+                    if (a2 != null && !a2.EG) {
                         if (PluginPackageManager.lR().hp()) {
                             com.baidu.adp.plugin.b.a.lF().e("plugin_load", "replaceparent_failed", this.mPackageName, a2.mErrMsg);
                         }
@@ -512,7 +512,7 @@ public class a {
                         bVar.reason = "replaceparent_failed";
                         bVar.Ck = a2.mErrMsg;
                         return bVar;
-                    } else if (a2 != null && a2.EF) {
+                    } else if (a2 != null && a2.EG) {
                         com.baidu.adp.plugin.b.a.lF().bj("plugin_second_inject_succ");
                     }
                 }
@@ -552,10 +552,8 @@ public class a {
                     Enumeration<String> entries = a.entries();
                     while (entries.hasMoreElements()) {
                         String nextElement = entries.nextElement();
-                        if (nextElement.endsWith(u.SUFFIX) || nextElement.endsWith("Activity") || nextElement.endsWith("Service")) {
-                            if (this.Cf != null && !PluginPackageManager.lR().isFeatureForbidden(nextElement)) {
-                                this.Cf.add(nextElement);
-                            }
+                        if (nextElement.endsWith(u.SUFFIX) && this.Cf != null && !PluginPackageManager.lR().isFeatureForbidden(nextElement)) {
+                            this.Cf.add(nextElement);
                         }
                     }
                     kv();
@@ -670,11 +668,11 @@ public class a {
                 bVar.Ck = str2;
                 com.baidu.adp.plugin.b.a.lF().e("plugin_load", "apk_file_null", str, str2);
             }
-            com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().bE(str);
+            com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().bF(str);
             bVar.Cj = false;
             return bVar;
         } else if (!kx()) {
-            com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().bE(str);
+            com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().bF(str);
             if (PluginPackageManager.lR().hp()) {
                 com.baidu.adp.plugin.b.a.lF().g("plugin_load", "apk_file_illegal", str);
             }

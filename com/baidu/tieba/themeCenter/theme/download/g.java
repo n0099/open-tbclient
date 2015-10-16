@@ -7,13 +7,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends CustomMessageListener {
-    final /* synthetic */ d dgP;
+    final /* synthetic */ d dhp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(d dVar, int i) {
         super(i);
-        this.dgP = dVar;
+        this.dhp = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,14 +24,14 @@ public class g extends CustomMessageListener {
         boolean z;
         List<com.baidu.tieba.themeCenter.theme.top.a> list;
         if (customResponsedMessage != null) {
-            aVar = this.dgP.dgN;
+            aVar = this.dhp.dhn;
             if (aVar == null) {
                 return;
             }
-            this.dgP.azs();
-            aVar2 = this.dgP.dgN;
-            z = this.dgP.dgO;
-            list = this.dgP.mThemeList;
+            this.dhp.azC();
+            aVar2 = this.dhp.dhn;
+            z = this.dhp.dho;
+            list = this.dhp.mThemeList;
             aVar2.a(z, list);
         }
     }

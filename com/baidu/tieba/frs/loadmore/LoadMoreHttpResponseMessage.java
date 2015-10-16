@@ -5,8 +5,8 @@ import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.s;
-import com.baidu.tbadk.core.data.v;
+import com.baidu.tbadk.core.data.t;
+import com.baidu.tbadk.core.data.w;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -54,21 +54,21 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                 while (true) {
                     int i5 = i4;
                     if (i2 < list2.size()) {
-                        v vVar = new v();
-                        vVar.setUserMap(this.userMap);
-                        vVar.a(list2.get(i2));
-                        vVar.parser_title();
-                        if (vVar.sq() == 33) {
-                            s sVar = new s();
-                            sVar.a(vVar, i5);
-                            if (sVar.sc() != null) {
-                                i5 = sVar.sc().getShowStyle();
+                        w wVar = new w();
+                        wVar.setUserMap(this.userMap);
+                        wVar.a(list2.get(i2));
+                        wVar.parser_title();
+                        if (wVar.sq() == 33) {
+                            t tVar = new t();
+                            tVar.a(wVar, i5);
+                            if (tVar.sc() != null) {
+                                i5 = tVar.sc().getShowStyle();
                             }
                             if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                this.threadList.add(sVar);
+                                this.threadList.add(tVar);
                             }
                         } else {
-                            this.threadList.add(vVar);
+                            this.threadList.add(wVar);
                         }
                         i4 = i5;
                         i2++;

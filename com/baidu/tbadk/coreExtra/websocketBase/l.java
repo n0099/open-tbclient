@@ -5,11 +5,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements e.b {
-    final /* synthetic */ i amZ;
+    final /* synthetic */ i ana;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(i iVar) {
-        this.amZ = iVar;
+        this.ana = iVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.websocketBase.e.b
@@ -17,17 +17,17 @@ public class l implements e.b {
         List list;
         c.zy().dG(z ? 2 : 1);
         if (z) {
-            this.amZ.amn = a.zq().zt();
-            list = this.amZ.amn;
+            this.ana.amo = a.zq().zt();
+            list = this.ana.amo;
             if (list != null) {
-                this.amZ.eE("change ip to reconnect with DNS' failed.");
+                this.ana.eE("change ip to reconnect with DNS' failed.");
                 return;
             } else {
                 a.zq().a(new m(this));
                 return;
             }
         }
-        this.amZ.amX = false;
-        this.amZ.zL();
+        this.ana.amY = false;
+        this.ana.zL();
     }
 }

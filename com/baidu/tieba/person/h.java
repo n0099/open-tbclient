@@ -22,21 +22,21 @@ public class h implements View.OnClickListener {
         int i3;
         boolean z;
         String str = TbConfig.PERSON_HEAD_FILE;
-        i = this.this$0.bHI;
+        i = this.this$0.bHT;
         if (i != 0) {
             str = TbConfig.GROUP_HEAD_FILE;
         }
-        EditHeadsImageView editHeadsImageView = this.this$0.cnS;
-        i2 = this.this$0.bHI;
+        EditHeadsImageView editHeadsImageView = this.this$0.cod;
+        i2 = this.this$0.bHT;
         Bitmap eU = editHeadsImageView.eU(i2 == 0);
         if (eU == null) {
             return;
         }
         b = this.this$0.b(str, eU);
         if (b) {
-            i3 = this.this$0.bHI;
+            i3 = this.this$0.bHT;
             if (i3 == 0) {
-                z = this.this$0.aze;
+                z = this.this$0.azp;
                 if (z) {
                     this.this$0.aih();
                     return;
@@ -45,7 +45,7 @@ public class h implements View.OnClickListener {
                 this.this$0.closeActivity();
                 return;
             }
-            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.n.cH(TbConfig.GROUP_HEAD_FILE), "head");
+            com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.n.cI(TbConfig.GROUP_HEAD_FILE), "head");
             aVar.Cj();
             aVar.a(new i(this));
             aVar.Ch();

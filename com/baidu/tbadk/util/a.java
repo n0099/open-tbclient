@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.tbadk.TbadkSettings;
 /* loaded from: classes.dex */
 public class a {
-    private static a azo = null;
+    private static a azz = null;
 
     private a() {
     }
@@ -12,10 +12,10 @@ public class a {
     public static synchronized a Et() {
         a aVar;
         synchronized (a.class) {
-            if (azo == null) {
-                azo = new a();
+            if (azz == null) {
+                azz = new a();
             }
-            aVar = azo;
+            aVar = azz;
         }
         return aVar;
     }

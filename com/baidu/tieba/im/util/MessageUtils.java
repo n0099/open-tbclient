@@ -98,7 +98,7 @@ public class MessageUtils {
         if (!StringUtils.isNull(str) && i == 2 && (J = b.VW().J(str, 2)) != null) {
             long pulled_msgId = J.getPulled_msgId();
             if (pulled_msgId > J.getSent_msgId()) {
-                RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(g.aC(pulled_msgId), Long.parseLong(str));
+                RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(g.aM(pulled_msgId), Long.parseLong(str));
                 if (!MessageManager.getInstance().getSocketClient().a(requestPersonalMsgReadMessage)) {
                     MessageManager.getInstance().sendMessage(requestPersonalMsgReadMessage);
                 }

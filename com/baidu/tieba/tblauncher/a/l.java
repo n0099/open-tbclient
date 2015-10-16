@@ -5,17 +5,17 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements LeftNaviScanMessage.b {
-    final /* synthetic */ e ddy;
+    final /* synthetic */ e ddY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(e eVar) {
-        this.ddy = eVar;
+        this.ddY = eVar;
     }
 
     @Override // com.baidu.tieba.tblauncher.LeftNaviScanMessage.b
-    public void bv(List<a> list) {
+    public void bw(List<a> list) {
         com.baidu.tbadk.mvc.g.d dVar;
-        dVar = this.ddy.ddt;
+        dVar = this.ddY.ddT;
         dVar.r(list);
     }
 }

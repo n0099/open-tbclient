@@ -1,22 +1,22 @@
 package com.baidu.tbadk.core.view;
 
 import android.view.View;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bd;
 /* loaded from: classes.dex */
-class v implements bc.a {
-    final /* synthetic */ u aeP;
-    private final /* synthetic */ String aeQ;
+class v implements bd.a {
+    final /* synthetic */ u aeQ;
+    private final /* synthetic */ String aeR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar, String str) {
-        this.aeP = uVar;
-        this.aeQ = str;
+        this.aeQ = uVar;
+        this.aeR = str;
     }
 
-    @Override // com.baidu.tbadk.core.util.bc.a
+    @Override // com.baidu.tbadk.core.util.bd.a
     public boolean n(View view) {
         Object tag = view.getTag();
-        if (tag != null && this.aeQ.equals(tag)) {
+        if (tag != null && this.aeR.equals(tag)) {
             view.invalidate();
             return false;
         }

@@ -7,12 +7,12 @@ import com.baidu.tieba.i;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class q extends com.baidu.tbadk.editortools.view.b {
-    LinkedList<p> aoJ;
-    private SparseIntArray apg;
+    LinkedList<p> aoK;
+    private SparseIntArray aph;
 
     public q(Context context) {
         super(context);
-        this.apg = new SparseIntArray();
+        this.aph = new SparseIntArray();
         setPadding(context.getResources().getDimensionPixelSize(i.d.ds34), 0, context.getResources().getDimensionPixelSize(i.d.ds34), 0);
         setBackgroundColorId(i.c.pb_editor_tool_view_bg);
         setToolId(2);
@@ -20,14 +20,14 @@ public class q extends com.baidu.tbadk.editortools.view.b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void i(LinkedList<p> linkedList) {
-        this.aoJ = linkedList;
+        this.aoK = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.view.b, com.baidu.tbadk.editortools.w
     public void init() {
         setShowDelete(false);
         r rVar = new r();
-        rVar.i(this.aoJ);
+        rVar.i(this.aoK);
         b(rVar);
     }
 
@@ -42,7 +42,7 @@ public class q extends com.baidu.tbadk.editortools.view.b {
 
     private void c(a aVar) {
         int i;
-        Integer valueOf = Integer.valueOf(this.apg.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.aph.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
             i = intValue - 1;
@@ -56,13 +56,13 @@ public class q extends com.baidu.tbadk.editortools.view.b {
         } else {
             i = intValue;
         }
-        this.apg.put(aVar.id, i >= 0 ? i : 0);
+        this.aph.put(aVar.id, i >= 0 ? i : 0);
     }
 
     private void AF() {
         int i = 0;
-        for (int i2 = 0; i2 < this.apg.size(); i2++) {
-            i += this.apg.valueAt(i2);
+        for (int i2 = 0; i2 < this.aph.size(); i2++) {
+            i += this.aph.valueAt(i2);
         }
         if (i > 0) {
             b(new a(2, 2, " "));

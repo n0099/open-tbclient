@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements View.OnClickListener {
-    final /* synthetic */ SearchPageFocusBar bUf;
-    private final /* synthetic */ TbPageContext bUg;
+    final /* synthetic */ SearchPageFocusBar bUq;
+    private final /* synthetic */ TbPageContext bUr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(SearchPageFocusBar searchPageFocusBar, TbPageContext tbPageContext) {
-        this.bUf = searchPageFocusBar;
-        this.bUg = tbPageContext;
+        this.bUq = searchPageFocusBar;
+        this.bUr = tbPageContext;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bUg.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.bUg.getPageActivity()).createNormalCfg(1)));
+        this.bUr.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(this.bUr.getPageActivity()).createNormalCfg(1)));
     }
 }

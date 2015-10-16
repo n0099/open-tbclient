@@ -5,11 +5,11 @@ import com.slidingmenu.lib.SlidingMenu;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bd implements SlidingMenu.CanvasTransformer {
-    final /* synthetic */ ao dcY;
+    final /* synthetic */ ao ddy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bd(ao aoVar) {
-        this.dcY = aoVar;
+        this.ddy = aoVar;
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.CanvasTransformer

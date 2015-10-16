@@ -8,11 +8,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements eb {
-    final /* synthetic */ a baS;
+    final /* synthetic */ a bbd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.baS = aVar;
+        this.bbd = aVar;
     }
 
     @Override // com.baidu.tieba.frs.eb
@@ -22,24 +22,24 @@ public class b implements eb {
         o oVar;
         o oVar2;
         eb ebVar2;
-        this.baS.baM = false;
-        i3 = this.baS.aZS;
+        this.bbd.baX = false;
+        i3 = this.bbd.bad;
         if (i != i3) {
             return;
         }
-        ebVar = this.baS.baQ;
+        ebVar = this.bbd.bbb;
         if (ebVar != null) {
-            this.baS.baL = eeVar;
-            this.baS.b(i, i2, eeVar);
+            this.bbd.baW = eeVar;
+            this.bbd.b(i, i2, eeVar);
             ArrayList<u> arrayList2 = new ArrayList<>();
             if (arrayList != null) {
                 arrayList2.addAll(arrayList);
             }
-            oVar = this.baS.aTL;
+            oVar = this.bbd.aTW;
             oVar.af(arrayList2);
-            oVar2 = this.baS.aTL;
-            oVar2.avM();
-            ebVar2 = this.baS.baQ;
+            oVar2 = this.bbd.aTW;
+            oVar2.avU();
+            ebVar2 = this.bbd.bbb;
             ebVar2.a(i, i2, eeVar, arrayList);
         }
     }

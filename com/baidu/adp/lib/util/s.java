@@ -47,7 +47,7 @@ public class s {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [109=4] */
-    /* JADX WARN: Type inference failed for: r4v11, types: [T, byte[]] */
+    /* JADX WARN: Type inference failed for: r4v11, types: [byte[], T] */
     public static List<o.b<byte[]>> c(com.baidu.adp.lib.cache.o<byte[]> oVar) {
         Cursor cursor;
         LinkedList linkedList = new LinkedList();

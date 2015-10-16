@@ -12,13 +12,13 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ AddFriendActivity bJj;
+    final /* synthetic */ AddFriendActivity bJu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(AddFriendActivity addFriendActivity, int i) {
         super(i);
-        this.bJj = addFriendActivity;
+        this.bJu = addFriendActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,20 +32,20 @@ public class a extends com.baidu.adp.framework.listener.e {
             int error = responseAddFriendMessage.getError();
             String errorString = responseAddFriendMessage.getErrorString();
             if (error == 0) {
-                str = this.bJj.userId;
-                str2 = this.bJj.name;
+                str = this.bJu.userId;
+                str2 = this.bJu.name;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RESPONSE_ADD_FRIEND, new i(str, str2)));
-                z = this.bJj.bJi;
+                z = this.bJu.bJt;
                 if (z) {
-                    this.bJj.showToast(this.bJj.getPageContext().getPageActivity().getString(i.h.add_ok_but_level_is_lower), false);
+                    this.bJu.showToast(this.bJu.getPageContext().getPageActivity().getString(i.h.add_ok_but_level_is_lower), false);
                 } else {
-                    this.bJj.showToast(this.bJj.getPageContext().getPageActivity().getString(i.h.group_apply_succ), false);
+                    this.bJu.showToast(this.bJu.getPageContext().getPageActivity().getString(i.h.group_apply_succ), false);
                 }
-                this.bJj.finish();
-            } else if (AntiHelper.la(error)) {
-                AntiHelper.P(this.bJj.getPageContext().getPageActivity(), errorString);
+                this.bJu.finish();
+            } else if (AntiHelper.lc(error)) {
+                AntiHelper.P(this.bJu.getPageContext().getPageActivity(), errorString);
             } else {
-                k.showToast(this.bJj.getPageContext().getPageActivity(), errorString);
+                k.showToast(this.bJu.getPageContext().getPageActivity(), errorString);
             }
         }
     }

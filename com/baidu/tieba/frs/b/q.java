@@ -10,11 +10,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements eb {
-    final /* synthetic */ o bbU;
+    final /* synthetic */ o bcf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(o oVar) {
-        this.bbU = oVar;
+        this.bcf = oVar;
     }
 
     @Override // com.baidu.tieba.frs.eb
@@ -22,12 +22,12 @@ public class q implements eb {
         SparseArray sparseArray;
         int Y;
         bs bsVar;
-        sparseArray = this.bbU.aZW;
-        Y = this.bbU.Y(i, i2);
+        sparseArray = this.bcf.bah;
+        Y = this.bcf.Y(i, i2);
         o.a aVar = (o.a) sparseArray.get(Y);
         if (aVar != null) {
-            bsVar = this.bbU.aTJ;
-            bsVar.getListView().setSelectionFromTop(aVar.bbW, aVar.top);
+            bsVar = this.bcf.aTU;
+            bsVar.getListView().setSelectionFromTop(aVar.bch, aVar.top);
         }
         com.baidu.adp.lib.g.h.hg().post(new r(this));
     }

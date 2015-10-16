@@ -21,27 +21,27 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class ak extends com.baidu.tbadk.editortools.c.a {
-    private static BdAsyncTaskParallel cnn = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-    private com.baidu.tieba.tbadkCore.e.a aMa;
-    private int aQn;
-    private boolean avB;
-    private int cfZ;
-    private AntiData cgo;
-    private boolean cgp;
-    private com.baidu.tieba.pb.a.c cmK;
-    private boolean cnf;
-    private String cng;
-    private String cnh;
-    private boolean cni;
-    private String cnj;
-    private a cnk;
-    private int cnl;
-    private boolean cnm;
-    private ArrayList<com.baidu.tieba.pb.a.c> cno;
-    private SmallTailInfo cnp;
+    private static BdAsyncTaskParallel cny = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    private com.baidu.tieba.tbadkCore.e.a aMl;
+    private int aQy;
+    private boolean avC;
+    private boolean cgA;
+    private int cgk;
+    private AntiData cgz;
+    private com.baidu.tieba.pb.a.c cmV;
+    private SmallTailInfo cnA;
+    private boolean cnB;
+    private SubPbRequestMessage cnC;
+    private com.baidu.adp.framework.listener.a cnD;
     private boolean cnq;
-    private SubPbRequestMessage cnr;
-    private com.baidu.adp.framework.listener.a cns;
+    private String cnr;
+    private String cns;
+    private boolean cnt;
+    private String cnu;
+    private a cnv;
+    private int cnw;
+    private boolean cnx;
+    private ArrayList<com.baidu.tieba.pb.a.c> cnz;
     private TbPageContext<?> mContext;
     private String postID;
     private String stType;
@@ -55,8 +55,8 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
     static {
         com.baidu.tbadk.task.b a2 = com.baidu.tieba.tbadkCore.a.a.a(302002, SubPbSocketResponseMessage.class, false, false);
         TbHttpMessageTask a3 = com.baidu.tieba.tbadkCore.a.a.a(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
-        a2.setParallel(cnn);
-        a3.setParallel(cnn);
+        a2.setParallel(cny);
+        a3.setParallel(cny);
     }
 
     public void initWithIntent(Intent intent) {
@@ -64,17 +64,17 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
             this.threadID = intent.getStringExtra("thread_id");
             this.postID = intent.getStringExtra("post_id");
             this.stType = intent.getStringExtra("st_type");
-            this.cnf = intent.getBooleanExtra("is_jump_from_pb", false);
-            this.cng = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_NAME);
-            this.cni = intent.getBooleanExtra("show_keyboard", false);
-            this.cnh = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_POST_ID);
-            this.cfZ = intent.getIntExtra(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
-            this.cnp = (SmallTailInfo) intent.getSerializableExtra(SubPbActivityConfig.KEY_TAIL);
-            if (this.cnp != null) {
-                this.cnp.updateShowInfo();
+            this.cnq = intent.getBooleanExtra("is_jump_from_pb", false);
+            this.cnr = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_NAME);
+            this.cnt = intent.getBooleanExtra("show_keyboard", false);
+            this.cns = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_POST_ID);
+            this.cgk = intent.getIntExtra(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
+            this.cnA = (SmallTailInfo) intent.getSerializableExtra(SubPbActivityConfig.KEY_TAIL);
+            if (this.cnA != null) {
+                this.cnA.updateShowInfo();
             }
-            this.cgo = (AntiData) intent.getSerializableExtra("anti");
-            this.cnm = intent.getBooleanExtra(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
+            this.cgz = (AntiData) intent.getSerializableExtra("anti");
+            this.cnx = intent.getBooleanExtra(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
         }
     }
 
@@ -83,17 +83,17 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
             this.threadID = bundle.getString("thread_id");
             this.postID = bundle.getString("post_id");
             this.stType = bundle.getString("st_type");
-            this.cnf = bundle.getBoolean("is_jump_from_pb", false);
-            this.cng = bundle.getString(SubPbActivityConfig.KEY_REPLAY_NAME);
-            this.cni = bundle.getBoolean("show_keyboard", false);
-            this.cnh = bundle.getString(SubPbActivityConfig.KEY_REPLAY_POST_ID);
-            this.cfZ = bundle.getInt(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
-            this.cnp = (SmallTailInfo) bundle.getSerializable(SubPbActivityConfig.KEY_TAIL);
-            if (this.cnp != null) {
-                this.cnp.updateShowInfo();
+            this.cnq = bundle.getBoolean("is_jump_from_pb", false);
+            this.cnr = bundle.getString(SubPbActivityConfig.KEY_REPLAY_NAME);
+            this.cnt = bundle.getBoolean("show_keyboard", false);
+            this.cns = bundle.getString(SubPbActivityConfig.KEY_REPLAY_POST_ID);
+            this.cgk = bundle.getInt(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
+            this.cnA = (SmallTailInfo) bundle.getSerializable(SubPbActivityConfig.KEY_TAIL);
+            if (this.cnA != null) {
+                this.cnA.updateShowInfo();
             }
-            this.cgo = (AntiData) bundle.getSerializable("anti");
-            this.cnm = bundle.getBoolean(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
+            this.cgz = (AntiData) bundle.getSerializable("anti");
+            this.cnx = bundle.getBoolean(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
         }
     }
 
@@ -102,45 +102,45 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
             bundle.putString("thread_id", this.threadID);
             bundle.putString("post_id", this.postID);
             bundle.putString("st_type", this.stType);
-            bundle.putBoolean("is_jump_from_pb", this.cnf);
-            bundle.putString(SubPbActivityConfig.KEY_REPLAY_NAME, this.cng);
-            bundle.putString(SubPbActivityConfig.KEY_REPLAY_POST_ID, this.cnh);
-            bundle.putBoolean("show_keyboard", this.cni);
-            bundle.putInt(SubPbActivityConfig.KEY_USER_IDENTITY, this.cfZ);
-            bundle.putSerializable(SubPbActivityConfig.KEY_TAIL, this.cnp);
-            bundle.putSerializable("anti", this.cgo);
+            bundle.putBoolean("is_jump_from_pb", this.cnq);
+            bundle.putString(SubPbActivityConfig.KEY_REPLAY_NAME, this.cnr);
+            bundle.putString(SubPbActivityConfig.KEY_REPLAY_POST_ID, this.cns);
+            bundle.putBoolean("show_keyboard", this.cnt);
+            bundle.putInt(SubPbActivityConfig.KEY_USER_IDENTITY, this.cgk);
+            bundle.putSerializable(SubPbActivityConfig.KEY_TAIL, this.cnA);
+            bundle.putSerializable("anti", this.cgz);
             bundle.putBoolean(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
         }
     }
 
     public ak(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.aQn = 0;
+        this.aQy = 0;
         this.threadID = null;
         this.postID = null;
         this.stType = null;
-        this.cnf = false;
-        this.cng = null;
-        this.cnh = null;
-        this.cni = false;
-        this.cgp = false;
-        this.cfZ = 0;
-        this.cnj = null;
+        this.cnq = false;
+        this.cnr = null;
+        this.cns = null;
+        this.cnt = false;
+        this.cgA = false;
+        this.cgk = 0;
+        this.cnu = null;
         this.mContext = null;
-        this.cmK = null;
-        this.cnk = null;
-        this.cnl = 0;
-        this.cnm = false;
-        this.cno = null;
-        this.avB = false;
-        this.aMa = null;
-        this.cns = new al(this, CmdConfigHttp.SubPb_HTTP_CMD, 302002);
+        this.cmV = null;
+        this.cnv = null;
+        this.cnw = 0;
+        this.cnx = false;
+        this.cnz = null;
+        this.avC = false;
+        this.aMl = null;
+        this.cnD = new al(this, CmdConfigHttp.SubPb_HTTP_CMD, 302002);
         this.mContext = tbPageContext;
-        this.cno = new ArrayList<>();
-        this.cmK = new com.baidu.tieba.pb.a.c();
+        this.cnz = new ArrayList<>();
+        this.cmV = new com.baidu.tieba.pb.a.c();
         setUniqueId(BdUniqueId.gen());
-        MessageManager.getInstance().unRegisterListener(this.cns);
-        registerListener(this.cns);
+        MessageManager.getInstance().unRegisterListener(this.cnD);
+        registerListener(this.cnD);
     }
 
     public String getThreadID() {
@@ -157,19 +157,19 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
     }
 
     public com.baidu.tieba.pb.a.c ahA() {
-        return this.cmK;
+        return this.cmV;
     }
 
     public AntiData afh() {
-        return this.cgo;
+        return this.cgz;
     }
 
     public boolean ahB() {
-        return (this.cmK == null || this.cmK.aeZ() == null) ? false : true;
+        return (this.cmV == null || this.cmV.aeZ() == null) ? false : true;
     }
 
     public void a(a aVar) {
-        this.cnk = aVar;
+        this.cnv = aVar;
     }
 
     public MarkData d(com.baidu.tieba.tbadkCore.data.k kVar) {
@@ -181,20 +181,20 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
         markData.setTime(date.getTime());
         markData.setHostMode(false);
         markData.setId(this.threadID);
-        markData.setFloor(kVar.awy());
+        markData.setFloor(kVar.awI());
         return markData;
     }
 
     public void destory() {
         cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.cns);
+        MessageManager.getInstance().unRegisterListener(this.cnD);
         IC();
     }
 
     private void IC() {
-        if (this.aMa != null) {
-            this.aMa.destory();
-            this.aMa = null;
+        if (this.aMl != null) {
+            this.aMl.destory();
+            this.aMl = null;
         }
     }
 
@@ -204,7 +204,7 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
     }
 
     public int ahC() {
-        return this.aQn;
+        return this.aQy;
     }
 
     @Override // com.baidu.adp.base.e
@@ -214,14 +214,14 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
     }
 
     public void jW(String str) {
-        if (!TextUtils.isEmpty(str) && this.cmK != null && this.cmK.afd() != null) {
-            ArrayList<com.baidu.tieba.tbadkCore.data.k> afd = this.cmK.afd();
+        if (!TextUtils.isEmpty(str) && this.cmV != null && this.cmV.afd() != null) {
+            ArrayList<com.baidu.tieba.tbadkCore.data.k> afd = this.cmV.afd();
             int size = afd.size();
             for (int i = 0; i < size; i++) {
                 if (str.equals(afd.get(i).getId())) {
                     afd.remove(i);
-                    this.cnl++;
-                    this.cmK.setTotalCount(this.cmK.getTotalCount() - 1);
+                    this.cnw++;
+                    this.cmV.setTotalCount(this.cmV.getTotalCount() - 1);
                     return;
                 }
             }
@@ -229,27 +229,27 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
     }
 
     protected int ahD() {
-        int currentPage = this.cmK.getCurrentPage();
+        int currentPage = this.cmV.getCurrentPage();
         if (currentPage == 0) {
             return currentPage + 1;
         }
-        if (this.aQn == 0) {
+        if (this.aQy == 0) {
             return currentPage + 1;
         }
-        if (this.aQn == 2 && this.cmK.afd().size() != 0 && this.cmK.afd().size() % this.cmK.aff() == 0) {
+        if (this.aQy == 2 && this.cmV.afd().size() != 0 && this.cmV.afd().size() % this.cmV.aff() == 0) {
             return currentPage + 1;
         }
-        if (this.aQn == 3 && this.cnq) {
-            return this.cmK.afb() - 1;
+        if (this.aQy == 3 && this.cnB) {
+            return this.cmV.afb() - 1;
         }
-        if (this.aQn == 3 && currentPage > 0) {
-            return this.cmK.afa() - 1;
+        if (this.aQy == 3 && currentPage > 0) {
+            return this.cmV.afa() - 1;
         }
         return currentPage;
     }
 
     private SubPbRequestMessage ahE() {
-        this.avB = true;
+        this.avC = true;
         return d((Integer) null);
     }
 
@@ -261,7 +261,7 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
         int L = com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp());
         long j = 0;
         long j2 = 0;
-        if (1 != this.aQn) {
+        if (1 != this.aQy) {
             j = Long.parseLong(this.postID);
         } else {
             j2 = Long.parseLong(this.postID);
@@ -272,7 +272,7 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
             intValue = num.intValue();
         }
         int i2 = 0;
-        if (this.cnq && this.aQn == 0) {
+        if (this.cnB && this.aQy == 0) {
             i2 = 1;
             i = 1;
         } else {
@@ -294,15 +294,15 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
 
     public void ahG() {
         int aff;
-        if (this.cnl > 0 && this.cmK != null && (aff = this.cmK.aff()) > 0) {
-            int currentPage = this.cmK.getCurrentPage();
-            for (int i = (((this.cnl + aff) - 1) / aff) - 1; i >= 0; i--) {
-                this.cnr = d(Integer.valueOf(currentPage - i));
-                this.cnr.setTreatDelPage(true);
-                sendMessage(this.cnr);
+        if (this.cnw > 0 && this.cmV != null && (aff = this.cmV.aff()) > 0) {
+            int currentPage = this.cmV.getCurrentPage();
+            for (int i = (((this.cnw + aff) - 1) / aff) - 1; i >= 0; i--) {
+                this.cnC = d(Integer.valueOf(currentPage - i));
+                this.cnC.setTreatDelPage(true);
+                sendMessage(this.cnC);
             }
         }
-        this.cnl = 0;
+        this.cnw = 0;
     }
 
     public boolean ahH() {
@@ -314,18 +314,18 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
     }
 
     public boolean iY(int i) {
-        if (this.avB) {
+        if (this.avC) {
             return false;
         }
         cancelMessage();
         if (this.threadID == null || this.postID == null) {
-            this.avB = false;
+            this.avC = false;
             return false;
         }
         ahG();
-        this.aQn = i;
-        this.cnr = ahE();
-        sendMessage(this.cnr);
+        this.aQy = i;
+        this.cnC = ahE();
+        sendMessage(this.cnC);
         return true;
     }
 
@@ -333,30 +333,30 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
     public void c(com.baidu.tieba.pb.a.c cVar) {
         ArrayList<com.baidu.tieba.tbadkCore.data.k> afd = cVar.afd();
         if (afd == null || afd.size() == 0) {
-            cVar.setCurrentPage(this.cmK.getCurrentPage());
+            cVar.setCurrentPage(this.cmV.getCurrentPage());
         }
-        if (this.aQn == 1) {
-            this.cmK = cVar;
-        } else if (this.aQn == 2) {
-            this.cmK.b(cVar, true);
-        } else if (this.aQn == 3) {
-            this.cmK.a(cVar, false);
+        if (this.aQy == 1) {
+            this.cmV = cVar;
+        } else if (this.aQy == 2) {
+            this.cmV.b(cVar, true);
+        } else if (this.aQy == 3) {
+            this.cmV.a(cVar, false);
         } else {
-            this.cmK.b(cVar, false);
+            this.cmV.b(cVar, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.tieba.pb.a.c cVar) {
-        if (this.aQn == 1) {
-            this.cmK = cVar;
-            this.cmK.afc();
-        } else if (this.aQn == 2) {
-            this.cmK.c(cVar, true);
-        } else if (this.aQn == 3) {
-            this.cmK.d(cVar, false);
+        if (this.aQy == 1) {
+            this.cmV = cVar;
+            this.cmV.afc();
+        } else if (this.aQy == 2) {
+            this.cmV.c(cVar, true);
+        } else if (this.aQy == 3) {
+            this.cmV.d(cVar, false);
         } else {
-            this.cmK.a(cVar);
+            this.cmV.a(cVar);
         }
     }
 
@@ -367,7 +367,7 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
         } else {
             str = cVar.afi().getAuthor().getUserId();
         }
-        if (!this.cnq) {
+        if (!this.cnB) {
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -378,19 +378,19 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
                 i = i2 + 1;
             }
         }
-        this.cno.add(cVar);
+        this.cnz.add(cVar);
     }
 
     public boolean ahb() {
-        return this.cnf;
+        return this.cnq;
     }
 
     public String ahJ() {
-        return this.cng;
+        return this.cnr;
     }
 
     public boolean isMarked() {
-        return this.cgp;
+        return this.cgA;
     }
 
     public boolean ahK() {
@@ -398,40 +398,40 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
     }
 
     public void eS(boolean z) {
-        this.cgp = z;
+        this.cgA = z;
     }
 
     public int aeS() {
-        return this.cfZ;
+        return this.cgk;
     }
 
     public String ahL() {
-        return this.cnj;
+        return this.cnu;
     }
 
     public void jX(String str) {
-        this.cnj = str;
+        this.cnu = str;
     }
 
     public boolean ahM() {
-        return this.cni;
+        return this.cnt;
     }
 
     public String ahN() {
-        return this.cnh;
+        return this.cns;
     }
 
     @Override // com.baidu.tbadk.editortools.c.a
     public WriteData eV(String str) {
-        if (this.cmK == null || this.cmK.afg() == null || this.cmK.afi() == null || this.cmK.aeZ() == null) {
+        if (this.cmV == null || this.cmV.afg() == null || this.cmV.afi() == null || this.cmV.aeZ() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
-        writeData.setForumName(this.cmK.afg().getName());
-        writeData.setForumId(this.cmK.afg().getId());
-        writeData.setFloor(this.cmK.aeZ().getId());
+        writeData.setForumName(this.cmV.afg().getName());
+        writeData.setForumId(this.cmV.afg().getId());
+        writeData.setFloor(this.cmV.aeZ().getId());
         writeData.setType(2);
-        writeData.setThreadId(this.cmK.afi().getId());
+        writeData.setThreadId(this.cmV.afi().getId());
         writeData.setFloorNum(0);
         return writeData;
     }
@@ -442,14 +442,14 @@ public class ak extends com.baidu.tbadk.editortools.c.a {
     }
 
     public void eT(boolean z) {
-        this.cnq = z;
+        this.cnB = z;
     }
 
     public SmallTailInfo ahO() {
-        return this.cnp;
+        return this.cnA;
     }
 
     public boolean ahP() {
-        return this.cnm;
+        return this.cnx;
     }
 }

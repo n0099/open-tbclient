@@ -12,114 +12,114 @@ import com.baidu.adp.widget.f;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.flow.a.a;
 import com.baidu.tbadk.core.flow.a.d;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.square.SquareViewPager;
 import java.util.List;
 /* loaded from: classes.dex */
 public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends FrameLayout {
-    private SquareViewPager Xq;
-    private IndicatorView Xr;
-    private com.baidu.tbadk.core.flow.a.c Xs;
-    private com.baidu.tbadk.core.flow.a<T> Xt;
-    private com.baidu.tbadk.core.flow.b Xu;
-    private CoverFlowView<T>.a Xv;
-    private d<T> Xw;
-    private CoverFlowView<T>.c Xx;
-    private CoverFlowView<T>.b Xy;
-    private long Xz;
+    private CoverFlowView<T>.b XA;
+    private long XB;
+    private SquareViewPager Xs;
+    private IndicatorView Xt;
+    private com.baidu.tbadk.core.flow.a.c Xu;
+    private com.baidu.tbadk.core.flow.a<T> Xv;
+    private com.baidu.tbadk.core.flow.b Xw;
+    private CoverFlowView<T>.a Xx;
+    private d<T> Xy;
+    private CoverFlowView<T>.c Xz;
     private View mCustomView;
 
     public CoverFlowView(Context context) {
         super(context);
         this.mCustomView = null;
-        this.Xv = new a(this, null);
-        this.Xx = new c(this, null);
-        this.Xy = new b(this, null);
-        this.Xz = TbConfig.NOTIFY_SOUND_INTERVAL;
+        this.Xx = new a(this, null);
+        this.Xz = new c(this, null);
+        this.XA = new b(this, null);
+        this.XB = TbConfig.NOTIFY_SOUND_INTERVAL;
         init(context);
     }
 
     public CoverFlowView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mCustomView = null;
-        this.Xv = new a(this, null);
-        this.Xx = new c(this, null);
-        this.Xy = new b(this, null);
-        this.Xz = TbConfig.NOTIFY_SOUND_INTERVAL;
+        this.Xx = new a(this, null);
+        this.Xz = new c(this, null);
+        this.XA = new b(this, null);
+        this.XB = TbConfig.NOTIFY_SOUND_INTERVAL;
         init(context);
     }
 
     public CoverFlowView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mCustomView = null;
-        this.Xv = new a(this, null);
-        this.Xx = new c(this, null);
-        this.Xy = new b(this, null);
-        this.Xz = TbConfig.NOTIFY_SOUND_INTERVAL;
+        this.Xx = new a(this, null);
+        this.Xz = new c(this, null);
+        this.XA = new b(this, null);
+        this.XB = TbConfig.NOTIFY_SOUND_INTERVAL;
         init(context);
     }
 
     public void setCallback(d<T> dVar) {
-        this.Xw = dVar;
+        this.Xy = dVar;
     }
 
     private void init(Context context) {
         Y(context);
         Z(context);
         setCoverFlowFactory(new com.baidu.tbadk.core.flow.a.b());
-        addView(this.Xq);
-        addView(this.Xr);
-        this.Xt = new com.baidu.tbadk.core.flow.a<>(context);
-        this.Xt.setOnClickListener(this.Xx);
-        this.Xq.setAdapter(this.Xt);
-        this.Xq.setOnPageChangeListener(this.Xy);
+        addView(this.Xs);
+        addView(this.Xt);
+        this.Xv = new com.baidu.tbadk.core.flow.a<>(context);
+        this.Xv.setOnClickListener(this.Xz);
+        this.Xs.setAdapter(this.Xv);
+        this.Xs.setOnPageChangeListener(this.XA);
     }
 
     private void Y(Context context) {
-        this.Xq = new SquareViewPager(context);
+        this.Xs = new SquareViewPager(context);
     }
 
     private void Z(Context context) {
-        this.Xr = new IndicatorView(context);
-        this.Xr.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
+        this.Xt = new IndicatorView(context);
+        this.Xt.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
     }
 
     public T bW(int i) {
-        if (this.Xt == null) {
+        if (this.Xv == null) {
             return null;
         }
-        return this.Xt.bW(i);
+        return this.Xv.bW(i);
     }
 
     public void setData(List<T> list) {
         if (list != null && !list.isEmpty()) {
-            this.Xt.a(list, this.Xu);
+            this.Xv.a(list, this.Xw);
             int size = list.size();
             if (size > 1) {
-                this.Xr.setVisibility(0);
-                this.Xr.setCount(size);
-                this.Xq.setCurrentItem(1, false);
-                this.Xr.setPosition(0.0f);
+                this.Xt.setVisibility(0);
+                this.Xt.setCount(size);
+                this.Xs.setCurrentItem(1, false);
+                this.Xt.setPosition(0.0f);
                 tg();
                 return;
             }
-            this.Xr.setVisibility(8);
+            this.Xt.setVisibility(8);
             th();
         }
     }
 
     public void setCoverFlowFactory(com.baidu.tbadk.core.flow.b bVar) {
         if (bVar != null) {
-            this.Xu = bVar;
-            this.Xs = bVar.td();
-            this.Xs.g(this.Xr);
-            bVar.te().a(this.Xq);
+            this.Xw = bVar;
+            this.Xu = bVar.td();
+            this.Xu.g(this.Xt);
+            bVar.te().a(this.Xs);
             this.mCustomView = bVar.tf();
             if (this.mCustomView != null) {
                 removeAllViews();
-                addView(this.Xq);
+                addView(this.Xs);
                 addView(this.mCustomView);
-                addView(this.Xr);
+                addView(this.Xt);
             }
         }
     }
@@ -129,16 +129,16 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     }
 
     public void th() {
-        this.Xv.removeMessages(1);
+        this.Xx.removeMessages(1);
     }
 
     public void ti() {
-        this.Xv.removeMessages(1);
-        this.Xv.sendEmptyMessageDelayed(1, this.Xz);
+        this.Xx.removeMessages(1);
+        this.Xx.sendEmptyMessageDelayed(1, this.XB);
     }
 
     public void setMarqueenTime(long j) {
-        this.Xz = j;
+        this.XB = j;
         ti();
     }
 
@@ -168,31 +168,31 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     /* JADX INFO: Access modifiers changed from: private */
     public void tj() {
         int count;
-        if (this.Xq != null && this.Xt != null && (count = this.Xt.getCount()) > 1) {
-            int currentItem = this.Xq.getCurrentItem();
+        if (this.Xs != null && this.Xv != null && (count = this.Xv.getCount()) > 1) {
+            int currentItem = this.Xs.getCurrentItem();
             int i = count - 2;
             if (currentItem < 1) {
-                this.Xq.setCurrentItem(i, false);
+                this.Xs.setCurrentItem(i, false);
             } else if (currentItem > i) {
-                this.Xq.setCurrentItem(1, false);
+                this.Xs.setCurrentItem(1, false);
             } else {
-                this.Xq.setCurrentItem(currentItem + 1);
+                this.Xs.setCurrentItem(currentItem + 1);
             }
-            this.Xq.invalidate();
+            this.Xs.invalidate();
         }
     }
 
     private boolean tk() {
         int count;
-        if (this.Xt != null && (count = this.Xt.getCount()) > 1) {
-            int currentItem = this.Xq.getCurrentItem();
+        if (this.Xv != null && (count = this.Xv.getCount()) > 1) {
+            int currentItem = this.Xs.getCurrentItem();
             int i = count - 2;
             if (currentItem < 1) {
-                this.Xq.setCurrentItem(i, false);
-                this.Xq.invalidate();
+                this.Xs.setCurrentItem(i, false);
+                this.Xs.invalidate();
             } else if (currentItem > i) {
-                this.Xq.setCurrentItem(1, false);
-                this.Xq.invalidate();
+                this.Xs.setCurrentItem(1, false);
+                this.Xs.invalidate();
             }
             return true;
         }
@@ -211,14 +211,14 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
-            if (CoverFlowView.this.Xr != null && CoverFlowView.this.Xt != null && CoverFlowView.this.Xr.getVisibility() == 0) {
-                int count = CoverFlowView.this.Xt.getCount();
+            if (CoverFlowView.this.Xt != null && CoverFlowView.this.Xv != null && CoverFlowView.this.Xt.getVisibility() == 0) {
+                int count = CoverFlowView.this.Xv.getCount();
                 if (i == 0) {
-                    CoverFlowView.this.Xr.setPosition((count - 3) + f);
+                    CoverFlowView.this.Xt.setPosition((count - 3) + f);
                 } else if (i == count - 1) {
-                    CoverFlowView.this.Xr.setPosition(f);
+                    CoverFlowView.this.Xt.setPosition(f);
                 } else {
-                    CoverFlowView.this.Xr.setPosition((i - 1) + f);
+                    CoverFlowView.this.Xt.setPosition((i - 1) + f);
                 }
             }
         }
@@ -227,17 +227,17 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            if (CoverFlowView.this.Xt != null) {
-                int count = CoverFlowView.this.Xt.getCount();
-                if (i >= 0 && i < count && CoverFlowView.this.Xw != null) {
-                    CoverFlowView.this.Xw.a(i, CoverFlowView.this.Xt.bW(i));
+            if (CoverFlowView.this.Xv != null) {
+                int count = CoverFlowView.this.Xv.getCount();
+                if (i >= 0 && i < count && CoverFlowView.this.Xy != null) {
+                    CoverFlowView.this.Xy.a(i, CoverFlowView.this.Xv.bW(i));
                 }
             }
         }
 
         @Override // android.support.v4.view.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
-            if (CoverFlowView.this.Xq == null || CoverFlowView.this.Xt == null) {
+            if (CoverFlowView.this.Xs == null || CoverFlowView.this.Xv == null) {
                 return;
             }
             switch (i) {
@@ -271,29 +271,29 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         public void onClick(View view) {
             int intValue;
             com.baidu.tbadk.core.flow.a.a bW;
-            if (CoverFlowView.this.Xw != null && (view.getTag() instanceof Integer) && (bW = CoverFlowView.this.Xt.bW((intValue = ((Integer) view.getTag()).intValue()))) != null) {
-                CoverFlowView.this.Xw.o(intValue, bW.ry());
+            if (CoverFlowView.this.Xy != null && (view.getTag() instanceof Integer) && (bW = CoverFlowView.this.Xv.bW((intValue = ((Integer) view.getTag()).intValue()))) != null) {
+                CoverFlowView.this.Xy.o(intValue, bW.ry());
             }
         }
     }
 
     public void tc() {
-        this.Xt.tc();
-        if (this.Xr != null && this.Xs != null) {
-            this.Xr.setDrawable(am.getDrawable(this.Xs.tm()));
-            this.Xr.setSelector(am.getDrawable(this.Xs.getSelectedId()));
+        this.Xv.tc();
+        if (this.Xt != null && this.Xu != null) {
+            this.Xt.setDrawable(an.getDrawable(this.Xu.tm()));
+            this.Xt.setSelector(an.getDrawable(this.Xu.getSelectedId()));
         }
     }
 
     public void setSwipeControlInterface(f.b bVar) {
-        if (this.Xq != null) {
-            this.Xq.setSwipeControlInterface(bVar);
+        if (this.Xs != null) {
+            this.Xs.setSwipeControlInterface(bVar);
         }
     }
 
     public void setDisableParentEvent(boolean z) {
-        if (this.Xq != null) {
-            this.Xq.setDisableParentEvent(z);
+        if (this.Xs != null) {
+            this.Xs.setDisableParentEvent(z);
         }
     }
 }

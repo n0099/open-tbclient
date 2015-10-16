@@ -10,10 +10,10 @@ import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.base.e<BaseActivity<?>> {
-    private BaseActivity<?> aRT;
-    private a boB;
-    private com.baidu.adp.framework.listener.a bom;
-    private com.baidu.tieba.hottopic.data.b bos;
+    private BaseActivity<?> aSe;
+    private com.baidu.tieba.hottopic.data.b boD;
+    private a boM;
+    private com.baidu.adp.framework.listener.a box;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,16 +22,16 @@ public class h extends com.baidu.adp.base.e<BaseActivity<?>> {
 
     public h(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());
-        this.bos = null;
-        this.boB = null;
-        this.bom = new i(this, CmdConfigHttp.CMD_HOT_TOPIC, 303050);
-        this.aRT = baseActivity;
-        registerListener(this.bom);
-        this.bos = new com.baidu.tieba.hottopic.data.b();
+        this.boD = null;
+        this.boM = null;
+        this.box = new i(this, CmdConfigHttp.CMD_HOT_TOPIC, 303050);
+        this.aSe = baseActivity;
+        registerListener(this.box);
+        this.boD = new com.baidu.tieba.hottopic.data.b();
     }
 
     public com.baidu.tieba.hottopic.data.b getHotTopicData() {
-        return this.bos;
+        return this.boD;
     }
 
     public void aC(String str, String str2) {
@@ -61,12 +61,12 @@ public class h extends com.baidu.adp.base.e<BaseActivity<?>> {
             if ((responsedMessage instanceof ResponseSocketHotTopicMessage) && ((ResponseSocketHotTopicMessage) responsedMessage).getHotTopicData() != null) {
                 bVar = ((ResponseSocketHotTopicMessage) responsedMessage).getHotTopicData();
             }
-            this.boB.a(!responsedMessage.hasError(), bVar);
+            this.boM.a(!responsedMessage.hasError(), bVar);
         }
     }
 
     public void a(a aVar) {
-        this.boB = aVar;
+        this.boM = aVar;
     }
 
     @Override // com.baidu.adp.base.e

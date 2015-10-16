@@ -5,11 +5,11 @@ import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ e bLY;
+    final /* synthetic */ e bMj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.bLY = eVar;
+        this.bMj = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,11 +17,11 @@ public class f implements Runnable {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
         Animation YK;
-        if (this.bLY.Yw()) {
-            linearLayout = this.bLY.bLO;
+        if (this.bMj.Yw()) {
+            linearLayout = this.bMj.bLZ;
             linearLayout.clearAnimation();
-            linearLayout2 = this.bLY.bLO;
-            YK = this.bLY.YK();
+            linearLayout2 = this.bMj.bLZ;
+            YK = this.bMj.YK();
             linearLayout2.startAnimation(YK);
         }
     }

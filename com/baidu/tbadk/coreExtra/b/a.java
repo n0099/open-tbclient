@@ -2,26 +2,26 @@ package com.baidu.tbadk.coreExtra.b;
 
 import com.baidu.adp.lib.util.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class a {
-    private static a afQ;
-    private boolean afP;
+    private static a afR;
+    private boolean afQ;
 
     private a() {
-        this.afP = false;
+        this.afQ = false;
         try {
             InputStream open = TbadkCoreApplication.m411getInst().getApp().getAssets().open("apk_ab_test.txt");
-            if (!ar.isEmpty(new BufferedReader(new InputStreamReader(open)).readLine())) {
-                this.afP = true;
+            if (!as.isEmpty(new BufferedReader(new InputStreamReader(open)).readLine())) {
+                this.afQ = true;
             }
             o.d(open);
         } catch (Throwable th) {
             try {
-                this.afP = false;
+                this.afQ = false;
                 o.d(null);
             } catch (Throwable th2) {
                 o.d(null);
@@ -33,19 +33,19 @@ public class a {
     public static synchronized a wb() {
         a aVar;
         synchronized (a.class) {
-            if (afQ == null) {
-                afQ = new a();
+            if (afR == null) {
+                afR = new a();
             }
-            aVar = afQ;
+            aVar = afR;
         }
         return aVar;
     }
 
     public boolean wc() {
-        return this.afP;
+        return this.afQ;
     }
 
     public String wd() {
-        return this.afP ? "pub_env=3;" : "";
+        return this.afQ ? "pub_env=3;" : "";
     }
 }

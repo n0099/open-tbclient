@@ -5,20 +5,20 @@ import com.baidu.tieba.usermute.i;
 import tbclient.UserMuteCheck.DataRes;
 /* loaded from: classes.dex */
 class c implements i.a {
-    final /* synthetic */ PersonInfoActivity csx;
+    final /* synthetic */ PersonInfoActivity csI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(PersonInfoActivity personInfoActivity) {
-        this.csx = personInfoActivity;
+        this.csI = personInfoActivity;
     }
 
     @Override // com.baidu.tieba.usermute.i.a
     public void a(DataRes dataRes, int i, String str, Object obj) {
         if (i == 0 && !StringUtils.isNULL(dataRes.is_mute)) {
             if (dataRes.is_mute.equals("0")) {
-                this.csx.csh = 0;
+                this.csI.css = 0;
             } else if (dataRes.is_mute.equals("1")) {
-                this.csx.csh = 1;
+                this.csI.css = 1;
             }
         }
     }

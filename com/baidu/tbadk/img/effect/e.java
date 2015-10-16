@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class e extends b {
-    private int aur = 0;
+    private int aus = 0;
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
@@ -22,7 +22,7 @@ public class e extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void fr(String str) {
         if (str != null) {
-            this.aur = Integer.parseInt(str);
+            this.aus = Integer.parseInt(str);
         }
     }
 
@@ -32,11 +32,11 @@ public class e extends b {
             return null;
         }
         com.baidu.tbadk.imageManager.c.Cf().en(com.baidu.tbadk.core.util.c.f(bitmap) * 2);
-        if (this.aur == 0 || this.aur == 1) {
-            return com.baidu.tbadk.core.util.c.h(bitmap, this.aur);
+        if (this.aus == 0 || this.aus == 1) {
+            return com.baidu.tbadk.core.util.c.h(bitmap, this.aus);
         }
-        if (this.aur == 2 || this.aur == 3) {
-            return com.baidu.tbadk.core.util.c.j(bitmap, this.aur);
+        if (this.aus == 2 || this.aus == 3) {
+            return com.baidu.tbadk.core.util.c.j(bitmap, this.aus);
         }
         return bitmap;
     }

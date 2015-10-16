@@ -4,9 +4,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<SquareSearchActivity> {
-    private SquareSearchActivity bTV;
-    private a bTW;
-    private List<c> bTX;
+    private SquareSearchActivity bUg;
+    private a bUh;
+    private List<c> bUi;
     private f mHotSearchInfo;
     private List<g> mTopicInfoList;
 
@@ -19,8 +19,8 @@ public class d extends com.baidu.adp.base.e<SquareSearchActivity> {
 
     public d(SquareSearchActivity squareSearchActivity, a aVar) {
         super(squareSearchActivity.getPageContext());
-        this.bTV = squareSearchActivity;
-        this.bTW = aVar;
+        this.bUg = squareSearchActivity;
+        this.bUh = aVar;
     }
 
     public void abc() {

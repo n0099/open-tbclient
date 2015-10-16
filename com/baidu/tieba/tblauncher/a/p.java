@@ -17,29 +17,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class p {
-    private static p ddB;
-    private b ddC;
-    private b ddD;
-    private b ddE;
-    private b ddF;
-    private b ddG;
-    private b ddH;
-    private CustomMessageListener ddI = new q(this, CmdConfigCustom.CMD_LEFT_NAVI_SCAN);
+    private static p deb;
+    private b dec;
+    private b ded;
+    private b dee;
+    private b def;
+    private b deg;
+    private b deh;
+    private CustomMessageListener dei = new q(this, CmdConfigCustom.CMD_LEFT_NAVI_SCAN);
 
-    public static p ayR() {
-        if (ddB == null) {
+    public static p azb() {
+        if (deb == null) {
             synchronized (p.class) {
-                if (ddB == null) {
-                    ddB = new p();
+                if (deb == null) {
+                    deb = new p();
                 }
             }
         }
-        return ddB;
+        return deb;
     }
 
     private p() {
-        this.ddI.setPriority(Integer.MAX_VALUE);
-        MessageManager.getInstance().registerListener(this.ddI);
+        this.dei.setPriority(Integer.MAX_VALUE);
+        MessageManager.getInstance().registerListener(this.dei);
     }
 
     public void n(TbPageContext<?> tbPageContext) {
@@ -50,29 +50,29 @@ public class p {
         CustomResponsedMessage runTask5 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_ADDRESS_LIST_RES_TOOL, com.baidu.tieba.tbadkCore.b.a.class);
         CustomResponsedMessage runTask6 = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_THEME_CENTER_RES_TOOL, com.baidu.tieba.tbadkCore.k.a.class);
         if (runTask != null && runTask.getData() != null) {
-            this.ddC = new b(i.h.my_mark, ((com.baidu.tieba.tbadkCore.h.a) runTask.getData()).ady(), 1);
+            this.dec = new b(i.h.my_mark, ((com.baidu.tieba.tbadkCore.h.a) runTask.getData()).ady(), 1);
         }
         if (runTask2 != null && runTask2.getData() != null) {
-            this.ddD = new b(i.h.my_history, ((com.baidu.tieba.tbadkCore.i.a) runTask2.getData()).adJ(), 2);
+            this.ded = new b(i.h.my_history, ((com.baidu.tieba.tbadkCore.i.a) runTask2.getData()).adJ(), 2);
         }
         if (runTask3 != null && runTask3.getData() != null) {
-            this.ddE = new b(i.h.discover_item_mylive, ((com.baidu.tieba.tbadkCore.j.a) runTask3.getData()).getHomeMyLiveIconResId(), 3);
+            this.dee = new b(i.h.discover_item_mylive, ((com.baidu.tieba.tbadkCore.j.a) runTask3.getData()).getHomeMyLiveIconResId(), 3);
         }
         if (runTask4 != null && runTask4.getData() != null) {
-            this.ddF = new b(i.h.member_center, ((com.baidu.tieba.tbadkCore.f.a) runTask4.getData()).aca(), 4);
+            this.def = new b(i.h.member_center, ((com.baidu.tieba.tbadkCore.f.a) runTask4.getData()).aca(), 4);
         }
         if (runTask5 != null && runTask5.getData() != null) {
-            this.ddG = new b(i.h.my_good_friends, ((com.baidu.tieba.tbadkCore.b.a) runTask5.getData()).Gf(), 0, 0);
+            this.deg = new b(i.h.my_good_friends, ((com.baidu.tieba.tbadkCore.b.a) runTask5.getData()).Gf(), 0, 0);
         }
         if (runTask6 != null && runTask6.getData() != null) {
             com.baidu.tieba.tbadkCore.k.a aVar = (com.baidu.tieba.tbadkCore.k.a) runTask6.getData();
-            this.ddH = new b(aVar.axo(), aVar.axn(), 5);
+            this.deh = new b(aVar.axy(), aVar.axx(), 5);
         }
     }
 
     private void a(LeftNaviScanMessage.b bVar) {
         LeftNaviScanMessage.a aVar = new LeftNaviScanMessage.a();
-        aVar.dbR = bVar;
+        aVar.dcr = bVar;
         aVar.list = new ArrayList();
         MessageManager.getInstance().dispatchResponsedMessage(new LeftNaviScanMessage(aVar));
     }
@@ -82,32 +82,32 @@ public class p {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ayS() {
+    public boolean azc() {
         return TbadkCoreApplication.m411getInst().appResponseToIntentClass(AddressListActivityConfig.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ayT() {
+    public boolean azd() {
         return TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.START_EDITMARK);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ayU() {
+    public boolean aze() {
         return TbadkCoreApplication.m411getInst().appResponseToIntentClass(PbHistoryActivityConfig.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ayV() {
+    public boolean azf() {
         return TbadkCoreApplication.m411getInst().appResponseToIntentClass(MyLiveActivityConfig.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ayW() {
+    public boolean azg() {
         return TbadkCoreApplication.m411getInst().appResponseToIntentClass(MemberPrivilegeActivityConfig.class);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ayX() {
+    public boolean azh() {
         return TbadkCoreApplication.m411getInst().appResponseToIntentClass(DressupCenterActivityConfig.class);
     }
 

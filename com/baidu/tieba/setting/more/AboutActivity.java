@@ -15,17 +15,17 @@ import com.baidu.tieba.i;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
-    private c cLI;
-    private com.baidu.tieba.setting.model.a cLJ;
-    private a cLK = null;
-    private String cLL = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + TbConfig.FUNCTION_INTRO_WEBVIEW;
+    private c cMh;
+    private com.baidu.tieba.setting.model.a cMi;
+    private a cMj = null;
+    private String cMk = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + TbConfig.FUNCTION_INTRO_WEBVIEW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cLI = new c(this, new com.baidu.tieba.setting.more.a(this));
-        this.cLI.arp();
+        this.cMh = new c(this, new com.baidu.tieba.setting.more.a(this));
+        this.cMh.arv();
         regReceiver();
     }
 
@@ -33,8 +33,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.cLI != null) {
-            this.cLI.arp();
+        if (this.cMh != null) {
+            this.cMh.arv();
         }
     }
 
@@ -43,11 +43,11 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void onDestroy() {
         super.onDestroy();
         unregReceiver();
-        if (this.cLJ != null) {
-            this.cLJ.cancelLoadData();
+        if (this.cMi != null) {
+            this.cMi.cancelLoadData();
         }
-        if (this.cLI != null) {
-            this.cLI.hideProgress();
+        if (this.cMh != null) {
+            this.cMh.hideProgress();
         }
     }
 
@@ -55,28 +55,28 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.cLI != null) {
-            this.cLI.dF(i);
+        if (this.cMh != null) {
+            this.cMh.dF(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkUpdata() {
-        if (this.cLJ == null) {
-            this.cLJ = new com.baidu.tieba.setting.model.a(this, new b(this));
+        if (this.cMi == null) {
+            this.cMi = new com.baidu.tieba.setting.model.a(this, new b(this));
         } else {
-            this.cLJ.cancelLoadData();
+            this.cMi.cancelLoadData();
         }
-        this.cLJ.arg();
-        if (this.cLI != null) {
-            this.cLI.aro();
+        this.cMi.arm();
+        if (this.cMh != null) {
+            this.cMh.aru();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void J(Object obj) {
-        if (this.cLI != null) {
-            this.cLI.hideProgress();
+        if (this.cMh != null) {
+            this.cMh.hideProgress();
         }
         com.baidu.tbadk.coreExtra.d.d dVar = obj != null ? (com.baidu.tbadk.coreExtra.d.d) obj : null;
         if (dVar != null) {
@@ -94,8 +94,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             } else {
                 showToast(getResources().getString(i.h.neednot_update));
             }
-            if (this.cLI != null) {
-                this.cLI.arp();
+            if (this.cMh != null) {
+                this.cMh.arv();
                 return;
             }
             return;
@@ -115,22 +115,22 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (AboutActivity.this.cLI != null) {
-                AboutActivity.this.cLI.arp();
+            if (AboutActivity.this.cMh != null) {
+                AboutActivity.this.cMh.arv();
             }
         }
     }
 
     private void regReceiver() {
-        this.cLK = new a(this, null);
+        this.cMj = new a(this, null);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.cLK, intentFilter);
+        registerReceiver(this.cMj, intentFilter);
     }
 
     private void unregReceiver() {
-        if (this.cLK != null) {
-            unregisterReceiver(this.cLK);
+        if (this.cMj != null) {
+            unregisterReceiver(this.cMj);
         }
     }
 }

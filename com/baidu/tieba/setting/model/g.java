@@ -7,10 +7,10 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.setting.more.MsgRemindActivity;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.e<MsgRemindActivity> {
-    private a cLA;
-    private com.baidu.adp.framework.listener.e cLB;
-    private com.baidu.adp.framework.listener.e cLC;
-    private MsgRemindActivity cLz;
+    private MsgRemindActivity cLY;
+    private a cLZ;
+    private com.baidu.adp.framework.listener.e cMa;
+    private com.baidu.adp.framework.listener.e cMb;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,11 +19,11 @@ public class g extends com.baidu.adp.base.e<MsgRemindActivity> {
 
     public g(MsgRemindActivity msgRemindActivity) {
         super(msgRemindActivity.getPageContext());
-        this.cLB = new h(this, 104102);
-        this.cLC = new i(this, 104101);
-        this.cLz = msgRemindActivity;
-        registerListener(this.cLC);
-        registerListener(this.cLB);
+        this.cMa = new h(this, 104102);
+        this.cMb = new i(this, 104101);
+        this.cLY = msgRemindActivity;
+        registerListener(this.cMb);
+        registerListener(this.cMa);
     }
 
     @Override // com.baidu.adp.base.e
@@ -38,7 +38,7 @@ public class g extends com.baidu.adp.base.e<MsgRemindActivity> {
 
     public void a(int i, boolean z, a aVar) {
         if (i == 14 || i == 2 || i == 3 || i == 4 || i == 5 || i == 1 || i == 6) {
-            this.cLA = aVar;
+            this.cLZ = aVar;
             if (i == 4) {
                 RequestUpdateMaskMessage requestUpdateMaskMessage = new RequestUpdateMaskMessage();
                 requestUpdateMaskMessage.setSettingMask(z);
@@ -49,40 +49,40 @@ public class g extends com.baidu.adp.base.e<MsgRemindActivity> {
                 requestUpdateMaskInfoMessage.setSettingMask(z);
                 sendMessage(requestUpdateMaskInfoMessage);
             }
-            this.cLz.showProgressBar();
+            this.cLY.showProgressBar();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, boolean z, boolean z2, String str) {
         if (z) {
-            this.cLz.showToast(this.cLz.getResources().getString(i.h.success));
-            if (this.cLA != null) {
-                this.cLA.a(i, true, z2);
+            this.cLY.showToast(this.cLY.getResources().getString(i.h.success));
+            if (this.cLZ != null) {
+                this.cLZ.a(i, true, z2);
                 if (i != 14) {
                     if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xm() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xp() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xn() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xo() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xx() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xw() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xl()) {
-                        this.cLA.a(14, true, false);
+                        this.cLZ.a(14, true, false);
                         return;
                     }
                     return;
                 }
-                this.cLA.a(2, true, z2);
-                this.cLA.a(3, true, z2);
-                this.cLA.a(4, true, z2);
-                this.cLA.a(5, true, z2);
-                this.cLA.a(1, true, z2);
-                this.cLA.a(13, true, z2);
+                this.cLZ.a(2, true, z2);
+                this.cLZ.a(3, true, z2);
+                this.cLZ.a(4, true, z2);
+                this.cLZ.a(5, true, z2);
+                this.cLZ.a(1, true, z2);
+                this.cLZ.a(13, true, z2);
                 return;
             }
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.cLz.showToast(str);
+            this.cLY.showToast(str);
         } else {
-            this.cLz.showToast(i.h.bubble_setdefualt_error);
+            this.cLY.showToast(i.h.bubble_setdefualt_error);
         }
-        if (this.cLA != null) {
-            this.cLA.a(i, false, z2);
+        if (this.cLZ != null) {
+            this.cLZ.a(i, false, z2);
         }
     }
 }

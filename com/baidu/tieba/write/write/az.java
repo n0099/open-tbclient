@@ -7,21 +7,21 @@ import com.baidu.tieba.tbadkCore.c.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ WriteActivity dpI;
-    private final /* synthetic */ boolean dpL;
+    final /* synthetic */ WriteActivity dqi;
+    private final /* synthetic */ boolean dql;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(WriteActivity writeActivity, boolean z) {
-        this.dpI = writeActivity;
-        this.dpL = z;
+        this.dqi = writeActivity;
+        this.dql = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        EditText aDm;
-        EditText aDm2;
+        EditText aDw;
+        EditText aDw2;
         a.InterfaceC0074a interfaceC0074a;
         super.a((az) aVar, str, i);
         if (aVar != null && aVar.na() != null && aVar.ne() != null) {
@@ -29,13 +29,13 @@ public class az extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
             if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
                 ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.ac.mAlpha);
             }
-            aDm = this.dpI.aDm();
-            aDm.setBackgroundDrawable(ninePatchDrawable);
-            if (this.dpL) {
-                WriteActivity writeActivity = this.dpI;
-                aDm2 = this.dpI.aDm();
-                interfaceC0074a = this.dpI.clt;
-                com.baidu.tieba.tbadkCore.c.a.a(writeActivity, aDm2, true, interfaceC0074a);
+            aDw = this.dqi.aDw();
+            aDw.setBackgroundDrawable(ninePatchDrawable);
+            if (this.dql) {
+                WriteActivity writeActivity = this.dqi;
+                aDw2 = this.dqi.aDw();
+                interfaceC0074a = this.dqi.clE;
+                com.baidu.tieba.tbadkCore.c.a.a(writeActivity, aDw2, true, interfaceC0074a);
             }
         }
     }

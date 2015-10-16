@@ -3,16 +3,16 @@ package com.baidu.tieba.themeCenter.dressCenter;
 import tbclient.ThemeRecommand;
 /* loaded from: classes.dex */
 public class k {
-    private String acW;
-    private String byA;
+    private String acX;
+    private String byL;
     private String iconUrl;
     private String linkUrl;
 
     public void a(ThemeRecommand themeRecommand) {
         if (themeRecommand != null) {
             this.iconUrl = themeRecommand.icon;
-            this.acW = themeRecommand.tip_text;
-            this.byA = themeRecommand.button_text;
+            this.acX = themeRecommand.tip_text;
+            this.byL = themeRecommand.button_text;
             this.linkUrl = themeRecommand.button_url;
         }
     }
@@ -21,11 +21,11 @@ public class k {
         return this.iconUrl;
     }
 
-    public String azq() {
-        return this.acW;
+    public String azA() {
+        return this.acX;
     }
 
     public String Ui() {
-        return this.byA;
+        return this.byL;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.tbadkCore.writeModel;
 import com.baidu.tbadk.core.data.AntiData;
 /* loaded from: classes.dex */
 public class d {
-    final AntiData bPf;
+    final AntiData bPq;
     private String colorMsg;
     final int errorCode;
     private String errorString;
@@ -14,14 +14,14 @@ public class d {
     public d(int i, String str, AntiData antiData) {
         this.errorCode = i;
         this.errorString = str;
-        this.bPf = antiData;
+        this.bPq = antiData;
     }
 
     public boolean hasError() {
         return this.errorCode != 0;
     }
 
-    public boolean axJ() {
+    public boolean axT() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
@@ -38,7 +38,7 @@ public class d {
     }
 
     public AntiData afh() {
-        return this.bPf;
+        return this.bPq;
     }
 
     public String getPreMsg() {

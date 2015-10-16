@@ -12,37 +12,37 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends BaseAdapter {
-    private ArrayList<com.baidu.tieba.im.data.a> Xf;
-    private IMBlackListActivity bMK;
-    private View.OnClickListener bML = new g(this);
+    private ArrayList<com.baidu.tieba.im.data.a> Xh;
+    private IMBlackListActivity bMV;
+    private View.OnClickListener bMW = new g(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(IMBlackListActivity iMBlackListActivity) {
-        this.bMK = iMBlackListActivity;
+        this.bMV = iMBlackListActivity;
     }
 
     public void setData(ArrayList<com.baidu.tieba.im.data.a> arrayList) {
-        this.Xf = arrayList;
+        this.Xh = arrayList;
     }
 
     public void b(com.baidu.tieba.im.data.a aVar) {
-        if (this.Xf != null) {
-            this.Xf.remove(aVar);
+        if (this.Xh != null) {
+            this.Xh.remove(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Xf != null) {
-            return this.Xf.size();
+        if (this.Xh != null) {
+            return this.Xh.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.Xf != null) {
-            return this.Xf.get(i);
+        if (this.Xh != null) {
+            return this.Xh.get(i);
         }
         return null;
     }
@@ -69,13 +69,13 @@ public class f extends BaseAdapter {
 
     private a Zg() {
         a aVar = new a(this, null);
-        aVar.rootView = LayoutInflater.from(this.bMK.getPageContext().getContext()).inflate(i.g.im_black_list_item, (ViewGroup) null);
-        aVar.bMN = (HeadImageView) aVar.rootView.findViewById(i.f.header_view);
-        aVar.bMN.setIsRound(true);
-        aVar.aHN = (TextView) aVar.rootView.findViewById(i.f.user_name);
-        aVar.bMO = (Button) aVar.rootView.findViewById(i.f.remove_button);
+        aVar.rootView = LayoutInflater.from(this.bMV.getPageContext().getContext()).inflate(i.g.im_black_list_item, (ViewGroup) null);
+        aVar.bMY = (HeadImageView) aVar.rootView.findViewById(i.f.header_view);
+        aVar.bMY.setIsRound(true);
+        aVar.aHY = (TextView) aVar.rootView.findViewById(i.f.user_name);
+        aVar.bMZ = (Button) aVar.rootView.findViewById(i.f.remove_button);
         aVar.rootView.setTag(aVar);
-        aVar.bMO.setOnClickListener(this.bML);
+        aVar.bMZ.setOnClickListener(this.bMW);
         return aVar;
     }
 
@@ -87,25 +87,25 @@ public class f extends BaseAdapter {
             aVar2 = (a) obj;
         }
         a(aVar2, aVar.Tu());
-        aVar2.aHN.setText(aVar.getUserName());
-        aVar2.bMO.setTag(aVar);
-        this.bMK.getLayoutMode().k(aVar2.rootView);
+        aVar2.aHY.setText(aVar.getUserName());
+        aVar2.bMZ.setTag(aVar);
+        this.bMV.getLayoutMode().k(aVar2.rootView);
         return aVar2;
     }
 
     private void a(a aVar, String str) {
         if (str != null) {
-            aVar.bMN.setTag(str);
-            aVar.bMN.d(str, 12, false);
+            aVar.bMY.setTag(str);
+            aVar.bMY.d(str, 12, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        public TextView aHN;
-        public HeadImageView bMN;
-        public Button bMO;
+        public TextView aHY;
+        public HeadImageView bMY;
+        public Button bMZ;
         public View rootView;
 
         private a() {

@@ -19,13 +19,13 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d bwF;
+    private static d bwQ;
 
     public static d TG() {
-        if (bwF == null) {
-            bwF = new d();
+        if (bwQ == null) {
+            bwQ = new d();
         }
-        return bwF;
+        return bwQ;
     }
 
     public void hK(String str) {

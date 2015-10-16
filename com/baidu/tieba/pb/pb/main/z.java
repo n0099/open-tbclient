@@ -8,11 +8,11 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements PbActivity.a {
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(PbActivity pbActivity) {
-        this.ciz = pbActivity;
+        this.ciK = pbActivity;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.PbActivity.a
@@ -22,7 +22,7 @@ public class z implements PbActivity.a {
         bl blVar3;
         bl blVar4;
         Object[] objArr = (Object[]) obj;
-        blVar = this.ciz.chV;
+        blVar = this.ciK.cih;
         String valueOf = String.valueOf(blVar.getPbData().getUserData().getUserId());
         String str = "";
         if (objArr.length > 1) {
@@ -32,13 +32,13 @@ public class z implements PbActivity.a {
         if (objArr.length > 2) {
             str2 = String.valueOf(objArr[2]);
         }
-        PbActivity pbActivity = this.ciz;
-        Activity pageActivity = this.ciz.getPageContext().getPageActivity();
-        blVar2 = this.ciz.chV;
+        PbActivity pbActivity = this.ciK;
+        Activity pageActivity = this.ciK.getPageContext().getPageActivity();
+        blVar2 = this.ciK.cih;
         String id = blVar2.getPbData().aeN().getId();
-        blVar3 = this.ciz.chV;
+        blVar3 = this.ciK.cih;
         String name = blVar3.getPbData().aeN().getName();
-        blVar4 = this.ciz.chV;
+        blVar4 = this.ciK.cih;
         pbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, blVar4.getPbData().aeO().getId(), valueOf, str, str2)));
     }
 }

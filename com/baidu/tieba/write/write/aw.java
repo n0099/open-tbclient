@@ -7,25 +7,25 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aw implements TextWatcher {
-    private int cxE;
-    final /* synthetic */ WriteActivity dpI;
-    private EditText bHL = null;
+    private int cxP;
+    final /* synthetic */ WriteActivity dqi;
+    private EditText bHW = null;
     private TextView mTextView = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aw(WriteActivity writeActivity) {
-        this.dpI = writeActivity;
+        this.dqi = writeActivity;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         boolean z;
-        this.dpI.aBZ();
-        z = this.dpI.dpA;
+        this.dqi.aCj();
+        z = this.dqi.dqa;
         if (z) {
-            this.cxE = this.bHL.getSelectionStart();
-            this.bHL.setSelection(this.cxE);
-            this.dpI.b(this.mTextView, this.bHL);
+            this.cxP = this.bHW.getSelectionStart();
+            this.bHW.setSelection(this.cxP);
+            this.dqi.b(this.mTextView, this.bHW);
         }
     }
 
@@ -42,40 +42,40 @@ public class aw implements TextWatcher {
         EditText editText4;
         TextView textView3;
         TextView textView4;
-        z = this.dpI.dpA;
+        z = this.dqi.dqa;
         if (z) {
-            z3 = this.dpI.dpB;
+            z3 = this.dqi.dqb;
             if (z3) {
-                EditText editText5 = this.bHL;
-                editText3 = this.dpI.dpv;
+                EditText editText5 = this.bHW;
+                editText3 = this.dqi.dpV;
                 if (editText5 == editText3) {
                     TextView textView5 = this.mTextView;
-                    textView4 = this.dpI.dpw;
+                    textView4 = this.dqi.dpW;
                     if (textView5 == textView4) {
                         return;
                     }
                 }
-                editText4 = this.dpI.dpv;
-                this.bHL = editText4;
-                textView3 = this.dpI.dpw;
+                editText4 = this.dqi.dpV;
+                this.bHW = editText4;
+                textView3 = this.dqi.dpW;
                 this.mTextView = textView3;
                 return;
             }
         }
-        z2 = this.dpI.dpA;
+        z2 = this.dqi.dqa;
         if (z2) {
-            EditText editText6 = this.bHL;
-            editText = this.dpI.dpr;
+            EditText editText6 = this.bHW;
+            editText = this.dqi.dpR;
             if (editText6 == editText) {
                 TextView textView6 = this.mTextView;
-                textView2 = this.dpI.dpx;
+                textView2 = this.dqi.dpX;
                 if (textView6 == textView2) {
                     return;
                 }
             }
-            editText2 = this.dpI.dpr;
-            this.bHL = editText2;
-            textView = this.dpI.dpx;
+            editText2 = this.dqi.dpR;
+            this.bHW = editText2;
+            textView = this.dqi.dpX;
             this.mTextView = textView;
         }
     }

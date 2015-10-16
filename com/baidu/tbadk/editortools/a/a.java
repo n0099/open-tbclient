@@ -8,16 +8,16 @@ import com.baidu.tieba.i;
 public class a extends v {
     public a(Context context, int i) {
         super(context, TbadkCoreApplication.m411getInst().getString(i.h.editor_at), 9, i);
-        this.apr = i.e.btn_pb_add_add;
-        this.aps = false;
-        this.apw = new int[]{16};
+        this.aps = i.e.btn_pb_add_add;
+        this.apt = false;
+        this.apx = new int[]{16};
     }
 
     public a(Context context, int i, int i2, boolean z) {
         super(context, context.getString(i.h.editor_at), 9, i);
-        this.apr = i2;
-        this.apv = z;
-        this.aps = false;
-        this.apw = new int[]{16};
+        this.aps = i2;
+        this.apw = z;
+        this.apt = false;
+        this.apx = new int[]{16};
     }
 }

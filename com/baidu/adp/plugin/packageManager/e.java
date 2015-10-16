@@ -67,13 +67,13 @@ public class e extends BroadcastReceiver {
                 findPluginSetting.setInjectClassloader(booleanExtra);
                 this.this$0.d(findPluginSetting);
                 com.baidu.adp.plugin.packageManager.pluginSettings.c mn = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn();
-                z4 = this.this$0.Du;
+                z4 = this.this$0.Dv;
                 mn.a(stringExtra, findPluginSetting, z4);
                 if (!TextUtils.isEmpty(findPluginSetting.requireLoad) && findPluginSetting.requireLoad.equals("0")) {
                     PluginCenter.getInstance().launch(findPluginSetting.packageName);
                 }
                 this.this$0.a(stringExtra, true, (String) null);
-                z5 = this.this$0.Du;
+                z5 = this.this$0.Dv;
                 if (z5) {
                     com.baidu.adp.plugin.b.a.lF().a("plugin_install_suc", stringExtra, findPluginSetting);
                 }
@@ -92,7 +92,7 @@ public class e extends BroadcastReceiver {
                         pluginSetting.packageName = stringExtra9;
                     }
                     pluginSetting.enable = false;
-                    z2 = this.this$0.Du;
+                    z2 = this.this$0.Dv;
                     if (z2) {
                         pluginSetting.install_fail_count++;
                         if (pluginSetting.install_fail_count >= 5) {
@@ -105,11 +105,11 @@ public class e extends BroadcastReceiver {
                         }
                     }
                     com.baidu.adp.plugin.packageManager.pluginSettings.c mn2 = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn();
-                    z3 = this.this$0.Du;
+                    z3 = this.this$0.Dv;
                     mn2.a(stringExtra9, pluginSetting, z3);
                 }
                 this.this$0.a(substring, false, stringExtra7);
-                z = this.this$0.Du;
+                z = this.this$0.Dv;
                 if (z) {
                     if (stringExtra8 != null) {
                         if (stringExtra8.toLowerCase(Locale.getDefault()).contains("no_space_left_on_device")) {
@@ -137,6 +137,14 @@ public class e extends BroadcastReceiver {
                     com.baidu.adp.plugin.b.a.lF().a("plugin_install_fail", stringExtra9, pluginSetting, str);
                     com.baidu.adp.plugin.b.a.lF().e("plugin_install", str, stringExtra9, stringExtra8);
                 }
+            } else if ("com.baidu.adp.plugin.installcancel".equals(action)) {
+                String stringExtra10 = intent.getStringExtra("package_name");
+                if (com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().findPluginSetting(stringExtra10) != null) {
+                    com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().f(stringExtra10, true);
+                } else {
+                    com.baidu.adp.plugin.b.a.lF().d("plugin_install", "install_cancel_settingnull", stringExtra10, null);
+                }
+                this.this$0.a(stringExtra10, true, (String) null);
             }
         }
     }

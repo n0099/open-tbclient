@@ -118,10 +118,10 @@ public class an extends CustomMessageListener {
                             imMessageCenterPojo4.setIs_hidden(0);
                             imMessageCenterPojo4.setUnread_count(0);
                             imMessageCenterPojo4.setLast_content(" ");
-                            imMessageCenterPojo4.setLast_rid(com.baidu.tieba.im.util.g.aB(optLong));
-                            imMessageCenterPojo4.setPulled_msgId(com.baidu.tieba.im.util.g.aB(optLong));
+                            imMessageCenterPojo4.setLast_rid(com.baidu.tieba.im.util.g.aL(optLong));
+                            imMessageCenterPojo4.setPulled_msgId(com.baidu.tieba.im.util.g.aL(optLong));
                             b.VW().i(imMessageCenterPojo4);
-                            b.VW().a(1, com.baidu.tieba.im.util.g.aB(optLong), optString);
+                            b.VW().a(1, com.baidu.tieba.im.util.g.aL(optLong), optString);
                             CustomMessageTask customMessageTask3 = new CustomMessageTask(2001000, new aq(this, imMessageCenterPojo4));
                             customMessageTask3.setParallel(TiebaIMConfig.getParallel());
                             customMessageTask3.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);

@@ -23,11 +23,11 @@ class t implements ViewPager.OnPageChangeListener {
         int i2;
         boolean aak;
         a aVar;
-        z = this.this$0.bPB;
+        z = this.this$0.bPM;
         if (!z) {
-            jVar = this.this$0.bPv;
-            if (jVar != null && i > this.this$0.bPt.getItemNum() - 5) {
-                jVar2 = this.this$0.bPv;
+            jVar = this.this$0.bPG;
+            if (jVar != null && i > this.this$0.bPE.getItemNum() - 5) {
+                jVar2 = this.this$0.bPG;
                 jVar2.aad();
             }
         } else {
@@ -43,7 +43,7 @@ class t implements ViewPager.OnPageChangeListener {
         this.this$0.aap();
         aak = this.this$0.aak();
         if (aak) {
-            aVar = this.this$0.bPD;
+            aVar = this.this$0.bPO;
             aVar.ZQ();
         }
     }
@@ -60,12 +60,12 @@ class t implements ViewPager.OnPageChangeListener {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.this$0.bPw;
-            if (nanoTime - j > 300000000 && this.this$0.bPm != null) {
+            j = this.this$0.bPH;
+            if (nanoTime - j > 300000000 && this.this$0.bPx != null) {
                 i2 = this.this$0.mIndex;
-                if (i2 < this.this$0.bPm.size()) {
-                    hashMap = this.this$0.bPx;
-                    ArrayList arrayList = this.this$0.bPm;
+                if (i2 < this.this$0.bPx.size()) {
+                    hashMap = this.this$0.bPI;
+                    ArrayList arrayList = this.this$0.bPx;
                     i3 = this.this$0.mIndex;
                     hashMap.put((String) arrayList.get(i3), true);
                 }

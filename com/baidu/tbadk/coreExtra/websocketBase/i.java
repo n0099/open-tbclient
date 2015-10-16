@@ -7,32 +7,32 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class i {
-    private static i amT = null;
-    private int amU;
+    private static i amU = null;
+    private int amV;
     private int currentIndex = 0;
-    private boolean amV = false;
     private boolean amW = false;
-    private List<String> amn = null;
     private boolean amX = false;
-    private final g.a amY = new j(this);
+    private List<String> amo = null;
+    private boolean amY = false;
+    private final g.a amZ = new j(this);
 
     public static synchronized i zJ() {
         i iVar;
         synchronized (i.class) {
-            if (amT == null) {
+            if (amU == null) {
                 synchronized (i.class) {
-                    if (amT == null) {
-                        amT = new i();
+                    if (amU == null) {
+                        amU = new i();
                     }
                 }
             }
-            iVar = amT;
+            iVar = amU;
         }
         return iVar;
     }
 
     public void init() {
-        com.baidu.adp.lib.webSocket.h.jz().a(this.amY);
+        com.baidu.adp.lib.webSocket.h.jz().a(this.amZ);
     }
 
     public static String eD(String str) {
@@ -48,7 +48,7 @@ public class i {
     }
 
     private String zK() {
-        if (this.amn == null || this.currentIndex <= -1 || this.currentIndex >= this.amn.size()) {
+        if (this.amo == null || this.currentIndex <= -1 || this.currentIndex >= this.amo.size()) {
             return null;
         }
         return a.zq().zt().get(this.currentIndex);
@@ -67,12 +67,12 @@ public class i {
         } else if (eD(zK) == null) {
             zL();
         } else {
-            this.amX = false;
+            this.amY = false;
             BdSocketLinkService.stopReConnStrategy("change ip and stop to restart to reconnet.");
             com.baidu.adp.framework.client.socket.j.setUrl(zK);
             BdSocketLinkService.init();
             BdSocketLinkService.startService(true, str);
-            this.amV = true;
+            this.amW = true;
             this.currentIndex++;
         }
     }
@@ -80,24 +80,24 @@ public class i {
     /* JADX INFO: Access modifiers changed from: private */
     public void zL() {
         NoNetworkView.vw();
-        this.amW = false;
-        this.currentIndex = 0;
         this.amX = false;
-        this.amV = false;
+        this.currentIndex = 0;
+        this.amY = false;
+        this.amW = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void zM() {
-        if (!this.amX) {
-            this.amX = true;
-            if (this.amV) {
-                this.amV = false;
+        if (!this.amY) {
+            this.amY = true;
+            if (this.amW) {
+                this.amW = false;
                 c.zy().eA(TiebaIMConfig.url);
             }
             c.zy().zz();
-            if (!this.amW) {
+            if (!this.amX) {
                 new e("www.baidu.com", new l(this));
-                this.amW = true;
+                this.amX = true;
                 return;
             }
             eE("change ip to reconnect with DNS' failed.");

@@ -5,11 +5,11 @@ import android.widget.TextView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class b implements View.OnClickListener {
-    final /* synthetic */ AppealActivity aFh;
+    final /* synthetic */ AppealActivity aFs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AppealActivity appealActivity) {
-        this.aFh = appealActivity;
+        this.aFs = appealActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,17 +18,17 @@ class b implements View.OnClickListener {
         String str;
         String str2;
         String str3;
-        textView = this.aFh.aFc;
+        textView = this.aFs.aFn;
         String charSequence = textView.getText().toString();
         if (charSequence.length() < 20) {
-            this.aFh.showToast(i.h.appeal_min_size);
+            this.aFs.showToast(i.h.appeal_min_size);
         } else if (charSequence.length() <= 150) {
-            str = this.aFh.aFe;
-            str2 = this.aFh.aFf;
-            str3 = this.aFh.aiq;
+            str = this.aFs.aFp;
+            str2 = this.aFs.aFq;
+            str3 = this.aFs.air;
             f.a(str, str2, str3, charSequence, new c(this));
         } else {
-            this.aFh.showToast(i.h.appeal_max_size);
+            this.aFs.showToast(i.h.appeal_max_size);
         }
     }
 }

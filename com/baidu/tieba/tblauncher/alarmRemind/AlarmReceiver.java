@@ -13,16 +13,16 @@ import com.baidu.tbadk.core.message.RemindRecommendMessage;
 public class AlarmReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        RemindRecommendMessage lL;
+        RemindRecommendMessage lO;
         if (i.iM()) {
             String loadString = TbadkSettings.getInst().loadString(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_info", "");
             if (TextUtils.isEmpty(loadString)) {
-                lL = a.ayC();
+                lO = a.ayM();
             } else {
-                lL = a.lL(loadString);
+                lO = a.lO(loadString);
             }
-            if (lL != null) {
-                MessageManager.getInstance().dispatchResponsedMessage(lL);
+            if (lO != null) {
+                MessageManager.getInstance().dispatchResponsedMessage(lO);
             }
         }
     }

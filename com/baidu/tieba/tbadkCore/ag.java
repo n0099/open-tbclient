@@ -34,12 +34,12 @@ public class ag {
                 com.baidu.adp.lib.util.k.showToast(context, i.h.pb_app_error);
                 return;
             }
-            File cI = com.baidu.tbadk.core.util.n.cI(String.valueOf(pkgName.replace(".", "_")) + ".apk");
-            if (cI != null) {
+            File cJ = com.baidu.tbadk.core.util.n.cJ(String.valueOf(pkgName.replace(".", "_")) + ".apk");
+            if (cJ != null) {
                 Intent intent = new Intent();
                 intent.addFlags(268435456);
                 intent.setAction("android.intent.action.VIEW");
-                intent.setDataAndType(Uri.fromFile(cI), "application/vnd.android.package-archive");
+                intent.setDataAndType(Uri.fromFile(cJ), "application/vnd.android.package-archive");
                 context.startActivity(intent);
             }
         }

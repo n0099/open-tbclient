@@ -5,17 +5,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnTouchListener {
-    final /* synthetic */ k cDX;
+    final /* synthetic */ k cEi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(k kVar) {
-        this.cDX = kVar;
+        this.cEi = kVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         PostSearchActivity postSearchActivity;
-        postSearchActivity = this.cDX.cDL;
+        postSearchActivity = this.cEi.cDW;
         postSearchActivity.aoe();
         return false;
     }

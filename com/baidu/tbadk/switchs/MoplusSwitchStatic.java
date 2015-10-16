@@ -7,11 +7,11 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class MoplusSwitchStatic extends a {
-    public static final String[] ayS;
+    public static final String[] azd;
 
     static {
         e.gv().e(MoplusSwitchStatic.class);
-        ayS = new String[]{"com.baidu.hello", "com.baidu.android.moplusmanager", "com.baidu.android.moplus"};
+        azd = new String[]{"com.baidu.hello", "com.baidu.android.moplusmanager", "com.baidu.android.moplus"};
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -26,7 +26,7 @@ public class MoplusSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] getCrashKeys() {
-        return ayS;
+        return azd;
     }
 
     @Override // com.baidu.adp.lib.b.a

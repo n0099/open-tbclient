@@ -3,13 +3,13 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 import android.graphics.Point;
 /* loaded from: classes.dex */
 public class c implements b {
-    private Point bLm;
-    private Point bLn;
-    private Point bLo;
-    private final int bLp;
-    private final int bLq;
-    private a bLr;
-    private int bLs;
+    private final int bLA;
+    private final int bLB;
+    private a bLC;
+    private int bLD;
+    private Point bLx;
+    private Point bLy;
+    private Point bLz;
     private float k;
 
     /* loaded from: classes.dex */
@@ -20,13 +20,13 @@ public class c implements b {
     }
 
     private int hG(int i) {
-        return (int) (((this.k * i) + this.bLm.y) - (this.k * this.bLm.x));
+        return (int) (((this.k * i) + this.bLx.y) - (this.k * this.bLx.x));
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (!this.bLo.equals(this.bLn)) {
-            switch (this.bLs) {
+        if (!this.bLz.equals(this.bLy)) {
+            switch (this.bLD) {
                 case 0:
                     YA();
                     break;
@@ -48,73 +48,73 @@ public class c implements b {
             }
             return false;
         }
-        if (this.bLr != null) {
-            this.bLr.Yt();
+        if (this.bLC != null) {
+            this.bLC.Yt();
         }
         return true;
     }
 
     private void YA() {
-        this.bLo.y += this.bLq;
-        if (this.bLo.y > this.bLn.y) {
-            this.bLo.y = this.bLn.y;
+        this.bLz.y += this.bLB;
+        if (this.bLz.y > this.bLy.y) {
+            this.bLz.y = this.bLy.y;
         }
-        if (this.bLr != null) {
-            this.bLr.a(this.bLo);
+        if (this.bLC != null) {
+            this.bLC.a(this.bLz);
         }
     }
 
     private void YB() {
-        this.bLo.x += this.bLp;
-        if (this.bLo.x > this.bLn.x) {
-            this.bLo.x = this.bLn.x;
+        this.bLz.x += this.bLA;
+        if (this.bLz.x > this.bLy.x) {
+            this.bLz.x = this.bLy.x;
         }
-        if (this.bLr != null) {
-            this.bLr.a(this.bLo);
+        if (this.bLC != null) {
+            this.bLC.a(this.bLz);
         }
     }
 
     private void YC() {
-        this.bLo.y -= this.bLq;
-        if (this.bLo.y < this.bLn.y) {
-            this.bLo.y = this.bLn.y;
+        this.bLz.y -= this.bLB;
+        if (this.bLz.y < this.bLy.y) {
+            this.bLz.y = this.bLy.y;
         }
-        if (this.bLr != null) {
-            this.bLr.a(this.bLo);
+        if (this.bLC != null) {
+            this.bLC.a(this.bLz);
         }
     }
 
     private void YD() {
-        this.bLo.x -= this.bLp;
-        if (this.bLo.x < this.bLn.x) {
-            this.bLo.x = this.bLn.x;
+        this.bLz.x -= this.bLA;
+        if (this.bLz.x < this.bLy.x) {
+            this.bLz.x = this.bLy.x;
         }
-        if (this.bLr != null) {
-            this.bLr.a(this.bLo);
+        if (this.bLC != null) {
+            this.bLC.a(this.bLz);
         }
     }
 
     private void YE() {
-        this.bLo.x -= this.bLp;
-        this.bLo.y = hG(this.bLo.x);
-        if (this.bLo.x < this.bLn.x && this.bLo.y < this.bLn.y) {
-            this.bLo.x = this.bLn.x;
-            this.bLo.y = this.bLn.y;
+        this.bLz.x -= this.bLA;
+        this.bLz.y = hG(this.bLz.x);
+        if (this.bLz.x < this.bLy.x && this.bLz.y < this.bLy.y) {
+            this.bLz.x = this.bLy.x;
+            this.bLz.y = this.bLy.y;
         }
-        if (this.bLr != null) {
-            this.bLr.a(this.bLo);
+        if (this.bLC != null) {
+            this.bLC.a(this.bLz);
         }
     }
 
     private void YF() {
-        this.bLo.x += this.bLp;
-        this.bLo.y = hG(this.bLo.x);
-        if (this.bLo.x > this.bLn.x && this.bLo.y > this.bLn.y) {
-            this.bLo.x = this.bLn.x;
-            this.bLo.y = this.bLn.y;
+        this.bLz.x += this.bLA;
+        this.bLz.y = hG(this.bLz.x);
+        if (this.bLz.x > this.bLy.x && this.bLz.y > this.bLy.y) {
+            this.bLz.x = this.bLy.x;
+            this.bLz.y = this.bLy.y;
         }
-        if (this.bLr != null) {
-            this.bLr.a(this.bLo);
+        if (this.bLC != null) {
+            this.bLC.a(this.bLz);
         }
     }
 }

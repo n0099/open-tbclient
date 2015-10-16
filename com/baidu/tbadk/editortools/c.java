@@ -6,11 +6,11 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class c extends ImageView implements p {
-    private int aou;
+    private int aov;
     private int mId;
     private int mSkinType;
     private TextView mTip;
@@ -26,8 +26,8 @@ public class c extends ImageView implements p {
     }
 
     public void setIcon(int i) {
-        this.aou = i;
-        am.b((ImageView) this, this.aou, this.mSkinType);
+        this.aov = i;
+        an.b((ImageView) this, this.aov, this.mSkinType);
     }
 
     public void setToolId(int i) {
@@ -59,17 +59,17 @@ public class c extends ImageView implements p {
                     ((ViewGroup) parent).addView(this.mTip);
                 }
             }
-            am.a(this.mTip, i.c.cp_cont_g, 1, this.mSkinType);
+            an.a(this.mTip, i.c.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
                 this.mTip.setText(str);
-                am.c(this.mTip, i.e.icon_news_head_prompt_one, this.mSkinType);
+                an.c(this.mTip, i.e.icon_news_head_prompt_one, this.mSkinType);
             } else {
                 this.mTip.setWidth(0);
                 this.mTip.setHeight(0);
                 this.mTip.setText("");
-                am.c(this.mTip, i.e.icon_news_down_bar_one, this.mSkinType);
+                an.c(this.mTip, i.e.icon_news_down_bar_one, this.mSkinType);
             }
             this.mTip.setVisibility(0);
         }
@@ -100,13 +100,13 @@ public class c extends ImageView implements p {
     @Override // com.baidu.tbadk.editortools.p
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
-        am.b((ImageView) this, this.aou, i);
+        an.b((ImageView) this, this.aov, i);
         if (this.mTip != null) {
-            am.a(this.mTip, i.c.cp_cont_g, 1, i);
+            an.a(this.mTip, i.c.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
-                am.c(this.mTip, i.e.icon_news_head_prompt_one, i);
+                an.c(this.mTip, i.e.icon_news_head_prompt_one, i);
             } else {
-                am.c(this.mTip, i.e.icon_news_down_bar_one, i);
+                an.c(this.mTip, i.e.icon_news_down_bar_one, i);
             }
         }
     }

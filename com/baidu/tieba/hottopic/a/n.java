@@ -8,8 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.hottopic.controller.RelateTopicForumActivity;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.tieba.i;
@@ -17,29 +17,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n extends BaseAdapter {
-    private RelateTopicForumActivity boh;
-    private ArrayList<RelateForumItemData> Xo = new ArrayList<>();
-    private ArrayList<TextView> boi = new ArrayList<>();
-    private View.OnClickListener boj = new o(this);
+    private RelateTopicForumActivity bos;
+    private ArrayList<RelateForumItemData> Xq = new ArrayList<>();
+    private ArrayList<TextView> bot = new ArrayList<>();
+    private View.OnClickListener bou = new o(this);
 
     public n(RelateTopicForumActivity relateTopicForumActivity) {
-        this.boh = relateTopicForumActivity;
+        this.bos = relateTopicForumActivity;
     }
 
     public void setData(List<RelateForumItemData> list) {
-        this.Xo.clear();
-        this.Xo.addAll(list);
+        this.Xq.clear();
+        this.Xq.addAll(list);
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.Xo.size();
+        return this.Xq.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.Xo.get(i);
+        return this.Xq.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -51,39 +51,39 @@ public class n extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         com.baidu.tieba.hottopic.b.i iVar;
         if (view == null) {
-            view = LayoutInflater.from(this.boh.getPageContext().getContext()).inflate(i.g.hot_topic_list_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.bos.getPageContext().getContext()).inflate(i.g.hot_topic_list_item, (ViewGroup) null);
             com.baidu.tieba.hottopic.b.i iVar2 = new com.baidu.tieba.hottopic.b.i(view);
             view.setTag(iVar2);
-            iVar2.bpV.setOnClickListener(this.boj);
-            this.boi.add(iVar2.bpV);
-            iVar2.bpV.setTag(Integer.valueOf(i));
+            iVar2.bqg.setOnClickListener(this.bou);
+            this.bot.add(iVar2.bqg);
+            iVar2.bqg.setTag(Integer.valueOf(i));
             iVar = iVar2;
         } else {
             iVar = (com.baidu.tieba.hottopic.b.i) view.getTag();
         }
-        if (this.Xo != null && this.Xo.get(i) != null) {
+        if (this.Xq != null && this.Xq.get(i) != null) {
             int skinType = TbadkCoreApplication.m411getInst().getSkinType();
-            if (iVar.apR != skinType) {
-                am.b(iVar.bpS, i.c.cp_cont_b, 1);
-                am.b(iVar.bdy, i.c.cp_cont_c, 1);
-                am.b(iVar.bdz, i.c.cp_cont_c, 1);
-                am.b(iVar.bpT, i.c.cp_cont_c, 1);
-                am.b(iVar.bpU, i.c.cp_cont_c, 1);
-                am.b(iVar.alx, i.c.cp_cont_d, 1);
-                am.i(iVar.line, i.c.cp_bg_line_b);
-                am.i((View) iVar.bpV, i.e.btn_appdownload);
-                am.i(view, i.e.list_item_selector);
-                iVar.apR = skinType;
+            if (iVar.apS != skinType) {
+                an.b(iVar.bqd, i.c.cp_cont_b, 1);
+                an.b(iVar.bdJ, i.c.cp_cont_c, 1);
+                an.b(iVar.bdK, i.c.cp_cont_c, 1);
+                an.b(iVar.bqe, i.c.cp_cont_c, 1);
+                an.b(iVar.bqf, i.c.cp_cont_c, 1);
+                an.b(iVar.aly, i.c.cp_cont_d, 1);
+                an.i(iVar.line, i.c.cp_bg_line_b);
+                an.i((View) iVar.bqg, i.e.btn_appdownload);
+                an.i(view, i.e.list_item_selector);
+                iVar.apS = skinType;
             }
-            iVar.bpS.setText(this.Xo.get(i).forumName);
-            if (!StringUtils.isNULL(this.Xo.get(i).forumAvatar)) {
-                iVar.bpR.d(this.Xo.get(i).forumAvatar, 10, false);
+            iVar.bqd.setText(this.Xq.get(i).forumName);
+            if (!StringUtils.isNULL(this.Xq.get(i).forumAvatar)) {
+                iVar.bqc.d(this.Xq.get(i).forumAvatar, 10, false);
             }
-            iVar.bdy.setText(an(this.Xo.get(i).postNum));
-            iVar.bdz.setText(an(this.Xo.get(i).followNum));
-            iVar.alx.setText(ar.dl(this.Xo.get(i).forumAbstract));
-            a(iVar.bpV, this.Xo.get(i).isLiked);
-            if (i == this.Xo.size() - 1) {
+            iVar.bdJ.setText(ax(this.Xq.get(i).postNum));
+            iVar.bdK.setText(ax(this.Xq.get(i).followNum));
+            iVar.aly.setText(as.dm(this.Xq.get(i).forumAbstract));
+            a(iVar.bqg, this.Xq.get(i).isLiked);
+            if (i == this.Xq.size() - 1) {
                 H(iVar.line);
             }
         }
@@ -93,18 +93,18 @@ public class n extends BaseAdapter {
     private void a(TextView textView, boolean z) {
         if (z) {
             textView.setEnabled(false);
-            am.b(textView, i.c.cp_cont_d, 1);
+            an.b(textView, i.c.cp_cont_d, 1);
             textView.setText(TbadkCoreApplication.m411getInst().getString(i.h.relate_forum_is_followed));
             textView.setBackgroundDrawable(null);
             return;
         }
-        am.b(textView, i.c.cp_cont_i, 1);
+        an.b(textView, i.c.cp_cont_i, 1);
         textView.setText(TbadkCoreApplication.m411getInst().getString(i.h.forum_list_attention_tv));
-        am.i((View) textView, i.e.btn_appdownload);
+        an.i((View) textView, i.e.btn_appdownload);
         textView.setEnabled(true);
     }
 
-    private String an(long j) {
+    private String ax(long j) {
         if (j < 0) {
             return "0";
         }

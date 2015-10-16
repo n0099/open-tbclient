@@ -29,11 +29,11 @@ import protobuf.MaskInfo;
 /* loaded from: classes.dex */
 public class SettingStatic {
     private static MaskInfo maskInfo;
-    private static boolean cOi = false;
-    private static boolean cOj = false;
-    private static final com.baidu.adp.framework.listener.e bDQ = new aj(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-    private static final CustomMessageListener aEX = new ak(CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
-    private static final CustomMessageListener cOk = new al(CmdConfigCustom.CMD_SETTING_READ_FINISH);
+    private static boolean cOH = false;
+    private static boolean cOI = false;
+    private static final com.baidu.adp.framework.listener.e bEb = new aj(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
+    private static final CustomMessageListener aFi = new ak(CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private static final CustomMessageListener cOJ = new al(CmdConfigCustom.CMD_SETTING_READ_FINISH);
 
     static {
         TbadkCoreApplication.m411getInst().RegisterIntent(AccountSafeSettingActivityConfig.class, AccountSafeActivity.class);
@@ -51,9 +51,9 @@ public class SettingStatic {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, com.baidu.tieba.tbadkCore.a.a.ad(TbConfig.GET_PRIVATE_INFO, 303016));
         tbHttpMessageTask.setResponsedClass(ResponsedPrivacyHttpMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(aEX);
-        MessageManager.getInstance().registerListener(bDQ);
-        MessageManager.getInstance().registerListener(cOk);
+        MessageManager.getInstance().registerListener(aFi);
+        MessageManager.getInstance().registerListener(bEb);
+        MessageManager.getInstance().registerListener(cOJ);
         com.baidu.tieba.tbadkCore.a.a.c(104101, ResponseUpdateMaskMessage.class, false);
     }
 
@@ -62,13 +62,13 @@ public class SettingStatic {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void asU() {
+    public static final void ata() {
         boolean z;
         Integer num;
         String[] split;
         String[] split2;
         String[] split3;
-        if (cOi && maskInfo != null && !cOj) {
+        if (cOH && maskInfo != null && !cOI) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
                 if ((maskInfo.remindMask == null || maskInfo.shieldStatus == null || maskInfo.remindMask.intValue() != 0 || maskInfo.shieldStatus.intValue() != 0 || com.baidu.tbadk.core.sharedPref.b.tu().getBoolean(new StringBuilder("had_sync_setting_switch").append(currentAccount).toString(), false)) ? false : true) {
@@ -149,7 +149,7 @@ public class SettingStatic {
                         com.baidu.tieba.im.settingcache.j.Xj().a(currentAccount, str3, false, null);
                     }
                 }
-                cOj = true;
+                cOI = true;
             }
         }
     }

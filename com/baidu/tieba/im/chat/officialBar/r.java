@@ -12,11 +12,11 @@ public class r {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String bsR;
         public String btc;
-        public long btd;
-        public String bte;
-        public long btf;
+        public String btn;
+        public long bto;
+        public String btp;
+        public long btq;
         public String fid;
         public long picId;
         public String src;
@@ -52,11 +52,11 @@ public class r {
                 aVar.src = optString3;
                 aVar.fid = str2;
                 aVar.picId = optLong;
-                aVar.btd = optLong2;
-                aVar.btc = optString5;
-                aVar.bte = optString6;
-                aVar.btf = optLong3;
-                aVar.bsR = optString7;
+                aVar.bto = optLong2;
+                aVar.btn = optString5;
+                aVar.btp = optString6;
+                aVar.btq = optLong3;
+                aVar.btc = optString7;
                 linkedList.add(aVar);
             }
             return linkedList;

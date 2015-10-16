@@ -12,61 +12,61 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ab {
-    private int apR = -1;
-    private ImageView bMa;
-    private PersonInfoActivity cqt;
-    private RelativeLayout ctM;
-    private TextView ctN;
-    private TextView ctO;
-    private LinearLayout ctP;
-    private TextView ctQ;
+    private int apS = -1;
+    private ImageView bMl;
+    private PersonInfoActivity cqE;
+    private RelativeLayout ctX;
+    private TextView ctY;
+    private TextView ctZ;
+    private LinearLayout cua;
+    private TextView cub;
     private boolean mIsHost;
     private View mRootView;
 
     public ab(PersonInfoActivity personInfoActivity, boolean z) {
-        this.cqt = personInfoActivity;
+        this.cqE = personInfoActivity;
         this.mIsHost = z;
-        this.mRootView = LayoutInflater.from(this.cqt.getPageContext().getPageActivity()).inflate(i.g.personinfo_post_view, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.cqE.getPageContext().getPageActivity()).inflate(i.g.personinfo_post_view, (ViewGroup) null);
         initView();
     }
 
     private void initView() {
-        this.ctM = (RelativeLayout) this.mRootView.findViewById(i.f.post_ll);
-        this.ctM.setOnClickListener(this.cqt);
-        this.ctN = (TextView) this.mRootView.findViewById(i.f.post_num);
-        this.ctO = (TextView) this.mRootView.findViewById(i.f.post_num_text);
-        this.ctP = (LinearLayout) this.mRootView.findViewById(i.f.post_info_ll);
-        this.ctQ = (TextView) this.mRootView.findViewById(i.f.no_post_tip);
-        this.bMa = (ImageView) this.mRootView.findViewById(i.f.arrow);
+        this.ctX = (RelativeLayout) this.mRootView.findViewById(i.f.post_ll);
+        this.ctX.setOnClickListener(this.cqE);
+        this.ctY = (TextView) this.mRootView.findViewById(i.f.post_num);
+        this.ctZ = (TextView) this.mRootView.findViewById(i.f.post_num_text);
+        this.cua = (LinearLayout) this.mRootView.findViewById(i.f.post_info_ll);
+        this.cub = (TextView) this.mRootView.findViewById(i.f.no_post_tip);
+        this.bMl = (ImageView) this.mRootView.findViewById(i.f.arrow);
         oO();
         if (this.mIsHost) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ctM.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ctX.getLayoutParams();
             layoutParams.bottomMargin = 0;
-            this.ctM.setLayoutParams(layoutParams);
+            this.ctX.setLayoutParams(layoutParams);
         }
     }
 
     public void oO() {
-        if (this.apR != TbadkCoreApplication.m411getInst().getSkinType()) {
-            this.apR = TbadkCoreApplication.m411getInst().getSkinType();
-            am.i(this.ctM, i.e.personinfo_select_bg);
-            am.b(this.ctN, i.c.cp_cont_f, 1);
-            am.b(this.ctO, i.c.cp_cont_d, 1);
-            am.b(this.ctQ, i.c.cp_cont_e, 1);
-            am.i(this.bMa, i.e.icon_dredge_arrow_r_n);
+        if (this.apS != TbadkCoreApplication.m411getInst().getSkinType()) {
+            this.apS = TbadkCoreApplication.m411getInst().getSkinType();
+            an.i(this.ctX, i.e.personinfo_select_bg);
+            an.b(this.ctY, i.c.cp_cont_f, 1);
+            an.b(this.ctZ, i.c.cp_cont_d, 1);
+            an.b(this.cub, i.c.cp_cont_e, 1);
+            an.i(this.bMl, i.e.icon_dredge_arrow_r_n);
         }
     }
 
     public void c(AntiData antiData) {
         oO();
-        y ajf = this.cqt.ajf();
+        y ajf = this.cqE.ajf();
         UserData userData = ajf.getUserData();
         if (userData != null) {
             com.baidu.tbadk.data.f personPrivate = userData.getPersonPrivate();
@@ -75,62 +75,62 @@ public class ab {
             int isFriend = ajN != null ? ajN.getIsFriend() : 1;
             if (this.mIsHost) {
                 if (antiData != null && (AntiHelper.e(antiData) || AntiHelper.g(antiData))) {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ctM.getLayoutParams();
-                    layoutParams.bottomMargin = com.baidu.adp.lib.util.k.d(this.cqt.getPageContext().getPageActivity(), i.d.ds156);
-                    this.ctM.setLayoutParams(layoutParams);
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ctX.getLayoutParams();
+                    layoutParams.bottomMargin = com.baidu.adp.lib.util.k.d(this.cqE.getPageContext().getPageActivity(), i.d.ds156);
+                    this.ctX.setLayoutParams(layoutParams);
                 }
                 a(userData, ajf);
             } else if (Ab == 1 || (Ab == 2 && isFriend == 1)) {
                 a(userData, ajf);
             } else {
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.ctO.getLayoutParams();
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.ctZ.getLayoutParams();
                 layoutParams2.topMargin = 0;
-                this.ctO.setLayoutParams(layoutParams2);
-                this.ctN.setText("");
-                this.ctN.setTextSize(0.0f);
-                this.ctN.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(i.e.icon_mycenter_lock), (Drawable) null, (Drawable) null, (Drawable) null);
-                this.ctQ.setVisibility(0);
-                this.ctQ.setText(i.h.set_private);
-                this.ctP.setVisibility(8);
-                this.bMa.setVisibility(8);
+                this.ctZ.setLayoutParams(layoutParams2);
+                this.ctY.setText("");
+                this.ctY.setTextSize(0.0f);
+                this.ctY.setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_mycenter_lock), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.cub.setVisibility(0);
+                this.cub.setText(i.h.set_private);
+                this.cua.setVisibility(8);
+                this.bMl.setVisibility(8);
             }
         }
     }
 
     private void a(UserData userData, y yVar) {
-        String cA = ar.cA(userData.getPosts_num());
-        this.ctN.setTextSize(0, this.cqt.getResources().getDimensionPixelSize(i.d.ds72));
+        String cA = as.cA(userData.getPosts_num());
+        this.ctY.setTextSize(0, this.cqE.getResources().getDimensionPixelSize(i.d.ds72));
         if (cA.contains("w") && cA.length() > 3) {
-            this.ctN.setTextSize(0, this.cqt.getResources().getDimensionPixelSize(i.d.ds48));
+            this.ctY.setTextSize(0, this.cqE.getResources().getDimensionPixelSize(i.d.ds48));
         }
-        this.ctN.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-        this.ctN.setText(cA);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ctO.getLayoutParams();
-        layoutParams.topMargin = -this.cqt.getResources().getDimensionPixelSize(i.d.ds10);
-        this.ctO.setLayoutParams(layoutParams);
+        this.ctY.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+        this.ctY.setText(cA);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ctZ.getLayoutParams();
+        layoutParams.topMargin = -this.cqE.getResources().getDimensionPixelSize(i.d.ds10);
+        this.ctZ.setLayoutParams(layoutParams);
         List<PersonInfoPostList> postList = yVar.getPostList();
         if (postList == null || postList.size() <= 0) {
-            this.ctP.setVisibility(8);
-            this.bMa.setVisibility(8);
-            this.ctQ.setVisibility(0);
-            this.ctQ.setText(i.h.no_post_tip);
+            this.cua.setVisibility(8);
+            this.bMl.setVisibility(8);
+            this.cub.setVisibility(0);
+            this.cub.setText(i.h.no_post_tip);
             return;
         }
-        this.ctP.setVisibility(0);
-        this.bMa.setVisibility(0);
-        this.ctQ.setVisibility(8);
-        this.ctP.removeAllViews();
+        this.cua.setVisibility(0);
+        this.bMl.setVisibility(0);
+        this.cub.setVisibility(8);
+        this.cua.removeAllViews();
         int size = postList.size();
         int i = size > 3 ? 3 : size;
         for (int i2 = 0; i2 < i; i2++) {
             PersonInfoPostList personInfoPostList = postList.get(i2);
-            View inflate = LayoutInflater.from(this.cqt.getPageContext().getPageActivity()).inflate(i.g.personinfo_post_item, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.cqE.getPageContext().getPageActivity()).inflate(i.g.personinfo_post_item, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(i.f.post_title);
             TextView textView2 = (TextView) inflate.findViewById(i.f.post_content);
             View findViewById = inflate.findViewById(i.f.line);
-            am.b(textView, i.c.cp_cont_b, 1);
-            am.b(textView2, i.c.cp_cont_f, 1);
-            am.j(findViewById, i.c.cp_bg_line_b);
+            an.b(textView, i.c.cp_cont_b, 1);
+            an.b(textView2, i.c.cp_cont_f, 1);
+            an.j(findViewById, i.c.cp_bg_line_b);
             textView.setText(personInfoPostList.getTitle());
             List<PersonInfoAbstract> abstractThread = personInfoPostList.getAbstractThread();
             if (abstractThread != null && abstractThread.size() > 0 && !StringUtils.isNull(abstractThread.get(0).getText())) {
@@ -142,14 +142,14 @@ public class ab {
             if (i2 == 0) {
                 layoutParams2.topMargin = 0;
             } else {
-                layoutParams2.topMargin = this.cqt.getResources().getDimensionPixelSize(i.d.ds26);
+                layoutParams2.topMargin = this.cqE.getResources().getDimensionPixelSize(i.d.ds26);
             }
-            this.ctP.addView(inflate, layoutParams2);
+            this.cua.addView(inflate, layoutParams2);
         }
     }
 
     public RelativeLayout ajA() {
-        return this.ctM;
+        return this.ctX;
     }
 
     public View getRootView() {

@@ -14,120 +14,120 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.MyGift;
 import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ad {
-    private TextView alo;
-    private int apR = -1;
-    private PersonInfoActivity cqt;
-    private View csE;
-    private ImageView csI;
-    private ImageView csN;
-    private ImageView csS;
-    private RelativeLayout ctR;
-    private TextView ctS;
-    private TextView ctT;
-    private TextView ctU;
-    private GridView ctV;
-    private TextView ctW;
-    private TextView ctX;
-    private View ctY;
-    private RelativeLayout ctZ;
-    private TextView cua;
-    private ImageView cub;
-    private View cuc;
-    private RelativeLayout cud;
+    private TextView alp;
+    private int apS = -1;
+    private PersonInfoActivity cqE;
+    private View csP;
+    private ImageView csT;
+    private ImageView csY;
+    private ImageView ctd;
+    private RelativeLayout cuc;
+    private TextView cud;
     private TextView cue;
     private TextView cuf;
-    private ImageView cug;
-    private View cuh;
-    private RelativeLayout cui;
-    private TextView cuj;
-    private TextView cuk;
-    private int cul;
+    private GridView cug;
+    private TextView cuh;
+    private TextView cui;
+    private View cuj;
+    private RelativeLayout cuk;
+    private TextView cul;
+    private ImageView cum;
+    private View cun;
+    private RelativeLayout cuo;
+    private TextView cup;
+    private TextView cuq;
+    private ImageView cur;
+    private View cus;
+    private RelativeLayout cut;
+    private TextView cuu;
+    private TextView cuv;
+    private int cuw;
     private boolean mIsHost;
     private View mRootView;
 
     public ad(PersonInfoActivity personInfoActivity, boolean z) {
-        this.cqt = personInfoActivity;
+        this.cqE = personInfoActivity;
         this.mIsHost = z;
-        this.mRootView = LayoutInflater.from(this.cqt.getPageContext().getPageActivity()).inflate(i.g.personinfo_relation_view, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.cqE.getPageContext().getPageActivity()).inflate(i.g.personinfo_relation_view, (ViewGroup) null);
         initView();
     }
 
     private void initView() {
-        this.csE = this.mRootView.findViewById(i.f.root_next);
-        this.ctR = (RelativeLayout) this.mRootView.findViewById(i.f.gift);
-        this.ctR.setOnClickListener(this.cqt);
-        this.ctS = (TextView) this.mRootView.findViewById(i.f.gift_num);
-        this.ctT = (TextView) this.mRootView.findViewById(i.f.new_gift_num);
-        this.ctU = (TextView) this.mRootView.findViewById(i.f.gift_num_text);
-        this.ctV = (GridView) this.mRootView.findViewById(i.f.gift_grid);
-        this.ctW = (TextView) this.mRootView.findViewById(i.f.no_gift_text);
-        this.csI = (ImageView) this.mRootView.findViewById(i.f.arrow_top);
-        this.ctX = (TextView) this.mRootView.findViewById(i.f.give_gift);
-        this.ctX.setOnClickListener(this.cqt);
-        this.ctY = this.mRootView.findViewById(i.f.gift_fans);
-        this.ctZ = (RelativeLayout) this.mRootView.findViewById(i.f.fans);
-        this.cua = (TextView) this.mRootView.findViewById(i.f.fans_him);
-        this.cub = (ImageView) this.mRootView.findViewById(i.f.fans_icon);
-        this.alo = (TextView) this.mRootView.findViewById(i.f.fans_num);
-        this.csN = (ImageView) this.mRootView.findViewById(i.f.arrow_middle);
-        this.ctZ.setOnClickListener(this.cqt);
-        this.cuc = this.mRootView.findViewById(i.f.addresslist_sep);
-        this.cud = (RelativeLayout) this.mRootView.findViewById(i.f.addresslist);
-        this.cue = (TextView) this.mRootView.findViewById(i.f.addresslist_other);
-        this.cuf = (TextView) this.mRootView.findViewById(i.f.addresslist_num);
-        this.cug = (ImageView) this.mRootView.findViewById(i.f.arrow_addresslist);
-        this.cud.setOnClickListener(this.cqt);
-        this.cuh = this.mRootView.findViewById(i.f.fans_attention);
-        this.cui = (RelativeLayout) this.mRootView.findViewById(i.f.attention);
-        this.cuj = (TextView) this.mRootView.findViewById(i.f.attention_other);
-        this.cuk = (TextView) this.mRootView.findViewById(i.f.attention_num);
-        this.csS = (ImageView) this.mRootView.findViewById(i.f.arrow_bottom);
-        this.cui.setOnClickListener(this.cqt);
+        this.csP = this.mRootView.findViewById(i.f.root_next);
+        this.cuc = (RelativeLayout) this.mRootView.findViewById(i.f.gift);
+        this.cuc.setOnClickListener(this.cqE);
+        this.cud = (TextView) this.mRootView.findViewById(i.f.gift_num);
+        this.cue = (TextView) this.mRootView.findViewById(i.f.new_gift_num);
+        this.cuf = (TextView) this.mRootView.findViewById(i.f.gift_num_text);
+        this.cug = (GridView) this.mRootView.findViewById(i.f.gift_grid);
+        this.cuh = (TextView) this.mRootView.findViewById(i.f.no_gift_text);
+        this.csT = (ImageView) this.mRootView.findViewById(i.f.arrow_top);
+        this.cui = (TextView) this.mRootView.findViewById(i.f.give_gift);
+        this.cui.setOnClickListener(this.cqE);
+        this.cuj = this.mRootView.findViewById(i.f.gift_fans);
+        this.cuk = (RelativeLayout) this.mRootView.findViewById(i.f.fans);
+        this.cul = (TextView) this.mRootView.findViewById(i.f.fans_him);
+        this.cum = (ImageView) this.mRootView.findViewById(i.f.fans_icon);
+        this.alp = (TextView) this.mRootView.findViewById(i.f.fans_num);
+        this.csY = (ImageView) this.mRootView.findViewById(i.f.arrow_middle);
+        this.cuk.setOnClickListener(this.cqE);
+        this.cun = this.mRootView.findViewById(i.f.addresslist_sep);
+        this.cuo = (RelativeLayout) this.mRootView.findViewById(i.f.addresslist);
+        this.cup = (TextView) this.mRootView.findViewById(i.f.addresslist_other);
+        this.cuq = (TextView) this.mRootView.findViewById(i.f.addresslist_num);
+        this.cur = (ImageView) this.mRootView.findViewById(i.f.arrow_addresslist);
+        this.cuo.setOnClickListener(this.cqE);
+        this.cus = this.mRootView.findViewById(i.f.fans_attention);
+        this.cut = (RelativeLayout) this.mRootView.findViewById(i.f.attention);
+        this.cuu = (TextView) this.mRootView.findViewById(i.f.attention_other);
+        this.cuv = (TextView) this.mRootView.findViewById(i.f.attention_num);
+        this.ctd = (ImageView) this.mRootView.findViewById(i.f.arrow_bottom);
+        this.cut.setOnClickListener(this.cqE);
         if (TbadkCoreApplication.m411getInst().getIntentClass(MyGiftListActivityConfig.class) == null) {
-            this.ctR.setVisibility(8);
+            this.cuc.setVisibility(8);
         }
         oO();
     }
 
     public void fa(boolean z) {
-        am.i(this.cub, i.e.icon_news_down_bar_one);
+        an.i(this.cum, i.e.icon_news_down_bar_one);
         if (z) {
-            this.cub.setVisibility(0);
+            this.cum.setVisibility(0);
         } else {
-            this.cub.setVisibility(8);
+            this.cum.setVisibility(8);
         }
     }
 
     public void jm(int i) {
         if (i <= 0) {
-            this.ctT.setVisibility(8);
+            this.cue.setVisibility(8);
             return;
         }
-        this.ctT.setVisibility(0);
-        am.b(this.ctT, i.c.top_msg_num_day, 1);
+        this.cue.setVisibility(0);
+        an.b(this.cue, i.c.top_msg_num_day, 1);
         if (i < 10) {
-            this.ctT.setText(String.valueOf(i));
-            this.cul = i.e.icon_news_head_prompt_one;
+            this.cue.setText(String.valueOf(i));
+            this.cuw = i.e.icon_news_head_prompt_one;
         } else if (i < 100) {
-            this.ctT.setText(String.valueOf(i));
-            this.cul = i.e.icon_news_head_prompt_two;
+            this.cue.setText(String.valueOf(i));
+            this.cuw = i.e.icon_news_head_prompt_two;
         } else {
-            this.ctT.setText("");
-            this.cul = i.e.icon_news_head_prompt_more;
+            this.cue.setText("");
+            this.cuw = i.e.icon_news_head_prompt_more;
         }
-        am.i((View) this.ctT, this.cul);
+        an.i((View) this.cue, this.cuw);
     }
 
     public void ajC() {
-        UserData userData = this.cqt.ajf().getUserData();
+        UserData userData = this.cqE.ajf().getUserData();
         k(userData);
         l(userData);
         j(userData);
@@ -137,54 +137,54 @@ public class ad {
 
     private void j(UserData userData) {
         if (this.mIsHost && PersonInfoActivityConfig.IS_HAVE_ADDRESSLIST) {
-            this.cuc.setVisibility(0);
-            this.cud.setVisibility(0);
-            this.cuf.setText("100个");
+            this.cun.setVisibility(0);
+            this.cuo.setVisibility(0);
+            this.cuq.setText("100个");
             return;
         }
-        this.cuc.setVisibility(8);
-        this.cud.setVisibility(8);
+        this.cun.setVisibility(8);
+        this.cuo.setVisibility(8);
     }
 
     private void k(UserData userData) {
         if (userData != null) {
             int giftNum = userData.getGiftNum();
             if (giftNum <= 0) {
-                this.ctS.setText("0");
+                this.cud.setText("0");
                 if (this.mIsHost || !TbadkCoreApplication.m411getInst().isGiftSwitchOn()) {
-                    this.ctX.setVisibility(8);
+                    this.cui.setVisibility(8);
                 } else {
-                    this.ctX.setVisibility(0);
+                    this.cui.setVisibility(0);
                 }
-                this.csI.setVisibility(8);
-                this.ctV.setVisibility(8);
-                this.ctW.setVisibility(0);
+                this.csT.setVisibility(8);
+                this.cug.setVisibility(8);
+                this.cuh.setVisibility(0);
                 if (this.mIsHost) {
-                    this.ctW.setText(i.h.no_gift_tip_host);
+                    this.cuh.setText(i.h.no_gift_tip_host);
                     return;
                 } else {
-                    this.ctW.setText(i.h.no_gift_tip);
+                    this.cuh.setText(i.h.no_gift_tip);
                     return;
                 }
             }
-            String cA = ar.cA(giftNum);
+            String cA = as.cA(giftNum);
             if (cA.contains("w") && cA.length() > 3) {
-                this.ctS.setTextSize(0, this.cqt.getResources().getDimensionPixelSize(i.d.ds48));
+                this.cud.setTextSize(0, this.cqE.getResources().getDimensionPixelSize(i.d.ds48));
             }
-            this.ctS.setText(cA);
-            this.ctX.setVisibility(8);
-            this.csI.setVisibility(0);
-            this.ctV.setVisibility(0);
-            this.ctW.setVisibility(8);
+            this.cud.setText(cA);
+            this.cui.setVisibility(8);
+            this.csT.setVisibility(0);
+            this.cug.setVisibility(0);
+            this.cuh.setVisibility(8);
             List<MyGift> gift = userData.getGift();
             if (gift == null || gift.size() <= 0) {
-                this.ctX.setVisibility(8);
-                this.csI.setVisibility(0);
-                this.ctV.setVisibility(0);
-                this.ctW.setVisibility(8);
+                this.cui.setVisibility(8);
+                this.csT.setVisibility(0);
+                this.cug.setVisibility(0);
+                this.cuh.setVisibility(8);
                 return;
             }
-            this.ctV.setAdapter((ListAdapter) new a(gift));
+            this.cug.setAdapter((ListAdapter) new a(gift));
         }
     }
 
@@ -192,23 +192,23 @@ public class ad {
     private void l(UserData userData) {
         if (userData != null) {
             if (userData.getSex() == 2) {
-                this.cua.setText(i.h.user_info_center_head_fans_name_text_g);
+                this.cul.setText(i.h.user_info_center_head_fans_name_text_g);
             } else {
-                this.cua.setText(i.h.user_info_center_head_fans_name_text_b);
+                this.cul.setText(i.h.user_info_center_head_fans_name_text_b);
             }
             if (this.mIsHost) {
-                this.cua.setText(i.h.user_info_center_head_fans_name_text);
+                this.cul.setText(i.h.user_info_center_head_fans_name_text);
             }
             int fansNum = userData.getFansNum();
             if (fansNum <= 0) {
-                this.alo.setText("0");
-                this.csN.setVisibility(8);
-                am.b(this.alo, i.c.cp_cont_e, 1);
+                this.alp.setText("0");
+                this.csY.setVisibility(8);
+                an.b(this.alp, i.c.cp_cont_e, 1);
                 return;
             }
-            this.alo.setText(new StringBuilder().append(fansNum).toString());
-            this.csN.setVisibility(0);
-            am.b(this.alo, i.c.cp_cont_b, 1);
+            this.alp.setText(new StringBuilder().append(fansNum).toString());
+            this.csY.setVisibility(0);
+            an.b(this.alp, i.c.cp_cont_b, 1);
         }
     }
 
@@ -217,71 +217,71 @@ public class ad {
         if (userData != null) {
             int concern_num = userData.getConcern_num();
             if (concern_num <= 0) {
-                this.cuk.setText("0");
-                this.csS.setVisibility(8);
-                am.b(this.cuk, i.c.cp_cont_e, 1);
+                this.cuv.setText("0");
+                this.ctd.setVisibility(8);
+                an.b(this.cuv, i.c.cp_cont_e, 1);
                 return;
             }
-            this.cuk.setText(new StringBuilder().append(concern_num).toString());
-            this.csS.setVisibility(0);
-            am.b(this.cuk, i.c.cp_cont_b, 1);
+            this.cuv.setText(new StringBuilder().append(concern_num).toString());
+            this.ctd.setVisibility(0);
+            an.b(this.cuv, i.c.cp_cont_b, 1);
         }
     }
 
     public void oO() {
-        if (this.apR != TbadkCoreApplication.m411getInst().getSkinType()) {
-            this.apR = TbadkCoreApplication.m411getInst().getSkinType();
-            am.j(this.csE, i.c.cp_bg_line_d);
-            am.i(this.ctR, i.e.personinfo_select_bg);
-            am.b(this.ctS, i.c.cp_cont_f, 1);
-            am.b(this.ctT, i.c.cp_cont_i, 1);
-            am.b(this.ctU, i.c.cp_cont_d, 1);
-            am.b(this.ctW, i.c.cp_cont_e, 1);
-            am.i(this.csI, i.e.icon_dredge_arrow_r_n);
-            am.i((View) this.ctX, i.e.btn_blue_bg);
-            am.b(this.ctX, i.c.cp_cont_i, 1);
-            am.j(this.ctY, i.c.cp_bg_line_b);
-            am.i(this.ctZ, i.e.personinfo_select_bg);
-            am.b(this.cua, i.c.cp_cont_d, 1);
-            am.i(this.csN, i.e.icon_dredge_arrow_r_n);
-            am.j(this.cuc, i.c.cp_bg_line_b);
-            am.i(this.cud, i.e.personinfo_select_bg);
-            am.b(this.cue, i.c.cp_cont_d, 1);
-            am.i(this.cug, i.e.icon_dredge_arrow_r_n);
-            am.j(this.cuh, i.c.cp_bg_line_b);
-            am.i(this.cui, i.e.personinfo_select_bg);
-            am.b(this.cuj, i.c.cp_cont_d, 1);
-            am.i(this.csS, i.e.icon_dredge_arrow_r_n);
+        if (this.apS != TbadkCoreApplication.m411getInst().getSkinType()) {
+            this.apS = TbadkCoreApplication.m411getInst().getSkinType();
+            an.j(this.csP, i.c.cp_bg_line_d);
+            an.i(this.cuc, i.e.personinfo_select_bg);
+            an.b(this.cud, i.c.cp_cont_f, 1);
+            an.b(this.cue, i.c.cp_cont_i, 1);
+            an.b(this.cuf, i.c.cp_cont_d, 1);
+            an.b(this.cuh, i.c.cp_cont_e, 1);
+            an.i(this.csT, i.e.icon_dredge_arrow_r_n);
+            an.i((View) this.cui, i.e.btn_blue_bg);
+            an.b(this.cui, i.c.cp_cont_i, 1);
+            an.j(this.cuj, i.c.cp_bg_line_b);
+            an.i(this.cuk, i.e.personinfo_select_bg);
+            an.b(this.cul, i.c.cp_cont_d, 1);
+            an.i(this.csY, i.e.icon_dredge_arrow_r_n);
+            an.j(this.cun, i.c.cp_bg_line_b);
+            an.i(this.cuo, i.e.personinfo_select_bg);
+            an.b(this.cup, i.c.cp_cont_d, 1);
+            an.i(this.cur, i.e.icon_dredge_arrow_r_n);
+            an.j(this.cus, i.c.cp_bg_line_b);
+            an.i(this.cut, i.e.personinfo_select_bg);
+            an.b(this.cuu, i.c.cp_cont_d, 1);
+            an.i(this.ctd, i.e.icon_dredge_arrow_r_n);
         }
     }
 
     public TextView ajt() {
-        return this.ctX;
+        return this.cui;
     }
 
     public RelativeLayout ajo() {
-        return this.ctR;
+        return this.cuc;
     }
 
     public void ajp() {
-        if (this.ctR != null) {
-            this.ctR.setVisibility(8);
+        if (this.cuc != null) {
+            this.cuc.setVisibility(8);
         }
-        if (this.ctY != null) {
-            this.ctY.setVisibility(8);
+        if (this.cuj != null) {
+            this.cuj.setVisibility(8);
         }
     }
 
     public RelativeLayout ajv() {
-        return this.ctZ;
+        return this.cuk;
     }
 
     public RelativeLayout ajw() {
-        return this.cui;
+        return this.cut;
     }
 
     public RelativeLayout ajx() {
-        return this.cud;
+        return this.cuo;
     }
 
     public View getRootView() {
@@ -290,19 +290,19 @@ public class ad {
 
     /* loaded from: classes.dex */
     public class a extends BaseAdapter {
-        private List<MyGift> cum;
+        private List<MyGift> cux;
 
         public a(List<MyGift> list) {
-            this.cum = list;
+            this.cux = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.cum == null) {
+            if (this.cux == null) {
                 return 0;
             }
-            if (this.cum.size() <= 8) {
-                return this.cum.size();
+            if (this.cux.size() <= 8) {
+                return this.cux.size();
             }
             return 8;
         }
@@ -320,15 +320,15 @@ public class ad {
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0074: INVOKE  (r0v9 int A[REMOVE]) = (r2v8 com.baidu.tbadk.data.MyGift) type: VIRTUAL call: com.baidu.tbadk.data.MyGift.getGiftNum():int)] */
         @Override // android.widget.Adapter
         public View getView(int i, View view, ViewGroup viewGroup) {
-            View inflate = LayoutInflater.from(ad.this.cqt.getPageContext().getPageActivity()).inflate(i.g.personinfo_gift_icon, (ViewGroup) null);
-            inflate.setLayoutParams(new AbsListView.LayoutParams(ad.this.cqt.getResources().getDimensionPixelSize(i.d.ds86), ad.this.cqt.getResources().getDimensionPixelSize(i.d.ds80)));
+            View inflate = LayoutInflater.from(ad.this.cqE.getPageContext().getPageActivity()).inflate(i.g.personinfo_gift_icon, (ViewGroup) null);
+            inflate.setLayoutParams(new AbsListView.LayoutParams(ad.this.cqE.getResources().getDimensionPixelSize(i.d.ds86), ad.this.cqE.getResources().getDimensionPixelSize(i.d.ds80)));
             HeadImageView headImageView = (HeadImageView) inflate.findViewById(i.f.gift_icon);
             headImageView.setIsRound(true);
             headImageView.setDrawBorder(false);
             headImageView.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             TextView textView = (TextView) inflate.findViewById(i.f.gift_num);
             g(textView);
-            MyGift myGift = this.cum.get(i);
+            MyGift myGift = this.cux.get(i);
             if (myGift != null) {
                 headImageView.d(myGift.getGiftIcon(), 10, false);
                 textView.setText(new StringBuilder().append(myGift.getGiftNum()).toString());
@@ -337,8 +337,8 @@ public class ad {
         }
 
         private void g(TextView textView) {
-            am.i((View) textView, i.e.personinfo_gift_num_bg);
-            am.b(textView, i.c.cp_cont_g, 1);
+            an.i((View) textView, i.e.personinfo_gift_num_bg);
+            an.b(textView, i.c.cp_cont_g, 1);
         }
     }
 }

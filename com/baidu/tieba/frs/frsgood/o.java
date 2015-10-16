@@ -2,21 +2,21 @@ package com.baidu.tieba.frs.frsgood;
 
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class o implements com.baidu.tieba.tbadkCore.r {
-    final /* synthetic */ FrsGoodActivity aZB;
+    final /* synthetic */ FrsGoodActivity aZM;
     private long startTime = 0;
-    private long aTQ = 0;
-    private long aTR = 0;
-    private long aZD = 1;
+    private long aUb = 0;
+    private long aUc = 0;
+    private long aZO = 1;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(FrsGoodActivity frsGoodActivity) {
-        this.aZB = frsGoodActivity;
+        this.aZM = frsGoodActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.r
@@ -24,15 +24,15 @@ class o implements com.baidu.tieba.tbadkCore.r {
         this.startTime = System.nanoTime();
         switch (i) {
             case 1:
-                this.aZB.aZv.cd(true);
-                this.aZB.aZv.LQ();
+                this.aZM.aZG.cd(true);
+                this.aZM.aZG.LQ();
                 return;
             case 2:
-                this.aZB.aZv.ce(true);
-                this.aZB.aZv.LQ();
+                this.aZM.aZG.ce(true);
+                this.aZM.aZG.LQ();
                 return;
             case 3:
-                this.aZB.aZv.cc(true);
+                this.aZM.aZG.cc(true);
                 return;
             default:
                 return;
@@ -40,7 +40,7 @@ class o implements com.baidu.tieba.tbadkCore.r {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0086, code lost:
-        if (r1.avt().size() == 0) goto L15;
+        if (r1.avz().size() == 0) goto L15;
      */
     /* JADX WARN: Removed duplicated region for block: B:23:0x00b6  */
     /* JADX WARN: Removed duplicated region for block: B:33:0x014b  */
@@ -88,49 +88,49 @@ class o implements com.baidu.tieba.tbadkCore.r {
         com.baidu.tieba.tbadkCore.o oVar26;
         v vVar3;
         if (aVar == null) {
-            this.aZD = 1L;
+            this.aZO = 1L;
         } else if (aVar.isSuccess) {
-            this.aZB.aZv.MN().bV(as.uI().uK());
-            this.aTQ = 0L;
-            this.aTR = 0L;
-            this.aZD = 0L;
+            this.aZM.aZG.MN().bV(at.uJ().uL());
+            this.aUb = 0L;
+            this.aUc = 0L;
+            this.aZO = 0L;
         } else {
-            this.aZD = 1L;
+            this.aZO = 1L;
         }
         long currentTimeMillis = System.currentTimeMillis();
         if (i == 3) {
-            vVar3 = this.aZB.aZy;
+            vVar3 = this.aZM.aZJ;
             vVar3.resetData();
         }
-        this.aZB.aZv.cc(false);
-        if (this.aZB.ML().MR() != null) {
-            this.aZB.aTL = this.aZB.ML().MR();
+        this.aZM.aZG.cc(false);
+        if (this.aZM.ML().MR() != null) {
+            this.aZM.aTW = this.aZM.ML().MR();
         }
-        FrsGoodActivity frsGoodActivity = this.aZB;
-        oVar = this.aZB.aTL;
-        frsGoodActivity.aUc = oVar.getPage().rL();
-        i2 = this.aZB.aUc;
+        FrsGoodActivity frsGoodActivity = this.aZM;
+        oVar = this.aZM.aTW;
+        frsGoodActivity.aUn = oVar.getPage().rL();
+        i2 = this.aZM.aUn;
         if (i2 == 0) {
-            oVar23 = this.aZB.aTL;
-            if (oVar23.avt() != null) {
-                oVar26 = this.aZB.aTL;
+            oVar23 = this.aZM.aTW;
+            if (oVar23.avz() != null) {
+                oVar26 = this.aZM.aTW;
             }
-            oVar24 = this.aZB.aTL;
+            oVar24 = this.aZM.aTW;
             if (oVar24.getThreadList() != null) {
-                oVar25 = this.aZB.aTL;
+                oVar25 = this.aZM.aTW;
                 if (oVar25.getThreadList().size() != 0) {
-                    this.aZB.aZv.Mf();
+                    this.aZM.aZG.Mf();
                     if (i == 4) {
-                        vVar2 = this.aZB.aZy;
-                        oVar20 = this.aZB.aTL;
+                        vVar2 = this.aZM.aZJ;
+                        oVar20 = this.aZM.aTW;
                         ArrayList<com.baidu.adp.widget.ListView.u> a = vVar2.a(false, oVar20.getThreadList());
                         if (a != null) {
-                            oVar21 = this.aZB.aTL;
+                            oVar21 = this.aZM.aTW;
                             oVar21.af(a);
-                            x xVar = this.aZB.aZv;
-                            i5 = this.aZB.mPn;
-                            oVar22 = this.aZB.aTL;
-                            i6 = this.aZB.aUc;
+                            x xVar = this.aZM.aZG;
+                            i5 = this.aZM.mPn;
+                            oVar22 = this.aZM.aTW;
+                            i6 = this.aZM.aUn;
                             xVar.a(a, i5, oVar22, i6);
                             return;
                         }
@@ -138,124 +138,124 @@ class o implements com.baidu.tieba.tbadkCore.r {
                     }
                     switch (i) {
                         case 1:
-                            this.aZB.aZv.cd(false);
-                            this.aZB.aZv.LQ();
+                            this.aZM.aZG.cd(false);
+                            this.aZM.aZG.LQ();
                             break;
                         case 2:
-                            this.aZB.aZv.ce(false);
-                            this.aZB.aZv.LQ();
+                            this.aZM.aZG.ce(false);
+                            this.aZM.aZG.LQ();
                             break;
                     }
-                    z2 = this.aZB.aTI;
+                    z2 = this.aZM.aTT;
                     if (!z2) {
-                        this.aZB.MG();
+                        this.aZM.MG();
                     } else {
-                        this.aZB.MI();
+                        this.aZM.MI();
                     }
-                    if (this.aZD != 0) {
-                        z4 = this.aZB.aTI;
+                    if (this.aZO != 0) {
+                        z4 = this.aZM.aTT;
                         if (!z4) {
-                            this.aZB.a(aVar);
+                            this.aZM.a(aVar);
                         } else {
-                            this.aZB.b(aVar);
+                            this.aZM.b(aVar);
                         }
                     } else {
-                        this.aZB.aTI = true;
-                        oVar2 = this.aZB.aTL;
+                        this.aZM.aTT = true;
+                        oVar2 = this.aZM.aTW;
                         if (oVar2 != null) {
-                            FrsGoodActivity frsGoodActivity2 = this.aZB;
-                            oVar16 = this.aZB.aTL;
-                            frsGoodActivity2.aTB = oVar16.aeN().getName();
-                            FrsGoodActivity frsGoodActivity3 = this.aZB;
-                            oVar17 = this.aZB.aTL;
+                            FrsGoodActivity frsGoodActivity2 = this.aZM;
+                            oVar16 = this.aZM.aTW;
+                            frsGoodActivity2.aTM = oVar16.aeN().getName();
+                            FrsGoodActivity frsGoodActivity3 = this.aZM;
+                            oVar17 = this.aZM.aTW;
                             frsGoodActivity3.forumId = oVar17.aeN().getId();
-                            x xVar2 = this.aZB.aZv;
-                            oVar18 = this.aZB.aTL;
+                            x xVar2 = this.aZM.aZG;
+                            oVar18 = this.aZM.aTW;
                             ForumData aeN = oVar18.aeN();
-                            oVar19 = this.aZB.aTL;
+                            oVar19 = this.aZM.aTW;
                             xVar2.b(aeN, oVar19.getUserData());
                         }
-                        z3 = this.aZB.aTW;
+                        z3 = this.aZM.aUh;
                         if (z3) {
-                            oVar13 = this.aZB.aTL;
+                            oVar13 = this.aZM.aTW;
                             if (oVar13 != null) {
-                                oVar14 = this.aZB.aTL;
-                                oVar14.avL();
-                                oVar15 = this.aZB.aTL;
-                                oVar15.avP();
+                                oVar14 = this.aZM.aTW;
+                                oVar14.avT();
+                                oVar15 = this.aZM.aTW;
+                                oVar15.avX();
                             }
                         }
-                        oVar3 = this.aZB.aTL;
+                        oVar3 = this.aZM.aTW;
                         if (oVar3 != null) {
-                            oVar11 = this.aZB.aTL;
-                            com.baidu.tbadk.core.data.x top_notice_data = oVar11.aeN().getTop_notice_data();
+                            oVar11 = this.aZM.aTW;
+                            com.baidu.tbadk.core.data.y top_notice_data = oVar11.aeN().getTop_notice_data();
                             if (top_notice_data != null && top_notice_data.getTitle() != null) {
-                                com.baidu.tbadk.core.data.v vVar4 = new com.baidu.tbadk.core.data.v();
-                                vVar4.setTitle(top_notice_data.getTitle());
-                                vVar4.bA(2);
-                                vVar4.cm(top_notice_data.sK());
-                                vVar4.parser_title();
-                                oVar12 = this.aZB.aTL;
-                                oVar12.f(vVar4);
+                                com.baidu.tbadk.core.data.w wVar = new com.baidu.tbadk.core.data.w();
+                                wVar.setTitle(top_notice_data.getTitle());
+                                wVar.bA(2);
+                                wVar.cn(top_notice_data.sK());
+                                wVar.parser_title();
+                                oVar12 = this.aZM.aTW;
+                                oVar12.f(wVar);
                             }
                         }
-                        afVar = this.aZB.aZx;
-                        oVar4 = this.aZB.aTL;
+                        afVar = this.aZM.aZI;
+                        oVar4 = this.aZM.aTW;
                         afVar.b(oVar4);
-                        this.aTQ = (System.nanoTime() - this.startTime) / 1000000;
+                        this.aUb = (System.nanoTime() - this.startTime) / 1000000;
                         if (aVar != null) {
-                            this.aTR = aVar.cWv;
+                            this.aUc = aVar.cWU;
                         }
-                        oVar5 = this.aZB.aTL;
+                        oVar5 = this.aZM.aTW;
                         if (oVar5 != null) {
-                            oVar9 = this.aZB.aTL;
+                            oVar9 = this.aZM.aTW;
                             if (oVar9.getThreadList() != null) {
-                                oVar10 = this.aZB.aTL;
-                                if (oVar10.getThreadList().size() == 0 && this.aZB.ML().getType() == 4) {
-                                    this.aZB.showToast(this.aZB.getPageContext().getString(i.h.no_more_to_load));
-                                    i3 = this.aZB.mPn;
+                                oVar10 = this.aZM.aTW;
+                                if (oVar10.getThreadList().size() == 0 && this.aZM.ML().getType() == 4) {
+                                    this.aZM.showToast(this.aZM.getPageContext().getString(i.h.no_more_to_load));
+                                    i3 = this.aZM.mPn;
                                     if (i3 > 1) {
-                                        FrsGoodActivity frsGoodActivity4 = this.aZB;
+                                        FrsGoodActivity frsGoodActivity4 = this.aZM;
                                         i4 = frsGoodActivity4.mPn;
                                         frsGoodActivity4.mPn = i4 - 1;
                                     }
-                                    if (this.aZB.aLy > -1) {
+                                    if (this.aZM.aLJ > -1) {
                                         long currentTimeMillis2 = System.currentTimeMillis();
-                                        TiebaStatic.page("op_frs_enter", currentTimeMillis2 - this.aZB.aLy, this.aZB.ML().IA() - this.aZB.aLy, this.aZB.ML().Iy(), this.aZB.ML().Iz(), currentTimeMillis2 - this.aZB.ML().Ix());
-                                        this.aZB.aLy = -1L;
+                                        TiebaStatic.page("op_frs_enter", currentTimeMillis2 - this.aZM.aLJ, this.aZM.ML().IA() - this.aZM.aLJ, this.aZM.ML().Iy(), this.aZM.ML().Iz(), currentTimeMillis2 - this.aZM.ML().Ix());
+                                        this.aZM.aLJ = -1L;
                                     }
-                                    this.aZB.axx = System.currentTimeMillis() - currentTimeMillis;
+                                    this.aZM.axy = System.currentTimeMillis() - currentTimeMillis;
                                     return;
                                 }
                             }
                         }
-                        oVar6 = this.aZB.aTL;
+                        oVar6 = this.aZM.aTW;
                         if (oVar6 != null) {
-                            vVar = this.aZB.aZy;
-                            oVar7 = this.aZB.aTL;
+                            vVar = this.aZM.aZJ;
+                            oVar7 = this.aZM.aTW;
                             ArrayList<com.baidu.adp.widget.ListView.u> a2 = vVar.a(true, oVar7.getThreadList());
                             if (a2 != null && a2.size() > 0) {
-                                oVar8 = this.aZB.aTL;
+                                oVar8 = this.aZM.aTW;
                                 oVar8.af(a2);
                             }
                         }
-                        this.aZB.La();
+                        this.aZM.La();
                     }
-                    if (this.aZB.aLy > -1) {
+                    if (this.aZM.aLJ > -1) {
                         long currentTimeMillis3 = System.currentTimeMillis();
-                        TiebaStatic.page("op_frs_enter", currentTimeMillis3 - this.aZB.aLy, this.aZB.ML().IA() - this.aZB.aLy, this.aZB.ML().Iy(), this.aZB.ML().Iz(), currentTimeMillis3 - this.aZB.ML().Ix());
-                        this.aZB.aLy = -1L;
+                        TiebaStatic.page("op_frs_enter", currentTimeMillis3 - this.aZM.aLJ, this.aZM.ML().IA() - this.aZM.aLJ, this.aZM.ML().Iy(), this.aZM.ML().Iz(), currentTimeMillis3 - this.aZM.ML().Ix());
+                        this.aZM.aLJ = -1L;
                     }
-                    this.aZB.axx = System.currentTimeMillis() - currentTimeMillis;
+                    this.aZM.axy = System.currentTimeMillis() - currentTimeMillis;
                     System.gc();
                     return;
                 }
             }
-            this.aZB.aZv.Mg();
+            this.aZM.aZG.Mg();
             if (i == 4) {
             }
         }
-        this.aZB.aZv.Me();
+        this.aZM.aZG.Me();
         if (i == 4) {
         }
     }

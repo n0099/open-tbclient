@@ -5,10 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class s extends PagerAdapter {
-    private SingleMentionActivity bZY;
+    private SingleMentionActivity caj;
 
     public s(SingleMentionActivity singleMentionActivity) {
-        this.bZY = singleMentionActivity;
+        this.caj = singleMentionActivity;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -19,7 +19,7 @@ public class s extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == 0) {
-            al ade = this.bZY.ade();
+            al ade = this.caj.ade();
             if (ade.getView() == null) {
                 View oZ = ade.oZ();
                 viewGroup.addView(oZ);
@@ -28,7 +28,7 @@ public class s extends PagerAdapter {
             }
             return ade.getView();
         }
-        j adf = this.bZY.adf();
+        j adf = this.caj.adf();
         if (adf.getView() == null) {
             View oZ2 = adf.oZ();
             viewGroup.addView(oZ2);

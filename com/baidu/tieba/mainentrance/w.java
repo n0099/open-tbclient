@@ -6,28 +6,28 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements TextView.OnEditorActionListener {
-    final /* synthetic */ SquareSearchActivity bVr;
+    final /* synthetic */ SquareSearchActivity bVC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(SquareSearchActivity squareSearchActivity) {
-        this.bVr = squareSearchActivity;
+        this.bVC = squareSearchActivity;
     }
 
     @Override // android.widget.TextView.OnEditorActionListener
     public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
         if (i == 2) {
-            if (this.bVr.mMode != 0) {
-                if (this.bVr.mMode == 3) {
-                    if (TextUtils.isEmpty(this.bVr.bUK) || this.bVr.bUK.trim().length() <= 0) {
+            if (this.bVC.mMode != 0) {
+                if (this.bVC.mMode == 3) {
+                    if (TextUtils.isEmpty(this.bVC.bUV) || this.bVC.bUV.trim().length() <= 0) {
                         return true;
                     }
-                    this.bVr.gh(this.bVr.bUK);
+                    this.bVC.gh(this.bVC.bUV);
                     return true;
                 }
-                this.bVr.G(1, this.bVr.bUK);
+                this.bVC.G(1, this.bVC.bUV);
                 return true;
             }
-            this.bVr.abo();
+            this.bVC.abo();
             return true;
         }
         return false;

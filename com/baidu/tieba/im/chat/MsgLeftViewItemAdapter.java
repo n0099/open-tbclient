@@ -33,14 +33,14 @@ public class MsgLeftViewItemAdapter extends ap<MsgleftView> {
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<MsgleftView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
         MsgleftView RP = aVar.RP();
-        RP.gI(this.brB);
+        RP.gI(this.brM);
         RP.cK(this.mNeedShowName);
         chatMessage.getCacheData().setIs_left(1);
-        RP.a(this.brs);
-        RP.setOnItemViewLongClickListener(this.brt);
+        RP.a(this.brD);
+        RP.setOnItemViewLongClickListener(this.brE);
         RP.setPosition(i);
-        RP.as(this.mCurrentTime);
-        RP.ar(chatMessage.getCacheData().getLastMsgTime());
+        RP.aC(this.mCurrentTime);
+        RP.aB(chatMessage.getCacheData().getLastMsgTime());
         RP.a(viewGroup, chatMessage);
         RP.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().ad(false);

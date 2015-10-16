@@ -8,13 +8,13 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ v aZJ;
+    final /* synthetic */ v aZU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(v vVar, int i, int i2) {
         super(i, i2);
-        this.aZJ = vVar;
+        this.aZU = vVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -26,29 +26,29 @@ public class w extends com.baidu.adp.framework.listener.a {
         FrsGoodActivity frsGoodActivity5;
         FrsGoodActivity frsGoodActivity6;
         FrsGoodActivity frsGoodActivity7;
-        this.aZJ.avB = false;
+        this.aZU.avC = false;
         if (responsedMessage == null) {
-            frsGoodActivity6 = this.aZJ.aWe;
-            frsGoodActivity7 = this.aZJ.aWe;
+            frsGoodActivity6 = this.aZU.aWp;
+            frsGoodActivity7 = this.aZU.aWp;
             frsGoodActivity6.gO(frsGoodActivity7.getPageContext().getString(i.h.neterror));
         } else if (responsedMessage.getError() != 0) {
             if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                frsGoodActivity5 = this.aZJ.aWe;
+                frsGoodActivity5 = this.aZU.aWp;
                 frsGoodActivity5.gO(responsedMessage.getErrorString());
                 return;
             }
-            frsGoodActivity3 = this.aZJ.aWe;
-            frsGoodActivity4 = this.aZJ.aWe;
+            frsGoodActivity3 = this.aZU.aWp;
+            frsGoodActivity4 = this.aZU.aWp;
             frsGoodActivity3.gO(frsGoodActivity4.getPageContext().getString(i.h.neterror));
         } else {
             if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
-                frsGoodActivity2 = this.aZJ.aWe;
+                frsGoodActivity2 = this.aZU.aWp;
                 frsGoodActivity2.B(((LoadMoreHttpResponseMessage) responsedMessage).getThreadList());
             } else if (responsedMessage instanceof LoadMoreResponseSocketMessage) {
-                frsGoodActivity = this.aZJ.aWe;
+                frsGoodActivity = this.aZU.aWp;
                 frsGoodActivity.B(((LoadMoreResponseSocketMessage) responsedMessage).getThreadList());
             }
-            this.aZJ.aZF++;
+            this.aZU.aZQ++;
         }
     }
 }

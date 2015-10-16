@@ -18,23 +18,23 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class r {
-    private static r aqQ = new r();
-    private static BdAsyncTaskParallel aqT = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-    private ArrayList<t> aqR = new ArrayList<>();
-    private final List<com.baidu.tbadk.editortools.emotiontool.a> aqS = new ArrayList();
+    private static r aqR = new r();
+    private static BdAsyncTaskParallel aqU = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    private ArrayList<t> aqS = new ArrayList<>();
+    private final List<com.baidu.tbadk.editortools.emotiontool.a> aqT = new ArrayList();
 
     public static r Bc() {
-        return aqQ;
+        return aqR;
     }
 
     private r() {
     }
 
     public void b(com.baidu.tbadk.editortools.emotiontool.a aVar) {
-        synchronized (this.aqS) {
-            if (!this.aqS.contains(aVar)) {
-                this.aqS.add(aVar);
-                Collections.sort(this.aqS);
+        synchronized (this.aqT) {
+            if (!this.aqT.contains(aVar)) {
+                this.aqT.add(aVar);
+                Collections.sort(this.aqT);
             }
         }
     }
@@ -46,12 +46,12 @@ public class r {
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Void, Void, Void> {
-        final ArrayList<t> aqU = new ArrayList<>();
-        final a.InterfaceC0046a aqV = new s(this);
+        final ArrayList<t> aqV = new ArrayList<>();
+        final a.InterfaceC0046a aqW = new s(this);
 
         public a() {
             setPriority(4);
-            setParallel(r.aqT);
+            setParallel(r.aqU);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,8 +61,8 @@ public class r {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < r.this.aqS.size()) {
-                    ((com.baidu.tbadk.editortools.emotiontool.a) r.this.aqS.get(i2)).a(this.aqV);
+                if (i2 < r.this.aqT.size()) {
+                    ((com.baidu.tbadk.editortools.emotiontool.a) r.this.aqT.get(i2)).a(this.aqW);
                     i = i2 + 1;
                 } else {
                     return null;
@@ -76,13 +76,13 @@ public class r {
         /* renamed from: b */
         public void onPostExecute(Void r4) {
             super.onPostExecute(r4);
-            r.this.aqR = this.aqU;
+            r.this.aqS = this.aqV;
             MessageManager.getInstance().dispatchResponsedMessageToUI(new EmptyMessage(CmdConfigCustom.CMD_EMOTIONS_GROUP_CHANGED));
         }
     }
 
     public boolean eP(String str) {
-        Iterator<t> it = this.aqR.iterator();
+        Iterator<t> it = this.aqS.iterator();
         while (it.hasNext()) {
             if (it.next().eP(str)) {
                 return true;
@@ -110,7 +110,7 @@ public class r {
         if (fo != null) {
             return fo;
         }
-        Iterator<t> it = this.aqR.iterator();
+        Iterator<t> it = this.aqS.iterator();
         while (true) {
             if (!it.hasNext()) {
                 aVar = fo;
@@ -156,11 +156,11 @@ public class r {
     }
 
     public ArrayList<t> Be() {
-        return this.aqR;
+        return this.aqS;
     }
 
     public t eT(String str) {
-        Iterator<t> it = this.aqR.iterator();
+        Iterator<t> it = this.aqS.iterator();
         while (it.hasNext()) {
             t next = it.next();
             if (next.getGroupId().equals(str)) {

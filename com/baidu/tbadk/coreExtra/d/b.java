@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.core.util.w;
 import java.io.File;
@@ -94,28 +94,28 @@ public class b {
     }
 
     private boolean eb(String str) {
-        File cI = n.cI(at.dm(str));
-        return cI != null && cI.exists() && cI.isFile();
+        File cJ = n.cJ(au.dn(str));
+        return cJ != null && cJ.exists() && cJ.isFile();
     }
 
     private void ai(String str, String str2) {
         if (i.iN()) {
-            new a(str, at.dm(str), str2).execute(new String[0]);
+            new a(str, au.dn(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private w Th = null;
-        private final String Yj;
-        private final String aho;
+        private w Ti = null;
+        private final String Yl;
         private final String ahp;
+        private final String ahq;
 
         public a(String str, String str2, String str3) {
-            this.aho = str;
-            this.Yj = str2;
-            this.ahp = str3;
+            this.ahp = str;
+            this.Yl = str2;
+            this.ahq = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -125,14 +125,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.Th = new w(this.aho);
-                bool = Boolean.valueOf(this.Th.a(String.valueOf(this.Yj) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                this.Ti = new w(this.ahp);
+                bool = Boolean.valueOf(this.Ti.a(String.valueOf(this.Yl) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(n.f(null, String.valueOf(this.Yj) + ".tmp", null, this.Yj)) && !TextUtils.isEmpty(this.aho) && !this.aho.equals(this.ahp)) {
-                        n.cQ(at.dm(this.ahp));
+                    if (!StringUtils.isNull(n.g(null, String.valueOf(this.Yl) + ".tmp", null, this.Yl)) && !TextUtils.isEmpty(this.ahp) && !this.ahp.equals(this.ahq)) {
+                        n.cR(au.dn(this.ahq));
                     }
                 } else {
-                    n.cQ(String.valueOf(this.Yj) + ".tmp");
+                    n.cR(String.valueOf(this.Yl) + ".tmp");
                 }
             } catch (Exception e) {
             }

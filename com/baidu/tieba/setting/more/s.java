@@ -20,7 +20,7 @@ public class s implements r {
     }
 
     @Override // com.baidu.tieba.setting.more.r
-    public void kx(int i) {
+    public void kz(int i) {
         if (i != 0) {
             if (i != 1) {
                 if (i != 2) {
@@ -34,7 +34,7 @@ public class s implements r {
                                             return;
                                         } else if (i != 9) {
                                             if (i == 10) {
-                                                this.this$0.cMU.asb();
+                                                this.this$0.cNt.ash();
                                                 return;
                                             } else if (i == 12) {
                                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -53,36 +53,36 @@ public class s implements r {
                                             } else if (i != 13) {
                                                 return;
                                             } else {
-                                                this.this$0.arR();
+                                                this.this$0.arX();
                                                 TiebaStatic.log("c10017");
                                                 return;
                                             }
                                         } else {
-                                            this.this$0.arY();
+                                            this.this$0.ase();
                                             return;
                                         }
                                     }
-                                    this.this$0.arQ();
+                                    this.this$0.arW();
                                     return;
                                 }
                                 this.this$0.goToFeedBack();
                                 return;
                             }
-                            this.this$0.arS();
+                            this.this$0.arY();
                             return;
                         }
-                        this.this$0.arX();
+                        this.this$0.asd();
                         return;
                     }
-                    this.this$0.arT();
+                    this.this$0.arZ();
                     return;
                 }
-                this.this$0.arU();
+                this.this$0.asa();
                 return;
             }
-            this.this$0.arV();
+            this.this$0.asb();
             return;
         }
-        this.this$0.arW();
+        this.this$0.asc();
     }
 }

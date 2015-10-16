@@ -5,6 +5,6 @@ import com.baidu.tieba.i;
 public class n extends v {
     public n() {
         super((String) null, 1, 0);
-        this.apr = i.e.selector_msgsend_btn_softkey;
+        this.aps = i.e.selector_msgsend_btn_softkey;
     }
 }

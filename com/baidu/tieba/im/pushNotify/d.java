@@ -15,19 +15,19 @@ import com.baidu.tieba.im.util.g;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    private static d bGg = null;
-    private String bGi;
-    private ArrayList<CustomMessageListener> bGh = new ArrayList<>();
+    private static d bGr = null;
+    private String bGt;
+    private ArrayList<CustomMessageListener> bGs = new ArrayList<>();
     private com.baidu.adp.framework.listener.e mListener = new e(this, 202006);
-    private CustomMessageListener bGj = new f(this, 0);
+    private CustomMessageListener bGu = new f(this, 0);
 
     public static synchronized d WR() {
         d dVar;
         synchronized (d.class) {
-            if (bGg == null) {
-                bGg = new d();
+            if (bGr == null) {
+                bGr = new d();
             }
-            dVar = bGg;
+            dVar = bGr;
         }
         return dVar;
     }
@@ -41,7 +41,7 @@ public class d {
 
     private void WS() {
         MessageManager.getInstance().registerListener(this.mListener);
-        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_RESPONSE_NOTIFY_UPDATA_GROUP, this.bGj);
+        MessageManager.getInstance().registerListener(CmdConfigCustom.MEMORY_RESPONSE_NOTIFY_UPDATA_GROUP, this.bGu);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -78,16 +78,16 @@ public class d {
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setCustomGroupType(i);
             imMessageCenterPojo.setGid(String.valueOf(j));
-            imMessageCenterPojo.setPulled_msgId(g.aB(j2 - 1));
+            imMessageCenterPojo.setPulled_msgId(g.aL(j2 - 1));
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryNotifyUpdataGroupMessage(imMessageCenterPojo));
         }
     }
 
     public String WT() {
-        return this.bGi;
+        return this.bGt;
     }
 
     public void ii(String str) {
-        this.bGi = str;
+        this.bGt = str;
     }
 }

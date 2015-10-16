@@ -5,12 +5,12 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.w;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    private static final String ceA = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORBID_USER_ADDRESS;
+    private static final String ceL = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -26,9 +26,9 @@ public class f {
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidResultData> {
         private String Ag;
-        private WeakReference<b> aFp;
-        private String aiq;
-        private String ceB;
+        private WeakReference<b> aFA;
+        private String air;
+        private String ceM;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -38,11 +38,11 @@ public class f {
             this.mForumId = str;
             this.mForumName = str2;
             this.mThreadId = str3;
-            this.aiq = str4;
-            this.ceB = str6;
+            this.air = str4;
+            this.ceM = str6;
             this.Ag = str7;
             this.mPostId = str5;
-            this.aFp = new WeakReference<>(bVar);
+            this.aFA = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -51,18 +51,18 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: u */
         public ForbidResultData doInBackground(String... strArr) {
-            w wVar = new w(f.ceA);
-            wVar.o("day", this.ceB);
-            wVar.o("un", this.aiq);
+            w wVar = new w(f.ceL);
+            wVar.o("day", this.ceM);
+            wVar.o("un", this.air);
             wVar.o(ImageViewerConfig.FORUM_ID, this.mForumId);
             wVar.o("word", this.mForumName);
             wVar.o("z", this.mThreadId);
             wVar.o("reason", this.Ag);
             wVar.o("ntn", "banid");
             wVar.o("post_id", this.mPostId);
-            wVar.uh().uX().mIsNeedTbs = true;
+            wVar.uh().uY().mIsNeedTbs = true;
             String tG = wVar.tG();
-            if (wVar.uh().uY().qV()) {
+            if (wVar.uh().uZ().qV()) {
                 try {
                     return (ForbidResultData) i.objectWithJsonStr(tG, ForbidResultData.class);
                 } catch (Exception e) {
@@ -84,9 +84,9 @@ public class f {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.aFp.get();
+            b bVar = this.aFA.get();
             if (bVar != null) {
-                if (forbidResultData.error_code == 0 && ar.isEmpty(forbidResultData.error_msg)) {
+                if (forbidResultData.error_code == 0 && as.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);
                 } else {
                     bVar.b(forbidResultData);

@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class v {
-    private static v car = null;
-    private final HttpMessageListener cas = new w(this, CmdConfigHttp.MSG_REMINDER_CMD);
-    private long cat = 0;
+    private static v caC = null;
+    private final HttpMessageListener caD = new w(this, CmdConfigHttp.MSG_REMINDER_CMD);
+    private long caE = 0;
     private final Handler mHandler = new x(this);
 
     static {
@@ -24,16 +24,16 @@ public class v {
     public static synchronized v acZ() {
         v vVar;
         synchronized (v.class) {
-            if (car == null) {
-                car = new v();
+            if (caC == null) {
+                caC = new v();
             }
-            vVar = car;
+            vVar = caC;
         }
         return vVar;
     }
 
     public v() {
-        MessageManager.getInstance().registerListener(this.cas);
+        MessageManager.getInstance().registerListener(this.caD);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -47,20 +47,20 @@ public class v {
     }
 
     public void adb() {
-        this.cat = 0L;
+        this.caE = 0L;
         destroy();
         start();
     }
 
     public void start() {
-        long currentTimeMillis = System.currentTimeMillis() - this.cat;
+        long currentTimeMillis = System.currentTimeMillis() - this.caE;
         long j = currentTimeMillis > 0 ? currentTimeMillis : 0L;
         if (j >= 600000) {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 10000L);
         } else {
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 600000 - j);
         }
-        this.cat = System.currentTimeMillis();
+        this.caE = System.currentTimeMillis();
     }
 
     public void destroy() {

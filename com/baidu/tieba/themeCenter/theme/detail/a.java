@@ -3,11 +3,11 @@ package com.baidu.tieba.themeCenter.theme.detail;
 import com.baidu.tieba.themeCenter.theme.detail.d;
 /* loaded from: classes.dex */
 class a implements d.a {
-    final /* synthetic */ SkinDetailActivity dgs;
+    final /* synthetic */ SkinDetailActivity dgS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(SkinDetailActivity skinDetailActivity) {
-        this.dgs = skinDetailActivity;
+        this.dgS = skinDetailActivity;
     }
 
     @Override // com.baidu.tieba.themeCenter.theme.detail.d.a
@@ -25,33 +25,33 @@ class a implements d.a {
         com.baidu.tieba.themeCenter.b bVar7;
         String str3;
         f fVar3;
-        SkinDetailActivity skinDetailActivity = this.dgs;
-        fVar = this.dgs.dgn;
+        SkinDetailActivity skinDetailActivity = this.dgS;
+        fVar = this.dgS.dgN;
         skinDetailActivity.hideLoadingView(fVar.getRootView());
         if (i == 0) {
-            this.dgs.mSkinData = bVar;
-            bVar2 = this.dgs.mSkinData;
+            this.dgS.mSkinData = bVar;
+            bVar2 = this.dgS.mSkinData;
             if (bVar2 != null) {
-                bVar4 = this.dgs.mSkinData;
-                i2 = this.dgs.dgo;
+                bVar4 = this.dgS.mSkinData;
+                i2 = this.dgS.dgO;
                 bVar4.setId(i2);
-                bVar5 = this.dgs.mSkinData;
-                i3 = this.dgs.mSkinType;
-                bVar5.lp(i3);
-                bVar6 = this.dgs.mSkinData;
-                str2 = this.dgs.dgp;
-                bVar6.lP(str2);
-                bVar7 = this.dgs.mSkinData;
-                str3 = this.dgs.dgq;
-                bVar7.lR(str3);
+                bVar5 = this.dgS.mSkinData;
+                i3 = this.dgS.mSkinType;
+                bVar5.lr(i3);
+                bVar6 = this.dgS.mSkinData;
+                str2 = this.dgS.dgP;
+                bVar6.lS(str2);
+                bVar7 = this.dgS.mSkinData;
+                str3 = this.dgS.dgQ;
+                bVar7.lU(str3);
             }
-            fVar2 = this.dgs.dgn;
-            bVar3 = this.dgs.mSkinData;
+            fVar2 = this.dgS.dgN;
+            bVar3 = this.dgS.mSkinData;
             fVar2.g(bVar3);
             return;
         }
-        this.dgs.showToast(str);
-        fVar3 = this.dgs.dgn;
+        this.dgS.showToast(str);
+        fVar3 = this.dgS.dgN;
         fVar3.Kr();
     }
 }

@@ -4,15 +4,15 @@ import org.json.JSONObject;
 import tbclient.PayMemberInfo;
 /* loaded from: classes.dex */
 public class e {
-    private int TL;
-    private int anC;
+    private int TM;
+    private int anD;
     private String expire_remind;
     private String url;
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.anC = jSONObject.optInt("props_id");
-            this.TL = jSONObject.optInt("end_time", 0);
+            this.anD = jSONObject.optInt("props_id");
+            this.TM = jSONObject.optInt("end_time", 0);
             this.url = jSONObject.optString(this.url, "");
             this.expire_remind = jSONObject.optString("expire_remind");
         }
@@ -21,10 +21,10 @@ public class e {
     public void a(PayMemberInfo payMemberInfo) {
         if (payMemberInfo != null) {
             if (payMemberInfo.props_id != null) {
-                this.anC = payMemberInfo.props_id.intValue();
+                this.anD = payMemberInfo.props_id.intValue();
             }
             if (payMemberInfo.end_time != null) {
-                this.TL = payMemberInfo.end_time.intValue();
+                this.TM = payMemberInfo.end_time.intValue();
             }
             this.url = payMemberInfo.url;
             this.expire_remind = payMemberInfo.expire_remind;
@@ -32,11 +32,11 @@ public class e {
     }
 
     public int zW() {
-        return this.anC;
+        return this.anD;
     }
 
     public int rn() {
-        return this.TL;
+        return this.TM;
     }
 
     public String getUrl() {

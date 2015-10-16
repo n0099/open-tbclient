@@ -10,36 +10,36 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements a.b {
-    private final /* synthetic */ long aUJ;
-    private final /* synthetic */ String aUK;
-    private final /* synthetic */ com.baidu.tieba.pb.chosen.net.a cfe;
-    private final /* synthetic */ PbChosenActivity cff;
-    private final /* synthetic */ com.baidu.tieba.pb.chosen.a.n cfg;
-    private final /* synthetic */ String cfh;
+    private final /* synthetic */ long aUU;
+    private final /* synthetic */ String aUV;
+    private final /* synthetic */ com.baidu.tieba.pb.chosen.net.a cfp;
+    private final /* synthetic */ PbChosenActivity cfq;
+    private final /* synthetic */ com.baidu.tieba.pb.chosen.a.n cfr;
+    private final /* synthetic */ String cfs;
     private final /* synthetic */ String val$name;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(com.baidu.tieba.pb.chosen.net.a aVar, PbChosenActivity pbChosenActivity, com.baidu.tieba.pb.chosen.a.n nVar, long j, String str, String str2, String str3) {
-        this.cfe = aVar;
-        this.cff = pbChosenActivity;
-        this.cfg = nVar;
-        this.aUJ = j;
+        this.cfp = aVar;
+        this.cfq = pbChosenActivity;
+        this.cfr = nVar;
+        this.aUU = j;
         this.val$name = str;
-        this.aUK = str2;
-        this.cfh = str3;
+        this.aUV = str2;
+        this.cfs = str3;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         ShareFromPBMsgData a;
-        if (this.cfe != null && this.cfe.getForumInfo() != null) {
-            com.baidu.adp.lib.util.k.c(this.cff.getPageContext().getPageActivity(), this.cfg.getChatMsgView());
-            Activity pageActivity = this.cff.getPageContext().getPageActivity();
-            long j = this.aUJ;
+        if (this.cfp != null && this.cfp.getForumInfo() != null) {
+            com.baidu.adp.lib.util.k.c(this.cfq.getPageContext().getPageActivity(), this.cfr.getChatMsgView());
+            Activity pageActivity = this.cfq.getPageContext().getPageActivity();
+            long j = this.aUU;
             String str = this.val$name;
-            String str2 = this.aUK;
-            String leaveMsg = this.cfg.getLeaveMsg();
-            a = s.a(this.cfe, this.cfe.getForumInfo().ftid.longValue(), this.cfh);
+            String str2 = this.aUV;
+            String leaveMsg = this.cfr.getLeaveMsg();
+            a = s.a(this.cfp, this.cfp.getForumInfo().ftid.longValue(), this.cfs);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(pageActivity, j, str, str2, 0, leaveMsg, a.toChatMessageContent())));
             aVar.dismiss();
         }

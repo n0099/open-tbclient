@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<d> {
-    private com.baidu.adp.framework.listener.a aQK = new e(this, CmdConfigHttp.CMD_DRESSUP_CENTER, 309001);
-    private a dfK;
+    private com.baidu.adp.framework.listener.a aQV = new e(this, CmdConfigHttp.CMD_DRESSUP_CENTER, 309001);
+    private a dgk;
     private k mRecommand;
     private List<b> mThemeCarouselList;
     private List<j> mThemeList;
@@ -19,7 +19,7 @@ public class d extends com.baidu.adp.base.e<d> {
 
     public d() {
         BZ();
-        registerListener(this.aQK);
+        registerListener(this.aQV);
     }
 
     private void BZ() {
@@ -39,10 +39,10 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     public void a(a aVar) {
-        this.dfK = aVar;
+        this.dgk = aVar;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.aQK);
+        MessageManager.getInstance().unRegisterListener(this.aQV);
     }
 }

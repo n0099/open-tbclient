@@ -29,34 +29,34 @@ import java.util.HashSet;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class r extends BaseFragment implements View.OnClickListener, AdapterView.OnItemClickListener {
-    private ad coE;
-    private String coV;
-    private TextView coX;
+    private ad coP;
+    private String cpg;
+    private TextView cpi;
     public BdListView mListView = null;
-    public u.a coO = null;
-    private ac coP = null;
-    private int cbp = -1;
-    private String coQ = null;
-    private View coR = null;
+    public u.a coZ = null;
+    private ac cpa = null;
+    private int cbA = -1;
+    private String cpb = null;
+    private View cpc = null;
     private com.baidu.tbadk.core.view.m mNoDataView = null;
     private com.baidu.tbadk.core.view.r mPullView = null;
-    private TextView aEh = null;
-    public int coS = 0;
+    private TextView aEs = null;
+    public int cpd = 0;
     public int pageSize = 50;
     public boolean hasMore = false;
-    private ForumData coT = null;
-    private boolean coU = false;
-    private View coW = null;
-    private int coY = 0;
+    private ForumData cpe = null;
+    private boolean cpf = false;
+    private View cph = null;
+    private int cpj = 0;
     private boolean mIsHost = true;
-    private boolean coZ = false;
-    private boolean cnI = false;
-    private boolean cpa = false;
+    private boolean cpk = false;
+    private boolean cnT = false;
+    private boolean cpl = false;
     private ArrayList<ForumData> rK = new ArrayList<>();
-    private final com.baidu.adp.framework.listener.e cpb = new s(this, 107129);
-    private final CustomMessageListener cpc = new u(this, CmdConfigCustom.CMD_QUERY_PERSON_BAR_LOCAL_HISTORY);
-    private HttpMessageListener cpd = new v(this, CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
-    private HttpMessageListener cpe = new w(this, CmdConfigHttp.PIC_LIKE_BAR_CMD);
+    private final com.baidu.adp.framework.listener.e cpm = new s(this, 107129);
+    private final CustomMessageListener cpn = new u(this, CmdConfigCustom.CMD_QUERY_PERSON_BAR_LOCAL_HISTORY);
+    private HttpMessageListener cpo = new v(this, CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD);
+    private HttpMessageListener cpp = new w(this, CmdConfigHttp.PIC_LIKE_BAR_CMD);
 
     static {
         com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.CMD_QUERY_PERSON_BAR_LOCAL_HISTORY, bx.class);
@@ -84,11 +84,11 @@ public class r extends BaseFragment implements View.OnClickListener, AdapterView
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        registerListener(this.cpe);
-        registerListener(this.cpd);
-        registerListener(this.cpc);
-        registerListener(this.cpb);
-        this.cpb.setSelfListener(true);
+        registerListener(this.cpp);
+        registerListener(this.cpo);
+        registerListener(this.cpn);
+        registerListener(this.cpm);
+        this.cpm.setSelfListener(true);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -109,13 +109,13 @@ public class r extends BaseFragment implements View.OnClickListener, AdapterView
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        if (this.coP != null) {
-            this.coP = null;
+        if (this.cpa != null) {
+            this.cpa = null;
         }
-        MessageManager.getInstance().unRegisterListener(this.cpd);
-        MessageManager.getInstance().unRegisterListener(this.cpe);
-        MessageManager.getInstance().unRegisterListener(this.cpc);
-        MessageManager.getInstance().unRegisterListener(this.cpb);
+        MessageManager.getInstance().unRegisterListener(this.cpo);
+        MessageManager.getInstance().unRegisterListener(this.cpp);
+        MessageManager.getInstance().unRegisterListener(this.cpn);
+        MessageManager.getInstance().unRegisterListener(this.cpm);
         super.onDestroyView();
     }
 
@@ -123,35 +123,35 @@ public class r extends BaseFragment implements View.OnClickListener, AdapterView
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         int dimension;
         String string;
-        this.coY = getArguments().getInt("page_type", 0);
+        this.cpj = getArguments().getInt("page_type", 0);
         View inflate = layoutInflater.inflate(i.g.friend_fragment, viewGroup, false);
-        this.coW = LayoutInflater.from(getPageContext().getPageActivity()).inflate(i.g.friend_fragment_header, (ViewGroup) null);
-        this.coX = (TextView) this.coW.findViewById(i.f.header_text_describe);
+        this.cph = LayoutInflater.from(getPageContext().getPageActivity()).inflate(i.g.friend_fragment_header, (ViewGroup) null);
+        this.cpi = (TextView) this.cph.findViewById(i.f.header_text_describe);
         if (ais() == null) {
             return inflate;
         }
-        this.coV = getString(i.h.person_bar_no_more);
-        this.coE = ais().aij();
+        this.cpg = getString(i.h.person_bar_no_more);
+        this.coP = ais().aij();
         this.mIsHost = ais().WK();
-        this.cnI = ais().ahZ();
-        this.coR = inflate.findViewById(i.f.friend_fragment_parent);
-        if (this.mIsHost && !this.cnI) {
-            this.aEh = (TextView) ais().getNavigationBar().addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.navigation_right_button_layout, ais()).findViewById(i.f.right_textview);
-            this.aEh.setText(i.h.edit);
-            this.aEh.setOnClickListener(new x(this));
-            this.aEh.setVisibility(0);
+        this.cnT = ais().ahZ();
+        this.cpc = inflate.findViewById(i.f.friend_fragment_parent);
+        if (this.mIsHost && !this.cnT) {
+            this.aEs = (TextView) ais().getNavigationBar().addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.navigation_right_button_layout, ais()).findViewById(i.f.right_textview);
+            this.aEs.setText(i.h.edit);
+            this.aEs.setOnClickListener(new x(this));
+            this.aEs.setVisibility(0);
         }
-        this.coP = new ac(ais(), this.coE.aiv(), this.mIsHost, this.cnI);
-        this.coP.jZ(ais().aib());
-        this.coP.x(new y(this));
-        this.coP.E(new z(this));
+        this.cpa = new ac(ais(), this.coP.aiv(), this.mIsHost, this.cnT);
+        this.cpa.jZ(ais().aib());
+        this.cpa.x(new y(this));
+        this.cpa.E(new z(this));
         this.mListView = (BdListView) inflate.findViewById(i.f.my_friend_list);
-        this.mListView.setAdapter((ListAdapter) this.coP);
+        this.mListView.setAdapter((ListAdapter) this.cpa);
         this.mListView.setOnItemClickListener(new aa(this));
         this.mPullView = new com.baidu.tbadk.core.view.r(ais().getPageContext());
         this.mPullView.a(new ab(this));
-        this.coO = new u.a(getBaseFragmentActivity());
-        this.mListView.setNextPage(this.coO);
+        this.coZ = new u.a(getBaseFragmentActivity());
+        this.mListView.setNextPage(this.coZ);
         this.mListView.setOnSrollToBottomListener(new t(this));
         this.mListView.setPullRefresh(this.mPullView);
         if (this.mIsHost) {
@@ -159,13 +159,13 @@ public class r extends BaseFragment implements View.OnClickListener, AdapterView
             string = String.format(getString(i.h.person_bar_no_personal_info), getString(i.h.you));
         } else {
             dimension = (int) getResources().getDimension(i.d.ds80);
-            if (this.coY == 0) {
+            if (this.cpj == 0) {
                 string = String.format(getString(i.h.person_bar_no_personal_info), ais().WJ());
             } else {
                 string = getString(i.h.person_bar_no_common_info);
             }
         }
-        if (this.cnI) {
+        if (this.cnT) {
             this.mNoDataView = NoDataViewFactory.a(getActivity(), inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, dimension), NoDataViewFactory.d.ag(string, getString(i.h.share_choose_bar_nothing_tip)), null);
         } else {
             this.mNoDataView = NoDataViewFactory.a(getActivity(), inflate, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, dimension), NoDataViewFactory.d.dC(string), null);
@@ -173,25 +173,25 @@ public class r extends BaseFragment implements View.OnClickListener, AdapterView
         if (this.mIsHost && ais() != null && ais().getRequestCode() != 23011) {
             HF();
         }
-        if (this.coY == ais().WI()) {
+        if (this.cpj == ais().WI()) {
             this.mListView.nw();
         }
         return inflate;
     }
 
     public void eV(boolean z) {
-        if (this.coP != null) {
-            this.coP.adx();
-            if (this.coP.aiu()) {
+        if (this.cpa != null) {
+            this.cpa.adx();
+            if (this.cpa.aiu()) {
                 if (z) {
-                    this.coP.setEditState(false);
+                    this.cpa.setEditState(false);
                     this.mNoDataView.setVisibility(0);
                     this.mListView.setVisibility(0);
-                    if (this.aEh != null) {
-                        this.aEh.setVisibility(8);
+                    if (this.aEs != null) {
+                        this.aEs.setVisibility(8);
                     }
-                    if (this.coO != null && this.coO.getView() != null) {
-                        this.coO.getView().setVisibility(8);
+                    if (this.coZ != null && this.coZ.getView() != null) {
+                        this.coZ.getView().setVisibility(8);
                         return;
                     }
                     return;
@@ -200,35 +200,35 @@ public class r extends BaseFragment implements View.OnClickListener, AdapterView
             }
             this.mNoDataView.setVisibility(8);
             this.mListView.setVisibility(0);
-            if (this.aEh != null) {
-                this.aEh.setVisibility(0);
+            if (this.aEs != null) {
+                this.aEs.setVisibility(0);
             }
-            if (ais() != null && ais().getRequestCode() == 23011 && this.aEh != null) {
-                this.aEh.setVisibility(8);
+            if (ais() != null && ais().getRequestCode() == 23011 && this.aEs != null) {
+                this.aEs.setVisibility(8);
             }
         }
     }
 
     public ac ait() {
-        return this.coP;
+        return this.cpa;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Ko() {
-        if (this.coE != null) {
-            this.coE.a(this.mIsHost, this.coE.getId(), this.coS, this.pageSize);
+        if (this.coP != null) {
+            this.coP.a(this.mIsHost, this.coP.getId(), this.cpd, this.pageSize);
         }
     }
 
     public void gW(int i) {
-        if (this.coE != null) {
-            this.coE.a(this.mIsHost, this.coE.getId(), i, this.pageSize);
+        if (this.coP != null) {
+            this.coP.a(this.mIsHost, this.coP.getId(), i, this.pageSize);
         }
     }
 
     public void HF() {
-        if (this.coE != null) {
-            this.coE.HF();
+        if (this.coP != null) {
+            this.coP.HF();
         }
     }
 
@@ -240,41 +240,41 @@ public class r extends BaseFragment implements View.OnClickListener, AdapterView
             }
             int aia = ais().aia();
             int i = 0;
-            if (this.coE != null && this.coP != null) {
-                if (this.coY == ais().WI()) {
+            if (this.coP != null && this.cpa != null) {
+                if (this.cpj == ais().WI()) {
                     if (z) {
-                        this.coS = 1;
-                        this.coE.aiv().b(qVar.aim(), qVar.ain());
-                        this.coE.aiv().e(qVar.aio(), qVar.aip());
-                        this.coE.aiv().ja(qVar.aik());
-                        this.coE.aiv().jc(qVar.ail());
-                    } else if (this.coS == 1) {
-                        this.coE.aiv().b(qVar.aim(), qVar.ain());
-                        this.coE.aiv().e(qVar.aio(), qVar.aip());
-                        this.coE.aiv().ja(qVar.aik());
-                        this.coE.aiv().jc(qVar.ail());
-                        this.coS++;
+                        this.cpd = 1;
+                        this.coP.aiv().b(qVar.aim(), qVar.ain());
+                        this.coP.aiv().e(qVar.aio(), qVar.aip());
+                        this.coP.aiv().ja(qVar.aik());
+                        this.coP.aiv().jc(qVar.ail());
+                    } else if (this.cpd == 1) {
+                        this.coP.aiv().b(qVar.aim(), qVar.ain());
+                        this.coP.aiv().e(qVar.aio(), qVar.aip());
+                        this.coP.aiv().ja(qVar.aik());
+                        this.coP.aiv().jc(qVar.ail());
+                        this.cpd++;
                     } else {
-                        this.coE.aiv().c(qVar.aim(), qVar.ain());
-                        this.coE.aiv().d(qVar.aio(), qVar.aip());
-                        this.coE.aiv().jb(qVar.aik());
-                        this.coE.aiv().jd(qVar.ail());
-                        this.coS++;
+                        this.coP.aiv().c(qVar.aim(), qVar.ain());
+                        this.coP.aiv().d(qVar.aio(), qVar.aip());
+                        this.coP.aiv().jb(qVar.aik());
+                        this.coP.aiv().jd(qVar.ail());
+                        this.cpd++;
                     }
                 }
-                if (this.coY == 0) {
-                    this.coP.S(this.coE.aiv().aiq());
+                if (this.cpj == 0) {
+                    this.cpa.S(this.coP.aiv().aiq());
                 } else {
-                    this.coP.S(this.coE.aiv().air());
+                    this.cpa.S(this.coP.aiv().air());
                 }
                 if (qVar.air() != null) {
-                    i = this.coE.aiv().air().size();
+                    i = this.coP.aiv().air().size();
                 }
                 if (ais() != null) {
                     ais().ah(aia, i);
                 }
                 eV(true);
-                this.coP.notifyDataSetChanged();
+                this.cpa.notifyDataSetChanged();
             }
         }
     }
@@ -283,12 +283,12 @@ public class r extends BaseFragment implements View.OnClickListener, AdapterView
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (isAdded()) {
-            if (this.coR != null && getBaseFragmentActivity() != null) {
+            if (this.cpc != null && getBaseFragmentActivity() != null) {
                 getBaseFragmentActivity().getPageContext().getLayoutMode().ad(i == 1);
-                getBaseFragmentActivity().getPageContext().getLayoutMode().k(this.coR);
+                getBaseFragmentActivity().getPageContext().getLayoutMode().k(this.cpc);
             }
             if (this.mNoDataView != null) {
-                com.baidu.tbadk.core.util.am.i(this.mNoDataView, i.c.cp_bg_line_d);
+                com.baidu.tbadk.core.util.an.i(this.mNoDataView, i.c.cp_bg_line_d);
             }
             if (ais() != null) {
                 ais().getNavigationBar().onChangeSkinType(getBaseFragmentActivity().getPageContext(), i);
@@ -296,8 +296,8 @@ public class r extends BaseFragment implements View.OnClickListener, AdapterView
             if (this.mPullView != null) {
                 this.mPullView.cN(i);
             }
-            if (this.coP != null) {
-                this.coP.notifyDataSetChanged();
+            if (this.cpa != null) {
+                this.cpa.notifyDataSetChanged();
             }
         }
     }

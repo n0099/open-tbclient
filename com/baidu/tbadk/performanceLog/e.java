@@ -12,18 +12,18 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e extends r {
     private static CustomMessageTask customNormalTask = new CustomMessageTask(CmdConfigCustom.CMD_PERF_SAMPLE, new h());
-    private ArrayList<String> awH;
     private ArrayList<String> awI;
     private ArrayList<String> awJ;
-    private j awN;
-    private com.baidu.tbadk.performanceLog.a awO;
-    private int awP;
-    private int awK = 0;
-    private int awL = 3;
-    private int awM = 0;
-    private int awQ = 0;
-    private j.a awR = new f(this);
-    private a.InterfaceC0053a aww = new g(this);
+    private ArrayList<String> awK;
+    private j awO;
+    private com.baidu.tbadk.performanceLog.a awP;
+    private int awQ;
+    private int awL = 0;
+    private int awM = 3;
+    private int awN = 0;
+    private int awR = 0;
+    private j.a awS = new f(this);
+    private a.InterfaceC0053a awx = new g(this);
     private CustomMessageListener customNormalListener = new i(this, CmdConfigCustom.CMD_PERF_SAMPLE);
 
     public e() {
@@ -31,28 +31,28 @@ public class e extends r {
     }
 
     public void onDestroy() {
-        if (this.awN != null) {
-            this.awN.a((j.a) null);
-        }
         if (this.awO != null) {
-            this.awO.a((a.InterfaceC0053a) null);
+            this.awO.a((j.a) null);
+        }
+        if (this.awP != null) {
+            this.awP.a((a.InterfaceC0053a) null);
         }
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
     public void DE() {
-        if (this.awK < this.awL) {
-            this.awK++;
+        if (this.awL < this.awM) {
+            this.awL++;
             DG();
-            if (this.awN == null) {
-                this.awN = new j();
-                this.awN.a(this.awR);
-                this.awN.start();
-            }
             if (this.awO == null) {
-                this.awO = new com.baidu.tbadk.performanceLog.a(TbadkCoreApplication.m411getInst().getContext());
-                this.awO.a(this.aww);
+                this.awO = new j();
+                this.awO.a(this.awS);
                 this.awO.start();
+            }
+            if (this.awP == null) {
+                this.awP = new com.baidu.tbadk.performanceLog.a(TbadkCoreApplication.m411getInst().getContext());
+                this.awP.a(this.awx);
+                this.awP.start();
             }
         }
     }
@@ -72,45 +72,45 @@ public class e extends r {
     /* JADX INFO: Access modifiers changed from: private */
     public void ex(int i) {
         String valueOf = String.valueOf(i);
-        if (this.awH == null) {
-            this.awH = new ArrayList<>();
+        if (this.awI == null) {
+            this.awI = new ArrayList<>();
         }
-        this.awH.add(valueOf);
+        this.awI.add(valueOf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fB(String str) {
-        if (this.awI == null) {
-            this.awI = new ArrayList<>();
+        if (this.awJ == null) {
+            this.awJ = new ArrayList<>();
         }
         if (str != null) {
-            this.awI.add(str);
+            this.awJ.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ey(int i) {
         String valueOf = String.valueOf(i);
-        if (this.awJ == null) {
-            this.awJ = new ArrayList<>();
+        if (this.awK == null) {
+            this.awK = new ArrayList<>();
         }
-        this.awJ.add(valueOf);
+        this.awK.add(valueOf);
     }
 
     public String DH() {
-        return r(this.awH);
-    }
-
-    public String DI() {
-        return String.valueOf(this.awP);
-    }
-
-    public String DJ() {
         return r(this.awI);
     }
 
-    public String getCpuString() {
+    public String DI() {
+        return String.valueOf(this.awQ);
+    }
+
+    public String DJ() {
         return r(this.awJ);
+    }
+
+    public String getCpuString() {
+        return r(this.awK);
     }
 
     private String r(ArrayList<String> arrayList) {
@@ -135,7 +135,7 @@ public class e extends r {
     /* JADX INFO: Access modifiers changed from: private */
     public void DK() {
         aa aaVar;
-        if (this.awM == this.awL && this.awL == this.awQ && (aaVar = (aa) y.Eb().eB(this.mSubType)) != null) {
+        if (this.awN == this.awM && this.awM == this.awR && (aaVar = (aa) y.Eb().eB(this.mSubType)) != null) {
             aaVar.g(this);
         }
     }
@@ -147,8 +147,8 @@ public class e extends r {
 
     /* loaded from: classes.dex */
     public class a {
-        public String awT;
-        public int awU;
+        public String awU;
+        public int awV;
 
         public a() {
         }

@@ -7,8 +7,8 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class h {
-    private boolean amR = false;
-    private int amS = 0;
+    private boolean amS = false;
+    private int amT = 0;
 
     public void eC(String str) {
         int lastIndexOf;
@@ -18,8 +18,8 @@ public class h {
         int i2;
         String str3 = null;
         int i3 = 0;
-        this.amR = false;
-        this.amS = 0;
+        this.amS = false;
+        this.amT = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -48,7 +48,7 @@ public class h {
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.amR = true;
+                                this.amS = true;
                                 i = i6;
                                 i2 = currentTimeMillis2;
                             } else {
@@ -82,19 +82,19 @@ public class h {
                         throw th;
                     }
                 }
-                if (this.amR && i3 > 0) {
-                    this.amS = i5 / i3;
+                if (this.amS && i3 > 0) {
+                    this.amT = i5 / i3;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.amR;
+        return this.amS;
     }
 
     public int zH() {
-        return this.amS;
+        return this.amT;
     }
 
     private int zI() {

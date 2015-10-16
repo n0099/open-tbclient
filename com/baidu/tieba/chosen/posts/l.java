@@ -4,10 +4,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 /* loaded from: classes.dex */
-class l implements ay.a {
-    @Override // com.baidu.tbadk.core.util.ay.a
+class l implements az.a {
+    @Override // com.baidu.tbadk.core.util.az.a
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
         if (strArr == null || strArr.length <= 0) {
             return false;

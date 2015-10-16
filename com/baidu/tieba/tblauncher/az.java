@@ -4,11 +4,11 @@ import android.support.v4.view.ViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class az implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ ao dcY;
+    final /* synthetic */ ao ddy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(ao aoVar) {
-        this.dcY = aoVar;
+        this.ddy = aoVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener

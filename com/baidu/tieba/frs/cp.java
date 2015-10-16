@@ -6,14 +6,14 @@ import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class cp extends x.a {
-    public View aXs;
-    public PhotoLiveCardView aXt;
-    public View aXu;
+    public View aXD;
+    public PhotoLiveCardView aXE;
+    public View aXF;
 
     public cp(View view) {
         super(view);
-        this.aXs = view.findViewById(i.f.more_live_list);
-        this.aXt = (PhotoLiveCardView) view.findViewById(i.f.photo_live_card);
-        this.aXu = view.findViewById(i.f.make_headlines);
+        this.aXD = view.findViewById(i.f.more_live_list);
+        this.aXE = (PhotoLiveCardView) view.findViewById(i.f.photo_live_card);
+        this.aXF = view.findViewById(i.f.make_headlines);
     }
 }

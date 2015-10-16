@@ -12,8 +12,8 @@ public abstract class CommonPersonalMsglistView extends AbsMsglistView {
     public void initExpression(TalkableActivity talkableActivity) {
         super.initExpression(talkableActivity);
         v dU = this.mTool.dU(5);
-        if (dU != null && (dU.aoI instanceof com.baidu.tbadk.editortools.emotiontool.j)) {
-            ((com.baidu.tbadk.editortools.emotiontool.j) dU.aoI).setFrom(2);
+        if (dU != null && (dU.aoJ instanceof com.baidu.tbadk.editortools.emotiontool.j)) {
+            ((com.baidu.tbadk.editortools.emotiontool.j) dU.aoJ).setFrom(2);
         }
     }
 

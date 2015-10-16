@@ -8,13 +8,13 @@ import com.baidu.tieba.payment.data.PaymentConfirmInfoData;
 import com.baidu.tieba.payment.message.ResponsePaymentConfirmInfoMessage;
 /* loaded from: classes.dex */
 class c extends HttpMessageListener {
-    final /* synthetic */ PaymentConfirmActivity cdS;
+    final /* synthetic */ PaymentConfirmActivity ced;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(PaymentConfirmActivity paymentConfirmActivity, int i) {
         super(i);
-        this.cdS = paymentConfirmActivity;
+        this.ced = paymentConfirmActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,36 +29,36 @@ class c extends HttpMessageListener {
         boolean z;
         PaymentConfirmInfoData paymentConfirmInfoData4;
         boolean z2;
-        PaymentConfirmActivity paymentConfirmActivity = this.cdS;
-        qVar = this.cdS.cdK;
+        PaymentConfirmActivity paymentConfirmActivity = this.ced;
+        qVar = this.ced.cdV;
         paymentConfirmActivity.hideLoadingView(qVar.aev());
         if (httpResponsedMessage != null && (httpResponsedMessage instanceof ResponsePaymentConfirmInfoMessage)) {
             ResponsePaymentConfirmInfoMessage responsePaymentConfirmInfoMessage = (ResponsePaymentConfirmInfoMessage) httpResponsedMessage;
-            this.cdS.paymentConfirmInfoData = responsePaymentConfirmInfoMessage.getPaymentConfirmInfoData();
+            this.ced.paymentConfirmInfoData = responsePaymentConfirmInfoMessage.getPaymentConfirmInfoData();
             if (!responsePaymentConfirmInfoMessage.hasError()) {
-                paymentConfirmInfoData = this.cdS.paymentConfirmInfoData;
+                paymentConfirmInfoData = this.ced.paymentConfirmInfoData;
                 if (paymentConfirmInfoData != null) {
-                    PaymentConfirmActivity paymentConfirmActivity2 = this.cdS;
-                    PaymentConfirmActivity paymentConfirmActivity3 = this.cdS;
-                    paymentConfirmInfoData2 = this.cdS.paymentConfirmInfoData;
+                    PaymentConfirmActivity paymentConfirmActivity2 = this.ced;
+                    PaymentConfirmActivity paymentConfirmActivity3 = this.ced;
+                    paymentConfirmInfoData2 = this.ced.paymentConfirmInfoData;
                     a = paymentConfirmActivity3.a(paymentConfirmInfoData2);
-                    paymentConfirmActivity2.cdN = a;
-                    qVar2 = this.cdS.cdK;
-                    paymentConfirmInfoData3 = this.cdS.paymentConfirmInfoData;
-                    z = this.cdS.cdN;
+                    paymentConfirmActivity2.cdY = a;
+                    qVar2 = this.ced.cdV;
+                    paymentConfirmInfoData3 = this.ced.paymentConfirmInfoData;
+                    z = this.ced.cdY;
                     qVar2.b(paymentConfirmInfoData3, z);
-                    PaymentConfirmActivity paymentConfirmActivity4 = this.cdS;
-                    paymentConfirmInfoData4 = this.cdS.paymentConfirmInfoData;
-                    z2 = this.cdS.cdN;
+                    PaymentConfirmActivity paymentConfirmActivity4 = this.ced;
+                    paymentConfirmInfoData4 = this.ced.paymentConfirmInfoData;
+                    z2 = this.ced.cdY;
                     paymentConfirmActivity4.a(paymentConfirmInfoData4, z2);
                     return;
                 }
             }
             String errorString = responsePaymentConfirmInfoMessage.getErrorString();
             if (StringUtils.isNull(errorString)) {
-                errorString = this.cdS.getResources().getString(i.h.neterror);
+                errorString = this.ced.getResources().getString(i.h.neterror);
             }
-            this.cdS.showToast(errorString);
+            this.ced.showToast(errorString);
         }
     }
 }

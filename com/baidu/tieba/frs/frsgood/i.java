@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements c.b {
-    private final /* synthetic */ com.baidu.tbadk.core.data.v aUF;
-    final /* synthetic */ FrsGoodActivity aZB;
+    private final /* synthetic */ com.baidu.tbadk.core.data.w aUQ;
+    final /* synthetic */ FrsGoodActivity aZM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(FrsGoodActivity frsGoodActivity, com.baidu.tbadk.core.data.v vVar) {
-        this.aZB = frsGoodActivity;
-        this.aUF = vVar;
+    public i(FrsGoodActivity frsGoodActivity, com.baidu.tbadk.core.data.w wVar) {
+        this.aZM = frsGoodActivity;
+        this.aUQ = wVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -26,28 +26,28 @@ public class i implements c.b {
         cVar.dismiss();
         switch (i) {
             case 0:
-                str = this.aZB.mThreadId;
+                str = this.aZM.mThreadId;
                 if (str != null) {
-                    FrsGoodActivity frsGoodActivity = this.aZB;
-                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aZB.getPageContext().getPageActivity());
-                    com.baidu.tbadk.core.data.v vVar = this.aUF;
-                    str2 = this.aZB.aTB;
-                    z = this.aZB.aTH;
-                    frsGoodActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createFromThreadCfg(vVar, str2, null, 18003, true, false, z)));
+                    FrsGoodActivity frsGoodActivity = this.aZM;
+                    PbActivityConfig pbActivityConfig = new PbActivityConfig(this.aZM.getPageContext().getPageActivity());
+                    com.baidu.tbadk.core.data.w wVar = this.aUQ;
+                    str2 = this.aZM.aTM;
+                    z = this.aZM.aTS;
+                    frsGoodActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createFromThreadCfg(wVar, str2, null, 18003, true, false, z)));
                     break;
                 }
                 break;
             case 1:
-                this.aZB.b(this.aUF);
+                this.aZM.b(this.aUQ);
                 break;
             case 2:
-                this.aZB.c(this.aUF);
+                this.aZM.c(this.aUQ);
                 break;
         }
         com.baidu.tieba.tbadkCore.util.p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-        if (readThreadHistory != null && this.aUF != null && !readThreadHistory.lI(this.aUF.getId())) {
-            readThreadHistory.lH(this.aUF.getId());
+        if (readThreadHistory != null && this.aUQ != null && !readThreadHistory.lL(this.aUQ.getId())) {
+            readThreadHistory.lK(this.aUQ.getId());
         }
-        this.aZB.aZv.LQ();
+        this.aZM.aZG.LQ();
     }
 }

@@ -29,7 +29,7 @@ public class MsgReplyCardViewItemAdapter extends ap<MsgReplyCardView> {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
         MsgReplyCardView RP = aVar.RP();
         RP.a(this.mPageContext, chatMessage, viewGroup);
-        RP.a(this.brs);
+        RP.a(this.brD);
         RP.setPosition(i);
         this.mPageContext.getLayoutMode().ad(false);
         this.mPageContext.getLayoutMode().k(view);

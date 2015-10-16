@@ -8,11 +8,11 @@ import android.widget.RadioGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ k akC;
+    final /* synthetic */ k akD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(k kVar) {
-        this.akC = kVar;
+        this.akD = kVar;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -52,69 +52,69 @@ public class n implements CompoundButton.OnCheckedChangeListener {
         RadioButton radioButton21;
         Drawable drawable9;
         if (z) {
-            radioButton = this.akC.akm;
+            radioButton = this.akD.akn;
             if (compoundButton == radioButton) {
-                radioGroup3 = this.akC.akk;
+                radioGroup3 = this.akD.akl;
                 radioGroup3.clearCheck();
-                radioButton16 = this.akC.akm;
+                radioButton16 = this.akD.akn;
                 radioButton16.setChecked(true);
-                radioButton17 = this.akC.akm;
-                drawable7 = this.akC.akA;
+                radioButton17 = this.akD.akn;
+                drawable7 = this.akD.akB;
                 radioButton17.setCompoundDrawables(drawable7, null, null, null);
-                radioButton18 = this.akC.akn;
+                radioButton18 = this.akD.ako;
                 radioButton18.setChecked(false);
-                radioButton19 = this.akC.akn;
-                drawable8 = this.akC.akB;
+                radioButton19 = this.akD.ako;
+                drawable8 = this.akD.akC;
                 radioButton19.setCompoundDrawables(drawable8, null, null, null);
-                radioButton20 = this.akC.ako;
+                radioButton20 = this.akD.akp;
                 radioButton20.setChecked(false);
-                radioButton21 = this.akC.ako;
-                drawable9 = this.akC.akB;
+                radioButton21 = this.akD.akp;
+                drawable9 = this.akD.akC;
                 radioButton21.setCompoundDrawables(drawable9, null, null, null);
             } else {
-                radioButton2 = this.akC.akn;
+                radioButton2 = this.akD.ako;
                 if (compoundButton == radioButton2) {
-                    radioGroup2 = this.akC.akk;
+                    radioGroup2 = this.akD.akl;
                     radioGroup2.clearCheck();
-                    radioButton10 = this.akC.akm;
+                    radioButton10 = this.akD.akn;
                     radioButton10.setChecked(false);
-                    radioButton11 = this.akC.akm;
-                    drawable4 = this.akC.akB;
+                    radioButton11 = this.akD.akn;
+                    drawable4 = this.akD.akC;
                     radioButton11.setCompoundDrawables(drawable4, null, null, null);
-                    radioButton12 = this.akC.akn;
+                    radioButton12 = this.akD.ako;
                     radioButton12.setChecked(true);
-                    radioButton13 = this.akC.akn;
-                    drawable5 = this.akC.akA;
+                    radioButton13 = this.akD.ako;
+                    drawable5 = this.akD.akB;
                     radioButton13.setCompoundDrawables(drawable5, null, null, null);
-                    radioButton14 = this.akC.ako;
+                    radioButton14 = this.akD.akp;
                     radioButton14.setChecked(false);
-                    radioButton15 = this.akC.ako;
-                    drawable6 = this.akC.akB;
+                    radioButton15 = this.akD.akp;
+                    drawable6 = this.akD.akC;
                     radioButton15.setCompoundDrawables(drawable6, null, null, null);
                 } else {
-                    radioButton3 = this.akC.ako;
+                    radioButton3 = this.akD.akp;
                     if (compoundButton == radioButton3) {
-                        radioGroup = this.akC.akj;
+                        radioGroup = this.akD.akk;
                         radioGroup.clearCheck();
-                        radioButton4 = this.akC.akm;
+                        radioButton4 = this.akD.akn;
                         radioButton4.setChecked(false);
-                        radioButton5 = this.akC.akm;
-                        drawable = this.akC.akB;
+                        radioButton5 = this.akD.akn;
+                        drawable = this.akD.akC;
                         radioButton5.setCompoundDrawables(drawable, null, null, null);
-                        radioButton6 = this.akC.akn;
+                        radioButton6 = this.akD.ako;
                         radioButton6.setChecked(false);
-                        radioButton7 = this.akC.akn;
-                        drawable2 = this.akC.akB;
+                        radioButton7 = this.akD.ako;
+                        drawable2 = this.akD.akC;
                         radioButton7.setCompoundDrawables(drawable2, null, null, null);
-                        radioButton8 = this.akC.ako;
+                        radioButton8 = this.akD.akp;
                         radioButton8.setChecked(true);
-                        radioButton9 = this.akC.ako;
-                        drawable3 = this.akC.akA;
+                        radioButton9 = this.akD.akp;
+                        drawable3 = this.akD.akB;
                         radioButton9.setCompoundDrawables(drawable3, null, null, null);
                     }
                 }
             }
-            editText = this.akC.aki;
+            editText = this.akD.akj;
             editText.setText(compoundButton.getText());
         }
     }

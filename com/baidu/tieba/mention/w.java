@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends HttpMessageListener {
-    final /* synthetic */ v cau;
+    final /* synthetic */ v caF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(v vVar, int i) {
         super(i);
-        this.cau = vVar;
+        this.caF = vVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

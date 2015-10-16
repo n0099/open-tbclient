@@ -8,17 +8,17 @@ import com.baidu.adp.widget.ListView.v;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements v {
-    final /* synthetic */ i bob;
+    final /* synthetic */ i bom;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar) {
-        this.bob = iVar;
+        this.bom = iVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.v
     public void a(View view, u uVar, BdUniqueId bdUniqueId, AdapterView<?> adapterView, int i, long j) {
         if (uVar != null && (uVar instanceof com.baidu.tieba.hottopic.data.e)) {
-            this.bob.a((com.baidu.tieba.hottopic.data.e) uVar);
+            this.bom.a((com.baidu.tieba.hottopic.data.e) uVar);
         }
     }
 }

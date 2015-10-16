@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class bb implements AdapterView.OnItemClickListener {
-    final /* synthetic */ aw cqf;
+    final /* synthetic */ aw cqq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bb(aw awVar) {
-        this.cqf = awVar;
+        this.cqq = awVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -21,15 +21,15 @@ class bb implements AdapterView.OnItemClickListener {
         be beVar2;
         be beVar3;
         PersonFriendActivity aiG;
-        beVar = this.cqf.cpX;
+        beVar = this.cqq.cqi;
         if (beVar != null) {
-            beVar2 = this.cqf.cpX;
+            beVar2 = this.cqq.cqi;
             if (beVar2.getItemViewType(i) == 0) {
-                beVar3 = this.cqf.cpX;
+                beVar3 = this.cqq.cqi;
                 UserData userData = (UserData) beVar3.getItem(i);
                 if (userData != null && userData.getUserId() != null) {
-                    aw awVar = this.cqf;
-                    aiG = this.cqf.aiG();
+                    aw awVar = this.cqq;
+                    aiG = this.cqq.aiG();
                     awVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(aiG.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show())));
                 }
             }

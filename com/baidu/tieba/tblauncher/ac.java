@@ -23,7 +23,7 @@ class ac extends com.baidu.adp.framework.listener.e {
             if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
                 return;
             }
-            this.this$0.lK(configVersion.sync);
+            this.this$0.lN(configVersion.sync);
         }
     }
 }

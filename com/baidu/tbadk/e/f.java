@@ -7,22 +7,22 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class f extends a {
-    private Runnable Ix;
-    private TextView alP;
-    private ImageView auC;
-    private String[] auD;
-    private TextView auE;
-    private final int auF;
+    private Runnable Iy;
+    private TextView alQ;
+    private ImageView auD;
+    private String[] auE;
+    private TextView auF;
+    private final int auG;
     private int currentIndex;
 
     /* JADX INFO: Access modifiers changed from: private */
     public int Ct() {
         this.currentIndex++;
-        if (this.currentIndex >= this.auF) {
+        if (this.currentIndex >= this.auG) {
             this.currentIndex = 0;
         }
         return this.currentIndex;
@@ -35,55 +35,55 @@ public class f extends a {
     public f(Context context, int i) {
         super(LayoutInflater.from(context).inflate(i.g.loading_view_layout, (ViewGroup) null));
         this.currentIndex = 0;
-        this.Ix = new g(this);
-        this.auC = (ImageView) this.auA.findViewById(i.f.loading_animate_view);
+        this.Iy = new g(this);
+        this.auD = (ImageView) this.auB.findViewById(i.f.loading_animate_view);
         if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = this.auC.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.auD.getLayoutParams();
             if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
                 marginLayoutParams.topMargin = i;
-                this.auC.setLayoutParams(marginLayoutParams);
+                this.auD.setLayoutParams(marginLayoutParams);
             }
         }
-        this.alP = (TextView) this.auA.findViewById(i.f.loading_anim_ellipsis);
-        this.auE = (TextView) this.auA.findViewById(i.f.loading_text);
-        this.auD = context.getResources().getStringArray(i.b.loading_anim_text_array);
-        this.auF = this.auD.length;
+        this.alQ = (TextView) this.auB.findViewById(i.f.loading_anim_ellipsis);
+        this.auF = (TextView) this.auB.findViewById(i.f.loading_text);
+        this.auE = context.getResources().getStringArray(i.b.loading_anim_text_array);
+        this.auG = this.auE.length;
     }
 
     private void Cu() {
-        if (this.auC != null && (this.auC.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.auC.getBackground()).start();
+        if (this.auD != null && (this.auD.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.auD.getBackground()).start();
         }
     }
 
     private void Cv() {
-        if (this.auC != null && (this.auC.getBackground() instanceof AnimationDrawable)) {
-            ((AnimationDrawable) this.auC.getBackground()).stop();
+        if (this.auD != null && (this.auD.getBackground() instanceof AnimationDrawable)) {
+            ((AnimationDrawable) this.auD.getBackground()).stop();
         }
     }
 
     @Override // com.baidu.tbadk.e.a
     protected void Cr() {
-        am.i(this.auC, i.e.loading_animation);
+        an.i(this.auD, i.e.loading_animation);
         Cu();
-        this.alP.setText(this.auD[0]);
-        TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.Ix);
-        TbadkCoreApplication.m411getInst().handler.postDelayed(this.Ix, 200L);
+        this.alQ.setText(this.auE[0]);
+        TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.Iy);
+        TbadkCoreApplication.m411getInst().handler.postDelayed(this.Iy, 200L);
     }
 
     @Override // com.baidu.tbadk.e.a
     protected void Cs() {
         Cv();
-        TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.Ix);
-        this.auC.setBackgroundResource(0);
+        TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.Iy);
+        this.auD.setBackgroundResource(0);
     }
 
     public void tc() {
-        am.i(this.auC, i.e.loading_animation);
+        an.i(this.auD, i.e.loading_animation);
         Cu();
-        am.b(this.alP, i.c.cp_cont_c, 1);
-        am.b(this.auE, i.c.cp_cont_c, 1);
-        am.j(this.auA, i.c.cp_bg_line_d);
+        an.b(this.alQ, i.c.cp_cont_c, 1);
+        an.b(this.auF, i.c.cp_cont_c, 1);
+        an.j(this.auB, i.c.cp_bg_line_d);
     }
 }

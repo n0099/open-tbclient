@@ -2,19 +2,18 @@ package com.baidu.tieba.write.shareSDK;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x implements TextWatcher {
-    final /* synthetic */ o dmr;
+class x implements TextWatcher {
+    final /* synthetic */ o dmR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(o oVar) {
-        this.dmr = oVar;
+        this.dmR = oVar;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.dmr.aBZ();
+        this.dmR.aCj();
     }
 
     @Override // android.text.TextWatcher

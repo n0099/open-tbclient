@@ -4,18 +4,18 @@ import com.baidu.tieba.i;
 import tbclient.PollOption;
 /* loaded from: classes.dex */
 public class ei implements com.baidu.tbadk.widget.vote.a {
-    private int aZs = -1;
-    private String aZt = null;
-    private int aZu = 0;
+    private int aZD = -1;
+    private String aZE = null;
+    private int aZF = 0;
 
     @Override // com.baidu.tbadk.widget.vote.a
     public int Fz() {
-        return this.aZs;
+        return this.aZD;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
     public String Fw() {
-        return this.aZt;
+        return this.aZE;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -25,12 +25,12 @@ public class ei implements com.baidu.tbadk.widget.vote.a {
 
     @Override // com.baidu.tbadk.widget.vote.a
     public int FA() {
-        return this.aZu;
+        return this.aZF;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
     public String Fy() {
-        return String.valueOf(this.aZu) + "%";
+        return String.valueOf(this.aZF) + "%";
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -41,23 +41,23 @@ public class ei implements com.baidu.tbadk.widget.vote.a {
     public void a(int i, PollOption pollOption, long j) {
         switch (i) {
             case 1:
-                this.aZs = i.e.icon_grade_vote_no1;
+                this.aZD = i.e.icon_grade_vote_no1;
                 break;
             case 2:
-                this.aZs = i.e.icon_grade_vote_no2;
+                this.aZD = i.e.icon_grade_vote_no2;
                 break;
             case 3:
-                this.aZs = i.e.icon_grade_vote_no3;
+                this.aZD = i.e.icon_grade_vote_no3;
                 break;
             default:
-                this.aZs = -1;
+                this.aZD = -1;
                 break;
         }
-        this.aZt = pollOption.text;
+        this.aZE = pollOption.text;
         if (j > 0) {
-            this.aZu = (int) ((pollOption.num.longValue() * 100) / j);
+            this.aZF = (int) ((pollOption.num.longValue() * 100) / j);
         } else {
-            this.aZu = 0;
+            this.aZF = 0;
         }
     }
 

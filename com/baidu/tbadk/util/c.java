@@ -5,9 +5,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static c azr = new c();
-    private b azs;
-    private a azt;
+    private static c azC = new c();
+    private b azD;
+    private a azE;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -18,17 +18,17 @@ public class c {
     }
 
     public static c Ex() {
-        return azr;
+        return azC;
     }
 
     public void a(a aVar) {
-        this.azt = aVar;
-        if (this.azs != null) {
-            this.azs.cancel();
+        this.azE = aVar;
+        if (this.azD != null) {
+            this.azD.cancel();
         }
-        this.azs = new b(this, null);
-        this.azs.setPriority(4);
-        this.azs.execute(new String[0]);
+        this.azD = new b(this, null);
+        this.azD.setPriority(4);
+        this.azD.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -81,8 +81,8 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
-            if (c.this.azt != null && bool != null) {
-                c.this.azt.ag(bool.booleanValue());
+            if (c.this.azE != null && bool != null) {
+                c.this.azE.ag(bool.booleanValue());
             }
         }
     }

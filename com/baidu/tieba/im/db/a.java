@@ -18,14 +18,14 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    private String bwA;
-    private Class<? extends ChatMessage> bwB;
-    List<String> bwC = null;
+    private String bwL;
+    private Class<? extends ChatMessage> bwM;
+    List<String> bwN = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(String str, Class<? extends ChatMessage> cls) {
-        this.bwA = str;
-        this.bwB = cls;
+        this.bwL = str;
+        this.bwM = cls;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [78=5] */
@@ -34,7 +34,7 @@ public abstract class a {
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
             try {
-                cursor = g.TJ().rawQuery("select count(*) from " + (String.valueOf(this.bwA) + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
+                cursor = g.TJ().rawQuery("select count(*) from " + (String.valueOf(this.bwL) + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
                 if (cursor == null || !cursor.moveToNext()) {
                     com.baidu.adp.lib.util.o.b(cursor);
                 } else {
@@ -59,7 +59,7 @@ public abstract class a {
         Cursor cursor = null;
         if (!TextUtils.isEmpty(str)) {
             try {
-                cursor = g.TJ().rawQuery("select max(mid) from " + (String.valueOf(this.bwA) + str), null);
+                cursor = g.TJ().rawQuery("select max(mid) from " + (String.valueOf(this.bwL) + str), null);
                 if (cursor == null || !cursor.moveToNext()) {
                     com.baidu.adp.lib.util.o.b(cursor);
                 } else {
@@ -99,7 +99,7 @@ public abstract class a {
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
-            ?? valueOf = String.valueOf(this.bwA);
+            ?? valueOf = String.valueOf(this.bwL);
             try {
                 try {
                     cursor = g.TJ().rawQuery("select * from " + (((String) valueOf) + str) + " WHERE is_delete=? ORDER BY rid DESC LIMIT 1", new String[]{String.valueOf(0)});
@@ -185,7 +185,7 @@ public abstract class a {
             i2 = 20;
         }
         LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
-        ?? r2 = String.valueOf(this.bwA) + str;
+        ?? r2 = String.valueOf(this.bwL) + str;
         try {
             try {
                 if (TextUtils.isEmpty(str2)) {
@@ -255,7 +255,7 @@ public abstract class a {
             i = 20;
         }
         LinkedList<ChatMessage> linkedList = new LinkedList<>();
-        ?? valueOf2 = String.valueOf(this.bwA);
+        ?? valueOf2 = String.valueOf(this.bwL);
         String str3 = ((String) valueOf2) + valueOf;
         try {
             try {
@@ -269,8 +269,8 @@ public abstract class a {
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
-                            ChatMessage newInstance = this.bwB.newInstance();
-                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.c.a.bGM));
+                            ChatMessage newInstance = this.bwM.newInstance();
+                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.c.a.bGX));
                             newInstance.setContent(cursor.getString(cursor.getColumnIndex(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT)));
                             newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
                             newInstance.setExtra(cursor.getString(cursor.getColumnIndex("ext")));
@@ -341,7 +341,7 @@ public abstract class a {
         if (TbadkCoreApplication.getCurrentAccount().equals(valueOf)) {
             valueOf = String.valueOf(j2);
         }
-        String str3 = String.valueOf(this.bwA) + valueOf;
+        String str3 = String.valueOf(this.bwL) + valueOf;
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("mid", str2);
@@ -360,7 +360,7 @@ public abstract class a {
     }
 
     public void d(long j, boolean z) {
-        String str = String.valueOf(this.bwA) + j;
+        String str = String.valueOf(this.bwL) + j;
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("is_delete", Integer.valueOf(z ? 1 : 0));
@@ -376,13 +376,13 @@ public abstract class a {
             return false;
         }
         String valueOf = String.valueOf(j);
-        String str = String.valueOf(this.bwA) + valueOf;
-        if (this.bwC == null) {
-            this.bwC = TB();
+        String str = String.valueOf(this.bwL) + valueOf;
+        if (this.bwN == null) {
+            this.bwN = TB();
         }
-        if (!this.bwC.contains(valueOf)) {
+        if (!this.bwN.contains(valueOf)) {
             hJ(valueOf);
-            this.bwC.add(valueOf);
+            this.bwN.add(valueOf);
         }
         SQLiteStatement sQLiteStatement = null;
         try {
@@ -499,7 +499,7 @@ public abstract class a {
             }
             ContentValues contentValues = new ContentValues();
             contentValues.put("is_delete", (Integer) 1);
-            g.TJ().update(String.valueOf(this.bwA) + str, contentValues, "mid=?", new String[]{str2});
+            g.TJ().update(String.valueOf(this.bwL) + str, contentValues, "mid=?", new String[]{str2});
             return true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.markDeleteMsgByMid", new Object[0]);
@@ -512,7 +512,7 @@ public abstract class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            g.TJ().a(String.valueOf(this.bwA) + str, "mid=?", new String[]{str2});
+            g.TJ().a(String.valueOf(this.bwL) + str, "mid=?", new String[]{str2});
             return true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.deleteMsgByMid", new Object[0]);
@@ -524,46 +524,46 @@ public abstract class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.bwC == null) {
-            this.bwC = TB();
+        if (this.bwN == null) {
+            this.bwN = TB();
         }
-        if (this.bwC != null && this.bwC.contains(str)) {
-            Iterator<String> it = this.bwC.iterator();
+        if (this.bwN != null && this.bwN.contains(str)) {
+            Iterator<String> it = this.bwN.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 String next = it.next();
                 if (next.equals(str)) {
-                    this.bwC.remove(next);
+                    this.bwN.remove(next);
                     break;
                 }
             }
         }
-        return g.TJ().hP("DROP TABLE IF EXISTS " + (String.valueOf(this.bwA) + str));
+        return g.TJ().hP("DROP TABLE IF EXISTS " + (String.valueOf(this.bwL) + str));
     }
 
     public boolean hH(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.bwC == null) {
-            this.bwC = TB();
+        if (this.bwN == null) {
+            this.bwN = TB();
         }
-        if (this.bwC != null && this.bwC.contains(str)) {
-            Iterator<String> it = this.bwC.iterator();
+        if (this.bwN != null && this.bwN.contains(str)) {
+            Iterator<String> it = this.bwN.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 String next = it.next();
                 if (next.equals(str)) {
-                    this.bwC.remove(next);
+                    this.bwN.remove(next);
                     break;
                 }
             }
         }
-        return g.TJ().hP("delete from " + (String.valueOf(this.bwA) + str));
+        return g.TJ().hP("delete from " + (String.valueOf(this.bwL) + str));
     }
 
     public boolean hI(String str) {
@@ -579,7 +579,7 @@ public abstract class a {
     /* JADX INFO: Access modifiers changed from: protected */
     public synchronized void hJ(String str) {
         if (!TextUtils.isEmpty(str)) {
-            g.TJ().hP("CREATE TABLE IF NOT EXISTS " + (String.valueOf(this.bwA) + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, msg_status int, " + CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT + " blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
+            g.TJ().hP("CREATE TABLE IF NOT EXISTS " + (String.valueOf(this.bwL) + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, msg_status int, " + CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT + " blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
         }
     }
 
@@ -592,8 +592,8 @@ public abstract class a {
                 cursor.moveToFirst();
                 while (cursor.moveToNext()) {
                     String string = cursor.getString(cursor.getColumnIndex("name"));
-                    if (string.startsWith(this.bwA)) {
-                        linkedList.add(string.subSequence(this.bwA.length(), string.length()).toString());
+                    if (string.startsWith(this.bwL)) {
+                        linkedList.add(string.subSequence(this.bwL.length(), string.length()).toString());
                     }
                 }
             }
@@ -607,7 +607,7 @@ public abstract class a {
     }
 
     public void TC() {
-        this.bwC = null;
+        this.bwN = null;
     }
 
     public boolean B(String str, int i) {
@@ -615,7 +615,7 @@ public abstract class a {
         Cursor cursor2 = null;
         try {
             try {
-                String str2 = String.valueOf(this.bwA) + str;
+                String str2 = String.valueOf(this.bwL) + str;
                 if (i < 1000) {
                     i = 1000;
                 }

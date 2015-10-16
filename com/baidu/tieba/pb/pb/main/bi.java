@@ -27,8 +27,8 @@ public class bi extends bk<com.baidu.tieba.tbadkCore.data.j, PbRecBaseViewHolder
         super.a(i, view, viewGroup, (ViewGroup) jVar, (com.baidu.tieba.tbadkCore.data.j) pbRecBaseViewHolder);
         this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
         com.baidu.tieba.tbadkCore.data.j jVar2 = (com.baidu.tieba.tbadkCore.data.j) aA(i);
-        this.ciJ.getLayoutMode().ad(this.mSkinType == 1);
-        this.ciJ.getLayoutMode().k(view);
+        this.ciU.getLayoutMode().ad(this.mSkinType == 1);
+        this.ciU.getLayoutMode().k(view);
         pbRecBaseViewHolder.update(jVar2, i, this.mIsFromCDN);
         return view;
     }

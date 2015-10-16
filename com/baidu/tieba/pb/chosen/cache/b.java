@@ -12,7 +12,7 @@ public class b implements CustomMessageTask.CustomRunnable<Object> {
         a aVar;
         FinePbPageResIdl finePbPageResIdl;
         if (customMessage != null && customMessage.getCmd() == 2001321) {
-            byte[] bArr = com.baidu.tbadk.core.b.a.sO().cp("tb.pb_normal").get("chosen_pb_page_cache");
+            byte[] bArr = com.baidu.tbadk.core.b.a.sO().cq("tb.pb_normal").get("chosen_pb_page_cache");
             if (bArr != null) {
                 try {
                     finePbPageResIdl = (FinePbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, FinePbPageResIdl.class);

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.editortools.w;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
@@ -30,13 +30,13 @@ public class c {
         }
         multiImgToolView.getDragHorizonScrollView().setOnSwapDataListener(multiImgToolView);
         multiImgToolView.getDragHorizonScrollView().setMaxItemNum(i);
-        am.b(multiImgToolView.getMutiImageTips(), i.c.cp_cont_c, 1);
+        an.b(multiImgToolView.getMutiImageTips(), i.c.cp_cont_c, 1);
         return multiImgToolView;
     }
 
     private static View a(Context context, w wVar) {
         ImageView imageView = new ImageView(context);
-        am.c(imageView, i.e.btn_add_photo_selector);
+        an.c(imageView, i.e.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
         int dip2px = k.dip2px(context, 3.0f);

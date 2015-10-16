@@ -22,16 +22,16 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
-    NavigationBar aHi;
-    BdListView aJD;
-    h bNL;
-    private CustomMessageListener bNM;
+    NavigationBar aHt;
+    BdListView aJO;
+    h bNW;
+    private CustomMessageListener bNX;
     private m mNoDataView;
     private LinearLayout mRootView;
-    private HttpMessageListener bNJ = new a(this, CmdConfigHttp.CMD_GET_FRIEND_LIST);
-    private int bNK = -1;
-    private CustomMessageListener bNN = new b(this, CmdConfigCustom.CMD_QUERY_CONTACT_LIST);
-    private AdapterView.OnItemClickListener bfV = new c(this);
+    private HttpMessageListener bNU = new a(this, CmdConfigHttp.CMD_GET_FRIEND_LIST);
+    private int bNV = -1;
+    private CustomMessageListener bNY = new b(this, CmdConfigCustom.CMD_QUERY_CONTACT_LIST);
+    private AdapterView.OnItemClickListener bgg = new c(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -39,15 +39,15 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         super.onCreate(bundle);
         setContentView(i.g.select_friend_main);
         this.mRootView = (LinearLayout) findViewById(i.f.select_friend_root_view);
-        this.aHi = (NavigationBar) findViewById(i.f.select_friend_nevigation_bar);
-        this.aHi.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
-        this.aHi.setTitleText(i.h.select_friend_title);
-        this.aJD = (BdListView) findViewById(i.f.select_friend_listview);
-        this.bNL = new h(getPageContext().getPageActivity());
-        this.aJD.setAdapter((ListAdapter) this.bNL);
-        this.aJD.setOnItemClickListener(this.bfV);
-        registerListener(this.bNN);
-        registerListener(this.bNJ);
+        this.aHt = (NavigationBar) findViewById(i.f.select_friend_nevigation_bar);
+        this.aHt.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
+        this.aHt.setTitleText(i.h.select_friend_title);
+        this.aJO = (BdListView) findViewById(i.f.select_friend_listview);
+        this.bNW = new h(getPageContext().getPageActivity());
+        this.aJO.setAdapter((ListAdapter) this.bNW);
+        this.aJO.setOnItemClickListener(this.bgg);
+        registerListener(this.bNY);
+        registerListener(this.bNU);
         if (TbadkCoreApplication.m411getInst().getIntentClass(AddressListActivityConfig.class) == null) {
             sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_FRIEND_LIST));
         } else {
@@ -56,9 +56,9 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cK(i.h.select_friend_no_data_tip), null);
         this.mRootView.addView(this.mNoDataView, 1);
         if (bundle != null) {
-            this.bNK = bundle.getInt("key_from_where");
+            this.bNV = bundle.getInt("key_from_where");
         } else if (getIntent() != null) {
-            this.bNK = getIntent().getIntExtra("key_from_where", -1);
+            this.bNV = getIntent().getIntExtra("key_from_where", -1);
         }
     }
 
@@ -66,15 +66,15 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.bNM != null) {
-            this.bNM = null;
+        if (this.bNX != null) {
+            this.bNX = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.aHi.onChangeSkinType(getPageContext(), i);
+        this.aHt.onChangeSkinType(getPageContext(), i);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }

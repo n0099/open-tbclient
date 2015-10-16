@@ -14,13 +14,13 @@ import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class UserIconBox extends LinearLayout {
-    private com.baidu.adp.lib.e.b<TbImageView> aeH;
-    private a aeI;
-    private LinearLayout.LayoutParams aeJ;
-    private boolean aeK;
-    private int aeL;
-    private boolean aeM;
-    com.baidu.tbadk.imageManager.b aeN;
+    private com.baidu.adp.lib.e.b<TbImageView> aeI;
+    private a aeJ;
+    private LinearLayout.LayoutParams aeK;
+    private boolean aeL;
+    private int aeM;
+    private boolean aeN;
+    com.baidu.tbadk.imageManager.b aeO;
     private Context mContext;
     private int mIconWidth;
 
@@ -34,24 +34,24 @@ public class UserIconBox extends LinearLayout {
     }
 
     public void setAutoChangedStyle(boolean z) {
-        this.aeK = z;
+        this.aeL = z;
     }
 
     public UserIconBox(Context context) {
         super(context);
-        this.aeH = null;
         this.aeI = null;
-        this.aeK = true;
-        this.aeN = new u(this);
+        this.aeJ = null;
+        this.aeL = true;
+        this.aeO = new u(this);
         init(context);
     }
 
     public UserIconBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aeH = null;
         this.aeI = null;
-        this.aeK = true;
-        this.aeN = new u(this);
+        this.aeJ = null;
+        this.aeL = true;
+        this.aeO = new u(this);
         init(context);
     }
 
@@ -61,25 +61,25 @@ public class UserIconBox extends LinearLayout {
         setGravity(16);
         if (this.mContext instanceof b) {
             b bVar = (b) this.mContext;
-            this.aeH = bVar.vE();
-            if (bVar.getListView() != null && this.aeI == null) {
-                this.aeI = new a(bVar.vD());
-                bVar.getListView().setRecyclerListener(this.aeI);
+            this.aeI = bVar.vE();
+            if (bVar.getListView() != null && this.aeJ == null) {
+                this.aeJ = new a(bVar.vD());
+                bVar.getListView().setRecyclerListener(this.aeJ);
             }
         }
         setOnHierarchyChangeListener(new w(this));
     }
 
     private LinearLayout.LayoutParams q(int i, int i2, int i3) {
-        this.aeJ = new LinearLayout.LayoutParams(i, i2);
-        this.aeJ.leftMargin = i3;
-        return this.aeJ;
+        this.aeK = new LinearLayout.LayoutParams(i, i2);
+        this.aeK.leftMargin = i3;
+        return this.aeK;
     }
 
     public void a(List<IconData> list, int i, int i2, int i3, int i4, boolean z) {
         this.mIconWidth = i2;
-        this.aeL = i4;
-        this.aeM = z;
+        this.aeM = i4;
+        this.aeN = z;
         removeAllViews();
         this.mIconWidth = i2;
         if (list == null || list.size() != 1 || !TextUtils.isEmpty(list.get(0).getIcon())) {
@@ -98,7 +98,7 @@ public class UserIconBox extends LinearLayout {
                         }
                         ai.setTag(list.get(i5).getIcon());
                         ai.setClickable(false);
-                        ai.setAutoChangeStyle(this.aeK);
+                        ai.setAutoChangeStyle(this.aeL);
                         ai.a(list.get(i5).getIcon(), 21, i2, i3, false);
                         addView(ai);
                         ai.invalidate();
@@ -123,10 +123,10 @@ public class UserIconBox extends LinearLayout {
         for (int i6 = 0; i6 < getChildCount(); i6++) {
             View childAt = getChildAt(i6);
             if (!z2) {
-                if (i6 == 0 && this.aeM) {
+                if (i6 == 0 && this.aeN) {
                     i5 += this.mIconWidth;
                 } else {
-                    i5 += this.mIconWidth + this.aeL;
+                    i5 += this.mIconWidth + this.aeM;
                 }
                 if (i5 > measuredWidth) {
                     z2 = true;
@@ -150,8 +150,8 @@ public class UserIconBox extends LinearLayout {
 
     private TbImageView ai(Context context) {
         TbImageView tbImageView = null;
-        if (this.aeH != null) {
-            tbImageView = this.aeH.gY();
+        if (this.aeI != null) {
+            tbImageView = this.aeI.gY();
         }
         if (tbImageView == null || tbImageView.getParent() != null) {
             return new TbImageView(context);

@@ -1,8 +1,8 @@
 package com.baidu.tieba.mention;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.e<SingleMentionActivity> {
-    private SingleMentionActivity caA;
-    private a caB;
+    private SingleMentionActivity caL;
+    private a caM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -16,7 +16,7 @@ public class af extends com.baidu.adp.base.e<SingleMentionActivity> {
 
     public af(SingleMentionActivity singleMentionActivity) {
         super(singleMentionActivity.getPageContext());
-        this.caA = singleMentionActivity;
+        this.caL = singleMentionActivity;
         add();
     }
 
@@ -43,6 +43,6 @@ public class af extends com.baidu.adp.base.e<SingleMentionActivity> {
     }
 
     public void a(a aVar) {
-        this.caB = aVar;
+        this.caM = aVar;
     }
 }

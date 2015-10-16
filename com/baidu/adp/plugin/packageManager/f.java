@@ -69,7 +69,7 @@ public class f extends BroadcastReceiver {
             bundle.putString("package_name", str);
             bundle.putString("current_path", str2);
             setResultExtras(bundle);
-            z = this.this$0.Du;
+            z = this.this$0.Dv;
             if (!z) {
                 return;
             }

@@ -1,24 +1,25 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import android.widget.ImageView;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class i implements com.baidu.adp.lib.e.c<ImageView> {
-    final /* synthetic */ NewSubPbActivity cmr;
+    final /* synthetic */ NewSubPbActivity cmC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(NewSubPbActivity newSubPbActivity) {
-        this.cmr = newSubPbActivity;
+        this.cmC = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
     /* renamed from: afA */
     public ImageView gZ() {
-        com.baidu.tbadk.widget.d dVar = new com.baidu.tbadk.widget.d(this.cmr.getPageContext().getPageActivity());
+        com.baidu.tbadk.widget.d dVar = new com.baidu.tbadk.widget.d(this.cmC.getPageContext().getPageActivity());
         boolean rb = com.baidu.tbadk.core.m.qX().rb();
-        dVar.setDefaultBg(com.baidu.tbadk.core.util.am.getDrawable(i.c.pb_default_image_bg));
+        dVar.setDefaultBg(an.getDrawable(i.c.pb_default_image_bg));
         if (rb) {
             dVar.setAdjustViewBounds(false);
             dVar.setInterceptOnClick(false);

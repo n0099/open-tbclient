@@ -21,16 +21,16 @@ class d extends CustomMessageListener {
         ao aoVar3;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007013) {
             this.this$0.initTabsOnActivityCreated();
-            aoVar = this.this$0.dcb;
+            aoVar = this.this$0.dcB;
             if (aoVar != null) {
-                aoVar2 = this.this$0.dcb;
-                if (aoVar2.ayy() != null) {
+                aoVar2 = this.this$0.dcB;
+                if (aoVar2.ayI() != null) {
                     MainTabActivity mainTabActivity = this.this$0;
-                    aoVar3 = this.this$0.dcb;
-                    mainTabActivity.dbV = aoVar3.ayy().getCurrentTabType();
+                    aoVar3 = this.this$0.dcB;
+                    mainTabActivity.dcv = aoVar3.ayI().getCurrentTabType();
                 }
             }
-            this.this$0.dbW = true;
+            this.this$0.dcw = true;
         }
     }
 }

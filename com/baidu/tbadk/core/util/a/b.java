@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.q;
 /* loaded from: classes.dex */
 public class b {
-    private final g abK = new g();
+    private final h abN = new h();
     public boolean mIsNeedTbs = false;
-    public boolean abL = true;
+    public boolean abO = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean abM = false;
-    public int abN = 0;
+    public boolean abP = false;
+    public int abQ = 0;
 
-    public g va() {
-        return this.abK;
+    public h vb() {
+        return this.abN;
     }
 
     public void a(q qVar) {
@@ -51,7 +51,7 @@ public class b {
         if (from != null && from.length() > 0) {
             qVar.o("from", from);
         }
-        String netType = h.getNetType();
+        String netType = i.getNetType();
         if (netType != null) {
             String wd = com.baidu.tbadk.coreExtra.b.a.wb().wd();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
@@ -84,18 +84,18 @@ public class b {
         qVar.o("model", Build.MODEL);
     }
 
-    public String vb() {
-        if (this.abK.mUrl == null) {
+    public String vc() {
+        if (this.abN.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.abK.mUrl.startsWith(str)) {
-            int indexOf = this.abK.mUrl.indexOf(63);
+        if (this.abN.mUrl.startsWith(str)) {
+            int indexOf = this.abN.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.abK.mUrl.length();
+                indexOf = this.abN.mUrl.length();
             }
-            return this.abK.mUrl.substring(str.length(), indexOf);
+            return this.abN.mUrl.substring(str.length(), indexOf);
         }
-        return this.abK.mUrl;
+        return this.abN.mUrl;
     }
 }

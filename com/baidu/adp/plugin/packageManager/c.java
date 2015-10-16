@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c Do;
-    private ArrayList<String> Dg = new ArrayList<>();
-    private a Dp;
+    private static volatile c Dp;
+    private ArrayList<String> Dh = new ArrayList<>();
+    private a Dq;
 
     public static c lQ() {
-        if (Do == null) {
+        if (Dp == null) {
             synchronized (c.class) {
-                if (Do == null) {
-                    Do = new c();
+                if (Dp == null) {
+                    Dp = new c();
                 }
             }
         }
-        return Do;
+        return Dp;
     }
 
     private c() {
@@ -30,7 +30,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.Dg.iterator();
+            Iterator<String> it = this.Dh.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -43,7 +43,7 @@ public class c {
                 }
             }
             if (!z) {
-                this.Dg.add(pluginSetting.packageName);
+                this.Dh.add(pluginSetting.packageName);
             }
             lM();
         }
@@ -51,9 +51,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void lM() {
-        if (this.Dg.size() > 0 && this.Dp == null) {
-            this.Dp = new a(this.Dg.get(0));
-            this.Dp.execute(new String[0]);
+        if (this.Dh.size() > 0 && this.Dq == null) {
+            this.Dq = new a(this.Dh.get(0));
+            this.Dq.execute(new String[0]);
         }
     }
 
@@ -83,16 +83,16 @@ public class c {
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
-            c.this.Dp = null;
-            if (c.this.Dg.size() > 0) {
-                Iterator it = c.this.Dg.iterator();
+            c.this.Dq = null;
+            if (c.this.Dh.size() > 0) {
+                Iterator it = c.this.Dh.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.Dg.remove(str);
+                        c.this.Dh.remove(str);
                         break;
                     }
                 }
@@ -103,13 +103,17 @@ public class c {
         private void bl(String str) {
             File[] listFiles;
             File mw = Util.mw();
-            String bK = Util.bK(str);
+            String bL = Util.bL(str);
             if (mw != null && mw.exists() && (listFiles = mw.listFiles()) != null) {
                 int length = listFiles.length;
                 for (int i = 0; i < length; i++) {
-                    if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bK)) {
-                        com.baidu.adp.plugin.b.a.lF().g("plugin_del_temp", "todel" + listFiles[i].getName(), str);
-                        com.baidu.adp.lib.util.e.f(listFiles[i]);
+                    if (listFiles[i] != null && listFiles[i].isFile() && listFiles[i].getName().startsWith(bL)) {
+                        try {
+                            com.baidu.adp.lib.util.e.h(listFiles[i]);
+                            com.baidu.adp.plugin.b.a.lF().d("plugin_del_temp", "deltmp_suc" + listFiles[i].getName(), str, null);
+                        } catch (Throwable th) {
+                            com.baidu.adp.plugin.b.a.lF().e("plugin_del_temp", "deltmp_fail" + listFiles[i].getName(), str, th.getMessage());
+                        }
                     }
                 }
             }

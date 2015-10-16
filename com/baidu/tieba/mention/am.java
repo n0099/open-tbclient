@@ -4,11 +4,11 @@ import com.baidu.tieba.mention.af;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements af.a {
-    final /* synthetic */ al caO;
+    final /* synthetic */ al caZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(al alVar) {
-        this.caO = alVar;
+        this.caZ = alVar;
     }
 
     @Override // com.baidu.tieba.mention.af.a
@@ -19,22 +19,22 @@ public class am implements af.a {
         FeedData feedData2;
         com.baidu.tbadk.editortools.c.n nVar3;
         FeedData feedData3;
-        this.caO.mForumId = String.valueOf(j);
-        this.caO.caL = j2;
-        this.caO.caM = j3;
-        nVar = this.caO.caJ;
+        this.caZ.mForumId = String.valueOf(j);
+        this.caZ.caW = j2;
+        this.caZ.caX = j3;
+        nVar = this.caZ.caU;
         if (nVar != null) {
-            feedData = this.caO.caK;
+            feedData = this.caZ.caV;
             if (feedData.getIsFloor()) {
-                feedData2 = this.caO.caK;
+                feedData2 = this.caZ.caV;
                 if (feedData2.getReplyer() != null) {
-                    nVar3 = this.caO.caJ;
-                    feedData3 = this.caO.caK;
+                    nVar3 = this.caZ.caU;
+                    feedData3 = this.caZ.caV;
                     nVar3.fe(feedData3.getReplyer().getUserName());
                     return;
                 }
             }
-            nVar2 = this.caO.caJ;
+            nVar2 = this.caZ.caU;
             nVar2.fe(null);
         }
     }

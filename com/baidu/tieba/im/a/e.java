@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ c bDo;
+    final /* synthetic */ c bDz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(c cVar, int i) {
         super(i);
-        this.bDo = cVar;
+        this.bDz = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,31 +24,31 @@ public class e extends com.baidu.adp.framework.listener.e {
         String str3;
         String str4;
         List list;
-        VO = this.bDo.VO();
+        VO = this.bDz.VO();
         if (VO && socketResponsedMessage != null && 202006 == socketResponsedMessage.getCmd() && (socketResponsedMessage instanceof PushNotifyMessage)) {
             PushNotifyMessage pushNotifyMessage = (PushNotifyMessage) socketResponsedMessage;
             if (pushNotifyMessage.getType() != 3 && pushNotifyMessage.getType() != 4) {
                 b bVar = new b();
                 bVar.emitTime = ((PushNotifyMessage) socketResponsedMessage).getEmitTime();
-                bVar.bCZ = this.bDo.VJ();
-                bVar.bDa = this.bDo.VL();
-                str = this.bDo.bDg;
+                bVar.bDk = this.bDz.VJ();
+                bVar.bDl = this.bDz.VL();
+                str = this.bDz.bDr;
                 if (str == null) {
-                    this.bDo.bDg = bVar.emitTime;
+                    this.bDz.bDr = bVar.emitTime;
                 }
-                str2 = this.bDo.bDh;
+                str2 = this.bDz.bDs;
                 if (str2 == null) {
-                    this.bDo.bDh = bVar.emitTime;
+                    this.bDz.bDs = bVar.emitTime;
                 }
-                str3 = this.bDo.bDh;
+                str3 = this.bDz.bDs;
                 if (com.baidu.adp.lib.g.b.c(str3, 0L) < com.baidu.adp.lib.g.b.c(bVar.emitTime, 0L)) {
-                    this.bDo.bDh = bVar.emitTime;
+                    this.bDz.bDs = bVar.emitTime;
                 }
-                str4 = this.bDo.bDg;
+                str4 = this.bDz.bDr;
                 if (com.baidu.adp.lib.g.b.c(str4, 0L) > com.baidu.adp.lib.g.b.c(bVar.emitTime, 0L)) {
-                    this.bDo.bDg = bVar.emitTime;
+                    this.bDz.bDr = bVar.emitTime;
                 }
-                list = this.bDo.bDe;
+                list = this.bDz.bDp;
                 list.add(bVar);
             }
         }

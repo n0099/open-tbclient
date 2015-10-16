@@ -15,10 +15,10 @@ class r implements View.OnLongClickListener {
     @Override // android.view.View.OnLongClickListener
     public boolean onLongClick(View view) {
         c.b bVar;
-        if (this.this$0.bPt == null || this.this$0.bPt.getCurrentImageData() != null) {
+        if (this.this$0.bPE == null || this.this$0.bPE.getCurrentImageData() != null) {
             String[] strArr = {this.this$0.getPageContext().getString(i.h.save)};
             ImageViewerActivity imageViewerActivity = this.this$0;
-            bVar = this.this$0.bPH;
+            bVar = this.this$0.bPS;
             imageViewerActivity.createListMenu(strArr, bVar);
             this.this$0.showListMenu();
         }

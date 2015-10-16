@@ -4,20 +4,20 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ NewSubPbActivity cmr;
+    final /* synthetic */ NewSubPbActivity cmC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(NewSubPbActivity newSubPbActivity) {
-        this.cmr = newSubPbActivity;
+        this.cmC = newSubPbActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         ak akVar;
         ak akVar2;
-        akVar = this.cmr.cmi;
+        akVar = this.cmC.cmt;
         if (akVar != null) {
-            akVar2 = this.cmr.cmi;
+            akVar2 = this.cmC.cmt;
             akVar2.CS();
         }
     }

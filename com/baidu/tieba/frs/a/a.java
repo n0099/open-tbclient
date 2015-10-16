@@ -30,32 +30,32 @@ public class a extends bn<com.baidu.tbadk.core.data.b, b> {
     @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.b bVar, b bVar2) {
         super.a(i, view, viewGroup, (ViewGroup) bVar, (com.baidu.tbadk.core.data.b) bVar2);
-        bVar2.baB.setPadding(0, i - this.aTF == 0 ? this.aSG : this.aSH, 0, 0);
-        this.aRT.getLayoutMode().ad(this.mSkinType == 1);
-        this.aRT.getLayoutMode().k(view);
-        if (!bVar.Uj && (this.aRT instanceof FrsActivity)) {
-            bVar.Uj = true;
-            ((FrsActivity) this.aRT).a(bVar, "show");
-            ((FrsActivity) this.aRT).b(bVar, "show");
+        bVar2.baM.setPadding(0, i - this.aTQ == 0 ? this.aSR : this.aSS, 0, 0);
+        this.aSe.getLayoutMode().ad(this.mSkinType == 1);
+        this.aSe.getLayoutMode().k(view);
+        if (!bVar.Uk && (this.aSe instanceof FrsActivity)) {
+            bVar.Uk = true;
+            ((FrsActivity) this.aSe).a(bVar, "show");
+            ((FrsActivity) this.aSe).b(bVar, "show");
         }
         if (m.qX().qZ()) {
-            bVar2.aHL.setVisibility(0);
-            bVar2.aHL.d(bVar.Ui.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+            bVar2.aHW.setVisibility(0);
+            bVar2.aHW.d(bVar.Uj.userPortrait, this.mIsFromCDN ? 13 : 14, false);
         } else {
-            bVar2.aHL.setVisibility(8);
+            bVar2.aHW.setVisibility(8);
         }
-        if (m.qX().rb() && !TextUtils.isEmpty(bVar.Ui.Un)) {
-            bVar2.baD.setVisibility(0);
-            bVar2.baD.d(bVar.Ui.Un, this.mIsFromCDN ? 30 : 31, false);
+        if (m.qX().rb() && !TextUtils.isEmpty(bVar.Uj.Uo)) {
+            bVar2.baO.setVisibility(0);
+            bVar2.baO.d(bVar.Uj.Uo, this.mIsFromCDN ? 30 : 31, false);
         } else {
-            bVar2.baD.setVisibility(8);
+            bVar2.baO.setVisibility(8);
         }
-        bVar2.aDa.setText(bVar.Ui.userName);
-        if (StringUtils.isNull(bVar.Ui.Ul)) {
-            bVar2.alt.setVisibility(8);
+        bVar2.aDl.setText(bVar.Uj.userName);
+        if (StringUtils.isNull(bVar.Uj.Um)) {
+            bVar2.alu.setVisibility(8);
         } else {
-            bVar2.alt.setVisibility(0);
-            bVar2.alt.setText(bVar.Ui.Ul);
+            bVar2.alu.setVisibility(0);
+            bVar2.alu.setText(bVar.Uj.Um);
         }
         return view;
     }

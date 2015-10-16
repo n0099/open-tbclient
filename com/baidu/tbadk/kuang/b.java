@@ -12,11 +12,11 @@ import com.baidu.tbadk.coreExtra.view.k;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes.dex */
 public class b {
-    public static int aut = 0;
+    public static int auu = 0;
     private static String ws = "";
     private static String mUserId = "";
-    private static String TC = "";
-    private static k auu = null;
+    private static String TD = "";
+    private static k auv = null;
 
     public static void a(int i, String str, Class<?>[] clsArr, Object[] objArr, String str2, HostInvokeCallback hostInvokeCallback) {
         try {
@@ -44,12 +44,12 @@ public class b {
     }
 
     public static void a(TbPageContext<?> tbPageContext, AccountData accountData) {
-        auu = new k(tbPageContext);
-        auu.a(new c());
-        auu.b(new d());
-        auu.yR();
-        auu.h(accountData);
-        auu.yN();
+        auv = new k(tbPageContext);
+        auv.a(new c());
+        auv.b(new d());
+        auv.yR();
+        auv.h(accountData);
+        auv.yN();
     }
 
     public static void bi(boolean z) {
@@ -57,7 +57,7 @@ public class b {
     }
 
     public static void c(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.adp.lib.g.h.hg().postDelayed(new i(customResponsedMessage), aut);
+        com.baidu.adp.lib.g.h.hg().postDelayed(new i(customResponsedMessage), auu);
     }
 
     public static void Co() {

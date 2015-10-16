@@ -12,11 +12,11 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements af.b {
-    final /* synthetic */ a bGU;
+    final /* synthetic */ a bHf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bGU = aVar;
+        this.bHf = aVar;
     }
 
     @Override // com.baidu.tieba.im.c.af.b
@@ -34,9 +34,9 @@ public class b implements af.b {
                     }
                     com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_voice_ret", 0, null, new Object[0]);
                     a.Xd().n(chatMessage);
-                    aeVar = this.bGU.mSendCallback;
+                    aeVar = this.bHf.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.bGU.mSendCallback;
+                        aeVar2 = this.bHf.mSendCallback;
                         aeVar2.hz(2);
                         return;
                     }

@@ -13,11 +13,11 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.base.g {
-    final /* synthetic */ a bbN;
+    final /* synthetic */ a bbY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(a aVar) {
-        this.bbN = aVar;
+        this.bbY = aVar;
     }
 
     @Override // com.baidu.adp.base.g
@@ -34,7 +34,7 @@ public class j extends com.baidu.adp.base.g {
         FrsActivity frsActivity3;
         FrsActivity frsActivity4;
         eh ehVar6;
-        frsActivity = this.bbN.baG;
+        frsActivity = this.bbY.baR;
         com.baidu.tieba.tbadkCore.o Lh = frsActivity.Lh();
         if (Lh != null && Lh.aeN() != null) {
             String name = Lh.aeN().getName();
@@ -43,50 +43,50 @@ public class j extends com.baidu.adp.base.g {
                 z = false;
             } else {
                 signData = (SignData) obj;
-                com.baidu.tieba.tbadkCore.d.avn().H(name, false);
+                com.baidu.tieba.tbadkCore.d.avt().H(name, false);
                 Lh.d(signData);
                 signData.setForumId(Lh.aeN().getId());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE, signData));
                 z = true;
             }
-            this.bbN.Ny();
+            this.bbY.Ny();
             if (!z) {
-                ehVar = this.bbN.bbH;
-                if (!AntiHelper.la(ehVar.getErrorCode())) {
-                    ehVar2 = this.bbN.bbH;
+                ehVar = this.bbY.bbS;
+                if (!AntiHelper.lc(ehVar.getErrorCode())) {
+                    ehVar2 = this.bbY.bbS;
                     if (ehVar2.getErrorCode() == 160002) {
-                        this.bbN.fY(1);
+                        this.bbY.fY(1);
                     }
-                    frsActivity2 = this.bbN.baG;
-                    ehVar3 = this.bbN.bbH;
+                    frsActivity2 = this.bbY.baR;
+                    ehVar3 = this.bbY.bbS;
                     frsActivity2.showToast(ehVar3.getErrorString());
                     return;
                 }
-                Activity pageActivity = this.bbN.getPageContext().getPageActivity();
-                ehVar4 = this.bbN.bbH;
+                Activity pageActivity = this.bbY.getPageContext().getPageActivity();
+                ehVar4 = this.bbY.bbS;
                 AntiHelper.P(pageActivity, ehVar4.getErrorString());
             } else if (Lh != null && Lh.aeN() != null) {
-                this.bbN.d(Lh);
+                this.bbY.d(Lh);
                 if (signData != null) {
                     int i = -1;
-                    if (this.bbN.NE()) {
+                    if (this.bbY.NE()) {
                         i = Lh.aeN().getUser_level() + 1;
                     }
                     TbadkCoreApplication.m411getInst().addSignedForum(Lh.aeN().getName(), signData.getBonusPoint(), i);
                 }
-                ehVar5 = this.bbN.bbH;
-                if (AntiHelper.la(ehVar5.getErrorCode())) {
-                    Activity pageActivity2 = this.bbN.getPageContext().getPageActivity();
-                    ehVar6 = this.bbN.bbH;
+                ehVar5 = this.bbY.bbS;
+                if (AntiHelper.lc(ehVar5.getErrorCode())) {
+                    Activity pageActivity2 = this.bbY.getPageContext().getPageActivity();
+                    ehVar6 = this.bbY.bbS;
                     AntiHelper.P(pageActivity2, ehVar6.getErrorString());
                 } else if (signData != null) {
-                    if (!this.bbN.Nw()) {
-                        frsActivity4 = this.bbN.baG;
-                        frsActivity4.showToast(this.bbN.getPageContext().getResources().getString(i.h.frs_sign_success, Integer.valueOf(signData.getUserSignRank())));
+                    if (!this.bbY.Nw()) {
+                        frsActivity4 = this.bbY.baR;
+                        frsActivity4.showToast(this.bbY.getPageContext().getResources().getString(i.h.frs_sign_success, Integer.valueOf(signData.getUserSignRank())));
                         return;
                     }
-                    frsActivity3 = this.bbN.baG;
-                    frsActivity3.showToast(this.bbN.getPageContext().getResources().getString(i.h.frs_sign_pointer, Integer.valueOf(signData.getBonusPoint()), Integer.valueOf(signData.getUserSignRank())));
+                    frsActivity3 = this.bbY.baR;
+                    frsActivity3.showToast(this.bbY.getPageContext().getResources().getString(i.h.frs_sign_pointer, Integer.valueOf(signData.getBonusPoint()), Integer.valueOf(signData.getUserSignRank())));
                 }
             }
         }

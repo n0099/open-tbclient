@@ -6,8 +6,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.i;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -114,15 +114,15 @@ public class PhotoLiveCardData implements Serializable {
 
     @Deprecated
     public String buildRefreshTime() {
-        return String.valueOf(ar.o(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(i.h.update_floor_num, new Object[]{ar.s(this.postNum)});
+        return String.valueOf(as.o(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(i.h.update_floor_num, new Object[]{as.s(this.postNum)});
     }
 
     public String buildRefreshTimeWithPostNum() {
-        return String.valueOf(ar.o(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(i.h.update_floor_num, new Object[]{ar.s(this.postNum)});
+        return String.valueOf(as.o(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(i.h.update_floor_num, new Object[]{as.s(this.postNum)});
     }
 
     public String buildRefreshTimeWithoutPostNum() {
-        return TbadkCoreApplication.m411getInst().getString(i.h.photo_live_thread_expression_time, new Object[]{ar.o(this.lastModifiedTime * 1000)});
+        return TbadkCoreApplication.m411getInst().getString(i.h.photo_live_thread_expression_time, new Object[]{as.o(this.lastModifiedTime * 1000)});
     }
 
     public void setPhotoLiveCover(String str) {
@@ -178,7 +178,7 @@ public class PhotoLiveCardData implements Serializable {
             return null;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(String.valueOf("live") + "space" + ((Object) charSequence));
-        Bitmap cw = am.cw(i.e.icon_zhibo);
+        Bitmap cw = an.cw(i.e.icon_zhibo);
         BitmapDrawable bitmapDrawable = new BitmapDrawable(cw);
         int height = cw.getHeight();
         bitmapDrawable.setBounds(0, 0, cw.getWidth(), height);
@@ -186,7 +186,7 @@ public class PhotoLiveCardData implements Serializable {
         ColorDrawable colorDrawable = new ColorDrawable();
         colorDrawable.setBounds(0, 0, 10, height);
         spannableStringBuilder.setSpan(new com.baidu.adp.widget.d(colorDrawable, 1), 1, "live".length() + "space".length(), 33);
-        return ar.a(spannableStringBuilder);
+        return as.a(spannableStringBuilder);
     }
 
     public String getTitle() {

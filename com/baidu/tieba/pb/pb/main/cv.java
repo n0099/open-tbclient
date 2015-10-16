@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cv implements Animation.AnimationListener {
-    final /* synthetic */ cc cly;
+    final /* synthetic */ cc clJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cv(cc ccVar) {
-        this.cly = ccVar;
+        this.clJ = ccVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -20,10 +20,10 @@ public class cv implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         RelativeLayout relativeLayout;
-        relativeLayout = this.cly.ckw;
+        relativeLayout = this.clJ.ckH;
         relativeLayout.setVisibility(0);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.cly.eJ(false);
+            this.clJ.eJ(false);
         }
     }
 

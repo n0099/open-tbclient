@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.hottopic.a.m;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
@@ -16,55 +16,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e implements RelateForumViewPager.a {
-    private IndicatorView apz;
-    private RelateForumViewPager bpI;
-    private TextView bpK;
-    private m bpL;
-    private a bpM;
-    private HotTopicActivity bpN;
-    private com.baidu.tieba.hottopic.data.g bpO = new com.baidu.tieba.hottopic.data.g();
+    private IndicatorView apA;
+    private RelateForumViewPager bpT;
+    private TextView bpV;
+    private m bpW;
+    private a bpX;
+    private HotTopicActivity bpY;
+    private com.baidu.tieba.hottopic.data.g bpZ = new com.baidu.tieba.hottopic.data.g();
     private final Handler.Callback mCallback = new f(this);
     private final Handler mHandler = new Handler(this.mCallback);
-    private ViewPager.OnPageChangeListener bpP = new g(this);
+    private ViewPager.OnPageChangeListener bqa = new g(this);
 
     public e(HotTopicActivity hotTopicActivity, RelateForumViewPager relateForumViewPager, IndicatorView indicatorView, TextView textView) {
-        this.bpI = relateForumViewPager;
-        this.apz = indicatorView;
-        this.bpK = textView;
-        this.bpN = hotTopicActivity;
-        this.bpL = new m(hotTopicActivity);
-        this.bpI.setAdapter(this.bpL);
-        this.bpI.setOnPageChangeListener(this.bpP);
-        this.apz.setSelector(am.getDrawable(i.e.icon_choose_dot_s));
-        this.apz.setDrawable(am.getDrawable(i.e.icon_choose_dot_n));
+        this.bpT = relateForumViewPager;
+        this.apA = indicatorView;
+        this.bpV = textView;
+        this.bpY = hotTopicActivity;
+        this.bpW = new m(hotTopicActivity);
+        this.bpT.setAdapter(this.bpW);
+        this.bpT.setOnPageChangeListener(this.bqa);
+        this.apA.setSelector(an.getDrawable(i.e.icon_choose_dot_s));
+        this.apA.setDrawable(an.getDrawable(i.e.icon_choose_dot_n));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private List<RelateForumItemData> aXB;
-        private List<RelateForumItemData> aXC;
-        private final boolean aXD;
+        private List<RelateForumItemData> aXM;
+        private List<RelateForumItemData> aXN;
+        private final boolean aXO;
 
         public a(List<RelateForumItemData> list) {
-            this.aXB = list;
+            this.aXM = list;
             if (list != null && list.size() >= 2 && list.size() <= 4) {
-                this.aXD = true;
+                this.aXO = true;
             } else {
-                this.aXD = false;
+                this.aXO = false;
             }
-            this.aXC = QZ();
+            this.aXN = QZ();
         }
 
         private List<RelateForumItemData> QZ() {
             ArrayList arrayList = new ArrayList();
-            if (this.aXB != null) {
-                if (this.aXD) {
-                    arrayList.addAll(this.aXB);
-                    arrayList.add(0, this.aXB.get(this.aXB.size() - 1));
-                    arrayList.add(this.aXB.get(0));
-                } else if (this.aXB != null && this.aXB.size() > 0) {
-                    arrayList.add(this.aXB.get(0));
+            if (this.aXM != null) {
+                if (this.aXO) {
+                    arrayList.addAll(this.aXM);
+                    arrayList.add(0, this.aXM.get(this.aXM.size() - 1));
+                    arrayList.add(this.aXM.get(0));
+                } else if (this.aXM != null && this.aXM.size() > 0) {
+                    arrayList.add(this.aXM.get(0));
                 }
             }
             return arrayList;
@@ -72,8 +72,8 @@ public class e implements RelateForumViewPager.a {
 
         /* JADX INFO: Access modifiers changed from: private */
         public int gE(int i) {
-            if (this.aXD) {
-                int size = this.aXC.size();
+            if (this.aXO) {
+                int size = this.aXN.size();
                 if (i == 0) {
                     return size - 2;
                 }
@@ -87,7 +87,7 @@ public class e implements RelateForumViewPager.a {
 
         /* JADX INFO: Access modifiers changed from: private */
         public int fE(int i) {
-            if (this.aXD) {
+            if (this.aXO) {
                 return i - 1;
             }
             return i;
@@ -95,52 +95,52 @@ public class e implements RelateForumViewPager.a {
 
         /* JADX INFO: Access modifiers changed from: private */
         public int Mq() {
-            if (this.aXB == null) {
+            if (this.aXM == null) {
                 return 0;
             }
-            return this.aXB.size();
+            return this.aXM.size();
         }
 
         public int Mr() {
-            return this.aXD ? 1 : 0;
+            return this.aXO ? 1 : 0;
         }
 
         public List<RelateForumItemData> Ms() {
-            return this.aXC;
+            return this.aXN;
         }
     }
 
     public void a(com.baidu.tieba.hottopic.data.g gVar) {
         if (gVar.getCount() > 0) {
-            this.bpO = gVar;
-            this.bpM = new a(gVar.bpf);
-            this.bpL.setDatas(this.bpM.Ms());
-            this.bpI.setAdapter(this.bpL);
-            this.bpI.setCurrentItem(this.bpM.Mr(), false);
-            if (this.bpM.Mq() > 0) {
-                if (this.bpM.Mq() > 4) {
-                    this.apz.setVisibility(8);
-                    am.b(this.bpK, i.c.cp_cont_d, 1);
-                    this.bpK.setText(TbadkCoreApplication.m411getInst().getString(i.h.relate_forum_scan_all));
-                    this.bpK.setVisibility(0);
-                    this.bpK.setOnClickListener(new h(this));
+            this.bpZ = gVar;
+            this.bpX = new a(gVar.bpq);
+            this.bpW.setDatas(this.bpX.Ms());
+            this.bpT.setAdapter(this.bpW);
+            this.bpT.setCurrentItem(this.bpX.Mr(), false);
+            if (this.bpX.Mq() > 0) {
+                if (this.bpX.Mq() > 4) {
+                    this.apA.setVisibility(8);
+                    an.b(this.bpV, i.c.cp_cont_d, 1);
+                    this.bpV.setText(TbadkCoreApplication.m411getInst().getString(i.h.relate_forum_scan_all));
+                    this.bpV.setVisibility(0);
+                    this.bpV.setOnClickListener(new h(this));
                     Mp();
                 }
-                if (this.bpM.Mq() >= 2 && this.bpM.Mq() <= 4) {
-                    this.bpK.setVisibility(8);
-                    this.bpK.getRootView().setEnabled(false);
-                    this.apz.setVisibility(0);
-                    if (this.apz.getCount() != this.bpM.Mq()) {
-                        this.apz.setCount(this.bpM.Mq());
+                if (this.bpX.Mq() >= 2 && this.bpX.Mq() <= 4) {
+                    this.bpV.setVisibility(8);
+                    this.bpV.getRootView().setEnabled(false);
+                    this.apA.setVisibility(0);
+                    if (this.apA.getCount() != this.bpX.Mq()) {
+                        this.apA.setCount(this.bpX.Mq());
                     }
                     Mo();
                 }
-                if (this.bpM.Mq() < 2) {
-                    this.bpK.setVisibility(8);
-                    this.apz.setVisibility(8);
+                if (this.bpX.Mq() < 2) {
+                    this.bpV.setVisibility(8);
+                    this.apA.setVisibility(8);
                     Mp();
                 }
-                this.bpL.notifyDataSetChanged();
+                this.bpW.notifyDataSetChanged();
             }
         }
     }
@@ -148,15 +148,15 @@ public class e implements RelateForumViewPager.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void Mn() {
         int count;
-        if (this.bpI != null && this.bpL != null && (count = this.bpL.getCount()) >= 2) {
-            int currentItem = this.bpI.getCurrentItem();
+        if (this.bpT != null && this.bpW != null && (count = this.bpW.getCount()) >= 2) {
+            int currentItem = this.bpT.getCurrentItem();
             int i = count - 2;
             if (currentItem < 1) {
-                this.bpI.setCurrentItem(i, false);
+                this.bpT.setCurrentItem(i, false);
             } else if (currentItem > i) {
-                this.bpI.setCurrentItem(1, false);
+                this.bpT.setCurrentItem(1, false);
             } else {
-                this.bpI.setCurrentItem(currentItem + 1);
+                this.bpT.setCurrentItem(currentItem + 1);
             }
         }
     }
@@ -174,13 +174,13 @@ public class e implements RelateForumViewPager.a {
 
     @Override // com.baidu.tieba.hottopic.view.RelateForumViewPager.a
     public void destory() {
-        this.bpL.destory();
-        this.bpI.removeAllViews();
+        this.bpW.destory();
+        this.bpT.removeAllViews();
     }
 
     public void QK() {
-        this.bpL.QK();
-        this.apz.setSelector(am.getDrawable(i.e.icon_choose_dot_s));
-        this.apz.setDrawable(am.getDrawable(i.e.icon_choose_dot_n));
+        this.bpW.QK();
+        this.apA.setSelector(an.getDrawable(i.e.icon_choose_dot_s));
+        this.apA.setDrawable(an.getDrawable(i.e.icon_choose_dot_n));
     }
 }

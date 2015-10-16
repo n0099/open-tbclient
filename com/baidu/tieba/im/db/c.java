@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c bwE;
+    private static c bwP;
 
     private c() {
     }
@@ -26,10 +26,10 @@ public class c {
     public static synchronized c TF() {
         c cVar;
         synchronized (c.class) {
-            if (bwE == null) {
-                bwE = new c();
+            if (bwP == null) {
+                bwP = new c();
             }
-            cVar = bwE;
+            cVar = bwP;
         }
         return cVar;
     }
@@ -91,9 +91,9 @@ public class c {
                                 com.baidu.adp.lib.util.o.b(cursor);
                                 return j;
                             }
-                            long aB = com.baidu.tieba.im.util.g.aB(j);
+                            long aL = com.baidu.tieba.im.util.g.aL(j);
                             com.baidu.adp.lib.util.o.b(cursor);
-                            return aB;
+                            return aL;
                         }
                     } catch (SQLiteException e) {
                         e = e;

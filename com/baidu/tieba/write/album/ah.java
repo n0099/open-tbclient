@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class ah implements a.InterfaceC0082a {
-    final /* synthetic */ ac dkO;
+    final /* synthetic */ ac dlo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(ac acVar) {
-        this.dkO = acVar;
+        this.dlo = acVar;
     }
 
     @Override // com.baidu.tieba.write.view.a.InterfaceC0082a
@@ -27,13 +27,13 @@ class ah implements a.InterfaceC0082a {
         String albumId = aVar.getAlbumId();
         String name = aVar.getName();
         if (!TextUtils.isEmpty(albumId)) {
-            lVar = this.dkO.djp;
-            if (!albumId.equals(lVar.aBj())) {
-                lVar2 = this.dkO.djp;
-                List<ImageFileInfo> aBm = lVar2.aBm();
+            lVar = this.dlo.djP;
+            if (!albumId.equals(lVar.aBt())) {
+                lVar2 = this.dlo.djP;
+                List<ImageFileInfo> aBw = lVar2.aBw();
                 if (!albumId.equals("-1")) {
                     list = new ArrayList<>();
-                    for (ImageFileInfo imageFileInfo : aBm) {
+                    for (ImageFileInfo imageFileInfo : aBw) {
                         if (albumId.equals(imageFileInfo.getAlbumId())) {
                             list.add(imageFileInfo);
                         }
@@ -41,14 +41,14 @@ class ah implements a.InterfaceC0082a {
                     z = false;
                 } else {
                     z = true;
-                    list = aBm;
+                    list = aBw;
                 }
-                lVar3 = this.dkO.djp;
-                lVar3.bF(list);
-                lVar4 = this.dkO.djp;
-                lVar4.mj(albumId);
-                this.dkO.setData(list, z);
-                textView = this.dkO.LM;
+                lVar3 = this.dlo.djP;
+                lVar3.bG(list);
+                lVar4 = this.dlo.djP;
+                lVar4.mm(albumId);
+                this.dlo.setData(list, z);
+                textView = this.dlo.LN;
                 textView.setText(name);
             }
         }

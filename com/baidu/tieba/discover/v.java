@@ -10,11 +10,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements a.InterfaceC0052a<com.baidu.tieba.discover.data.a> {
-    final /* synthetic */ u aKH;
+    final /* synthetic */ u aKS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(u uVar) {
-        this.aKH = uVar;
+        this.aKS = uVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a
@@ -26,22 +26,22 @@ public class v implements a.InterfaceC0052a<com.baidu.tieba.discover.data.a> {
         com.baidu.tieba.discover.data.b bVar;
         u.a aVar4;
         if (readCacheRespMsg == null || readCacheRespMsg.getData() == null || readCacheRespMsg.getData().size() <= 0 || readCacheRespMsg.getData().get(0) == null) {
-            aVar = this.aKH.aKG;
+            aVar = this.aKS.aKR;
             if (aVar != null) {
-                aVar2 = this.aKH.aKG;
-                aVar2.a(false, this.aKH.HH(), true);
+                aVar2 = this.aKS.aKR;
+                aVar2.a(false, this.aKS.HH(), true);
             }
         } else {
             com.baidu.tieba.discover.data.a aVar5 = readCacheRespMsg.getData().get(0);
-            aVar3 = this.aKH.aKG;
+            aVar3 = this.aKS.aKR;
             if (aVar3 != null) {
-                aVar4 = this.aKH.aKG;
+                aVar4 = this.aKS.aKR;
                 aVar4.a(false, aVar5, true);
             }
-            bVar = this.aKH.aKF;
-            bVar.Z(aVar5.HI());
+            bVar = this.aKS.aKQ;
+            bVar.aj(aVar5.HI());
         }
-        xVar = this.aKH.aKE;
+        xVar = this.aKS.aKP;
         xVar.CS();
     }
 

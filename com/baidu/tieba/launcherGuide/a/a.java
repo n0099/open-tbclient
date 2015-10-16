@@ -15,10 +15,10 @@ import com.baidu.tieba.launcherGuide.data.InterestFrsData;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a extends e<BaseFragmentActivity> {
-    private static final String bSg = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/gettaglist";
-    private boolean bSh;
-    private InterestFrsData bSi;
-    private C0063a bSj;
+    private static final String bSr = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/gettaglist";
+    private boolean bSs;
+    private InterestFrsData bSt;
+    private C0063a bSu;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -32,29 +32,29 @@ public class a extends e<BaseFragmentActivity> {
     }
 
     public boolean aaF() {
-        return this.bSh;
+        return this.bSs;
     }
 
     public void dI(boolean z) {
-        this.bSh = z;
+        this.bSs = z;
     }
 
     public InterestFrsData aaG() {
-        return this.bSi;
+        return this.bSt;
     }
 
     public void e(InterestFrsData interestFrsData) {
-        this.bSi = interestFrsData;
+        this.bSt = interestFrsData;
     }
 
     public void a(int i, int i2, int i3, b bVar) {
-        this.bSj = new C0063a(i, i2, i3, bVar);
-        this.bSj.execute(new Void[0]);
+        this.bSu = new C0063a(i, i2, i3, bVar);
+        this.bSu.execute(new Void[0]);
     }
 
     public void aaH() {
-        if (this.bSj != null) {
-            this.bSj.cancel();
+        if (this.bSu != null) {
+            this.bSu.cancel();
         }
     }
 
@@ -62,7 +62,7 @@ public class a extends e<BaseFragmentActivity> {
     /* renamed from: com.baidu.tieba.launcherGuide.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0063a extends BdAsyncTask<Void, Void, InterestFrsData> {
-        private WeakReference<b> aFp;
+        private WeakReference<b> aFA;
         private int limit;
         private int offset;
         private int userType;
@@ -71,21 +71,21 @@ public class a extends e<BaseFragmentActivity> {
             this.userType = i;
             this.offset = i2;
             this.limit = i3;
-            this.aFp = new WeakReference<>(bVar);
+            this.aFA = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: f */
+        /* renamed from: e */
         public InterestFrsData doInBackground(Void... voidArr) {
-            w wVar = new w(a.bSg);
+            w wVar = new w(a.bSr);
             wVar.o(OfficalBarChatActivityConfig.USER_TYPE, String.valueOf(this.userType));
             wVar.o("offset", String.valueOf(this.offset));
             wVar.o("limit", String.valueOf(this.limit));
             String tG = wVar.tG();
-            if (wVar.uh().uY().qV()) {
+            if (wVar.uh().uZ().qV()) {
                 try {
                     return (InterestFrsData) i.objectWithJsonStr(tG, InterestFrsData.class);
                 } catch (Exception e) {
@@ -108,7 +108,7 @@ public class a extends e<BaseFragmentActivity> {
         /* renamed from: f */
         public void onPostExecute(InterestFrsData interestFrsData) {
             super.onPostExecute(interestFrsData);
-            b bVar = this.aFp.get();
+            b bVar = this.aFA.get();
             if (bVar != null) {
                 if (interestFrsData.getErrno() == 0) {
                     bVar.a(interestFrsData);

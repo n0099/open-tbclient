@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.b {
-    final /* synthetic */ k cDX;
+    final /* synthetic */ k cEi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(k kVar) {
-        this.cDX = kVar;
+        this.cEi = kVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -17,10 +17,10 @@ public class o implements a.b {
         PostSearchActivity postSearchActivity;
         BdListView bdListView;
         aVar.dismiss();
-        postSearchActivity = this.cDX.cDL;
+        postSearchActivity = this.cEi.cDW;
         postSearchActivity.aok().aov();
-        bdListView = this.cDX.cDT;
+        bdListView = this.cEi.cEe;
         bdListView.setVisibility(8);
-        this.cDX.showNoDataView();
+        this.cEi.showNoDataView();
     }
 }

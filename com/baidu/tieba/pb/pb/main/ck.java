@@ -5,11 +5,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ck implements CompoundButton.OnCheckedChangeListener {
-    final /* synthetic */ cc cly;
+    final /* synthetic */ cc clJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ck(cc ccVar) {
-        this.cly = ccVar;
+        this.clJ = ccVar;
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
@@ -19,16 +19,16 @@ public class ck implements CompoundButton.OnCheckedChangeListener {
         String str;
         String str2;
         if (z) {
-            this.cly.ckX = (String) compoundButton.getTag();
-            list = this.cly.ckb;
+            this.clJ.cli = (String) compoundButton.getTag();
+            list = this.clJ.ckm;
             if (list != null) {
-                list2 = this.cly.ckb;
+                list2 = this.clJ.ckm;
                 for (com.baidu.tieba.pb.pb.main.b.a aVar : list2) {
                     String str3 = (String) aVar.getTag();
                     if (str3 != null) {
-                        str = this.cly.ckX;
+                        str = this.clJ.cli;
                         if (str != null) {
-                            str2 = this.cly.ckX;
+                            str2 = this.clJ.cli;
                             if (!str3.equals(str2)) {
                                 aVar.setChecked(false);
                             }

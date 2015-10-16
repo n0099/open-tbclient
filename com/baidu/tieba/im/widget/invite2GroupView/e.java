@@ -7,21 +7,21 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    private final /* synthetic */ TbPageContext RW;
-    final /* synthetic */ d bJa;
+    private final /* synthetic */ TbPageContext RX;
+    final /* synthetic */ d bJl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, TbPageContext tbPageContext) {
-        this.bJa = dVar;
-        this.RW = tbPageContext;
+        this.bJl = dVar;
+        this.RX = tbPageContext;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Invite2GroupView invite2GroupView;
-        invite2GroupView = this.bJa.bIZ;
+        invite2GroupView = this.bJl.bJk;
         if (invite2GroupView.getContext() instanceof Activity) {
-            this.RW.showToast(i.h.has_recent_join);
+            this.RX.showToast(i.h.has_recent_join);
         }
     }
 }

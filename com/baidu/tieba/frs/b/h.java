@@ -11,27 +11,27 @@ import com.baidu.tieba.tbadkCore.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements ai.a {
-    final /* synthetic */ a bbN;
+    final /* synthetic */ a bbY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.bbN = aVar;
+        this.bbY = aVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.ai.a
     public void g(String str, long j) {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
-        frsActivity = this.bbN.baG;
+        frsActivity = this.bbY.baR;
         com.baidu.tieba.tbadkCore.o Lh = frsActivity.Lh();
         if (Lh != null && Lh.aeN() != null) {
-            com.baidu.tieba.tbadkCore.d.avn().H(Lh.aeN().getName(), false);
+            com.baidu.tieba.tbadkCore.d.avt().H(Lh.aeN().getName(), false);
             Lh.aeN().setLike(0);
-            this.bbN.fV(0);
-            frsActivity2 = this.bbN.baG;
-            frsActivity2.aUx.d(true);
+            this.bbY.fV(0);
+            frsActivity2 = this.bbY.baR;
+            frsActivity2.aUI.d(true);
             TbadkCoreApplication.m411getInst().delLikeForum(str);
-            this.bbN.e(false, new StringBuilder(String.valueOf(j)).toString());
+            this.bbY.e(false, new StringBuilder(String.valueOf(j)).toString());
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, new StringBuilder(String.valueOf(j)).toString()));
             x xVar = new x();
             xVar.setLike(0);

@@ -45,7 +45,7 @@ public class bk implements CustomMessageTask.CustomRunnable<String> {
                         if (imMessageCenterPojo2.getCustomGroupType() == 6) {
                             com.baidu.tieba.im.db.i.TO().c(imMessageCenterPojo2);
                         } else {
-                            com.baidu.tieba.im.chat.receiveChatMsgHandler.p.Sb().i(imMessageCenterPojo2.getGid(), com.baidu.tieba.im.util.g.aC(imMessageCenterPojo2.getPulled_msgId()));
+                            com.baidu.tieba.im.chat.receiveChatMsgHandler.p.Sb().i(imMessageCenterPojo2.getGid(), com.baidu.tieba.im.util.g.aM(imMessageCenterPojo2.getPulled_msgId()));
                         }
                     }
                 }

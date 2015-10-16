@@ -28,11 +28,11 @@ public class ba extends CustomMessageListener {
         ImMessageCenterPojo J;
         if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
             if (customResponsedMessage.getData() instanceof PersonalChatMessage) {
-                b.VW().a(-1, ((PersonalChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.c.a.bGM));
-                J = b.VW().J(String.valueOf(com.baidu.tieba.im.c.a.bGM), -1);
+                b.VW().a(-1, ((PersonalChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.c.a.bGX));
+                J = b.VW().J(String.valueOf(com.baidu.tieba.im.c.a.bGX), -1);
             } else if (customResponsedMessage.getData() instanceof OfficialChatMessage) {
-                b.VW().a(-9, ((OfficialChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.c.a.bGN));
-                J = b.VW().J(String.valueOf(com.baidu.tieba.im.c.a.bGN), -9);
+                b.VW().a(-9, ((OfficialChatMessage) customResponsedMessage.getData()).getMsgId(), String.valueOf(com.baidu.tieba.im.c.a.bGY));
+                J = b.VW().J(String.valueOf(com.baidu.tieba.im.c.a.bGY), -9);
             } else {
                 ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                 b.VW().a(1, chatMessage.getMsgId(), chatMessage.getGroupId());

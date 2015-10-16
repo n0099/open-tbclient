@@ -9,11 +9,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    final /* synthetic */ b diZ;
+    final /* synthetic */ b djz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(b bVar) {
-        this.diZ = bVar;
+        this.djz = bVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,30 +32,30 @@ public class e implements View.OnClickListener {
         List list;
         VoteDataInfo voteDataInfo3;
         if (view.getId() == i.f.btn_pb_vote) {
-            pbActivity = this.diZ.ciJ;
+            pbActivity = this.djz.ciU;
             if (pbActivity != null) {
-                pbActivity2 = this.diZ.ciJ;
+                pbActivity2 = this.djz.ciU;
                 if (pbActivity2.checkUpIsLogin()) {
-                    voteDataInfo = this.diZ.diU;
+                    voteDataInfo = this.djz.dju;
                     if (voteDataInfo != null) {
-                        j = this.diZ.mForumId;
+                        j = this.djz.mForumId;
                         if (j > 0) {
-                            j2 = this.diZ.mThreadId;
+                            j2 = this.djz.mThreadId;
                             if (j2 > 0) {
-                                z = this.diZ.diW;
+                                z = this.djz.djw;
                                 if (!z) {
-                                    pbActivity3 = this.diZ.ciJ;
+                                    pbActivity3 = this.djz.ciU;
                                     a aVar = new a(pbActivity3);
                                     StringBuilder sb = new StringBuilder();
-                                    voteDataInfo2 = this.diZ.diU;
+                                    voteDataInfo2 = this.djz.dju;
                                     List<com.baidu.tbadk.widget.vote.a> options = voteDataInfo2.getOptions();
                                     if (options != null) {
                                         for (com.baidu.tbadk.widget.vote.a aVar2 : options) {
                                             if (aVar2 != null && aVar2.isSelected()) {
                                                 sb.append(aVar2.getId()).append(",");
-                                                list = this.diZ.diV;
+                                                list = this.djz.djv;
                                                 list.add((f) aVar2);
-                                                voteDataInfo3 = this.diZ.diU;
+                                                voteDataInfo3 = this.djz.dju;
                                                 if (voteDataInfo3.getIsMulti() != 1) {
                                                     break;
                                                 }
@@ -65,14 +65,14 @@ public class e implements View.OnClickListener {
                                             sb.deleteCharAt(sb.length() - 1);
                                         }
                                         if (TextUtils.isEmpty(sb.toString())) {
-                                            pbActivity4 = this.diZ.ciJ;
+                                            pbActivity4 = this.djz.ciU;
                                             UtilHelper.showToast(pbActivity4.getActivity(), i.h.vote_checked_less_one);
                                             return;
                                         }
-                                        j3 = this.diZ.mForumId;
-                                        j4 = this.diZ.mThreadId;
+                                        j3 = this.djz.mForumId;
+                                        j4 = this.djz.mThreadId;
                                         aVar.c(j3, j4, sb.toString());
-                                        this.diZ.diW = true;
+                                        this.djz.djw = true;
                                     }
                                 }
                             }

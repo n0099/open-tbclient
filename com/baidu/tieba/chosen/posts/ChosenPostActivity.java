@@ -8,48 +8,48 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes.dex */
 public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter LD;
-    private b aJs;
-    private e aJt;
+    private ViewEventCenter LE;
+    private b aJD;
+    private e aJE;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         oF().addEventDelegate(this);
-        this.aJs = Hj();
-        this.aJt = Hk();
+        this.aJD = Hj();
+        this.aJE = Hk();
         if (getIntent() != null) {
-            this.aJs.f(getIntent().getExtras());
+            this.aJD.f(getIntent().getExtras());
         } else if (bundle != null) {
-            this.aJs.f(bundle);
+            this.aJD.f(bundle);
         } else {
-            this.aJs.f(null);
+            this.aJD.f(null);
         }
-        setContentView(this.aJt.oZ());
-        this.aJt.oQ();
-        this.aJt.onChangeSkinType(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        setContentView(this.aJE.oZ());
+        this.aJE.oQ();
+        this.aJE.onChangeSkinType(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     public b Hj() {
-        if (this.aJs == null) {
-            this.aJs = new b(this);
+        if (this.aJD == null) {
+            this.aJD = new b(this);
         }
-        return this.aJs;
+        return this.aJD;
     }
 
     public e Hk() {
-        if (this.aJt == null) {
-            this.aJt = new e(this);
+        if (this.aJE == null) {
+            this.aJE = new e(this);
         }
-        return this.aJt;
+        return this.aJE;
     }
 
     public ViewEventCenter oF() {
-        if (this.LD == null) {
-            this.LD = new ViewEventCenter();
+        if (this.LE == null) {
+            this.LE = new ViewEventCenter();
         }
-        return this.LD;
+        return this.LE;
     }
 
     @Override // com.baidu.tbadk.mvc.c.a

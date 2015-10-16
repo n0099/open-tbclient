@@ -8,21 +8,21 @@ import com.baidu.tieba.recommendfrs.indicator.ScrollFragmentTabHost;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements CustomMessageTask.CustomRunnable<Boolean> {
-    final /* synthetic */ a cIc;
+    final /* synthetic */ a cIB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.cIc = aVar;
+        this.cIB = aVar;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
         ScrollFragmentTabHost scrollFragmentTabHost;
         ScrollFragmentTabHost scrollFragmentTabHost2;
-        scrollFragmentTabHost = this.cIc.cHW;
-        if (scrollFragmentTabHost.aqq()) {
-            scrollFragmentTabHost2 = this.cIc.cHW;
-            scrollFragmentTabHost2.aqs();
+        scrollFragmentTabHost = this.cIB.cIv;
+        if (scrollFragmentTabHost.aqw()) {
+            scrollFragmentTabHost2 = this.cIB.cIv;
+            scrollFragmentTabHost2.aqy();
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, true);
         }
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, false);

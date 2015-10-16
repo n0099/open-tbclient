@@ -26,7 +26,7 @@ public class a extends com.baidu.tbadk.mvc.g.b<tinfo, com.baidu.tbadk.mvc.d.b, c
         return 1;
     }
 
-    public void X(long j) {
+    public void ah(long j) {
         List<tinfo> Dm;
         tinfo tinfoVar;
         if (j > 0 && (Dm = Dm()) != null && Dm.size() > 0) {

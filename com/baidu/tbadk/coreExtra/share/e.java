@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class e implements a {
-    final /* synthetic */ d aiK;
+    final /* synthetic */ d aiL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.aiK = dVar;
+        this.aiL = dVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.share.a

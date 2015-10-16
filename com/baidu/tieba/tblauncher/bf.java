@@ -7,16 +7,16 @@ import com.slidingmenu.lib.SlidingMenu;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bf implements SlidingMenu.OnClosedListener {
-    final /* synthetic */ ao dcY;
+    final /* synthetic */ ao ddy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(ao aoVar) {
-        this.dcY = aoVar;
+        this.ddy = aoVar;
     }
 
     @Override // com.slidingmenu.lib.SlidingMenu.OnClosedListener
     public void onClosed() {
-        this.dcY.z(1.0f);
+        this.ddy.z(1.0f);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_SLIDINGMENU_CLOSED));
     }
 }

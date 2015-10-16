@@ -3,12 +3,12 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private int agA;
-    private long agB;
-    private String agC;
+    private String agA;
+    private int agB;
+    private long agC;
     private String agD;
     private String agE;
-    private String ags;
+    private String agF;
     private String agt;
     private String agu;
     private String agv;
@@ -20,19 +20,19 @@ public class m {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.ags = jSONObject.optString("drop_pic");
-                this.agt = jSONObject.optString("drop_pic_md5");
-                this.agu = jSONObject.optString("drop_pic_num");
-                this.agv = jSONObject.optString("drop_bg_color_day");
-                this.agw = jSONObject.optString("drop_bg_color_night");
-                this.agx = jSONObject.optString("apply_vip_live_room_pid");
-                this.agC = jSONObject.optString("max_cache");
-                this.agD = jSONObject.optString("frs_max_cache");
-                this.agE = jSONObject.optString("frs_pn");
-                this.agy = jSONObject.optString("tail_link");
-                this.agz = jSONObject.optString("bubble_link");
-                this.agA = jSONObject.optInt("xiaoying_time");
-                this.agB = jSONObject.optLong("last_update_time", 0L);
+                this.agt = jSONObject.optString("drop_pic");
+                this.agu = jSONObject.optString("drop_pic_md5");
+                this.agv = jSONObject.optString("drop_pic_num");
+                this.agw = jSONObject.optString("drop_bg_color_day");
+                this.agx = jSONObject.optString("drop_bg_color_night");
+                this.agy = jSONObject.optString("apply_vip_live_room_pid");
+                this.agD = jSONObject.optString("max_cache");
+                this.agE = jSONObject.optString("frs_max_cache");
+                this.agF = jSONObject.optString("frs_pn");
+                this.agz = jSONObject.optString("tail_link");
+                this.agA = jSONObject.optString("bubble_link");
+                this.agB = jSONObject.optInt("xiaoying_time");
+                this.agC = jSONObject.optLong("last_update_time", 0L);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -40,54 +40,54 @@ public class m {
     }
 
     public String wu() {
-        return this.agx;
-    }
-
-    public String wv() {
-        return this.ags;
-    }
-
-    public String ww() {
-        return this.agt;
-    }
-
-    public String wx() {
-        return this.agu;
-    }
-
-    public String wy() {
-        return this.agv;
-    }
-
-    public String wz() {
-        return this.agw;
-    }
-
-    public String wA() {
-        return this.agC;
-    }
-
-    public String wB() {
-        return this.agD;
-    }
-
-    public String wC() {
-        return this.agE;
-    }
-
-    public String wD() {
         return this.agy;
     }
 
-    public String wE() {
+    public String wv() {
+        return this.agt;
+    }
+
+    public String ww() {
+        return this.agu;
+    }
+
+    public String wx() {
+        return this.agv;
+    }
+
+    public String wy() {
+        return this.agw;
+    }
+
+    public String wz() {
+        return this.agx;
+    }
+
+    public String wA() {
+        return this.agD;
+    }
+
+    public String wB() {
+        return this.agE;
+    }
+
+    public String wC() {
+        return this.agF;
+    }
+
+    public String wD() {
         return this.agz;
     }
 
-    public int wF() {
+    public String wE() {
         return this.agA;
     }
 
-    public long wG() {
+    public int wF() {
         return this.agB;
+    }
+
+    public long wG() {
+        return this.agC;
     }
 }

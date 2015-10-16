@@ -3,32 +3,32 @@ package com.baidu.tieba.frs;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class dg {
-    private long aYd;
-    private long aYe;
-    private long aYf;
+    private long aYo;
+    private long aYp;
+    private long aYq;
 
     public dg(Context context) {
-        ae(0L);
-        af(0L);
+        ao(0L);
+        ap(0L);
     }
 
-    public void ae(long j) {
-        this.aYd = j;
+    public void ao(long j) {
+        this.aYo = j;
     }
 
     public long Mt() {
-        return this.aYd + this.aYe;
+        return this.aYo + this.aYp;
     }
 
-    public void af(long j) {
-        this.aYe = j;
+    public void ap(long j) {
+        this.aYp = j;
     }
 
     public long Mu() {
-        return this.aYf;
+        return this.aYq;
     }
 
-    public void ag(long j) {
-        this.aYf = j;
+    public void aq(long j) {
+        this.aYq = j;
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.tieba.i;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
-    private ArrayList<String> dgt;
+    private ArrayList<String> dgT;
     private int height;
     private TbPageContext<?> mContext;
     private int width;
@@ -24,18 +24,18 @@ public class c extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dgt != null) {
-            return this.dgt.size();
+        if (this.dgT != null) {
+            return this.dgT.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.dgt == null || i < 0 || i >= getCount()) {
+        if (this.dgT == null || i < 0 || i >= getCount()) {
             return null;
         }
-        return this.dgt.get(i);
+        return this.dgT.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -49,26 +49,26 @@ public class c extends BaseAdapter {
         if (view == null || !(view.getTag() instanceof a)) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.skin_detail_item, (ViewGroup) null);
             a aVar2 = new a(null);
-            aVar2.MD = (TbImageView) view.findViewById(i.f.skin_detail_thumb_item_thumb_iv);
-            aVar2.MD.setDefaultBgResource(i.c.cp_bg_line_e);
-            aVar2.ME = view.findViewById(i.f.skin_detail_thumb_item_left_empty_view);
-            aVar2.MF = view.findViewById(i.f.skin_detail_thumb_item_right_empty_view);
+            aVar2.ME = (TbImageView) view.findViewById(i.f.skin_detail_thumb_item_thumb_iv);
+            aVar2.ME.setDefaultBgResource(i.c.cp_bg_line_e);
+            aVar2.MF = view.findViewById(i.f.skin_detail_thumb_item_left_empty_view);
+            aVar2.MG = view.findViewById(i.f.skin_detail_thumb_item_right_empty_view);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.ME.setVisibility(i == 0 ? 0 : 8);
-        aVar.MF.setVisibility(i == getCount() + (-1) ? 0 : 8);
-        aVar.MD.a(this.dgt.get(i), 10, this.width, this.height, false);
+        aVar.MF.setVisibility(i == 0 ? 0 : 8);
+        aVar.MG.setVisibility(i == getCount() + (-1) ? 0 : 8);
+        aVar.ME.a(this.dgT.get(i), 10, this.width, this.height, false);
         return view;
     }
 
     /* loaded from: classes.dex */
     private static class a {
-        TbImageView MD;
-        View ME;
+        TbImageView ME;
         View MF;
+        View MG;
 
         private a() {
         }
@@ -78,11 +78,11 @@ public class c extends BaseAdapter {
         }
     }
 
-    public ArrayList<String> azt() {
-        return this.dgt;
+    public ArrayList<String> azD() {
+        return this.dgT;
     }
 
     public void ah(ArrayList<String> arrayList) {
-        this.dgt = arrayList;
+        this.dgT = arrayList;
     }
 }

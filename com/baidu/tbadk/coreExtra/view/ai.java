@@ -2,17 +2,17 @@ package com.baidu.tbadk.coreExtra.view;
 
 import android.widget.TextView;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements com.baidu.tbadk.download.c {
-    final /* synthetic */ z ami;
+    final /* synthetic */ z amj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(z zVar) {
-        this.ami = zVar;
+        this.amj = zVar;
     }
 
     @Override // com.baidu.tbadk.download.c
@@ -25,13 +25,13 @@ public class ai implements com.baidu.tbadk.download.c {
         ImageUrlData imageUrlData;
         ImageUrlData imageUrlData2;
         if (downloadData != null) {
-            imageUrlData = this.ami.amb;
+            imageUrlData = this.amj.amc;
             if (imageUrlData != null) {
-                imageUrlData2 = this.ami.amb;
+                imageUrlData2 = this.amj.amc;
                 imageUrlData2.originalProcess = downloadData.getProcess();
             }
-            this.ami.alW.setText(String.valueOf(downloadData.getProcess()) + "%");
-            this.ami.alW.setCompoundDrawablesWithIntrinsicBounds(0, 0, i.e.icon_close_yuantu, 0);
+            this.amj.alX.setText(String.valueOf(downloadData.getProcess()) + "%");
+            this.amj.alX.setCompoundDrawablesWithIntrinsicBounds(0, 0, i.e.icon_close_yuantu, 0);
         }
     }
 
@@ -44,17 +44,17 @@ public class ai implements com.baidu.tbadk.download.c {
     public void d(DownloadData downloadData) {
         Runnable runnable;
         boolean aU;
-        this.ami.alW.setText(this.ami.getResources().getString(i.h.done));
-        this.ami.alW.setClickable(false);
-        this.ami.alW.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        this.amj.alX.setText(this.amj.getResources().getString(i.h.done));
+        this.amj.alX.setClickable(false);
+        this.amj.alX.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         com.baidu.adp.lib.g.h hg = com.baidu.adp.lib.g.h.hg();
-        runnable = this.ami.amg;
+        runnable = this.amj.amh;
         hg.postDelayed(runnable, 1500L);
-        this.ami.amd = false;
-        z zVar = this.ami;
-        aU = this.ami.aU(false);
-        zVar.amc = aU;
-        this.ami.zm();
+        this.amj.ame = false;
+        z zVar = this.amj;
+        aU = this.amj.aU(false);
+        zVar.amd = aU;
+        this.amj.zm();
     }
 
     @Override // com.baidu.tbadk.download.c
@@ -62,15 +62,15 @@ public class ai implements com.baidu.tbadk.download.c {
         ImageUrlData imageUrlData;
         String str2;
         ImageUrlData imageUrlData2;
-        this.ami.amd = false;
-        BdToast.b(this.ami.mContext, str).sX().sZ();
-        imageUrlData = this.ami.amb;
+        this.amj.ame = false;
+        BdToast.b(this.amj.mContext, str).sX().sZ();
+        imageUrlData = this.amj.amc;
         imageUrlData.originalProcess = -1;
-        TextView textView = this.ami.alW;
-        str2 = z.alU;
+        TextView textView = this.amj.alX;
+        str2 = z.alV;
         StringBuilder append = new StringBuilder(String.valueOf(str2)).append("(");
-        imageUrlData2 = this.ami.amb;
-        textView.setText(append.append(ar.y(imageUrlData2.originalSize)).append(")").toString());
-        this.ami.alW.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+        imageUrlData2 = this.amj.amc;
+        textView.setText(append.append(as.y(imageUrlData2.originalSize)).append(")").toString());
+        this.amj.alX.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
     }
 }

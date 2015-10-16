@@ -4,8 +4,8 @@ import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.n;
-import com.baidu.tbadk.core.data.v;
+import com.baidu.tbadk.core.data.o;
+import com.baidu.tbadk.core.data.w;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
@@ -18,13 +18,13 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class ResponsedFrsHotHttpMessage extends TbHttpResponsedMessage {
     private final a mCache;
-    private final n mPage;
+    private final o mPage;
     private final ArrayList<u> mThreadList;
 
     public ResponsedFrsHotHttpMessage() {
         super(CmdConfigHttp.FRS_HOT_TAB_CMD);
         this.mThreadList = new ArrayList<>();
-        this.mPage = new n();
+        this.mPage = new o();
         this.mCache = new a();
     }
 
@@ -52,17 +52,17 @@ public class ResponsedFrsHotHttpMessage extends TbHttpResponsedMessage {
                 List<ThreadInfo> list2 = getHotThreadResIdl.data.thread_list;
                 if (list2 != null) {
                     for (int i3 = 0; i3 < list2.size(); i3++) {
-                        v vVar = new v();
-                        vVar.setUserMap(hashMap);
-                        vVar.a(list2.get(i3));
-                        vVar.bA(0);
-                        vVar.parser_title();
-                        if (vVar.sq() == 33) {
+                        w wVar = new w();
+                        wVar.setUserMap(hashMap);
+                        wVar.a(list2.get(i3));
+                        wVar.bA(0);
+                        wVar.parser_title();
+                        if (wVar.sq() == 33) {
                             if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-                                this.mThreadList.add(vVar);
+                                this.mThreadList.add(wVar);
                             }
                         } else {
-                            this.mThreadList.add(vVar);
+                            this.mThreadList.add(wVar);
                         }
                     }
                 }
@@ -84,7 +84,7 @@ public class ResponsedFrsHotHttpMessage extends TbHttpResponsedMessage {
         return this.mThreadList;
     }
 
-    public n getPage() {
+    public o getPage() {
         return this.mPage;
     }
 }

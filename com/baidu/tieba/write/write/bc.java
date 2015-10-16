@@ -6,11 +6,11 @@ import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 /* loaded from: classes.dex */
 class bc implements TbFaceManager.a {
-    final /* synthetic */ WriteActivity dpI;
+    final /* synthetic */ WriteActivity dqi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(WriteActivity writeActivity) {
-        this.dpI = writeActivity;
+        this.dqi = writeActivity;
     }
 
     @Override // com.baidu.tbadk.imageManager.TbFaceManager.a

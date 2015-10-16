@@ -13,10 +13,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class m {
-    private View aRl;
-    private TableLayout bUh;
-    private TextView bUi;
-    private boolean bUj;
+    private View aRw;
+    private TableLayout bUs;
+    private TextView bUt;
+    private boolean bUu;
     private TbPageContext<?> mContext;
     private View mRoot;
 
@@ -26,19 +26,19 @@ public class m {
 
     public View no() {
         this.mRoot = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.search_topic, (ViewGroup) null);
-        this.bUh = (TableLayout) this.mRoot.findViewById(i.f.search_topic_layout);
-        this.bUi = (TextView) this.mRoot.findViewById(i.f.square_search_fourm_header_text);
-        this.bUi.setText(this.mContext.getResources().getString(i.h.hot_topic_title));
-        this.aRl = this.mRoot.findViewById(i.f.bottomDivider);
+        this.bUs = (TableLayout) this.mRoot.findViewById(i.f.search_topic_layout);
+        this.bUt = (TextView) this.mRoot.findViewById(i.f.square_search_fourm_header_text);
+        this.bUt.setText(this.mContext.getResources().getString(i.h.hot_topic_title));
+        this.aRw = this.mRoot.findViewById(i.f.bottomDivider);
         return this.mRoot;
     }
 
     public void clear() {
-        this.bUh.removeAllViews();
+        this.bUs.removeAllViews();
         this.mRoot.setVisibility(8);
-        this.aRl.setVisibility(8);
-        this.bUh.setVisibility(8);
-        this.bUi.setVisibility(8);
+        this.aRw.setVisibility(8);
+        this.bUs.setVisibility(8);
+        this.bUt.setVisibility(8);
     }
 
     public View a(g gVar, int i) {
@@ -48,7 +48,7 @@ public class m {
         FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.search_topic_item, (ViewGroup) null);
         ((TextView) frameLayout.findViewById(i.f.text_search_topic_item_text)).setText(V(gVar.getName(), 10));
         frameLayout.setTag(gVar);
-        a(frameLayout, i, this.bUh, 2);
+        a(frameLayout, i, this.bUs, 2);
         return frameLayout;
     }
 
@@ -75,14 +75,14 @@ public class m {
 
     public void onChangeSkinType(int i) {
         this.mContext.getLayoutMode().k(this.mRoot);
-        for (int i2 = 0; i2 < this.bUh.getChildCount(); i2++) {
-            TableRow tableRow = (TableRow) this.bUh.getChildAt(i2);
+        for (int i2 = 0; i2 < this.bUs.getChildCount(); i2++) {
+            TableRow tableRow = (TableRow) this.bUs.getChildAt(i2);
             for (int i3 = 0; i3 < tableRow.getChildCount(); i3++) {
                 FrameLayout frameLayout = (FrameLayout) tableRow.getChildAt(i3);
                 if (frameLayout.getChildCount() != 0) {
                     TextView textView = (TextView) frameLayout.getChildAt(0);
-                    com.baidu.tbadk.core.util.am.a(textView, i.c.cp_cont_b, 1, i);
-                    com.baidu.tbadk.core.util.am.c(textView, i.e.square_search_item_bg, i);
+                    com.baidu.tbadk.core.util.an.a(textView, i.c.cp_cont_b, 1, i);
+                    com.baidu.tbadk.core.util.an.c(textView, i.e.square_search_item_bg, i);
                 }
             }
         }
@@ -91,15 +91,15 @@ public class m {
     public void show() {
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
         this.mRoot.setVisibility(0);
-        if (this.bUj) {
-            this.aRl.setVisibility(0);
+        if (this.bUu) {
+            this.aRw.setVisibility(0);
         }
-        this.bUh.setVisibility(0);
-        this.bUi.setVisibility(0);
+        this.bUs.setVisibility(0);
+        this.bUt.setVisibility(0);
     }
 
     public void dK(boolean z) {
-        this.bUj = z;
-        this.aRl.setVisibility(z ? 0 : 8);
+        this.bUu = z;
+        this.aRw.setVisibility(z ? 0 : 8);
     }
 }

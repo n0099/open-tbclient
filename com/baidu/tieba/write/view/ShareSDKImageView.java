@@ -6,8 +6,8 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class ShareSDKImageView extends TbClipImageView {
-    private int acR;
     private int acS;
+    private int acT;
 
     public ShareSDKImageView(Context context) {
         this(context, null, 0);
@@ -19,8 +19,8 @@ public class ShareSDKImageView extends TbClipImageView {
 
     public ShareSDKImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.acR = i.e.pic_share_link;
-        this.acS = i.c.cp_cont_e;
+        this.acS = i.e.pic_share_link;
+        this.acT = i.c.cp_cont_e;
         init();
     }
 
@@ -29,7 +29,7 @@ public class ShareSDKImageView extends TbClipImageView {
         setGifIconSupport(false);
         setDrawBorder(false);
         setIsRound(false);
-        setDefaultResource(this.acR);
-        setDefaultBgResource(this.acS);
+        setDefaultResource(this.acS);
+        setDefaultBgResource(this.acT);
     }
 }

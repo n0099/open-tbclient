@@ -9,24 +9,24 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends CustomMessageListener {
-    final /* synthetic */ p ddJ;
+    final /* synthetic */ p dej;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(p pVar, int i) {
         super(i);
-        this.ddJ = pVar;
+        this.dej = pVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean ayS;
-        boolean ayT;
-        boolean ayU;
-        boolean ayV;
-        boolean ayW;
-        boolean ayX;
+        boolean azc;
+        boolean azd;
+        boolean aze;
+        boolean azf;
+        boolean azg;
+        boolean azh;
         b bVar;
         b bVar2;
         b bVar3;
@@ -43,76 +43,76 @@ public class q extends CustomMessageListener {
         b bVar14;
         if (customResponsedMessage != null && (customResponsedMessage instanceof LeftNaviScanMessage) && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof LeftNaviScanMessage.a)) {
             ArrayList arrayList = new ArrayList();
-            ayS = this.ddJ.ayS();
-            if (ayS) {
-                bVar13 = this.ddJ.ddG;
+            azc = this.dej.azc();
+            if (azc) {
+                bVar13 = this.dej.deg;
                 if (bVar13 != null) {
-                    p pVar = this.ddJ;
-                    bVar14 = this.ddJ.ddG;
+                    p pVar = this.dej;
+                    bVar14 = this.dej.deg;
                     pVar.b(bVar14, arrayList);
                 }
             }
-            ayT = this.ddJ.ayT();
-            if (ayT) {
-                bVar11 = this.ddJ.ddC;
+            azd = this.dej.azd();
+            if (azd) {
+                bVar11 = this.dej.dec;
                 if (bVar11 != null) {
-                    p pVar2 = this.ddJ;
-                    bVar12 = this.ddJ.ddC;
+                    p pVar2 = this.dej;
+                    bVar12 = this.dej.dec;
                     pVar2.b(bVar12, arrayList);
                 }
             }
-            ayU = this.ddJ.ayU();
-            if (ayU) {
-                bVar9 = this.ddJ.ddD;
+            aze = this.dej.aze();
+            if (aze) {
+                bVar9 = this.dej.ded;
                 if (bVar9 != null) {
-                    p pVar3 = this.ddJ;
-                    bVar10 = this.ddJ.ddD;
+                    p pVar3 = this.dej;
+                    bVar10 = this.dej.ded;
                     pVar3.b(bVar10, arrayList);
                 }
             }
-            ayV = this.ddJ.ayV();
-            if (ayV) {
-                bVar6 = this.ddJ.ddE;
+            azf = this.dej.azf();
+            if (azf) {
+                bVar6 = this.dej.dee;
                 if (bVar6 != null) {
                     boolean z = com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("show_my_new_icon" + TbadkCoreApplication.getCurrentAccount(), true);
-                    bVar7 = this.ddJ.ddE;
-                    bVar7.ln(z ? 1 : 0);
-                    p pVar4 = this.ddJ;
-                    bVar8 = this.ddJ.ddE;
+                    bVar7 = this.dej.dee;
+                    bVar7.lp(z ? 1 : 0);
+                    p pVar4 = this.dej;
+                    bVar8 = this.dej.dee;
                     pVar4.b(bVar8, arrayList);
                 }
             }
-            ayW = this.ddJ.ayW();
-            if (ayW) {
-                bVar3 = this.ddJ.ddF;
+            azg = this.dej.azg();
+            if (azg) {
+                bVar3 = this.dej.def;
                 if (bVar3 != null) {
                     boolean z2 = com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("show_member_new_icon_" + TbadkCoreApplication.m411getInst().getVersionCode() + TbadkCoreApplication.getCurrentAccount(), true);
-                    bVar4 = this.ddJ.ddF;
-                    bVar4.ln(z2 ? 1 : 0);
-                    p pVar5 = this.ddJ;
-                    bVar5 = this.ddJ.ddF;
+                    bVar4 = this.dej.def;
+                    bVar4.lp(z2 ? 1 : 0);
+                    p pVar5 = this.dej;
+                    bVar5 = this.dej.def;
                     pVar5.b(bVar5, arrayList);
                 }
             }
-            ayX = this.ddJ.ayX();
-            if (ayX) {
-                bVar = this.ddJ.ddH;
+            azh = this.dej.azh();
+            if (azh) {
+                bVar = this.dej.deh;
                 if (bVar != null) {
-                    p pVar6 = this.ddJ;
-                    bVar2 = this.ddJ.ddH;
+                    p pVar6 = this.dej;
+                    bVar2 = this.dej.deh;
                     pVar6.b(bVar2, arrayList);
                 }
             }
-            this.ddJ.b(new b(i.h.account_manager, i.e.icon_home_change, 6), arrayList);
-            this.ddJ.b(new b(i.h.app_tieba_exit, i.e.icon_home_quit, 8), arrayList);
+            this.dej.b(new b(i.h.account_manager, i.e.icon_home_change, 6), arrayList);
+            this.dej.b(new b(i.h.app_tieba_exit, i.e.icon_home_quit, 8), arrayList);
             LeftNaviScanMessage.a data = ((LeftNaviScanMessage) customResponsedMessage).getData();
             if (data.list != null && data.list.size() > 0) {
                 for (a aVar : data.list) {
-                    this.ddJ.b(aVar, arrayList);
+                    this.dej.b(aVar, arrayList);
                 }
             }
-            if (data.dbR != null) {
-                data.dbR.bv(arrayList);
+            if (data.dcr != null) {
+                data.dcr.bw(arrayList);
             }
         }
     }

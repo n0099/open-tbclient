@@ -6,34 +6,34 @@ import com.baidu.tieba.im.message.RequestGetLivableForumList;
 import com.baidu.tieba.person.post.u;
 /* loaded from: classes.dex */
 class t implements BdListView.e {
-    final /* synthetic */ r cpf;
+    final /* synthetic */ r cpq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(r rVar) {
-        this.cpf = rVar;
+        this.cpq = rVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         String str;
         PersonBarActivity ais;
-        if (this.cpf.hasMore) {
-            this.cpf.coO.Kj();
-            ais = this.cpf.ais();
+        if (this.cpq.hasMore) {
+            this.cpq.coZ.Kj();
+            ais = this.cpq.ais();
             if (ais.getRequestCode() == 23011) {
                 RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
                 requestGetLivableForumList.setGetLikeForum(1);
-                requestGetLivableForumList.setPageNo(this.cpf.coS);
-                requestGetLivableForumList.setPageSize(this.cpf.pageSize);
+                requestGetLivableForumList.setPageNo(this.cpq.cpd);
+                requestGetLivableForumList.setPageSize(this.cpq.pageSize);
                 requestGetLivableForumList.setUserId(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
-                this.cpf.sendMessage(requestGetLivableForumList);
+                this.cpq.sendMessage(requestGetLivableForumList);
                 return;
             }
-            this.cpf.gW(this.cpf.coS);
+            this.cpq.gW(this.cpq.cpd);
             return;
         }
-        u.a aVar = this.cpf.coO;
-        str = this.cpf.coV;
+        u.a aVar = this.cpq.coZ;
+        str = this.cpq.cpg;
         aVar.kb(str);
     }
 }

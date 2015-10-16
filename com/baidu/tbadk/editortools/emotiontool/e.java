@@ -7,11 +7,11 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortools.emotiontool.EmotionTabContentView;
 /* loaded from: classes.dex */
 class e implements AdapterView.OnItemLongClickListener {
-    final /* synthetic */ EmotionTabContentView.b apW;
+    final /* synthetic */ EmotionTabContentView.b apX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(EmotionTabContentView.b bVar) {
-        this.apW = bVar;
+        this.apX = bVar;
     }
 
     @Override // android.widget.AdapterView.OnItemLongClickListener

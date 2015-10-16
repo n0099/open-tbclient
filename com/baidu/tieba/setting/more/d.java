@@ -6,13 +6,13 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ c cLU;
-    private final /* synthetic */ r cLV;
+    final /* synthetic */ c cMt;
+    private final /* synthetic */ r cMu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, r rVar) {
-        this.cLU = cVar;
-        this.cLV = rVar;
+        this.cMt = cVar;
+        this.cMu = rVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,33 +22,33 @@ public class d implements View.OnClickListener {
         TextView textView;
         long j;
         int i;
-        settingTextTestNewView = this.cLU.cLQ;
+        settingTextTestNewView = this.cMt.cMp;
         if (view == settingTextTestNewView) {
-            this.cLV.kx(1);
+            this.cMu.kz(1);
             return;
         }
-        tbSettingTextTipView = this.cLU.cLR;
+        tbSettingTextTipView = this.cMt.cMq;
         if (view == tbSettingTextTipView) {
-            this.cLV.kx(2);
+            this.cMu.kz(2);
             return;
         }
-        textView = this.cLU.cLP;
+        textView = this.cMt.cMo;
         if (view == textView) {
             long currentTimeMillis = System.currentTimeMillis();
-            j = this.cLU.lastClickTime;
+            j = this.cMt.lastClickTime;
             if (currentTimeMillis - j >= 2000) {
-                this.cLU.cLM = 0;
+                this.cMt.cMl = 0;
             } else {
-                c cVar = this.cLU;
-                i = cVar.cLM;
+                c cVar = this.cMt;
+                i = cVar.cMl;
                 int i2 = i + 1;
-                cVar.cLM = i2;
+                cVar.cMl = i2;
                 if (i2 >= 14) {
-                    this.cLV.kx(4);
-                    this.cLU.cLM = 0;
+                    this.cMu.kz(4);
+                    this.cMt.cMl = 0;
                 }
             }
-            this.cLU.lastClickTime = System.currentTimeMillis();
+            this.cMt.lastClickTime = System.currentTimeMillis();
         }
     }
 }

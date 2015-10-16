@@ -1,19 +1,20 @@
 package com.baidu.tieba.frs.tab;
 
 import android.widget.PopupWindow;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements PopupWindow.OnDismissListener {
-    final /* synthetic */ i bbq;
-    private final /* synthetic */ TabItemView bbr;
+public class n implements PopupWindow.OnDismissListener {
+    final /* synthetic */ i bbB;
+    private final /* synthetic */ TabItemView bbC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(i iVar, TabItemView tabItemView) {
-        this.bbq = iVar;
-        this.bbr = tabItemView;
+        this.bbB = iVar;
+        this.bbC = tabItemView;
     }
 
     @Override // android.widget.PopupWindow.OnDismissListener
     public void onDismiss() {
-        this.bbr.setState(TabItemView.bbj);
+        this.bbC.setState(TabItemView.bbu);
     }
 }

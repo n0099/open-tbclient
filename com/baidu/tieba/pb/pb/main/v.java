@@ -8,17 +8,17 @@ import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements c.b {
-    private final /* synthetic */ SparseArray ciA;
-    private final /* synthetic */ boolean ciB;
-    private final /* synthetic */ String ciC;
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
+    private final /* synthetic */ SparseArray ciL;
+    private final /* synthetic */ boolean ciM;
+    private final /* synthetic */ String ciN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(PbActivity pbActivity, SparseArray sparseArray, boolean z, String str) {
-        this.ciz = pbActivity;
-        this.ciA = sparseArray;
-        this.ciB = z;
-        this.ciC = str;
+        this.ciK = pbActivity;
+        this.ciL = sparseArray;
+        this.ciM = z;
+        this.ciN = str;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -27,12 +27,12 @@ public class v implements c.b {
         cc ccVar;
         switch (i) {
             case 0:
-                ccVar = this.ciz.cia;
-                ccVar.a(((Integer) this.ciA.get(i.f.tag_del_post_type)).intValue(), (String) this.ciA.get(i.f.tag_del_post_id), ((Integer) this.ciA.get(i.f.tag_manage_user_identity)).intValue(), ((Boolean) this.ciA.get(i.f.tag_del_post_is_self)).booleanValue());
+                ccVar = this.ciK.cim;
+                ccVar.a(((Integer) this.ciL.get(i.f.tag_del_post_type)).intValue(), (String) this.ciL.get(i.f.tag_del_post_id), ((Integer) this.ciL.get(i.f.tag_manage_user_identity)).intValue(), ((Boolean) this.ciL.get(i.f.tag_del_post_is_self)).booleanValue());
                 break;
             case 1:
-                userMuteAddAndDelModel = this.ciz.chY;
-                userMuteAddAndDelModel.a(this.ciB, this.ciC, (String) this.ciA.get(i.f.tag_disable_reply_mute_username), (String) this.ciA.get(i.f.tag_disable_reply_thread_id), (String) this.ciA.get(i.f.tag_disable_reply_post_id), UserMuteAddAndDelModel.From.PB);
+                userMuteAddAndDelModel = this.ciK.cik;
+                userMuteAddAndDelModel.a(this.ciM, this.ciN, (String) this.ciL.get(i.f.tag_disable_reply_mute_username), (String) this.ciL.get(i.f.tag_disable_reply_thread_id), (String) this.ciL.get(i.f.tag_disable_reply_post_id), UserMuteAddAndDelModel.From.PB);
                 break;
         }
         cVar.dismiss();

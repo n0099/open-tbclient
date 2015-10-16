@@ -1,61 +1,71 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import org.json.JSONObject;
-import tbclient.FrsPage.Banner;
+import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
-public class i {
-    private int UL;
-    private String UM;
-    private String UN;
-    private int mType;
-    private String mValue;
+public class i implements com.baidu.tbadk.core.flow.a.a {
+    private String UJ;
+    private String UK;
+    private String UL;
+    private boolean UM;
+    private String mImageUrl;
+    private String mTitle;
 
-    public int rB() {
-        return this.UL;
+    public i(String str, String str2, String str3) {
+        this.mImageUrl = str;
+        this.UJ = str2;
+        this.mTitle = str3;
     }
 
-    public String rC() {
-        return this.UM;
+    public i() {
     }
 
-    public String getValue() {
-        return this.mValue;
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String getPicUrl() {
+        return this.mImageUrl;
     }
 
-    public int getType() {
-        return this.mType;
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String ry() {
+        return this.UJ;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.UL = jSONObject.optInt("bannerType");
-                this.UM = jSONObject.optString("bannerUrl");
-                this.mValue = jSONObject.optString("value");
-                this.mType = jSONObject.optInt("type");
-                this.UN = jSONObject.optString("desc");
-            } catch (Exception e) {
-                BdLog.e(e.toString());
+    public String getTitle() {
+        return this.mTitle;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: rz */
+    public i clone() {
+        i iVar = new i();
+        iVar.mImageUrl = this.mImageUrl;
+        iVar.UJ = this.UJ;
+        iVar.mTitle = this.mTitle;
+        iVar.UK = this.UK;
+        iVar.UL = this.UL;
+        return iVar;
+    }
+
+    public void a(HeadImgs headImgs) {
+        if (headImgs != null) {
+            this.mImageUrl = headImgs.img_url;
+            this.UJ = headImgs.pc_url;
+            if (headImgs.title != null) {
+                this.mTitle = headImgs.title.trim();
+            }
+            if (headImgs.subtitle != null) {
+                this.UK = headImgs.subtitle.trim();
+            }
+            if (headImgs.btn_text != null) {
+                this.UL = headImgs.btn_text.trim();
             }
         }
     }
 
-    public void a(Banner banner) {
-        if (banner != null) {
-            this.UL = banner.banner_type.intValue();
-            this.UM = banner.banner_url;
-            this.mValue = banner.value;
-            this.mType = banner.type.intValue();
-            this.UN = banner.desc;
-        }
+    public boolean rA() {
+        return this.UM;
     }
 
-    public boolean isValid() {
-        if (StringUtils.isNull(this.mValue)) {
-            return false;
-        }
-        return this.mType == 1 ? this.UL == 1 || this.UL == 4 || this.UL == 2 || this.UL == 3 : this.mType == 2 && !StringUtils.isNull(this.UN);
+    public void ah(boolean z) {
+        this.UM = z;
     }
 }

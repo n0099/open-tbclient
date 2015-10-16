@@ -34,6 +34,8 @@ public final class Plugin_setting extends Message {
     public final Integer install_status;
     @ProtoField(tag = 16, type = Message.Datatype.UINT32)
     public final Integer is_inject_classloader;
+    @ProtoField(tag = 21, type = Message.Datatype.UINT32)
+    public final Integer is_third;
     @ProtoField(tag = 7, type = Message.Datatype.STRING)
     public final String md5;
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
@@ -64,6 +66,7 @@ public final class Plugin_setting extends Message {
     public static final Integer DEFAULT_INSTALL_FAIL_COUNT = 0;
     public static final Integer DEFAULT_PRIORITY = 1000;
     public static final Integer DEFAULT_HAS_RES = 0;
+    public static final Integer DEFAULT_IS_THIRD = 0;
 
     /* synthetic */ Plugin_setting(Builder builder, boolean z, Plugin_setting plugin_setting) {
         this(builder, z);
@@ -169,9 +172,14 @@ public final class Plugin_setting extends Message {
             }
             if (builder.has_res == null) {
                 this.has_res = DEFAULT_HAS_RES;
-                return;
             } else {
                 this.has_res = builder.has_res;
+            }
+            if (builder.is_third == null) {
+                this.is_third = DEFAULT_IS_THIRD;
+                return;
+            } else {
+                this.is_third = builder.is_third;
                 return;
             }
         }
@@ -195,6 +203,7 @@ public final class Plugin_setting extends Message {
         this.install_fail_count = builder.install_fail_count;
         this.priority = builder.priority;
         this.has_res = builder.has_res;
+        this.is_third = builder.is_third;
     }
 
     /* loaded from: classes.dex */
@@ -209,6 +218,7 @@ public final class Plugin_setting extends Message {
         public Integer install_fail_count;
         public Integer install_status;
         public Integer is_inject_classloader;
+        public Integer is_third;
         public String md5;
         public String package_name;
         public Integer priority;
@@ -246,6 +256,7 @@ public final class Plugin_setting extends Message {
                 this.install_fail_count = plugin_setting.install_fail_count;
                 this.priority = plugin_setting.priority;
                 this.has_res = plugin_setting.has_res;
+                this.is_third = plugin_setting.is_third;
             }
         }
 

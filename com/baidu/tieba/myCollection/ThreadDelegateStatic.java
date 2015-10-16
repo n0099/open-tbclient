@@ -17,9 +17,9 @@ public class ThreadDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.auY = p.adz();
+        cVar.auZ = p.adz();
         cVar.type = 1;
-        cVar.auZ = i.h.collect_thread;
+        cVar.ava = i.h.collect_thread;
         return cVar;
     }
 

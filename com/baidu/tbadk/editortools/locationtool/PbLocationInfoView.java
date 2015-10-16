@@ -8,11 +8,11 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.base.l;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect arN;
+    private Rect arO;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -25,13 +25,13 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.arN = new Rect(0, 0, getResources().getDimensionPixelSize(i.d.ds32), getResources().getDimensionPixelSize(i.d.ds32));
+        this.arO = new Rect(0, 0, getResources().getDimensionPixelSize(i.d.ds32), getResources().getDimensionPixelSize(i.d.ds32));
         r(0, null);
         tc();
     }
 
     public void tc() {
-        setTextColor(am.getColor(i.c.cp_cont_c));
+        setTextColor(an.getColor(i.c.cp_cont_c));
         AI();
     }
 
@@ -62,17 +62,17 @@ public class PbLocationInfoView extends TextView {
 
     public void AI() {
         if (this.mState == 1) {
-            Drawable drawable = am.getDrawable(i.e.icon_posts_pin_loading_anim);
+            Drawable drawable = an.getDrawable(i.e.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.arN);
+                drawable.setBounds(this.arO);
             }
             setCompoundDrawables(drawable, null, null, null);
             com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) l.B(getContext()), (Animatable) drawable);
             return;
         }
-        Drawable drawable2 = am.getDrawable(i.e.icon_tips_site);
+        Drawable drawable2 = an.getDrawable(i.e.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.arN);
+            drawable2.setBounds(this.arO);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

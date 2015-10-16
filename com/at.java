@@ -11,11 +11,11 @@ import com.sina.sso.RemoteSSO;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements ServiceConnection {
-    final /* synthetic */ as dvt;
+    final /* synthetic */ as dvT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.dvt = asVar;
+        this.dvT = asVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -23,25 +23,25 @@ public class at implements ServiceConnection {
         ServiceConnection serviceConnection;
         RemoteSSO asInterface = RemoteSSO.Stub.asInterface(iBinder);
         try {
-            this.dvt.a = asInterface.getPackageName();
-            this.dvt.b = asInterface.getActivityName();
-            if (!this.dvt.startSingleSignOn()) {
-                this.dvt.startAuthDialog();
+            this.dvT.a = asInterface.getPackageName();
+            this.dvT.b = asInterface.getActivityName();
+            if (!this.dvT.startSingleSignOn()) {
+                this.dvT.startAuthDialog();
             }
         } catch (RemoteException e) {
-            this.dvt.startAuthDialog();
+            this.dvT.startAuthDialog();
         } finally {
-            Context applicationContext = this.dvt.mActivity.getApplicationContext();
-            serviceConnection = this.dvt.dvs;
+            Context applicationContext = this.dvT.mActivity.getApplicationContext();
+            serviceConnection = this.dvT.dvS;
             applicationContext.unbindService(serviceConnection);
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        SessionManager.Session session = SessionManager.getInstance(this.dvt.mActivity).get(MediaType.SINAWEIBO.toString());
+        SessionManager.Session session = SessionManager.getInstance(this.dvT.mActivity).get(MediaType.SINAWEIBO.toString());
         if (session == null || session.isExpired()) {
-            this.dvt.startAuthDialog();
+            this.dvT.startAuthDialog();
         }
     }
 }

@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 /* loaded from: classes.dex */
 class o implements AdapterView.OnItemSelectedListener {
-    final /* synthetic */ BdListView HU;
+    final /* synthetic */ BdListView HV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(BdListView bdListView) {
-        this.HU = bdListView;
+        this.HV = bdListView;
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
@@ -18,16 +18,16 @@ class o implements AdapterView.OnItemSelectedListener {
         e eVar2;
         AdapterView.OnItemSelectedListener onItemSelectedListener;
         AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        eVar = this.HU.Hv;
+        eVar = this.HV.Hw;
         int headersCount = eVar.getHeadersCount();
         if (i >= headersCount) {
             int i2 = i - headersCount;
-            eVar2 = this.HU.Hv;
+            eVar2 = this.HV.Hw;
             ListAdapter wrappedAdapter = eVar2.getWrappedAdapter();
             if (wrappedAdapter != null && i2 < wrappedAdapter.getCount()) {
-                onItemSelectedListener = this.HU.Hy;
+                onItemSelectedListener = this.HV.Hz;
                 if (onItemSelectedListener != null) {
-                    onItemSelectedListener2 = this.HU.Hy;
+                    onItemSelectedListener2 = this.HV.Hz;
                     onItemSelectedListener2.onItemSelected(adapterView, view, i2, j);
                 }
             }
@@ -38,9 +38,9 @@ class o implements AdapterView.OnItemSelectedListener {
     public void onNothingSelected(AdapterView<?> adapterView) {
         AdapterView.OnItemSelectedListener onItemSelectedListener;
         AdapterView.OnItemSelectedListener onItemSelectedListener2;
-        onItemSelectedListener = this.HU.Hy;
+        onItemSelectedListener = this.HV.Hz;
         if (onItemSelectedListener != null) {
-            onItemSelectedListener2 = this.HU.Hy;
+            onItemSelectedListener2 = this.HV.Hz;
             onItemSelectedListener2.onNothingSelected(adapterView);
         }
     }

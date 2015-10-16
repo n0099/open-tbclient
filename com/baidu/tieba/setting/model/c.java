@@ -17,9 +17,9 @@ import com.baidu.tieba.setting.person.PersonPostListData;
 import tbclient.Profile.DataRes;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.base.e<MoreActivity> {
-    private com.baidu.tieba.tbadkCore.e.a aMa;
-    private boolean att;
-    private com.baidu.adp.framework.listener.a cLu;
+    private com.baidu.tieba.tbadkCore.e.a aMl;
+    private boolean atu;
+    private com.baidu.adp.framework.listener.a cLT;
     private final Context mContext;
     private String mId;
     Handler mUIHandler;
@@ -28,14 +28,14 @@ public class c extends com.baidu.adp.base.e<MoreActivity> {
     public c(MoreActivity moreActivity) {
         super(moreActivity.getPageContext());
         this.mUIHandler = null;
-        this.aMa = null;
-        this.att = false;
-        this.cLu = new d(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+        this.aMl = null;
+        this.atu = false;
+        this.cLT = new d(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
         this.mUser = null;
         this.mContext = moreActivity.getPageContext().getContext();
         this.mUIHandler = new Handler(Looper.getMainLooper());
-        this.aMa = new com.baidu.tieba.tbadkCore.e.a("profileStat");
-        registerListener(this.cLu);
+        this.aMl = new com.baidu.tieba.tbadkCore.e.a("profileStat");
+        registerListener(this.cLT);
     }
 
     public UserData getUser() {
@@ -56,14 +56,14 @@ public class c extends com.baidu.adp.base.e<MoreActivity> {
     }
 
     public void p(boolean z, boolean z2) {
-        if (!this.att) {
-            this.att = true;
+        if (!this.atu) {
+            this.atu = true;
             ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
             if (TbadkCoreApplication.getCurrentAccount() != null) {
                 profileRequestMessage.set_uid(Long.valueOf(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L)));
             }
             if (z) {
-                arj();
+                arp();
             }
             profileRequestMessage.set_has_plist(0);
             profileRequestMessage.set_from_db(z);
@@ -95,7 +95,7 @@ public class c extends com.baidu.adp.base.e<MoreActivity> {
     }
 
     public void a(ProfileSocketResponseMessage profileSocketResponseMessage) {
-        this.att = false;
+        this.atu = false;
         if (profileSocketResponseMessage != null) {
             b(profileSocketResponseMessage);
             a(profileSocketResponseMessage.hasError(), profileSocketResponseMessage.getErrorString(), profileSocketResponseMessage.isFrom_db(), profileSocketResponseMessage.isError_hint());
@@ -103,7 +103,7 @@ public class c extends com.baidu.adp.base.e<MoreActivity> {
     }
 
     public void a(ProfileHttpResponseMessage profileHttpResponseMessage) {
-        this.att = false;
+        this.atu = false;
         if (profileHttpResponseMessage != null) {
             b(profileHttpResponseMessage);
             a(profileHttpResponseMessage.hasError(), profileHttpResponseMessage.getErrorString(), profileHttpResponseMessage.isFrom_db(), profileHttpResponseMessage.isError_hint());
@@ -134,7 +134,7 @@ public class c extends com.baidu.adp.base.e<MoreActivity> {
         }
     }
 
-    public void arj() {
+    public void arp() {
         IE().a("profile_cache_key", new e(this));
     }
 
@@ -154,9 +154,9 @@ public class c extends com.baidu.adp.base.e<MoreActivity> {
     }
 
     private void ajh() {
-        if (this.aMa == null) {
-            this.aMa = new com.baidu.tieba.tbadkCore.e.a("profileStat");
-            this.aMa.start();
+        if (this.aMl == null) {
+            this.aMl = new com.baidu.tieba.tbadkCore.e.a("profileStat");
+            this.aMl.start();
         }
     }
 

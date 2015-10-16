@@ -16,33 +16,33 @@ import com.baidu.tieba.mainentrance.ForumSuggestModel;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private final BaseActivity<?> aRT;
-    private final boolean bTK = true;
-    private ArrayList<ForumSuggestModel.Forum> bTL;
-    private String bTM;
+    private final BaseActivity<?> aSe;
+    private final boolean bTV = true;
+    private ArrayList<ForumSuggestModel.Forum> bTW;
+    private String bTX;
 
     public a(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
-        this.aRT = baseActivity;
-        this.bTL = arrayList;
+        this.aSe = baseActivity;
+        this.bTW = arrayList;
     }
 
     public void I(ArrayList<ForumSuggestModel.Forum> arrayList) {
-        this.bTL = arrayList;
-        if (this.bTL != null) {
+        this.bTW = arrayList;
+        if (this.bTW != null) {
             notifyDataSetChanged();
         }
     }
 
     public void iT(String str) {
-        this.bTM = str;
+        this.bTX = str;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bTL == null) {
+        if (this.bTW == null) {
             return 0;
         }
-        return this.bTL.size();
+        return this.bTW.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,7 +53,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.bTL.get(i);
+        return this.bTW.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,14 +66,14 @@ public class a extends BaseAdapter {
         C0065a c0065a;
         String str;
         if (view == null) {
-            view = LayoutInflater.from(this.aRT.getPageContext().getPageActivity()).inflate(i.g.square_dialog_search_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.aSe.getPageContext().getPageActivity()).inflate(i.g.square_dialog_search_item, (ViewGroup) null);
             C0065a c0065a2 = new C0065a(this, null);
-            c0065a2.bSS = (BarImageView) view.findViewById(i.f.forum_avatar);
-            c0065a2.bSS.setGifIconSupport(false);
-            c0065a2.aNr = (TextView) view.findViewById(i.f.name);
-            c0065a2.bST = (TextView) view.findViewById(i.f.forum_member_count);
-            c0065a2.bSU = (TextView) view.findViewById(i.f.forum_thread_count);
-            c0065a2.bRp = (TextView) view.findViewById(i.f.slogan);
+            c0065a2.bTd = (BarImageView) view.findViewById(i.f.forum_avatar);
+            c0065a2.bTd.setGifIconSupport(false);
+            c0065a2.aNC = (TextView) view.findViewById(i.f.name);
+            c0065a2.bTe = (TextView) view.findViewById(i.f.forum_member_count);
+            c0065a2.bTf = (TextView) view.findViewById(i.f.forum_thread_count);
+            c0065a2.bRA = (TextView) view.findViewById(i.f.slogan);
             view.setTag(c0065a2);
             c0065a = c0065a2;
         } else {
@@ -83,49 +83,49 @@ public class a extends BaseAdapter {
         if (item != null) {
             int skinType = TbadkCoreApplication.m411getInst().getSkinType();
             String str2 = item.avatar;
-            c0065a.bSS.setTag(str2);
-            c0065a.bSS.d(str2, 10, false);
-            c0065a.bSS.invalidate();
-            if (this.bTK) {
-                str = this.aRT.getPageContext().getPageActivity().getString(i.h.official_msg_list_name, new Object[]{item.forum_name});
+            c0065a.bTd.setTag(str2);
+            c0065a.bTd.d(str2, 10, false);
+            c0065a.bTd.invalidate();
+            if (this.bTV) {
+                str = this.aSe.getPageContext().getPageActivity().getString(i.h.official_msg_list_name, new Object[]{item.forum_name});
             } else {
                 str = item.forum_name;
             }
-            c(c0065a.aNr, str);
-            c0065a.bSS.setTag(item.avatar);
-            c0065a.bST.setText(String.valueOf(this.aRT.getPageContext().getString(i.h.forum_list_attention_tv)) + " " + hZ(item.member_num));
-            c0065a.bSU.setText(String.valueOf(this.aRT.getPageContext().getString(i.h.forum_list_thread_tv)) + " " + hZ(item.thread_num));
-            if (this.bTK || !TextUtils.isEmpty(item.slogan)) {
-                c0065a.bRp.setVisibility(0);
-                c0065a.bRp.setText(item.slogan);
+            c(c0065a.aNC, str);
+            c0065a.bTd.setTag(item.avatar);
+            c0065a.bTe.setText(String.valueOf(this.aSe.getPageContext().getString(i.h.forum_list_attention_tv)) + " " + hZ(item.member_num));
+            c0065a.bTf.setText(String.valueOf(this.aSe.getPageContext().getString(i.h.forum_list_thread_tv)) + " " + hZ(item.thread_num));
+            if (this.bTV || !TextUtils.isEmpty(item.slogan)) {
+                c0065a.bRA.setVisibility(0);
+                c0065a.bRA.setText(item.slogan);
             } else {
-                c0065a.bRp.setVisibility(8);
+                c0065a.bRA.setVisibility(8);
             }
-            this.aRT.getLayoutMode().ad(skinType == 1);
-            this.aRT.getLayoutMode().k(view);
+            this.aSe.getLayoutMode().ad(skinType == 1);
+            this.aSe.getLayoutMode().k(view);
         }
         return view;
     }
 
     public String hZ(int i) {
         if (i >= 100000) {
-            return String.valueOf(String.valueOf(i / 10000)) + this.aRT.getPageContext().getString(i.h.member_count_unit);
+            return String.valueOf(String.valueOf(i / 10000)) + this.aSe.getPageContext().getString(i.h.member_count_unit);
         }
         return String.valueOf(i);
     }
 
     public void c(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.bTM)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.bTX)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.bTM.toLowerCase();
+            String lowerCase2 = this.bTX.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
             }
             int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(com.baidu.tbadk.core.util.am.getColor(i.c.cp_cont_h));
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(com.baidu.tbadk.core.util.an.getColor(i.c.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.bTM.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.bTX.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }
@@ -133,11 +133,11 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.mainentrance.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     private class C0065a {
-        TextView aNr;
-        TextView bRp;
-        BarImageView bSS;
-        TextView bST;
-        TextView bSU;
+        TextView aNC;
+        TextView bRA;
+        BarImageView bTd;
+        TextView bTe;
+        TextView bTf;
 
         private C0065a() {
         }

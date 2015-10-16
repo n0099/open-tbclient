@@ -4,11 +4,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class p implements BdListView.e {
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PbActivity pbActivity) {
-        this.ciz = pbActivity;
+        this.ciK = pbActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
@@ -18,17 +18,17 @@ class p implements BdListView.e {
         cc ccVar;
         bl blVar2;
         cc ccVar2;
-        z = this.ciz.mIsLogin;
+        z = this.ciK.mIsLogin;
         if (z) {
-            blVar = this.ciz.chV;
+            blVar = this.ciK.cih;
             if (blVar.ex(false)) {
-                ccVar2 = this.ciz.cia;
+                ccVar2 = this.ciK.cim;
                 ccVar2.agz();
-                TiebaStatic.eventStat(this.ciz.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
+                TiebaStatic.eventStat(this.ciK.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
                 return;
             }
-            ccVar = this.ciz.cia;
-            blVar2 = this.ciz.chV;
+            ccVar = this.ciK.cim;
+            blVar2 = this.ciK.cih;
             ccVar.k(blVar2.getPbData());
         }
     }

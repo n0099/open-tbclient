@@ -6,7 +6,7 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-    private static /* synthetic */ int[] avF;
+    private static /* synthetic */ int[] avG;
     final /* synthetic */ NetModel this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -15,7 +15,7 @@ public class e implements Runnable {
     }
 
     static /* synthetic */ int[] Da() {
-        int[] iArr = avF;
+        int[] iArr = avG;
         if (iArr == null) {
             iArr = new int[NetModel.NetModelType.valuesCustom().length];
             try {
@@ -34,7 +34,7 @@ public class e implements Runnable {
                 iArr[NetModel.NetModelType.TYPE_SOCKET.ordinal()] = 2;
             } catch (NoSuchFieldError e4) {
             }
-            avF = iArr;
+            avG = iArr;
         }
         return iArr;
     }
@@ -46,7 +46,7 @@ public class e implements Runnable {
         TbPageContext tbPageContext2;
         TbPageContext tbPageContext3;
         int[] Da = Da();
-        netModelType = this.this$0.avv;
+        netModelType = this.this$0.avw;
         switch (Da[netModelType.ordinal()]) {
             case 1:
             case 4:

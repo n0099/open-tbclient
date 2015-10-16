@@ -13,29 +13,29 @@ import com.baidu.tieba.frs.ee;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d implements ea {
-    private eb bam;
-    private boolean aQZ = true;
-    private boolean bak = false;
-    private int bal = 0;
-    private ee ban = new ee();
-    private final ArrayList<u> bao = new ArrayList<>();
-    private com.baidu.adp.framework.listener.a aQK = new e(this, CmdConfigHttp.FRS_HOT_TAB_CMD, 301003);
-    private CustomMessageListener bap = new f(this, CmdConfigCustom.CMD_FRS_HOT_CACHE);
+    private eb bay;
+    private boolean aRk = true;
+    private boolean baw = false;
+    private int bax = 0;
+    private ee baz = new ee();
+    private final ArrayList<u> baA = new ArrayList<>();
+    private com.baidu.adp.framework.listener.a aQV = new e(this, CmdConfigHttp.FRS_HOT_TAB_CMD, 301003);
+    private CustomMessageListener baB = new f(this, CmdConfigCustom.CMD_FRS_HOT_CACHE);
 
     @Override // com.baidu.tieba.frs.ea
     public void a(int i, int i2, ec ecVar) {
         if (i == 2 && ecVar != null) {
             if (ecVar.pn == -1) {
                 ecVar.pn = 1;
-                this.bak = true;
+                this.baw = true;
             } else {
-                this.bak = false;
+                this.baw = false;
             }
-            if (this.aQZ) {
-                this.ban.forumId = ecVar.forumId;
-                this.ban.pn = ecVar.pn;
+            if (this.aRk) {
+                this.baz.forumId = ecVar.forumId;
+                this.baz.pn = ecVar.pn;
                 gK(ecVar.forumId);
-            } else if (ecVar.pn == this.bal && !this.bak) {
+            } else if (ecVar.pn == this.bax && !this.baw) {
                 MY();
             } else {
                 c(com.baidu.adp.lib.g.b.c(ecVar.forumId, 0L), true);
@@ -45,7 +45,7 @@ public class d implements ea {
 
     @Override // com.baidu.tieba.frs.ea
     public void a(eb ebVar) {
-        this.bam = ebVar;
+        this.bay = ebVar;
     }
 
     @Override // com.baidu.tieba.frs.ea
@@ -64,29 +64,29 @@ public class d implements ea {
     }
 
     private void MY() {
-        if (this.bam != null) {
-            if (this.bao == null || this.bao.size() == 0) {
-                this.ban.aYQ = false;
+        if (this.bay != null) {
+            if (this.baA == null || this.baA.size() == 0) {
+                this.baz.aZb = false;
             } else {
-                this.ban.aYQ = true;
+                this.baz.aZb = true;
             }
-            this.bam.a(2, 0, this.ban, this.bao);
+            this.bay.a(2, 0, this.baz, this.baA);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(long j, boolean z) {
-        MessageManager.getInstance().sendMessage(new RequestFrsHotThreadMessage(j, this.ban.pn));
+        MessageManager.getInstance().sendMessage(new RequestFrsHotThreadMessage(j, this.baz.pn));
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(this.aQK);
-        MessageManager.getInstance().registerListener(this.bap);
+        MessageManager.getInstance().registerListener(this.aQV);
+        MessageManager.getInstance().registerListener(this.baB);
     }
 
     private void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.aQK);
-        MessageManager.getInstance().unRegisterListener(this.bap);
+        MessageManager.getInstance().unRegisterListener(this.aQV);
+        MessageManager.getInstance().unRegisterListener(this.baB);
     }
 
     private void BZ() {

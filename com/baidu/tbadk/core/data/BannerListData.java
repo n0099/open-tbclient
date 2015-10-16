@@ -5,6 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -26,8 +27,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).TU)) {
-                sb.append(this.advertAppList.get(i).TU);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).TV)) {
+                sb.append(this.advertAppList.get(i).TV);
                 if (i != size - 1) {
                     sb.append(",");
                 }
@@ -59,22 +60,24 @@ public class BannerListData implements Serializable {
     }
 
     public void parserProtobuf(BannerList bannerList) {
-        List<App> list;
-        if (bannerList != null && (list = bannerList.app) != null && list.size() > 0) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < list.size()) {
+        if (bannerList != null) {
+            List<App> list = bannerList.app;
+            if (list != null && list.size() > 0) {
+                int i = 0;
+                while (true) {
+                    int i2 = i;
+                    if (i2 >= list.size()) {
+                        break;
+                    }
                     if (list.get(i2) != null) {
                         b bVar = new b();
                         bVar.a(list.get(i2));
                         this.advertAppList.add(bVar);
                     }
                     i = i2 + 1;
-                } else {
-                    return;
                 }
             }
+            Collections.sort(this.advertAppList, new d(this));
         }
     }
 }

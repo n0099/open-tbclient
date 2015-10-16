@@ -7,7 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.voice.l;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.a.i;
+import com.baidu.tbadk.core.util.a.j;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.core.util.resourceLoaderProc.d;
 import com.baidu.tieba.i;
@@ -53,12 +53,12 @@ public class c implements e<a> {
             str4 = String.valueOf(objArr[0]);
         }
         a aVar2 = new a();
-        i iVar = new i();
+        j jVar = new j();
         if (aVar != null) {
-            aVar.vs = iVar;
+            aVar.vs = jVar;
         }
-        byte[] dw = iVar.dw(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!iVar.vi()) {
+        byte[] dw = jVar.dw(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
+        if (!jVar.vi()) {
             aVar2.error_code = 3;
             aVar2.error_msg = l.getString(i.h.neterror);
             return aVar2;

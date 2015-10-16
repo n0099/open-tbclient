@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class l implements ea {
-    final /* synthetic */ FrsActivity aUz;
+    final /* synthetic */ FrsActivity aUK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(FrsActivity frsActivity) {
-        this.aUz = frsActivity;
+        this.aUK = frsActivity;
     }
 
     @Override // com.baidu.tieba.frs.ea
@@ -25,33 +25,33 @@ class l implements ea {
         com.baidu.tieba.frs.b.a aVar5;
         com.baidu.tieba.frs.b.o oVar3;
         com.baidu.tieba.frs.mc.a aVar6;
-        oVar = this.aUz.aTY;
+        oVar = this.aUK.aUj;
         if (oVar.NP() != null) {
-            oVar2 = this.aUz.aTY;
+            oVar2 = this.aUK.aUj;
             ea NP = oVar2.NP();
-            aVar2 = this.aUz.aTX;
+            aVar2 = this.aUK.aUi;
             int Ng = aVar2.Ng();
-            aVar3 = this.aUz.aTX;
+            aVar3 = this.aUK.aUi;
             int Nh = aVar3.Nh();
-            aVar4 = this.aUz.aTX;
+            aVar4 = this.aUK.aUi;
             NP.a(Ng, Nh, aVar4.Ni());
-            aVar5 = this.aUz.aTZ;
+            aVar5 = this.aUK.aUk;
             if (!aVar5.NJ()) {
-                oVar3 = this.aUz.aTY;
+                oVar3 = this.aUK.aUj;
                 ea NP2 = oVar3.NP();
-                aVar6 = this.aUz.aTX;
+                aVar6 = this.aUK.aUi;
                 NP2.a(i, i2, aVar6.Ni());
             }
         }
         if (i == 1) {
-            bsVar2 = this.aUz.aTJ;
+            bsVar2 = this.aUK.aTU;
             bsVar2.LX();
         } else {
-            bsVar = this.aUz.aTJ;
+            bsVar = this.aUK.aTU;
             bsVar.LY();
         }
-        this.aUz.stopVoice();
-        aVar = this.aUz.aTX;
+        this.aUK.stopVoice();
+        aVar = this.aUK.aUi;
         aVar.a(i, i2, ecVar);
     }
 

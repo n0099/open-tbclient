@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.aa;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements aa.a {
-    final /* synthetic */ x aZL;
+    final /* synthetic */ x aZW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(x xVar) {
-        this.aZL = xVar;
+        this.aZW = xVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.aa.a
@@ -20,9 +20,9 @@ public class ab implements aa.a {
     public void Mj() {
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
-        bdTypeListView = this.aZL.aWs;
+        bdTypeListView = this.aZW.aWD;
         if (bdTypeListView != null) {
-            bdTypeListView2 = this.aZL.aWs;
+            bdTypeListView2 = this.aZW.aWD;
             bdTypeListView2.setSelection(0);
         }
     }

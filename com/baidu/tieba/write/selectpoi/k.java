@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.write.data.SearchLocationActivityConfig;
 /* loaded from: classes.dex */
 class k implements View.OnClickListener {
-    final /* synthetic */ SelectLocationActivity dlw;
+    final /* synthetic */ SelectLocationActivity dlW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(SelectLocationActivity selectLocationActivity) {
-        this.dlw = selectLocationActivity;
+        this.dlW = selectLocationActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SEARCH_LOCATION_PAGE, new SearchLocationActivityConfig(this.dlw.getPageContext().getPageActivity(), 23009)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_SEARCH_LOCATION_PAGE, new SearchLocationActivityConfig(this.dlW.getPageContext().getPageActivity(), 23009)));
     }
 }

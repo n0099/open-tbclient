@@ -1,17 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes.dex */
 class m implements com.baidu.tbadk.editortools.c.b {
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(PbActivity pbActivity) {
-        this.ciz = pbActivity;
+        this.ciK = pbActivity;
     }
 
     @Override // com.baidu.tbadk.editortools.c.b
     public void Bm() {
         cc ccVar;
-        ccVar = this.ciz.cia;
+        ccVar = this.ciK.cim;
         ccVar.agy();
     }
 }

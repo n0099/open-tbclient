@@ -10,14 +10,14 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class o extends r {
-    public static int axl = 0;
-    public static int axm = 1;
-    public static int axn = 2;
+    public static int axm = 0;
+    public static int axn = 1;
+    public static int axo = 2;
     private static CustomMessageTask customNormalTask = new CustomMessageTask(CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new p());
-    private ArrayList<String> awI;
     private ArrayList<String> awJ;
-    private ArrayList<String> axj;
-    private boolean axk;
+    private ArrayList<String> awK;
+    private ArrayList<String> axk;
+    private boolean axl;
     private CustomMessageListener customNormalListener = new q(this, CmdConfigCustom.CMD_PERF_LIVE_SAMPLE);
 
     static {
@@ -34,11 +34,11 @@ public class o extends r {
     }
 
     public boolean DP() {
-        return this.axk;
+        return this.axl;
     }
 
     public void bp(boolean z) {
-        this.axk = z;
+        this.axl = z;
     }
 
     public void DE() {
@@ -48,30 +48,30 @@ public class o extends r {
     public void K(int i, int i2) {
         if (i != 0) {
             SparseArray sparseArray = new SparseArray();
-            sparseArray.put(axl, 6);
-            sparseArray.put(axm, Integer.valueOf((int) a0.f37long));
-            sparseArray.put(axn, Integer.valueOf(i));
+            sparseArray.put(axm, 6);
+            sparseArray.put(axn, Integer.valueOf((int) a0.f37long));
+            sparseArray.put(axo, Integer.valueOf(i));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ADD_TRAFFIC_DATA, sparseArray));
         }
         if (i2 != 0) {
             SparseArray sparseArray2 = new SparseArray();
-            sparseArray2.put(axl, 6);
-            sparseArray2.put(axm, Integer.valueOf((int) a0.t));
-            sparseArray2.put(axn, Integer.valueOf(i2));
+            sparseArray2.put(axm, 6);
+            sparseArray2.put(axn, Integer.valueOf((int) a0.t));
+            sparseArray2.put(axo, Integer.valueOf(i2));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_ADD_TRAFFIC_DATA, sparseArray2));
         }
     }
 
     public void DQ() {
         DS();
+        if (this.awK != null) {
+            this.awK.clear();
+        }
         if (this.awJ != null) {
             this.awJ.clear();
         }
-        if (this.awI != null) {
-            this.awI.clear();
-        }
-        if (this.axj != null) {
-            this.axj.clear();
+        if (this.axk != null) {
+            this.axk.clear();
         }
     }
 
@@ -89,43 +89,43 @@ public class o extends r {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fB(String str) {
-        if (this.awI == null) {
-            this.awI = new ArrayList<>();
+        if (this.awJ == null) {
+            this.awJ = new ArrayList<>();
         }
         if (str != null) {
-            this.awI.add(str);
+            this.awJ.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fC(String str) {
-        if (this.axj == null) {
-            this.axj = new ArrayList<>();
+        if (this.axk == null) {
+            this.axk = new ArrayList<>();
         }
         if (str != null) {
-            this.axj.add(str);
+            this.axk.add(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ey(int i) {
         String valueOf = String.valueOf(i);
-        if (this.awJ == null) {
-            this.awJ = new ArrayList<>();
+        if (this.awK == null) {
+            this.awK = new ArrayList<>();
         }
-        this.awJ.add(valueOf);
+        this.awK.add(valueOf);
     }
 
     public String DR() {
-        return r(this.axj);
+        return r(this.axk);
     }
 
     public String DJ() {
-        return r(this.awI);
+        return r(this.awJ);
     }
 
     public String getCpuString() {
-        return r(this.awJ);
+        return r(this.awK);
     }
 
     private String r(ArrayList<String> arrayList) {
@@ -149,16 +149,16 @@ public class o extends r {
 
     private void DS() {
         w wVar;
-        if (this.awI != null && this.awI.size() > 0 && this.awJ != null && this.awJ.size() > 0 && this.axj != null && this.axj.size() > 0 && (wVar = (w) y.Eb().eB(this.mSubType)) != null) {
+        if (this.awJ != null && this.awJ.size() > 0 && this.awK != null && this.awK.size() > 0 && this.axk != null && this.axk.size() > 0 && (wVar = (w) y.Eb().eB(this.mSubType)) != null) {
             wVar.b(this);
         }
     }
 
     /* loaded from: classes.dex */
     public class a {
-        public String awT;
-        public int awU;
-        public String axp;
+        public String awU;
+        public int awV;
+        public String axq;
 
         public a() {
         }

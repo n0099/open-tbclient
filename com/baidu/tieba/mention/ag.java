@@ -7,13 +7,13 @@ import com.baidu.tieba.mention.af;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ af caC;
+    final /* synthetic */ af caN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ag(af afVar, int i) {
         super(i);
-        this.caC = afVar;
+        this.caN = afVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,18 +26,18 @@ public class ag extends com.baidu.adp.framework.listener.e {
         SingleMentionActivity singleMentionActivity4;
         SingleMentionActivity singleMentionActivity5;
         if (socketResponsedMessage == null || !(socketResponsedMessage instanceof CheckPostResponseMessage)) {
-            singleMentionActivity = this.caC.caA;
+            singleMentionActivity = this.caN.caL;
             singleMentionActivity.showToast(i.h.neterror);
             return;
         }
         CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) socketResponsedMessage;
         if (checkPostResponseMessage.hasError()) {
             if (!TextUtils.isEmpty(checkPostResponseMessage.getErrorString())) {
-                singleMentionActivity5 = this.caC.caA;
+                singleMentionActivity5 = this.caN.caL;
                 singleMentionActivity5.showToast(checkPostResponseMessage.getErrorString());
                 return;
             }
-            singleMentionActivity4 = this.caC.caA;
+            singleMentionActivity4 = this.caN.caL;
             singleMentionActivity4.showToast(i.h.neterror);
             return;
         }
@@ -46,13 +46,13 @@ public class ag extends com.baidu.adp.framework.listener.e {
         long quoteId = checkPostResponseMessage.getQuoteId();
         long repostId = checkPostResponseMessage.getRepostId();
         if (postState == 1) {
-            aVar = this.caC.caB;
+            aVar = this.caN.caM;
             aVar.d(forumId, quoteId, repostId);
         } else if (postState == 0) {
-            singleMentionActivity3 = this.caC.caA;
+            singleMentionActivity3 = this.caN.caL;
             singleMentionActivity3.showToast(i.h.thread_delete_tip);
         } else if (postState == -1) {
-            singleMentionActivity2 = this.caC.caA;
+            singleMentionActivity2 = this.caN.caL;
             singleMentionActivity2.showToast(i.h.thread_shield_tip);
         }
     }

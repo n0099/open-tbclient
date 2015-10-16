@@ -5,34 +5,34 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.recommendfrs.a.m;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommendfrs.data.a> {
-    final /* synthetic */ d cHV;
+    final /* synthetic */ d cIu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.cHV = dVar;
+        this.cIu = dVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.d
     public void o(int i, String str) {
         m mVar;
         TbPageContext<?> tbPageContext;
-        mVar = this.cHV.cHJ;
-        com.baidu.tieba.recommendfrs.data.a kq = mVar.kq(i);
-        if (kq != null) {
-            TiebaStatic.eventStat(this.cHV.getContext(), "kantie_banner", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
-            String apO = kq.apO();
-            if (!StringUtils.isNull(apO)) {
-                ay uV = ay.uV();
-                tbPageContext = this.cHV.pageContext;
-                uV.b(tbPageContext, new String[]{apO});
+        mVar = this.cIu.cIi;
+        com.baidu.tieba.recommendfrs.data.a ks = mVar.ks(i);
+        if (ks != null) {
+            TiebaStatic.eventStat(this.cIu.getContext(), "kantie_banner", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
+            String apU = ks.apU();
+            if (!StringUtils.isNull(apU)) {
+                az uW = az.uW();
+                tbPageContext = this.cIu.pageContext;
+                uW.b(tbPageContext, new String[]{apU});
                 return;
             }
-            this.cHV.bb(str, kq.apQ());
+            this.cIu.bb(str, ks.apW());
         }
     }
 
@@ -42,10 +42,10 @@ public class e implements com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommen
         m mVar;
         m mVar2;
         if (aVar != null) {
-            mVar = this.cHV.cHJ;
+            mVar = this.cIu.cIi;
             if (mVar != null) {
-                mVar2 = this.cHV.cHJ;
-                mVar2.setTitle(UtilHelper.getFixedText(aVar.apP(), 14, true));
+                mVar2 = this.cIu.cIi;
+                mVar2.setTitle(UtilHelper.getFixedText(aVar.apV(), 14, true));
             }
         }
     }

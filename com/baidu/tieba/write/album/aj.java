@@ -4,11 +4,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aj implements k {
-    final /* synthetic */ ac dkO;
+    final /* synthetic */ ac dlo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ac acVar) {
-        this.dkO = acVar;
+        this.dlo = acVar;
     }
 
     @Override // com.baidu.tieba.write.album.k
@@ -16,9 +16,9 @@ public class aj implements k {
     }
 
     @Override // com.baidu.tieba.write.album.k
-    public void bE(List<a> list) {
+    public void bF(List<a> list) {
         l lVar;
-        lVar = this.dkO.djp;
-        lVar.bG(list);
+        lVar = this.dlo.djP;
+        lVar.bH(list);
     }
 }

@@ -7,13 +7,13 @@ import com.baidu.tieba.model.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends HttpMessageListener {
-    final /* synthetic */ c cbb;
+    final /* synthetic */ c cbm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar, int i) {
         super(i);
-        this.cbb = cVar;
+        this.cbm = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,15 +23,15 @@ public class d extends HttpMessageListener {
         c.a aVar2;
         c.a aVar3;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522) {
-            aVar = this.cbb.caZ;
+            aVar = this.cbm.cbk;
             if (aVar != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
                 ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
                 if (responseReportUserInfoMessage.getErrorCode() == 0) {
-                    aVar3 = this.cbb.caZ;
+                    aVar3 = this.cbm.cbk;
                     aVar3.iv(responseReportUserInfoMessage.getTimeInterval());
                     return;
                 }
-                aVar2 = this.cbb.caZ;
+                aVar2 = this.cbm.cbk;
                 aVar2.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
             }
         }

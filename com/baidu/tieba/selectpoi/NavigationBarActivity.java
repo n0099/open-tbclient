@@ -15,89 +15,89 @@ import com.baidu.tbadk.core.view.m;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
-    protected NavigationBar aHi;
-    protected m awf;
-    protected NoNetworkView cKv;
-    private RelativeLayout cKw;
-    private RelativeLayout ceD;
+    protected NavigationBar aHt;
+    protected m awg;
+    protected NoNetworkView cKU;
+    private RelativeLayout cKV;
+    private RelativeLayout ceO;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         super.setContentView(i.g.nevigationbar_layout);
-        this.aHi = (NavigationBar) findViewById(i.f.navigation_bar);
-        this.ceD = (RelativeLayout) findViewById(i.f.navigation_bar_root);
-        this.aHi.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-        if (aqM()) {
-            this.cKv = (NoNetworkView) ((ViewStub) findViewById(i.f.no_network_viewstub)).inflate();
+        this.aHt = (NavigationBar) findViewById(i.f.navigation_bar);
+        this.ceO = (RelativeLayout) findViewById(i.f.navigation_bar_root);
+        this.aHt.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+        if (aqS()) {
+            this.cKU = (NoNetworkView) ((ViewStub) findViewById(i.f.no_network_viewstub)).inflate();
         }
     }
 
     protected void a(NoDataViewFactory.c cVar, NoDataViewFactory.d dVar, NoDataViewFactory.b bVar) {
-        if (this.awf == null) {
-            this.awf = NoDataViewFactory.a(getPageContext().getContext(), this.ceD, cVar, dVar, bVar);
+        if (this.awg == null) {
+            this.awg = NoDataViewFactory.a(getPageContext().getContext(), this.ceO, cVar, dVar, bVar);
         }
-        this.awf.onChangeSkinType(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
-        this.awf.setVisibility(0);
+        this.awg.onChangeSkinType(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+        this.awg.setVisibility(0);
     }
 
     protected void hideNoDataView() {
-        if (this.awf != null) {
-            this.awf.setVisibility(8);
+        if (this.awg != null) {
+            this.awg.setVisibility(8);
         }
     }
 
     @Override // android.app.Activity
     public void setContentView(View view) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (aqM()) {
+        if (aqS()) {
             layoutParams.addRule(3, i.f.no_network_view);
         } else {
             layoutParams.addRule(3, i.f.no_network_viewstub);
         }
-        this.cKw = new RelativeLayout(getPageContext().getContext());
-        this.cKw.addView(view, new ViewGroup.LayoutParams(-1, -1));
-        this.ceD.addView(this.cKw, layoutParams);
+        this.cKV = new RelativeLayout(getPageContext().getContext());
+        this.cKV.addView(view, new ViewGroup.LayoutParams(-1, -1));
+        this.ceO.addView(this.cKV, layoutParams);
     }
 
-    protected boolean aqM() {
+    protected boolean aqS() {
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void setContentView(int i) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (aqM()) {
+        if (aqS()) {
             layoutParams.addRule(3, i.f.no_network_view);
         } else {
             layoutParams.addRule(3, i.f.no_network_viewstub);
         }
-        this.cKw = new RelativeLayout(getPageContext().getContext());
-        this.cKw.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
-        this.ceD.addView(this.cKw, layoutParams);
+        this.cKV = new RelativeLayout(getPageContext().getContext());
+        this.cKV.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
+        this.ceO.addView(this.cKV, layoutParams);
     }
 
     protected View getRootView() {
-        return this.ceD;
+        return this.ceO;
     }
 
     protected View Ma() {
-        return this.cKw;
+        return this.cKV;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.aHi.onChangeSkinType(getPageContext(), i);
-        if (this.cKv != null) {
-            this.cKv.onChangeSkinType(getPageContext(), i);
+        this.aHt.onChangeSkinType(getPageContext(), i);
+        if (this.cKU != null) {
+            this.cKU.onChangeSkinType(getPageContext(), i);
         }
-        if (this.awf != null) {
-            this.awf.onChangeSkinType(getPageContext(), i);
+        if (this.awg != null) {
+            this.awg.onChangeSkinType(getPageContext(), i);
         }
         getLayoutMode().ad(i == 1);
-        getLayoutMode().k(this.ceD);
+        getLayoutMode().k(this.ceO);
     }
 }

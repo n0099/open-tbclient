@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class bf extends com.baidu.adp.base.e {
-    private static final String aHa = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/listFriend";
-    private static TbHttpMessageTask aHb = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, aHa);
+    private static final String aHl = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/r/friend/listFriend";
+    private static TbHttpMessageTask aHm = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, aHl);
     private com.baidu.tieba.person.data.a mData;
     private String mId;
     private boolean mIsHost;
     private int mSex;
 
     static {
-        aHb.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(aHb);
+        aHm.setResponsedClass(PersonFriendResponseMessage.class);
+        MessageManager.getInstance().registerTask(aHm);
     }
 
     public bf(TbPageContext tbPageContext, boolean z) {

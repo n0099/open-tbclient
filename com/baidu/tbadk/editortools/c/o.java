@@ -14,11 +14,11 @@ import com.baidu.tieba.tbadkCore.writeModel.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.d {
-    final /* synthetic */ n asv;
+    final /* synthetic */ n asw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.asv = nVar;
+        this.asw = nVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -29,15 +29,15 @@ public class o implements a.d {
         com.baidu.tieba.tbadkCore.writeModel.a aVar3;
         a aVar4;
         a.d dVar2;
-        dVar = this.asv.asu;
+        dVar = this.asw.asv;
         if (dVar != null) {
-            dVar2 = this.asv.asu;
+            dVar2 = this.asw.asv;
             dVar2.a(z, postWriteCallBackData, lVar, writeData, antiData);
         }
         if (z) {
-            this.asv.arQ = null;
-            this.asv.bg(true);
-            this.asv.BK();
+            this.asw.arR = null;
+            this.asw.bg(true);
+            this.asw.BK();
         }
         int i = -1;
         String str = "";
@@ -46,29 +46,29 @@ public class o implements a.d {
             str = postWriteCallBackData.getErrorString();
         }
         if (z) {
-            aVar = this.asv.arV;
-            WriteData axE = aVar.axE();
-            aVar2 = this.asv.arV;
+            aVar = this.asw.arW;
+            WriteData axO = aVar.axO();
+            aVar2 = this.asw.arW;
             aVar2.c((WriteData) null);
-            aVar3 = this.asv.arV;
+            aVar3 = this.asw.arW;
             aVar3.gw(false);
-            this.asv.arR = null;
-            if (axE != null && axE != null && axE.getType() == 2) {
-                aVar4 = this.asv.ass;
+            this.asw.arS = null;
+            if (axO != null && axO != null && axO.getType() == 2) {
+                aVar4 = this.asw.ast;
                 aVar4.Bk();
             }
-        } else if (i == 230277 || i == 230278 || i == 340016 || AntiHelper.la(i)) {
-            this.asv.t(i, str);
+        } else if (i == 230277 || i == 230278 || i == 340016 || AntiHelper.lc(i)) {
+            this.asw.t(i, str);
         } else if (lVar != null && writeData != null && !StringUtils.isNull(lVar.getVcode_pic_url())) {
             writeData.setVcodeMD5(lVar.getVcode_md5());
             writeData.setVcodeUrl(lVar.getVcode_pic_url());
             if (lVar.ws().equals("4")) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.asv.Bv().getActivity(), 12006, writeData, false)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.asw.Bv().getActivity(), 12006, writeData, false)));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.asv.Bv().getActivity(), writeData, 12006)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.asw.Bv().getActivity(), writeData, 12006)));
             }
         } else {
-            this.asv.Bv().showToast(str);
+            this.asw.Bv().showToast(str);
         }
     }
 }

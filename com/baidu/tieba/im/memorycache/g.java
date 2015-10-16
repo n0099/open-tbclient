@@ -6,13 +6,13 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements a.InterfaceC0059a {
-    final /* synthetic */ b bDx;
-    private final /* synthetic */ ImMessageCenterPojo bDz;
+    final /* synthetic */ b bDI;
+    private final /* synthetic */ ImMessageCenterPojo bDK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(b bVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.bDx = bVar;
-        this.bDz = imMessageCenterPojo;
+        this.bDI = bVar;
+        this.bDK = imMessageCenterPojo;
     }
 
     @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0059a
@@ -20,15 +20,15 @@ public class g implements a.InterfaceC0059a {
         while (it.hasNext()) {
             ImMessageCenterPojo next = it.next();
             if (next.getCustomGroupType() == 2 && next.getIsFriend() == 0 && next.getIs_hidden() == 0) {
-                if (this.bDz.getLast_content_time() < next.getLast_content_time()) {
-                    this.bDz.setLast_content(next.getLast_content());
-                    this.bDz.setLast_content_time(next.getLast_content_time());
-                    this.bDz.setLast_rid(next.getLast_rid());
-                    this.bDz.setLast_user_name(next.getLast_user_name());
-                    this.bDz.setSend_status(next.getSend_status());
+                if (this.bDK.getLast_content_time() < next.getLast_content_time()) {
+                    this.bDK.setLast_content(next.getLast_content());
+                    this.bDK.setLast_content_time(next.getLast_content_time());
+                    this.bDK.setLast_rid(next.getLast_rid());
+                    this.bDK.setLast_user_name(next.getLast_user_name());
+                    this.bDK.setSend_status(next.getSend_status());
                 }
-                this.bDz.setUnread_count(next.getUnread_count() + this.bDz.getUnread_count());
-                this.bDz.setIs_hidden(0);
+                this.bDK.setUnread_count(next.getUnread_count() + this.bDK.getUnread_count());
+                this.bDK.setIs_hidden(0);
             }
         }
     }

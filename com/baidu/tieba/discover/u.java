@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class u {
-    private static HashMap<String, Integer> aKC;
-    private r aKD;
-    private x aKE;
-    private com.baidu.tieba.discover.data.b aKF = new com.baidu.tieba.discover.data.b();
-    private a aKG;
+    private static HashMap<String, Integer> aKN;
+    private r aKO;
+    private x aKP;
+    private com.baidu.tieba.discover.data.b aKQ = new com.baidu.tieba.discover.data.b();
+    private a aKR;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,43 +21,43 @@ public class u {
     }
 
     public u(TbPageContext<BaseFragmentActivity> tbPageContext) {
-        this.aKD = new r(tbPageContext);
-        this.aKE = new x(tbPageContext, this.aKF);
-        this.aKD.a(new v(this));
-        this.aKE.a(new w(this));
+        this.aKO = new r(tbPageContext);
+        this.aKP = new x(tbPageContext, this.aKQ);
+        this.aKO.a(new v(this));
+        this.aKP.a(new w(this));
     }
 
     public void HF() {
-        this.aKD.CI();
+        this.aKO.CI();
     }
 
     public void Gx() {
-        this.aKE.CS();
+        this.aKP.CS();
     }
 
     public void a(a aVar) {
-        this.aKG = aVar;
+        this.aKR = aVar;
     }
 
     private static void HG() {
-        aKC = new HashMap<>();
-        aKC.put("discover_friend", Integer.valueOf(i.e.icon_find_trends));
-        aKC.put("discover_nearby", Integer.valueOf(i.e.icon_find_nearby));
-        aKC.put("discover_square", Integer.valueOf(i.e.icon_find_square));
-        aKC.put("discover_hot_video", Integer.valueOf(i.e.icon_live_telecast));
-        aKC.put("discover_one_sign", Integer.valueOf(i.e.icon_all_sign_dis));
-        aKC.put("discover_look_shop", Integer.valueOf(i.e.icon_more_store));
-        aKC.put("discover_rand_friend", Integer.valueOf(i.e.icon_find_chat));
-        aKC.put("discover_beauty_show", Integer.valueOf(i.e.icon_find_shawty));
-        aKC.put("discover_game_center", Integer.valueOf(i.e.icon_frs_game));
-        aKC.put("discover_square_trend", Integer.valueOf(i.e.icon_find_myba));
+        aKN = new HashMap<>();
+        aKN.put("discover_friend", Integer.valueOf(i.e.icon_find_trends));
+        aKN.put("discover_nearby", Integer.valueOf(i.e.icon_find_nearby));
+        aKN.put("discover_square", Integer.valueOf(i.e.icon_find_square));
+        aKN.put("discover_hot_video", Integer.valueOf(i.e.icon_live_telecast));
+        aKN.put("discover_one_sign", Integer.valueOf(i.e.icon_all_sign_dis));
+        aKN.put("discover_look_shop", Integer.valueOf(i.e.icon_more_store));
+        aKN.put("discover_rand_friend", Integer.valueOf(i.e.icon_find_chat));
+        aKN.put("discover_beauty_show", Integer.valueOf(i.e.icon_find_shawty));
+        aKN.put("discover_game_center", Integer.valueOf(i.e.icon_frs_game));
+        aKN.put("discover_square_trend", Integer.valueOf(i.e.icon_find_myba));
     }
 
     public static int gp(String str) {
-        if (aKC == null) {
+        if (aKN == null) {
             HG();
         }
-        Integer num = aKC.get(str);
+        Integer num = aKN.get(str);
         return num == null ? i.e.img_default_100 : num.intValue();
     }
 

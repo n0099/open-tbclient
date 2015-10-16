@@ -17,29 +17,29 @@ import com.baidu.tieba.tbadkCore.util.m;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class c {
-    private static c agY = new c();
-    public int agZ = 300;
-    public boolean aha = true;
-    public boolean ahb = false;
-    public boolean ahc = true;
+    private static c agZ = new c();
+    public int aha = 300;
+    public boolean ahb = true;
+    public boolean ahc = false;
     public boolean ahd = true;
     public boolean ahe = true;
-    public boolean ahf = false;
-    public boolean ahg = true;
+    public boolean ahf = true;
+    public boolean ahg = false;
     public boolean ahh = true;
-    public boolean ahi = false;
-    public String ahj = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
-    public String ahk = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
+    public boolean ahi = true;
+    public boolean ahj = false;
+    public String ahk = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
+    public String ahl = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
 
     private c() {
     }
 
     public static c xh() {
-        return agY;
+        return agZ;
     }
 
     public void initSetting() {
-        m.axx();
+        m.axH();
     }
 
     public void xi() {
@@ -47,68 +47,68 @@ public class c {
     }
 
     public boolean xj() {
-        return this.agZ > 0;
+        return this.aha > 0;
     }
 
     public int xk() {
-        return this.agZ;
-    }
-
-    public boolean xl() {
-        return this.ahb;
-    }
-
-    public boolean xm() {
-        return this.ahc;
-    }
-
-    public boolean xn() {
-        return this.ahe;
-    }
-
-    public boolean xo() {
-        return this.ahd;
-    }
-
-    public boolean xp() {
         return this.aha;
     }
 
-    public boolean xq() {
-        return this.ahg;
+    public boolean xl() {
+        return this.ahc;
     }
 
-    public boolean xr() {
-        return this.ahh;
+    public boolean xm() {
+        return this.ahd;
     }
 
-    public boolean xs() {
-        return this.ahi;
-    }
-
-    public boolean xt() {
+    public boolean xn() {
         return this.ahf;
     }
 
-    public String xu() {
+    public boolean xo() {
+        return this.ahe;
+    }
+
+    public boolean xp() {
+        return this.ahb;
+    }
+
+    public boolean xq() {
+        return this.ahh;
+    }
+
+    public boolean xr() {
+        return this.ahi;
+    }
+
+    public boolean xs() {
         return this.ahj;
     }
 
-    public String xv() {
+    public boolean xt() {
+        return this.ahg;
+    }
+
+    public String xu() {
         return this.ahk;
     }
 
+    public String xv() {
+        return this.ahl;
+    }
+
     public void az(boolean z) {
-        this.aha = z;
+        this.ahb = z;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
     public void dc(int i) {
         if (i == 0) {
-            this.agZ = i;
+            this.aha = i;
             a.wK().ay(true);
         } else {
-            this.agZ = 300;
+            this.aha = 300;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
@@ -131,31 +131,31 @@ public class c {
     }
 
     public void aC(boolean z) {
-        this.ahb = z;
+        this.ahc = z;
     }
 
     public void aD(boolean z) {
-        this.ahi = z;
+        this.ahj = z;
     }
 
     public void dY(String str) {
-        this.ahj = str;
-    }
-
-    public void dZ(String str) {
         this.ahk = str;
     }
 
+    public void dZ(String str) {
+        this.ahl = str;
+    }
+
     public void aE(boolean z) {
-        this.ahf = z;
+        this.ahg = z;
     }
 
     public void aF(boolean z) {
-        this.ahh = z;
+        this.ahi = z;
     }
 
     public void aG(boolean z) {
-        this.ahg = z;
+        this.ahh = z;
     }
 
     public void aH(boolean z) {
@@ -175,15 +175,15 @@ public class c {
     }
 
     public void aJ(boolean z) {
-        this.ahd = z;
+        this.ahe = z;
     }
 
     public void aK(boolean z) {
-        this.ahc = z;
+        this.ahd = z;
     }
 
     public void aL(boolean z) {
-        this.ahe = z;
+        this.ahf = z;
     }
 
     public boolean isSignAlertOn() {
@@ -275,13 +275,13 @@ public class c {
     }
 
     public int xA() {
-        if (!this.ahg && !this.ahf) {
+        if (!this.ahh && !this.ahg) {
             return 0;
         }
-        if (this.ahg && !this.ahf) {
+        if (this.ahh && !this.ahg) {
             return 1;
         }
-        if (!this.ahg && this.ahf) {
+        if (!this.ahh && this.ahg) {
             return 2;
         }
         return 3;

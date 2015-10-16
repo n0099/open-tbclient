@@ -3,7 +3,7 @@ package com.baidu.tieba.im.data;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tbadk.core.util.a {
-    private String bwq;
+    private String bwB;
     private long userId;
     private String userName;
 
@@ -31,10 +31,10 @@ public class a extends com.baidu.tbadk.core.util.a {
     }
 
     public String Tu() {
-        return this.bwq;
+        return this.bwB;
     }
 
     public void hC(String str) {
-        this.bwq = str;
+        this.bwB = str;
     }
 }

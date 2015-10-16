@@ -10,26 +10,26 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.i;
 import tbclient.FinePbPage.ForumInfo;
 /* loaded from: classes.dex */
 public class i {
-    private View cfC;
-    private TextView cfD;
-    private ImageView cfE;
-    private TextView cfF;
-    private TextView cfG;
-    private a cfH;
-    private boolean cfI;
-    private Animation cfJ;
-    private TextView cfL;
-    private TextView cfM;
-    private LinearLayout cfN;
+    private View cfN;
+    private TextView cfO;
+    private ImageView cfP;
+    private TextView cfQ;
+    private TextView cfR;
+    private a cfS;
+    private boolean cfT;
+    private Animation cfU;
+    private TextView cfW;
+    private TextView cfX;
+    private LinearLayout cfY;
     private Context context;
-    private long btf = 0;
-    private boolean cfK = false;
+    private long btq = 0;
+    private boolean cfV = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -42,94 +42,94 @@ public class i {
 
     public i(Context context) {
         this.context = context;
-        this.cfC = LayoutInflater.from(context).inflate(i.g.chosen_pb_post_info, (ViewGroup) null);
-        this.cfD = (TextView) this.cfC.findViewById(i.f.chosen_post_info_copyright);
-        this.cfE = (ImageView) this.cfC.findViewById(i.f.chosen_post_info_praise_icon);
-        this.cfF = (TextView) this.cfC.findViewById(i.f.chosen_post_info_praise_num);
-        this.cfG = (TextView) this.cfC.findViewById(i.f.chosen_post_info_original_post);
-        this.cfN = (LinearLayout) this.cfC.findViewById(i.f.chosen_post_info_tag_container);
-        this.cfL = (TextView) this.cfC.findViewById(i.f.chosen_post_info_tag);
-        this.cfM = (TextView) this.cfC.findViewById(i.f.chosen_post_info_mark);
+        this.cfN = LayoutInflater.from(context).inflate(i.g.chosen_pb_post_info, (ViewGroup) null);
+        this.cfO = (TextView) this.cfN.findViewById(i.f.chosen_post_info_copyright);
+        this.cfP = (ImageView) this.cfN.findViewById(i.f.chosen_post_info_praise_icon);
+        this.cfQ = (TextView) this.cfN.findViewById(i.f.chosen_post_info_praise_num);
+        this.cfR = (TextView) this.cfN.findViewById(i.f.chosen_post_info_original_post);
+        this.cfY = (LinearLayout) this.cfN.findViewById(i.f.chosen_post_info_tag_container);
+        this.cfW = (TextView) this.cfN.findViewById(i.f.chosen_post_info_tag);
+        this.cfX = (TextView) this.cfN.findViewById(i.f.chosen_post_info_mark);
     }
 
     public View aeI() {
-        return this.cfC;
+        return this.cfN;
     }
 
     public void a(a aVar) {
-        this.cfH = aVar;
+        this.cfS = aVar;
     }
 
     public void iH(int i) {
-        if (this.cfD != null) {
-            this.cfD.setText(i);
+        if (this.cfO != null) {
+            this.cfO.setText(i);
         }
     }
 
     public void y(View.OnClickListener onClickListener) {
-        if (this.cfG != null) {
-            this.cfG.setOnClickListener(onClickListener);
+        if (this.cfR != null) {
+            this.cfR.setOnClickListener(onClickListener);
         }
     }
 
-    public void aI(long j) {
+    public void aS(long j) {
         if (j >= 0) {
-            this.btf = j;
-            if (this.cfF != null) {
-                this.cfF.setText(this.context.getString(i.h.chosen_pb_praise_num, ar.s(j)));
+            this.btq = j;
+            if (this.cfQ != null) {
+                this.cfQ.setText(this.context.getString(i.h.chosen_pb_praise_num, as.s(j)));
             }
         }
     }
 
     public void aW(String str, String str2) {
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
-            this.cfN.setVisibility(8);
+            this.cfY.setVisibility(8);
             return;
         }
-        this.cfN.setVisibility(0);
-        this.cfL.setText(this.context.getString(i.h.chosen_pb_tag_abstract, str));
-        this.cfN.setOnClickListener(new j(this, str));
-        this.cfM.setText(str2);
+        this.cfY.setVisibility(0);
+        this.cfW.setText(this.context.getString(i.h.chosen_pb_tag_abstract, str));
+        this.cfY.setOnClickListener(new j(this, str));
+        this.cfX.setText(str2);
     }
 
     public void a(ForumInfo forumInfo) {
         if (forumInfo != null) {
             iH(i.h.chosen_pb_copyright);
-            aI(forumInfo.zan.zansum.longValue());
+            aS(forumInfo.zan.zansum.longValue());
             en(forumInfo.zan.is_zan.booleanValue());
             y(new k(this, forumInfo));
-            this.cfE.setOnClickListener(new l(this));
+            this.cfP.setOnClickListener(new l(this));
         }
     }
 
     public void aeJ() {
-        this.cfK = false;
+        this.cfV = false;
     }
 
     public void em(boolean z) {
         en(z);
         if (z) {
-            this.btf++;
+            this.btq++;
         } else {
-            this.btf--;
+            this.btq--;
         }
-        aI(this.btf);
+        aS(this.btq);
     }
 
     private void en(boolean z) {
-        this.cfI = z;
+        this.cfT = z;
         if (z) {
-            am.c(this.cfE, i.e.btn_zambia_big_s);
+            an.c(this.cfP, i.e.btn_zambia_big_s);
         } else {
-            am.c(this.cfE, i.e.btn_zambia_big_n);
+            an.c(this.cfP, i.e.btn_zambia_big_n);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Animation aeK() {
-        if (this.cfJ == null) {
-            this.cfJ = AnimationUtils.loadAnimation(this.context, i.a.praise_animation_scale3);
+        if (this.cfU == null) {
+            this.cfU = AnimationUtils.loadAnimation(this.context, i.a.praise_animation_scale3);
         }
-        return this.cfJ;
+        return this.cfU;
     }
 }

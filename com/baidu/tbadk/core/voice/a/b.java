@@ -10,11 +10,11 @@ public class b {
         if (str == null) {
             aVar.error_code = 6;
             aVar.error_msg = a.cQ(aVar.error_code);
-        } else if (!n.cF(String.valueOf(n.tD()) + "voice")) {
+        } else if (!n.cG(String.valueOf(n.tD()) + "voice")) {
             aVar.error_code = 7;
             aVar.error_msg = a.cQ(aVar.error_code);
         } else {
-            String e = t.e(n.cP(str));
+            String e = t.e(n.cQ(str));
             if (e == null) {
                 aVar.error_code = 5;
                 aVar.error_msg = a.cQ(aVar.error_code);

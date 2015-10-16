@@ -11,10 +11,10 @@ import com.baidu.tieba.i;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 public class s {
-    private PbChosenActivity cfc;
+    private PbChosenActivity cfn;
 
     public s(PbChosenActivity pbChosenActivity) {
-        this.cfc = pbChosenActivity;
+        this.cfn = pbChosenActivity;
     }
 
     public void a(com.baidu.tieba.pb.chosen.net.a aVar, String str) {
@@ -22,26 +22,26 @@ public class s {
             String str2 = aVar.getForumInfo().fromfname;
             String str3 = aVar.getForumInfo().title;
             String str4 = aVar.getForumInfo()._abstract;
-            Resources resources = this.cfc.getPageContext().getPageActivity().getResources();
+            Resources resources = this.cfn.getPageContext().getPageActivity().getResources();
             String format = MessageFormat.format(resources.getString(i.h.share_content_tpl), str3, str2, str4);
             String string = resources.getString(i.h.chosen_pb_share_content, str3);
             com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
             fVar.title = str3;
             fVar.content = format;
             fVar.linkUrl = "http://tieba.baidu.com/mo/q/recommendpb?ftid=" + aVar.getForumInfo().ftid;
-            fVar.aiR = string;
-            fVar.aiQ = str4;
-            fVar.aiP = Long.toString(aVar.getForumInfo().ftid.longValue());
-            fVar.aiM = true;
+            fVar.aiS = string;
+            fVar.aiR = str4;
+            fVar.aiQ = Long.toString(aVar.getForumInfo().ftid.longValue());
+            fVar.aiN = true;
             if (!StringUtils.isNull(str)) {
                 fVar.imageUri = Uri.parse(str);
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.cfc.getPageContext().getPageActivity(), fVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.cfn.getPageContext().getPageActivity(), fVar, true);
             shareDialogConfig.setIsCopyLink(true);
             shareDialogConfig.addOutsideTextView(i.h.share_tieba_qunzu, i.e.icon_unite_share_qunzu, new t(this));
             shareDialogConfig.addOutsideTextView(i.h.forum_friend, i.e.icon_unite_share_baf, new u(this));
             shareDialogConfig.setCopyLinkListener(new v(this, fVar));
-            this.cfc.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
+            this.cfn.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
         }
     }
 

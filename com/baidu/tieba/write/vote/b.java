@@ -3,7 +3,7 @@ package com.baidu.tieba.write.vote;
 public interface b {
     void N(int i, String str);
 
-    void lX(int i);
+    void lZ(int i);
 
-    void lY(int i);
+    void ma(int i);
 }

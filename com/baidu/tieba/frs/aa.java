@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.dialog.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements c.b {
-    final /* synthetic */ FrsActivity aUz;
+    final /* synthetic */ FrsActivity aUK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(FrsActivity frsActivity) {
-        this.aUz = frsActivity;
+        this.aUK = frsActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -17,12 +17,12 @@ public class aa implements c.b {
         cVar.dismiss();
         switch (i) {
             case 0:
-                this.aUz.aTz = false;
-                this.aUz.fq(0);
+                this.aUK.aTK = false;
+                this.aUK.fq(0);
                 return;
             case 1:
-                this.aUz.aTz = false;
-                this.aUz.KY();
+                this.aUK.aTK = false;
+                this.aUK.KY();
                 return;
             default:
                 return;

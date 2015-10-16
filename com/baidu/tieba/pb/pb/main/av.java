@@ -2,15 +2,15 @@ package com.baidu.tieba.pb.pb.main;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class av implements Runnable {
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public av(PbActivity pbActivity) {
-        this.ciz = pbActivity;
+        this.ciK = pbActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.ciz.aSI = System.currentTimeMillis();
+        this.ciK.aST = System.currentTimeMillis();
     }
 }

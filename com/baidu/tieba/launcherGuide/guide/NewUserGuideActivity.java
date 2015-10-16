@@ -16,23 +16,23 @@ import com.baidu.tieba.launcherGuide.view.RightSlideViewPager;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class NewUserGuideActivity extends BaseFragmentActivity {
-    private com.baidu.tieba.launcherGuide.a.a bRd;
-    private boolean bRf;
-    private RightSlideViewPager bRh;
-    private boolean bRe = false;
-    private boolean bRg = false;
-    private a.b bRi = new b(this);
+    private com.baidu.tieba.launcherGuide.a.a bRo;
+    private boolean bRq;
+    private RightSlideViewPager bRs;
+    private boolean bRp = false;
+    private boolean bRr = false;
+    private a.b bRt = new b(this);
 
     public void dF(boolean z) {
-        this.bRg = z;
+        this.bRr = z;
     }
 
     public boolean aaw() {
-        return this.bRg;
+        return this.bRr;
     }
 
     public RightSlideViewPager aax() {
-        return this.bRh;
+        return this.bRs;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -47,35 +47,35 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     }
 
     public void dG(boolean z) {
-        this.bRe = z;
+        this.bRp = z;
     }
 
     private void initData() {
-        this.bRf = getIntent().getBooleanExtra("is_new_user", false);
-        this.bRe = getIntent().getBooleanExtra(NewUserGuideActivityConfig.HAS_LIEK_BAR, false);
-        int i = this.bRf ? 1 : 2;
-        this.bRd = new com.baidu.tieba.launcherGuide.a.a(this);
-        this.bRd.a(i, 0, 100, this.bRi);
+        this.bRq = getIntent().getBooleanExtra("is_new_user", false);
+        this.bRp = getIntent().getBooleanExtra(NewUserGuideActivityConfig.HAS_LIEK_BAR, false);
+        int i = this.bRq ? 1 : 2;
+        this.bRo = new com.baidu.tieba.launcherGuide.a.a(this);
+        this.bRo.a(i, 0, 100, this.bRt);
     }
 
     private void initUI() {
-        this.bRh = (RightSlideViewPager) findViewById(i.f.guide_viewPager);
-        this.bRh.setAdapter(new n(getSupportFragmentManager()));
-        this.bRh.setTag("canScroll");
-        this.bRh.setOnPageChangeListener(new c(this));
+        this.bRs = (RightSlideViewPager) findViewById(i.f.guide_viewPager);
+        this.bRs.setAdapter(new n(getSupportFragmentManager()));
+        this.bRs.setTag("canScroll");
+        this.bRs.setOnPageChangeListener(new c(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.bRd != null) {
-            this.bRd.aaH();
+        if (this.bRo != null) {
+            this.bRo.aaH();
         }
     }
 
     public com.baidu.tieba.launcherGuide.a.a aay() {
-        return this.bRd;
+        return this.bRo;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -106,7 +106,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     }
 
     public void aaA() {
-        sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNewUserCfg(1, this.bRf)));
+        sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNewUserCfg(1, this.bRq)));
         finish();
     }
 }

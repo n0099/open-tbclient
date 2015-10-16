@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.n;
 import com.baidu.tieba.i;
 import java.io.File;
@@ -18,24 +18,24 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b aoe = null;
-    private static c aoi = null;
-    private static List<c> aoj = new LinkedList();
+    private static b aof = null;
+    private static c aoj = null;
+    private static List<c> aok = new LinkedList();
     private final int max = 5;
-    private int aof = 0;
-    private a aog = null;
-    private C0045b aoh = null;
+    private int aog = 0;
+    private a aoh = null;
+    private C0045b aoi = null;
 
     private b() {
     }
 
     public static b An() {
         synchronized (b.class) {
-            if (aoe == null) {
-                aoe = new b();
+            if (aof == null) {
+                aof = new b();
             }
         }
-        return aoe;
+        return aof;
     }
 
     public void a(String str, String str2, String str3, int i, int i2) {
@@ -43,7 +43,7 @@ public class b {
     }
 
     public void a(String str, String str2, String str3, int i, int i2, boolean z, boolean z2, boolean z3) {
-        if (this.aof >= 5) {
+        if (this.aog >= 5) {
             Toast.makeText(TbadkCoreApplication.m411getInst(), i.h.download_fail_over_max, 0).show();
             return;
         }
@@ -51,7 +51,7 @@ public class b {
         downloadData.setType(12);
         downloadData.setNeedInvokeApk(z);
         downloadData.setForceDownload(z2);
-        this.aof++;
+        this.aog++;
         downloadData.setStatus(1);
         downloadData.setStatusMsg(null);
         downloadData.setNotifyId(i2);
@@ -66,7 +66,7 @@ public class b {
         cVar.setNeedInvokeApk(z);
         cVar.bc(z2);
         cVar.setNeedNotify(z3);
-        aoj.add(cVar);
+        aok.add(cVar);
         Ao();
     }
 
@@ -78,12 +78,12 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Ao() {
-        if (aoi == null && !aoj.isEmpty()) {
-            aoi = aoj.get(0);
-            if (aoi != null) {
-                this.aog = new a(this, null);
-                this.aog.setPriority(3);
-                this.aog.execute(aoi);
+        if (aoj == null && !aok.isEmpty()) {
+            aoj = aok.get(0);
+            if (aoj != null) {
+                this.aoh = new a(this, null);
+                this.aoh.setPriority(3);
+                this.aoh.execute(aoj);
             }
         }
     }
@@ -101,7 +101,7 @@ public class b {
 
     public void e(DownloadData downloadData) {
         if (downloadData.getStatus() != 1 && downloadData.getStatus() != 5) {
-            this.aof--;
+            this.aog--;
         }
         LinkedList linkedList = new LinkedList();
         linkedList.add(downloadData);
@@ -113,18 +113,18 @@ public class b {
     }
 
     public void o(ArrayList<com.baidu.tbadk.core.data.b> arrayList) {
-        this.aoh = new C0045b(this, null);
-        this.aoh.execute(arrayList);
+        this.aoi = new C0045b(this, null);
+        this.aoi.execute(arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.download.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0045b extends BdAsyncTask<ArrayList<com.baidu.tbadk.core.data.b>, List<DownloadData>, List<DownloadData>> {
-        ArrayList<com.baidu.tbadk.core.data.b> aol;
+        ArrayList<com.baidu.tbadk.core.data.b> aom;
 
         private C0045b() {
-            this.aol = null;
+            this.aom = null;
         }
 
         /* synthetic */ C0045b(b bVar, C0045b c0045b) {
@@ -141,12 +141,12 @@ public class b {
             if (arrayList == null) {
                 return linkedList;
             }
-            this.aol = arrayList;
+            this.aom = arrayList;
             Iterator<com.baidu.tbadk.core.data.b> it = arrayList.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.data.b next = it.next();
-                String str = next.TZ;
-                if (n.cI(b.this.getFileOfUrl(next.TY)) != null) {
+                String str = next.Ua;
+                if (n.cJ(b.this.getFileOfUrl(next.TZ)) != null) {
                     DownloadData downloadData = new DownloadData(str);
                     downloadData.setStatus(3);
                     linkedList.add(downloadData);
@@ -165,9 +165,9 @@ public class b {
                 list = new LinkedList<>();
             }
             for (DownloadData downloadData : d.As().me()) {
-                Iterator<com.baidu.tbadk.core.data.b> it = this.aol.iterator();
+                Iterator<com.baidu.tbadk.core.data.b> it = this.aom.iterator();
                 while (it.hasNext()) {
-                    if (TextUtils.equals(it.next().TZ, downloadData.getId())) {
+                    if (TextUtils.equals(it.next().Ua, downloadData.getId())) {
                         list.add(downloadData);
                     }
                 }
@@ -213,7 +213,7 @@ public class b {
             boolean isNeedInvokeApk = cVar.isNeedInvokeApk();
             boolean Ar = cVar.Ar();
             boolean isNeedNotify = cVar.isNeedNotify();
-            if (ar.isEmpty(key) || ar.isEmpty(name)) {
+            if (as.isEmpty(key) || as.isEmpty(name)) {
                 return null;
             }
             String str = String.valueOf(key.replace(".", "_")) + ".apk";
@@ -228,7 +228,7 @@ public class b {
                 downloadData.setPath(aD);
                 downloadData.setPosition(position);
                 return downloadData;
-            } else if (n.cI(str) != null) {
+            } else if (n.cJ(str) != null) {
                 DownloadData downloadData2 = new DownloadData(key);
                 downloadData2.setName(str);
                 downloadData2.setNeedInvokeApk(isNeedInvokeApk);
@@ -256,7 +256,7 @@ public class b {
         /* renamed from: h */
         public void onPostExecute(DownloadData downloadData) {
             super.onPostExecute(downloadData);
-            b.this.aog = null;
+            b.this.aoh = null;
             if (downloadData != null) {
                 if (downloadData.getStatus() == 3) {
                     b.this.e(downloadData);
@@ -271,9 +271,9 @@ public class b {
                         NotificationHelper.showProgressNotification(TbadkCoreApplication.m411getInst().getApp(), downloadData.getNotifyId(), null, 0, TbadkCoreApplication.m411getInst().getApp().getString(i.h.download_will_begin), downloadData.getName(), true);
                     }
                 }
-                b.aoi = null;
-                if (!b.aoj.isEmpty()) {
-                    b.aoj.remove(0);
+                b.aoj = null;
+                if (!b.aok.isEmpty()) {
+                    b.aok.remove(0);
                     b.this.Ao();
                 }
             }
@@ -319,18 +319,18 @@ public class b {
     }
 
     public boolean eI(String str) {
-        return (TextUtils.isEmpty(str) || n.cI(new StringBuilder(String.valueOf(str.replace(".", "_"))).append(".apk").toString()) == null) ? false : true;
+        return (TextUtils.isEmpty(str) || n.cJ(new StringBuilder(String.valueOf(str.replace(".", "_"))).append(".apk").toString()) == null) ? false : true;
     }
 
     /* loaded from: classes.dex */
     public class c {
-        private int aom;
+        private int aon;
         private String key;
         private String name;
         private int position;
         private String url;
         private boolean isNeedInvokeApk = true;
-        private boolean aon = false;
+        private boolean aoo = false;
         private boolean isNeedNotify = true;
 
         public c() {
@@ -369,11 +369,11 @@ public class b {
         }
 
         public int Aq() {
-            return this.aom;
+            return this.aon;
         }
 
         public void dO(int i) {
-            this.aom = i;
+            this.aon = i;
         }
 
         public boolean isNeedInvokeApk() {
@@ -385,11 +385,11 @@ public class b {
         }
 
         public boolean Ar() {
-            return this.aon;
+            return this.aoo;
         }
 
         public void bc(boolean z) {
-            this.aon = z;
+            this.aoo = z;
         }
 
         public boolean isNeedNotify() {

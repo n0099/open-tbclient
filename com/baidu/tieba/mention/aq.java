@@ -8,11 +8,11 @@ import com.baidu.tieba.tbadkCore.writeModel.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements a.d {
-    final /* synthetic */ al caO;
+    final /* synthetic */ al caZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(al alVar) {
-        this.caO = alVar;
+        this.caZ = alVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -20,12 +20,12 @@ public class aq implements a.d {
         SingleMentionActivity singleMentionActivity;
         com.baidu.tbadk.editortools.c.n nVar;
         SingleMentionActivity singleMentionActivity2;
-        singleMentionActivity = this.caO.caA;
+        singleMentionActivity = this.caZ.caL;
         singleMentionActivity.hideProgressBar();
-        nVar = this.caO.caJ;
+        nVar = this.caZ.caU;
         nVar.Ax().hide();
-        if (postWriteCallBackData != null && lVar == null && !AntiHelper.la(postWriteCallBackData.getErrorCode())) {
-            singleMentionActivity2 = this.caO.caA;
+        if (postWriteCallBackData != null && lVar == null && !AntiHelper.lc(postWriteCallBackData.getErrorCode())) {
+            singleMentionActivity2 = this.caZ.caL;
             singleMentionActivity2.showToast(postWriteCallBackData.getErrorString());
         }
     }

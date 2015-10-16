@@ -6,13 +6,13 @@ import com.baidu.adp.plugin.a;
 import com.baidu.adp.plugin.util.e;
 /* loaded from: classes.dex */
 class b implements e {
-    final /* synthetic */ a ED;
-    private final /* synthetic */ com.baidu.adp.plugin.a EE;
+    final /* synthetic */ a EE;
+    private final /* synthetic */ com.baidu.adp.plugin.a EF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, com.baidu.adp.plugin.a aVar2) {
-        this.ED = aVar;
-        this.EE = aVar2;
+        this.EE = aVar;
+        this.EF = aVar2;
     }
 
     @Override // com.baidu.adp.plugin.util.e
@@ -21,14 +21,14 @@ class b implements e {
         LoadingActivity loadingActivity2;
         LoadingActivity loadingActivity3;
         LoadingActivity loadingActivity4;
-        loadingActivity = this.ED.EC;
+        loadingActivity = this.EE.ED;
         Intent intent = new Intent(loadingActivity.getIntent());
-        loadingActivity2 = this.ED.EC;
+        loadingActivity2 = this.EE.ED;
         intent.setComponent(new ComponentName(str, loadingActivity2.getIntent().getStringExtra("intent_extra_redirect_activity")));
-        com.baidu.adp.plugin.a aVar = this.EE;
-        loadingActivity3 = this.ED.EC;
+        com.baidu.adp.plugin.a aVar = this.EF;
+        loadingActivity3 = this.EE.ED;
         aVar.i(loadingActivity3.getPageContext().getContext(), intent);
-        loadingActivity4 = this.ED.EC;
+        loadingActivity4 = this.EE.ED;
         loadingActivity4.finish();
     }
 }

@@ -8,7 +8,7 @@ public interface a {
 
     boolean a(j jVar, int i);
 
-    void bM(String str);
+    void bN(String str);
 
     void ot();
 

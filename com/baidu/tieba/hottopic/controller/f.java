@@ -4,22 +4,22 @@ import com.baidu.tbadk.core.view.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements p.a {
-    final /* synthetic */ HotTopicActivity boA;
+    final /* synthetic */ HotTopicActivity boL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(HotTopicActivity hotTopicActivity) {
-        this.boA = hotTopicActivity;
+        this.boL = hotTopicActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.p.a
     public void onListPullRefresh(boolean z) {
         com.baidu.tieba.hottopic.view.a aVar;
         if (com.baidu.adp.lib.util.i.iM()) {
-            this.boA.QM();
+            this.boL.QM();
             return;
         }
-        HotTopicActivity hotTopicActivity = this.boA;
-        aVar = this.boA.boo;
+        HotTopicActivity hotTopicActivity = this.boL;
+        aVar = this.boL.boz;
         hotTopicActivity.showNetRefreshView(aVar.Ra(), null);
     }
 }

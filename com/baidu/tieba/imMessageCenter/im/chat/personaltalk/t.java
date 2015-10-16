@@ -9,13 +9,13 @@ import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends CustomMessageListener {
-    final /* synthetic */ r bKs;
+    final /* synthetic */ r bKD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(r rVar, int i) {
         super(i);
-        this.bKs = rVar;
+        this.bKD = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,29 +32,29 @@ public class t extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (!updateAttentionMessage.isSucc()) {
-                personalTalkSettingActivity = this.bKs.bKq;
+                personalTalkSettingActivity = this.bKD.bKB;
                 if (personalTalkSettingActivity != null && !TextUtils.isEmpty(updateAttentionMessage.getErrorString())) {
-                    personalTalkSettingActivity2 = this.bKs.bKq;
+                    personalTalkSettingActivity2 = this.bKD.bKB;
                     personalTalkSettingActivity2.showToast(updateAttentionMessage.getErrorString());
                     return;
                 }
                 return;
             }
-            this.bKs.agH = updateAttentionMessage.isAttention();
-            personalTalkSettingActivity3 = this.bKs.bKq;
+            this.bKD.agI = updateAttentionMessage.isAttention();
+            personalTalkSettingActivity3 = this.bKD.bKB;
             if (personalTalkSettingActivity3 != null) {
-                z = this.bKs.agH;
+                z = this.bKD.agI;
                 if (z) {
-                    personalTalkSettingActivity5 = this.bKs.bKq;
+                    personalTalkSettingActivity5 = this.bKD.bKB;
                     personalTalkSettingActivity5.showToast(i.h.add_succ);
                 } else {
-                    personalTalkSettingActivity4 = this.bKs.bKq;
+                    personalTalkSettingActivity4 = this.bKD.bKB;
                     personalTalkSettingActivity4.showToast(i.h.remove_succ);
                 }
             }
-            aVar = this.bKs.bKr;
+            aVar = this.bKD.bKC;
             if (aVar != null) {
-                aVar2 = this.bKs.bKr;
+                aVar2 = this.bKD.bKC;
                 aVar2.vw();
             }
         }

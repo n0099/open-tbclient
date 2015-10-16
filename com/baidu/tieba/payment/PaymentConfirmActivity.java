@@ -24,14 +24,14 @@ import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity> {
-    private q cdK;
-    private p<PaymentConfirmActivity> cdL;
-    private PaymentConfirmRequestData cdM;
-    private boolean cdN;
-    private boolean cdO;
-    private HttpMessageListener cdP = new c(this, CmdConfigHttp.CMD_PAYMENT_CONFIRM_INFO);
-    private HttpMessageListener cdQ = new h(this, CmdConfigHttp.CMD_PAYMENT_PAY);
-    private CustomMessageListener cdR = new i(this, CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE);
+    private q cdV;
+    private p<PaymentConfirmActivity> cdW;
+    private PaymentConfirmRequestData cdX;
+    private boolean cdY;
+    private boolean cdZ;
+    private HttpMessageListener cea = new c(this, CmdConfigHttp.CMD_PAYMENT_CONFIRM_INFO);
+    private HttpMessageListener ceb = new h(this, CmdConfigHttp.CMD_PAYMENT_PAY);
+    private CustomMessageListener cec = new i(this, CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE);
     private String mUserId;
     private PaymentConfirmInfoData paymentConfirmInfoData;
 
@@ -47,32 +47,32 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     }
 
     private void initData() {
-        this.cdM = (PaymentConfirmRequestData) getIntent().getSerializableExtra(PaymentConfirmActivityConfig.REQUEST_PARAMS);
-        this.cdL = new p<>(getPageContext());
+        this.cdX = (PaymentConfirmRequestData) getIntent().getSerializableExtra(PaymentConfirmActivityConfig.REQUEST_PARAMS);
+        this.cdW = new p<>(getPageContext());
     }
 
     private void initUI() {
-        this.cdK = new q(this);
-        this.cdK.aew().setChecked(com.baidu.tbadk.core.sharedPref.b.tu().getBoolean(jy("payment_confirm_show"), true) ? false : true);
-        this.cdK.aew().setOnCheckedChangeListener(new j(this));
-        this.cdK.aex().setOnClickListener(new k(this));
+        this.cdV = new q(this);
+        this.cdV.aew().setChecked(com.baidu.tbadk.core.sharedPref.b.tu().getBoolean(jy("payment_confirm_show"), true) ? false : true);
+        this.cdV.aew().setOnCheckedChangeListener(new j(this));
+        this.cdV.aex().setOnClickListener(new k(this));
     }
 
     private void AJ() {
-        this.cdL.aek();
-        this.cdL.aes();
-        registerListener(this.cdP);
-        registerListener(this.cdQ);
-        registerListener(this.cdR);
+        this.cdW.aek();
+        this.cdW.aes();
+        registerListener(this.cea);
+        registerListener(this.ceb);
+        registerListener(this.cec);
     }
 
     private void aep() {
         if (com.baidu.adp.lib.util.k.jd()) {
-            showLoadingView(this.cdK.aev(), false);
-            this.cdL.a(this.cdM);
+            showLoadingView(this.cdV.aev(), false);
+            this.cdW.a(this.cdX);
             return;
         }
-        showNetRefreshViewNoClick(this.cdK.aev(), getResources().getString(i.h.neterror));
+        showNetRefreshViewNoClick(this.cdV.aev(), getResources().getString(i.h.neterror));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -112,7 +112,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             aeq();
             return true;
         } else if (i != 0) {
-            this.cdK.aew().setChecked(false);
+            this.cdV.aew().setChecked(false);
             return false;
         } else {
             return false;
@@ -121,26 +121,26 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
 
     /* JADX INFO: Access modifiers changed from: private */
     public void I(int i, String str) {
-        ViewGroup aet = this.cdK.aet();
-        this.cdK.aeu();
-        this.cdK.iE(i);
-        this.cdK.clearPassword();
+        ViewGroup aet = this.cdV.aet();
+        this.cdV.aeu();
+        this.cdV.iE(i);
+        this.cdV.clearPassword();
         com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).m(aet).a(i.h.payment_input_dialog_yes, new l(this, str)).b(i.h.payment_input_dialog_cancel, new m(this)).b(getPageContext());
         if (i <= 0) {
             b.am(false);
-            this.cdK.ei(false);
+            this.cdV.ei(false);
         } else {
             b.am(true);
-            this.cdK.ei(true);
+            this.cdV.ei(true);
         }
-        if (this.cdK.aeA() != null) {
-            if (StringUtils.isNull(this.cdK.aez())) {
+        if (this.cdV.aeA() != null) {
+            if (StringUtils.isNull(this.cdV.aez())) {
                 b.am(false);
             }
-            this.cdK.aeA().addTextChangedListener(new n(this, b));
+            this.cdV.aeA().addTextChangedListener(new n(this, b));
         }
-        if (this.cdK.aey() != null) {
-            this.cdK.aey().setOnClickListener(new o(this));
+        if (this.cdV.aey() != null) {
+            this.cdV.aey().setOnClickListener(new o(this));
         }
         b.sR();
     }
@@ -167,12 +167,12 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
                 str2 = getResources().getString(i.h.setup_password);
                 break;
         }
-        new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).ct(str).b(i.h.alert_no_button, new d(this)).a(str2, new e(this, i, str2)).b(getPageContext()).sR();
+        new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).cu(str).b(i.h.alert_no_button, new d(this)).a(str2, new e(this, i, str2)).b(getPageContext()).sR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aU(String str, String str2) {
-        new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).ct(str).b(i.h.alert_no_button, new f(this)).a(i.h.payment_dilaog_error_button, new g(this, str2)).b(getPageContext()).sR();
+        new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).cu(str).b(i.h.alert_no_button, new f(this)).a(i.h.payment_dilaog_error_button, new g(this, str2)).b(getPageContext()).sR();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -200,7 +200,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
         PaymentConfirmInfoData.OrderInfo order_info;
         if (this.paymentConfirmInfoData != null && (order_info = this.paymentConfirmInfoData.getOrder_info()) != null) {
             showLoadingDialog(getResources().getString(i.h.payment_confirm_pay_loading));
-            this.cdK.eh(false);
+            this.cdV.eh(false);
             PayRequestData payRequestData = new PayRequestData();
             payRequestData.setOrderId(order_info.getOrder_id());
             payRequestData.setSceneId(order_info.getScene_id());
@@ -221,7 +221,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
             if (z) {
                 payRequestData.setMobileCheck("1");
             }
-            this.cdL.a(payRequestData);
+            this.cdW.a(payRequestData);
         }
     }
 
@@ -234,7 +234,7 @@ public class PaymentConfirmActivity extends BaseActivity<PaymentConfirmActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cdK.onChangeSkinType(i);
+        this.cdV.onChangeSkinType(i);
     }
 
     @Override // android.app.Activity

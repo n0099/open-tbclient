@@ -15,7 +15,7 @@ class a extends CustomMessageListener {
         long j;
         long j2 = com.baidu.tbadk.core.sharedPref.b.tu().getLong("key_clear_resource", 0L);
         long currentTimeMillis = System.currentTimeMillis();
-        j = ClearResourceStatic.Sw;
+        j = ClearResourceStatic.Sx;
         if (currentTimeMillis - j2 > j) {
             new b(this).start();
             com.baidu.tbadk.core.sharedPref.b.tu().putLong("key_clear_resource", currentTimeMillis);

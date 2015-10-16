@@ -5,13 +5,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> bPQ;
+    public ArrayList<ArrayList<String>> bQb;
     public int errorNum = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String bPP = null;
-    boolean bPR = false;
-    public String bPS = null;
+    public String bQa = null;
+    boolean bQc = false;
+    public String bQd = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -23,15 +23,15 @@ public class TbCdnIpListData {
                     this.errorString = optJSONObject.optString("errmsg");
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.bPR = true;
+                    this.bQc = true;
                 } else {
-                    this.bPR = false;
+                    this.bQc = false;
                 }
-                this.bPS = jSONObject.optString("cdn_domain");
+                this.bQd = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString("img_url");
-                    this.bPP = optJSONObject2.optString("img_md5");
+                    this.bQa = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -54,7 +54,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.bPQ = arrayList;
+                        this.bQb = arrayList;
                     }
                 }
             } catch (Exception e) {

@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.coreExtra.view.j;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
@@ -17,97 +17,97 @@ import com.baidu.tieba.tbadkCore.ag;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a implements j.a {
-    private static int bOv = 7;
-    private boolean akc;
-    private i bOA;
-    private com.baidu.tbadk.core.data.b bOx;
-    private boolean bOy;
-    private h bOz;
+    private static int bOG = 7;
+    private boolean akd;
+    private com.baidu.tbadk.core.data.b bOI;
+    private boolean bOJ;
+    private h bOK;
+    private i bOL;
     private TbPageContext<?> mContext;
-    private int bOw = 0;
-    private boolean bOB = false;
-    private final View.OnClickListener aUp = new b(this);
-    private final View.OnClickListener aUo = new c(this);
-    private final CustomMessageListener bOC = new d(this, 0);
+    private int bOH = 0;
+    private boolean bOM = false;
+    private final View.OnClickListener aUA = new b(this);
+    private final View.OnClickListener aUz = new c(this);
+    private final CustomMessageListener bON = new d(this, 0);
 
     public a(boolean z, boolean z2, TbPageContext<?> tbPageContext, String str, String str2) {
-        this.akc = false;
-        this.bOy = false;
-        this.akc = z;
-        this.bOy = z2;
+        this.akd = false;
+        this.bOJ = false;
+        this.akd = z;
+        this.bOJ = z2;
         this.mContext = tbPageContext;
-        this.mContext.registerListener(CmdConfigCustom.CMD_FILE_DOWNLOAD, this.bOC);
-        this.bOA = new i(tbPageContext.getPageActivity(), str, str2);
+        this.mContext.registerListener(CmdConfigCustom.CMD_FILE_DOWNLOAD, this.bON);
+        this.bOL = new i(tbPageContext.getPageActivity(), str, str2);
     }
 
     public void d(com.baidu.tbadk.core.data.b bVar, int i) {
-        this.bOx = bVar;
-        this.bOw = i;
-        this.bOA.c(this.bOx);
+        this.bOI = bVar;
+        this.bOH = i;
+        this.bOL.c(this.bOI);
     }
 
     public boolean ZM() {
-        return this.bOy && this.bOx != null && this.bOx.rp() && !ag.isInstalledPackage(this.mContext.getPageActivity(), this.bOx.TZ);
+        return this.bOJ && this.bOI != null && this.bOI.rp() && !ag.isInstalledPackage(this.mContext.getPageActivity(), this.bOI.Ua);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.j.a
     public View f(ViewGroup viewGroup, int i) {
         if (hR(i)) {
-            this.bOz = new h(viewGroup);
+            this.bOK = new h(viewGroup);
             ZN();
-            viewGroup.addView(this.bOz.getView());
-            return this.bOz.getView();
+            viewGroup.addView(this.bOK.getView());
+            return this.bOK.getView();
         }
         return null;
     }
 
     private boolean hR(int i) {
-        return ZM() && this.bOw != 0 && i == this.bOw;
+        return ZM() && this.bOH != 0 && i == this.bOH;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ZN() {
-        if (this.bOx != null && this.bOx.Ui != null) {
+        if (this.bOI != null && this.bOI.Uj != null) {
             ZO();
-            if (this.bOx.rr()) {
-                this.bOz.ZT().setVisibility(8);
-                this.bOz.q(this.aUo);
-            } else if (this.bOx.rq()) {
+            if (this.bOI.rr()) {
+                this.bOK.ZT().setVisibility(8);
+                this.bOK.q(this.aUz);
+            } else if (this.bOI.rq()) {
                 ZP();
             }
         }
     }
 
     private void ZO() {
-        this.bOz.ZS().setEvent(new e(this));
-        this.bOz.ZS().d(this.bOx.Ui.Un, this.akc ? 30 : 31, false);
+        this.bOK.ZS().setEvent(new e(this));
+        this.bOK.ZS().d(this.bOI.Uj.Uo, this.akd ? 30 : 31, false);
     }
 
     private void ZP() {
-        if (this.bOx != null) {
-            this.bOz.ZT().setVisibility(0);
-            if (com.baidu.tbadk.download.b.An().eI(this.bOx.TZ)) {
-                this.bOx.TT = 2;
+        if (this.bOI != null) {
+            this.bOK.ZT().setVisibility(0);
+            if (com.baidu.tbadk.download.b.An().eI(this.bOI.Ua)) {
+                this.bOI.TU = 2;
             }
-            switch (this.bOx.TT) {
+            switch (this.bOI.TU) {
                 case 0:
                     String string = this.mContext.getString(i.h.pb_app_download);
-                    if (this.bOx.Ui != null && !StringUtils.isNull(this.bOx.Ui.Us)) {
-                        string = this.bOx.Ui.Us;
+                    if (this.bOI.Uj != null && !StringUtils.isNull(this.bOI.Uj.Ut)) {
+                        string = this.bOI.Uj.Ut;
                     }
-                    if (string.length() > bOv) {
-                        string = string.substring(0, bOv);
+                    if (string.length() > bOG) {
+                        string = string.substring(0, bOG);
                     }
-                    this.bOz.iN(string);
-                    this.bOz.q(this.aUp);
+                    this.bOK.iN(string);
+                    this.bOK.q(this.aUA);
                     return;
                 case 1:
-                    this.bOz.ZU();
-                    this.bOz.q(null);
+                    this.bOK.ZU();
+                    this.bOK.q(null);
                     return;
                 case 2:
-                    this.bOz.ZW();
-                    this.bOz.q(this.aUp);
+                    this.bOK.ZW();
+                    this.bOK.q(this.aUA);
                     return;
                 default:
                     return;
@@ -125,7 +125,7 @@ public class a implements j.a {
             } else {
                 string = this.mContext.getString(i.h.confirm_download_app);
             }
-            aVar.ct(string);
+            aVar.cu(string);
             aVar.a(i.h.alert_yes_button, new f(this));
             aVar.b(i.h.alert_no_button, new g(this));
             aVar.b(this.mContext).sR();
@@ -135,19 +135,19 @@ public class a implements j.a {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ResponsedMessage<?> responsedMessage) {
         List<DownloadData> data;
-        if ((responsedMessage instanceof DownloadMessage) && this.bOx != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
+        if ((responsedMessage instanceof DownloadMessage) && this.bOI != null && (data = ((DownloadMessage) responsedMessage).getData()) != null && data.size() != 0) {
             for (DownloadData downloadData : data) {
-                if (downloadData != null && TextUtils.equals(this.bOx.TZ, downloadData.getId())) {
+                if (downloadData != null && TextUtils.equals(this.bOI.Ua, downloadData.getId())) {
                     int status = downloadData.getStatus();
                     if (status == 3 || status == 0) {
-                        this.bOx.TT = 2;
+                        this.bOI.TU = 2;
                     } else if (status == 2 || status == 4) {
-                        if (!ar.isEmpty(downloadData.getStatusMsg())) {
+                        if (!as.isEmpty(downloadData.getStatusMsg())) {
                             this.mContext.showToast(downloadData.getStatusMsg());
                         }
-                        this.bOx.TT = 0;
+                        this.bOI.TU = 0;
                     } else if (status == 1) {
-                        this.bOx.TT = 1;
+                        this.bOI.TU = 1;
                     }
                     ZN();
                 }
@@ -156,9 +156,9 @@ public class a implements j.a {
     }
 
     public void ZQ() {
-        if (!this.bOB) {
-            this.bOB = true;
-            this.bOA.aaa();
+        if (!this.bOM) {
+            this.bOM = true;
+            this.bOL.aaa();
         }
     }
 }

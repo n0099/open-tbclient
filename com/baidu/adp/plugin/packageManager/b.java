@@ -7,6 +7,7 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 import com.baidu.adp.plugin.util.Util;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -14,34 +15,34 @@ import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b Dk;
-    private HashMap<String, String> Dl = new HashMap<>();
-    private a Dm = null;
+    private static volatile b Dl;
+    private HashMap<String, String> Dm = new HashMap<>();
+    private a Dn = null;
 
     public static b lN() {
-        if (Dk == null) {
+        if (Dl == null) {
             synchronized (b.class) {
-                if (Dk == null) {
-                    Dk = new b();
+                if (Dl == null) {
+                    Dl = new b();
                 }
             }
         }
-        return Dk;
+        return Dl;
     }
 
     private b() {
     }
 
     public void clear(boolean z) {
-        if (z && this.Dm == null && lO()) {
-            this.Dm = new a();
-            this.Dm.execute(new Void[0]);
+        if (z && this.Dn == null && lO()) {
+            this.Dn = new a();
+            this.Dn.execute(new Void[0]);
         }
     }
 
     private boolean lO() {
         String[] split;
-        this.Dl.clear();
+        this.Dm.clear();
         PluginSettings mk = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().mk();
         if (mk == null) {
             return false;
@@ -49,12 +50,12 @@ public class b {
         for (Map.Entry<String, PluginSetting> entry : mk.getPlugins().entrySet()) {
             PluginSetting value = entry.getValue();
             if (!TextUtils.isEmpty(value.apkPath)) {
-                this.Dl.put(value.apkPath, "");
+                this.Dm.put(value.apkPath, "");
             }
             if (!TextUtils.isEmpty(value.getAbandon_apk_path()) && (split = value.getAbandon_apk_path().split(",")) != null && split.length > 0) {
                 for (String str : split) {
                     if (!TextUtils.isEmpty(str)) {
-                        this.Dl.put(str, "");
+                        this.Dm.put(str, "");
                     }
                 }
             }
@@ -87,7 +88,7 @@ public class b {
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
-            b.this.Dm = null;
+            b.this.Dn = null;
         }
 
         private ArrayList<File> lP() {
@@ -104,11 +105,11 @@ public class b {
                             BdLog.i("ClearRedunceFiles file: " + file.getAbsolutePath());
                             if (!absolutePath.equals(mm) && System.currentTimeMillis() - file.lastModified() >= 86400000) {
                                 if (file.isDirectory()) {
-                                    if (b.this.Dl.get(String.valueOf(absolutePath) + ".apk") == null) {
+                                    if (b.this.Dm.get(String.valueOf(absolutePath) + ".apk") == null) {
                                         arrayList.add(file);
                                     }
                                 } else if (absolutePath.endsWith(".apk")) {
-                                    if (b.this.Dl.get(absolutePath) == null) {
+                                    if (b.this.Dm.get(absolutePath) == null) {
                                         arrayList.add(file);
                                     }
                                 } else if (System.currentTimeMillis() - file.lastModified() > 259200000) {
@@ -128,7 +129,12 @@ public class b {
                 while (it.hasNext()) {
                     File next = it.next();
                     if (next != null) {
-                        com.baidu.adp.lib.util.e.f(next);
+                        try {
+                            com.baidu.adp.lib.util.e.h(next);
+                            com.baidu.adp.plugin.b.a.lF().d("plugin_del_redundance", "delete_redundance", null, next.getAbsolutePath());
+                        } catch (IOException e) {
+                            com.baidu.adp.plugin.b.a.lF().d("plugin_del_redundance", "delete_redundance_fail", null, String.valueOf(next.getAbsolutePath()) + "-" + e.getMessage());
+                        }
                     }
                 }
             }

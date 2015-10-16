@@ -4,12 +4,12 @@ import com.baidu.adp.lib.a.b.a.a.i;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.w;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class g {
-    private static final String aFq = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/getreason";
+    private static final String aFB = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/user/getreason";
 
     /* loaded from: classes.dex */
     public interface b {
@@ -24,14 +24,14 @@ public class g {
 
     /* loaded from: classes.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidReasonData> {
-        private String aFl;
-        private String aFm;
-        private WeakReference<b> aFp;
+        private WeakReference<b> aFA;
+        private String aFw;
+        private String aFx;
 
         public a(String str, String str2, b bVar) {
-            this.aFl = str;
-            this.aFm = str2;
-            this.aFp = new WeakReference<>(bVar);
+            this.aFw = str;
+            this.aFx = str2;
+            this.aFA = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -40,11 +40,11 @@ public class g {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: o */
         public ForbidReasonData doInBackground(String... strArr) {
-            w wVar = new w(g.aFq);
-            wVar.o("forum_id", this.aFl);
-            wVar.o("user_id", this.aFm);
+            w wVar = new w(g.aFB);
+            wVar.o("forum_id", this.aFw);
+            wVar.o("user_id", this.aFx);
             String tG = wVar.tG();
-            if (wVar.uh().uY().qV()) {
+            if (wVar.uh().uZ().qV()) {
                 try {
                     ForbidReasonData forbidReasonData = (ForbidReasonData) i.objectWithJsonStr(tG, ForbidReasonData.class);
                     forbidReasonData.reason = forbidReasonData.reason.replaceAll("\\\\n", "\n");
@@ -68,9 +68,9 @@ public class g {
         /* renamed from: c */
         public void onPostExecute(ForbidReasonData forbidReasonData) {
             super.onPostExecute(forbidReasonData);
-            b bVar = this.aFp.get();
+            b bVar = this.aFA.get();
             if (bVar != null) {
-                if (forbidReasonData.error.errno == 0 && ar.isEmpty(forbidReasonData.error.errMsg)) {
+                if (forbidReasonData.error.errno == 0 && as.isEmpty(forbidReasonData.error.errMsg)) {
                     bVar.a(forbidReasonData);
                 } else {
                     bVar.b(forbidReasonData);

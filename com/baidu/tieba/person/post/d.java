@@ -3,15 +3,15 @@ package com.baidu.tieba.person.post;
 import android.view.View;
 /* loaded from: classes.dex */
 class d implements View.OnClickListener {
-    final /* synthetic */ PersonPostActivity crj;
+    final /* synthetic */ PersonPostActivity cru;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PersonPostActivity personPostActivity) {
-        this.crj = personPostActivity;
+        this.cru = personPostActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.crj.finish();
+        this.cru.finish();
     }
 }

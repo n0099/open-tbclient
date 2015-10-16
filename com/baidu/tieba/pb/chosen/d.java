@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class d extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbChosenActivity cfa;
+    final /* synthetic */ PbChosenActivity cfl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(PbChosenActivity pbChosenActivity, int i, int i2) {
         super(i, i2);
-        this.cfa = pbChosenActivity;
+        this.cfl = pbChosenActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,22 +25,22 @@ class d extends com.baidu.adp.framework.listener.a {
         if (responsedMessage instanceof com.baidu.tieba.pb.chosen.net.a) {
             com.baidu.tieba.pb.chosen.net.a aVar = (com.baidu.tieba.pb.chosen.net.a) responsedMessage;
             int erroCode = aVar.getErroCode();
-            this.cfa.ceQ = true;
+            this.cfl.cfb = true;
             if (erroCode != 0) {
-                PbChosenActivity pbChosenActivity = this.cfa;
-                relativeLayout = this.cfa.ceD;
+                PbChosenActivity pbChosenActivity = this.cfl;
+                relativeLayout = this.cfl.ceO;
                 pbChosenActivity.hideLoadingView(relativeLayout);
-                BdToast.b(this.cfa.getPageContext().getPageActivity(), StringUtils.isNull(aVar.getErrorText()) ? this.cfa.getResources().getString(i.h.neterror) : aVar.getErrorText()).sZ();
+                BdToast.b(this.cfl.getPageContext().getPageActivity(), StringUtils.isNull(aVar.getErrorText()) ? this.cfl.getResources().getString(i.h.neterror) : aVar.getErrorText()).sZ();
             } else {
-                this.cfa.a(aVar);
+                this.cfl.a(aVar);
             }
-            z = this.cfa.aPK;
+            z = this.cfl.aPV;
             if (!z) {
-                String string = this.cfa.getResources().getString(i.h.error_unkown_try_again);
-                PbChosenActivity pbChosenActivity2 = this.cfa;
-                relativeLayout2 = this.cfa.ceD;
+                String string = this.cfl.getResources().getString(i.h.error_unkown_try_again);
+                PbChosenActivity pbChosenActivity2 = this.cfl;
+                relativeLayout2 = this.cfl.ceO;
                 pbChosenActivity2.showNetRefreshView(relativeLayout2, string, true);
-                mVar = this.cfa.ceH;
+                mVar = this.cfl.ceS;
                 mVar.setVisible(false);
             }
         }

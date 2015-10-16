@@ -5,11 +5,11 @@ import android.view.View;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
 class ae implements View.OnClickListener {
-    final /* synthetic */ PersonChangeActivity cpR;
+    final /* synthetic */ PersonChangeActivity cqc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(PersonChangeActivity personChangeActivity) {
-        this.cpR = personChangeActivity;
+        this.cqc = personChangeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -17,26 +17,26 @@ class ae implements View.OnClickListener {
         int i;
         boolean z;
         com.baidu.tbadk.core.dialog.a aVar;
-        int sex = this.cpR.cpI.aiE().getSex();
-        i = this.cpR.mSex;
+        int sex = this.cqc.cpT.aiE().getSex();
+        i = this.cqc.mSex;
         if (sex != i) {
-            this.cpR.f128com = true;
+            this.cqc.cox = true;
         }
-        z = this.cpR.f128com;
+        z = this.cqc.cox;
         if (!z) {
-            if (this.cpR.cpI != null && this.cpR.cpI.aiE().getPhotoChanged()) {
+            if (this.cqc.cpT != null && this.cqc.cpT.aiE().getPhotoChanged()) {
                 Intent intent = new Intent();
-                if (this.cpR.cpw.booleanValue()) {
-                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cpR.cpI.aiE());
+                if (this.cqc.cpH.booleanValue()) {
+                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cqc.cpT.aiE());
                 } else {
-                    intent.putExtra("data", this.cpR.cpI.aiE());
+                    intent.putExtra("data", this.cqc.cpT.aiE());
                 }
-                this.cpR.setResult(-1, intent);
+                this.cqc.setResult(-1, intent);
             }
-            this.cpR.finish();
+            this.cqc.finish();
             return;
         }
-        aVar = this.cpR.cpN;
+        aVar = this.cqc.cpY;
         aVar.sR();
     }
 }

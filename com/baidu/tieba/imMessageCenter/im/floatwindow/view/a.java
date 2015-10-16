@@ -17,22 +17,22 @@ import com.baidu.tieba.imMessageCenter.im.floatwindow.a.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
-    private InterfaceC0062a bKU;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.e bKZ;
-    private HeadImageView bLA;
-    private HeadImageView bLB;
-    private HeadImageView bLC;
-    private HeadImageView bLD;
-    private TextView bLE;
-    private Animation bLF;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.a.e bLG;
-    private com.baidu.tieba.imMessageCenter.im.floatwindow.a.d bLH;
-    private Point bLI;
-    private boolean bLJ;
-    private Runnable bLK;
-    private c.a bLL;
-    private e.a bLM;
-    private FrameLayout bLz;
+    private FrameLayout bLK;
+    private HeadImageView bLL;
+    private HeadImageView bLM;
+    private HeadImageView bLN;
+    private HeadImageView bLO;
+    private TextView bLP;
+    private Animation bLQ;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.a.e bLR;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.a.d bLS;
+    private Point bLT;
+    private boolean bLU;
+    private Runnable bLV;
+    private c.a bLW;
+    private e.a bLX;
+    private InterfaceC0062a bLf;
+    private com.baidu.tieba.imMessageCenter.im.floatwindow.e bLk;
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.floatwindow.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -42,22 +42,22 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
 
     public a(Context context) {
         super(LayoutInflater.from(context).inflate(i.g.im_chat_float_window, (ViewGroup) null));
-        this.bLJ = false;
-        this.bLK = new b(this);
-        this.bLL = new c(this);
-        this.bLM = new d(this);
-        this.bKZ = new com.baidu.tieba.imMessageCenter.im.floatwindow.e();
-        this.bLz = (FrameLayout) this.bLg.findViewById(i.f.chat_float_window_wrapper);
-        this.bLA = (HeadImageView) this.bLg.findViewById(i.f.chat_float_window_first);
-        this.bLB = (HeadImageView) this.bLg.findViewById(i.f.chat_float_window_second);
-        this.bLC = (HeadImageView) this.bLg.findViewById(i.f.chat_float_window_third);
-        this.bLD = (HeadImageView) this.bLg.findViewById(i.f.chat_float_window_fourth);
-        d(this.bLA);
-        d(this.bLB);
-        d(this.bLC);
-        d(this.bLD);
-        this.bLE = (TextView) this.bLg.findViewById(i.f.chat_float_window_text);
-        this.bLI = new Point();
+        this.bLU = false;
+        this.bLV = new b(this);
+        this.bLW = new c(this);
+        this.bLX = new d(this);
+        this.bLk = new com.baidu.tieba.imMessageCenter.im.floatwindow.e();
+        this.bLK = (FrameLayout) this.bLr.findViewById(i.f.chat_float_window_wrapper);
+        this.bLL = (HeadImageView) this.bLr.findViewById(i.f.chat_float_window_first);
+        this.bLM = (HeadImageView) this.bLr.findViewById(i.f.chat_float_window_second);
+        this.bLN = (HeadImageView) this.bLr.findViewById(i.f.chat_float_window_third);
+        this.bLO = (HeadImageView) this.bLr.findViewById(i.f.chat_float_window_fourth);
+        d(this.bLL);
+        d(this.bLM);
+        d(this.bLN);
+        d(this.bLO);
+        this.bLP = (TextView) this.bLr.findViewById(i.f.chat_float_window_text);
+        this.bLT = new Point();
     }
 
     private void d(HeadImageView headImageView) {
@@ -67,53 +67,53 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
     }
 
     public boolean YH() {
-        return this.bLJ;
+        return this.bLU;
     }
 
     public com.baidu.tieba.imMessageCenter.im.floatwindow.e Yu() {
-        this.bKZ.Q(this.bLg);
-        return this.bKZ;
+        this.bLk.Q(this.bLr);
+        return this.bLk;
     }
 
     public void a(Handler handler, boolean z) {
         if (!Yw()) {
             Yx();
             if (handler != null && z) {
-                handler.post(this.bLK);
+                handler.post(this.bLV);
             }
         }
     }
 
     public void a(InterfaceC0062a interfaceC0062a) {
-        this.bKU = interfaceC0062a;
+        this.bLf = interfaceC0062a;
     }
 
     public void hI(int i) {
         int i2;
         if (i <= 0) {
-            this.bLE.setVisibility(8);
+            this.bLP.setVisibility(8);
             return;
         }
-        this.bLE.setVisibility(0);
+        this.bLP.setVisibility(0);
         if (i < 10) {
-            this.bLE.setText(String.valueOf(i));
+            this.bLP.setText(String.valueOf(i));
             i2 = i.e.icon_news_head_prompt_one;
         } else if (i < 100) {
-            this.bLE.setText(String.valueOf(i));
+            this.bLP.setText(String.valueOf(i));
             i2 = i.e.icon_news_head_prompt_two;
         } else {
-            this.bLE.setText("   ");
+            this.bLP.setText("   ");
             i2 = i.e.icon_news_head_prompt_more;
         }
-        this.bLE.setBackgroundResource(i2);
+        this.bLP.setBackgroundResource(i2);
     }
 
     public void YI() {
         int i;
-        int measuredWidth = this.bLg.getMeasuredWidth();
-        int i2 = this.bLi.x;
-        if ((measuredWidth / 2) + i2 > this.bLc / 2) {
-            i = this.bLc - measuredWidth;
+        int measuredWidth = this.bLr.getMeasuredWidth();
+        int i2 = this.bLt.x;
+        if ((measuredWidth / 2) + i2 > this.bLn / 2) {
+            i = this.bLn - measuredWidth;
         } else {
             i = 0;
         }
@@ -121,27 +121,27 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
     }
 
     public void b(Point point) {
-        this.bLI.x = this.bLi.x;
-        this.bLI.y = this.bLi.y;
-        this.bLJ = true;
+        this.bLT.x = this.bLt.x;
+        this.bLT.y = this.bLt.y;
+        this.bLU = true;
         setTouchable(false);
         com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.Yz().a(c(point));
     }
 
     public void YJ() {
-        int measuredWidth = this.bLg.getMeasuredWidth();
-        boolean z = this.bLI.x != 0;
-        boolean z2 = this.bLI.x != this.bLc - measuredWidth;
+        int measuredWidth = this.bLr.getMeasuredWidth();
+        boolean z = this.bLT.x != 0;
+        boolean z2 = this.bLT.x != this.bLn - measuredWidth;
         if (z && z2) {
-            if (this.bLI.x > this.bLc / 2) {
-                this.bLI.x = this.bLc - measuredWidth;
+            if (this.bLT.x > this.bLn / 2) {
+                this.bLT.x = this.bLn - measuredWidth;
             } else {
-                this.bLI.x = 0;
+                this.bLT.x = 0;
             }
         }
-        this.bLJ = true;
+        this.bLU = true;
         setTouchable(false);
-        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.Yz().a(c(this.bLI));
+        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.Yz().a(c(this.bLT));
     }
 
     public void E(ArrayList<String> arrayList) {
@@ -157,16 +157,16 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
     private void E(int i, String str) {
         switch (i) {
             case 0:
-                this.bLA.d(str, 12, false);
+                this.bLL.d(str, 12, false);
                 return;
             case 1:
-                this.bLB.d(str, 12, false);
+                this.bLM.d(str, 12, false);
                 return;
             case 2:
-                this.bLC.d(str, 12, false);
+                this.bLN.d(str, 12, false);
                 return;
             case 3:
-                this.bLD.d(str, 12, false);
+                this.bLO.d(str, 12, false);
                 return;
             default:
                 return;
@@ -174,39 +174,39 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
     }
 
     private void hJ(int i) {
-        this.bLA.setVisibility(i > 0 ? 0 : 8);
-        this.bLB.setVisibility(i > 1 ? 0 : 8);
-        this.bLC.setVisibility(i > 2 ? 0 : 8);
-        this.bLD.setVisibility(i <= 3 ? 8 : 0);
+        this.bLL.setVisibility(i > 0 ? 0 : 8);
+        this.bLM.setVisibility(i > 1 ? 0 : 8);
+        this.bLN.setVisibility(i > 2 ? 0 : 8);
+        this.bLO.setVisibility(i <= 3 ? 8 : 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Animation YK() {
-        if (this.bLF == null) {
-            this.bLF = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), i.a.float_window_in_anim);
+        if (this.bLQ == null) {
+            this.bLQ = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), i.a.float_window_in_anim);
         }
-        return this.bLF;
+        return this.bLQ;
     }
 
     private com.baidu.tieba.imMessageCenter.im.floatwindow.a.e ap(int i, int i2) {
-        if (this.bLG == null) {
-            this.bLG = new com.baidu.tieba.imMessageCenter.im.floatwindow.a.e(20);
-            this.bLG.a(this.bLM);
+        if (this.bLR == null) {
+            this.bLR = new com.baidu.tieba.imMessageCenter.im.floatwindow.a.e(20);
+            this.bLR.a(this.bLX);
         }
-        this.bLG.setStart(i);
-        this.bLG.hH(i2);
-        return this.bLG;
+        this.bLR.setStart(i);
+        this.bLR.hH(i2);
+        return this.bLR;
     }
 
     private com.baidu.tieba.imMessageCenter.im.floatwindow.a.d c(Point point) {
-        if (this.bLH == null) {
-            this.bLH = new com.baidu.tieba.imMessageCenter.im.floatwindow.a.d(300L);
-            this.bLH.a(this.bLL);
+        if (this.bLS == null) {
+            this.bLS = new com.baidu.tieba.imMessageCenter.im.floatwindow.a.d(300L);
+            this.bLS.a(this.bLW);
         }
         Point point2 = new Point();
-        point2.x = this.bLi.x;
-        point2.y = this.bLi.y;
-        this.bLH.a(point2, point);
-        return this.bLH;
+        point2.x = this.bLt.x;
+        point2.y = this.bLt.y;
+        this.bLS.a(point2, point);
+        return this.bLS;
     }
 }
