@@ -13,53 +13,53 @@ import com.baidu.tieba.frs.db;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class cb extends com.baidu.adp.widget.ListView.c {
-    private final int aSG;
-    private boolean aWT;
-    private db.a aWU;
-    private View.OnClickListener adX;
+    private final int aSR;
+    private boolean aXe;
+    private db.a aXf;
+    private View.OnClickListener adY;
     private Context mContext;
 
     @Override // com.baidu.adp.widget.ListView.c
     public View no() {
         View inflate = LayoutInflater.from(this.mContext).inflate(i.g.frs_item_control, (ViewGroup) null);
-        this.aWU = new db.a();
-        this.aWU.aXV = (FrameLayout) inflate.findViewById(i.f.frs_list_control);
-        this.aWU.aXW = (LinearLayout) inflate.findViewById(i.f.frs_list_control_in);
-        this.aWU.aXY = (ProgressBar) inflate.findViewById(i.f.frs_list_control_progress);
-        this.aWU.aXX = (TextView) inflate.findViewById(i.f.frs_list_control_tv);
-        inflate.setTag(this.aWU);
+        this.aXf = new db.a();
+        this.aXf.aYg = (FrameLayout) inflate.findViewById(i.f.frs_list_control);
+        this.aXf.aYh = (LinearLayout) inflate.findViewById(i.f.frs_list_control_in);
+        this.aXf.aYj = (ProgressBar) inflate.findViewById(i.f.frs_list_control_progress);
+        this.aXf.aYi = (TextView) inflate.findViewById(i.f.frs_list_control_tv);
+        inflate.setTag(this.aXf);
         return inflate;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aWU != null) {
-            com.baidu.tbadk.core.util.am.i(this.aWU.aXW, i.e.frs_item_control_bg);
-            com.baidu.tbadk.core.util.am.c(this.aWU.aXX, i);
+        if (this.aXf != null) {
+            com.baidu.tbadk.core.util.an.i(this.aXf.aYh, i.e.frs_item_control_bg);
+            com.baidu.tbadk.core.util.an.c(this.aXf.aYi, i);
         }
     }
 
     public void ca(boolean z) {
-        this.aWT = z;
-        this.aWU.aXV.setVisibility(0);
-        this.aWU.aXV.setPadding(0, this.aSG, 0, this.aSG);
-        if (this.aWT) {
-            this.aWU.aXX.setText(i.h.loading);
-            this.aWU.aXY.setVisibility(0);
+        this.aXe = z;
+        this.aXf.aYg.setVisibility(0);
+        this.aXf.aYg.setPadding(0, this.aSR, 0, this.aSR);
+        if (this.aXe) {
+            this.aXf.aYi.setText(i.h.loading);
+            this.aXf.aYj.setVisibility(0);
         } else {
-            this.aWU.aXX.setText(i.h.frs_next);
-            this.aWU.aXY.setVisibility(8);
+            this.aXf.aYi.setText(i.h.frs_next);
+            this.aXf.aYj.setVisibility(8);
         }
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     public void m(View.OnClickListener onClickListener) {
-        this.adX = onClickListener;
+        this.adY = onClickListener;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void onClick() {
-        if (this.adX != null) {
-            this.adX.onClick(getView());
+        if (this.adY != null) {
+            this.adY.onClick(getView());
         }
     }
 }

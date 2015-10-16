@@ -8,21 +8,21 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* loaded from: classes.dex */
 class aq implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ an bEx;
-    private final /* synthetic */ ImMessageCenterPojo bEz;
+    final /* synthetic */ an bEI;
+    private final /* synthetic */ ImMessageCenterPojo bEK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(an anVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.bEx = anVar;
-        this.bEz = imMessageCenterPojo;
+        this.bEI = anVar;
+        this.bEK = imMessageCenterPojo;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
             com.baidu.tieba.im.db.g.TJ().TK();
-            com.baidu.tieba.im.db.c.TF().hJ(this.bEz.getGid());
-            com.baidu.tieba.im.db.i.TO().c(this.bEz);
+            com.baidu.tieba.im.db.c.TF().hJ(this.bEK.getGid());
+            com.baidu.tieba.im.db.i.TO().c(this.bEK);
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {

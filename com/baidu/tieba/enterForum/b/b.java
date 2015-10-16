@@ -6,20 +6,20 @@ import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes.dex */
 public class b {
     private boolean Cj;
-    private int aLd;
-    private int aLe;
-    private int aLf;
-    private String aLg;
-    private int aLh;
-    private c aLi;
-    private boolean aug;
+    private int aLo;
+    private int aLp;
+    private int aLq;
+    private String aLr;
+    private int aLs;
+    private c aLt;
+    private boolean auh;
     private int time = 0;
-    private d aLa = new d();
-    private h aLb = new h();
-    private g aLc = new g();
+    private d aLl = new d();
+    private h aLm = new h();
+    private g aLn = new g();
 
     public void bK(boolean z) {
-        this.aug = z;
+        this.auh = z;
     }
 
     public b() {
@@ -32,35 +32,35 @@ public class b {
     }
 
     public void eV(int i) {
-        this.aLf = i;
+        this.aLq = i;
     }
 
     public void setIsMem(int i) {
-        this.aLh = i;
+        this.aLs = i;
     }
 
     public void eW(int i) {
-        this.aLd = i;
+        this.aLo = i;
     }
 
     public void eX(int i) {
-        this.aLe = i;
+        this.aLp = i;
     }
 
     public void gt(String str) {
-        this.aLg = str;
+        this.aLr = str;
     }
 
     public void a(g gVar) {
-        this.aLc = gVar;
+        this.aLn = gVar;
     }
 
     public g HW() {
-        return this.aLc;
+        return this.aLn;
     }
 
     public c getHotSearchInfoData() {
-        return this.aLi;
+        return this.aLt;
     }
 
     public void a(DataRes dataRes) {
@@ -78,19 +78,19 @@ public class b {
                 gt(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.aLa.setLevel(this.aLe);
+                this.aLl.setLevel(this.aLp);
                 if (dataRes.like_forum != null) {
-                    this.aLa.I(dataRes.like_forum);
+                    this.aLl.I(dataRes.like_forum);
                 }
                 if (dataRes.banner != null) {
-                    this.aLb.I(dataRes.banner);
+                    this.aLm.I(dataRes.banner);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.aLc.J(dataRes.recommend_forum_info);
+                    this.aLn.J(dataRes.recommend_forum_info);
                 }
                 if (dataRes.hot_search != null) {
-                    this.aLi = new c();
-                    this.aLi.a(dataRes.hot_search);
+                    this.aLt = new c();
+                    this.aLt.a(dataRes.hot_search);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -99,19 +99,19 @@ public class b {
     }
 
     public h HX() {
-        return this.aLb;
+        return this.aLm;
     }
 
     public void a(h hVar) {
-        this.aLb = hVar;
+        this.aLm = hVar;
     }
 
     public d HY() {
-        return this.aLa;
+        return this.aLl;
     }
 
     public void a(d dVar) {
-        this.aLa = dVar;
+        this.aLl = dVar;
     }
 
     public void ap(boolean z) {
@@ -123,13 +123,13 @@ public class b {
     }
 
     public boolean HZ() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.b.anl.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.anl.longValue();
+        return System.currentTimeMillis() / com.baidu.tbadk.data.b.anm.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.anm.longValue();
     }
 
     public boolean isEmpty() {
         boolean z = false;
         if (this.Cj) {
-            if (this.aLa == null || this.aLa.Ib() == null || this.aLa.Ib().size() < 1) {
+            if (this.aLl == null || this.aLl.Ib() == null || this.aLl.Ib().size() < 1) {
                 z = true;
             }
             return z;
@@ -138,6 +138,6 @@ public class b {
     }
 
     public void a(c cVar) {
-        this.aLi = cVar;
+        this.aLt = cVar;
     }
 }

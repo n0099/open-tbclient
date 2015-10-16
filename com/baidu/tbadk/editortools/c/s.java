@@ -9,15 +9,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class s implements com.baidu.tbadk.editortools.b {
-    private final /* synthetic */ com.baidu.tbadk.editortools.j asq;
-    final /* synthetic */ r asw;
-    private final /* synthetic */ n asx;
+    private final /* synthetic */ com.baidu.tbadk.editortools.j asr;
+    final /* synthetic */ r asx;
+    private final /* synthetic */ n asy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r rVar, n nVar, com.baidu.tbadk.editortools.j jVar) {
-        this.asw = rVar;
-        this.asx = nVar;
-        this.asq = jVar;
+        this.asx = rVar;
+        this.asy = nVar;
+        this.asr = jVar;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -28,8 +28,8 @@ class s implements com.baidu.tbadk.editortools.b {
         if (aVar != null) {
             switch (aVar.code) {
                 case 4:
-                    this.asx.eZ((String) aVar.data);
-                    this.asw.asm = false;
+                    this.asy.eZ((String) aVar.data);
+                    this.asx.asn = false;
                     return;
                 case 5:
                 case 6:
@@ -41,35 +41,35 @@ class s implements com.baidu.tbadk.editortools.b {
                 default:
                     return;
                 case 7:
-                    this.asx.Bv().showToast(i.h.over_limit_tip);
-                    this.asw.asm = true;
+                    this.asy.Bv().showToast(i.h.over_limit_tip);
+                    this.asx.asn = true;
                     return;
                 case 8:
-                    b = this.asw.b(this.asx.Bv().getPageContext(), 11001);
+                    b = this.asx.b(this.asy.Bv().getPageContext(), 11001);
                     if (b) {
-                        this.asx.BI();
+                        this.asy.BI();
                         TiebaStatic.log("c10090");
                         return;
                     }
                     return;
                 case 10:
                     if (aVar.data instanceof VoiceData.VoiceModel) {
-                        this.asx.setVoiceModel((VoiceData.VoiceModel) aVar.data);
+                        this.asy.setVoiceModel((VoiceData.VoiceModel) aVar.data);
                     }
-                    this.asq.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
+                    this.asr.b(new com.baidu.tbadk.editortools.a(2, 6, " "));
                     return;
                 case 11:
-                    this.asx.setVoiceModel(null);
-                    this.asq.b(new com.baidu.tbadk.editortools.a(2, 6, null));
+                    this.asy.setVoiceModel(null);
+                    this.asr.b(new com.baidu.tbadk.editortools.a(2, 6, null));
                     return;
                 case 16:
-                    z = this.asw.asm;
+                    z = this.asx.asn;
                     if (z) {
-                        this.asx.Bv().showToast(i.h.over_limit_tip);
+                        this.asy.Bv().showToast(i.h.over_limit_tip);
                     }
-                    b2 = this.asw.b(this.asx.Bv().getPageContext(), 11025);
+                    b2 = this.asx.b(this.asy.Bv().getPageContext(), 11025);
                     if (b2) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.asx.Bv().getActivity(), 12005, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.asy.Bv().getActivity(), 12005, true)));
                         return;
                     }
                     return;

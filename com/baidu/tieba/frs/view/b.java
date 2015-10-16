@@ -2,17 +2,17 @@ package com.baidu.tieba.frs.view;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    final /* synthetic */ a bdc;
+    final /* synthetic */ a bdn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bdc = aVar;
+        this.bdn = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.bdc.bcw != null && this.bdc.bcw.isShowing() && !this.bdc.bcS) {
-            com.baidu.adp.lib.g.j.a(this.bdc.bcw, this.bdc.mContext.getPageActivity());
+        if (this.bdn.bcH != null && this.bdn.bcH.isShowing() && !this.bdn.bdd) {
+            com.baidu.adp.lib.g.j.a(this.bdn.bcH, this.bdn.mContext.getPageActivity());
         }
     }
 }

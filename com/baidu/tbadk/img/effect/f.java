@@ -3,7 +3,7 @@ package com.baidu.tbadk.img.effect;
 import android.graphics.Bitmap;
 /* loaded from: classes.dex */
 public class f extends b {
-    private float aus;
+    private float aut;
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
@@ -13,7 +13,7 @@ public class f extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void fr(String str) {
         if (str != null) {
-            this.aus = com.baidu.adp.lib.g.b.a(str, 0.0f);
+            this.aut = com.baidu.adp.lib.g.b.a(str, 0.0f);
         }
     }
 
@@ -22,9 +22,9 @@ public class f extends b {
         if (bitmap == null) {
             return null;
         }
-        if (this.aus > 0.0f) {
+        if (this.aut > 0.0f) {
             com.baidu.tbadk.imageManager.c.Cf().en(com.baidu.tbadk.core.util.c.f(bitmap) * 2);
-            return com.baidu.tbadk.core.util.c.a(bitmap, this.aus, z);
+            return com.baidu.tbadk.core.util.c.a(bitmap, this.aut, z);
         }
         return bitmap;
     }

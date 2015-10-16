@@ -18,7 +18,7 @@ public class AntiHelper {
         LIKE,
         REPLY;
 
-        /* JADX DEBUG: Replace access to removed values field (daI) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (dbi) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static OperationType[] valuesCustom() {
             OperationType[] valuesCustom = values();
@@ -29,7 +29,7 @@ public class AntiHelper {
         }
     }
 
-    public static boolean la(int i) {
+    public static boolean lc(int i) {
         return i == 3250002 || i == 3250001 || i == 3250003 || i == 3250004;
     }
 
@@ -38,7 +38,7 @@ public class AntiHelper {
         if (str == null) {
             str = "";
         }
-        aVar.ct(str);
+        aVar.cu(str);
         if (AppealActivityConfig.isExistActivity) {
             aVar.a(context.getString(i.h.anti_vcode_pos), new a(context));
             aVar.b(context.getString(i.h.anti_account_exception_neg), new d());
@@ -52,7 +52,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!h(antiData)) {
-            axq();
+            axA();
         }
         if (e(antiData) || g(antiData)) {
             if (antiData.isHas_chance()) {
@@ -109,7 +109,7 @@ public class AntiHelper {
         } else {
             string = context.getString(i.h.anti_account_exception_tip_appealnot);
         }
-        aVar.ct(string);
+        aVar.cu(string);
         if (AppealActivityConfig.isExistActivity) {
             aVar.a(context.getString(i.h.anti_vcode_pos), new e(context));
             aVar.b(context.getString(i.h.anti_account_exception_neg), new f());
@@ -140,7 +140,7 @@ public class AntiHelper {
         } else {
             format = MessageFormat.format(context.getString(i.h.anti_appeal_com_tip), antiData.getBlock_forum_name(), Integer.valueOf(antiData.getDays_tofree()));
         }
-        aVar.ct(format);
+        aVar.cu(format);
         aVar.a(context.getString(i.h.anti_vcode_pos), new h(context));
         aVar.b(context.getString(i.h.anti_account_exception_neg), new i());
         if (context instanceof Activity) {
@@ -167,7 +167,7 @@ public class AntiHelper {
         } else {
             string = context.getString(i.h.anti_no_chance_com_tip);
         }
-        aVar.ct(string);
+        aVar.cu(string);
         aVar.a(context.getString(i.h.anti_no_chance_pos), new j());
         if (context instanceof Activity) {
             aVar.b(com.baidu.adp.base.l.C(context)).sR();
@@ -178,7 +178,7 @@ public class AntiHelper {
         if (!com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("anti_vcode_no_longer_tip", false)) {
             boolean isHas_chance = antiData.isHas_chance();
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(com.baidu.adp.base.l.C(context).getPageActivity());
-            aVar.ct(context.getString(isHas_chance ? i.h.anti_vocode_on_chance_tip : i.h.anti_vcode_tip));
+            aVar.cu(context.getString(isHas_chance ? i.h.anti_vocode_on_chance_tip : i.h.anti_vcode_tip));
             if (!isHas_chance) {
                 aVar.b(context.getString(i.h.anti_vcode_pos), new k(context, pageType));
             } else {
@@ -191,7 +191,7 @@ public class AntiHelper {
         }
     }
 
-    private static void axq() {
+    private static void axA() {
         com.baidu.tbadk.core.sharedPref.b.tu().remove("anti_vcode_no_longer_tip");
     }
 }

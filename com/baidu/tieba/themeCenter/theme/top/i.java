@@ -9,18 +9,18 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-    final /* synthetic */ h dhb;
+    final /* synthetic */ h dhB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.dhb = hVar;
+        this.dhB = hVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TopThemeListActivity topThemeListActivity;
         TiebaStatic.log("c10273");
-        topThemeListActivity = this.dhb.dgZ;
+        topThemeListActivity = this.dhB.dhz;
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new DownloadedThemeListActivityConfig(topThemeListActivity.getActivity())));
     }
 }

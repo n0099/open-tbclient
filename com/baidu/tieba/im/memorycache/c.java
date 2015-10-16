@@ -11,13 +11,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b bDx;
+    final /* synthetic */ b bDI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.bDx = bVar;
+        this.bDI = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,31 +32,31 @@ public class c extends CustomMessageListener {
                 if (data != null) {
                     for (ImMessageCenterPojo imMessageCenterPojo : data) {
                         if (imMessageCenterPojo != null && bw.hm(imMessageCenterPojo.getCustomGroupType()) && imMessageCenterPojo.getPulled_msgId() > 0) {
-                            this.bDx.e(imMessageCenterPojo);
+                            this.bDI.e(imMessageCenterPojo);
                         }
                     }
                 }
-                this.bDx.bDr.set(true);
-                this.bDx.Wa();
+                this.bDI.bDC.set(true);
+                this.bDI.Wa();
                 return;
             }
             try {
                 for (ImMessageCenterPojo imMessageCenterPojo2 : memoryGetFromDBMessage.getData()) {
-                    l = this.bDx.l(imMessageCenterPojo2);
+                    l = this.bDI.l(imMessageCenterPojo2);
                     if (!l || imMessageCenterPojo2.getPulled_msgId() > 0) {
-                        this.bDx.e(imMessageCenterPojo2);
+                        this.bDI.e(imMessageCenterPojo2);
                     }
                 }
-                this.bDx.dg(false);
-                this.bDx.dh(false);
-                this.bDx.VX();
-                this.bDx.VY();
-                this.bDx.VZ();
+                this.bDI.dg(false);
+                this.bDI.dh(false);
+                this.bDI.VX();
+                this.bDI.VY();
+                this.bDI.VZ();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
-            this.bDx.bDr.set(true);
-            this.bDx.Wa();
+            this.bDI.bDC.set(true);
+            this.bDI.Wa();
         }
     }
 }

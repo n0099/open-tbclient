@@ -16,13 +16,13 @@ public class d {
     private int height;
     private int width;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern cYA = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern cZa = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String cYy = null;
-    private SpannableStringBuilder cYz = null;
-    private boolean cYx = false;
+    private String cYY = null;
+    private SpannableStringBuilder cYZ = null;
+    private boolean cYX = false;
 
     public static boolean aE(int i, int i2) {
         return i == 0 && i2 != 3;
@@ -44,20 +44,20 @@ public class d {
         return this.text;
     }
 
-    public String awf() {
+    public String awo() {
         return this.c;
     }
 
-    public SpannableStringBuilder awg() {
-        return this.cYz;
+    public SpannableStringBuilder awp() {
+        return this.cYZ;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.cYz == null) {
-            this.cYz = new SpannableStringBuilder();
+        if (this.cYZ == null) {
+            this.cYZ = new SpannableStringBuilder();
         }
-        this.cYz.append((CharSequence) spannableString);
-        return this.cYz;
+        this.cYZ.append((CharSequence) spannableString);
+        return this.cYZ;
     }
 
     public SpannableString aQ(Context context) {
@@ -120,7 +120,7 @@ public class d {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.cYy = jSONObject.optString("cdn_src", null);
+                    this.cYY = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(",");
                         if (split.length > 1) {
@@ -135,7 +135,7 @@ public class d {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.cYx = true;
+                        this.cYX = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");

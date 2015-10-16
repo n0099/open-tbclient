@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.atomData.LiveRoomChatActivityConfig;
 import com.baidu.tbadk.core.data.LiveCardData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.GroupImageView;
 import com.baidu.tieba.i;
 import java.lang.ref.WeakReference;
@@ -253,7 +253,7 @@ public class LiveBroadcastCard extends FrameLayout {
             this.isVip = liveCardData.getIsVip() == 1;
             if (this.isVip) {
                 this.mCardVipImage.setVisibility(0);
-                am.c(this.mCardVipImage, i.e.lable_live_v);
+                an.c(this.mCardVipImage, i.e.lable_live_v);
             } else {
                 this.mCardVipImage.setVisibility(8);
             }
@@ -328,28 +328,28 @@ public class LiveBroadcastCard extends FrameLayout {
             }
             imageView.setVisibility(8);
             if (this.mIsHideSHow) {
-                am.b(this.mCardName, i.c.cp_cont_e, 1);
-                am.b(this.mBarFrom, i.c.cp_cont_e, 1);
-                am.b(this.mListenerCount, i.c.cp_cont_e, 1);
-                am.b(this.mLikerCount, i.c.cp_cont_e, 1);
-                am.b(this.mCardAuthor, i.c.cp_cont_e, 1);
-                am.b(this.mCardIntro, i.c.cp_cont_e, 1);
-                am.c(this.mCardListenerImage, i.e.icon_live_list_pop_d);
-                am.c(this.mCardLikeImage, i.e.icon_live_list_like_d);
-                this.mHeadImageView.setForegroundColor(am.getColor(i.c.live_broadcast_card_head_mask));
+                an.b(this.mCardName, i.c.cp_cont_e, 1);
+                an.b(this.mBarFrom, i.c.cp_cont_e, 1);
+                an.b(this.mListenerCount, i.c.cp_cont_e, 1);
+                an.b(this.mLikerCount, i.c.cp_cont_e, 1);
+                an.b(this.mCardAuthor, i.c.cp_cont_e, 1);
+                an.b(this.mCardIntro, i.c.cp_cont_e, 1);
+                an.c(this.mCardListenerImage, i.e.icon_live_list_pop_d);
+                an.c(this.mCardLikeImage, i.e.icon_live_list_like_d);
+                this.mHeadImageView.setForegroundColor(an.getColor(i.c.live_broadcast_card_head_mask));
             } else {
-                am.b(this.mCardName, i.c.cp_cont_b, 1);
-                am.b(this.mBarFrom, i.c.cp_cont_c, 1);
-                am.b(this.mListenerCount, i.c.cp_cont_c, 1);
-                am.b(this.mLikerCount, i.c.cp_cont_c, 1);
-                am.b(this.mCardAuthor, i.c.cp_cont_c, 1);
-                am.b(this.mCardIntro, i.c.cp_cont_d, 1);
-                am.c(this.mCardListenerImage, i.e.icon_live_list_pop);
-                am.c(this.mCardLikeImage, i.e.icon_live_list_like);
+                an.b(this.mCardName, i.c.cp_cont_b, 1);
+                an.b(this.mBarFrom, i.c.cp_cont_c, 1);
+                an.b(this.mListenerCount, i.c.cp_cont_c, 1);
+                an.b(this.mLikerCount, i.c.cp_cont_c, 1);
+                an.b(this.mCardAuthor, i.c.cp_cont_c, 1);
+                an.b(this.mCardIntro, i.c.cp_cont_d, 1);
+                an.c(this.mCardListenerImage, i.e.icon_live_list_pop);
+                an.c(this.mCardLikeImage, i.e.icon_live_list_like);
                 this.mHeadImageView.setForegroundColor(0);
             }
-            am.b(this.card_label, i.c.cp_other_c, 1);
-            am.i((View) this.card_label, i.e.bg_essence_list_ba);
+            an.b(this.card_label, i.c.cp_other_c, 1);
+            an.i((View) this.card_label, i.e.bg_essence_list_ba);
         }
     }
 
@@ -480,7 +480,7 @@ public class LiveBroadcastCard extends FrameLayout {
         this.mStateWillStartLayout.setVisibility(8);
         this.mStateClose.setVisibility(0);
         this.mStateClose.setText(i.h.live_card_close);
-        am.b(this.mStateClose, i.c.cp_cont_d, 1);
+        an.b(this.mStateClose, i.c.cp_cont_d, 1);
         this.mStateClose.setTextSize(0, getResources().getDimensionPixelSize(i.d.ds28));
         this.mCardStatus = 4;
     }
@@ -503,21 +503,21 @@ public class LiveBroadcastCard extends FrameLayout {
         this.mStateWillStartLayout.setVisibility(8);
         this.mStateClose.setVisibility(0);
         this.mStateClose.setText(i.h.live_card_hide);
-        am.b(this.mStateClose, i.c.cp_cont_d, 1);
+        an.b(this.mStateClose, i.c.cp_cont_d, 1);
         this.mStateClose.setTextSize(0, getResources().getDimensionPixelSize(i.d.ds32));
         this.mCardStatus = 5;
     }
 
     private void updateStatusWillStartCountDown() {
         this.mStateWillStart.setText(i.h.live_card_count_down);
-        am.i((View) this.mStateWillStart, i.e.bg_live_orange);
+        an.i((View) this.mStateWillStart, i.e.bg_live_orange);
         this.mCardStatus = 2;
     }
 
     private void updateStatusWillStartForeShow() {
         this.mCardTime.setText(getFormatHour(this.mStartTime));
         this.mStateWillStart.setText(i.h.live_card_foreshowt);
-        am.i((View) this.mStateWillStart, i.e.bg_live_yellow);
+        an.i((View) this.mStateWillStart, i.e.bg_live_yellow);
         this.mCardStatus = 1;
     }
 
@@ -575,15 +575,15 @@ public class LiveBroadcastCard extends FrameLayout {
 
     /* loaded from: classes.dex */
     public static class c {
-        private static c akJ;
+        private static c akK;
         private static Handler mHandler = new s();
         private LinkedList<WeakReference<LiveBroadcastCard>> cards = new LinkedList<>();
 
         public static c yY() {
-            if (akJ == null) {
-                akJ = new c();
+            if (akK == null) {
+                akK = new c();
             }
-            return akJ;
+            return akK;
         }
 
         private c() {

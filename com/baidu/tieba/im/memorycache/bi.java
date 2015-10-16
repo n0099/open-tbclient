@@ -34,7 +34,7 @@ public class bi implements a.b {
                 RequestSendPVTJMessage.sendOfficialBarPVTJ(RequestSendPVTJMessage.TYPE_V_MPUSH, commonMsgPojo.getUid());
                 com.baidu.tieba.im.data.f a = com.baidu.tieba.im.util.h.a(commonMsgPojo);
                 if (a != null) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "message_receive", "receive", 1, "task_type", a.bwy, "task_id", a.bwz);
+                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "message_receive", "receive", 1, "task_type", a.bwJ, "task_id", a.bwK);
                 }
             }
         }

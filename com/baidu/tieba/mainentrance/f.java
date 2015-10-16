@@ -3,17 +3,17 @@ package com.baidu.tieba.mainentrance;
 import tbclient.HotForum.HotSearch;
 /* loaded from: classes.dex */
 public class f {
-    private String aLj;
-    private long aLk;
+    private String aLu;
+    private long aLv;
     private long mId;
     private String mName;
 
     public String Ia() {
-        return this.aLj;
+        return this.aLu;
     }
 
     public long getType() {
-        return this.aLk;
+        return this.aLv;
     }
 
     public long getId() {
@@ -26,19 +26,19 @@ public class f {
 
     public void a(HotSearch hotSearch) {
         if (hotSearch != null && hotSearch.search_value != null) {
-            this.aLj = hotSearch.search_title;
+            this.aLu = hotSearch.search_title;
             this.mId = hotSearch.search_value.id.longValue();
             this.mName = hotSearch.search_value.name;
-            this.aLk = hotSearch.search_value.type.longValue();
+            this.aLv = hotSearch.search_value.type.longValue();
         }
     }
 
     public void iV(String str) {
-        this.aLj = str;
+        this.aLu = str;
     }
 
-    public void aF(long j) {
-        this.aLk = j;
+    public void aP(long j) {
+        this.aLv = j;
     }
 
     public void setId(long j) {

@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private a aet;
+    private a aeu;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -42,14 +42,14 @@ public class TbCheckBox extends ImageView {
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.aet = aVar;
+        this.aeu = aVar;
     }
 
     public void vA() {
         if (vB()) {
-            am.c(this, i.e.icon_set_list_ok_s);
+            an.c(this, i.e.icon_set_list_ok_s);
         } else {
-            am.c(this, i.e.icon_set_list_ok_n);
+            an.c(this, i.e.icon_set_list_ok_n);
         }
     }
 
@@ -72,8 +72,8 @@ public class TbCheckBox extends ImageView {
             ((b) tag).setChecked(z);
         }
         vA();
-        if (this.aet != null) {
-            this.aet.handler(this, z, getTag());
+        if (this.aeu != null) {
+            this.aeu.handler(this, z, getTag());
         }
     }
 }

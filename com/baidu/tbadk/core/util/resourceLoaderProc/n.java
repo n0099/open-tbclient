@@ -5,15 +5,15 @@ import android.graphics.Rect;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.r;
 /* loaded from: classes.dex */
 public class n extends a {
-    private boolean acA;
+    private boolean acB;
 
     public n(boolean z) {
-        this.acA = true;
-        this.acA = z;
+        this.acB = true;
+        this.acB = z;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -28,7 +28,7 @@ public class n extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.acA;
+        return this.acB;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -46,7 +46,7 @@ public class n extends a {
         com.baidu.adp.lib.stats.d hb = r.hb();
         hb.hy();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c dx = dx(at.dm(str2));
+        com.baidu.adp.lib.Disk.ops.c dx = dx(au.dn(str2));
         if (dx == null) {
             return null;
         }
@@ -85,10 +85,10 @@ public class n extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    protected com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.a.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
+    protected com.baidu.adp.widget.a.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.a.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.j jVar, byte[] bArr, Rect rect) {
         if (i(bitmap)) {
             aVar2 = new com.baidu.adp.widget.a.a(bitmap, z, str, rect);
-            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, at.dm(str2), DiskFileOperate.Action.WRITE);
+            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, au.dn(str2), DiskFileOperate.Action.WRITE);
             cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.o(true);
             cVar.setData(bArr);

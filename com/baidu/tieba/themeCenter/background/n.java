@@ -9,31 +9,31 @@ import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class n extends BaseAdapter {
-    i deA;
-    private List<List<DressItemData>> dez;
+    private List<List<DressItemData>> deZ;
+    i dfa;
     private TbPageContext<?> mContext;
 
     public n(TbPageContext<?> tbPageContext, i iVar) {
         this.mContext = tbPageContext;
-        this.deA = iVar;
+        this.dfa = iVar;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dez != null) {
-            return this.dez.size();
+        if (this.deZ != null) {
+            return this.deZ.size();
         }
         return 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lv */
+    /* renamed from: lx */
     public List<DressItemData> getItem(int i) {
-        if (this.dez == null || this.dez.size() <= 0 || i < 0 || i >= this.dez.size()) {
+        if (this.deZ == null || this.deZ.size() <= 0 || i < 0 || i >= this.deZ.size()) {
             return null;
         }
-        return this.dez.get(i);
+        return this.deZ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -51,12 +51,12 @@ public class n extends BaseAdapter {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.background_row, viewGroup, false);
             aVar = new a();
             aVar.mEmptyView = view.findViewById(i.f.top_white_line);
-            aVar.deC = (BackgroundItemView) view.findViewById(i.f.bg_view1);
-            aVar.deD = (BackgroundItemView) view.findViewById(i.f.bg_view2);
-            aVar.deE = (BackgroundItemView) view.findViewById(i.f.bg_view3);
-            aVar.deC.setListenerTag(this.mContext.getUniqueId());
-            aVar.deD.setListenerTag(this.mContext.getUniqueId());
-            aVar.deE.setListenerTag(this.mContext.getUniqueId());
+            aVar.dfc = (BackgroundItemView) view.findViewById(i.f.bg_view1);
+            aVar.dfd = (BackgroundItemView) view.findViewById(i.f.bg_view2);
+            aVar.dfe = (BackgroundItemView) view.findViewById(i.f.bg_view3);
+            aVar.dfc.setListenerTag(this.mContext.getUniqueId());
+            aVar.dfd.setListenerTag(this.mContext.getUniqueId());
+            aVar.dfe.setListenerTag(this.mContext.getUniqueId());
             view.setTag(aVar);
         }
         if (item != null) {
@@ -65,20 +65,20 @@ public class n extends BaseAdapter {
             } else {
                 aVar.mEmptyView.setVisibility(8);
             }
-            aVar.deC.b(item.get(0));
-            aVar.deC.setController(this.deA);
+            aVar.dfc.b(item.get(0));
+            aVar.dfc.setController(this.dfa);
             if (item.size() > 2) {
-                aVar.deD.b(item.get(1));
-                aVar.deE.b(item.get(2));
-                aVar.deD.setController(this.deA);
-                aVar.deE.setController(this.deA);
+                aVar.dfd.b(item.get(1));
+                aVar.dfe.b(item.get(2));
+                aVar.dfd.setController(this.dfa);
+                aVar.dfe.setController(this.dfa);
             } else if (item.size() > 1) {
-                aVar.deD.b(item.get(1));
-                aVar.deD.setController(this.deA);
-                aVar.deE.hide();
+                aVar.dfd.b(item.get(1));
+                aVar.dfd.setController(this.dfa);
+                aVar.dfe.hide();
             } else {
-                aVar.deD.hide();
-                aVar.deE.hide();
+                aVar.dfd.hide();
+                aVar.dfe.hide();
             }
         }
         this.mContext.getLayoutMode().k(view);
@@ -87,9 +87,9 @@ public class n extends BaseAdapter {
 
     /* loaded from: classes.dex */
     public class a {
-        public BackgroundItemView deC;
-        public BackgroundItemView deD;
-        public BackgroundItemView deE;
+        public BackgroundItemView dfc;
+        public BackgroundItemView dfd;
+        public BackgroundItemView dfe;
         public View mEmptyView;
 
         public a() {
@@ -97,6 +97,6 @@ public class n extends BaseAdapter {
     }
 
     public void setData(List<List<DressItemData>> list) {
-        this.dez = list;
+        this.deZ = list;
     }
 }

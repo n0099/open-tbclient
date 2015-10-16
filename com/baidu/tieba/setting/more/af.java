@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements View.OnClickListener {
-    final /* synthetic */ SapiWebViewActivity cOh;
+    final /* synthetic */ SapiWebViewActivity cOG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(SapiWebViewActivity sapiWebViewActivity) {
-        this.cOh = sapiWebViewActivity;
+        this.cOG = sapiWebViewActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cOh.goBack();
+        this.cOG.goBack();
     }
 }

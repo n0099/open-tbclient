@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class i extends x.a {
-    public TextView alx;
-    public int apR;
-    public TextView bdy;
-    public TextView bdz;
-    public BarImageView bpR;
-    public TextView bpS;
-    public TextView bpT;
-    public TextView bpU;
-    public TextView bpV;
+    public TextView aly;
+    public int apS;
+    public TextView bdJ;
+    public TextView bdK;
+    public BarImageView bqc;
+    public TextView bqd;
+    public TextView bqe;
+    public TextView bqf;
+    public TextView bqg;
     public View line;
 
     public i(View view) {
         super(view);
-        this.apR = 3;
-        this.bpS = (TextView) view.findViewById(i.f.forum_name);
-        this.bpR = (BarImageView) view.findViewById(i.f.forum_avatar);
-        this.bpU = (TextView) view.findViewById(i.f.member_num_label);
-        this.bpT = (TextView) view.findViewById(i.f.post_num_label);
-        this.bdz = (TextView) view.findViewById(i.f.member_num);
-        this.bdy = (TextView) view.findViewById(i.f.post_num);
-        this.alx = (TextView) view.findViewById(i.f.forum_content);
-        this.bpV = (TextView) view.findViewById(i.f.forum_add_love);
+        this.apS = 3;
+        this.bqd = (TextView) view.findViewById(i.f.forum_name);
+        this.bqc = (BarImageView) view.findViewById(i.f.forum_avatar);
+        this.bqf = (TextView) view.findViewById(i.f.member_num_label);
+        this.bqe = (TextView) view.findViewById(i.f.post_num_label);
+        this.bdK = (TextView) view.findViewById(i.f.member_num);
+        this.bdJ = (TextView) view.findViewById(i.f.post_num);
+        this.aly = (TextView) view.findViewById(i.f.forum_content);
+        this.bqg = (TextView) view.findViewById(i.f.forum_add_love);
         this.line = view.findViewById(i.f.forum_item_divider);
     }
 }

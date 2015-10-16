@@ -5,11 +5,11 @@ import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag extends com.baidu.adp.lib.g.d {
-    final /* synthetic */ FloatingPersonalChatView bMB;
+    final /* synthetic */ FloatingPersonalChatView bMM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(FloatingPersonalChatView floatingPersonalChatView) {
-        this.bMB = floatingPersonalChatView;
+        this.bMM = floatingPersonalChatView;
     }
 
     @Override // com.baidu.adp.lib.g.d, android.view.animation.Animation.AnimationListener
@@ -18,26 +18,26 @@ public class ag extends com.baidu.adp.lib.g.d {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
         Runnable runnable;
-        hVar = this.bMB.bMq;
+        hVar = this.bMM.bMB;
         if (hVar.d(animation)) {
-            linearLayout = this.bMB.bMp;
+            linearLayout = this.bMM.bMA;
             if (linearLayout != null) {
-                linearLayout2 = this.bMB.bMp;
-                runnable = this.bMB.bLK;
+                linearLayout2 = this.bMM.bMA;
+                runnable = this.bMM.bLV;
                 linearLayout2.removeCallbacks(runnable);
             }
             com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yh().dC(false);
-            this.bMB.bMw = true;
+            this.bMM.bMH = true;
         }
     }
 
     @Override // com.baidu.adp.lib.g.d, android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         h hVar;
-        hVar = this.bMB.bMq;
+        hVar = this.bMM.bMB;
         if (!hVar.d(animation)) {
             return;
         }
-        this.bMB.AG();
+        this.bMM.AG();
     }
 }

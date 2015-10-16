@@ -5,13 +5,13 @@ import com.baidu.tieba.tbadkCore.w;
 import com.baidu.tieba.tbadkCore.x;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.base.g {
-    final /* synthetic */ TopRecActivity bSK;
+    final /* synthetic */ TopRecActivity bSV;
     private final /* synthetic */ int val$id;
     private final /* synthetic */ int val$position;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(TopRecActivity topRecActivity, int i, int i2) {
-        this.bSK = topRecActivity;
+        this.bSV = topRecActivity;
         this.val$position = i;
         this.val$id = i2;
     }
@@ -21,24 +21,24 @@ class c extends com.baidu.adp.base.g {
         w wVar;
         w wVar2;
         d dVar;
-        if (this.bSK.bSE != null && this.bSK.bSE.forum_list[this.val$position] != null) {
-            wVar = this.bSK.LS;
+        if (this.bSV.bSP != null && this.bSV.bSP.forum_list[this.val$position] != null) {
+            wVar = this.bSV.LT;
             if (wVar.getErrorCode() != 22) {
-                wVar2 = this.bSK.LS;
+                wVar2 = this.bSV.LT;
                 if (wVar2.getErrorCode() != 0) {
-                    this.bSK.ar(this.val$position, this.val$id);
+                    this.bSV.ar(this.val$position, this.val$id);
                     return;
                 } else if (((x) obj) == null) {
-                    this.bSK.ar(this.val$position, this.val$id);
+                    this.bSV.ar(this.val$position, this.val$id);
                     return;
                 } else {
-                    this.bSK.aaP();
-                    TbadkApplication.getInst().addLikeForum(this.bSK.bSE.forum_list[this.val$position].forum_name);
+                    this.bSV.aaP();
+                    TbadkApplication.getInst().addLikeForum(this.bSV.bSP.forum_list[this.val$position].forum_name);
                     return;
                 }
             }
-            this.bSK.bSE.forum_list[this.val$position].is_like = 1;
-            dVar = this.bSK.bSB;
+            this.bSV.bSP.forum_list[this.val$position].is_like = 1;
+            dVar = this.bSV.bSM;
             dVar.notifyDataSetChanged();
         }
     }

@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 class i extends CustomMessageListener {
-    final /* synthetic */ PaymentConfirmActivity cdS;
+    final /* synthetic */ PaymentConfirmActivity ced;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(PaymentConfirmActivity paymentConfirmActivity, int i) {
         super(i);
-        this.cdS = paymentConfirmActivity;
+        this.ced = paymentConfirmActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,9 +20,9 @@ class i extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
             String str = (String) customResponsedMessage.getData();
             if (!StringUtils.isNull(str)) {
-                this.cdS.a(null, null, null, null, str, false);
+                this.ced.a(null, null, null, null, str, false);
             } else {
-                this.cdS.a(null, null, null, null, null, true);
+                this.ced.a(null, null, null, null, null, true);
             }
         }
     }

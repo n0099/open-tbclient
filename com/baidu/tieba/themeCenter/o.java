@@ -13,7 +13,7 @@ class o extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null) {
-            l.azi().azj();
+            l.azs().azt();
         }
     }
 }

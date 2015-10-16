@@ -10,25 +10,25 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class b {
-    private static b asV = new b();
-    private GameInfoData asW;
-    private final com.baidu.adp.framework.listener.e asX = new c(this, 303009);
+    private static b asW = new b();
+    private GameInfoData asX;
+    private final com.baidu.adp.framework.listener.e asY = new c(this, 303009);
     private String mUrl;
 
     private b() {
-        MessageManager.getInstance().registerListener(this.asX);
+        MessageManager.getInstance().registerListener(this.asY);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, new d(this));
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public static b BT() {
-        return asV;
+        return asW;
     }
 
     public void ao(String str, String str2) {
         this.mUrl = str2;
-        this.asW = null;
+        this.asX = null;
         if (!TextUtils.isEmpty(str)) {
             RequestGameDetailMessage requestGameDetailMessage = new RequestGameDetailMessage();
             requestGameDetailMessage.setGameId(str);
@@ -47,7 +47,7 @@ public class b {
     }
 
     public GameInfoData getGameInfoData() {
-        return this.asW == null ? BU() : this.asW;
+        return this.asX == null ? BU() : this.asX;
     }
 
     public ShareFromGameCenterMsgData BV() {

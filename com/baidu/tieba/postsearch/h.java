@@ -16,7 +16,7 @@ class h implements CustomMessageTask.CustomRunnable<String> {
         if (StringUtils.isNull(data)) {
             return null;
         }
-        com.baidu.tieba.tbadkCore.util.m.lE(data);
+        com.baidu.tieba.tbadkCore.util.m.lH(data);
         return new CustomResponsedMessage<>(CmdConfigCustom.SAVE_SEARCH_POST_DATA);
     }
 }

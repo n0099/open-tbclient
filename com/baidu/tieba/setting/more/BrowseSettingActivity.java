@@ -6,41 +6,41 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public class BrowseSettingActivity extends BaseActivity implements BdSwitchView.a {
-    private l cMw = null;
+    private l cMV = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cMw = new l(this);
+        this.cMV = new l(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cMw.onChangeSkinType(i);
+        this.cMV.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cMw.aru()) {
-            this.cMw.ary();
-        } else if (view == this.cMw.arv()) {
-            this.cMw.arz();
-        } else if (view == this.cMw.arw()) {
-            this.cMw.arA();
-        } else if (view == this.cMw.arx()) {
-            this.cMw.arB();
+        if (view == this.cMV.arA()) {
+            this.cMV.arE();
+        } else if (view == this.cMV.arB()) {
+            this.cMV.arF();
+        } else if (view == this.cMV.arC()) {
+            this.cMV.arG();
+        } else if (view == this.cMV.arD()) {
+            this.cMV.arH();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
-            this.cMw.kz(1);
+            this.cMV.kB(1);
         } else {
-            this.cMw.kz(0);
+            this.cMV.kB(0);
         }
     }
 }

@@ -9,13 +9,13 @@ import com.baidu.tieba.person.post.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends HttpMessageListener {
-    final /* synthetic */ r cpf;
+    final /* synthetic */ r cpq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(r rVar, int i) {
         super(i);
-        this.cpf = rVar;
+        this.cpq = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,47 +30,47 @@ public class w extends HttpMessageListener {
         ad adVar;
         ad adVar2;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002002) {
-            ais = this.cpf.ais();
+            ais = this.cpq.ais();
             if (ais != null) {
-                if (this.cpf.coO != null && this.cpf.coO.getView() != null) {
-                    this.cpf.coO.getView().setVisibility(0);
+                if (this.cpq.coZ != null && this.cpq.coZ.getView() != null) {
+                    this.cpq.coZ.getView().setVisibility(0);
                 }
-                this.cpf.mListView.completePullRefresh();
+                this.cpq.mListView.completePullRefresh();
                 BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
-                ais2 = this.cpf.ais();
+                ais2 = this.cpq.ais();
                 if (tag == ais2.getUniqueId()) {
                     if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonBarResponseMessage)) {
                         PersonBarResponseMessage personBarResponseMessage = (PersonBarResponseMessage) httpResponsedMessage;
                         if (personBarResponseMessage.getErrCode() == 0) {
                             q personBarData = personBarResponseMessage.getPersonBarData();
-                            adVar = this.cpf.coE;
-                            adVar.je(this.cpf.coS);
-                            adVar2 = this.cpf.coE;
+                            adVar = this.cpq.coP;
+                            adVar.je(this.cpq.cpd);
+                            adVar2 = this.cpq.coP;
                             adVar2.ka(personBarResponseMessage.getResultString());
-                            this.cpf.a(personBarData, false);
+                            this.cpq.a(personBarData, false);
                             return;
                         }
-                        this.cpf.showToast(httpResponsedMessage.getErrorString());
-                        u.a aVar = this.cpf.coO;
-                        str3 = this.cpf.coV;
+                        this.cpq.showToast(httpResponsedMessage.getErrorString());
+                        u.a aVar = this.cpq.coZ;
+                        str3 = this.cpq.cpg;
                         aVar.kb(str3);
                         return;
                     }
-                    this.cpf.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.cpf.getResources().getString(i.h.neterror) : httpResponsedMessage.getErrorString());
-                    z = this.cpf.coZ;
+                    this.cpq.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.cpq.getResources().getString(i.h.neterror) : httpResponsedMessage.getErrorString());
+                    z = this.cpq.cpk;
                     if (z) {
-                        u.a aVar2 = this.cpf.coO;
-                        str2 = this.cpf.coV;
+                        u.a aVar2 = this.cpq.coZ;
+                        str2 = this.cpq.cpg;
                         aVar2.kb(str2);
                         return;
                     }
-                    this.cpf.coO.kb("");
+                    this.cpq.coZ.kb("");
                     return;
                 }
                 return;
             }
-            u.a aVar3 = this.cpf.coO;
-            str = this.cpf.coV;
+            u.a aVar3 = this.cpq.coZ;
+            str = this.cpq.cpg;
             aVar3.kb(str);
         }
     }

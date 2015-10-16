@@ -19,7 +19,7 @@ public class aa implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PopupWindow popupWindow;
-        popupWindow = this.this$0.dbT;
+        popupWindow = this.this$0.dct;
         com.baidu.adp.lib.g.j.a(popupWindow, this.this$0.getPageContext().getPageActivity());
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyLiveActivityConfig(this.this$0.getPageContext().getPageActivity())));
     }

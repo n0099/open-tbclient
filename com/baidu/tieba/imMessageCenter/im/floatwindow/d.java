@@ -11,11 +11,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements a.InterfaceC0062a {
-    final /* synthetic */ b bKW;
+    final /* synthetic */ b bLh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.bKW = bVar;
+        this.bLh = bVar;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.a.InterfaceC0062a
@@ -23,11 +23,11 @@ public class d implements a.InterfaceC0062a {
         boolean z;
         boolean z2;
         ArrayList<UserData> Ye;
-        z = this.bKW.bKI;
+        z = this.bLh.bKT;
         if (!z) {
-            z2 = this.bKW.bKH;
-            if (!z2 && (Ye = this.bKW.bKM.Ye()) != null && !Ye.isEmpty()) {
-                this.bKW.Yp();
+            z2 = this.bLh.bKS;
+            if (!z2 && (Ye = this.bLh.bKX.Ye()) != null && !Ye.isEmpty()) {
+                this.bLh.Yp();
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_FLOATING_PERSONAL_CHAT, new FloatingPersonalChatActivityConfig(TbadkCoreApplication.m411getInst(), Ye)));
             }
         }

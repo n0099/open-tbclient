@@ -8,21 +8,21 @@ import com.baidu.tieba.i;
 public class m extends v {
     public m(Context context, int i, boolean z) {
         super(context, TbadkCoreApplication.m411getInst().getString(i.h.editor_express), 5, i);
-        this.apr = i.e.pbeditor_face_button;
+        this.aps = i.e.pbeditor_face_button;
         j jVar = new j(context);
         jVar.setShowBigEmotion(z);
-        this.aoI = jVar;
-        this.apv = true;
-        this.apu = 6;
-        this.apw = new int[]{1};
+        this.aoJ = jVar;
+        this.apw = true;
+        this.apv = 6;
+        this.apx = new int[]{1};
     }
 
     public m(Context context, int i) {
         super(context, TbadkCoreApplication.m411getInst().getString(i.h.editor_express), 5, i);
-        this.apr = i.e.pbeditor_face_button;
-        this.aoI = new j(context);
-        this.apv = true;
-        this.apu = 6;
-        this.apw = new int[]{1};
+        this.aps = i.e.pbeditor_face_button;
+        this.aoJ = new j(context);
+        this.apw = true;
+        this.apv = 6;
+        this.apx = new int[]{1};
     }
 }

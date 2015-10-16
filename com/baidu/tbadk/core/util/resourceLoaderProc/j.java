@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class j extends a {
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
@@ -35,7 +35,7 @@ public class j extends a {
         String str3 = String.valueOf(str) + (TbadkCoreApplication.m411getInst().getSkinType() == 1 ? "_1" : "");
         com.baidu.adp.widget.a.a fo = com.baidu.tbadk.imageManager.c.Cf().fo(str3);
         if (fo == null) {
-            Bitmap cw = am.cw(com.baidu.adp.lib.g.b.g(str2, 0));
+            Bitmap cw = an.cw(com.baidu.adp.lib.g.b.g(str2, 0));
             if (cw == null) {
                 return null;
             }

@@ -1,15 +1,16 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.widget.AbsListView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.location.BDLocationStatusCodes;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class k implements AbsListView.OnScrollListener {
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(PbActivity pbActivity) {
-        this.ciz = pbActivity;
+        this.ciK = pbActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -30,44 +31,44 @@ class k implements AbsListView.OnScrollListener {
         cc ccVar6;
         com.baidu.tbadk.performanceLog.e eVar5;
         if (i == 2 || i == 1) {
-            ccVar = this.ciz.cia;
+            ccVar = this.ciK.cim;
             ccVar.agM();
-            dVar = this.ciz.cij;
+            dVar = this.ciK.ciu;
             if (dVar != null) {
-                ccVar4 = this.ciz.cia;
-                dVar3 = this.ciz.cij;
+                ccVar4 = this.ciK.cim;
+                dVar3 = this.ciK.ciu;
                 ccVar4.eN(dVar3.Br());
             }
-            ccVar2 = this.ciz.cia;
+            ccVar2 = this.ciK.cim;
             ccVar2.ago();
-            dVar2 = this.ciz.cij;
+            dVar2 = this.ciK.ciu;
             dVar2.Bu();
-            z = this.ciz.chT;
+            z = this.ciK.cif;
             if (!z) {
-                this.ciz.chT = true;
-                ccVar3 = this.ciz.cia;
+                this.ciK.cif = true;
+                ccVar3 = this.ciK.cim;
                 ccVar3.agP();
             }
         }
-        eVar = this.ciz.chU;
+        eVar = this.ciK.cig;
         if (eVar == null) {
-            this.ciz.chU = new com.baidu.tbadk.performanceLog.e();
-            eVar5 = this.ciz.chU;
+            this.ciK.cig = new com.baidu.tbadk.performanceLog.e();
+            eVar5 = this.ciK.cig;
             eVar5.ez(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
         }
         if (i == 0) {
-            ccVar5 = this.ciz.cia;
+            ccVar5 = this.ciK.cim;
             if (ccVar5.ags() != null) {
-                ccVar6 = this.ciz.cia;
+                ccVar6 = this.ciK.cim;
                 ccVar6.ags().notifyDataSetChanged();
             }
-            eVar4 = this.ciz.chU;
+            eVar4 = this.ciK.cig;
             eVar4.DE();
         } else if (i == 1) {
-            eVar3 = this.ciz.chU;
+            eVar3 = this.ciK.cig;
             eVar3.DE();
         } else {
-            eVar2 = this.ciz.chU;
+            eVar2 = this.ciK.cig;
             eVar2.DE();
         }
     }
@@ -84,38 +85,53 @@ class k implements AbsListView.OnScrollListener {
         com.baidu.tieba.tbadkCore.data.b bVar2;
         com.baidu.tieba.tbadkCore.data.b bVar3;
         bl blVar4;
-        com.baidu.tieba.tbadkCore.data.b bVar4;
         bl blVar5;
-        blVar = this.ciz.chV;
+        bl blVar6;
+        bl blVar7;
+        com.baidu.tieba.tbadkCore.data.b bVar4;
+        bl blVar8;
+        blVar = this.ciK.cih;
         if (blVar != null) {
-            blVar2 = this.ciz.chV;
+            blVar2 = this.ciK.cih;
             if (blVar2.getPbData() != null) {
-                ccVar = this.ciz.cia;
+                ccVar = this.ciK.cim;
                 if (ccVar != null) {
-                    ccVar2 = this.ciz.cia;
+                    ccVar2 = this.ciK.cim;
                     if (ccVar2.ags() != null) {
-                        blVar3 = this.ciz.chV;
-                        ArrayList<com.baidu.tieba.tbadkCore.data.k> aeP = blVar3.getPbData().aeP();
+                        blVar3 = this.ciK.cih;
+                        com.baidu.tieba.pb.a.b pbData = blVar3.getPbData();
+                        ArrayList<com.baidu.tieba.tbadkCore.data.k> aeP = pbData.aeP();
                         if (aeP != null && !aeP.isEmpty()) {
-                            ccVar3 = this.ciz.cia;
-                            int Lt = (i + i2) - ccVar3.ags().Lt();
-                            int i4 = Lt - 1;
+                            ccVar3 = this.ciK.cim;
+                            int Lt = ((i + i2) - ccVar3.ags().Lt()) - 1;
+                            int i4 = (pbData.aeQ() == null || StringUtils.isNull(pbData.aeQ().getSummary())) ? Lt : Lt - 1;
                             int size = aeP.size();
                             if (i4 >= 0 && i4 < size) {
                                 com.baidu.tieba.tbadkCore.data.k kVar = aeP.get(i4);
-                                bVar = this.ciz.cii;
+                                bVar = this.ciK.cit;
                                 if (bVar != null) {
-                                    bVar2 = this.ciz.cii;
-                                    if (bVar2.kS(Lt)) {
+                                    bVar2 = this.ciK.cit;
+                                    if (bVar2.kU(i4)) {
                                         if (kVar instanceof com.baidu.tieba.tbadkCore.data.j) {
-                                            bVar4 = this.ciz.cii;
-                                            blVar5 = this.ciz.chV;
-                                            bVar4.d(Lt, 1, blVar5.getThreadID());
+                                            bVar4 = this.ciK.cit;
+                                            blVar8 = this.ciK.cih;
+                                            bVar4.d(i4, 1, blVar8.getThreadID());
+                                            com.baidu.tieba.recapp.report.b.apG().a(com.baidu.tieba.recapp.report.e.a((com.baidu.tieba.tbadkCore.data.j) kVar, "show"));
                                             return;
                                         }
-                                        bVar3 = this.ciz.cii;
-                                        blVar4 = this.ciz.chV;
-                                        bVar3.d(Lt, 2, blVar4.getThreadID());
+                                        bVar3 = this.ciK.cit;
+                                        blVar4 = this.ciK.cih;
+                                        bVar3.d(i4, 2, blVar4.getThreadID());
+                                        int i5 = 0;
+                                        blVar5 = this.ciK.cih;
+                                        if (blVar5 != null) {
+                                            blVar6 = this.ciK.cih;
+                                            if (blVar6.QV() != null) {
+                                                blVar7 = this.ciK.cih;
+                                                i5 = blVar7.QV().rJ();
+                                            }
+                                        }
+                                        com.baidu.tieba.recapp.report.b.apG().a(com.baidu.tieba.recapp.report.e.g("store", i4, i5));
                                     }
                                 }
                             }

@@ -3,51 +3,73 @@ package com.baidu.tieba.frs;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class g implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity aUz;
+    final /* synthetic */ FrsActivity aUK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(FrsActivity frsActivity) {
-        this.aUz = frsActivity;
+        this.aUK = frsActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         com.baidu.tieba.frs.b.a aVar;
-        int i4;
+        com.baidu.tieba.tbadkCore.o oVar;
         bs bsVar;
+        bs bsVar2;
+        com.baidu.tieba.tbadkCore.o oVar2;
+        int i4;
+        bs bsVar3;
         int i5;
         com.baidu.tieba.tbadkCore.data.b bVar;
         com.baidu.tieba.tbadkCore.data.b bVar2;
-        com.baidu.tieba.tbadkCore.o oVar;
-        com.baidu.tieba.tbadkCore.o oVar2;
+        com.baidu.tieba.tbadkCore.o oVar3;
+        com.baidu.tieba.tbadkCore.o oVar4;
         com.baidu.tieba.tbadkCore.data.b bVar3;
         String str;
+        int i6;
         com.baidu.tieba.tbadkCore.data.b bVar4;
         String str2;
-        aVar = this.aUz.aTZ;
+        int i7;
+        aVar = this.aUK.aUk;
         aVar.onScroll(absListView, i, i2, i3);
-        i4 = this.aUz.aTF;
-        int i6 = (i + i2) - i4;
-        bsVar = this.aUz.aTJ;
-        int Lt = i6 - bsVar.LZ().Lt();
-        i5 = this.aUz.aTF;
-        int i7 = (i5 + Lt) - 1;
-        bVar = this.aUz.aTG;
-        if (bVar != null) {
-            bVar2 = this.aUz.aTG;
-            if (bVar2.kS(Lt) && i7 >= 0) {
-                oVar = this.aUz.aTL;
-                if (i7 < oVar.getThreadList().size()) {
-                    oVar2 = this.aUz.aTL;
-                    if (oVar2.getThreadList().get(i7) instanceof com.baidu.tbadk.core.data.b) {
-                        bVar4 = this.aUz.aTG;
-                        str2 = this.aUz.forumId;
-                        bVar4.d(Lt, 1, str2);
-                        return;
+        oVar = this.aUK.aTW;
+        if (oVar != null) {
+            bsVar = this.aUK.aTU;
+            if (bsVar != null) {
+                bsVar2 = this.aUK.aTU;
+                if (bsVar2.LZ() != null) {
+                    oVar2 = this.aUK.aTW;
+                    int avR = oVar2.avR();
+                    i4 = this.aUK.aTQ;
+                    int i8 = (i + i2) - i4;
+                    bsVar3 = this.aUK.aTU;
+                    int Lt = (i8 - bsVar3.LZ().Lt()) - avR;
+                    i5 = this.aUK.aTQ;
+                    int i9 = ((i5 + Lt) - 1) + avR;
+                    bVar = this.aUK.aTR;
+                    if (bVar != null) {
+                        bVar2 = this.aUK.aTR;
+                        if (bVar2.kU(Lt) && i9 >= 0) {
+                            oVar3 = this.aUK.aTW;
+                            if (i9 < oVar3.getThreadList().size()) {
+                                oVar4 = this.aUK.aTW;
+                                com.baidu.adp.widget.ListView.u uVar = oVar4.getThreadList().get(i9);
+                                if (uVar instanceof com.baidu.tbadk.core.data.b) {
+                                    bVar4 = this.aUK.aTR;
+                                    str2 = this.aUK.forumId;
+                                    bVar4.d(Lt, 1, str2);
+                                    i7 = this.aUK.mPn;
+                                    com.baidu.tieba.recapp.report.b.apG().a(com.baidu.tieba.recapp.report.e.a((com.baidu.tbadk.core.data.b) uVar, "show", i7));
+                                    return;
+                                }
+                                bVar3 = this.aUK.aTR;
+                                str = this.aUK.forumId;
+                                bVar3.d(Lt, 2, str);
+                                i6 = this.aUK.mPn;
+                                com.baidu.tieba.recapp.report.b.apG().a(com.baidu.tieba.recapp.report.e.g("store", Lt, i6));
+                            }
+                        }
                     }
-                    bVar3 = this.aUz.aTG;
-                    str = this.aUz.forumId;
-                    bVar3.d(Lt, 2, str);
                 }
             }
         }
@@ -64,37 +86,37 @@ class g implements AbsListView.OnScrollListener {
         com.baidu.adp.widget.ListView.w wVar;
         bs bsVar5;
         com.baidu.tieba.frs.b.a aVar2;
-        aVar = this.aUz.aTZ;
+        aVar = this.aUK.aUk;
         if (aVar != null) {
-            aVar2 = this.aUz.aTZ;
+            aVar2 = this.aUK.aUk;
             aVar2.setScrollState(i);
         }
         if (i == 2 || i == 1) {
-            z = this.aUz.aTT;
+            z = this.aUK.aUe;
             if (!z) {
-                this.aUz.aTT = true;
-                bsVar = this.aUz.aTJ;
+                this.aUK.aUe = true;
+                bsVar = this.aUK.aTU;
                 bsVar.Md();
             }
         }
-        if (this.aUz.aTU == null) {
-            this.aUz.aTU = new com.baidu.tbadk.performanceLog.e();
-            this.aUz.aTU.ez(1000);
+        if (this.aUK.aUf == null) {
+            this.aUK.aUf = new com.baidu.tbadk.performanceLog.e();
+            this.aUK.aUf.ez(1000);
         }
         if (i == 0) {
-            bsVar4 = this.aUz.aTJ;
-            wVar = this.aUz.aUv;
+            bsVar4 = this.aUK.aTU;
+            wVar = this.aUK.aUG;
             bsVar4.a(wVar);
-            bsVar5 = this.aUz.aTJ;
+            bsVar5 = this.aUK.aTU;
             bsVar5.cf(false);
-            this.aUz.Ji = false;
+            this.aUK.Jj = false;
         } else {
-            bsVar2 = this.aUz.aTJ;
+            bsVar2 = this.aUK.aTU;
             bsVar2.a((com.baidu.adp.widget.ListView.w) null);
-            bsVar3 = this.aUz.aTJ;
+            bsVar3 = this.aUK.aTU;
             bsVar3.cf(true);
-            this.aUz.Ji = true;
+            this.aUK.Jj = true;
         }
-        this.aUz.aTU.DE();
+        this.aUK.aUf.DE();
     }
 }

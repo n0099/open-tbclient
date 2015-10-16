@@ -8,7 +8,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class SignAllForumStatic {
-    private static com.baidu.tbadk.c.d ccO;
+    private static com.baidu.tbadk.c.d ccZ;
     private static View.OnClickListener mClickListener = new w();
     private static Context mContext;
 

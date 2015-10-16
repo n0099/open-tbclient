@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.write.write.WriteImageActivity;
 /* loaded from: classes.dex */
 class bv implements a.b {
-    final /* synthetic */ WriteImageActivity.a dpU;
+    final /* synthetic */ WriteImageActivity.a dqu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(WriteImageActivity.a aVar) {
-        this.dpU = aVar;
+        this.dqu = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

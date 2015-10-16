@@ -6,17 +6,17 @@ import com.baidu.tbadk.editortools.v;
 public class b extends v {
     public b(Context context) {
         super(context, (String) null, 11);
-        this.apv = true;
-        this.apu = 6;
-        this.aoI = c.h(context, 10);
-        this.apw = new int[]{12, 13, 9};
+        this.apw = true;
+        this.apv = 6;
+        this.aoJ = c.h(context, 10);
+        this.apx = new int[]{12, 13, 9};
     }
 
     public b(Context context, int i) {
         super(context, (String) null, 11);
-        this.apv = true;
-        this.apu = 6;
-        this.aoI = c.h(context, i);
-        this.apw = new int[]{12, 13, 9};
+        this.apw = true;
+        this.apv = 6;
+        this.aoJ = c.h(context, i);
+        this.apx = new int[]{12, 13, 9};
     }
 }

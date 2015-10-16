@@ -2,11 +2,11 @@ package com.baidu.tbadk.core;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements com.baidu.adp.framework.client.socket.link.j {
-    final /* synthetic */ TbadkCoreApplication Tw;
+    final /* synthetic */ TbadkCoreApplication Tx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(TbadkCoreApplication tbadkCoreApplication) {
-        this.Tw = tbadkCoreApplication;
+        this.Tx = tbadkCoreApplication;
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.j

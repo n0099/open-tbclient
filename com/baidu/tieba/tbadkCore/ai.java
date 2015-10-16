@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class ai {
-    private a cYa;
+    private a cYA;
     private String mFrom = "bar_detail";
 
     /* loaded from: classes.dex */
@@ -26,18 +26,18 @@ public class ai {
     }
 
     public void a(a aVar) {
-        this.cYa = aVar;
+        this.cYA = aVar;
     }
 
     public void k(String str, long j) {
-        new b(str, j, this.mFrom, this.cYa).execute(new Integer[0]);
+        new b(str, j, this.mFrom, this.cYA).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b extends BdAsyncTask<Integer, Integer, Integer> {
-        private com.baidu.tbadk.core.util.w afg = null;
-        private WeakReference<a> cYb;
+        private com.baidu.tbadk.core.util.w afh = null;
+        private WeakReference<a> cYB;
         private long mForumId;
         private String mForumName;
         private String mFrom;
@@ -45,10 +45,10 @@ public class ai {
         public b(String str, long j, String str2, a aVar) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.cYb = null;
+            this.cYB = null;
             this.mForumName = str;
             this.mForumId = j;
-            this.cYb = new WeakReference<>(aVar);
+            this.cYB = new WeakReference<>(aVar);
             this.mFrom = str2;
             setPriority(3);
         }
@@ -60,13 +60,13 @@ public class ai {
         public Integer doInBackground(Integer... numArr) {
             try {
                 if (this.mForumId != 0 && this.mForumName != null) {
-                    this.afg = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFAVOLIKE_ADDRESS);
-                    this.afg.o(ImageViewerConfig.FORUM_ID, String.valueOf(this.mForumId));
-                    this.afg.o("kw", this.mForumName);
-                    this.afg.o("favo_type", "1");
-                    this.afg.o("st_type", this.mFrom);
-                    this.afg.uh().uX().mIsNeedTbs = true;
-                    this.afg.tG();
+                    this.afh = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFAVOLIKE_ADDRESS);
+                    this.afh.o(ImageViewerConfig.FORUM_ID, String.valueOf(this.mForumId));
+                    this.afh.o("kw", this.mForumName);
+                    this.afh.o("favo_type", "1");
+                    this.afh.o("st_type", this.mFrom);
+                    this.afh.uh().uY().mIsNeedTbs = true;
+                    this.afh.tG();
                 }
                 return 1;
             } catch (Exception e) {
@@ -81,9 +81,9 @@ public class ai {
         public void onPostExecute(Integer num) {
             a aVar;
             super.onPostExecute((b) num);
-            if (this.cYb != null && (aVar = this.cYb.get()) != null) {
-                if (this.afg != null) {
-                    if (this.afg.uh().uY().qV()) {
+            if (this.cYB != null && (aVar = this.cYB.get()) != null) {
+                if (this.afh != null) {
+                    if (this.afh.uh().uZ().qV()) {
                         if (num.intValue() == 1) {
                             TbadkCoreApplication.m411getInst().delLikeForum(this.mForumName);
                             aVar.g(this.mForumName, this.mForumId);

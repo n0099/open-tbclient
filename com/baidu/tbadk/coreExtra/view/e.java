@@ -5,11 +5,11 @@ import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Runnable {
-    final /* synthetic */ d ajN;
+    final /* synthetic */ d ajO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.ajN = dVar;
+        this.ajO = dVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,17 +17,17 @@ public class e implements Runnable {
         View view;
         int i;
         View view2;
-        view = this.ajN.ajI;
+        view = this.ajO.ajJ;
         if (view != null) {
-            int childCount = ((LinearLayout) this.ajN.getChildAt(0)).getChildCount();
+            int childCount = ((LinearLayout) this.ajO.getChildAt(0)).getChildCount();
             int i2 = 0;
             while (true) {
                 if (i2 >= childCount) {
                     i = 0;
                     break;
                 }
-                View childAt = ((LinearLayout) this.ajN.getChildAt(0)).getChildAt(i2);
-                view2 = this.ajN.ajI;
+                View childAt = ((LinearLayout) this.ajO.getChildAt(0)).getChildAt(i2);
+                view2 = this.ajO.ajJ;
                 if (childAt != view2) {
                     i2++;
                 } else {
@@ -35,10 +35,10 @@ public class e implements Runnable {
                     break;
                 }
             }
-            this.ajN.ajI = null;
-            int width = i - this.ajN.getWidth();
+            this.ajO.ajJ = null;
+            int width = i - this.ajO.getWidth();
             if (width > 0) {
-                this.ajN.scrollBy(width, 0);
+                this.ajO.scrollBy(width, 0);
             }
         }
     }

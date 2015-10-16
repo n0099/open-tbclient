@@ -5,28 +5,28 @@ import android.net.Uri;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class h {
-    private static c aiU = null;
-    private static boolean aiV = false;
-    private a aiW;
-    private b aiX;
-    private String aiY = TbadkCoreApplication.m411getInst().getContext().getString(i.h.share_tail);
-    private String aiZ = String.valueOf(TbadkCoreApplication.m411getInst().getContext().getString(i.h.weibo_share_tail)) + this.aiY;
+    private static c aiV = null;
+    private static boolean aiW = false;
+    private a aiX;
+    private b aiY;
+    private String aiZ = TbadkCoreApplication.m411getInst().getContext().getString(i.h.share_tail);
+    private String aja = String.valueOf(TbadkCoreApplication.m411getInst().getContext().getString(i.h.weibo_share_tail)) + this.aiZ;
     private final Context mContext;
 
     public h(Context context, a aVar) {
-        this.aiW = null;
         this.aiX = null;
+        this.aiY = null;
         this.mContext = context;
         if (aVar != null) {
-            this.aiW = aVar;
+            this.aiX = aVar;
         }
         aj(this.mContext);
-        if (aiU != null) {
-            this.aiX = aiU.createWorker(this.mContext, this.aiW);
+        if (aiV != null) {
+            this.aiY = aiV.createWorker(this.mContext, this.aiX);
         }
     }
 
@@ -34,64 +34,64 @@ public class h {
         if (context == null) {
             return false;
         }
-        if (!aiV) {
+        if (!aiW) {
             try {
-                aiU = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
+                aiV = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            aiV = true;
+            aiW = true;
         }
-        return aiU != null;
+        return aiV != null;
     }
 
     public void c(f fVar) {
-        if (this.aiX != null && fVar != null) {
-            if (!StringUtils.isNull(fVar.aiQ)) {
-                fVar.content = fVar.aiQ;
+        if (this.aiY != null && fVar != null) {
+            if (!StringUtils.isNull(fVar.aiR)) {
+                fVar.content = fVar.aiR;
             }
-            fVar.content = b(fVar.content, 80, 20, this.aiY);
-            this.aiX.a(a(fVar, "weixin"), 3, false);
+            fVar.content = b(fVar.content, 80, 20, this.aiZ);
+            this.aiY.a(a(fVar, "weixin"), 3, false);
         }
     }
 
     public void d(f fVar) {
-        if (this.aiX != null && fVar != null) {
-            fVar.content = b(fVar.content, 80, 20, this.aiY);
-            if (StringUtils.isNull(fVar.aiR)) {
+        if (this.aiY != null && fVar != null) {
+            fVar.content = b(fVar.content, 80, 20, this.aiZ);
+            if (StringUtils.isNull(fVar.aiS)) {
                 fVar.title = fVar.content;
             } else {
-                fVar.title = fVar.aiR;
+                fVar.title = fVar.aiS;
             }
-            this.aiX.a(a(fVar, "weixin_timeline"), 2, false);
+            this.aiY.a(a(fVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void e(f fVar) {
-        if (this.aiX != null) {
-            fVar.content = b(fVar.content, 80, 32, this.aiY);
-            this.aiX.a(a(fVar, "qzone"), 4, true);
+        if (this.aiY != null) {
+            fVar.content = b(fVar.content, 80, 32, this.aiZ);
+            this.aiY.a(a(fVar, "qzone"), 4, true);
         }
     }
 
     public void f(f fVar) {
-        if (this.aiX != null) {
-            fVar.content = b(fVar.content, 140, 20, this.aiY);
-            this.aiX.a(a(fVar, "tencent_weibo"), 5, true);
+        if (this.aiY != null) {
+            fVar.content = b(fVar.content, 140, 20, this.aiZ);
+            this.aiY.a(a(fVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void g(f fVar) {
-        if (this.aiX != null) {
-            fVar.content = b(fVar.content, 140, 20, this.aiZ);
-            this.aiX.a(a(fVar, "sina_weibo"), 6, true);
+        if (this.aiY != null) {
+            fVar.content = b(fVar.content, 140, 20, this.aja);
+            this.aiY.a(a(fVar, "sina_weibo"), 6, true);
         }
     }
 
     public void h(f fVar) {
-        if (this.aiX != null) {
-            fVar.content = b(fVar.content, 140, 20, this.aiY);
-            this.aiX.a(a(fVar, "renren"), 7, true);
+        if (this.aiY != null) {
+            fVar.content = b(fVar.content, 140, 20, this.aiZ);
+            this.aiY.a(a(fVar, "renren"), 7, true);
         }
     }
 
@@ -117,12 +117,12 @@ public class h {
         if (fVar.imageUri != null) {
             fVar.imageUri = Uri.parse(aj(fVar.imageUri.toString(), "sfc=" + str));
         }
-        fVar.linkUrl = aj(ar.isEmpty(fVar.linkUrl) ? "http://tieba.baidu.com" : fVar.linkUrl, "sfc=" + str);
+        fVar.linkUrl = aj(as.isEmpty(fVar.linkUrl) ? "http://tieba.baidu.com" : fVar.linkUrl, "sfc=" + str);
         return fVar;
     }
 
     private String aj(String str, String str2) {
-        if (ar.isEmpty(Uri.parse(str).getQuery())) {
+        if (as.isEmpty(Uri.parse(str).getQuery())) {
             str = String.valueOf(str) + "?";
         }
         return String.valueOf(str) + "&" + str2;

@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements View.OnClickListener {
-    final /* synthetic */ ao dcY;
+    final /* synthetic */ ao ddy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(ao aoVar) {
-        this.dcY = aoVar;
+        this.ddy = aoVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,16 +24,16 @@ public class at implements View.OnClickListener {
         FragmentTabHost fragmentTabHost2;
         FragmentTabHost fragmentTabHost3;
         int i = 2;
-        mainTabActivity = this.dcY.dcT;
-        mainTabActivity2 = this.dcY.dcT;
+        mainTabActivity = this.ddy.ddt;
+        mainTabActivity2 = this.ddy.ddt;
         mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_SQUARESEARCH, new IntentConfig(mainTabActivity2.getPageContext().getPageActivity())));
-        fragmentTabHost = this.dcY.bdT;
+        fragmentTabHost = this.ddy.bee;
         if (fragmentTabHost.getCurrentTabType() != 6) {
-            fragmentTabHost2 = this.dcY.bdT;
+            fragmentTabHost2 = this.ddy.bee;
             if (fragmentTabHost2.getCurrentTabType() == 3) {
                 i = 3;
             } else {
-                fragmentTabHost3 = this.dcY.bdT;
+                fragmentTabHost3 = this.ddy.bee;
                 if (fragmentTabHost3.getCurrentTabType() != 2) {
                     i = 0;
                 } else {
@@ -41,6 +41,6 @@ public class at implements View.OnClickListener {
                 }
             }
         }
-        TiebaStatic.log(new com.baidu.tbadk.core.util.ap("c10378").r("obj_type", i));
+        TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10378").r("obj_type", i));
     }
 }

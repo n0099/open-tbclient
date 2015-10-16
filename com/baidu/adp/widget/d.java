@@ -9,7 +9,7 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d extends ImageSpan {
-    private WeakReference<Drawable> Fe;
+    private WeakReference<Drawable> Ff;
     private int offset;
 
     public d(Context context, Bitmap bitmap, int i) {
@@ -31,14 +31,14 @@ public class d extends ImageSpan {
     }
 
     private Drawable mE() {
-        WeakReference<Drawable> weakReference = this.Fe;
+        WeakReference<Drawable> weakReference = this.Ff;
         Drawable drawable = null;
         if (weakReference != null) {
             drawable = weakReference.get();
         }
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.Fe = new WeakReference<>(drawable2);
+            this.Ff = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;

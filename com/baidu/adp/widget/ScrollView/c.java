@@ -6,19 +6,19 @@ import java.util.TimerTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends TimerTask {
-    final /* synthetic */ b It;
-    private final /* synthetic */ Timer Iu;
+    final /* synthetic */ b Iu;
+    private final /* synthetic */ Timer Iv;
     private final /* synthetic */ View yG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, View view, Timer timer) {
-        this.It = bVar;
+        this.Iu = bVar;
         this.yG = view;
-        this.Iu = timer;
+        this.Iv = timer;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public void run() {
-        this.yG.post(new d(this, this.yG, this.Iu));
+        this.yG.post(new d(this, this.yG, this.Iv));
     }
 }

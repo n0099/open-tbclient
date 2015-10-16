@@ -5,15 +5,15 @@ import com.baidu.tbadk.editortools.emotiontool.r;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements a.InterfaceC0046a {
-    final /* synthetic */ r.a aqX;
+    final /* synthetic */ r.a aqY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r.a aVar) {
-        this.aqX = aVar;
+        this.aqY = aVar;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a.InterfaceC0046a
     public void a(t tVar) {
-        this.aqX.aqU.add(tVar);
+        this.aqY.aqV.add(tVar);
     }
 }

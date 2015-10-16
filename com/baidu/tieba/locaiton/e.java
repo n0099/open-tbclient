@@ -8,11 +8,11 @@ import com.baidu.tieba.locaiton.c;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements LocationListener {
-    final /* synthetic */ c bTJ;
+    final /* synthetic */ c bTU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.bTJ = cVar;
+        this.bTU = cVar;
     }
 
     @Override // android.location.LocationListener
@@ -38,23 +38,23 @@ public class e implements LocationListener {
         c.a aVar2;
         c.a aVar3;
         Handler handler4;
-        handler = this.bTJ.mHandler;
+        handler = this.bTU.mHandler;
         if (handler.hasMessages(0)) {
-            handler4 = this.bTJ.mHandler;
+            handler4 = this.bTU.mHandler;
             handler4.removeMessages(0);
         }
-        handler2 = this.bTJ.mHandler;
-        runnable = this.bTJ.bTG;
+        handler2 = this.bTU.mHandler;
+        runnable = this.bTU.bTR;
         handler2.removeCallbacks(runnable);
-        handler3 = this.bTJ.mHandler;
-        runnable2 = this.bTJ.bTF;
+        handler3 = this.bTU.mHandler;
+        runnable2 = this.bTU.bTQ;
         handler3.removeCallbacks(runnable2);
-        aVar = this.bTJ.bTC;
+        aVar = this.bTU.bTN;
         if (aVar == null) {
-            this.bTJ.bTC = new c.a(this.bTJ, null);
-            aVar2 = this.bTJ.bTC;
+            this.bTU.bTN = new c.a(this.bTU, null);
+            aVar2 = this.bTU.bTN;
             aVar2.setSelfExecute(true);
-            aVar3 = this.bTJ.bTC;
+            aVar3 = this.bTU.bTN;
             aVar3.execute(location);
         }
     }

@@ -6,11 +6,11 @@ import com.baidu.tieba.tbadkCore.ag;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.b {
-    final /* synthetic */ a bOD;
+    final /* synthetic */ a bOO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar) {
-        this.bOD = aVar;
+        this.bOO = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -22,19 +22,19 @@ public class f implements a.b {
         TbPageContext tbPageContext;
         i iVar2;
         com.baidu.tbadk.core.data.b bVar4;
-        iVar = this.bOD.bOA;
+        iVar = this.bOO.bOL;
         iVar.ZY();
-        bVar = this.bOD.bOx;
-        String str = bVar.TZ;
-        bVar2 = this.bOD.bOx;
-        String str2 = bVar2.TY;
-        bVar3 = this.bOD.bOx;
-        k kVar = new k(str, str2, bVar3.TV);
-        tbPageContext = this.bOD.mContext;
+        bVar = this.bOO.bOI;
+        String str = bVar.Ua;
+        bVar2 = this.bOO.bOI;
+        String str2 = bVar2.TZ;
+        bVar3 = this.bOO.bOI;
+        k kVar = new k(str, str2, bVar3.TW);
+        tbPageContext = this.bOO.mContext;
         if (ag.a(tbPageContext.getPageActivity(), kVar, 0)) {
-            iVar2 = this.bOD.bOA;
-            bVar4 = this.bOD.bOx;
-            iVar2.iO(bVar4.TZ);
+            iVar2 = this.bOO.bOL;
+            bVar4 = this.bOO.bOI;
+            iVar2.iO(bVar4.Ua);
         }
         aVar.dismiss();
     }

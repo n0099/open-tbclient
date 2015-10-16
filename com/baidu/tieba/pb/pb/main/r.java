@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 class r implements TbRichTextView.c {
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(PbActivity pbActivity) {
-        this.ciz = pbActivity;
+        this.ciK = pbActivity;
     }
 
     @Override // com.baidu.tbadk.widget.richText.TbRichTextView.c
@@ -31,38 +31,38 @@ class r implements TbRichTextView.c {
         long c;
         bl blVar3;
         try {
-            TiebaStatic.eventStat(this.ciz.getPageContext().getPageActivity(), "pic_pb", "");
-            blVar = this.ciz.chV;
+            TiebaStatic.eventStat(this.ciK.getPageContext().getPageActivity(), "pic_pb", "");
+            blVar = this.ciK.cih;
             com.baidu.tieba.pb.a.b pbData = blVar.getPbData();
-            W = this.ciz.W(str, i);
+            W = this.ciK.W(str, i);
             ArrayList<com.baidu.tbadk.widget.richText.c> ET = W.ET();
-            i2 = this.ciz.civ;
+            i2 = this.ciK.ciG;
             com.baidu.tbadk.widget.richText.c cVar = ET.get(i2);
             if (cVar != null) {
                 ArrayList<String> arrayList = new ArrayList<>();
                 HashMap<String, ImageUrlData> hashMap = new HashMap<>();
                 if (cVar.EY().Fg()) {
                     int size = pbData.aeP().size();
-                    this.ciz.ciw = false;
+                    this.ciK.ciH = false;
                     String str2 = "";
                     int i3 = i;
                     for (int i4 = 0; i4 < size; i4++) {
                         com.baidu.tieba.tbadkCore.data.k kVar = pbData.aeP().get(i4);
-                        com.baidu.tbadk.widget.richText.a awz = kVar.awz();
+                        com.baidu.tbadk.widget.richText.a awJ = kVar.awJ();
                         int size2 = arrayList.size();
-                        i3 = this.ciz.a(awz, W, i3, i, arrayList, hashMap);
+                        i3 = this.ciK.a(awJ, W, i3, i, arrayList, hashMap);
                         int size3 = arrayList.size();
                         if (size2 != size3) {
                             str2 = arrayList.get(size3 - 1);
                         }
-                        ArrayList<com.baidu.tieba.tbadkCore.data.k> awx = kVar.awx();
+                        ArrayList<com.baidu.tieba.tbadkCore.data.k> awH = kVar.awH();
                         int i5 = 0;
                         while (true) {
                             int i6 = i5;
-                            if (i6 >= awx.size()) {
+                            if (i6 >= awH.size()) {
                                 break;
                             }
-                            i3 = this.ciz.a(awx.get(i6).awz(), W, i3, i, arrayList, hashMap);
+                            i3 = this.ciK.a(awH.get(i6).awJ(), W, i3, i, arrayList, hashMap);
                             i5 = i6 + 1;
                         }
                     }
@@ -80,22 +80,22 @@ class r implements TbRichTextView.c {
                         }
                         z2 = pbData.aeT() == 1;
                     }
-                    ImageViewerConfig imageViewerConfig = new ImageViewerConfig(this.ciz.getPageContext().getPageActivity());
-                    blVar2 = this.ciz.chV;
+                    ImageViewerConfig imageViewerConfig = new ImageViewerConfig(this.ciK.getPageContext().getPageActivity());
+                    blVar2 = this.ciK.cih;
                     ImageViewerConfig createConfig = imageViewerConfig.createConfig(arrayList, i3, str3, str4, str5, z2, str2, blVar2.afU(), hashMap, true);
                     createConfig.getIntent().putExtra("from", "pb");
-                    this.ciz.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
+                    this.ciK.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig));
                     return;
                 }
-                d = this.ciz.d(cVar);
+                d = this.ciK.d(cVar);
                 arrayList.add(d);
                 ImageUrlData imageUrlData = new ImageUrlData();
                 imageUrlData.imageUrl = str;
-                z = this.ciz.mIsFromCDN;
+                z = this.ciK.mIsFromCDN;
                 imageUrlData.urlType = z ? 17 : 18;
-                b = this.ciz.b(cVar);
+                b = this.ciK.b(cVar);
                 imageUrlData.originalUrl = b;
-                c = this.ciz.c(cVar);
+                c = this.ciK.c(cVar);
                 imageUrlData.originalSize = c;
                 hashMap.put(d, imageUrlData);
                 String str6 = null;
@@ -112,10 +112,10 @@ class r implements TbRichTextView.c {
                     }
                     z3 = pbData.aeT() == 1;
                 }
-                blVar3 = this.ciz.chV;
-                ImageViewerConfig createConfig2 = new ImageViewerConfig(this.ciz.getPageContext().getPageActivity()).createConfig(arrayList, 0, str6, str7, str8, z3, arrayList.get(0), blVar3.afU(), hashMap, true);
+                blVar3 = this.ciK.cih;
+                ImageViewerConfig createConfig2 = new ImageViewerConfig(this.ciK.getPageContext().getPageActivity()).createConfig(arrayList, 0, str6, str7, str8, z3, arrayList.get(0), blVar3.afU(), hashMap, true);
                 createConfig2.getIntent().putExtra("from", "pb");
-                this.ciz.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig2));
+                this.ciK.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, createConfig2));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

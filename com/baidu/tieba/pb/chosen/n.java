@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.pb.chosen.a.d;
 /* loaded from: classes.dex */
 class n implements d.a {
-    final /* synthetic */ PbChosenActivity cfa;
+    final /* synthetic */ PbChosenActivity cfl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(PbChosenActivity pbChosenActivity) {
-        this.cfa = pbChosenActivity;
+        this.cfl = pbChosenActivity;
     }
 
     @Override // com.baidu.tieba.pb.chosen.a.d.a
@@ -20,14 +20,14 @@ class n implements d.a {
         com.baidu.tieba.pb.chosen.net.a aVar;
         com.baidu.tieba.pb.chosen.net.a aVar2;
         com.baidu.tieba.pb.chosen.net.a aVar3;
-        if (this.cfa.checkUpIsLogin()) {
-            aVar = this.cfa.chosenData;
+        if (this.cfl.checkUpIsLogin()) {
+            aVar = this.cfl.chosenData;
             if (aVar != null) {
-                aVar2 = this.cfa.chosenData;
+                aVar2 = this.cfl.chosenData;
                 if (aVar2.getForumInfo() != null && !StringUtils.isNull(str)) {
                     TiebaStatic.log("c10093");
-                    aVar3 = this.cfa.chosenData;
-                    this.cfa.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(this.cfa.getPageContext().getPageActivity()).createSubPbActivityConfig(aVar3.getForumInfo().originalurl, str, "pb_chosen", true)));
+                    aVar3 = this.cfl.chosenData;
+                    this.cfl.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(this.cfl.getPageContext().getPageActivity()).createSubPbActivityConfig(aVar3.getForumInfo().originalurl, str, "pb_chosen", true)));
                 }
             }
         }

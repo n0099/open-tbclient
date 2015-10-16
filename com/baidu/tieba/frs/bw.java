@@ -8,11 +8,11 @@ import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
 class bw implements AbsListView.RecyclerListener {
-    final /* synthetic */ bs aWS;
+    final /* synthetic */ bs aXd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bw(bs bsVar) {
-        this.aWS = bsVar;
+        this.aXd = bsVar;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

@@ -14,7 +14,7 @@ import com.baidu.tbadk.editortools.v;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class r extends com.baidu.tbadk.editortools.d {
-    private boolean asm = false;
+    private boolean asn = false;
 
     @Override // com.baidu.tbadk.editortools.d
     protected com.baidu.tbadk.editortools.f al(Context context) {
@@ -45,14 +45,14 @@ public class r extends com.baidu.tbadk.editortools.d {
         v vVar;
         com.baidu.tbadk.editortools.j Ax = fVar.Ax();
         Ax.b(new com.baidu.tbadk.editortools.emotiontool.m(Ax.getContext(), 1, false));
-        if (com.baidu.tieba.tbadkCore.voice.b.axD() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Ax.getContext()), v.class)) != null && (vVar = (v) runTask.getData()) != null) {
-            vVar.apt = 2;
+        if (com.baidu.tieba.tbadkCore.voice.b.axN() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Ax.getContext()), v.class)) != null && (vVar = (v) runTask.getData()) != null) {
+            vVar.apu = 2;
             Ax.b(vVar);
         }
         Ax.b(new com.baidu.tbadk.editortools.a.a(Ax.getContext(), 4));
         com.baidu.tbadk.editortools.inputtool.a aVar = new com.baidu.tbadk.editortools.inputtool.a(Ax.getContext(), true);
-        if (aVar.aoI instanceof EditText) {
-            ((EditText) aVar.aoI).setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
+        if (aVar.aoJ instanceof EditText) {
+            ((EditText) aVar.aoJ).setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
         }
         Ax.b(aVar);
         Ax.b(new com.baidu.tbadk.editortools.sendtool.a(Ax.getContext()));

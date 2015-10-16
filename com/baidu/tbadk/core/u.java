@@ -6,12 +6,12 @@ import com.baidu.adp.lib.util.k;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u implements k.a {
-    final /* synthetic */ TbadkCoreApplication Tw;
+    final /* synthetic */ TbadkCoreApplication Tx;
     private final /* synthetic */ View yG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(TbadkCoreApplication tbadkCoreApplication, View view) {
-        this.Tw = tbadkCoreApplication;
+        this.Tx = tbadkCoreApplication;
         this.yG = view;
     }
 

@@ -3,19 +3,19 @@ package com.baidu.tbadk.browser;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 class n implements Runnable {
-    final /* synthetic */ TbWebViewActivity Sd;
+    final /* synthetic */ TbWebViewActivity Se;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(TbWebViewActivity tbWebViewActivity) {
-        this.Sd = tbWebViewActivity;
+        this.Se = tbWebViewActivity;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         try {
-            if (this.Sd.mWebView != null) {
-                this.Sd.mWebView.destroy();
-                this.Sd.mWebView = null;
+            if (this.Se.mWebView != null) {
+                this.Se.mWebView.destroy();
+                this.Se.mWebView = null;
             }
         } catch (Throwable th) {
             BdLog.e(th);

@@ -72,7 +72,7 @@ public final class SocialAPIErrorCodes {
                 return "session key expired";
             case ERROR_INVALID_RESPONSE_TYPE /* 115 */:
                 return "response_type parameter is invalid";
-            case 116:
+            case ERROR_INVALID_GRANT_TYPE /* 116 */:
                 return "grant_type parameter is invalid";
             case ERROR_INVALID_MEDIA_TYPE /* 117 */:
                 return "media_type parameter is invalid";

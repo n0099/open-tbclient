@@ -4,11 +4,11 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements com.baidu.tbadk.editortools.b {
-    final /* synthetic */ AbsMsglistView bqH;
+    final /* synthetic */ AbsMsglistView bqS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(AbsMsglistView absMsglistView) {
-        this.bqH = absMsglistView;
+        this.bqS = absMsglistView;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -20,18 +20,18 @@ public class h implements com.baidu.tbadk.editortools.b {
                     EmotionGroupType wk = fVar.wk();
                     String name = fVar.getName();
                     if (wk != EmotionGroupType.LOCAL && name != null) {
-                        this.bqH.mContext.sendBigEmotionMsg(fVar);
-                        this.bqH.onSendEmotion();
+                        this.bqS.mContext.sendBigEmotionMsg(fVar);
+                        this.bqS.onSendEmotion();
                     }
                 }
             } else if (aVar.code == 8) {
-                this.bqH.mContext.sendTextMsg();
+                this.bqS.mContext.sendTextMsg();
             } else if (aVar.code == 4) {
                 if (aVar.data != null && (aVar.data instanceof String)) {
-                    this.bqH.mTextContent = (String) aVar.data;
+                    this.bqS.mTextContent = (String) aVar.data;
                 }
             } else if (aVar.code == 14) {
-                this.bqH.mContext.openImageView();
+                this.bqS.mContext.openImageView();
             }
         }
     }

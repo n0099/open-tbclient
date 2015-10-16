@@ -8,13 +8,13 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class t extends HttpMessageListener {
-    final /* synthetic */ s cEo;
+    final /* synthetic */ s cEz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(s sVar, int i) {
         super(i);
-        this.cEo = sVar;
+        this.cEz = sVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,26 +30,26 @@ public class t extends HttpMessageListener {
         if ((httpResponsedMessage instanceof PostSearchHttpResponseMessage) && (httpResponsedMessage.getOrginalMessage() instanceof HttpMessage)) {
             HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
             int intValue = httpMessage.getExtra() instanceof Integer ? ((Integer) httpMessage.getExtra()).intValue() : 0;
-            this.cEo.jZ(intValue);
-            jY = this.cEo.jY(intValue);
+            this.cEz.jZ(intValue);
+            jY = this.cEz.jY(intValue);
             boolean z = jY > 1;
             PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
             if (statusCode == 200 && error == 0) {
-                postSearchActivity4 = this.cEo.cDL;
+                postSearchActivity4 = this.cEz.cDW;
                 postSearchActivity4.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
-                this.cEo.jX(intValue);
-                this.cEo.aou();
-                this.cEo.aox();
+                this.cEz.jX(intValue);
+                this.cEz.aou();
+                this.cEz.aox();
                 return;
             }
             String errorString = postSearchHttpResponseMessage.getErrorString();
             if (TextUtils.isEmpty(errorString)) {
-                postSearchActivity3 = this.cEo.cDL;
+                postSearchActivity3 = this.cEz.cDW;
                 errorString = postSearchActivity3.getResources().getString(i.h.neterror);
             }
-            postSearchActivity = this.cEo.cDL;
+            postSearchActivity = this.cEz.cDW;
             postSearchActivity.showToast(errorString);
-            postSearchActivity2 = this.cEo.cDL;
+            postSearchActivity2 = this.cEz.cDW;
             postSearchActivity2.a(intValue, null, z);
         }
     }

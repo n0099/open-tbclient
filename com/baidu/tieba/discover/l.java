@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l extends CustomMessageListener {
-    final /* synthetic */ a aKv;
+    final /* synthetic */ a aKG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(a aVar, int i) {
         super(i);
-        this.aKv = aVar;
+        this.aKG = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,14 +21,14 @@ public class l extends CustomMessageListener {
         if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2009503) {
             return;
         }
-        this.aKv.Hu();
-        this.aKv.bE(false);
+        this.aKG.Hu();
+        this.aKG.bE(false);
         if (customResponsedMessage.getData() instanceof Integer) {
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
             if (intValue == 2902001) {
-                TiebaStatic.eventStat(this.aKv.getPageContext().getPageActivity(), "plugin_discover_neighbors", null);
+                TiebaStatic.eventStat(this.aKG.getPageContext().getPageActivity(), "plugin_discover_neighbors", null);
             } else if (intValue == 2902040) {
-                TiebaStatic.eventStat(this.aKv.getPageContext().getPageActivity(), "plugin_discover_randchat", null);
+                TiebaStatic.eventStat(this.aKG.getPageContext().getPageActivity(), "plugin_discover_randchat", null);
             }
         }
     }

@@ -9,11 +9,11 @@ import com.baidu.tbadk.browser.g;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
-    final /* synthetic */ BaobaoTailView cnD;
+    final /* synthetic */ BaobaoTailView cnO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(BaobaoTailView baobaoTailView) {
-        this.cnD = baobaoTailView;
+        this.cnO = baobaoTailView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,20 +21,20 @@ class a implements View.OnClickListener {
         com.baidu.tbadk.data.a aVar;
         com.baidu.tbadk.data.a aVar2;
         com.baidu.tbadk.data.a aVar3;
-        aVar = this.cnD.cnC;
+        aVar = this.cnO.cnN;
         if (aVar != null) {
-            aVar2 = this.cnD.cnC;
+            aVar2 = this.cnO.cnN;
             if (aVar2.zT() != 1) {
-                aVar3 = this.cnD.cnC;
+                aVar3 = this.cnO.cnN;
                 String zS = aVar3.zS();
                 if (!j.isEmpty(zS)) {
-                    g.B(this.cnD.getContext(), zS);
+                    g.B(this.cnO.getContext(), zS);
                     return;
                 }
                 return;
             }
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_BAOBAO_LAUNCHBAOBAO, this.cnD.getContext()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_BAOBAO_LAUNCHBAOBAO, this.cnO.getContext()));
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

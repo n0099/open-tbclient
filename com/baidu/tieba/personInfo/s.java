@@ -7,13 +7,13 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class s extends CustomMessageListener {
-    final /* synthetic */ PersonInfoActivity csx;
+    final /* synthetic */ PersonInfoActivity csI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.csx = personInfoActivity;
+        this.csI = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,21 +26,21 @@ class s extends CustomMessageListener {
         if (customResponsedMessage instanceof UpdateAttentionMessage) {
             UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
             if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().Cj) {
-                yVar = this.csx.csk;
+                yVar = this.csI.csv;
                 UserData userData = yVar.getUserData();
                 if (userData != null && userData.getHave_attention() != 1) {
-                    this.csx.showToast(i.h.like_success);
-                    yVar3 = this.csx.csk;
+                    this.csI.showToast(i.h.like_success);
+                    yVar3 = this.csI.csv;
                     yVar3.getUserData().setHave_attention(1);
                 } else if (userData != null && userData.getHave_attention() == 1) {
-                    yVar2 = this.csx.csk;
+                    yVar2 = this.csI.csv;
                     yVar2.getUserData().setHave_attention(2);
-                    this.csx.showToast(i.h.unlike_success);
+                    this.csI.showToast(i.h.unlike_success);
                 }
-                ajVar = this.csx.csl;
+                ajVar = this.csI.csw;
                 ajVar.aka();
             } else if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().errorString != null) {
-                this.csx.showToast(updateAttentionMessage.getData().errorString);
+                this.csI.showToast(updateAttentionMessage.getData().errorString);
             }
         }
     }

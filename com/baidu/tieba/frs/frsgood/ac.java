@@ -6,11 +6,11 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements TbImageView.a {
-    final /* synthetic */ x aZL;
+    final /* synthetic */ x aZW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(x xVar) {
-        this.aZL = xVar;
+        this.aZW = xVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
@@ -21,15 +21,15 @@ public class ac implements TbImageView.a {
         BdTypeListView bdTypeListView2;
         BannerView bannerView2;
         if (z) {
-            bannerView = this.aZL.aKh;
+            bannerView = this.aZW.aKs;
             if (bannerView.yJ()) {
-                z2 = this.aZL.aWI;
+                z2 = this.aZW.aWT;
                 if (!z2) {
-                    bdTypeListView = this.aZL.aWs;
+                    bdTypeListView = this.aZW.aWD;
                     if (bdTypeListView != null) {
-                        this.aZL.aWI = true;
-                        bdTypeListView2 = this.aZL.aWs;
-                        bannerView2 = this.aZL.aKh;
+                        this.aZW.aWT = true;
+                        bdTypeListView2 = this.aZW.aWD;
+                        bannerView2 = this.aZW.aKs;
                         bdTypeListView2.d(bannerView2, 1);
                     }
                 }

@@ -7,11 +7,11 @@ import com.baidu.tieba.launcherGuide.data.InterestFrsData;
 import com.baidu.tieba.launcherGuide.view.RightSlideViewPager;
 /* loaded from: classes.dex */
 class b implements a.b {
-    final /* synthetic */ NewUserGuideActivity bRj;
+    final /* synthetic */ NewUserGuideActivity bRu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(NewUserGuideActivity newUserGuideActivity) {
-        this.bRj = newUserGuideActivity;
+        this.bRu = newUserGuideActivity;
     }
 
     @Override // com.baidu.tieba.launcherGuide.a.a.b
@@ -19,11 +19,11 @@ class b implements a.b {
         com.baidu.tieba.launcherGuide.a.a aVar;
         com.baidu.tieba.launcherGuide.a.a aVar2;
         RightSlideViewPager rightSlideViewPager;
-        aVar = this.bRj.bRd;
+        aVar = this.bRu.bRo;
         aVar.dI(false);
-        aVar2 = this.bRj.bRd;
+        aVar2 = this.bRu.bRo;
         aVar2.e(interestFrsData);
-        rightSlideViewPager = this.bRj.bRh;
+        rightSlideViewPager = this.bRu.bRs;
         ((k) ((FragmentPagerAdapter) rightSlideViewPager.getAdapter()).getItem(1)).c(interestFrsData);
     }
 
@@ -31,10 +31,10 @@ class b implements a.b {
     public void b(InterestFrsData interestFrsData) {
         com.baidu.tieba.launcherGuide.a.a aVar;
         com.baidu.tieba.launcherGuide.a.a aVar2;
-        aVar = this.bRj.bRd;
+        aVar = this.bRu.bRo;
         aVar.dI(true);
-        aVar2 = this.bRj.bRd;
+        aVar2 = this.bRu.bRo;
         aVar2.e(null);
-        this.bRj.showToast(i.h.neterror);
+        this.bRu.showToast(i.h.neterror);
     }
 }

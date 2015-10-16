@@ -36,6 +36,7 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
@@ -152,7 +153,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
             }
         } else if (i2 == 0) {
             if (i == 12010) {
-                com.baidu.tbadk.core.util.al.c(getPageContext());
+                am.c(getPageContext());
             } else if (i == 12009) {
                 openImageView();
             }
@@ -357,7 +358,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
 
     @Override // com.baidu.tbadk.widget.richText.i
     public void onLinkClicked(Context context, String str) {
-        com.baidu.tbadk.core.util.ay.uV().b(getPageContext(), new String[]{str});
+        com.baidu.tbadk.core.util.az.uW().b(getPageContext(), new String[]{str});
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
@@ -631,7 +632,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
         switch (i) {
             case 1:
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-                aVar.ct(TbadkCoreApplication.m411getInst().getString(i.h.sure_to_resend_this_message));
+                aVar.cu(TbadkCoreApplication.m411getInst().getString(i.h.sure_to_resend_this_message));
                 aVar.a(TbadkCoreApplication.m411getInst().getString(i.h.msg_resend), new bw(this, i2));
                 aVar.b(TbadkCoreApplication.m411getInst().getString(i.h.delete), new bx(this, i2));
                 aVar.b(getPageContext()).sR();
@@ -723,9 +724,9 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                             TiebaStatic.eventStat(getPageContext().getContext(), "game_ck_tail", "click", 1, shareSourceUrl);
                             return;
                         }
-                        String lF = com.baidu.tieba.tbadkCore.util.n.lF(shareSourceUrl);
-                        sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(getPageContext().getPageActivity(), lF, REF_TYPE_IM)));
-                        TiebaStatic.eventStat(getPageContext().getContext(), "game_ck_tail", "click", 1, lF);
+                        String lI = com.baidu.tieba.tbadkCore.util.n.lI(shareSourceUrl);
+                        sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(getPageContext().getPageActivity(), lI, REF_TYPE_IM)));
+                        TiebaStatic.eventStat(getPageContext().getContext(), "game_ck_tail", "click", 1, lI);
                         return;
                     }
                     return;
@@ -744,9 +745,9 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameCenterActivityConfig(getPageContext().getContext())));
                             TiebaStatic.eventStat(getPageContext().getContext(), "game_ck_tail", "click", 1, optString);
                         } else {
-                            String lF2 = com.baidu.tieba.tbadkCore.util.n.lF(optString);
-                            sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(getPageContext().getPageActivity(), lF2, REF_TYPE_IM)));
-                            TiebaStatic.eventStat(getPageContext().getContext(), "game_ck_tail", "click", 1, lF2);
+                            String lI2 = com.baidu.tieba.tbadkCore.util.n.lI(optString);
+                            sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(getPageContext().getPageActivity(), lI2, REF_TYPE_IM)));
+                            TiebaStatic.eventStat(getPageContext().getContext(), "game_ck_tail", "click", 1, lI2);
                         }
                         return;
                     } catch (Exception e2) {

@@ -14,28 +14,28 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class a {
-    public static final HashMap<Integer, Pair<String, String>> dda = new HashMap<>();
+    public static final HashMap<Integer, Pair<String, String>> ddA = new HashMap<>();
 
     static {
-        dda.put(0, new Pair<>("川藏线明信片，一路新奇视界，送给亲爱的你", "twzb:pid=4005265545"));
-        dda.put(1, new Pair<>("参加哥们婚礼，结果发现他老婆不是人……", "twzb:pid=4008011749"));
-        dda.put(2, new Pair<>("详述我和DotA不得不说的故事", "twzb:pid=4005340036"));
-        dda.put(3, new Pair<>("九岁那年，爷爷给我找个漂亮女鬼做媳妇……", "twzb:pid=4011574531"));
-        dda.put(4, new Pair<>("古代人豪无节操，无下限的毁你所有三观！", "twzb:pid=4010449631"));
-        dda.put(5, new Pair<>("国漫的崛起，国漫不再是只给未成年看的，未来可能看到的巅峰国", "http://tieba.baidu.com/p/3859340532"));
-        dda.put(6, new Pair<>("讲述:第一次给奇葩相亲女发好人卡", "http://tieba.baidu.com/p/3871991340"));
+        ddA.put(0, new Pair<>("川藏线明信片，一路新奇视界，送给亲爱的你", "twzb:pid=4005265545"));
+        ddA.put(1, new Pair<>("参加哥们婚礼，结果发现他老婆不是人……", "twzb:pid=4008011749"));
+        ddA.put(2, new Pair<>("详述我和DotA不得不说的故事", "twzb:pid=4005340036"));
+        ddA.put(3, new Pair<>("九岁那年，爷爷给我找个漂亮女鬼做媳妇……", "twzb:pid=4011574531"));
+        ddA.put(4, new Pair<>("古代人豪无节操，无下限的毁你所有三观！", "twzb:pid=4010449631"));
+        ddA.put(5, new Pair<>("国漫的崛起，国漫不再是只给未成年看的，未来可能看到的巅峰国", "http://tieba.baidu.com/p/3859340532"));
+        ddA.put(6, new Pair<>("讲述:第一次给奇葩相亲女发好人卡", "http://tieba.baidu.com/p/3871991340"));
     }
 
-    public static RemindRecommendMessage ayC() {
+    public static RemindRecommendMessage ayM() {
         int i = 0;
         String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_index";
         int loadInt = TbadkSettings.getInst().loadInt(str, 0);
-        if (dda == null || dda.size() < 1) {
+        if (ddA == null || ddA.size() < 1) {
             return null;
         }
-        int i2 = (loadInt < 0 || loadInt >= dda.size()) ? 0 : loadInt;
+        int i2 = (loadInt < 0 || loadInt >= ddA.size()) ? 0 : loadInt;
         RemindRecommendMessage remindRecommendMessage = new RemindRecommendMessage();
-        Pair<String, String> pair = dda.get(Integer.valueOf(i2));
+        Pair<String, String> pair = ddA.get(Integer.valueOf(i2));
         if (pair != null) {
             remindRecommendMessage.title = (String) pair.first;
             remindRecommendMessage.url = (String) pair.second;
@@ -43,7 +43,7 @@ public class a {
             remindRecommendMessage.name = TbadkCoreApplication.m411getInst().getString(i.h.remind_recommend_default);
             remindRecommendMessage.isLocal = true;
             int i3 = i2 + 1;
-            if (i3 >= 0 && i3 < dda.size()) {
+            if (i3 >= 0 && i3 < ddA.size()) {
                 i = i3;
             }
             TbadkSettings.getInst().saveInt(str, i);
@@ -51,11 +51,11 @@ public class a {
         return remindRecommendMessage;
     }
 
-    public static boolean aqC() {
+    public static boolean aqI() {
         return TbadkSettings.getInst().loadInt(new StringBuilder(String.valueOf(TbadkCoreApplication.getCurrentAccount())).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage lL(String str) {
+    public static RemindRecommendMessage lO(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -89,7 +89,7 @@ public class a {
         }
     }
 
-    public static long ayD() {
+    public static long ayN() {
         int i;
         int i2;
         int i3;

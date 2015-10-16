@@ -10,21 +10,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ah {
-    private ViewEventCenter aLB;
-    private SoftReference<ad> aNC;
-    private int aND;
-    private List<com.baidu.tieba.enterForum.b.f> aNx = new ArrayList();
+    private ViewEventCenter aLM;
+    private List<com.baidu.tieba.enterForum.b.f> aNI = new ArrayList();
+    private SoftReference<ad> aNN;
+    private int aNO;
 
     public ah(ViewEventCenter viewEventCenter) {
-        this.aLB = viewEventCenter;
+        this.aLM = viewEventCenter;
     }
 
     public void a(Context context, List<com.baidu.tieba.enterForum.b.f> list, TbPageContext<BaseFragmentActivity> tbPageContext) {
         int i;
         ad adVar;
-        this.aNx.clear();
+        this.aNI.clear();
         if (list != null) {
-            this.aNx.addAll(list);
+            this.aNI.addAll(list);
         }
         if (TbadkCoreApplication.isLogin()) {
             i = 3;
@@ -32,28 +32,28 @@ public class ah {
             i = 4;
         }
         boolean z = false;
-        if (this.aNx.size() > i) {
+        if (this.aNI.size() > i) {
             z = true;
         }
-        if (this.aNC != null && this.aNC.get() != null) {
-            adVar = this.aNC.get();
+        if (this.aNN != null && this.aNN.get() != null) {
+            adVar = this.aNN.get();
         } else if (context != null) {
             adVar = new ad(context);
-            this.aNC = new SoftReference<>(adVar);
-            adVar.setEventCenter(this.aLB);
+            this.aNN = new SoftReference<>(adVar);
+            adVar.setEventCenter(this.aLM);
         } else {
             return;
         }
         if (adVar != null && tbPageContext != null) {
-            this.aND -= adVar.getItemViewCount();
+            this.aNO -= adVar.getItemViewCount();
             adVar.a(Jh(), tbPageContext);
             adVar.setChangeViewVisibility(z);
         }
     }
 
     public void g(TbPageContext<BaseFragmentActivity> tbPageContext) {
-        if (this.aNC != null && this.aNC.get() != null && tbPageContext != null) {
-            this.aNC.get().a(Jh(), tbPageContext);
+        if (this.aNN != null && this.aNN.get() != null && tbPageContext != null) {
+            this.aNN.get().a(Jh(), tbPageContext);
         }
     }
 
@@ -65,24 +65,24 @@ public class ah {
             i = 4;
         }
         ArrayList arrayList = new ArrayList();
-        if (this.aND < 0 || this.aND >= this.aNx.size()) {
-            this.aND = 0;
+        if (this.aNO < 0 || this.aNO >= this.aNI.size()) {
+            this.aNO = 0;
         }
-        int i2 = this.aND;
-        int size = this.aNx.size();
+        int i2 = this.aNO;
+        int size = this.aNI.size();
         for (int i3 = i2; i3 < size; i3++) {
-            if (this.aNx.get(i3) != null && arrayList.size() < i) {
-                arrayList.add(this.aNx.get(i3));
-                this.aND++;
+            if (this.aNI.get(i3) != null && arrayList.size() < i) {
+                arrayList.add(this.aNI.get(i3));
+                this.aNO++;
             }
         }
         return arrayList;
     }
 
     public ad Ji() {
-        if (this.aNC == null) {
+        if (this.aNN == null) {
             return null;
         }
-        return this.aNC.get();
+        return this.aNN.get();
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.payment;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class m implements a.b {
-    final /* synthetic */ PaymentConfirmActivity cdS;
+    final /* synthetic */ PaymentConfirmActivity ced;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(PaymentConfirmActivity paymentConfirmActivity) {
-        this.cdS = paymentConfirmActivity;
+        this.ced = paymentConfirmActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

@@ -8,33 +8,33 @@ import java.util.List;
 import tbclient.Hottopic.RelateForum;
 /* loaded from: classes.dex */
 public class g implements u {
-    public static final BdUniqueId bpe = BdUniqueId.gen();
-    public List<RelateForumItemData> bpf = null;
-    public boolean bpg = true;
-    public boolean bph = false;
+    public static final BdUniqueId bpp = BdUniqueId.gen();
+    public List<RelateForumItemData> bpq = null;
+    public boolean bpr = true;
+    public boolean bps = false;
 
     @Override // com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return bpe;
+        return bpp;
     }
 
     public void aA(List<RelateForum> list) {
         if (list != null && list.size() != 0) {
-            this.bpf = new ArrayList();
+            this.bpq = new ArrayList();
             for (RelateForum relateForum : list) {
                 if (!StringUtils.isNull(relateForum.forum_name)) {
                     RelateForumItemData relateForumItemData = new RelateForumItemData();
                     relateForumItemData.parserProtobuf(relateForum);
-                    this.bpf.add(relateForumItemData);
+                    this.bpq.add(relateForumItemData);
                 }
             }
         }
     }
 
     public int getCount() {
-        if (this.bpf == null || this.bpf.size() == 0) {
+        if (this.bpq == null || this.bpq.size() == 0) {
             return 0;
         }
-        return this.bpf.size();
+        return this.bpq.size();
     }
 }

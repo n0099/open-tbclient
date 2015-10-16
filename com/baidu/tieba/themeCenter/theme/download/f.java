@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ d dgP;
+    final /* synthetic */ d dhp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar, int i) {
         super(i);
-        this.dgP = dVar;
+        this.dhp = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,28 +33,28 @@ public class f extends CustomMessageListener {
         List list2;
         ArrayList arrayList5;
         if (customResponsedMessage != null) {
-            arrayList = this.dgP.dgM;
+            arrayList = this.dhp.dhm;
             if (arrayList == null) {
-                this.dgP.dgM = new ArrayList();
+                this.dhp.dhm = new ArrayList();
             }
-            arrayList2 = this.dgP.dgM;
+            arrayList2 = this.dhp.dhm;
             arrayList2.clear();
-            arrayList3 = this.dgP.dgM;
-            bVar = this.dgP.dgL;
+            arrayList3 = this.dhp.dhm;
+            bVar = this.dhp.dhl;
             arrayList3.add(bVar);
-            arrayList4 = this.dgP.dgM;
-            bVar2 = this.dgP.dgd;
+            arrayList4 = this.dhp.dhm;
+            bVar2 = this.dhp.dgD;
             arrayList4.add(bVar2);
             if (customResponsedMessage.getData() != null && (list2 = (List) customResponsedMessage.getData()) != null) {
-                arrayList5 = this.dgP.dgM;
+                arrayList5 = this.dhp.dhm;
                 arrayList5.addAll(list2);
             }
-            this.dgP.azs();
-            aVar = this.dgP.dgN;
+            this.dhp.azC();
+            aVar = this.dhp.dhn;
             if (aVar != null) {
-                aVar2 = this.dgP.dgN;
-                z = this.dgP.dgO;
-                list = this.dgP.mThemeList;
+                aVar2 = this.dhp.dhn;
+                z = this.dhp.dho;
+                list = this.dhp.mThemeList;
                 aVar2.a(z, list);
             }
         }

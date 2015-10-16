@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends HttpMessageListener {
-    final /* synthetic */ d cmc;
+    final /* synthetic */ d cmo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i) {
         super(i);
-        this.cmc = dVar;
+        this.cmo = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,10 +39,10 @@ public class e extends HttpMessageListener {
         int i7;
         List list3;
         if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1001400) {
-            aVar = this.cmc.cma;
+            aVar = this.cmo.cmm;
             if (aVar != null) {
-                aVar2 = this.cmc.cma;
-                aVar2.bG(null);
+                aVar2 = this.cmo.cmm;
+                aVar2.bH(null);
                 return;
             }
             return;
@@ -50,20 +50,20 @@ public class e extends HttpMessageListener {
         int statusCode = httpResponsedMessage.getStatusCode();
         int error = httpResponsedMessage.getError();
         if (statusCode != 200 || error != 0 || !(httpResponsedMessage instanceof PraiseListResponsedMessage)) {
-            aVar3 = this.cmc.cma;
+            aVar3 = this.cmo.cmm;
             if (aVar3 != null) {
-                aVar4 = this.cmc.cma;
-                aVar4.bG(null);
+                aVar4 = this.cmo.cmm;
+                aVar4.bH(null);
                 return;
             }
             return;
         }
         PraiseListResponsedMessage praiseListResponsedMessage = (PraiseListResponsedMessage) httpResponsedMessage;
         if (praiseListResponsedMessage.getError() != 0) {
-            aVar5 = this.cmc.cma;
+            aVar5 = this.cmo.cmm;
             if (aVar5 != null) {
-                aVar6 = this.cmc.cma;
-                aVar6.bG(praiseListResponsedMessage.getErrMsg());
+                aVar6 = this.cmo.cmm;
+                aVar6.bH(praiseListResponsedMessage.getErrMsg());
                 return;
             }
             return;
@@ -71,34 +71,34 @@ public class e extends HttpMessageListener {
         List<a> list4 = praiseListResponsedMessage.getmZanItemDataList();
         if (list4 != null) {
             for (a aVar9 : list4) {
-                list3 = this.cmc.clZ;
+                list3 = this.cmo.cml;
                 list3.add(aVar9);
             }
         }
-        d dVar = this.cmc;
-        list = this.cmc.clZ;
-        dVar.clY = list.size();
-        this.cmc.clX = praiseListResponsedMessage.getTotalNum();
-        d dVar2 = this.cmc;
-        i = dVar2.clW;
-        dVar2.clW = i + 1;
+        d dVar = this.cmo;
+        list = this.cmo.cml;
+        dVar.cmk = list.size();
+        this.cmo.cmj = praiseListResponsedMessage.getTotalNum();
+        d dVar2 = this.cmo;
+        i = dVar2.cmi;
+        dVar2.cmi = i + 1;
         int i8 = BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES;
-        i2 = this.cmc.clW;
+        i2 = this.cmo.cmi;
         if (i2 > 5) {
             i8 = 1003;
         }
-        i3 = this.cmc.clY;
-        i4 = this.cmc.clX;
+        i3 = this.cmo.cmk;
+        i4 = this.cmo.cmj;
         if (i3 >= i4) {
             i8 = BDLocationStatusCodes.GEOFENCE_SERVICE_NO_ALIVIABLE;
         }
-        aVar7 = this.cmc.cma;
+        aVar7 = this.cmo.cmm;
         if (aVar7 != null) {
-            aVar8 = this.cmc.cma;
-            i5 = this.cmc.clX;
-            list2 = this.cmc.clZ;
-            i6 = this.cmc.clX;
-            i7 = this.cmc.clY;
+            aVar8 = this.cmo.cmm;
+            i5 = this.cmo.cmj;
+            list2 = this.cmo.cml;
+            i6 = this.cmo.cmj;
+            i7 = this.cmo.cmk;
             aVar8.a(i5, list2, i8, i6 - i7);
         }
     }

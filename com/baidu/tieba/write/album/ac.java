@@ -12,7 +12,7 @@ import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
@@ -23,17 +23,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.a {
-    private TextView LM;
-    private RelativeLayout ccc;
-    private boolean chK;
-    private View cuB;
-    private l djp;
-    private AlbumActivity djw;
-    private e dkJ;
-    private View dkK;
-    private View dkL;
-    private com.baidu.tieba.write.view.a dkM;
-    private x dkN;
+    private TextView LN;
+    private RelativeLayout ccn;
+    private boolean chV;
+    private View cuM;
+    private l djP;
+    private AlbumActivity djW;
+    private e dlj;
+    private View dlk;
+    private View dll;
+    private com.baidu.tieba.write.view.a dlm;
+    private x dln;
     private GridView mGridView;
     private NavigationBar mNavigationBar;
     private com.baidu.tbadk.core.view.m mNoDataView;
@@ -42,38 +42,38 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.djw = (AlbumActivity) getBaseFragmentActivity();
-        this.djp = this.djw.aAU();
-        m.aBp().a(this);
-        this.dkJ = new e(this.djw.getPageContext().getPageActivity());
-        this.dkM = new com.baidu.tieba.write.view.a(this.djw);
-        this.djp.mj("-1");
+        this.djW = (AlbumActivity) getBaseFragmentActivity();
+        this.djP = this.djW.aBe();
+        m.aBz().a(this);
+        this.dlj = new e(this.djW.getPageContext().getPageActivity());
+        this.dlm = new com.baidu.tieba.write.view.a(this.djW);
+        this.djP.mm("-1");
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mView = layoutInflater.inflate(i.g.album_image_list_view, (ViewGroup) null);
-        this.ccc = (RelativeLayout) this.mView.findViewById(i.f.album_image_list_root);
+        this.ccn = (RelativeLayout) this.mView.findViewById(i.f.album_image_list_root);
         this.mNavigationBar = (NavigationBar) this.mView.findViewById(i.f.view_navigation_bar);
-        this.cuB = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.djw);
-        this.dkL = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, i.g.album_iamge_title_layout, (View.OnClickListener) null);
-        this.LM = (TextView) this.dkL.findViewById(i.f.navigationTitle_frs);
+        this.cuM = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.djW);
+        this.dll = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, i.g.album_iamge_title_layout, (View.OnClickListener) null);
+        this.LN = (TextView) this.dll.findViewById(i.f.navigationTitle_frs);
         this.mGridView = (GridView) this.mView.findViewById(i.f.gv_image_list);
-        this.dkK = this.mView.findViewById(i.f.gv_foot);
-        this.dkN = new x(this.djw, this.djp);
-        this.mGridView.setAdapter((ListAdapter) this.dkN);
+        this.dlk = this.mView.findViewById(i.f.gv_foot);
+        this.dln = new x(this.djW, this.djP);
+        this.mGridView.setAdapter((ListAdapter) this.dln);
         this.mGridView.setOnScrollListener(this);
         ad adVar = new ad(this);
         ae aeVar = new ae(this);
         af afVar = new af(this);
         ag agVar = new ag(this);
         ah ahVar = new ah(this);
-        this.dkL.setOnClickListener(agVar);
-        this.dkM.a(ahVar);
-        this.dkN.a(adVar);
-        this.dkN.a(aeVar);
-        this.dkN.a(afVar);
-        this.mNoDataView = NoDataViewFactory.a(this.djw.getPageContext().getPageActivity(), this.ccc, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.C(i.h.album_list_no_data, i.h.album_list_no_data_1), null);
+        this.dll.setOnClickListener(agVar);
+        this.dlm.a(ahVar);
+        this.dln.a(adVar);
+        this.dln.a(aeVar);
+        this.dln.a(afVar);
+        this.mNoDataView = NoDataViewFactory.a(this.djW.getPageContext().getPageActivity(), this.ccn, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.C(i.h.album_list_no_data, i.h.album_list_no_data_1), null);
         return this.mView;
     }
 
@@ -85,23 +85,23 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        this.chK = false;
+        this.chV = false;
         if (isShow()) {
-            aBe();
+            aBo();
         }
     }
 
-    private void aBd() {
-        if (this.djp == null && this.djw != null) {
-            this.djp = this.djw.aAU();
+    private void aBn() {
+        if (this.djP == null && this.djW != null) {
+            this.djP = this.djW.aBe();
         }
-        if (this.djp != null && this.djp.aBm() == null) {
-            setData(aBv(), true);
-            ml("-1");
+        if (this.djP != null && this.djP.aBw() == null) {
+            setData(aBF(), true);
+            mo("-1");
         }
     }
 
-    private List<ImageFileInfo> aBv() {
+    private List<ImageFileInfo> aBF() {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 20; i++) {
             arrayList.add(new ImageFileInfo());
@@ -112,27 +112,27 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
         return arrayList;
     }
 
-    private void ml(String str) {
+    private void mo(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.dkJ.a(str, new ai(this, str));
+            this.dlj.a(str, new ai(this, str));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aBw() {
-        this.dkJ.a(new aj(this));
+    public void aBG() {
+        this.dlj.a(new aj(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setData(List<ImageFileInfo> list, boolean z) {
-        if (this.dkN != null) {
-            this.djp.bF(list);
-            this.dkN.setData(list, z);
+        if (this.dln != null) {
+            this.djP.bG(list);
+            this.dln.setData(list, z);
             if (list != null) {
                 if (list.size() <= 15) {
-                    this.dkK.setVisibility(0);
+                    this.dlk.setVisibility(0);
                 } else {
-                    this.dkK.setVisibility(8);
+                    this.dlk.setVisibility(8);
                 }
             }
         }
@@ -141,25 +141,25 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.djw.getLayoutMode().ad(i == 1);
-        this.djw.getLayoutMode().k(this.mView);
-        this.mNavigationBar.onChangeSkinType(this.djw.getPageContext(), i);
+        this.djW.getLayoutMode().ad(i == 1);
+        this.djW.getLayoutMode().k(this.mView);
+        this.mNavigationBar.onChangeSkinType(this.djW.getPageContext(), i);
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(getPageContext(), i);
         }
     }
 
     public View akd() {
-        return this.cuB;
+        return this.cuM;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.dkJ != null) {
-            this.dkJ.aBg();
+        if (this.dlj != null) {
+            this.dlj.aBq();
         }
-        m.aBp().b(this);
+        m.aBz().b(this);
     }
 
     public void v(int i, boolean z) {
@@ -172,9 +172,9 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
                     childAt.invalidate();
                     ImageView imageView = (ImageView) childAt.findViewById(i.f.select_icon);
                     if (z) {
-                        am.i(imageView, i.e.btn_choose_photo_s);
+                        an.i(imageView, i.e.btn_choose_photo_s);
                     } else {
-                        am.i(imageView, i.e.btn_choose_photo_n);
+                        an.i(imageView, i.e.btn_choose_photo_n);
                     }
                 }
             }
@@ -182,15 +182,15 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
     }
 
     public void f(ImageFileInfo imageFileInfo, boolean z) {
-        if (imageFileInfo != null && this.dkN != null) {
-            v(this.dkN.h(imageFileInfo), z);
+        if (imageFileInfo != null && this.dln != null) {
+            v(this.dln.h(imageFileInfo), z);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.chK = true;
+        this.chV = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -200,12 +200,12 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
 
     @Override // com.baidu.tieba.write.album.m.a
     public void gS(boolean z) {
-        aBe();
+        aBo();
     }
 
-    private void aBe() {
-        if (!isHidden() && !this.chK) {
-            aBd();
+    private void aBo() {
+        if (!isHidden() && !this.chV) {
+            aBn();
         }
     }
 
@@ -213,11 +213,11 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         super.onScroll(absListView, i, i2, i3);
         if (aL(((i + i2) - 1) + 1, 3) == aL(i3, 3)) {
-            if (this.dkK.getVisibility() != 0) {
-                this.dkK.setVisibility(0);
+            if (this.dlk.getVisibility() != 0) {
+                this.dlk.setVisibility(0);
             }
-        } else if (this.dkK.getVisibility() == 0) {
-            this.dkK.setVisibility(8);
+        } else if (this.dlk.getVisibility() == 0) {
+            this.dlk.setVisibility(8);
         }
     }
 
@@ -229,32 +229,32 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
     public void onScrollStateChanged(AbsListView absListView, int i) {
         super.onScrollStateChanged(absListView, i);
         if (i == 2) {
-            this.dkN.gU(true);
-        } else if (this.dkN.isScroll()) {
-            this.dkN.gU(false);
-            aBx();
+            this.dln.gU(true);
+        } else if (this.dln.isScroll()) {
+            this.dln.gU(false);
+            aBH();
         }
     }
 
-    private void aBx() {
+    private void aBH() {
         int childCount = this.mGridView.getChildCount();
         int firstVisiblePosition = this.mGridView.getFirstVisiblePosition();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.mGridView.getChildAt(i);
             if (childAt != null) {
                 HeadImageView headImageView = (HeadImageView) childAt.findViewById(i.f.pic);
-                ImageFileInfo item = this.dkN.getItem(firstVisiblePosition + i);
+                ImageFileInfo item = this.dln.getItem(firstVisiblePosition + i);
                 if (item != null && headImageView != null) {
                     headImageView.setTag(item.toCachedKey(false));
-                    this.djw.aAV().a(item, new ak(this), false, false);
+                    this.djW.aBf().a(item, new ak(this), false, false);
                 }
             }
         }
     }
 
     public void refresh() {
-        if (this.dkN != null) {
-            this.dkN.notifyDataSetChanged();
+        if (this.dln != null) {
+            this.dln.notifyDataSetChanged();
         }
     }
 }

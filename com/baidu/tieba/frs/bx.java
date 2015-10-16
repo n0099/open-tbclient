@@ -5,25 +5,25 @@ import com.baidu.tieba.tbadkCore.aa;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bx implements aa.a {
-    final /* synthetic */ bs aWS;
+    final /* synthetic */ bs aXd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bx(bs bsVar) {
-        this.aWS = bsVar;
+        this.aXd = bsVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.aa.a
     public void Mi() {
-        this.aWS.aUU.Lg();
+        this.aXd.aVf.Lg();
     }
 
     @Override // com.baidu.tieba.tbadkCore.aa.a
     public void Mj() {
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
-        bdTypeListView = this.aWS.aWs;
+        bdTypeListView = this.aXd.aWD;
         if (bdTypeListView != null) {
-            bdTypeListView2 = this.aWS.aWs;
+            bdTypeListView2 = this.aXd.aWD;
             bdTypeListView2.setSelection(0);
         }
     }

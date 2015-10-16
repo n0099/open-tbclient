@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d bTY;
+    final /* synthetic */ d bUj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i, int i2) {
         super(i, i2);
-        this.bTY = dVar;
+        this.bUj = dVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -35,43 +35,43 @@ public class e extends com.baidu.adp.framework.listener.a {
         d.a aVar6;
         SquareSearchActivity squareSearchActivity3;
         if (!(responsedMessage instanceof HotForumSocketResponseMessage) && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-            aVar6 = this.bTY.bTW;
-            squareSearchActivity3 = this.bTY.bTV;
+            aVar6 = this.bUj.bUh;
+            squareSearchActivity3 = this.bUj.bUg;
             aVar6.iU(squareSearchActivity3.getPageContext().getString(i.h.neterror));
         } else if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
-            aVar = this.bTY.bTW;
-            squareSearchActivity = this.bTY.bTV;
+            aVar = this.bUj.bUh;
+            squareSearchActivity = this.bUj.bUg;
             aVar.iU(squareSearchActivity.getPageContext().getString(i.h.neterror));
         } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
             if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                aVar3 = this.bTY.bTW;
+                aVar3 = this.bUj.bUh;
                 aVar3.iU(responsedMessage.getErrorString());
                 return;
             }
-            aVar2 = this.bTY.bTW;
-            squareSearchActivity2 = this.bTY.bTV;
+            aVar2 = this.bUj.bUh;
+            squareSearchActivity2 = this.bUj.bUg;
             aVar2.iU(squareSearchActivity2.getPageContext().getString(i.h.neterror));
         } else {
             if (responsedMessage instanceof HotForumHttpResponseMessage) {
                 HotForumHttpResponseMessage hotForumHttpResponseMessage = (HotForumHttpResponseMessage) responsedMessage;
-                this.bTY.bTX = hotForumHttpResponseMessage.getForumInfoList();
-                this.bTY.mTopicInfoList = hotForumHttpResponseMessage.getTopicInfoList();
-                this.bTY.mHotSearchInfo = hotForumHttpResponseMessage.getHotSearchInfo();
-                aVar5 = this.bTY.bTW;
-                list3 = this.bTY.bTX;
-                list4 = this.bTY.mTopicInfoList;
-                fVar2 = this.bTY.mHotSearchInfo;
+                this.bUj.bUi = hotForumHttpResponseMessage.getForumInfoList();
+                this.bUj.mTopicInfoList = hotForumHttpResponseMessage.getTopicInfoList();
+                this.bUj.mHotSearchInfo = hotForumHttpResponseMessage.getHotSearchInfo();
+                aVar5 = this.bUj.bUh;
+                list3 = this.bUj.bUi;
+                list4 = this.bUj.mTopicInfoList;
+                fVar2 = this.bUj.mHotSearchInfo;
                 aVar5.a(list3, list4, fVar2);
             }
             if (responsedMessage instanceof HotForumSocketResponseMessage) {
                 HotForumSocketResponseMessage hotForumSocketResponseMessage = (HotForumSocketResponseMessage) responsedMessage;
-                this.bTY.bTX = hotForumSocketResponseMessage.getForumInfoList();
-                this.bTY.mTopicInfoList = hotForumSocketResponseMessage.getTopicInfoList();
-                this.bTY.mHotSearchInfo = hotForumSocketResponseMessage.getSearchInfo();
-                aVar4 = this.bTY.bTW;
-                list = this.bTY.bTX;
-                list2 = this.bTY.mTopicInfoList;
-                fVar = this.bTY.mHotSearchInfo;
+                this.bUj.bUi = hotForumSocketResponseMessage.getForumInfoList();
+                this.bUj.mTopicInfoList = hotForumSocketResponseMessage.getTopicInfoList();
+                this.bUj.mHotSearchInfo = hotForumSocketResponseMessage.getSearchInfo();
+                aVar4 = this.bUj.bUh;
+                list = this.bUj.bUi;
+                list2 = this.bUj.mTopicInfoList;
+                fVar = this.bUj.mHotSearchInfo;
                 aVar4.a(list, list2, fVar);
             }
         }

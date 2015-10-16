@@ -7,11 +7,11 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r extends com.baidu.adp.base.g {
-    final /* synthetic */ d aLL;
+    final /* synthetic */ d aLW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(d dVar) {
-        this.aLL = dVar;
+        this.aLW = dVar;
     }
 
     @Override // com.baidu.adp.base.g
@@ -22,20 +22,20 @@ public class r extends com.baidu.adp.base.g {
         com.baidu.tieba.enterForum.c.c cVar;
         String str;
         com.baidu.tieba.tbadkCore.w wVar4;
-        wVar = this.aLL.LS;
-        if (AntiHelper.la(wVar.getErrorCode())) {
-            Activity pageActivity = this.aLL.getPageContext().getPageActivity();
-            wVar4 = this.aLL.LS;
+        wVar = this.aLW.LT;
+        if (AntiHelper.lc(wVar.getErrorCode())) {
+            Activity pageActivity = this.aLW.getPageContext().getPageActivity();
+            wVar4 = this.aLW.LT;
             AntiHelper.P(pageActivity, wVar4.getErrorString());
         } else if (obj != null) {
-            cVar = this.aLL.aLv;
-            str = this.aLL.aLx;
+            cVar = this.aLW.aLG;
+            str = this.aLW.aLI;
             cVar.bN(!StringUtils.isNull(str));
         } else {
-            wVar2 = this.aLL.LS;
+            wVar2 = this.aLW.LT;
             if (!StringUtils.isNull(wVar2.getErrorString())) {
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                wVar3 = this.aLL.LS;
+                wVar3 = this.aLW.LT;
                 com.baidu.adp.lib.util.k.showToast(m411getInst, wVar3.getErrorString());
             }
         }

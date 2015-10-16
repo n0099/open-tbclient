@@ -10,19 +10,19 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class i {
-    private static i bwO;
+    private static i bwZ;
 
     public static synchronized i TO() {
         i iVar;
         synchronized (i.class) {
-            if (bwO == null) {
+            if (bwZ == null) {
                 synchronized (i.class) {
-                    if (bwO == null) {
-                        bwO = new i();
+                    if (bwZ == null) {
+                        bwZ = new i();
                     }
                 }
             }
-            iVar = bwO;
+            iVar = bwZ;
         }
         return iVar;
     }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c agG;
+    private static c agH;
 
     private c() {
     }
@@ -23,10 +23,10 @@ public class c {
     public static synchronized c wI() {
         c cVar;
         synchronized (c.class) {
-            if (agG == null) {
-                agG = new c();
+            if (agH == null) {
+                agH = new c();
             }
-            cVar = agG;
+            cVar = agH;
         }
         return cVar;
     }

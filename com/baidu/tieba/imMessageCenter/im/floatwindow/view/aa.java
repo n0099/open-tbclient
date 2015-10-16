@@ -3,19 +3,19 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 class aa extends com.baidu.tbadk.util.l<Void> {
-    final /* synthetic */ z bMn;
-    private final /* synthetic */ LinkedList btq;
+    final /* synthetic */ z bMy;
+    private final /* synthetic */ LinkedList btB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(z zVar, LinkedList linkedList) {
-        this.bMn = zVar;
-        this.btq = linkedList;
+        this.bMy = zVar;
+        this.btB = linkedList;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.l
     /* renamed from: Gl */
     public Void doInBackground() {
-        return com.baidu.tieba.im.db.l.TU().k(this.btq);
+        return com.baidu.tieba.im.db.l.TU().k(this.btB);
     }
 }

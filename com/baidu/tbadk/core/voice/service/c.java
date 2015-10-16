@@ -10,15 +10,15 @@ import java.io.File;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class c {
-    private w afg;
-    private a afh;
-    private com.baidu.tbadk.coreExtra.data.c afi;
-    private String afj;
+    private w afh;
+    private a afi;
+    private com.baidu.tbadk.coreExtra.data.c afj;
     private String afk;
+    private String afl;
 
     public c(String str, String str2) {
-        this.afj = str;
-        this.afk = str2;
+        this.afk = str;
+        this.afl = str2;
     }
 
     public com.baidu.tbadk.coreExtra.data.c dI(String str) {
@@ -27,7 +27,7 @@ public class c {
             if (file == null || !file.exists()) {
                 return null;
             }
-            this.afg = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + this.afj);
+            this.afh = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + this.afk);
             return b(str, file);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -41,43 +41,43 @@ public class c {
         if (e != null && e.length() > 0) {
             e = e.toLowerCase();
         }
-        com.baidu.tbadk.coreExtra.data.b cE = com.baidu.tbadk.core.util.e.cE(e);
-        if (cE == null) {
-            cE = new com.baidu.tbadk.coreExtra.data.b();
-            cE.dL(e);
-            cE.cU(0);
-            cE.A(file.length());
+        com.baidu.tbadk.coreExtra.data.b cF = com.baidu.tbadk.core.util.e.cF(e);
+        if (cF == null) {
+            cF = new com.baidu.tbadk.coreExtra.data.b();
+            cF.dL(e);
+            cF.cU(0);
+            cF.A(file.length());
         }
-        this.afh = new a(str, cE, String.valueOf(TbConfig.SERVER_ADDRESS) + this.afj, e);
-        this.afi = this.afh.vP();
-        if (this.afi.isSuccess() && (a2 = a(e, cE)) != null && !a2.equals("")) {
+        this.afi = new a(str, cF, String.valueOf(TbConfig.SERVER_ADDRESS) + this.afk, e);
+        this.afj = this.afi.vP();
+        if (this.afj.isSuccess() && (a2 = a(e, cF)) != null && !a2.equals("")) {
             AudioInfoData audioInfoData = new AudioInfoData();
             audioInfoData.parserJson(a2);
             if (audioInfoData.getErrorCode() <= 0 && audioInfoData.getVoiceId() != null) {
-                cE.dL(audioInfoData.getVoiceId());
-                this.afi.b(cE);
+                cF.dL(audioInfoData.getVoiceId());
+                this.afj.b(cF);
             } else {
-                this.afi.setErrorCode(audioInfoData.getErrorCode());
-                this.afi.setErrorString(audioInfoData.getErrorUserMsg());
-                this.afi.ap(false);
+                this.afj.setErrorCode(audioInfoData.getErrorCode());
+                this.afj.setErrorString(audioInfoData.getErrorUserMsg());
+                this.afj.ap(false);
             }
         }
-        return this.afi;
+        return this.afj;
     }
 
     private String a(String str, com.baidu.tbadk.coreExtra.data.b bVar) {
-        this.afg = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + this.afk);
-        this.afg.o("voice_md5", bVar.wf());
-        String tG = this.afg.tG();
-        if (tG == null || !this.afg.uh().uY().qV()) {
+        this.afh = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + this.afl);
+        this.afh.o("voice_md5", bVar.wf());
+        String tG = this.afh.tG();
+        if (tG == null || !this.afh.uh().uZ().qV()) {
             bVar.cU((int) z(bVar.getTotalLength()));
             com.baidu.tbadk.core.util.e.a(bVar);
-            this.afi.setErrorCode(this.afg.ul());
-            this.afi.setErrorString(this.afg.getErrorString());
-            this.afi.ap(false);
+            this.afj.setErrorCode(this.afh.ul());
+            this.afj.setErrorString(this.afh.getErrorString());
+            this.afj.ap(false);
             return null;
         }
-        com.baidu.tbadk.core.util.e.cD(str);
+        com.baidu.tbadk.core.util.e.cE(str);
         return tG;
     }
 
@@ -88,9 +88,9 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        private w Th;
-        private com.baidu.tbadk.coreExtra.data.b afl;
-        private boolean afm = false;
+        private w Ti;
+        private com.baidu.tbadk.coreExtra.data.b afm;
+        private boolean afn = false;
         private String mFileName;
         private String mUrl;
         private String mVoiceMd5;
@@ -98,19 +98,19 @@ public class c {
         public a(String str, com.baidu.tbadk.coreExtra.data.b bVar, String str2, String str3) {
             this.mFileName = null;
             this.mUrl = null;
-            this.afl = null;
+            this.afm = null;
             this.mVoiceMd5 = null;
             this.mFileName = str;
-            this.afl = bVar;
+            this.afm = bVar;
             this.mUrl = str2;
             this.mVoiceMd5 = str3;
         }
 
         public com.baidu.tbadk.coreExtra.data.c vP() {
             com.baidu.tbadk.coreExtra.data.c cVar = new com.baidu.tbadk.coreExtra.data.c();
-            long totalLength = this.afl.getTotalLength();
+            long totalLength = this.afm.getTotalLength();
             long j = totalLength % 30720 == 0 ? totalLength / 30720 : (totalLength / 30720) + 1;
-            int wg = this.afl.wg();
+            int wg = this.afm.wg();
             if (wg < j) {
                 RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.mFileName), "r");
                 if (randomAccessFile.skipBytes(wg * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) < wg * TbConfig.VOICE_CHUNK_UPLOAD_SIZE) {
@@ -128,28 +128,28 @@ public class c {
                         byte[] bArr = new byte[i2];
                         int read = randomAccessFile.read(bArr, 0, i2);
                         if (read != -1) {
-                            this.Th = new w(this.mUrl);
-                            this.Th.d("voice_chunk", bArr);
-                            this.Th.o("chunk_md5", this.afl.wf());
-                            this.Th.o("length", String.valueOf(read));
-                            this.Th.o("offset", String.valueOf(i * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
-                            this.Th.o("total_length", String.valueOf(totalLength));
-                            this.Th.o("chunk_no", String.valueOf(i + 1));
-                            this.Th.o("total_num", String.valueOf(j));
-                            this.Th.o("voice_md5", this.mVoiceMd5);
+                            this.Ti = new w(this.mUrl);
+                            this.Ti.d("voice_chunk", bArr);
+                            this.Ti.o("chunk_md5", this.afm.wf());
+                            this.Ti.o("length", String.valueOf(read));
+                            this.Ti.o("offset", String.valueOf(i * TbConfig.VOICE_CHUNK_UPLOAD_SIZE));
+                            this.Ti.o("total_length", String.valueOf(totalLength));
+                            this.Ti.o("chunk_no", String.valueOf(i + 1));
+                            this.Ti.o("total_num", String.valueOf(j));
+                            this.Ti.o("voice_md5", this.mVoiceMd5);
                             boolean z = false;
-                            if (this.afm) {
+                            if (this.afn) {
                                 z = true;
-                            } else if (this.Th.tJ() == null || !this.Th.uh().uY().qV()) {
-                                this.afl.cU(i);
-                                com.baidu.tbadk.core.util.e.a(this.afl);
+                            } else if (this.Ti.tJ() == null || !this.Ti.uh().uZ().qV()) {
+                                this.afm.cU(i);
+                                com.baidu.tbadk.core.util.e.a(this.afm);
                                 randomAccessFile.close();
                                 z = true;
                             }
                             if (z) {
-                                cVar.setErrorCode(this.Th.ul());
-                                cVar.setErrorString(this.Th.getErrorString());
-                                cVar.b(this.afl);
+                                cVar.setErrorCode(this.Ti.ul());
+                                cVar.setErrorString(this.Ti.getErrorString());
+                                cVar.b(this.afm);
                                 cVar.ap(false);
                                 return cVar;
                             }

@@ -4,17 +4,17 @@ import android.net.Uri;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ b Ym;
-    private final /* synthetic */ Uri Yn;
+    final /* synthetic */ b Yo;
+    private final /* synthetic */ Uri Yp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar, Uri uri) {
-        this.Ym = bVar;
-        this.Yn = uri;
+        this.Yo = bVar;
+        this.Yp = uri;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.Ym.d(this.Yn);
+        this.Yo.d(this.Yp);
     }
 }

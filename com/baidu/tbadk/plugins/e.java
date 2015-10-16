@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.util.w;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends BdAsyncTask<Void, Void, Void> {
-    private final /* synthetic */ String ayL;
-    private final /* synthetic */ String ayM;
-    private final /* synthetic */ String ayN;
-    private final /* synthetic */ String ayO;
+    private final /* synthetic */ String ayW;
+    private final /* synthetic */ String ayX;
+    private final /* synthetic */ String ayY;
+    private final /* synthetic */ String ayZ;
     private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(String str, String str2, String str3, String str4, String str5) {
-        this.ayL = str;
-        this.ayM = str2;
-        this.ayN = str3;
+        this.ayW = str;
+        this.ayX = str2;
+        this.ayY = str3;
         this.val$url = str4;
-        this.ayO = str5;
+        this.ayZ = str5;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,7 +28,7 @@ public class e extends BdAsyncTask<Void, Void, Void> {
         w wVar = new w(XiaoyingUtil.URL_EVENT_REPORT);
         wVar.o("from", "BaiduTieba");
         wVar.o("eventid", "XYTiebaShare");
-        buildEventJSON = XiaoyingUtil.buildEventJSON(this.ayL, this.ayM, this.ayN, this.val$url, this.ayO);
+        buildEventJSON = XiaoyingUtil.buildEventJSON(this.ayW, this.ayX, this.ayY, this.val$url, this.ayZ);
         wVar.o("userjson", buildEventJSON);
         wVar.tG();
         return null;

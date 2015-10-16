@@ -7,21 +7,21 @@ import com.baidu.tieba.passaccount.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements a.InterfaceC0040a {
-    final /* synthetic */ a cdm;
+    final /* synthetic */ a cdx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cdm = aVar;
+        this.cdx = aVar;
     }
 
     @Override // com.baidu.tbadk.core.a.a.InterfaceC0040a
-    public void cc(String str) {
+    public void cd(String str) {
         a.InterfaceC0069a interfaceC0069a;
         a.InterfaceC0069a interfaceC0069a2;
-        interfaceC0069a = this.cdm.cdj;
+        interfaceC0069a = this.cdx.cdu;
         if (interfaceC0069a != null) {
-            interfaceC0069a2 = this.cdm.cdj;
-            interfaceC0069a2.cc(str);
+            interfaceC0069a2 = this.cdx.cdu;
+            interfaceC0069a2.cd(str);
         }
     }
 
@@ -29,9 +29,9 @@ public class b implements a.InterfaceC0040a {
     public void a(AccountData accountData) {
         a.InterfaceC0069a interfaceC0069a;
         a.InterfaceC0069a interfaceC0069a2;
-        interfaceC0069a = this.cdm.cdj;
+        interfaceC0069a = this.cdx.cdu;
         if (interfaceC0069a != null) {
-            interfaceC0069a2 = this.cdm.cdj;
+            interfaceC0069a2 = this.cdx.cdu;
             interfaceC0069a2.onSuccess();
         }
     }

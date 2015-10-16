@@ -9,11 +9,11 @@ import com.baidu.tbadk.gif.GifView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ TbRichTextView aCr;
+    final /* synthetic */ TbRichTextView aCC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(TbRichTextView tbRichTextView) {
-        this.aCr = tbRichTextView;
+        this.aCC = tbRichTextView;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0035  */
@@ -37,38 +37,38 @@ public class n implements ViewGroup.OnHierarchyChangeListener {
         com.baidu.adp.lib.e.b bVar11;
         com.baidu.adp.lib.e.b bVar12;
         if (view2 instanceof GifView) {
-            bVar11 = this.aCr.aBM;
+            bVar11 = this.aCC.aBX;
             if (bVar11 != null) {
-                bVar12 = this.aCr.aBM;
+                bVar12 = this.aCC.aBX;
                 bVar12.k((GifView) view2);
                 if (view2.getClass().getSimpleName().equals("PlayVoiceBnt")) {
-                    bVar10 = this.aCr.aBK;
+                    bVar10 = this.aCC.aBV;
                     bVar10.k(view2);
                 }
                 if (view2 instanceof LinearLayout) {
                     Object tag = view2.getTag();
                     if (tag == null || !(tag instanceof String) || !"VideoView".equals(tag)) {
-                        bVar5 = this.aCr.aBL;
+                        bVar5 = this.aCC.aBW;
                         if (bVar5 != null) {
                             int childCount = ((LinearLayout) view2).getChildCount();
                             for (int i = 0; i < childCount; i++) {
                                 View childAt = ((LinearLayout) view2).getChildAt(i);
                                 if (childAt != null) {
                                     if (childAt instanceof TextView) {
-                                        bVar8 = this.aCr.aBJ;
+                                        bVar8 = this.aCC.aBU;
                                         if (bVar8 != null) {
-                                            bVar9 = this.aCr.aBJ;
+                                            bVar9 = this.aCC.aBU;
                                             bVar9.k((TextView) childAt);
                                         }
                                     }
                                     if (childAt.getClass().getSimpleName().equals("PlayVoiceBnt")) {
-                                        bVar7 = this.aCr.aBK;
+                                        bVar7 = this.aCC.aBV;
                                         bVar7.k(childAt);
                                     }
                                 }
                             }
                             ((LinearLayout) view2).removeAllViews();
-                            bVar6 = this.aCr.aBL;
+                            bVar6 = this.aCC.aBW;
                             bVar6.k((LinearLayout) view2);
                             return;
                         }
@@ -81,9 +81,9 @@ public class n implements ViewGroup.OnHierarchyChangeListener {
             }
         }
         if (view2 instanceof ImageView) {
-            bVar3 = this.aCr.aBI;
+            bVar3 = this.aCC.aBT;
             if (bVar3 != null) {
-                bVar4 = this.aCr.aBI;
+                bVar4 = this.aCC.aBT;
                 bVar4.k((ImageView) view2);
                 if (view2.getClass().getSimpleName().equals("PlayVoiceBnt")) {
                 }
@@ -92,9 +92,9 @@ public class n implements ViewGroup.OnHierarchyChangeListener {
             }
         }
         if (view2 instanceof TextView) {
-            bVar = this.aCr.aBJ;
+            bVar = this.aCC.aBU;
             if (bVar != null) {
-                bVar2 = this.aCr.aBJ;
+                bVar2 = this.aCC.aBU;
                 bVar2.k((TextView) view2);
             }
         }

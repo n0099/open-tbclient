@@ -16,9 +16,9 @@ import java.util.Locale;
 /* loaded from: classes.dex */
 public class n extends BaseAdapter {
     private Context mContext;
-    private boolean cKe = false;
-    private boolean cKf = false;
-    private List<p> cKd = new ArrayList();
+    private boolean cKD = false;
+    private boolean cKE = false;
+    private List<p> cKC = new ArrayList();
 
     public n(Context context) {
         this.mContext = context;
@@ -26,15 +26,15 @@ public class n extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cKd != null) {
-            return this.cKd.size();
+        if (this.cKC != null) {
+            return this.cKC.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.cKd.get(i);
+        return this.cKC.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -44,13 +44,13 @@ public class n extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        p pVar = this.cKd.get(i);
-        if (this.cKe) {
-            if (this.cKf && pVar.customGroupType == 4) {
+        p pVar = this.cKC.get(i);
+        if (this.cKD) {
+            if (this.cKE && pVar.customGroupType == 4) {
                 return b(pVar, view, viewGroup, false);
             }
             return a(pVar, view, viewGroup, true);
-        } else if (this.cKf) {
+        } else if (this.cKE) {
             return b(pVar, view, viewGroup, getCount() == 1);
         } else if (i == 0) {
             return a(pVar, view, viewGroup);
@@ -69,10 +69,10 @@ public class n extends BaseAdapter {
             aVar = aq(view);
             view.setTag(aVar);
         }
-        aVar.cKg.setText(pVar.content);
-        aVar.cJC.setText(pVar.groupName);
-        aVar.cKh.setText(kr(pVar.cKr));
-        aVar.cJD.setText(aX(pVar.cIs));
+        aVar.cKF.setText(pVar.content);
+        aVar.cKb.setText(pVar.groupName);
+        aVar.cKG.setText(kt(pVar.cKQ));
+        aVar.cKc.setText(bh(pVar.cIR));
         if (z) {
             aVar.mLine.setVisibility(0);
         } else {
@@ -91,7 +91,7 @@ public class n extends BaseAdapter {
             bVar = ar(view);
             view.setTag(bVar);
         }
-        bVar.cKg.setText(pVar.content);
+        bVar.cKF.setText(pVar.content);
         return view;
     }
 
@@ -105,7 +105,7 @@ public class n extends BaseAdapter {
             cVar = as(view);
             view.setTag(cVar);
         }
-        cVar.cKj.setText(pVar.content);
+        cVar.cKI.setText(pVar.content);
         return view;
     }
 
@@ -119,42 +119,42 @@ public class n extends BaseAdapter {
             dVar = at(view);
             view.setTag(dVar);
         }
-        dVar.cKk.setText(pVar.groupName);
-        dVar.cJD.setText(aX(pVar.cIs));
-        dVar.cKl.setText(pVar.title);
-        dVar.cKj.setText(pVar.content);
-        dVar.cKm.setDefaultResource(i.e.icon_default_bear);
-        dVar.cKm.d(pVar.pic, 10, false);
+        dVar.cKJ.setText(pVar.groupName);
+        dVar.cKc.setText(bh(pVar.cIR));
+        dVar.cKK.setText(pVar.title);
+        dVar.cKI.setText(pVar.content);
+        dVar.cKL.setDefaultResource(i.e.icon_default_bear);
+        dVar.cKL.d(pVar.pic, 10, false);
         if (z) {
-            dVar.cKn.setVisibility(0);
+            dVar.cKM.setVisibility(0);
             dVar.mLine.setVisibility(8);
         } else {
-            dVar.cKn.setVisibility(8);
+            dVar.cKM.setVisibility(8);
             dVar.mLine.setVisibility(0);
         }
         return view;
     }
 
-    public String aX(long j) {
+    public String bh(long j) {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public String kr(int i) {
+    public String kt(int i) {
         return i < 100 ? new StringBuilder().append(i).toString() : "99+";
     }
 
     public void setData(List<p> list) {
-        this.cKd = list;
+        this.cKC = list;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        TextView cJC;
-        TextView cJD;
-        TextView cKg;
-        TextView cKh;
+        TextView cKF;
+        TextView cKG;
+        TextView cKb;
+        TextView cKc;
         View mLine;
 
         private a() {
@@ -168,7 +168,7 @@ public class n extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
-        TextView cKg;
+        TextView cKF;
 
         private b() {
         }
@@ -181,7 +181,7 @@ public class n extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c {
-        TextView cKj;
+        TextView cKI;
 
         private c() {
         }
@@ -194,12 +194,12 @@ public class n extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class d {
-        TextView cJD;
-        TextView cKj;
-        TextView cKk;
-        TextView cKl;
-        TbImageView cKm;
-        TextView cKn;
+        TextView cKI;
+        TextView cKJ;
+        TextView cKK;
+        TbImageView cKL;
+        TextView cKM;
+        TextView cKc;
         View mLine;
 
         private d() {
@@ -212,43 +212,43 @@ public class n extends BaseAdapter {
 
     private a aq(View view) {
         a aVar = new a(this, null);
-        aVar.cJC = (TextView) view.findViewById(i.f.friend_name_show1);
-        aVar.cJD = (TextView) view.findViewById(i.f.last_msg_time_show1);
-        aVar.cKg = (TextView) view.findViewById(i.f.one_msg_content_show1);
-        aVar.cKh = (TextView) view.findViewById(i.f.unread_msg_count_show1);
+        aVar.cKb = (TextView) view.findViewById(i.f.friend_name_show1);
+        aVar.cKc = (TextView) view.findViewById(i.f.last_msg_time_show1);
+        aVar.cKF = (TextView) view.findViewById(i.f.one_msg_content_show1);
+        aVar.cKG = (TextView) view.findViewById(i.f.unread_msg_count_show1);
         aVar.mLine = view.findViewById(i.f.line);
         return aVar;
     }
 
     private b ar(View view) {
         b bVar = new b(this, null);
-        bVar.cKg = (TextView) view.findViewById(i.f.msg_content_2);
+        bVar.cKF = (TextView) view.findViewById(i.f.msg_content_2);
         return bVar;
     }
 
     private c as(View view) {
         c cVar = new c(this, null);
-        cVar.cKj = (TextView) view.findViewById(i.f.one_msg_content);
+        cVar.cKI = (TextView) view.findViewById(i.f.one_msg_content);
         return cVar;
     }
 
     private d at(View view) {
         d dVar = new d(this, null);
-        dVar.cKk = (TextView) view.findViewById(i.f.push_msg_name);
-        dVar.cKl = (TextView) view.findViewById(i.f.push_msg_title);
-        dVar.cJD = (TextView) view.findViewById(i.f.push_msg_time);
-        dVar.cKj = (TextView) view.findViewById(i.f.push_msg_content);
-        dVar.cKn = (TextView) view.findViewById(i.f.push_msg_go);
-        dVar.cKm = (TbImageView) view.findViewById(i.f.push_msg_pic);
+        dVar.cKJ = (TextView) view.findViewById(i.f.push_msg_name);
+        dVar.cKK = (TextView) view.findViewById(i.f.push_msg_title);
+        dVar.cKc = (TextView) view.findViewById(i.f.push_msg_time);
+        dVar.cKI = (TextView) view.findViewById(i.f.push_msg_content);
+        dVar.cKM = (TextView) view.findViewById(i.f.push_msg_go);
+        dVar.cKL = (TbImageView) view.findViewById(i.f.push_msg_pic);
         dVar.mLine = view.findViewById(i.f.line);
         return dVar;
     }
 
     public void fP(boolean z) {
-        this.cKe = z;
+        this.cKD = z;
     }
 
     public void fQ(boolean z) {
-        this.cKf = z;
+        this.cKE = z;
     }
 }

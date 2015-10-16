@@ -7,35 +7,35 @@ import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class j extends CustomMessageListener {
-    final /* synthetic */ RelateTopicForumActivity boE;
+    final /* synthetic */ RelateTopicForumActivity boP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(RelateTopicForumActivity relateTopicForumActivity, int i) {
         super(i);
-        this.boE = relateTopicForumActivity;
+        this.boP = relateTopicForumActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ArrayList arrayList;
-        RelateForumItemData ap;
+        RelateForumItemData az;
         com.baidu.tieba.hottopic.view.e eVar;
         ArrayList arrayList2;
         if (customResponsedMessage != null) {
-            arrayList = this.boE.Xo;
+            arrayList = this.boP.Xq;
             if (!arrayList.isEmpty()) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Long) {
-                    ap = this.boE.ap(((Long) data).longValue());
-                    if (ap != null) {
-                        ap.followNum++;
-                        ap.setIsLiked(true);
-                        eVar = this.boE.boD;
+                    az = this.boP.az(((Long) data).longValue());
+                    if (az != null) {
+                        az.followNum++;
+                        az.setIsLiked(true);
+                        eVar = this.boP.boO;
                         n Rj = eVar.Rj();
                         if (Rj != null) {
-                            arrayList2 = this.boE.Xo;
+                            arrayList2 = this.boP.Xq;
                             Rj.setData(arrayList2);
                             Rj.notifyDataSetChanged();
                         }

@@ -7,32 +7,32 @@ import com.baidu.tieba.themeCenter.SkinItemView;
 import com.baidu.tieba.themeCenter.theme.download.d;
 /* loaded from: classes.dex */
 public class DownloadedThemeListActivity extends BaseActivity<DownloadedThemeListActivity> {
-    private com.baidu.tieba.themeCenter.d dfR;
-    private h dgE;
-    private d dgF;
-    private boolean dgG = false;
-    private d.a dgH = new a(this);
-    private View.OnClickListener dgI = new b(this);
-    private SkinItemView.a dgJ = new c(this);
+    private com.baidu.tieba.themeCenter.d dgr;
+    private h dhe;
+    private d dhf;
+    private boolean dhg = false;
+    private d.a dhh = new a(this);
+    private View.OnClickListener dhi = new b(this);
+    private SkinItemView.a dhj = new c(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.dfR = new com.baidu.tieba.themeCenter.d(getPageContext());
-        this.dgE = new h(this, this.dgJ);
-        this.dgE.azx().setOnClickListener(this.dgI);
-        this.dgF = new d();
-        this.dgF.a(this.dgH);
-        this.dgF.LoadData();
+        this.dgr = new com.baidu.tieba.themeCenter.d(getPageContext());
+        this.dhe = new h(this, this.dhj);
+        this.dhe.azH().setOnClickListener(this.dhi);
+        this.dhf = new d();
+        this.dhf.a(this.dhh);
+        this.dhf.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dgE != null) {
-            this.dgE.tc();
+        if (this.dhe != null) {
+            this.dhe.tc();
         }
     }
 
@@ -40,8 +40,8 @@ public class DownloadedThemeListActivity extends BaseActivity<DownloadedThemeLis
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.dgF != null) {
-            this.dgF.destroy();
+        if (this.dhf != null) {
+            this.dhf.destroy();
         }
     }
 }

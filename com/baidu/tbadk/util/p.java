@@ -159,17 +159,17 @@ public class p {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String azH;
+        public String azS;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.azH = "";
+            this.azS = "";
             this.BDUSS = str;
-            this.azH = str2;
+            this.azS = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.azH != null ? this.azH.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.azS != null ? this.azS.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -185,7 +185,7 @@ public class p {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.azH == null ? aVar.azH == null : this.azH.equals(aVar.azH);
+                return this.azS == null ? aVar.azS == null : this.azS.equals(aVar.azS);
             }
             return false;
         }

@@ -45,17 +45,17 @@ public class ThemeStatic {
         MessageManager.getInstance().registerTask(new CustomMessageTask(CmdConfigCustom.CMD_DELETE_SKIN_TEMP_FILE, new t()));
     }
 
-    public static List<b> by(List<b> list) {
+    public static List<b> bz(List<b> list) {
         if (list == null || list.size() <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         for (b bVar : list) {
             if (bVar != null) {
-                if (com.baidu.tbadk.core.util.n.cG(String.valueOf(bVar.getId()) + ".apk")) {
+                if (com.baidu.tbadk.core.util.n.cH(String.valueOf(bVar.getId()) + ".apk")) {
                     arrayList.add(bVar);
                 } else {
-                    l.azi().ls(bVar.getId());
+                    l.azs().lu(bVar.getId());
                 }
             }
         }

@@ -5,45 +5,45 @@ import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.lib.a.b.a.a.i {
-    private boolean aBA;
-    private boolean aBB;
-    private String aBC;
-    private long aBD;
-    private String aBx;
-    private String aBy;
-    private String aBz;
+    private String aBI;
+    private String aBJ;
+    private String aBK;
+    private boolean aBL;
+    private boolean aBM;
+    private String aBN;
+    private long aBO;
     private int mHeight;
     private int mWidth;
 
     public f() {
-        this.aBx = null;
-        this.aBy = null;
-        this.aBz = null;
+        this.aBI = null;
+        this.aBJ = null;
+        this.aBK = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aBA = false;
-        this.aBB = true;
-        this.aBC = null;
-        this.aBD = 0L;
+        this.aBL = false;
+        this.aBM = true;
+        this.aBN = null;
+        this.aBO = 0L;
     }
 
     public f(PbContent pbContent) {
-        this.aBx = null;
-        this.aBy = null;
-        this.aBz = null;
+        this.aBI = null;
+        this.aBJ = null;
+        this.aBK = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aBA = false;
-        this.aBB = true;
-        this.aBC = null;
-        this.aBD = 0L;
+        this.aBL = false;
+        this.aBM = true;
+        this.aBN = null;
+        this.aBO = 0L;
         if (pbContent != null) {
-            this.aBx = pbContent.src;
-            this.aBy = pbContent.cdn_src;
-            if (this.aBy == null || this.aBy.length() == 0) {
-                this.aBy = this.aBx;
+            this.aBI = pbContent.src;
+            this.aBJ = pbContent.cdn_src;
+            if (this.aBJ == null || this.aBJ.length() == 0) {
+                this.aBJ = this.aBI;
             }
-            this.aBz = pbContent.big_cdn_src;
+            this.aBK = pbContent.big_cdn_src;
             String str = pbContent.bsize;
             if (str != null) {
                 try {
@@ -60,31 +60,31 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.aBy != null && this.aBy.indexOf(".baidu.com") != -1) {
-                this.aBA = true;
+            if (this.aBJ != null && this.aBJ.indexOf(".baidu.com") != -1) {
+                this.aBL = true;
             }
-            this.aBC = pbContent.origin_src;
-            this.aBD = pbContent.origin_size.intValue();
+            this.aBN = pbContent.origin_src;
+            this.aBO = pbContent.origin_size.intValue();
         }
     }
 
     public f(JSONObject jSONObject) {
-        this.aBx = null;
-        this.aBy = null;
-        this.aBz = null;
+        this.aBI = null;
+        this.aBJ = null;
+        this.aBK = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.aBA = false;
-        this.aBB = true;
-        this.aBC = null;
-        this.aBD = 0L;
+        this.aBL = false;
+        this.aBM = true;
+        this.aBN = null;
+        this.aBO = 0L;
         if (jSONObject != null) {
-            this.aBx = jSONObject.optString("src");
-            this.aBy = jSONObject.optString("cdn_src", "");
-            if (this.aBy == null || this.aBy.length() == 0) {
-                this.aBy = this.aBx;
+            this.aBI = jSONObject.optString("src");
+            this.aBJ = jSONObject.optString("cdn_src", "");
+            if (this.aBJ == null || this.aBJ.length() == 0) {
+                this.aBJ = this.aBI;
             }
-            this.aBz = jSONObject.optString("big_cdn_src", null);
+            this.aBK = jSONObject.optString("big_cdn_src", null);
             try {
                 String[] split = jSONObject.optString("bsize").split(",");
                 this.mWidth = Integer.valueOf(split[0]).intValue();
@@ -98,14 +98,14 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.aBy != null && this.aBy.indexOf(".baidu.com") != -1) {
-                this.aBA = true;
+            if (this.aBJ != null && this.aBJ.indexOf(".baidu.com") != -1) {
+                this.aBL = true;
             }
         }
     }
 
     public String Ff() {
-        return this.aBz;
+        return this.aBK;
     }
 
     public int getHeight() {
@@ -125,30 +125,30 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
     }
 
     public boolean Fg() {
-        return this.aBA;
+        return this.aBL;
     }
 
     public String getSrc() {
-        return this.aBx;
+        return this.aBI;
     }
 
     public String Fh() {
-        return this.aBy;
+        return this.aBJ;
     }
 
     public boolean Fi() {
-        return this.aBB;
+        return this.aBM;
     }
 
     public void bt(boolean z) {
-        this.aBB = z;
+        this.aBM = z;
     }
 
     public String Fj() {
-        return this.aBC;
+        return this.aBN;
     }
 
     public long getOriginalSize() {
-        return this.aBD;
+        return this.aBO;
     }
 }

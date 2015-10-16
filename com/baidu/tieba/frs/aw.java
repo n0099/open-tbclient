@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class aw implements ay.a {
-    @Override // com.baidu.tbadk.core.util.ay.a
+class aw implements az.a {
+    @Override // com.baidu.tbadk.core.util.az.a
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
         boolean z;
         boolean z2;
@@ -71,7 +71,7 @@ class aw implements ay.a {
             return true;
         } else if (z2 && !TextUtils.isEmpty(str2)) {
             com.baidu.adp.lib.g.i.f(TbadkCoreApplication.m411getInst(), com.baidu.tieba.frs.utils.a.L(TbadkCoreApplication.m411getInst(), str2));
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ap("c10320").r("obj_locate", 2).r("obj_type", 2));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10320").r("obj_locate", 2).r("obj_type", 2));
             return true;
         } else if (z) {
             tbPageContext.showToast(i.h.page_not_found);

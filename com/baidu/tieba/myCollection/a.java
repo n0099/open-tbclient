@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a extends CustomMessageListener {
-    final /* synthetic */ CollectTabActivity cbf;
+    final /* synthetic */ CollectTabActivity cbq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(CollectTabActivity collectTabActivity, int i) {
         super(i);
-        this.cbf = collectTabActivity;
+        this.cbq = collectTabActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ class a extends CustomMessageListener {
         ArrayList<com.baidu.tbadk.mainTab.b> qz;
         c cVar;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof com.baidu.tbadk.b.a) && (qz = ((com.baidu.tbadk.b.a) customResponsedMessage.getData()).qz()) != null && !qz.isEmpty()) {
-            cVar = this.cbf.cbc;
+            cVar = this.cbq.cbn;
             cVar.L(qz);
         }
     }

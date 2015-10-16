@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements NoNetworkView.a {
-    final /* synthetic */ HotTopicActivity boA;
+    final /* synthetic */ HotTopicActivity boL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(HotTopicActivity hotTopicActivity) {
-        this.boA = hotTopicActivity;
+        this.boL = hotTopicActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
@@ -20,22 +20,22 @@ public class g implements NoNetworkView.a {
         h hVar3;
         h hVar4;
         if (z) {
-            hVar = this.boA.bop;
+            hVar = this.boL.boA;
             if (hVar != null) {
-                hVar2 = this.boA.bop;
+                hVar2 = this.boL.boA;
                 if (hVar2.getHotTopicData() != null) {
-                    hVar3 = this.boA.bop;
+                    hVar3 = this.boL.boA;
                     if (hVar3.getHotTopicData().QU() != null) {
-                        hVar4 = this.boA.bop;
+                        hVar4 = this.boL.boA;
                         if (hVar4.getHotTopicData().QU().size() != 0) {
                             return;
                         }
                     }
                 }
-                HotTopicActivity hotTopicActivity = this.boA;
-                aVar = this.boA.boo;
+                HotTopicActivity hotTopicActivity = this.boL;
+                aVar = this.boL.boz;
                 hotTopicActivity.hideNetRefreshView(aVar.Ra());
-                aVar2 = this.boA.boo;
+                aVar2 = this.boL.boz;
                 aVar2.Rf();
             }
         }

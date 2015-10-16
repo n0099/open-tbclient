@@ -16,7 +16,7 @@ public class PbActivityStatic {
         tbHttpMessageTask.setIsUseCurrentBDUSS(false);
         tbHttpMessageTask.setResponsedClass(pbPageHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.tieba.tbadkCore.location.d.axi();
+        com.baidu.tieba.tbadkCore.location.d.axs();
     }
 
     private static void afE() {
@@ -33,6 +33,6 @@ public class PbActivityStatic {
     }
 
     private static void afF() {
-        com.baidu.tbadk.core.util.ay.uV().a(new bc());
+        com.baidu.tbadk.core.util.az.uW().a(new bc());
     }
 }

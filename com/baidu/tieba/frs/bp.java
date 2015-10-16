@@ -13,15 +13,15 @@ import com.baidu.tieba.i;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class bp extends BaseAdapter {
-    private ArrayList<com.baidu.tbadk.core.data.j> Xf;
-    private String aVY;
-    private int aVZ = 0;
+    private ArrayList<com.baidu.tbadk.core.data.k> Xh;
+    private String aWj;
+    private int aWk = 0;
     private Context mContext;
 
-    public bp(Context context, ArrayList<com.baidu.tbadk.core.data.j> arrayList) {
+    public bp(Context context, ArrayList<com.baidu.tbadk.core.data.k> arrayList) {
         this.mContext = context;
-        this.Xf = arrayList;
-        this.aVY = this.mContext.getText(i.h.frs_good).toString();
+        this.Xh = arrayList;
+        this.aWj = this.mContext.getText(i.h.frs_good).toString();
         LE();
     }
 
@@ -32,42 +32,42 @@ public class bp extends BaseAdapter {
         }
     }
 
-    public void setData(ArrayList<com.baidu.tbadk.core.data.j> arrayList) {
-        this.Xf = arrayList;
+    public void setData(ArrayList<com.baidu.tbadk.core.data.k> arrayList) {
+        this.Xh = arrayList;
         LE();
     }
 
     private void LE() {
         int i = 0;
-        if (this.Xf != null) {
-            ArrayList<com.baidu.tbadk.core.data.j> arrayList = new ArrayList<>();
-            com.baidu.tbadk.core.data.j jVar = new com.baidu.tbadk.core.data.j();
-            jVar.bt(0);
-            jVar.ci(this.aVY);
-            arrayList.add(jVar);
-            if (this.Xf != null && this.Xf.size() > 0) {
+        if (this.Xh != null) {
+            ArrayList<com.baidu.tbadk.core.data.k> arrayList = new ArrayList<>();
+            com.baidu.tbadk.core.data.k kVar = new com.baidu.tbadk.core.data.k();
+            kVar.bt(0);
+            kVar.cj(this.aWj);
+            arrayList.add(kVar);
+            if (this.Xh != null && this.Xh.size() > 0) {
                 while (true) {
                     int i2 = i;
-                    if (i2 >= this.Xf.size()) {
+                    if (i2 >= this.Xh.size()) {
                         break;
                     }
-                    com.baidu.tbadk.core.data.j jVar2 = this.Xf.get(i2);
-                    if (jVar2.rE() != 0) {
-                        arrayList.add(jVar2);
+                    com.baidu.tbadk.core.data.k kVar2 = this.Xh.get(i2);
+                    if (kVar2.rE() != 0) {
+                        arrayList.add(kVar2);
                     }
                     i = i2 + 1;
                 }
             }
-            this.Xf = arrayList;
+            this.Xh = arrayList;
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Xf == null) {
+        if (this.Xh == null) {
             return 0;
         }
-        return this.Xf.size();
+        return this.Xh.size();
     }
 
     @Override // android.widget.Adapter
@@ -76,7 +76,7 @@ public class bp extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.Xf.get(i);
+        return this.Xh.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -95,10 +95,10 @@ public class bp extends BaseAdapter {
                 view3 = LayoutInflater.from(this.mContext).inflate(i.g.dialog_good_item, (ViewGroup) null);
                 try {
                     aVar = new a(this, null);
-                    aVar.aEt = (TextView) view3.findViewById(i.f.frs_dia_good_text);
-                    aVar.aWa = (ImageView) view3.findViewById(i.f.frs_dia_divider);
-                    aVar.aWb = (ImageView) view3.findViewById(i.f.frs_btm_divider);
-                    aVar.aWc = (ImageView) view3.findViewById(i.f.frs_btm_divider_s);
+                    aVar.aEE = (TextView) view3.findViewById(i.f.frs_dia_good_text);
+                    aVar.aWl = (ImageView) view3.findViewById(i.f.frs_dia_divider);
+                    aVar.aWm = (ImageView) view3.findViewById(i.f.frs_btm_divider);
+                    aVar.aWn = (ImageView) view3.findViewById(i.f.frs_btm_divider_s);
                     view3.setTag(aVar);
                 } catch (Exception e) {
                     view2 = view3;
@@ -110,31 +110,31 @@ public class bp extends BaseAdapter {
                 aVar = (a) view.getTag();
                 view3 = view;
             }
-            com.baidu.tbadk.core.util.am.i(aVar.aWa, i.c.frs_goodheader_line);
-            com.baidu.tbadk.core.util.am.i(aVar.aWb, i.c.frs_goodheader_line);
-            if (this.aVZ == i) {
-                com.baidu.tbadk.core.util.am.b(aVar.aEt, i.c.frs_goodheader_text_S, 1);
-                aVar.aWc.setVisibility(0);
-                com.baidu.tbadk.core.util.am.i(aVar.aWc, i.c.frs_goodheader_line_S);
+            com.baidu.tbadk.core.util.an.i(aVar.aWl, i.c.frs_goodheader_line);
+            com.baidu.tbadk.core.util.an.i(aVar.aWm, i.c.frs_goodheader_line);
+            if (this.aWk == i) {
+                com.baidu.tbadk.core.util.an.b(aVar.aEE, i.c.frs_goodheader_text_S, 1);
+                aVar.aWn.setVisibility(0);
+                com.baidu.tbadk.core.util.an.i(aVar.aWn, i.c.frs_goodheader_line_S);
             } else {
-                com.baidu.tbadk.core.util.am.b(aVar.aEt, i.c.frs_goodheader_text, 1);
-                aVar.aWc.setVisibility(8);
+                com.baidu.tbadk.core.util.an.b(aVar.aEE, i.c.frs_goodheader_text, 1);
+                aVar.aWn.setVisibility(8);
             }
             if (i % 3 == 2 || i == getCount() - 1) {
-                aVar.aWa.setVisibility(4);
+                aVar.aWl.setVisibility(4);
             } else {
-                aVar.aWa.setVisibility(0);
+                aVar.aWl.setVisibility(0);
             }
             if (i / 3 == (getCount() - 1) / 3) {
-                aVar.aWb.setVisibility(8);
+                aVar.aWm.setVisibility(8);
             } else {
-                aVar.aWb.setVisibility(0);
+                aVar.aWm.setVisibility(0);
             }
             Object item = getItem(i);
             if (item == null) {
                 return view3;
             }
-            aVar.aEt.setText(((com.baidu.tbadk.core.data.j) item).rD());
+            aVar.aEE.setText(((com.baidu.tbadk.core.data.k) item).rD());
             return view3;
         } catch (Exception e2) {
             exc = e2;
@@ -144,10 +144,10 @@ public class bp extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class a {
-        TextView aEt;
-        ImageView aWa;
-        ImageView aWb;
-        ImageView aWc;
+        TextView aEE;
+        ImageView aWl;
+        ImageView aWm;
+        ImageView aWn;
 
         private a() {
         }
@@ -158,6 +158,6 @@ public class bp extends BaseAdapter {
     }
 
     public void fw(int i) {
-        this.aVZ = i;
+        this.aWk = i;
     }
 }

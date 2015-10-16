@@ -9,11 +9,11 @@ import com.baidu.tieba.person.PersonPostModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements PersonPostModel.a {
-    final /* synthetic */ j crF;
+    final /* synthetic */ j crQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.crF = jVar;
+        this.crQ = jVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x003a, code lost:
@@ -34,58 +34,58 @@ public class k implements PersonPostModel.a {
         View view2;
         BdListView bdListView4;
         boolean z2;
-        if (this.crF.isAdded()) {
-            progressBar = this.crF.mProgressBar;
+        if (this.crQ.isAdded()) {
+            progressBar = this.crQ.mProgressBar;
             progressBar.setVisibility(8);
-            bdListView = this.crF.crv;
+            bdListView = this.crQ.crG;
             bdListView.completePullRefresh();
             if (personPostModel != null) {
                 if (j.ba(personPostModel.post_list) == 0) {
-                    z2 = this.crF.crC;
+                    z2 = this.crQ.crN;
                     if (z2) {
                     }
                 }
                 if (j.ba(personPostModel.post_list) == 0) {
-                    this.crF.mNoDataView.setVisibility(0);
-                    bdListView4 = this.crF.crv;
+                    this.crQ.mNoDataView.setVisibility(0);
+                    bdListView4 = this.crQ.crG;
                     bdListView4.setVisibility(0);
                 } else {
-                    this.crF.mNoDataView.setVisibility(8);
-                    bdListView3 = this.crF.crv;
+                    this.crQ.mNoDataView.setVisibility(8);
+                    bdListView3 = this.crQ.crG;
                     bdListView3.setVisibility(0);
                 }
                 if (personPostModel.getErrorCode() != 0) {
-                    com.baidu.adp.lib.util.k.showToast(this.crF.getActivity(), personPostModel.getErrorString());
+                    com.baidu.adp.lib.util.k.showToast(this.crQ.getActivity(), personPostModel.getErrorString());
                 }
                 int ba = j.ba(personPostModel.post_list);
                 if (ba < 20) {
                     if (!com.baidu.adp.lib.util.i.iM() || ba <= 0) {
-                        view = this.crF.crz;
+                        view = this.crQ.crK;
                         view.setVisibility(8);
                     } else {
-                        this.crF.crA = false;
-                        pbListView2 = this.crF.cry;
-                        pbListView2.setText(this.crF.getResources().getString(i.h.person_post_reply_no_more));
-                        view2 = this.crF.crz;
+                        this.crQ.crL = false;
+                        pbListView2 = this.crQ.crJ;
+                        pbListView2.setText(this.crQ.getResources().getString(i.h.person_post_reply_no_more));
+                        view2 = this.crQ.crK;
                         view2.setVisibility(0);
                     }
                 }
-                pbListView = this.crF.cry;
+                pbListView = this.crQ.crJ;
                 pbListView.vy();
                 if (z) {
                     if (j.ba(personPostModel.post_list) < 20) {
-                        this.crF.crA = false;
+                        this.crQ.crL = false;
                     } else {
-                        this.crF.crA = true;
+                        this.crQ.crL = true;
                     }
-                    this.crF.crB = 0;
-                    this.crF.crC = false;
+                    this.crQ.crM = 0;
+                    this.crQ.crN = false;
                     return;
                 }
                 return;
             }
-            this.crF.mNoDataView.setVisibility(0);
-            bdListView2 = this.crF.crv;
+            this.crQ.mNoDataView.setVisibility(0);
+            bdListView2 = this.crQ.crG;
             bdListView2.setVisibility(0);
         }
     }

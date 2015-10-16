@@ -11,80 +11,80 @@ import com.baidu.tieba.i;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.f<AccountSafeActivity> {
-    private LinearLayout Mf;
-    private NoNetworkView aMF;
-    private AccountSafeActivity cMc;
-    private LinearLayout cMd;
-    private View cMe;
-    private BdSwitchView cMf;
-    private TbSettingTextTipView cMg;
-    private TbSettingTextTipView cMh;
-    private TbSettingTextTipView cMi;
-    private TbSettingTextTipView cMj;
-    private TbSettingTextTipView cMk;
-    private BdSwitchView.a cMl;
+    private LinearLayout Mg;
+    private NoNetworkView aMQ;
+    private AccountSafeActivity cMB;
+    private LinearLayout cMC;
+    private View cMD;
+    private BdSwitchView cME;
+    private TbSettingTextTipView cMF;
+    private TbSettingTextTipView cMG;
+    private TbSettingTextTipView cMH;
+    private TbSettingTextTipView cMI;
+    private TbSettingTextTipView cMJ;
+    private BdSwitchView.a cMK;
     private NavigationBar mNavigationBar;
 
     public f(AccountSafeActivity accountSafeActivity) {
         super(accountSafeActivity.getPageContext());
-        this.cMl = new g(this);
-        this.cMc = accountSafeActivity;
+        this.cMK = new g(this);
+        this.cMB = accountSafeActivity;
         zk();
     }
 
     private void zk() {
-        this.cMc.setContentView(i.g.account_safe_activity);
-        this.Mf = (LinearLayout) this.cMc.findViewById(i.f.parent);
-        this.aMF = (NoNetworkView) this.cMc.findViewById(i.f.no_network_view);
-        this.cMd = (LinearLayout) this.cMc.findViewById(i.f.content_container);
-        this.mNavigationBar = (NavigationBar) this.cMc.findViewById(i.f.view_navigation_bar);
+        this.cMB.setContentView(i.g.account_safe_activity);
+        this.Mg = (LinearLayout) this.cMB.findViewById(i.f.parent);
+        this.aMQ = (NoNetworkView) this.cMB.findViewById(i.f.no_network_view);
+        this.cMC = (LinearLayout) this.cMB.findViewById(i.f.content_container);
+        this.mNavigationBar = (NavigationBar) this.cMB.findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.cMc.getPageContext().getString(i.h.account_safe));
-        this.cMe = this.cMc.findViewById(i.f.voicelogin_lock_layout);
-        this.cMf = (BdSwitchView) this.cMc.findViewById(i.f.voicelogin_switch);
-        this.cMg = (TbSettingTextTipView) this.cMc.findViewById(i.f.secure_mobil);
-        this.cMh = (TbSettingTextTipView) this.cMc.findViewById(i.f.secure_email);
-        this.cMi = (TbSettingTextTipView) this.cMc.findViewById(i.f.modify_pwd);
-        this.cMj = (TbSettingTextTipView) this.cMc.findViewById(i.f.bar_record);
-        this.cMk = (TbSettingTextTipView) this.cMc.findViewById(i.f.account_status);
-        this.cMe.setOnClickListener(this.cMc);
-        this.cMg.setOnClickListener(this.cMc);
-        this.cMh.setOnClickListener(this.cMc);
-        this.cMi.setOnClickListener(this.cMc);
-        this.cMj.setOnClickListener(this.cMc);
-        this.cMk.setOnClickListener(this.cMc);
-        this.cMf.setOnSwitchStateChangeListener(this.cMl);
+        this.mNavigationBar.setTitleText(this.cMB.getPageContext().getString(i.h.account_safe));
+        this.cMD = this.cMB.findViewById(i.f.voicelogin_lock_layout);
+        this.cME = (BdSwitchView) this.cMB.findViewById(i.f.voicelogin_switch);
+        this.cMF = (TbSettingTextTipView) this.cMB.findViewById(i.f.secure_mobil);
+        this.cMG = (TbSettingTextTipView) this.cMB.findViewById(i.f.secure_email);
+        this.cMH = (TbSettingTextTipView) this.cMB.findViewById(i.f.modify_pwd);
+        this.cMI = (TbSettingTextTipView) this.cMB.findViewById(i.f.bar_record);
+        this.cMJ = (TbSettingTextTipView) this.cMB.findViewById(i.f.account_status);
+        this.cMD.setOnClickListener(this.cMB);
+        this.cMF.setOnClickListener(this.cMB);
+        this.cMG.setOnClickListener(this.cMB);
+        this.cMH.setOnClickListener(this.cMB);
+        this.cMI.setOnClickListener(this.cMB);
+        this.cMJ.setOnClickListener(this.cMB);
+        this.cME.setOnSwitchStateChangeListener(this.cMK);
     }
 
     public void dF(int i) {
-        if (this.aMF != null) {
-            this.aMF.onChangeSkinType(this.cMc.getPageContext(), i);
+        if (this.aMQ != null) {
+            this.aMQ.onChangeSkinType(this.cMB.getPageContext(), i);
         }
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.cMc.getLayoutMode().ad(i == 1);
-        this.cMc.getLayoutMode().k(this.Mf);
+        this.cMB.getLayoutMode().ad(i == 1);
+        this.cMB.getLayoutMode().k(this.Mg);
     }
 
     public void d(com.baidu.tieba.setting.im.more.a aVar) {
-        if (aVar != null && aVar.aqS() != null) {
-            SimpleUser aqS = aVar.aqS();
-            this.cMg.setTip(lc(aqS.securemobil));
-            this.cMh.setTip(ld(aqS.secureemail));
-            switch (aqS.user_status.intValue()) {
+        if (aVar != null && aVar.aqY() != null) {
+            SimpleUser aqY = aVar.aqY();
+            this.cMF.setTip(lf(aqY.securemobil));
+            this.cMG.setTip(lg(aqY.secureemail));
+            switch (aqY.user_status.intValue()) {
                 case 0:
-                    this.cMk.setTip(getPageContext().getString(i.h.account_status_normal));
+                    this.cMJ.setTip(getPageContext().getString(i.h.account_status_normal));
                     return;
                 case 1:
-                    this.cMk.setTip(getPageContext().getString(i.h.account_status_forbidden_and_block));
+                    this.cMJ.setTip(getPageContext().getString(i.h.account_status_forbidden_and_block));
                     return;
                 case 2:
-                    this.cMk.setTip(getPageContext().getString(i.h.account_status_system_forbidden));
+                    this.cMJ.setTip(getPageContext().getString(i.h.account_status_system_forbidden));
                     return;
                 case 3:
-                    this.cMk.setTip(getPageContext().getString(i.h.account_status_manager_forbidden));
+                    this.cMJ.setTip(getPageContext().getString(i.h.account_status_manager_forbidden));
                     return;
                 case 4:
-                    this.cMk.setTip(getPageContext().getString(i.h.account_status_doing_appeal));
+                    this.cMJ.setTip(getPageContext().getString(i.h.account_status_doing_appeal));
                     return;
                 default:
                     return;
@@ -92,7 +92,7 @@ public class f extends com.baidu.adp.base.f<AccountSafeActivity> {
         }
     }
 
-    private String lc(String str) {
+    private String lf(String str) {
         if (TextUtils.isEmpty(str)) {
             return getPageContext().getString(i.h.unbind_status);
         }
@@ -105,7 +105,7 @@ public class f extends com.baidu.adp.base.f<AccountSafeActivity> {
         return str;
     }
 
-    private String ld(String str) {
+    private String lg(String str) {
         String str2;
         if (TextUtils.isEmpty(str)) {
             return getPageContext().getString(i.h.unbind_status);
@@ -130,11 +130,11 @@ public class f extends com.baidu.adp.base.f<AccountSafeActivity> {
     }
 
     public NoNetworkView PD() {
-        return this.aMF;
+        return this.aMQ;
     }
 
     public void release() {
-        this.Mf.removeAllViews();
-        this.cMc = null;
+        this.Mg.removeAllViews();
+        this.cMB = null;
     }
 }

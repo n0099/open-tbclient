@@ -17,11 +17,11 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class aj implements a.d {
-    final /* synthetic */ WriteActivity dpI;
+    final /* synthetic */ WriteActivity dqi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(WriteActivity writeActivity) {
-        this.dpI = writeActivity;
+        this.dqi = writeActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
@@ -38,8 +38,8 @@ class aj implements a.d {
         WriteData writeData11;
         WriteData writeData12;
         WriteData writeData13;
-        this.dpI.stopVoice();
-        this.dpI.closeLoadingDialog();
+        this.dqi.stopVoice();
+        this.dqi.closeLoadingDialog();
         if (postWriteCallBackData != null) {
             if (!z) {
                 if (lVar != null && writeData != null && lVar.getVcode_pic_url() != null) {
@@ -47,69 +47,69 @@ class aj implements a.d {
                         writeData.setVcodeMD5(lVar.getVcode_md5());
                         writeData.setVcodeUrl(lVar.getVcode_pic_url());
                         if (lVar.ws().equals("4")) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.dpI.getPageContext().getPageActivity(), 12006, writeData, false)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.dqi.getPageContext().getPageActivity(), 12006, writeData, false)));
                             return;
                         } else {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.dpI.getPageContext().getPageActivity(), writeData, 12006)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.dqi.getPageContext().getPageActivity(), writeData, 12006)));
                             return;
                         }
                     }
-                    this.dpI.a(false, postWriteCallBackData);
+                    this.dqi.a(false, postWriteCallBackData);
                     return;
                 }
-                this.dpI.a(false, postWriteCallBackData);
+                this.dqi.a(false, postWriteCallBackData);
                 return;
             }
-            this.dpI.bg(z);
-            this.dpI.a(true, postWriteCallBackData);
+            this.dqi.bg(z);
+            this.dqi.a(true, postWriteCallBackData);
             if (writeData != null && writeData.getVideoInfo() != null && postWriteCallBackData != null) {
                 XiaoyingUtil.reportEvent(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), writeData.getForumId(), writeData.getVideoInfo().getVideoUrl(), writeData.getForumName());
             }
-            writeData2 = this.dpI.daX;
+            writeData2 = this.dqi.dbx;
             if (writeData2.getType() == 0) {
-                writeData11 = this.dpI.daX;
+                writeData11 = this.dqi.dbx;
                 if (writeData11.getLiveCardData() == null) {
-                    writeData13 = this.dpI.daX;
+                    writeData13 = this.dqi.dbx;
                     com.baidu.tieba.tbadkCore.ad.b(writeData13.getForumId(), (WriteData) null);
                 } else {
-                    writeData12 = this.dpI.daX;
+                    writeData12 = this.dqi.dbx;
                     com.baidu.tieba.tbadkCore.ad.a(writeData12.getLiveCardData().getGroupId(), (WriteData) null);
                 }
             } else {
-                writeData3 = this.dpI.daX;
+                writeData3 = this.dqi.dbx;
                 if (writeData3.getType() == 1) {
-                    writeData8 = this.dpI.daX;
+                    writeData8 = this.dqi.dbx;
                     com.baidu.tieba.tbadkCore.ad.c(writeData8.getThreadId(), (WriteData) null);
                 } else {
-                    writeData4 = this.dpI.daX;
+                    writeData4 = this.dqi.dbx;
                     if (writeData4.getType() == 4) {
-                        writeData7 = this.dpI.daX;
+                        writeData7 = this.dqi.dbx;
                         com.baidu.tieba.tbadkCore.ad.b(String.valueOf(writeData7.getForumId()) + "photolive", (WriteData) null);
                         if (postWriteCallBackData != null) {
-                            this.dpI.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig(this.dpI.getPageContext().getPageActivity()).createNormalCfg(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), null, PhotoLiveActivityConfig.KEY_FROM_WRITE, 18003)));
+                            this.dqi.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig(this.dqi.getPageContext().getPageActivity()).createNormalCfg(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), null, PhotoLiveActivityConfig.KEY_FROM_WRITE, 18003)));
                         }
                     } else {
-                        writeData5 = this.dpI.daX;
+                        writeData5 = this.dqi.dbx;
                         if (writeData5.getType() == 5) {
-                            writeData6 = this.dpI.daX;
+                            writeData6 = this.dqi.dbx;
                             com.baidu.tieba.tbadkCore.ad.c(String.valueOf(writeData6.getThreadId()) + "updatephotolive", (WriteData) null);
                         }
                     }
                 }
             }
-            writeData9 = this.dpI.daX;
+            writeData9 = this.dqi.dbx;
             if (writeData9.getLiveCardData() != null) {
-                WriteActivity writeActivity = this.dpI;
-                FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.dpI.getPageContext().getPageActivity());
-                writeData10 = this.dpI.daX;
+                WriteActivity writeActivity = this.dqi;
+                FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.dqi.getPageContext().getPageActivity());
+                writeData10 = this.dqi.dbx;
                 writeActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_REFRESH, frsActivityConfig.createRefreshCfgShowContent(writeData10.getForumName(), "post live's thread")));
             }
             Intent intent = new Intent();
             Bundle bundle = new Bundle();
             bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
             intent.putExtras(bundle);
-            this.dpI.setResult(-1, intent);
-            this.dpI.finish();
+            this.dqi.setResult(-1, intent);
+            this.dqi.finish();
         }
     }
 }

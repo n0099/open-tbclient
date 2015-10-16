@@ -8,11 +8,11 @@ import com.baidu.tieba.im.message.LoadDraftMessage;
 import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
 /* loaded from: classes.dex */
 public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
-    private com.baidu.tieba.im.settingcache.a bHD;
+    private com.baidu.tieba.im.settingcache.a bHO;
     private int mCmd;
 
     public a(com.baidu.tieba.im.settingcache.a aVar, int i) {
-        this.bHD = aVar;
+        this.bHO = aVar;
         this.mCmd = i;
     }
 
@@ -30,7 +30,7 @@ public class a implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
             str = TbadkCoreApplication.getCurrentAccountObj().getID();
         }
         LoadDraftMessage.a data = loadDraftMessage.getData();
-        com.baidu.tieba.im.pushNotify.a aK = this.bHD.aK(str, data.id);
+        com.baidu.tieba.im.pushNotify.a aK = this.bHO.aK(str, data.id);
         if (aK == null) {
             return hA(loadDraftMessage.getCmd());
         }

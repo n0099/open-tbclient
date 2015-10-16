@@ -8,7 +8,7 @@ import com.baidu.tieba.i;
 public class b extends v {
     public b(Context context, int i) {
         super(context, TbadkCoreApplication.m411getInst().getString(i.h.editor_baobao), 13, i);
-        this.apr = i.e.btn_pb_add_baobao;
-        this.apw = new int[]{21};
+        this.aps = i.e.btn_pb_add_baobao;
+        this.apx = new int[]{21};
     }
 }

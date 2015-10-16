@@ -7,11 +7,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements TextWatcher {
-    final /* synthetic */ AtListActivity dnY;
+    final /* synthetic */ AtListActivity doy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(AtListActivity atListActivity) {
-        this.dnY = atListActivity;
+        this.doy = atListActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -25,28 +25,28 @@ public class b implements TextWatcher {
         Runnable runnable2;
         String a = com.baidu.adp.lib.util.j.a(editable, null);
         if (a != null) {
-            str = this.dnY.dnR;
+            str = this.doy.dor;
             if (!a.equals(str)) {
-                handler = this.dnY.mHandler;
-                runnable = this.dnY.dnW;
+                handler = this.doy.mHandler;
+                runnable = this.doy.dow;
                 handler.removeCallbacks(runnable);
-                handler2 = this.dnY.mHandler;
-                runnable2 = this.dnY.dnW;
+                handler2 = this.doy.mHandler;
+                runnable2 = this.doy.dow;
                 handler2.postDelayed(runnable2, 300L);
             }
             if (a.length() > 0) {
-                textView2 = this.dnY.dnL;
+                textView2 = this.doy.dol;
                 textView2.setVisibility(0);
                 return;
             }
-            textView = this.dnY.dnL;
+            textView = this.doy.dol;
             textView.setVisibility(8);
         }
     }
 
     @Override // android.text.TextWatcher
     public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.dnY.dnR = com.baidu.adp.lib.util.j.a(charSequence, null);
+        this.doy.dor = com.baidu.adp.lib.util.j.a(charSequence, null);
     }
 
     @Override // android.text.TextWatcher

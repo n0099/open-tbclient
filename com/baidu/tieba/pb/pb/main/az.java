@@ -3,18 +3,18 @@ package com.baidu.tieba.pb.pb.main;
 import android.view.View;
 /* loaded from: classes.dex */
 class az implements View.OnClickListener {
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(PbActivity pbActivity) {
-        this.ciz = pbActivity;
+        this.ciK = pbActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
-        PbActivity pbActivity = this.ciz;
-        str = this.ciz.asb;
+        PbActivity pbActivity = this.ciK;
+        str = this.ciK.asc;
         pbActivity.showToast(str);
     }
 }

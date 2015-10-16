@@ -14,11 +14,11 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.u;
 /* loaded from: classes.dex */
 public class l extends com.baidu.tbadk.editortools.d {
-    private a<?> asn;
+    private a<?> aso;
     private String forumName = null;
     private String forumId = null;
     private String from = null;
-    private boolean asm = false;
+    private boolean asn = false;
 
     public void setForumName(String str) {
         this.forumName = str;
@@ -33,7 +33,7 @@ public class l extends com.baidu.tbadk.editortools.d {
     }
 
     public void a(a<?> aVar) {
-        this.asn = aVar;
+        this.aso = aVar;
     }
 
     @Override // com.baidu.tbadk.editortools.d
@@ -43,7 +43,7 @@ public class l extends com.baidu.tbadk.editortools.d {
         jVar.setBarBackgroundColorId(i.c.pb_editor_tool_view_bg_alpha);
         jVar.setBarLinePostion(1);
         d dVar = new d(jVar);
-        dVar.a(this.asn);
+        dVar.a(this.aso);
         return dVar;
     }
 
@@ -82,7 +82,7 @@ public class l extends com.baidu.tbadk.editortools.d {
         if (XiaoyingUtil.showXiaoyingTool()) {
             CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GET_XIAOYING_TOOL, Ax.getContext()), v.class);
             if (runTask2 != null && (vVar3 = (v) runTask2.getData()) != null) {
-                vVar3.apt = 2;
+                vVar3.apu = 2;
                 Ax.b(vVar3);
             }
             CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GET_XIAOYING_PANNEL_TOOL, Ax.getContext()), v.class);
@@ -92,8 +92,8 @@ public class l extends com.baidu.tbadk.editortools.d {
         }
         Ax.b(new com.baidu.tbadk.editortools.imagetool.i(Ax.getContext(), 3));
         Ax.b(new com.baidu.tbadk.editortools.imagetool.b(Ax.getContext()));
-        if (com.baidu.tieba.tbadkCore.voice.b.axD() && u.a(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Ax.getContext()), v.class)) != null && (vVar = (v) runTask.getData()) != null) {
-            vVar.apt = 4;
+        if (com.baidu.tieba.tbadkCore.voice.b.axN() && u.a(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Ax.getContext()), v.class)) != null && (vVar = (v) runTask.getData()) != null) {
+            vVar.apu = 4;
             Ax.b(vVar);
         }
         Ax.b(new com.baidu.tbadk.editortools.a.a(Ax.getContext(), 5));
@@ -102,7 +102,7 @@ public class l extends com.baidu.tbadk.editortools.d {
         CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_BUBBLE_TOOL_CRTL, Ax.getContext()), v.class);
         if (runTask4 != null && runTask4.getData() != null) {
             v vVar4 = (v) runTask4.getData();
-            vVar4.apt = 7;
+            vVar4.apu = 7;
             Ax.b(vVar4);
         }
         if (TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_BAOBAO_STARTMATCHIMAGE)) {
@@ -114,7 +114,7 @@ public class l extends com.baidu.tbadk.editortools.d {
         CustomResponsedMessage runTask5 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_TAIL_TOOL_CRTL, Ax.getContext()), v.class);
         if (runTask5 != null && runTask5.getData() != null) {
             v vVar5 = (v) runTask5.getData();
-            vVar5.apt = 9;
+            vVar5.apu = 9;
             Ax.b(vVar5);
         }
         Ax.Ay();

@@ -16,11 +16,11 @@ public class o implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         boolean z;
         NavigationBar navigationBar;
-        this.this$0.bqv = true;
-        z = this.this$0.bqw;
+        this.this$0.bqG = true;
+        z = this.this$0.bqH;
         if (z) {
-            this.this$0.bqw = false;
-            navigationBar = this.this$0.bdN;
+            this.this$0.bqH = false;
+            navigationBar = this.this$0.bdY;
             navigationBar.setVisibility(8);
         }
     }

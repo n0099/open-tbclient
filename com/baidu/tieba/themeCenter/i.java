@@ -9,7 +9,7 @@ import java.util.List;
 import tbclient.GetUpdateInfo.ThemeSkinUpdateInfo;
 /* loaded from: classes.dex */
 public class i {
-    public static boolean lr(int i) {
+    public static boolean lt(int i) {
         return i == 0 || TbadkCoreApplication.getCurrentMemberType() >= 2;
     }
 
@@ -105,14 +105,14 @@ public class i {
             } else if (themeSkinUpdateInfo.props_version.intValue() <= bVar.getVersionCode()) {
                 return !z ? 4 : 0;
             } else {
-                bVar.lQ(themeSkinUpdateInfo.package_url);
-                bVar.lq(themeSkinUpdateInfo.props_version.intValue());
+                bVar.lT(themeSkinUpdateInfo.package_url);
+                bVar.ls(themeSkinUpdateInfo.props_version.intValue());
                 return 5;
             }
         }
     }
 
-    public static ArrayList<com.baidu.tieba.themeCenter.theme.top.a> bx(List<b> list) {
+    public static ArrayList<com.baidu.tieba.themeCenter.theme.top.a> by(List<b> list) {
         int i;
         int i2 = 0;
         if (list == null || list.size() <= 0) {
@@ -131,7 +131,7 @@ public class i {
                 arrayList2.add(list.get(i5 - 2));
                 arrayList2.add(list.get(i5 - 1));
                 i = i2 + 3;
-                aVar.bC(arrayList2);
+                aVar.bD(arrayList2);
                 arrayList.add(aVar);
             } else {
                 i = i2;
@@ -152,7 +152,7 @@ public class i {
                 arrayList3.add(list.get(size - i7));
                 i6 = i7 - 1;
             }
-            aVar2.bC(arrayList3);
+            aVar2.bD(arrayList3);
             arrayList.add(aVar2);
         }
         return arrayList;

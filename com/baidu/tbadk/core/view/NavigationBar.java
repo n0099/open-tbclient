@@ -16,7 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class NavigationBar extends RelativeLayout {
@@ -45,7 +45,7 @@ public class NavigationBar extends RelativeLayout {
         HORIZONTAL_CENTER,
         HORIZONTAL_RIGHT;
 
-        /* JADX DEBUG: Replace access to removed values field (adI) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (adJ) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlAlign[] valuesCustom() {
             ControlAlign[] valuesCustom = values();
@@ -60,7 +60,7 @@ public class NavigationBar extends RelativeLayout {
     public enum ControlType {
         BACK_BUTTON;
 
-        /* JADX DEBUG: Replace access to removed values field (adJ) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (adK) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static ControlType[] valuesCustom() {
             ControlType[] valuesCustom = values();
@@ -246,7 +246,7 @@ public class NavigationBar extends RelativeLayout {
         if (controlType == ControlType.BACK_BUTTON && (linearLayout = (LinearLayout) findViewById(i.f.navigationBarGoBack)) == null) {
             linearLayout = (LinearLayout) getViewFromLayoutFile(i.g.widget_nb_item_back);
             this.mBackImageView = (ImageView) linearLayout.findViewById(i.f.widget_navi_back_button);
-            am.a(this.mBackImageView, i.e.icon_return_bg_s, i.e.icon_return_bg);
+            an.a(this.mBackImageView, i.e.icon_return_bg_s, i.e.icon_return_bg);
             if (linearLayout != null) {
                 getViewGroup(controlAlign).addView(linearLayout);
                 if (onClickListener != null) {
@@ -360,9 +360,9 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public void onChangeSkinType(com.baidu.adp.base.h<?> hVar, int i) {
-        setBackgroundDrawable(new BitmapDrawable(am.cx(i.e.s_navbar_bg)));
-        am.j((View) this.mNavBottomLine, i.c.navbar_under_line_color);
-        am.a(this.mBackImageView, i.e.icon_return_bg_s, i.e.icon_return_bg);
+        setBackgroundDrawable(new BitmapDrawable(an.cx(i.e.s_navbar_bg)));
+        an.j((View) this.mNavBottomLine, i.c.navbar_under_line_color);
+        an.a(this.mBackImageView, i.e.icon_return_bg_s, i.e.icon_return_bg);
         initPadding();
         if (hVar instanceof TbPageContext) {
             ((TbPageContext) hVar).getLayoutMode().ad(i == 1);
@@ -371,7 +371,7 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public void onBackBtnOnChangeSkin() {
-        am.a(this.mBackImageView, i.e.icon_return_bg_s, i.e.icon_return_bg);
+        an.a(this.mBackImageView, i.e.icon_return_bg_s, i.e.icon_return_bg);
     }
 
     public ImageView getBackImageView() {

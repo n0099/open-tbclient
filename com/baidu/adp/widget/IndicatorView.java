@@ -14,12 +14,12 @@ import android.view.View;
 import com.baidu.adp.R;
 /* loaded from: classes.dex */
 public class IndicatorView extends View {
-    private boolean Gs;
-    private int Gt;
-    private float Gu;
-    private Drawable Gv;
+    private boolean Gt;
+    private int Gu;
+    private float Gv;
     private Drawable Gw;
-    private final j Gx;
+    private Drawable Gx;
+    private final j Gy;
     private float mPosition;
     private int wB;
 
@@ -33,69 +33,69 @@ public class IndicatorView extends View {
 
     public IndicatorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Gx = new a();
+        this.Gy = new a();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
-        this.Gt = obtainStyledAttributes.getDimensionPixelSize(0, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
+        this.Gu = obtainStyledAttributes.getDimensionPixelSize(0, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.wB = obtainStyledAttributes.getInteger(4, 0);
-        this.Gv = obtainStyledAttributes.getDrawable(1);
-        if (this.Gv == null) {
+        this.Gw = obtainStyledAttributes.getDrawable(1);
+        if (this.Gw == null) {
             Log.d("IndicatorView$IndicatorView", "Drawable not defined in xml");
         } else {
-            this.Gv.setBounds(0, 0, this.Gv.getIntrinsicWidth(), this.Gv.getIntrinsicHeight());
-            Log.d("IndicatorView$IndicatorView", "Drawable bounds=" + this.Gv.getBounds());
+            this.Gw.setBounds(0, 0, this.Gw.getIntrinsicWidth(), this.Gw.getIntrinsicHeight());
+            Log.d("IndicatorView$IndicatorView", "Drawable bounds=" + this.Gw.getBounds());
         }
-        this.Gw = obtainStyledAttributes.getDrawable(2);
-        if (this.Gw == null) {
+        this.Gx = obtainStyledAttributes.getDrawable(2);
+        if (this.Gx == null) {
             Log.d("IndicatorView$IndicatorView", "Selector not defined in xml");
         } else {
-            this.Gw.setBounds(0, 0, this.Gw.getIntrinsicWidth(), this.Gw.getIntrinsicHeight());
-            Log.d("IndicatorView$IndicatorView", "Selector bound=" + this.Gw.getBounds());
+            this.Gx.setBounds(0, 0, this.Gx.getIntrinsicWidth(), this.Gx.getIntrinsicHeight());
+            Log.d("IndicatorView$IndicatorView", "Selector bound=" + this.Gx.getBounds());
         }
-        this.Gs = obtainStyledAttributes.getBoolean(3, false);
+        this.Gt = obtainStyledAttributes.getBoolean(3, false);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.Gx.measure(i, i2);
+        this.Gy.measure(i, i2);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.Gx.draw(canvas);
+        this.Gy.draw(canvas);
     }
 
     public void setAutoHide(boolean z) {
-        this.Gs = z;
+        this.Gt = z;
     }
 
     public void setDrawable(Drawable drawable) {
-        this.Gv = drawable;
-        requestLayout();
-        invalidate();
-    }
-
-    public Drawable getDrawable() {
-        return this.Gv;
-    }
-
-    public void setSelector(Drawable drawable) {
         this.Gw = drawable;
         requestLayout();
         invalidate();
     }
 
-    public Drawable getSelector() {
+    public Drawable getDrawable() {
         return this.Gw;
     }
 
+    public void setSelector(Drawable drawable) {
+        this.Gx = drawable;
+        requestLayout();
+        invalidate();
+    }
+
+    public Drawable getSelector() {
+        return this.Gx;
+    }
+
     public void setSpacing(int i) {
-        this.Gt = i;
+        this.Gu = i;
         requestLayout();
         invalidate();
     }
 
     public int getSpacing() {
-        return this.Gt;
+        return this.Gu;
     }
 
     public int getCount() {
@@ -122,20 +122,20 @@ public class IndicatorView extends View {
     /* loaded from: classes.dex */
     public class a implements j {
         private long GA;
-        private int GB;
-        private float GC;
-        private boolean GD;
-        private final HandlerC0013a GE = new HandlerC0013a(this, null);
-        private final int Gy;
-        private long Gz;
+        private long GB;
+        private int GC;
+        private float GD;
+        private boolean GE;
+        private final HandlerC0013a GF = new HandlerC0013a(this, null);
+        private final int Gz;
 
         a() {
-            this.Gy = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
+            this.Gz = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
         }
 
         @Override // com.baidu.adp.widget.j
         public void measure(int i, int i2) {
-            if (IndicatorView.this.Gv == null || IndicatorView.this.Gw == null || IndicatorView.this.wB == 0) {
+            if (IndicatorView.this.Gw == null || IndicatorView.this.Gx == null || IndicatorView.this.wB == 0) {
                 IndicatorView.this.setWillNotDraw(true);
                 IndicatorView.this.setMeasuredDimension(0, 0);
                 Log.d("IndicatorView$IndicatorView", "will not draw.");
@@ -147,29 +147,29 @@ public class IndicatorView extends View {
             Log.d("IndicatorView$IndicatorView", "@onMeasure width=" + ay);
             Log.d("IndicatorView$IndicatorView", "@onMeasure height=" + az);
             IndicatorView.this.setMeasuredDimension(ay, az);
-            Log.d("IndicatorView$IndicatorView", "drawable bound = " + IndicatorView.this.Gv.getBounds().toShortString());
-            Log.d("IndicatorView$IndicatorView", "selector bound = " + IndicatorView.this.Gw.getBounds().toShortString());
+            Log.d("IndicatorView$IndicatorView", "drawable bound = " + IndicatorView.this.Gw.getBounds().toShortString());
+            Log.d("IndicatorView$IndicatorView", "selector bound = " + IndicatorView.this.Gx.getBounds().toShortString());
         }
 
         private int ay(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
             Log.d("IndicatorView$IndicatorView", "@measureWidth size=" + i3);
-            int max = (IndicatorView.this.Gt * (IndicatorView.this.wB - 1)) + (Math.max(IndicatorView.this.Gv.getIntrinsicWidth(), IndicatorView.this.Gw.getIntrinsicWidth()) * IndicatorView.this.wB);
+            int max = (IndicatorView.this.Gu * (IndicatorView.this.wB - 1)) + (Math.max(IndicatorView.this.Gw.getIntrinsicWidth(), IndicatorView.this.Gx.getIntrinsicWidth()) * IndicatorView.this.wB);
             switch (i2) {
                 case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
                     int min = Math.min(i3, max);
-                    IndicatorView.this.Gv.setBounds(0, 0, IndicatorView.this.Gv.getIntrinsicWidth(), IndicatorView.this.Gv.getBounds().height());
                     IndicatorView.this.Gw.setBounds(0, 0, IndicatorView.this.Gw.getIntrinsicWidth(), IndicatorView.this.Gw.getBounds().height());
+                    IndicatorView.this.Gx.setBounds(0, 0, IndicatorView.this.Gx.getIntrinsicWidth(), IndicatorView.this.Gx.getBounds().height());
                     return min;
                 case 0:
-                    IndicatorView.this.Gv.setBounds(0, 0, IndicatorView.this.Gv.getIntrinsicWidth(), 0);
                     IndicatorView.this.Gw.setBounds(0, 0, IndicatorView.this.Gw.getIntrinsicWidth(), 0);
+                    IndicatorView.this.Gx.setBounds(0, 0, IndicatorView.this.Gx.getIntrinsicWidth(), 0);
                     return max;
                 case 1073741824:
-                    int i4 = (int) ((i3 - (IndicatorView.this.Gt * (IndicatorView.this.wB - 1))) / IndicatorView.this.wB);
+                    int i4 = (int) ((i3 - (IndicatorView.this.Gu * (IndicatorView.this.wB - 1))) / IndicatorView.this.wB);
+                    IndicatorView.this.Gx.setBounds(0, 0, i4, IndicatorView.this.Gx.getBounds().height());
                     IndicatorView.this.Gw.setBounds(0, 0, i4, IndicatorView.this.Gw.getBounds().height());
-                    IndicatorView.this.Gv.setBounds(0, 0, i4, IndicatorView.this.Gv.getBounds().height());
                     return i3;
                 default:
                     return i3;
@@ -179,21 +179,21 @@ public class IndicatorView extends View {
         private int az(int i) {
             int i2 = i & (-1073741824);
             int i3 = 1073741823 & i;
-            int max = Math.max(IndicatorView.this.Gv.getIntrinsicHeight(), IndicatorView.this.Gw.getIntrinsicHeight());
+            int max = Math.max(IndicatorView.this.Gw.getIntrinsicHeight(), IndicatorView.this.Gx.getIntrinsicHeight());
             switch (i2) {
                 case ExploreByTouchHelper.INVALID_ID /* -2147483648 */:
                     int min = Math.min(i3, max);
                     Log.d("IndicatorView$IndicatorView", "min size = " + min);
-                    IndicatorView.this.Gv.setBounds(0, 0, IndicatorView.this.Gv.getBounds().width(), min);
                     IndicatorView.this.Gw.setBounds(0, 0, IndicatorView.this.Gw.getBounds().width(), min);
+                    IndicatorView.this.Gx.setBounds(0, 0, IndicatorView.this.Gx.getBounds().width(), min);
                     return min;
                 case 0:
-                    IndicatorView.this.Gv.setBounds(0, 0, IndicatorView.this.Gv.getBounds().width(), max);
                     IndicatorView.this.Gw.setBounds(0, 0, IndicatorView.this.Gw.getBounds().width(), max);
+                    IndicatorView.this.Gx.setBounds(0, 0, IndicatorView.this.Gx.getBounds().width(), max);
                     return max;
                 case 1073741824:
-                    IndicatorView.this.Gv.setBounds(0, 0, IndicatorView.this.Gv.getBounds().width(), i3);
                     IndicatorView.this.Gw.setBounds(0, 0, IndicatorView.this.Gw.getBounds().width(), i3);
+                    IndicatorView.this.Gx.setBounds(0, 0, IndicatorView.this.Gx.getBounds().width(), i3);
                     return i3;
                 default:
                     return i3;
@@ -206,39 +206,39 @@ public class IndicatorView extends View {
             int save = canvas.save();
             for (int i = 0; i < IndicatorView.this.wB; i++) {
                 if (i != 0) {
-                    canvas.translate(IndicatorView.this.Gv.getBounds().width() + IndicatorView.this.Gt, 0.0f);
+                    canvas.translate(IndicatorView.this.Gw.getBounds().width() + IndicatorView.this.Gu, 0.0f);
                 }
-                IndicatorView.this.Gv.draw(canvas);
+                IndicatorView.this.Gw.draw(canvas);
             }
             canvas.restoreToCount(save);
             int save2 = canvas.save();
-            canvas.translate((IndicatorView.this.Gw.getBounds().width() + IndicatorView.this.Gt) * IndicatorView.this.mPosition, 0.0f);
-            IndicatorView.this.Gw.draw(canvas);
+            canvas.translate((IndicatorView.this.Gx.getBounds().width() + IndicatorView.this.Gu) * IndicatorView.this.mPosition, 0.0f);
+            IndicatorView.this.Gx.draw(canvas);
             canvas.restoreToCount(save2);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void mK() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.GC = ((((float) (uptimeMillis - this.Gz)) / 1000.0f) * this.GB) + this.GC;
-            this.Gz = uptimeMillis;
-            this.GA = this.Gz + 16;
-            if (this.GB < 0) {
-                if (this.GC < IndicatorView.this.Gu) {
-                    IndicatorView.this.mPosition = IndicatorView.this.Gu;
-                    this.GD = false;
+            this.GD = ((((float) (uptimeMillis - this.GA)) / 1000.0f) * this.GC) + this.GD;
+            this.GA = uptimeMillis;
+            this.GB = this.GA + 16;
+            if (this.GC < 0) {
+                if (this.GD < IndicatorView.this.Gv) {
+                    IndicatorView.this.mPosition = IndicatorView.this.Gv;
+                    this.GE = false;
                 } else {
-                    IndicatorView.this.mPosition = this.GC;
-                    this.GE.removeMessages(1000);
-                    this.GE.sendEmptyMessageAtTime(1000, this.GA);
+                    IndicatorView.this.mPosition = this.GD;
+                    this.GF.removeMessages(1000);
+                    this.GF.sendEmptyMessageAtTime(1000, this.GB);
                 }
-            } else if (this.GC > IndicatorView.this.Gu) {
-                IndicatorView.this.mPosition = IndicatorView.this.Gu;
-                this.GD = false;
+            } else if (this.GD > IndicatorView.this.Gv) {
+                IndicatorView.this.mPosition = IndicatorView.this.Gv;
+                this.GE = false;
             } else {
-                IndicatorView.this.mPosition = this.GC;
-                this.GE.removeMessages(1000);
-                this.GE.sendEmptyMessageAtTime(1000, this.GA);
+                IndicatorView.this.mPosition = this.GD;
+                this.GF.removeMessages(1000);
+                this.GF.sendEmptyMessageAtTime(1000, this.GB);
             }
             IndicatorView.this.invalidate();
         }

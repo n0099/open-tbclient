@@ -11,21 +11,21 @@ import android.widget.ScrollView;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class cd extends PopupWindow {
-    private int apY;
+    private int apZ;
     private LinearLayout container;
     private Context context;
     private int count;
-    private a dqo;
+    private a dqO;
     private int maxHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void lQ(int i);
+        void lS(int i);
     }
 
     public cd(Context context) {
         super(context);
-        this.apY = -1;
+        this.apZ = -1;
         this.context = context;
         init(context);
     }
@@ -67,7 +67,7 @@ public class cd extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.dqo));
+        view.setOnClickListener(new b(this.count, this.dqO));
         this.container.addView(view);
         this.count++;
     }
@@ -76,32 +76,32 @@ public class cd extends PopupWindow {
         this.maxHeight = i;
     }
 
-    public void lJ(int i) {
-        if (this.apY != -1) {
-            this.container.getChildAt(this.apY).setSelected(false);
+    public void lL(int i) {
+        if (this.apZ != -1) {
+            this.container.getChildAt(this.apZ).setSelected(false);
         }
-        this.apY = i;
-        this.container.getChildAt(this.apY).setSelected(true);
+        this.apZ = i;
+        this.container.getChildAt(this.apZ).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.dqo = aVar;
+        this.dqO = aVar;
     }
 
     /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a dqp;
+        private a dqP;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.dqp = aVar;
+            this.dqP = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.dqp != null) {
-                this.dqp.lQ(this.position);
+            if (this.dqP != null) {
+                this.dqP.lS(this.position);
             }
         }
     }

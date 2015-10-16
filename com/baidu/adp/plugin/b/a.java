@@ -1,10 +1,13 @@
 package com.baidu.adp.plugin.b;
 
+import android.os.Process;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 import com.baidu.adp.plugin.packageManager.pluginSettings.c;
+import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.PluginDownloadActivityConfig;
 import com.baidu.tieba.compatible.EditorHelper;
@@ -12,31 +15,31 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a CZ = null;
-    private HashMap<String, Integer> CY = new HashMap<>();
+    private static volatile a Da = null;
+    private HashMap<String, Integer> CZ = new HashMap<>();
 
     public static synchronized a lF() {
         a aVar;
         synchronized (a.class) {
-            if (CZ == null) {
+            if (Da == null) {
                 synchronized (a.class) {
-                    if (CZ == null) {
-                        CZ = new a();
+                    if (Da == null) {
+                        Da = new a();
                     }
                 }
             }
-            aVar = CZ;
+            aVar = Da;
         }
         return aVar;
     }
 
     public void bi(String str) {
         if (str != null) {
-            Integer num = this.CY.get(str);
+            Integer num = this.CZ.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.CY.put(str, Integer.valueOf(num.intValue() + 1));
+            this.CZ.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
@@ -68,6 +71,11 @@ public class a {
         if (str2 != null) {
             hb.q("pname", str2);
         }
+        hb.e(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
+        PluginSettings mk = c.mn().mk();
+        if (mk != null) {
+            hb.q("pver", mk.getContainerVersion());
+        }
         com.baidu.adp.lib.stats.a.hi().b("pluginproxy", hb);
     }
 
@@ -84,6 +92,11 @@ public class a {
         }
         if (str4 != null) {
             hb.q("comment", str4);
+        }
+        hb.e(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
+        PluginSettings mk = c.mn().mk();
+        if (mk != null) {
+            hb.q("pver", mk.getContainerVersion());
         }
         BdLog.e(hb.toString());
         com.baidu.adp.lib.stats.a.hi().b("pluginproxy", hb);
@@ -109,13 +122,18 @@ public class a {
         if (str4 != null) {
             hb.q("comment", str4);
         }
+        hb.e(Info.kBaiduPIDKey, Integer.valueOf(Process.myPid()));
+        PluginSettings mk = c.mn().mk();
+        if (mk != null) {
+            hb.q("pver", mk.getContainerVersion());
+        }
         BdLog.e(hb.toString());
         com.baidu.adp.lib.stats.a.hi().b("pluginproxy", hb);
         com.baidu.adp.lib.stats.a.hi().save();
     }
 
     public void lG() {
-        if (this.CY.size() != 0) {
+        if (this.CZ.size() != 0) {
             d hb = hb();
             c(hb);
             com.baidu.adp.lib.stats.a.hi().b("pluginproxy", hb);
@@ -148,16 +166,16 @@ public class a {
         com.baidu.adp.lib.stats.a.hi().eventStat(BdBaseApplication.getInst(), str, null, 1, "pname", str2, ImageViewerConfig.INDEX, Integer.valueOf(pluginSetting != null ? pluginSetting.install_fail_count : 0), "reason", str3);
     }
 
-    public void h(String str, String str2, String str3) {
-        com.baidu.adp.lib.stats.a.hi().eventStat(BdBaseApplication.getInst(), str, null, 1, "pname", str2, "reason", str3);
+    public void f(String str, String str2, String str3, String str4) {
+        com.baidu.adp.lib.stats.a.hi().eventStat(BdBaseApplication.getInst(), str, null, 1, "pname", str2, "reason", str3, "comment", str4);
     }
 
     private void c(d dVar) {
         if (dVar != null) {
-            for (Map.Entry<String, Integer> entry : this.CY.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.CZ.entrySet()) {
                 dVar.q(String.valueOf(entry.getKey()) + "_count", String.valueOf(entry.getValue()));
             }
-            this.CY.clear();
+            this.CZ.clear();
         }
     }
 

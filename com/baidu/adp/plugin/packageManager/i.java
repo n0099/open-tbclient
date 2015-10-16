@@ -15,7 +15,7 @@ public class i implements com.baidu.adp.plugin.packageManager.pluginServerConfig
     @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
     public void a(boolean z, PluginNetConfigInfos pluginNetConfigInfos) {
         int i;
-        i = PluginPackageManager.Dr;
+        i = PluginPackageManager.Ds;
         if (i != 1 && z && pluginNetConfigInfos != null) {
             String str = "";
             if (pluginNetConfigInfos.getConfigs() != null && pluginNetConfigInfos.getConfigs().size() > 0) {

@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 import com.baidu.tbadk.editortools.emotiontool.EmotionTabContentView;
 /* loaded from: classes.dex */
 class f implements AdapterView.OnItemClickListener {
-    final /* synthetic */ EmotionTabContentView.b apW;
+    final /* synthetic */ EmotionTabContentView.b apX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(EmotionTabContentView.b bVar) {
-        this.apW = bVar;
+        this.apX = bVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,7 +20,7 @@ class f implements AdapterView.OnItemClickListener {
         com.baidu.tbadk.editortools.j jVar2;
         adapterView.setSelection(-1);
         emotionTabContentView = EmotionTabContentView.this;
-        jVar = emotionTabContentView.Kz;
+        jVar = emotionTabContentView.KA;
         if (jVar != null) {
             com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
             EmotionTabContentView.a aVar = (EmotionTabContentView.a) adapterView.getAdapter();
@@ -35,7 +35,7 @@ class f implements AdapterView.OnItemClickListener {
                 fVar.setWidth(AR.getWidth());
                 fVar.setHeight(AR.getHeight());
                 emotionTabContentView2 = EmotionTabContentView.this;
-                jVar2 = emotionTabContentView2.Kz;
+                jVar2 = emotionTabContentView2.KA;
                 jVar2.b(new com.baidu.tbadk.editortools.a(24, -1, fVar));
             }
         }

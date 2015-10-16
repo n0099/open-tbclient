@@ -7,17 +7,17 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements a.b {
-    private final /* synthetic */ MarkData ciF;
-    private final /* synthetic */ MarkData ciG;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a ciH;
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
+    private final /* synthetic */ MarkData ciQ;
+    private final /* synthetic */ MarkData ciR;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a ciS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(PbActivity pbActivity, MarkData markData, MarkData markData2, com.baidu.tbadk.core.dialog.a aVar) {
-        this.ciz = pbActivity;
-        this.ciF = markData;
-        this.ciG = markData2;
-        this.ciH = aVar;
+        this.ciK = pbActivity;
+        this.ciQ = markData;
+        this.ciR = markData2;
+        this.ciS = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -29,27 +29,27 @@ public class af implements a.b {
         com.baidu.tbadk.baseEditMark.a aVar6;
         com.baidu.tbadk.baseEditMark.a aVar7;
         com.baidu.tbadk.baseEditMark.a aVar8;
-        aVar2 = this.ciz.chW;
+        aVar2 = this.ciK.cii;
         if (aVar2 != null) {
-            aVar3 = this.ciz.chW;
+            aVar3 = this.ciK.cii;
             if (aVar3.qk()) {
-                aVar7 = this.ciz.chW;
+                aVar7 = this.ciK.cii;
                 aVar7.ql();
-                aVar8 = this.ciz.chW;
+                aVar8 = this.ciK.cii;
                 aVar8.ab(false);
             }
-            aVar4 = this.ciz.chW;
-            aVar4.a(this.ciF);
-            aVar5 = this.ciz.chW;
+            aVar4 = this.ciK.cii;
+            aVar4.a(this.ciQ);
+            aVar5 = this.ciK.cii;
             aVar5.ab(true);
-            aVar6 = this.ciz.chW;
+            aVar6 = this.ciK.cii;
             aVar6.qm();
         }
-        this.ciG.setPostId(this.ciF.getPostId());
+        this.ciR.setPostId(this.ciQ.getPostId());
         Intent intent = new Intent();
-        intent.putExtra(PbActivityConfig.KEY_MARK, this.ciG);
-        this.ciz.setResult(-1, intent);
-        this.ciH.dismiss();
-        this.ciz.afp();
+        intent.putExtra(PbActivityConfig.KEY_MARK, this.ciR);
+        this.ciK.setResult(-1, intent);
+        this.ciS.dismiss();
+        this.ciK.afp();
     }
 }

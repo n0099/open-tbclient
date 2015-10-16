@@ -10,13 +10,13 @@ import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class bm extends x.a {
     static final /* synthetic */ boolean $assertionsDisabled;
-    public LinearLayout aVA;
-    public HeadImageView aVC;
-    public TextView aVD;
-    public TextView aVE;
-    public TextView aVG;
-    public TbImageView aVT;
-    public TextView aVU;
+    public LinearLayout aVL;
+    public HeadImageView aVN;
+    public TextView aVO;
+    public TextView aVP;
+    public TextView aVR;
+    public TbImageView aWe;
+    public TextView aWf;
 
     static {
         $assertionsDisabled = !bm.class.desiredAssertionStatus();
@@ -27,12 +27,12 @@ public class bm extends x.a {
         if (!$assertionsDisabled && view == null) {
             throw new AssertionError();
         }
-        this.aVA = (LinearLayout) view.findViewById(i.f.frs_app_item_parent);
-        this.aVC = (HeadImageView) view.findViewById(i.f.frs_app_icon);
-        this.aVD = (TextView) view.findViewById(i.f.frs_app_name);
-        this.aVE = (TextView) view.findViewById(i.f.frs_app_time);
-        this.aVG = (TextView) view.findViewById(i.f.frs_app_desc);
-        this.aVT = (TbImageView) view.findViewById(i.f.frs_app_url);
-        this.aVU = (TextView) view.findViewById(i.f.frs_app_download);
+        this.aVL = (LinearLayout) view.findViewById(i.f.frs_app_item_parent);
+        this.aVN = (HeadImageView) view.findViewById(i.f.frs_app_icon);
+        this.aVO = (TextView) view.findViewById(i.f.frs_app_name);
+        this.aVP = (TextView) view.findViewById(i.f.frs_app_time);
+        this.aVR = (TextView) view.findViewById(i.f.frs_app_desc);
+        this.aWe = (TbImageView) view.findViewById(i.f.frs_app_url);
+        this.aWf = (TextView) view.findViewById(i.f.frs_app_download);
     }
 }

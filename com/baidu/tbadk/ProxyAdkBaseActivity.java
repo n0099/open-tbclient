@@ -32,7 +32,7 @@ import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ac;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ax;
 import com.baidu.tbadk.core.util.g;
 import com.baidu.tbadk.core.view.b;
 import com.baidu.tbadk.core.view.i;
@@ -116,7 +116,7 @@ public class ProxyAdkBaseActivity<T> extends a {
             UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        aw.dn(getClass().getName());
+        ax.dp(getClass().getName());
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
         this.mIsLogin = TbadkCoreApplication.isLogin();
@@ -474,7 +474,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
         TbadkCoreApplication.m411getInst().AddResumeNum();
-        aw.dn(getClass().getName());
+        ax.dp(getClass().getName());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
             this.mIsLogin = isLogin;

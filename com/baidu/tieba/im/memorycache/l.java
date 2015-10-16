@@ -9,11 +9,11 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ b bDx;
+    final /* synthetic */ b bDI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(b bVar) {
-        this.bDx = bVar;
+        this.bDI = bVar;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -30,7 +30,7 @@ public class l implements CustomMessageTask.CustomRunnable<String> {
             TQ.add(imMessageCenterPojo);
             imMessageCenterPojo.setCustomGroupType(7);
             imMessageCenterPojo.setGid(String.valueOf(11));
-            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.g.aB(gN));
+            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.g.aL(gN));
             imMessageCenterPojo.setIs_hidden(1);
         }
         if (gN2 != -1) {
@@ -38,7 +38,7 @@ public class l implements CustomMessageTask.CustomRunnable<String> {
             TQ.add(imMessageCenterPojo2);
             imMessageCenterPojo2.setCustomGroupType(8);
             imMessageCenterPojo2.setGid(String.valueOf(12));
-            imMessageCenterPojo2.setPulled_msgId(com.baidu.tieba.im.util.g.aB(gN2));
+            imMessageCenterPojo2.setPulled_msgId(com.baidu.tieba.im.util.g.aL(gN2));
             imMessageCenterPojo2.setIs_hidden(1);
         }
         return new MemoryGetFromDBMessage(TQ, data);

@@ -55,7 +55,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (!hasError() && this.needCache && this.responseData != null && this.responseData.aeN() != null) {
-            d.avn().a(this.responseData.aeN().getName(), bArr, true);
+            d.avt().a(this.responseData.aeN().getName(), bArr, true);
         }
     }
 

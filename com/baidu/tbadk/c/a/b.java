@@ -9,14 +9,14 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private ArrayList<com.baidu.tbadk.c.a.a> anQ;
+    private ArrayList<com.baidu.tbadk.c.a.a> anR;
     private Context mContext;
 
     /* loaded from: classes.dex */
     private class a {
-        public TextView alt;
-        public HeadImageView anR;
-        public TextView anS;
+        public TextView alu;
+        public HeadImageView anS;
+        public TextView anT;
     }
 
     public Context getContext() {
@@ -24,25 +24,25 @@ public class b extends BaseAdapter {
     }
 
     public void a(com.baidu.tbadk.c.a.a aVar) {
-        if (this.anQ != null && aVar != null) {
-            this.anQ.add(aVar);
+        if (this.anR != null && aVar != null) {
+            this.anR.add(aVar);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.anQ == null) {
+        if (this.anR == null) {
             return 0;
         }
-        return this.anQ.size();
+        return this.anR.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: dL */
     public com.baidu.tbadk.c.a.a getItem(int i) {
-        if (this.anQ != null && i < this.anQ.size()) {
-            return this.anQ.get(i);
+        if (this.anR != null && i < this.anR.size()) {
+            return this.anR.get(i);
         }
         return null;
     }
@@ -56,9 +56,9 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view != null) {
             a aVar = (a) view.getTag();
-            aVar.anR.setImageResource(this.anQ.get(i).Ae());
-            aVar.alt.setText(this.anQ.get(i).Af());
-            aVar.anS.setText(i);
+            aVar.anS.setImageResource(this.anR.get(i).Ae());
+            aVar.alu.setText(this.anR.get(i).Af());
+            aVar.anT.setText(i);
             return view;
         }
         return null;

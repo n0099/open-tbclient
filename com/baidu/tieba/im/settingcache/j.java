@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.util.m;
 /* loaded from: classes.dex */
 public class j extends a {
-    private static j bHx = new j();
+    private static j bHI = new j();
 
     private j() {
     }
 
     public static j Xj() {
-        return bHx;
+        return bHI;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,8 +25,8 @@ public class j extends a {
             return null;
         }
         String str3 = String.valueOf(str) + "@" + str2;
-        synchronized (this.bHm) {
-            com.baidu.tieba.im.pushNotify.a aVar = this.bHm.get(str3);
+        synchronized (this.bHx) {
+            com.baidu.tieba.im.pushNotify.a aVar = this.bHx.get(str3);
             personalSettingItemData = (aVar == null || !(aVar instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) aVar;
         }
         if (personalSettingItemData == null) {
@@ -60,7 +60,7 @@ public class j extends a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
     public o<String> Xf() {
-        return com.baidu.tbadk.core.b.a.sO().cq("tb.im_personal_chat_setting");
+        return com.baidu.tbadk.core.b.a.sO().cr("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -78,8 +78,8 @@ public class j extends a {
             o<String> Xf = Xf();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.bHm) {
-                this.bHm.put(str, personalSettingItemData);
+            synchronized (this.bHx) {
+                this.bHx.put(str, personalSettingItemData);
             }
             Xf.f(str, jsonStrWithObject);
         }
@@ -98,8 +98,8 @@ public class j extends a {
                 return;
             }
             String str = String.valueOf(myUid) + "@" + toUid;
-            synchronized (this.bHm) {
-                this.bHm.put(str, personalSettingItemData);
+            synchronized (this.bHx) {
+                this.bHx.put(str, personalSettingItemData);
             }
             m.b(new k(this, personalSettingItemData, str), dVar);
         }

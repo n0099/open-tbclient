@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class cn extends bn<com.baidu.tieba.tbadkCore.z, cm> implements View.OnClickListener {
-    private boolean aXr;
+    private boolean aXC;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public cn(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.aXr = TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.START_OFFICIAL_BAR_CHAT);
+        this.aXC = TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.START_OFFICIAL_BAR_CHAT);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,31 +32,31 @@ public class cn extends bn<com.baidu.tieba.tbadkCore.z, cm> implements View.OnCl
     @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.z zVar, cm cmVar) {
         super.a(i, view, viewGroup, (ViewGroup) zVar, (com.baidu.tieba.tbadkCore.z) cmVar);
-        if (zVar.avU()) {
-            String avV = zVar.avV();
-            if (avV != null) {
-                cmVar.aXo.setText(avV);
-            } else if (this.aTL.aeN() != null && this.aTL.aeN().getName() != null) {
-                cmVar.aXo.setText(this.mContext.getString(i.h.get_fortune_hint_format, this.aTL.aeN().getName()));
+        if (zVar.awc()) {
+            String awd = zVar.awd();
+            if (awd != null) {
+                cmVar.aXz.setText(awd);
+            } else if (this.aTW.aeN() != null && this.aTW.aeN().getName() != null) {
+                cmVar.aXz.setText(this.mContext.getString(i.h.get_fortune_hint_format, this.aTW.aeN().getName()));
             }
-            cmVar.aXn.setTag(Integer.valueOf(i));
-            cmVar.aXn.setOnClickListener(this);
-            cmVar.aXn.setVisibility(0);
+            cmVar.aXy.setTag(Integer.valueOf(i));
+            cmVar.aXy.setOnClickListener(this);
+            cmVar.aXy.setVisibility(0);
         } else {
-            cmVar.aXn.setVisibility(8);
+            cmVar.aXy.setVisibility(8);
         }
-        com.baidu.tieba.tbadkCore.p avW = zVar.avW();
-        if (avW != null && avW.avQ() && !TextUtils.isEmpty(avW.avR())) {
-            cmVar.aXq.setText(avW.avR());
-            cmVar.aXp.setTag(Integer.valueOf(i));
-            cmVar.aXp.setOnClickListener(this);
-            cmVar.aXp.setVisibility(0);
+        com.baidu.tieba.tbadkCore.p awe = zVar.awe();
+        if (awe != null && awe.avY() && !TextUtils.isEmpty(awe.avZ())) {
+            cmVar.aXB.setText(awe.avZ());
+            cmVar.aXA.setTag(Integer.valueOf(i));
+            cmVar.aXA.setOnClickListener(this);
+            cmVar.aXA.setVisibility(0);
         } else {
-            cmVar.aXp.setVisibility(8);
+            cmVar.aXA.setVisibility(8);
         }
-        this.aRT.getLayoutMode().ad(this.mSkinType == 1);
-        this.aRT.getLayoutMode().k(view);
-        if (!this.aXr && !zVar.avU()) {
+        this.aSe.getLayoutMode().ad(this.mSkinType == 1);
+        this.aSe.getLayoutMode().k(view);
+        if (!this.aXC && !zVar.awc()) {
             return new View(this.mContext);
         }
         return view;
@@ -72,11 +72,11 @@ public class cn extends bn<com.baidu.tieba.tbadkCore.z, cm> implements View.OnCl
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aVV != null) {
+        if (this.aWg != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
-            View childAt = this.aSK.getChildAt(intValue - (this.aSK.getFirstVisiblePosition() - this.aSK.getHeaderViewsCount()));
-            this.aVV.a(id, intValue, view, childAt, (com.baidu.tbadk.core.data.v) aA(intValue));
+            View childAt = this.aSV.getChildAt(intValue - (this.aSV.getFirstVisiblePosition() - this.aSV.getHeaderViewsCount()));
+            this.aWg.a(id, intValue, view, childAt, (com.baidu.tbadk.core.data.w) aA(intValue));
         }
     }
 }

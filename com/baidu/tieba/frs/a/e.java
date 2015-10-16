@@ -30,44 +30,44 @@ public class e extends bn<com.baidu.tbadk.core.data.b, f> {
     @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.b bVar, f fVar) {
         super.a(i, view, viewGroup, (ViewGroup) bVar, (com.baidu.tbadk.core.data.b) fVar);
-        fVar.baB.setPadding(0, i - this.aTF == 0 ? this.aSG : this.aSH, 0, 0);
-        this.aRT.getLayoutMode().ad(this.mSkinType == 1);
-        this.aRT.getLayoutMode().k(view);
-        if (!bVar.Uj && (this.aRT instanceof FrsActivity)) {
-            bVar.Uj = true;
-            ((FrsActivity) this.aRT).a(bVar, "show");
-            ((FrsActivity) this.aRT).b(bVar, "show");
+        fVar.baM.setPadding(0, i - this.aTQ == 0 ? this.aSR : this.aSS, 0, 0);
+        this.aSe.getLayoutMode().ad(this.mSkinType == 1);
+        this.aSe.getLayoutMode().k(view);
+        if (!bVar.Uk && (this.aSe instanceof FrsActivity)) {
+            bVar.Uk = true;
+            ((FrsActivity) this.aSe).a(bVar, "show");
+            ((FrsActivity) this.aSe).b(bVar, "show");
         }
         if (m.qX().qZ()) {
-            fVar.aHL.setVisibility(0);
-            fVar.aHL.d(bVar.Ui.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+            fVar.aHW.setVisibility(0);
+            fVar.aHW.d(bVar.Uj.userPortrait, this.mIsFromCDN ? 13 : 14, false);
         } else {
-            fVar.aHL.setVisibility(8);
+            fVar.aHW.setVisibility(8);
         }
-        if (m.qX().rb() && !TextUtils.isEmpty(bVar.Ui.Un)) {
-            fVar.baD.setVisibility(0);
-            fVar.baD.d(bVar.Ui.Un, this.mIsFromCDN ? 30 : 31, false);
+        if (m.qX().rb() && !TextUtils.isEmpty(bVar.Uj.Uo)) {
+            fVar.baO.setVisibility(0);
+            fVar.baO.d(bVar.Uj.Uo, this.mIsFromCDN ? 30 : 31, false);
         } else {
-            fVar.baD.setVisibility(8);
+            fVar.baO.setVisibility(8);
         }
-        fVar.aDa.setText(bVar.Ui.userName);
-        if (StringUtils.isNull(bVar.Ui.Ul)) {
-            fVar.alt.setVisibility(8);
+        fVar.aDl.setText(bVar.Uj.userName);
+        if (StringUtils.isNull(bVar.Uj.Um)) {
+            fVar.alu.setVisibility(8);
         } else {
-            fVar.alt.setVisibility(0);
-            fVar.alt.setText(bVar.Ui.Ul);
+            fVar.alu.setVisibility(0);
+            fVar.alu.setText(bVar.Uj.Um);
         }
-        if (StringUtils.isNull(bVar.Ui.Uq)) {
-            fVar.baE.setVisibility(8);
+        if (StringUtils.isNull(bVar.Uj.Ur)) {
+            fVar.baP.setVisibility(8);
         } else {
-            fVar.baE.setVisibility(0);
-            fVar.baE.setText(bVar.Ui.Uq);
+            fVar.baP.setVisibility(0);
+            fVar.baP.setText(bVar.Uj.Ur);
         }
-        if (StringUtils.isNull(bVar.Ui.Ur)) {
-            fVar.baF.setVisibility(8);
+        if (StringUtils.isNull(bVar.Uj.Us)) {
+            fVar.baQ.setVisibility(8);
         } else {
-            fVar.baF.setVisibility(0);
-            fVar.baF.setText(bVar.Ui.Ur);
+            fVar.baQ.setVisibility(0);
+            fVar.baQ.setText(bVar.Uj.Us);
         }
         return view;
     }

@@ -7,35 +7,35 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class ab {
-    private static ab aaq;
-    private static final BdUniqueId aar = BdUniqueId.gen();
+    private static ab aas;
+    private static final BdUniqueId aat = BdUniqueId.gen();
 
     public static synchronized ab ur() {
         ab abVar;
         synchronized (ab.class) {
-            if (aaq == null) {
-                aaq = new ab();
+            if (aas == null) {
+                aas = new ab();
             }
-            abVar = aaq;
+            abVar = aas;
         }
         return abVar;
     }
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, String> {
-        private final String aas;
-        private final boolean aat;
-        private final boolean aau;
+        private final String aau;
         private final boolean aav;
+        private final boolean aaw;
+        private final boolean aax;
         private final String imageUrl;
 
         public a(String str, String str2, boolean z, boolean z2, boolean z3) {
             this.imageUrl = str;
-            this.aas = str2;
-            this.aat = z;
-            this.aau = z2;
-            this.aav = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ab.aar));
+            this.aau = str2;
+            this.aav = z;
+            this.aaw = z2;
+            this.aax = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ab.aat));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,7 +43,7 @@ public class ab {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             try {
-                ab.this.b(this.imageUrl, this.aas, this.aat, this.aau, this.aav);
+                ab.this.b(this.imageUrl, this.aau, this.aav, this.aaw, this.aax);
             } catch (Throwable th) {
                 TiebaStatic.imgError(TbErrInfo.ERR_IMG_CACHE, "pic cache img err: " + th.toString(), null);
             }
@@ -53,17 +53,17 @@ public class ab {
 
     public void b(String str, String str2, boolean z, boolean z2, boolean z3) {
         if (str2 != null && str != null) {
-            String dm = at.dm(str);
-            aq.uC().copyFile(str2, dm);
+            String dn = au.dn(str);
+            ar.uD().copyFile(str2, dn);
             if (z || z2 || z3) {
-                synchronized (c.Gl) {
-                    int dk = aq.uC().dk(dm);
-                    if (dk > 0) {
+                synchronized (c.Gm) {
+                    int dl = ar.uD().dl(dn);
+                    if (dl > 0) {
                         if (z) {
-                            Bitmap di = aq.uC().di(dm);
-                            com.baidu.tbadk.imageManager.c.Cf().en(dk);
-                            if (di != null) {
-                                a(str, di, z2, aq.uC().dj(dm), z3, dm);
+                            Bitmap dj = ar.uD().dj(dn);
+                            com.baidu.tbadk.imageManager.c.Cf().en(dl);
+                            if (dj != null) {
+                                a(str, dj, z2, ar.uD().dk(dn), z3, dn);
                             }
                         }
                     }
@@ -117,7 +117,7 @@ public class ab {
             bitmap2 = c.a(h, (h.getHeight() < 100 || h.getWidth() < 100) ? 5.0f : 5.0f, true);
         }
         if (!TextUtils.isEmpty(str)) {
-            aq.uC().h(str, c.e(bitmap2, 100));
+            ar.uD().h(str, c.e(bitmap2, 100));
         }
         return bitmap2;
     }

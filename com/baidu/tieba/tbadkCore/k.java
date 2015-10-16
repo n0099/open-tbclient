@@ -9,21 +9,21 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ FrsPraiseView cWL;
+    final /* synthetic */ FrsPraiseView cXk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(FrsPraiseView frsPraiseView) {
-        this.cWL = frsPraiseView;
+        this.cXk = frsPraiseView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PraiseData praiseData;
         Context context;
-        praiseData = this.cWL.cWK;
+        praiseData = this.cXk.cXj;
         MetaData metaData = praiseData.getUser().get(0);
         if (metaData != null) {
-            context = this.cWL.mContext;
+            context = this.cXk.mContext;
             com.baidu.tbadk.util.g.a(CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, metaData.getUserId(), metaData.getName_show()));
         }
     }

@@ -5,24 +5,24 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import java.io.File;
 /* loaded from: classes.dex */
 public class h {
-    private com.baidu.tbadk.coreExtra.d.b aDq = new com.baidu.tbadk.coreExtra.d.b();
+    private com.baidu.tbadk.coreExtra.d.b aDB = new com.baidu.tbadk.coreExtra.d.b();
 
     public Bitmap aq(Context context) {
         Bitmap bitmap = null;
-        String xD = this.aDq.xD();
+        String xD = this.aDB.xD();
         if (!StringUtils.isNull(xD)) {
             try {
-                File cI = com.baidu.tbadk.core.util.n.cI(at.dm(xD));
-                if (cI == null) {
-                    this.aDq.xE();
+                File cJ = com.baidu.tbadk.core.util.n.cJ(au.dn(xD));
+                if (cJ == null) {
+                    this.aDB.xE();
                 } else {
-                    bitmap = BitmapFactory.decodeFile(cI.getAbsolutePath());
+                    bitmap = BitmapFactory.decodeFile(cJ.getAbsolutePath());
                     if (bitmap == null) {
-                        this.aDq.xE();
+                        this.aDB.xE();
                     }
                 }
             } catch (Throwable th) {

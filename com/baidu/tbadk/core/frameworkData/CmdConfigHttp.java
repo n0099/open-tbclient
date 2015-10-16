@@ -9,6 +9,7 @@ public class CmdConfigHttp {
     public static final int CLEAR_LOCATION_INFO = 1001508;
     public static final int CMD_ADD_USER_ATTR_URL = 1003018;
     public static final int CMD_ADD_VOTE = 1003043;
+    public static final int CMD_AD_UPLOAD = 1003044;
     public static final int CMD_ALL_THEME_LIST = 1003032;
     public static final int CMD_APPLY_GAME_CODE = 1003015;
     public static final int CMD_BUBBLE_CATEGORY = 1003039;

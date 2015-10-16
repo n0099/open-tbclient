@@ -1,8 +1,8 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class f {
-    private String agj;
-    private EmotionGroupType agk;
+    private String agk;
+    private EmotionGroupType agl;
     private int height;
     private String name;
     private String pname;
@@ -17,11 +17,11 @@ public class f {
     }
 
     public EmotionGroupType wk() {
-        return this.agk;
+        return this.agl;
     }
 
     public void a(EmotionGroupType emotionGroupType) {
-        this.agk = emotionGroupType;
+        this.agl = emotionGroupType;
     }
 
     public String wl() {
@@ -33,11 +33,11 @@ public class f {
     }
 
     public String getPid() {
-        return this.agj;
+        return this.agk;
     }
 
     public void setPid(String str) {
-        this.agj = str;
+        this.agk = str;
     }
 
     public int getWidth() {

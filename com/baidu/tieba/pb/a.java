@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 class a extends Handler {
-    final /* synthetic */ FileDownloader cen;
+    final /* synthetic */ FileDownloader cey;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(FileDownloader fileDownloader) {
-        this.cen = fileDownloader;
+        this.cey = fileDownloader;
     }
 
     @Override // android.os.Handler
@@ -22,22 +22,22 @@ class a extends Handler {
         super.handleMessage(message);
         if (message.what == 900002) {
             if (message.arg2 > 0) {
-                this.cen.progress = (int) ((message.arg1 * 100) / message.arg2);
+                this.cey.progress = (int) ((message.arg1 * 100) / message.arg2);
                 StringBuffer stringBuffer = new StringBuffer(20);
                 stringBuffer.append(String.valueOf(message.arg1 / 1000));
                 stringBuffer.append("K/");
                 stringBuffer.append(String.valueOf(message.arg2 / 1000));
                 stringBuffer.append("K");
-                this.cen.schedule = stringBuffer.toString();
-                Context baseContext = this.cen.getBaseContext();
-                int i = this.cen.progress;
-                str = this.cen.schedule;
-                str2 = this.cen.mInfo;
+                this.cey.schedule = stringBuffer.toString();
+                Context baseContext = this.cey.getBaseContext();
+                int i = this.cey.progress;
+                str = this.cey.schedule;
+                str2 = this.cey.mInfo;
                 NotificationHelper.showProgressNotification(baseContext, 10, null, i, str, str2, true);
             }
         } else if (message.what == 1) {
             UtilHelper.install_apk(TbadkCoreApplication.m411getInst().getApp(), (String) message.obj);
-            this.cen.stopSelf();
+            this.cey.stopSelf();
         }
     }
 }

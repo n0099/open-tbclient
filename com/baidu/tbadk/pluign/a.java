@@ -5,17 +5,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static a ayP;
+    private static a aza;
 
     public static a Ep() {
-        if (ayP == null) {
+        if (aza == null) {
             synchronized (a.class) {
-                if (ayP == null) {
-                    ayP = new a();
+                if (aza == null) {
+                    aza = new a();
                 }
             }
         }
-        return ayP;
+        return aza;
     }
 
     private a() {

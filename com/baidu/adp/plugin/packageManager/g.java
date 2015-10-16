@@ -33,7 +33,7 @@ public class g implements a.c {
                     }
                 }
                 com.baidu.adp.plugin.packageManager.pluginSettings.c mn = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn();
-                z = this.this$0.Du;
+                z = this.this$0.Dv;
                 mn.b(str, str3, z);
             }
         }

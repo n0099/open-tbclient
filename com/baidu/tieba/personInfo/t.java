@@ -9,29 +9,29 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 /* loaded from: classes.dex */
 public class t extends BaseAdapter {
-    private AntiData cgo;
-    private PersonInfoActivity cqt;
-    private ad csA;
-    private v csB;
-    private ab csC;
-    private aa csD;
-    private ae csy;
-    private u csz;
+    private AntiData cgz;
+    private PersonInfoActivity cqE;
+    private ae csJ;
+    private u csK;
+    private ad csL;
+    private v csM;
+    private ab csN;
+    private aa csO;
     private boolean mIsHost;
 
     public t(PersonInfoActivity personInfoActivity, boolean z) {
-        this.cqt = personInfoActivity;
+        this.cqE = personInfoActivity;
         this.mIsHost = z;
-        this.csy = new ae(this.cqt, this.mIsHost);
-        this.csz = new u(this.cqt, this.mIsHost);
-        this.csA = new ad(this.cqt, this.mIsHost);
-        this.csB = new v(this.cqt, this.mIsHost);
-        this.csC = new ab(this.cqt, this.mIsHost);
-        this.csD = new aa(this.cqt);
+        this.csJ = new ae(this.cqE, this.mIsHost);
+        this.csK = new u(this.cqE, this.mIsHost);
+        this.csL = new ad(this.cqE, this.mIsHost);
+        this.csM = new v(this.cqE, this.mIsHost);
+        this.csN = new ab(this.cqE, this.mIsHost);
+        this.csO = new aa(this.cqE);
     }
 
     public void b(AntiData antiData) {
-        this.cgo = antiData;
+        this.cgz = antiData;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -90,85 +90,85 @@ public class t extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 0) {
-            this.csy.ajC();
-            return this.csy.getRootView();
+            this.csJ.ajC();
+            return this.csJ.getRootView();
         } else if (itemViewType == 1) {
-            this.csz.ajC();
-            return this.csz.getRootView();
+            this.csK.ajC();
+            return this.csK.getRootView();
         } else if (itemViewType == 2) {
-            this.csA.ajC();
-            return this.csA.getRootView();
+            this.csL.ajC();
+            return this.csL.getRootView();
         } else if (itemViewType == 3) {
-            this.csB.ajC();
-            return this.csB.getRootView();
+            this.csM.ajC();
+            return this.csM.getRootView();
         } else if (itemViewType == 4) {
-            this.csC.c(this.cgo);
-            return this.csC.getRootView();
+            this.csN.c(this.cgz);
+            return this.csN.getRootView();
         } else if (itemViewType == 5) {
-            this.csD.ajC();
-            return this.csD.getRootView();
+            this.csO.ajC();
+            return this.csO.getRootView();
         } else {
             return null;
         }
     }
 
     public RelativeLayout ajo() {
-        return this.csA.ajo();
+        return this.csL.ajo();
     }
 
     public void ajp() {
-        this.csA.ajp();
+        this.csL.ajp();
     }
 
     public RelativeLayout ajq() {
-        return this.csz.ajB();
+        return this.csK.ajB();
     }
 
     public RelativeLayout ajr() {
-        return this.csz.ajr();
+        return this.csK.ajr();
     }
 
     public RelativeLayout ajs() {
-        return this.csD.ajs();
+        return this.csO.ajs();
     }
 
     public TextView ajt() {
-        return this.csA.ajt();
+        return this.csL.ajt();
     }
 
     public RelativeLayout aju() {
-        return this.csz.aju();
+        return this.csK.aju();
     }
 
     public RelativeLayout ajv() {
-        return this.csA.ajv();
+        return this.csL.ajv();
     }
 
     public RelativeLayout ajw() {
-        return this.csA.ajw();
+        return this.csL.ajw();
     }
 
     public RelativeLayout ajx() {
-        return this.csA.ajx();
+        return this.csL.ajx();
     }
 
     public RelativeLayout ajy() {
-        return this.csB.ajy();
+        return this.csM.ajy();
     }
 
     public RelativeLayout ajz() {
-        return this.csB.ajr();
+        return this.csM.ajr();
     }
 
     public RelativeLayout ajA() {
-        return this.csC.ajA();
+        return this.csN.ajA();
     }
 
     public void fa(boolean z) {
-        this.csA.fa(z);
+        this.csL.fa(z);
     }
 
     public void jm(int i) {
-        this.csA.jm(i);
+        this.csL.jm(i);
     }
 }

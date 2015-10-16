@@ -3,32 +3,32 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public class o {
-    private EmotionGroupType aqG;
-    private int aqH;
+    private EmotionGroupType aqH;
     private int aqI;
     private int aqJ;
     private int aqK;
-    private t aqL;
-    private int aqM;
+    private int aqL;
+    private t aqM;
     private int aqN;
+    private int aqO;
     private int column;
     private int index;
     private int row;
 
     public void e(t tVar) {
-        this.aqL = tVar;
+        this.aqM = tVar;
     }
 
     public t AR() {
-        return this.aqL;
+        return this.aqM;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.aqG = emotionGroupType;
+        this.aqH = emotionGroupType;
     }
 
     public EmotionGroupType AS() {
-        return this.aqG;
+        return this.aqH;
     }
 
     public void eb(int i) {
@@ -48,39 +48,39 @@ public class o {
     }
 
     public void ed(int i) {
-        this.aqN = i;
+        this.aqO = i;
     }
 
     public int AU() {
-        return this.aqN;
+        return this.aqO;
     }
 
     public void ee(int i) {
-        this.aqM = i;
+        this.aqN = i;
     }
 
     public int AV() {
-        return this.aqM;
+        return this.aqN;
     }
 
     public void ef(int i) {
-        this.aqH = i;
+        this.aqI = i;
     }
 
     public int AW() {
-        return this.aqH;
+        return this.aqI;
     }
 
     public void eg(int i) {
-        this.aqJ = i;
+        this.aqK = i;
     }
 
     public int AX() {
-        return this.aqJ;
+        return this.aqK;
     }
 
     public void setEndIndex(int i) {
-        this.aqK = i;
+        this.aqL = i;
     }
 
     public void setIndex(int i) {
@@ -92,10 +92,10 @@ public class o {
     }
 
     public void eh(int i) {
-        this.aqI = i;
+        this.aqJ = i;
     }
 
     public int AY() {
-        return this.aqI;
+        return this.aqJ;
     }
 }

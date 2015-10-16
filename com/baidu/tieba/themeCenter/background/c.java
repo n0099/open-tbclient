@@ -6,15 +6,15 @@ import tbclient.GetBgByCategory.ThemeBgInMain;
 import tbclient.ThemeBgProp;
 /* loaded from: classes.dex */
 public class c {
-    private List<DressItemData> deG;
+    private List<DressItemData> dfg;
     private String groupName;
 
     public void a(ThemeBgInMain themeBgInMain) {
         if (themeBgInMain != null) {
             this.groupName = themeBgInMain.bg_category;
-            this.deG = new ArrayList();
+            this.dfg = new ArrayList();
             for (ThemeBgProp themeBgProp : themeBgInMain.props) {
-                this.deG.add(new DressItemData(themeBgProp));
+                this.dfg.add(new DressItemData(themeBgProp));
             }
         }
     }
@@ -24,6 +24,6 @@ public class c {
     }
 
     public List<DressItemData> getBackgroundList() {
-        return this.deG;
+        return this.dfg;
     }
 }

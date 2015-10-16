@@ -1,71 +1,35 @@
 package com.baidu.tbadk.core.data;
 
+import java.util.ArrayList;
+import tbclient.FrsPage.ActivityHead;
 import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
-public class h implements com.baidu.tbadk.core.flow.a.a {
-    private String UH;
-    private String UI;
-    private String UJ;
-    private boolean UK;
-    private String mImageUrl;
-    private String mTitle;
+public class h {
+    private String UG;
+    private int UH;
+    private ArrayList<i> UI = new ArrayList<>();
+    private int height;
+    private int width;
 
-    public h(String str, String str2, String str3) {
-        this.mImageUrl = str;
-        this.UH = str2;
-        this.mTitle = str3;
+    public ArrayList<i> rx() {
+        return this.UI;
     }
 
-    public h() {
+    public void h(ArrayList<i> arrayList) {
+        this.UI = arrayList;
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String getPicUrl() {
-        return this.mImageUrl;
-    }
-
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String ry() {
-        return this.UH;
-    }
-
-    public String getTitle() {
-        return this.mTitle;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: rz */
-    public h clone() {
-        h hVar = new h();
-        hVar.mImageUrl = this.mImageUrl;
-        hVar.UH = this.UH;
-        hVar.mTitle = this.mTitle;
-        hVar.UI = this.UI;
-        hVar.UJ = this.UJ;
-        return hVar;
-    }
-
-    public void a(HeadImgs headImgs) {
-        if (headImgs != null) {
-            this.mImageUrl = headImgs.img_url;
-            this.UH = headImgs.pc_url;
-            if (headImgs.title != null) {
-                this.mTitle = headImgs.title.trim();
-            }
-            if (headImgs.subtitle != null) {
-                this.UI = headImgs.subtitle.trim();
-            }
-            if (headImgs.btn_text != null) {
-                this.UJ = headImgs.btn_text.trim();
+    public void a(ActivityHead activityHead) {
+        if (activityHead != null && activityHead.head_imgs != null && activityHead.head_imgs.size() != 0) {
+            this.UH = activityHead.activity_type.intValue();
+            this.UG = activityHead.activity_title;
+            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
+            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
+            for (HeadImgs headImgs : activityHead.head_imgs) {
+                i iVar = new i();
+                iVar.a(headImgs);
+                this.UI.add(iVar);
             }
         }
-    }
-
-    public boolean rA() {
-        return this.UK;
-    }
-
-    public void ah(boolean z) {
-        this.UK = z;
     }
 }

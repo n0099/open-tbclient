@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.postsearch.j;
 /* loaded from: classes.dex */
 class w implements View.OnClickListener {
-    final /* synthetic */ v cEq;
-    private final /* synthetic */ j.a cEr;
+    final /* synthetic */ v cEB;
+    private final /* synthetic */ j.a cEC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(v vVar, j.a aVar) {
-        this.cEq = vVar;
-        this.cEr = aVar;
+        this.cEB = vVar;
+        this.cEC = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,28 +32,28 @@ class w implements View.OnClickListener {
         TbPageContext tbPageContext7;
         TbPageContext tbPageContext8;
         TbPageContext tbPageContext9;
-        tbPageContext = this.cEq.mContext;
+        tbPageContext = this.cEB.mContext;
         if (tbPageContext != null) {
-            if (this.cEr.is_floor == 1) {
-                if (this.cEr.thread_type == 33) {
-                    tbPageContext8 = this.cEq.mContext;
-                    CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(tbPageContext8.getPageActivity()).createPhotoLiveCommentActivityConfig(new StringBuilder(String.valueOf(this.cEr.tid)).toString(), new StringBuilder(String.valueOf(this.cEr.pid)).toString(), true));
-                    tbPageContext9 = this.cEq.mContext;
+            if (this.cEC.is_floor == 1) {
+                if (this.cEC.thread_type == 33) {
+                    tbPageContext8 = this.cEB.mContext;
+                    CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(tbPageContext8.getPageActivity()).createPhotoLiveCommentActivityConfig(new StringBuilder(String.valueOf(this.cEC.tid)).toString(), new StringBuilder(String.valueOf(this.cEC.pid)).toString(), true));
+                    tbPageContext9 = this.cEB.mContext;
                     tbPageContext9.sendMessage(customMessage);
                     return;
                 }
-                tbPageContext6 = this.cEq.mContext;
-                tbPageContext7 = this.cEq.mContext;
-                tbPageContext6.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(tbPageContext7.getPageActivity()).createSubPbActivityConfig(new StringBuilder(String.valueOf(this.cEr.tid)).toString(), new StringBuilder(String.valueOf(this.cEr.pid)).toString(), "search_post", true)));
-            } else if (this.cEr.thread_type != 33) {
-                tbPageContext2 = this.cEq.mContext;
-                tbPageContext3 = this.cEq.mContext;
-                tbPageContext2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(tbPageContext3.getPageActivity()).createNormalCfg(new StringBuilder(String.valueOf(this.cEr.tid)).toString(), new StringBuilder(String.valueOf(this.cEr.pid)).toString(), "search_post")));
+                tbPageContext6 = this.cEB.mContext;
+                tbPageContext7 = this.cEB.mContext;
+                tbPageContext6.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(tbPageContext7.getPageActivity()).createSubPbActivityConfig(new StringBuilder(String.valueOf(this.cEC.tid)).toString(), new StringBuilder(String.valueOf(this.cEC.pid)).toString(), "search_post", true)));
+            } else if (this.cEC.thread_type != 33) {
+                tbPageContext2 = this.cEB.mContext;
+                tbPageContext3 = this.cEB.mContext;
+                tbPageContext2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(tbPageContext3.getPageActivity()).createNormalCfg(new StringBuilder(String.valueOf(this.cEC.tid)).toString(), new StringBuilder(String.valueOf(this.cEC.pid)).toString(), "search_post")));
             } else {
                 TiebaStatic.log("c10256");
-                tbPageContext4 = this.cEq.mContext;
-                PhotoLiveActivityConfig rk = new PhotoLiveActivityConfig.a(tbPageContext4.getPageActivity(), String.valueOf(this.cEr.tid)).cf(String.valueOf(this.cEr.pid)).cg("search_post").rk();
-                tbPageContext5 = this.cEq.mContext;
+                tbPageContext4 = this.cEB.mContext;
+                PhotoLiveActivityConfig rk = new PhotoLiveActivityConfig.a(tbPageContext4.getPageActivity(), String.valueOf(this.cEC.tid)).cg(String.valueOf(this.cEC.pid)).ch("search_post").rk();
+                tbPageContext5 = this.cEB.mContext;
                 tbPageContext5.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, rk));
             }
         }

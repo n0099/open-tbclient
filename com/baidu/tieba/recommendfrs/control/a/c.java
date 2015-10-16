@@ -12,11 +12,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements a.InterfaceC0052a<g> {
-    final /* synthetic */ b cIh;
+    final /* synthetic */ b cIG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.cIh = bVar;
+        this.cIG = bVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a
@@ -25,23 +25,23 @@ public class c implements a.InterfaceC0052a<g> {
         b.a aVar2;
         b.a aVar3;
         b.a aVar4;
-        String aqi = (readCacheMessage == null || readCacheMessage.getRequestData() == null || !(readCacheMessage.getRequestData() instanceof f)) ? null : ((f) readCacheMessage.getRequestData()).aqi();
-        if (aqi != null) {
+        String aqo = (readCacheMessage == null || readCacheMessage.getRequestData() == null || !(readCacheMessage.getRequestData() instanceof f)) ? null : ((f) readCacheMessage.getRequestData()).aqo();
+        if (aqo != null) {
             if (readCacheRespMsg == null || readCacheRespMsg.getData() == null || readCacheRespMsg.getData().size() <= 0 || readCacheRespMsg.getData().get(0) == null) {
-                aVar = this.cIh.cIg;
+                aVar = this.cIG.cIF;
                 if (aVar != null) {
-                    aVar2 = this.cIh.cIg;
-                    aVar2.a(false, null, false, aqi);
+                    aVar2 = this.cIG.cIF;
+                    aVar2.a(false, null, false, aqo);
                 }
             } else {
                 g gVar = readCacheRespMsg.getData().get(0);
-                aVar3 = this.cIh.cIg;
+                aVar3 = this.cIG.cIF;
                 if (aVar3 != null) {
-                    aVar4 = this.cIh.cIg;
-                    aVar4.a(false, gVar, false, aqi);
+                    aVar4 = this.cIG.cIF;
+                    aVar4.a(false, gVar, false, aqo);
                 }
             }
-            this.cIh.c(0, aqi, 0);
+            this.cIG.c(0, aqo, 0);
         }
     }
 

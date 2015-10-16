@@ -3,11 +3,11 @@ package com.baidu.tieba.person;
 import com.baidu.tbadk.core.view.p;
 /* loaded from: classes.dex */
 class bc implements p.a {
-    final /* synthetic */ aw cqf;
+    final /* synthetic */ aw cqq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bc(aw awVar) {
-        this.cqf = awVar;
+        this.cqq = awVar;
     }
 
     @Override // com.baidu.tbadk.core.view.p.a
@@ -18,16 +18,16 @@ class bc implements p.a {
         PersonFriendActivity aiG2;
         int i;
         int i2;
-        aiG = this.cqf.aiG();
+        aiG = this.cqq.aiG();
         if (aiG != null) {
-            this.cqf.pageNum = 0;
-            this.cqf.cqa = true;
-            bfVar = this.cqf.cpW;
-            z2 = this.cqf.mIsHost;
-            aiG2 = this.cqf.aiG();
+            this.cqq.pageNum = 0;
+            this.cqq.cql = true;
+            bfVar = this.cqq.cqh;
+            z2 = this.cqq.mIsHost;
+            aiG2 = this.cqq.aiG();
             String uid = aiG2.getUid();
-            i = this.cqf.pageNum;
-            i2 = this.cqf.cqc;
+            i = this.cqq.pageNum;
+            i2 = this.cqq.cqn;
             bfVar.a(z2, uid, i, i2);
         }
     }

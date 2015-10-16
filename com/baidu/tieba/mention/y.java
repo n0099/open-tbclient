@@ -12,16 +12,16 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes.dex */
 public class y implements com.baidu.tbadk.mvc.b.j {
     protected boolean Cj;
-    protected ArrayList<FeedData> cav = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.n caw = new com.baidu.tbadk.core.data.n();
-    protected u cax = new u();
+    protected ArrayList<FeedData> caG = new ArrayList<>();
+    protected com.baidu.tbadk.core.data.o caH = new com.baidu.tbadk.core.data.o();
+    protected u caI = new u();
 
     public ArrayList<FeedData> adc() {
-        return this.cav;
+        return this.caG;
     }
 
-    public com.baidu.tbadk.core.data.n getPage() {
-        return this.caw;
+    public com.baidu.tbadk.core.data.o getPage() {
+        return this.caH;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -33,11 +33,11 @@ public class y implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.cav.add(feedData);
+                    this.caG.add(feedData);
                 }
             }
-            this.cax.parserJson(jSONObject.optJSONObject("message"));
-            this.caw.parserJson(jSONObject.optJSONObject("page"));
+            this.caI.parserJson(jSONObject.optJSONObject("message"));
+            this.caH.parserJson(jSONObject.optJSONObject("page"));
             this.Cj = true;
         } catch (Exception e) {
             this.Cj = false;
@@ -55,10 +55,10 @@ public class y implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.cav.add(feedData);
+                        this.caG.add(feedData);
                     }
                 }
-                this.caw.a(dataRes.page);
+                this.caH.a(dataRes.page);
                 this.Cj = true;
             } catch (Exception e) {
                 this.Cj = false;

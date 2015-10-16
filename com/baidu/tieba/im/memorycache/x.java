@@ -6,11 +6,11 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
 /* loaded from: classes.dex */
 class x implements a.b {
-    final /* synthetic */ w bEp;
+    final /* synthetic */ w bEA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.bEp = wVar;
+        this.bEA = wVar;
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b

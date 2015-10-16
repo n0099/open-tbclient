@@ -10,7 +10,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.a.h;
+import com.baidu.tbadk.core.util.a.i;
 import com.baidu.tbadk.core.util.aa;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.List;
@@ -70,7 +70,7 @@ public class a extends com.baidu.adp.framework.a.d {
         if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             httpMessage.addHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
         }
-        String netType = h.getNetType();
+        String netType = i.getNetType();
         if (!TextUtils.isEmpty(netType)) {
             httpMessage.addHeader("net", netType);
         }
@@ -108,7 +108,7 @@ public class a extends com.baidu.adp.framework.a.d {
         if (from != null && from.length() > 0) {
             httpMessage.addParam("from", from);
         }
-        String netType = h.getNetType();
+        String netType = i.getNetType();
         if (netType != null) {
             String wd = com.baidu.tbadk.coreExtra.b.a.wb().wd();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
@@ -143,7 +143,7 @@ public class a extends com.baidu.adp.framework.a.d {
             if (entry != null) {
                 String key = entry.getKey();
                 Object value = entry.getValue();
-                if (value instanceof String) {
+                if ((value instanceof String) && !SapiUtils.KEY_QR_LOGIN_SIGN.equals(key)) {
                     stringBuffer.append(String.valueOf(key) + "=");
                     stringBuffer.append(value);
                 }
@@ -158,13 +158,13 @@ public class a extends com.baidu.adp.framework.a.d {
         if (uq != null) {
             httpMessage.addParam("stTime", String.valueOf(uq.mTime));
             httpMessage.addParam("stSize", String.valueOf(uq.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(uq.aam));
+            httpMessage.addParam("stTimesNum", String.valueOf(uq.aao));
             httpMessage.addParam("stMode", String.valueOf(uq.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(uq.aal));
+            httpMessage.addParam("stMethod", String.valueOf(uq.aan));
         }
         int cn = aa.cn(0);
         if (cn == 0 && uq != null) {
-            cn = uq.aam;
+            cn = uq.aao;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(cn));
     }

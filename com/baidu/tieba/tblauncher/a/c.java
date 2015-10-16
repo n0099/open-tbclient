@@ -6,22 +6,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tbadk.mvc.g.a<a, com.baidu.tbadk.mvc.d.b> {
-    private View Xj;
-    private ImageView aKP;
-    private ImageView aKT;
-    private TextView aNk;
+    private View Xl;
+    private ImageView aLa;
+    private ImageView aLe;
+    private TextView aNv;
 
     public c(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aNk = (TextView) view.findViewById(i.f.textview);
-        this.aKP = (ImageView) view.findViewById(i.f.red_tip);
-        this.aKT = (ImageView) view.findViewById(i.f.red_new_tip);
-        this.Xj = view.findViewById(i.f.divider);
+        this.aNv = (TextView) view.findViewById(i.f.textview);
+        this.aLa = (ImageView) view.findViewById(i.f.red_tip);
+        this.aLe = (ImageView) view.findViewById(i.f.red_new_tip);
+        this.Xl = view.findViewById(i.f.divider);
     }
 
     @Override // com.baidu.tieba.tbadkCore.s
@@ -36,40 +36,40 @@ public class c extends com.baidu.tbadk.mvc.g.a<a, com.baidu.tbadk.mvc.d.b> {
     public void B(a aVar) {
         super.B(aVar);
         if (aVar != null) {
-            if (this.aNk != null) {
+            if (this.aNv != null) {
                 String str = "";
                 try {
-                    str = TbadkCoreApplication.m411getInst().getString(aVar.ayH());
+                    str = TbadkCoreApplication.m411getInst().getString(aVar.ayR());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                this.aNk.setText(str);
-                this.aNk.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(aVar.ayI()), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.aNv.setText(str);
+                this.aNv.setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(aVar.ayS()), (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            switch (aVar.ayJ()) {
+            switch (aVar.ayT()) {
                 case 1:
-                    this.aKP.setImageDrawable(null);
-                    this.aKP.setVisibility(8);
-                    am.c(this.aKT, i.e.icon_news_head_new);
-                    this.aKT.setVisibility(0);
+                    this.aLa.setImageDrawable(null);
+                    this.aLa.setVisibility(8);
+                    an.c(this.aLe, i.e.icon_news_head_new);
+                    this.aLe.setVisibility(0);
                     break;
                 case 2:
-                    am.c(this.aKP, i.e.icon_news_down_bar_one);
-                    this.aKP.setVisibility(0);
-                    this.aKT.setImageDrawable(null);
-                    this.aKT.setVisibility(8);
+                    an.c(this.aLa, i.e.icon_news_down_bar_one);
+                    this.aLa.setVisibility(0);
+                    this.aLe.setImageDrawable(null);
+                    this.aLe.setVisibility(8);
                     break;
                 default:
-                    this.aKP.setImageDrawable(null);
-                    this.aKP.setVisibility(8);
-                    this.aKT.setImageDrawable(null);
-                    this.aKT.setVisibility(8);
+                    this.aLa.setImageDrawable(null);
+                    this.aLa.setVisibility(8);
+                    this.aLe.setImageDrawable(null);
+                    this.aLe.setVisibility(8);
                     break;
             }
             if (aVar.getType() == 5) {
-                this.Xj.setVisibility(0);
+                this.Xl.setVisibility(0);
             } else {
-                this.Xj.setVisibility(8);
+                this.Xl.setVisibility(8);
             }
         }
     }

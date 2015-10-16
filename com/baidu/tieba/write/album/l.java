@@ -5,18 +5,18 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import java.util.List;
 /* loaded from: classes.dex */
 public class l {
-    private int apY;
-    private List<a> djI;
-    private String djP;
-    private List<ImageFileInfo> djV;
-    private List<ImageFileInfo> djW;
-    private String djX;
-    private boolean djY = false;
-    private final AlbumActivity djw;
+    private int apZ;
+    private final AlbumActivity djW;
+    private List<a> dki;
+    private String dkp;
+    private List<ImageFileInfo> dkv;
+    private List<ImageFileInfo> dkw;
+    private String dkx;
+    private boolean dky = false;
     private WriteImagesInfo mWriteImagesInfo;
 
     public l(AlbumActivity albumActivity) {
-        this.djw = albumActivity;
+        this.djW = albumActivity;
     }
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
@@ -39,7 +39,7 @@ public class l {
         return this.mWriteImagesInfo.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> aBi() {
+    public List<ImageFileInfo> aBs() {
         if (this.mWriteImagesInfo != null) {
             return this.mWriteImagesInfo.getChosedFiles();
         }
@@ -75,44 +75,44 @@ public class l {
         return 0;
     }
 
-    public String aBj() {
-        return this.djP;
+    public String aBt() {
+        return this.dkp;
     }
 
-    public void mj(String str) {
-        this.djP = str;
+    public void mm(String str) {
+        this.dkp = str;
     }
 
-    public List<ImageFileInfo> aBk() {
-        return this.djV;
+    public List<ImageFileInfo> aBu() {
+        return this.dkv;
     }
 
-    public void bF(List<ImageFileInfo> list) {
-        this.djV = list;
+    public void bG(List<ImageFileInfo> list) {
+        this.dkv = list;
     }
 
     public int getCurrentIndex() {
-        return this.apY;
+        return this.apZ;
     }
 
-    public void lJ(int i) {
-        this.apY = i;
+    public void lL(int i) {
+        this.apZ = i;
     }
 
-    public List<a> aBl() {
-        return this.djI;
+    public List<a> aBv() {
+        return this.dki;
     }
 
-    public void bG(List<a> list) {
-        this.djI = list;
+    public void bH(List<a> list) {
+        this.dki = list;
     }
 
-    public List<ImageFileInfo> aBm() {
-        return this.djW;
+    public List<ImageFileInfo> aBw() {
+        return this.dkw;
     }
 
-    public void bH(List<ImageFileInfo> list) {
-        this.djW = list;
+    public void bI(List<ImageFileInfo> list) {
+        this.dkw = list;
     }
 
     public int size() {
@@ -122,12 +122,12 @@ public class l {
         return this.mWriteImagesInfo.size();
     }
 
-    public String aBn() {
-        return this.djX;
+    public String aBx() {
+        return this.dkx;
     }
 
-    public void mk(String str) {
-        this.djX = str;
+    public void mn(String str) {
+        this.dkx = str;
     }
 
     public void setOriginalImg(boolean z) {
@@ -138,11 +138,11 @@ public class l {
         return this.mWriteImagesInfo.isOriginalImg();
     }
 
-    public boolean aBo() {
-        return this.djY;
+    public boolean aBy() {
+        return this.dky;
     }
 
     public void gQ(boolean z) {
-        this.djY = z;
+        this.dky = z;
     }
 }

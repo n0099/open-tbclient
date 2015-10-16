@@ -4,13 +4,13 @@ import android.util.DisplayMetrics;
 import com.baidu.adp.base.BdBaseApplication;
 /* loaded from: classes.dex */
 public class b {
-    private static b azp;
+    private static b azA;
 
     public static b Ew() {
-        if (azp == null) {
-            azp = new b();
+        if (azA == null) {
+            azA = new b();
         }
-        return azp;
+        return azA;
     }
 
     public String fI(String str) {

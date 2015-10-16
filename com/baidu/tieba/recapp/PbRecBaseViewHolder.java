@@ -5,7 +5,7 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.tieba.tbadkCore.data.j;
 /* loaded from: classes.dex */
 public abstract class PbRecBaseViewHolder extends x.a {
-    protected j cHr;
+    protected j cHC;
     protected boolean mIsFromCDN;
     private int position;
     protected View rootView;
@@ -19,15 +19,15 @@ public abstract class PbRecBaseViewHolder extends x.a {
     }
 
     public void update(j jVar, int i, boolean z) {
-        if (!jVar.cYD) {
-            com.baidu.tbadk.distribute.a.Ag().a(this.rootView.getContext(), jVar.awt(), "show", "pb", jVar.cYE, jVar.threadId);
-            com.baidu.tbadk.distribute.a.Ag().a(jVar.awt(), jVar.cYE, jVar.threadId, "PB", "show");
-            jVar.cYD = true;
+        if (!jVar.cZd) {
+            com.baidu.tbadk.distribute.a.Ag().a(this.rootView.getContext(), jVar.awD(), "show", "pb", jVar.cZe, jVar.threadId);
+            com.baidu.tbadk.distribute.a.Ag().a(jVar.awD(), jVar.cZe, jVar.threadId, "PB", "show", jVar.cHN);
+            jVar.cZd = true;
         }
         if (jVar != null) {
-            com.baidu.tbadk.distribute.a.anT = jVar.aZR;
+            com.baidu.tbadk.distribute.a.anU = jVar.bac;
         }
-        this.cHr = jVar;
+        this.cHC = jVar;
         this.position = i;
         this.mIsFromCDN = z;
         this.rootView.setTag(this);
@@ -38,6 +38,6 @@ public abstract class PbRecBaseViewHolder extends x.a {
     }
 
     public void refresh() {
-        update(this.cHr, this.position, this.mIsFromCDN);
+        update(this.cHC, this.position, this.mIsFromCDN);
     }
 }

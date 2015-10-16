@@ -4,92 +4,92 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class a {
-    private int anF;
-    private int cKG;
-    private int cKH;
-    private boolean cKI;
-    private SimpleUser cKJ;
+    private int anG;
+    private int cLf;
+    private int cLg;
+    private boolean cLh;
+    private SimpleUser cLi;
 
-    public boolean aqN() {
+    public boolean aqT() {
         com.baidu.tbadk.core.sharedPref.b tu = com.baidu.tbadk.core.sharedPref.b.tu();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.cKG = tu.getInt("post" + currentAccount, 0);
-        this.cKH = tu.getInt("like" + currentAccount, 0);
-        this.anF = tu.getInt("group" + currentAccount, 0);
-        this.cKI = TbadkCoreApplication.m411getInst().getLocationShared();
-        return (this.cKG == 0 && this.cKH == 0 && this.anF == 0) ? false : true;
+        this.cLf = tu.getInt("post" + currentAccount, 0);
+        this.cLg = tu.getInt("like" + currentAccount, 0);
+        this.anG = tu.getInt("group" + currentAccount, 0);
+        this.cLh = TbadkCoreApplication.m411getInst().getLocationShared();
+        return (this.cLf == 0 && this.cLg == 0 && this.anG == 0) ? false : true;
     }
 
     public void a(a aVar) {
-        this.cKG = aVar.cKG;
-        this.cKH = aVar.cKH;
-        this.anF = aVar.anF;
-        this.cKI = aVar.cKI;
+        this.cLf = aVar.cLf;
+        this.cLg = aVar.cLg;
+        this.anG = aVar.anG;
+        this.cLh = aVar.cLh;
     }
 
-    public int aqO() {
-        return this.cKG;
+    public int aqU() {
+        return this.cLf;
     }
 
     public void aa(String str, int i) {
         com.baidu.tbadk.core.sharedPref.b.tu().putInt(String.valueOf(str) + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void aqP() {
+    public void aqV() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b tu = com.baidu.tbadk.core.sharedPref.b.tu();
-        tu.putInt("post" + currentAccount, this.cKG);
-        tu.putInt("like" + currentAccount, this.cKH);
-        tu.putInt("group" + currentAccount, this.anF);
-        TbadkCoreApplication.m411getInst().setLocationShared(this.cKI);
-    }
-
-    public void ks(int i) {
-        if (i <= 3 && i >= 1) {
-            this.cKG = i;
-        }
-    }
-
-    public int aqQ() {
-        return this.cKH;
-    }
-
-    public void kt(int i) {
-        if (i <= 3 && i >= 1) {
-            this.cKH = i;
-        }
-    }
-
-    public int Aa() {
-        return this.anF;
+        tu.putInt("post" + currentAccount, this.cLf);
+        tu.putInt("like" + currentAccount, this.cLg);
+        tu.putInt("group" + currentAccount, this.anG);
+        TbadkCoreApplication.m411getInst().setLocationShared(this.cLh);
     }
 
     public void ku(int i) {
         if (i <= 3 && i >= 1) {
-            this.anF = i;
+            this.cLf = i;
         }
     }
 
-    public boolean aqR() {
-        return this.cKI;
+    public int aqW() {
+        return this.cLg;
     }
 
     public void kv(int i) {
+        if (i <= 3 && i >= 1) {
+            this.cLg = i;
+        }
+    }
+
+    public int Aa() {
+        return this.anG;
+    }
+
+    public void kw(int i) {
+        if (i <= 3 && i >= 1) {
+            this.anG = i;
+        }
+    }
+
+    public boolean aqX() {
+        return this.cLh;
+    }
+
+    public void kx(int i) {
         switch (i) {
             case 1:
-                this.cKI = true;
+                this.cLh = true;
                 return;
             default:
-                this.cKI = false;
+                this.cLh = false;
                 return;
         }
     }
 
-    public SimpleUser aqS() {
-        return this.cKJ;
+    public SimpleUser aqY() {
+        return this.cLi;
     }
 
     public void a(SimpleUser simpleUser) {
-        this.cKJ = simpleUser;
+        this.cLi = simpleUser;
     }
 }

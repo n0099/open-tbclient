@@ -4,11 +4,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements View.OnClickListener {
-    final /* synthetic */ FloatingPersonalChatView bMB;
+    final /* synthetic */ FloatingPersonalChatView bMM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(FloatingPersonalChatView floatingPersonalChatView) {
-        this.bMB = floatingPersonalChatView;
+        this.bMM = floatingPersonalChatView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -16,11 +16,11 @@ public class ac implements View.OnClickListener {
         int i;
         if (view.getTag() instanceof Integer) {
             int intValue = ((Integer) view.getTag()).intValue();
-            i = this.bMB.currentIndex;
+            i = this.bMM.currentIndex;
             if (i == intValue) {
-                this.bMB.Za();
+                this.bMM.Za();
             } else {
-                this.bMB.hM(intValue);
+                this.bMM.hM(intValue);
             }
         }
     }

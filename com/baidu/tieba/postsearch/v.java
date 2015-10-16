@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PhotoLiveCardData;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.i;
 import com.baidu.tieba.postsearch.j;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class v extends BaseAdapter {
-    private static final int cEp = TbadkCoreApplication.m411getInst().getListItemRule().wm();
+    private static final int cEA = TbadkCoreApplication.m411getInst().getListItemRule().wm();
     private TbPageContext<?> mContext;
     private List<j.a> mData = new ArrayList();
 
@@ -31,11 +31,11 @@ public class v extends BaseAdapter {
             return 0;
         }
         int size = this.mData.size() + list.size();
-        if (size <= cEp) {
+        if (size <= cEA) {
             this.mData.addAll(list);
             return 0;
         }
-        int i = size - cEp;
+        int i = size - cEA;
         ka(i);
         this.mData.addAll(list);
         return i;
@@ -87,11 +87,11 @@ public class v extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.post_search_list_item, (ViewGroup) null);
             a aVar = new a(null);
-            aVar.cEs = (TextView) view.findViewById(i.f.title_text);
-            aVar.cEt = (TextView) view.findViewById(i.f.content_text);
-            aVar.cEu = (TextView) view.findViewById(i.f.label_text);
-            aVar.ccH = (TextView) view.findViewById(i.f.user_name);
-            aVar.cEv = (TextView) view.findViewById(i.f.time_text);
+            aVar.cED = (TextView) view.findViewById(i.f.title_text);
+            aVar.cEE = (TextView) view.findViewById(i.f.content_text);
+            aVar.cEF = (TextView) view.findViewById(i.f.label_text);
+            aVar.ccS = (TextView) view.findViewById(i.f.user_name);
+            aVar.cEG = (TextView) view.findViewById(i.f.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -101,22 +101,22 @@ public class v extends BaseAdapter {
             if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            Spanned fromHtml = Html.fromHtml(ar.af(aVar3.title, str));
+            Spanned fromHtml = Html.fromHtml(as.af(aVar3.title, str));
             if (aVar3.thread_type == 33) {
-                aVar2.cEs.setText(PhotoLiveCardData.getLiveIconTitle(fromHtml));
+                aVar2.cED.setText(PhotoLiveCardData.getLiveIconTitle(fromHtml));
             } else {
-                aVar2.cEs.setText(fromHtml);
+                aVar2.cED.setText(fromHtml);
             }
-            aVar2.cEt.setText(Html.fromHtml(ar.af(aVar3.content, str)));
-            aVar2.ccH.setText(aVar3.name_show);
-            aVar2.cEv.setText(ar.o(aVar3.time));
-            aVar2.cEu.setVisibility(0);
+            aVar2.cEE.setText(Html.fromHtml(as.af(aVar3.content, str)));
+            aVar2.ccS.setText(aVar3.name_show);
+            aVar2.cEG.setText(as.o(aVar3.time));
+            aVar2.cEF.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.cEu.setText(i.h.floor_text);
-            } else if (aVar3.cDR == 1) {
-                aVar2.cEu.setText(i.h.reply_post);
+                aVar2.cEF.setText(i.h.floor_text);
+            } else if (aVar3.cEc == 1) {
+                aVar2.cEF.setText(i.h.reply_post);
             } else {
-                aVar2.cEu.setVisibility(8);
+                aVar2.cEF.setVisibility(8);
             }
             view.setOnClickListener(new w(this, aVar3));
             com.baidu.tbadk.h.a.a(this.mContext, view);
@@ -126,11 +126,11 @@ public class v extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private static class a {
-        TextView cEs;
-        TextView cEt;
-        TextView cEu;
-        TextView cEv;
-        TextView ccH;
+        TextView cED;
+        TextView cEE;
+        TextView cEF;
+        TextView cEG;
+        TextView ccS;
 
         private a() {
         }

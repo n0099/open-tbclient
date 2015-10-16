@@ -97,7 +97,7 @@ public class e implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.a.a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        com.baidu.tbadk.core.util.a.i iVar;
+        com.baidu.tbadk.core.util.a.j jVar;
         byte[] l;
         com.baidu.adp.widget.a.a aVar2;
         if (objArr == null || objArr.length != 4) {
@@ -107,10 +107,10 @@ public class e implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
         String valueOf2 = objArr[1] == null ? "" : String.valueOf(objArr[1]);
         Boolean valueOf3 = Boolean.valueOf(String.valueOf(objArr[2]));
         String valueOf4 = objArr[3] == null ? "" : String.valueOf(objArr[3]);
-        if (valueOf == null || valueOf2 == null || valueOf3 == null || valueOf4 == null || (l = (iVar = new com.baidu.tbadk.core.util.a.i()).l(valueOf4, false)) == null || !iVar.vi()) {
+        if (valueOf == null || valueOf2 == null || valueOf3 == null || valueOf4 == null || (l = (jVar = new com.baidu.tbadk.core.util.a.j()).l(valueOf4, false)) == null || !jVar.vi()) {
             return null;
         }
-        synchronized (com.baidu.tbadk.core.util.c.Gl) {
+        synchronized (com.baidu.tbadk.core.util.c.Gm) {
             String s = r.Bc().s(valueOf2, valueOf3.booleanValue());
             String str3 = ".emotions/" + valueOf;
             if (valueOf3.booleanValue()) {

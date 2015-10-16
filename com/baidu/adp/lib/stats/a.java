@@ -149,6 +149,7 @@ public class a {
 
     public void a(String str, String str2, BdUploadStatMsgData bdUploadStatMsgData) {
         if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && bdUploadStatMsgData != null) {
+            hr();
             com.baidu.adp.lib.stats.switchs.a.id().b(str, str2, bdUploadStatMsgData);
         }
     }

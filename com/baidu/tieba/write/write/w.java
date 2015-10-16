@@ -5,21 +5,21 @@ import com.baidu.tieba.write.write.VcodeActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w implements DialogInterface.OnCancelListener {
-    final /* synthetic */ VcodeActivity doM;
+    final /* synthetic */ VcodeActivity dpn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(VcodeActivity vcodeActivity) {
-        this.doM = vcodeActivity;
+        this.dpn = vcodeActivity;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         VcodeActivity.b bVar;
         VcodeActivity.b bVar2;
-        this.doM.destroyWaitingDialog();
-        bVar = this.doM.doK;
+        this.dpn.destroyWaitingDialog();
+        bVar = this.dpn.dpl;
         if (bVar != null) {
-            bVar2 = this.doM.doK;
+            bVar2 = this.dpn.dpl;
             bVar2.cancel();
         }
     }

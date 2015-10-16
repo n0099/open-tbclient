@@ -7,34 +7,34 @@ import tbclient.ThemeSkinPropMain;
 /* loaded from: classes.dex */
 public class b {
     private String activityUrl;
-    private int byB;
-    private String ddN;
-    private String ddO;
-    private String ddP;
-    private String ddQ;
-    private int ddR;
-    private ArrayList<String> ddS;
-    private String ddU;
+    private int byM;
+    private String den;
+    private String deo;
+    private String dep;
+    private String deq;
+    private int der;
+    private ArrayList<String> des;
     private String description;
+    private String deu;
     private int id;
     private String picUrl;
     private String title;
     private int versionCode;
     private int newVersionCode = 0;
-    private boolean ddT = false;
-    private int aai = 1;
+    private boolean det = false;
+    private int aak = 1;
 
     public void a(ThemeSkinPropMain themeSkinPropMain) {
         if (themeSkinPropMain != null) {
             this.id = themeSkinPropMain.props_id.intValue();
             this.title = themeSkinPropMain.title;
             this.picUrl = themeSkinPropMain.example_url;
-            this.ddN = themeSkinPropMain.package_size;
-            this.ddO = themeSkinPropMain.package_url;
+            this.den = themeSkinPropMain.package_size;
+            this.deo = themeSkinPropMain.package_url;
             this.versionCode = themeSkinPropMain.props_version.intValue();
-            this.ddP = themeSkinPropMain.permission;
-            this.ddQ = themeSkinPropMain.props_state_img;
-            this.ddR = themeSkinPropMain.free_user_level.intValue();
+            this.dep = themeSkinPropMain.permission;
+            this.deq = themeSkinPropMain.props_state_img;
+            this.der = themeSkinPropMain.free_user_level.intValue();
             this.activityUrl = themeSkinPropMain.activity_url;
         }
     }
@@ -42,16 +42,16 @@ public class b {
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.title = dataRes.title;
-            this.ddN = dataRes.package_size;
-            this.ddO = dataRes.package_url;
+            this.den = dataRes.package_size;
+            this.deo = dataRes.package_url;
             this.description = dataRes.description;
             this.versionCode = dataRes.props_version.intValue();
-            this.ddP = dataRes.permission;
-            this.ddU = dataRes.permission;
-            this.ddQ = dataRes.props_state_img;
-            this.ddR = dataRes.free_user_level.intValue();
+            this.dep = dataRes.permission;
+            this.deu = dataRes.permission;
+            this.deq = dataRes.props_state_img;
+            this.der = dataRes.free_user_level.intValue();
             this.activityUrl = dataRes.activity_url;
-            this.ddS = new ArrayList<>();
+            this.des = new ArrayList<>();
             ArrayList arrayList = new ArrayList();
             if (dataRes.pic_url != null && dataRes.pic_url.size() > 0) {
                 for (String str : dataRes.pic_url) {
@@ -60,9 +60,9 @@ public class b {
                     }
                 }
                 if (arrayList.size() > 5) {
-                    this.ddS.addAll(arrayList.subList(0, 5));
+                    this.des.addAll(arrayList.subList(0, 5));
                 } else {
-                    this.ddS.addAll(arrayList);
+                    this.des.addAll(arrayList);
                 }
             }
         }
@@ -88,24 +88,24 @@ public class b {
         return this.picUrl;
     }
 
-    public void lP(String str) {
+    public void lS(String str) {
         this.picUrl = str;
     }
 
     public String getPackageSize() {
-        return this.ddN;
+        return this.den;
     }
 
     public void setPackageSize(String str) {
-        this.ddN = str;
+        this.den = str;
     }
 
-    public String ayY() {
-        return this.ddO;
+    public String azi() {
+        return this.deo;
     }
 
-    public void lQ(String str) {
-        this.ddO = str;
+    public void lT(String str) {
+        this.deo = str;
     }
 
     public int getVersionCode() {
@@ -116,32 +116,32 @@ public class b {
         this.versionCode = i;
     }
 
-    public String ayZ() {
-        return this.ddP;
+    public String azj() {
+        return this.dep;
     }
 
-    public void lR(String str) {
-        this.ddP = str;
+    public void lU(String str) {
+        this.dep = str;
     }
 
-    public String aza() {
-        return this.ddQ;
+    public String azk() {
+        return this.deq;
     }
 
-    public void lS(String str) {
-        this.ddQ = str;
+    public void lV(String str) {
+        this.deq = str;
     }
 
     public String getDescription() {
         return this.description;
     }
 
-    public int azb() {
-        return this.ddR;
+    public int azl() {
+        return this.der;
     }
 
-    public void lo(int i) {
-        this.ddR = i;
+    public void lq(int i) {
+        this.der = i;
     }
 
     public String getActivityUrl() {
@@ -152,43 +152,43 @@ public class b {
         this.activityUrl = str;
     }
 
-    public int azc() {
-        return this.aai;
+    public int azm() {
+        return this.aak;
     }
 
-    public void lp(int i) {
-        this.aai = i;
+    public void lr(int i) {
+        this.aak = i;
     }
 
-    public ArrayList<String> azd() {
-        return this.ddS;
+    public ArrayList<String> azn() {
+        return this.des;
     }
 
     public int Uj() {
-        return this.byB;
+        return this.byM;
     }
 
     public void gZ(int i) {
-        this.byB = i;
+        this.byM = i;
     }
 
-    public boolean aze() {
-        return this.ddT;
+    public boolean azo() {
+        return this.det;
     }
 
     public void gJ(boolean z) {
-        this.ddT = z;
+        this.det = z;
     }
 
     public int getNewVersionCode() {
         return this.newVersionCode;
     }
 
-    public void lq(int i) {
+    public void ls(int i) {
         this.newVersionCode = i;
     }
 
-    public String azf() {
-        return this.ddU;
+    public String azp() {
+        return this.deu;
     }
 }

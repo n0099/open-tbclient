@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class f extends CustomMessageListener {
-    final /* synthetic */ StrangerListActivity bOl;
+    final /* synthetic */ StrangerListActivity bOw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(StrangerListActivity strangerListActivity, int i) {
         super(i);
-        this.bOl = strangerListActivity;
+        this.bOw = strangerListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,16 +26,16 @@ class f extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016004) {
                     if (customResponsedMessage.getCmd() != 2016007) {
                         if (customResponsedMessage.getCmd() == 2016001) {
-                            strangerListModel = this.bOl.bOg;
-                            aVar = this.bOl.btU;
+                            strangerListModel = this.bOw.bOr;
+                            aVar = this.bOw.buf;
                             strangerListModel.setData(null, aVar);
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016011) {
-                            iVar = this.bOl.bOf;
+                            iVar = this.bOw.bOq;
                             if (iVar != null) {
-                                iVar2 = this.bOl.bOf;
+                                iVar2 = this.bOw.bOq;
                                 if (iVar2.ZK() != null) {
-                                    iVar3 = this.bOl.bOf;
+                                    iVar3 = this.bOw.bOq;
                                     iVar3.ZK().notifyDataSetChanged();
                                     return;
                                 }
@@ -46,13 +46,13 @@ class f extends CustomMessageListener {
                             return;
                         }
                     }
-                    this.bOl.g(customResponsedMessage);
+                    this.bOw.g(customResponsedMessage);
                     return;
                 }
-                this.bOl.f(customResponsedMessage);
+                this.bOw.f(customResponsedMessage);
                 return;
             }
-            this.bOl.e(customResponsedMessage);
+            this.bOw.e(customResponsedMessage);
         }
     }
 }

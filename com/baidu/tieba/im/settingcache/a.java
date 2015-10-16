@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, com.baidu.tieba.im.pushNotify.a> bHm = new HashMap<>();
+    protected HashMap<String, com.baidu.tieba.im.pushNotify.a> bHx = new HashMap<>();
 
     protected abstract o<String> Xf();
 
@@ -20,8 +20,8 @@ public abstract class a {
 
     public void l(Class<? extends com.baidu.tieba.im.pushNotify.a> cls) {
         String str;
-        synchronized (this.bHm) {
-            this.bHm.clear();
+        synchronized (this.bHx) {
+            this.bHx.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -29,14 +29,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = String.valueOf(str2) + "@";
-            synchronized (this.bHm) {
+            synchronized (this.bHx) {
                 o<String> Xf = Xf();
                 List<o.b<String>> b = s.b(Xf);
                 if (b != null) {
                     for (o.b<String> bVar : b) {
                         String str4 = bVar.key;
                         if (str4 != null && str4.startsWith(str3) && (str = Xf.get(str4)) != null) {
-                            this.bHm.put(str4, (com.baidu.tieba.im.pushNotify.a) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(str, cls));
+                            this.bHx.put(str4, (com.baidu.tieba.im.pushNotify.a) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(str, cls));
                         }
                     }
                 }

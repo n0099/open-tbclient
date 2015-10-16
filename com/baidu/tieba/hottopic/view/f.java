@@ -8,19 +8,19 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.hottopic.controller.RelateTopicForumActivity;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements AdapterView.OnItemClickListener {
-    final /* synthetic */ e bql;
+    final /* synthetic */ e bqw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.bql = eVar;
+        this.bqw = eVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -28,14 +28,14 @@ public class f implements AdapterView.OnItemClickListener {
         List list;
         RelateTopicForumActivity relateTopicForumActivity;
         if (i >= 0) {
-            list = this.bql.bqj;
+            list = this.bqw.bqu;
             RelateForumItemData relateForumItemData = (RelateForumItemData) list.get(i);
-            if (relateForumItemData != null && ar.aP(relateForumItemData.forumName)) {
+            if (relateForumItemData != null && as.aP(relateForumItemData.forumName)) {
                 if (relateForumItemData.forumId != 0) {
-                    TiebaStatic.log(new ap("c10371").ae(ImageViewerConfig.FORUM_ID, String.valueOf(relateForumItemData.forumId)).r("obj_type", com.baidu.tieba.hottopic.data.d.boO));
+                    TiebaStatic.log(new aq("c10371").ae(ImageViewerConfig.FORUM_ID, String.valueOf(relateForumItemData.forumId)).r("obj_type", com.baidu.tieba.hottopic.data.d.boZ));
                 }
                 MessageManager messageManager = MessageManager.getInstance();
-                relateTopicForumActivity = this.bql.bqh;
+                relateTopicForumActivity = this.bqw.bqs;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(relateTopicForumActivity.getActivity()).createNormalCfg(relateForumItemData.forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
             }
         }

@@ -6,9 +6,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tieba.person.data.PersonPostActivityConfig;
 /* loaded from: classes.dex */
 public class f extends FragmentPagerAdapter {
-    private int[] bFK;
-    private u crk;
-    private j crl;
+    private int[] bFV;
+    private u crv;
+    private j crw;
 
     public f(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
@@ -16,24 +16,24 @@ public class f extends FragmentPagerAdapter {
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
         bundle.putString("key_empty_view_text", personPostActivity.aiV());
-        this.crl = new j();
-        this.crl.setArguments(bundle);
-        this.crk = new u();
-        this.crk.setArguments(bundle);
-        this.bFK = new int[]{0, 1};
+        this.crw = new j();
+        this.crw.setArguments(bundle);
+        this.crv = new u();
+        this.crv.setArguments(bundle);
+        this.bFV = new int[]{0, 1};
     }
 
     public u aiW() {
-        return this.crk;
+        return this.crv;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.crk;
+                return this.crv;
             case 1:
-                return this.crl;
+                return this.crw;
             default:
                 return null;
         }
@@ -45,6 +45,6 @@ public class f extends FragmentPagerAdapter {
     }
 
     public int hv(int i) {
-        return this.bFK[i];
+        return this.bFV[i];
     }
 }

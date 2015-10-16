@@ -1,19 +1,19 @@
 package com.baidu.tieba.tbadkCore;
 /* loaded from: classes.dex */
 class c implements Runnable {
-    final /* synthetic */ ChildViewPager cWs;
+    final /* synthetic */ ChildViewPager cWR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(ChildViewPager childViewPager) {
-        this.cWs = childViewPager;
+        this.cWR = childViewPager;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         boolean z;
-        z = this.cWs.cWr;
+        z = this.cWR.cWQ;
         if (z) {
-            this.cWs.setPressed(true);
+            this.cWR.setPressed(true);
         }
     }
 }

@@ -7,11 +7,11 @@ import com.baidu.tieba.pb.pb.sub.ak;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements ak.a {
-    final /* synthetic */ NewSubPbActivity cmr;
+    final /* synthetic */ NewSubPbActivity cmC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(NewSubPbActivity newSubPbActivity) {
-        this.cmr = newSubPbActivity;
+        this.cmC = newSubPbActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0035, code lost:
@@ -32,32 +32,32 @@ public class p implements ak.a {
         ak akVar2;
         ak akVar3;
         t tVar5;
-        tVar = this.cmr.cmk;
+        tVar = this.cmC.cmv;
         if (tVar != null) {
-            tVar5 = this.cmr.cmk;
+            tVar5 = this.cmC.cmv;
             tVar5.ahn();
         }
         if (z) {
-            tVar2 = this.cmr.cmk;
+            tVar2 = this.cmC.cmv;
             tVar2.hideNoDataView();
             if (cVar != null) {
                 if (cVar.aeZ() == null) {
-                    akVar3 = this.cmr.cmi;
+                    akVar3 = this.cmC.cmt;
                 }
                 com.baidu.tieba.tbadkCore.data.k aeZ = cVar.aeZ();
-                akVar = this.cmr.cmi;
+                akVar = this.cmC.cmt;
                 aeZ.a(akVar.ahO());
-                tVar3 = this.cmr.cmk;
+                tVar3 = this.cmC.cmv;
                 if (tVar3 != null) {
-                    tVar4 = this.cmr.cmk;
-                    akVar2 = this.cmr.cmi;
+                    tVar4 = this.cmC.cmv;
+                    akVar2 = this.cmC.cmt;
                     tVar4.a(cVar, akVar2.aeS());
                 }
                 am amVar = new am();
                 amVar.setData(cVar);
-                nVar = this.cmr.caJ;
+                nVar = this.cmC.caU;
                 if (nVar != null) {
-                    nVar2 = this.cmr.caJ;
+                    nVar2 = this.cmC.caU;
                     nVar2.a(cVar.afh());
                 }
                 amVar.setType(0);
@@ -66,7 +66,7 @@ public class p implements ak.a {
             }
             return;
         }
-        this.cmr.showToast(str);
-        this.cmr.K(i, str);
+        this.cmC.showToast(str);
+        this.cmC.K(i, str);
     }
 }

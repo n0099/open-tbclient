@@ -36,8 +36,8 @@ import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ac;
-import com.baidu.tbadk.core.util.aw;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.core.util.g;
 import com.baidu.tbadk.core.view.b;
 import com.baidu.tbadk.core.view.i;
@@ -151,7 +151,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        aw.dn(getClass().getName());
+        ax.dp(getClass().getName());
         registerListener(this.nightResourcesChangeListener);
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
@@ -522,7 +522,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
 
     protected com.baidu.tbadk.core.dialog.c newListMenu(String[] strArr, c.b bVar) {
         this.mListMenu = new com.baidu.tbadk.core.dialog.c(getPageContext().getPageActivity());
-        this.mListMenu.cu(TbadkCoreApplication.m411getInst().getResources().getString(i.h.operation));
+        this.mListMenu.cv(TbadkCoreApplication.m411getInst().getResources().getString(i.h.operation));
         this.mListMenu.a(strArr, bVar);
         this.mListMenu.d(getPageContext());
         return this.mListMenu;
@@ -579,7 +579,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
         TbadkCoreApplication.m411getInst().AddResumeNum();
-        aw.dn(getClass().getName());
+        ax.dp(getClass().getName());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
             this.mIsLogin = isLogin;
@@ -948,11 +948,11 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void skipToRegisterActivity() {
-        bc.af(getPageContext().getPageActivity());
+        bd.af(getPageContext().getPageActivity());
     }
 
     public boolean checkUpIsLogin() {
-        return bc.ah(getPageContext().getPageActivity());
+        return bd.ah(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -7,13 +7,13 @@ import com.baidu.tieba.pb.pb.main.bl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bm extends CustomMessageListener {
-    final /* synthetic */ bl cjB;
+    final /* synthetic */ bl cjM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bm(bl blVar, int i) {
         super(i);
-        this.cjB = blVar;
+        this.cjM = blVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,23 +22,23 @@ public class bm extends CustomMessageListener {
         BdUniqueId bdUniqueId;
         int i;
         bl.a aVar;
-        this.cjB.cjw = true;
+        this.cjM.cjH = true;
         if (customResponsedMessage != null && (customResponsedMessage instanceof PbPageReadLocalResponseMessage)) {
             BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
-            bdUniqueId = this.cjB.unique_id;
+            bdUniqueId = this.cjM.unique_id;
             if (tag == bdUniqueId) {
                 PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage;
                 com.baidu.tieba.pb.a.b pbData = pbPageReadLocalResponseMessage.getPbData();
                 if (pbData != null) {
-                    this.cjB.g(pbData);
-                    this.cjB.c(pbData);
-                    aVar = this.cjB.cjr;
+                    this.cjM.g(pbData);
+                    this.cjM.c(pbData);
+                    aVar = this.cjM.cjC;
                     if (aVar != null && pbData != null) {
                         com.baidu.adp.lib.g.h.hg().post(new bn(this, pbPageReadLocalResponseMessage, pbData));
                     }
                 }
-                bl blVar = this.cjB;
-                i = this.cjB.mRequestType;
+                bl blVar = this.cjM;
+                i = this.cjM.mRequestType;
                 blVar.iQ(i);
             }
         }

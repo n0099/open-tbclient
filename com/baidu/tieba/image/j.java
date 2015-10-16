@@ -7,33 +7,33 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ar;
 import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class j {
-    private String aTB;
-    HashMap<String, ImageUrlData> ajS;
-    private ArrayList<String> bOF;
-    private String bOH;
-    private String bOI;
-    private boolean bOO;
+    private String aTM;
+    HashMap<String, ImageUrlData> ajT;
+    private ArrayList<String> bOQ;
+    private String bOS;
+    private String bOT;
+    private boolean bOZ;
     private String mForumId;
     private String mFrom;
     private String mUserId;
-    private String bOG = null;
-    private String ajY = null;
-    private boolean bOJ = false;
-    private boolean bOK = true;
-    private a bOL = null;
-    private int bOM = 0;
-    private boolean bON = false;
-    private b bOP = null;
-    private HashMap<String, String> bOQ = new HashMap<>();
-    private com.baidu.tbadk.core.data.b bOR = null;
+    private String bOR = null;
+    private String ajZ = null;
+    private boolean bOU = false;
+    private boolean bOV = true;
+    private a bOW = null;
+    private int bOX = 0;
+    private boolean bOY = false;
+    private b bPa = null;
+    private HashMap<String, String> bPb = new HashMap<>();
+    private com.baidu.tbadk.core.data.b bPc = null;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -43,94 +43,94 @@ public class j {
     }
 
     public j(ArrayList<String> arrayList, HashMap<String, ImageUrlData> hashMap, String str, String str2, String str3, String str4, String str5, String str6) {
-        this.bOF = null;
-        this.bOH = null;
+        this.bOQ = null;
+        this.bOS = null;
         this.mForumId = null;
-        this.aTB = null;
-        this.bOI = null;
-        this.bOO = false;
+        this.aTM = null;
+        this.bOT = null;
+        this.bOZ = false;
         this.mUserId = null;
-        this.bOF = arrayList;
-        this.ajS = hashMap;
-        if (this.bOF == null) {
-            this.bOF = new ArrayList<>();
+        this.bOQ = arrayList;
+        this.ajT = hashMap;
+        if (this.bOQ == null) {
+            this.bOQ = new ArrayList<>();
         }
-        int size = this.bOF.size();
+        int size = this.bOQ.size();
         for (int i = 0; i < size; i++) {
-            String str7 = this.bOF.get(i);
-            this.bOQ.put(iQ(str7), str7);
+            String str7 = this.bOQ.get(i);
+            this.bPb.put(iQ(str7), str7);
         }
-        this.bOH = str3;
-        this.aTB = str2;
+        this.bOS = str3;
+        this.aTM = str2;
         this.mForumId = str;
-        this.bOI = str4;
-        if (this.bOI == null) {
-            this.bOO = true;
+        this.bOT = str4;
+        if (this.bOT == null) {
+            this.bOZ = true;
         }
         this.mUserId = str5;
         this.mFrom = str6;
     }
 
     public void dE(boolean z) {
-        this.bOK = z;
+        this.bOV = z;
     }
 
     public void aad() {
-        if (!this.bOJ && !this.bOO) {
-            c(this.bOH, this.bOI, 10, 0);
+        if (!this.bOU && !this.bOZ) {
+            c(this.bOS, this.bOT, 10, 0);
         }
     }
 
     public void aae() {
-        if (!this.bOO) {
-            if (!this.bOJ) {
+        if (!this.bOZ) {
+            if (!this.bOU) {
                 aad();
-            } else if (this.bOG != null && this.bOG.length() > 0) {
-                this.bOK = true;
-                c(this.bOG, null, 0, 10);
+            } else if (this.bOR != null && this.bOR.length() > 0) {
+                this.bOV = true;
+                c(this.bOR, null, 0, 10);
             }
         }
     }
 
     private void c(String str, String str2, int i, int i2) {
-        if (this.bOL != null) {
-            if (str2 == null || !str2.equals(this.bOL.getPicId())) {
-                this.bOL.cancel();
+        if (this.bOW != null) {
+            if (str2 == null || !str2.equals(this.bOW.getPicId())) {
+                this.bOW.cancel();
             } else {
                 return;
             }
         }
-        this.bOL = new a(str, str2, i, i2);
-        this.bOL.setPriority(3);
-        this.bOL.execute(new Object[0]);
+        this.bOW = new a(str, str2, i, i2);
+        this.bOW.setPriority(3);
+        this.bOW.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.bOP = bVar;
+        this.bPa = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, m> {
-        private com.baidu.tbadk.core.util.w Th = null;
-        private String bOH;
+        private com.baidu.tbadk.core.util.w Ti = null;
         private String bOS;
-        private int bOT;
-        private int bOU;
+        private String bPd;
+        private int bPe;
+        private int bPf;
 
         public a(String str, String str2, int i, int i2) {
-            this.bOH = null;
             this.bOS = null;
-            this.bOT = 0;
-            this.bOU = 0;
-            this.bOS = str2;
-            this.bOH = str;
-            this.bOT = i;
-            this.bOU = i2;
+            this.bPd = null;
+            this.bPe = 0;
+            this.bPf = 0;
+            this.bPd = str2;
+            this.bOS = str;
+            this.bPe = i;
+            this.bPf = i2;
         }
 
         public String getPicId() {
-            return this.bOS;
+            return this.bPd;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -138,28 +138,28 @@ public class j {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: u */
         public m doInBackground(Object... objArr) {
-            this.Th = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IMAGE_PB_ADDRESS);
-            this.Th.o("kw", j.this.aTB);
-            this.Th.o("tid", this.bOH);
-            if (this.bOS != null) {
-                this.Th.o("pic_id", this.bOS);
+            this.Ti = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IMAGE_PB_ADDRESS);
+            this.Ti.o("kw", j.this.aTM);
+            this.Ti.o("tid", this.bOS);
+            if (this.bPd != null) {
+                this.Ti.o("pic_id", this.bPd);
             }
-            this.Th.o("next", String.valueOf(this.bOT));
-            this.Th.o("prev", String.valueOf(this.bOU));
-            if (!j.this.bON) {
-                this.Th.o("not_see_lz", String.valueOf(1));
+            this.Ti.o("next", String.valueOf(this.bPe));
+            this.Ti.o("prev", String.valueOf(this.bPf));
+            if (!j.this.bOY) {
+                this.Ti.o("not_see_lz", String.valueOf(1));
             }
-            BdLog.d("mIsReserver=" + j.this.bOK);
-            if (!j.this.bOK) {
-                this.Th.o("r", String.valueOf(1));
+            BdLog.d("mIsReserver=" + j.this.bOV);
+            if (!j.this.bOV) {
+                this.Ti.o("r", String.valueOf(1));
             }
             if (!StringUtils.isNull(j.this.mFrom, true)) {
-                this.Th.o("obj_type", j.this.mFrom);
+                this.Ti.o("obj_type", j.this.mFrom);
             }
             aaf();
-            this.Th.uh().uX().abL = false;
-            String tG = this.Th.tG();
-            if (!this.Th.uh().uY().qV()) {
+            this.Ti.uh().uY().abO = false;
+            String tG = this.Ti.tG();
+            if (!this.Ti.uh().uZ().qV()) {
                 return null;
             }
             m mVar = new m();
@@ -168,23 +168,23 @@ public class j {
         }
 
         private void aaf() {
-            this.Th.o("forum_id", j.this.mForumId);
-            this.Th.o("user_id", j.this.mUserId == null ? "0" : j.this.mUserId);
-            this.Th.o("scr_w", String.valueOf(com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp())));
-            this.Th.o("scr_h", String.valueOf(com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp())));
-            this.Th.o("q_type", String.valueOf(as.uI().uK() ? 2 : 1));
-            this.Th.o("_os_version", Build.VERSION.RELEASE);
-            this.Th.o("net_type", com.baidu.tbadk.core.util.a.h.getNetType());
-            this.Th.o("page_name", "PB");
-            this.Th.o("pic_index", String.valueOf(j.this.bOF.size()));
+            this.Ti.o("forum_id", j.this.mForumId);
+            this.Ti.o("user_id", j.this.mUserId == null ? "0" : j.this.mUserId);
+            this.Ti.o("scr_w", String.valueOf(com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp())));
+            this.Ti.o("scr_h", String.valueOf(com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp())));
+            this.Ti.o("q_type", String.valueOf(at.uJ().uL() ? 2 : 1));
+            this.Ti.o("_os_version", Build.VERSION.RELEASE);
+            this.Ti.o("net_type", com.baidu.tbadk.core.util.a.i.getNetType());
+            this.Ti.o("page_name", "PB");
+            this.Ti.o("pic_index", String.valueOf(j.this.bOQ.size()));
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.Th != null) {
-                this.Th.gJ();
+            if (this.Ti != null) {
+                this.Ti.gJ();
             }
-            j.this.bOL = null;
+            j.this.bOW = null;
             super.cancel(true);
         }
 
@@ -198,63 +198,63 @@ public class j {
             int i2;
             String str;
             super.onPostExecute(mVar);
-            j.this.bOL = null;
+            j.this.bOW = null;
             if (mVar != null) {
-                j.this.bOM = mVar.getImageNum();
-                j.this.bOR = mVar.aah();
-                if (this.bOS == null) {
-                    j.this.bOF.clear();
+                j.this.bOX = mVar.getImageNum();
+                j.this.bPc = mVar.aah();
+                if (this.bPd == null) {
                     j.this.bOQ.clear();
+                    j.this.bPb.clear();
                 }
                 LinkedList<l> aag = mVar.aag();
                 int size = aag.size();
                 if (size <= 0) {
-                    j.this.bOJ = true;
+                    j.this.bOU = true;
                 } else {
                     for (int i3 = 0; i3 < size; i3++) {
                         l lVar = aag.get(i3);
                         String a = j.this.a(lVar);
                         String iQ = j.this.iQ(a);
-                        if (!j.this.bOQ.containsKey(iQ)) {
+                        if (!j.this.bPb.containsKey(iQ)) {
                             ImageUrlData imageUrlData = new ImageUrlData();
                             imageUrlData.imageUrl = a;
                             imageUrlData.urlType = 10;
                             imageUrlData.originalUrl = lVar.Fj();
                             imageUrlData.originalSize = lVar.getOriginalSize();
-                            j.this.bOF.add(a);
-                            j.this.ajS.put(a, imageUrlData);
-                            j.this.bOQ.put(iQ, a);
+                            j.this.bOQ.add(a);
+                            j.this.ajT.put(a, imageUrlData);
+                            j.this.bPb.put(iQ, a);
                         }
                     }
                     l lVar2 = aag.get(size - 1);
-                    j.this.bOI = lVar2.getImageID();
-                    if (j.this.bOM == lVar2.getIndex()) {
-                        j.this.bOJ = true;
+                    j.this.bOT = lVar2.getImageID();
+                    if (j.this.bOX == lVar2.getIndex()) {
+                        j.this.bOU = true;
                     } else {
-                        j.this.bOJ = false;
+                        j.this.bOU = false;
                     }
                 }
-                boolean z2 = j.this.bOJ && j.this.bOG != null && j.this.bOG.length() > 0;
-                if (this.bOS == null) {
-                    j.this.bOH = this.bOH;
+                boolean z2 = j.this.bOU && j.this.bOR != null && j.this.bOR.length() > 0;
+                if (this.bPd == null) {
+                    j.this.bOS = this.bOS;
                     z = true;
                     i = 0;
                 } else {
                     z = false;
                     i = -1;
                 }
-                if (j.this.bOP != null) {
-                    j.this.bOP.a(j.this.bOF, i, j.this.bOM, z2, j.this.ajY, z, j.this.bOR);
+                if (j.this.bPa != null) {
+                    j.this.bPa.a(j.this.bOQ, i, j.this.bOX, z2, j.this.ajZ, z, j.this.bPc);
                 }
-            } else if (j.this.bOP != null) {
-                if (this.Th != null) {
-                    i2 = this.Th.ul();
-                    str = this.bOS == null ? this.Th.getErrorString() : null;
+            } else if (j.this.bPa != null) {
+                if (this.Ti != null) {
+                    i2 = this.Ti.ul();
+                    str = this.bPd == null ? this.Ti.getErrorString() : null;
                 } else {
                     i2 = -1;
                     str = null;
                 }
-                j.this.bOP.F(i2, str);
+                j.this.bPa.F(i2, str);
             }
         }
     }
@@ -278,7 +278,7 @@ public class j {
             sb.append(String.valueOf(lVar.getHeight()));
         }
         sb.append("&src=");
-        sb.append(ar.aR(lVar.getImageUrl()));
+        sb.append(as.aR(lVar.getImageUrl()));
         return sb.toString();
     }
 
@@ -286,7 +286,7 @@ public class j {
     public String iQ(String str) {
         int lastIndexOf;
         int indexOf;
-        String aS = ar.aS(str);
+        String aS = as.aS(str);
         if (aS != null) {
             if (aS.indexOf(".baidu.com") != -1 && (lastIndexOf = aS.lastIndexOf("/")) != -1 && (indexOf = aS.indexOf(".", lastIndexOf)) != -1) {
                 return aS.substring(lastIndexOf + 1, indexOf);

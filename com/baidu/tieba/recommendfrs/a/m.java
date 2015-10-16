@@ -7,22 +7,22 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.flow.CoverFlowView;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m {
-    private boolean alM = true;
-    private CoverFlowView<com.baidu.tieba.recommendfrs.data.a> cJv;
-    private TextView cJw;
+    private boolean alN = true;
+    private CoverFlowView<com.baidu.tieba.recommendfrs.data.a> cJU;
+    private TextView cJV;
 
     public m(Context context) {
-        this.cJv = new CoverFlowView<>(context);
-        this.cJv.setDisableParentEvent(true);
-        this.cJv.setCoverFlowFactory(new n(this));
-        this.cJw = aN(context);
-        this.cJv.addView(this.cJw, 1, new FrameLayout.LayoutParams(-1, -2, 80));
+        this.cJU = new CoverFlowView<>(context);
+        this.cJU.setDisableParentEvent(true);
+        this.cJU.setCoverFlowFactory(new n(this));
+        this.cJV = aN(context);
+        this.cJU.addView(this.cJV, 1, new FrameLayout.LayoutParams(-1, -2, 80));
     }
 
     private TextView aN(Context context) {
@@ -32,37 +32,37 @@ public class m {
         textView.setTextSize(0, context.getResources().getDimensionPixelSize(i.d.fontsize36));
         textView.setPadding(context.getResources().getDimensionPixelSize(i.d.ds30), context.getResources().getDimensionPixelSize(i.d.ds22), 0, context.getResources().getDimensionPixelSize(i.d.ds18));
         textView.setSingleLine(true);
-        am.i((View) textView, i.e.recommend_frs_header_title_bg);
-        am.b(textView, i.c.cp_cont_g, 1);
+        an.i((View) textView, i.e.recommend_frs_header_title_bg);
+        an.b(textView, i.c.cp_cont_g, 1);
         return textView;
     }
 
     public void a(com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommendfrs.data.a> dVar) {
-        if (this.cJv != null) {
-            this.cJv.setCallback(dVar);
+        if (this.cJU != null) {
+            this.cJU.setCallback(dVar);
         }
     }
 
     public void setTitle(String str) {
-        if (this.cJw != null) {
-            this.cJw.setText(str);
+        if (this.cJV != null) {
+            this.cJV.setText(str);
         }
     }
 
-    public com.baidu.tieba.recommendfrs.data.a kq(int i) {
+    public com.baidu.tieba.recommendfrs.data.a ks(int i) {
         if (i < 0) {
             return null;
         }
-        return this.cJv.bW(i);
+        return this.cJU.bW(i);
     }
 
     public void setData(List<com.baidu.tieba.recommendfrs.data.a> list) {
         if (list != null && list.size() > 0) {
-            if (!this.alM) {
+            if (!this.alN) {
                 ArrayList arrayList = new ArrayList();
                 for (com.baidu.tieba.recommendfrs.data.a aVar : list) {
                     com.baidu.tieba.recommendfrs.data.a clone = aVar.clone();
-                    clone.kX(null);
+                    clone.la(null);
                     arrayList.add(clone);
                 }
                 list = arrayList;
@@ -70,21 +70,21 @@ public class m {
             if (list.size() > 5) {
                 list = list.subList(0, 4);
             }
-            if (this.cJv != null) {
-                this.cJv.setData(list);
+            if (this.cJU != null) {
+                this.cJU.setData(list);
             }
         }
     }
 
     public View getView() {
-        return this.cJv;
+        return this.cJU;
     }
 
     public void e(TbPageContext<?> tbPageContext) {
-        am.i((View) this.cJw, i.e.recommend_frs_header_title_bg);
-        am.b(this.cJw, i.c.cp_cont_g, 1);
-        if (this.cJv != null) {
-            this.cJv.tc();
+        an.i((View) this.cJV, i.e.recommend_frs_header_title_bg);
+        an.b(this.cJV, i.c.cp_cont_g, 1);
+        if (this.cJU != null) {
+            this.cJU.tc();
         }
     }
 }

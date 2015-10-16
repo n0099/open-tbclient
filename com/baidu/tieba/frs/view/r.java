@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ q bdC;
+    final /* synthetic */ q bdN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.bdC = qVar;
+        this.bdN = qVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_DETAIL, new ForumDetailActivityConfig(this.bdC.mContext.getContext(), this.bdC.mForumId, ForumDetailActivityConfig.FromType.FRS)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_FORUM_DETAIL, new ForumDetailActivityConfig(this.bdN.mContext.getContext(), this.bdN.mForumId, ForumDetailActivityConfig.FromType.FRS)));
     }
 }

@@ -9,13 +9,13 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
 /* loaded from: classes.dex */
 class d implements a.b {
-    final /* synthetic */ ResponsePullMessage bEZ;
-    private final /* synthetic */ ImMessageCenterPojo bFa;
+    final /* synthetic */ ResponsePullMessage bFk;
+    private final /* synthetic */ ImMessageCenterPojo bFl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(ResponsePullMessage responsePullMessage, ImMessageCenterPojo imMessageCenterPojo) {
-        this.bEZ = responsePullMessage;
-        this.bFa = imMessageCenterPojo;
+        this.bFk = responsePullMessage;
+        this.bFl = imMessageCenterPojo;
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
@@ -23,20 +23,20 @@ class d implements a.b {
         int i2 = 2;
         if (imMessageCenterPojo != null) {
             i.TO().a(imMessageCenterPojo, 2);
-            if (imMessageCenterPojo.getIsFriend() == 0 && this.bFa != null) {
-                this.bFa.setGid(String.valueOf("-1001"));
-                this.bFa.setCustomGroupType(-7);
+            if (imMessageCenterPojo.getIsFriend() == 0 && this.bFl != null) {
+                this.bFl.setGid(String.valueOf("-1001"));
+                this.bFl.setCustomGroupType(-7);
                 if (i == 0) {
-                    this.bFa.setUnread_count(0);
+                    this.bFl.setUnread_count(0);
                 } else if (i == 1) {
-                    this.bFa.setUnread_count(1);
+                    this.bFl.setUnread_count(1);
                 } else {
                     i2 = 1;
                 }
                 if (z) {
-                    this.bFa.setIs_hidden(0);
+                    this.bFl.setIs_hidden(0);
                 }
-                i.TO().a(this.bFa, i2);
+                i.TO().a(this.bFl, i2);
             }
         }
     }

@@ -9,27 +9,27 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class ca {
-    private TbPageContext<?> aPb;
+    private TbPageContext<?> aPm;
     private View.OnClickListener mClickListener;
     private View mView = null;
-    private TextView cjF = null;
-    private TextView cjV = null;
-    private ImageView cjW = null;
-    private ImageView cjX = null;
-    private boolean cjY = true;
+    private TextView cjQ = null;
+    private TextView ckg = null;
+    private ImageView ckh = null;
+    private ImageView cki = null;
+    private boolean ckj = true;
 
     public boolean agi() {
-        return this.cjY;
+        return this.ckj;
     }
 
     public void eC(boolean z) {
-        this.cjY = z;
+        this.ckj = z;
     }
 
     public ca(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
-        this.aPb = null;
+        this.aPm = null;
         this.mClickListener = null;
-        this.aPb = tbPageContext;
+        this.aPm = tbPageContext;
         this.mClickListener = onClickListener;
         initUI();
     }
@@ -39,34 +39,34 @@ public class ca {
     }
 
     public void eD(boolean z) {
-        this.cjX.setVisibility(z ? 0 : 8);
+        this.cki.setVisibility(z ? 0 : 8);
     }
 
     public TextView afY() {
-        return this.cjF;
+        return this.cjQ;
     }
 
     public TextView agj() {
-        return this.cjV;
+        return this.ckg;
     }
 
     public ImageView agk() {
-        return this.cjW;
+        return this.ckh;
     }
 
     public ImageView agl() {
-        return this.cjX;
+        return this.cki;
     }
 
     private void initUI() {
-        this.mView = LayoutInflater.from(this.aPb.getPageActivity()).inflate(i.g.pb_reply_view, (ViewGroup) null);
-        this.cjF = (TextView) this.mView.findViewById(i.f.pb_reply_view_item_mark);
-        this.cjF.setOnClickListener(this.mClickListener);
-        this.cjV = (TextView) this.mView.findViewById(i.f.pb_reply_view_item_reply);
-        this.cjV.setOnClickListener(this.mClickListener);
-        this.cjW = (ImageView) this.mView.findViewById(i.f.pb_reply_view_item_manage);
-        this.cjW.setOnClickListener(this.mClickListener);
-        this.cjX = (ImageView) this.mView.findViewById(i.f.pb_reply_view_item_report);
-        this.cjX.setOnClickListener(this.mClickListener);
+        this.mView = LayoutInflater.from(this.aPm.getPageActivity()).inflate(i.g.pb_reply_view, (ViewGroup) null);
+        this.cjQ = (TextView) this.mView.findViewById(i.f.pb_reply_view_item_mark);
+        this.cjQ.setOnClickListener(this.mClickListener);
+        this.ckg = (TextView) this.mView.findViewById(i.f.pb_reply_view_item_reply);
+        this.ckg.setOnClickListener(this.mClickListener);
+        this.ckh = (ImageView) this.mView.findViewById(i.f.pb_reply_view_item_manage);
+        this.ckh.setOnClickListener(this.mClickListener);
+        this.cki = (ImageView) this.mView.findViewById(i.f.pb_reply_view_item_report);
+        this.cki.setOnClickListener(this.mClickListener);
     }
 }

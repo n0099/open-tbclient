@@ -17,7 +17,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.megapp.ma.MAFragment;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.aw;
+import com.baidu.tbadk.core.util.ax;
 /* loaded from: classes.dex */
 public abstract class BaseFragment extends MAFragment implements DialogInterface.OnClickListener, View.OnClickListener, View.OnLongClickListener, AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     private com.baidu.tbadk.core.util.g customToast;
@@ -128,7 +128,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         super.onResume();
         if (isShow()) {
             changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-            aw.dn(getClass().getName());
+            ax.dp(getClass().getName());
             if (this.isPrimary) {
                 onPrimary();
             }

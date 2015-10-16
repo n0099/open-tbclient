@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.i;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-class bc implements ay.a {
-    Pattern ciI = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
+class bc implements az.a {
+    Pattern ciT = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
 
-    @Override // com.baidu.tbadk.core.util.ay.a
+    @Override // com.baidu.tbadk.core.util.az.a
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
         String substring;
         boolean z;
@@ -26,7 +26,7 @@ class bc implements ay.a {
             return false;
         }
         String lowerCase = strArr[0].toLowerCase();
-        Matcher matcher = this.ciI.matcher(lowerCase);
+        Matcher matcher = this.ciT.matcher(lowerCase);
         if (matcher.find()) {
             substring = matcher.group(1);
             str = "allthread";
@@ -89,7 +89,7 @@ class bc implements ay.a {
             return true;
         } else if (z2 && !TextUtils.isEmpty(substring)) {
             com.baidu.adp.lib.g.i.f(TbadkCoreApplication.m411getInst(), cb.L(TbadkCoreApplication.m411getInst(), substring));
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ap("c10320").r("obj_locate", 3).r("obj_type", 2));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10320").r("obj_locate", 3).r("obj_type", 2));
             return true;
         } else if (z) {
             tbPageContext.showToast(i.h.page_not_found);

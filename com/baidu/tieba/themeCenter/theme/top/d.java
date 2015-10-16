@@ -10,13 +10,13 @@ import com.baidu.tieba.themeCenter.dressCenter.k;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<d> {
-    private List<com.baidu.tieba.themeCenter.b> dga;
-    private a dge;
+    private List<com.baidu.tieba.themeCenter.b> dgA;
+    private a dgE;
     private k mRecommand;
     private List<com.baidu.tieba.themeCenter.theme.top.a> mThemeList;
-    private com.baidu.adp.framework.listener.a aQK = new e(this, CmdConfigHttp.CMD_TOP_THEME_LIST, 309010);
-    private CustomMessageListener dgf = new f(this, CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB);
-    private CustomMessageListener dgg = new g(this, CmdConfigCustom.CMD_REFRESH_THEME_LIST);
+    private com.baidu.adp.framework.listener.a aQV = new e(this, CmdConfigHttp.CMD_TOP_THEME_LIST, 309010);
+    private CustomMessageListener dgF = new f(this, CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB);
+    private CustomMessageListener dgG = new g(this, CmdConfigCustom.CMD_REFRESH_THEME_LIST);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -25,9 +25,9 @@ public class d extends com.baidu.adp.base.e<d> {
 
     public d() {
         BZ();
-        registerListener(this.aQK);
-        registerListener(this.dgf);
-        registerListener(this.dgg);
+        registerListener(this.aQV);
+        registerListener(this.dgF);
+        registerListener(this.dgG);
         sendMessage(new CustomMessage(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB));
     }
 
@@ -44,13 +44,13 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azs() {
-        if (this.dga != null && this.mThemeList != null && this.mThemeList.size() > 0) {
+    public void azC() {
+        if (this.dgA != null && this.mThemeList != null && this.mThemeList.size() > 0) {
             for (com.baidu.tieba.themeCenter.theme.top.a aVar : this.mThemeList) {
-                if (aVar != null && aVar.azz() != null && aVar.azz().size() > 0) {
-                    for (com.baidu.tieba.themeCenter.b bVar : aVar.azz()) {
+                if (aVar != null && aVar.azJ() != null && aVar.azJ().size() > 0) {
+                    for (com.baidu.tieba.themeCenter.b bVar : aVar.azJ()) {
                         if (bVar != null) {
-                            bVar.lp(com.baidu.tieba.themeCenter.i.a(bVar, this.dga));
+                            bVar.lr(com.baidu.tieba.themeCenter.i.a(bVar, this.dgA));
                         }
                     }
                 }
@@ -64,12 +64,12 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     public void a(a aVar) {
-        this.dge = aVar;
+        this.dgE = aVar;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.aQK);
-        MessageManager.getInstance().unRegisterListener(this.dgf);
-        MessageManager.getInstance().unRegisterListener(this.dgg);
+        MessageManager.getInstance().unRegisterListener(this.aQV);
+        MessageManager.getInstance().unRegisterListener(this.dgF);
+        MessageManager.getInstance().unRegisterListener(this.dgG);
     }
 }

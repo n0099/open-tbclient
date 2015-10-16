@@ -7,24 +7,24 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.im.model.BlackListModel;
 /* loaded from: classes.dex */
 public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
-    private com.baidu.tbadk.core.dialog.a Lt;
-    private BlackListModel bMG;
-    private h bMH;
-    private com.baidu.tieba.im.data.a bMI;
+    private com.baidu.tbadk.core.dialog.a Lu;
+    private BlackListModel bMR;
+    private h bMS;
+    private com.baidu.tieba.im.data.a bMT;
     private com.baidu.adp.framework.listener.e mListener = new a(this, 0);
 
     private void initView() {
-        this.bMH = new h(this);
+        this.bMS = new h(this);
     }
 
     private void Hy() {
-        this.bMG = new BlackListModel(this);
-        this.bMG.setUniqueId(getUniqueId());
+        this.bMR = new BlackListModel(this);
+        this.bMR.setUniqueId(getUniqueId());
     }
 
     private void JH() {
-        this.bMG.loadBlackList();
-        this.bMH.BR();
+        this.bMR.loadBlackList();
+        this.bMS.BR();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -42,8 +42,8 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.bMG != null) {
-            this.bMG.cancelLoadData();
+        if (this.bMR != null) {
+            this.bMR.cancelLoadData();
         }
     }
 
@@ -54,20 +54,20 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
 
     private void a(com.baidu.tieba.im.data.a aVar) {
         iI(String.format(getPageContext().getString(i.h.black_list_ensure_toremove_text), aVar.getUserName()));
-        this.Lt.sR();
+        this.Lu.sR();
     }
 
     private void iI(String str) {
-        this.Lt = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.Lt.ct(str);
-        this.Lt.a(i.h.confirm, new c(this));
-        this.Lt.b(i.h.alert_no_button, new d(this));
-        this.Lt.b(getPageContext());
+        this.Lu = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
+        this.Lu.cu(str);
+        this.Lu.a(i.h.confirm, new c(this));
+        this.Lu.b(i.h.alert_no_button, new d(this));
+        this.Lu.b(getPageContext());
     }
 
     public void a(View view, com.baidu.tieba.im.data.a aVar) {
         if (aVar != null && aVar.getUserId() > 0) {
-            this.bMI = aVar;
+            this.bMT = aVar;
             a(aVar);
         }
     }

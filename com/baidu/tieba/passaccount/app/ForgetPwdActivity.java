@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
-    private SapiWebView ccR;
+    private SapiWebView cdc;
     private NavigationBar mNavigationBar;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -23,11 +23,11 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
         this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
         this.mNavigationBar.setTitleText(getPageContext().getString(i.h.sapi_forget_password_title));
-        this.ccR = (SapiWebView) findViewById(i.f.sapi_webview);
-        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.ccR);
-        this.ccR.setOnBackCallback(new h(this));
-        this.ccR.setOnFinishCallback(new i(this));
-        this.ccR.loadForgetPwd();
+        this.cdc = (SapiWebView) findViewById(i.f.sapi_webview);
+        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.cdc);
+        this.cdc.setOnBackCallback(new h(this));
+        this.cdc.setOnFinishCallback(new i(this));
+        this.cdc.loadForgetPwd();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

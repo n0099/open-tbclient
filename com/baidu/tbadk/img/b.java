@@ -7,8 +7,8 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes.dex */
 public class b {
-    private Queue<a> aua = new ConcurrentLinkedQueue();
-    private volatile C0051b aub;
+    private Queue<a> aub = new ConcurrentLinkedQueue();
+    private volatile C0051b auc;
 
     public com.baidu.adp.widget.a.a a(ImageFileInfo imageFileInfo, boolean z) {
         if (imageFileInfo == null) {
@@ -24,10 +24,10 @@ public class b {
                 return null;
             }
             a aVar = new a(this, null);
-            aVar.aud = bVar;
-            aVar.auc = imageFileInfo;
-            aVar.aue = z;
-            this.aua.add(aVar);
+            aVar.aue = bVar;
+            aVar.aud = imageFileInfo;
+            aVar.auf = z;
+            this.aub.add(aVar);
             Cl();
             return null;
         }
@@ -39,17 +39,17 @@ public class b {
     }
 
     protected void Cl() {
-        if (this.aub == null && !this.aua.isEmpty()) {
-            this.aub = new C0051b(this.aua);
-            this.aub.execute(new Void[0]);
+        if (this.auc == null && !this.aub.isEmpty()) {
+            this.auc = new C0051b(this.aub);
+            this.auc.execute(new Void[0]);
         }
     }
 
     public void Cm() {
-        this.aua = new ConcurrentLinkedQueue();
-        if (this.aub != null) {
-            this.aub.cancel(true);
-            this.aub = null;
+        this.aub = new ConcurrentLinkedQueue();
+        if (this.auc != null) {
+            this.auc.cancel(true);
+            this.auc = null;
         }
     }
 
@@ -57,10 +57,10 @@ public class b {
     /* renamed from: com.baidu.tbadk.img.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0051b extends BdAsyncTask<Void, a, a> {
-        final Queue<a> aui;
+        final Queue<a> auj;
 
         public C0051b(Queue<a> queue) {
-            this.aui = queue;
+            this.auj = queue;
             super.setPriority(2);
         }
 
@@ -70,21 +70,21 @@ public class b {
         /* renamed from: d */
         public a doInBackground(Void... voidArr) {
             while (true) {
-                a poll = this.aui.poll();
+                a poll = this.auj.poll();
                 if (poll == null) {
                     break;
                 } else if (isCancelled()) {
-                    this.aui.add(poll);
+                    this.auj.add(poll);
                     break;
                 } else {
-                    com.baidu.adp.widget.a.a fo = com.baidu.tbadk.imageManager.c.Cf().fo(poll.auc.toCachedKey(poll.aue));
+                    com.baidu.adp.widget.a.a fo = com.baidu.tbadk.imageManager.c.Cf().fo(poll.aud.toCachedKey(poll.auf));
                     if (fo != null) {
-                        poll.auf = fo;
-                        poll.aug = true;
+                        poll.aug = fo;
+                        poll.auh = true;
                     } else {
-                        Bitmap b = b.this.b(poll.auc, poll.aue);
+                        Bitmap b = b.this.b(poll.aud, poll.auf);
                         if (b != null) {
-                            poll.auf = new com.baidu.adp.widget.a.a(b, false, poll.auc.getFilePath());
+                            poll.aug = new com.baidu.adp.widget.a.a(b, false, poll.aud.getFilePath());
                         }
                     }
                     publishProgress(poll);
@@ -99,7 +99,7 @@ public class b {
         /* renamed from: a */
         public void onPostExecute(a aVar) {
             super.onPostExecute(aVar);
-            b.this.aub = null;
+            b.this.auc = null;
             b.this.Cl();
         }
 
@@ -110,12 +110,12 @@ public class b {
         public void onProgressUpdate(a... aVarArr) {
             if (aVarArr != null) {
                 for (a aVar : aVarArr) {
-                    com.baidu.adp.widget.a.a aVar2 = aVar.auf;
-                    if (aVar2 != null && !aVar.aug) {
-                        com.baidu.tbadk.imageManager.c.Cf().c(aVar.auc.toCachedKey(aVar.aue), aVar2);
+                    com.baidu.adp.widget.a.a aVar2 = aVar.aug;
+                    if (aVar2 != null && !aVar.auh) {
+                        com.baidu.tbadk.imageManager.c.Cf().c(aVar.aud.toCachedKey(aVar.auf), aVar2);
                     }
-                    if (aVar.aud != null) {
-                        aVar.aud.a(aVar2, aVar.auc.toCachedKey(aVar.aue), aVar.aug);
+                    if (aVar.aue != null) {
+                        aVar.aue.a(aVar2, aVar.aud.toCachedKey(aVar.auf), aVar.auh);
                     }
                 }
             }
@@ -125,12 +125,12 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            b.this.aub = null;
+            b.this.auc = null;
             while (true) {
-                a poll = this.aui.poll();
+                a poll = this.auj.poll();
                 if (poll != null) {
-                    if (poll.aud != null) {
-                        poll.aud.a(null, poll.auc.toCachedKey(poll.aue), false);
+                    if (poll.aue != null) {
+                        poll.aue.a(null, poll.aud.toCachedKey(poll.auf), false);
                     }
                 } else {
                     return;
@@ -165,18 +165,18 @@ public class b {
                 return null;
             }
         } else {
-            return com.baidu.tbadk.core.util.c.cA(imageFileInfo.getFilePath());
+            return com.baidu.tbadk.core.util.c.cB(imageFileInfo.getFilePath());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        ImageFileInfo auc;
-        com.baidu.tbadk.imageManager.b aud;
-        boolean aue;
-        com.baidu.adp.widget.a.a auf;
-        boolean aug;
+        ImageFileInfo aud;
+        com.baidu.tbadk.imageManager.b aue;
+        boolean auf;
+        com.baidu.adp.widget.a.a aug;
+        boolean auh;
 
         private a() {
         }

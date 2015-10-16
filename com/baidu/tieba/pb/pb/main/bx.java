@@ -5,13 +5,13 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class bx {
-    private String cjQ;
-    private boolean cjR;
-    private boolean cjS;
-    private Parcelable cjT;
-    private boolean cjb;
-    private boolean cjd;
-    private com.baidu.tieba.pb.a.b cjp;
+    private com.baidu.tieba.pb.a.b cjA;
+    private boolean cjm;
+    private boolean cjo;
+    private String ckb;
+    private boolean ckc;
+    private boolean ckd;
+    private Parcelable cke;
 
     static {
         MessageManager.getInstance().registerListener(new by(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
@@ -21,21 +21,21 @@ public class bx {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static bx cjU = new bx(null);
+        private static bx ckf = new bx(null);
     }
 
     public static bx age() {
-        return a.cjU;
+        return a.ckf;
     }
 
     private bx() {
-        this.cjQ = null;
-        this.cjR = false;
-        this.cjp = null;
-        this.cjS = false;
-        this.cjT = null;
-        this.cjd = true;
-        this.cjb = false;
+        this.ckb = null;
+        this.ckc = false;
+        this.cjA = null;
+        this.ckd = false;
+        this.cke = null;
+        this.cjo = true;
+        this.cjm = false;
     }
 
     /* synthetic */ bx(bx bxVar) {
@@ -43,59 +43,59 @@ public class bx {
     }
 
     public void B(String str, boolean z) {
-        this.cjR = false;
+        this.ckc = false;
         if (z) {
             str = null;
         }
         if (str == null || str.length() < 1) {
             reset();
-            this.cjQ = null;
-        } else if (!str.equals(this.cjQ)) {
+            this.ckb = null;
+        } else if (!str.equals(this.ckb)) {
             reset();
-            this.cjQ = str;
+            this.ckb = str;
         } else {
-            this.cjR = true;
+            this.ckc = true;
         }
     }
 
     public com.baidu.tieba.pb.a.b getPbData() {
-        if (!this.cjR) {
-            this.cjS = false;
+        if (!this.ckc) {
+            this.ckd = false;
             return null;
-        } else if (this.cjp != null && this.cjp.aeP() != null && this.cjp.aeP().size() > 0) {
-            this.cjS = true;
-            com.baidu.tieba.pb.a.b bVar = this.cjp;
-            this.cjp = null;
+        } else if (this.cjA != null && this.cjA.aeP() != null && this.cjA.aeP().size() > 0) {
+            this.ckd = true;
+            com.baidu.tieba.pb.a.b bVar = this.cjA;
+            this.cjA = null;
             return bVar;
         } else {
-            this.cjS = false;
-            this.cjp = null;
+            this.ckd = false;
+            this.cjA = null;
             return null;
         }
     }
 
     public Parcelable agf() {
-        if (this.cjS) {
-            this.cjS = false;
-            Parcelable parcelable = this.cjT;
-            this.cjT = null;
+        if (this.ckd) {
+            this.ckd = false;
+            Parcelable parcelable = this.cke;
+            this.cke = null;
             return parcelable;
         }
-        this.cjT = null;
+        this.cke = null;
         return null;
     }
 
     public boolean afL() {
-        return this.cjd;
+        return this.cjo;
     }
 
     public boolean agg() {
-        return this.cjb;
+        return this.cjm;
     }
 
     public boolean a(com.baidu.tieba.pb.a.b bVar, Parcelable parcelable, boolean z, boolean z2) {
-        this.cjR = false;
-        if (this.cjQ == null) {
+        this.ckc = false;
+        if (this.ckb == null) {
             reset();
             return false;
         } else if (bVar == null) {
@@ -111,19 +111,19 @@ public class bx {
             reset();
             return false;
         } else {
-            this.cjp = bVar;
-            this.cjS = false;
-            this.cjT = parcelable;
-            this.cjd = z;
-            this.cjb = z2;
+            this.cjA = bVar;
+            this.ckd = false;
+            this.cke = parcelable;
+            this.cjo = z;
+            this.cjm = z2;
             return true;
         }
     }
 
     public void reset() {
-        this.cjR = false;
-        this.cjp = null;
-        this.cjS = false;
-        this.cjT = null;
+        this.ckc = false;
+        this.cjA = null;
+        this.ckd = false;
+        this.cke = null;
     }
 }

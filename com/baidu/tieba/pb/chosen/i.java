@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-    final /* synthetic */ PbChosenActivity cfa;
+    final /* synthetic */ PbChosenActivity cfl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(PbChosenActivity pbChosenActivity) {
-        this.cfa = pbChosenActivity;
+        this.cfl = pbChosenActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,14 +20,14 @@ public class i implements View.OnClickListener {
         com.baidu.tieba.pb.chosen.net.a aVar;
         com.baidu.tieba.pb.chosen.net.a aVar2;
         com.baidu.tieba.pb.chosen.net.a aVar3;
-        aVar = this.cfa.chosenData;
+        aVar = this.cfl.chosenData;
         if (aVar != null) {
-            aVar2 = this.cfa.chosenData;
+            aVar2 = this.cfl.chosenData;
             if (aVar2.getForumInfo() != null) {
                 TiebaStatic.log("c10091");
-                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.cfa.getPageContext().getPageActivity());
-                aVar3 = this.cfa.chosenData;
-                this.cfa.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createNormalCfg(aVar3.getForumInfo().originalurl, null, null)));
+                PbActivityConfig pbActivityConfig = new PbActivityConfig(this.cfl.getPageContext().getPageActivity());
+                aVar3 = this.cfl.chosenData;
+                this.cfl.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createNormalCfg(aVar3.getForumInfo().originalurl, null, null)));
             }
         }
     }

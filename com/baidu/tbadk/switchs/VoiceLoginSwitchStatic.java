@@ -4,11 +4,11 @@ import com.baidu.adp.lib.b.a;
 import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class VoiceLoginSwitchStatic extends a {
-    public static final String[] ayU;
+    public static final String[] azf;
 
     static {
         e.gv().e(VoiceLoginSwitchStatic.class);
-        ayU = new String[]{"com.baidu.speech.speakerrecognition,com.baidu.sapi2"};
+        azf = new String[]{"com.baidu.speech.speakerrecognition,com.baidu.sapi2"};
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -18,7 +18,7 @@ public class VoiceLoginSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] getCrashKeys() {
-        return ayU;
+        return azf;
     }
 
     @Override // com.baidu.adp.lib.b.a

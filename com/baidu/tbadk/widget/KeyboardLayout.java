@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class KeyboardLayout extends RelativeLayout {
-    private boolean HP;
-    private boolean aAB;
-    private a aAC;
+    private boolean HQ;
+    private boolean aAM;
+    private a aAN;
     private int mHeight;
 
     /* loaded from: classes.dex */
@@ -17,45 +17,45 @@ public class KeyboardLayout extends RelativeLayout {
 
     public KeyboardLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aAB = false;
+        this.aAM = false;
     }
 
     public KeyboardLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aAB = false;
+        this.aAM = false;
     }
 
     public KeyboardLayout(Context context) {
         super(context);
-        this.aAB = false;
+        this.aAM = false;
     }
 
     public void setOnkbdStateListener(a aVar) {
-        this.aAC = aVar;
+        this.aAN = aVar;
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (!this.aAB) {
-            this.aAB = true;
+        if (!this.aAM) {
+            this.aAM = true;
             this.mHeight = i4;
-            if (this.aAC != null) {
-                this.aAC.onKeyBoardStateChange(-1);
+            if (this.aAN != null) {
+                this.aAN.onKeyBoardStateChange(-1);
             }
         } else {
             this.mHeight = this.mHeight < i4 ? i4 : this.mHeight;
         }
-        if (this.aAB && this.mHeight > i4) {
-            this.HP = true;
-            if (this.aAC != null) {
-                this.aAC.onKeyBoardStateChange(-3);
+        if (this.aAM && this.mHeight > i4) {
+            this.HQ = true;
+            if (this.aAN != null) {
+                this.aAN.onKeyBoardStateChange(-3);
             }
         }
-        if (this.aAB && this.HP && this.mHeight == i4) {
-            this.HP = false;
-            if (this.aAC != null) {
-                this.aAC.onKeyBoardStateChange(-2);
+        if (this.aAM && this.HQ && this.mHeight == i4) {
+            this.HQ = false;
+            if (this.aAN != null) {
+                this.aAN.onKeyBoardStateChange(-2);
             }
         }
     }

@@ -11,47 +11,47 @@ import com.baidu.tieba.i;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class k {
-    private PostSearchActivity cDL;
-    private View cDS;
-    private BdListView cDT;
-    private com.baidu.tbadk.core.dialog.a cDV;
+    private PostSearchActivity cDW;
+    private View cEd;
+    private BdListView cEe;
+    private com.baidu.tbadk.core.dialog.a cEg;
     private com.baidu.tbadk.core.view.m mNoDataView;
     private View mRootView;
-    private com.baidu.tieba.mainentrance.i cDU = null;
+    private com.baidu.tieba.mainentrance.i cEf = null;
     private View mFooterView = null;
-    private boolean cDW = false;
+    private boolean cEh = false;
 
     public k(PostSearchActivity postSearchActivity, View view) {
-        this.cDL = postSearchActivity;
+        this.cDW = postSearchActivity;
         this.mRootView = view;
         initView();
     }
 
     private void initView() {
-        this.cDS = this.cDL.findViewById(i.f.history_frame);
-        this.cDT = (BdListView) this.mRootView.findViewById(i.f.history_list);
-        this.cDU = new com.baidu.tieba.mainentrance.i(this.cDL.getPageContext().getPageActivity(), null);
-        this.cDU.dJ(false);
-        this.cDT.setAdapter((ListAdapter) this.cDU);
-        this.mFooterView = LayoutInflater.from(this.cDL.getPageContext().getPageActivity()).inflate(i.g.home_dialog_search_footer, (ViewGroup) null);
-        this.cDT.addFooterView(this.mFooterView);
+        this.cEd = this.cDW.findViewById(i.f.history_frame);
+        this.cEe = (BdListView) this.mRootView.findViewById(i.f.history_list);
+        this.cEf = new com.baidu.tieba.mainentrance.i(this.cDW.getPageContext().getPageActivity(), null);
+        this.cEf.dJ(false);
+        this.cEe.setAdapter((ListAdapter) this.cEf);
+        this.mFooterView = LayoutInflater.from(this.cDW.getPageContext().getPageActivity()).inflate(i.g.home_dialog_search_footer, (ViewGroup) null);
+        this.cEe.addFooterView(this.mFooterView);
         this.mFooterView.setOnClickListener(new l(this));
-        this.cDT.setOnItemClickListener(new m(this));
-        this.cDT.setOnTouchListener(new n(this));
+        this.cEe.setOnItemClickListener(new m(this));
+        this.cEe.setOnTouchListener(new n(this));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Uf() {
-        if (this.cDV == null) {
-            this.cDV = new com.baidu.tbadk.core.dialog.a(this.cDL.getPageContext().getPageActivity()).ct(this.cDL.getPageContext().getString(i.h.alert_clean_history)).a(this.cDL.getPageContext().getString(i.h.clear_all_text), new o(this)).b(this.cDL.getPageContext().getString(i.h.alert_no_button), new p(this)).b(this.cDL.getPageContext());
+        if (this.cEg == null) {
+            this.cEg = new com.baidu.tbadk.core.dialog.a(this.cDW.getPageContext().getPageActivity()).cu(this.cDW.getPageContext().getString(i.h.alert_clean_history)).a(this.cDW.getPageContext().getString(i.h.clear_all_text), new o(this)).b(this.cDW.getPageContext().getString(i.h.alert_no_button), new p(this)).b(this.cDW.getPageContext());
         }
-        this.cDV.sR();
+        this.cEg.sR();
     }
 
     private void gh(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.cDL.getPageContext().getPageActivity(), this.cDS, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cK(i.h.text_no_search_record), null);
-            this.mNoDataView.onChangeSkinType(this.cDL.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
+            this.mNoDataView = NoDataViewFactory.a(this.cDW.getPageContext().getPageActivity(), this.cEd, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cK(i.h.text_no_search_record), null);
+            this.mNoDataView.onChangeSkinType(this.cDW.getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
             this.mNoDataView.setOnTouchListener(new q(this));
         }
         this.mNoDataView.setTextOption(NoDataViewFactory.d.cK(i));
@@ -64,7 +64,7 @@ public class k {
     }
 
     public void aoo() {
-        this.cDT.setVisibility(8);
+        this.cEe.setVisibility(8);
         gh(i.h.no_search_result_record);
     }
 
@@ -75,42 +75,42 @@ public class k {
     }
 
     public void KB() {
-        this.cDW = true;
-        this.cDL.showLoadingView(this.cDS, false, this.cDL.getResources().getDimensionPixelSize(i.d.ds400));
+        this.cEh = true;
+        this.cDW.showLoadingView(this.cEd, false, this.cDW.getResources().getDimensionPixelSize(i.d.ds400));
     }
 
     public void amT() {
-        this.cDW = false;
-        this.cDL.hideLoadingView(this.cDS);
+        this.cEh = false;
+        this.cDW.hideLoadingView(this.cEd);
     }
 
     public void ac(ArrayList<String> arrayList) {
-        this.cDS.setVisibility(0);
+        this.cEd.setVisibility(0);
         amT();
         if (arrayList == null || arrayList.size() == 0) {
-            this.cDT.setVisibility(8);
+            this.cEe.setVisibility(8);
             showNoDataView();
             return;
         }
         hideNoDataView();
-        this.cDT.setVisibility(0);
-        this.cDU.setData(arrayList);
-        this.cDU.notifyDataSetChanged();
+        this.cEe.setVisibility(0);
+        this.cEf.setData(arrayList);
+        this.cEf.notifyDataSetChanged();
     }
 
     public void aop() {
-        this.cDS.setVisibility(8);
+        this.cEd.setVisibility(8);
     }
 
     public boolean aoq() {
-        return this.cDS.getVisibility() == 0 && !this.cDW && (this.mNoDataView == null || 8 == this.mNoDataView.getVisibility());
+        return this.cEd.getVisibility() == 0 && !this.cEh && (this.mNoDataView == null || 8 == this.mNoDataView.getVisibility());
     }
 
     public void onChangeSkinType(int i) {
-        com.baidu.tbadk.h.a.a(this.cDL.getPageContext(), this.mFooterView);
-        this.cDU.notifyDataSetChanged();
+        com.baidu.tbadk.h.a.a(this.cDW.getPageContext(), this.mFooterView);
+        this.cEf.notifyDataSetChanged();
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.cDL.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.cDW.getPageContext(), i);
         }
     }
 }

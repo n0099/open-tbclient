@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class o {
-    public static int cZ(String str) {
+    public static int da(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith("game:detail")) {
                 return 1;
@@ -31,7 +31,7 @@ public class o {
             if (bm && bs) {
                 hVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(hVar.getPageActivity(), "com.baidu.tieba.pluginCookeryGod")));
             } else if (hVar instanceof TbPageContext) {
-                ay.uV().a((TbPageContext) hVar, new String[]{str}, true);
+                az.uW().a((TbPageContext) hVar, new String[]{str}, true);
             }
         }
     }

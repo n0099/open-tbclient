@@ -17,11 +17,11 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ NewSubPbActivity cmr;
+    final /* synthetic */ NewSubPbActivity cmC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(NewSubPbActivity newSubPbActivity) {
-        this.cmr = newSubPbActivity;
+        this.cmC = newSubPbActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -71,38 +71,38 @@ public class c implements View.OnClickListener {
         t tVar28;
         ak akVar8;
         t tVar29;
-        tVar = this.cmr.cmk;
+        tVar = this.cmC.cmv;
         if (view == tVar.ahl()) {
-            tVar28 = this.cmr.cmk;
+            tVar28 = this.cmC.cmv;
             tVar28.agM();
-            akVar8 = this.cmr.cmi;
+            akVar8 = this.cmC.cmt;
             if (akVar8.CS()) {
-                tVar29 = this.cmr.cmk;
+                tVar29 = this.cmC.cmv;
                 tVar29.ahi();
                 return;
             }
             return;
         }
-        tVar2 = this.cmr.cmk;
+        tVar2 = this.cmC.cmv;
         if (view != tVar2.ahp()) {
-            tVar3 = this.cmr.cmk;
+            tVar3 = this.cmC.cmv;
             if (view == tVar3.ahj()) {
-                tVar27 = this.cmr.cmk;
+                tVar27 = this.cmC.cmv;
                 tVar27.agM();
-                this.cmr.replyPost(view);
+                this.cmC.replyPost(view);
                 return;
             }
-            tVar4 = this.cmr.cmk;
+            tVar4 = this.cmC.cmv;
             if (tVar4.ahq() != null) {
-                tVar25 = this.cmr.cmk;
+                tVar25 = this.cmC.cmv;
                 if (view == tVar25.ahq().afY()) {
-                    tVar26 = this.cmr.cmk;
-                    com.baidu.adp.lib.g.j.a(tVar26.ahr(), this.cmr.getPageContext().getPageActivity());
-                    if (this.cmr.checkUpIsLogin()) {
-                        akVar4 = this.cmr.cmi;
+                    tVar26 = this.cmC.cmv;
+                    com.baidu.adp.lib.g.j.a(tVar26.ahr(), this.cmC.getPageContext().getPageActivity());
+                    if (this.cmC.checkUpIsLogin()) {
+                        akVar4 = this.cmC.cmt;
                         if (akVar4.ahA() != null) {
-                            NewSubPbActivity newSubPbActivity = this.cmr;
-                            akVar5 = this.cmr.cmi;
+                            NewSubPbActivity newSubPbActivity = this.cmC;
+                            akVar5 = this.cmC.cmt;
                             newSubPbActivity.c(akVar5.ahA().aeZ());
                             return;
                         }
@@ -111,45 +111,45 @@ public class c implements View.OnClickListener {
                     return;
                 }
             }
-            tVar5 = this.cmr.cmk;
+            tVar5 = this.cmC.cmv;
             if (tVar5.ahr() != null) {
-                tVar23 = this.cmr.cmk;
+                tVar23 = this.cmC.cmv;
                 if (view == tVar23.ahq().agk()) {
-                    tVar24 = this.cmr.cmk;
-                    com.baidu.adp.lib.g.j.a(tVar24.ahr(), this.cmr.getPageContext().getPageActivity());
-                    if (!this.cmr.checkUpIsLogin()) {
+                    tVar24 = this.cmC.cmv;
+                    com.baidu.adp.lib.g.j.a(tVar24.ahr(), this.cmC.getPageContext().getPageActivity());
+                    if (!this.cmC.checkUpIsLogin()) {
                         return;
                     }
-                    this.cmr.ad(view);
+                    this.cmC.ad(view);
                     return;
                 }
             }
-            tVar6 = this.cmr.cmk;
+            tVar6 = this.cmC.cmv;
             if (tVar6.ahq() != null) {
-                tVar21 = this.cmr.cmk;
+                tVar21 = this.cmC.cmv;
                 if (view == tVar21.ahq().agj()) {
-                    tVar22 = this.cmr.cmk;
+                    tVar22 = this.cmC.cmv;
                     tVar22.agM();
-                    if (this.cmr.checkUpIsLogin()) {
-                        nVar4 = this.cmr.caJ;
+                    if (this.cmC.checkUpIsLogin()) {
+                        nVar4 = this.cmC.caU;
                         nVar4.fe(null);
                         return;
                     }
                     return;
                 }
             }
-            tVar7 = this.cmr.cmk;
+            tVar7 = this.cmC.cmv;
             if (tVar7.ahq() != null) {
-                tVar19 = this.cmr.cmk;
+                tVar19 = this.cmC.cmv;
                 if (view == tVar19.ahq().agl()) {
                     Object tag = view.getTag();
-                    tVar20 = this.cmr.cmk;
-                    com.baidu.adp.lib.g.j.a(tVar20.ahr(), this.cmr.getPageContext().getPageActivity());
+                    tVar20 = this.cmC.cmv;
+                    com.baidu.adp.lib.g.j.a(tVar20.ahr(), this.cmC.getPageContext().getPageActivity());
                     if (tag instanceof String) {
-                        akVar3 = this.cmr.cmi;
+                        akVar3 = this.cmC.cmt;
                         String Bl = akVar3.Bl();
-                        if (this.cmr.checkUpIsLogin()) {
-                            this.cmr.jI(Bl);
+                        if (this.cmC.checkUpIsLogin()) {
+                            this.cmC.jI(Bl);
                             return;
                         }
                         return;
@@ -157,7 +157,7 @@ public class c implements View.OnClickListener {
                         SparseArray<Object> sparseArray = (SparseArray) tag;
                         if ((sparseArray.get(i.f.tag_display_reply_visible) instanceof Boolean) && ((Boolean) sparseArray.get(i.f.tag_display_reply_visible)).booleanValue()) {
                             sparseArray.put(i.f.tag_from, 0);
-                            this.cmr.d(sparseArray);
+                            this.cmC.d(sparseArray);
                             return;
                         }
                         return;
@@ -166,32 +166,32 @@ public class c implements View.OnClickListener {
                     }
                 }
             }
-            tVar8 = this.cmr.cmk;
+            tVar8 = this.cmC.cmv;
             if (view != tVar8.ahs()) {
-                tVar10 = this.cmr.cmk;
+                tVar10 = this.cmC.cmv;
                 if (view != tVar10.getUserNameView()) {
-                    tVar11 = this.cmr.cmk;
+                    tVar11 = this.cmC.cmv;
                     if (view != tVar11.aht()) {
-                        tVar13 = this.cmr.cmk;
+                        tVar13 = this.cmC.cmv;
                         if (view != tVar13.ahu()) {
-                            tVar14 = this.cmr.cmk;
+                            tVar14 = this.cmC.cmv;
                             if (view != tVar14.ahv()) {
-                                tVar15 = this.cmr.cmk;
+                                tVar15 = this.cmC.cmv;
                                 if (view != tVar15.aho()) {
-                                    tVar16 = this.cmr.cmk;
+                                    tVar16 = this.cmC.cmv;
                                     if (view != tVar16.ahy()) {
-                                        tVar17 = this.cmr.cmk;
+                                        tVar17 = this.cmC.cmv;
                                         if (view == tVar17.ahx()) {
-                                            akVar = this.cmr.cmi;
+                                            akVar = this.cmC.cmt;
                                             if (akVar != null) {
-                                                NewSubPbActivity newSubPbActivity2 = this.cmr;
-                                                akVar2 = this.cmr.cmi;
+                                                NewSubPbActivity newSubPbActivity2 = this.cmC;
+                                                akVar2 = this.cmC.cmt;
                                                 newSubPbActivity2.jS(akVar2.Bl());
                                                 return;
                                             }
                                             return;
                                         }
-                                        tVar18 = this.cmr.cmk;
+                                        tVar18 = this.cmC.cmv;
                                         if (view == tVar18.ahw()) {
                                             String string = TbadkCoreApplication.m411getInst().getString(i.h.tail_web_view_title);
                                             String string2 = com.baidu.tbadk.core.sharedPref.b.tu().getString("tail_link", "");
@@ -204,33 +204,33 @@ public class c implements View.OnClickListener {
                                         return;
                                     }
                                 }
-                                if (this.cmr.checkUpIsLogin()) {
-                                    nVar = this.cmr.caJ;
+                                if (this.cmC.checkUpIsLogin()) {
+                                    nVar = this.cmC.caU;
                                     if (nVar.BL()) {
-                                        nVar3 = this.cmr.caJ;
+                                        nVar3 = this.cmC.caU;
                                         nVar3.BM();
                                         return;
                                     }
-                                    nVar2 = this.cmr.caJ;
+                                    nVar2 = this.cmC.caU;
                                     nVar2.fe(null);
                                     return;
                                 }
                                 return;
                             }
-                            this.cmr.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPrivilegeActivityConfig(this.cmr.getPageContext().getPageActivity())));
+                            this.cmC.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPrivilegeActivityConfig(this.cmC.getPageContext().getPageActivity())));
                             return;
                         }
                     }
-                    tVar12 = this.cmr.cmk;
+                    tVar12 = this.cmC.cmv;
                     tVar12.agM();
-                    Activity pageActivity = this.cmr.getPageContext().getPageActivity();
-                    String string3 = this.cmr.getPageContext().getString(i.h.user_icon_intro);
-                    str4 = NewSubPbActivity.clB;
+                    Activity pageActivity = this.cmC.getPageContext().getPageActivity();
+                    String string3 = this.cmC.getPageContext().getString(i.h.user_icon_intro);
+                    str4 = NewSubPbActivity.clM;
                     com.baidu.tbadk.browser.g.a(pageActivity, string3, String.valueOf(str4) + "?st_type=pb_user_icon", true, false, false);
                     return;
                 }
             }
-            tVar9 = this.cmr.cmk;
+            tVar9 = this.cmC.cmv;
             tVar9.agM();
             if (view instanceof HeadImageView) {
                 String userId = ((HeadImageView) view).getUserId();
@@ -251,16 +251,16 @@ public class c implements View.OnClickListener {
                 }
             }
             if (str3 != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.cmr.getPageContext().getPageActivity(), str3, str2, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.cmC.getPageContext().getPageActivity(), str3, str2, null, AddFriendActivityConfig.TYPE_PB_FLOOR)));
                 return;
             }
             return;
         }
         MessageManager messageManager = MessageManager.getInstance();
-        PbActivityConfig pbActivityConfig = new PbActivityConfig(this.cmr.getActivity());
-        akVar6 = this.cmr.cmi;
+        PbActivityConfig pbActivityConfig = new PbActivityConfig(this.cmC.getActivity());
+        akVar6 = this.cmC.cmt;
         String threadID = akVar6.getThreadID();
-        akVar7 = this.cmr.cmi;
+        akVar7 = this.cmC.cmt;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig.createNormalCfg(threadID, akVar7.Bl(), "")));
     }
 }

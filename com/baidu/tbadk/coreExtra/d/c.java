@@ -5,10 +5,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private int ahq;
     private int ahr;
     private int ahs;
-    private int[] aht;
+    private int aht;
+    private int[] ahu;
     private int lcsTimeout2G;
     private int lcsTimeout3G;
     private int lcsTimeoutwifi;
@@ -23,38 +23,38 @@ public class c {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != null) {
-            this.ahq = jSONObject.optInt("conn_conf");
-            this.ahr = jSONObject.optInt("continuous_fail_count");
-            this.ahs = jSONObject.optInt("restart_time_interval");
+            this.ahr = jSONObject.optInt("conn_conf");
+            this.ahs = jSONObject.optInt("continuous_fail_count");
+            this.aht = jSONObject.optInt("restart_time_interval");
             this.lcsTimeout2G = jSONObject.optInt("lcs_timeout_2G");
             this.lcsTimeout3G = jSONObject.optInt("lcs_timeout_3G");
             this.lcsTimeoutwifi = jSONObject.optInt("lcs_timeout_wifi");
             JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
             if (optJSONArray != null) {
-                this.aht = new int[optJSONArray.length()];
+                this.ahu = new int[optJSONArray.length()];
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.aht[i] = optJSONArray.optInt(i);
+                    this.ahu[i] = optJSONArray.optInt(i);
                 }
                 return;
             }
-            this.aht = new int[0];
+            this.ahu = new int[0];
         }
     }
 
     public int xF() {
-        return this.ahq;
-    }
-
-    public int xG() {
         return this.ahr;
     }
 
-    public int xH() {
+    public int xG() {
         return this.ahs;
     }
 
-    public int[] xI() {
+    public int xH() {
         return this.aht;
+    }
+
+    public int[] xI() {
+        return this.ahu;
     }
 
     public int getLcsTimeout2G() {

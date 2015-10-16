@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.i;
@@ -37,50 +37,50 @@ import tbclient.FinePbPage.ForumInfo;
 import tbclient.FinePbPage.User_Info;
 /* loaded from: classes.dex */
 public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements VoiceManager.c {
-    private NavigationBar aHi;
-    private BdListView aJD;
-    private com.baidu.tbadk.editortools.c.d aSr;
-    private com.baidu.tbadk.editortools.c.a<PbChosenActivity> aSs;
-    private RelativeLayout ceD;
-    private com.baidu.tieba.pb.chosen.a.e ceE;
-    private com.baidu.tieba.pb.chosen.a.i ceF;
-    private com.baidu.tieba.pb.chosen.a.d ceG;
-    private com.baidu.tieba.pb.chosen.a.m ceH;
-    private TextView ceI;
-    private View ceJ;
-    private com.baidu.tieba.pb.chosen.a.a ceK;
-    private com.baidu.tieba.tbadkCore.w ceL;
-    private com.baidu.tieba.pb.chosen.net.zan.a ceM;
-    private com.baidu.tieba.pb.chosen.net.b ceN;
-    private s ceO;
-    private boolean ceP;
+    private NavigationBar aHt;
+    private BdListView aJO;
+    private com.baidu.tbadk.editortools.c.d aSC;
+    private com.baidu.tbadk.editortools.c.a<PbChosenActivity> aSD;
+    private RelativeLayout ceO;
+    private com.baidu.tieba.pb.chosen.a.e ceP;
+    private com.baidu.tieba.pb.chosen.a.i ceQ;
+    private com.baidu.tieba.pb.chosen.a.d ceR;
+    private com.baidu.tieba.pb.chosen.a.m ceS;
+    private TextView ceT;
+    private View ceU;
+    private com.baidu.tieba.pb.chosen.a.a ceV;
+    private com.baidu.tieba.tbadkCore.w ceW;
+    private com.baidu.tieba.pb.chosen.net.zan.a ceX;
+    private com.baidu.tieba.pb.chosen.net.b ceY;
+    private s ceZ;
+    private boolean cfa;
     private com.baidu.tieba.pb.chosen.net.a chosenData;
     private VoiceManager mVoiceManager;
     private long startTime;
     private String shareUrl = null;
-    private boolean aPK = false;
-    private boolean ceQ = false;
+    private boolean aPV = false;
+    private boolean cfb = false;
     private int from = 1;
-    private final AbsListView.OnScrollListener aSw = new a(this);
-    private com.baidu.tbadk.editortools.c.b asg = new k(this);
-    private View.OnClickListener ceR = new l(this);
-    private final a.d asj = new m(this);
-    private d.a ceS = new n(this);
-    private View.OnClickListener ceT = new o(this);
-    private CustomMessageListener ceU = new p(this, CmdConfigCustom.CMD_LIKE_FORUM);
-    private CustomMessageListener ceV = new q(this, CmdConfigCustom.CMD_UNLIKE_FORUM);
-    private i.a ceW = new r(this);
-    private e.b ceX = new b(this);
-    private com.baidu.adp.framework.listener.a anZ = new d(this, CmdConfigHttp.CMD_GET_FINE_PB, 307003);
-    private com.baidu.adp.framework.listener.a ceY = new e(this, CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, 307005);
-    private CustomMessageListener ceZ = new f(this, CmdConfigCustom.CMD_CHOSEN_PB_READ_CACHE);
+    private final AbsListView.OnScrollListener aSH = new a(this);
+    private com.baidu.tbadk.editortools.c.b ash = new k(this);
+    private View.OnClickListener cfc = new l(this);
+    private final a.d ask = new m(this);
+    private d.a cfd = new n(this);
+    private View.OnClickListener cfe = new o(this);
+    private CustomMessageListener cff = new p(this, CmdConfigCustom.CMD_LIKE_FORUM);
+    private CustomMessageListener cfg = new q(this, CmdConfigCustom.CMD_UNLIKE_FORUM);
+    private i.a cfh = new r(this);
+    private e.b cfi = new b(this);
+    private com.baidu.adp.framework.listener.a aoa = new d(this, CmdConfigHttp.CMD_GET_FINE_PB, 307003);
+    private com.baidu.adp.framework.listener.a cfj = new e(this, CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, 307005);
+    private CustomMessageListener cfk = new f(this, CmdConfigCustom.CMD_CHOSEN_PB_READ_CACHE);
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && this.chosenData != null && this.chosenData.getForumInfo() != null && this.chosenData.getForumInfo().fromfid != null) {
             Object data = customResponsedMessage.getData();
             if ((data instanceof Long) && ((Long) data).longValue() == this.chosenData.getForumInfo().fromfid.longValue()) {
-                this.ceE.el(z);
+                this.ceP.el(z);
             }
         }
     }
@@ -88,48 +88,48 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
         long longExtra = getIntent().getLongExtra(PbChosenActivityConfig.KEY_TID, 0L);
-        if (this.ceN == null) {
-            this.ceN = new com.baidu.tieba.pb.chosen.net.b();
+        if (this.ceY == null) {
+            this.ceY = new com.baidu.tieba.pb.chosen.net.b();
         }
-        this.ceN.a(this, longExtra);
-        hideNetRefreshView(this.ceD);
-        showLoadingView(this.ceD, true);
+        this.ceY.a(this, longExtra);
+        hideNetRefreshView(this.ceO);
+        showLoadingView(this.ceO, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.pb.chosen.net.a aVar) {
-        hideLoadingView(this.ceD);
+        hideLoadingView(this.ceO);
         if (aVar == null || aVar.isEmpty()) {
-            showNetRefreshView(this.ceD, getResources().getString(i.h.error_unkown_try_again), true);
-            this.ceH.setVisible(false);
+            showNetRefreshView(this.ceO, getResources().getString(i.h.error_unkown_try_again), true);
+            this.ceS.setVisible(false);
             return;
         }
-        this.aPK = true;
-        this.ceH.setVisible(true);
+        this.aPV = true;
+        this.ceS.setVisible(true);
         this.chosenData = aVar;
         User_Info userInfo = aVar.getUserInfo();
         if (userInfo != null) {
-            this.ceE.a(userInfo);
+            this.ceP.a(userInfo);
         }
-        if (this.ceG != null) {
-            this.ceG.b(getPageContext().getPageActivity(), aVar.getPostList(), aVar.getUserList());
+        if (this.ceR != null) {
+            this.ceR.b(getPageContext().getPageActivity(), aVar.getPostList(), aVar.getUserList());
         }
         ForumInfo forumInfo = aVar.getForumInfo();
         if (forumInfo != null) {
-            if (this.ceI != null && forumInfo.threadsnum != null) {
-                String s = ar.s(forumInfo.threadsnum.longValue());
-                this.ceI.setText(getResources().getString(i.h.chosen_pb_reply_number_text, s));
-                this.ceH.jF(getResources().getString(i.h.chosen_pb_reply_count_text, s));
+            if (this.ceT != null && forumInfo.threadsnum != null) {
+                String s = as.s(forumInfo.threadsnum.longValue());
+                this.ceT.setText(getResources().getString(i.h.chosen_pb_reply_number_text, s));
+                this.ceS.jF(getResources().getString(i.h.chosen_pb_reply_count_text, s));
             }
-            this.ceF.a(forumInfo);
-            this.ceF.aW(forumInfo.tag, forumInfo.tagabstract);
-            this.ceE.a(getPageContext().getPageActivity(), forumInfo);
+            this.ceQ.a(forumInfo);
+            this.ceQ.aW(forumInfo.tag, forumInfo.tagabstract);
+            this.ceP.a(getPageContext().getPageActivity(), forumInfo);
             com.baidu.tieba.pb.c.a aVar2 = new com.baidu.tieba.pb.c.a();
             aVar2.a(getPageContext(), aVar.getForumInfo().content);
-            this.ceK.aZ(aVar2.getData());
-            this.ceK.notifyDataSetChanged();
+            this.ceV.aZ(aVar2.getData());
+            this.ceV.notifyDataSetChanged();
         }
-        this.aJD.setVisibility(0);
+        this.aJO.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -138,29 +138,29 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
         super.onCreate(bundle);
         setSwipeBackEnabled(true);
         setContentView(i.g.chosen_pb_layout);
-        this.ceD = (RelativeLayout) findViewById(i.f.chosen_pb_root);
-        this.aJD = (BdListView) findViewById(i.f.chosen_pb_listview);
-        this.aJD.setOnTouchListener(new g(this));
-        this.aJD.setOnScrollListener(this.aSw);
-        this.ceK = new com.baidu.tieba.pb.chosen.a.a(getPageContext().getPageActivity());
-        this.aJD.setAdapter((ListAdapter) this.ceK);
-        this.ceH = new com.baidu.tieba.pb.chosen.a.m(findViewById(i.f.chosen_pb_reply));
-        this.ceH.z(this.ceR);
-        this.ceH.A(this.ceT);
-        this.ceE = new com.baidu.tieba.pb.chosen.a.e(getPageContext().getPageActivity());
-        this.ceF = new com.baidu.tieba.pb.chosen.a.i(getPageContext().getPageActivity());
-        this.ceG = new com.baidu.tieba.pb.chosen.a.d(getPageContext().getPageActivity(), this.ceS);
-        this.ceE.a(this.ceX);
-        this.ceF.a(this.ceW);
-        this.aJD.addHeaderView(this.ceE.aeH());
-        this.aJD.addFooterView(this.ceF.aeI());
-        this.aJD.addFooterView(this.ceG.getView());
+        this.ceO = (RelativeLayout) findViewById(i.f.chosen_pb_root);
+        this.aJO = (BdListView) findViewById(i.f.chosen_pb_listview);
+        this.aJO.setOnTouchListener(new g(this));
+        this.aJO.setOnScrollListener(this.aSH);
+        this.ceV = new com.baidu.tieba.pb.chosen.a.a(getPageContext().getPageActivity());
+        this.aJO.setAdapter((ListAdapter) this.ceV);
+        this.ceS = new com.baidu.tieba.pb.chosen.a.m(findViewById(i.f.chosen_pb_reply));
+        this.ceS.z(this.cfc);
+        this.ceS.A(this.cfe);
+        this.ceP = new com.baidu.tieba.pb.chosen.a.e(getPageContext().getPageActivity());
+        this.ceQ = new com.baidu.tieba.pb.chosen.a.i(getPageContext().getPageActivity());
+        this.ceR = new com.baidu.tieba.pb.chosen.a.d(getPageContext().getPageActivity(), this.cfd);
+        this.ceP.a(this.cfi);
+        this.ceQ.a(this.cfh);
+        this.aJO.addHeaderView(this.ceP.aeH());
+        this.aJO.addFooterView(this.ceQ.aeI());
+        this.aJO.addFooterView(this.ceR.getView());
         Ok();
-        registerListener(this.ceY);
-        registerListener(this.ceZ);
-        registerListener(this.anZ);
-        registerListener(this.ceU);
-        registerListener(this.ceV);
+        registerListener(this.cfj);
+        registerListener(this.cfk);
+        registerListener(this.aoa);
+        registerListener(this.cff);
+        registerListener(this.cfg);
         aeC();
         this.shareUrl = getIntent().getStringExtra(PbChosenActivityConfig.KEY_SHARE_URL);
         this.startTime = SystemClock.elapsedRealtime();
@@ -177,25 +177,25 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && !this.ceP && !this.ceQ) {
-            this.ceP = true;
-            showLoadingView(this.ceD, true);
+        if (z && !this.cfa && !this.cfb) {
+            this.cfa = true;
+            showLoadingView(this.ceO, true);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity
     public BdListView onGetPreLoadListView() {
-        return this.aJD;
+        return this.aJO;
     }
 
     private void Ok() {
-        this.aHi = (NavigationBar) findViewById(i.f.view_navigation_bar);
-        if (this.aHi != null) {
-            this.aHi.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new h(this));
-            this.aHi.setTitleText(i.h.chosen_pb_title);
-            this.ceJ = LayoutInflater.from(getPageContext().getPageActivity()).inflate(i.g.chosen_pb_reply_layout, (ViewGroup) null);
-            this.ceI = (TextView) this.ceJ.findViewById(i.f.chosen_pb_reply_number);
-            this.aHi.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.ceJ, new i(this));
+        this.aHt = (NavigationBar) findViewById(i.f.view_navigation_bar);
+        if (this.aHt != null) {
+            this.aHt.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new h(this));
+            this.aHt.setTitleText(i.h.chosen_pb_title);
+            this.ceU = LayoutInflater.from(getPageContext().getPageActivity()).inflate(i.g.chosen_pb_reply_layout, (ViewGroup) null);
+            this.ceT = (TextView) this.ceU.findViewById(i.f.chosen_pb_reply_number);
+            this.aHt.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.ceU, new i(this));
         }
     }
 
@@ -207,8 +207,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         if (i2 == -1) {
-            if (this.aSr != null) {
-                this.aSr.onActivityResult(i, i2, intent);
+            if (this.aSC != null) {
+                this.aSC.onActivityResult(i, i2, intent);
             }
             switch (i) {
                 case 23003:
@@ -236,10 +236,10 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     }
 
     private com.baidu.tbadk.editortools.c.a<PbChosenActivity> aeD() {
-        if (this.aSs == null) {
-            this.aSs = new j(this, getPageContext());
+        if (this.aSD == null) {
+            this.aSD = new j(this, getPageContext());
         }
-        return this.aSs;
+        return this.aSD;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -247,33 +247,33 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getPageContext().getLayoutMode().ad(i == 1);
-        getPageContext().getLayoutMode().k(this.ceE.aeH());
-        getPageContext().getLayoutMode().k(this.ceF.aeI());
-        this.ceG.tc();
-        this.ceH.tc();
-        if (this.aHi != null) {
-            this.aHi.onChangeSkinType(getPageContext(), i);
+        getPageContext().getLayoutMode().k(this.ceP.aeH());
+        getPageContext().getLayoutMode().k(this.ceQ.aeI());
+        this.ceR.tc();
+        this.ceS.tc();
+        if (this.aHt != null) {
+            this.aHt.onChangeSkinType(getPageContext(), i);
         }
-        if (this.aSr != null && this.aSr.Ax() != null) {
-            this.aSr.Ax().onChangeSkinType(i);
+        if (this.aSC != null && this.aSC.Ax() != null) {
+            this.aSC.Ax().onChangeSkinType(i);
         }
-        am.j(this.ceD, i.c.cp_bg_line_d);
+        an.j(this.ceO, i.c.cp_bg_line_d);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i != 4 || this.aSr == null || this.aSr.Ax() == null || !this.aSr.Ax().AA()) {
+        if (i != 4 || this.aSC == null || this.aSC.Ax() == null || !this.aSC.Ax().AA()) {
             return super.onKeyDown(i, keyEvent);
         }
-        this.aSr.Ax().za();
+        this.aSC.Ax().za();
         return true;
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (this.aSr != null) {
-            this.aSr.onSaveInstanceState(bundle);
+        if (this.aSC != null) {
+            this.aSC.onSaveInstanceState(bundle);
         }
         if (this.mVoiceManager != null) {
             this.mVoiceManager.onSaveInstanceState(getPageContext().getPageActivity());
@@ -311,8 +311,8 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.aSr != null) {
-            this.aSr.onDestroy();
+        if (this.aSC != null) {
+            this.aSC.onDestroy();
         }
         if (this.mVoiceManager != null) {
             this.mVoiceManager.onDestory(getPageContext());
@@ -322,19 +322,19 @@ public class PbChosenActivity extends BaseActivity<PbChosenActivity> implements 
     private void g(Bundle bundle) {
         com.baidu.tbadk.editortools.c.l lVar = new com.baidu.tbadk.editortools.c.l();
         lVar.a(aeD());
-        this.aSr = (com.baidu.tbadk.editortools.c.d) lVar.ak(getActivity());
-        this.aSr.b(this);
-        this.aSr.a(this.asj);
-        this.aSr.a(this.asg);
-        this.aSr.a(this, bundle);
-        h(this.aSr);
+        this.aSC = (com.baidu.tbadk.editortools.c.d) lVar.ak(getActivity());
+        this.aSC.b(this);
+        this.aSC.a(this.ask);
+        this.aSC.a(this.ash);
+        this.aSC.a(this, bundle);
+        h(this.aSC);
     }
 
     private void h(com.baidu.tbadk.editortools.c.d dVar) {
         if (dVar.Ax() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.ceD.addView(dVar.Ax(), layoutParams);
+            this.ceO.addView(dVar.Ax(), layoutParams);
             dVar.Ax().hide();
         }
     }

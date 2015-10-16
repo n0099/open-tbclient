@@ -10,8 +10,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.a.a.a {
-    private b awv;
-    private InterfaceC0053a aww = null;
+    private b aww;
+    private InterfaceC0053a awx = null;
     private WindowManager lB;
 
     /* renamed from: com.baidu.tbadk.performanceLog.a$a  reason: collision with other inner class name */
@@ -21,9 +21,9 @@ public class a extends com.baidu.adp.a.a.a {
     }
 
     public a(Context context) {
-        this.awv = null;
+        this.aww = null;
         this.lB = null;
-        this.awv = new b(context);
+        this.aww = new b(context);
         this.lB = (WindowManager) context.getSystemService("window");
     }
 
@@ -31,7 +31,7 @@ public class a extends com.baidu.adp.a.a.a {
     public void stop() {
         super.stop();
         try {
-            this.lB.removeView(this.awv);
+            this.lB.removeView(this.aww);
         } catch (Exception e) {
         }
     }
@@ -44,24 +44,24 @@ public class a extends com.baidu.adp.a.a.a {
         layoutParams.height = 1;
         layoutParams.width = 1;
         try {
-            this.lB.removeView(this.awv);
+            this.lB.removeView(this.aww);
         } catch (Exception e) {
         }
-        this.lB.addView(this.awv, layoutParams);
+        this.lB.addView(this.aww, layoutParams);
         new Handler(Looper.getMainLooper()).post(new com.baidu.tbadk.performanceLog.b(this));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b extends ImageView {
-        private int awy;
+        private int awz;
         private final Paint mPaint;
         private long mStartTime;
 
         public b(Context context) {
             super(context);
             this.mStartTime = -1L;
-            this.awy = 0;
+            this.awz = 0;
             this.mPaint = new Paint();
             this.mPaint.setColor(0);
             this.mPaint.setAlpha(0);
@@ -73,26 +73,26 @@ public class a extends com.baidu.adp.a.a.a {
         public void draw(Canvas canvas) {
             if (this.mStartTime == -1) {
                 this.mStartTime = SystemClock.elapsedRealtime();
-                this.awy = 0;
+                this.awz = 0;
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
             super.draw(canvas);
             if (elapsedRealtime - this.mStartTime > 1000) {
                 this.mStartTime = elapsedRealtime;
-                if (a.this.aww != null) {
-                    a.this.aww.ew(this.awy);
+                if (a.this.awx != null) {
+                    a.this.awx.ew(this.awz);
                 } else {
-                    com.baidu.adp.a.a.d.r(this.awy);
+                    com.baidu.adp.a.a.d.r(this.awz);
                 }
-                this.awy = 0;
+                this.awz = 0;
             }
-            this.awy++;
+            this.awz++;
         }
     }
 
     public void a(InterfaceC0053a interfaceC0053a) {
-        if (this.aww == null) {
-            this.aww = interfaceC0053a;
+        if (this.awx == null) {
+            this.awx = interfaceC0053a;
         }
     }
 }

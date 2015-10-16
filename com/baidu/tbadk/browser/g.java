@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.atomData.T5WebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.ak;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.plugins.LightAppPlugin;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
@@ -146,7 +146,7 @@ public class g {
     }
 
     public static String appendCuidParam(String str) {
-        if (!ar.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!as.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -164,17 +164,17 @@ public class g {
     }
 
     public static String appendVersionCode(String str) {
-        return (ar.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
+        return (as.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     public static void W(Context context) {
-        a.b cb = com.baidu.tbadk.core.a.a.rd().cb(TbadkCoreApplication.getCurrentBduss());
+        a.b cc = com.baidu.tbadk.core.a.a.rd().cc(TbadkCoreApplication.getCurrentBduss());
         CookieSyncManager.createInstance(TbadkCoreApplication.m411getInst());
         CookieManager cookieManager = CookieManager.getInstance();
-        if (cb != null) {
+        if (cc != null) {
             cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "BDUSS=" + cb.ws + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + cb.TC + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "BDUSS=" + cc.ws + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + cc.TD + "; domain=.baidu.com;");
             cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.m411getInst().getCuid() + "; domain=.baidu.com;");
         } else {
             try {

@@ -13,11 +13,11 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.c {
-    final /* synthetic */ a bGU;
+    final /* synthetic */ a bHf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(a aVar) {
-        this.bGU = aVar;
+        this.bHf = aVar;
     }
 
     @Override // com.baidu.tbadk.img.a.c
@@ -32,7 +32,7 @@ public class o implements a.c {
         int i2 = 0;
         synchronized (this) {
             synchronized (a.class) {
-                hashMap = this.bGU.bGP;
+                hashMap = this.bHf.bHa;
                 aVar = (com.baidu.tbadk.img.a) hashMap.remove(str);
             }
             if (aVar != null && (chatMessage = (ChatMessage) aVar.Ci()) != null) {
@@ -60,16 +60,16 @@ public class o implements a.c {
                         str2 = imageUploadResult.picInfo.smallPic.picUrl;
                         i2 = imageUploadResult.picInfo.smallPic.width;
                         i = imageUploadResult.picInfo.smallPic.height;
-                        this.bGU.aJ(str, str2);
+                        this.bHf.aJ(str, str2);
                     } else {
                         i = 0;
                         str2 = null;
                     }
                     chatMessage.setContent(a.b(str3, str2, i2, i));
                     a.Xd().n(chatMessage);
-                    aeVar = this.bGU.mSendCallback;
+                    aeVar = this.bHf.mSendCallback;
                     if (aeVar != null) {
-                        aeVar2 = this.bGU.mSendCallback;
+                        aeVar2 = this.bHf.mSendCallback;
                         aeVar2.hz(1);
                     }
                 }

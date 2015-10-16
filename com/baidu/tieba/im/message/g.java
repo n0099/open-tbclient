@@ -7,11 +7,11 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
 /* loaded from: classes.dex */
 class g implements a.b {
-    final /* synthetic */ ResponsePullMessage bEZ;
+    final /* synthetic */ ResponsePullMessage bFk;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ResponsePullMessage responsePullMessage) {
-        this.bEZ = responsePullMessage;
+        this.bFk = responsePullMessage;
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b

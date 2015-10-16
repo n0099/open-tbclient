@@ -17,13 +17,13 @@ public class RecommendFrsSocketResponsedMessage extends MvcSocketResponsedMessag
 
     @Override // com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        o<byte[]> cp;
+        o<byte[]> cq;
         if (getOrginalMessage().getExtra() instanceof MvcNetMessage) {
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
             if (mvcNetMessage.getRequestData() instanceof h) {
                 h hVar = (h) mvcNetMessage.getRequestData();
-                if (hVar.aqo() == 0 && (cp = com.baidu.tbadk.core.b.a.sO().cp("RecommendFrsCache")) != null) {
-                    cp.f(hVar.aqi(), bArr);
+                if (hVar.aqu() == 0 && (cq = com.baidu.tbadk.core.b.a.sO().cq("RecommendFrsCache")) != null) {
+                    cq.f(hVar.aqo(), bArr);
                 }
             }
         }

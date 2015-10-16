@@ -12,10 +12,10 @@ import com.baidu.tieba.payment.message.ResponsePaymentPayMessage;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 /* loaded from: classes.dex */
 public class p<T> extends com.baidu.adp.base.e<T> {
-    private com.baidu.adp.base.h<T> cdE;
+    private com.baidu.adp.base.h<T> cdP;
 
     public p(com.baidu.adp.base.h<T> hVar) {
-        this.cdE = hVar;
+        this.cdP = hVar;
     }
 
     @Override // com.baidu.adp.base.e
@@ -43,7 +43,7 @@ public class p<T> extends com.baidu.adp.base.e<T> {
             httpMessage.addParam("goods_duration", String.valueOf(paymentConfirmRequestData.getGoods_duration()));
             httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
             httpMessage.addParam(PayTBeanActivityConfig.PAY_TYPE, String.valueOf(paymentConfirmRequestData.getPay_type()));
-            this.cdE.sendMessage(httpMessage);
+            this.cdP.sendMessage(httpMessage);
         }
     }
 
@@ -66,7 +66,7 @@ public class p<T> extends com.baidu.adp.base.e<T> {
             httpMessage.addParam("password", payRequestData.getPassword());
             httpMessage.addParam("bindid", payRequestData.getBindId());
             httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
-            this.cdE.sendMessage(httpMessage);
+            this.cdP.sendMessage(httpMessage);
         }
     }
 

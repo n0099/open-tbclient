@@ -7,11 +7,11 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class an implements View.OnClickListener {
-    final /* synthetic */ WriteActivity dpI;
+    final /* synthetic */ WriteActivity dqi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(WriteActivity writeActivity) {
-        this.dpI = writeActivity;
+        this.dqi = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,21 +24,21 @@ public class an implements View.OnClickListener {
         EditText editText;
         InputMethodManager inputMethodManager2;
         EditText editText2;
-        textView = this.dpI.dmf;
+        textView = this.dqi.dmF;
         textView.setVisibility(0);
-        view2 = this.dpI.dmi;
+        view2 = this.dqi.dmI;
         view2.setSelected(true);
-        cdVar = this.dpI.dmg;
-        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(cdVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.dpI.getPageContext().getPageActivity(), 1.0f));
-        jVar = this.dpI.dpc;
+        cdVar = this.dqi.dmG;
+        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(cdVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.dqi.getPageContext().getPageActivity(), 1.0f));
+        jVar = this.dqi.dpD;
         jVar.za();
-        WriteActivity writeActivity = this.dpI;
-        inputMethodManager = this.dpI.mInputManager;
-        editText = this.dpI.dlZ;
+        WriteActivity writeActivity = this.dqi;
+        inputMethodManager = this.dqi.mInputManager;
+        editText = this.dqi.dmz;
         writeActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        WriteActivity writeActivity2 = this.dpI;
-        inputMethodManager2 = this.dpI.mInputManager;
-        editText2 = this.dpI.dmd;
+        WriteActivity writeActivity2 = this.dqi;
+        inputMethodManager2 = this.dqi.mInputManager;
+        editText2 = this.dqi.dmD;
         writeActivity2.HidenSoftKeyPad(inputMethodManager2, editText2);
     }
 }

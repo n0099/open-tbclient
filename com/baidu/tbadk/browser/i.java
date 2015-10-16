@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class i implements ay.a {
-    @Override // com.baidu.tbadk.core.util.ay.a
+class i implements az.a {
+    @Override // com.baidu.tbadk.core.util.az.a
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
         String str = strArr[0];
         String str2 = strArr.length > 2 ? strArr[2] : null;

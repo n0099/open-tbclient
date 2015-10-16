@@ -3,5 +3,5 @@ package com.baidu.tieba.recommendfrs;
 public interface a {
     void b(int i, String str, int i2);
 
-    void kS(String str);
+    void kV(String str);
 }

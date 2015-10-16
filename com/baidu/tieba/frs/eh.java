@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class eh extends com.baidu.adp.base.e {
-    private a aZq;
+    private a aZB;
     private String mForumId;
     private String mForumName;
 
@@ -20,7 +20,7 @@ public class eh extends com.baidu.adp.base.e {
         super(baseActivity.getPageContext());
         this.mForumName = null;
         this.mForumId = null;
-        this.aZq = null;
+        this.aZB = null;
     }
 
     @Override // com.baidu.adp.base.e
@@ -34,29 +34,29 @@ public class eh extends com.baidu.adp.base.e {
     }
 
     public void ME() {
-        if (this.aZq != null) {
-            this.aZq.cancel();
-            this.aZq = null;
+        if (this.aZB != null) {
+            this.aZB.cancel();
+            this.aZB = null;
         }
     }
 
     public void au(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.aZq == null) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.aZB == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.aZq = new a(this, null);
-            this.aZq.setPriority(2);
-            this.aZq.execute(new Object[0]);
+            this.aZB = new a(this, null);
+            this.aZB.setPriority(2);
+            this.aZB.execute(new Object[0]);
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_start_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
         }
     }
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Object, Integer, SignData> {
-        private volatile com.baidu.tbadk.core.util.w afg;
+        private volatile com.baidu.tbadk.core.util.w afh;
 
         private a() {
-            this.afg = null;
+            this.afh = null;
         }
 
         /* synthetic */ a(eh ehVar, a aVar) {
@@ -93,23 +93,23 @@ public class eh extends com.baidu.adp.base.e {
             Object obj2 = null;
             try {
                 TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-                this.afg = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
-                this.afg.o("kw", eh.this.mForumName);
-                this.afg.o(ImageViewerConfig.FORUM_ID, eh.this.mForumId);
-                this.afg.uh().uX().mIsNeedTbs = true;
-                tG = this.afg.tG();
+                this.afh = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
+                this.afh.o("kw", eh.this.mForumName);
+                this.afh.o(ImageViewerConfig.FORUM_ID, eh.this.mForumId);
+                this.afh.uh().uY().mIsNeedTbs = true;
+                tG = this.afh.tG();
             } catch (Exception e2) {
                 obj = obj2;
                 e = e2;
             }
-            if (this.afg.uk()) {
-                obj = this.afg.uh().uY().qV();
+            if (this.afh.uk()) {
+                obj = this.afh.uh().uZ().qV();
                 try {
                     if (obj != 0) {
                         SignData signData = new SignData();
                         signData.parserJson(tG);
                         obj = signData;
-                    } else if (!com.baidu.tbadk.core.util.ar.isEmpty(tG) && (jSONObject = new JSONObject(tG)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
+                    } else if (!com.baidu.tbadk.core.util.as.isEmpty(tG) && (jSONObject = new JSONObject(tG)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
                         SignData signData2 = new SignData();
                         signData2.parserJson(tG);
                         signData2.setIsSigned(1);
@@ -131,10 +131,10 @@ public class eh extends com.baidu.adp.base.e {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.afg != null) {
-                this.afg.gJ();
+            if (this.afh != null) {
+                this.afh.gJ();
             }
-            eh.this.aZq = null;
+            eh.this.aZB = null;
             super.cancel(true);
             eh.this.mLoadDataCallBack.d(null);
         }
@@ -145,11 +145,11 @@ public class eh extends com.baidu.adp.base.e {
         /* renamed from: a */
         public void onPostExecute(SignData signData) {
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-            eh.this.aZq = null;
+            eh.this.aZB = null;
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-            if (signData == null && this.afg != null) {
-                eh.this.mErrorCode = this.afg.ul();
-                eh.this.mErrorString = this.afg.getErrorString();
+            if (signData == null && this.afh != null) {
+                eh.this.mErrorCode = this.afh.ul();
+                eh.this.mErrorString = this.afh.getErrorString();
             }
             eh.this.mLoadDataCallBack.d(signData);
         }

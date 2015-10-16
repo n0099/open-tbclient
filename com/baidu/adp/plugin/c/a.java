@@ -7,22 +7,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a Dc = null;
-    private HashMap<String, ArrayList<Message<?>>> Db = null;
+    private static volatile a Dd = null;
+    private HashMap<String, ArrayList<Message<?>>> Dc = null;
 
     public static a lI() {
-        if (Dc == null) {
+        if (Dd == null) {
             synchronized (a.class) {
-                if (Dc == null) {
-                    Dc = new a();
+                if (Dd == null) {
+                    Dd = new a();
                 }
             }
         }
-        return Dc;
+        return Dd;
     }
 
     public void init() {
-        this.Db = new HashMap<>();
+        this.Dc = new HashMap<>();
         lK();
         lJ();
     }
@@ -38,10 +38,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.Db.get(str);
+            ArrayList<Message<?>> arrayList = this.Dc.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.Db.put(str, arrayList);
+                this.Dc.put(str, arrayList);
             }
             arrayList.add(message);
         }

@@ -9,59 +9,59 @@ import com.baidu.tbadk.core.util.r;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class CDNLogSyncData {
-    private boolean Uw;
-    private int Ux;
-    private int Uy;
+    private int UA;
+    private int UB = 25;
+    private int UC = 25;
+    private int UD = 10;
+    private boolean Uy;
+    private int Uz;
     private int time;
-    private int Uz = 25;
-    private int UA = 25;
-    private int UB = 10;
 
     public int getSuccRank() {
-        return this.Uz;
-    }
-
-    public void setSuccRank(int i) {
-        this.Uz = i;
-    }
-
-    public int getErrRank() {
-        return this.UA;
-    }
-
-    public void setErrRank(int i) {
-        this.UA = i;
-    }
-
-    public int getSlowRank() {
         return this.UB;
     }
 
-    public void setSlowRank(int i) {
+    public void setSuccRank(int i) {
         this.UB = i;
     }
 
+    public int getErrRank() {
+        return this.UC;
+    }
+
+    public void setErrRank(int i) {
+        this.UC = i;
+    }
+
+    public int getSlowRank() {
+        return this.UD;
+    }
+
+    public void setSlowRank(int i) {
+        this.UD = i;
+    }
+
     public boolean ismSwitch() {
-        return this.Uw;
+        return this.Uy;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.Uw != z) {
+        if (this.Uy != z) {
             d hb = r.hb();
             hb.q("act", "fallback");
             hb.q("result", z ? "1" : "0");
             hb.q("type", "switch");
             a.hi().b("img", hb);
         }
-        this.Uw = z;
+        this.Uy = z;
     }
 
     public int getSlowNumber() {
-        return this.Ux;
+        return this.Uz;
     }
 
     public void setSlowNumber(int i) {
-        this.Ux = i;
+        this.Uz = i;
     }
 
     public int getTime() {
@@ -73,11 +73,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.Uy;
+        return this.UA;
     }
 
     public void setErrNumber(int i) {
-        this.Uy = i;
+        this.UA = i;
     }
 
     public void parseJson(String str) {
@@ -86,7 +86,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.Uw = false;
+            this.Uy = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -95,30 +95,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.Uw = true;
+                    this.Uy = true;
                 } else {
-                    this.Uw = false;
+                    this.Uy = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject("err");
                 if (optJSONObject != null) {
-                    this.Uy = optJSONObject.optInt("num");
+                    this.UA = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-                    this.Ux = optJSONObject2.optInt("num");
+                    this.Uz = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.Uz = optJSONObject3.optInt("succ");
-                    this.UA = optJSONObject3.optInt("err");
-                    this.UB = optJSONObject3.optInt("slow");
+                    this.UB = optJSONObject3.optInt("succ");
+                    this.UC = optJSONObject3.optInt("err");
+                    this.UD = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.Ux <= 0 || this.Uy <= 0) {
-                    this.Uw = false;
+                if (this.time <= 0 || this.Uz <= 0 || this.UA <= 0) {
+                    this.Uy = false;
                 }
             } catch (Exception e) {
-                this.Uw = false;
+                this.Uy = false;
                 BdLog.e(e.getMessage());
             }
         }

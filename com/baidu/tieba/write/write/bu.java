@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 import com.baidu.tieba.write.write.WriteImageActivity;
 /* loaded from: classes.dex */
 class bu implements Runnable {
-    final /* synthetic */ WriteImageActivity.a dpU;
+    final /* synthetic */ WriteImageActivity.a dqu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bu(WriteImageActivity.a aVar) {
-        this.dpU = aVar;
+        this.dqu = aVar;
     }
 
     @Override // java.lang.Runnable

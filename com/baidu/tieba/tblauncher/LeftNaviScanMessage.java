@@ -8,13 +8,13 @@ public class LeftNaviScanMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public b dbR;
+        public b dcr;
         public List<com.baidu.tieba.tblauncher.a.a> list;
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void bv(List<com.baidu.tieba.tblauncher.a.a> list);
+        void bw(List<com.baidu.tieba.tblauncher.a.a> list);
     }
 
     public LeftNaviScanMessage(a aVar) {

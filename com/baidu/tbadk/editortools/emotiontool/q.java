@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class q extends a {
-    private static q aqO = new q();
-    private LinkedList<t> aqP;
+    private static q aqP = new q();
+    private LinkedList<t> aqQ;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
@@ -18,22 +18,22 @@ public class q extends a {
     public static synchronized q Bb() {
         q qVar;
         synchronized (q.class) {
-            qVar = aqO;
+            qVar = aqP;
         }
         return qVar;
     }
 
     public List<t> getGroups() {
-        return this.aqP;
+        return this.aqQ;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0046a interfaceC0046a) {
-        if (this.aqP == null || this.aqP.isEmpty()) {
-            this.aqP = new LinkedList<>();
+        if (this.aqQ == null || this.aqQ.isEmpty()) {
+            this.aqQ = new LinkedList<>();
             if (TbFaceManager.Ce().AQ() > 0) {
                 p pVar = new p();
-                this.aqP.add(pVar);
+                this.aqQ.add(pVar);
                 if (interfaceC0046a != null) {
                     interfaceC0046a.a(pVar);
                     return;
@@ -42,7 +42,7 @@ public class q extends a {
             }
             return;
         }
-        Iterator<t> it = this.aqP.iterator();
+        Iterator<t> it = this.aqQ.iterator();
         while (it.hasNext()) {
             t next = it.next();
             if (interfaceC0046a != null) {
@@ -56,6 +56,6 @@ public class q extends a {
     }
 
     public boolean isEmpty() {
-        return this.aqP == null || this.aqP.size() == 0;
+        return this.aqQ == null || this.aqQ.size() == 0;
     }
 }

@@ -1,40 +1,67 @@
 package com.baidu.tbadk.core.data;
 
-import org.json.JSONException;
+import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopNotice;
+import tbclient.FrsPage.TopCode;
 /* loaded from: classes.dex */
 public class x {
-    private String title = null;
-    private String title_link = null;
-    private String author = null;
-    private int id = 0;
+    private String Wa;
+    private String Wb;
+    private String Wc;
+    private int Wd;
+    private String We;
+    private long Wf;
+    private String summary;
 
-    public String getTitle() {
-        return this.title;
+    public String sf() {
+        return this.Wa;
     }
 
-    public String sK() {
-        return this.title_link;
+    public String getSummary() {
+        return this.summary;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.title = jSONObject.getString("title");
-            this.title_link = jSONObject.getString("title_link");
-            this.author = jSONObject.getString("author");
-            this.id = jSONObject.getInt("id");
-        } catch (JSONException e) {
-            e.printStackTrace();
+    public String sH() {
+        return this.Wc;
+    }
+
+    public int sI() {
+        return this.Wd;
+    }
+
+    public String sJ() {
+        return this.We;
+    }
+
+    public void a(TopCode topCode) {
+        if (topCode != null) {
+            this.Wa = topCode.img_url;
+            this.Wb = topCode.game_link;
+            this.summary = topCode.summary;
+            this.Wc = topCode.code_link;
+            this.Wd = topCode.get_type.intValue();
+            this.We = topCode.surplusgift;
+            if (topCode.giftworth.longValue() < 0) {
+                this.Wf = 0L;
+            } else {
+                this.Wf = topCode.giftworth.longValue();
+            }
         }
     }
 
-    public void a(TopNotice topNotice) {
-        if (topNotice != null) {
-            this.title = topNotice.title;
-            this.title_link = topNotice.title_link;
-            this.author = topNotice.author;
-            this.id = topNotice.id.intValue();
+    public void parseJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.Wa = jSONObject.optString("img_url");
+                this.Wb = jSONObject.optString("game_link");
+                this.summary = jSONObject.optString("summary");
+                this.Wc = jSONObject.optString("code_link");
+                this.Wd = jSONObject.optInt("get_type", 1);
+                this.We = jSONObject.optString("surplusgift");
+                this.Wf = jSONObject.optLong("giftworth", 0L);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 }

@@ -5,24 +5,24 @@ import android.util.SparseArray;
 /* renamed from: com.baidu.tieba.frs.do  reason: invalid class name */
 /* loaded from: classes.dex */
 public class Cdo {
-    private static Cdo aYp = new Cdo();
-    private final SparseArray<String> aYo = new SparseArray<>();
+    private static Cdo aYA = new Cdo();
+    private final SparseArray<String> aYz = new SparseArray<>();
 
     private Cdo() {
     }
 
     public static Cdo Mw() {
-        return aYp;
+        return aYA;
     }
 
     public void fH(int i) {
-        this.aYo.put(i, "1");
+        this.aYz.put(i, "1");
     }
 
     public boolean fI(int i) {
         if (i > 100) {
             i = 100;
         }
-        return !TextUtils.isEmpty(this.aYo.get(i));
+        return !TextUtils.isEmpty(this.aYz.get(i));
     }
 }

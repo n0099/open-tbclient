@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 /* loaded from: classes.dex */
 public class RelateForumViewPager extends ViewPager {
-    private boolean aAX;
+    private boolean aBi;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -16,17 +16,17 @@ public class RelateForumViewPager extends ViewPager {
 
     public RelateForumViewPager(Context context) {
         super(context);
-        this.aAX = false;
+        this.aBi = false;
     }
 
     public RelateForumViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aAX = false;
+        this.aBi = false;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.aAX = z;
+        this.aBi = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -35,7 +35,7 @@ public class RelateForumViewPager extends ViewPager {
         if (i(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.aAX) {
+        if (motionEvent.getPointerCount() > 1 && this.aBi) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);

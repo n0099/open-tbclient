@@ -8,19 +8,19 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class au implements View.OnClickListener {
-    final /* synthetic */ ao dcY;
+    final /* synthetic */ ao ddy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public au(ao aoVar) {
-        this.dcY = aoVar;
+        this.ddy = aoVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         MainTabActivity mainTabActivity;
         MainTabActivity mainTabActivity2;
-        mainTabActivity = this.dcY.dcT;
-        mainTabActivity2 = this.dcY.dcT;
+        mainTabActivity = this.ddy.ddt;
+        mainTabActivity2 = this.ddy.ddt;
         mainTabActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.SIGN_ALL_FORUM_CUSTOM_CMD, new SignAllForumActivityConfig(mainTabActivity2.getPageContext().getPageActivity())));
         TiebaStatic.log("c10085");
     }

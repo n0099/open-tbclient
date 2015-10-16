@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.dialog.c;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class t implements View.OnLongClickListener {
-    final /* synthetic */ PbActivity ciz;
+    final /* synthetic */ PbActivity ciK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(PbActivity pbActivity) {
-        this.ciz = pbActivity;
+        this.ciK = pbActivity;
     }
 
     @Override // android.view.View.OnLongClickListener
@@ -29,26 +29,26 @@ class t implements View.OnLongClickListener {
             sparseArray = null;
         }
         if (sparseArray != null) {
-            this.ciz.cix = (com.baidu.tieba.tbadkCore.data.k) sparseArray.get(i.f.tag_clip_board);
-            if (this.ciz.cix != null) {
-                aVar = this.ciz.chW;
+            this.ciK.ciI = (com.baidu.tieba.tbadkCore.data.k) sparseArray.get(i.f.tag_clip_board);
+            if (this.ciK.ciI != null) {
+                aVar = this.ciK.cii;
                 if (aVar != null) {
-                    aVar2 = this.ciz.chW;
-                    if (aVar2.qk() && this.ciz.cix.getId() != null) {
-                        String id = this.ciz.cix.getId();
-                        blVar = this.ciz.chV;
+                    aVar2 = this.ciK.cii;
+                    if (aVar2.qk() && this.ciK.ciI.getId() != null) {
+                        String id = this.ciK.ciI.getId();
+                        blVar = this.ciK.cih;
                         if (id.equals(blVar.sn())) {
                             z = true;
                             boolean booleanValue = ((Boolean) sparseArray.get(i.f.tag_is_subpb)).booleanValue();
-                            ccVar = this.ciz.cia;
-                            bVar = this.ciz.ciy;
+                            ccVar = this.ciK.cim;
+                            bVar = this.ciK.ciJ;
                             ccVar.a(bVar, z, booleanValue);
                         }
                     }
                     z = false;
                     boolean booleanValue2 = ((Boolean) sparseArray.get(i.f.tag_is_subpb)).booleanValue();
-                    ccVar = this.ciz.cia;
-                    bVar = this.ciz.ciy;
+                    ccVar = this.ciK.cim;
+                    bVar = this.ciK.ciJ;
                     ccVar.a(bVar, z, booleanValue2);
                 }
             }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.imMessageCenter.im.stranger;
 /* loaded from: classes.dex */
 class g implements com.baidu.tieba.im.chat.notify.a {
-    final /* synthetic */ StrangerListActivity bOl;
+    final /* synthetic */ StrangerListActivity bOw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(StrangerListActivity strangerListActivity) {
-        this.bOl = strangerListActivity;
+        this.bOw = strangerListActivity;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.a
@@ -16,19 +16,19 @@ class g implements com.baidu.tieba.im.chat.notify.a {
         StrangerListModel strangerListModel2;
         i iVar3;
         StrangerListModel strangerListModel3;
-        iVar = this.bOl.bOf;
+        iVar = this.bOw.bOq;
         if (iVar != null) {
-            iVar2 = this.bOl.bOf;
+            iVar2 = this.bOw.bOq;
             if (iVar2.ZK() != null) {
-                strangerListModel = this.bOl.bOg;
+                strangerListModel = this.bOw.bOr;
                 if (strangerListModel != null) {
-                    strangerListModel2 = this.bOl.bOg;
+                    strangerListModel2 = this.bOw.bOr;
                     if (strangerListModel2.getData().size() == 0) {
-                        this.bOl.finish();
+                        this.bOw.finish();
                     }
-                    iVar3 = this.bOl.bOf;
+                    iVar3 = this.bOw.bOq;
                     StrangerListAdapter ZK = iVar3.ZK();
-                    strangerListModel3 = this.bOl.bOg;
+                    strangerListModel3 = this.bOw.bOr;
                     ZK.setData(strangerListModel3.getData());
                 }
             }

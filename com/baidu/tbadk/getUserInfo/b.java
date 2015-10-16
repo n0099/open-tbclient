@@ -13,20 +13,20 @@ import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.data.e;
 /* loaded from: classes.dex */
 public class b {
-    private static b atb;
+    private static b atc;
 
     private b() {
     }
 
     public static b BY() {
-        if (atb == null) {
+        if (atc == null) {
             synchronized (b.class) {
-                if (atb == null) {
-                    atb = new b();
+                if (atc == null) {
+                    atc = new b();
                 }
             }
         }
-        return atb;
+        return atc;
     }
 
     public void BZ() {

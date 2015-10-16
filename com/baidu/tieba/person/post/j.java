@@ -13,7 +13,7 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.i;
@@ -22,50 +22,50 @@ import com.baidu.tieba.person.data.PersonPostActivityConfig;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j extends BaseFragment implements AbsListView.OnScrollListener {
-    private int crB;
-    private View cru;
-    private BdListView crv;
-    private g crw;
-    private PbListView cry;
-    private View crz;
+    private View crF;
+    private BdListView crG;
+    private g crH;
+    private PbListView crJ;
+    private View crK;
+    private int crM;
     private ProgressBar mProgressBar;
     private com.baidu.tbadk.core.view.r mPullView;
-    private boolean crx = false;
+    private boolean crI = false;
     com.baidu.tbadk.core.view.m mNoDataView = null;
-    private boolean crA = false;
-    private boolean crC = true;
-    private PersonPostModel.a crm = new k(this);
-    private com.baidu.adp.framework.listener.e crD = new l(this, 303002);
-    private HttpMessageListener crE = new m(this, CmdConfigHttp.USER_POST_HTTP_CMD);
+    private boolean crL = false;
+    private boolean crN = true;
+    private PersonPostModel.a crx = new k(this);
+    private com.baidu.adp.framework.listener.e crO = new l(this, 303002);
+    private HttpMessageListener crP = new m(this, CmdConfigHttp.USER_POST_HTTP_CMD);
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.crD);
-        registerListener(this.crE);
+        registerListener(this.crO);
+        registerListener(this.crP);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.cru = layoutInflater.inflate(i.g.person_reply_fragment, viewGroup, false);
-        this.crv = (BdListView) this.cru.findViewById(i.f.listview_reply);
-        this.mNoDataView = NoDataViewFactory.a(getActivity(), this.cru, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(i.d.ds80)), NoDataViewFactory.d.dC(getArguments().getString("key_empty_view_text")), null);
-        this.mProgressBar = (ProgressBar) this.cru.findViewById(i.f.person_post_progress);
-        return this.cru;
+        this.crF = layoutInflater.inflate(i.g.person_reply_fragment, viewGroup, false);
+        this.crG = (BdListView) this.crF.findViewById(i.f.listview_reply);
+        this.mNoDataView = NoDataViewFactory.a(getActivity(), this.crF, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(i.d.ds80)), NoDataViewFactory.d.dC(getArguments().getString("key_empty_view_text")), null);
+        this.mProgressBar = (ProgressBar) this.crF.findViewById(i.f.person_post_progress);
+        return this.crF;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         this.mPullView = new com.baidu.tbadk.core.view.r(getPageContext());
-        this.crv.setPullRefresh(this.mPullView);
+        this.crG.setPullRefresh(this.mPullView);
         this.mPullView.a(new n(this));
-        this.crv.setOnScrollListener(this);
-        this.cry = new PbListView(getActivity());
-        this.cry.cM(i.c.transparent);
-        this.cry.setTextColor(am.getColor(i.c.pb_more_txt));
-        this.crv.setNextPage(this.cry);
-        this.crz = this.cry.getView().findViewById(i.f.pb_more_view);
-        this.crz.setVisibility(8);
+        this.crG.setOnScrollListener(this);
+        this.crJ = new PbListView(getActivity());
+        this.crJ.cM(i.c.transparent);
+        this.crJ.setTextColor(an.getColor(i.c.pb_more_txt));
+        this.crG.setNextPage(this.crJ);
+        this.crK = this.crJ.getView().findViewById(i.f.pb_more_view);
+        this.crK.setVisibility(8);
     }
 
     public static int ba(List<PersonPostModel.PostInfoList> list) {
@@ -100,30 +100,30 @@ public class j extends BaseFragment implements AbsListView.OnScrollListener {
     public void onResume() {
         super.onResume();
         onActive();
-        this.crw.notifyDataSetChanged();
+        this.crH.notifyDataSetChanged();
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        if (this.crw != null) {
-            this.crw.aiX();
+        if (this.crH != null) {
+            this.crH.aiX();
         }
     }
 
     private void IO() {
-        this.crw = new g(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL));
-        this.crw.a(this.crm);
-        this.crw.eX(true);
-        this.crv.setAdapter((ListAdapter) this.crw);
-        this.crv.setOnItemClickListener(new o(this));
+        this.crH = new g(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL));
+        this.crH.a(this.crx);
+        this.crH.eX(true);
+        this.crG.setAdapter((ListAdapter) this.crH);
+        this.crG.setOnItemClickListener(new o(this));
     }
 
     public void onActive() {
-        if (!this.crx) {
+        if (!this.crI) {
             IO();
-            this.crx = true;
+            this.crI = true;
         }
     }
 
@@ -131,14 +131,14 @@ public class j extends BaseFragment implements AbsListView.OnScrollListener {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (isAdded()) {
-            if (this.crz != null) {
-                am.b((TextView) this.crz.findViewById(i.f.pb_more_text), i.c.person_post_header_uname, 1);
+            if (this.crK != null) {
+                an.b((TextView) this.crK.findViewById(i.f.pb_more_text), i.c.person_post_header_uname, 1);
             }
             if (this.mNoDataView != null) {
-                am.i(this.mNoDataView, i.c.cp_bg_line_d);
+                an.i(this.mNoDataView, i.c.cp_bg_line_d);
             }
-            if (this.cry != null) {
-                this.cry.cN(i);
+            if (this.crJ != null) {
+                this.crJ.cN(i);
             }
             this.mPullView.cN(i);
         }
@@ -150,11 +150,11 @@ public class j extends BaseFragment implements AbsListView.OnScrollListener {
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        if (this.crA && i3 > 2 && this.crB != i3 && i + i2 == i3) {
-            this.crB = i3;
-            this.crw.eX(false);
-            this.crz.setVisibility(0);
-            this.cry.startLoadData();
+        if (this.crL && i3 > 2 && this.crM != i3 && i + i2 == i3) {
+            this.crM = i3;
+            this.crH.eX(false);
+            this.crK.setVisibility(0);
+            this.crJ.startLoadData();
         }
     }
 }

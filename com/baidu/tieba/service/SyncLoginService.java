@@ -10,7 +10,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tbadk.core.util.w;
 import com.baidu.tieba.t;
 /* loaded from: classes.dex */
@@ -56,10 +56,10 @@ public class SyncLoginService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, com.baidu.tieba.model.e> {
-        w Th;
+        w Ti;
 
         private a() {
-            this.Th = null;
+            this.Ti = null;
         }
 
         /* synthetic */ a(SyncLoginService syncLoginService, a aVar) {
@@ -74,39 +74,39 @@ public class SyncLoginService extends BdBaseService {
             com.baidu.tieba.model.e eVar;
             Exception e;
             try {
-                this.Th = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/switch");
-                this.Th.o("_os_version", Build.VERSION.RELEASE);
+                this.Ti = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/switch");
+                this.Ti.o("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
                 stringBuffer.append(String.valueOf(k.K(TbadkCoreApplication.m411getInst().getApp())));
                 stringBuffer.append(",");
                 stringBuffer.append(String.valueOf(k.L(TbadkCoreApplication.m411getInst().getApp())));
-                this.Th.o("_phone_screen", stringBuffer.toString());
-                this.Th.o("scr_w", String.valueOf(k.K(TbadkCoreApplication.m411getInst().getApp())));
-                this.Th.o("scr_h", String.valueOf(k.L(TbadkCoreApplication.m411getInst().getApp())));
-                this.Th.o("scr_dip", String.valueOf(k.M(TbadkCoreApplication.m411getInst().getApp())));
+                this.Ti.o("_phone_screen", stringBuffer.toString());
+                this.Ti.o("scr_w", String.valueOf(k.K(TbadkCoreApplication.m411getInst().getApp())));
+                this.Ti.o("scr_h", String.valueOf(k.L(TbadkCoreApplication.m411getInst().getApp())));
+                this.Ti.o("scr_dip", String.valueOf(k.M(TbadkCoreApplication.m411getInst().getApp())));
                 if (com.baidu.tbadk.coreExtra.messageCenter.c.xh().xk() > 0) {
-                    this.Th.o("_msg_status", "0");
+                    this.Ti.o("_msg_status", "0");
                 } else {
-                    this.Th.o("_msg_status", "1");
+                    this.Ti.o("_msg_status", "1");
                 }
                 String activeVersion = TbadkCoreApplication.m411getInst().getActiveVersion();
                 if (activeVersion != null) {
                     if (activeVersion.length() < 1) {
                         activeVersion = "0";
                     }
-                    this.Th.o("_active", activeVersion);
+                    this.Ti.o("_active", activeVersion);
                 }
-                this.Th.o("_pic_quality", String.valueOf(TbadkCoreApplication.m411getInst().getViewImageQuality()));
+                this.Ti.o("_pic_quality", String.valueOf(TbadkCoreApplication.m411getInst().getViewImageQuality()));
                 if (SyncLoginService.mStatistics != null) {
-                    this.Th.o("_msg_type", SyncLoginService.mStatistics);
+                    this.Ti.o("_msg_type", SyncLoginService.mStatistics);
                 }
                 String packageName = TbadkCoreApplication.m411getInst().getPackageName();
-                this.Th.o("package", packageName);
-                this.Th.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m411getInst().getVersionCode())).toString());
-                this.Th.o("signmd5", at.d(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.Th.o("md5", t.getTiebaApkMd5());
-                String tG = this.Th.tG();
-                if (this.Th.uh().uY().qV()) {
+                this.Ti.o("package", packageName);
+                this.Ti.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m411getInst().getVersionCode())).toString());
+                this.Ti.o("signmd5", au.d(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.Ti.o("md5", t.getTiebaApkMd5());
+                String tG = this.Ti.tG();
+                if (this.Ti.uh().uZ().qV()) {
                     eVar = new com.baidu.tieba.model.e();
                     try {
                         eVar.parserJson(tG);
@@ -128,8 +128,8 @@ public class SyncLoginService extends BdBaseService {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             SyncLoginService.this.mSyncTask = null;
-            if (this.Th != null) {
-                this.Th.gJ();
+            if (this.Ti != null) {
+                this.Ti.gJ();
             }
             super.cancel(true);
         }

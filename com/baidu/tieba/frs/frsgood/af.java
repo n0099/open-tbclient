@@ -11,68 +11,68 @@ import com.baidu.tieba.i;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.f<FrsGoodActivity> {
-    private String aVY;
-    private FrsGoodActivity aZM;
-    private HorizontalTabView aZV;
-    private SparseArray<o.a> aZW;
-    private TabData aZX;
-    private int aZY;
-    private eb aZZ;
-    private x aZv;
+    private String aWj;
+    private x aZG;
+    private FrsGoodActivity aZX;
+    private HorizontalTabView bag;
+    private SparseArray<o.a> bah;
+    private TabData bai;
+    private int baj;
+    private eb bak;
 
     public af(FrsGoodActivity frsGoodActivity) {
         super(frsGoodActivity.getPageContext());
-        this.aZW = new SparseArray<>();
-        this.aZY = 5;
-        this.aZZ = new ag(this);
-        this.aZM = frsGoodActivity;
+        this.bah = new SparseArray<>();
+        this.baj = 5;
+        this.bak = new ag(this);
+        this.aZX = frsGoodActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void oQ() {
-        this.aZv = new x(this.aZM, this.aZM.aUm);
-        this.aZM.a(this.aZv);
+        this.aZG = new x(this.aZX, this.aZX.aUx);
+        this.aZX.a(this.aZG);
         MU();
     }
 
     private void MU() {
-        this.aZV = (HorizontalTabView) this.aZM.findViewById(i.f.frs_good_tabview);
+        this.bag = (HorizontalTabView) this.aZX.findViewById(i.f.frs_good_tabview);
     }
 
     public void b(com.baidu.tieba.tbadkCore.o oVar) {
-        ArrayList<com.baidu.tbadk.core.data.j> good_classify;
+        ArrayList<com.baidu.tbadk.core.data.k> good_classify;
         if (oVar != null && oVar.aeN() != null && oVar.aeN().getGood_classify() != null && (good_classify = oVar.aeN().getGood_classify()) != null) {
-            this.aVY = this.aZM.getPageContext().getResources().getString(i.h.forum_list_menu_all);
-            this.aZX = new TabData();
+            this.aWj = this.aZX.getPageContext().getResources().getString(i.h.forum_list_menu_all);
+            this.bai = new TabData();
             com.baidu.tieba.frs.tab.g gVar = new com.baidu.tieba.frs.tab.g();
-            gVar.bbg = 0;
-            gVar.name = this.aVY;
-            this.aZX.add(gVar);
-            for (com.baidu.tbadk.core.data.j jVar : good_classify) {
-                if (jVar != null && jVar.rE() > 0 && !TextUtils.isEmpty(jVar.rD()) && !TextUtils.isEmpty(jVar.rD().trim())) {
+            gVar.bbr = 0;
+            gVar.name = this.aWj;
+            this.bai.add(gVar);
+            for (com.baidu.tbadk.core.data.k kVar : good_classify) {
+                if (kVar != null && kVar.rE() > 0 && !TextUtils.isEmpty(kVar.rD()) && !TextUtils.isEmpty(kVar.rD().trim())) {
                     com.baidu.tieba.frs.tab.g gVar2 = new com.baidu.tieba.frs.tab.g();
-                    gVar2.bbg = jVar.rE();
-                    gVar2.name = jVar.rD();
-                    this.aZX.add(gVar2);
+                    gVar2.bbr = kVar.rE();
+                    gVar2.name = kVar.rD();
+                    this.bai.add(gVar2);
                 }
             }
-            this.aZV.setData(this.aZX, this.aZY);
+            this.bag.setData(this.bai, this.baj);
         }
     }
 
     public HorizontalTabView MV() {
-        return this.aZV;
+        return this.bag;
     }
 
     public void a(ea eaVar) {
-        if (this.aZV != null) {
-            this.aZV.setDataLoadInterface(eaVar);
+        if (this.bag != null) {
+            this.bag.setDataLoadInterface(eaVar);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aZV != null) {
-            this.aZV.vA();
+        if (this.bag != null) {
+            this.bag.vA();
         }
     }
 }

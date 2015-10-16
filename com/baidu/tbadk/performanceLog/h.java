@@ -13,8 +13,8 @@ class h implements CustomMessageTask.CustomRunnable<e.a> {
             return null;
         }
         e.a data = customMessage.getData();
-        data.awT = y.Eb().Ed();
-        data.awU = y.Eb().Ef();
+        data.awU = y.Eb().Ed();
+        data.awV = y.Eb().Ef();
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_PERF_SAMPLE, data);
     }
 }

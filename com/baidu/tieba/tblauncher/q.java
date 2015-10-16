@@ -37,53 +37,53 @@ class q extends CustomMessageListener {
             }
             NewsNotifyMessage newsNotifyMessage = (NewsNotifyMessage) customResponsedMessage;
             int msgBookmark = newsNotifyMessage.getMsgBookmark();
-            i = this.this$0.dcg;
+            i = this.this$0.dcG;
             boolean z = msgBookmark == i;
             int msgFans = newsNotifyMessage.getMsgFans();
-            i2 = this.this$0.dcd;
+            i2 = this.this$0.dcD;
             boolean z2 = msgFans == i2;
             int msgGiftNum = newsNotifyMessage.getMsgGiftNum();
-            i3 = this.this$0.dce;
+            i3 = this.this$0.dcE;
             boolean z3 = msgGiftNum == i3;
             int msgLiveVip = newsNotifyMessage.getMsgLiveVip();
-            i4 = this.this$0.dcf;
+            i4 = this.this$0.dcF;
             boolean z4 = msgLiveVip == i4;
             if (!z || !z2 || !z3 || !z4) {
                 MainTabActivity mainTabActivity = this.this$0;
                 int msgBookmark2 = newsNotifyMessage.getMsgBookmark();
-                i5 = this.this$0.dcg;
-                mainTabActivity.dcm = msgBookmark2 > i5 ? true : this.this$0.dcm;
+                i5 = this.this$0.dcG;
+                mainTabActivity.dcM = msgBookmark2 > i5 ? true : this.this$0.dcM;
                 MainTabActivity mainTabActivity2 = this.this$0;
                 int msgFans2 = newsNotifyMessage.getMsgFans();
-                i6 = this.this$0.dcd;
-                mainTabActivity2.dck = msgFans2 > i6 ? true : this.this$0.dck;
+                i6 = this.this$0.dcD;
+                mainTabActivity2.dcK = msgFans2 > i6 ? true : this.this$0.dcK;
                 MainTabActivity mainTabActivity3 = this.this$0;
                 int msgGiftNum2 = newsNotifyMessage.getMsgGiftNum();
-                i7 = this.this$0.dce;
-                mainTabActivity3.dcl = msgGiftNum2 > i7 ? true : this.this$0.dcl;
+                i7 = this.this$0.dcE;
+                mainTabActivity3.dcL = msgGiftNum2 > i7 ? true : this.this$0.dcL;
                 MainTabActivity mainTabActivity4 = this.this$0;
                 int msgLiveVip2 = newsNotifyMessage.getMsgLiveVip();
-                i8 = this.this$0.dcf;
-                mainTabActivity4.dcn = msgLiveVip2 <= i8 ? this.this$0.dcn : true;
-                this.this$0.dcg = newsNotifyMessage.getMsgBookmark();
-                this.this$0.dcd = newsNotifyMessage.getMsgFans();
-                this.this$0.dce = newsNotifyMessage.getMsgGiftNum();
-                this.this$0.dcf = newsNotifyMessage.getMsgLiveVip();
-                i9 = this.this$0.dcd;
+                i8 = this.this$0.dcF;
+                mainTabActivity4.dcN = msgLiveVip2 <= i8 ? this.this$0.dcN : true;
+                this.this$0.dcG = newsNotifyMessage.getMsgBookmark();
+                this.this$0.dcD = newsNotifyMessage.getMsgFans();
+                this.this$0.dcE = newsNotifyMessage.getMsgGiftNum();
+                this.this$0.dcF = newsNotifyMessage.getMsgLiveVip();
+                i9 = this.this$0.dcD;
                 if (i9 <= 0) {
-                    this.this$0.dck = false;
+                    this.this$0.dcK = false;
                 }
-                i10 = this.this$0.dce;
+                i10 = this.this$0.dcE;
                 if (i10 <= 0) {
-                    this.this$0.dcl = false;
+                    this.this$0.dcL = false;
                 }
-                i11 = this.this$0.dcg;
+                i11 = this.this$0.dcG;
                 if (i11 <= 0) {
-                    this.this$0.dcm = false;
+                    this.this$0.dcM = false;
                 }
-                i12 = this.this$0.dcf;
+                i12 = this.this$0.dcF;
                 if (i12 <= 0) {
-                    this.this$0.dcn = false;
+                    this.this$0.dcN = false;
                 }
                 this.this$0.gy(false);
             }

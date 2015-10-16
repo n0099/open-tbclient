@@ -9,24 +9,24 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.ChildViewPager;
 /* loaded from: classes.dex */
 public class cv extends x.a {
-    ChildViewPager aXE;
-    IndicatorView aXF;
-    TextView aXG;
-    View aXH;
-    View aXI;
-    RelativeLayout aXJ;
-    View aXK;
-    cr aXL;
+    ChildViewPager aXP;
+    IndicatorView aXQ;
+    TextView aXR;
+    View aXS;
+    View aXT;
+    RelativeLayout aXU;
+    View aXV;
+    cr aXW;
 
     public cv(View view) {
         super(view);
-        this.aXG = (TextView) view.findViewById(i.f.live_title);
-        this.aXE = (ChildViewPager) view.findViewById(i.f.live_title_child);
-        this.aXF = (IndicatorView) view.findViewById(i.f.live_tab_indicator);
-        this.aXH = view.findViewById(i.f.live_title_card_line);
-        this.aXI = view.findViewById(i.f.middle_layout);
-        this.aXJ = (RelativeLayout) view.findViewById(i.f.frs_live_upItem);
-        this.aXK = view.findViewById(i.f.all_live_list);
-        this.aXL = new cr(this.aXE, this.aXF);
+        this.aXR = (TextView) view.findViewById(i.f.live_title);
+        this.aXP = (ChildViewPager) view.findViewById(i.f.live_title_child);
+        this.aXQ = (IndicatorView) view.findViewById(i.f.live_tab_indicator);
+        this.aXS = view.findViewById(i.f.live_title_card_line);
+        this.aXT = view.findViewById(i.f.middle_layout);
+        this.aXU = (RelativeLayout) view.findViewById(i.f.frs_live_upItem);
+        this.aXV = view.findViewById(i.f.all_live_list);
+        this.aXW = new cr(this.aXP, this.aXQ);
     }
 }

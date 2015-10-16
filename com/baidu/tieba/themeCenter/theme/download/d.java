@@ -14,17 +14,17 @@ import java.util.List;
 import tbclient.GetUpdateInfo.ThemeSkinUpdateInfo;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<d> {
-    private ArrayList<com.baidu.tieba.themeCenter.b> dgM;
-    private a dgN;
-    private com.baidu.tieba.themeCenter.b dgd;
+    private com.baidu.tieba.themeCenter.b dgD;
+    private ArrayList<com.baidu.tieba.themeCenter.b> dhm;
+    private a dhn;
     private List<com.baidu.tieba.themeCenter.theme.top.a> mThemeList;
     private ArrayList<ThemeSkinUpdateInfo> mUpdateList;
-    private boolean dgO = true;
-    private boolean dgG = false;
-    private com.baidu.adp.framework.listener.a aQK = new e(this, CmdConfigHttp.CMD_THEME_LIST_UPDATE, 309013);
-    private CustomMessageListener dgf = new f(this, CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB);
-    private CustomMessageListener dgg = new g(this, CmdConfigCustom.CMD_REFRESH_THEME_LIST);
-    private com.baidu.tieba.themeCenter.b dgL = new com.baidu.tieba.themeCenter.b();
+    private boolean dho = true;
+    private boolean dhg = false;
+    private com.baidu.adp.framework.listener.a aQV = new e(this, CmdConfigHttp.CMD_THEME_LIST_UPDATE, 309013);
+    private CustomMessageListener dgF = new f(this, CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB);
+    private CustomMessageListener dgG = new g(this, CmdConfigCustom.CMD_REFRESH_THEME_LIST);
+    private com.baidu.tieba.themeCenter.b dhl = new com.baidu.tieba.themeCenter.b();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -32,15 +32,15 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     public d() {
-        this.dgL.setTitle(TbadkCoreApplication.m411getInst().getString(i.h.default_theme));
-        this.dgL.setId(-1);
-        this.dgd = new com.baidu.tieba.themeCenter.b();
-        this.dgd.setTitle(TbadkCoreApplication.m411getInst().getString(i.h.night_theme));
-        this.dgd.setId(-2);
+        this.dhl.setTitle(TbadkCoreApplication.m411getInst().getString(i.h.default_theme));
+        this.dhl.setId(-1);
+        this.dgD = new com.baidu.tieba.themeCenter.b();
+        this.dgD.setTitle(TbadkCoreApplication.m411getInst().getString(i.h.night_theme));
+        this.dgD.setId(-2);
         BZ();
-        registerListener(this.aQK);
-        registerListener(this.dgf);
-        registerListener(this.dgg);
+        registerListener(this.aQV);
+        registerListener(this.dgF);
+        registerListener(this.dgG);
     }
 
     private void BZ() {
@@ -62,48 +62,48 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     public void gK(boolean z) {
-        this.dgG = z;
-        if (this.dgN != null) {
-            azs();
-            this.dgN.a(this.dgO, this.mThemeList);
+        this.dhg = z;
+        if (this.dhn != null) {
+            azC();
+            this.dhn.a(this.dho, this.mThemeList);
         }
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.dgf);
-        MessageManager.getInstance().unRegisterListener(this.aQK);
-        MessageManager.getInstance().unRegisterListener(this.dgg);
+        MessageManager.getInstance().unRegisterListener(this.dgF);
+        MessageManager.getInstance().unRegisterListener(this.aQV);
+        MessageManager.getInstance().unRegisterListener(this.dgG);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azs() {
-        if (this.dgM == null || this.dgM.size() <= 0) {
-            this.dgO = false;
-            this.dgG = false;
+    public void azC() {
+        if (this.dhm == null || this.dhm.size() <= 0) {
+            this.dho = false;
+            this.dhg = false;
             return;
         }
-        if (this.dgM.size() > 2) {
-            this.dgO = true;
+        if (this.dhm.size() > 2) {
+            this.dho = true;
         } else {
-            this.dgO = false;
-            this.dgG = false;
+            this.dho = false;
+            this.dhg = false;
         }
-        Iterator<com.baidu.tieba.themeCenter.b> it = this.dgM.iterator();
+        Iterator<com.baidu.tieba.themeCenter.b> it = this.dhm.iterator();
         while (it.hasNext()) {
             com.baidu.tieba.themeCenter.b next = it.next();
             if (next != null) {
-                next.lp(com.baidu.tieba.themeCenter.i.a(next, this.mUpdateList));
-                if (!this.dgG) {
+                next.lr(com.baidu.tieba.themeCenter.i.a(next, this.mUpdateList));
+                if (!this.dhg) {
                     next.gZ(8);
                 } else {
                     next.gZ(7);
                 }
             }
         }
-        this.mThemeList = com.baidu.tieba.themeCenter.i.bx(this.dgM);
+        this.mThemeList = com.baidu.tieba.themeCenter.i.by(this.dhm);
     }
 
     public void a(a aVar) {
-        this.dgN = aVar;
+        this.dhn = aVar;
     }
 }

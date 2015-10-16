@@ -91,7 +91,7 @@ public class UtilHelper {
         FRS,
         PB;
 
-        /* JADX DEBUG: Replace access to removed values field (aby) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (abB) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NativePageType[] valuesCustom() {
             NativePageType[] valuesCustom = values();
@@ -104,7 +104,7 @@ public class UtilHelper {
 
     /* loaded from: classes.dex */
     public static class a {
-        public NativePageType abx = NativePageType.NONE;
+        public NativePageType abA = NativePageType.NONE;
         public String id;
     }
 
@@ -185,7 +185,7 @@ public class UtilHelper {
     }
 
     public static void quitDialog(Activity activity) {
-        new com.baidu.tbadk.core.dialog.a(activity).bE(i.h.alert_title).aj(false).bF(i.h.alert_quit_confirm).a(i.h.alert_yes_button, new ba(activity)).b(i.h.alert_no_button, new bb()).b(com.baidu.adp.base.l.C(activity)).sR();
+        new com.baidu.tbadk.core.dialog.a(activity).bE(i.h.alert_title).aj(false).bF(i.h.alert_quit_confirm).a(i.h.alert_yes_button, new bb(activity)).b(i.h.alert_no_button, new bc()).b(com.baidu.adp.base.l.C(activity)).sR();
     }
 
     public static String getIpFromDomain(String str) {
@@ -293,13 +293,13 @@ public class UtilHelper {
     }
 
     public static void install_apk(Context context, String str) {
-        File cI;
-        if (str != null && str.length() > 0 && (cI = n.cI(str)) != null) {
+        File cJ;
+        if (str != null && str.length() > 0 && (cJ = n.cJ(str)) != null) {
             try {
                 Intent intent = new Intent();
                 intent.addFlags(268435456);
                 intent.setAction("android.intent.action.VIEW");
-                intent.setDataAndType(Uri.fromFile(cI), "application/vnd.android.package-archive");
+                intent.setDataAndType(Uri.fromFile(cJ), "application/vnd.android.package-archive");
                 context.startActivity(intent);
             } catch (SecurityException e) {
             }
@@ -603,19 +603,19 @@ public class UtilHelper {
                 if (!(A instanceof BaseActivity)) {
                     if (!(A instanceof BaseFragmentActivity)) {
                         if (A instanceof ProxyAdkBaseActivity) {
-                            ay.uV().b(((ProxyAdkBaseActivity) A).getPageContext(), new String[]{string2});
+                            az.uW().b(((ProxyAdkBaseActivity) A).getPageContext(), new String[]{string2});
                             z = true;
                             break;
                         }
                         z = z2;
                         break;
                     } else {
-                        ay.uV().b(((BaseFragmentActivity) A).getPageContext(), new String[]{string2});
+                        az.uW().b(((BaseFragmentActivity) A).getPageContext(), new String[]{string2});
                         z = true;
                         break;
                     }
                 } else {
-                    ay.uV().b(((BaseActivity) A).getPageContext(), new String[]{string2});
+                    az.uW().b(((BaseActivity) A).getPageContext(), new String[]{string2});
                     z = true;
                     break;
                 }
@@ -677,22 +677,22 @@ public class UtilHelper {
         }
     }
 
-    public static void showYYNotification(Context context, com.baidu.tbadk.core.data.m mVar, int i) {
+    public static void showYYNotification(Context context, com.baidu.tbadk.core.data.n nVar, int i) {
         Intent yYNotificationIntent;
         if (TbadkCoreApplication.m411getInst().isPromotedMessageOn()) {
             int hours = new Date(System.currentTimeMillis()).getHours();
             if ((hours < 0 || hours > 7) && hours < 23) {
-                String content = mVar.getContent();
-                String link = mVar.getLink();
-                if (link != null && link.length() > 0 && (yYNotificationIntent = getYYNotificationIntent(context, mVar, link)) != null) {
+                String content = nVar.getContent();
+                String link = nVar.getLink();
+                if (link != null && link.length() > 0 && (yYNotificationIntent = getYYNotificationIntent(context, nVar, link)) != null) {
                     NotificationHelper.showNotification(context, i, null, content, content, PendingIntent.getService(context, 0, yYNotificationIntent, 134217728), false);
                 }
             }
         }
     }
 
-    public static final Intent getYYNotificationIntent(Context context, com.baidu.tbadk.core.data.m mVar, String str) {
-        if (context == null || mVar == null || TextUtils.isEmpty(str)) {
+    public static final Intent getYYNotificationIntent(Context context, com.baidu.tbadk.core.data.n nVar, String str) {
+        if (context == null || nVar == null || TextUtils.isEmpty(str)) {
             return null;
         }
         Intent intent = new Intent(context, DealIntentService.class);
@@ -752,10 +752,10 @@ public class UtilHelper {
         }
         intent.putExtra("is_notify", true);
         intent.putExtra("link", str);
-        intent.putExtra("message_id", mVar.rG());
-        intent.putExtra("task_id", mVar.getTaskId());
-        if (!TextUtils.isEmpty(mVar.getStat())) {
-            intent.putExtra("stat", mVar.getStat());
+        intent.putExtra("message_id", nVar.rG());
+        intent.putExtra("task_id", nVar.getTaskId());
+        if (!TextUtils.isEmpty(nVar.getStat())) {
+            intent.putExtra("stat", nVar.getStat());
         }
         return intent;
     }
@@ -774,7 +774,7 @@ public class UtilHelper {
         String str3 = null;
         int i = 0;
         a aVar = new a();
-        if (str == null || ar.isEmpty(str)) {
+        if (str == null || as.isEmpty(str)) {
             return aVar;
         }
         Matcher matcher = pbPattern0.matcher(str);
@@ -783,7 +783,7 @@ public class UtilHelper {
                 String group = matcher.group(2);
                 if (!TextUtils.isEmpty(group)) {
                     aVar.id = group;
-                    aVar.abx = NativePageType.PB;
+                    aVar.abA = NativePageType.PB;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -817,7 +817,7 @@ public class UtilHelper {
                 }
                 if (!TextUtils.isEmpty(str2)) {
                     aVar.id = str2;
-                    aVar.abx = NativePageType.PB;
+                    aVar.abA = NativePageType.PB;
                 }
             }
         }
@@ -845,7 +845,7 @@ public class UtilHelper {
                 }
                 if (!TextUtils.isEmpty(str3)) {
                     aVar.id = str3;
-                    aVar.abx = NativePageType.FRS;
+                    aVar.abA = NativePageType.FRS;
                 }
             }
         }
@@ -914,7 +914,7 @@ public class UtilHelper {
     }
 
     public static String appendCuidParam(String str) {
-        if (ar.isEmpty(str) || str.indexOf("cuid=") <= -1) {
+        if (as.isEmpty(str) || str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
@@ -932,7 +932,7 @@ public class UtilHelper {
     }
 
     public static String appendVersionCode(String str) {
-        return (ar.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
+        return (as.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? String.valueOf(str) + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     public static String urlAddParam(String str, String str2) {
@@ -1151,7 +1151,7 @@ public class UtilHelper {
                     str = com.baidu.tbadk.core.sharedPref.b.tu().getString("apk_md5", "");
                 } else {
                     com.baidu.tbadk.core.sharedPref.b.tu().putString("version_name", versionName);
-                    String d = at.d(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m411getInst().getPackageName(), 0));
+                    String d = au.d(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m411getInst().getPackageName(), 0));
                     com.baidu.tbadk.core.sharedPref.b.tu().putString("apk_md5", d);
                     str = d;
                 }

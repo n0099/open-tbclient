@@ -5,13 +5,13 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements Runnable {
-    final /* synthetic */ t cmM;
+    final /* synthetic */ t cmX;
     private final /* synthetic */ int val$position;
     private final /* synthetic */ View yG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(t tVar, View view, int i) {
-        this.cmM = tVar;
+        this.cmX = tVar;
         this.yG = view;
         this.val$position = i;
     }
@@ -23,11 +23,11 @@ public class x implements Runnable {
         BdListView bdListView2;
         if (this.yG != null) {
             int[] iArr = new int[2];
-            nVar = this.cmM.caJ;
+            nVar = this.cmX.caU;
             nVar.Ax().getLocationInWindow(iArr);
-            bdListView = this.cmM.mListView;
+            bdListView = this.cmX.mListView;
             bdListView.setSelectionFromTop(this.val$position + 1, iArr[1] - this.yG.getHeight());
-            bdListView2 = this.cmM.mListView;
+            bdListView2 = this.cmX.mListView;
             bdListView2.invalidate();
         }
     }

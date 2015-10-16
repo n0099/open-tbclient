@@ -2,32 +2,32 @@ package com.baidu.tieba.person.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.data.n;
+import com.baidu.tbadk.core.data.o;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<UserData> cqS = new ArrayList<>();
-    private ArrayList<UserData> cqT = new ArrayList<>();
-    private n mPage = new n();
+    private ArrayList<UserData> crd = new ArrayList<>();
+    private ArrayList<UserData> cre = new ArrayList<>();
+    private o mPage = new o();
     private int friendNum = 0;
-    private int cqU = 0;
+    private int crf = 0;
 
-    public void b(n nVar) {
-        this.mPage = nVar;
+    public void b(o oVar) {
+        this.mPage = oVar;
     }
 
-    public n getPage() {
+    public o getPage() {
         return this.mPage;
     }
 
     public ArrayList<UserData> aiS() {
-        return this.cqS;
+        return this.crd;
     }
 
     public ArrayList<UserData> aiT() {
-        return this.cqT;
+        return this.cre;
     }
 
     public int getFriendNum() {
@@ -35,7 +35,7 @@ public class a {
     }
 
     public int aiU() {
-        return this.cqU;
+        return this.crf;
     }
 
     public void parserJson(String str) {
@@ -55,19 +55,19 @@ public class a {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.cqS.add(userData);
+                        this.crd.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.cqT.add(userData2);
+                        this.cre.add(userData2);
                     }
                 }
                 this.mPage.parserJson(jSONObject.optJSONObject("page"));
                 this.friendNum = jSONObject.optInt("tafriendnum", 0);
-                this.cqU = jSONObject.optInt("commonfriendnum", 0);
+                this.crf = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

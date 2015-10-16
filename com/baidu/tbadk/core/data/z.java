@@ -1,54 +1,43 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopNews;
-import tbclient.PbPage.NewsInfo;
+import tbclient.Topic;
 /* loaded from: classes.dex */
-public class z implements com.baidu.adp.widget.ListView.u {
-    public static final BdUniqueId Wg = BdUniqueId.gen();
-    private String Wh;
-    private int position = 0;
-    private String summary;
+public class z {
+    private int Wg = 0;
+    private int Wh = 0;
+    private String link = "";
 
-    public String sN() {
+    public int sL() {
+        return this.Wg;
+    }
+
+    public int sM() {
         return this.Wh;
     }
 
-    public String getSummary() {
-        return this.summary;
+    public String getLink() {
+        return this.link;
     }
 
-    public void a(TopNews topNews) {
-        if (topNews != null) {
-            this.Wh = topNews.news_link;
-            this.summary = topNews.summary;
-        }
-    }
-
-    public void a(NewsInfo newsInfo) {
-        if (newsInfo != null) {
-            this.Wh = newsInfo.news_link;
-            this.summary = newsInfo.summary;
-            this.position = newsInfo.position.intValue();
-        }
-    }
-
-    public void parseJson(JSONObject jSONObject) {
+    public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Wh = jSONObject.optString("news_link");
-                this.summary = jSONObject.optString("summary");
-                this.position = jSONObject.optInt("position", 0);
+                this.Wg = jSONObject.optInt("is_lpost", 0);
+                this.Wh = jSONObject.optInt("topic_type", 0);
+                this.link = jSONObject.optString("link", "");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return Wg;
+    public void a(Topic topic) {
+        if (topic != null) {
+            this.Wg = topic.is_lpost.intValue();
+            this.Wh = topic.topic_type.intValue();
+            this.link = topic.link;
+        }
     }
 }

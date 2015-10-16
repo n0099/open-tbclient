@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ed extends PagerAdapter {
-    private PhotoLiveCardView.b akV;
+    private PhotoLiveCardView.b akW;
     private Context mContext;
-    private List<PhotoLiveCardView> aYO = new ArrayList();
+    private List<PhotoLiveCardView> aYZ = new ArrayList();
     private List<PhotoLiveCardData> mDatas = new ArrayList();
 
     public ed(Context context) {
@@ -54,12 +54,12 @@ public class ed extends PagerAdapter {
     public View fJ(int i) {
         PhotoLiveCardView photoLiveCardView = null;
         if (i < this.mDatas.size()) {
-            int size = this.aYO.size();
-            PhotoLiveCardView remove = size > 0 ? this.aYO.remove(size - 1) : null;
+            int size = this.aYZ.size();
+            PhotoLiveCardView remove = size > 0 ? this.aYZ.remove(size - 1) : null;
             photoLiveCardView = remove == null ? Mx() : remove;
             photoLiveCardView.setData(this.mDatas.get(i));
-            if (this.akV != null) {
-                photoLiveCardView.setPortraitClicklistener(this.akV);
+            if (this.akW != null) {
+                photoLiveCardView.setPortraitClicklistener(this.akW);
             }
         }
         return photoLiveCardView;
@@ -69,7 +69,7 @@ public class ed extends PagerAdapter {
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         PhotoLiveCardView photoLiveCardView = (PhotoLiveCardView) obj;
         viewGroup.removeView(photoLiveCardView);
-        this.aYO.add(photoLiveCardView);
+        this.aYZ.add(photoLiveCardView);
     }
 
     private PhotoLiveCardView Mx() {
@@ -86,6 +86,6 @@ public class ed extends PagerAdapter {
     }
 
     public void setPortraitClicklistener(PhotoLiveCardView.b bVar) {
-        this.akV = bVar;
+        this.akW = bVar;
     }
 }

@@ -11,25 +11,25 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class ChatMessageActivity extends BaseFragmentActivity {
-    private ImageView bJb;
-    private FragmentTransaction bJc;
+    private ImageView bJm;
+    private FragmentTransaction bJn;
     private FragmentManager mFragmentManager;
     private NavigationBar mNavigationBar;
     private View mRootView;
     private View.OnClickListener mOnClickListener = null;
-    private CustomMessageListener Tr = new a(this, CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT);
+    private CustomMessageListener Ts = new a(this, CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initUI();
-        registerListener(this.Tr);
+        registerListener(this.Ts);
         sendMessage(new CustomMessage(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MSG_READ, 1));
     }
@@ -39,8 +39,8 @@ public class ChatMessageActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i) {
         super.changeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        am.i(this.mRootView, i.c.cp_bg_line_d);
-        am.a(this.bJb, i.e.icon_write_news_bg_s, i.e.icon_write_news_bg);
+        an.i(this.mRootView, i.c.cp_bg_line_d);
+        an.a(this.bJm, i.e.icon_write_news_bg_s, i.e.icon_write_news_bg);
     }
 
     private void initUI() {
@@ -50,6 +50,6 @@ public class ChatMessageActivity extends BaseFragmentActivity {
         this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.setTitleText(i.h.my_chat);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bJb = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.widget_nb_item_addchat, this.mOnClickListener);
+        this.bJm = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.widget_nb_item_addchat, this.mOnClickListener);
     }
 }

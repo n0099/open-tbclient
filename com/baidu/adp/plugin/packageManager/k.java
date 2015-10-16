@@ -5,13 +5,13 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.plugin.packageManager.pluginFileDownload.BdFileDownloadData;
 /* loaded from: classes.dex */
 class k implements com.baidu.adp.plugin.install.b {
-    final /* synthetic */ j DG;
-    private final /* synthetic */ BdFileDownloadData DH;
+    final /* synthetic */ j DH;
+    private final /* synthetic */ BdFileDownloadData DI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar, BdFileDownloadData bdFileDownloadData) {
-        this.DG = jVar;
-        this.DH = bdFileDownloadData;
+        this.DH = jVar;
+        this.DI = bdFileDownloadData;
     }
 
     @Override // com.baidu.adp.plugin.install.b
@@ -20,12 +20,12 @@ class k implements com.baidu.adp.plugin.install.b {
         d dVar;
         PluginPackageManager pluginPackageManager2;
         d dVar2;
-        pluginPackageManager = this.DG.this$0;
-        dVar = pluginPackageManager.DB;
+        pluginPackageManager = this.DH.this$0;
+        dVar = pluginPackageManager.DC;
         if (dVar != null) {
-            pluginPackageManager2 = this.DG.this$0;
-            dVar2 = pluginPackageManager2.DB;
-            dVar2.a(this.DH, 0, "");
+            pluginPackageManager2 = this.DH.this$0;
+            dVar2 = pluginPackageManager2.DC;
+            dVar2.a(this.DI, 0, "");
         }
     }
 
@@ -36,17 +36,17 @@ class k implements com.baidu.adp.plugin.install.b {
         String str3;
         PluginPackageManager pluginPackageManager2;
         d dVar2;
-        pluginPackageManager = this.DG.this$0;
-        dVar = pluginPackageManager.DB;
+        pluginPackageManager = this.DH.this$0;
+        dVar = pluginPackageManager.DC;
         if (dVar != null) {
             if ("rom_size".equals(str2)) {
                 str3 = BdBaseApplication.getInst().getString(R.string.rom_too_small);
             } else {
                 str3 = "";
             }
-            pluginPackageManager2 = this.DG.this$0;
-            dVar2 = pluginPackageManager2.DB;
-            dVar2.a(this.DH, -1, str3);
+            pluginPackageManager2 = this.DH.this$0;
+            dVar2 = pluginPackageManager2.DC;
+            dVar2.a(this.DI, -1, str3);
         }
     }
 }

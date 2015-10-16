@@ -7,11 +7,11 @@ import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tieba.themeCenter.background.y;
 /* loaded from: classes.dex */
 public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewActivity> {
-    private int deT;
-    private y dfk;
-    private aa dfl;
-    private int dfm;
-    private y.a dfn = new s(this);
+    private y dfK;
+    private aa dfL;
+    private int dfM;
+    private y.a dfN = new s(this);
+    private int dft;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -19,23 +19,23 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         super.onCreate(bundle);
         Intent intent = getIntent();
         if (intent != null) {
-            this.deT = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.PROPID, 0);
-            this.dfm = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.INUSE, 0);
+            this.dft = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.PROPID, 0);
+            this.dfM = intent.getIntExtra(PersonalBackgroundPreviewActivityConfig.INUSE, 0);
         }
-        this.dfk = new y(this.deT, this.dfm);
-        this.dfk.a(this.dfn);
-        this.dfl = new aa(this);
-        showLoadingView(this.dfl.getRootView());
-        this.dfl.setExpandListRefreshListener(new t(this));
-        this.dfk.LoadData();
+        this.dfK = new y(this.dft, this.dfM);
+        this.dfK.a(this.dfN);
+        this.dfL = new aa(this);
+        showLoadingView(this.dfL.getRootView());
+        this.dfL.setExpandListRefreshListener(new t(this));
+        this.dfK.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dfl != null) {
-            this.dfl.oO();
+        if (this.dfL != null) {
+            this.dfL.oO();
         }
     }
 
@@ -43,16 +43,16 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.dfk != null) {
-            this.dfk.destroy();
+        if (this.dfK != null) {
+            this.dfK.destroy();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
-        if (this.dfk != null && this.dfl != null) {
-            showLoadingView(this.dfl.getRootView());
-            this.dfk.LoadData();
+        if (this.dfK != null && this.dfL != null) {
+            showLoadingView(this.dfL.getRootView());
+            this.dfK.LoadData();
         }
     }
 }

@@ -11,21 +11,21 @@ import com.baidu.tieba.themeCenter.SkinItemView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
-    private SkinItemView.a dfU;
+    private SkinItemView.a dgu;
     private TbPageContext<?> mContext;
     private List<com.baidu.tieba.themeCenter.theme.top.a> mThemeList;
 
     /* loaded from: classes.dex */
     public static class a {
-        public SkinItemView dfX;
-        public SkinItemView dfY;
-        public SkinItemView dfZ;
-        public TextView dgX;
+        public SkinItemView dgx;
+        public SkinItemView dgy;
+        public SkinItemView dgz;
+        public TextView dhx;
     }
 
     public c(TbPageContext<?> tbPageContext, SkinItemView.a aVar) {
         this.mContext = tbPageContext;
-        this.dfU = aVar;
+        this.dgu = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -38,7 +38,7 @@ public class c extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lx */
+    /* renamed from: lz */
     public com.baidu.tieba.themeCenter.theme.top.a getItem(int i) {
         if (this.mThemeList == null || this.mThemeList.size() <= 0 || i < 0 || i >= getCount()) {
             return null;
@@ -60,38 +60,38 @@ public class c extends BaseAdapter {
         } else {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.category_theme_list_item, viewGroup, false);
             aVar = new a();
-            aVar.dgX = (TextView) view.findViewById(i.f.category_view);
-            aVar.dfX = (SkinItemView) view.findViewById(i.f.theme_view1);
-            aVar.dfY = (SkinItemView) view.findViewById(i.f.theme_view2);
-            aVar.dfZ = (SkinItemView) view.findViewById(i.f.theme_view3);
-            aVar.dfX.setOnItemClickCallback(this.dfU);
-            aVar.dfY.setOnItemClickCallback(this.dfU);
-            aVar.dfZ.setOnItemClickCallback(this.dfU);
-            aVar.dfX.setListenerTag(this.mContext.getUniqueId());
-            aVar.dfY.setListenerTag(this.mContext.getUniqueId());
-            aVar.dfZ.setListenerTag(this.mContext.getUniqueId());
+            aVar.dhx = (TextView) view.findViewById(i.f.category_view);
+            aVar.dgx = (SkinItemView) view.findViewById(i.f.theme_view1);
+            aVar.dgy = (SkinItemView) view.findViewById(i.f.theme_view2);
+            aVar.dgz = (SkinItemView) view.findViewById(i.f.theme_view3);
+            aVar.dgx.setOnItemClickCallback(this.dgu);
+            aVar.dgy.setOnItemClickCallback(this.dgu);
+            aVar.dgz.setOnItemClickCallback(this.dgu);
+            aVar.dgx.setListenerTag(this.mContext.getUniqueId());
+            aVar.dgy.setListenerTag(this.mContext.getUniqueId());
+            aVar.dgz.setListenerTag(this.mContext.getUniqueId());
             view.setTag(aVar);
         }
-        if (item != null && item.azz() != null && item.azz().size() > 0) {
-            aVar.dgX.setText(item.azy());
-            if (item.azz().size() == 1) {
-                aVar.dfX.a(item.azz().get(0));
-                aVar.dfX.setVisibility(0);
-                aVar.dfY.setVisibility(8);
-                aVar.dfZ.setVisibility(8);
-            } else if (item.azz().size() == 2) {
-                aVar.dfX.a(item.azz().get(0));
-                aVar.dfY.a(item.azz().get(1));
-                aVar.dfX.setVisibility(0);
-                aVar.dfY.setVisibility(0);
-                aVar.dfZ.setVisibility(8);
-            } else if (item.azz().size() >= 3) {
-                aVar.dfX.a(item.azz().get(0));
-                aVar.dfY.a(item.azz().get(1));
-                aVar.dfZ.a(item.azz().get(2));
-                aVar.dfX.setVisibility(0);
-                aVar.dfY.setVisibility(0);
-                aVar.dfZ.setVisibility(0);
+        if (item != null && item.azJ() != null && item.azJ().size() > 0) {
+            aVar.dhx.setText(item.azI());
+            if (item.azJ().size() == 1) {
+                aVar.dgx.a(item.azJ().get(0));
+                aVar.dgx.setVisibility(0);
+                aVar.dgy.setVisibility(8);
+                aVar.dgz.setVisibility(8);
+            } else if (item.azJ().size() == 2) {
+                aVar.dgx.a(item.azJ().get(0));
+                aVar.dgy.a(item.azJ().get(1));
+                aVar.dgx.setVisibility(0);
+                aVar.dgy.setVisibility(0);
+                aVar.dgz.setVisibility(8);
+            } else if (item.azJ().size() >= 3) {
+                aVar.dgx.a(item.azJ().get(0));
+                aVar.dgy.a(item.azJ().get(1));
+                aVar.dgz.a(item.azJ().get(2));
+                aVar.dgx.setVisibility(0);
+                aVar.dgy.setVisibility(0);
+                aVar.dgz.setVisibility(0);
             }
         }
         this.mContext.getLayoutMode().k(view);

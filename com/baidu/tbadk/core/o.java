@@ -6,17 +6,17 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.data.m> {
-    final /* synthetic */ TbadkCoreApplication Tw;
+public class o implements CustomMessageTask.CustomRunnable<com.baidu.tbadk.core.data.n> {
+    final /* synthetic */ TbadkCoreApplication Tx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(TbadkCoreApplication tbadkCoreApplication) {
-        this.Tw = tbadkCoreApplication;
+        this.Tx = tbadkCoreApplication;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.data.m> customMessage) {
-        UtilHelper.showYYNotification(this.Tw.getContext(), customMessage.getData(), 13);
+    public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tbadk.core.data.n> customMessage) {
+        UtilHelper.showYYNotification(this.Tx.getContext(), customMessage.getData(), 13);
         return null;
     }
 }

@@ -11,19 +11,19 @@ public class e implements ae, d {
     private String big_cdn_src;
     private String big_src;
     private String cdn_src;
-    private long cny;
-    private ArrayList<ad> cnz;
+    private long cnJ;
+    private ArrayList<ad> cnK;
     private int height;
     private String src;
     private int width;
 
     public e(Content content) {
         if (content != null && content.type.longValue() == 3) {
-            this.cnz = new ArrayList<>(1);
+            this.cnK = new ArrayList<>(1);
             this.src = content.src;
             this.big_src = content.big_src;
             this.big_cdn_src = content.big_cdn_src;
-            this.cny = content.type.longValue();
+            this.cnJ = content.type.longValue();
             String str = content.bsize;
             if (str != null) {
                 try {
@@ -42,15 +42,15 @@ public class e implements ae, d {
             }
             this.cdn_src = content.cdn_src;
             ad adVar = new ad();
-            adVar.aax = 17;
+            adVar.aaz = 17;
             adVar.height = this.height;
             adVar.width = this.width;
             if (StringUtils.isNull(this.cdn_src)) {
-                adVar.VY = this.src;
+                adVar.Wa = this.src;
             } else {
-                adVar.VY = this.cdn_src;
+                adVar.Wa = this.cdn_src;
             }
-            this.cnz.add(adVar);
+            this.cnK.add(adVar);
         }
     }
 
@@ -72,6 +72,6 @@ public class e implements ae, d {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<ad> getImages() {
-        return this.cnz;
+        return this.cnK;
     }
 }

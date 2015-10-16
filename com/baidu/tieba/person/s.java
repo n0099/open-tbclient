@@ -12,13 +12,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ r cpf;
+    final /* synthetic */ r cpq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(r rVar, int i) {
         super(i);
-        this.cpf = rVar;
+        this.cpq = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,62 +44,62 @@ public class s extends com.baidu.adp.framework.listener.e {
         PersonBarActivity ais2;
         View view3;
         String str;
-        this.cpf.mListView.completePullRefresh();
+        this.cpq.mListView.completePullRefresh();
         if (socketResponsedMessage == null) {
-            this.cpf.showToast(this.cpf.getPageContext().getString(i.h.neterror));
+            this.cpq.showToast(this.cpq.getPageContext().getString(i.h.neterror));
         } else if (socketResponsedMessage.getCmd() == 107129 && (socketResponsedMessage instanceof ResponseGetLivableForumList)) {
             ResponseGetLivableForumList responseGetLivableForumList = (ResponseGetLivableForumList) socketResponsedMessage;
             if (responseGetLivableForumList.getError() == 0) {
-                ais = this.cpf.ais();
+                ais = this.cpq.ais();
                 if (ais != null) {
-                    ais2 = this.cpf.ais();
+                    ais2 = this.cpq.ais();
                     if (ais2.getRequestCode() != 23011) {
-                        view3 = this.cpf.coW;
+                        view3 = this.cpq.cph;
                         view3.setVisibility(8);
-                        acVar = this.cpf.coP;
+                        acVar = this.cpq.cpa;
                         if (acVar == null) {
-                            arrayList = this.cpf.rK;
+                            arrayList = this.cpq.rK;
                             arrayList.addAll(responseGetLivableForumList.getData());
-                            this.cpf.removalDuplicate();
-                            acVar2 = this.cpf.coP;
-                            arrayList2 = this.cpf.rK;
+                            this.cpq.removalDuplicate();
+                            acVar2 = this.cpq.cpa;
+                            arrayList2 = this.cpq.rK;
                             acVar2.S(arrayList2);
-                            this.cpf.hasMore = responseGetLivableForumList.hasMore();
-                            this.cpf.eV(true);
-                            acVar3 = this.cpf.coP;
+                            this.cpq.hasMore = responseGetLivableForumList.hasMore();
+                            this.cpq.eV(true);
+                            acVar3 = this.cpq.cpa;
                             acVar3.notifyDataSetChanged();
-                            this.cpf.coS++;
+                            this.cpq.cpd++;
                             return;
                         }
                         return;
                     }
                 }
-                z = this.cpf.cpa;
+                z = this.cpq.cpl;
                 if (!z) {
-                    this.cpf.cpa = true;
-                    BdListView bdListView = this.cpf.mListView;
-                    view2 = this.cpf.coW;
+                    this.cpq.cpl = true;
+                    BdListView bdListView = this.cpq.mListView;
+                    view2 = this.cpq.cph;
                     bdListView.addHeaderView(view2);
                     int miniLevel = responseGetLivableForumList.getMiniLevel();
                     if (miniLevel <= 0) {
                         miniLevel = 0;
                     }
-                    textView = this.cpf.coX;
-                    textView.setText(this.cpf.getResources().getString(i.h.level_above_six_tip, Integer.valueOf(miniLevel)));
-                    textView2 = this.cpf.coX;
-                    com.baidu.tbadk.core.util.am.b(textView2, i.c.cp_cont_c, 1);
-                    textView3 = this.cpf.coX;
-                    com.baidu.tbadk.core.util.am.j((View) textView3, i.c.bg_page_setting);
+                    textView = this.cpq.cpi;
+                    textView.setText(this.cpq.getResources().getString(i.h.level_above_six_tip, Integer.valueOf(miniLevel)));
+                    textView2 = this.cpq.cpi;
+                    com.baidu.tbadk.core.util.an.b(textView2, i.c.cp_cont_c, 1);
+                    textView3 = this.cpq.cpi;
+                    com.baidu.tbadk.core.util.an.j((View) textView3, i.c.bg_page_setting);
                 }
-                view = this.cpf.coW;
+                view = this.cpq.cph;
                 view.setVisibility(0);
-                acVar = this.cpf.coP;
+                acVar = this.cpq.cpa;
                 if (acVar == null) {
                 }
             } else {
-                this.cpf.showToast(responseGetLivableForumList.getErrorString());
-                u.a aVar = this.cpf.coO;
-                str = this.cpf.coV;
+                this.cpq.showToast(responseGetLivableForumList.getErrorString());
+                u.a aVar = this.cpq.coZ;
+                str = this.cpq.cpg;
                 aVar.kb(str);
             }
         }

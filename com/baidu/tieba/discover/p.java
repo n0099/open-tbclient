@@ -4,11 +4,11 @@ import com.baidu.tbadk.core.view.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements p.a {
-    final /* synthetic */ a aKv;
+    final /* synthetic */ a aKG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(a aVar) {
-        this.aKv = aVar;
+        this.aKG = aVar;
     }
 
     @Override // com.baidu.tbadk.core.view.p.a
@@ -16,13 +16,13 @@ public class p implements p.a {
         boolean z2;
         u uVar;
         u uVar2;
-        z2 = this.aKv.aKl;
+        z2 = this.aKG.aKw;
         if (z2) {
-            uVar2 = this.aKv.aKd;
+            uVar2 = this.aKG.aKo;
             uVar2.Gx();
             return;
         }
-        uVar = this.aKv.aKd;
+        uVar = this.aKG.aKo;
         uVar.HF();
     }
 }

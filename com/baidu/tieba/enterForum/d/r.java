@@ -18,10 +18,10 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class r extends LinearLayout {
-    private ViewEventCenter aLB;
-    private View aNf;
-    private BannerView aNg;
-    private TextView aNh;
+    private ViewEventCenter aLM;
+    private View aNq;
+    private BannerView aNr;
+    private TextView aNs;
 
     public r(Context context) {
         this(context, null);
@@ -33,27 +33,27 @@ public class r extends LinearLayout {
     }
 
     public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.aLB = viewEventCenter;
+        this.aLM = viewEventCenter;
     }
 
     public void init() {
         LayoutInflater.from(getContext()).inflate(i.g.enter_forum_header_view, this);
         setOrientation(1);
         setDescendantFocusability(AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
-        this.aNh = (TextView) findViewById(i.f.search_root);
-        this.aNh.setOnClickListener(new s(this));
+        this.aNs = (TextView) findViewById(i.f.search_root);
+        this.aNs.setOnClickListener(new s(this));
     }
 
-    public void b(TbPageContext<?> tbPageContext, com.baidu.tbadk.core.data.t tVar) {
-        if (tVar != null) {
-            if (this.aNg == null) {
+    public void b(TbPageContext<?> tbPageContext, com.baidu.tbadk.core.data.u uVar) {
+        if (uVar != null) {
+            if (this.aNr == null) {
                 ((ViewStub) findViewById(i.f.viewstub_banner)).inflate();
-                this.aNg = (BannerView) findViewById(i.f.home_like_banner_view);
+                this.aNr = (BannerView) findViewById(i.f.home_like_banner_view);
             }
-            this.aNg.reset();
-            this.aNg.setBannerType("enterforum_banner");
-            this.aNg.a(tbPageContext, tVar.sf(), tVar.getLink());
-            String link = tVar.getLink();
+            this.aNr.reset();
+            this.aNr.setBannerType("enterforum_banner");
+            this.aNr.a(tbPageContext, uVar.sf(), uVar.getLink());
+            String link = uVar.getLink();
             if (link != null && link.startsWith("game:detail:")) {
                 TiebaStatic.eventStat(tbPageContext.getPageActivity(), "game_show", "show", 1, "ref_id", "4000401");
             }
@@ -62,19 +62,19 @@ public class r extends LinearLayout {
 
     public void a(TbPageContext<?> tbPageContext, boolean z) {
         if (z) {
-            if (this.aNf == null) {
+            if (this.aNq == null) {
                 Je();
             }
-            com.baidu.tbadk.h.a.a(tbPageContext, this.aNf);
-            this.aNf.setVisibility(0);
-        } else if (this.aNf != null) {
-            this.aNf.setVisibility(8);
+            com.baidu.tbadk.h.a.a(tbPageContext, this.aNq);
+            this.aNq.setVisibility(0);
+        } else if (this.aNq != null) {
+            this.aNq.setVisibility(8);
         }
     }
 
     public void Je() {
-        this.aNf = ((ViewStub) findViewById(i.f.viewstub_guide)).inflate();
-        View findViewById = this.aNf.findViewById(i.f.enterforum_guide_find_interest);
+        this.aNq = ((ViewStub) findViewById(i.f.viewstub_guide)).inflate();
+        View findViewById = this.aNq.findViewById(i.f.enterforum_guide_find_interest);
         findViewById.setOnClickListener(new t(this));
         if (!TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_SQUARE_FORUM_SQUARE)) {
             findViewById.setVisibility(8);
@@ -85,12 +85,12 @@ public class r extends LinearLayout {
 
     public void e(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.h.a.a(tbPageContext, this);
-        if (this.aNg != null) {
-            this.aNg.oO();
+        if (this.aNr != null) {
+            this.aNr.oO();
         }
     }
 
     public void setSearchHint(String str) {
-        this.aNh.setText(UtilHelper.getFixedText(str, 20));
+        this.aNs.setText(UtilHelper.getFixedText(str, 20));
     }
 }

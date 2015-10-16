@@ -1,26 +1,24 @@
 package com.baidu.tbadk.core.util.a;
 
-import android.net.Proxy;
-import com.baidu.tbadk.TbConfig;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class h {
-    public static String getNetType() {
-        try {
-            if (com.baidu.adp.lib.util.i.iM()) {
-                if (com.baidu.adp.lib.util.i.iN()) {
-                    return TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE;
-                }
-                String defaultHost = Proxy.getDefaultHost();
-                if (defaultHost != null) {
-                    if (defaultHost.length() > 0) {
-                        return "2";
-                    }
-                }
-                return "1";
-            }
-            return null;
-        } catch (Exception e) {
-            return null;
-        }
+    public boolean acm;
+    public boolean mIsBaiduServer = true;
+    public String acn = "UTF-8";
+    public String mUrl = null;
+    public ArrayList<BasicNameValuePair> acj = null;
+    public boolean acl = true;
+    public boolean mIsBDImage = false;
+    public HashMap<String, byte[]> ack = null;
+    public String aco = null;
+    public String mNetType = null;
+    public String mFrom = null;
+
+    public h() {
+        this.acm = true;
+        this.acm = true;
     }
 }

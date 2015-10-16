@@ -5,18 +5,18 @@ import android.os.Looper;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class m extends r {
-    public long Gq;
-    public int awU;
-    public long axc;
+    public long Gr;
+    public int awV;
     public long axd;
     public long axe;
-    public int axf;
-    private a axg = null;
-    private final Handler axh = new n(this, Looper.getMainLooper());
+    public long axf;
+    public int axg;
+    private a axh = null;
+    private final Handler axi = new n(this, Looper.getMainLooper());
     public long uF;
 
     public void DN() {
-        this.axh.sendEmptyMessage(0);
+        this.axi.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -38,7 +38,7 @@ public class m extends r {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
-            m.this.awU = y.Eb().Ef();
+            m.this.awV = y.Eb().Ef();
             m.this.DO();
             return Boolean.TRUE;
         }

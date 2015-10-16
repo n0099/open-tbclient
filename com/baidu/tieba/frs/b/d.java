@@ -7,11 +7,11 @@ import com.baidu.tieba.frs.view.FrsHeaderView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ a bbN;
+    final /* synthetic */ a bbY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.bbN = aVar;
+        this.bbY = aVar;
     }
 
     @Override // java.lang.Runnable
@@ -28,42 +28,42 @@ public class d implements Runnable {
         com.baidu.tieba.frs.view.q qVar;
         com.baidu.tieba.frs.view.q qVar2;
         FrsActivity frsActivity2;
-        i = this.bbN.mScrollState;
+        i = this.bbY.mScrollState;
         if (i == 0) {
-            bdListView = this.bbN.bbv;
+            bdListView = this.bbY.bbG;
             if (bdListView.nx()) {
-                z = this.bbN.bbF;
+                z = this.bbY.bbQ;
                 if (!z) {
-                    i2 = this.bbN.aLo;
+                    i2 = this.bbY.aLz;
                     if (i2 == 1) {
-                        str = this.bbN.bbD;
+                        str = this.bbY.bbO;
                         if (str == "frs_page") {
-                            qVar = this.bbN.bbx;
+                            qVar = this.bbY.bbI;
                             if (qVar != null) {
-                                qVar2 = this.bbN.bbx;
+                                qVar2 = this.bbY.bbI;
                                 if (qVar2.NS()) {
-                                    TbadkSettings.getInst().saveBoolean(FrsActivity.aTs, true);
-                                    this.bbN.Ns();
-                                    frsActivity2 = this.bbN.baG;
-                                    frsActivity2.aTx = true;
-                                    this.bbN.bbF = true;
+                                    TbadkSettings.getInst().saveBoolean(FrsActivity.aTD, true);
+                                    this.bbY.Ns();
+                                    frsActivity2 = this.bbY.baR;
+                                    frsActivity2.aTI = true;
+                                    this.bbY.bbQ = true;
                                     return;
                                 }
                                 return;
                             }
                             return;
                         }
-                        str2 = this.bbN.bbD;
+                        str2 = this.bbY.bbO;
                         if (str2 == "normal_page") {
-                            frsHeaderView = this.bbN.bbw;
+                            frsHeaderView = this.bbY.bbH;
                             if (frsHeaderView != null) {
-                                frsHeaderView2 = this.bbN.bbw;
+                                frsHeaderView2 = this.bbY.bbH;
                                 if (frsHeaderView2.NS()) {
-                                    TbadkSettings.getInst().saveBoolean(FrsActivity.aTs, true);
-                                    this.bbN.Ns();
-                                    frsActivity = this.bbN.baG;
-                                    frsActivity.aTx = true;
-                                    this.bbN.bbF = true;
+                                    TbadkSettings.getInst().saveBoolean(FrsActivity.aTD, true);
+                                    this.bbY.Ns();
+                                    frsActivity = this.bbY.baR;
+                                    frsActivity.aTI = true;
+                                    this.bbY.bbQ = true;
                                 }
                             }
                         }

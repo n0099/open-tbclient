@@ -9,13 +9,13 @@ import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 /* loaded from: classes.dex */
 class a extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PersonInfoActivity csx;
+    final /* synthetic */ PersonInfoActivity csI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(PersonInfoActivity personInfoActivity, int i, int i2) {
         super(i, i2);
-        this.csx = personInfoActivity;
+        this.csI = personInfoActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -41,9 +41,9 @@ class a extends com.baidu.adp.framework.listener.a {
         y yVar10;
         if ((responsedMessage instanceof ProfileSocketResponseMessage) || (responsedMessage instanceof ProfileHttpResponseMessage)) {
             if (responsedMessage.getOrginalMessage() != null) {
-                yVar9 = this.csx.csk;
+                yVar9 = this.csI.csv;
                 if (yVar9.getUniqueId() != null) {
-                    yVar10 = this.csx.csk;
+                    yVar10 = this.csI.csv;
                     if (yVar10.getUniqueId() != responsedMessage.getOrginalMessage().getTag()) {
                         return;
                     }
@@ -51,49 +51,49 @@ class a extends com.baidu.adp.framework.listener.a {
             }
             if (responsedMessage instanceof ProfileSocketResponseMessage) {
                 ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
-                aVar3 = this.csx.aMa;
+                aVar3 = this.csI.aMl;
                 if (aVar3 != null) {
                     long downSize = profileSocketResponseMessage.getDownSize();
                     long costTime = profileSocketResponseMessage.getCostTime();
-                    aVar4 = this.csx.aMa;
+                    aVar4 = this.csI.aMl;
                     aVar4.a(false, !responsedMessage.hasError(), profileSocketResponseMessage.getError(), profileSocketResponseMessage.getErrorString(), downSize, 0L, costTime);
-                    this.csx.aMa = null;
+                    this.csI.aMl = null;
                 }
                 if (profileSocketResponseMessage.getError() != 0) {
-                    ajVar2 = this.csx.csl;
+                    ajVar2 = this.csI.csw;
                     ajVar2.hideProgress();
-                    this.csx.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.csx.getResources().getString(i.h.neterror) : responsedMessage.getErrorString());
+                    this.csI.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.csI.getResources().getString(i.h.neterror) : responsedMessage.getErrorString());
                 } else {
                     responsedMessage.getOrginalMessage();
-                    yVar8 = this.csx.csk;
+                    yVar8 = this.csI.csv;
                     yVar8.a(profileSocketResponseMessage);
                 }
             }
             if (responsedMessage instanceof ProfileHttpResponseMessage) {
                 ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
-                aVar = this.csx.aMa;
+                aVar = this.csI.aMl;
                 if (aVar != null) {
                     long downSize2 = profileHttpResponseMessage.getDownSize();
                     long costTime2 = profileHttpResponseMessage.getCostTime();
-                    aVar2 = this.csx.aMa;
+                    aVar2 = this.csI.aMl;
                     aVar2.a(true, !responsedMessage.hasError(), profileHttpResponseMessage.getError(), profileHttpResponseMessage.getErrorString(), downSize2, costTime2, 0L);
-                    this.csx.aMa = null;
+                    this.csI.aMl = null;
                 }
                 if (profileHttpResponseMessage.getError() == 0) {
-                    yVar7 = this.csx.csk;
+                    yVar7 = this.csI.csv;
                     yVar7.a(profileHttpResponseMessage);
                 } else {
-                    ajVar = this.csx.csl;
+                    ajVar = this.csI.csw;
                     ajVar.hideProgress();
-                    this.csx.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.csx.getResources().getString(i.h.neterror) : responsedMessage.getErrorString());
+                    this.csI.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.csI.getResources().getString(i.h.neterror) : responsedMessage.getErrorString());
                 }
             }
-            yVar = this.csx.csk;
+            yVar = this.csI.csv;
             if (yVar != null) {
-                yVar5 = this.csx.csk;
+                yVar5 = this.csI.csv;
                 if (yVar5.getUserData() != null) {
-                    blackListModel = this.csx.csj;
-                    yVar6 = this.csx.csk;
+                    blackListModel = this.csI.csu;
+                    yVar6 = this.csI.csv;
                     if (yVar6.getUserData().isMask()) {
                         i = 1;
                     } else {
@@ -102,11 +102,11 @@ class a extends com.baidu.adp.framework.listener.a {
                     blackListModel.setMaskType(i);
                 }
             }
-            yVar2 = this.csx.csk;
+            yVar2 = this.csI.csv;
             if (yVar2 != null) {
-                yVar3 = this.csx.csk;
+                yVar3 = this.csI.csv;
                 if (yVar3.getIsSelf()) {
-                    yVar4 = this.csx.csk;
+                    yVar4 = this.csI.csv;
                     UserData userData = yVar4.getUserData();
                     if (userData != null && (personPrivate = userData.getPersonPrivate()) != null) {
                         com.baidu.tbadk.core.a.h.w(5, personPrivate.Ac());

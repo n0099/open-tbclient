@@ -21,62 +21,62 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class cr implements PhotoLiveCardView.b {
-    private ChildViewPager aXv;
-    private ed aXw;
-    private a aXx;
-    private com.baidu.tbadk.core.data.o aXy;
-    private IndicatorView apz;
+    private ChildViewPager aXG;
+    private ed aXH;
+    private a aXI;
+    private com.baidu.tbadk.core.data.p aXJ;
+    private IndicatorView apA;
     private Context mContext;
     private final Handler.Callback mCallback = new cs(this);
     private final Handler mHandler = new Handler(this.mCallback);
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ct(this);
-    private ChildViewPager.a aXz = new cu(this);
+    private ChildViewPager.a aXK = new cu(this);
 
     public cr(ChildViewPager childViewPager, IndicatorView indicatorView) {
-        this.aXv = childViewPager;
-        this.apz = indicatorView;
+        this.aXG = childViewPager;
+        this.apA = indicatorView;
         this.mContext = childViewPager.getContext();
-        this.aXw = new ed(this.mContext);
-        this.aXw.setPortraitClicklistener(this);
-        this.aXv.setAdapter(this.aXw);
-        this.aXv.setOnPageChangeListener(this.mOnPageChangeListener);
-        this.aXv.setOnSingleTouchListener(this.aXz);
-        this.apz.setSelector(com.baidu.tbadk.core.util.am.getDrawable(i.e.dot_live_s));
-        this.apz.setDrawable(com.baidu.tbadk.core.util.am.getDrawable(i.e.dot_live_n));
+        this.aXH = new ed(this.mContext);
+        this.aXH.setPortraitClicklistener(this);
+        this.aXG.setAdapter(this.aXH);
+        this.aXG.setOnPageChangeListener(this.mOnPageChangeListener);
+        this.aXG.setOnSingleTouchListener(this.aXK);
+        this.apA.setSelector(com.baidu.tbadk.core.util.an.getDrawable(i.e.dot_live_s));
+        this.apA.setDrawable(com.baidu.tbadk.core.util.an.getDrawable(i.e.dot_live_n));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Mn() {
         int count;
-        if (this.aXv != null && this.aXw != null && (count = this.aXw.getCount()) >= 2) {
-            int currentItem = this.aXv.getCurrentItem();
+        if (this.aXG != null && this.aXH != null && (count = this.aXH.getCount()) >= 2) {
+            int currentItem = this.aXG.getCurrentItem();
             int i = count - 2;
             if (currentItem < 1) {
-                this.aXv.setCurrentItem(i, false);
+                this.aXG.setCurrentItem(i, false);
             } else if (currentItem > i) {
-                this.aXv.setCurrentItem(1, false);
+                this.aXG.setCurrentItem(1, false);
             } else {
-                this.aXv.setCurrentItem(currentItem + 1);
+                this.aXG.setCurrentItem(currentItem + 1);
             }
         }
     }
 
-    public void a(com.baidu.tbadk.core.data.o oVar) {
-        if (oVar != null && oVar.rN() != null) {
-            this.aXy = oVar;
-            this.aXx = new a(oVar.rN());
-            this.aXw.setDatas(this.aXx.Ms());
-            this.aXv.setAdapter(this.aXw);
-            this.aXv.setCurrentItem(this.aXx.Mr(), false);
-            if (this.aXx.Mq() >= 2) {
-                this.apz.setVisibility(0);
-                if (this.apz.getCount() != this.aXx.Mq()) {
-                    this.apz.setCount(this.aXx.Mq());
+    public void a(com.baidu.tbadk.core.data.p pVar) {
+        if (pVar != null && pVar.rN() != null) {
+            this.aXJ = pVar;
+            this.aXI = new a(pVar.rN());
+            this.aXH.setDatas(this.aXI.Ms());
+            this.aXG.setAdapter(this.aXH);
+            this.aXG.setCurrentItem(this.aXI.Mr(), false);
+            if (this.aXI.Mq() >= 2) {
+                this.apA.setVisibility(0);
+                if (this.apA.getCount() != this.aXI.Mq()) {
+                    this.apA.setCount(this.aXI.Mq());
                 }
                 Mo();
                 return;
             }
-            this.apz.setVisibility(8);
+            this.apA.setVisibility(8);
             Mp();
         }
     }
@@ -99,32 +99,32 @@ public class cr implements PhotoLiveCardView.b {
             if (!StringUtils.isNull(photoLiveCardData.getAuthorId())) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.mContext, photoLiveCardData.getAuthorId(), null)));
             }
-            TiebaStatic.log(new com.baidu.tbadk.core.util.ap("c10178").ae(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())).r("obj_locate", this.aXx.fE(this.aXv.getCurrentItem()) + 1));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10178").ae(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())).r("obj_locate", this.aXI.fE(this.aXG.getCurrentItem()) + 1));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private List<PhotoLiveCardData> aXB;
-        private List<PhotoLiveCardData> aXC;
-        private final boolean aXD;
+        private List<PhotoLiveCardData> aXM;
+        private List<PhotoLiveCardData> aXN;
+        private final boolean aXO;
 
         public a(List<PhotoLiveCardData> list) {
-            this.aXB = list;
+            this.aXM = list;
             if (list != null && list.size() > 1) {
-                this.aXD = true;
+                this.aXO = true;
             } else {
-                this.aXD = false;
+                this.aXO = false;
             }
-            this.aXC = X(this.aXB);
+            this.aXN = X(this.aXM);
         }
 
         private List<PhotoLiveCardData> X(List<PhotoLiveCardData> list) {
             ArrayList arrayList = new ArrayList();
             if (list != null) {
                 arrayList.addAll(list);
-                if (this.aXD && list.size() >= 1) {
+                if (this.aXO && list.size() >= 1) {
                     arrayList.add(0, list.get(list.size() - 1));
                     arrayList.add(list.get(0));
                 }
@@ -134,8 +134,8 @@ public class cr implements PhotoLiveCardView.b {
 
         /* JADX INFO: Access modifiers changed from: private */
         public int fD(int i) {
-            if (this.aXD) {
-                int size = this.aXC.size();
+            if (this.aXO) {
+                int size = this.aXN.size();
                 if (i == 0) {
                     return size - 2;
                 }
@@ -149,7 +149,7 @@ public class cr implements PhotoLiveCardView.b {
 
         /* JADX INFO: Access modifiers changed from: private */
         public int fE(int i) {
-            if (this.aXD) {
+            if (this.aXO) {
                 return i - 1;
             }
             return i;
@@ -157,18 +157,18 @@ public class cr implements PhotoLiveCardView.b {
 
         /* JADX INFO: Access modifiers changed from: private */
         public int Mq() {
-            if (this.aXB == null) {
+            if (this.aXM == null) {
                 return 0;
             }
-            return this.aXB.size();
+            return this.aXM.size();
         }
 
         public int Mr() {
-            return this.aXD ? 1 : 0;
+            return this.aXO ? 1 : 0;
         }
 
         public List<PhotoLiveCardData> Ms() {
-            return this.aXC;
+            return this.aXN;
         }
     }
 }

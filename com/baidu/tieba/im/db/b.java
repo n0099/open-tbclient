@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.db;
 /* loaded from: classes.dex */
 public class b {
-    private static b bwD = new b();
+    private static b bwO = new b();
 
     public static b TD() {
-        return bwD;
+        return bwO;
     }
 
     private b() {

@@ -7,13 +7,13 @@ import android.widget.BaseAdapter;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter implements AbsListView.OnScrollListener {
-    private PraiseListActivity clT;
+    private PraiseListActivity cmf;
     private volatile boolean isScrolling;
     private List<a> mZanItemDataList = null;
 
     public c(PraiseListActivity praiseListActivity) {
-        this.clT = null;
-        this.clT = praiseListActivity;
+        this.cmf = null;
+        this.cmf = praiseListActivity;
     }
 
     public void setZanItemDataList(List<a> list) {
@@ -63,10 +63,10 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     private View buildItemView(int i, View view, ViewGroup viewGroup) {
-        b f = b.f(this.clT.getPageContext().getPageActivity(), view);
+        b f = b.f(this.cmf.getPageContext().getPageActivity(), view);
         a item = getItem(i);
         f.setData(item.getUserName(), item.getPortrait(), item.agZ(), this.isScrolling);
-        this.clT.changSkinType(f.getView());
+        this.cmf.changSkinType(f.getView());
         return f.getView();
     }
 }

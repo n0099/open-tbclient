@@ -11,8 +11,8 @@ import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class bi extends bn<com.baidu.tbadk.core.data.b, bj> {
-    private View.OnClickListener aUo;
-    private View.OnClickListener aUp;
+    private View.OnClickListener aUA;
+    private View.OnClickListener aUz;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public bi(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
@@ -20,11 +20,11 @@ public class bi extends bn<com.baidu.tbadk.core.data.b, bj> {
     }
 
     public void i(View.OnClickListener onClickListener) {
-        this.aUp = onClickListener;
+        this.aUA = onClickListener;
     }
 
     public void h(View.OnClickListener onClickListener) {
-        this.aUo = onClickListener;
+        this.aUz = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -46,29 +46,29 @@ public class bi extends bn<com.baidu.tbadk.core.data.b, bj> {
     }
 
     private void a(bj bjVar, com.baidu.tbadk.core.data.b bVar) {
-        if (bVar == null || bVar.Ui == null) {
-            bjVar.aVB.setVisibility(8);
+        if (bVar == null || bVar.Uj == null) {
+            bjVar.aVM.setVisibility(8);
             return;
         }
-        List<String> list = bVar.Ui.Ut;
+        List<String> list = bVar.Uj.Uu;
         if (list == null || list.size() <= 0) {
-            bjVar.aVB.setVisibility(8);
+            bjVar.aVM.setVisibility(8);
         } else if (!com.baidu.tbadk.core.m.qX().rb()) {
-            bjVar.aVB.setVisibility(8);
+            bjVar.aVM.setVisibility(8);
         } else {
-            bjVar.aVB.setVisibility(0);
+            bjVar.aVM.setVisibility(0);
             int size = list.size();
             a(bjVar, size);
             int i = this.mIsFromCDN ? 30 : 31;
             if (size == 1) {
-                bjVar.aVH.d(list.get(0), i, false);
+                bjVar.aVS.d(list.get(0), i, false);
             } else if (size == 2) {
-                bjVar.aVH.d(list.get(0), i, false);
-                bjVar.aVI.d(list.get(1), i, false);
+                bjVar.aVS.d(list.get(0), i, false);
+                bjVar.aVT.d(list.get(1), i, false);
             } else if (size >= 3) {
-                bjVar.aVH.d(list.get(0), i, false);
-                bjVar.aVI.d(list.get(1), i, false);
-                bjVar.aVJ.d(list.get(2), i, false);
+                bjVar.aVS.d(list.get(0), i, false);
+                bjVar.aVT.d(list.get(1), i, false);
+                bjVar.aVU.d(list.get(2), i, false);
             }
         }
     }
@@ -76,83 +76,83 @@ public class bi extends bn<com.baidu.tbadk.core.data.b, bj> {
     private void a(bj bjVar, int i) {
         if (i > 0) {
             if (i == 1) {
-                bjVar.aVH.setVisibility(0);
-                bjVar.aVI.setVisibility(4);
-                bjVar.aVJ.setVisibility(4);
+                bjVar.aVS.setVisibility(0);
+                bjVar.aVT.setVisibility(4);
+                bjVar.aVU.setVisibility(4);
             } else if (i == 2) {
-                bjVar.aVH.setVisibility(0);
-                bjVar.aVI.setVisibility(0);
-                bjVar.aVJ.setVisibility(4);
+                bjVar.aVS.setVisibility(0);
+                bjVar.aVT.setVisibility(0);
+                bjVar.aVU.setVisibility(4);
             } else if (i >= 3) {
-                bjVar.aVH.setVisibility(0);
-                bjVar.aVI.setVisibility(0);
-                bjVar.aVJ.setVisibility(0);
+                bjVar.aVS.setVisibility(0);
+                bjVar.aVT.setVisibility(0);
+                bjVar.aVU.setVisibility(0);
             }
         }
     }
 
     private void b(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.b bVar, bj bjVar) {
-        if (this.aRT != null && bVar != null && bVar.Ui != null && this.aRT != null && (this.aRT instanceof FrsActivity)) {
-            ((FrsActivity) this.aRT).Lm().Nb();
-            bjVar.aVA.setPadding(0, i - this.aTF == 0 ? this.aSG : this.aSH, 0, 0);
-            this.aRT.getLayoutMode().ad(this.mSkinType == 1);
-            this.aRT.getLayoutMode().k(view);
-            if (!bVar.Uj && this.aRT != null && (this.aRT instanceof FrsActivity)) {
-                bVar.Uj = true;
-                ((FrsActivity) this.aRT).a(bVar, "show");
-                ((FrsActivity) this.aRT).b(bVar, "show");
+        if (this.aSe != null && bVar != null && bVar.Uj != null && this.aSe != null && (this.aSe instanceof FrsActivity)) {
+            ((FrsActivity) this.aSe).Lm().Nb();
+            bjVar.aVL.setPadding(0, i - this.aTQ == 0 ? this.aSR : this.aSS, 0, 0);
+            this.aSe.getLayoutMode().ad(this.mSkinType == 1);
+            this.aSe.getLayoutMode().k(view);
+            if (!bVar.Uk && this.aSe != null && (this.aSe instanceof FrsActivity)) {
+                bVar.Uk = true;
+                ((FrsActivity) this.aSe).a(bVar, "show");
+                ((FrsActivity) this.aSe).b(bVar, "show");
             }
-            bjVar.aVD.setText(gP(bVar.Ui.userName));
-            if (StringUtils.isNull(bVar.Ui.Ul)) {
-                bjVar.aVF.setVisibility(8);
+            bjVar.aVO.setText(gP(bVar.Uj.userName));
+            if (StringUtils.isNull(bVar.Uj.Um)) {
+                bjVar.aVQ.setVisibility(8);
             } else {
-                bjVar.aVF.setVisibility(0);
-                bjVar.aVF.setText(bVar.Ui.Ul);
+                bjVar.aVQ.setVisibility(0);
+                bjVar.aVQ.setText(bVar.Uj.Um);
             }
-            if (StringUtils.isNull(bVar.Ui.Um)) {
-                bjVar.aVG.setVisibility(8);
+            if (StringUtils.isNull(bVar.Uj.Un)) {
+                bjVar.aVR.setVisibility(8);
             } else {
-                bjVar.aVG.setVisibility(0);
-                bjVar.aVG.setText(bVar.Ui.Um);
+                bjVar.aVR.setVisibility(0);
+                bjVar.aVR.setText(bVar.Uj.Un);
             }
-            bjVar.aVE.setText(com.baidu.tbadk.core.util.ar.o(bVar.Uh));
+            bjVar.aVP.setText(com.baidu.tbadk.core.util.as.o(bVar.Ui));
             if (com.baidu.tbadk.core.m.qX().qZ()) {
-                bjVar.aVC.setVisibility(0);
-                bjVar.aVC.d(bVar.Ui.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+                bjVar.aVN.setVisibility(0);
+                bjVar.aVN.d(bVar.Uj.userPortrait, this.mIsFromCDN ? 13 : 14, false);
             } else {
-                bjVar.aVC.setVisibility(8);
+                bjVar.aVN.setVisibility(8);
             }
-            bjVar.aVC.setTag(bVar.Ui.userPortrait);
-            bjVar.aVK.setTag(Integer.valueOf(i));
+            bjVar.aVN.setTag(bVar.Uj.userPortrait);
+            bjVar.aVV.setTag(Integer.valueOf(i));
             if (bVar.rr()) {
-                if (StringUtils.isNull(bVar.Ui.Us)) {
-                    bjVar.aVK.setVisibility(8);
+                if (StringUtils.isNull(bVar.Uj.Ut)) {
+                    bjVar.aVV.setVisibility(8);
                     return;
                 }
                 a(true, bjVar);
-                bjVar.aVK.setText(bVar.Ui.Us);
-                bjVar.aVK.setOnClickListener(this.aUo);
+                bjVar.aVV.setText(bVar.Uj.Ut);
+                bjVar.aVV.setOnClickListener(this.aUz);
             } else if (bVar.rq()) {
-                bjVar.aVK.setVisibility(0);
-                switch (bVar.TT) {
+                bjVar.aVV.setVisibility(0);
+                switch (bVar.TU) {
                     case 0:
-                        if (StringUtils.isNull(bVar.Ui.Us)) {
-                            bjVar.aVK.setText(i.h.pb_app_download);
+                        if (StringUtils.isNull(bVar.Uj.Ut)) {
+                            bjVar.aVV.setText(i.h.pb_app_download);
                         } else {
-                            bjVar.aVK.setText(bVar.Ui.Us);
+                            bjVar.aVV.setText(bVar.Uj.Ut);
                         }
                         a(true, bjVar);
-                        bjVar.aVK.setOnClickListener(this.aUp);
+                        bjVar.aVV.setOnClickListener(this.aUA);
                         return;
                     case 1:
                         a(false, bjVar);
-                        bjVar.aVK.setText(i.h.downloading2);
-                        bjVar.aVK.setOnClickListener(null);
+                        bjVar.aVV.setText(i.h.downloading2);
+                        bjVar.aVV.setOnClickListener(null);
                         return;
                     case 2:
                         a(true, bjVar);
-                        bjVar.aVK.setText(i.h.frs_new_style_download_text);
-                        bjVar.aVK.setOnClickListener(this.aUp);
+                        bjVar.aVV.setText(i.h.frs_new_style_download_text);
+                        bjVar.aVV.setOnClickListener(this.aUA);
                         return;
                     default:
                         return;
@@ -163,12 +163,12 @@ public class bi extends bn<com.baidu.tbadk.core.data.b, bj> {
 
     private void a(boolean z, bj bjVar) {
         if (z) {
-            com.baidu.tbadk.core.util.am.i((View) bjVar.aVK, i.e.btn_appdownload);
-            com.baidu.tbadk.core.util.am.b(bjVar.aVK, i.c.cp_cont_i, 1);
+            com.baidu.tbadk.core.util.an.i((View) bjVar.aVV, i.e.btn_appdownload);
+            com.baidu.tbadk.core.util.an.b(bjVar.aVV, i.c.cp_cont_i, 1);
             return;
         }
-        com.baidu.tbadk.core.util.am.i((View) bjVar.aVK, i.e.btn_content_download_d);
-        com.baidu.tbadk.core.util.am.b(bjVar.aVK, i.c.faceshop_downloaded_text, 1);
+        com.baidu.tbadk.core.util.an.i((View) bjVar.aVV, i.e.btn_content_download_d);
+        com.baidu.tbadk.core.util.an.b(bjVar.aVV, i.c.faceshop_downloaded_text, 1);
     }
 
     private String gP(String str) {

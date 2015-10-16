@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ PbChosenActivity cfa;
+    final /* synthetic */ PbChosenActivity cfl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PbChosenActivity pbChosenActivity) {
-        this.cfa = pbChosenActivity;
+        this.cfl = pbChosenActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cfa.finish();
+        this.cfl.finish();
     }
 }

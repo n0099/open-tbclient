@@ -24,11 +24,12 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GameDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.z;
+import com.baidu.tbadk.core.data.aa;
+import com.baidu.tbadk.core.data.x;
 import com.baidu.tbadk.core.flow.CoverFlowView;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tieba.frs.FrsActivity;
@@ -40,62 +41,62 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    protected TextView LK;
     protected TextView LL;
     protected TextView LM;
     protected TextView LN;
-    protected View LR;
-    protected FrsActivity aUU;
-    protected int bbB;
-    protected ImageView bcA;
-    protected BarImageView bcB;
-    protected UserIconBox bcC;
-    protected ArrayList<com.baidu.tbadk.core.data.c> bcD;
-    protected be bcE;
-    protected i bcF;
-    protected w bcG;
-    protected String bcH;
-    protected String bcI;
-    protected String bcJ;
-    protected com.baidu.tieba.tbadkCore.o bcK;
-    protected com.baidu.tbadk.core.data.v bcL;
-    protected int bcN;
-    protected int bcO;
-    protected int bcP;
-    protected int bcQ;
-    protected boolean bcR;
-    protected boolean bcS;
-    protected boolean bcT;
-    protected boolean bcU;
-    protected boolean bcV;
-    protected boolean bcW;
-    protected float bcX;
-    protected FrameLayout bca;
-    protected Button bcb;
-    protected FrameLayout bcc;
-    protected Button bcd;
-    protected TextView bce;
-    protected ProgressBar bcf;
-    protected FrameLayout bcg;
-    protected TextView bch;
-    protected RelativeLayout bci;
-    protected TextView bcj;
-    protected ImageView bck;
-    protected ImageView bcl;
-    protected View bcm;
-    protected LinearLayout bcn;
-    protected TextView bco;
-    protected CoverFlowView<com.baidu.tbadk.core.data.h> bcp;
-    protected TextView bcq;
-    private Drawable bcr;
-    protected LinearLayout bcs;
-    protected com.baidu.tbadk.core.data.w bct;
-    protected z bcu;
-    protected U9InfoView bcv;
-    protected PopupWindow bcw;
+    protected TextView LO;
+    protected View LS;
+    protected FrsActivity aVf;
+    protected int bbM;
+    protected CoverFlowView<com.baidu.tbadk.core.data.i> bcA;
+    protected TextView bcB;
+    private Drawable bcC;
+    protected LinearLayout bcD;
+    protected x bcE;
+    protected aa bcF;
+    protected U9InfoView bcG;
+    protected PopupWindow bcH;
+    protected View bcI;
+    protected TextView bcJ;
+    protected TextView bcK;
+    protected ImageView bcL;
+    protected BarImageView bcM;
+    protected UserIconBox bcN;
+    protected ArrayList<com.baidu.tbadk.core.data.c> bcO;
+    protected be bcP;
+    protected i bcQ;
+    protected w bcR;
+    protected String bcS;
+    protected String bcT;
+    protected String bcU;
+    protected com.baidu.tieba.tbadkCore.o bcV;
+    protected com.baidu.tbadk.core.data.w bcW;
+    protected int bcY;
+    protected int bcZ;
+    protected FrameLayout bcl;
+    protected Button bcm;
+    protected FrameLayout bcn;
+    protected Button bco;
+    protected TextView bcp;
+    protected ProgressBar bcq;
+    protected FrameLayout bcr;
+    protected TextView bcs;
+    protected RelativeLayout bct;
+    protected TextView bcu;
+    protected ImageView bcv;
+    protected ImageView bcw;
     protected View bcx;
-    protected TextView bcy;
+    protected LinearLayout bcy;
     protected TextView bcz;
+    protected int bda;
+    protected int bdb;
+    protected boolean bdc;
+    protected boolean bdd;
+    protected boolean bde;
+    protected boolean bdf;
+    protected boolean bdg;
+    protected boolean bdh;
+    protected float bdi;
     private int drawablePadding;
     protected TbPageContext<FrsActivity> mContext;
     protected String mForumId;
@@ -103,17 +104,17 @@ public class a {
     protected Handler mHandler;
     protected int mMemberNum;
     protected int mMemberType;
-    protected int bbX = 0;
-    protected int bbY = 0;
-    protected int bbZ = 0;
-    protected String bcM = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/topic_page/133_1";
-    protected final Runnable bcY = new b(this);
-    protected final View.OnClickListener bcZ = new c(this);
-    protected final View.OnClickListener bda = new d(this);
-    protected boolean bdb = TbadkCoreApplication.m411getInst().appResponseToIntentClass(GameDetailActivityConfig.class);
+    protected int bci = 0;
+    protected int bcj = 0;
+    protected int bck = 0;
+    protected String bcX = String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/topic_page/133_1";
+    protected final Runnable bdj = new b(this);
+    protected final View.OnClickListener bdk = new c(this);
+    protected final View.OnClickListener bdl = new d(this);
+    protected boolean bdm = TbadkCoreApplication.m411getInst().appResponseToIntentClass(GameDetailActivityConfig.class);
 
     public boolean NR() {
-        return this.bcR;
+        return this.bdc;
     }
 
     public void a(TbPageContextSupport<?> tbPageContextSupport, View view, float f, float f2) {
@@ -133,7 +134,7 @@ public class a {
     public boolean NS() {
         int[] iArr = new int[2];
         try {
-            this.bcA.getLocationOnScreen(iArr);
+            this.bcL.getLocationOnScreen(iArr);
             return iArr[0] >= 160 && iArr[1] >= 105;
         } catch (NullPointerException e) {
             return false;
@@ -141,113 +142,113 @@ public class a {
     }
 
     public View getView() {
-        return this.LR;
+        return this.LS;
     }
 
     public View NT() {
-        return this.bcm;
+        return this.bcx;
     }
 
     public BarImageView NF() {
-        return this.bcB;
+        return this.bcM;
     }
 
     public TextView NU() {
-        return this.LM;
+        return this.LN;
     }
 
     public boolean E(View view) {
-        return this.bcF.F(view);
+        return this.bcQ.F(view);
     }
 
     public void NV() {
-        this.bcF.hide();
+        this.bcQ.hide();
     }
 
     public void NW() {
-        this.bcF.show();
+        this.bcQ.show();
     }
 
     public boolean ND() {
-        return this.bcV;
+        return this.bdg;
     }
 
     public void cm(boolean z) {
-        this.bcU = z;
-        if (this.bcU) {
-            this.bcc.setVisibility(0);
+        this.bdf = z;
+        if (this.bdf) {
+            this.bcn.setVisibility(0);
         } else {
-            this.bcc.setVisibility(4);
+            this.bcn.setVisibility(4);
         }
     }
 
     public View NX() {
-        return this.bci;
+        return this.bct;
     }
 
     public boolean NE() {
-        return this.bcW;
+        return this.bdh;
     }
 
     public ProgressBar NY() {
-        return this.bcf;
+        return this.bcq;
     }
 
     public void onDestory() {
-        this.bcS = true;
+        this.bdd = true;
     }
 
     public void setIsFirstPage(boolean z) {
-        this.bcT = z;
+        this.bde = z;
     }
 
     public void a(int i, String str, int i2, float f, boolean z) {
-        this.bcH = str;
-        this.bcN = i2;
+        this.bcS = str;
+        this.bcY = i2;
         if (i == 0) {
-            this.bcR = false;
-            this.bca.setVisibility(0);
-            this.bci.setVisibility(8);
+            this.bdc = false;
+            this.bcl.setVisibility(0);
+            this.bct.setVisibility(8);
             return;
         }
-        this.bcR = true;
-        this.bca.setVisibility(8);
+        this.bdc = true;
+        this.bcl.setVisibility(8);
         if (z) {
-            this.bcE.z(this.bca);
+            this.bcP.z(this.bcl);
         }
         a(false, f);
-        this.bci.setVisibility(0);
+        this.bct.setVisibility(0);
     }
 
     public void gb(int i) {
         if (i == 0) {
-            this.bcR = false;
-            this.bca.setVisibility(0);
-            this.bci.setVisibility(8);
+            this.bdc = false;
+            this.bcl.setVisibility(0);
+            this.bct.setVisibility(8);
             return;
         }
-        this.bcR = true;
-        this.bca.setVisibility(8);
-        this.bci.setVisibility(0);
+        this.bdc = true;
+        this.bcl.setVisibility(8);
+        this.bct.setVisibility(0);
     }
 
     public void gc(int i) {
         if (i == 0) {
-            this.bcV = false;
-            this.bcg.setVisibility(8);
-            this.bcc.setVisibility(0);
-            am.i((View) this.bcd, i.e.frs_btn_sign);
+            this.bdg = false;
+            this.bcr.setVisibility(8);
+            this.bcn.setVisibility(0);
+            an.i((View) this.bco, i.e.frs_btn_sign);
             return;
         }
-        this.bcV = true;
-        this.bcc.setVisibility(8);
-        this.bch.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(i.e.icon_sign_d), (Drawable) null, (Drawable) null, (Drawable) null);
-        if (this.bcP <= 1) {
-            this.bch.setText(this.mContext.getString(i.h.signed));
+        this.bdg = true;
+        this.bcn.setVisibility(8);
+        this.bcs.setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_sign_d), (Drawable) null, (Drawable) null, (Drawable) null);
+        if (this.bda <= 1) {
+            this.bcs.setText(this.mContext.getString(i.h.signed));
         } else {
-            this.bch.setText(String.valueOf(this.mContext.getString(i.h.signed_less)) + String.valueOf(this.bcP) + this.mContext.getString(i.h.day));
+            this.bcs.setText(String.valueOf(this.mContext.getString(i.h.signed_less)) + String.valueOf(this.bda) + this.mContext.getString(i.h.day));
         }
-        this.bcg.setVisibility(0);
+        this.bcr.setVisibility(0);
     }
 
     public void setMemberType(int i) {
@@ -256,25 +257,25 @@ public class a {
 
     public void NZ() {
         if (this.mMemberType != 0) {
-            am.c(this.bcA, i.e.icon_speed_orange);
+            an.c(this.bcL, i.e.icon_speed_orange);
         } else {
-            am.c(this.bcA, i.e.icon_speed_gray);
+            an.c(this.bcL, i.e.icon_speed_gray);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(TextView textView, TextView textView2) {
-        textView.setText(String.valueOf(this.bcQ));
-        if (this.bbB >= 10000) {
-            if (this.bbB % 10000 == 0) {
-                textView2.setText(String.valueOf(this.mContext.getString(i.h.experience_divider)) + String.valueOf(this.bbB / 10000) + this.mContext.getString(i.h.member_count_unit));
+        textView.setText(String.valueOf(this.bdb));
+        if (this.bbM >= 10000) {
+            if (this.bbM % 10000 == 0) {
+                textView2.setText(String.valueOf(this.mContext.getString(i.h.experience_divider)) + String.valueOf(this.bbM / 10000) + this.mContext.getString(i.h.member_count_unit));
                 return;
             } else {
-                textView2.setText(String.valueOf(this.mContext.getString(i.h.experience_divider)) + String.valueOf(this.bbB / 10000.0f) + this.mContext.getString(i.h.member_count_unit));
+                textView2.setText(String.valueOf(this.mContext.getString(i.h.experience_divider)) + String.valueOf(this.bbM / 10000.0f) + this.mContext.getString(i.h.member_count_unit));
                 return;
             }
         }
-        textView2.setText(String.valueOf(this.mContext.getString(i.h.experience_divider)) + String.valueOf(this.bbB));
+        textView2.setText(String.valueOf(this.mContext.getString(i.h.experience_divider)) + String.valueOf(this.bbM));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -299,57 +300,57 @@ public class a {
     public void a(boolean z, float f) {
     }
 
-    public void a(com.baidu.tbadk.core.data.g gVar) {
-        if (this.bcp == null || gVar == null || gVar.rx() == null || gVar.rx().size() <= 0) {
-            if (this.bcp != null) {
-                this.bcp.setVisibility(8);
+    public void a(com.baidu.tbadk.core.data.h hVar) {
+        if (this.bcA == null || hVar == null || hVar.rx() == null || hVar.rx().size() <= 0) {
+            if (this.bcA != null) {
+                this.bcA.setVisibility(8);
                 return;
             }
             return;
         }
-        this.bcr = am.getDrawable(i.e.icon_frs_notice);
+        this.bcC = an.getDrawable(i.e.icon_frs_notice);
         this.drawablePadding = com.baidu.adp.lib.util.k.d(this.mContext.getPageActivity(), i.d.ds10);
-        this.bcp.setVisibility(0);
-        ArrayList<com.baidu.tbadk.core.data.h> rx = gVar.rx();
-        List<com.baidu.tbadk.core.data.h> subList = rx.size() > 5 ? rx.subList(0, 5) : rx;
+        this.bcA.setVisibility(0);
+        ArrayList<com.baidu.tbadk.core.data.i> rx = hVar.rx();
+        List<com.baidu.tbadk.core.data.i> subList = rx.size() > 5 ? rx.subList(0, 5) : rx;
         if (subList.size() > 1) {
-            this.bcp.setDisableParentEvent(true);
+            this.bcA.setDisableParentEvent(true);
         } else {
-            this.bcp.setDisableParentEvent(false);
+            this.bcA.setDisableParentEvent(false);
         }
-        this.bcp.setData(subList);
-        if (this.bcq != null) {
+        this.bcA.setData(subList);
+        if (this.bcB != null) {
             if (subList.size() > 2) {
-                this.bcq.setPadding(this.bbX, 0, this.bbZ, 0);
+                this.bcB.setPadding(this.bci, 0, this.bck, 0);
             } else {
-                this.bcq.setPadding(this.bbX, 0, this.bbY, 0);
+                this.bcB.setPadding(this.bci, 0, this.bcj, 0);
             }
             if (subList.size() == 1 && subList.get(0) != null && subList.get(0).getTitle() != null) {
                 if (subList.get(0).rA()) {
-                    this.bcq.setVisibility(8);
+                    this.bcB.setVisibility(8);
                     return;
                 }
                 if (StringUtils.isNull(subList.get(0).getTitle().trim(), true)) {
-                    this.bcq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-                    this.bcq.setText("");
+                    this.bcB.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                    this.bcB.setText("");
                 } else {
-                    this.bcq.setCompoundDrawablePadding(this.drawablePadding);
-                    this.bcq.setCompoundDrawablesWithIntrinsicBounds(this.bcr, (Drawable) null, (Drawable) null, (Drawable) null);
-                    this.bcq.setText(subList.get(0).getTitle().trim());
+                    this.bcB.setCompoundDrawablePadding(this.drawablePadding);
+                    this.bcB.setCompoundDrawablesWithIntrinsicBounds(this.bcC, (Drawable) null, (Drawable) null, (Drawable) null);
+                    this.bcB.setText(subList.get(0).getTitle().trim());
                 }
                 String str = "";
-                if (this.aUU != null) {
-                    str = this.aUU.getForumId();
+                if (this.aVf != null) {
+                    str = this.aVf.getForumId();
                 }
-                TiebaStatic.log(new ap("c10132").ae(ImageViewerConfig.FORUM_ID, str).r(ImageViewerConfig.INDEX, 0));
+                TiebaStatic.log(new aq("c10132").ae(ImageViewerConfig.FORUM_ID, str).r(ImageViewerConfig.INDEX, 0));
             }
         }
     }
 
     public void Oa() {
-        if (this.bcp != null) {
-            this.bcp.setCoverFlowFactory(new g(this));
-            this.bcp.setCallback(new h(this));
+        if (this.bcA != null) {
+            this.bcA.setCoverFlowFactory(new g(this));
+            this.bcA.setCallback(new h(this));
         }
     }
 

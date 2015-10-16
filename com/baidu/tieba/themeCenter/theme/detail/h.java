@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements AdapterView.OnItemClickListener {
-    final /* synthetic */ f dgD;
+    final /* synthetic */ f dhd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar) {
-        this.dgD = fVar;
+        this.dhd = fVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -23,12 +23,12 @@ public class h implements AdapterView.OnItemClickListener {
         SkinDetailActivity skinDetailActivity2;
         c cVar2;
         TiebaStatic.log("c10277");
-        cVar = this.dgD.dgB;
+        cVar = this.dhd.dhb;
         cVar.getItem(i);
-        skinDetailActivity = this.dgD.dgy;
-        skinDetailActivity2 = this.dgD.dgy;
+        skinDetailActivity = this.dhd.dgY;
+        skinDetailActivity2 = this.dhd.dgY;
         ImageViewerConfig imageViewerConfig = new ImageViewerConfig(skinDetailActivity2.getPageContext().getPageActivity());
-        cVar2 = this.dgD.dgB;
-        skinDetailActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, imageViewerConfig.createConfig(cVar2.azt(), i, null, "", "", true, "", true)));
+        cVar2 = this.dhd.dhb;
+        skinDetailActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, imageViewerConfig.createConfig(cVar2.azD(), i, null, "", "", true, "", true)));
     }
 }

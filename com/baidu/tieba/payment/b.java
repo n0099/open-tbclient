@@ -4,36 +4,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.f<PayVcodeActivity> {
-    private PayVcodeActivity cdF;
-    private View cdG;
-    private ViewGroup cdH;
-    private TextView cdI;
-    private TextView cdJ;
+    private PayVcodeActivity cdQ;
+    private View cdR;
+    private ViewGroup cdS;
+    private TextView cdT;
+    private TextView cdU;
     private ProgressBar mProgress;
     private ViewGroup mRootView;
     private BaseWebView mWebView;
 
     public b(PayVcodeActivity payVcodeActivity) {
         super(payVcodeActivity.getPageContext());
-        this.cdF = payVcodeActivity;
+        this.cdQ = payVcodeActivity;
         payVcodeActivity.setContentView(i.g.pay_vcode_activity);
         n(payVcodeActivity);
     }
 
     private void n(PayVcodeActivity payVcodeActivity) {
-        this.mRootView = (ViewGroup) this.cdF.findViewById(i.f.payvcode_parent);
-        this.cdI = (TextView) this.cdF.findViewById(i.f.payment_performance);
-        am.i((View) this.cdI, i.e.s_navbar_button_bg);
-        am.b(this.cdI, i.c.cp_cont_i, 1);
+        this.mRootView = (ViewGroup) this.cdQ.findViewById(i.f.payvcode_parent);
+        this.cdT = (TextView) this.cdQ.findViewById(i.f.payment_performance);
+        an.i((View) this.cdT, i.e.s_navbar_button_bg);
+        an.b(this.cdT, i.c.cp_cont_i, 1);
         this.mWebView = (BaseWebView) payVcodeActivity.findViewById(i.f.vcode_webview);
-        this.cdJ = (TextView) payVcodeActivity.findViewById(i.f.webview_fail_view);
-        this.cdG = payVcodeActivity.findViewById(i.f.payvcode_empty_layout);
-        this.cdH = (ViewGroup) payVcodeActivity.findViewById(i.f.payvcode_layout);
+        this.cdU = (TextView) payVcodeActivity.findViewById(i.f.webview_fail_view);
+        this.cdR = payVcodeActivity.findViewById(i.f.payvcode_empty_layout);
+        this.cdS = (ViewGroup) payVcodeActivity.findViewById(i.f.payvcode_layout);
         this.mProgress = (ProgressBar) payVcodeActivity.findViewById(i.f.payvcode_progress);
         this.mWebView.setHorizontalScrollBarEnabled(false);
         this.mWebView.setHorizontalScrollbarOverlay(false);
@@ -42,11 +42,11 @@ public class b extends com.baidu.adp.base.f<PayVcodeActivity> {
     }
 
     public TextView ael() {
-        return this.cdI;
+        return this.cdT;
     }
 
     public TextView aem() {
-        return this.cdJ;
+        return this.cdU;
     }
 
     public BaseWebView getWebView() {
@@ -54,22 +54,22 @@ public class b extends com.baidu.adp.base.f<PayVcodeActivity> {
     }
 
     public void eg(boolean z) {
-        this.cdJ.setVisibility(z ? 0 : 8);
+        this.cdU.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(int i) {
-        com.baidu.tbadk.h.a.a(this.cdF.getPageContext(), this.mRootView);
-        am.e((View) this.cdJ, i);
-        am.i((View) this.cdI, i.e.s_navbar_button_bg);
-        am.b(this.cdI, i.c.cp_cont_i, 1);
+        com.baidu.tbadk.h.a.a(this.cdQ.getPageContext(), this.mRootView);
+        an.e((View) this.cdU, i);
+        an.i((View) this.cdT, i.e.s_navbar_button_bg);
+        an.b(this.cdT, i.c.cp_cont_i, 1);
     }
 
     public View aen() {
-        return this.cdG;
+        return this.cdR;
     }
 
     public ViewGroup aeo() {
-        return this.cdH;
+        return this.cdS;
     }
 
     public void da(boolean z) {

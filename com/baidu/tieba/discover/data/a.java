@@ -13,24 +13,24 @@ import tbclient.FoundNew.Menu;
 import tbclient.FoundNew.Module;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tbadk.mvc.b.b, j {
-    private long aKI;
-    private Banner aKJ;
-    private List<d> aKK;
+    private long aKT;
+    private Banner aKU;
+    private List<d> aKV;
 
     public long HI() {
-        return this.aKI;
+        return this.aKT;
     }
 
     public Banner HJ() {
-        return this.aKJ;
+        return this.aKU;
     }
 
     public List<d> HK() {
-        return this.aKK;
+        return this.aKV;
     }
 
     public void G(List<d> list) {
-        this.aKK = list;
+        this.aKV = list;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
@@ -48,11 +48,11 @@ public class a implements com.baidu.tbadk.mvc.b.b, j {
             FoundNewResIdl foundNewResIdl = (FoundNewResIdl) message;
             if (foundNewResIdl.error.errorno.intValue() == 0 && foundNewResIdl.data != null) {
                 if (foundNewResIdl.data.timestamp != null) {
-                    this.aKI = foundNewResIdl.data.timestamp.longValue();
+                    this.aKT = foundNewResIdl.data.timestamp.longValue();
                 }
-                this.aKJ = foundNewResIdl.data.banner;
+                this.aKU = foundNewResIdl.data.banner;
                 List<Module> list = foundNewResIdl.data.module;
-                this.aKK = new ArrayList(0);
+                this.aKV = new ArrayList(0);
                 if (list != null && !list.isEmpty()) {
                     for (Module module : list) {
                         if (module != null && module.menu_list != null && module.menu_list.size() > 0) {
@@ -65,7 +65,7 @@ public class a implements com.baidu.tbadk.mvc.b.b, j {
                                     arrayList.add(new c().a(menu));
                                 }
                             }
-                            this.aKK.add(dVar);
+                            this.aKV.add(dVar);
                         }
                     }
                 }

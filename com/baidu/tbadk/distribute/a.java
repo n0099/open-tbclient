@@ -22,27 +22,27 @@ import java.util.List;
 import tbclient.LogTogether.AdReq;
 /* loaded from: classes.dex */
 public class a {
-    public static String anT = null;
-    private static a anU = new a();
+    public static String anU = null;
+    private static a anV = new a();
     private Handler handler = new b(this, Looper.getMainLooper());
-    private com.baidu.adp.framework.listener.a anZ = new c(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
-    private CustomMessageListener aoa = new d(this, 2000994);
-    private ArrayList<AdReq> anW = new ArrayList<>();
-    private ArrayList<com.baidu.tbadk.core.data.b> aob = new ArrayList<>();
+    private com.baidu.adp.framework.listener.a aoa = new c(this, CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, 303101);
+    private CustomMessageListener aob = new d(this, 2000994);
+    private ArrayList<AdReq> anX = new ArrayList<>();
     private ArrayList<com.baidu.tbadk.core.data.b> aoc = new ArrayList<>();
+    private ArrayList<com.baidu.tbadk.core.data.b> aod = new ArrayList<>();
     private boolean isUpload = true;
-    private long anX = TbConfig.USE_TIME_INTERVAL;
-    private int anY = 10;
-    private boolean anV = i.iM();
+    private long anY = TbConfig.USE_TIME_INTERVAL;
+    private int anZ = 10;
+    private boolean anW = i.iM();
 
     public static a Ag() {
-        return anU;
+        return anV;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aY(boolean z) {
-        if (this.anV != z) {
-            this.anV = z;
+        if (this.anW != z) {
+            this.anW = z;
             if (z) {
                 ba(true);
             } else {
@@ -57,19 +57,19 @@ public class a {
 
     private void Ai() {
         this.handler.removeMessages(1);
-        this.handler.sendEmptyMessageDelayed(1, this.anX);
+        this.handler.sendEmptyMessageDelayed(1, this.anY);
     }
 
     private synchronized void a(AdReq adReq) {
-        if (this.anW != null && this.anW.size() < 20) {
-            this.anW.add(adReq);
+        if (this.anX != null && this.anX.size() < 20) {
+            this.anX.add(adReq);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void m(List<AdReq> list) {
-        if (this.anW != null) {
-            this.anW.addAll(list);
+        if (this.anX != null) {
+            this.anX.addAll(list);
         }
     }
 
@@ -80,8 +80,8 @@ public class a {
         MessageManager messageManager = MessageManager.getInstance();
         messageManager.registerTask(Am());
         messageManager.registerTask(Ak());
-        messageManager.registerListener(this.anZ);
         messageManager.registerListener(this.aoa);
+        messageManager.registerListener(this.aob);
     }
 
     private HttpMessageTask Ak() {
@@ -96,34 +96,34 @@ public class a {
 
     public void dM(int i) {
         if (i > 3600) {
-            this.anX = 300000L;
+            this.anY = 300000L;
         } else if (i <= 0) {
-            this.anX = TbConfig.USE_TIME_INTERVAL;
+            this.anY = TbConfig.USE_TIME_INTERVAL;
         } else {
-            this.anX = i * 1000;
+            this.anY = i * 1000;
         }
     }
 
     public void dN(int i) {
         if (i > 20) {
-            this.anY = 10;
+            this.anZ = 10;
         } else if (i <= 0) {
-            this.anY = 5;
+            this.anZ = 5;
         } else {
-            this.anY = i;
+            this.anZ = i;
         }
     }
 
-    public void a(com.baidu.tbadk.core.data.b bVar, String str, long j, String str2, String str3) {
-        AdReq b = bVar.b(str, j, str2, str3);
+    public void a(com.baidu.tbadk.core.data.b bVar, String str, long j, String str2, String str3, int i) {
+        AdReq a = bVar.a(str, j, str2, str3, i);
         if (TextUtils.equals(str3, "show")) {
-            a(b);
+            a(a);
         }
         if (TextUtils.equals(str3, "click") || TextUtils.equals(str3, "download")) {
-            if (this.anV) {
-                MessageManager.getInstance().sendMessage(new DistributeRequest(b));
+            if (this.anW) {
+                MessageManager.getInstance().sendMessage(new DistributeRequest(a));
             } else {
-                a(b);
+                a(a);
             }
         }
         ba(false);
@@ -135,7 +135,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ba(boolean z) {
-        if (this.anV && this.isUpload) {
+        if (this.anW && this.isUpload) {
             List<AdReq> bb = bb(z);
             if (z || !Al()) {
                 Ai();
@@ -150,7 +150,7 @@ public class a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:6:0x000c, code lost:
-        if (r3.anW.size() < r3.anY) goto L6;
+        if (r3.anX.size() < r3.anZ) goto L6;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -160,10 +160,10 @@ public class a {
         synchronized (this) {
             if (!z) {
             }
-            if (this.anW.size() > 0) {
+            if (this.anX.size() > 0) {
                 arrayList = new ArrayList();
-                arrayList.addAll(this.anW);
-                this.anW.clear();
+                arrayList.addAll(this.anX);
+                this.anX.clear();
             }
         }
         return arrayList;
@@ -179,24 +179,24 @@ public class a {
     public void a(Context context, com.baidu.tbadk.core.data.b bVar, String str, String str2, String str3, long j) {
         if (TextUtils.equals(str, "show")) {
             if (TextUtils.equals(str2, "frs")) {
-                this.aob.add(bVar);
-            } else if (TextUtils.equals(str2, "pb")) {
                 this.aoc.add(bVar);
+            } else if (TextUtils.equals(str2, "pb")) {
+                this.aod.add(bVar);
             }
         } else if (TextUtils.equals(str, "btn_click") || TextUtils.equals(str, "btn_download") || TextUtils.equals(str, "area_click") || TextUtils.equals(str, "area_download")) {
             StringBuilder sb = new StringBuilder(15);
             sb.append(String.valueOf(k.K(context)));
             sb.append(",");
             sb.append(String.valueOf(k.L(context)));
-            TiebaStatic.eventStat(context, "ad_distribute", null, 1, "da_task", "tbda", "da_page", str2, "da_locate", bVar.Ua, "da_type", str, "da_obj_id", bVar.TU, ImageViewerConfig.FORUM_ID, str3, "tid", Long.valueOf(j), "da_good_id", Integer.valueOf(bVar.Ui.Uk), "da_ext_info", bVar.Ug, "da_price", bVar.price, "da_verify", bVar.Uf, SocialConstants.PARAM_CUID, TbadkCoreApplication.m411getInst().getCuid(), "uid", TbadkCoreApplication.getCurrentAccount(), "baiduid", TbadkCoreApplication.getCurrentBduss(), "da_obj_name", bVar.TV, "da_first_name", bVar.Ub, "da_second_name", bVar.Uc, "da_cpid", Integer.valueOf(bVar.Ud), "da_abtest", bVar.abtest, "da_stime", Long.valueOf(System.currentTimeMillis()), "phone_screen", sb.toString(), "model", Build.MODEL);
+            TiebaStatic.eventStat(context, "ad_distribute", null, 1, "da_task", "tbda", "da_page", str2, "da_locate", bVar.Ub, "da_type", str, "da_obj_id", bVar.TV, ImageViewerConfig.FORUM_ID, str3, "tid", Long.valueOf(j), "da_good_id", Integer.valueOf(bVar.Uj.Ul), "da_ext_info", bVar.Uh, "da_price", bVar.price, "da_verify", bVar.Ug, SocialConstants.PARAM_CUID, TbadkCoreApplication.m411getInst().getCuid(), "uid", TbadkCoreApplication.getCurrentAccount(), "baiduid", TbadkCoreApplication.getCurrentBduss(), "da_obj_name", bVar.TW, "da_first_name", bVar.Uc, "da_second_name", bVar.Ud, "da_cpid", Integer.valueOf(bVar.Ue), "da_abtest", bVar.abtest, "da_stime", Long.valueOf(System.currentTimeMillis()), "phone_screen", sb.toString(), "model", Build.MODEL);
         }
     }
 
     public void a(Context context, String str, String str2, long j) {
         if (TextUtils.equals(str, "frs")) {
-            a(context, this.aob, str, str2, j);
-        } else if (TextUtils.equals(str, "pb")) {
             a(context, this.aoc, str, str2, j);
+        } else if (TextUtils.equals(str, "pb")) {
+            a(context, this.aod, str, str2, j);
         }
     }
 
@@ -221,28 +221,28 @@ public class a {
                     com.baidu.tbadk.core.data.b bVar = arrayList.get(i2);
                     if (bVar != null) {
                         if (i2 != size - 1) {
-                            sb.append(bVar.Uf).append("|");
-                            sb2.append(bVar.Ua).append("|");
-                            sb3.append(bVar.TU).append("|");
-                            sb4.append(bVar.Ui.Uk).append("|");
-                            sb5.append(bVar.Ug).append("|");
+                            sb.append(bVar.Ug).append("|");
+                            sb2.append(bVar.Ub).append("|");
+                            sb3.append(bVar.TV).append("|");
+                            sb4.append(bVar.Uj.Ul).append("|");
+                            sb5.append(bVar.Uh).append("|");
                             sb6.append(bVar.price).append("|");
-                            sb7.append(bVar.TV).append("|");
-                            sb8.append(bVar.Ub).append("|");
-                            sb9.append(bVar.Uc).append("|");
-                            sb10.append(bVar.Ud).append("|");
+                            sb7.append(bVar.TW).append("|");
+                            sb8.append(bVar.Uc).append("|");
+                            sb9.append(bVar.Ud).append("|");
+                            sb10.append(bVar.Ue).append("|");
                             sb11.append(bVar.abtest).append("|");
                         } else {
-                            sb.append(bVar.Uf);
-                            sb2.append(bVar.Ua);
-                            sb3.append(bVar.TU);
-                            sb4.append(bVar.Ui.Uk);
-                            sb5.append(bVar.Ug);
+                            sb.append(bVar.Ug);
+                            sb2.append(bVar.Ub);
+                            sb3.append(bVar.TV);
+                            sb4.append(bVar.Uj.Ul);
+                            sb5.append(bVar.Uh);
                             sb6.append(bVar.price);
-                            sb7.append(bVar.TV);
-                            sb8.append(bVar.Ub);
-                            sb9.append(bVar.Uc);
-                            sb10.append(bVar.Ud);
+                            sb7.append(bVar.TW);
+                            sb8.append(bVar.Uc);
+                            sb9.append(bVar.Ud);
+                            sb10.append(bVar.Ue);
                             sb11.append(bVar.abtest);
                         }
                     }

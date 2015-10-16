@@ -5,20 +5,20 @@ import com.baidu.tieba.pb.b.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cp implements a.InterfaceC0070a {
-    final /* synthetic */ cc cly;
+    final /* synthetic */ cc clJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cp(cc ccVar) {
-        this.cly = ccVar;
+        this.clJ = ccVar;
     }
 
     @Override // com.baidu.tieba.pb.b.a.InterfaceC0070a
     public void Mj() {
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
-        bdTypeListView = this.cly.aUV;
+        bdTypeListView = this.clJ.aVg;
         if (bdTypeListView != null) {
-            bdTypeListView2 = this.cly.aUV;
+            bdTypeListView2 = this.clJ.aVg;
             bdTypeListView2.setSelection(0);
         }
     }
@@ -26,7 +26,7 @@ public class cp implements a.InterfaceC0070a {
     @Override // com.baidu.tieba.pb.b.a.InterfaceC0070a
     public void Mi() {
         PbActivity pbActivity;
-        pbActivity = this.cly.ciJ;
+        pbActivity = this.clJ.ciU;
         pbActivity.Lg();
     }
 }

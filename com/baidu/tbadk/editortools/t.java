@@ -6,10 +6,10 @@ import com.baidu.tieba.i;
 public class t extends v {
     public t(Context context) {
         super(context, null, 2, 0);
-        this.apr = i.e.selector_editor_btn_more;
-        this.aoI = new q(context);
-        this.apv = true;
-        this.apu = 6;
-        this.apw = new int[]{1};
+        this.aps = i.e.selector_editor_btn_more;
+        this.aoJ = new q(context);
+        this.apw = true;
+        this.apv = 6;
+        this.apx = new int[]{1};
     }
 }

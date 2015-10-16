@@ -4,11 +4,11 @@ import com.baidu.tbadk.coreExtra.websocketBase.a;
 import java.util.List;
 /* loaded from: classes.dex */
 class m implements a.InterfaceC0044a {
-    final /* synthetic */ l anb;
+    final /* synthetic */ l anc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(l lVar) {
-        this.anb = lVar;
+        this.anc = lVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.websocketBase.a.InterfaceC0044a
@@ -19,18 +19,18 @@ class m implements a.InterfaceC0044a {
         List list;
         i iVar4;
         i iVar5;
-        iVar = this.anb.amZ;
+        iVar = this.anc.ana;
         iVar.currentIndex = 0;
-        iVar2 = this.anb.amZ;
-        iVar2.amn = a.zq().zt();
-        iVar3 = this.anb.amZ;
-        list = iVar3.amn;
+        iVar2 = this.anc.ana;
+        iVar2.amo = a.zq().zt();
+        iVar3 = this.anc.ana;
+        list = iVar3.amo;
         if (list != null) {
-            iVar5 = this.anb.amZ;
+            iVar5 = this.anc.ana;
             iVar5.eE("change ip to reconnect with DNS' failed.");
             return;
         }
-        iVar4 = this.anb.amZ;
-        iVar4.amX = false;
+        iVar4 = this.anc.ana;
+        iVar4.amY = false;
     }
 }

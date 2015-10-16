@@ -6,29 +6,29 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class p extends LinearLayout {
-    private TextView aDa;
-    private ShareFromFrsMsgData bdA;
-    private EditText bdw;
-    private HeadImageView bdx;
-    private TextView bdy;
-    private TextView bdz;
+    private TextView aDl;
+    private EditText bdH;
+    private HeadImageView bdI;
+    private TextView bdJ;
+    private TextView bdK;
+    private ShareFromFrsMsgData bdL;
     private Context context;
     private LinearLayout mRootView;
 
     public EditText getChatMsgView() {
-        return this.bdw;
+        return this.bdH;
     }
 
     public void w(String str, boolean z) {
-        if (this.bdx != null) {
-            this.bdx.d(str, 15, false);
+        if (this.bdI != null) {
+            this.bdI.d(str, 15, false);
         }
     }
 
@@ -42,15 +42,15 @@ public class p extends LinearLayout {
         LayoutInflater.from(context).inflate(i.g.frs_share_card_view, this);
         setOrientation(1);
         this.mRootView = (LinearLayout) findViewById(i.f.share_content);
-        this.aDa = (TextView) findViewById(i.f.frs_card_name);
-        this.bdw = (EditText) findViewById(i.f.chat_msg);
-        this.bdx = (HeadImageView) findViewById(i.f.frs_card_img);
-        this.bdz = (TextView) findViewById(i.f.frs_card_member_num);
-        this.bdy = (TextView) findViewById(i.f.frs_card_post_num);
-        am.b(this.aDa, i.c.cp_cont_b, 1);
-        am.b(this.bdw, i.c.cp_cont_b, 2);
-        this.bdw.setHintTextColor(am.getColor(i.c.cp_cont_e));
-        this.bdw.setPadding(context.getResources().getDimensionPixelSize(i.d.ds20), 0, 0, 0);
+        this.aDl = (TextView) findViewById(i.f.frs_card_name);
+        this.bdH = (EditText) findViewById(i.f.chat_msg);
+        this.bdI = (HeadImageView) findViewById(i.f.frs_card_img);
+        this.bdK = (TextView) findViewById(i.f.frs_card_member_num);
+        this.bdJ = (TextView) findViewById(i.f.frs_card_post_num);
+        an.b(this.aDl, i.c.cp_cont_b, 1);
+        an.b(this.bdH, i.c.cp_cont_b, 2);
+        this.bdH.setHintTextColor(an.getColor(i.c.cp_cont_e));
+        this.bdH.setPadding(context.getResources().getDimensionPixelSize(i.d.ds20), 0, 0, 0);
         Od();
     }
 
@@ -61,8 +61,8 @@ public class p extends LinearLayout {
     }
 
     public String getLeaveMsg() {
-        if (this.bdw != null) {
-            return com.baidu.adp.lib.util.j.a(this.bdw.getText(), null);
+        if (this.bdH != null) {
+            return com.baidu.adp.lib.util.j.a(this.bdH.getText(), null);
         }
         return null;
     }
@@ -73,19 +73,19 @@ public class p extends LinearLayout {
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
-        this.bdA = shareFromFrsMsgData;
+        this.bdL = shareFromFrsMsgData;
         vw();
     }
 
     private void vw() {
-        this.aDa.setText(dp(this.bdA.getName()));
-        BdLog.e("mData.getImageUrl()的图片URL" + this.bdA.getImageUrl());
-        this.bdx.d(this.bdA.getImageUrl(), 15, false);
-        this.bdz.setText(ar.s(this.bdA.getMemberNum()));
-        this.bdy.setText(ar.s(this.bdA.getPostNum()));
+        this.aDl.setText(dq(this.bdL.getName()));
+        BdLog.e("mData.getImageUrl()的图片URL" + this.bdL.getImageUrl());
+        this.bdI.d(this.bdL.getImageUrl(), 15, false);
+        this.bdK.setText(as.s(this.bdL.getMemberNum()));
+        this.bdJ.setText(as.s(this.bdL.getPostNum()));
     }
 
-    private String dp(String str) {
-        return String.valueOf(ar.i(str, 18)) + this.context.getString(i.h.forum);
+    private String dq(String str) {
+        return String.valueOf(as.i(str, 18)) + this.context.getString(i.h.forum);
     }
 }

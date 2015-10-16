@@ -11,9 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class aj {
-    private a bME;
-    private final CustomMessageListener bMD = new ak(this, CmdConfigCustom.CMD_GET_NEW_FRIEND_DATA_BY_ID);
-    private final HashMap<String, Integer> bMC = new HashMap<>();
+    private a bMP;
+    private final CustomMessageListener bMO = new ak(this, CmdConfigCustom.CMD_GET_NEW_FRIEND_DATA_BY_ID);
+    private final HashMap<String, Integer> bMN = new HashMap<>();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -21,11 +21,11 @@ public class aj {
     }
 
     public void a(a aVar) {
-        this.bME = aVar;
+        this.bMP = aVar;
     }
 
     public void a(CommonPersonalChatActivity<FloatingPersonalChatActivity> commonPersonalChatActivity) {
-        commonPersonalChatActivity.registerListener(this.bMD);
+        commonPersonalChatActivity.registerListener(this.bMO);
     }
 
     public void aR(List<UserData> list) {
@@ -33,7 +33,7 @@ public class aj {
             for (UserData userData : list) {
                 if (userData != null) {
                     if (userData.getIsFriend() == 1) {
-                        this.bMC.put(userData.getUserId(), 1);
+                        this.bMN.put(userData.getUserId(), 1);
                     } else {
                         d(userData);
                     }
@@ -55,15 +55,15 @@ public class aj {
     }
 
     public int iH(String str) {
-        if (!StringUtils.isNull(str) && this.bMC.containsKey(str)) {
-            return this.bMC.get(str).intValue();
+        if (!StringUtils.isNull(str) && this.bMN.containsKey(str)) {
+            return this.bMN.get(str).intValue();
         }
         return 0;
     }
 
     public void R(String str, int i) {
         if (!StringUtils.isNull(str)) {
-            this.bMC.put(str, Integer.valueOf(i));
+            this.bMN.put(str, Integer.valueOf(i));
         }
     }
 
@@ -85,9 +85,9 @@ public class aj {
             }
         }
         if (bVar != null && bVar.getId() != 0) {
-            this.bMC.put(String.valueOf(bVar.getId()), Integer.valueOf(r0));
-            if (this.bME != null) {
-                this.bME.Ze();
+            this.bMN.put(String.valueOf(bVar.getId()), Integer.valueOf(r0));
+            if (this.bMP != null) {
+                this.bMP.Ze();
             }
         }
     }

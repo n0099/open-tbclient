@@ -21,6 +21,7 @@ public class BdStatSwitchData implements Serializable {
     public BdStatSwitchData() {
         BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem = new BdStatisticsWriteConfig.BdStatisticsWriteConfigItem();
         bdStatisticsWriteConfigItem.type = "dbg";
+        bdStatisticsWriteConfigItem.isWrite = true;
         this.writeConfig.item.put(bdStatisticsWriteConfigItem.type, bdStatisticsWriteConfigItem);
         BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem = new BdStatisticsUploadConfig.BdStatisticsUploadConfigItem();
         bdStatisticsUploadConfigItem.type = "dbg";
@@ -37,6 +38,7 @@ public class BdStatSwitchData implements Serializable {
         this.uploadConfig.item.put(bdStatisticsUploadConfigItem2.type, bdStatisticsUploadConfigItem2);
         BdStatisticsWriteConfig.BdStatisticsWriteConfigItem bdStatisticsWriteConfigItem3 = new BdStatisticsWriteConfig.BdStatisticsWriteConfigItem();
         bdStatisticsWriteConfigItem3.type = "error";
+        bdStatisticsWriteConfigItem3.isWrite = true;
         this.writeConfig.item.put(bdStatisticsWriteConfigItem3.type, bdStatisticsWriteConfigItem3);
         BdStatisticsUploadConfig.BdStatisticsUploadConfigItem bdStatisticsUploadConfigItem3 = new BdStatisticsUploadConfig.BdStatisticsUploadConfigItem();
         bdStatisticsUploadConfigItem3.type = "error";

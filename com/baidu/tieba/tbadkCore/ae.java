@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ae extends com.baidu.adp.base.e {
-    private static final String aHa = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
-    private static TbHttpMessageTask aHb = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, aHa);
-    private final HttpMessageListener aHc;
-    private a cXM;
+    private static final String aHl = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.COMMON_PRAISE_URL;
+    private static TbHttpMessageTask aHm = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, aHl);
+    private final HttpMessageListener aHn;
+    private a cYm;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,19 +22,19 @@ public class ae extends com.baidu.adp.base.e {
     }
 
     static {
-        aHb.setResponsedClass(PraiseResponseMessage.class);
-        MessageManager.getInstance().registerTask(aHb);
+        aHm.setResponsedClass(PraiseResponseMessage.class);
+        MessageManager.getInstance().registerTask(aHm);
     }
 
     public ae(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.cXM = null;
-        this.aHc = new af(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        this.cXM = aVar;
+        this.cYm = null;
+        this.aHn = new af(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.cYm = aVar;
     }
 
     public void registerListener() {
-        registerListener(this.aHc);
+        registerListener(this.aHn);
     }
 
     public void a(String str, String str2, int i, String str3) {

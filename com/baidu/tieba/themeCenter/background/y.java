@@ -5,10 +5,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class y extends com.baidu.adp.base.e<y> {
-    private com.baidu.adp.framework.listener.a aQK = new z(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
-    private int deT;
-    private int dfm;
-    private a dfz;
+    private com.baidu.adp.framework.listener.a aQV = new z(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, 309023);
+    private int dfM;
+    private a dfZ;
+    private int dft;
     private DressItemData mBgItem;
 
     /* loaded from: classes.dex */
@@ -17,10 +17,10 @@ public class y extends com.baidu.adp.base.e<y> {
     }
 
     public y(int i, int i2) {
-        this.deT = i;
-        this.dfm = i2;
+        this.dft = i;
+        this.dfM = i2;
         BZ();
-        registerListener(this.aQK);
+        registerListener(this.aQV);
     }
 
     private void BZ() {
@@ -31,7 +31,7 @@ public class y extends com.baidu.adp.base.e<y> {
     @Override // com.baidu.adp.base.e
     public boolean LoadData() {
         BackgroundGetRequestMessage backgroundGetRequestMessage = new BackgroundGetRequestMessage();
-        backgroundGetRequestMessage.setPropId(this.deT);
+        backgroundGetRequestMessage.setPropId(this.dft);
         sendMessage(backgroundGetRequestMessage);
         return false;
     }
@@ -42,10 +42,10 @@ public class y extends com.baidu.adp.base.e<y> {
     }
 
     public void a(a aVar) {
-        this.dfz = aVar;
+        this.dfZ = aVar;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.aQK);
+        MessageManager.getInstance().unRegisterListener(this.aQV);
     }
 }

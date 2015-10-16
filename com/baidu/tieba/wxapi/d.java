@@ -3,32 +3,32 @@ package com.baidu.tieba.wxapi;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
-import com.baidu.tbadk.core.data.u;
+import com.baidu.tbadk.core.data.v;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class d extends AuthorizationListener {
-    final /* synthetic */ WXEntryActivity dqt;
+    final /* synthetic */ WXEntryActivity dqT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(WXEntryActivity wXEntryActivity) {
-        this.dqt = wXEntryActivity;
+        this.dqT = wXEntryActivity;
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onSuccess() {
-        u uVar = new u();
-        uVar.Vq = 0;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LOGIN_WEINXIN, uVar));
-        this.dqt.closeActivity();
+        v vVar = new v();
+        vVar.Vs = 0;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LOGIN_WEINXIN, vVar));
+        this.dqT.closeActivity();
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onFailed(int i, String str) {
-        u uVar = new u();
-        uVar.Vq = 2;
-        uVar.errorCode = i;
-        uVar.errorMsg = str;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LOGIN_WEINXIN, uVar));
-        this.dqt.closeActivity();
+        v vVar = new v();
+        vVar.Vs = 2;
+        vVar.errorCode = i;
+        vVar.errorMsg = str;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LOGIN_WEINXIN, vVar));
+        this.dqT.closeActivity();
     }
 }

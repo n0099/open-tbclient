@@ -4,29 +4,29 @@ import android.os.Bundle;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class PersonFriendActivity extends BasePersonInfoActivity {
-    private av cpV = null;
-    private bf cpW = null;
+    private av cqg = null;
+    private bf cqh = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cpW = new bf(getPageContext(), WK());
-        this.cpW.setSex(getSex());
-        this.cpW.setId(getUid());
-        this.cpW.setUniqueId(getUniqueId());
+        this.cqh = new bf(getPageContext(), WK());
+        this.cqh.setSex(getSex());
+        this.cqh.setId(getUid());
+        this.cqh.setUniqueId(getUniqueId());
     }
 
     public bf aiF() {
-        return this.cpW;
+        return this.cqh;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public d a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        if (this.cpV == null) {
-            this.cpV = new av(this, WK());
+        if (this.cqg == null) {
+            this.cqg = new av(this, WK());
         }
-        return this.cpV;
+        return this.cqg;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity

@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.model.c;
 /* loaded from: classes.dex */
 class i implements c.a {
-    final /* synthetic */ UpdateInfoService cKF;
+    final /* synthetic */ UpdateInfoService cLe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(UpdateInfoService updateInfoService) {
-        this.cKF = updateInfoService;
+        this.cLe = updateInfoService;
     }
 
     @Override // com.baidu.tieba.model.c.a
@@ -22,17 +22,17 @@ class i implements c.a {
         } else if (i >= 32400) {
             i = 32400;
         }
-        cVar = this.cKF.mModel;
-        cVar.aG(i * 1000);
-        TbadkCoreApplication.m411getInst().getAlarmManager().a(com.baidu.tbadk.a.a.RT, 1, System.currentTimeMillis() + (i * 1000), i * 1000);
+        cVar = this.cLe.mModel;
+        cVar.aQ(i * 1000);
+        TbadkCoreApplication.m411getInst().getAlarmManager().a(com.baidu.tbadk.a.a.RU, 1, System.currentTimeMillis() + (i * 1000), i * 1000);
     }
 
     @Override // com.baidu.tieba.model.c.a
     public void onError(int i, String str) {
         com.baidu.tieba.model.c cVar;
         BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
-        cVar = this.cKF.mModel;
-        cVar.aG(600000L);
-        TbadkCoreApplication.m411getInst().getAlarmManager().a(com.baidu.tbadk.a.a.RT, 1, System.currentTimeMillis() + 600000, 600000L);
+        cVar = this.cLe.mModel;
+        cVar.aQ(600000L);
+        TbadkCoreApplication.m411getInst().getAlarmManager().a(com.baidu.tbadk.a.a.RU, 1, System.currentTimeMillis() + 600000, 600000L);
     }
 }

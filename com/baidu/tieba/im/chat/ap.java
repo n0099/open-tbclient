@@ -9,11 +9,11 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    private boolean brA;
-    protected int brB;
-    protected com.baidu.adp.lib.c.a brs;
-    protected com.baidu.adp.lib.c.b brt;
-    private boolean brz;
+    protected com.baidu.adp.lib.c.a brD;
+    protected com.baidu.adp.lib.c.b brE;
+    private boolean brK;
+    private boolean brL;
+    protected int brM;
     protected long mCurrentTime;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
@@ -25,20 +25,20 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
 
     public ap(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.brs = null;
-        this.brt = null;
+        this.brD = null;
+        this.brE = null;
         this.mCurrentTime = 0L;
-        this.brz = false;
-        this.brA = false;
+        this.brK = false;
+        this.brL = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.brs = aVar;
+        this.brD = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.brt = bVar;
+        this.brE = bVar;
     }
 
     private void RM() {
@@ -46,23 +46,23 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
     }
 
     public boolean RN() {
-        return this.brz;
+        return this.brK;
     }
 
     public void cI(boolean z) {
-        this.brz = z;
+        this.brK = z;
     }
 
     public boolean RO() {
-        return this.brA;
+        return this.brL;
     }
 
     public void cJ(boolean z) {
-        this.brA = z;
+        this.brL = z;
     }
 
     public void gI(int i) {
-        this.brB = i;
+        this.brM = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -76,15 +76,15 @@ public abstract class ap<T> extends com.baidu.adp.widget.ListView.a<ChatMessage,
 
     /* loaded from: classes.dex */
     public static class a<T> extends x.a {
-        private T brC;
+        private T brN;
 
         public a(View view, T t) {
             super(view);
-            this.brC = t;
+            this.brN = t;
         }
 
         public T RP() {
-            return this.brC;
+            return this.brN;
         }
     }
 }

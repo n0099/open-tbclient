@@ -5,26 +5,26 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class cm implements View.OnClickListener {
-    final /* synthetic */ cc cly;
+    final /* synthetic */ cc clJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cm(cc ccVar) {
-        this.cly = ccVar;
+        this.clJ = ccVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbActivity pbActivity;
         boolean z;
-        pbActivity = this.cly.ciJ;
+        pbActivity = this.clJ.ciU;
         if (pbActivity.checkUpIsLogin()) {
-            this.cly.Zf();
-            if (this.cly.cis != null) {
-                PbActivity.b bVar = this.cly.cis;
-                z = this.cly.cgB;
+            this.clJ.Zf();
+            if (this.clJ.ciD != null) {
+                PbActivity.b bVar = this.clJ.ciD;
+                z = this.clJ.cgM;
                 bVar.ev(z);
             }
-            this.cly.agE();
+            this.clJ.agE();
         }
     }
 }

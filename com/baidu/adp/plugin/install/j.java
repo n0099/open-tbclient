@@ -15,7 +15,7 @@ public class j extends BroadcastReceiver {
         this.this$0 = dVar;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [139=5, 140=5, 141=5, 142=5, 143=5, 144=5, 145=5, 146=5, 147=5, 148=5, 150=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [146=5, 147=5, 148=5, 149=5, 150=5, 151=5, 152=5, 153=5, 154=5, 155=5, 157=5] */
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         c cVar;
@@ -42,19 +42,19 @@ public class j extends BroadcastReceiver {
         boolean z = false;
         try {
             if (intent == null) {
-                cVar17 = this.this$0.CH;
+                cVar17 = this.this$0.CI;
                 if (cVar17 != null) {
-                    cVar20 = this.this$0.CH;
+                    cVar20 = this.this$0.CI;
                     if (TextUtils.equals(null, cVar20.pkgName)) {
                         this.this$0.lr();
-                        this.this$0.CH = null;
+                        this.this$0.CI = null;
                         this.this$0.a((c) null);
                         return;
                     }
                 }
-                cVar18 = this.this$0.CJ;
+                cVar18 = this.this$0.CK;
                 if (cVar18 != null) {
-                    cVar19 = this.this$0.CJ;
+                    cVar19 = this.this$0.CK;
                     if (TextUtils.equals(null, cVar19.pkgName)) {
                         this.this$0.ls();
                         this.this$0.a((c) null);
@@ -69,19 +69,19 @@ public class j extends BroadcastReceiver {
                 str = intent.getStringExtra("package_name");
                 try {
                     if (TextUtils.isEmpty(str)) {
-                        cVar13 = this.this$0.CH;
+                        cVar13 = this.this$0.CI;
                         if (cVar13 != null) {
-                            cVar16 = this.this$0.CH;
+                            cVar16 = this.this$0.CI;
                             if (TextUtils.equals(str, cVar16.pkgName)) {
                                 this.this$0.lr();
-                                this.this$0.CH = null;
+                                this.this$0.CI = null;
                                 this.this$0.a((c) null);
                                 return;
                             }
                         }
-                        cVar14 = this.this$0.CJ;
+                        cVar14 = this.this$0.CK;
                         if (cVar14 != null) {
-                            cVar15 = this.this$0.CJ;
+                            cVar15 = this.this$0.CK;
                             if (TextUtils.equals(str, cVar15.pkgName)) {
                                 this.this$0.ls();
                                 this.this$0.a((c) null);
@@ -99,27 +99,29 @@ public class j extends BroadcastReceiver {
                     String action = intent.getAction();
                     if ("com.baidu.adp.plugin.installed".equals(action)) {
                         this.this$0.e(str, z);
-                        com.baidu.adp.plugin.packageManager.a.b.mt().bF(str);
+                        com.baidu.adp.plugin.packageManager.a.b.mt().bG(str);
                     } else if ("com.baidu.adp.plugin.installfail".equals(action)) {
                         if (z) {
-                            this.this$0.CE = false;
+                            this.this$0.CF = false;
                         }
                         this.this$0.e(str, z);
-                        com.baidu.adp.plugin.packageManager.a.b.mt().j(str, intent.getStringExtra("fail_reason"), intent.getStringExtra("install_comment"));
+                        com.baidu.adp.plugin.packageManager.a.b.mt().h(str, intent.getStringExtra("fail_reason"), intent.getStringExtra("install_comment"));
+                    } else if ("com.baidu.adp.plugin.installcancel".equals(action)) {
+                        this.this$0.e(str, z);
                     }
-                    cVar9 = this.this$0.CH;
+                    cVar9 = this.this$0.CI;
                     if (cVar9 != null) {
-                        cVar12 = this.this$0.CH;
+                        cVar12 = this.this$0.CI;
                         if (TextUtils.equals(str, cVar12.pkgName)) {
                             this.this$0.lr();
-                            this.this$0.CH = null;
+                            this.this$0.CI = null;
                             this.this$0.a((c) null);
                             return;
                         }
                     }
-                    cVar10 = this.this$0.CJ;
+                    cVar10 = this.this$0.CK;
                     if (cVar10 != null) {
-                        cVar11 = this.this$0.CJ;
+                        cVar11 = this.this$0.CK;
                         if (TextUtils.equals(str, cVar11.pkgName)) {
                             this.this$0.ls();
                             this.this$0.a((c) null);
@@ -131,19 +133,19 @@ public class j extends BroadcastReceiver {
                 } catch (Exception e) {
                     e = e;
                     BdLog.detailException(e);
-                    cVar5 = this.this$0.CH;
+                    cVar5 = this.this$0.CI;
                     if (cVar5 != null) {
-                        cVar8 = this.this$0.CH;
+                        cVar8 = this.this$0.CI;
                         if (TextUtils.equals(str, cVar8.pkgName)) {
                             this.this$0.lr();
-                            this.this$0.CH = null;
+                            this.this$0.CI = null;
                             this.this$0.a((c) null);
                             return;
                         }
                     }
-                    cVar6 = this.this$0.CJ;
+                    cVar6 = this.this$0.CK;
                     if (cVar6 != null) {
-                        cVar7 = this.this$0.CJ;
+                        cVar7 = this.this$0.CK;
                         if (TextUtils.equals(str, cVar7.pkgName)) {
                             this.this$0.ls();
                             this.this$0.a((c) null);
@@ -158,19 +160,19 @@ public class j extends BroadcastReceiver {
                 str = null;
             } catch (Throwable th) {
                 th = th;
-                cVar = this.this$0.CH;
+                cVar = this.this$0.CI;
                 if (cVar != null) {
-                    cVar4 = this.this$0.CH;
+                    cVar4 = this.this$0.CI;
                     if (TextUtils.equals(null, cVar4.pkgName)) {
                         this.this$0.lr();
-                        this.this$0.CH = null;
+                        this.this$0.CI = null;
                         this.this$0.a((c) null);
                         throw th;
                     }
                 }
-                cVar2 = this.this$0.CJ;
+                cVar2 = this.this$0.CK;
                 if (cVar2 != null) {
-                    cVar3 = this.this$0.CJ;
+                    cVar3 = this.this$0.CK;
                     if (TextUtils.equals(null, cVar3.pkgName)) {
                         this.this$0.ls();
                         this.this$0.a((c) null);

@@ -2,22 +2,22 @@ package com.baidu.tieba.hottopic.view;
 
 import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    private final /* synthetic */ String aLN;
-    private final /* synthetic */ String ayO;
-    final /* synthetic */ b bqg;
+    private final /* synthetic */ String aLY;
+    private final /* synthetic */ String ayZ;
+    final /* synthetic */ b bqr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar, String str, String str2) {
-        this.bqg = bVar;
-        this.ayO = str;
-        this.aLN = str2;
+        this.bqr = bVar;
+        this.ayZ = str;
+        this.aLY = str2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,18 +27,18 @@ public class d implements View.OnClickListener {
         HotTopicActivity hotTopicActivity2;
         HotTopicActivity hotTopicActivity3;
         HotTopicActivity hotTopicActivity4;
-        relateForumItemData = this.bqg.bpZ;
+        relateForumItemData = this.bqr.bqk;
         if (relateForumItemData != null) {
-            hotTopicActivity = this.bqg.bnS;
+            hotTopicActivity = this.bqr.bod;
             if (hotTopicActivity != null) {
-                hotTopicActivity2 = this.bqg.bnS;
+                hotTopicActivity2 = this.bqr.bod;
                 if (hotTopicActivity2.checkUpIsLogin()) {
-                    if (ar.aP(this.ayO)) {
-                        hotTopicActivity4 = this.bqg.bnS;
-                        hotTopicActivity4.box.be(this.ayO, this.aLN);
+                    if (as.aP(this.ayZ)) {
+                        hotTopicActivity4 = this.bqr.bod;
+                        hotTopicActivity4.boI.be(this.ayZ, this.aLY);
                     }
-                    ap ae = new ap("c10365").ae("obj_type", "2");
-                    hotTopicActivity3 = this.bqg.bnS;
+                    aq ae = new aq("c10365").ae("obj_type", "2");
+                    hotTopicActivity3 = this.bqr.bod;
                     TiebaStatic.log(ae.ae("obj_id", hotTopicActivity3.QP()));
                 }
             }

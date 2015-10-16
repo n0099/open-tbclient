@@ -2,16 +2,16 @@ package com.baidu.tieba.themeCenter.background;
 
 import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.themeCenter.SkinProgressView;
 /* loaded from: classes.dex */
 class j implements View.OnClickListener {
-    final /* synthetic */ BackgroundItemView deX;
+    final /* synthetic */ BackgroundItemView dfx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(BackgroundItemView backgroundItemView) {
-        this.deX = backgroundItemView;
+        this.dfx = backgroundItemView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,29 +27,29 @@ class j implements View.OnClickListener {
         i iVar3;
         DressItemData dressItemData5;
         if (view != null) {
-            dressItemData = this.deX.deW;
+            dressItemData = this.dfx.dfw;
             if (dressItemData != null) {
-                iVar = this.deX.deA;
+                iVar = this.dfx.dfa;
                 if (iVar != null) {
-                    skinProgressView = this.deX.deV;
+                    skinProgressView = this.dfx.dfv;
                     if (view != skinProgressView) {
-                        tbImageView = this.deX.deU;
+                        tbImageView = this.dfx.dfu;
                         if (view == tbImageView) {
-                            ap apVar = new ap("c10279");
-                            dressItemData2 = this.deX.deW;
-                            TiebaStatic.log(apVar.r("obj_id", dressItemData2.getPropsId()));
-                            iVar2 = this.deX.deA;
-                            dressItemData3 = this.deX.deW;
+                            aq aqVar = new aq("c10279");
+                            dressItemData2 = this.dfx.dfw;
+                            TiebaStatic.log(aqVar.r("obj_id", dressItemData2.getPropsId()));
+                            iVar2 = this.dfx.dfa;
+                            dressItemData3 = this.dfx.dfw;
                             iVar2.a(dressItemData3);
                             return;
                         }
                         return;
                     }
-                    ap apVar2 = new ap("c10280");
-                    dressItemData4 = this.deX.deW;
-                    TiebaStatic.log(apVar2.r("obj_id", dressItemData4.getPropsId()));
-                    iVar3 = this.deX.deA;
-                    dressItemData5 = this.deX.deW;
+                    aq aqVar2 = new aq("c10280");
+                    dressItemData4 = this.dfx.dfw;
+                    TiebaStatic.log(aqVar2.r("obj_id", dressItemData4.getPropsId()));
+                    iVar3 = this.dfx.dfa;
+                    dressItemData5 = this.dfx.dfw;
                     iVar3.a(dressItemData5, false);
                 }
             }

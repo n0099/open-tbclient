@@ -5,15 +5,15 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ PaymentConfirmActivity cdS;
+    final /* synthetic */ PaymentConfirmActivity ced;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(PaymentConfirmActivity paymentConfirmActivity) {
-        this.cdS = paymentConfirmActivity;
+        this.ced = paymentConfirmActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cdS.J(2270066, this.cdS.getResources().getString(i.h.payment_input_password_find));
+        this.ced.J(2270066, this.ced.getResources().getString(i.h.payment_input_password_find));
     }
 }

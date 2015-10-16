@@ -7,10 +7,10 @@ import tbclient.HotThread.DataReq;
 import tbclient.HotThread.HotThreadReqIdl;
 /* loaded from: classes.dex */
 public class c implements e, h {
-    private int aKb;
+    private int aKm;
 
     public void Hr() {
-        this.aKb++;
+        this.aKm++;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -21,7 +21,7 @@ public class c implements e, h {
     @Override // com.baidu.tbadk.mvc.b.k
     public Object aa(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.pn = Integer.valueOf(this.aKb);
+        builder.pn = Integer.valueOf(this.aKm);
         HotThreadReqIdl.Builder builder2 = new HotThreadReqIdl.Builder();
         builder2.data = builder.build(false);
         com.baidu.tbadk.util.h.a(builder2.data, true);

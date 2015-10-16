@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c extends CustomMessageListener {
-    final /* synthetic */ b bGf;
+    final /* synthetic */ b bGq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(b bVar, int i) {
         super(i);
-        this.bGf = bVar;
+        this.bGq = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,9 +26,9 @@ public class c extends CustomMessageListener {
                 if (customResponsedMessage.getCmd() != 2016004) {
                     if (customResponsedMessage.getCmd() != 2016007) {
                         if (customResponsedMessage.getCmd() == 2016001) {
-                            list2 = this.bGf.mList;
+                            list2 = this.bGq.mList;
                             if (list2 != null) {
-                                list3 = this.bGf.mList;
+                                list3 = this.bGq.mList;
                                 list3.clear();
                             }
                             com.baidu.tbadk.coreExtra.messageCenter.a.wK().c(new com.baidu.tbadk.coreExtra.d.e());
@@ -37,23 +37,23 @@ public class c extends CustomMessageListener {
                             com.baidu.tbadk.coreExtra.messageCenter.a.wK().wY();
                             return;
                         } else if (customResponsedMessage.getCmd() == 2016010) {
-                            list = this.bGf.mList;
+                            list = this.bGq.mList;
                             if (list == null) {
                                 return;
                             }
-                            this.bGf.bS(false);
+                            this.bGq.bS(false);
                             return;
                         } else {
                             return;
                         }
                     }
-                    this.bGf.g(customResponsedMessage);
+                    this.bGq.g(customResponsedMessage);
                     return;
                 }
-                this.bGf.f(customResponsedMessage);
+                this.bGq.f(customResponsedMessage);
                 return;
             }
-            this.bGf.e(customResponsedMessage);
+            this.bGq.e(customResponsedMessage);
         }
     }
 }

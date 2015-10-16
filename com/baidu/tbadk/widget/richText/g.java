@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class g extends ClickableSpan {
-    private String aBE;
+    private String aBP;
     private int mType;
     private String mUrl;
 
@@ -35,7 +35,7 @@ public class g extends ClickableSpan {
     }
 
     public void fQ(String str) {
-        this.aBE = str;
+        this.aBP = str;
     }
 
     @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -46,7 +46,7 @@ public class g extends ClickableSpan {
 
     @Override // android.text.style.ClickableSpan
     public void onClick(View view) {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aBE)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RICHTEXT_INTENTSPAN_CLICK, new a(this.mType, this.mUrl, this.aBP)));
     }
 
     public static void a(TbPageContext<?> tbPageContext, int i, String str, String str2) {

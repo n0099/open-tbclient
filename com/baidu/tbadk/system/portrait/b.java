@@ -4,22 +4,22 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ ChangeSystemPhotoActivity azg;
+    final /* synthetic */ ChangeSystemPhotoActivity azr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
-        this.azg = changeSystemPhotoActivity;
+        this.azr = changeSystemPhotoActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int i;
-        i = this.azg.aza;
+        i = this.azr.azl;
         if (i != -1) {
-            this.azg.showDialog();
+            this.azr.showDialog();
             return;
         }
-        this.azg.setResult(0);
-        this.azg.finish();
+        this.azr.setResult(0);
+        this.azr.finish();
     }
 }

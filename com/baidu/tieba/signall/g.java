@@ -9,13 +9,13 @@ import com.baidu.tieba.signall.f;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends HttpMessageListener {
-    final /* synthetic */ f cPO;
+    final /* synthetic */ f cQn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i) {
         super(i);
-        this.cPO = fVar;
+        this.cQn = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,19 +32,19 @@ public class g extends HttpMessageListener {
             int error = httpResponsedMessage.getError();
             if (!httpResponsedMessage.isSuccess()) {
                 if (error == 110001) {
-                    this.cPO.d(httpResponsedMessage);
+                    this.cQn.d(httpResponsedMessage);
                 }
                 String errorString = httpResponsedMessage.getErrorString();
-                aVar5 = this.cPO.cPJ;
+                aVar5 = this.cQn.cQi;
                 aVar5.hQ(errorString);
             } else if (error == 0) {
-                this.cPO.cPI = ((GetForumResponsed) httpResponsedMessage).listData;
-                aVar2 = this.cPO.cPJ;
+                this.cQn.cQh = ((GetForumResponsed) httpResponsedMessage).listData;
+                aVar2 = this.cQn.cQi;
                 if (aVar2 != null) {
-                    cVar = this.cPO.cPI;
+                    cVar = this.cQn.cQh;
                     if (cVar != null) {
-                        aVar4 = this.cPO.cPJ;
-                        cVar2 = this.cPO.cPI;
+                        aVar4 = this.cQn.cQi;
+                        cVar2 = this.cQn.cQh;
                         aVar4.a(cVar2);
                     }
                 }
@@ -52,14 +52,14 @@ public class g extends HttpMessageListener {
                 if (StringUtils.isNull(errorString2)) {
                     errorString2 = TbadkCoreApplication.m411getInst().getContext().getString(i.h.neterror);
                 }
-                aVar3 = this.cPO.cPJ;
+                aVar3 = this.cQn.cQi;
                 aVar3.hQ(errorString2);
             } else {
                 String errorString3 = httpResponsedMessage.getErrorString();
-                aVar = this.cPO.cPJ;
+                aVar = this.cQn.cQi;
                 aVar.hQ(errorString3);
             }
-            this.cPO.cPK = null;
+            this.cQn.cQj = null;
         }
     }
 }

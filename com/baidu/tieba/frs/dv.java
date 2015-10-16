@@ -7,12 +7,12 @@ import com.baidu.adp.widget.ListView.x;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class dv extends x.a {
-    TextView aPf;
-    LinearLayout aVO;
+    TextView aPq;
+    LinearLayout aVZ;
 
     public dv(View view) {
         super(view);
-        this.aVO = (LinearLayout) view.findViewById(i.f.frs_top_item);
-        this.aPf = (TextView) view.findViewById(i.f.frs_top_title);
+        this.aVZ = (LinearLayout) view.findViewById(i.f.frs_top_item);
+        this.aPq = (TextView) view.findViewById(i.f.frs_top_title);
     }
 }

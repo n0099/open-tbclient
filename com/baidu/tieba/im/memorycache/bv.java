@@ -11,17 +11,17 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bv implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ bu bEI;
-    private final /* synthetic */ List bEJ;
-    private final /* synthetic */ MemoryClearStrangerItemsMessage.a bEK;
-    private final /* synthetic */ MemoryClearStrangerItemsMessage bEL;
+    final /* synthetic */ bu bET;
+    private final /* synthetic */ List bEU;
+    private final /* synthetic */ MemoryClearStrangerItemsMessage.a bEV;
+    private final /* synthetic */ MemoryClearStrangerItemsMessage bEW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bv(bu buVar, List list, MemoryClearStrangerItemsMessage.a aVar, MemoryClearStrangerItemsMessage memoryClearStrangerItemsMessage) {
-        this.bEI = buVar;
-        this.bEJ = list;
-        this.bEK = aVar;
-        this.bEL = memoryClearStrangerItemsMessage;
+        this.bET = buVar;
+        this.bEU = list;
+        this.bEV = aVar;
+        this.bEW = memoryClearStrangerItemsMessage;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -30,13 +30,13 @@ public class bv implements CustomMessageTask.CustomRunnable<String> {
             try {
                 if (customMessage instanceof CustomMessage) {
                     com.baidu.tieba.im.db.g.TJ().TK();
-                    for (ImMessageCenterPojo imMessageCenterPojo : this.bEJ) {
+                    for (ImMessageCenterPojo imMessageCenterPojo : this.bEU) {
                         com.baidu.tieba.im.db.i.TO().c(imMessageCenterPojo);
                     }
-                    for (MemoryModifyVisibilityMessage.a aVar : this.bEK.datas) {
+                    for (MemoryModifyVisibilityMessage.a aVar : this.bEV.datas) {
                         com.baidu.tieba.im.db.l.TU().hH(aVar.id);
                     }
-                    if (this.bEL.isAllClear()) {
+                    if (this.bEW.isAllClear()) {
                         ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                         imMessageCenterPojo2.setGid("-1001");
                         imMessageCenterPojo2.setCustomGroupType(-7);

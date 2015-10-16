@@ -6,17 +6,16 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
-    private String ahX;
     private String ahY;
     private String ahZ;
     private String aia;
-    private String aid;
+    private String aib;
     private String aie;
     private String aif;
     private String aig;
     private String aih;
     private String aii;
-    private int ahB = 0;
+    private String aij;
     private int ahC = 0;
     private int ahD = 0;
     private int ahE = 0;
@@ -36,18 +35,19 @@ public class e {
     private int ahS = 0;
     private int ahT = 0;
     private int ahU = 0;
-    private boolean ahV = true;
+    private int ahV = 0;
     private boolean ahW = true;
-    private HashMap<String, String> aib = new HashMap<>();
+    private boolean ahX = true;
     private HashMap<String, String> aic = new HashMap<>();
-    private String aij = null;
+    private HashMap<String, String> aid = new HashMap<>();
     private String aik = null;
-    private List<b> ail = new ArrayList();
-    private List<a> aim = new ArrayList();
+    private String ail = null;
+    private List<b> aim = new ArrayList();
+    private List<a> ain = new ArrayList();
 
     /* loaded from: classes.dex */
     public static class a {
-        public int ain;
+        public int aio;
         public String content;
         public int gid;
         public String groupName;
@@ -57,9 +57,9 @@ public class e {
 
     /* loaded from: classes.dex */
     public static class b {
-        public int ain;
-        public String aio;
+        public int aio;
         public String aip;
+        public String aiq;
         public String content;
         public int gid;
         public String title;
@@ -88,242 +88,242 @@ public class e {
     }
 
     public int xR() {
-        return this.ahB;
-    }
-
-    public void de(int i) {
-        this.ahB = i;
-    }
-
-    public int xS() {
-        return this.ahE;
-    }
-
-    public void df(int i) {
-        this.ahE = i;
-    }
-
-    public int xT() {
-        return this.ahF;
-    }
-
-    public int xU() {
-        return this.ahJ;
-    }
-
-    public void dg(int i) {
-        this.ahJ = i;
-    }
-
-    public int xV() {
-        return this.ahN;
-    }
-
-    public void dh(int i) {
-        this.ahN = i;
-    }
-
-    public int xW() {
-        return this.ahM;
-    }
-
-    public void di(int i) {
-        this.ahM = i;
-    }
-
-    public int xX() {
-        return this.ahB;
-    }
-
-    public int xY() {
-        return this.ahD;
-    }
-
-    public void dj(int i) {
-        this.ahD = i;
-    }
-
-    public boolean xZ() {
-        return this.ahV;
-    }
-
-    public void aO(boolean z) {
-        this.ahV = z;
-    }
-
-    public String ya() {
-        return this.ahX;
-    }
-
-    public void ec(String str) {
-        this.ahX = str;
-    }
-
-    public String yb() {
-        return this.aid;
-    }
-
-    public void ed(String str) {
-        this.aid = str;
-    }
-
-    public void ee(String str) {
-        this.aie = str;
-    }
-
-    public int yc() {
         return this.ahC;
     }
 
-    public void dk(int i) {
+    public void de(int i) {
         this.ahC = i;
     }
 
-    public void ef(String str) {
-        this.aif = str;
+    public int xS() {
+        return this.ahF;
     }
 
-    public String yd() {
-        return this.aih;
+    public void df(int i) {
+        this.ahF = i;
     }
 
-    public String ye() {
-        return this.aii;
-    }
-
-    public HashMap<String, String> yf() {
-        return this.aib;
-    }
-
-    public int yg() {
+    public int xT() {
         return this.ahG;
     }
 
-    public void dl(int i) {
-        this.ahG = i;
-    }
-
-    public int yh() {
+    public int xU() {
         return this.ahK;
     }
 
-    public void dm(int i) {
+    public void dg(int i) {
         this.ahK = i;
     }
 
-    public int yi() {
+    public int xV() {
         return this.ahO;
     }
 
-    public void dn(int i) {
+    public void dh(int i) {
         this.ahO = i;
     }
 
-    public void eg(String str) {
+    public int xW() {
+        return this.ahN;
+    }
+
+    public void di(int i) {
+        this.ahN = i;
+    }
+
+    public int xX() {
+        return this.ahC;
+    }
+
+    public int xY() {
+        return this.ahE;
+    }
+
+    public void dj(int i) {
+        this.ahE = i;
+    }
+
+    public boolean xZ() {
+        return this.ahW;
+    }
+
+    public void aO(boolean z) {
+        this.ahW = z;
+    }
+
+    public String ya() {
+        return this.ahY;
+    }
+
+    public void ec(String str) {
         this.ahY = str;
     }
 
-    public void eh(String str) {
-        this.ahZ = str;
+    public String yb() {
+        return this.aie;
     }
 
-    public int yj() {
-        return this.ahL;
+    public void ed(String str) {
+        this.aie = str;
     }
 
-    public void dp(int i) {
-        this.ahL = i;
+    public void ee(String str) {
+        this.aif = str;
     }
 
-    public String yk() {
-        return this.aia;
+    public int yc() {
+        return this.ahD;
     }
 
-    public void ei(String str) {
-        this.aia = str;
+    public void dk(int i) {
+        this.ahD = i;
     }
 
-    public HashMap<String, String> yl() {
-        return this.aic;
-    }
-
-    public String ym() {
-        return this.aig;
-    }
-
-    public void ej(String str) {
+    public void ef(String str) {
         this.aig = str;
     }
 
-    public int yn() {
+    public String yd() {
+        return this.aii;
+    }
+
+    public String ye() {
+        return this.aij;
+    }
+
+    public HashMap<String, String> yf() {
+        return this.aic;
+    }
+
+    public int yg() {
         return this.ahH;
     }
 
-    public int yo() {
-        return this.ahI;
-    }
-
-    public void dq(int i) {
+    public void dl(int i) {
         this.ahH = i;
     }
 
-    public void dr(int i) {
+    public int yh() {
+        return this.ahL;
+    }
+
+    public void dm(int i) {
+        this.ahL = i;
+    }
+
+    public int yi() {
+        return this.ahP;
+    }
+
+    public void dn(int i) {
+        this.ahP = i;
+    }
+
+    public void eg(String str) {
+        this.ahZ = str;
+    }
+
+    public void eh(String str) {
+        this.aia = str;
+    }
+
+    public int yj() {
+        return this.ahM;
+    }
+
+    public void dp(int i) {
+        this.ahM = i;
+    }
+
+    public String yk() {
+        return this.aib;
+    }
+
+    public void ei(String str) {
+        this.aib = str;
+    }
+
+    public HashMap<String, String> yl() {
+        return this.aid;
+    }
+
+    public String ym() {
+        return this.aih;
+    }
+
+    public void ej(String str) {
+        this.aih = str;
+    }
+
+    public int yn() {
+        return this.ahI;
+    }
+
+    public int yo() {
+        return this.ahJ;
+    }
+
+    public void dq(int i) {
         this.ahI = i;
     }
 
-    public void ek(String str) {
-        this.aij = str;
+    public void dr(int i) {
+        this.ahJ = i;
     }
 
-    public void el(String str) {
+    public void ek(String str) {
         this.aik = str;
     }
 
+    public void el(String str) {
+        this.ail = str;
+    }
+
     public int yp() {
-        return this.ahQ;
-    }
-
-    public void ds(int i) {
-        this.ahQ = i;
-    }
-
-    public int yq() {
         return this.ahR;
     }
 
-    public void dt(int i) {
+    public void ds(int i) {
         this.ahR = i;
     }
 
-    public int yr() {
+    public int yq() {
         return this.ahS;
     }
 
-    public void du(int i) {
+    public void dt(int i) {
         this.ahS = i;
     }
 
-    public int ys() {
+    public int yr() {
         return this.ahT;
     }
 
-    public void dv(int i) {
+    public void du(int i) {
         this.ahT = i;
     }
 
-    public List<b> yt() {
-        return this.ail;
-    }
-
-    public List<a> yu() {
-        return this.aim;
-    }
-
-    public int yv() {
+    public int ys() {
         return this.ahU;
     }
 
-    public void dw(int i) {
+    public void dv(int i) {
         this.ahU = i;
+    }
+
+    public List<b> yt() {
+        return this.aim;
+    }
+
+    public List<a> yu() {
+        return this.ain;
+    }
+
+    public int yv() {
+        return this.ahV;
+    }
+
+    public void dw(int i) {
+        this.ahV = i;
     }
 }

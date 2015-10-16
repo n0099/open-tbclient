@@ -6,11 +6,11 @@ import com.baidu.tieba.write.write.cd;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    final /* synthetic */ o dmr;
+    final /* synthetic */ o dmR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(o oVar) {
-        this.dmr = oVar;
+        this.dmR = oVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,17 +21,17 @@ public class s implements View.OnClickListener {
         WriteShareActivity writeShareActivity2;
         WriteShareActivity writeShareActivity3;
         WriteShareActivity writeShareActivity4;
-        textView = this.dmr.dmf;
+        textView = this.dmR.dmF;
         textView.setSelected(true);
-        cdVar = this.dmr.dmg;
-        writeShareActivity = this.dmr.dmo;
+        cdVar = this.dmR.dmG;
+        writeShareActivity = this.dmR.dmO;
         int dip2px = com.baidu.adp.lib.util.k.dip2px(writeShareActivity.getPageContext().getContext(), 15.0f);
-        writeShareActivity2 = this.dmr.dmo;
+        writeShareActivity2 = this.dmR.dmO;
         com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(cdVar, view, dip2px, com.baidu.adp.lib.util.k.dip2px(writeShareActivity2.getPageContext().getContext(), 1.0f));
-        writeShareActivity3 = this.dmr.dmo;
+        writeShareActivity3 = this.dmR.dmO;
         if (writeShareActivity3 != null) {
-            writeShareActivity4 = this.dmr.dmo;
-            writeShareActivity4.aBV();
+            writeShareActivity4 = this.dmR.dmO;
+            writeShareActivity4.aCf();
         }
     }
 }

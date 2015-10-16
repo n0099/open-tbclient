@@ -47,7 +47,7 @@ public class c<T> extends d<l, m, T> {
     }
 
     public void a(l lVar) {
-        this.avu = lVar;
+        this.avv = lVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel

@@ -105,7 +105,7 @@ public class TiebaPrepareImageService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, Boolean> {
-        String XT = null;
+        String XV = null;
         String mFileName;
         int mRequestCode;
         Uri mUri;
@@ -136,15 +136,15 @@ public class TiebaPrepareImageService extends BdBaseService {
                         }
                         Bitmap d = c.d(a, i);
                         if (d == null || n.a(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, d, 80) == null) {
-                            this.XT = TiebaPrepareImageService.this.getString(i.h.error_sd_error);
+                            this.XV = TiebaPrepareImageService.this.getString(i.h.error_sd_error);
                             z = false;
                         }
                     } else {
-                        this.XT = TiebaPrepareImageService.this.getString(i.h.error_sd_error);
+                        this.XV = TiebaPrepareImageService.this.getString(i.h.error_sd_error);
                         z = false;
                     }
                 } else {
-                    this.XT = TiebaPrepareImageService.this.getString(i.h.pic_parser_error);
+                    this.XV = TiebaPrepareImageService.this.getString(i.h.pic_parser_error);
                     z = false;
                 }
                 TiebaPrepareImageService.IS_DECODING = false;
@@ -172,8 +172,8 @@ public class TiebaPrepareImageService extends BdBaseService {
             super.onPostExecute(bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            if (this.XT != null) {
-                intent.putExtra("error", this.XT);
+            if (this.XV != null) {
+                intent.putExtra("error", this.XV);
             }
             TiebaPrepareImageService.this.sendBroadcast(intent);
         }

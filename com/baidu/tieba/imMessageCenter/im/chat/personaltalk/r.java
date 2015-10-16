@@ -7,14 +7,14 @@ import com.baidu.tieba.im.model.BlackListModel;
 import protobuf.QueryUserInfos.DataRes;
 /* loaded from: classes.dex */
 public class r {
-    private final BlackListModel bKp;
-    private PersonalTalkSettingActivity bKq;
-    private a bKr;
+    private final BlackListModel bKA;
+    private PersonalTalkSettingActivity bKB;
+    private a bKC;
     private DataRes data;
-    private com.baidu.tbadk.coreExtra.d.a bKm = new com.baidu.tbadk.coreExtra.d.a(null);
-    private boolean agH = false;
-    private boolean bKn = false;
-    private boolean bKo = false;
+    private com.baidu.tbadk.coreExtra.d.a bKx = new com.baidu.tbadk.coreExtra.d.a(null);
+    private boolean agI = false;
+    private boolean bKy = false;
+    private boolean bKz = false;
     private com.baidu.adp.framework.listener.e mListener = new s(this, 0);
     private CustomMessageListener mCustomListener = new t(this, 0);
 
@@ -24,11 +24,11 @@ public class r {
     }
 
     public boolean XU() {
-        return this.bKo;
+        return this.bKz;
     }
 
     public void dx(boolean z) {
-        this.bKo = z;
+        this.bKz = z;
     }
 
     public DataRes XV() {
@@ -36,13 +36,13 @@ public class r {
     }
 
     public boolean XW() {
-        return this.bKn;
+        return this.bKy;
     }
 
     public r(PersonalTalkSettingActivity personalTalkSettingActivity, a aVar, long j) {
-        this.bKq = personalTalkSettingActivity;
-        this.bKr = aVar;
-        this.bKp = new BlackListModel(personalTalkSettingActivity);
+        this.bKB = personalTalkSettingActivity;
+        this.bKC = aVar;
+        this.bKA = new BlackListModel(personalTalkSettingActivity);
         personalTalkSettingActivity.showProgressBar();
         com.baidu.tbadk.util.m.b(new u(this, j), new v(this, j, personalTalkSettingActivity));
     }
@@ -56,20 +56,20 @@ public class r {
     }
 
     public void dz(boolean z) {
-        this.bKq.showLoadingDialog(null);
+        this.bKB.showLoadingDialog(null);
         if (z) {
-            this.bKp.addToBlackList(this.data.id.longValue());
+            this.bKA.addToBlackList(this.data.id.longValue());
         } else {
-            this.bKp.removeFromBlackList(this.data.id.longValue());
+            this.bKA.removeFromBlackList(this.data.id.longValue());
         }
     }
 
     public void onDestory() {
-        if (this.bKm != null) {
-            this.bKm.cancel();
+        if (this.bKx != null) {
+            this.bKx.cancel();
         }
-        if (this.bKp != null) {
-            this.bKp.cancelLoadData();
+        if (this.bKA != null) {
+            this.bKA.cancelLoadData();
         }
     }
 

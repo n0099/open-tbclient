@@ -4,34 +4,34 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.widget.vote.a {
-    private String YZ;
-    private int aZu;
-    private long bWO;
+    private String Zb;
+    private int aZF;
+    private long bWZ;
     private boolean isSelected = false;
     private int mId;
     private String mUrl;
 
     public f(int i, String str, String str2, long j) {
         this.mId = i;
-        this.YZ = str;
+        this.Zb = str;
         this.mUrl = str2;
-        this.bWO = j;
+        this.bWZ = j;
     }
 
     public void setSelected(boolean z) {
         this.isSelected = z;
     }
 
-    public void lD(int i) {
-        this.aZu = i;
+    public void lF(int i) {
+        this.aZF = i;
     }
 
     public void setNum(long j) {
-        this.bWO = j;
+        this.bWZ = j;
     }
 
     public long getNum() {
-        return this.bWO;
+        return this.bWZ;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -41,7 +41,7 @@ public class f implements com.baidu.tbadk.widget.vote.a {
 
     @Override // com.baidu.tbadk.widget.vote.a
     public String Fw() {
-        return this.YZ;
+        return this.Zb;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -51,12 +51,12 @@ public class f implements com.baidu.tbadk.widget.vote.a {
 
     @Override // com.baidu.tbadk.widget.vote.a
     public String Fx() {
-        return String.valueOf(this.bWO) + TbadkCoreApplication.m411getInst().getString(i.h.vote_unit);
+        return String.valueOf(this.bWZ) + TbadkCoreApplication.m411getInst().getString(i.h.vote_unit);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
     public String Fy() {
-        return String.valueOf(this.aZu) + TbadkCoreApplication.m411getInst().getString(i.h.vote_percent);
+        return String.valueOf(this.aZF) + TbadkCoreApplication.m411getInst().getString(i.h.vote_percent);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
@@ -66,7 +66,7 @@ public class f implements com.baidu.tbadk.widget.vote.a {
 
     @Override // com.baidu.tbadk.widget.vote.a
     public int FA() {
-        return this.aZu;
+        return this.aZF;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a

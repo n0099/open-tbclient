@@ -7,11 +7,11 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity bVr;
+    final /* synthetic */ SquareSearchActivity bVC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ag(SquareSearchActivity squareSearchActivity) {
-        this.bVr = squareSearchActivity;
+        this.bVC = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,11 +19,11 @@ public class ag implements View.OnClickListener {
         View view2;
         FragmentTabIndicator fragmentTabIndicator;
         FragmentTabIndicator fragmentTabIndicator2;
-        view2 = this.bVr.bUu;
+        view2 = this.bVC.bUF;
         view2.setVisibility(8);
-        fragmentTabIndicator = this.bVr.bUl;
+        fragmentTabIndicator = this.bVC.bUw;
         fragmentTabIndicator.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down_s);
-        fragmentTabIndicator2 = this.bVr.bUl;
+        fragmentTabIndicator2 = this.bVC.bUw;
         fragmentTabIndicator2.cP(TbadkCoreApplication.m411getInst().getSkinType());
     }
 }

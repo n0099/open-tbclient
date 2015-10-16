@@ -8,24 +8,24 @@ import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class f implements AdapterView.OnItemClickListener {
-    final /* synthetic */ PbHistoryActivity cce;
+    final /* synthetic */ PbHistoryActivity ccp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PbHistoryActivity pbHistoryActivity) {
-        this.cce = pbHistoryActivity;
+        this.ccp = pbHistoryActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         com.baidu.tbadk.mvc.g.d dVar;
-        dVar = this.cce.aKi;
+        dVar = this.ccp.aKt;
         com.baidu.tieba.myCollection.baseHistory.b bVar = (com.baidu.tieba.myCollection.baseHistory.b) dVar.getItem(i);
         if (bVar != null) {
             if (bVar.sq() == 33) {
-                this.cce.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.cce.getPageContext().getPageActivity(), bVar.getThreadId()).cf(bVar.Bl()).rk()));
+                this.ccp.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.ccp.getPageContext().getPageActivity(), bVar.getThreadId()).cg(bVar.Bl()).rk()));
                 return;
             }
-            this.cce.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.cce.getPageContext().getPageActivity()).createHistoryCfg(bVar.getThreadId(), bVar.Bl(), bVar.adH(), bVar.adI(), null)));
+            this.ccp.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.ccp.getPageContext().getPageActivity()).createHistoryCfg(bVar.getThreadId(), bVar.Bl(), bVar.adH(), bVar.adI(), null)));
         }
     }
 }

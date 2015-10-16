@@ -7,11 +7,11 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class j implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ b bDx;
+    final /* synthetic */ b bDI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(b bVar) {
-        this.bDx = bVar;
+        this.bDI = bVar;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable

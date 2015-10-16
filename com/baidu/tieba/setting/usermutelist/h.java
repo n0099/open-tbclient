@@ -14,11 +14,11 @@ import java.util.Date;
 import tbclient.UserMuteQuery.MuteUser;
 /* loaded from: classes.dex */
 public class h extends BaseAdapter {
-    private ArrayList<MuteUser> Xf;
-    private BaseActivity aRT;
-    private b cOF;
-    private a cOG;
-    private SimpleDateFormat cOI = new SimpleDateFormat("yyyy.MM.dd");
+    private ArrayList<MuteUser> Xh;
+    private BaseActivity aSe;
+    private b cPe;
+    private a cPf;
+    private SimpleDateFormat cPh = new SimpleDateFormat("yyyy.MM.dd");
 
     /* loaded from: classes.dex */
     public interface a {
@@ -31,28 +31,28 @@ public class h extends BaseAdapter {
     }
 
     public h(BaseActivity baseActivity, b bVar, a aVar) {
-        this.aRT = baseActivity;
-        this.cOF = bVar;
-        this.cOG = aVar;
+        this.aSe = baseActivity;
+        this.cPe = bVar;
+        this.cPf = aVar;
     }
 
     public void setData(ArrayList<MuteUser> arrayList) {
-        this.Xf = arrayList;
+        this.Xh = arrayList;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.Xf != null) {
-            return this.Xf.size();
+        if (this.Xh != null) {
+            return this.Xh.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.Xf != null) {
-            return this.Xf.get(i);
+        if (this.Xh != null) {
+            return this.Xh.get(i);
         }
         return null;
     }
@@ -65,7 +65,7 @@ public class h extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         c cVar;
-        MuteUser muteUser = this.Xf.get(i);
+        MuteUser muteUser = this.Xh.get(i);
         if (muteUser != null) {
             cVar = a(view != null ? view.getTag() : null, muteUser, i);
         } else {
@@ -81,46 +81,46 @@ public class h extends BaseAdapter {
         c cVar;
         if (obj == null) {
             cVar = new c(this, null);
-            cVar.rootView = LayoutInflater.from(this.aRT.getPageContext().getContext()).inflate(i.g.user_mute_list_item, (ViewGroup) null);
-            cVar.aHN = (TextView) cVar.rootView.findViewById(i.f.item_user_name);
-            cVar.cOM = (TextView) cVar.rootView.findViewById(i.f.item_mute_terminate_time);
-            cVar.cON = (TextView) cVar.rootView.findViewById(i.f.item_remove_button);
-            cVar.cOL = (HeadImageView) cVar.rootView.findViewById(i.f.item_header_view);
+            cVar.rootView = LayoutInflater.from(this.aSe.getPageContext().getContext()).inflate(i.g.user_mute_list_item, (ViewGroup) null);
+            cVar.aHY = (TextView) cVar.rootView.findViewById(i.f.item_user_name);
+            cVar.cPl = (TextView) cVar.rootView.findViewById(i.f.item_mute_terminate_time);
+            cVar.cPm = (TextView) cVar.rootView.findViewById(i.f.item_remove_button);
+            cVar.cPk = (HeadImageView) cVar.rootView.findViewById(i.f.item_header_view);
             cVar.rootView.setTag(cVar);
-            cVar.cON.setTag(Integer.valueOf(i));
-            cVar.cOL.setTag(Integer.valueOf(i));
-            cVar.aHN.setTag(Integer.valueOf(i));
+            cVar.cPm.setTag(Integer.valueOf(i));
+            cVar.cPk.setTag(Integer.valueOf(i));
+            cVar.aHY.setTag(Integer.valueOf(i));
         } else {
             cVar = (c) obj;
         }
-        cVar.cON.setOnClickListener(new i(this, muteUser));
-        cVar.cOL.setOnClickListener(new j(this, muteUser));
-        cVar.aHN.setOnClickListener(new k(this, muteUser));
+        cVar.cPm.setOnClickListener(new i(this, muteUser));
+        cVar.cPk.setOnClickListener(new j(this, muteUser));
+        cVar.aHY.setOnClickListener(new k(this, muteUser));
         String str = muteUser.portrait;
         if (str != null) {
-            cVar.cOL.setTag(str);
-            cVar.cOL.d(str, 12, false);
+            cVar.cPk.setTag(str);
+            cVar.cPk.d(str, 12, false);
         }
         if (muteUser.user_name != null) {
-            cVar.aHN.setText(muteUser.user_name);
+            cVar.aHY.setText(muteUser.user_name);
         }
         if (muteUser.mute_time != null) {
-            cVar.cOM.setText(this.aRT.getResources().getString(i.h.auto_terminate_mute_time, this.cOI.format((Date) new java.sql.Date(muteUser.mute_time.intValue() * 1000))));
+            cVar.cPl.setText(this.aSe.getResources().getString(i.h.auto_terminate_mute_time, this.cPh.format((Date) new java.sql.Date(muteUser.mute_time.intValue() * 1000))));
         }
         if (muteUser.user_id != null) {
-            cVar.cON.setTag(muteUser.user_id);
+            cVar.cPm.setTag(muteUser.user_id);
         }
-        this.aRT.getLayoutMode().k(cVar.rootView);
+        this.aSe.getLayoutMode().k(cVar.rootView);
         return cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class c {
-        TextView aHN;
-        HeadImageView cOL;
-        TextView cOM;
-        TextView cON;
+        TextView aHY;
+        HeadImageView cPk;
+        TextView cPl;
+        TextView cPm;
         View rootView;
 
         private c() {

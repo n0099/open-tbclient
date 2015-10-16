@@ -6,16 +6,16 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.List;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.base.e<o> {
-    private BackgroundListActivity dfd;
-    private List<DressItemData> dfe;
-    private a dff;
+    private BackgroundListActivity dfD;
+    private List<DressItemData> dfE;
+    private a dfF;
     private List<DressItemData> mBackgroundList;
     private com.baidu.tieba.themeCenter.dressCenter.k mRecommand;
-    private final int dfg = 9;
-    private int MG = 0;
+    private final int dfG = 9;
+    private int MH = 0;
     private boolean hasMore = true;
-    private com.baidu.adp.framework.listener.a dfh = new p(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, 309021);
-    private com.baidu.adp.framework.listener.a deL = new q(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
+    private com.baidu.adp.framework.listener.a dfH = new p(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, 309021);
+    private com.baidu.adp.framework.listener.a dfl = new q(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,11 +23,11 @@ public class o extends com.baidu.adp.base.e<o> {
     }
 
     public o(BackgroundListActivity backgroundListActivity) {
-        this.dfd = backgroundListActivity;
+        this.dfD = backgroundListActivity;
         BZ();
-        registerListener(this.dfh);
-        azm();
-        registerListener(this.deL);
+        registerListener(this.dfH);
+        azw();
+        registerListener(this.dfl);
     }
 
     private void BZ() {
@@ -35,7 +35,7 @@ public class o extends com.baidu.adp.base.e<o> {
         com.baidu.tieba.tbadkCore.a.a.a(309021, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, TbConfig.PERSONAL_BACKGROUND_LIST_PAGE, BackgroundListHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void azm() {
+    private void azw() {
         com.baidu.tieba.tbadkCore.a.a.a(309022, BackgroundSetSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
@@ -43,18 +43,18 @@ public class o extends com.baidu.adp.base.e<o> {
     @Override // com.baidu.adp.base.e
     public boolean LoadData() {
         BackgroundListRequestMessage backgroundListRequestMessage = new BackgroundListRequestMessage();
-        this.MG = 1;
-        backgroundListRequestMessage.setPn(this.MG);
+        this.MH = 1;
+        backgroundListRequestMessage.setPn(this.MH);
         backgroundListRequestMessage.setRn(9);
         sendMessage(backgroundListRequestMessage);
         return false;
     }
 
-    public void azn() {
+    public void azx() {
         if (this.hasMore) {
-            this.MG++;
+            this.MH++;
             BackgroundListRequestMessage backgroundListRequestMessage = new BackgroundListRequestMessage();
-            backgroundListRequestMessage.setPn(this.MG);
+            backgroundListRequestMessage.setPn(this.MH);
             backgroundListRequestMessage.setRn(9);
             sendMessage(backgroundListRequestMessage);
         }
@@ -66,13 +66,13 @@ public class o extends com.baidu.adp.base.e<o> {
     }
 
     public void a(a aVar) {
-        this.dff = aVar;
+        this.dfF = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lt(int i) {
-        if (this.dfe != null && this.dfe.size() > 0) {
-            for (DressItemData dressItemData : this.dfe) {
+    public void lv(int i) {
+        if (this.dfE != null && this.dfE.size() > 0) {
+            for (DressItemData dressItemData : this.dfE) {
                 if (dressItemData != null) {
                     if (dressItemData.getPropsId() == i) {
                         dressItemData.setInUse(true);
@@ -85,11 +85,11 @@ public class o extends com.baidu.adp.base.e<o> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public DressItemData lu(int i) {
-        if (this.dfe == null || this.dfe.size() <= 0) {
+    public DressItemData lw(int i) {
+        if (this.dfE == null || this.dfE.size() <= 0) {
             return null;
         }
-        for (DressItemData dressItemData : this.dfe) {
+        for (DressItemData dressItemData : this.dfE) {
             if (dressItemData != null && dressItemData.getPropsId() == i) {
                 return dressItemData;
             }
@@ -98,7 +98,7 @@ public class o extends com.baidu.adp.base.e<o> {
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.dfh);
-        MessageManager.getInstance().unRegisterListener(this.deL);
+        MessageManager.getInstance().unRegisterListener(this.dfH);
+        MessageManager.getInstance().unRegisterListener(this.dfl);
     }
 }

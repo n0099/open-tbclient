@@ -5,11 +5,11 @@ import com.baidu.tieba.tbadkCore.location.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements a.b {
-    final /* synthetic */ d asl;
+    final /* synthetic */ d asm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(d dVar) {
-        this.asl = dVar;
+        this.asm = dVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -17,12 +17,12 @@ public class i implements a.b {
         d.a aVar2;
         com.baidu.tieba.tbadkCore.location.d dVar;
         if (!com.baidu.adp.lib.util.i.iM()) {
-            aVar2 = this.asl.ash;
+            aVar2 = this.asm.asi;
             aVar2.BF();
         } else {
-            this.asl.a(1, true, null);
-            dVar = this.asl.arU;
-            dVar.axk();
+            this.asm.a(1, true, null);
+            dVar = this.asm.arV;
+            dVar.axu();
         }
         aVar.dismiss();
     }

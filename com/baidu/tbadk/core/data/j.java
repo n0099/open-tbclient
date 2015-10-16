@@ -1,44 +1,61 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
+import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class j {
-    private String class_name = null;
-    private int UO = 0;
+    private int UN;
+    private String UO;
+    private String UQ;
+    private int mType;
+    private String mValue;
 
-    public void ci(String str) {
-        this.class_name = str;
+    public int rB() {
+        return this.UN;
     }
 
-    public String rD() {
-        return this.class_name;
-    }
-
-    public void bt(int i) {
-        this.UO = i;
-    }
-
-    public int rE() {
+    public String rC() {
         return this.UO;
+    }
+
+    public String getValue() {
+        return this.mValue;
+    }
+
+    public int getType() {
+        return this.mType;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.UO = jSONObject.optInt("class_id", 0);
-                this.class_name = jSONObject.optString("class_name");
+                this.UN = jSONObject.optInt("bannerType");
+                this.UO = jSONObject.optString("bannerUrl");
+                this.mValue = jSONObject.optString("value");
+                this.mType = jSONObject.optInt("type");
+                this.UQ = jSONObject.optString("desc");
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                BdLog.e(e.toString());
             }
         }
     }
 
-    public void a(Classify classify) {
-        if (classify != null) {
-            this.UO = classify.class_id.intValue();
-            this.class_name = classify.class_name;
+    public void a(Banner banner) {
+        if (banner != null) {
+            this.UN = banner.banner_type.intValue();
+            this.UO = banner.banner_url;
+            this.mValue = banner.value;
+            this.mType = banner.type.intValue();
+            this.UQ = banner.desc;
         }
+    }
+
+    public boolean isValid() {
+        if (StringUtils.isNull(this.mValue)) {
+            return false;
+        }
+        return this.mType == 1 ? this.UN == 1 || this.UN == 4 || this.UN == 2 || this.UN == 3 : this.mType == 2 && !StringUtils.isNull(this.UQ);
     }
 }

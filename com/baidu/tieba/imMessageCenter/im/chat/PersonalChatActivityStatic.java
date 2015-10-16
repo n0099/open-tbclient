@@ -6,21 +6,21 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class PersonalChatActivityStatic {
-    private static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e bJw;
-    private static CustomMessageListener bJx = new l(CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
+    private static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e bJH;
+    private static CustomMessageListener bJI = new l(CmdConfigCustom.METHOD_ACCOUNT_CHANGE);
 
     static {
-        MessageManager.getInstance().registerListener(bJx);
+        MessageManager.getInstance().registerListener(bJI);
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSONAL_CHAT, new m());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e XJ() {
-        return bJw;
+        return bJH;
     }
 
     public static void a(com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e eVar) {
-        bJw = eVar;
+        bJH = eVar;
     }
 }

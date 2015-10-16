@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.tabHost.FragmentTabHost;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class ba implements Runnable {
-    final /* synthetic */ az dcZ;
+    final /* synthetic */ az ddz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ba(az azVar) {
-        this.dcZ = azVar;
+        this.ddz = azVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:5:0x001e, code lost:
@@ -44,43 +44,43 @@ class ba implements Runnable {
         ImageView imageView4;
         ao aoVar12;
         int i;
-        aoVar = this.dcZ.dcY;
-        fragmentTabHost = aoVar.bdT;
+        aoVar = this.ddz.ddy;
+        fragmentTabHost = aoVar.bee;
         if (fragmentTabHost.getCurrentTabType() != 6) {
-            aoVar12 = this.dcZ.dcY;
-            i = aoVar12.cbi;
+            aoVar12 = this.ddz.ddy;
+            i = aoVar12.cbt;
         }
         TbadkCoreApplication.m411getInst().setFriendFeedNew(false);
-        aoVar2 = this.dcZ.dcY;
-        aoVar3 = this.dcZ.dcY;
-        fragmentTabHost2 = aoVar3.bdT;
-        aoVar2.cbi = fragmentTabHost2.getCurrentTabType();
-        aoVar4 = this.dcZ.dcY;
-        fragmentTabHost3 = aoVar4.bdT;
+        aoVar2 = this.ddz.ddy;
+        aoVar3 = this.ddz.ddy;
+        fragmentTabHost2 = aoVar3.bee;
+        aoVar2.cbt = fragmentTabHost2.getCurrentTabType();
+        aoVar4 = this.ddz.ddy;
+        fragmentTabHost3 = aoVar4.bee;
         if (fragmentTabHost3.getCurrentTabType() == 1) {
-            aoVar10 = this.dcZ.dcY;
-            imageView3 = aoVar10.dcP;
+            aoVar10 = this.ddz.ddy;
+            imageView3 = aoVar10.ddp;
             imageView3.setVisibility(0);
-            aoVar11 = this.dcZ.dcY;
-            imageView4 = aoVar11.dcS;
+            aoVar11 = this.ddz.ddy;
+            imageView4 = aoVar11.dds;
             imageView4.setVisibility(8);
         } else {
-            aoVar5 = this.dcZ.dcY;
-            imageView = aoVar5.dcP;
+            aoVar5 = this.ddz.ddy;
+            imageView = aoVar5.ddp;
             imageView.setVisibility(8);
-            aoVar6 = this.dcZ.dcY;
-            imageView2 = aoVar6.dcS;
+            aoVar6 = this.ddz.ddy;
+            imageView2 = aoVar6.dds;
             imageView2.setVisibility(0);
         }
         if (com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("enter_forum_edit_mode", false)) {
-            aoVar7 = this.dcZ.dcY;
-            fragmentTabHost4 = aoVar7.bdT;
+            aoVar7 = this.ddz.ddy;
+            fragmentTabHost4 = aoVar7.bee;
             if (fragmentTabHost4.getCurrentTabType() != 6) {
-                aoVar8 = this.dcZ.dcY;
-                fragmentTabHost5 = aoVar8.bdT;
+                aoVar8 = this.ddz.ddy;
+                fragmentTabHost5 = aoVar8.bee;
                 if (fragmentTabHost5.getCurrentTabType() != 3) {
-                    aoVar9 = this.dcZ.dcY;
-                    fragmentTabHost6 = aoVar9.bdT;
+                    aoVar9 = this.ddz.ddy;
+                    fragmentTabHost6 = aoVar9.bee;
                     if (fragmentTabHost6.getCurrentTabType() == 2) {
                         TiebaStatic.log("c10098");
                         return;

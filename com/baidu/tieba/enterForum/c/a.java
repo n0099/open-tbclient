@@ -10,51 +10,51 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class a {
-    private static a aLT;
-    private WindowManager.LayoutParams aLQ;
-    private ImageView aLR;
-    private boolean aLS;
-    private int aLU;
-    private boolean aLV;
+    private static a aMe;
+    private WindowManager.LayoutParams aMb;
+    private ImageView aMc;
+    private boolean aMd;
+    private int aMf;
+    private boolean aMg;
     private WindowManager lB;
     private int mHeight;
     private int mWidth;
 
     public static a Ir() {
-        if (aLT == null) {
+        if (aMe == null) {
             synchronized (a.class) {
-                if (aLT == null) {
-                    aLT = new a();
+                if (aMe == null) {
+                    aMe = new a();
                 }
             }
         }
-        return aLT;
+        return aMe;
     }
 
     private a() {
     }
 
     public void j(Context context, int i) {
-        this.aLV = true;
+        this.aMg = true;
         if (context == null) {
             throw new IllegalArgumentException("context cannot be null");
         }
         this.lB = (WindowManager) context.getSystemService("window");
-        this.aLU = i;
+        this.aMf = i;
     }
 
     public void destroy() {
-        this.aLV = false;
-        aLT = null;
+        this.aMg = false;
+        aMe = null;
     }
 
     public boolean Is() {
-        return this.aLS;
+        return this.aMd;
     }
 
     public void a(Context context, View view, int i, int i2) {
         if (view != null) {
-            this.aLS = true;
+            this.aMd = true;
             view.setPressed(false);
             view.setDrawingCacheEnabled(true);
             Bitmap createBitmap = Bitmap.createBitmap(view.getDrawingCache());
@@ -69,11 +69,11 @@ public class a {
     public void S(int i, int i2) {
         It();
         T(i, i2);
-        this.lB.updateViewLayout(this.aLR, this.aLQ);
+        this.lB.updateViewLayout(this.aMc, this.aMb);
     }
 
     private void It() {
-        if (!this.aLV) {
+        if (!this.aMg) {
             BdLog.e("should do init first!");
         }
     }
@@ -82,13 +82,13 @@ public class a {
         It();
         if (bitmap != null) {
             T(i, i2);
-            this.aLR = new ImageView(context);
-            this.aLR.setImageBitmap(bitmap);
+            this.aMc = new ImageView(context);
+            this.aMc.setImageBitmap(bitmap);
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 if (!activity.isFinishing() && activity.getWindow() != null && d(activity.getWindow().getDecorView())) {
                     try {
-                        this.lB.addView(this.aLR, this.aLQ);
+                        this.lB.addView(this.aMc, this.aMb);
                     } catch (Exception e) {
                     }
                 }
@@ -112,30 +112,30 @@ public class a {
     }
 
     private void Iu() {
-        this.aLQ = new WindowManager.LayoutParams();
-        this.aLQ.format = -3;
-        this.aLQ.gravity = 51;
-        this.aLQ.alpha = 1.0f;
-        this.aLQ.width = -2;
-        this.aLQ.height = -2;
-        this.aLQ.flags = 24;
+        this.aMb = new WindowManager.LayoutParams();
+        this.aMb.format = -3;
+        this.aMb.gravity = 51;
+        this.aMb.alpha = 1.0f;
+        this.aMb.width = -2;
+        this.aMb.height = -2;
+        this.aMb.flags = 24;
     }
 
     private void T(int i, int i2) {
-        if (this.aLQ == null) {
+        if (this.aMb == null) {
             Iu();
         }
-        this.aLQ.x = i - (this.mWidth / 2);
-        this.aLQ.y = (i2 - (this.mHeight / 2)) - this.aLU;
+        this.aMb.x = i - (this.mWidth / 2);
+        this.aMb.y = (i2 - (this.mHeight / 2)) - this.aMf;
     }
 
     public void Iv() {
-        if (this.aLR != null) {
+        if (this.aMc != null) {
             if (this.lB != null) {
-                this.lB.removeView(this.aLR);
+                this.lB.removeView(this.aMc);
             }
-            this.aLR = null;
+            this.aMc = null;
         }
-        this.aLS = false;
+        this.aMd = false;
     }
 }

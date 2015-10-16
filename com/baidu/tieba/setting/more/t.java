@@ -19,15 +19,15 @@ public class t extends com.baidu.adp.base.g {
         com.baidu.tieba.setting.model.c cVar4;
         com.baidu.tieba.setting.model.c cVar5;
         PersonChangeData personChangeData = new PersonChangeData();
-        cVar = this.this$0.cMW;
+        cVar = this.this$0.cNv;
         if (cVar.getUser() != null) {
-            cVar2 = this.this$0.cMW;
+            cVar2 = this.this$0.cNv;
             personChangeData.setName(cVar2.getUser().getName_show());
-            cVar3 = this.this$0.cMW;
+            cVar3 = this.this$0.cNv;
             personChangeData.setIntro(cVar3.getUser().getIntro());
-            cVar4 = this.this$0.cMW;
+            cVar4 = this.this$0.cNv;
             personChangeData.setPortrait(cVar4.getUser().getPortrait());
-            cVar5 = this.this$0.cMW;
+            cVar5 = this.this$0.cNv;
             personChangeData.setSex(cVar5.getUser().getSex());
             this.this$0.b(personChangeData);
         }

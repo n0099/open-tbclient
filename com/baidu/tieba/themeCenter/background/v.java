@@ -9,9 +9,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class v {
-    private TbImageView ddX;
-    private TextView dfq;
-    private TextView dfr;
+    private TbImageView dex;
+    private TextView dfQ;
+    private TextView dfR;
     private TbPageContext<?> mContext;
     private View mRootView;
 
@@ -22,17 +22,17 @@ public class v {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.background_preview_bottom, (ViewGroup) null);
-        this.dfq = (TextView) this.mRootView.findViewById(i.f.text_bg_name);
-        this.ddX = (TbImageView) this.mRootView.findViewById(i.f.bg_permission_icon);
-        this.dfr = (TextView) this.mRootView.findViewById(i.f.text_bg_description);
+        this.dfQ = (TextView) this.mRootView.findViewById(i.f.text_bg_name);
+        this.dex = (TbImageView) this.mRootView.findViewById(i.f.bg_permission_icon);
+        this.dfR = (TextView) this.mRootView.findViewById(i.f.text_bg_description);
         tc();
     }
 
     public void c(DressItemData dressItemData) {
         if (dressItemData != null) {
-            this.dfq.setText(dressItemData.getTitle());
-            this.ddX.d(dressItemData.getPermissionImgUrl(), 10, false);
-            this.dfr.setText(dressItemData.getDescription());
+            this.dfQ.setText(dressItemData.getTitle());
+            this.dex.d(dressItemData.getPermissionImgUrl(), 10, false);
+            this.dfR.setText(dressItemData.getDescription());
         }
     }
 

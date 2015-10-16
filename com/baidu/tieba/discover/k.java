@@ -10,19 +10,19 @@ import com.baidu.tieba.discover.data.OpenUserResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k extends HttpMessageListener {
-    final /* synthetic */ a aKv;
+    final /* synthetic */ a aKG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(a aVar, int i) {
         super(i);
-        this.aKv = aVar;
+        this.aKG = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        this.aKv.getPageContext().getOrignalPage().closeLoadingDialog();
+        this.aKG.getPageContext().getOrignalPage().closeLoadingDialog();
         if (httpResponsedMessage instanceof OpenUserResponsedMessage) {
             OpenUserResponsedMessage openUserResponsedMessage = (OpenUserResponsedMessage) httpResponsedMessage;
             if (openUserResponsedMessage.getOrginalMessage() instanceof HttpMessage) {
@@ -35,19 +35,19 @@ public class k extends HttpMessageListener {
                             if (!TextUtils.isEmpty(userInfo.toJson())) {
                                 if (TbadkCoreApplication.isLogin()) {
                                     com.baidu.tbadk.core.sharedPref.b.tu().putString("open_user_info_" + TbadkCoreApplication.getCurrentAccount(), userInfo.toJson());
-                                    this.aKv.n(str, userInfo.getOpenID(), userInfo.getUserName());
+                                    this.aKG.m(str, userInfo.getOpenID(), userInfo.getUserName());
                                     return;
                                 }
-                                this.aKv.n(str, "", "");
+                                this.aKG.m(str, "", "");
                                 return;
                             }
-                            this.aKv.n(str, "", "");
+                            this.aKG.m(str, "", "");
                             return;
                         }
-                        this.aKv.n(str, "", "");
+                        this.aKG.m(str, "", "");
                         return;
                     }
-                    this.aKv.n(str, "", "");
+                    this.aKG.m(str, "", "");
                 }
             }
         }

@@ -2,15 +2,15 @@ package com.baidu.tieba.themeCenter.background;
 
 import android.view.View;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-    final /* synthetic */ aa dfE;
+    final /* synthetic */ aa dge;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.dfE = aaVar;
+        this.dge = aaVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,13 +20,13 @@ public class ab implements View.OnClickListener {
         i iVar2;
         DressItemData dressItemData2;
         if (view != null) {
-            dressItemData = this.dfE.deW;
+            dressItemData = this.dge.dfw;
             if (dressItemData != null) {
-                iVar = this.dfE.deA;
+                iVar = this.dge.dfa;
                 if (iVar != null) {
-                    TiebaStatic.log(new ap("c10284"));
-                    iVar2 = this.dfE.deA;
-                    dressItemData2 = this.dfE.deW;
+                    TiebaStatic.log(new aq("c10284"));
+                    iVar2 = this.dge.dfa;
+                    dressItemData2 = this.dge.dfw;
                     iVar2.a(dressItemData2, true);
                 }
             }

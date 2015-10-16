@@ -88,7 +88,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
         SPEAKER,
         HEADSET;
 
-        /* JADX DEBUG: Replace access to removed values field (aeS) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (aeT) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static PlayMode[] valuesCustom() {
             PlayMode[] valuesCustom = values();

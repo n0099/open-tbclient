@@ -1,9 +1,9 @@
 package com.baidu.tbadk.performanceLog;
 /* loaded from: classes.dex */
 public class s extends r {
-    public String Gp;
-    public long Gq;
-    public boolean axq;
+    public String Gq;
+    public long Gr;
+    public boolean axr;
     public boolean isSuccess;
 
     public void DT() {

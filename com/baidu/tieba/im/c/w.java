@@ -4,12 +4,12 @@ import java.util.LinkedHashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class w extends com.baidu.tbadk.util.l<LinkedHashMap<String, String>> {
-    final /* synthetic */ a bGU;
+    final /* synthetic */ a bHf;
     private final /* synthetic */ String val$groupId;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(a aVar, String str) {
-        this.bGU = aVar;
+        this.bHf = aVar;
         this.val$groupId = str;
     }
 

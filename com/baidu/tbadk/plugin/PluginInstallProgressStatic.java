@@ -7,31 +7,37 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class PluginInstallProgressStatic {
-    private static Runnable avE = new d();
-    private static boolean ayt;
+    private static Runnable avF = new d();
+    private static boolean ayE;
 
     static {
-        h.hg().post(avE);
-        MessageManager.getInstance().registerListener(new e(2000993));
-        MessageManager.getInstance().registerListener(new f(2000988));
-        ayt = false;
+        if (TbadkCoreApplication.m411getInst().isMainProcess(true)) {
+            h.hg().post(avF);
+            MessageManager.getInstance().registerListener(new e(2000993));
+            MessageManager.getInstance().registerListener(new f(2000988));
+        }
+        ayE = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final void Ek() {
-        h.hg().removeCallbacks(avE);
-        h.hg().postDelayed(avE, 120000L);
-        if (!ayt) {
-            ayt = true;
-            String string = TbadkCoreApplication.m411getInst().getResources().getString(i.h.plugin_tip_installing);
-            NotificationHelper.showNotification(TbadkCoreApplication.m411getInst().getApplicationContext(), 1000, null, string, string, null, false);
+        if (TbadkCoreApplication.m411getInst().isMainProcess(true)) {
+            h.hg().removeCallbacks(avF);
+            h.hg().postDelayed(avF, 120000L);
+            if (!ayE) {
+                ayE = true;
+                String string = TbadkCoreApplication.m411getInst().getResources().getString(i.h.plugin_tip_installing);
+                NotificationHelper.showNotification(TbadkCoreApplication.m411getInst().getApplicationContext(), 1000, null, string, string, null, false);
+            }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final void El() {
-        ayt = false;
-        h.hg().removeCallbacks(avE);
-        NotificationHelper.cancelNotification(TbadkCoreApplication.m411getInst().getApplicationContext(), 1000);
+        if (TbadkCoreApplication.m411getInst().isMainProcess(true)) {
+            ayE = false;
+            h.hg().removeCallbacks(avF);
+            NotificationHelper.cancelNotification(TbadkCoreApplication.m411getInst().getApplicationContext(), 1000);
+        }
     }
 }

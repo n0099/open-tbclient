@@ -1,9 +1,9 @@
 package com.baidu.tieba.tblauncher.a;
 /* loaded from: classes.dex */
 public class b implements a {
-    private int ddh;
-    private int ddi;
-    private int ddj;
+    private int ddH;
+    private int ddI;
+    private int ddJ;
     private int mType;
 
     public b(int i, int i2, int i3) {
@@ -11,21 +11,21 @@ public class b implements a {
     }
 
     public b(int i, int i2, int i3, int i4) {
-        this.ddj = 0;
-        this.ddi = i;
-        this.ddh = i2;
+        this.ddJ = 0;
+        this.ddI = i;
+        this.ddH = i2;
         this.mType = i3;
-        this.ddj = i4;
+        this.ddJ = i4;
     }
 
     @Override // com.baidu.tieba.tblauncher.a.a
-    public int ayI() {
-        return this.ddh;
+    public int ayS() {
+        return this.ddH;
     }
 
     @Override // com.baidu.tieba.tblauncher.a.a
-    public int ayH() {
-        return this.ddi;
+    public int ayR() {
+        return this.ddI;
     }
 
     @Override // com.baidu.tieba.tblauncher.a.a
@@ -34,12 +34,12 @@ public class b implements a {
     }
 
     @Override // com.baidu.tieba.tblauncher.a.a
-    public int ayJ() {
-        return this.ddj;
+    public int ayT() {
+        return this.ddJ;
     }
 
-    public void ln(int i) {
-        this.ddj = i;
+    public void lp(int i) {
+        this.ddJ = i;
     }
 
     @Override // com.baidu.tieba.tblauncher.a.a

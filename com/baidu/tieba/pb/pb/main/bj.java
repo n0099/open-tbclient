@@ -5,19 +5,19 @@ import com.baidu.location.BDLocationStatusCodes;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class bj {
-    private static bj ciU;
-    private com.baidu.adp.lib.cache.o<byte[]> ciV = null;
-    private com.baidu.adp.lib.cache.o<byte[]> ciW = null;
-    private long ciX = 0;
-    private long ciY = 0;
+    private static bj cjf;
+    private com.baidu.adp.lib.cache.o<byte[]> cjg = null;
+    private com.baidu.adp.lib.cache.o<byte[]> cjh = null;
+    private long cji = 0;
+    private long cjj = 0;
 
     public static synchronized bj afH() {
         bj bjVar;
         synchronized (bj.class) {
-            if (ciU == null) {
-                ciU = new bj();
+            if (cjf == null) {
+                cjf = new bj();
             }
-            bjVar = ciU;
+            bjVar = cjf;
         }
         return bjVar;
     }
@@ -27,25 +27,25 @@ public class bj {
     }
 
     private void Kp() {
-        if (this.ciV == null) {
+        if (this.cjg == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.ciV = com.baidu.tbadk.core.b.a.sO().cp("tb.pb_mark");
-            this.ciY = System.currentTimeMillis() - currentTimeMillis;
+            this.cjg = com.baidu.tbadk.core.b.a.sO().cq("tb.pb_mark");
+            this.cjj = System.currentTimeMillis() - currentTimeMillis;
         }
-        if (this.ciW == null) {
+        if (this.cjh == null) {
             long currentTimeMillis2 = System.currentTimeMillis();
-            this.ciW = com.baidu.tbadk.core.b.a.sO().cp("tb.pb_normal");
-            this.ciX = System.currentTimeMillis() - currentTimeMillis2;
+            this.cjh = com.baidu.tbadk.core.b.a.sO().cq("tb.pb_normal");
+            this.cji = System.currentTimeMillis() - currentTimeMillis2;
         }
     }
 
     public void z(String str, boolean z) {
         if (z) {
-            if (this.ciV != null && str != null) {
-                this.ciV.b(str, new byte[0], 0L);
+            if (this.cjg != null && str != null) {
+                this.cjg.b(str, new byte[0], 0L);
             }
-        } else if (this.ciW != null && str != null) {
-            this.ciW.b(str, new byte[0], 0L);
+        } else if (this.cjh != null && str != null) {
+            this.cjh.b(str, new byte[0], 0L);
         }
     }
 
@@ -54,15 +54,15 @@ public class bj {
         long currentTimeMillis = System.currentTimeMillis();
         long j = 0;
         if (z) {
-            if (this.ciV != null && str != null) {
-                ac = this.ciV.ac(str);
-                j = this.ciY;
+            if (this.cjg != null && str != null) {
+                ac = this.cjg.ac(str);
+                j = this.cjj;
             }
             ac = null;
         } else {
-            if (this.ciW != null && str != null) {
-                ac = this.ciW.ac(str);
-                j = this.ciX;
+            if (this.cjh != null && str != null) {
+                ac = this.cjh.ac(str);
+                j = this.cji;
             }
             ac = null;
         }
@@ -71,7 +71,7 @@ public class bj {
         }
         com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
         tVar.ez(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-        tVar.axz = (System.currentTimeMillis() - currentTimeMillis) + j;
+        tVar.axA = (System.currentTimeMillis() - currentTimeMillis) + j;
         tVar.DX();
         return ac.sl;
     }
@@ -81,14 +81,14 @@ public class bj {
             long currentTimeMillis = System.currentTimeMillis();
             Kp();
             if (z) {
-                this.ciV.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
+                this.cjg.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
-                this.ciW.a(str, bArr, 86400000L);
+                this.cjh.a(str, bArr, 86400000L);
             }
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
             tVar.ez(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-            tVar.axA = currentTimeMillis2;
+            tVar.axB = currentTimeMillis2;
             tVar.DY();
         }
     }
@@ -97,11 +97,11 @@ public class bj {
         if (bArr != null && str != null) {
             long currentTimeMillis = System.currentTimeMillis();
             Kp();
-            this.ciV.a(str, bArr, 2592000000L);
+            this.cjg.a(str, bArr, 2592000000L);
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
             tVar.ez(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-            tVar.axA = currentTimeMillis2;
+            tVar.axB = currentTimeMillis2;
             tVar.DY();
         }
     }

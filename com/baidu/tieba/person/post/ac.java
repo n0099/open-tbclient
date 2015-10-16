@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements View.OnClickListener {
-    final /* synthetic */ ReplyLinearLayout csb;
+    final /* synthetic */ ReplyLinearLayout csm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(ReplyLinearLayout replyLinearLayout) {
-        this.csb = replyLinearLayout;
+        this.csm = replyLinearLayout;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,7 +24,7 @@ public class ac implements View.OnClickListener {
         boolean z;
         String[] strArr = (String[]) view.getTag();
         if (strArr != null) {
-            Context context = this.csb.getContext();
+            Context context = this.csm.getContext();
             if (strArr.length < 6 || strArr[5] == null || com.baidu.adp.lib.g.b.g(strArr[5], 0) != 33) {
                 z = false;
             } else if ("0".equals(strArr[3])) {

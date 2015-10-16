@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class br extends bk<com.baidu.tbadk.core.data.z, bq> {
-    private View.OnClickListener bML;
+public class br extends bk<com.baidu.tbadk.core.data.aa, bq> {
+    private View.OnClickListener bMW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public br(PbActivity pbActivity, BdUniqueId bdUniqueId) {
@@ -26,20 +26,20 @@ public class br extends bk<com.baidu.tbadk.core.data.z, bq> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.pb.pb.main.bk, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.z zVar, bq bqVar) {
-        super.a(i, view, viewGroup, (ViewGroup) zVar, (com.baidu.tbadk.core.data.z) bqVar);
-        if (zVar != null) {
-            bqVar.cjN.setOnClickListener(this.bML);
-            bqVar.cjN.setText(zVar.getSummary());
-            bqVar.cjN.setTag(zVar);
-            com.baidu.tbadk.core.util.am.j(bqVar.cjO, i.c.cp_bg_line_b);
-            com.baidu.tbadk.core.util.am.b(bqVar.cjN, i.c.cp_cont_b, 1);
-            bqVar.cjN.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.am.getDrawable(i.e.icon_frs_news), (Drawable) null, (Drawable) null, (Drawable) null);
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.aa aaVar, bq bqVar) {
+        super.a(i, view, viewGroup, (ViewGroup) aaVar, (com.baidu.tbadk.core.data.aa) bqVar);
+        if (aaVar != null) {
+            bqVar.cjY.setOnClickListener(this.bMW);
+            bqVar.cjY.setText(aaVar.getSummary());
+            bqVar.cjY.setTag(aaVar);
+            com.baidu.tbadk.core.util.an.j(bqVar.cjZ, i.c.cp_bg_line_b);
+            com.baidu.tbadk.core.util.an.b(bqVar.cjY, i.c.cp_cont_b, 1);
+            bqVar.cjY.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.an.getDrawable(i.e.icon_frs_news), (Drawable) null, (Drawable) null, (Drawable) null);
         }
         return view;
     }
 
     public void r(View.OnClickListener onClickListener) {
-        this.bML = onClickListener;
+        this.bMW = onClickListener;
     }
 }

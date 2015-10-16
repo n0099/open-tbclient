@@ -13,11 +13,11 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ a clF;
+    final /* synthetic */ a clQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.clF = aVar;
+        this.clQ = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -47,12 +47,12 @@ public class b implements View.OnClickListener {
             }
         }
         if (str3 != null) {
-            pbActivity = this.clF.ciJ;
+            pbActivity = this.clQ.ciU;
             if (pbActivity.afk() != null) {
                 MessageManager messageManager = MessageManager.getInstance();
-                pbActivity2 = this.clF.ciJ;
+                pbActivity2 = this.clQ.ciU;
                 Activity pageActivity = pbActivity2.getPageContext().getPageActivity();
-                pbActivity3 = this.clF.ciJ;
+                pbActivity3 = this.clQ.ciU;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(pageActivity, str3, str2, pbActivity3.afk().afK(), AddFriendActivityConfig.TYPE_PB_HEAD)));
             }
         }

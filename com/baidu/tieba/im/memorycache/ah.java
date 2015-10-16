@@ -6,11 +6,11 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 /* loaded from: classes.dex */
 class ah implements CustomMessageTask.CustomRunnable<MemoryClearUnreadCountMessage.a> {
-    final /* synthetic */ ag bEt;
+    final /* synthetic */ ag bEE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(ag agVar) {
-        this.bEt = agVar;
+        this.bEE = agVar;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable

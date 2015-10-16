@@ -6,32 +6,32 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class o extends p {
-    private volatile HashMap<String, Long> daL;
+    private volatile HashMap<String, Long> dbl;
 
     public o(int i) {
         super(i);
-        this.daL = new HashMap<>();
+        this.dbl = new HashMap<>();
     }
 
     public void bh(String str, String str2) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
-                if (this.daL.size() >= this.cFV) {
-                    axy();
+                if (this.dbl.size() >= this.cGg) {
+                    axI();
                 }
-                this.daL.put(str, valueOf);
+                this.dbl.put(str, valueOf);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public long lG(String str) {
+    public long lJ(String str) {
         long longValue;
         try {
             synchronized (this) {
-                longValue = this.daL.get(str) != null ? this.daL.get(str).longValue() : 0L;
+                longValue = this.dbl.get(str) != null ? this.dbl.get(str).longValue() : 0L;
             }
             return longValue;
         } catch (Exception e) {
@@ -45,11 +45,11 @@ public class o extends p {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
-                Iterator<Map.Entry<String, Long>> it = this.daL.entrySet().iterator();
+                Iterator<Map.Entry<String, Long>> it = this.dbl.entrySet().iterator();
                 if (it.hasNext() && (key = it.next().getKey()) != null && key.equals(str)) {
-                    this.daL.remove(key);
+                    this.dbl.remove(key);
                 }
-                this.daL.put(str, valueOf);
+                this.dbl.put(str, valueOf);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

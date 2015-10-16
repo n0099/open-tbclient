@@ -367,14 +367,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str2;
         boolean z;
         String str3 = "";
-        a.b cb = com.baidu.tbadk.core.a.a.rd().cb(TbadkCoreApplication.getCurrentBduss());
-        if (cb != null) {
-            if (cb.ws != null) {
-                str3 = cb.ws;
+        a.b cc = com.baidu.tbadk.core.a.a.rd().cc(TbadkCoreApplication.getCurrentBduss());
+        if (cc != null) {
+            if (cc.ws != null) {
+                str3 = cc.ws;
             }
-            if (cb.TC != null) {
+            if (cc.TD != null) {
                 str = str3;
-                str2 = cb.TC;
+                str2 = cc.TD;
                 p.a aVar = new p.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

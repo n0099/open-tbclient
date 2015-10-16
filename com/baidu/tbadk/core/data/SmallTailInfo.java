@@ -55,13 +55,13 @@ public class SmallTailInfo implements Serializable {
 
     private void se() {
         try {
-            this.showColorId = Color.parseColor(ck(this.color));
+            this.showColorId = Color.parseColor(cl(this.color));
         } catch (Exception e) {
-            this.showColorId = Color.parseColor(ck(TbadkCoreApplication.m411getInst().getString(i.h.tail_color_default)));
+            this.showColorId = Color.parseColor(cl(TbadkCoreApplication.m411getInst().getString(i.h.tail_color_default)));
         }
     }
 
-    private String ck(String str) {
+    private String cl(String str) {
         if (str == null) {
             return null;
         }

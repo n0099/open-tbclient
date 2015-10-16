@@ -3,24 +3,24 @@ package com.baidu.tbadk.util;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class i {
-    private static final byte[] azv = new byte[1];
-    private static i azw = null;
+    private static final byte[] azG = new byte[1];
+    private static i azH = null;
     private CustomMessageListener xl;
 
     public static i EB() {
-        if (azw == null) {
-            synchronized (azv) {
-                if (azw == null) {
-                    azw = new i();
+        if (azH == null) {
+            synchronized (azG) {
+                if (azH == null) {
+                    azH = new i();
                 }
             }
         }
-        return azw;
+        return azH;
     }
 
     private i() {
@@ -49,9 +49,9 @@ public class i {
             boolean iM = com.baidu.adp.lib.util.i.iM();
             if (iM) {
                 if (com.baidu.adp.lib.util.i.iN()) {
-                    as.uI().as(true);
+                    at.uJ().as(true);
                 } else if (com.baidu.adp.lib.util.i.iO()) {
-                    as.uI().as(false);
+                    at.uJ().as(false);
                 }
             }
             NoNetworkView.setIsHasNetwork(iM);

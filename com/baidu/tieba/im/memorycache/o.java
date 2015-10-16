@@ -6,11 +6,11 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements a.InterfaceC0059a {
-    final /* synthetic */ b bDx;
+    final /* synthetic */ b bDI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(b bVar) {
-        this.bDx = bVar;
+        this.bDI = bVar;
     }
 
     @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0059a

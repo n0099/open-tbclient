@@ -6,13 +6,13 @@ import com.baidu.tieba.pb.pb.main.bl;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bo extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ bl cjB;
+    final /* synthetic */ bl cjM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bo(bl blVar, int i, int i2) {
         super(i, i2);
-        this.cjB = blVar;
+        this.cjM = blVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x0046  */
@@ -39,19 +39,19 @@ public class bo extends com.baidu.adp.framework.listener.a {
         bl.a aVar2;
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
-        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.cjB.getUniqueId()) {
+        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.cjM.getUniqueId()) {
             boolean z4 = true;
             if (responsedMessage.hasError()) {
                 z4 = false;
                 if (responsedMessage.getError() == 4) {
-                    baseActivity2 = this.cjB.aRT;
+                    baseActivity2 = this.cjM.aSe;
                     baseActivity2.showToast(responsedMessage.getErrorString());
                     z = false;
                     if (responsedMessage instanceof pbPageSocketResponseMessage) {
                         i = 0;
                     } else {
                         pbPageSocketResponseMessage pbpagesocketresponsemessage = (pbPageSocketResponseMessage) responsedMessage;
-                        this.cjB.a(pbpagesocketresponsemessage);
+                        this.cjM.a(pbpagesocketresponsemessage);
                         i = pbpagesocketresponsemessage.getDownSize();
                     }
                     if (responsedMessage instanceof pbPageHttpResponseMessage) {
@@ -59,7 +59,7 @@ public class bo extends com.baidu.adp.framework.listener.a {
                         z2 = false;
                     } else {
                         pbPageHttpResponseMessage pbpagehttpresponsemessage = (pbPageHttpResponseMessage) responsedMessage;
-                        this.cjB.a(pbpagehttpresponsemessage);
+                        this.cjM.a(pbpagehttpresponsemessage);
                         i2 = pbpagehttpresponsemessage.getDownSize();
                         z2 = true;
                     }
@@ -74,23 +74,23 @@ public class bo extends com.baidu.adp.framework.listener.a {
                     objArr[2] = "ThreadId";
                     objArr[3] = pbPageRequestMessage == null ? String.valueOf(pbPageRequestMessage.get_kz()) : null;
                     com.baidu.tbadk.core.log.b.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
-                    z3 = this.cjB.cjv;
+                    z3 = this.cjM.cjG;
                     if (z3) {
-                        this.cjB.cjv = true;
+                        this.cjM.cjG = true;
                         com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
-                        tVar.ez(this.cjB.afI());
-                        tVar.axD = z2;
+                        tVar.ez(this.cjM.afI());
+                        tVar.axE = z2;
                         tVar.isSuccess = z;
-                        tVar.axs = responsedMessage.performanceData.qw;
-                        tVar.axt = responsedMessage.performanceData.qx;
-                        tVar.axu = responsedMessage.performanceData.qy;
-                        tVar.axv = responsedMessage.performanceData.qz;
-                        tVar.axw = responsedMessage.performanceData.qA;
-                        tVar.axB = i;
-                        tVar.axC = i2;
-                        aVar = this.cjB.cjr;
+                        tVar.axt = responsedMessage.performanceData.qw;
+                        tVar.axu = responsedMessage.performanceData.qx;
+                        tVar.axv = responsedMessage.performanceData.qy;
+                        tVar.axw = responsedMessage.performanceData.qz;
+                        tVar.axx = responsedMessage.performanceData.qA;
+                        tVar.axC = i;
+                        tVar.axD = i2;
+                        aVar = this.cjM.cjC;
                         if (aVar != null) {
-                            aVar2 = this.cjB.cjr;
+                            aVar2 = this.cjM.cjC;
                             aVar2.e(tVar);
                             return;
                         }
@@ -98,7 +98,7 @@ public class bo extends com.baidu.adp.framework.listener.a {
                     }
                     return;
                 } else if (com.baidu.adp.lib.util.i.iM()) {
-                    baseActivity = this.cjB.aRT;
+                    baseActivity = this.cjM.aSe;
                     baseActivity.showToast(responsedMessage.getErrorString());
                 }
             }
@@ -118,7 +118,7 @@ public class bo extends com.baidu.adp.framework.listener.a {
             objArr2[2] = "ThreadId";
             objArr2[3] = pbPageRequestMessage2 == null ? String.valueOf(pbPageRequestMessage2.get_kz()) : null;
             com.baidu.tbadk.core.log.b.a("pb", clientLogID2, cmd2, "resp", error2, errorString2, objArr2);
-            z3 = this.cjB.cjv;
+            z3 = this.cjM.cjG;
             if (z3) {
             }
         }
