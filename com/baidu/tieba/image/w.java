@@ -17,7 +17,7 @@ public class w implements View.OnClickListener {
         NavigationBar navigationBar;
         navigationBar = this.this$0.bdY;
         if (navigationBar.getVisibility() != 8) {
-            this.this$0.UX();
+            this.this$0.UT();
         }
     }
 }

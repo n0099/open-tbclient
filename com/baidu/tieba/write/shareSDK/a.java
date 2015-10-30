@@ -18,13 +18,13 @@ public class a {
     public interface InterfaceC0080a {
         void a(boolean z, PostPrefixData postPrefixData);
 
-        void aBT();
+        void aBP();
     }
 
     public a(BaseActivity baseActivity, InterfaceC0080a interfaceC0080a) {
         this.aSe = baseActivity;
         this.dlZ = interfaceC0080a;
-        aBS();
+        aBO();
     }
 
     public void mr(String str) {
@@ -35,7 +35,7 @@ public class a {
         }
     }
 
-    public void aBS() {
+    public void aBO() {
         if (this.aSe != null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SHARE_GET_FORUM_PROFIX_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/getprefix");

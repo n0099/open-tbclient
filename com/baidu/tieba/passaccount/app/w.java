@@ -16,7 +16,7 @@ public class w extends AuthorizationListener {
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
     public void onSuccess() {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "register_pass_success", 0, "", new Object[0]);
-        this.cds.aec();
+        this.cds.adY();
     }
 
     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener

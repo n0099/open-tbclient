@@ -25,14 +25,14 @@ public class e implements com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommen
         com.baidu.tieba.recommendfrs.data.a ks = mVar.ks(i);
         if (ks != null) {
             TiebaStatic.eventStat(this.cIu.getContext(), "kantie_banner", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
-            String apU = ks.apU();
-            if (!StringUtils.isNull(apU)) {
-                az uW = az.uW();
+            String apQ = ks.apQ();
+            if (!StringUtils.isNull(apQ)) {
+                az uT = az.uT();
                 tbPageContext = this.cIu.pageContext;
-                uW.b(tbPageContext, new String[]{apU});
+                uT.b(tbPageContext, new String[]{apQ});
                 return;
             }
-            this.cIu.bb(str, ks.apW());
+            this.cIu.bb(str, ks.apS());
         }
     }
 
@@ -45,7 +45,7 @@ public class e implements com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommen
             mVar = this.cIu.cIi;
             if (mVar != null) {
                 mVar2 = this.cIu.cIi;
-                mVar2.setTitle(UtilHelper.getFixedText(aVar.apV(), 14, true));
+                mVar2.setTitle(UtilHelper.getFixedText(aVar.apR(), 14, true));
             }
         }
     }

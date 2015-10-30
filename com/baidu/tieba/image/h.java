@@ -24,14 +24,14 @@ public class h {
         this.aPO = (TbImageView) this.bOP.findViewById(i.f.big_image_ad_image);
         this.bll = (TextView) this.bOP.findViewById(i.f.big_image_ad_button);
         this.mContext = viewGroup.getContext();
-        ZR();
+        ZN();
     }
 
     public View getView() {
         return this.bOP;
     }
 
-    public void ZR() {
+    public void ZN() {
         new RelativeLayout.LayoutParams(-1, -1);
         this.mProgressBar = new ProgressBar(this.mContext, null, 16843399);
         this.mProgressBar.setIndeterminateDrawable(this.mContext.getResources().getDrawable(i.e.progressbar));
@@ -42,15 +42,15 @@ public class h {
         this.bOP.addView(this.mProgressBar);
     }
 
-    public TbImageView ZS() {
+    public TbImageView ZO() {
         return this.aPO;
     }
 
-    public TextView ZT() {
+    public TextView ZP() {
         return this.bll;
     }
 
-    public void ZU() {
+    public void ZQ() {
         this.bll.setEnabled(false);
         this.bll.setText(i.h.downloading2);
         this.bll.setBackgroundResource(i.e.button_fenfa_xiazaizhong);
@@ -64,7 +64,7 @@ public class h {
         an.a(this.bll, i.e.button_fenfa_download_text_selector, 1, 0);
     }
 
-    public void ZV() {
+    public void ZR() {
         int width = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay().getWidth();
         ViewGroup.LayoutParams layoutParams = this.aPO.getLayoutParams();
         double loadedHeight = this.aPO.getLoadedHeight() / this.aPO.getLoadedWidth();
@@ -78,7 +78,7 @@ public class h {
         this.aPO.setLayoutParams(layoutParams);
     }
 
-    public void ZW() {
+    public void ZS() {
         this.bll.setEnabled(true);
         this.bll.setText(i.h.setup_text);
         this.bll.setBackgroundResource(i.e.button_fenfa_download_selector);
@@ -90,7 +90,7 @@ public class h {
         this.aPO.setOnClickListener(onClickListener);
     }
 
-    public void ZX() {
+    public void ZT() {
         this.mProgressBar.setVisibility(8);
     }
 }

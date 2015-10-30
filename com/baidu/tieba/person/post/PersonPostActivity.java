@@ -104,7 +104,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         this.bee.setup(getSupportFragmentManager());
         this.bee.setTabWidgetBackgroundColor(getResources().getColor(i.c.maintab_bg));
         this.bee.setOnPageChangeListener(this);
-        WH();
+        WD();
         if (bundle != null) {
             this.bFE = bundle.getInt("CurrTabIndex");
         } else {
@@ -128,7 +128,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         }
     }
 
-    private void WH() {
+    private void WD() {
         if (this.crs != null) {
             int count = this.crs.getCount();
             for (int i = 0; i < count; i++) {
@@ -157,7 +157,7 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         return this.wq;
     }
 
-    public String WJ() {
+    public String WF() {
         return this.bFH;
     }
 
@@ -171,11 +171,11 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
         super.onSaveInstanceState(bundle);
     }
 
-    public String aiV() {
+    public String aiR() {
         if (this.isHost) {
             return getPageContext().getString(i.h.person_post_lv_empty_host);
         }
-        return String.format(getPageContext().getString(i.h.person_post_lv_empty_guest), WJ());
+        return String.format(getPageContext().getString(i.h.person_post_lv_empty_guest), WF());
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -218,10 +218,10 @@ public class PersonPostActivity extends BaseFragmentActivity implements ViewPage
     @Override // com.baidu.adp.base.BdBaseFragmentActivity
     public BdListView onGetPreLoadListView() {
         if (this.crs != null) {
-            u aiW = this.crs.aiW();
-            ab ajb = aiW != null ? aiW.ajb() : null;
-            if (ajb != null) {
-                return ajb.getBdListView();
+            u aiS = this.crs.aiS();
+            ab aiX = aiS != null ? aiS.aiX() : null;
+            if (aiX != null) {
+                return aiX.getBdListView();
             }
             return null;
         }

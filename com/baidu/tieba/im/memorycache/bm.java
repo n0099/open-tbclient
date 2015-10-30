@@ -19,7 +19,7 @@ public class bm implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         if (customMessage != null) {
-            com.baidu.tieba.im.db.i.TO().a(this.bEx, 2);
+            com.baidu.tieba.im.db.i.TK().a(this.bEx, 2);
         }
         return null;
     }

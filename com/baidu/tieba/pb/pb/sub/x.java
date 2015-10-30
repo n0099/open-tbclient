@@ -24,7 +24,7 @@ public class x implements Runnable {
         if (this.yG != null) {
             int[] iArr = new int[2];
             nVar = this.cmX.caU;
-            nVar.Ax().getLocationInWindow(iArr);
+            nVar.Au().getLocationInWindow(iArr);
             bdListView = this.cmX.mListView;
             bdListView.setSelectionFromTop(this.val$position + 1, iArr[1] - this.yG.getHeight());
             bdListView2 = this.cmX.mListView;

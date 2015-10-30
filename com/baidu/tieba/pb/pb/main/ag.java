@@ -24,6 +24,6 @@ public class ag implements a.b {
         intent.putExtra(PbActivityConfig.KEY_MARK, this.ciR);
         this.ciK.setResult(-1, intent);
         this.ciS.dismiss();
-        this.ciK.afp();
+        this.ciK.afl();
     }
 }

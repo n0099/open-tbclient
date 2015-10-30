@@ -111,12 +111,12 @@ class a implements View.OnClickListener {
                             String str7 = postInfoList.user_name;
                             strArr[0] = String.valueOf(postInfoList.thread_id);
                             strArr[1] = String.valueOf(postInfoList.post_id);
-                            String o = as.o(postInfoList.create_time * 1000);
+                            String m = as.m(postInfoList.create_time * 1000);
                             String str8 = postInfoList.forum_name;
                             String valueOf = String.valueOf(postInfoList.reply_num);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
                             str4 = str7;
-                            str3 = o;
+                            str3 = m;
                             str2 = str8;
                             str6 = valueOf;
                             str5 = 1;
@@ -127,7 +127,7 @@ class a implements View.OnClickListener {
                             strArr[2] = String.valueOf(postInfoList.content[0].post_type);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
                             str4 = str9;
-                            str3 = as.o(postInfoList.create_time * 1000);
+                            str3 = as.m(postInfoList.create_time * 1000);
                             str2 = postInfoList.forum_name;
                             str6 = String.valueOf(postInfoList.reply_num);
                             str5 = 1;

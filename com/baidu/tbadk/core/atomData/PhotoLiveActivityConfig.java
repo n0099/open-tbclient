@@ -104,7 +104,7 @@ public class PhotoLiveActivityConfig extends IntentConfig {
             return this;
         }
 
-        public PhotoLiveActivityConfig rk() {
+        public PhotoLiveActivityConfig rh() {
             return new PhotoLiveActivityConfig(this, null);
         }
     }

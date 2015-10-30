@@ -19,9 +19,9 @@ public class a extends d<v, com.baidu.tbadk.mvc.d.b, m> implements c {
 
     @Override // com.baidu.tieba.enterForum.a.c
     public void R(int i, int i2) {
-        List<v> Dm = Dm();
-        com.baidu.tieba.enterForum.c.b.Iw().a(Dm, i, i2);
-        r(Dm);
+        List<v> Dj = Dj();
+        com.baidu.tieba.enterForum.c.b.Is().a(Dj, i, i2);
+        r(Dj);
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
@@ -30,7 +30,7 @@ public class a extends d<v, com.baidu.tbadk.mvc.d.b, m> implements c {
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void HT() {
+    public void HP() {
         notifyDataSetChanged();
     }
 

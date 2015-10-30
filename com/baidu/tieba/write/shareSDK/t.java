@@ -28,7 +28,7 @@ public class t implements cd.a {
         textView.setText(postPrefixData.getPrefixs().get(i));
         cdVar = this.dmR.dmG;
         cdVar.lL(i);
-        this.dmR.aCj();
+        this.dmR.aCf();
         cdVar2 = this.dmR.dmG;
         writeShareActivity2 = this.dmR.dmO;
         com.baidu.adp.lib.g.j.a(cdVar2, writeShareActivity2.getPageContext().getPageActivity());

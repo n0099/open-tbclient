@@ -52,7 +52,7 @@ public class i {
         this.cfX = (TextView) this.cfN.findViewById(i.f.chosen_post_info_mark);
     }
 
-    public View aeI() {
+    public View aeE() {
         return this.cfN;
     }
 
@@ -72,11 +72,11 @@ public class i {
         }
     }
 
-    public void aS(long j) {
+    public void aQ(long j) {
         if (j >= 0) {
             this.btq = j;
             if (this.cfQ != null) {
-                this.cfQ.setText(this.context.getString(i.h.chosen_pb_praise_num, as.s(j)));
+                this.cfQ.setText(this.context.getString(i.h.chosen_pb_praise_num, as.q(j)));
             }
         }
     }
@@ -95,14 +95,14 @@ public class i {
     public void a(ForumInfo forumInfo) {
         if (forumInfo != null) {
             iH(i.h.chosen_pb_copyright);
-            aS(forumInfo.zan.zansum.longValue());
+            aQ(forumInfo.zan.zansum.longValue());
             en(forumInfo.zan.is_zan.booleanValue());
             y(new k(this, forumInfo));
             this.cfP.setOnClickListener(new l(this));
         }
     }
 
-    public void aeJ() {
+    public void aeF() {
         this.cfV = false;
     }
 
@@ -113,7 +113,7 @@ public class i {
         } else {
             this.btq--;
         }
-        aS(this.btq);
+        aQ(this.btq);
     }
 
     private void en(boolean z) {
@@ -126,7 +126,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation aeK() {
+    public Animation aeG() {
         if (this.cfU == null) {
             this.cfU = AnimationUtils.loadAnimation(this.context, i.a.praise_animation_scale3);
         }

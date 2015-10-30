@@ -75,7 +75,7 @@ public class c extends ImageView implements p {
         }
     }
 
-    public void Aw() {
+    public void At() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -90,7 +90,7 @@ public class c extends ImageView implements p {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                Aw();
+                At();
             } else if (aVar.data instanceof String) {
                 eK((String) aVar.data);
             }

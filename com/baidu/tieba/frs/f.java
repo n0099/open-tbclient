@@ -40,9 +40,9 @@ class f implements View.OnClickListener {
         com.baidu.tieba.tbadkCore.o oVar3;
         com.baidu.tieba.tbadkCore.o oVar4;
         bsVar = this.aUK.aTU;
-        if (view != bsVar.LL()) {
+        if (view != bsVar.LH()) {
             bsVar2 = this.aUK.aTU;
-            if (view != bsVar2.LM()) {
+            if (view != bsVar2.LI()) {
                 bsVar3 = this.aUK.aTU;
                 if (view == bsVar3.getMoreButton()) {
                     bsVar10 = this.aUK.aTU;
@@ -53,39 +53,39 @@ class f implements View.OnClickListener {
                     kVar3.a(dgVar2);
                     TiebaStatic.eventStat(this.aUK.getPageContext().getPageActivity(), "frs_more", "frsclick", 1, new Object[0]);
                     bsVar11 = this.aUK.aTU;
-                    bsVar11.LV();
+                    bsVar11.LR();
                     FrsActivityStatic.aVa = false;
                     kVar4 = this.aUK.aUl;
                     kVar4.showMenu(true);
                 } else {
                     bsVar4 = this.aUK.aTU;
-                    if (view == bsVar4.LI()) {
+                    if (view == bsVar4.LE()) {
                         bsVar9 = this.aUK.aTU;
-                        bsVar9.LH();
+                        bsVar9.LD();
                         kVar2 = this.aUK.aUl;
-                        kVar2.NM();
-                        if (this.aUK.Lm().Nd()) {
+                        kVar2.NI();
+                        if (this.aUK.Li().MZ()) {
                             this.aUK.stopVoice();
-                            this.aUK.Lm().Na();
+                            this.aUK.Li().MW();
                         }
                     } else {
                         bsVar5 = this.aUK.aTU;
-                        if (view != bsVar5.LJ()) {
+                        if (view != bsVar5.LF()) {
                             bsVar6 = this.aUK.aTU;
-                            if (view == bsVar6.LK()) {
-                                this.aUK.Lb();
+                            if (view == bsVar6.LG()) {
+                                this.aUK.KX();
                                 bsVar7 = this.aUK.aTU;
-                                bsVar7.LH();
+                                bsVar7.LD();
                             }
                         } else {
                             TiebaStatic.eventStat(this.aUK.getPageContext().getPageActivity(), "frs_good_threads", "frsclick", 1, new Object[0]);
                             bsVar8 = this.aUK.aTU;
-                            bsVar8.LH();
+                            bsVar8.LD();
                             kVar = this.aUK.aUl;
-                            kVar.NM();
-                            if (!this.aUK.Lm().Nd()) {
+                            kVar.NI();
+                            if (!this.aUK.Li().MZ()) {
                                 this.aUK.stopVoice();
-                                this.aUK.Lm().fL(0);
+                                this.aUK.Li().fL(0);
                             }
                         }
                     }
@@ -95,28 +95,28 @@ class f implements View.OnClickListener {
             }
         } else {
             TiebaStatic.eventStat(this.aUK.getPageContext().getPageActivity(), "frs_post_thread", "frsclick", 1, new Object[0]);
-            com.baidu.tbadk.core.sharedPref.b.tu().putBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "frs_write_has_click", true);
+            com.baidu.tbadk.core.sharedPref.b.tr().putBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "frs_write_has_click", true);
             bsVar14 = this.aUK.aTU;
-            bsVar14.LF();
+            bsVar14.LB();
             oVar = this.aUK.aTW;
             if (oVar != null) {
                 oVar2 = this.aUK.aTW;
-                if (oVar2.aeN() != null) {
+                if (oVar2.aeJ() != null) {
                     oVar3 = this.aUK.aTW;
-                    if (oVar3.aeN().getAnchorPower() != null) {
+                    if (oVar3.aeJ().getAnchorPower() != null) {
                         oVar4 = this.aUK.aTW;
-                        if (oVar4.aeN().getAnchorPower().can_add_live_post.intValue() == 1) {
-                            this.aUK.KX();
+                        if (oVar4.aeJ().getAnchorPower().can_add_live_post.intValue() == 1) {
+                            this.aUK.KT();
                         }
                     }
                 }
             }
-            this.aUK.KW();
+            this.aUK.KS();
         }
         if (view.getId() == i.f.refresh_layout) {
             TiebaStatic.eventStat(this.aUK.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
             bsVar12 = this.aUK.aTU;
-            if (!bsVar12.Li()) {
+            if (!bsVar12.Le()) {
                 bsVar13 = this.aUK.aTU;
                 bsVar13.nw();
             }

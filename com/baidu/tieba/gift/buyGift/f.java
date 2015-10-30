@@ -13,6 +13,6 @@ public class f implements Runnable {
     public void run() {
         com.baidu.tbadk.core.dialog.a aVar;
         aVar = this.bmC.bms;
-        aVar.sR();
+        aVar.sO();
     }
 }

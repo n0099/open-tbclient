@@ -51,10 +51,10 @@ public class p extends LinearLayout {
         an.b(this.bdH, i.c.cp_cont_b, 2);
         this.bdH.setHintTextColor(an.getColor(i.c.cp_cont_e));
         this.bdH.setPadding(context.getResources().getDimensionPixelSize(i.d.ds20), 0, 0, 0);
-        Od();
+        NZ();
     }
 
-    public void Od() {
+    public void NZ() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
@@ -74,15 +74,15 @@ public class p extends LinearLayout {
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
         this.bdL = shareFromFrsMsgData;
-        vw();
+        vt();
     }
 
-    private void vw() {
+    private void vt() {
         this.aDl.setText(dq(this.bdL.getName()));
         BdLog.e("mData.getImageUrl()的图片URL" + this.bdL.getImageUrl());
         this.bdI.d(this.bdL.getImageUrl(), 15, false);
-        this.bdK.setText(as.s(this.bdL.getMemberNum()));
-        this.bdJ.setText(as.s(this.bdL.getPostNum()));
+        this.bdK.setText(as.q(this.bdL.getMemberNum()));
+        this.bdJ.setText(as.q(this.bdL.getPostNum()));
     }
 
     private String dq(String str) {

@@ -12,10 +12,10 @@ class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.widget.ListView.u aA = this.aZM.aZG.MN().aA(((Integer) view.getTag()).intValue());
+        com.baidu.adp.widget.ListView.u aA = this.aZM.aZG.MJ().aA(((Integer) view.getTag()).intValue());
         if (aA instanceof com.baidu.tbadk.core.data.b) {
             com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) aA;
-            if (!bVar.rr()) {
+            if (!bVar.ro()) {
                 return;
             }
             this.aZM.a(bVar);

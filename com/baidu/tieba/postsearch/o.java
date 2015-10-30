@@ -18,7 +18,7 @@ public class o implements a.b {
         BdListView bdListView;
         aVar.dismiss();
         postSearchActivity = this.cEi.cDW;
-        postSearchActivity.aok().aov();
+        postSearchActivity.aog().aor();
         bdListView = this.cEi.cEe;
         bdListView.setVisibility(8);
         this.cEi.showNoDataView();

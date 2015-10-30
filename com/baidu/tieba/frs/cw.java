@@ -33,7 +33,7 @@ public class cw extends bn<com.baidu.tbadk.core.data.w, da> implements View.OnCl
     }
 
     private View a(int i, View view, com.baidu.tbadk.core.data.w wVar, da daVar) {
-        if (wVar == null || wVar.sg() == null) {
+        if (wVar == null || wVar.sd() == null) {
             return null;
         }
         if (daVar.apS != this.mSkinType) {
@@ -54,7 +54,7 @@ public class cw extends bn<com.baidu.tbadk.core.data.w, da> implements View.OnCl
             com.baidu.tbadk.core.util.an.h((View) daVar.aYe, i.c.cp_cont_c);
             com.baidu.tbadk.core.util.an.i(daVar.aTc, i.e.frs_item_control_btn_bg);
         }
-        if (wVar != null && !wVar.sy() && !TextUtils.isEmpty(wVar.getAddress()) && !TextUtils.isEmpty(wVar.getAddress().trim())) {
+        if (wVar != null && !wVar.sv() && !TextUtils.isEmpty(wVar.getAddress()) && !TextUtils.isEmpty(wVar.getAddress().trim())) {
             daVar.aXw.setVisibility(0);
             daVar.aXx.setVisibility(0);
             daVar.aXw.setText(wVar.getAddress());
@@ -62,8 +62,8 @@ public class cw extends bn<com.baidu.tbadk.core.data.w, da> implements View.OnCl
             daVar.aXw.setVisibility(8);
             daVar.aXx.setVisibility(8);
         }
-        daVar.aTg.setText(com.baidu.tbadk.core.util.as.o(wVar.getLast_time_int() * 1000));
-        if (com.baidu.tbadk.core.m.qX().qZ()) {
+        daVar.aTg.setText(com.baidu.tbadk.core.util.as.m(wVar.getLast_time_int() * 1000));
+        if (com.baidu.tbadk.core.m.qU().qW()) {
             daVar.aTj.setVisibility(0);
             String portrait = wVar.getAuthor().getPortrait();
             daVar.aTj.setUserId(wVar.getAuthor().getUserId());
@@ -99,7 +99,7 @@ public class cw extends bn<com.baidu.tbadk.core.data.w, da> implements View.OnCl
         }
         daVar.aTh.setText(wVar.getAuthor().getUserName());
         com.baidu.tieba.tbadkCore.util.p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-        if (wVar.sr() == 1) {
+        if (wVar.so() == 1) {
             daVar.aPq.setVisibility(8);
         } else {
             daVar.aPq.setVisibility(0);
@@ -112,8 +112,8 @@ public class cw extends bn<com.baidu.tbadk.core.data.w, da> implements View.OnCl
             }
         }
         StringBuffer stringBuffer = new StringBuffer();
-        if (wVar.sm() != null && wVar.sm().trim().length() > 0) {
-            stringBuffer.append(wVar.sm());
+        if (wVar.sj() != null && wVar.sj().trim().length() > 0) {
+            stringBuffer.append(wVar.sj());
         }
         ArrayList<MediaData> medias = wVar.getMedias();
         if (medias != null) {
@@ -149,19 +149,19 @@ public class cw extends bn<com.baidu.tbadk.core.data.w, da> implements View.OnCl
         int reply_num = wVar.getReply_num();
         if (reply_num > 0) {
             daVar.aTo.setVisibility(0);
-            daVar.aTo.setText(com.baidu.tbadk.core.util.as.q(reply_num));
+            daVar.aTo.setText(com.baidu.tbadk.core.util.as.o(reply_num));
         } else {
             daVar.aTo.setVisibility(8);
         }
-        long longValue = wVar.sg().total_num.longValue();
+        long longValue = wVar.sd().total_num.longValue();
         if (longValue > 0) {
             daVar.aXY.setVisibility(0);
-            daVar.aXY.setText(com.baidu.tbadk.core.util.as.q(longValue));
+            daVar.aXY.setText(com.baidu.tbadk.core.util.as.o(longValue));
         } else {
             daVar.aXY.setVisibility(8);
         }
-        List<PollOption> list = wVar.sg().options;
-        if (com.baidu.tbadk.core.m.qX().rb() && list != null && list.size() > 1) {
+        List<PollOption> list = wVar.sd().options;
+        if (com.baidu.tbadk.core.m.qU().qY() && list != null && list.size() > 1) {
             daVar.aXZ.setVisibility(0);
             daVar.aYa.setVisibility(0);
             daVar.aYb.setVisibility(0);
@@ -177,13 +177,13 @@ public class cw extends bn<com.baidu.tbadk.core.data.w, da> implements View.OnCl
                     PollOption pollOption = list.get(i5);
                     switch (i5) {
                         case 0:
-                            daVar.aYa.a(i5 + 1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), wVar.sg().total_poll.longValue());
+                            daVar.aYa.a(i5 + 1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), wVar.sd().total_poll.longValue());
                             break;
                         case 1:
-                            daVar.aYb.a(i5 + 1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), wVar.sg().total_poll.longValue());
+                            daVar.aYb.a(i5 + 1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), wVar.sd().total_poll.longValue());
                             break;
                         case 2:
-                            daVar.aYc.a(i5 + 1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), wVar.sg().total_poll.longValue());
+                            daVar.aYc.a(i5 + 1, pollOption.image, Boolean.valueOf(this.mIsFromCDN), pollOption.text, pollOption.num.longValue(), wVar.sd().total_poll.longValue());
                             break;
                     }
                     i4 = i5 + 1;
@@ -192,18 +192,18 @@ public class cw extends bn<com.baidu.tbadk.core.data.w, da> implements View.OnCl
         } else {
             daVar.aXZ.setVisibility(8);
         }
-        if (wVar.sg().options_count.intValue() == 0) {
+        if (wVar.sd().options_count.intValue() == 0) {
             daVar.aYd.setVisibility(8);
             daVar.aYe.setVisibility(8);
         } else {
             String string = this.aSe.getResources().getString(i.h.total_x_vote_option);
             daVar.aYd.setVisibility(0);
-            daVar.aYd.setText(String.format(string, wVar.sg().options_count));
-            if (StringUtils.isNull(wVar.sg().tips, true)) {
+            daVar.aYd.setText(String.format(string, wVar.sd().options_count));
+            if (StringUtils.isNull(wVar.sd().tips, true)) {
                 daVar.aYe.setVisibility(8);
             } else {
                 daVar.aYe.setVisibility(0);
-                daVar.aYe.setText("(" + wVar.sg().tips + ")");
+                daVar.aYe.setText("(" + wVar.sd().tips + ")");
             }
         }
         daVar.apS = this.mSkinType;

@@ -27,7 +27,7 @@ public class x {
             kc(1);
             return;
         }
-        aoz();
+        aov();
         if (this.bee.getCurrentTabType() == i) {
             r ke = ke(i);
             if (ke != null) {
@@ -69,13 +69,13 @@ public class x {
         this.bee = (FragmentTabHost) inflate.findViewById(i.f.post_search_tab_host);
         this.bee.setup(this.cDW.getSupportFragmentManager());
         this.bee.setShouldDrawIndicatorLine(true);
-        aoy();
+        aou();
         this.bee.initViewPager();
         this.bee.setCurrentTabByType(i);
         this.bee.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    private void aoy() {
+    private void aou() {
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         this.cEH = new r(1);
         bVar.YG = this.cEH;
@@ -118,9 +118,9 @@ public class x {
         }
     }
 
-    private void aoz() {
-        this.cEH.aor();
-        this.cEI.aor();
-        this.cEJ.aor();
+    private void aov() {
+        this.cEH.aon();
+        this.cEI.aon();
+        this.cEJ.aon();
     }
 }

@@ -52,7 +52,7 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
             this.awA = Runtime.getRuntime().exec(awD);
             this.awC = this.awA.getOutputStream();
             this.awB = this.awA.getInputStream();
-            DD();
+            DA();
             this.awC.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -61,7 +61,7 @@ public class d extends com.baidu.adp.a.a.a implements Runnable {
         }
     }
 
-    private void DD() {
+    private void DA() {
         this.awE = new a(this.awB);
         this.awE.start();
     }

@@ -32,7 +32,7 @@ class c extends com.baidu.adp.base.g {
                     this.bSV.ar(this.val$position, this.val$id);
                     return;
                 } else {
-                    this.bSV.aaP();
+                    this.bSV.aaL();
                     TbadkApplication.getInst().addLikeForum(this.bSV.bSP.forum_list[this.val$position].forum_name);
                     return;
                 }

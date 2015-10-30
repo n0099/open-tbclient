@@ -19,6 +19,6 @@ public class ap implements View.OnClickListener {
         } else {
             TiebaStatic.log("c10101");
         }
-        this.cqc.aiB();
+        this.cqc.aix();
     }
 }

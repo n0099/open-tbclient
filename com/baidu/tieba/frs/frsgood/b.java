@@ -22,7 +22,7 @@ class b implements AbsListView.OnScrollListener {
             z = this.aZM.aUe;
             if (!z) {
                 this.aZM.aUe = true;
-                this.aZM.aZG.Md();
+                this.aZM.aZG.LZ();
             }
         }
         if (i == 0) {
@@ -38,6 +38,6 @@ class b implements AbsListView.OnScrollListener {
             this.aZM.aUf = new com.baidu.tbadk.performanceLog.e();
             this.aZM.aUf.ez(1000);
         }
-        this.aZM.aUf.DE();
+        this.aZM.aUf.DB();
     }
 }

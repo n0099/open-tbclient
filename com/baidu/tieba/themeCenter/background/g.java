@@ -54,10 +54,10 @@ public class g {
 
     public void a(com.baidu.tieba.themeCenter.dressCenter.k kVar, List<c> list) {
         if (list == null || list.size() <= 0) {
-            Kr();
+            Kn();
             return;
         }
-        Ks();
+        Ko();
         if (b(kVar)) {
             this.mListView.removeHeaderView(this.dfp);
             this.mListView.addHeaderView(this.dfp);
@@ -98,7 +98,7 @@ public class g {
     }
 
     private boolean b(com.baidu.tieba.themeCenter.dressCenter.k kVar) {
-        if (kVar == null || StringUtils.isNull(kVar.azA())) {
+        if (kVar == null || StringUtils.isNull(kVar.azw())) {
             this.dfo.setVisibility(8);
             return false;
         }
@@ -107,7 +107,7 @@ public class g {
         return true;
     }
 
-    public void Kr() {
+    public void Kn() {
         this.dfn.setVisibility(8);
         an.j(this.mRoot, i.c.cp_bg_line_d);
         String string = this.dfh.getPageContext().getResources().getString(i.h.no_data_text);
@@ -115,7 +115,7 @@ public class g {
         this.dfh.showNetRefreshView(this.mRoot, string, false);
     }
 
-    public void Ks() {
+    public void Ko() {
         an.j(this.mRoot, i.c.cp_bg_line_c);
         this.dfh.hideNetRefreshView(this.mRoot);
         this.dfn.setVisibility(0);

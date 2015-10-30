@@ -19,10 +19,10 @@ public class l implements a.b {
         q qVar;
         aVar.dismiss();
         qVar = this.ced.cdV;
-        String aez = qVar.aez();
-        if (StringUtils.isNull(aez)) {
+        String aev = qVar.aev();
+        if (StringUtils.isNull(aev)) {
             return;
         }
-        this.ced.a(this.tz, aez, null, null, null, false);
+        this.ced.a(this.tz, aev, null, null, null, false);
     }
 }

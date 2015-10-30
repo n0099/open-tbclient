@@ -19,7 +19,7 @@ public class d implements Runnable {
         if (i != 0) {
             i2 = this.aMH.mOffset;
             boolean z = i2 > 0;
-            com.baidu.tieba.enterForum.c.b Iw = com.baidu.tieba.enterForum.c.b.Iw();
+            com.baidu.tieba.enterForum.c.b Is = com.baidu.tieba.enterForum.c.b.Is();
             c cVar = this.aMH;
             if (z) {
                 i4 = this.aMH.aME;
@@ -27,7 +27,7 @@ public class d implements Runnable {
                 i3 = this.aMH.aME;
                 i4 = -i3;
             }
-            if (!Iw.a(cVar, i4, 200)) {
+            if (!Is.a(cVar, i4, 200)) {
                 this.aMH.setSelection(z ? this.aMH.getFirstVisiblePosition() + 1 : this.aMH.getFirstVisiblePosition() - 1);
             }
         }

@@ -13,8 +13,8 @@ class g implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         com.baidu.tbadk.core.util.w wVar = new com.baidu.tbadk.core.util.w(this.aUM);
-        wVar.uh().uY().mIsNeedAddCommenParam = false;
-        wVar.uh().uY().mIsUseCurrentBDUSS = false;
-        wVar.tH();
+        wVar.ue().uV().mIsNeedAddCommenParam = false;
+        wVar.ue().uV().mIsUseCurrentBDUSS = false;
+        wVar.tE();
     }
 }

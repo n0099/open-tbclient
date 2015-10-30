@@ -45,7 +45,7 @@ public class e extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
             j = this.aBc.aAZ;
             sVar.Gr = currentTimeMillis - j;
         }
-        this.aBc.vr();
+        this.aBc.vo();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

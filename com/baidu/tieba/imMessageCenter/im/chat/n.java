@@ -14,8 +14,8 @@ class n extends com.baidu.tbadk.util.l<Void> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.l
-    /* renamed from: Gl */
+    /* renamed from: Gh */
     public Void doInBackground() {
-        return com.baidu.tieba.im.db.l.TU().k(this.btB);
+        return com.baidu.tieba.im.db.l.TQ().k(this.btB);
     }
 }

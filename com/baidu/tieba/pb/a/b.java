@@ -50,7 +50,7 @@ public class b {
     private AdditionData cgp = new AdditionData();
     private aa cgm = new aa();
 
-    public boolean aeL() {
+    public boolean aeH() {
         return this.cgo;
     }
 
@@ -58,7 +58,7 @@ public class b {
         this.cgo = z;
     }
 
-    public VoteDataInfo aeM() {
+    public VoteDataInfo aeI() {
         return this.cgs;
     }
 
@@ -77,8 +77,8 @@ public class b {
         String str = "";
         if (isValid()) {
             k kVar = this.cgh.get(0);
-            ad awP = kVar.awP();
-            r1 = awP != null ? awP.Wa : null;
+            ad awL = kVar.awL();
+            r1 = awL != null ? awL.Wa : null;
             str = kVar.aT(context);
             if (this.cgg != null && this.cgg.getAnchorInfoData() != null && this.cgg.getAnchorInfoData().getGroup_id() != 0) {
                 str = "[" + context.getString(i.h.msglist_live) + "] " + str;
@@ -87,15 +87,15 @@ public class b {
         return new String[]{r1, str};
     }
 
-    public ForumData aeN() {
+    public ForumData aeJ() {
         return this.cgf;
     }
 
-    public w aeO() {
+    public w aeK() {
         return this.cgg;
     }
 
-    public ArrayList<k> aeP() {
+    public ArrayList<k> aeL() {
         return this.cgh;
     }
 
@@ -103,29 +103,29 @@ public class b {
         return this.caH;
     }
 
-    public aa aeQ() {
+    public aa aeM() {
         return this.cgm;
     }
 
-    public TwzhiboAnti aeR() {
+    public TwzhiboAnti aeN() {
         return this.cgr;
     }
 
     public void a(o oVar, int i) {
-        this.caH.bw(oVar.rJ());
-        this.caH.bv(oVar.ro());
-        this.caH.bu(oVar.rH());
-        this.caH.bx(oVar.rK());
+        this.caH.bw(oVar.rG());
+        this.caH.bv(oVar.rl());
+        this.caH.bu(oVar.rE());
+        this.caH.bx(oVar.rH());
         if (i == 0) {
             this.caH = oVar;
         } else if (i == 1) {
-            this.caH.by(oVar.rL());
+            this.caH.by(oVar.rI());
         } else if (i == 2) {
-            this.caH.bz(oVar.rM());
+            this.caH.bz(oVar.rJ());
         }
     }
 
-    public AntiData rF() {
+    public AntiData rC() {
         return this.UT;
     }
 
@@ -133,7 +133,7 @@ public class b {
         return this.cgl;
     }
 
-    public boolean qk() {
+    public boolean qh() {
         return this.cgg.getIsMarked() != 0;
     }
 
@@ -147,9 +147,9 @@ public class b {
         }
     }
 
-    public String qj() {
+    public String qg() {
         if (this.cgg != null) {
-            return this.cgg.sn();
+            return this.cgg.sk();
         }
         return null;
     }
@@ -179,9 +179,9 @@ public class b {
                 this.cgg.setUserMap(this.userMap);
                 this.cgg.a(dataRes.thread);
                 this.cgm.a(dataRes.news_info);
-                if (this.cgg != null && this.cgg.sg() != null) {
+                if (this.cgg != null && this.cgg.sd() != null) {
                     this.cgs = new VoteDataInfo();
-                    this.cgs.parserProtobuf(aeO().sg());
+                    this.cgs.parserProtobuf(aeK().sd());
                 }
                 List<Post> list2 = dataRes.post_list;
                 if (list2 != null && list2.size() > 0) {
@@ -189,9 +189,9 @@ public class b {
                         k kVar = new k();
                         kVar.setUserMap(this.userMap);
                         kVar.a(post, context);
-                        if (kVar.awI() == 1 && this.cgg.sy()) {
-                            kVar.setPostType(this.cgg.sx());
-                        } else if (kVar.awI() == 1 && this.cgg != null && this.cgg.sB()) {
+                        if (kVar.awE() == 1 && this.cgg.sv()) {
+                            kVar.setPostType(this.cgg.su());
+                        } else if (kVar.awE() == 1 && this.cgg != null && this.cgg.sy()) {
                             kVar.setPostType(36);
                         }
                         this.cgh.add(kVar);
@@ -236,11 +236,11 @@ public class b {
         }
     }
 
-    public int aeS() {
+    public int aeO() {
         return this.cgk;
     }
 
-    public int aeT() {
+    public int aeP() {
         return this.bPv;
     }
 
@@ -248,19 +248,19 @@ public class b {
         this.bPv = i;
     }
 
-    public List<MuteUser> aeU() {
+    public List<MuteUser> aeQ() {
         return this.cgn;
     }
 
-    public AdditionData aeV() {
+    public AdditionData aeR() {
         return this.cgp;
     }
 
-    public ArrayList<j> aeW() {
+    public ArrayList<j> aeS() {
         return this.cgq;
     }
 
-    public ArrayList<u> aeX() {
+    public ArrayList<u> aeT() {
         return new ArrayList<>(this.cgh);
     }
 }

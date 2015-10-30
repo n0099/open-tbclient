@@ -16,7 +16,7 @@ public class b extends Thread {
     public void run() {
         super.run();
         try {
-            e.tz();
+            e.tw();
             ClearResourceStatic.m(TbadkCoreApplication.m411getInst().getCacheDir());
         } catch (Exception e) {
         }

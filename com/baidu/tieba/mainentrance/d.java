@@ -23,11 +23,11 @@ public class d extends com.baidu.adp.base.e<SquareSearchActivity> {
         this.bUh = aVar;
     }
 
-    public void abc() {
+    public void aaY() {
         sendMessage(new HotForumNetMessage());
     }
 
-    public void abd() {
+    public void aaZ() {
         registerListener(new e(this, CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, 303116));
     }
 

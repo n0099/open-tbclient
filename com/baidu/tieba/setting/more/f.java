@@ -29,10 +29,10 @@ public class f extends com.baidu.adp.base.f<AccountSafeActivity> {
         super(accountSafeActivity.getPageContext());
         this.cMK = new g(this);
         this.cMB = accountSafeActivity;
-        zk();
+        zh();
     }
 
-    private void zk() {
+    private void zh() {
         this.cMB.setContentView(i.g.account_safe_activity);
         this.Mg = (LinearLayout) this.cMB.findViewById(i.f.parent);
         this.aMQ = (NoNetworkView) this.cMB.findViewById(i.f.no_network_view);
@@ -66,11 +66,11 @@ public class f extends com.baidu.adp.base.f<AccountSafeActivity> {
     }
 
     public void d(com.baidu.tieba.setting.im.more.a aVar) {
-        if (aVar != null && aVar.aqY() != null) {
-            SimpleUser aqY = aVar.aqY();
-            this.cMF.setTip(lf(aqY.securemobil));
-            this.cMG.setTip(lg(aqY.secureemail));
-            switch (aqY.user_status.intValue()) {
+        if (aVar != null && aVar.aqU() != null) {
+            SimpleUser aqU = aVar.aqU();
+            this.cMF.setTip(lf(aqU.securemobil));
+            this.cMG.setTip(lg(aqU.secureemail));
+            switch (aqU.user_status.intValue()) {
                 case 0:
                     this.cMJ.setTip(getPageContext().getString(i.h.account_status_normal));
                     return;
@@ -129,7 +129,7 @@ public class f extends com.baidu.adp.base.f<AccountSafeActivity> {
         return str;
     }
 
-    public NoNetworkView PD() {
+    public NoNetworkView Pz() {
         return this.aMQ;
     }
 

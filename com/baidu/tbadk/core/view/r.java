@@ -48,15 +48,15 @@ public class r extends p {
     public void cN(int i) {
         if (this.aex != null && this.aey != null) {
             this.aeD = false;
-            this.aeB = af.ut().cp(i);
+            this.aeB = af.uq().cp(i);
             if (this.aeB != null) {
                 this.aeD = true;
             } else {
                 this.aeB = new AnimationDrawable();
             }
-            this.aex.setBackgroundColor(af.ut().cr(i));
+            this.aex.setBackgroundColor(af.uq().cr(i));
             if (!this.aeD) {
-                this.aeB = af.ut().cq(i);
+                this.aeB = af.uq().cq(i);
             }
             this.aeB.setOneShot(false);
             this.aey.setBackgroundDrawable(this.aeB);

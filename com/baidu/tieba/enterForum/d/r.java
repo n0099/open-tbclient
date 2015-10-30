@@ -52,7 +52,7 @@ public class r extends LinearLayout {
             }
             this.aNr.reset();
             this.aNr.setBannerType("enterforum_banner");
-            this.aNr.a(tbPageContext, uVar.sf(), uVar.getLink());
+            this.aNr.a(tbPageContext, uVar.sc(), uVar.getLink());
             String link = uVar.getLink();
             if (link != null && link.startsWith("game:detail:")) {
                 TiebaStatic.eventStat(tbPageContext.getPageActivity(), "game_show", "show", 1, "ref_id", "4000401");
@@ -63,7 +63,7 @@ public class r extends LinearLayout {
     public void a(TbPageContext<?> tbPageContext, boolean z) {
         if (z) {
             if (this.aNq == null) {
-                Je();
+                Ja();
             }
             com.baidu.tbadk.h.a.a(tbPageContext, this.aNq);
             this.aNq.setVisibility(0);
@@ -72,7 +72,7 @@ public class r extends LinearLayout {
         }
     }
 
-    public void Je() {
+    public void Ja() {
         this.aNq = ((ViewStub) findViewById(i.f.viewstub_guide)).inflate();
         View findViewById = this.aNq.findViewById(i.f.enterforum_guide_find_interest);
         findViewById.setOnClickListener(new t(this));

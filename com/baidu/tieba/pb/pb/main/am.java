@@ -32,6 +32,6 @@ public class am implements a.b {
             }
             return;
         }
-        this.ciK.showToast(com.baidu.tbadk.core.util.n.tB());
+        this.ciK.showToast(com.baidu.tbadk.core.util.n.ty());
     }
 }

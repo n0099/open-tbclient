@@ -80,7 +80,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         bundle.putInt("OutState_Current_Index", this.dqw.getCurrentIndex());
-        this.dqw.aCZ();
+        this.dqw.aCV();
         bundle.putString("OutState_Write_Img_Info", this.dqv.toJsonString());
         super.onSaveInstanceState(bundle);
     }
@@ -144,7 +144,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         if (str != null && i != -1) {
             this.dqv = new WriteImagesInfo();
             this.dqv.parseJson(str);
-            aDI();
+            aDE();
             this.dqw = new q(this, this.caw, this.dqv.getChosedFiles(), i, this);
             this.caw.setAdapter(this.dqw);
             this.caw.setCurrentItem(i, true);
@@ -155,7 +155,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
         }
     }
 
-    private void aDI() {
+    private void aDE() {
         if (this.dqv != null && this.dqv.isOriginalImg() && this.dqv.getChosedFiles() != null && this.dqv.getChosedFiles().size() != 0) {
             Iterator<ImageFileInfo> it = this.dqv.getChosedFiles().iterator();
             while (it.hasNext()) {
@@ -168,7 +168,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aDJ() {
+    public boolean aDF() {
         if (this.dqv == null || !this.dqv.isOriginalImg() || this.dqv.getChosedFiles() == null || this.dqv.getChosedFiles().size() == 0) {
             return false;
         }
@@ -183,7 +183,7 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
     }
 
     @Override // com.baidu.tieba.write.write.q.a
-    public void aDa() {
+    public void aCW() {
         if (this.aHt.getVisibility() == 0) {
             this.aHt.setVisibility(8);
             this.dqx.setVisibility(8);
@@ -202,27 +202,27 @@ public class WriteMultiImgsActivity extends BaseActivity implements CompoundButt
     }
 
     @Override // com.baidu.tieba.write.write.q.a
-    public void aDc() {
+    public void aCY() {
         this.dqL--;
     }
 
     @Override // com.baidu.tieba.write.write.q.a
-    public void aDb() {
+    public void aCX() {
         this.dqL++;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aDK() {
+    public void aDG() {
         this.dqK++;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aDL() {
+    public void aDH() {
         this.dqK--;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aDM() {
+    public void aDI() {
         Intent intent = new Intent();
         intent.putExtra(AlbumActivityConfig.ALBUM_RESULT, this.dqv.toJsonString());
         setResult(-1, intent);

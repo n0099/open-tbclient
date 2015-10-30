@@ -21,24 +21,24 @@ public class w extends HttpMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        PersonBarActivity ais;
+        PersonBarActivity aio;
         String str;
-        PersonBarActivity ais2;
+        PersonBarActivity aio2;
         boolean z;
         String str2;
         String str3;
         ad adVar;
         ad adVar2;
         if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002002) {
-            ais = this.cpq.ais();
-            if (ais != null) {
+            aio = this.cpq.aio();
+            if (aio != null) {
                 if (this.cpq.coZ != null && this.cpq.coZ.getView() != null) {
                     this.cpq.coZ.getView().setVisibility(0);
                 }
                 this.cpq.mListView.completePullRefresh();
                 BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
-                ais2 = this.cpq.ais();
-                if (tag == ais2.getUniqueId()) {
+                aio2 = this.cpq.aio();
+                if (tag == aio2.getUniqueId()) {
                     if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonBarResponseMessage)) {
                         PersonBarResponseMessage personBarResponseMessage = (PersonBarResponseMessage) httpResponsedMessage;
                         if (personBarResponseMessage.getErrCode() == 0) {

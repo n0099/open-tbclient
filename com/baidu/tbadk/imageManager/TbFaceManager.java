@@ -31,7 +31,7 @@ public class TbFaceManager {
         ImageSpan fl(String str);
     }
 
-    public static TbFaceManager Ce() {
+    public static TbFaceManager Cb() {
         if (atO == null) {
             atO = new TbFaceManager();
         }
@@ -55,10 +55,10 @@ public class TbFaceManager {
 
     private com.baidu.adp.widget.a.a u(int i, String str) {
         Bitmap b;
-        com.baidu.adp.widget.a.a fo = c.Cf().fo(str);
+        com.baidu.adp.widget.a.a fo = c.Cc().fo(str);
         if (fo == null && (b = com.baidu.adp.lib.util.d.iu().b(this.mContext, i)) != null) {
             com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(b, false, str);
-            c.Cf().c(str, aVar);
+            c.Cc().c(str, aVar);
             return aVar;
         }
         return fo;
@@ -81,8 +81,8 @@ public class TbFaceManager {
         return this.atP.eN(str);
     }
 
-    public int AQ() {
-        return this.atP.AQ();
+    public int AN() {
+        return this.atP.AN();
     }
 
     public String eO(String str) {

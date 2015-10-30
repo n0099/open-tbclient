@@ -24,7 +24,7 @@ public class j extends com.baidu.tbadk.editortools.c.a<PbChosenActivity> {
     }
 
     @Override // com.baidu.tbadk.editortools.c.a
-    public boolean Bk() {
+    public boolean Bh() {
         return false;
     }
 
@@ -55,7 +55,7 @@ public class j extends com.baidu.tbadk.editortools.c.a<PbChosenActivity> {
     }
 
     @Override // com.baidu.tbadk.editortools.c.a
-    public String Bl() {
+    public String Bi() {
         return null;
     }
 }

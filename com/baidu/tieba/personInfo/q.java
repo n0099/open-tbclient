@@ -33,9 +33,9 @@ class q extends com.baidu.adp.framework.listener.e {
             replyInfo.setFriendId(requestApplyMessage.getFriendId());
             replyInfo.setMessage(requestApplyMessage.getMessage());
             yVar = this.csI.csv;
-            yVar.ajN().getReplyInfo().add(replyInfo);
+            yVar.ajJ().getReplyInfo().add(replyInfo);
             ajVar = this.csI.csw;
-            ajVar.aka();
+            ajVar.ajW();
         }
     }
 }

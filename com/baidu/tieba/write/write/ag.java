@@ -19,6 +19,6 @@ public class ag implements View.OnClickListener {
         editText = this.dqi.dmD;
         editText.requestFocus();
         jVar = this.dqi.dpD;
-        jVar.za();
+        jVar.yX();
     }
 }

@@ -17,6 +17,6 @@ class at implements a.b {
         aVar.dismiss();
         this.cOP.showLoadingDialog(this.cOP.getPageContext().getString(i.h.deleting));
         jVar = this.cOP.cON;
-        jVar.ars();
+        jVar.aro();
     }
 }

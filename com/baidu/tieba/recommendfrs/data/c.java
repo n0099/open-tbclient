@@ -10,7 +10,7 @@ public class c extends i {
         lc(str);
     }
 
-    public Hot_Thread aqh() {
+    public Hot_Thread aqd() {
         return this.cIO;
     }
 }

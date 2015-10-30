@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 public interface ea {
-    void Ku();
+    void Kq();
 
     void a(int i, int i2, ec ecVar);
 

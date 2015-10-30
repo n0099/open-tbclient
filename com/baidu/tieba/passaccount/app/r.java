@@ -17,7 +17,7 @@ public class r implements k.a {
     public void i(AccountData accountData) {
         com.baidu.tbadk.core.a.b.b(accountData);
         TbadkCoreApplication.setCurrentAccount(accountData, this.cdn.getPageContext().getPageActivity());
-        this.cdn.FX();
-        this.cdn.adY();
+        this.cdn.FT();
+        this.cdn.adU();
     }
 }

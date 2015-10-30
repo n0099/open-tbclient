@@ -7,7 +7,7 @@ public interface e {
 
     void a(com.baidu.adp.lib.webSocket.c cVar);
 
-    void c(Map<String, String> map);
+    void b(Map<String, String> map);
 
     boolean k(int i, String str);
 

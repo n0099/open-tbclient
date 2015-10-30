@@ -29,7 +29,7 @@ class h implements com.baidu.adp.widget.ListView.w {
             if (wVar instanceof com.baidu.tbadk.core.data.b) {
                 wVar2 = this.aZM.aTY;
                 com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) wVar2;
-                if (bVar.rr()) {
+                if (bVar.ro()) {
                     return false;
                 }
                 if (bVar.TU == 0) {
@@ -43,8 +43,8 @@ class h implements com.baidu.adp.widget.ListView.w {
             wVar3 = this.aZM.aTY;
             frsGoodActivity.mThreadId = wVar3.getId();
             wVar4 = this.aZM.aTY;
-            String sl = wVar4.sl();
-            if (sl == null || sl.equals("")) {
+            String si = wVar4.si();
+            if (si == null || si.equals("")) {
                 this.aZM.aTS = false;
             } else {
                 this.aZM.aTS = true;
@@ -52,10 +52,10 @@ class h implements com.baidu.adp.widget.ListView.w {
             FrsGoodActivity frsGoodActivity2 = this.aZM;
             wVar5 = this.aZM.aTY;
             frsGoodActivity2.a(wVar5);
-            this.aZM.aZG.LN();
+            this.aZM.aZG.LJ();
         } else if (uVar instanceof com.baidu.tbadk.core.data.b) {
             com.baidu.tbadk.core.data.b bVar2 = (com.baidu.tbadk.core.data.b) uVar;
-            if (bVar2.rq()) {
+            if (bVar2.rn()) {
                 if (bVar2.TU == 0) {
                     this.aZM.a(bVar2, i);
                 }

@@ -60,14 +60,14 @@ public class dw extends bn<com.baidu.tbadk.core.data.w, dz> {
         if (wVar != null && dzVar != null) {
             if (wVar.getPraise() != null && wVar.getPraise().getNum() > 0) {
                 dzVar.aTm.setVisibility(0);
-                dzVar.aTm.setText(com.baidu.tbadk.core.util.as.s(wVar.getPraise().getNum()));
+                dzVar.aTm.setText(com.baidu.tbadk.core.util.as.q(wVar.getPraise().getNum()));
             } else {
                 dzVar.aTm.setVisibility(8);
             }
             int reply_num = wVar.getReply_num();
             if (reply_num > 0) {
                 dzVar.aTo.setVisibility(0);
-                dzVar.aTo.setText(com.baidu.tbadk.core.util.as.s(reply_num));
+                dzVar.aTo.setText(com.baidu.tbadk.core.util.as.q(reply_num));
                 return;
             }
             dzVar.aTo.setVisibility(8);
@@ -76,7 +76,7 @@ public class dw extends bn<com.baidu.tbadk.core.data.w, dz> {
 
     private void b(com.baidu.tbadk.core.data.w wVar, dz dzVar) {
         if (wVar != null && dzVar != null) {
-            dzVar.aTg.setText(com.baidu.tbadk.core.util.as.o(wVar.getLast_time_int() * 1000));
+            dzVar.aTg.setText(com.baidu.tbadk.core.util.as.m(wVar.getLast_time_int() * 1000));
         }
     }
 
@@ -87,12 +87,12 @@ public class dw extends bn<com.baidu.tbadk.core.data.w, dz> {
     }
 
     private void d(com.baidu.tbadk.core.data.w wVar, dz dzVar) {
-        MediaData st;
-        if (wVar != null && dzVar != null && (st = wVar.st()) != null) {
-            if (com.baidu.tbadk.core.m.qX().rb()) {
+        MediaData sq;
+        if (wVar != null && dzVar != null && (sq = wVar.sq()) != null) {
+            if (com.baidu.tbadk.core.m.qU().qY()) {
                 dzVar.aYX.setVisibility(0);
-                dzVar.aYV.d(st.getPicUrl(), 13, false);
-                dzVar.aYV.setOnClickListener(new dx(this, st));
+                dzVar.aYV.d(sq.getPicUrl(), 13, false);
+                dzVar.aYV.setOnClickListener(new dx(this, sq));
                 return;
             }
             dzVar.aYX.setVisibility(8);
@@ -103,8 +103,8 @@ public class dw extends bn<com.baidu.tbadk.core.data.w, dz> {
         String videoUrl;
         if (wVar != null && dzVar != null) {
             StringBuffer stringBuffer = new StringBuffer();
-            if (!StringUtils.isNull(wVar.sm())) {
-                stringBuffer.append(wVar.sm());
+            if (!StringUtils.isNull(wVar.sj())) {
+                stringBuffer.append(wVar.sj());
             }
             ArrayList<MediaData> medias = wVar.getMedias();
             if (medias != null) {
@@ -141,7 +141,7 @@ public class dw extends bn<com.baidu.tbadk.core.data.w, dz> {
     private void f(com.baidu.tbadk.core.data.w wVar, dz dzVar) {
         if (wVar != null && dzVar != null) {
             com.baidu.tieba.tbadkCore.util.p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (wVar.sr() == 1) {
+            if (wVar.so() == 1) {
                 dzVar.aPq.setVisibility(8);
                 return;
             }
@@ -190,7 +190,7 @@ public class dw extends bn<com.baidu.tbadk.core.data.w, dz> {
     }
 
     private void g(com.baidu.tbadk.core.data.w wVar, dz dzVar) {
-        if (wVar == null || wVar.getAuthor() == null || !com.baidu.tbadk.core.m.qX().qZ()) {
+        if (wVar == null || wVar.getAuthor() == null || !com.baidu.tbadk.core.m.qU().qW()) {
             dzVar.aTj.setVisibility(8);
             return;
         }
@@ -203,7 +203,7 @@ public class dw extends bn<com.baidu.tbadk.core.data.w, dz> {
     }
 
     private void h(com.baidu.tbadk.core.data.w wVar, dz dzVar) {
-        if (wVar != null && !wVar.sy() && !StringUtils.isNull(wVar.getAddress())) {
+        if (wVar != null && !wVar.sv() && !StringUtils.isNull(wVar.getAddress())) {
             dzVar.aYT.setVisibility(0);
             dzVar.aYT.setText(wVar.getAddress());
             dzVar.aYU.setVisibility(0);
@@ -221,7 +221,7 @@ public class dw extends bn<com.baidu.tbadk.core.data.w, dz> {
     }
 
     private void i(com.baidu.tbadk.core.data.w wVar, dz dzVar) {
-        if (wVar == null || wVar.sF() == 0) {
+        if (wVar == null || wVar.sC() == 0) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.setMargins(0, 0, 0, 0);
             layoutParams.gravity = 1;

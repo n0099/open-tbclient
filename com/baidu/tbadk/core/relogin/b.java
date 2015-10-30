@@ -26,7 +26,7 @@ public class b implements a.InterfaceC0040a {
             com.baidu.tbadk.core.a.b.b(accountData);
             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.m411getInst().getApp().getApplicationContext());
-            this.XT.tq();
+            this.XT.tn();
             return;
         }
         this.XT.e(TbadkCoreApplication.getCurrentAccountObj());

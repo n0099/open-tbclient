@@ -28,9 +28,9 @@ public class UserIconBox extends LinearLayout {
     public interface b {
         ListView getListView();
 
-        int vD();
+        int vA();
 
-        com.baidu.adp.lib.e.b<TbImageView> vE();
+        com.baidu.adp.lib.e.b<TbImageView> vB();
     }
 
     public void setAutoChangedStyle(boolean z) {
@@ -61,9 +61,9 @@ public class UserIconBox extends LinearLayout {
         setGravity(16);
         if (this.mContext instanceof b) {
             b bVar = (b) this.mContext;
-            this.aeI = bVar.vE();
+            this.aeI = bVar.vB();
             if (bVar.getListView() != null && this.aeJ == null) {
-                this.aeJ = new a(bVar.vD());
+                this.aeJ = new a(bVar.vA());
                 bVar.getListView().setRecyclerListener(this.aeJ);
             }
         }

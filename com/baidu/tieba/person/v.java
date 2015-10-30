@@ -42,21 +42,21 @@ public class v extends HttpMessageListener {
         this.cpq.cpf = false;
         if (httpResponsedMessage.getError() == 0) {
             adVar = this.cpq.coP;
-            ArrayList<ForumData> aiq = adVar.aiv().aiq();
+            ArrayList<ForumData> aim = adVar.air().aim();
             adVar2 = this.cpq.coP;
-            int aik = adVar2.aiv().aik();
+            int aig = adVar2.air().aig();
             i = this.cpq.cbA;
-            if (i < aik) {
+            if (i < aig) {
                 adVar3 = this.cpq.coP;
-                adVar3.aiv().ja(aik - 1);
+                adVar3.air().ja(aig - 1);
             }
-            if (aiq != null) {
+            if (aim != null) {
                 i2 = this.cpq.cbA;
                 if (i2 >= 0) {
                     i3 = this.cpq.cbA;
-                    if (i3 < aiq.size()) {
+                    if (i3 < aim.size()) {
                         i4 = this.cpq.cbA;
-                        aiq.remove(i4);
+                        aim.remove(i4);
                         TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
                         str = this.cpq.cpb;
                         m411getInst.delLikeForum(str);
@@ -64,7 +64,7 @@ public class v extends HttpMessageListener {
                         if (acVar != null) {
                             this.cpq.eV(true);
                             acVar2 = this.cpq.cpa;
-                            acVar2.S(aiq);
+                            acVar2.S(aim);
                             acVar3 = this.cpq.cpa;
                             acVar3.notifyDataSetChanged();
                         }

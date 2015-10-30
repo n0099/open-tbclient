@@ -62,10 +62,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         this.cdg = intent.getBooleanExtra(IntentConfig.CLOSE, false);
         this.mFrom = intent.getIntExtra("from", -1);
         registerListener(this.cdm);
-        adX();
+        adT();
     }
 
-    protected void adX() {
+    protected void adT() {
         this.Mg = (LinearLayout) findViewById(i.f.layout_root);
         this.mNavigationBar = (NavigationBar) findViewById(i.f.sapi_login_navi);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -117,15 +117,15 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         this.cdf.onAuthorizedResult(i, i2, intent);
         if (i == 230012 || i == 230016) {
             if (i2 == 230013) {
-                aea();
+                adW();
             } else if (i2 == 230014 && intent != null) {
                 jw(intent.getStringExtra(SocialLoginActivityConfig.RESULT_MSG));
             }
         } else if (i == 230015) {
             if (i2 == -1) {
                 TiebaStatic.log("c10015");
-                FX();
-                adY();
+                FT();
+                adU();
             }
         } else if (i2 == -1 && i == 11038) {
             setResult(-1);
@@ -134,7 +134,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aea() {
+    public void adW() {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_third_result", 0, "", "uname", session.username);
@@ -143,7 +143,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 return;
             }
             TiebaStatic.log("c10015");
-            adZ();
+            adV();
         }
     }
 
@@ -156,7 +156,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adY() {
+    public void adU() {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.m411getInst().onUserChanged();
         if (this.cdg) {
@@ -166,8 +166,8 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         } else {
             int intExtra = getIntent().getIntExtra("locate_type", -1);
             if (intExtra == -1) {
-                if (com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                    com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+                if (com.baidu.tbadk.core.sharedPref.b.tr().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                    com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
                     intExtra = 1;
                 } else {
                     intExtra = 1;
@@ -179,11 +179,11 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adZ() {
+    public void adV() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            com.baidu.tbadk.core.a.a.rd().a(session.username, session.bduss, session.ptoken, this.XS);
+            com.baidu.tbadk.core.a.a.ra().a(session.username, session.bduss, session.ptoken, this.XS);
         }
     }
 
@@ -193,9 +193,9 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             this.auv = new com.baidu.tbadk.coreExtra.view.k(getPageContext());
             this.auv.a(new r(this));
         }
-        this.auv.yR();
+        this.auv.yO();
         this.auv.h(accountData);
-        this.auv.yN();
+        this.auv.yK();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -207,7 +207,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FX() {
+    public void FT() {
         if (this.mFrom == 3 && TbadkCoreApplication.m411getInst().getIsFirstUse()) {
             com.baidu.adp.lib.g.k.hh().b(new s(this));
         }
@@ -225,11 +225,11 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         if (this.Mg != null) {
             this.Mg.removeAllViews();
         }
-        aeb();
+        adX();
         super.onDestroy();
     }
 
-    public void aeb() {
+    public void adX() {
         if (this.cdl != null) {
             this.cdl.removeCallbacksAndMessages(null);
         }
@@ -249,7 +249,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FY() {
+    public void FU() {
         com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "login_pass_startApp", 0, "", new Object[0]);
         if (TbadkCoreApplication.m411getInst().getIsFirstUse()) {
             if (MessageManager.getInstance().findTask(CmdConfigCustom.START_GUILD) != null) {
@@ -258,8 +258,8 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(1)));
             }
         } else {
-            if (com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
-                com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
+            if (com.baidu.tbadk.core.sharedPref.b.tr().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
             }
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(1)));
         }

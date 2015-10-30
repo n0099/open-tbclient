@@ -38,7 +38,7 @@ public class m {
         this.cgd.setText(str);
     }
 
-    public void tc() {
+    public void sZ() {
         an.i(this.rootView, i.e.bg_rec_lick);
         an.i(this.cgc, i.e.bg_rec_comment);
         an.b(this.bpM, i.c.cp_cont_c, 1);

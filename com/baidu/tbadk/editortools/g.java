@@ -65,7 +65,7 @@ public class g extends u {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ay() {
+    public void Av() {
         u.a aVar;
         bd(true);
         Iterator<p> it = this.aoy.iterator();
@@ -239,7 +239,7 @@ public class g extends u {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void dQ(int i) {
-        if (i == 2 && Az() && this.aoH != null) {
+        if (i == 2 && Aw() && this.aoH != null) {
             this.aoH.b(new com.baidu.tbadk.editortools.a(1, 3, null));
             return;
         }
@@ -293,7 +293,7 @@ public class g extends u {
         return null;
     }
 
-    private boolean Az() {
+    private boolean Aw() {
         for (a aVar : this.aoz) {
             if (aVar.position == 5 && aVar.aoJ != null && (aVar.aoJ instanceof View) && ((View) aVar.aoJ).getVisibility() == 0) {
                 return true;

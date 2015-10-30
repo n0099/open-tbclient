@@ -68,7 +68,7 @@ public class x {
     BannerView.a aWZ = new z(this);
     View aXa = null;
 
-    static /* synthetic */ int[] Mh() {
+    static /* synthetic */ int[] Md() {
         int[] iArr = aXc;
         if (iArr == null) {
             iArr = new int[UtilHelper.NativePageType.valuesCustom().length];
@@ -113,12 +113,12 @@ public class x {
         this.aWW.cM(i.c.cp_bg_line_c);
         this.aWD.setOnSrollToBottomListener(this.aWp);
         this.mNavigationBar.setOnTouchListener(new com.baidu.tieba.tbadkCore.aa(new ab(this)));
-        this.aZV = new bq(this.aWp, this.aWD, at.uJ().uL());
+        this.aZV = new bq(this.aWp, this.aWD, at.uG().uI());
         this.aMQ = (NoNetworkView) this.aWp.findViewById(i.f.view_no_network);
         cc(false);
     }
 
-    private void HC() {
+    private void Hy() {
         if (this.aKs == null) {
             this.aKs = new BannerView(this.aWp.getPageContext().getPageActivity());
             this.aKs.setLayoutParams(new AbsListView.LayoutParams(-1, this.aWp.getResources().getDimensionPixelSize(i.d.frs_header_banner_height)));
@@ -131,12 +131,12 @@ public class x {
     /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.frs.frsgood.FrsGoodActivity */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    public void LG() {
+    public void LC() {
         if (this.aWS != null) {
             String value = this.aWS.getValue();
-            if (this.aWS.rB() == 1) {
+            if (this.aWS.ry() == 1) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_FACESHOP_FACEPACKAGEDETAIL, new FacePackageDetailActivityConfig(this.aWp.getPageContext().getPageActivity(), value, false, "frs_banner")));
-            } else if (this.aWS.rB() == 2) {
+            } else if (this.aWS.ry() == 2) {
                 if (value.contains("tieba.baidu.com")) {
                     Matcher matcher = pbPattern0.matcher(value);
                     if (matcher.find()) {
@@ -147,11 +147,11 @@ public class x {
                         }
                     }
                 }
-            } else if (this.aWS.rB() == 3) {
+            } else if (this.aWS.ry() == 3) {
                 new UtilHelper.a();
                 UtilHelper.a isNativeAddress = UtilHelper.isNativeAddress(value);
                 if (isNativeAddress.abA != UtilHelper.NativePageType.NONE) {
-                    switch (Mh()[isNativeAddress.abA.ordinal()]) {
+                    switch (Md()[isNativeAddress.abA.ordinal()]) {
                         case 2:
                             this.aWp.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.aWp.getPageContext().getPageActivity()).createNormalCfg(isNativeAddress.id, "frs_banner")));
                             return;
@@ -162,11 +162,11 @@ public class x {
                             return;
                     }
                 }
-                az.uW().b(this.aWp.getPageContext(), new String[]{value});
+                az.uT().b(this.aWp.getPageContext(), new String[]{value});
                 if (!StringUtils.isNull(value) && value.startsWith("game:detail:")) {
                     TiebaStatic.eventStat(this.aWp.getPageContext().getPageActivity(), "frs_banner", "click", 1, "ref_id", "4000601", "ref_type", "603");
                 }
-            } else if (this.aWS.rB() == 4) {
+            } else if (this.aWS.ry() == 4) {
                 this.aWp.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.aWp.getPageContext().getPageActivity()).createNormalCfg(value, "frs_banner")));
             }
         }
@@ -206,9 +206,9 @@ public class x {
         this.aWR = bVar;
     }
 
-    public void LN() {
+    public void LJ() {
         if (this.aWO != null) {
-            this.aWO.sU();
+            this.aWO.sR();
         }
     }
 
@@ -224,11 +224,11 @@ public class x {
         }
     }
 
-    public void LP() {
+    public void LL() {
         this.aWD.setVisibility(0);
     }
 
-    public void LQ() {
+    public void LM() {
         if (this.aZV != null) {
             this.aZV.notifyDataSetChanged();
         }
@@ -242,7 +242,7 @@ public class x {
         this.aZV.cb(z);
     }
 
-    private void LR() {
+    private void LN() {
         if (this.aWG == null) {
             String[] strArr = {this.aWp.getPageContext().getPageActivity().getString(i.h.take_photo), this.aWp.getPageContext().getPageActivity().getString(i.h.album)};
             this.aWG = new com.baidu.tbadk.core.dialog.c(this.aWp.getPageContext().getPageActivity());
@@ -252,10 +252,10 @@ public class x {
         }
     }
 
-    public void LS() {
-        LR();
+    public void LO() {
+        LN();
         if (this.aWG != null) {
-            this.aWG.sU();
+            this.aWG.sR();
         }
     }
 
@@ -280,7 +280,7 @@ public class x {
         return i == 1;
     }
 
-    public void LT() {
+    public void LP() {
         this.aZV.ca(false);
         this.aZV.cb(false);
         this.aZV.notifyDataSetInvalidated();
@@ -295,11 +295,11 @@ public class x {
     public void b(ForumData forumData, UserData userData) {
         if (!this.aWT && forumData != null && forumData.getFrsBannerData() != null && forumData.getFrsBannerData().isValid()) {
             this.aWS = forumData.getFrsBannerData();
-            HC();
+            Hy();
             this.aKs.reset();
             this.aWD.removeHeaderView(this.aKs);
-            if (this.aWS.getType() == 1 && !TextUtils.isEmpty(this.aWS.rC())) {
-                this.aKs.b(this.aWp.getPageContext(), this.aWS.rC());
+            if (this.aWS.getType() == 1 && !TextUtils.isEmpty(this.aWS.rz())) {
+                this.aKs.b(this.aWp.getPageContext(), this.aWS.rz());
                 if (this.aWS.getValue().startsWith("game:detail:")) {
                     TiebaStatic.eventStat(this.aWp.getPageContext().getPageActivity(), "game_show", "show", 1, "ref_id", "4000601", "ref_type", "603");
                 }
@@ -307,7 +307,7 @@ public class x {
         }
     }
 
-    public void LU() {
+    public void LQ() {
         if (this.aKs != null) {
             this.aWT = false;
             this.aWD.removeHeaderView(this.aKs);
@@ -322,7 +322,7 @@ public class x {
             this.mPullView.cN(i);
         }
         if (this.aZV != null) {
-            this.aZV.Lv();
+            this.aZV.Lr();
             this.aZV.notifyDataSetChanged();
             this.aZV.onChangeSkinType(i);
         }
@@ -344,24 +344,24 @@ public class x {
         this.aWD.nw();
     }
 
-    public int LW() {
+    public int LS() {
         return 0;
     }
 
-    public bq MN() {
+    public bq MJ() {
         return this.aZV;
     }
 
-    public NoPressedRelativeLayout MO() {
+    public NoPressedRelativeLayout MK() {
         return this.aWw;
     }
 
-    public View Ma() {
+    public View LW() {
         return this.aWU;
     }
 
-    public void Md() {
-        if (com.baidu.tbadk.performanceLog.y.Eb().Ec()) {
+    public void LZ() {
+        if (com.baidu.tbadk.performanceLog.y.DY().DZ()) {
             int lastVisiblePosition = this.aWD.getLastVisiblePosition();
             for (int i = 0; i <= lastVisiblePosition; i++) {
                 View childAt = this.aWD.getChildAt(i);
@@ -378,7 +378,7 @@ public class x {
                                 if (iArr[1] > com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getContext())) {
                                 }
                             }
-                            clVar.aTj.vr();
+                            clVar.aTj.vo();
                         }
                         if (clVar.aTf != null && (clVar.aTf instanceof ViewGroup)) {
                             FrsCommonImageLayout frsCommonImageLayout = clVar.aTf;
@@ -395,7 +395,7 @@ public class x {
                                         if (iArr2[1] > com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getContext())) {
                                         }
                                     }
-                                    tbImageView.vr();
+                                    tbImageView.vo();
                                 }
                             }
                         }
@@ -412,7 +412,7 @@ public class x {
                                 if (iArr3[1] > com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getContext())) {
                                 }
                             }
-                            bmVar.aVN.vr();
+                            bmVar.aVN.vo();
                         }
                         if (bmVar.aWe != null && (bmVar.aWe instanceof TbImageView)) {
                             TbImageView tbImageView2 = bmVar.aWe;
@@ -425,7 +425,7 @@ public class x {
                                 if (iArr4[1] > com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getContext())) {
                                 }
                             }
-                            tbImageView2.vr();
+                            tbImageView2.vo();
                         }
                     }
                     if (childAt.getTag() instanceof br) {
@@ -440,7 +440,7 @@ public class x {
                                 if (iArr5[1] > com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getContext())) {
                                 }
                             }
-                            brVar.aWt.aHW.vr();
+                            brVar.aWt.aHW.vo();
                         }
                         ArrayList arrayList = new ArrayList();
                         if (brVar.aHR != null) {
@@ -465,7 +465,7 @@ public class x {
                                     if (iArr6[1] > com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getContext())) {
                                     }
                                 }
-                                tbImageView3.vr();
+                                tbImageView3.vo();
                             }
                         }
                     }
@@ -474,22 +474,22 @@ public class x {
         }
     }
 
-    public void Me() {
+    public void Ma() {
         this.aWD.setNextPage(this.aWW);
         this.aWW.startLoadData();
     }
 
-    public void Mf() {
+    public void Mb() {
         this.aWD.setNextPage(this.aWW);
-        this.aWW.vy();
+        this.aWW.vv();
         this.aWW.setText(this.aWp.getResources().getString(i.h.list_no_more));
     }
 
-    public void Mg() {
+    public void Mc() {
         this.aWD.setNextPage(null);
     }
 
-    public BdTypeListView MP() {
+    public BdTypeListView ML() {
         return this.aWD;
     }
 

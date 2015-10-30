@@ -52,7 +52,7 @@ public class bh extends bn<com.baidu.tbadk.core.data.b, bl> {
             return null;
         }
         if (this.aSe != null && (this.aSe instanceof FrsActivity)) {
-            ((FrsActivity) this.aSe).Lm().Nb();
+            ((FrsActivity) this.aSe).Li().MX();
         }
         blVar.aVZ.setPadding(0, i - this.aTQ == 0 ? this.aSR : this.aSS, 0, 0);
         this.aSe.getLayoutMode().ad(this.mSkinType == 1);
@@ -65,7 +65,7 @@ public class bh extends bn<com.baidu.tbadk.core.data.b, bl> {
             }
             blVar.aPq.setText(bVar.Uj.userName);
             blVar.aWc.setText(bVar.Uj.Um);
-            if (com.baidu.tbadk.core.m.qX().rb()) {
+            if (com.baidu.tbadk.core.m.qU().qY()) {
                 blVar.aWb.setVisibility(0);
                 blVar.aWb.d(bVar.Uj.userPortrait, this.mIsFromCDN ? 13 : 14, false);
             } else {
@@ -74,7 +74,7 @@ public class bh extends bn<com.baidu.tbadk.core.data.b, bl> {
             blVar.aWb.setTag(bVar.Uj.userPortrait);
             blVar.aWd.setTag(Integer.valueOf(i));
             com.baidu.tbadk.core.util.an.i((View) blVar.aWa, i.e.bg_label);
-            if (bVar.rr()) {
+            if (bVar.ro()) {
                 a(true, blVar);
                 if (TextUtils.isEmpty(bVar.Uj.Ut) || TextUtils.isEmpty(bVar.Uj.Ut.trim())) {
                     blVar.aWd.setText(i.h.view);
@@ -83,7 +83,7 @@ public class bh extends bn<com.baidu.tbadk.core.data.b, bl> {
                 }
                 blVar.aWd.setOnClickListener(this.aUz);
                 return view;
-            } else if (bVar.rq()) {
+            } else if (bVar.rn()) {
                 switch (bVar.TU) {
                     case 0:
                         if (TextUtils.isEmpty(bVar.Uj.Ut) || TextUtils.isEmpty(bVar.Uj.Ut.trim())) {

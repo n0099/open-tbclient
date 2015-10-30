@@ -19,10 +19,10 @@ public class PersonInfoActivityStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_PERSON_INFO, new bk());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        Ij();
+        If();
     }
 
-    private static void Ij() {
+    private static void If() {
         com.baidu.tieba.tbadkCore.a.a.a(303012, ProfileSocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.ad("c/u/user/profile", 303012));
         tbHttpMessageTask.setIsNeedLogin(false);

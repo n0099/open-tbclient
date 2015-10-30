@@ -18,7 +18,7 @@ class m implements AdapterView.OnItemClickListener {
         if (i >= 0) {
             aVar = this.aUK.aUk;
             aVar.fw(i);
-            this.aUK.Lm().fL(((com.baidu.tbadk.core.data.k) ((GridView) adapterView).getAdapter().getItem(i)).rE());
+            this.aUK.Li().fL(((com.baidu.tbadk.core.data.k) ((GridView) adapterView).getAdapter().getItem(i)).rB());
         }
     }
 }

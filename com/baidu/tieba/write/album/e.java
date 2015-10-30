@@ -37,7 +37,7 @@ public class e {
         if (kVar == null) {
             return false;
         }
-        aBp();
+        aBl();
         this.dkb = new a(kVar);
         this.dkb.setPriority(3);
         this.dkb.execute(new Object[0]);
@@ -48,21 +48,21 @@ public class e {
         if (alVar == null) {
             return false;
         }
-        aBq();
+        aBm();
         this.dkc = new c(str, alVar);
         this.dkc.setPriority(3);
         this.dkc.execute(new Void[0]);
         return true;
     }
 
-    public void aBp() {
+    public void aBl() {
         if (this.dkb != null) {
             this.dkb.cancel();
             this.dkb = null;
         }
     }
 
-    public void aBq() {
+    public void aBm() {
         if (this.dkc != null) {
             this.dkc.cancel();
             this.dkc = null;
@@ -83,7 +83,7 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: E */
         public List<com.baidu.tieba.write.album.a> doInBackground(Object... objArr) {
-            return e.this.aBr();
+            return e.this.aBn();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -108,7 +108,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.tieba.write.album.a> aBr() {
+    public List<com.baidu.tieba.write.album.a> aBn() {
         HashSet<String> hashSet = new HashSet<>();
         return a(this.mContext, a(this.mContext, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
     }
@@ -258,7 +258,7 @@ public class e {
             }
             ArrayList arrayList = new ArrayList();
             if (this.dkg.equals("-1")) {
-                this.dki = e.this.aBr();
+                this.dki = e.this.aBn();
                 if (this.dki != null) {
                     for (com.baidu.tieba.write.album.a aVar : this.dki) {
                         String albumId = aVar.getAlbumId();

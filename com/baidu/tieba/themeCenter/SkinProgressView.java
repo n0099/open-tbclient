@@ -80,10 +80,10 @@ public class SkinProgressView extends View {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azr() {
-        if (this.mSkinData.azm() != 4 && this.mSkinData.azm() != 0) {
-            if (this.mSkinData.azo()) {
-                TbadkCoreApplication.m411getInst().setUsedTheme(this.mSkinData.getId(), this.mSkinData.azl());
+    public void azn() {
+        if (this.mSkinData.azi() != 4 && this.mSkinData.azi() != 0) {
+            if (this.mSkinData.azk()) {
+                TbadkCoreApplication.m411getInst().setUsedTheme(this.mSkinData.getId(), this.mSkinData.azh());
                 e(0, 0.0f);
                 this.mSkinData.lr(0);
             } else {
@@ -125,7 +125,7 @@ public class SkinProgressView extends View {
 
     public void e(int i, float f) {
         if (this.deN) {
-            a(i, f, this.mSkinData != null ? this.mSkinData.azl() : 0);
+            a(i, f, this.mSkinData != null ? this.mSkinData.azh() : 0);
             return;
         }
         setEnabled(true);
@@ -165,7 +165,7 @@ public class SkinProgressView extends View {
                 setTextColor(i.c.cp_cont_b);
                 break;
         }
-        if (this.mSkinData != null && this.mSkinData.Uj() == 7) {
+        if (this.mSkinData != null && this.mSkinData.Uf() == 7) {
             setEnabled(false);
         }
         setProgress(f);

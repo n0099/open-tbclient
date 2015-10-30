@@ -15,7 +15,7 @@ public class PersonBarActivity extends BasePersonInfoActivity {
         if (this.cnT && this.requestCode != 23011) {
             setSwipeBackEnabled(false);
         }
-        this.coP = new ad(getPageContext(), WK());
+        this.coP = new ad(getPageContext(), WG());
         this.coP.setSex(getSex());
         this.coP.setId(getUid());
         this.coP.setUniqueId(getUniqueId());
@@ -24,58 +24,58 @@ public class PersonBarActivity extends BasePersonInfoActivity {
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public d a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         if (this.coO == null) {
-            this.coO = new p(this, WK());
+            this.coO = new p(this, WG());
         }
         return this.coO;
     }
 
-    public ad aij() {
+    public ad aif() {
         return this.coP;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ahU() {
+    public String ahQ() {
         return getPageContext().getString(i.h.person_bar_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ahV() {
+    public String ahR() {
         return getPageContext().getString(i.h.person_bar_no_personal_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ahW() {
+    public String ahS() {
         return getPageContext().getString(i.h.person_bar_no_common_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ahX() {
+    public String ahT() {
         return getPageContext().getString(i.h.person_bar_personal);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ahY() {
+    public String ahU() {
         return getPageContext().getString(i.h.person_bar_common);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aic() {
+    public String ahY() {
         return "common_forum";
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public int aid() {
+    public int ahZ() {
         return 2;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         BaseFragment baseFragment;
-        ac ait;
+        ac aip;
         super.onPageSelected(i);
-        if (this.coO != null && this.coO.getItem(i) != null && (baseFragment = (BaseFragment) this.coO.getItem(i)) != null && (baseFragment instanceof r) && (ait = ((r) baseFragment).ait()) != null) {
-            ait.setEditState(false);
-            ait.notifyDataSetChanged();
+        if (this.coO != null && this.coO.getItem(i) != null && (baseFragment = (BaseFragment) this.coO.getItem(i)) != null && (baseFragment instanceof r) && (aip = ((r) baseFragment).aip()) != null) {
+            aip.setEditState(false);
+            aip.notifyDataSetChanged();
         }
     }
 

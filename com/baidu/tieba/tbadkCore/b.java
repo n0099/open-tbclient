@@ -6,7 +6,7 @@ public class b {
     private int cWK = 0;
     private int cWL = 0;
 
-    public int avs() {
+    public int avo() {
         return this.cWL;
     }
 

@@ -17,7 +17,7 @@ public class bg extends bk<com.baidu.tieba.tbadkCore.data.j, PbRecBaseViewHolder
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: J */
     public PbRecBaseViewHolder a(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.apA().l(this.mContext, 1);
+        return com.baidu.tieba.recapp.a.apw().l(this.mContext, 1);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

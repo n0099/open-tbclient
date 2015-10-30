@@ -43,21 +43,21 @@ public class k extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
     public void B(com.baidu.tieba.recommendfrs.data.b bVar) {
         super.B(bVar);
         if (bVar != null) {
-            if (bVar.aqc() != null) {
-                List<String> aqc = bVar.aqc();
-                if (aqc.size() > 0) {
-                    this.cJH.d(bVar.aqt() ? aqc.get(0) : null, 10, false);
+            if (bVar.apY() != null) {
+                List<String> apY = bVar.apY();
+                if (apY.size() > 0) {
+                    this.cJH.d(bVar.aqp() ? apY.get(0) : null, 10, false);
                 }
-                if (aqc.size() > 1) {
-                    this.cJI.d(bVar.aqt() ? aqc.get(1) : null, 10, false);
+                if (apY.size() > 1) {
+                    this.cJI.d(bVar.aqp() ? apY.get(1) : null, 10, false);
                 }
-                if (aqc.size() > 2) {
-                    this.cJJ.d(bVar.aqt() ? aqc.get(2) : null, 10, false);
+                if (apY.size() > 2) {
+                    this.cJJ.d(bVar.aqp() ? apY.get(2) : null, 10, false);
                 }
             }
             this.alu.setText(UtilHelper.getFixedText(bVar.getTitle(), 14, true));
-            this.aJY.setText(as.s(bVar.apZ()));
-            this.aJZ.setText(as.s(bVar.aqa()));
+            this.aJY.setText(as.q(bVar.apV()));
+            this.aJZ.setText(as.q(bVar.apW()));
             if (StringUtils.isNull(bVar.getForumName())) {
                 this.aJX.setVisibility(8);
             } else {
@@ -65,9 +65,9 @@ public class k extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
                 this.aJX.setText(getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(bVar.getForumName(), 7, false)));
                 this.aJX.setOnClickListener(new l(this, bVar));
             }
-            this.aKa.setVisibility(bVar.aqe() ? 0 : 4);
+            this.aKa.setVisibility(bVar.aqa() ? 0 : 4);
             p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.lL(String.valueOf(bVar.aqb()))) {
+            if (readThreadHistory != null && readThreadHistory.lL(String.valueOf(bVar.apX()))) {
                 an.b(this.alu, i.c.cp_cont_c, 1);
             } else {
                 an.b(this.alu, i.c.cp_cont_b, 1);

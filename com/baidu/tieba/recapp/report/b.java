@@ -9,7 +9,7 @@ public class b {
     private CustomMessageListener cHT = new c(this, 2000994);
     private d cHS = new f();
 
-    public static b apG() {
+    public static b apC() {
         if (cHR == null) {
             synchronized (b.class) {
                 if (cHR == null) {
@@ -20,7 +20,7 @@ public class b {
         return cHR;
     }
 
-    private boolean apH() {
+    private boolean apD() {
         return com.baidu.adp.lib.b.e.gv().ah("ad_log_open") == 1;
     }
 
@@ -29,7 +29,7 @@ public class b {
     }
 
     public void a(a aVar) {
-        if (apH() && aVar != null && this.cHS != null) {
+        if (apD() && aVar != null && this.cHS != null) {
             if (i.iM()) {
                 this.cHS.b(aVar);
             } else {

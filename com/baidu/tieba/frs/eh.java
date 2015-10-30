@@ -33,7 +33,7 @@ public class eh extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void ME() {
+    public void MA() {
         if (this.aZB != null) {
             this.aZB.cancel();
             this.aZB = null;
@@ -87,7 +87,7 @@ public class eh extends com.baidu.adp.base.e {
         public SignData doInBackground(Object... objArr) {
             Object obj;
             Exception e;
-            String tG;
+            String tD;
             JSONObject jSONObject;
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
             Object obj2 = null;
@@ -96,22 +96,22 @@ public class eh extends com.baidu.adp.base.e {
                 this.afh = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
                 this.afh.o("kw", eh.this.mForumName);
                 this.afh.o(ImageViewerConfig.FORUM_ID, eh.this.mForumId);
-                this.afh.uh().uY().mIsNeedTbs = true;
-                tG = this.afh.tG();
+                this.afh.ue().uV().mIsNeedTbs = true;
+                tD = this.afh.tD();
             } catch (Exception e2) {
                 obj = obj2;
                 e = e2;
             }
-            if (this.afh.uk()) {
-                obj = this.afh.uh().uZ().qV();
+            if (this.afh.uh()) {
+                obj = this.afh.ue().uW().qS();
                 try {
                     if (obj != 0) {
                         SignData signData = new SignData();
-                        signData.parserJson(tG);
+                        signData.parserJson(tD);
                         obj = signData;
-                    } else if (!com.baidu.tbadk.core.util.as.isEmpty(tG) && (jSONObject = new JSONObject(tG)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
+                    } else if (!com.baidu.tbadk.core.util.as.isEmpty(tD) && (jSONObject = new JSONObject(tD)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
                         SignData signData2 = new SignData();
-                        signData2.parserJson(tG);
+                        signData2.parserJson(tD);
                         signData2.setIsSigned(1);
                         signData2.setCountSignNum(1);
                         obj2 = null;
@@ -148,7 +148,7 @@ public class eh extends com.baidu.adp.base.e {
             eh.this.aZB = null;
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
             if (signData == null && this.afh != null) {
-                eh.this.mErrorCode = this.afh.ul();
+                eh.this.mErrorCode = this.afh.ui();
                 eh.this.mErrorString = this.afh.getErrorString();
             }
             eh.this.mLoadDataCallBack.d(signData);

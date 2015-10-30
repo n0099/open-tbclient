@@ -24,7 +24,7 @@ class i extends Handler {
                     aVar.B(false);
                     aVar.C(false);
                     aVar.X(0);
-                    aVar.g(System.currentTimeMillis());
+                    aVar.e(System.currentTimeMillis());
                     return;
                 }
                 return;

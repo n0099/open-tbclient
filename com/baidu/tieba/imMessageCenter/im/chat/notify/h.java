@@ -74,8 +74,8 @@ public class h implements AdapterView.OnItemClickListener {
                     bdBaseFragmentActivity12 = this.bKl.bJZ;
                     if (a.a((BaseFragmentActivity) bdBaseFragmentActivity12.getPageContext().getOrignalPage(), (int) CmdConfigCustom.IM_VALIDATE_ACTIVITY_START)) {
                         d(gK);
-                        if (com.baidu.tbadk.coreExtra.messageCenter.a.wK().xf() != null) {
-                            com.baidu.tbadk.coreExtra.messageCenter.a.wK().xf().dg(0);
+                        if (com.baidu.tbadk.coreExtra.messageCenter.a.wH().xc() != null) {
+                            com.baidu.tbadk.coreExtra.messageCenter.a.wH().xc().dg(0);
                         }
                         e eVar = this.bKl;
                         bdBaseFragmentActivity13 = this.bKl.bJZ;
@@ -85,8 +85,8 @@ public class h implements AdapterView.OnItemClickListener {
                     bdBaseFragmentActivity10 = this.bKl.bJZ;
                     if (a.a((BaseFragmentActivity) bdBaseFragmentActivity10.getPageContext().getOrignalPage(), (int) CmdConfigCustom.IM_UPDATES_ACTIVITY_START)) {
                         d(gK);
-                        if (com.baidu.tbadk.coreExtra.messageCenter.a.wK().xf() != null) {
-                            com.baidu.tbadk.coreExtra.messageCenter.a.wK().xf().df(0);
+                        if (com.baidu.tbadk.coreExtra.messageCenter.a.wH().xc() != null) {
+                            com.baidu.tbadk.coreExtra.messageCenter.a.wH().xc().df(0);
                         }
                         e eVar2 = this.bKl;
                         bdBaseFragmentActivity11 = this.bKl.bJZ;
@@ -98,8 +98,8 @@ public class h implements AdapterView.OnItemClickListener {
                         bdBaseFragmentActivity8 = this.bKl.bJZ;
                         TiebaStatic.eventStat(bdBaseFragmentActivity8.getPageContext().getPageActivity(), "client_live_8", "click");
                         d(gK);
-                        if (com.baidu.tbadk.coreExtra.messageCenter.a.wK().xf() != null) {
-                            com.baidu.tbadk.coreExtra.messageCenter.a.wK().xf().dq(0);
+                        if (com.baidu.tbadk.coreExtra.messageCenter.a.wH().xc() != null) {
+                            com.baidu.tbadk.coreExtra.messageCenter.a.wH().xc().dq(0);
                         }
                         e eVar3 = this.bKl;
                         bdBaseFragmentActivity9 = this.bKl.bJZ;
@@ -143,7 +143,7 @@ public class h implements AdapterView.OnItemClickListener {
     private void e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         BdBaseFragmentActivity bdBaseFragmentActivity;
         if (imMessageCenterShowItemData.getUnReadCount() > 0) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.wK().setMsgChat(com.baidu.tbadk.coreExtra.messageCenter.a.wK().getMsgChat() - imMessageCenterShowItemData.getUnReadCount());
+            com.baidu.tbadk.coreExtra.messageCenter.a.wH().setMsgChat(com.baidu.tbadk.coreExtra.messageCenter.a.wH().getMsgChat() - imMessageCenterShowItemData.getUnReadCount());
             imMessageCenterShowItemData.setUnReadCount(0);
         }
         try {

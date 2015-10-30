@@ -24,23 +24,23 @@ public class VoiceCheckResult {
         }
     }
 
-    public ResultCode awR() {
+    public ResultCode awN() {
         return this.cZB;
     }
 
-    public boolean awS() {
+    public boolean awO() {
         return this.cZC;
     }
 
-    public boolean awT() {
+    public boolean awP() {
         return this.needVerify;
     }
 
-    public String awU() {
+    public String awQ() {
         return this.authSid;
     }
 
-    public String awV() {
+    public String awR() {
         return this.authToken;
     }
 }

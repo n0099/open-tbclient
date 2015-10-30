@@ -31,10 +31,10 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
         setSwipeBackEnabled(false);
         setContentView(i.g.layout_sapi_webview_fill_uprofile);
         this.bduss = getIntent().getStringExtra(SapiWebViewActivityConfig.EXTRA_BDUSS);
-        adX();
+        adT();
     }
 
-    protected void adX() {
+    protected void adT() {
         this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
         this.mNavigationBar.setTitleText(getPageContext().getString(i.h.sapi_filluprofile));
@@ -58,7 +58,7 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adY() {
+    public void adU() {
         TbadkCoreApplication.m411getInst().onUserChanged();
         Intent intent = new Intent();
         intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
@@ -67,11 +67,11 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adZ() {
+    public void adV() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            com.baidu.tbadk.core.a.a.rd().a(session.username, session.bduss, session.ptoken, this.XS);
+            com.baidu.tbadk.core.a.a.ra().a(session.username, session.bduss, session.ptoken, this.XS);
         }
     }
 
@@ -81,8 +81,8 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
             this.auv = new com.baidu.tbadk.coreExtra.view.k(getPageContext());
             this.auv.a(new f(this));
         }
-        this.auv.yR();
+        this.auv.yO();
         this.auv.h(accountData);
-        this.auv.yN();
+        this.auv.yK();
     }
 }

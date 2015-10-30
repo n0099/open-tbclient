@@ -29,9 +29,9 @@ public class b extends f implements CommonTabWidgetView.a {
 
     /* loaded from: classes.dex */
     public interface a {
-        void BR();
+        void BO();
 
-        void BS();
+        void BP();
 
         void c(com.baidu.tbadk.editortools.view.a aVar);
     }
@@ -129,7 +129,7 @@ public class b extends f implements CommonTabWidgetView.a {
         super.onDetachedFromWindow();
         Iterator<com.baidu.tbadk.editortools.view.a> it = this.Xh.iterator();
         while (it.hasNext()) {
-            it.next().AG();
+            it.next().AD();
         }
     }
 

@@ -445,10 +445,10 @@ public class d {
         c cVar = this.CI;
         if (!lA()) {
             com.baidu.adp.plugin.b.a.lF().bj("plugin_install_timeout_installprocess_notlive");
-            com.baidu.adp.plugin.b.a.lF().d("plugin_install", "timeout_installprocess_notlive", cVar == null ? "" : cVar.pkgName, "timeout-" + this.CI.lo() + "-" + this.CJ.size() + "-" + this.CL.size());
+            com.baidu.adp.plugin.b.a.lF().d("plugin_install", "timeout_installprocess_notlive", cVar == null ? "" : cVar.pkgName, "timeout-" + (cVar == null ? "" : Long.valueOf(cVar.lo())) + "-" + this.CJ.size() + "-" + this.CL.size());
         } else {
             com.baidu.adp.plugin.b.a.lF().bj("plugin_install_timeout");
-            com.baidu.adp.plugin.b.a.lF().d("plugin_install", "timeout", cVar == null ? "" : cVar.pkgName, "timeout-" + this.CI.lo() + "-" + this.CJ.size() + "-" + this.CL.size());
+            com.baidu.adp.plugin.b.a.lF().d("plugin_install", "timeout", cVar == null ? "" : cVar.pkgName, "timeout-" + (cVar == null ? "" : Long.valueOf(cVar.lo())) + "-" + this.CJ.size() + "-" + this.CL.size());
         }
         lr();
         lz();
@@ -460,7 +460,7 @@ public class d {
         if (this.CK != null) {
             com.baidu.adp.plugin.packageManager.a.b.mt().h(this.CK.pkgName, "plugin_install_retry_timeout", null);
         }
-        com.baidu.adp.plugin.b.a.lF().d("plugin_install", "timeout", this.CK == null ? "" : this.CK.pkgName, "timeout-" + this.CI.lo() + "-" + this.CJ.size() + "-" + this.CL.size());
+        com.baidu.adp.plugin.b.a.lF().d("plugin_install", "timeout", this.CK == null ? "" : this.CK.pkgName, "timeout-" + (this.CK == null ? "" : Long.valueOf(this.CK.lo())) + "-" + this.CJ.size() + "-" + this.CL.size());
         ls();
     }
 

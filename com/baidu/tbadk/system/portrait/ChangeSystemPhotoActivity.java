@@ -69,10 +69,10 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public void initData() {
         this.azp = getIntent().getBooleanExtra("need_upload", true);
         this.azk = new ArrayList<>();
-        Es();
+        Eo();
     }
 
-    private void Es() {
+    private void Eo() {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             SapiAccountManager.getInstance().getAccountService().getPopularPortraitsInfo(new e(this), session.bduss);
@@ -103,7 +103,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         aVar.bF(i.h.enter_forum_cancel_change_tip);
         aVar.b(i.h.alert_no_button, new f(this));
         aVar.a(i.h.alert_yes_btn, new g(this));
-        aVar.b(getPageContext()).sR();
+        aVar.b(getPageContext()).sO();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
@@ -158,13 +158,13 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
             this.afh = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PROFILE_HEAD_MODIFY);
             try {
                 this.afh.d("pic", ChangeSystemPhotoActivity.this.azn.nd());
-                str = this.afh.tJ();
+                str = this.afh.tG();
             } catch (Exception e2) {
                 str = null;
                 e = e2;
             }
             try {
-                if (this.afh.uh().uZ().qV()) {
+                if (this.afh.ue().uW().qS()) {
                     return str;
                 }
                 return null;
@@ -189,7 +189,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             if (this.afh != null) {
-                if (this.afh.uh().uZ().qV()) {
+                if (this.afh.ue().uW().qS()) {
                     new com.baidu.tbadk.core.view.f(ChangeSystemPhotoActivity.this.getPageContext()).dA(ChangeSystemPhotoActivity.this.getResources().getString(i.h.reset_success));
                     Intent intent = new Intent();
                     intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, ChangeSystemPhotoActivity.this.azo);

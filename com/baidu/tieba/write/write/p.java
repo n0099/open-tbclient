@@ -26,9 +26,9 @@ public class p implements View.OnClickListener {
     public void onClick(View view) {
         Context context;
         Context context2;
-        if (this.aXr.sq() == 33) {
+        if (this.aXr.sn() == 33) {
             context2 = this.doK.mContext;
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, this.aXr.getTid()).cg(this.aXr.ss()).rk()));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context2, this.aXr.getTid()).cg(this.aXr.sp()).rh()));
             return;
         }
         MessageManager messageManager = MessageManager.getInstance();

@@ -60,16 +60,16 @@ public class ShareFromFrsView extends LinearLayout {
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
         this.bdL = shareFromFrsMsgData;
-        vw();
+        vt();
     }
 
-    private void vw() {
+    private void vt() {
         this.aDl.setText(dq(this.bdL.getName()));
         this.bdI.setDefaultResource(i.e.icon_default_ba_120);
         this.bdI.setAutoChangeStyle(false);
         this.bdI.d(this.bdL.getImageUrl(), 10, false);
-        this.bIN.setText(as.s(this.bdL.getMemberNum()));
-        this.bIP.setText(as.s(this.bdL.getPostNum()));
+        this.bIN.setText(as.q(this.bdL.getMemberNum()));
+        this.bIP.setText(as.q(this.bdL.getPostNum()));
     }
 
     private String dq(String str) {

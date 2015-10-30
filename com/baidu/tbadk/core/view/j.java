@@ -13,6 +13,6 @@ public class j implements ViewTreeObserver.OnGlobalLayoutListener {
 
     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
     public void onGlobalLayout() {
-        this.adH.vs();
+        this.adH.vp();
     }
 }

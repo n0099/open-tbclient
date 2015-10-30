@@ -205,7 +205,7 @@ public class FragmentTabIndicator extends LinearLayout {
         }
     }
 
-    public void Cy() {
+    public void Cv() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.auR.getLayoutParams();
         layoutParams.width = -2;
         this.auR.setLayoutParams(layoutParams);

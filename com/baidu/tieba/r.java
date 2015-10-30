@@ -16,7 +16,7 @@ public class r implements View.OnClickListener {
         boolean z;
         z = this.this$0.aDG;
         if (z) {
-            this.this$0.FP();
+            this.this$0.FL();
         }
         this.this$0.aEm.dismiss();
         this.this$0.finish();

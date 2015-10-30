@@ -20,7 +20,7 @@ public class a {
     private int mHeight;
     private int mWidth;
 
-    public static a Ir() {
+    public static a In() {
         if (aMe == null) {
             synchronized (a.class) {
                 if (aMe == null) {
@@ -48,7 +48,7 @@ public class a {
         aMe = null;
     }
 
-    public boolean Is() {
+    public boolean Io() {
         return this.aMd;
     }
 
@@ -67,19 +67,19 @@ public class a {
     }
 
     public void S(int i, int i2) {
-        It();
+        Ip();
         T(i, i2);
         this.lB.updateViewLayout(this.aMc, this.aMb);
     }
 
-    private void It() {
+    private void Ip() {
         if (!this.aMg) {
             BdLog.e("should do init first!");
         }
     }
 
     private void a(Context context, Bitmap bitmap, int i, int i2) {
-        It();
+        Ip();
         if (bitmap != null) {
             T(i, i2);
             this.aMc = new ImageView(context);
@@ -111,7 +111,7 @@ public class a {
         return false;
     }
 
-    private void Iu() {
+    private void Iq() {
         this.aMb = new WindowManager.LayoutParams();
         this.aMb.format = -3;
         this.aMb.gravity = 51;
@@ -123,13 +123,13 @@ public class a {
 
     private void T(int i, int i2) {
         if (this.aMb == null) {
-            Iu();
+            Iq();
         }
         this.aMb.x = i - (this.mWidth / 2);
         this.aMb.y = (i2 - (this.mHeight / 2)) - this.aMf;
     }
 
-    public void Iv() {
+    public void Ir() {
         if (this.aMc != null) {
             if (this.lB != null) {
                 this.lB.removeView(this.aMc);

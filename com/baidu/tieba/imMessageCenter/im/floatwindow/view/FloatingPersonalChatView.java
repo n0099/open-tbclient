@@ -51,17 +51,17 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void AG() {
+    public void AD() {
         if (this.bMA != null) {
             this.bMA.removeCallbacks(this.bLV);
         }
         this.bMz.finish();
-        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yh().Yq();
-        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yh().dB(false);
-        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yh().Yl();
+        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yd().Ym();
+        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yd().dB(false);
+        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yd().Yh();
     }
 
-    public void YW() {
+    public void YS() {
         UserData userData;
         if (this.mUserDataList != null && !this.mUserDataList.isEmpty() && (userData = this.mUserDataList.get(this.currentIndex)) != null) {
             this.bMJ.iE(userData.getUserName());
@@ -74,17 +74,17 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
         if (i < this.mUserDataList.size() && i >= 0) {
             this.currentIndex = i;
             if (this.mUserDataList.get(i) != null) {
-                com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yh().iC(this.mUserDataList.get(i).getUserId());
+                com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yd().iC(this.mUserDataList.get(i).getUserId());
                 this.mUserDataList.get(i).setConcern_num(0);
             }
             this.bMz.hL(i);
-            YW();
-            Zc();
-            YX();
+            YS();
+            YY();
+            YT();
         }
     }
 
-    private void YX() {
+    private void YT() {
         afterSendMsgText();
     }
 
@@ -144,7 +144,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
                     this.bMJ.iE(userData.getUserName());
                     this.bMJ.hK(this.bMK.c(userData));
                 }
-                Zc();
+                YY();
                 if (this.bMA != null) {
                     this.bMA.post(this.bLV);
                 }
@@ -153,7 +153,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
                 }
                 if (userData == null) {
                     boolean iF = this.bMK.iF(userData.getUserId());
-                    if (!YZ() && !iF && this.mTool != null) {
+                    if (!YV() && !iF && this.mTool != null) {
                         b(this.mTool.dS(6));
                         b(this.mTool.dS(2));
                         return;
@@ -166,7 +166,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
         userData = null;
         if (userData != null) {
         }
-        Zc();
+        YY();
         if (this.bMA != null) {
         }
         if (UtilHelper.canUseStyleImmersiveSticky()) {
@@ -181,7 +181,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
         return view;
     }
 
-    public void YY() {
+    public void YU() {
         this.bMF = true;
         if (this.mUserDataList != null && this.mUserDataList.size() > 1) {
             this.bME.a((com.baidu.adp.lib.g.d) null);
@@ -197,7 +197,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
         }
     }
 
-    private boolean YZ() {
+    private boolean YV() {
         return this.mUserDataList == null || this.mUserDataList.isEmpty() || this.currentIndex < 0 || this.currentIndex >= this.mUserDataList.size() || this.mUserDataList.get(this.currentIndex) == null;
     }
 
@@ -205,12 +205,12 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
         return this.bMK.iF(str);
     }
 
-    public void Za() {
+    public void YW() {
         if (this.mUserDataList != null) {
             if (this.mUserDataList.size() <= 1) {
                 if (!this.bMG) {
                     this.bMG = true;
-                    AG();
+                    AD();
                 }
             } else if (!this.bMH) {
                 this.bMB.b(this.bMi);
@@ -254,17 +254,17 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
         if (customResponsedMessage instanceof MemoryChangedMessage) {
             MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
             ImMessageCenterPojo data = memoryChangedMessage.getData();
-            if (data.getCustomGroupType() == 2 && !com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yh().iz(data.getGid())) {
+            if (data.getCustomGroupType() == 2 && !com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yd().iz(data.getGid())) {
                 if (memoryChangedMessage.getType() == 1) {
                     c(data);
                 }
-                boolean Zd = Zd();
+                boolean YZ = YZ();
                 boolean z2 = this.currentIndex == 0;
                 boolean z3 = this.mUserDataList.size() > 4;
-                Zb();
+                YX();
                 if (this.bMF) {
-                    Zc();
-                    if (Zd) {
+                    YY();
+                    if (YZ) {
                         if (!z2 || !z3) {
                             z = false;
                         }
@@ -275,7 +275,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
         }
     }
 
-    private void Zb() {
+    private void YX() {
         int i;
         if (this.mUserDataList != null && this.mUserDataList.size() > 4) {
             if (this.currentIndex == 0) {
@@ -287,7 +287,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
             while (this.mUserDataList.size() > 4) {
                 UserData remove = this.mUserDataList.remove(i);
                 if (remove != null) {
-                    com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yh().iD(remove.getUserId());
+                    com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yd().iD(remove.getUserId());
                     Iterator<ImMessageCenterShowItemData> it = this.mList.iterator();
                     while (true) {
                         if (!it.hasNext()) {
@@ -306,26 +306,26 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
 
     private void dD(boolean z) {
         if (!z) {
-            this.bMB.YS();
+            this.bMB.YO();
         }
-        this.bMC.YS();
-        this.bMD.YS();
-        this.bME.YS();
+        this.bMC.YO();
+        this.bMD.YO();
+        this.bME.YO();
     }
 
     public void hN(int i) {
         if (i > 0) {
-            this.bMB.YT();
+            this.bMB.YP();
         }
         if (i > 1) {
-            this.bMC.YT();
+            this.bMC.YP();
         }
         if (i > 2) {
-            this.bMD.YT();
+            this.bMD.YP();
         }
     }
 
-    public void Zc() {
+    public void YY() {
         if (this.mUserDataList != null && this.mUserDataList.size() > 0) {
             int size = this.mUserDataList.size();
             int i = 0;
@@ -333,7 +333,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
                 if (i < size) {
                     UserData userData = this.mUserDataList.get(i);
                     if (userData != null) {
-                        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yh().P(userData.getPortrait(), userData.getConcern_num());
+                        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yd().P(userData.getPortrait(), userData.getConcern_num());
                         a(i, true, userData);
                     }
                 } else {
@@ -368,7 +368,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
         return true;
     }
 
-    private boolean Zd() {
+    private boolean YZ() {
         if (this.mUserDataList == null) {
             return false;
         }
@@ -437,7 +437,7 @@ public class FloatingPersonalChatView extends CommonPersonalMsglistView {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(4));
-            PersonalSettingItemData aK = com.baidu.tieba.im.settingcache.j.Xj().aK(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            PersonalSettingItemData aK = com.baidu.tieba.im.settingcache.j.Xf().aK(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
             if (aK != null) {
                 buildNormalItem.setGroupSetting(aK);
             }

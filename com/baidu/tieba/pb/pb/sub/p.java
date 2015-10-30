@@ -35,30 +35,30 @@ public class p implements ak.a {
         tVar = this.cmC.cmv;
         if (tVar != null) {
             tVar5 = this.cmC.cmv;
-            tVar5.ahn();
+            tVar5.ahj();
         }
         if (z) {
             tVar2 = this.cmC.cmv;
             tVar2.hideNoDataView();
             if (cVar != null) {
-                if (cVar.aeZ() == null) {
+                if (cVar.aeV() == null) {
                     akVar3 = this.cmC.cmt;
                 }
-                com.baidu.tieba.tbadkCore.data.k aeZ = cVar.aeZ();
+                com.baidu.tieba.tbadkCore.data.k aeV = cVar.aeV();
                 akVar = this.cmC.cmt;
-                aeZ.a(akVar.ahO());
+                aeV.a(akVar.ahK());
                 tVar3 = this.cmC.cmv;
                 if (tVar3 != null) {
                     tVar4 = this.cmC.cmv;
                     akVar2 = this.cmC.cmt;
-                    tVar4.a(cVar, akVar2.aeS());
+                    tVar4.a(cVar, akVar2.aeO());
                 }
                 am amVar = new am();
                 amVar.setData(cVar);
                 nVar = this.cmC.caU;
                 if (nVar != null) {
                     nVar2 = this.cmC.caU;
-                    nVar2.a(cVar.afh());
+                    nVar2.a(cVar.afd());
                 }
                 amVar.setType(0);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, amVar));

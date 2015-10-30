@@ -43,7 +43,7 @@ public class dj extends bn<dk, dl> {
     @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, dk dkVar, dl dlVar) {
         if (dlVar != null && dlVar.aYw != null) {
-            dlVar.aYw.tc();
+            dlVar.aYw.sZ();
         }
         return view;
     }

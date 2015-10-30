@@ -17,7 +17,7 @@ public class g implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.c td() {
+    public com.baidu.tbadk.core.flow.a.c ta() {
         com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
         cVar.setDrawableId(i.e.icon_dot_personal_s);
         cVar.bX(i.e.icon_dot_personal_n);
@@ -37,14 +37,14 @@ public class g implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.e te() {
+    public com.baidu.tbadk.core.flow.a.e tb() {
         com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
         eVar.setHeight(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds280));
         return eVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public View tf() {
+    public View tc() {
         return this.bdn.bcB;
     }
 }

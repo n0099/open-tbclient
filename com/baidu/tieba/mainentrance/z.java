@@ -27,16 +27,16 @@ public class z implements TextWatcher {
                 this.bVC.G(1, this.bVC.bUV);
                 return;
             }
-            this.bVC.abt();
+            this.bVC.abp();
             return;
         }
-        this.bVC.abf();
+        this.bVC.abb();
         if (this.bVC.mMode != 0) {
             if (this.bVC.mMode != 3) {
-                this.bVC.abq();
+                this.bVC.abm();
                 return;
             } else {
-                this.bVC.abr();
+                this.bVC.abn();
                 return;
             }
         }
@@ -44,7 +44,7 @@ public class z implements TextWatcher {
         if (!z && !SquareSearchActivityConfig.IS_SHOW_LIKE_FORUM) {
             return;
         }
-        this.bVC.abp();
+        this.bVC.abl();
     }
 
     @Override // android.text.TextWatcher

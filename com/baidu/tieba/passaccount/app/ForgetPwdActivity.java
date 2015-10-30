@@ -16,10 +16,10 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdActivity> {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         setContentView(i.g.layout_sapi_webview_forget_pwd);
-        adX();
+        adT();
     }
 
-    protected void adX() {
+    protected void adT() {
         this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
         this.mNavigationBar.setTitleText(getPageContext().getString(i.h.sapi_forget_password_title));

@@ -31,15 +31,15 @@ public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         setContentView(i.g.activity_sapi_webview);
-        asY();
-        Gg();
-        asZ();
+        asU();
+        Gc();
+        asV();
         if (!checkUpIsLogin()) {
             finish();
         }
     }
 
-    private void asY() {
+    private void asU() {
         if (getIntent() != null) {
             this.mType = getIntent().getIntExtra(SapiWebViewActivityConfig.EXTRA_TYPE, -1);
             this.ws = getIntent().getStringExtra(SapiWebViewActivityConfig.EXTRA_BDUSS);
@@ -47,7 +47,7 @@ public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
         }
     }
 
-    private void Gg() {
+    private void Gc() {
         this.Mg = (LinearLayout) findViewById(i.f.layout_root);
         this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new af(this));
@@ -63,7 +63,7 @@ public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
         this.aMQ.a(new a());
     }
 
-    private void asZ() {
+    private void asV() {
         if (!TextUtils.isEmpty(this.ws) && this.cdf != null && this.mNavigationBar != null) {
             if (this.mType == 0) {
                 this.cdf.loadModifyPwd(this.ws);

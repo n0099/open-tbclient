@@ -91,7 +91,7 @@ public class VideoInfo implements Serializable {
         wVar.o("urls[]", this.thumbUrl);
         wVar.o("kw", str);
         try {
-            JSONObject jSONObject = new JSONObject(wVar.tG());
+            JSONObject jSONObject = new JSONObject(wVar.tD());
             if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("pics")) != null) {
                 int length = optJSONArray.length();
                 for (int i = 0; i < length; i++) {

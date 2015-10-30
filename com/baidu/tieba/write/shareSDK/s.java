@@ -31,7 +31,7 @@ public class s implements View.OnClickListener {
         writeShareActivity3 = this.dmR.dmO;
         if (writeShareActivity3 != null) {
             writeShareActivity4 = this.dmR.dmO;
-            writeShareActivity4.aCf();
+            writeShareActivity4.aCb();
         }
     }
 }

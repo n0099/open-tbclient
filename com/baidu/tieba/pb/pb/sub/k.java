@@ -12,7 +12,7 @@ class k implements com.baidu.adp.lib.e.c<LinearLayout> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: afD */
+    /* renamed from: afz */
     public LinearLayout gZ() {
         LinearLayout linearLayout = new LinearLayout(this.cmC.getPageContext().getPageActivity());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);

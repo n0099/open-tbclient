@@ -39,20 +39,20 @@ public class o implements com.baidu.adp.framework.client.socket.link.e {
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.e
-    public void c(Map<String, String> map) {
+    public void b(Map<String, String> map) {
         com.baidu.adp.framework.client.socket.link.e eVar;
-        UpdateClientInfoMessage zO;
+        UpdateClientInfoMessage zL;
         UpdateClientInfoMessage updateClientInfoMessage;
         com.baidu.adp.framework.client.socket.link.e eVar2;
         eVar = this.anh.ane;
         if (eVar != null) {
             eVar2 = this.anh.ane;
-            eVar2.c(map);
+            eVar2.b(map);
         }
         com.baidu.adp.framework.client.socket.k.a("TbOnline", (int) BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES, 0, "begin_online", 0, "begin online");
         n nVar = this.anh;
-        zO = this.anh.zO();
-        nVar.anf = zO;
+        zL = this.anh.zL();
+        nVar.anf = zL;
         MessageManager messageManager = MessageManager.getInstance();
         updateClientInfoMessage = this.anh.anf;
         messageManager.sendMessage(updateClientInfoMessage);

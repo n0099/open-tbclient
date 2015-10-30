@@ -58,7 +58,7 @@ public class c implements e<a> {
             aVar.vs = jVar;
         }
         byte[] dw = jVar.dw(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!jVar.vi()) {
+        if (!jVar.vf()) {
             aVar2.error_code = 3;
             aVar2.error_msg = l.getString(i.h.neterror);
             return aVar2;
@@ -86,7 +86,7 @@ public class c implements e<a> {
                 if (diskFileOperate.isSuccess() && diskFileOperate.fy() != null) {
                     str5 = diskFileOperate.fy().getAbsolutePath();
                     i3 = 0;
-                } else if (n.tE() < dw.length) {
+                } else if (n.tB() < dw.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;

@@ -13,9 +13,9 @@ public class f extends com.baidu.tbadk.util.l<Void> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.l
-    /* renamed from: Gl */
+    /* renamed from: Gh */
     public Void doInBackground() {
-        this.bHB.Xf().remove(this.tz);
+        this.bHB.Xb().remove(this.tz);
         return null;
     }
 }

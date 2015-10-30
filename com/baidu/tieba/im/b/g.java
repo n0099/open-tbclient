@@ -19,9 +19,9 @@ class g extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage instanceof BackgroundSwitchMessage) {
             if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                this.bFD.WA();
+                this.bFD.Ww();
             } else {
-                this.bFD.Wz();
+                this.bFD.Wv();
             }
         }
     }

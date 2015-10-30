@@ -11,7 +11,7 @@ public class bj {
     private long cji = 0;
     private long cjj = 0;
 
-    public static synchronized bj afH() {
+    public static synchronized bj afD() {
         bj bjVar;
         synchronized (bj.class) {
             if (cjf == null) {
@@ -23,18 +23,18 @@ public class bj {
     }
 
     private bj() {
-        Kp();
+        Kl();
     }
 
-    private void Kp() {
+    private void Kl() {
         if (this.cjg == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.cjg = com.baidu.tbadk.core.b.a.sO().cq("tb.pb_mark");
+            this.cjg = com.baidu.tbadk.core.b.a.sL().cq("tb.pb_mark");
             this.cjj = System.currentTimeMillis() - currentTimeMillis;
         }
         if (this.cjh == null) {
             long currentTimeMillis2 = System.currentTimeMillis();
-            this.cjh = com.baidu.tbadk.core.b.a.sO().cq("tb.pb_normal");
+            this.cjh = com.baidu.tbadk.core.b.a.sL().cq("tb.pb_normal");
             this.cji = System.currentTimeMillis() - currentTimeMillis2;
         }
     }
@@ -72,14 +72,14 @@ public class bj {
         com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
         tVar.ez(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
         tVar.axA = (System.currentTimeMillis() - currentTimeMillis) + j;
-        tVar.DX();
+        tVar.DU();
         return ac.sl;
     }
 
     public void a(String str, boolean z, byte[] bArr) {
         if (str != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            Kp();
+            Kl();
             if (z) {
                 this.cjg.a(str, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
@@ -89,20 +89,20 @@ public class bj {
             com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
             tVar.ez(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
             tVar.axB = currentTimeMillis2;
-            tVar.DY();
+            tVar.DV();
         }
     }
 
     public void m(String str, byte[] bArr) {
         if (bArr != null && str != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            Kp();
+            Kl();
             this.cjg.a(str, bArr, 2592000000L);
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
             tVar.ez(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
             tVar.axB = currentTimeMillis2;
-            tVar.DY();
+            tVar.DV();
         }
     }
 }

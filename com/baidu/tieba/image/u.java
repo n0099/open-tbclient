@@ -40,7 +40,7 @@ class u implements j.b {
             imageViewerActivity.bPw = i3 + 200;
             this.this$0.bPE.setCurrentItem(this.this$0.bPE.getCurrentItem() + SapiErrorCode.NETWORK_FAILED, false);
         }
-        this.this$0.aaj();
+        this.this$0.aaf();
         a(arrayList, bVar);
     }
 
@@ -54,7 +54,7 @@ class u implements j.b {
         aVar = this.this$0.bPO;
         aVar.d(bVar, arrayList.size());
         aVar2 = this.this$0.bPO;
-        if (aVar2.ZM()) {
+        if (aVar2.ZI()) {
             this.this$0.bPE.setAddSize(1);
         } else {
             this.this$0.bPE.setAddSize(0);
@@ -66,7 +66,7 @@ class u implements j.b {
         this.this$0.showToast(str);
         if (i == 40) {
             this.this$0.wB = this.this$0.bPx.size();
-            this.this$0.aaj();
+            this.this$0.aaf();
         }
     }
 }

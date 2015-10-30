@@ -69,11 +69,11 @@ public class a extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        axv();
+        axr();
         return false;
     }
 
-    public void axv() {
+    public void axr() {
         if (this.daW != null) {
             this.daW.cancel();
             this.daW = null;
@@ -99,7 +99,7 @@ public class a extends com.baidu.adp.base.e {
         this.daW.execute(new String[0]);
     }
 
-    public boolean axw() {
+    public boolean axs() {
         return (this.daW == null && this.daX == null && this.daY == null) ? false : true;
     }
 
@@ -166,9 +166,9 @@ public class a extends com.baidu.adp.base.e {
             } else {
                 this.afh.o("is_vipdel", "0");
             }
-            this.afh.uh().uY().mIsNeedTbs = true;
-            this.afh.tG();
-            if (this.afh.uh().uZ().qV()) {
+            this.afh.ue().uV().mIsNeedTbs = true;
+            this.afh.tD();
+            if (this.afh.ue().uW().qS()) {
                 return true;
             }
             return false;
@@ -230,9 +230,9 @@ public class a extends com.baidu.adp.base.e {
             this.afh.o("word", this.mForumName);
             this.afh.o("z", this.mThreadId);
             this.afh.o("ntn", "banid");
-            this.afh.uh().uY().mIsNeedTbs = true;
-            this.afh.tG();
-            if (this.afh.uh().uZ().qV()) {
+            this.afh.ue().uV().mIsNeedTbs = true;
+            this.afh.tD();
+            if (this.afh.ue().uW().qS()) {
                 return null;
             }
             return this.afh.getErrorString();
@@ -332,12 +332,12 @@ public class a extends com.baidu.adp.base.e {
                     this.afh.o("ntn", "");
                 }
             }
-            this.afh.uh().uY().mIsNeedTbs = true;
-            String tG = this.afh.tG();
-            if (this.afh.uh().uZ().qV()) {
+            this.afh.ue().uV().mIsNeedTbs = true;
+            String tD = this.afh.tD();
+            if (this.afh.ue().uW().qS()) {
                 if (this.mType == 6) {
                     try {
-                        JSONArray optJSONArray = new JSONObject(tG).optJSONArray("cates");
+                        JSONArray optJSONArray = new JSONObject(tD).optJSONArray("cates");
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             k kVar = new k();
                             kVar.parserJson(optJSONArray.optJSONObject(i));

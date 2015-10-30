@@ -67,7 +67,7 @@ public class XiubaTbJsBridge {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.An().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m411getInst().getResources().getString(i.h.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.Ak().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m411getInst().getResources().getString(i.h.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

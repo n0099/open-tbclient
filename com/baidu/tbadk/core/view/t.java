@@ -18,6 +18,6 @@ class t extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.aeH.aex.setBackgroundColor(af.ut().cr(TbadkCoreApplication.m411getInst().getSkinType()));
+        this.aeH.aex.setBackgroundColor(af.uq().cr(TbadkCoreApplication.m411getInst().getSkinType()));
     }
 }

@@ -26,8 +26,8 @@ public class c implements ViewPager.OnPageChangeListener {
     public void onPageScrolled(int i, float f, int i2) {
         com.baidu.tieba.launcherGuide.a.a aVar;
         aVar = this.bRu.bRo;
-        if (aVar.aaF() && i == 0 && f > 0.0f) {
-            this.bRu.aaA();
+        if (aVar.aaB() && i == 0 && f > 0.0f) {
+            this.bRu.aaw();
         }
     }
 
@@ -37,9 +37,9 @@ public class c implements ViewPager.OnPageChangeListener {
         rightSlideViewPager = this.bRu.bRs;
         h hVar = (h) ((FragmentPagerAdapter) rightSlideViewPager.getAdapter()).getItem(0);
         if (i == 0) {
-            hVar.aaC();
+            hVar.aay();
         } else {
-            hVar.aaD();
+            hVar.aaz();
         }
     }
 }

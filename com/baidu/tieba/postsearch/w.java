@@ -52,9 +52,9 @@ class w implements View.OnClickListener {
             } else {
                 TiebaStatic.log("c10256");
                 tbPageContext4 = this.cEB.mContext;
-                PhotoLiveActivityConfig rk = new PhotoLiveActivityConfig.a(tbPageContext4.getPageActivity(), String.valueOf(this.cEC.tid)).cg(String.valueOf(this.cEC.pid)).ch("search_post").rk();
+                PhotoLiveActivityConfig rh = new PhotoLiveActivityConfig.a(tbPageContext4.getPageActivity(), String.valueOf(this.cEC.tid)).cg(String.valueOf(this.cEC.pid)).ch("search_post").rh();
                 tbPageContext5 = this.cEB.mContext;
-                tbPageContext5.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, rk));
+                tbPageContext5.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, rh));
             }
         }
     }

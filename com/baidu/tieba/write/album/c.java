@@ -73,7 +73,7 @@ class c implements View.OnClickListener {
                                 imageView2.startAnimation(loadAnimation);
                             }
                         }
-                        this.djZ.aBm();
+                        this.djZ.aBi();
                     }
                 }
             }

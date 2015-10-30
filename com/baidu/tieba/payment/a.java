@@ -24,11 +24,11 @@ public class a extends com.baidu.adp.base.e<a> {
         return false;
     }
 
-    public void aej() {
+    public void aef() {
         this.cdP.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
     }
 
-    public void aek() {
+    public void aeg() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAY_NEW_VCODE, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/encourage/consume/getVcode");
         tbHttpMessageTask.setResponsedClass(ResponsePayNewVcodeInfoMessage.class);

@@ -53,17 +53,17 @@ public class MemberRecommendView extends FrameLayout {
         if (kVar != null) {
             this.del = kVar;
             this.dek.d(this.del.getIconUrl(), 10, false);
-            this.WO.setText(this.del.azA());
-            if (StringUtils.isNull(this.del.Ui())) {
+            this.WO.setText(this.del.azw());
+            if (StringUtils.isNull(this.del.Ue())) {
                 this.bll.setVisibility(8);
                 return;
             }
             this.bll.setVisibility(0);
-            this.bll.setText(this.del.Ui());
+            this.bll.setText(this.del.Ue());
         }
     }
 
-    public void vA() {
+    public void vx() {
         TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.l.C(this.mContext);
         if (tbPageContext != null) {
             tbPageContext.getLayoutMode().ad(TbadkApplication.getInst().getSkinType() == 1);

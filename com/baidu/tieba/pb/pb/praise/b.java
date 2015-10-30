@@ -46,7 +46,7 @@ public class b {
     public void setData(String str, String str2, long j, boolean z) {
         this.mItemName.setText(str);
         this.mItemHead.setImageDrawable(null);
-        this.mItemTime.setText(as.o(j));
+        this.mItemTime.setText(as.m(j));
         this.mItemHead.d(str2, 28, false);
     }
 }

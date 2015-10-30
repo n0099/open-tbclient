@@ -32,8 +32,8 @@ public class m implements SlidingMenu.OnClosedListener {
             if (FrsActivityConfig.FRS_FROM_WRITESHARE.equals(frsActivity4.getFrom())) {
                 frsActivity5 = this.bcc.baR;
                 frsActivity5.setSwipeBackEnabled(false);
-                if (!this.bcc.NN().MB()) {
-                    this.bcc.NN().ch(false);
+                if (!this.bcc.NJ().Mx()) {
+                    this.bcc.NJ().ch(false);
                     frsActivity3 = this.bcc.baR;
                     frsActivity3.refresh();
                     return;
@@ -43,7 +43,7 @@ public class m implements SlidingMenu.OnClosedListener {
         }
         frsActivity2 = this.bcc.baR;
         frsActivity2.setSwipeBackEnabled(true);
-        if (!this.bcc.NN().MB()) {
+        if (!this.bcc.NJ().Mx()) {
         }
     }
 }

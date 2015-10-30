@@ -17,7 +17,7 @@ public class af extends com.baidu.adp.base.e<SingleMentionActivity> {
     public af(SingleMentionActivity singleMentionActivity) {
         super(singleMentionActivity.getPageContext());
         this.caL = singleMentionActivity;
-        add();
+        acZ();
     }
 
     public void a(long j, int i, String str) {
@@ -28,7 +28,7 @@ public class af extends com.baidu.adp.base.e<SingleMentionActivity> {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void add() {
+    public void acZ() {
         registerListener(new ag(this, 303010));
     }
 

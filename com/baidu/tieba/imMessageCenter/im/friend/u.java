@@ -26,7 +26,7 @@ public class u implements TextWatcher {
                 textView = this.bNJ.bNI;
                 textView.setVisibility(8);
             }
-            this.bNJ.Zq();
+            this.bNJ.Zm();
         }
     }
 

@@ -24,6 +24,6 @@ public class cz implements View.OnClickListener {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
         context = this.aXX.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXr.getAuthor().getUserId(), this.aXr.getAuthor().getName_show(), this.aXX.aTW.aeN().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXr.getAuthor().getUserId(), this.aXr.getAuthor().getName_show(), this.aXX.aTW.aeJ().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

@@ -18,6 +18,6 @@ public class br implements BdListView.e {
         if (!bsVar.isHasMore()) {
             return;
         }
-        this.cqN.aiH();
+        this.cqN.aiD();
     }
 }

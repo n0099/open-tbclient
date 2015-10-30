@@ -20,8 +20,8 @@ public class u extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        PersonBarActivity ais;
-        PersonBarActivity ais2;
+        PersonBarActivity aio;
+        PersonBarActivity aio2;
         boolean z2;
         View view;
         View view2;
@@ -31,10 +31,10 @@ public class u extends CustomMessageListener {
             z = this.cpq.mIsHost;
             if (z) {
                 q personBarData = ((ResponsePersonBarByUidLocalMessage) customResponsedMessage).getPersonBarData();
-                ais = this.cpq.ais();
-                if (ais != null) {
-                    ais2 = this.cpq.ais();
-                    if (ais2.getRequestCode() != 23011) {
+                aio = this.cpq.aio();
+                if (aio != null) {
+                    aio2 = this.cpq.aio();
+                    if (aio2.getRequestCode() != 23011) {
                         view3 = this.cpq.cph;
                         view3.setVisibility(8);
                     } else {

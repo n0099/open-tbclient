@@ -19,19 +19,19 @@ class f implements a.b {
         cc ccVar3;
         bl blVar2;
         cc ccVar4;
-        this.ciK.Lg();
+        this.ciK.Lc();
         blVar = this.ciK.cih;
-        com.baidu.tbadk.core.data.o QV = blVar.QV();
+        com.baidu.tbadk.core.data.o QR = blVar.QR();
         ccVar = this.ciK.cim;
         int pageNum = ccVar.getPageNum();
         if (pageNum <= 0) {
             this.ciK.showToast(i.h.pb_page_error);
-        } else if (QV == null || pageNum <= QV.rH()) {
+        } else if (QR == null || pageNum <= QR.rE()) {
             ccVar2 = this.ciK.cim;
-            ccVar2.agM();
+            ccVar2.agI();
             this.ciK.stopVoice();
             ccVar3 = this.ciK.cim;
-            ccVar3.agx();
+            ccVar3.agt();
             blVar2 = this.ciK.cih;
             ccVar4 = this.ciK.cim;
             blVar2.iM(ccVar4.getPageNum());

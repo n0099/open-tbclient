@@ -47,8 +47,8 @@ public class c {
         this.dnz.add(new com.baidu.tbadk.core.dialog.g(getString(i.h.custom_time), null, this.dnx));
         this.dny.bN(i.h.endtime_dialog_title);
         this.dny.a(this.dnz, this.bgg);
-        this.dny.sV();
-        this.dny.sW();
+        this.dny.sS();
+        this.dny.sT();
     }
 
     private String getString(int i) {
@@ -78,7 +78,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCz() {
+    public void aCv() {
         this.dnA = new com.baidu.tbadk.core.dialog.a(getActivity());
         View inflate = this.dnD.inflate(i.g.select_day_item, (ViewGroup) null);
         this.dnB = (EditText) inflate.findViewById(i.f.select_date_edittext);
@@ -91,7 +91,7 @@ public class c {
         if (text != null) {
             Selection.setSelection(text, text.length());
         }
-        this.dnA.sR();
+        this.dnA.sO();
         this.dnC.ShowSoftKeyPadDelay(this.dnB, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
     }
 }

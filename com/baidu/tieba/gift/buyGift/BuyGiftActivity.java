@@ -97,7 +97,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         setSwipeBackEnabled(false);
         setActivityBgTransparent();
         setContentView(i.g.activity_buy_gift);
-        Gg();
+        Gc();
         initData();
         this.mFrom = getIntent().getIntExtra("from", 1);
     }
@@ -106,7 +106,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
         if (z && !this.bmw) {
-            Qm();
+            Qi();
         }
     }
 
@@ -131,7 +131,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         closeActivity();
     }
 
-    private void Qm() {
+    private void Qi() {
         this.blX.setBackgroundColor(an.getColor(i.c.album_list_window_bg));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
         alphaAnimation.setDuration(300L);
@@ -144,7 +144,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         this.bmw = true;
     }
 
-    private void Qn() {
+    private void Qj() {
         this.blX.setBackgroundColor(an.getColor(i.c.album_list_window_bg));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
         alphaAnimation.setDuration(300L);
@@ -160,10 +160,10 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void closeActivity() {
-        Qn();
+        Qj();
     }
 
-    private void Gg() {
+    private void Gc() {
         this.blW = (FrameLayout) findViewById(i.f.gift_panel_lay);
         this.blX = findViewById(i.f.empty_layout);
         this.blX.setOnClickListener(new m(this));
@@ -204,11 +204,11 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         if (getIntent() != null) {
             this.mReceiverId = getIntent().getLongExtra(BuyGiftActivityConfig.GIFT_RECEIVER_ID, 0L);
         }
-        BZ();
+        BW();
         registerListener();
     }
 
-    private void BZ() {
+    private void BW() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_GIFT_LIST, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.GIFT_COMMONLIST + "?cmd=308001");
         tbHttpMessageTask.setResponsedClass(GetGiftCommonListHttpResponseMessage.class);
@@ -238,7 +238,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Qo() {
+    public void Qk() {
         this.bmg.setVisibility(0);
         this.bmf.setVisibility(8);
         this.bmh.setVisibility(8);
@@ -261,11 +261,11 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         this.bmb.setEnabled(true);
         this.bmg.setVisibility(8);
         this.bmf.setVisibility(0);
-        Qr();
+        Qn();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Qp() {
+    public void Ql() {
         if (this.bmp != null && this.mReceiverId > 0) {
             if (this.bms != null && this.bms.isShowing()) {
                 this.bms.am(false);
@@ -275,7 +275,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             this.bmg.setVisibility(0);
             RequestSendGiftNetMessage requestSendGiftNetMessage = new RequestSendGiftNetMessage();
             int g = com.baidu.adp.lib.g.b.g(String.valueOf(this.blZ.getText()), 1);
-            requestSendGiftNetMessage.setParams(this.mReceiverId, this.bmp.getGiftId(), this.bmp.getPrice(), g, Qq(), this.mPassword);
+            requestSendGiftNetMessage.setParams(this.mReceiverId, this.bmp.getGiftId(), this.bmp.getPrice(), g, Qm(), this.mPassword);
             this.mGiftInfo.setCount(g);
             this.mGiftInfo.setName(this.bmp.getName());
             this.mGiftInfo.setUrl(this.bmp.getThumbnailUrl());
@@ -285,7 +285,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         }
     }
 
-    public int Qq() {
+    public int Qm() {
         switch (this.mFrom) {
             case 1:
             default:
@@ -322,7 +322,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             cx(true);
         } else if (i == 1990019) {
             y(str, 0);
-            Qo();
+            Qk();
         } else if (i == 1990027) {
             if (sendGiftAndroidResIdl != null && sendGiftAndroidResIdl.data != null && sendGiftAndroidResIdl.data.public_key != null) {
                 this.mPublicKey = sendGiftAndroidResIdl.data.public_key;
@@ -363,7 +363,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         showToast(str);
     }
 
-    private void Qr() {
+    private void Qn() {
         if (this.bmm != null && this.bmm.getGiftInfo() != null) {
             List<GiftCommonList.TypeInfo> typeInfo = this.bmm.getGiftInfo().getTypeInfo();
             au(typeInfo);
@@ -460,7 +460,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             }
             this.bml = new s(this.bmj);
             this.bmc.setAdapter(this.bml);
-            Qs();
+            Qo();
         }
     }
 
@@ -494,7 +494,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Qs() {
+    public void Qo() {
         int i = 0;
         for (int i2 = 0; i2 < this.bmq.size(); i2++) {
             for (int i3 = 0; i3 < this.bmq.get(i2); i3++) {
@@ -707,7 +707,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             }
             BuyGiftActivity.this.bax = i;
             BuyGiftActivity.this.bmc.setCurrentItem(BuyGiftActivity.this.bax);
-            BuyGiftActivity.this.Qs();
+            BuyGiftActivity.this.Qo();
         }
     }
 
@@ -722,16 +722,16 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         this.bax = i;
-        Qs();
+        Qo();
         if (i >= 0 && i < this.bmj.size()) {
             GridView gridView = (GridView) this.bmj.get(i);
             if (gridView.getAdapter() != null) {
                 q qVar = (q) gridView.getAdapter();
-                if (qVar.Qt() >= 0 && i != this.bmn) {
+                if (qVar.Qp() >= 0 && i != this.bmn) {
                     qVar.gA(-1);
                     qVar.notifyDataSetChanged();
                 }
-                if (qVar.Qt() < 0 && i == this.bmn) {
+                if (qVar.Qp() < 0 && i == this.bmn) {
                     qVar.gA(this.bmo);
                     qVar.notifyDataSetChanged();
                 }

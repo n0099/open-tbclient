@@ -15,8 +15,8 @@ class b implements i.a {
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void are() {
-        this.cLw.arc();
+    public void ara() {
+        this.cLw.aqY();
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
@@ -25,23 +25,23 @@ class b implements i.a {
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void arf() {
+    public void arb() {
         this.cLw.bc("group", this.cLw.getPageContext().getString(i.h.privacy_setting_attention_group));
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void arg() {
+    public void arc() {
         this.cLw.bc("post", this.cLw.getPageContext().getString(i.h.privacy_setting_attention_forum));
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void arh() {
+    public void ard() {
         this.cLw.bc("like", this.cLw.getPageContext().getString(i.h.privacy_setting_attention_bar));
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void ari() {
-        this.cLw.ard();
+    public void are() {
+        this.cLw.aqZ();
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
@@ -59,9 +59,9 @@ class b implements i.a {
             voiceCheckResult = this.cLw.cLm;
             if (voiceCheckResult != null) {
                 voiceCheckResult2 = this.cLw.cLm;
-                if (!voiceCheckResult2.awS()) {
-                    this.cLw.ara();
-                    this.cLw.aqZ();
+                if (!voiceCheckResult2.awO()) {
+                    this.cLw.aqW();
+                    this.cLw.aqV();
                     return;
                 }
             }
@@ -70,16 +70,16 @@ class b implements i.a {
     }
 
     @Override // com.baidu.tieba.setting.im.more.i.a
-    public void arj() {
+    public void arf() {
         VoiceCheckResult voiceCheckResult;
         VoiceCheckResult voiceCheckResult2;
         voiceCheckResult = this.cLw.cLm;
         if (voiceCheckResult != null) {
             voiceCheckResult2 = this.cLw.cLm;
-            if (!voiceCheckResult2.awS()) {
+            if (!voiceCheckResult2.awO()) {
                 return;
             }
-            this.cLw.ara();
+            this.cLw.aqW();
         }
     }
 }

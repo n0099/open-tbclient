@@ -17,7 +17,7 @@ public class a {
         String format = String.format(TbadkCoreApplication.m411getInst().getContext().getString(i.h.url_notify), str);
         String string = TbadkCoreApplication.m411getInst().getContext().getString(i.h.del_post_tip);
         com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).ct(string).cu(format).a(TbadkCoreApplication.m411getInst().getContext().getString(i.h.alert_yes_button), bVar).b(TbadkCoreApplication.m411getInst().getContext().getString(i.h.alert_no_button), bVar2).b(tbPageContext);
-        b.sR();
+        b.sO();
         return b;
     }
 
@@ -28,7 +28,7 @@ public class a {
         String string = TbadkCoreApplication.m411getInst().getContext().getString(i.h.bar_code_result);
         com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(l.C(context).getPageActivity()).ct(string).cu(str).a(TbadkCoreApplication.m411getInst().getContext().getString(i.h.alert_yes_button), bVar).b(l.C(context));
         if (context instanceof Activity) {
-            b.sR();
+            b.sO();
             return b;
         }
         return b;
@@ -42,7 +42,7 @@ public class a {
         String string2 = TbadkCoreApplication.m411getInst().getContext().getString(i.h.msg_album_bug);
         com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(l.C(context).getPageActivity()).ct(string).cu(string2).a(TbadkCoreApplication.m411getInst().getContext().getString(i.h.alert_yes_button), bVar).b(l.C(context));
         if (context instanceof Activity) {
-            b.sR();
+            b.sO();
             return b;
         }
         return b;
@@ -60,10 +60,10 @@ public class a {
         aVar.b(string2, bVar2);
         aVar.b(tbPageContext);
         if (z) {
-            aVar.sQ();
+            aVar.sN();
             return aVar;
         }
-        aVar.sR();
+        aVar.sO();
         return aVar;
     }
 
@@ -80,7 +80,7 @@ public class a {
         cVar.a(new String[]{TbadkCoreApplication.m411getInst().getString(i.h.delete_user_chat)}, bVar);
         cVar.d(l.C(context));
         if (context instanceof Activity) {
-            cVar.sU();
+            cVar.sR();
             return cVar;
         }
         return cVar;

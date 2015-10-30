@@ -22,11 +22,11 @@ public class c implements View.OnClickListener {
         bVar = this.bOO.bOI;
         if (bVar != null) {
             iVar = this.bOO.bOL;
-            iVar.ZZ();
-            az uW = az.uW();
+            iVar.ZV();
+            az uT = az.uT();
             tbPageContext = this.bOO.mContext;
             bVar2 = this.bOO.bOI;
-            uW.b(tbPageContext, new String[]{bVar2.TY});
+            uT.b(tbPageContext, new String[]{bVar2.TY});
         }
     }
 }

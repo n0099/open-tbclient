@@ -107,9 +107,9 @@ public class FileDownloader extends Service {
                 try {
                     this.Ti = new w(this.mUrl);
                     bool = Boolean.valueOf(this.Ti.a(String.valueOf(this.Yl) + ".tmp", FileDownloader.this.handler, TbConfig.NET_MSG_GETLENTH));
-                    if (bool.booleanValue() || this.Ti.ul() == -2) {
+                    if (bool.booleanValue() || this.Ti.ui() == -2) {
                         break;
-                    } else if (!this.Ti.uh().uZ().gK()) {
+                    } else if (!this.Ti.ue().uW().gK()) {
                         try {
                             Thread.sleep(10000L);
                         } catch (Exception e) {

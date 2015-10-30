@@ -19,23 +19,23 @@ public class i {
         this.bOI = bVar;
     }
 
-    public void ZY() {
+    public void ZU() {
         iP("area_download");
     }
 
-    public void ZZ() {
+    public void ZV() {
         iP("btn_click");
     }
 
-    public void aaa() {
+    public void ZW() {
         iP("show");
     }
 
-    public void aab() {
+    public void ZX() {
         iP("btn_download");
     }
 
-    public void aac() {
+    public void ZY() {
         iP("area_click");
     }
 
@@ -44,6 +44,6 @@ public class i {
     }
 
     public void iP(String str) {
-        com.baidu.tbadk.distribute.a.Ag().a(this.mContext, this.bOI, str, "pb", this.mForumId, com.baidu.adp.lib.g.b.c(this.mPostId, 0L));
+        com.baidu.tbadk.distribute.a.Ad().a(this.mContext, this.bOI, str, "pb", this.mForumId, com.baidu.adp.lib.g.b.c(this.mPostId, 0L));
     }
 }

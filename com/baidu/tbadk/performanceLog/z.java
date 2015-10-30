@@ -26,7 +26,7 @@ public class z extends x {
     private long ays = -1;
     private long ayt = -1;
 
-    public boolean Eg() {
+    public boolean Ed() {
         return this.axY;
     }
 
@@ -34,92 +34,92 @@ public class z extends x {
         this.axX = z;
     }
 
-    public void E(long j) {
+    public void C(long j) {
         this.axZ = j;
     }
 
-    public void F(long j) {
+    public void D(long j) {
         this.aya = j;
     }
 
-    public void G(long j) {
+    public void E(long j) {
         this.ayb = j;
     }
 
-    public void H(long j) {
+    public void F(long j) {
         this.ayc = j;
     }
 
-    public void I(long j) {
+    public void G(long j) {
         this.ayf = j;
     }
 
-    public void J(long j) {
+    public void H(long j) {
         this.ayd = j;
     }
 
-    public void K(long j) {
+    public void I(long j) {
         this.aye = j;
     }
 
-    public void L(long j) {
+    public void J(long j) {
         this.ayr = j;
     }
 
-    public void M(long j) {
+    public void K(long j) {
         this.ayo = j;
     }
 
-    public void N(long j) {
+    public void L(long j) {
         this.ayp = j;
     }
 
-    public void O(long j) {
+    public void M(long j) {
         this.ayq = j;
     }
 
-    public void P(long j) {
+    public void N(long j) {
         this.ays = j;
     }
 
-    public void Q(long j) {
+    public void O(long j) {
         this.ayt = j;
         this.axY = true;
     }
 
-    public void R(long j) {
+    public void P(long j) {
         this.ayg = j;
     }
 
-    public void S(long j) {
+    public void Q(long j) {
         this.ayh = j;
     }
 
-    public void T(long j) {
+    public void R(long j) {
         this.ayj = j;
     }
 
-    public void U(long j) {
+    public void S(long j) {
         this.ayi = j;
     }
 
-    public void V(long j) {
+    public void T(long j) {
         this.ayk = j;
     }
 
-    public void W(long j) {
+    public void U(long j) {
         this.ayl = j;
     }
 
-    public void X(long j) {
+    public void V(long j) {
         this.aym = j;
     }
 
-    public void Y(long j) {
+    public void W(long j) {
         this.ayn = j;
     }
 
-    public static z Eh() {
+    public static z Ee() {
         if (ayu == null) {
             synchronized (z.class) {
                 if (ayu == null) {
@@ -130,9 +130,9 @@ public class z extends x {
         return ayu;
     }
 
-    public void Ei() {
+    public void Ef() {
         if (this.axZ > 0) {
-            if (y.Eb().Ec()) {
+            if (y.DY().DZ()) {
                 long j = this.aya - this.axZ;
                 long j2 = this.ayr - this.axZ;
                 long j3 = -1;
@@ -173,11 +173,11 @@ public class z extends x {
                 return;
             }
         }
-        Ej();
+        Eg();
     }
 
-    public void Z(long j) {
-        if (y.Eb().Ec()) {
+    public void X(long j) {
+        if (y.DY().DZ()) {
             com.baidu.adp.lib.stats.d hb = hb();
             hb.q("procname", "remote");
             hb.q("costt", String.valueOf(j));
@@ -185,7 +185,7 @@ public class z extends x {
         }
     }
 
-    private void Ej() {
+    private void Eg() {
         this.axX = false;
         this.axY = false;
         this.axZ = -1L;

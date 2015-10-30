@@ -24,11 +24,11 @@ class a implements View.OnClickListener {
         aVar = this.cnO.cnN;
         if (aVar != null) {
             aVar2 = this.cnO.cnN;
-            if (aVar2.zT() != 1) {
+            if (aVar2.zQ() != 1) {
                 aVar3 = this.cnO.cnN;
-                String zS = aVar3.zS();
-                if (!j.isEmpty(zS)) {
-                    g.B(this.cnO.getContext(), zS);
+                String zP = aVar3.zP();
+                if (!j.isEmpty(zP)) {
+                    g.B(this.cnO.getContext(), zP);
                     return;
                 }
                 return;

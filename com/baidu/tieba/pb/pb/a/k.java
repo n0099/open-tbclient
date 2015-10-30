@@ -109,7 +109,7 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
         if (kVar2 != null) {
             a(oVar, kVar2, view, false, i);
         }
-        if (!this.cgU && this.cgV && oVar != null && oVar.chp.Fp() && (listView = ((PbActivity) this.ciU.getPageContext().getOrignalPage()).getListView()) != null) {
+        if (!this.cgU && this.cgV && oVar != null && oVar.chp.Fl() && (listView = ((PbActivity) this.ciU.getPageContext().getOrignalPage()).getListView()) != null) {
             this.cgU = true;
             CompatibleUtile.getInstance().closeViewGpu(listView);
         }
@@ -151,12 +151,12 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                 oVar.chy.setVisibility(0);
                 oVar.cho.setVisibility(0);
                 oVar.chn.setVisibility(8);
-                if (kVar.awK() == null || b(kVar)) {
+                if (kVar.awG() == null || b(kVar)) {
                     oVar.chz.setVisibility(8);
-                } else if (TbadkCoreApplication.m411getInst().isBaobaoShouldOpen() && kVar.awK().zT() == 1) {
+                } else if (TbadkCoreApplication.m411getInst().isBaobaoShouldOpen() && kVar.awG().zQ() == 1) {
                     oVar.chz.changeSkinType(this.mSkinType);
                     oVar.chz.setVisibility(0);
-                    oVar.chz.setData(kVar.awK());
+                    oVar.chz.setData(kVar.awG());
                 } else {
                     oVar.chz.setVisibility(8);
                 }
@@ -180,7 +180,7 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                 } else {
                     sparseArray2.put(i.f.tag_richtext_bg, kVar.getBimg_url());
                     oVar.chp.fS(kVar.getBimg_url());
-                    if (kVar.awI() == 1) {
+                    if (kVar.awE() == 1) {
                         LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) oVar.chp.getLayoutParams();
                         layoutParams2.topMargin = (int) this.mContext.getResources().getDimension(i.d.ds16);
                         layoutParams2.bottomMargin = (int) this.mContext.getResources().getDimension(i.d.ds40);
@@ -192,8 +192,8 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                         oVar.chp.setLayoutParams(layoutParams3);
                     }
                 }
-                oVar.bpL.setText(as.o(kVar.getTime()));
-                if (kVar.awI() == 1) {
+                oVar.bpL.setText(as.m(kVar.getTime()));
+                if (kVar.awE() == 1) {
                     an.j(oVar.che, i.c.cp_bg_line_d);
                     oVar.chf.setVisibility(8);
                     oVar.chg.setVisibility(8);
@@ -201,28 +201,28 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                     oVar.chv.setVisibility(8);
                     oVar.bpL.setVisibility(8);
                     if (this.cgM) {
-                        PraiseData praise = this.cgN.aeO().getPraise();
+                        PraiseData praise = this.cgN.aeK().getPraise();
                         if (praise != null && praise.getUser() != null && praise.getUser().size() > 0) {
                             oVar.cht.setVisibility(0);
                             oVar.chs.setVisibility(0);
                             oVar.chu.setVisibility(0);
                             oVar.cht.setIsFromPb(true);
-                            oVar.cht.a(praise, this.cgN.aeO().getId(), praise.getPostId(), true);
+                            oVar.cht.a(praise, this.cgN.aeK().getId(), praise.getPostId(), true);
                             oVar.cht.cP(this.mSkinType);
                         } else {
                             oVar.cht.setVisibility(8);
                             oVar.chs.setVisibility(8);
                             oVar.chu.setVisibility(8);
                         }
-                        com.baidu.tbadk.data.d awL = kVar.awL();
+                        com.baidu.tbadk.data.d awH = kVar.awH();
                         oVar.chQ.setVisibility(8);
-                        if (awL != null && !TextUtils.isEmpty(awL.getName()) && !TextUtils.isEmpty(awL.getName().trim())) {
-                            String name = awL.getName();
-                            String lat = awL.getLat();
-                            String lng = awL.getLng();
+                        if (awH != null && !TextUtils.isEmpty(awH.getName()) && !TextUtils.isEmpty(awH.getName().trim())) {
+                            String name = awH.getName();
+                            String lat = awH.getLat();
+                            String lng = awH.getLng();
                             oVar.chI.setVisibility(0);
                             com.baidu.adp.lib.util.k.a(this.mContext, oVar.chI, 0, 10, 0, 10);
-                            oVar.chK.setText(awL.getName());
+                            oVar.chK.setText(awH.getName());
                             an.b(oVar.chK, i.c.cp_cont_c, 1);
                             an.c(oVar.chJ, i.e.icon_frs_site);
                             oVar.chI.setOnClickListener(new l(this, lat, lng, name));
@@ -244,7 +244,7 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                         if (this.cgM) {
                             oVar.chf.setVisibility(8);
                             oVar.chg.setVisibility(8);
-                            PraiseData praise2 = this.cgN.aeO().getPraise();
+                            PraiseData praise2 = this.cgN.aeK().getPraise();
                             if (praise2 != null && praise2.getUser() != null && praise2.getUser().size() > 0) {
                                 oVar.chg.setVisibility(8);
                                 oVar.chf.setVisibility(0);
@@ -261,12 +261,12 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                         oVar.chg.setVisibility(8);
                     }
                     oVar.chh.setVisibility(0);
-                    com.baidu.tbadk.data.d awL2 = kVar.awL();
+                    com.baidu.tbadk.data.d awH2 = kVar.awH();
                     oVar.chI.setVisibility(8);
-                    if (awL2 != null && !TextUtils.isEmpty(awL2.getName()) && !TextUtils.isEmpty(awL2.getName().trim())) {
-                        String name2 = awL2.getName();
-                        String lat2 = awL2.getLat();
-                        String lng2 = awL2.getLng();
+                    if (awH2 != null && !TextUtils.isEmpty(awH2.getName()) && !TextUtils.isEmpty(awH2.getName().trim())) {
+                        String name2 = awH2.getName();
+                        String lat2 = awH2.getLat();
+                        String lng2 = awH2.getLng();
                         LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) oVar.chQ.getLayoutParams();
                         if (layoutParams4 != null) {
                             if (!this.cgL) {
@@ -277,7 +277,7 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                             oVar.chQ.setLayoutParams(layoutParams4);
                         }
                         oVar.chQ.setVisibility(0);
-                        oVar.chS.setText(awL2.getName());
+                        oVar.chS.setText(awH2.getName());
                         an.b(oVar.chS, i.c.cp_cont_c, 1);
                         an.c(oVar.chR, i.e.icon_frs_site);
                         oVar.chQ.setOnClickListener(new m(this, lat2, lng2, name2));
@@ -289,7 +289,7 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                     oVar.chu.setVisibility(8);
                     oVar.chv.setVisibility(0);
                     oVar.bpL.setVisibility(0);
-                    String format = String.format(this.mContext.getString(i.h.is_floor), Integer.valueOf(kVar.awI()));
+                    String format = String.format(this.mContext.getString(i.h.is_floor), Integer.valueOf(kVar.awE()));
                     oVar.chm.setVisibility(0);
                     oVar.chm.setText(format);
                     LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) oVar.chz.getLayoutParams();
@@ -328,18 +328,18 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
             sparseArray.put(i.f.tag_clip_board, kVar);
             sparseArray.put(i.f.tag_load_sub_data, kVar);
             sparseArray.put(i.f.tag_load_sub_view, view);
-            if (kVar.awM() > 0) {
+            if (kVar.awI() > 0) {
                 if (this.cgP == null) {
                     this.cgP = new ai(this.mContext);
                     this.cgP.setIsFromCDN(this.mIsFromCDN);
                     this.cgP.D(this.cgR);
                     boolean z7 = false;
-                    String userId2 = this.cgN.aeO().getAuthor().getUserId();
+                    String userId2 = this.cgN.aeK().getAuthor().getUserId();
                     if (userId2 != null && userId2.equals(TbadkCoreApplication.getCurrentAccount())) {
                         z7 = true;
                     }
-                    this.cgP.p(this.cgN.aeS(), z7);
-                    this.cgP.e(this.cgN.aeO());
+                    this.cgP.p(this.cgN.aeO(), z7);
+                    this.cgP.e(this.cgN.aeK());
                     this.cgP.eq(this.cgL);
                 }
                 oVar.chy.setVisibility(0);
@@ -356,7 +356,7 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                 oVar.chx.setVisibility(8);
                 oVar.chw.setVisibility(8);
             }
-            a(oVar, kVar, this.cgN.aeV(), i);
+            a(oVar, kVar, this.cgN.aeR(), i);
             if (!z) {
                 String portrait = kVar.getAuthor().getPortrait();
                 if (kVar.getAuthor() != null) {
@@ -433,7 +433,7 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
             oVar.chp.setIsFromCDN(this.mIsFromCDN);
             com.baidu.tbadk.widget.richText.a aVar = null;
             if (0 == 0) {
-                aVar = kVar.awJ();
+                aVar = kVar.awF();
             }
             if (this.cgU || !this.cgV) {
                 oVar.chp.a(aVar, false);
@@ -442,7 +442,7 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
             }
             boolean z8 = false;
             boolean z9 = false;
-            if (this.cgN.aeS() != 0) {
+            if (this.cgN.aeO() != 0) {
                 z8 = true;
                 z9 = true;
                 String userId3 = kVar.getAuthor().getUserId();
@@ -453,8 +453,8 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                     z8 = false;
                 }
             }
-            if (this.cgN != null && this.cgN.aeO() != null && this.cgN.aeO().getAuthor() != null && kVar.getAuthor() != null) {
-                String userId4 = this.cgN.aeO().getAuthor().getUserId();
+            if (this.cgN != null && this.cgN.aeK() != null && this.cgN.aeK().getAuthor() != null && kVar.getAuthor() != null) {
+                String userId4 = this.cgN.aeK().getAuthor().getUserId();
                 String userId5 = kVar.getAuthor().getUserId();
                 if (!StringUtils.isNull(userId4) && userId4.equals(TbadkCoreApplication.getCurrentAccount())) {
                     z3 = true;
@@ -492,13 +492,13 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                     if (z) {
                         i3 = 2;
                     }
-                    if (kVar.awI() == 1) {
+                    if (kVar.awE() == 1) {
                         i3 = 0;
                     }
                     sparseArray.put(i.f.tag_forbid_user_post_id, kVar.getId());
                     if (!z8) {
                         sparseArray.put(i.f.tag_should_manage_visible, true);
-                        sparseArray.put(i.f.tag_manage_user_identity, Integer.valueOf(this.cgN.aeS()));
+                        sparseArray.put(i.f.tag_manage_user_identity, Integer.valueOf(this.cgN.aeO()));
                         sparseArray.put(i.f.tag_forbid_user_name, kVar.getAuthor().getUserName());
                     } else {
                         sparseArray.put(i.f.tag_should_manage_visible, false);
@@ -510,8 +510,8 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                             sparseArray.put(i.f.tag_disable_reply_mute_userid, kVar.getAuthor().getUserId());
                             sparseArray.put(i.f.tag_disable_reply_mute_username, kVar.getAuthor().getUserName());
                         }
-                        if (this.cgN.aeO() != null) {
-                            sparseArray.put(i.f.tag_disable_reply_thread_id, this.cgN.aeO().getId());
+                        if (this.cgN.aeK() != null) {
+                            sparseArray.put(i.f.tag_disable_reply_thread_id, this.cgN.aeK().getId());
                         }
                         sparseArray.put(i.f.tag_disable_reply_post_id, kVar.getId());
                     } else {
@@ -519,7 +519,7 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                     }
                     if (!z5) {
                         sparseArray.put(i.f.tag_should_delete_visible, true);
-                        sparseArray.put(i.f.tag_manage_user_identity, Integer.valueOf(this.cgN.aeS()));
+                        sparseArray.put(i.f.tag_manage_user_identity, Integer.valueOf(this.cgN.aeO()));
                         sparseArray.put(i.f.tag_del_post_is_self, Boolean.valueOf(z6));
                         sparseArray.put(i.f.tag_del_post_type, Integer.valueOf(i3));
                         sparseArray.put(i.f.tag_del_post_id, kVar.getId());
@@ -529,7 +529,7 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                     if (z) {
                         oVar.cho.setVisibility(8);
                         an.b(oVar.chB, i.c.subpb_listitem_time, 1);
-                        oVar.chB.setText(String.format(this.mContext.getResources().getString(i.h.write_addition_update), as.o(kVar.getTime())));
+                        oVar.chB.setText(String.format(this.mContext.getResources().getString(i.h.write_addition_update), as.m(kVar.getTime())));
                         if (oVar.chD.getVisibility() == 0) {
                             an.b(oVar.chD, i.c.cp_link_tip_c, 3);
                             sparseArray.put(i.f.tag_display_reply_visible, false);
@@ -537,12 +537,12 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                             oVar.chD.setOnClickListener(this.cgR);
                         }
                     }
-                    a(oVar, kVar, kVar.awI() != 1, aVar);
+                    a(oVar, kVar, kVar.awE() != 1, aVar);
                     a(oVar);
                     if (z) {
                         a(view, kVar);
                         if (this.chN != null && aVar != null && !TextUtils.isEmpty(aVar.toString())) {
-                            this.chN.aAK();
+                            this.chN.aAG();
                             return;
                         }
                         return;
@@ -563,7 +563,7 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
             int i32 = 1;
             if (z) {
             }
-            if (kVar.awI() == 1) {
+            if (kVar.awE() == 1) {
             }
             sparseArray.put(i.f.tag_forbid_user_post_id, kVar.getId());
             if (!z8) {
@@ -574,7 +574,7 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
             }
             if (z) {
             }
-            a(oVar, kVar, kVar.awI() != 1, aVar);
+            a(oVar, kVar, kVar.awE() != 1, aVar);
             a(oVar);
             if (z) {
             }
@@ -587,10 +587,10 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
     }
 
     private void a(o oVar, com.baidu.tieba.tbadkCore.data.k kVar, boolean z, com.baidu.tbadk.widget.richText.a aVar) {
-        if (kVar == null || kVar.ahO() == null || b(kVar)) {
+        if (kVar == null || kVar.ahK() == null || b(kVar)) {
             oVar.chL.setVisibility(8);
         } else {
-            com.baidu.tieba.pb.view.d.a(kVar.ahO(), oVar.chL, false, z, aVar != null && StringUtils.isNull(aVar.toString()) && StringUtils.isNull(kVar.getBimg_url()));
+            com.baidu.tieba.pb.view.d.a(kVar.ahK(), oVar.chL, false, z, aVar != null && StringUtils.isNull(aVar.toString()) && StringUtils.isNull(kVar.getBimg_url()));
         }
     }
 
@@ -604,13 +604,13 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
     }
 
     private void a(o oVar, com.baidu.tieba.tbadkCore.data.k kVar, AdditionData additionData, int i) {
-        if (kVar.awN() > 0 && kVar.awH() != null) {
+        if (kVar.awJ() > 0 && kVar.awD() != null) {
             oVar.chA.setVisibility(0);
             oVar.chA.removeViews(0, oVar.chA.getChildCount() - 1);
-            int size = kVar.awH().size();
-            int awO = kVar.awO();
-            for (int i2 = 0; i2 < awO; i2++) {
-                com.baidu.tieba.tbadkCore.data.k kVar2 = kVar.awH().get(i2);
+            int size = kVar.awD().size();
+            int awK = kVar.awK();
+            for (int i2 = 0; i2 < awK; i2++) {
+                com.baidu.tieba.tbadkCore.data.k kVar2 = kVar.awD().get(i2);
                 View inflate = LayoutInflater.from(this.mContext).inflate(i.g.new_pb_list_item, (ViewGroup) oVar.chA, false);
                 o oVar2 = new o(inflate, this.cgL, this.cgK, this.cgJ, true);
                 b(oVar2);
@@ -637,12 +637,12 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
                 }
                 oVar.chA.addView(inflate, oVar.chA.getChildCount() - 1);
             }
-            if (awO < size) {
+            if (awK < size) {
                 oVar.chE.setVisibility(0);
                 an.i(oVar.chG, i.c.cp_bg_line_b);
                 an.i(oVar.chH, i.c.cp_bg_line_b);
                 an.b(oVar.chF, i.c.cp_cont_f, 1);
-                oVar.chE.setOnClickListener(new n(this, awO, size, kVar));
+                oVar.chE.setOnClickListener(new n(this, awK, size, kVar));
                 return;
             }
             oVar.chE.setVisibility(8);
@@ -652,7 +652,7 @@ public class k extends bk<com.baidu.tieba.tbadkCore.data.k, o> implements View.O
     }
 
     private boolean b(com.baidu.tieba.tbadkCore.data.k kVar) {
-        return (this.cgN == null || this.cgN.aeO() == null || !this.cgN.aeO().sB() || this.cgN.aeO().sg() == null || kVar.awI() != 1) ? false : true;
+        return (this.cgN == null || this.cgN.aeK() == null || !this.cgN.aeK().sy() || this.cgN.aeK().sd() == null || kVar.awE() != 1) ? false : true;
     }
 
     private void a(View view, com.baidu.tieba.tbadkCore.data.k kVar) {

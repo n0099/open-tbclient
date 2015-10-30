@@ -21,7 +21,7 @@ class d implements UserMuteAddAndDelModel.a {
         if (pbData != null) {
             MuteUser muteUser = new MuteUser();
             muteUser.setUserId(str);
-            pbData.aeU().add(muteUser);
+            pbData.aeQ().add(muteUser);
         }
     }
 }

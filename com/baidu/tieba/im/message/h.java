@@ -19,6 +19,6 @@ class h implements a.b {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void e(String str, List<CommonMsgPojo> list) {
-        com.baidu.tieba.im.db.c.TF().a(str, list, true);
+        com.baidu.tieba.im.db.c.TB().a(str, list, true);
     }
 }

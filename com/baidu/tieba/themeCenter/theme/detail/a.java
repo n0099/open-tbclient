@@ -52,6 +52,6 @@ class a implements d.a {
         }
         this.dgS.showToast(str);
         fVar3 = this.dgS.dgN;
-        fVar3.Kr();
+        fVar3.Kn();
     }
 }

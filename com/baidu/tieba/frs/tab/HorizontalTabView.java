@@ -224,7 +224,7 @@ public class HorizontalTabView extends HorizontalScrollView implements f {
         return (fN == null || fN.bbs == null || fN.bbs.size() <= 0) ? false : true;
     }
 
-    public boolean Nl() {
+    public boolean Nh() {
         return (this.mData == null || this.mData.size() == 0) ? false : true;
     }
 
@@ -267,7 +267,7 @@ public class HorizontalTabView extends HorizontalScrollView implements f {
         this.bbo = eaVar;
     }
 
-    public void vA() {
+    public void vx() {
         an.j(this, i.c.frs_tab_bg);
         int i = 0;
         while (true) {
@@ -275,11 +275,11 @@ public class HorizontalTabView extends HorizontalScrollView implements f {
             if (i2 < this.bbf.getChildCount()) {
                 View childAt = this.bbf.getChildAt(i2);
                 if (childAt instanceof TabItemView) {
-                    ((TabItemView) childAt).vA();
+                    ((TabItemView) childAt).vx();
                 }
                 i = i2 + 1;
             } else {
-                this.bbg.vA();
+                this.bbg.vx();
                 return;
             }
         }

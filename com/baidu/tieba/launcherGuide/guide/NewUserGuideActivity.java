@@ -27,11 +27,11 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         this.bRr = z;
     }
 
-    public boolean aaw() {
+    public boolean aas() {
         return this.bRr;
     }
 
-    public RightSlideViewPager aax() {
+    public RightSlideViewPager aat() {
         return this.bRs;
     }
 
@@ -40,7 +40,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        aaz();
+        aav();
         setContentView(i.g.guide_activity_interestfrs);
         initUI();
         initData();
@@ -70,11 +70,11 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     public void onDestroy() {
         super.onDestroy();
         if (this.bRo != null) {
-            this.bRo.aaH();
+            this.bRo.aaD();
         }
     }
 
-    public com.baidu.tieba.launcherGuide.a.a aay() {
+    public com.baidu.tieba.launcherGuide.a.a aau() {
         return this.bRo;
     }
 
@@ -86,13 +86,13 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            aaA();
+            aaw();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void aaz() {
+    private void aav() {
         if (Build.VERSION.SDK_INT >= 11) {
             try {
                 Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("FLAG_HARDWARE_ACCELERATED");
@@ -105,7 +105,7 @@ public class NewUserGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public void aaA() {
+    public void aaw() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(getPageContext().getPageActivity()).createNewUserCfg(1, this.bRq)));
         finish();
     }

@@ -29,11 +29,11 @@ public class c {
     private boolean cbw = false;
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new d(this);
 
-    public int ado() {
+    public int adk() {
         return this.cbt;
     }
 
-    public Fragment adp() {
+    public Fragment adl() {
         return this.cbu;
     }
 
@@ -55,7 +55,7 @@ public class c {
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    public TextView adq() {
+    public TextView adm() {
         return this.cbr;
     }
 
@@ -89,7 +89,7 @@ public class c {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ACTION, bundle));
     }
 
-    public boolean adr() {
+    public boolean adn() {
         return this.cbw;
     }
 

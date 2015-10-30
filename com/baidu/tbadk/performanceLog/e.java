@@ -27,7 +27,7 @@ public class e extends r {
     private CustomMessageListener customNormalListener = new i(this, CmdConfigCustom.CMD_PERF_SAMPLE);
 
     public e() {
-        DF();
+        DC();
     }
 
     public void onDestroy() {
@@ -40,10 +40,10 @@ public class e extends r {
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public void DE() {
+    public void DB() {
         if (this.awL < this.awM) {
             this.awL++;
-            DG();
+            DD();
             if (this.awO == null) {
                 this.awO = new j();
                 this.awO.a(this.awS);
@@ -57,13 +57,13 @@ public class e extends r {
         }
     }
 
-    private void DF() {
+    private void DC() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void DG() {
+    private void DD() {
         CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_PERF_SAMPLE, new a());
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
@@ -97,15 +97,15 @@ public class e extends r {
         this.awK.add(valueOf);
     }
 
-    public String DH() {
+    public String DE() {
         return r(this.awI);
     }
 
-    public String DI() {
+    public String DF() {
         return String.valueOf(this.awQ);
     }
 
-    public String DJ() {
+    public String DG() {
         return r(this.awJ);
     }
 
@@ -133,9 +133,9 @@ public class e extends r {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void DK() {
+    public void DH() {
         aa aaVar;
-        if (this.awN == this.awM && this.awM == this.awR && (aaVar = (aa) y.Eb().eB(this.mSubType)) != null) {
+        if (this.awN == this.awM && this.awM == this.awR && (aaVar = (aa) y.DY().eB(this.mSubType)) != null) {
             aaVar.g(this);
         }
     }

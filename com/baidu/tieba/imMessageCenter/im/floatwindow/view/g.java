@@ -21,8 +21,8 @@ public class g extends com.baidu.adp.lib.g.d {
         Animation animation2;
         this.bMj.bMd = false;
         animation2 = this.bMj.bMg;
-        if (animation == animation2 && this.bMj.Yw()) {
-            this.bMj.Yy();
+        if (animation == animation2 && this.bMj.Ys()) {
+            this.bMj.Yu();
         }
     }
 }

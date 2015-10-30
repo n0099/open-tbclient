@@ -43,7 +43,7 @@ public class g {
 
     public static void b(Context context, boolean z, String str) {
         String appendVersionCode;
-        qo();
+        ql();
         if (z) {
             try {
                 appendVersionCode = appendVersionCode(appendCuidParam(str));
@@ -63,7 +63,7 @@ public class g {
 
     public static void a(Context context, boolean z, String str, String str2) {
         String appendVersionCode;
-        qo();
+        ql();
         if (z) {
             try {
                 appendVersionCode = appendVersionCode(appendCuidParam(str));
@@ -82,7 +82,7 @@ public class g {
     }
 
     public static void f(Context context, String str, String str2) {
-        qo();
+        ql();
         try {
             String appendVersionCode = appendVersionCode(appendCuidParam(str2));
             if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
@@ -96,7 +96,7 @@ public class g {
     }
 
     public static void c(Context context, String str, String str2, boolean z) {
-        qo();
+        ql();
         try {
             String appendVersionCode = appendVersionCode(appendCuidParam(str2));
             if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
@@ -114,7 +114,7 @@ public class g {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        qo();
+        ql();
         try {
             String appendVersionCode = appendVersionCode(appendCuidParam(str2));
             if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null && z4) {
@@ -168,7 +168,7 @@ public class g {
     }
 
     public static void W(Context context) {
-        a.b cc = com.baidu.tbadk.core.a.a.rd().cc(TbadkCoreApplication.getCurrentBduss());
+        a.b cc = com.baidu.tbadk.core.a.a.ra().cc(TbadkCoreApplication.getCurrentBduss());
         CookieSyncManager.createInstance(TbadkCoreApplication.m411getInst());
         CookieManager cookieManager = CookieManager.getInstance();
         if (cc != null) {
@@ -194,7 +194,7 @@ public class g {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void qo() {
+    private static void ql() {
         new ak("open_webview", true).start();
     }
 }

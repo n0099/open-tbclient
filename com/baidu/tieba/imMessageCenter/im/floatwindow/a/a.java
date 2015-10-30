@@ -11,7 +11,7 @@ public class a {
     private a() {
     }
 
-    public static a Yz() {
+    public static a Yv() {
         if (bLu == null) {
             bLu = new a();
         }

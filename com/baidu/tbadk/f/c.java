@@ -150,7 +150,7 @@ public class c implements com.baidu.adp.plugin.packageManager.pluginServerConfig
         private String b(o<String> oVar, String str) {
             this.Ti = new w(c.ayJ);
             this.Ti.o("plugin_upload_config", str);
-            return this.Ti.tG();
+            return this.Ti.tD();
         }
 
         /* JADX DEBUG: Method merged with bridge method */

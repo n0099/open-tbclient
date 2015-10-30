@@ -104,7 +104,7 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public String Ff() {
+    public String Fb() {
         return this.aBK;
     }
 
@@ -124,7 +124,7 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
         this.mWidth = i;
     }
 
-    public boolean Fg() {
+    public boolean Fc() {
         return this.aBL;
     }
 
@@ -132,11 +132,11 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
         return this.aBI;
     }
 
-    public String Fh() {
+    public String Fd() {
         return this.aBJ;
     }
 
-    public boolean Fi() {
+    public boolean Fe() {
         return this.aBM;
     }
 
@@ -144,7 +144,7 @@ public class f extends com.baidu.adp.lib.a.b.a.a.i {
         this.aBM = z;
     }
 
-    public String Fj() {
+    public String Ff() {
         return this.aBN;
     }
 

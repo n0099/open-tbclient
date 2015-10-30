@@ -31,7 +31,7 @@ public class d {
     private d() {
     }
 
-    public static d As() {
+    public static d Ap() {
         return aoq;
     }
 
@@ -81,7 +81,7 @@ public class d {
                 } else {
                     downloadData.setStatus(5);
                     aok.add(downloadData);
-                    At();
+                    Aq();
                     return;
                 }
             }
@@ -89,7 +89,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void At() {
+    public void Aq() {
         if (aor == null && !aok.isEmpty()) {
             aor = aok.get(0);
             if (aor != null) {
@@ -196,7 +196,7 @@ public class d {
                 d.aok.remove(0);
             }
             d.aor = null;
-            d.this.At();
+            d.this.Aq();
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [367=4, 369=4, 370=4, 371=4] */
@@ -367,7 +367,7 @@ public class d {
             d.aor = null;
             if (!d.aok.isEmpty()) {
                 d.aok.remove(0);
-                d.this.At();
+                d.this.Aq();
             }
         }
     }

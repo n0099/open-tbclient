@@ -13,7 +13,7 @@ public class o {
     private int UZ = 0;
     private int total_count = 0;
 
-    public int rH() {
+    public int rE() {
         return this.UX;
     }
 
@@ -21,7 +21,7 @@ public class o {
         this.UX = i;
     }
 
-    public int ro() {
+    public int rl() {
         return this.total_num;
     }
 
@@ -29,11 +29,11 @@ public class o {
         this.total_num = i;
     }
 
-    public int rI() {
+    public int rF() {
         return this.total_count;
     }
 
-    public int rJ() {
+    public int rG() {
         return this.current_page;
     }
 
@@ -41,7 +41,7 @@ public class o {
         this.current_page = i;
     }
 
-    public int rK() {
+    public int rH() {
         return this.UY;
     }
 
@@ -53,7 +53,7 @@ public class o {
         this.has_more = i;
     }
 
-    public int rL() {
+    public int rI() {
         return this.has_more;
     }
 
@@ -61,7 +61,7 @@ public class o {
         this.UZ = i;
     }
 
-    public int rM() {
+    public int rJ() {
         return this.UZ;
     }
 

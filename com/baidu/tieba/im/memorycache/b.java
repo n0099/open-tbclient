@@ -46,7 +46,7 @@ public class b {
         return this.bDC.get();
     }
 
-    public static b VW() {
+    public static b VS() {
         com.baidu.adp.lib.util.k.jb();
         if (bDB == null) {
             synchronized (b.class) {
@@ -72,7 +72,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VX() {
+    public void VT() {
         ImMessageCenterPojo ie;
         a hk = hk(-4);
         if (hk != null && (ie = hk.ie("-1003")) != null) {
@@ -110,7 +110,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VY() {
+    public void VU() {
         ImMessageCenterPojo ie;
         a hk = hk(-3);
         if (hk != null && (ie = hk.ie("-1002")) != null) {
@@ -126,7 +126,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VZ() {
+    public void VV() {
         ImMessageCenterPojo ie;
         a hk = hk(-5);
         if (hk != null && (ie = hk.ie("-1004")) != null) {
@@ -236,9 +236,9 @@ public class b {
     }
 
     private void clear() {
-        this.bDD.VV();
-        this.bDE.VV();
-        this.bDF.VV();
+        this.bDD.VR();
+        this.bDE.VR();
+        this.bDF.VR();
         sendClearMessage();
     }
 
@@ -457,12 +457,12 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void Wa() {
+    public void VW() {
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryInitCompleteMessage(true));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<ImMessageCenterPojo> Wb() {
+    public List<ImMessageCenterPojo> VX() {
         LinkedList linkedList = new LinkedList();
         this.bDD.a(new p(this, linkedList));
         this.bDE.a(new q(this, linkedList));
@@ -471,26 +471,26 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<ImMessageCenterPojo> Wc() {
+    public List<ImMessageCenterPojo> VY() {
         LinkedList linkedList = new LinkedList();
         this.bDD.a(new s(this, linkedList));
         return linkedList;
     }
 
-    public List<ImMessageCenterPojo> Wd() {
+    public List<ImMessageCenterPojo> VZ() {
         LinkedList linkedList = new LinkedList();
         this.bDF.a(new d(this, linkedList));
         return linkedList;
     }
 
-    public List<ImMessageCenterPojo> We() {
+    public List<ImMessageCenterPojo> Wa() {
         LinkedList linkedList = new LinkedList();
         this.bDE.a(new e(this, linkedList));
         return linkedList;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<ImMessageCenterPojo> Wf() {
+    public List<ImMessageCenterPojo> Wb() {
         LinkedList linkedList = new LinkedList();
         this.bDE.a(new f(this, linkedList));
         return linkedList;
@@ -617,7 +617,7 @@ public class b {
         a(dh(z), z, i);
     }
 
-    public SparseArray<Long> Wg() {
+    public SparseArray<Long> Wc() {
         SparseArray<Long> sparseArray = new SparseArray<>();
         if (this.bDC.get()) {
             this.bDD.a(new k(this, sparseArray));

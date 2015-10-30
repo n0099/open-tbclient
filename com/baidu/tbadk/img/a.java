@@ -38,7 +38,7 @@ public class a<T> {
         this.atZ.i(i, i2, i3, i4);
     }
 
-    public void Ch() {
+    public void Ce() {
         if (this.atX == null) {
             this.atX = new b(this, null);
             this.atX.execute(new String[0]);
@@ -60,10 +60,10 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: k */
         public ImageUploadResult doInBackground(String... strArr) {
-            return Ck();
+            return Ch();
         }
 
-        private ImageUploadResult Ck() {
+        private ImageUploadResult Ch() {
             a.this.atZ.a(this, null);
             ImageUploadResult fp = a.this.atZ.fp(a.this.mPath);
             publishProgress(100);
@@ -144,7 +144,7 @@ public class a<T> {
         this.atZ.setGroupId(str);
     }
 
-    public T Ci() {
+    public T Cf() {
         return this.atY;
     }
 
@@ -152,9 +152,9 @@ public class a<T> {
         this.atY = t;
     }
 
-    public void Cj() {
-        LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.ub().getMsgSPicMaxSize();
-        LocalViewSize.ImageSize ud = LocalViewSize.ub().ud();
-        i(ud.width, ud.height, msgSPicMaxSize.width, msgSPicMaxSize.height);
+    public void Cg() {
+        LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.tY().getMsgSPicMaxSize();
+        LocalViewSize.ImageSize ua = LocalViewSize.tY().ua();
+        i(ua.width, ua.height, msgSPicMaxSize.width, msgSPicMaxSize.height);
     }
 }

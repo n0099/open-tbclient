@@ -72,7 +72,7 @@ class ba implements Runnable {
             imageView2 = aoVar6.dds;
             imageView2.setVisibility(0);
         }
-        if (com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("enter_forum_edit_mode", false)) {
+        if (com.baidu.tbadk.core.sharedPref.b.tr().getBoolean("enter_forum_edit_mode", false)) {
             aoVar7 = this.ddz.ddy;
             fragmentTabHost4 = aoVar7.bee;
             if (fragmentTabHost4.getCurrentTabType() != 6) {

@@ -12,10 +12,10 @@ class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.cJj.aqw()) {
-            this.cJj.aqy();
+        if (this.cJj.aqs()) {
+            this.cJj.aqu();
         } else {
-            this.cJj.aqx();
+            this.cJj.aqt();
         }
     }
 }

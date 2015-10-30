@@ -103,7 +103,7 @@ public class ProxyAdkBaseActivity<T> extends a {
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = g.tA();
+        this.customToast = g.tx();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new com.baidu.tbadk.core.a();
@@ -229,7 +229,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.vq();
+            this.mGuidPage.vn();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -344,19 +344,19 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.b(getActivity(), str, i).sZ();
+        BdToast.b(getActivity(), str, i).sW();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2).sZ();
+        BdToast.a(getActivity(), str, i, i2).sW();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).sZ();
+        BdToast.a(getActivity(), str, defaultIcon).sW();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).sZ();
+        BdToast.a(getActivity(), str, defaultIcon, i).sW();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.a
@@ -768,7 +768,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Cq();
+        return this.loadingView.Cn();
     }
 
     public void hideLoadingView(View view) {

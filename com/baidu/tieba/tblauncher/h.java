@@ -27,7 +27,7 @@ class h extends CustomMessageListener {
                 this.this$0.dcH = 0;
             }
             this.this$0.gy(false);
-            this.this$0.ayo();
+            this.this$0.ayk();
         }
     }
 }

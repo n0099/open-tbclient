@@ -51,7 +51,7 @@ public class ad {
     }
 
     public static void a(int i, WriteData writeData) {
-        com.baidu.adp.lib.cache.o<String> cr = com.baidu.tbadk.core.b.a.sO().cr("tb.pb_editor");
+        com.baidu.adp.lib.cache.o<String> cr = com.baidu.tbadk.core.b.a.sL().cr("tb.pb_editor");
         if (writeData != null && writeData.hasContentToSave()) {
             cr.b(kT(i), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
         } else {
@@ -61,7 +61,7 @@ public class ad {
 
     public static void b(String str, WriteData writeData) {
         if (!as.isEmpty(str)) {
-            com.baidu.adp.lib.cache.o<String> cr = com.baidu.tbadk.core.b.a.sO().cr("tb.pb_editor");
+            com.baidu.adp.lib.cache.o<String> cr = com.baidu.tbadk.core.b.a.sL().cr("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
                 cr.b(lB(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
@@ -72,7 +72,7 @@ public class ad {
 
     public static void c(String str, WriteData writeData) {
         if (!as.isEmpty(str)) {
-            com.baidu.adp.lib.cache.o<String> cr = com.baidu.tbadk.core.b.a.sO().cr("tb.pb_editor");
+            com.baidu.adp.lib.cache.o<String> cr = com.baidu.tbadk.core.b.a.sL().cr("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
                 cr.b(lA(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
@@ -83,7 +83,7 @@ public class ad {
 
     public static void d(String str, WriteData writeData) {
         if (!as.isEmpty(str)) {
-            com.baidu.adp.lib.cache.o<String> cr = com.baidu.tbadk.core.b.a.sO().cr("tb.pb_editor");
+            com.baidu.adp.lib.cache.o<String> cr = com.baidu.tbadk.core.b.a.sL().cr("tb.pb_editor");
             if (writeData != null && writeData.hasContentToSave()) {
                 cr.b(lz(str), writeData.toDraftString(), TbConfig.APP_OVERDUR_DRAFT_BOX);
             } else {
@@ -126,7 +126,7 @@ public class ad {
         public WriteData doInBackground(String... strArr) {
             String str;
             try {
-                str = com.baidu.tbadk.core.b.a.sO().cr("tb.pb_editor").get(this.cacheKey);
+                str = com.baidu.tbadk.core.b.a.sL().cr("tb.pb_editor").get(this.cacheKey);
             } catch (Exception e) {
                 str = null;
             }

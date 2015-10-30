@@ -18,13 +18,13 @@ public class ax extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        PersonFriendActivity aiG;
+        PersonFriendActivity aiC;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001186) {
             z = this.cqq.mIsHost;
             if (z) {
                 com.baidu.tieba.person.data.a personListData = ((ResponsePersonFriendByUidLocalMessage) customResponsedMessage).getPersonListData();
-                aiG = this.cqq.aiG();
-                if (aiG != null) {
+                aiC = this.cqq.aiC();
+                if (aiC != null) {
                     this.cqq.cqk = personListData;
                     this.cqq.a(personListData, true);
                 }

@@ -22,7 +22,7 @@ class l extends com.baidu.adp.base.g {
             switch (aVar2.getLoadDataMode()) {
                 case 0:
                     blVar = this.ciK.cih;
-                    blVar.afW();
+                    blVar.afS();
                     this.ciK.a((a.b) obj);
                     return;
                 case 1:

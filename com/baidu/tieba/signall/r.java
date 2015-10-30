@@ -34,32 +34,32 @@ public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
         this.cRc = cVar;
     }
 
-    public c atT() {
+    public c atP() {
         return this.cRc;
     }
 
-    private String atU() {
-        ArrayList<e> att = this.cRc.att();
-        if (att == null) {
+    private String atQ() {
+        ArrayList<e> atp = this.cRc.atp();
+        if (atp == null) {
             return "";
         }
-        if (!this.cRc.atu()) {
+        if (!this.cRc.atq()) {
             ArrayList arrayList = new ArrayList();
-            Iterator<e> it = att.iterator();
+            Iterator<e> it = atp.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next.atD() < this.cRc.getLevel()) {
+                if (next.atz() < this.cRc.getLevel()) {
                     arrayList.add(next);
                 }
             }
-            att.removeAll(arrayList);
+            atp.removeAll(arrayList);
         }
-        int size = att.size();
+        int size = atp.size();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            e eVar = att.get(i);
-            if (eVar.atH()) {
-                if (!eVar.atI()) {
+            e eVar = atp.get(i);
+            if (eVar.atD()) {
+                if (!eVar.atE()) {
                     eVar.gi(true);
                 }
             }
@@ -77,9 +77,9 @@ public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
         if (this.cQZ != null) {
             return false;
         }
-        String atU = atU();
+        String atQ = atQ();
         this.cQZ = new b();
-        this.cQZ.execute(atU);
+        this.cQZ.execute(atQ);
         return true;
     }
 
@@ -137,7 +137,7 @@ public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
 
         private p lk(String str) {
             String lh = this.cRd.lh(str);
-            if (this.cRd.qV()) {
+            if (this.cRd.qS()) {
                 r.this.cRa.parserJson(lh);
                 return r.this.cRa;
             }
@@ -165,7 +165,7 @@ public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
                 if (r.this.cRa != null) {
                     r.this.cRb.b(r.this.cRa);
                 } else {
-                    r.this.cRb.hQ(this.cRd != null ? this.cRd.qW() : null);
+                    r.this.cRb.hQ(this.cRd != null ? this.cRd.qT() : null);
                 }
             }
         }

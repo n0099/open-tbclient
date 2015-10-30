@@ -40,7 +40,7 @@ class c extends l {
     }
 
     @Override // com.baidu.adp.lib.webSocket.l, com.baidu.adp.lib.webSocket.g.a
-    public void d(Map<String, String> map) {
+    public void c(Map<String, String> map) {
         Handler handler;
         e eVar;
         e eVar2;
@@ -51,7 +51,7 @@ class c extends l {
         eVar = BdSocketLinkService.connStateCallBack;
         if (eVar != null) {
             eVar2 = BdSocketLinkService.connStateCallBack;
-            eVar2.c(map);
+            eVar2.b(map);
         }
     }
 

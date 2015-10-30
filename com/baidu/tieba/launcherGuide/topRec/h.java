@@ -64,21 +64,21 @@ public class h extends com.baidu.adp.base.e<TopRecActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: x */
         public TRForumListData doInBackground(Object... objArr) {
-            String tG;
+            String tD;
             try {
                 this.afh = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/random_recommend_forum");
                 this.afh.o("rn", "100");
-                tG = this.afh.tG();
+                tD = this.afh.tD();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            if (tG == null) {
+            if (tD == null) {
                 return null;
             }
-            if (!this.afh.uh().uZ().qV()) {
+            if (!this.afh.ue().uW().qS()) {
                 h.this.aMu = false;
             } else {
-                this.bSP = (TRForumListData) i.objectWithJsonStr(tG, TRForumListData.class);
+                this.bSP = (TRForumListData) i.objectWithJsonStr(tD, TRForumListData.class);
                 h.this.aMu = true;
             }
             return this.bSP;

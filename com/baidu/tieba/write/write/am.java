@@ -38,7 +38,7 @@ class am implements TimePickerDialog.OnTimeSetListener {
             }
             textView = this.dqi.dpL;
             writeData5 = this.dqi.dbx;
-            textView.setText(com.baidu.tbadk.core.util.as.p(writeData5.getLiveCardData().getStartTime() * 1000));
+            textView.setText(com.baidu.tbadk.core.util.as.n(writeData5.getLiveCardData().getStartTime() * 1000));
         }
     }
 }

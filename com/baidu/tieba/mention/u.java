@@ -10,19 +10,19 @@ public class u {
     private int chat = 0;
     private int bookmark = 0;
 
-    public int acV() {
+    public int acR() {
         return this.caA;
     }
 
-    public int acW() {
+    public int acS() {
         return this.caB;
     }
 
-    public int acX() {
+    public int acT() {
         return this.fans;
     }
 
-    public int acY() {
+    public int acU() {
         return this.bookmark;
     }
 

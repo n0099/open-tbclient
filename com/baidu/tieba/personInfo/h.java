@@ -16,6 +16,6 @@ public class h extends com.baidu.adp.base.g {
         ajVar = this.csI.csw;
         ajVar.hideProgress();
         ajVar2 = this.csI.csw;
-        ajVar2.aka();
+        ajVar2.ajW();
     }
 }

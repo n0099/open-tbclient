@@ -33,7 +33,7 @@ public class b extends LinearLayout {
         this.apS = 3;
         this.bod = hotTopicActivity;
         initView();
-        Ri();
+        Re();
     }
 
     private void initView() {
@@ -49,7 +49,7 @@ public class b extends LinearLayout {
         this.bqg = (TextView) inflate.findViewById(i.f.forum_add_love);
     }
 
-    private void Ri() {
+    private void Re() {
         an.b(this.bqd, i.c.cp_cont_b, 1);
         an.b(this.bqo, i.c.cp_cont_c, 1);
         an.b(this.bqp, i.c.cp_cont_c, 1);
@@ -68,8 +68,8 @@ public class b extends LinearLayout {
                 this.bqd.setSingleLine();
                 this.bqd.setText(as.d(relateForumItemData.forumName.trim(), 14, "..."));
             }
-            this.bqo.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.forum_list_attention_tv)) + " " + ax(relateForumItemData.followNum));
-            this.bqp.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.forum_list_thread_tv)) + " " + ax(relateForumItemData.postNum));
+            this.bqo.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.forum_list_attention_tv)) + " " + av(relateForumItemData.followNum));
+            this.bqp.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.forum_list_thread_tv)) + " " + av(relateForumItemData.postNum));
             relateForumItemData.forumAbstract = relateForumItemData.forumAbstract.trim();
             if (!StringUtils.isNull(relateForumItemData.forumAbstract)) {
                 this.bqq.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
@@ -77,13 +77,13 @@ public class b extends LinearLayout {
             }
             cD(relateForumItemData.isLiked);
             registerListener();
-            QK();
+            QG();
         }
     }
 
-    public void QK() {
+    public void QG() {
         if (TbadkCoreApplication.m411getInst().getSkinType() != this.apS) {
-            Ri();
+            Re();
             if (this.bqk != null) {
                 cD(this.bqk.isLiked);
             }
@@ -116,7 +116,7 @@ public class b extends LinearLayout {
         }
     }
 
-    private String ax(long j) {
+    private String av(long j) {
         if (j < 0) {
             return "0";
         }

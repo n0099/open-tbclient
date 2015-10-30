@@ -17,7 +17,7 @@ public class d extends com.baidu.adp.framework.listener.e {
     private long amy;
     private final SparseArray<a> amz;
 
-    public static d zB() {
+    public static d zy() {
         return amB;
     }
 
@@ -34,7 +34,7 @@ public class d extends com.baidu.adp.framework.listener.e {
         if (this.amw || this.amA.contains(Integer.valueOf(i)) || !MessageManager.getInstance().getSocketClient().isValid()) {
             return false;
         }
-        if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().ex() > PingManager.zE().zG() + 20000) {
+        if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().ex() > PingManager.zB().zD() + 20000) {
             com.baidu.adp.framework.client.socket.k.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
             return false;
         } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
@@ -100,7 +100,7 @@ public class d extends com.baidu.adp.framework.listener.e {
         this.amx = i;
     }
 
-    public void B(long j) {
+    public void z(long j) {
         this.amy = j;
     }
 

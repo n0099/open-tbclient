@@ -27,7 +27,7 @@ public class w implements TextView.OnEditorActionListener {
                 this.bVC.G(1, this.bVC.bUV);
                 return true;
             }
-            this.bVC.abo();
+            this.bVC.abk();
             return true;
         }
         return false;

@@ -16,15 +16,15 @@ public class j extends k implements h {
         this.cZc = new a(app);
     }
 
-    public a aww() {
+    public a aws() {
         return this.cZc;
     }
 
-    public String awx() {
+    public String awt() {
         return this.cZc == null ? "" : this.cZc.id;
     }
 
-    public int awy() {
+    public int awu() {
         return this.TU;
     }
 
@@ -33,25 +33,25 @@ public class j extends k implements h {
         this.TU = i;
     }
 
-    public boolean rp() {
+    public boolean rm() {
         if (this.cZc == null) {
             return false;
         }
-        return this.cZc.rp();
+        return this.cZc.rm();
     }
 
     public boolean isApp() {
         if (this.cZc == null) {
             return false;
         }
-        return this.cZc.rq();
+        return this.cZc.rn();
     }
 
-    public boolean awz() {
+    public boolean awv() {
         if (this.cZc == null) {
             return false;
         }
-        return this.cZc.rr();
+        return this.cZc.ro();
     }
 
     @Override // com.baidu.tieba.tbadkCore.q
@@ -76,7 +76,7 @@ public class j extends k implements h {
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.i
-    public String aws() {
+    public String awo() {
         if (this.cZc == null || this.cZc.cYM == null) {
             return null;
         }
@@ -84,7 +84,7 @@ public class j extends k implements h {
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.i
-    public String awt() {
+    public String awp() {
         if (this.cZc == null || this.cZc.cYM == null) {
             return null;
         }
@@ -92,14 +92,14 @@ public class j extends k implements h {
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.i
-    public String awu() {
+    public String awq() {
         if (this.cZc == null || this.cZc.cYM == null) {
             return null;
         }
         return this.cZc.cYM.thread_title;
     }
 
-    public String awA() {
+    public String aww() {
         if (this.cZc == null || this.cZc.cYM == null) {
             return null;
         }
@@ -107,14 +107,14 @@ public class j extends k implements h {
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.i
-    public long awv() {
+    public long awr() {
         if (this.cZc == null) {
             return 0L;
         }
         return this.cZc.cYK * 1000;
     }
 
-    public int awB() {
+    public int awx() {
         if (this.cZc == null || this.cZc.cYM == null) {
             return -1;
         }
@@ -129,14 +129,14 @@ public class j extends k implements h {
         return g;
     }
 
-    public String awC() {
+    public String awy() {
         if (this.cZc == null || this.cZc.cYM == null) {
             return null;
         }
         return this.cZc.cYM.pop_window_text;
     }
 
-    public com.baidu.tbadk.core.data.b awD() {
+    public com.baidu.tbadk.core.data.b awz() {
         com.baidu.tbadk.core.data.b bVar = new com.baidu.tbadk.core.data.b();
         if (this.cZc != null) {
             bVar.TV = this.cZc.id;
@@ -171,10 +171,10 @@ public class j extends k implements h {
 
     @Override // com.baidu.tieba.tbadkCore.data.k, com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        if (awB() == 2) {
+        if (awx() == 2) {
             return com.baidu.tbadk.core.data.b.TP;
         }
-        if (awB() == 6) {
+        if (awx() == 6) {
             return com.baidu.tbadk.core.data.b.TQ;
         }
         return com.baidu.tbadk.core.data.b.TO;

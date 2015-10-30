@@ -20,9 +20,9 @@ public class d implements CustomMessageTask.CustomRunnable<Boolean> {
         ScrollFragmentTabHost scrollFragmentTabHost;
         ScrollFragmentTabHost scrollFragmentTabHost2;
         scrollFragmentTabHost = this.cIB.cIv;
-        if (scrollFragmentTabHost.aqw()) {
+        if (scrollFragmentTabHost.aqs()) {
             scrollFragmentTabHost2 = this.cIB.cIv;
-            scrollFragmentTabHost2.aqy();
+            scrollFragmentTabHost2.aqu();
             return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, true);
         }
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, false);

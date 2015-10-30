@@ -20,15 +20,15 @@ class j implements View.OnClickListener {
         newUserGuideActivity = this.bRT.bRO;
         if (newUserGuideActivity != null) {
             newUserGuideActivity2 = this.bRT.bRO;
-            if (newUserGuideActivity2.aay().aaF()) {
+            if (newUserGuideActivity2.aau().aaB()) {
                 newUserGuideActivity4 = this.bRT.bRO;
-                newUserGuideActivity4.aaA();
+                newUserGuideActivity4.aaw();
                 return;
             }
             newUserGuideActivity3 = this.bRT.bRO;
-            RightSlideViewPager aax = newUserGuideActivity3.aax();
-            if (aax != null) {
-                aax.setCurrentItem(1, true);
+            RightSlideViewPager aat = newUserGuideActivity3.aat();
+            if (aat != null) {
+                aat.setCurrentItem(1, true);
             }
         }
     }

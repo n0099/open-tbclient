@@ -32,7 +32,7 @@ public class m extends LinearLayout {
     private Context mContext;
     private View mRootView;
 
-    static /* synthetic */ int[] vv() {
+    static /* synthetic */ int[] vs() {
         int[] iArr = adX;
         if (iArr == null) {
             iArr = new int[NoDataViewFactory.ImgType.valuesCustom().length];
@@ -156,34 +156,34 @@ public class m extends LinearLayout {
         if (cVar != null) {
             this.adV = cVar.aec;
             this.adW = cVar.adW;
-            switch (vv()[cVar.aec.ordinal()]) {
+            switch (vs()[cVar.aec.ordinal()]) {
                 case 2:
-                    this.adS = com.baidu.tbadk.util.b.Ew().fI("pic_emotion03.png");
-                    this.adT = com.baidu.tbadk.util.b.Ew().fI("pic_emotion03_1.png");
+                    this.adS = com.baidu.tbadk.util.b.Es().fI("pic_emotion03.png");
+                    this.adT = com.baidu.tbadk.util.b.Es().fI("pic_emotion03_1.png");
                     break;
                 case 3:
-                    this.adS = com.baidu.tbadk.util.b.Ew().fI("pic_emotion05.png");
-                    this.adT = com.baidu.tbadk.util.b.Ew().fI("pic_emotion05_1.png");
+                    this.adS = com.baidu.tbadk.util.b.Es().fI("pic_emotion05.png");
+                    this.adT = com.baidu.tbadk.util.b.Es().fI("pic_emotion05_1.png");
                     break;
                 case 4:
-                    this.adS = com.baidu.tbadk.util.b.Ew().fI("pic_emotion01.png");
-                    this.adT = com.baidu.tbadk.util.b.Ew().fI("pic_emotion01_1.png");
+                    this.adS = com.baidu.tbadk.util.b.Es().fI("pic_emotion01.png");
+                    this.adT = com.baidu.tbadk.util.b.Es().fI("pic_emotion01_1.png");
                     break;
                 case 5:
-                    this.adS = com.baidu.tbadk.util.b.Ew().fI("pic_emotion02.png");
-                    this.adT = com.baidu.tbadk.util.b.Ew().fI("pic_emotion02_1.png");
+                    this.adS = com.baidu.tbadk.util.b.Es().fI("pic_emotion02.png");
+                    this.adT = com.baidu.tbadk.util.b.Es().fI("pic_emotion02_1.png");
                     break;
                 case 6:
-                    this.adS = com.baidu.tbadk.util.b.Ew().fI("pic_emotion06.png");
-                    this.adT = com.baidu.tbadk.util.b.Ew().fI("pic_emotion06_1.png");
+                    this.adS = com.baidu.tbadk.util.b.Es().fI("pic_emotion06.png");
+                    this.adT = com.baidu.tbadk.util.b.Es().fI("pic_emotion06_1.png");
                     break;
                 case 7:
-                    this.adS = com.baidu.tbadk.util.b.Ew().fI("pic_emotion07.png");
-                    this.adT = com.baidu.tbadk.util.b.Ew().fI("pic_emotion07_1.png");
+                    this.adS = com.baidu.tbadk.util.b.Es().fI("pic_emotion07.png");
+                    this.adT = com.baidu.tbadk.util.b.Es().fI("pic_emotion07_1.png");
                     break;
                 case 8:
-                    this.adS = com.baidu.tbadk.util.b.Ew().fI("pic_emotion08.png");
-                    this.adT = com.baidu.tbadk.util.b.Ew().fI("pic_emotion08_1.png");
+                    this.adS = com.baidu.tbadk.util.b.Es().fI("pic_emotion08.png");
+                    this.adT = com.baidu.tbadk.util.b.Es().fI("pic_emotion08_1.png");
                     break;
             }
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.adL.getLayoutParams();

@@ -49,7 +49,7 @@ public abstract class a {
                         z2 = aVar.a(bVar);
                         if (z2) {
                             try {
-                                if (bVar.CG()) {
+                                if (bVar.CD()) {
                                     return true;
                                 }
                             } catch (Throwable th) {

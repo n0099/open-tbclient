@@ -65,7 +65,7 @@ public class f {
         this.dhb = new c(this.dgY.getPageContext());
         this.dha.setAdapter((ListAdapter) this.dhb);
         this.apA = (IndicatorView) this.mRoot.findViewById(i.f.list_view_indicator);
-        azE();
+        azA();
         this.Xu.g(this.apA);
         this.dha.setOnScrollChangedListener(this.dhc);
         this.dha.setOnItemClickListener(new h(this));
@@ -75,7 +75,7 @@ public class f {
         if (this.dgZ != null) {
             int i2 = 0;
             if (this.mSkinData != null) {
-                i2 = this.mSkinData.azl();
+                i2 = this.mSkinData.azh();
             }
             this.dgZ.a(i, 0.0f, i2);
         }
@@ -83,36 +83,36 @@ public class f {
 
     public void g(com.baidu.tieba.themeCenter.b bVar) {
         if (bVar == null) {
-            Kr();
+            Kn();
             return;
         }
         this.mSkinData = bVar;
-        Ks();
+        Ko();
         this.WO.setText(n.v(bVar.getTitle(), 20));
-        this.dex.d(bVar.azp(), 10, false);
+        this.dex.d(bVar.azl(), 10, false);
         this.deC.setText(n.v(bVar.getPackageSize(), 10));
         this.Xj.setText(bVar.getDescription());
         this.dgZ.setSkinDetailPage(true);
         this.dgZ.setSkinData(this.mSkinData);
-        this.dgZ.a(this.mSkinData.azm(), 0.0f, this.mSkinData.azl());
-        if (bVar.azn() == null || bVar.azn().size() <= 0) {
+        this.dgZ.a(this.mSkinData.azi(), 0.0f, this.mSkinData.azh());
+        if (bVar.azj() == null || bVar.azj().size() <= 0) {
             this.dha.setVisibility(8);
             this.apA.setVisibility(8);
             return;
         }
-        this.dhb.ah(bVar.azn());
+        this.dhb.ah(bVar.azj());
         this.dhb.notifyDataSetChanged();
         this.dha.setVisibility(0);
         this.apA.setVisibility(0);
-        if (bVar.azn().size() == 1) {
+        if (bVar.azj().size() == 1) {
             this.apA.setCount(0);
             return;
         }
-        this.apA.setCount(bVar.azn().size());
+        this.apA.setCount(bVar.azj().size());
         this.apA.setPosition(0.0f);
     }
 
-    public void Kr() {
+    public void Kn() {
         this.dfn.setVisibility(8);
         an.j(this.mRoot, i.c.cp_bg_line_d);
         String string = this.dgY.getPageContext().getResources().getString(i.h.no_data_text);
@@ -120,7 +120,7 @@ public class f {
         this.dgY.showNetRefreshView(this.mRoot, string, false);
     }
 
-    private void azE() {
+    private void azA() {
         this.Xu = new com.baidu.tbadk.core.flow.a.c();
         this.Xu.setDrawableId(i.e.dot_live_n);
         this.Xu.bX(i.e.dot_live_s);
@@ -128,13 +128,13 @@ public class f {
         this.Xu.setGravity(17);
     }
 
-    public void Ks() {
+    public void Ko() {
         this.dfn.setVisibility(0);
         an.j(this.mRoot, i.c.cp_bg_line_c);
         this.dgY.hideNetRefreshView(this.mRoot);
     }
 
-    public void vA() {
+    public void vx() {
         this.dgY.getLayoutMode().ad(TbadkApplication.getInst().getSkinType() == 1);
         this.dgY.getLayoutMode().k(this.mRoot);
         if (this.mNavigationBar != null) {
@@ -147,7 +147,7 @@ public class f {
             this.dhb.notifyDataSetChanged();
         }
         if (this.apA != null && this.Xu != null) {
-            this.apA.setDrawable(an.getDrawable(this.Xu.tm()));
+            this.apA.setDrawable(an.getDrawable(this.Xu.tj()));
             this.apA.setSelector(an.getDrawable(this.Xu.getSelectedId()));
         }
     }

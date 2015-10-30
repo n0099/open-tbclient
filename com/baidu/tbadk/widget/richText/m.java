@@ -15,7 +15,7 @@ class m implements com.baidu.adp.lib.e.c<TextView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Ft */
+    /* renamed from: Fp */
     public TextView gZ() {
         return new TbListTextView(this.val$context);
     }

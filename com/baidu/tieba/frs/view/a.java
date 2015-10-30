@@ -113,7 +113,7 @@ public class a {
     protected final View.OnClickListener bdl = new d(this);
     protected boolean bdm = TbadkCoreApplication.m411getInst().appResponseToIntentClass(GameDetailActivityConfig.class);
 
-    public boolean NR() {
+    public boolean NN() {
         return this.bdc;
     }
 
@@ -131,7 +131,7 @@ public class a {
         com.baidu.tieba.tbadkCore.a.a(tbPageContextSupport, view, scaleAnimation, new e(this, tbPageContextSupport, view, f2));
     }
 
-    public boolean NS() {
+    public boolean NO() {
         int[] iArr = new int[2];
         try {
             this.bcL.getLocationOnScreen(iArr);
@@ -145,15 +145,15 @@ public class a {
         return this.LS;
     }
 
-    public View NT() {
+    public View NP() {
         return this.bcx;
     }
 
-    public BarImageView NF() {
+    public BarImageView NB() {
         return this.bcM;
     }
 
-    public TextView NU() {
+    public TextView NQ() {
         return this.LN;
     }
 
@@ -161,15 +161,15 @@ public class a {
         return this.bcQ.F(view);
     }
 
-    public void NV() {
+    public void NR() {
         this.bcQ.hide();
     }
 
-    public void NW() {
+    public void NS() {
         this.bcQ.show();
     }
 
-    public boolean ND() {
+    public boolean Nz() {
         return this.bdg;
     }
 
@@ -182,15 +182,15 @@ public class a {
         }
     }
 
-    public View NX() {
+    public View NT() {
         return this.bct;
     }
 
-    public boolean NE() {
+    public boolean NA() {
         return this.bdh;
     }
 
-    public ProgressBar NY() {
+    public ProgressBar NU() {
         return this.bcq;
     }
 
@@ -255,7 +255,7 @@ public class a {
         this.mMemberType = i;
     }
 
-    public void NZ() {
+    public void NV() {
         if (this.mMemberType != 0) {
             an.c(this.bcL, i.e.icon_speed_orange);
         } else {
@@ -301,7 +301,7 @@ public class a {
     }
 
     public void a(com.baidu.tbadk.core.data.h hVar) {
-        if (this.bcA == null || hVar == null || hVar.rx() == null || hVar.rx().size() <= 0) {
+        if (this.bcA == null || hVar == null || hVar.ru() == null || hVar.ru().size() <= 0) {
             if (this.bcA != null) {
                 this.bcA.setVisibility(8);
                 return;
@@ -311,8 +311,8 @@ public class a {
         this.bcC = an.getDrawable(i.e.icon_frs_notice);
         this.drawablePadding = com.baidu.adp.lib.util.k.d(this.mContext.getPageActivity(), i.d.ds10);
         this.bcA.setVisibility(0);
-        ArrayList<com.baidu.tbadk.core.data.i> rx = hVar.rx();
-        List<com.baidu.tbadk.core.data.i> subList = rx.size() > 5 ? rx.subList(0, 5) : rx;
+        ArrayList<com.baidu.tbadk.core.data.i> ru = hVar.ru();
+        List<com.baidu.tbadk.core.data.i> subList = ru.size() > 5 ? ru.subList(0, 5) : ru;
         if (subList.size() > 1) {
             this.bcA.setDisableParentEvent(true);
         } else {
@@ -326,7 +326,7 @@ public class a {
                 this.bcB.setPadding(this.bci, 0, this.bcj, 0);
             }
             if (subList.size() == 1 && subList.get(0) != null && subList.get(0).getTitle() != null) {
-                if (subList.get(0).rA()) {
+                if (subList.get(0).rx()) {
                     this.bcB.setVisibility(8);
                     return;
                 }
@@ -347,7 +347,7 @@ public class a {
         }
     }
 
-    public void Oa() {
+    public void NW() {
         if (this.bcA != null) {
             this.bcA.setCoverFlowFactory(new g(this));
             this.bcA.setCallback(new h(this));

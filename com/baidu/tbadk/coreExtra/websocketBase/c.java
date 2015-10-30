@@ -7,7 +7,7 @@ public class c {
         private static c amv = new c(null);
     }
 
-    public static c zy() {
+    public static c zv() {
         return a.amv;
     }
 
@@ -18,7 +18,7 @@ public class c {
         this();
     }
 
-    public void zz() {
+    public void zw() {
         eB("kLCSError=1");
     }
 

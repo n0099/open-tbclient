@@ -31,7 +31,7 @@ public class an implements View.OnClickListener {
         cdVar = this.dqi.dmG;
         com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(cdVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.dqi.getPageContext().getPageActivity(), 1.0f));
         jVar = this.dqi.dpD;
-        jVar.za();
+        jVar.yX();
         WriteActivity writeActivity = this.dqi;
         inputMethodManager = this.dqi.mInputManager;
         editText = this.dqi.dmz;

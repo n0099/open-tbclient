@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -159,11 +160,11 @@ public class g {
                                         }
                                         byteArrayOutputStream.write(bArr, 0, read);
                                     } catch (Exception e2) {
-                                        com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
+                                        com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
                                     } catch (Throwable th) {
                                         byteArrayOutputStream2 = byteArrayOutputStream;
                                         th = th;
-                                        com.baidu.adp.lib.g.a.b(byteArrayOutputStream2);
+                                        com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream2);
                                         throw th;
                                     }
                                 }
@@ -173,10 +174,10 @@ public class g {
                                 if (b(aN, sb)) {
                                     sb.append("-Succ5-");
                                     z = true;
-                                    com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
+                                    com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
                                     break;
                                 }
-                                com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
+                                com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
                             } catch (Exception e3) {
                                 byteArrayOutputStream = null;
                             } catch (Throwable th2) {
@@ -214,17 +215,17 @@ public class g {
             try {
                 try {
                     fileOutputStream.write(bArr);
-                    com.baidu.adp.lib.g.a.b(fileOutputStream);
+                    com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
                 } catch (Exception e) {
                     e = e;
                     sb.append("-Error4:");
                     sb.append(String.valueOf(e.getClass().getName()) + "-" + e.getMessage());
                     sb.append("-");
-                    com.baidu.adp.lib.g.a.b(fileOutputStream);
+                    com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
                 }
             } catch (Throwable th) {
                 th = th;
-                com.baidu.adp.lib.g.a.b(fileOutputStream);
+                com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
                 throw th;
             }
         } catch (Exception e2) {
@@ -233,7 +234,7 @@ public class g {
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream = null;
-            com.baidu.adp.lib.g.a.b(fileOutputStream);
+            com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
             throw th;
         }
     }

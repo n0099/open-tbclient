@@ -68,10 +68,10 @@ public class ae {
         }
     }
 
-    public void ajC() {
-        y ajf = this.cqE.ajf();
-        UserData userData = ajf.getUserData();
-        e(ajf.ajN(), userData);
+    public void ajy() {
+        y ajb = this.cqE.ajb();
+        UserData userData = ajb.getUserData();
+        e(ajb.ajJ(), userData);
         n(userData);
         o(userData);
         oO();
@@ -99,7 +99,7 @@ public class ae {
             this.cuE.setVisibility(8);
         }
         if (userData != null) {
-            this.cuG.setText(as.w(userData.getTDouNum()));
+            this.cuG.setText(as.u(userData.getTDouNum()));
             this.cuE.setOnClickListener(new af(this));
         }
     }
@@ -173,7 +173,7 @@ public class ae {
         aVar.b(this.cqE.getResources().getString(i.h.delete_account_cancle), new ah(this));
         aVar.a(this.cqE.getResources().getString(i.h.reply_message), new ai(this, editText, userData));
         aVar.m(inflate);
-        aVar.b(this.cqE.getPageContext()).sR();
+        aVar.b(this.cqE.getPageContext()).sO();
         this.cqE.ShowSoftKeyPadDelay(editText, 200);
     }
 

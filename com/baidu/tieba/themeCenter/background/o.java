@@ -24,18 +24,18 @@ public class o extends com.baidu.adp.base.e<o> {
 
     public o(BackgroundListActivity backgroundListActivity) {
         this.dfD = backgroundListActivity;
-        BZ();
+        BW();
         registerListener(this.dfH);
-        azw();
+        azs();
         registerListener(this.dfl);
     }
 
-    private void BZ() {
+    private void BW() {
         com.baidu.tieba.tbadkCore.a.a.a(309021, BackgroundListSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309021, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_LIST, TbConfig.PERSONAL_BACKGROUND_LIST_PAGE, BackgroundListHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void azw() {
+    private void azs() {
         com.baidu.tieba.tbadkCore.a.a.a(309022, BackgroundSetSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
@@ -50,7 +50,7 @@ public class o extends com.baidu.adp.base.e<o> {
         return false;
     }
 
-    public void azx() {
+    public void azt() {
         if (this.hasMore) {
             this.MH++;
             BackgroundListRequestMessage backgroundListRequestMessage = new BackgroundListRequestMessage();

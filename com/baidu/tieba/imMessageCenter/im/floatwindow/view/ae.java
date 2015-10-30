@@ -14,7 +14,7 @@ public class ae implements aj.a {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.aj.a
-    public void Ze() {
+    public void Za() {
         List list;
         int i;
         List list2;

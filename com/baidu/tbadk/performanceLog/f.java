@@ -20,7 +20,7 @@ public class f implements j.a {
         jVar2 = this.awT.awO;
         jVar2.stop();
         this.awT.awQ = i;
-        aa aaVar = (aa) y.Eb().eB(this.awT.mSubType);
+        aa aaVar = (aa) y.DY().eB(this.awT.mSubType);
         if (aaVar != null) {
             aaVar.h(this.awT);
         }

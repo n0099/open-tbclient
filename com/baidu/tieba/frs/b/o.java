@@ -42,17 +42,17 @@ public class o extends com.baidu.adp.base.f<FrsActivity> {
     }
 
     public void D(View view) {
-        View Ma = this.aTU.Ma();
-        if (Ma != null && (Ma instanceof FrameLayout)) {
-            ((FrameLayout) Ma).addView(view);
+        View LW = this.aTU.LW();
+        if (LW != null && (LW instanceof FrameLayout)) {
+            ((FrameLayout) LW).addView(view);
         }
     }
 
-    public ea NP() {
+    public ea NL() {
         return this.bce;
     }
 
-    public eb NQ() {
+    public eb NM() {
         return this.bak;
     }
 

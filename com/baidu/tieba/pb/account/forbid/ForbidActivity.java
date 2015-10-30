@@ -107,7 +107,7 @@ public class ForbidActivity extends BaseActivity<ForbidActivity> {
             this.ceG = strArr;
         }
 
-        public String aeB() {
+        public String aex() {
             if (this.ceG == null || this.ceH >= this.ceG.length) {
                 return null;
             }

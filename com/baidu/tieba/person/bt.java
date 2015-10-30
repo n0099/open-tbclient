@@ -71,11 +71,11 @@ public class bt extends com.baidu.adp.base.e<PersonListActivity> {
         this.cqX = z;
     }
 
-    public boolean aiN() {
+    public boolean aiJ() {
         return this.cqX;
     }
 
-    public void Ij() {
+    public void If() {
         String str;
         MessageManager messageManager = MessageManager.getInstance();
         if (this.cqX) {
@@ -89,7 +89,7 @@ public class bt extends com.baidu.adp.base.e<PersonListActivity> {
         registerListener(this.bNU);
     }
 
-    public void aiO() {
+    public void aiK() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_PERSONAL_LIST);
         if (this.cqX) {
             httpMessage.setTag(cqW);
@@ -106,21 +106,21 @@ public class bt extends com.baidu.adp.base.e<PersonListActivity> {
         sendMessage(httpMessage);
     }
 
-    public void aiP() {
+    public void aiL() {
         com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(CmdConfigCustom.CMD_READ_PERSON_LIST, new bw());
         aVar.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(aVar);
         registerListener(this.cqZ);
     }
 
-    public void aiQ() {
+    public void aiM() {
         RequestLocalPersonListMessage requestLocalPersonListMessage = new RequestLocalPersonListMessage();
         requestLocalPersonListMessage.setFollow(this.cqX);
         requestLocalPersonListMessage.setUid(this.mId);
         sendMessage(requestLocalPersonListMessage);
     }
 
-    public void aiR() {
+    public void aiN() {
         MessageManager.getInstance().unRegisterListener(this.cqZ);
         MessageManager.getInstance().unRegisterListener(this.bNU);
     }

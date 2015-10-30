@@ -72,23 +72,23 @@ public class c extends BaseAdapter {
             aVar.dgz.setListenerTag(this.mContext.getUniqueId());
             view.setTag(aVar);
         }
-        if (item != null && item.azJ() != null && item.azJ().size() > 0) {
-            aVar.dhx.setText(item.azI());
-            if (item.azJ().size() == 1) {
-                aVar.dgx.a(item.azJ().get(0));
+        if (item != null && item.azF() != null && item.azF().size() > 0) {
+            aVar.dhx.setText(item.azE());
+            if (item.azF().size() == 1) {
+                aVar.dgx.a(item.azF().get(0));
                 aVar.dgx.setVisibility(0);
                 aVar.dgy.setVisibility(8);
                 aVar.dgz.setVisibility(8);
-            } else if (item.azJ().size() == 2) {
-                aVar.dgx.a(item.azJ().get(0));
-                aVar.dgy.a(item.azJ().get(1));
+            } else if (item.azF().size() == 2) {
+                aVar.dgx.a(item.azF().get(0));
+                aVar.dgy.a(item.azF().get(1));
                 aVar.dgx.setVisibility(0);
                 aVar.dgy.setVisibility(0);
                 aVar.dgz.setVisibility(8);
-            } else if (item.azJ().size() >= 3) {
-                aVar.dgx.a(item.azJ().get(0));
-                aVar.dgy.a(item.azJ().get(1));
-                aVar.dgz.a(item.azJ().get(2));
+            } else if (item.azF().size() >= 3) {
+                aVar.dgx.a(item.azF().get(0));
+                aVar.dgy.a(item.azF().get(1));
+                aVar.dgz.a(item.azF().get(2));
                 aVar.dgx.setVisibility(0);
                 aVar.dgy.setVisibility(0);
                 aVar.dgz.setVisibility(0);

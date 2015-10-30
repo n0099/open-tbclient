@@ -16,7 +16,7 @@ public class d {
         this.aQS = BdCacheService.gl().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static synchronized d avt() {
+    public static synchronized d avp() {
         d dVar;
         synchronized (d.class) {
             if (cWS == null) {

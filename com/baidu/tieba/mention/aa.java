@@ -59,7 +59,7 @@ public class aa extends com.baidu.tbadk.mvc.g.a<FeedData, com.baidu.tbadk.mvc.d.
                     this.cag.setText(getString(i.h.message_add_friend));
                     this.cag.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.an.getDrawable(i.e.icon_friend_add), (Drawable) null, (Drawable) null, (Drawable) null);
                 }
-                this.aPX.setText(com.baidu.tbadk.core.util.as.o(feedData.getTime()));
+                this.aPX.setText(com.baidu.tbadk.core.util.as.m(feedData.getTime()));
                 if (praiseList.size() > 3 && praiseList.get(1) != null && praiseList.get(2) != null) {
                     this.cah.setText(String.format(getString(i.h.message_praise_like_list_more), likeData.getNameShow(), praiseList.get(1).getNameShow(), praiseList.get(2).getNameShow(), String.valueOf(feedData.getPraiseNum())));
                 } else if (praiseList.size() > 2 && praiseList.get(1) != null && praiseList.get(2) != null) {
@@ -104,7 +104,7 @@ public class aa extends com.baidu.tbadk.mvc.g.a<FeedData, com.baidu.tbadk.mvc.d.
                 this.cag.setBackgroundDrawable(com.baidu.tbadk.core.util.an.getDrawable(i.e.game_center_start_btn));
                 this.cag.setText(getString(i.h.mention_chatme));
             }
-            this.aPX.setText(com.baidu.tbadk.core.util.as.o(feedData.getTime()));
+            this.aPX.setText(com.baidu.tbadk.core.util.as.m(feedData.getTime()));
             this.cah.setText(feedData.getContent());
             if (feedData.getType() == 1) {
                 this.aPq.setText(this.aPm.getPageActivity().getString(i.h.mention_replyme_original, new Object[]{feedData.getQuote_content()}));

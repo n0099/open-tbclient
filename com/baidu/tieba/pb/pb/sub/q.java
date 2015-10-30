@@ -35,20 +35,20 @@ public class q implements a.InterfaceC0039a {
                 aVar4.ab(z2);
             }
             aVar2 = this.cmC.cii;
-            MarkData qn = aVar2.qn();
+            MarkData qk = aVar2.qk();
             am amVar = new am();
             amVar.setType(2);
             if (z2) {
-                amVar.setData(qn);
+                amVar.setData(qk);
                 aVar3 = this.cmC.cii;
                 if (aVar3 != null) {
-                    if (qn != null) {
+                    if (qk != null) {
                         akVar3 = this.cmC.cmt;
                         akVar3.eS(true);
                         akVar4 = this.cmC.cmt;
                         akVar5 = this.cmC.cmt;
-                        akVar4.jX(akVar5.Bl());
-                        this.cmC.showToast(MessageFormat.format(this.cmC.getPageContext().getString(i.h.add_mark_on_pb), Integer.valueOf(qn.getFloor())));
+                        akVar4.jX(akVar5.Bi());
+                        this.cmC.showToast(MessageFormat.format(this.cmC.getPageContext().getString(i.h.add_mark_on_pb), Integer.valueOf(qk.getFloor())));
                     } else {
                         this.cmC.showToast(this.cmC.getPageContext().getString(i.h.add_mark));
                     }

@@ -138,7 +138,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getPageContext().getPageActivity());
-        this.customToast = g.tA();
+        this.customToast = g.tx();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -289,7 +289,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.vq();
+            this.mGuidPage.vn();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -432,19 +432,19 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showToastWithIcon(String str, int i) {
-        BdToast.b(getPageContext().getContext(), str, i).sZ();
+        BdToast.b(getPageContext().getContext(), str, i).sW();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getPageContext().getContext(), str, i, i2).sZ();
+        BdToast.a(getPageContext().getContext(), str, i, i2).sW();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon).sZ();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon).sW();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).sZ();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).sW();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity
@@ -541,7 +541,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     /* JADX INFO: Access modifiers changed from: protected */
     public void showListMenu() {
         if (this.mListMenu != null) {
-            this.mListMenu.sU();
+            this.mListMenu.sR();
         }
     }
 
@@ -616,10 +616,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.tc();
+            this.loadingView.sZ();
         }
         if (this.refreshView != null) {
-            this.refreshView.tc();
+            this.refreshView.sZ();
         }
         if (this.mSwipeBackLayout != null) {
             this.mSwipeBackLayout.onChangeSkinType(i);
@@ -876,7 +876,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             } else {
                 this.loadingView = new f(getPageContext().getContext(), i);
             }
-            this.loadingView.tc();
+            this.loadingView.sZ();
         }
         this.loadingView.b(view, z);
     }
@@ -889,7 +889,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Cq();
+        return this.loadingView.Cn();
     }
 
     public void hideLoadingView(View view) {
@@ -904,7 +904,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         }
         this.refreshView.fv(str);
         this.refreshView.b(view, z);
-        this.refreshView.Cw();
+        this.refreshView.Ct();
     }
 
     public void showNetRefreshViewNoClick(View view, String str, boolean z) {
@@ -913,7 +913,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         }
         this.refreshView.fv(str);
         this.refreshView.b(view, z);
-        this.refreshView.Cx();
+        this.refreshView.Cu();
     }
 
     public void showNetRefreshView(View view, String str) {

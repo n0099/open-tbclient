@@ -24,7 +24,7 @@ public class a {
         this.name = str;
     }
 
-    public String aBk() {
+    public String aBg() {
         return this.count;
     }
 
@@ -32,7 +32,7 @@ public class a {
         this.count = str;
     }
 
-    public ImageFileInfo aBl() {
+    public ImageFileInfo aBh() {
         return this.djV;
     }
 

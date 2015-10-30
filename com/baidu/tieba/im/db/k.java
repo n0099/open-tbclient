@@ -10,7 +10,7 @@ public class k extends a {
         super("tb_oficial_msg_", OfficialChatMessage.class);
     }
 
-    public static synchronized k TT() {
+    public static synchronized k TP() {
         k kVar;
         synchronized (k.class) {
             if (bxa == null) {

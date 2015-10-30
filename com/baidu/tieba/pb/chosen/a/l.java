@@ -21,7 +21,7 @@ public class l implements View.OnClickListener {
         boolean z;
         Context context;
         ImageView imageView;
-        Animation aeK;
+        Animation aeG;
         i.a aVar;
         i.a aVar2;
         boolean z2;
@@ -31,8 +31,8 @@ public class l implements View.OnClickListener {
             if (bd.ah(context)) {
                 this.cfZ.cfV = true;
                 imageView = this.cfZ.cfP;
-                aeK = this.cfZ.aeK();
-                imageView.startAnimation(aeK);
+                aeG = this.cfZ.aeG();
+                imageView.startAnimation(aeG);
                 aVar = this.cfZ.cfS;
                 if (aVar != null) {
                     aVar2 = this.cfZ.cfS;

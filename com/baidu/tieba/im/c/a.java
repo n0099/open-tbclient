@@ -69,7 +69,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aJ(String str, String str2) {
-        com.baidu.adp.widget.a.a fo = com.baidu.tbadk.imageManager.c.Cf().fo(str);
+        com.baidu.adp.widget.a.a fo = com.baidu.tbadk.imageManager.c.Cc().fo(str);
         String str3 = String.valueOf(str2) + 10;
         if (fo != null && fo.nb()) {
             e(str3, fo);
@@ -80,7 +80,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(String str, com.baidu.adp.widget.a.a aVar) {
-        com.baidu.tbadk.imageManager.c.Cf().c(str, aVar);
+        com.baidu.tbadk.imageManager.c.Cc().c(str, aVar);
         com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, au.dn(str), DiskFileOperate.Action.WRITE);
         cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         cVar.o(true);
@@ -93,7 +93,7 @@ public class a {
         com.baidu.tbadk.img.a<ChatMessage> aVar = this.bHa.get(str);
         if (aVar == null) {
             com.baidu.tbadk.img.a<ChatMessage> aVar2 = new com.baidu.tbadk.img.a<>(str, "IM");
-            aVar2.Cj();
+            aVar2.Cg();
             aVar2.y(chatMessage);
             if (this.bHd != null && this.bHd.get() != null) {
                 aVar2.a(this.bHd.get());
@@ -113,7 +113,7 @@ public class a {
         }
         chatMessage.setLogTime(System.currentTimeMillis());
         i(chatMessage);
-        aVar.Ch();
+        aVar.Ce();
     }
 
     public void a(VoiceMsgData voiceMsgData, ChatMessage chatMessage) {
@@ -131,18 +131,18 @@ public class a {
         }
         for (Map.Entry<String, com.baidu.tbadk.img.a<ChatMessage>> entry : this.bHa.entrySet()) {
             com.baidu.tbadk.img.a<ChatMessage> value = entry.getValue();
-            if (value != null && value.Ci() != null) {
-                ChatMessage Ci = value.Ci();
-                if (chatMessage.getRecordId() != Ci.getRecordId()) {
+            if (value != null && value.Cf() != null) {
+                ChatMessage Cf = value.Cf();
+                if (chatMessage.getRecordId() != Cf.getRecordId()) {
                     continue;
                 } else if (chatMessage.getCustomGroupType() == 2 || chatMessage.getCustomGroupType() == 4) {
-                    if (chatMessage.getToUserId() == Ci.getToUserId()) {
+                    if (chatMessage.getToUserId() == Cf.getToUserId()) {
                         if (this.bHd != null && this.bHd.get() != null) {
                             value.a(this.bHd.get());
                         }
                         return true;
                     }
-                } else if (chatMessage.getGroupId() != null && Ci.getGroupId() != null && chatMessage.getGroupId().equals(Ci.getGroupId())) {
+                } else if (chatMessage.getGroupId() != null && Cf.getGroupId() != null && chatMessage.getGroupId().equals(Cf.getGroupId())) {
                     if (this.bHd != null && this.bHd.get() != null) {
                         value.a(this.bHd.get());
                     }
@@ -191,7 +191,7 @@ public class a {
         return -1;
     }
 
-    public static a Xd() {
+    public static a WZ() {
         if (bGW == null) {
             synchronized (a.class) {
                 if (bGW == null) {

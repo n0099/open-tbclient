@@ -47,10 +47,10 @@ public class b extends LinearLayout {
         this.bdH.setPadding(context.getResources().getDimensionPixelSize(i.d.ds20), 0, 0, 0);
         this.bIK = (TextView) findViewById(i.f.game_to_group_share);
         an.b(this.bIK, i.c.cp_cont_c, 1);
-        Od();
+        NZ();
     }
 
-    public void Od() {
+    public void NZ() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
@@ -70,10 +70,10 @@ public class b extends LinearLayout {
 
     public void setData(ShareFromGameCenterMsgData shareFromGameCenterMsgData) {
         this.bIL = shareFromGameCenterMsgData;
-        vw();
+        vt();
     }
 
-    private void vw() {
+    private void vt() {
         this.bIJ.setText(this.bIL.getTitle());
         this.bIH.setTag(this.bIL.getImageUrl());
         this.bIH.d(this.bIL.getImageUrl(), 17, false);

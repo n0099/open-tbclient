@@ -28,6 +28,6 @@ class d implements a.b {
         logoActivity = bVar.aDw;
         aVar2 = logoActivity.aDu;
         hg.post(aVar2);
-        com.baidu.tbadk.download.b.An().a(this.aDz, this.val$url, this.aDA, 0, 1111);
+        com.baidu.tbadk.download.b.Ak().a(this.aDz, this.val$url, this.aDA, 0, 1111);
     }
 }

@@ -25,7 +25,7 @@ public class a {
         }
     }
 
-    public ArrayList<com.baidu.tbadk.mainTab.b> qz() {
+    public ArrayList<com.baidu.tbadk.mainTab.b> qw() {
         return this.SC;
     }
 

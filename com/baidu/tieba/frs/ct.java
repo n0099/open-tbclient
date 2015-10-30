@@ -58,13 +58,13 @@ public class ct implements ViewPager.OnPageChangeListener {
                         childViewPager2 = this.aXL.aXG;
                         childViewPager2.setCurrentItem(1, false);
                     }
-                    this.aXL.Mo();
+                    this.aXL.Mk();
                     return;
                 }
                 return;
             }
             return;
         }
-        this.aXL.Mp();
+        this.aXL.Ml();
     }
 }

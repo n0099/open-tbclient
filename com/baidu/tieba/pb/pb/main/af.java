@@ -32,9 +32,9 @@ public class af implements a.b {
         aVar2 = this.ciK.cii;
         if (aVar2 != null) {
             aVar3 = this.ciK.cii;
-            if (aVar3.qk()) {
+            if (aVar3.qh()) {
                 aVar7 = this.ciK.cii;
-                aVar7.ql();
+                aVar7.qi();
                 aVar8 = this.ciK.cii;
                 aVar8.ab(false);
             }
@@ -43,13 +43,13 @@ public class af implements a.b {
             aVar5 = this.ciK.cii;
             aVar5.ab(true);
             aVar6 = this.ciK.cii;
-            aVar6.qm();
+            aVar6.qj();
         }
         this.ciR.setPostId(this.ciQ.getPostId());
         Intent intent = new Intent();
         intent.putExtra(PbActivityConfig.KEY_MARK, this.ciR);
         this.ciK.setResult(-1, intent);
         this.ciS.dismiss();
-        this.ciK.afp();
+        this.ciK.afl();
     }
 }

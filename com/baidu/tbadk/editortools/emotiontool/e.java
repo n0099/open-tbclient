@@ -18,10 +18,10 @@ class e implements AdapterView.OnItemLongClickListener {
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         EmotionTabContentView emotionTabContentView;
         EmotionTabContentView.a aVar = (EmotionTabContentView.a) adapterView.getAdapter();
-        if (aVar == null || aVar.AN() == null) {
+        if (aVar == null || aVar.AK() == null) {
             return false;
         }
-        if (aVar.AN().AS() == EmotionGroupType.BIG_EMOTION) {
+        if (aVar.AK().AP() == EmotionGroupType.BIG_EMOTION) {
             emotionTabContentView = EmotionTabContentView.this;
             emotionTabContentView.a(i, (GridView) adapterView);
             return true;

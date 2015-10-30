@@ -84,7 +84,7 @@ public class m {
         an.i((View) this.cJV, i.e.recommend_frs_header_title_bg);
         an.b(this.cJV, i.c.cp_cont_g, 1);
         if (this.cJU != null) {
-            this.cJU.tc();
+            this.cJU.sZ();
         }
     }
 }

@@ -18,7 +18,7 @@ public class ca {
     private ImageView cki = null;
     private boolean ckj = true;
 
-    public boolean agi() {
+    public boolean age() {
         return this.ckj;
     }
 
@@ -42,19 +42,19 @@ public class ca {
         this.cki.setVisibility(z ? 0 : 8);
     }
 
-    public TextView afY() {
+    public TextView afU() {
         return this.cjQ;
     }
 
-    public TextView agj() {
+    public TextView agf() {
         return this.ckg;
     }
 
-    public ImageView agk() {
+    public ImageView agg() {
         return this.ckh;
     }
 
-    public ImageView agl() {
+    public ImageView agh() {
         return this.cki;
     }
 

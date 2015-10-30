@@ -17,13 +17,13 @@ public class g implements BdExpandListView.a {
         aj ajVar;
         aj ajVar2;
         yVar = this.csI.csv;
-        yVar.ajU();
+        yVar.ajQ();
         ajVar = this.csI.csw;
-        if (ajVar.ajY() != null) {
+        if (ajVar.ajU() != null) {
             ajVar2 = this.csI.csw;
-            ajVar2.ajY().nl();
+            ajVar2.ajU().nl();
         }
-        this.csI.aji();
+        this.csI.aje();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
@@ -31,9 +31,9 @@ public class g implements BdExpandListView.a {
         aj ajVar;
         aj ajVar2;
         ajVar = this.csI.csw;
-        if (ajVar.ajY() != null) {
+        if (ajVar.ajU() != null) {
             ajVar2 = this.csI.csw;
-            ajVar2.ajY().hideProgress();
+            ajVar2.ajU().hideProgress();
         }
     }
 
@@ -42,9 +42,9 @@ public class g implements BdExpandListView.a {
         aj ajVar;
         aj ajVar2;
         ajVar = this.csI.csw;
-        if (ajVar.ajY() != null) {
+        if (ajVar.ajU() != null) {
             ajVar2 = this.csI.csw;
-            ajVar2.ajY().j(f);
+            ajVar2.ajU().j(f);
         }
     }
 }

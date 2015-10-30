@@ -21,9 +21,9 @@ class f extends CustomMessageListener {
         i iVar2;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001325 && (customResponsedMessage.getData() instanceof VoiceCheckResult)) {
             VoiceCheckResult voiceCheckResult = (VoiceCheckResult) customResponsedMessage.getData();
-            if (voiceCheckResult.awR() == VoiceCheckResult.ResultCode.SUCCESS) {
+            if (voiceCheckResult.awN() == VoiceCheckResult.ResultCode.SUCCESS) {
                 this.cLw.cLm = voiceCheckResult;
-                if (voiceCheckResult.awS()) {
+                if (voiceCheckResult.awO()) {
                     iVar2 = this.cLw.cLj;
                     iVar2.fR(true);
                     return;

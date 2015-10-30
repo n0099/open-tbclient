@@ -31,7 +31,7 @@ public class c implements a.b {
         } else {
             TiebaStatic.log("c10033");
         }
-        this.djb.Zf();
+        this.djb.Zb();
         UserMuteAddAndDelModel userMuteAddAndDelModel = this.djb;
         str = this.djb.dja;
         userMuteAddAndDelModel.s(str, this.bxN, this.bop);

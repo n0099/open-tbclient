@@ -24,17 +24,17 @@ public class b extends com.baidu.adp.base.e {
         return false;
     }
 
-    private PrivateInfoNetMessage arn() {
+    private PrivateInfoNetMessage arj() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean aro() {
+    public boolean ark() {
         if (this.ayL) {
             return false;
         }
         this.ayL = true;
         this.cDy = false;
-        sendMessage(arn());
+        sendMessage(arj());
         return true;
     }
 

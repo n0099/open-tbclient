@@ -75,16 +75,16 @@ public class j {
         this.bOV = z;
     }
 
-    public void aad() {
+    public void ZZ() {
         if (!this.bOU && !this.bOZ) {
             c(this.bOS, this.bOT, 10, 0);
         }
     }
 
-    public void aae() {
+    public void aaa() {
         if (!this.bOZ) {
             if (!this.bOU) {
-                aad();
+                ZZ();
             } else if (this.bOR != null && this.bOR.length() > 0) {
                 this.bOV = true;
                 c(this.bOR, null, 0, 10);
@@ -156,23 +156,23 @@ public class j {
             if (!StringUtils.isNull(j.this.mFrom, true)) {
                 this.Ti.o("obj_type", j.this.mFrom);
             }
-            aaf();
-            this.Ti.uh().uY().abO = false;
-            String tG = this.Ti.tG();
-            if (!this.Ti.uh().uZ().qV()) {
+            aab();
+            this.Ti.ue().uV().abO = false;
+            String tD = this.Ti.tD();
+            if (!this.Ti.ue().uW().qS()) {
                 return null;
             }
             m mVar = new m();
-            mVar.y(tG, true);
+            mVar.y(tD, true);
             return mVar;
         }
 
-        private void aaf() {
+        private void aab() {
             this.Ti.o("forum_id", j.this.mForumId);
             this.Ti.o("user_id", j.this.mUserId == null ? "0" : j.this.mUserId);
             this.Ti.o("scr_w", String.valueOf(com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp())));
             this.Ti.o("scr_h", String.valueOf(com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp())));
-            this.Ti.o("q_type", String.valueOf(at.uJ().uL() ? 2 : 1));
+            this.Ti.o("q_type", String.valueOf(at.uG().uI() ? 2 : 1));
             this.Ti.o("_os_version", Build.VERSION.RELEASE);
             this.Ti.o("net_type", com.baidu.tbadk.core.util.a.i.getNetType());
             this.Ti.o("page_name", "PB");
@@ -201,32 +201,32 @@ public class j {
             j.this.bOW = null;
             if (mVar != null) {
                 j.this.bOX = mVar.getImageNum();
-                j.this.bPc = mVar.aah();
+                j.this.bPc = mVar.aad();
                 if (this.bPd == null) {
                     j.this.bOQ.clear();
                     j.this.bPb.clear();
                 }
-                LinkedList<l> aag = mVar.aag();
-                int size = aag.size();
+                LinkedList<l> aac = mVar.aac();
+                int size = aac.size();
                 if (size <= 0) {
                     j.this.bOU = true;
                 } else {
                     for (int i3 = 0; i3 < size; i3++) {
-                        l lVar = aag.get(i3);
+                        l lVar = aac.get(i3);
                         String a = j.this.a(lVar);
                         String iQ = j.this.iQ(a);
                         if (!j.this.bPb.containsKey(iQ)) {
                             ImageUrlData imageUrlData = new ImageUrlData();
                             imageUrlData.imageUrl = a;
                             imageUrlData.urlType = 10;
-                            imageUrlData.originalUrl = lVar.Fj();
+                            imageUrlData.originalUrl = lVar.Ff();
                             imageUrlData.originalSize = lVar.getOriginalSize();
                             j.this.bOQ.add(a);
                             j.this.ajT.put(a, imageUrlData);
                             j.this.bPb.put(iQ, a);
                         }
                     }
-                    l lVar2 = aag.get(size - 1);
+                    l lVar2 = aac.get(size - 1);
                     j.this.bOT = lVar2.getImageID();
                     if (j.this.bOX == lVar2.getIndex()) {
                         j.this.bOU = true;
@@ -248,7 +248,7 @@ public class j {
                 }
             } else if (j.this.bPa != null) {
                 if (this.Ti != null) {
-                    i2 = this.Ti.ul();
+                    i2 = this.Ti.ui();
                     str = this.bPd == null ? this.Ti.getErrorString() : null;
                 } else {
                     i2 = -1;
@@ -261,8 +261,8 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(l lVar) {
-        if (lVar.Ff() != null && lVar.Ff().length() > 0) {
-            return lVar.Ff();
+        if (lVar.Fb() != null && lVar.Fb().length() > 0) {
+            return lVar.Fb();
         }
         StringBuilder sb = new StringBuilder((int) SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
         if (lVar.getHeight() * lVar.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {

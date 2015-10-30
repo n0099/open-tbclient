@@ -34,9 +34,9 @@ public class d extends com.baidu.adp.framework.listener.a {
                 if (!(responsedMessage instanceof AddVoteSocketResponse)) {
                     return;
                 }
-                this.djz.aAN();
+                this.djz.aAJ();
             } else {
-                this.djz.aAN();
+                this.djz.aAJ();
             }
         }
     }

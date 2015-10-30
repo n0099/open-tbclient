@@ -36,17 +36,17 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     private CustomMessageListener cLv = new f(this, CmdConfigCustom.CMD_VOICE_CHECK);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqZ() {
+    public void aqV() {
         new Handler().postDelayed(new g(this), 500L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ara() {
-        if (this.cLm.awT()) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoicePasswordVerifyActivityConfig(getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentBduss(), this.cLm.awV(), 230010)));
+    public void aqW() {
+        if (this.cLm.awP()) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoicePasswordVerifyActivityConfig(getPageContext().getPageActivity(), TbadkCoreApplication.getCurrentBduss(), this.cLm.awR(), 230010)));
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoiceSettingActivityConfig(getPageContext().getPageActivity(), this.cLm.awU(), 230011)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoiceSettingActivityConfig(getPageContext().getPageActivity(), this.cLm.awQ(), 230011)));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -56,7 +56,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         this.cLj = new i(this);
         this.cLk = new a();
         this.cLj.a(this.cLs);
-        if (this.cLk.aqT()) {
+        if (this.cLk.aqP()) {
             this.cLj.fS(true);
             this.cLj.c(this.cLk);
             b(this.cLk);
@@ -68,11 +68,11 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         registerListener(this.cLu);
         registerListener(this.cLt);
         registerListener(this.cLv);
-        arb();
+        aqX();
         sendMessage(new PrivateInfoNetMessage());
     }
 
-    private void arb() {
+    private void aqX() {
         if (!TbadkCoreApplication.m411getInst().isVoiceLoginCanUse()) {
             this.cLj.fU(false);
             return;
@@ -83,9 +83,9 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(a aVar) {
-        this.cLo = aVar.aqW();
-        this.cLp = aVar.aqU();
-        this.cLq = aVar.Aa();
+        this.cLo = aVar.aqS();
+        this.cLp = aVar.aqQ();
+        this.cLq = aVar.zX();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,7 +99,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onResourceRecycle() {
         super.onResourceRecycle();
-        this.cLj.ark();
+        this.cLj.arg();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -118,7 +118,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
             this.cLr = new com.baidu.tbadk.core.dialog.e(getPageContext());
             this.cLr.cw(str2);
             this.cLr.a(this.cLn, new h(this, str)).cw(str2);
-            this.cLr.sV().sW();
+            this.cLr.sS().sT();
         }
     }
 
@@ -131,12 +131,12 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void arc() {
+    public void aqY() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_IMBLACK_LIST, new IMBlackListActivityConfig(getPageContext().getPageActivity())));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ard() {
+    public void aqZ() {
         sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_USER_MUTE_LIST_ACTIVITY, new UserMuteListActivityConfig(getPageContext().getPageActivity())));
     }
 
@@ -154,10 +154,10 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> {
         if (i == 230010 && i2 == -1) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VoiceSettingActivityConfig(getPageContext().getPageActivity(), intent.getStringExtra(VoicePasswordVerifyActivityConfig.AUTH_SID), 230011)));
         }
-        if (i == 230011 && i2 == -1 && this.cLm != null && !this.cLm.awS()) {
+        if (i == 230011 && i2 == -1 && this.cLm != null && !this.cLm.awO()) {
             this.cLj.fV(true);
             TbadkCoreApplication.m411getInst().setVoiceLoginOn(true);
-            arb();
+            aqX();
         }
     }
 

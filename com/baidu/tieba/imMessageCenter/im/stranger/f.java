@@ -34,9 +34,9 @@ class f extends CustomMessageListener {
                             iVar = this.bOw.bOq;
                             if (iVar != null) {
                                 iVar2 = this.bOw.bOq;
-                                if (iVar2.ZK() != null) {
+                                if (iVar2.ZG() != null) {
                                     iVar3 = this.bOw.bOq;
-                                    iVar3.ZK().notifyDataSetChanged();
+                                    iVar3.ZG().notifyDataSetChanged();
                                     return;
                                 }
                                 return;

@@ -17,9 +17,9 @@ public class h implements com.baidu.tbadk.editortools.b {
             if (aVar.code == 24) {
                 if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.coreExtra.data.f)) {
                     com.baidu.tbadk.coreExtra.data.f fVar = (com.baidu.tbadk.coreExtra.data.f) aVar.data;
-                    EmotionGroupType wk = fVar.wk();
+                    EmotionGroupType wh = fVar.wh();
                     String name = fVar.getName();
-                    if (wk != EmotionGroupType.LOCAL && name != null) {
+                    if (wh != EmotionGroupType.LOCAL && name != null) {
                         this.bqS.mContext.sendBigEmotionMsg(fVar);
                         this.bqS.onSendEmotion();
                     }

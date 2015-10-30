@@ -18,7 +18,7 @@ public class ac implements View.OnClickListener {
             int intValue = ((Integer) view.getTag()).intValue();
             i = this.bMM.currentIndex;
             if (i == intValue) {
-                this.bMM.Za();
+                this.bMM.YW();
             } else {
                 this.bMM.hM(intValue);
             }

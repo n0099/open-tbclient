@@ -11,7 +11,7 @@ public class Cdo {
     private Cdo() {
     }
 
-    public static Cdo Mw() {
+    public static Cdo Ms() {
         return aYA;
     }
 

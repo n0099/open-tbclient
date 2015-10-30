@@ -25,7 +25,7 @@ public class i implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String ry() {
+    public String rv() {
         return this.UJ;
     }
 
@@ -34,7 +34,7 @@ public class i implements com.baidu.tbadk.core.flow.a.a {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: rz */
+    /* renamed from: rw */
     public i clone() {
         i iVar = new i();
         iVar.mImageUrl = this.mImageUrl;
@@ -61,7 +61,7 @@ public class i implements com.baidu.tbadk.core.flow.a.a {
         }
     }
 
-    public boolean rA() {
+    public boolean rx() {
         return this.UM;
     }
 

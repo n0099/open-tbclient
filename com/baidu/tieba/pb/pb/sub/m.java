@@ -27,19 +27,19 @@ class m implements a.d {
             nVar = this.cmC.caU;
             if (nVar != null) {
                 nVar2 = this.cmC.caU;
-                if (nVar2.Ax() != null) {
+                if (nVar2.Au() != null) {
                     nVar3 = this.cmC.caU;
-                    nVar3.Ax().hide();
+                    nVar3.Au().hide();
                     akVar = this.cmC.cmt;
-                    if (akVar.ahK()) {
+                    if (akVar.ahG()) {
                         aq aqVar = new aq("c10367");
                         akVar2 = this.cmC.cmt;
-                        TiebaStatic.log(aqVar.ae("post_id", akVar2.Bl()));
+                        TiebaStatic.log(aqVar.ae("post_id", akVar2.Bi()));
                     }
                 }
             }
         }
         tVar = this.cmC.cmv;
-        tVar.ahn();
+        tVar.ahj();
     }
 }

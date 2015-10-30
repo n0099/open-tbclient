@@ -31,7 +31,7 @@ public class o {
             if (bm && bs) {
                 hVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(hVar.getPageActivity(), "com.baidu.tieba.pluginCookeryGod")));
             } else if (hVar instanceof TbPageContext) {
-                az.uW().a((TbPageContext) hVar, new String[]{str}, true);
+                az.uT().a((TbPageContext) hVar, new String[]{str}, true);
             }
         }
     }

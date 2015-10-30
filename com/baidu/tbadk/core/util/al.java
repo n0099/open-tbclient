@@ -7,7 +7,7 @@ public class al {
     private static final al aaU = new al();
     private final HashMap<Class<?>, Class<?>> mActicyConfig = new HashMap<>();
 
-    public static final al uB() {
+    public static final al uy() {
         return aaU;
     }
 

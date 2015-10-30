@@ -14,17 +14,17 @@ class bg implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.tbadk.editortools.j jVar;
-        int aDg;
+        int aDc;
         EditText editText;
         EditText editText2;
         jVar = this.dqi.dpD;
         jVar.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-        aDg = this.dqi.aDg();
-        if (aDg >= 0) {
+        aDc = this.dqi.aDc();
+        if (aDc >= 0) {
             editText = this.dqi.dmD;
-            if (aDg < editText.getText().length()) {
+            if (aDc < editText.getText().length()) {
                 editText2 = this.dqi.dmD;
-                editText2.setSelection(aDg);
+                editText2.setSelection(aDc);
             }
         }
     }

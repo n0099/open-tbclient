@@ -69,7 +69,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
             return null;
         }
         boolean booleanValue = (str == null || !str.startsWith("width=")) ? Boolean.valueOf(String.valueOf(objArr[2])).booleanValue() : false;
-        String str4 = booleanValue ? str : String.valueOf(TbConfig.IMAGE_ADDRESS) + (String.valueOf(String.valueOf(str) + "&imgtype=0") + "&qulity=" + at.uJ().uO());
+        String str4 = booleanValue ? str : String.valueOf(TbConfig.IMAGE_ADDRESS) + (String.valueOf(String.valueOf(str) + "&imgtype=0") + "&qulity=" + at.uG().uL());
         boolean z = false;
         if (!(TbadkCoreApplication.m411getInst().getCapabilityOfWebp() && com.baidu.adp.lib.b.e.gv().ah("webp_enable") == 1) || str4.indexOf("hiphotos.baidu.com") <= 0 || (lastIndexOf = str4.lastIndexOf(".jpg")) <= 0) {
             str3 = str4;
@@ -82,7 +82,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
             aVar.vs = jVar;
         }
         byte[] l = jVar.l(str3, !booleanValue);
-        if (!jVar.vi()) {
+        if (!jVar.vf()) {
             bArr = l;
             bitmap = null;
         } else {
@@ -91,7 +91,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.a.a> {
                 TiebaStatic.imgError(TbErrInfo.ERR_IMG_DECODE_WEBP, "Webp decoding failed.", str3);
                 TbadkCoreApplication.m411getInst().incWebpFailureCount();
                 bArr = jVar.l(str4, !booleanValue);
-                bitmap = (bArr == null || !jVar.vi()) ? N : com.baidu.tbadk.core.util.c.N(bArr);
+                bitmap = (bArr == null || !jVar.vf()) ? N : com.baidu.tbadk.core.util.c.N(bArr);
             } else {
                 bArr = l;
                 bitmap = N;

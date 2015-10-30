@@ -12,7 +12,7 @@ public class k {
         this.class_name = str;
     }
 
-    public String rD() {
+    public String rA() {
         return this.class_name;
     }
 
@@ -20,7 +20,7 @@ public class k {
         this.UR = i;
     }
 
-    public int rE() {
+    public int rB() {
         return this.UR;
     }
 

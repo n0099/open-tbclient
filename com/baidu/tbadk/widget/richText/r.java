@@ -28,7 +28,7 @@ public class r extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public String wf() {
+    public String wc() {
         return this.md5;
     }
 
@@ -36,11 +36,11 @@ public class r extends com.baidu.adp.lib.a.b.a.a.i {
         return this.duration;
     }
 
-    public int Fu() {
+    public int Fq() {
         return this.aCF;
     }
 
-    public Object Fv() {
+    public Object Fr() {
         return this.aCG;
     }
 

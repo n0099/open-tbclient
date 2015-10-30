@@ -16,7 +16,7 @@ class x implements a.b {
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
         if (imMessageCenterPojo != null) {
-            b.VW().a(6, imMessageCenterPojo.getPulled_msgId(), String.valueOf(10));
+            b.VS().a(6, imMessageCenterPojo.getPulled_msgId(), String.valueOf(10));
         }
     }
 

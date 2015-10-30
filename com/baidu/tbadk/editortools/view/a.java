@@ -28,7 +28,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         public int asL;
     }
 
-    public abstract void AG();
+    public abstract void AD();
 
     public abstract int getCount();
 
@@ -48,7 +48,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         }
     }
 
-    public b BN() {
+    public b BK() {
         return this.asH;
     }
 
@@ -56,7 +56,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.asH = bVar;
     }
 
-    public InterfaceC0047a BO() {
+    public InterfaceC0047a BL() {
         return this.asI;
     }
 
@@ -64,7 +64,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.asI = interfaceC0047a;
     }
 
-    public int BP() {
+    public int BM() {
         return this.column;
     }
 
@@ -96,7 +96,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.horizontalSpacing = i;
     }
 
-    public b.a BQ() {
+    public b.a BN() {
         return this.asJ;
     }
 }

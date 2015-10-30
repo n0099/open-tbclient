@@ -81,12 +81,12 @@ public class e extends FrameLayout {
             this.isSelected = z;
             this.aCU = aVar;
             this.position = i;
-            if (StringUtils.isNull(aVar.Fw())) {
+            if (StringUtils.isNull(aVar.Fs())) {
                 this.aCY.setVisibility(4);
                 this.aCY.setText((CharSequence) null);
             } else {
                 this.aCY.setVisibility(0);
-                this.aCY.setText(UtilHelper.getFixedText(aVar.Fw(), 10, false));
+                this.aCY.setText(UtilHelper.getFixedText(aVar.Fs(), 10, false));
             }
             if (i2 == 2) {
                 setOnClickListener(null);
@@ -96,7 +96,7 @@ public class e extends FrameLayout {
                 bu(z);
             }
             this.aDa.setVisibility(z ? 0 : 8);
-            this.aCV.d(aVar.FB(), 17, false);
+            this.aCV.d(aVar.Fx(), 17, false);
         }
     }
 
@@ -118,20 +118,20 @@ public class e extends FrameLayout {
         setProgressGroupVisible(true);
         this.aCZ.setVisibility(8);
         if (aVar != null) {
-            if (StringUtils.isNull(aVar.Fx())) {
+            if (StringUtils.isNull(aVar.Ft())) {
                 this.aCW.setVisibility(8);
                 this.aCW.setText((CharSequence) null);
             } else {
                 this.aCW.setVisibility(0);
-                this.aCW.setText(aVar.Fx());
+                this.aCW.setText(aVar.Ft());
             }
-            if (StringUtils.isNull(aVar.Fy())) {
+            if (StringUtils.isNull(aVar.Fu())) {
                 this.aCX.setVisibility(8);
                 this.aCX.setText((CharSequence) null);
                 return;
             }
             this.aCX.setVisibility(0);
-            this.aCX.setText(aVar.Fy());
+            this.aCX.setText(aVar.Fu());
         }
     }
 
@@ -149,14 +149,14 @@ public class e extends FrameLayout {
 
     public void setProgress(float f) {
         if (f >= 0.0f && this.aCU != null) {
-            int FA = (int) (this.aCU.FA() * f);
+            int Fw = (int) (this.aCU.Fw() * f);
             if (this.isSelected) {
-                this.aCI.setProgress(FA);
+                this.aCI.setProgress(Fw);
                 this.aCI.setSecondaryProgress(0);
                 return;
             }
             this.aCI.setProgress(0);
-            this.aCI.setSecondaryProgress(FA);
+            this.aCI.setSecondaryProgress(Fw);
         }
     }
 

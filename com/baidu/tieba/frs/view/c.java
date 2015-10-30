@@ -15,7 +15,7 @@ public class c implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.bdn.mContext == null || this.bdn.mContext.getOrignalPage() == null || this.bdn.mContext.getOrignalPage().checkUpIsLogin()) {
-            az.uW().b(this.bdn.mContext, new String[]{(String) view.getTag()});
+            az.uT().b(this.bdn.mContext, new String[]{(String) view.getTag()});
         }
     }
 }

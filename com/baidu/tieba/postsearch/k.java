@@ -41,11 +41,11 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Uf() {
+    public void Ub() {
         if (this.cEg == null) {
             this.cEg = new com.baidu.tbadk.core.dialog.a(this.cDW.getPageContext().getPageActivity()).cu(this.cDW.getPageContext().getString(i.h.alert_clean_history)).a(this.cDW.getPageContext().getString(i.h.clear_all_text), new o(this)).b(this.cDW.getPageContext().getString(i.h.alert_no_button), new p(this)).b(this.cDW.getPageContext());
         }
-        this.cEg.sR();
+        this.cEg.sO();
     }
 
     private void gh(int i) {
@@ -63,7 +63,7 @@ public class k {
         gh(i.h.text_no_search_record);
     }
 
-    public void aoo() {
+    public void aok() {
         this.cEe.setVisibility(8);
         gh(i.h.no_search_result_record);
     }
@@ -74,19 +74,19 @@ public class k {
         }
     }
 
-    public void KB() {
+    public void Kx() {
         this.cEh = true;
         this.cDW.showLoadingView(this.cEd, false, this.cDW.getResources().getDimensionPixelSize(i.d.ds400));
     }
 
-    public void amT() {
+    public void amP() {
         this.cEh = false;
         this.cDW.hideLoadingView(this.cEd);
     }
 
     public void ac(ArrayList<String> arrayList) {
         this.cEd.setVisibility(0);
-        amT();
+        amP();
         if (arrayList == null || arrayList.size() == 0) {
             this.cEe.setVisibility(8);
             showNoDataView();
@@ -98,11 +98,11 @@ public class k {
         this.cEf.notifyDataSetChanged();
     }
 
-    public void aop() {
+    public void aol() {
         this.cEd.setVisibility(8);
     }
 
-    public boolean aoq() {
+    public boolean aom() {
         return this.cEd.getVisibility() == 0 && !this.cEh && (this.mNoDataView == null || 8 == this.mNoDataView.getVisibility());
     }
 

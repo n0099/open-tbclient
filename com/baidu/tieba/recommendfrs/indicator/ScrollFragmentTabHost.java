@@ -31,7 +31,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
     private h.a cJi;
     private Context mContext;
 
-    public boolean aqw() {
+    public boolean aqs() {
         return this.cJg != null && this.cJg.isShowing();
     }
 
@@ -58,7 +58,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
         this.cJf = (FrameLayout) findViewById(i.f.tab_widget_content_container);
     }
 
-    public void aqx() {
+    public void aqt() {
         if (this.cJg == null) {
             this.cJg = new h(this.cJf);
             this.cJg.a(this.cJi);
@@ -66,12 +66,12 @@ public class ScrollFragmentTabHost extends LinearLayout {
         if (!this.cJg.isShowing()) {
             this.cJg.a(this.mContext, this.cIx, this.Yw.getCurrentItem());
             if (this.cJd != null) {
-                this.cJd.aqB();
+                this.cJd.aqx();
             }
         }
     }
 
-    public void aqy() {
+    public void aqu() {
         if (this.cJg != null) {
             this.cJg.aK(this.mContext);
         }
@@ -113,7 +113,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
         this.Yw.setAdapter(this.cJe);
     }
 
-    public boolean aqz() {
+    public boolean aqv() {
         return this.cJe != null && this.cJe.getCount() > 0;
     }
 

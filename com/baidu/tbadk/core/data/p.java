@@ -7,7 +7,7 @@ public class p extends w {
     public static final BdUniqueId Va = BdUniqueId.gen();
     private List<PhotoLiveCardData> Vb;
 
-    public List<PhotoLiveCardData> rN() {
+    public List<PhotoLiveCardData> rK() {
         return this.Vb;
     }
 

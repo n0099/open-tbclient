@@ -21,7 +21,7 @@ public class f implements MediaPlayer.OnCompletionListener {
             voice = this.afp.mVoice;
             if (voice != null) {
                 hVar2 = this.afp.mPlayer;
-                hVar2.vM();
+                hVar2.vJ();
                 this.afp.stopVoice(null);
             }
         }

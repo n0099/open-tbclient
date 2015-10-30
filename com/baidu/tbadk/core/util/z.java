@@ -13,7 +13,7 @@ public class z {
         aak = TbadkCoreApplication.m411getInst().getNetWorkCoreType();
     }
 
-    public static synchronized z up() {
+    public static synchronized z um() {
         z zVar;
         synchronized (z.class) {
             if (aag == null) {

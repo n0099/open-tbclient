@@ -21,7 +21,7 @@ public class be extends BdAsyncTask<Void, Integer, Void> {
         String str;
         StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
         str = this.dqi.arU;
-        com.baidu.tbadk.core.util.n.deleteFile(new File(append.append(str).toString()));
+        com.baidu.tbadk.core.util.n.q(new File(append.append(str).toString()));
         return null;
     }
 }

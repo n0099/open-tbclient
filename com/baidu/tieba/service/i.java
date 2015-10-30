@@ -23,7 +23,7 @@ class i implements c.a {
             i = 32400;
         }
         cVar = this.cLe.mModel;
-        cVar.aQ(i * 1000);
+        cVar.aO(i * 1000);
         TbadkCoreApplication.m411getInst().getAlarmManager().a(com.baidu.tbadk.a.a.RU, 1, System.currentTimeMillis() + (i * 1000), i * 1000);
     }
 
@@ -32,7 +32,7 @@ class i implements c.a {
         com.baidu.tieba.model.c cVar;
         BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
         cVar = this.cLe.mModel;
-        cVar.aQ(600000L);
+        cVar.aO(600000L);
         TbadkCoreApplication.m411getInst().getAlarmManager().a(com.baidu.tbadk.a.a.RU, 1, System.currentTimeMillis() + 600000, 600000L);
     }
 }

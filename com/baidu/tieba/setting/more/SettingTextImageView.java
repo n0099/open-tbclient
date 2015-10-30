@@ -23,7 +23,7 @@ public class SettingTextImageView extends FrameLayout {
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        zk();
+        zh();
         c(attributeSet);
         dF(TbadkCoreApplication.m411getInst().getSkinType());
     }
@@ -31,7 +31,7 @@ public class SettingTextImageView extends FrameLayout {
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        zk();
+        zh();
         dF(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
@@ -41,13 +41,13 @@ public class SettingTextImageView extends FrameLayout {
         this.cOL.invalidate();
     }
 
-    public void atc() {
+    public void asY() {
         if (this.cOL != null) {
             this.cOL.setVisibility(8);
         }
     }
 
-    public void atd() {
+    public void asZ() {
         if (this.cOL != null) {
             this.cOL.setVisibility(0);
         }
@@ -68,7 +68,7 @@ public class SettingTextImageView extends FrameLayout {
     public void recycle() {
     }
 
-    private void zk() {
+    private void zh() {
         LayoutInflater.from(this.mContext).inflate(i.g.setting_text_image_view, (ViewGroup) this, true);
         this.container = (LinearLayout) findViewById(i.f.container);
         this.alQ = (TextView) findViewById(i.f.text);

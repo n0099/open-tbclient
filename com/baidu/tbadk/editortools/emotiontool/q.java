@@ -15,7 +15,7 @@ public class q extends a {
         return 1;
     }
 
-    public static synchronized q Bb() {
+    public static synchronized q AY() {
         q qVar;
         synchronized (q.class) {
             qVar = aqP;
@@ -31,7 +31,7 @@ public class q extends a {
     public void a(a.InterfaceC0046a interfaceC0046a) {
         if (this.aqQ == null || this.aqQ.isEmpty()) {
             this.aqQ = new LinkedList<>();
-            if (TbFaceManager.Ce().AQ() > 0) {
+            if (TbFaceManager.Cb().AN() > 0) {
                 p pVar = new p();
                 this.aqQ.add(pVar);
                 if (interfaceC0046a != null) {
@@ -52,7 +52,7 @@ public class q extends a {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
-    public void AJ() {
+    public void AG() {
     }
 
     public boolean isEmpty() {

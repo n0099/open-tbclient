@@ -21,7 +21,7 @@ class n implements NoNetworkView.a {
         com.baidu.tieba.tbadkCore.o oVar2;
         if (z) {
             bsVar = this.aUK.aTU;
-            if (!bsVar.Li()) {
+            if (!bsVar.Le()) {
                 oVar = this.aUK.aTW;
                 if (oVar != null) {
                     oVar2 = this.aUK.aTW;
@@ -38,7 +38,7 @@ class n implements NoNetworkView.a {
                     bsVar3 = this.aUK.aTU;
                     frsActivity2.showLoadingView(bsVar3.getRootView(), true);
                     bsVar4 = this.aUK.aTU;
-                    bsVar4.LY();
+                    bsVar4.LU();
                 }
                 this.aUK.refresh();
             }

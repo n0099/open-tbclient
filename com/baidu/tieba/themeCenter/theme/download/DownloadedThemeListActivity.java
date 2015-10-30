@@ -21,7 +21,7 @@ public class DownloadedThemeListActivity extends BaseActivity<DownloadedThemeLis
         super.onCreate(bundle);
         this.dgr = new com.baidu.tieba.themeCenter.d(getPageContext());
         this.dhe = new h(this, this.dhj);
-        this.dhe.azH().setOnClickListener(this.dhi);
+        this.dhe.azD().setOnClickListener(this.dhi);
         this.dhf = new d();
         this.dhf.a(this.dhh);
         this.dhf.LoadData();
@@ -32,7 +32,7 @@ public class DownloadedThemeListActivity extends BaseActivity<DownloadedThemeLis
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.dhe != null) {
-            this.dhe.tc();
+            this.dhe.sZ();
         }
     }
 

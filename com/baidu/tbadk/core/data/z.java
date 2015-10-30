@@ -9,11 +9,11 @@ public class z {
     private int Wh = 0;
     private String link = "";
 
-    public int sL() {
+    public int sI() {
         return this.Wg;
     }
 
-    public int sM() {
+    public int sJ() {
         return this.Wh;
     }
 

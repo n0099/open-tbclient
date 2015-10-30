@@ -62,9 +62,9 @@ public class e extends com.baidu.adp.framework.listener.a {
             }
             if (oVar != null) {
                 if (arrayList != null && arrayList.size() != 0) {
-                    int rJ = oVar.rJ();
+                    int rG = oVar.rG();
                     i2 = this.baC.bax;
-                    if (rJ > i2) {
+                    if (rG > i2) {
                         i3 = this.baC.bax;
                         if (i3 > 0) {
                             z = this.baC.aRk;
@@ -74,7 +74,7 @@ public class e extends com.baidu.adp.framework.listener.a {
                             }
                         }
                     }
-                    if (oVar.rJ() > 0) {
+                    if (oVar.rG() > 0) {
                         arrayList5 = this.baC.baA;
                         arrayList5.clear();
                         arrayList6 = this.baC.baA;
@@ -86,10 +86,10 @@ public class e extends com.baidu.adp.framework.listener.a {
                 eeVar5 = this.baC.baz;
                 eeVar5.errMsg = str;
                 eeVar6 = this.baC.baz;
-                eeVar6.pn = oVar.rJ();
+                eeVar6.pn = oVar.rG();
                 eeVar7 = this.baC.baz;
-                eeVar7.hasMore = oVar.rL() == 1;
-                this.baC.bax = oVar.rJ();
+                eeVar7.hasMore = oVar.rI() == 1;
+                this.baC.bax = oVar.rG();
             }
             this.baC.aRk = false;
             ebVar = this.baC.bay;

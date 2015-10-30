@@ -40,36 +40,36 @@ public class c extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
     /* renamed from: a */
     public void B(com.baidu.tieba.recommendfrs.data.c cVar) {
         super.B(cVar);
-        if (cVar != null && cVar.aqh() != null) {
-            Hot_Thread aqh = cVar.aqh();
-            if (aqh.pics != null && aqh.pics.size() > 0) {
-                int size = aqh.pics.size();
-                if (size > 0 && aqh.pics.get(0) != null) {
-                    this.cJH.d(cVar.aqt() ? aqh.pics.get(0).small_pic : null, 10, false);
+        if (cVar != null && cVar.aqd() != null) {
+            Hot_Thread aqd = cVar.aqd();
+            if (aqd.pics != null && aqd.pics.size() > 0) {
+                int size = aqd.pics.size();
+                if (size > 0 && aqd.pics.get(0) != null) {
+                    this.cJH.d(cVar.aqp() ? aqd.pics.get(0).small_pic : null, 10, false);
                 }
-                if (size > 1 && aqh.pics.get(1) != null) {
-                    this.cJI.d(cVar.aqt() ? aqh.pics.get(1).small_pic : null, 10, false);
+                if (size > 1 && aqd.pics.get(1) != null) {
+                    this.cJI.d(cVar.aqp() ? aqd.pics.get(1).small_pic : null, 10, false);
                 }
-                if (size > 2 && aqh.pics.get(2) != null) {
-                    this.cJJ.d(cVar.aqt() ? aqh.pics.get(2).small_pic : null, 10, false);
+                if (size > 2 && aqd.pics.get(2) != null) {
+                    this.cJJ.d(cVar.aqp() ? aqd.pics.get(2).small_pic : null, 10, false);
                 }
             }
-            this.alu.setText(UtilHelper.getFixedText(aqh.title, 14, true));
-            if (StringUtils.isNull(aqh.forum_name)) {
+            this.alu.setText(UtilHelper.getFixedText(aqd.title, 14, true));
+            if (StringUtils.isNull(aqd.forum_name)) {
                 this.aJX.setVisibility(8);
             } else {
                 this.aJX.setVisibility(0);
-                this.aJX.setText(getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(aqh.forum_name, 7, false)));
-                this.aJX.setOnClickListener(new d(this, aqh));
+                this.aJX.setText(getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(aqd.forum_name, 7, false)));
+                this.aJX.setOnClickListener(new d(this, aqd));
             }
-            if (aqh.zan_num != null) {
-                this.aJY.setText(as.s(aqh.zan_num.intValue()));
+            if (aqd.zan_num != null) {
+                this.aJY.setText(as.q(aqd.zan_num.intValue()));
             }
-            if (aqh.reply_num != null) {
-                this.aJZ.setText(as.s(aqh.reply_num.intValue()));
+            if (aqd.reply_num != null) {
+                this.aJZ.setText(as.q(aqd.reply_num.intValue()));
             }
             p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.lL(String.valueOf(aqh.forum_id))) {
+            if (readThreadHistory != null && readThreadHistory.lL(String.valueOf(aqd.forum_id))) {
                 an.b(this.alu, i.c.cp_cont_c, 1);
             } else {
                 an.b(this.alu, i.c.cp_cont_b, 1);

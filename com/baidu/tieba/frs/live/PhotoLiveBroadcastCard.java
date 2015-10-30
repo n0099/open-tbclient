@@ -78,7 +78,7 @@ public class PhotoLiveBroadcastCard extends FrameLayout {
                 this.baG.setText(liveCardData.getTitle());
             }
             if (liveCardData.getPostNum() > 0 && liveCardData.getLastModifiedTime() > 0) {
-                this.baH.setText(this.baD.getResources().getString(i.h.pl_update_info, as.o(liveCardData.getLastModifiedTime() * 1000), as.s(liveCardData.getPostNum())));
+                this.baH.setText(this.baD.getResources().getString(i.h.pl_update_info, as.m(liveCardData.getLastModifiedTime() * 1000), as.q(liveCardData.getPostNum())));
             }
             if (!(StringUtils.isNull(liveCardData.getForumName()) ? false : true)) {
                 str = "";
@@ -89,14 +89,14 @@ public class PhotoLiveBroadcastCard extends FrameLayout {
             int zanNum = liveCardData.getZanNum();
             if (zanNum > 0) {
                 this.baJ.setVisibility(0);
-                this.baJ.setText(as.s(zanNum));
+                this.baJ.setText(as.q(zanNum));
             } else {
                 this.baJ.setVisibility(8);
             }
             int replyNum = liveCardData.getReplyNum();
             if (replyNum > 0) {
                 this.baK.setVisibility(0);
-                this.baK.setText(as.s(replyNum));
+                this.baK.setText(as.q(replyNum));
                 return;
             }
             this.baK.setVisibility(8);

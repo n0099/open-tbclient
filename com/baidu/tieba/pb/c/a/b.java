@@ -29,7 +29,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public CharSequence ahQ() {
+    public CharSequence ahM() {
         return this.cnH;
     }
 
@@ -44,7 +44,7 @@ public class b implements c {
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            az.uW().b(b.this.pageContext, new String[]{b.this.url});
+            az.uT().b(b.this.pageContext, new String[]{b.this.url});
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -55,7 +55,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public boolean ahR() {
+    public boolean ahN() {
         return false;
     }
 }

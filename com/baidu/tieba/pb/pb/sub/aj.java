@@ -11,14 +11,14 @@ public class aj extends PbListView {
         super(tbPageContext.getPageActivity());
         this.context = tbPageContext;
         getView().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(i.d.ds16), 0, 0);
-        vx();
+        vu();
         cL(i.e.pb_foot_more_trans_selector);
         cM(i.e.pb_foot_more_trans_selector);
     }
 
     @Override // com.baidu.tbadk.core.view.PbListView
-    public void vy() {
-        super.vy();
+    public void vv() {
+        super.vv();
         setText(this.context.getResources().getString(i.h.list_no_more));
         getView().setVisibility(0);
     }

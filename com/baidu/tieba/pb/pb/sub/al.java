@@ -172,7 +172,7 @@ public class al extends com.baidu.adp.framework.listener.a {
                     } else {
                         cVar = responsedMessage instanceof SubPbSocketResponseMessage ? ((SubPbSocketResponseMessage) responsedMessage).pbFloorData : null;
                     }
-                    if (cVar.aeY().errorno.intValue() != 0) {
+                    if (cVar.aeU().errorno.intValue() != 0) {
                         aVar7 = this.cnE.cnv;
                         if (aVar7 != null) {
                             aVar8 = this.cnE.cnv;
@@ -181,24 +181,24 @@ public class al extends com.baidu.adp.framework.listener.a {
                         }
                         return;
                     }
-                    if (cVar.afi() != null && cVar.afi().getAuthor() != null) {
-                        str5 = cVar.afi().getAuthor().getUserId();
+                    if (cVar.afe() != null && cVar.afe().getAuthor() != null) {
+                        str5 = cVar.afe().getAuthor().getUserId();
                     }
                     z2 = this.cnE.cnB;
                     if (!z2) {
-                        for (int i2 = 0; i2 < cVar.afd().size(); i2++) {
-                            boolean equals = str5.equals(cVar.afd().get(i2).getAuthor().getUserId());
+                        for (int i2 = 0; i2 < cVar.aeZ().size(); i2++) {
+                            boolean equals = str5.equals(cVar.aeZ().get(i2).getAuthor().getUserId());
                             tbPageContext = this.cnE.mContext;
-                            cVar.afd().get(i2).a(tbPageContext.getUniqueId(), equals);
+                            cVar.aeZ().get(i2).a(tbPageContext.getUniqueId(), equals);
                         }
                     }
-                    if (cVar.aeZ() != null) {
-                        this.cnE.postID = cVar.aeZ().getId();
+                    if (cVar.aeV() != null) {
+                        this.cnE.postID = cVar.aeV().getId();
                     }
-                    if (cVar.afi() != null) {
-                        this.cnE.threadID = cVar.afi().getId();
-                        this.cnE.cgA = cVar.qk();
-                        this.cnE.cnu = cVar.afi().sn();
+                    if (cVar.afe() != null) {
+                        this.cnE.threadID = cVar.afe().getId();
+                        this.cnE.cgA = cVar.qh();
+                        this.cnE.cnu = cVar.afe().sk();
                     }
                     str = this.cnE.cnu;
                     if (str != null) {
@@ -219,7 +219,7 @@ public class al extends com.baidu.adp.framework.listener.a {
                     }
                     aVar5 = this.cnE.cnv;
                     if (aVar5 != null) {
-                        boolean z5 = this.cnE.ahB();
+                        boolean z5 = this.cnE.ahx();
                         aVar6 = this.cnE.cnv;
                         cVar2 = this.cnE.cmV;
                         aVar6.a(z5, error, errorString2, cVar2);

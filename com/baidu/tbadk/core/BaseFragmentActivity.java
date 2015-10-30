@@ -188,7 +188,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                     this.mSwipeBackLayout.onChangeSkinType(i);
                 }
                 if (this.loadingView != null) {
-                    this.loadingView.tc();
+                    this.loadingView.sZ();
                 }
                 onChangeSkinType(this.mSkinType);
             } catch (OutOfMemoryError e) {
@@ -312,19 +312,19 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showToastWithIcon(String str, int i) {
-        BdToast.b(getPageContext().getContext(), str, i).sZ();
+        BdToast.b(getPageContext().getContext(), str, i).sW();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getPageContext().getContext(), str, i, i2).sZ();
+        BdToast.a(getPageContext().getContext(), str, i, i2).sW();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon).sZ();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon).sW();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).sZ();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).sW();
     }
 
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.view.LayoutInflater.Factory
@@ -380,7 +380,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             } else {
                 this.loadingView = new com.baidu.tbadk.e.f(getPageContext().getPageActivity(), i);
             }
-            this.loadingView.tc();
+            this.loadingView.sZ();
         }
         this.loadingView.b(view, z);
     }
@@ -393,7 +393,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Cq();
+        return this.loadingView.Cn();
     }
 
     public void hideLoadingView(View view) {

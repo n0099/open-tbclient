@@ -18,7 +18,7 @@ public class o extends p {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
                 if (this.dbl.size() >= this.cGg) {
-                    axI();
+                    axE();
                 }
                 this.dbl.put(str, valueOf);
             }

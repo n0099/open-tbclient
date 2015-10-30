@@ -19,15 +19,15 @@ public class h implements p.a {
         l lVar2;
         if (!com.baidu.adp.lib.util.k.jd()) {
             mVar = this.bmY.bmT;
-            mVar.QA();
+            mVar.Qw();
             return;
         }
-        com.baidu.tbadk.coreExtra.messageCenter.a.wK().xb();
+        com.baidu.tbadk.coreExtra.messageCenter.a.wH().wY();
         lVar = this.bmY.bmS;
         lVar.cA(false);
         lVar2 = this.bmY.bmS;
         lVar2.LoadData();
-        com.baidu.tbadk.coreExtra.messageCenter.a.wK().setMsgGiftNum(0);
+        com.baidu.tbadk.coreExtra.messageCenter.a.wH().setMsgGiftNum(0);
         MessageManager.getInstance().dispatchResponsedMessage(this.bmY.bmV);
     }
 }

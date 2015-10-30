@@ -41,7 +41,7 @@ public abstract class e<D, S extends com.baidu.tbadk.mvc.d.b> implements s {
         return this.data;
     }
 
-    public S Dq() {
+    public S Dn() {
         return this.avf;
     }
 

@@ -13,9 +13,9 @@ public class y {
     private long axV;
     private boolean axR = false;
     private long axU = 86400;
-    private long axS = com.baidu.tbadk.core.sharedPref.b.tu().getLong(axT, 0);
+    private long axS = com.baidu.tbadk.core.sharedPref.b.tr().getLong(axT, 0);
 
-    public static y Eb() {
+    public static y DY() {
         if (axW == null) {
             synchronized (y.class) {
                 if (axW == null) {
@@ -31,7 +31,7 @@ public class y {
         this.axV = this.axU;
     }
 
-    public boolean Ec() {
+    public boolean DZ() {
         if (!this.axR || (System.currentTimeMillis() - this.axS) / 1000 <= this.axV) {
             return this.axR;
         }
@@ -43,16 +43,16 @@ public class y {
         if (z) {
             if (0 == this.axS || currentTimeMillis - this.axS >= this.axV) {
                 this.axS = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.tu().putLong(axT, this.axS);
+                com.baidu.tbadk.core.sharedPref.b.tr().putLong(axT, this.axS);
             }
         } else {
             this.axS = 0L;
-            com.baidu.tbadk.core.sharedPref.b.tu().putLong(axT, this.axS);
+            com.baidu.tbadk.core.sharedPref.b.tr().putLong(axT, this.axS);
         }
         this.axR = z;
     }
 
-    public String Ed() {
+    public String Ea() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -66,7 +66,7 @@ public class y {
         }
     }
 
-    public final String Ee() {
+    public final String Eb() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / 1024);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / 1024);
@@ -114,7 +114,7 @@ public class y {
     }
 
     public x eB(int i) {
-        if (Ec()) {
+        if (DZ()) {
             switch (i) {
                 case 1000:
                     aa aaVar = new aa();
@@ -143,7 +143,7 @@ public class y {
         return null;
     }
 
-    public void D(long j) {
+    public void B(long j) {
         if (j > 0) {
             this.axV = j;
         }
@@ -164,7 +164,7 @@ public class y {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int Ef() {
+    public int Ec() {
         BufferedReader bufferedReader;
         Process process;
         String str;

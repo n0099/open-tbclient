@@ -38,13 +38,13 @@ public class a extends bn<com.baidu.tbadk.core.data.b, b> {
             ((FrsActivity) this.aSe).a(bVar, "show");
             ((FrsActivity) this.aSe).b(bVar, "show");
         }
-        if (m.qX().qZ()) {
+        if (m.qU().qW()) {
             bVar2.aHW.setVisibility(0);
             bVar2.aHW.d(bVar.Uj.userPortrait, this.mIsFromCDN ? 13 : 14, false);
         } else {
             bVar2.aHW.setVisibility(8);
         }
-        if (m.qX().rb() && !TextUtils.isEmpty(bVar.Uj.Uo)) {
+        if (m.qU().qY() && !TextUtils.isEmpty(bVar.Uj.Uo)) {
             bVar2.baO.setVisibility(0);
             bVar2.baO.d(bVar.Uj.Uo, this.mIsFromCDN ? 30 : 31, false);
         } else {

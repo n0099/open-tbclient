@@ -18,7 +18,7 @@ public class h implements CustomMessageTask.CustomRunnable<String> {
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        com.baidu.tieba.im.db.i.TO().c(this.bDL);
+        com.baidu.tieba.im.db.i.TK().c(this.bDL);
         return null;
     }
 }

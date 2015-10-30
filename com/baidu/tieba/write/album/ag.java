@@ -21,9 +21,9 @@ class ag implements View.OnClickListener {
         NavigationBar navigationBar;
         aVar = this.dlo.dlm;
         lVar = this.dlo.djP;
-        List<a> aBv = lVar.aBv();
+        List<a> aBr = lVar.aBr();
         lVar2 = this.dlo.djP;
-        aVar.c(aBv, lVar2.aBt());
+        aVar.c(aBr, lVar2.aBp());
         aVar2 = this.dlo.dlm;
         navigationBar = this.dlo.mNavigationBar;
         aVar2.P(navigationBar);

@@ -29,25 +29,25 @@ public class bv implements CustomMessageTask.CustomRunnable<String> {
         if (customMessage != null) {
             try {
                 if (customMessage instanceof CustomMessage) {
-                    com.baidu.tieba.im.db.g.TJ().TK();
+                    com.baidu.tieba.im.db.g.TF().TG();
                     for (ImMessageCenterPojo imMessageCenterPojo : this.bEU) {
-                        com.baidu.tieba.im.db.i.TO().c(imMessageCenterPojo);
+                        com.baidu.tieba.im.db.i.TK().c(imMessageCenterPojo);
                     }
                     for (MemoryModifyVisibilityMessage.a aVar : this.bEV.datas) {
-                        com.baidu.tieba.im.db.l.TU().hH(aVar.id);
+                        com.baidu.tieba.im.db.l.TQ().hH(aVar.id);
                     }
                     if (this.bEW.isAllClear()) {
                         ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                         imMessageCenterPojo2.setGid("-1001");
                         imMessageCenterPojo2.setCustomGroupType(-7);
                         imMessageCenterPojo2.setIs_hidden(1);
-                        com.baidu.tieba.im.db.i.TO().c(imMessageCenterPojo2);
+                        com.baidu.tieba.im.db.i.TK().c(imMessageCenterPojo2);
                     }
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             } finally {
-                com.baidu.tieba.im.db.g.TJ().endTransaction();
+                com.baidu.tieba.im.db.g.TF().endTransaction();
             }
         }
         return null;

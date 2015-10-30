@@ -18,7 +18,7 @@ class g implements a.b {
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
         if (imMessageCenterPojo != null) {
             imMessageCenterPojo.setIs_hidden(1);
-            i.TO().c(imMessageCenterPojo);
+            i.TK().c(imMessageCenterPojo);
         }
     }
 

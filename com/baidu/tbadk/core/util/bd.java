@@ -34,7 +34,7 @@ public class bd {
         abE = true;
     }
 
-    private static void uX() {
+    private static void uU() {
         if (mAppContext != null && mAppContext.getResources() != null) {
             abD = mAppContext.getResources().getColor(i.c.more_color);
             abC = mAppContext.getResources().getColor(i.c.skin_1_common_color);
@@ -49,7 +49,7 @@ public class bd {
     public static int at(boolean z) {
         if (abE) {
             abE = false;
-            uX();
+            uU();
         }
         return z ? abC : abD;
     }

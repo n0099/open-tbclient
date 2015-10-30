@@ -23,7 +23,7 @@ public class o implements View.OnClickListener {
     public void onClick(View view) {
         SignAllForumActivity signAllForumActivity;
         HashMap hashMap;
-        if (!this.cQB.atI()) {
+        if (!this.cQB.atE()) {
             this.cQC.cQN.setVisibility(4);
             this.cQC.cQO.setVisibility(0);
             this.cQC.cQP.setText(i.h.signallforum_resigning);

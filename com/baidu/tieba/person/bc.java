@@ -12,20 +12,20 @@ class bc implements p.a {
 
     @Override // com.baidu.tbadk.core.view.p.a
     public void onListPullRefresh(boolean z) {
-        PersonFriendActivity aiG;
+        PersonFriendActivity aiC;
         bf bfVar;
         boolean z2;
-        PersonFriendActivity aiG2;
+        PersonFriendActivity aiC2;
         int i;
         int i2;
-        aiG = this.cqq.aiG();
-        if (aiG != null) {
+        aiC = this.cqq.aiC();
+        if (aiC != null) {
             this.cqq.pageNum = 0;
             this.cqq.cql = true;
             bfVar = this.cqq.cqh;
             z2 = this.cqq.mIsHost;
-            aiG2 = this.cqq.aiG();
-            String uid = aiG2.getUid();
+            aiC2 = this.cqq.aiC();
+            String uid = aiC2.getUid();
             i = this.cqq.pageNum;
             i2 = this.cqq.cqn;
             bfVar.a(z2, uid, i, i2);

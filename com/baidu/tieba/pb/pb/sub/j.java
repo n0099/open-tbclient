@@ -13,7 +13,7 @@ class j implements com.baidu.adp.lib.e.c<View> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: afC */
+    /* renamed from: afy */
     public View gZ() {
         return new PlayVoiceBnt(this.cmC.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
     }

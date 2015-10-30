@@ -25,41 +25,41 @@ public class g {
         this.aLM = viewEventCenter;
     }
 
-    public i IH() {
+    public i ID() {
         if (this.aMw == null) {
             return null;
         }
         return this.aMw.get();
     }
 
-    public void II() {
+    public void IE() {
         i iVar = new i(this.mContext.getPageActivity());
         iVar.setEventCenter(this.aLM);
         this.aMw = new SoftReference<>(iVar);
     }
 
-    public int IJ() {
+    public int IF() {
         return this.aMz;
     }
 
-    public List<v> Dm() {
-        return this.aMz == 2 ? this.aMy.Dm() : this.aMx.Dm();
+    public List<v> Dj() {
+        return this.aMz == 2 ? this.aMy.Dj() : this.aMx.Dj();
     }
 
     public void b(v vVar) {
-        List<v> Dm = Dm();
-        if (Dm != null) {
-            Dm.remove(vVar);
+        List<v> Dj = Dj();
+        if (Dj != null) {
+            Dj.remove(vVar);
             if (this.aMz == 2) {
-                this.aMy.r(Dm);
+                this.aMy.r(Dj);
             } else {
-                this.aMx.r(Dm);
+                this.aMx.r(Dj);
             }
         }
     }
 
-    public void IK() {
-        List<v> Dm = Dm();
+    public void IG() {
+        List<v> Dj = Dj();
         if (this.aMz == 2) {
             TiebaStatic.eventStat(this.mContext.getPageActivity(), "list_switch_btn", "is_single", 1, new Object[0]);
             this.aMz = 1;
@@ -67,7 +67,7 @@ public class g {
             TiebaStatic.eventStat(this.mContext.getPageActivity(), "list_switch_btn", "is_single", 0, new Object[0]);
             this.aMz = 2;
         }
-        a(this.aMz, Dm);
+        a(this.aMz, Dj);
     }
 
     public void a(int i, List<v> list) {
@@ -84,7 +84,7 @@ public class g {
         if (iVar != null) {
             if (this.aMz == 2) {
                 if (this.aMy == null) {
-                    IM();
+                    II();
                 }
                 iVar.setGridAdapterIfNeeded(this.aMy);
                 this.aMy.r(list);
@@ -92,7 +92,7 @@ public class g {
                 return;
             }
             if (this.aMx == null) {
-                IL();
+                IH();
             }
             iVar.setListAdapterIfNeeded(this.aMx);
             this.aMx.r(list);
@@ -100,12 +100,12 @@ public class g {
         }
     }
 
-    private void IL() {
+    private void IH() {
         this.aMx = new com.baidu.tieba.enterForum.a.b(this.mContext, u.class, i.g.home_like_item_in_edit_list, this.aLM);
         this.aMx.bo(false);
     }
 
-    private void IM() {
+    private void II() {
         this.aMy = new com.baidu.tieba.enterForum.a.a(this.mContext, m.class, i.g.home_like_item_in_edit_grid, this.aLM);
         this.aMy.bo(false);
     }

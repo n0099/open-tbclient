@@ -43,10 +43,10 @@ public class g {
             w wVar = new w(g.ceN);
             wVar.o("forum_id", this.aFw);
             wVar.o("user_id", this.aFx);
-            String tG = wVar.tG();
-            if (wVar.uh().uZ().qV()) {
+            String tD = wVar.tD();
+            if (wVar.ue().uW().qS()) {
                 try {
-                    return (ForbidTplData) i.objectWithJsonStr(tG, ForbidTplData.class);
+                    return (ForbidTplData) i.objectWithJsonStr(tD, ForbidTplData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidTplData forbidTplData = new ForbidTplData();
@@ -55,7 +55,7 @@ public class g {
                 }
             }
             ForbidTplData forbidTplData2 = new ForbidTplData();
-            forbidTplData2.error.errno = wVar.ul();
+            forbidTplData2.error.errno = wVar.ui();
             forbidTplData2.error.errMsg = wVar.getErrorString();
             return forbidTplData2;
         }

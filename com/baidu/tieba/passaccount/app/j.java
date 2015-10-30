@@ -19,7 +19,7 @@ class j extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.data.v)) {
             com.baidu.tbadk.core.data.v vVar = (com.baidu.tbadk.core.data.v) customResponsedMessage.getData();
             if (vVar.Vs == 0) {
-                this.cdn.aea();
+                this.cdn.adW();
             } else {
                 this.cdn.jw(vVar.errorMsg);
             }

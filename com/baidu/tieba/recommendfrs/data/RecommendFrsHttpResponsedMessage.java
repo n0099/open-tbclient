@@ -22,8 +22,8 @@ public class RecommendFrsHttpResponsedMessage extends MvcProtobufHttpResponsedMe
             MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
             if (mvcNetMessage.getRequestData() instanceof h) {
                 h hVar = (h) mvcNetMessage.getRequestData();
-                if (hVar.aqu() == 0 && (cq = com.baidu.tbadk.core.b.a.sO().cq("RecommendFrsCache")) != null) {
-                    cq.f(hVar.aqo(), bArr);
+                if (hVar.aqq() == 0 && (cq = com.baidu.tbadk.core.b.a.sL().cq("RecommendFrsCache")) != null) {
+                    cq.f(hVar.aqk(), bArr);
                 }
             }
         }

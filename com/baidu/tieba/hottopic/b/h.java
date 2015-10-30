@@ -39,7 +39,7 @@ public class h implements View.OnClickListener {
                 hotTopicActivity2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, relateTopicForumActivityConfig));
                 aq ae = new aq("c10365").ae("obj_type", TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE);
                 hotTopicActivity3 = this.bqb.bpY;
-                TiebaStatic.log(ae.ae("obj_id", hotTopicActivity3.QP()));
+                TiebaStatic.log(ae.ae("obj_id", hotTopicActivity3.QL()));
             }
         }
     }

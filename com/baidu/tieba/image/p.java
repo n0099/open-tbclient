@@ -18,7 +18,7 @@ class p implements c.b {
         if (cVar == listMenu) {
             switch (i) {
                 case 0:
-                    this.this$0.UX();
+                    this.this$0.UT();
                     break;
             }
             cVar.dismiss();

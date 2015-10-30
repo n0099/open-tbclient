@@ -46,15 +46,15 @@ public class a implements j.a {
         this.bOL.c(this.bOI);
     }
 
-    public boolean ZM() {
-        return this.bOJ && this.bOI != null && this.bOI.rp() && !ag.isInstalledPackage(this.mContext.getPageActivity(), this.bOI.Ua);
+    public boolean ZI() {
+        return this.bOJ && this.bOI != null && this.bOI.rm() && !ag.isInstalledPackage(this.mContext.getPageActivity(), this.bOI.Ua);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.j.a
     public View f(ViewGroup viewGroup, int i) {
         if (hR(i)) {
             this.bOK = new h(viewGroup);
-            ZN();
+            ZJ();
             viewGroup.addView(this.bOK.getView());
             return this.bOK.getView();
         }
@@ -62,31 +62,31 @@ public class a implements j.a {
     }
 
     private boolean hR(int i) {
-        return ZM() && this.bOH != 0 && i == this.bOH;
+        return ZI() && this.bOH != 0 && i == this.bOH;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ZN() {
+    public void ZJ() {
         if (this.bOI != null && this.bOI.Uj != null) {
-            ZO();
-            if (this.bOI.rr()) {
-                this.bOK.ZT().setVisibility(8);
+            ZK();
+            if (this.bOI.ro()) {
+                this.bOK.ZP().setVisibility(8);
                 this.bOK.q(this.aUz);
-            } else if (this.bOI.rq()) {
-                ZP();
+            } else if (this.bOI.rn()) {
+                ZL();
             }
         }
     }
 
-    private void ZO() {
-        this.bOK.ZS().setEvent(new e(this));
-        this.bOK.ZS().d(this.bOI.Uj.Uo, this.akd ? 30 : 31, false);
+    private void ZK() {
+        this.bOK.ZO().setEvent(new e(this));
+        this.bOK.ZO().d(this.bOI.Uj.Uo, this.akd ? 30 : 31, false);
     }
 
-    private void ZP() {
+    private void ZL() {
         if (this.bOI != null) {
-            this.bOK.ZT().setVisibility(0);
-            if (com.baidu.tbadk.download.b.An().eI(this.bOI.Ua)) {
+            this.bOK.ZP().setVisibility(0);
+            if (com.baidu.tbadk.download.b.Ak().eI(this.bOI.Ua)) {
                 this.bOI.TU = 2;
             }
             switch (this.bOI.TU) {
@@ -102,11 +102,11 @@ public class a implements j.a {
                     this.bOK.q(this.aUA);
                     return;
                 case 1:
-                    this.bOK.ZU();
+                    this.bOK.ZQ();
                     this.bOK.q(null);
                     return;
                 case 2:
-                    this.bOK.ZW();
+                    this.bOK.ZS();
                     this.bOK.q(this.aUA);
                     return;
                 default:
@@ -128,7 +128,7 @@ public class a implements j.a {
             aVar.cu(string);
             aVar.a(i.h.alert_yes_button, new f(this));
             aVar.b(i.h.alert_no_button, new g(this));
-            aVar.b(this.mContext).sR();
+            aVar.b(this.mContext).sO();
         }
     }
 
@@ -149,16 +149,16 @@ public class a implements j.a {
                     } else if (status == 1) {
                         this.bOI.TU = 1;
                     }
-                    ZN();
+                    ZJ();
                 }
             }
         }
     }
 
-    public void ZQ() {
+    public void ZM() {
         if (!this.bOM) {
             this.bOM = true;
-            this.bOL.aaa();
+            this.bOL.ZW();
         }
     }
 }

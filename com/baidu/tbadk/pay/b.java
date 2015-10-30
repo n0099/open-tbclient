@@ -29,10 +29,10 @@ public class b extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void Dz() {
-        if (!e.DA().DB()) {
+    public void Dw() {
+        if (!e.Dx().Dy()) {
             if (this.awr != null) {
-                this.awr.Dx();
+                this.awr.Du();
                 return;
             }
             return;
@@ -55,11 +55,11 @@ public class b extends com.baidu.adp.base.e {
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
             if (this.awr != null) {
-                this.awr.Dy();
+                this.awr.Dv();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
             if (this.awr != null) {
-                this.awr.Dx();
+                this.awr.Du();
             }
         } else if (this.awr != null) {
             this.awr.onError("");

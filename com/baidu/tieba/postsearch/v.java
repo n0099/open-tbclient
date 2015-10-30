@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class v extends BaseAdapter {
-    private static final int cEA = TbadkCoreApplication.m411getInst().getListItemRule().wm();
+    private static final int cEA = TbadkCoreApplication.m411getInst().getListItemRule().wj();
     private TbPageContext<?> mContext;
     private List<j.a> mData = new ArrayList();
 
@@ -109,7 +109,7 @@ public class v extends BaseAdapter {
             }
             aVar2.cEE.setText(Html.fromHtml(as.af(aVar3.content, str)));
             aVar2.ccS.setText(aVar3.name_show);
-            aVar2.cEG.setText(as.o(aVar3.time));
+            aVar2.cEG.setText(as.m(aVar3.time));
             aVar2.cEF.setVisibility(0);
             if (aVar3.is_floor == 1) {
                 aVar2.cEF.setText(i.h.floor_text);

@@ -81,7 +81,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         } else {
             string = resources.getString(i.h.register_tip);
         }
-        boolean z = b.tu().getBoolean("is_domain_qa", false);
+        boolean z = b.tr().getBoolean("is_domain_qa", false);
         boolean isVoiceLoginCanUse = TbadkCoreApplication.m411getInst().isVoiceLoginCanUse();
         if (z) {
             build = new SapiConfiguration.Builder(getContext()).setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).setRuntimeEnvironment(Domain.DOMAIN_QA).registMode(RegistMode.FAST).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin(CUSTOM_THEME_URL).fastRegConfirm(isNeedConfirm()).fastRegConfirmMsg(string).fastLoginSupport(generateFastLoginFeatures(isVoiceLoginCanUse)).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).build();
@@ -92,7 +92,7 @@ public class TbadkApplication extends TbadkCoreApplication {
             SapiAccountManager.getInstance().init(build);
         } catch (Exception e) {
         }
-        z.Eh().H(System.currentTimeMillis() - currentTimeMillis);
+        z.Ee().F(System.currentTimeMillis() - currentTimeMillis);
     }
 
     private FastLoginFeature[] generateFastLoginFeatures(boolean z) {
@@ -119,13 +119,13 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
         init(getContext());
         long currentTimeMillis = System.currentTimeMillis();
-        String str = String.valueOf(TbConfig.getVersion()) + ".47";
-        PluginPackageManager.lR().a(a.En(), new com.baidu.tbadk.f.c(), str, isMainProcess(false));
+        String str = String.valueOf(TbConfig.getVersion()) + ".6";
+        PluginPackageManager.lR().a(a.Ek(), new com.baidu.tbadk.f.c(), str, isMainProcess(false));
         PluginSettings mk = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().mk();
         if (mk != null) {
             String containerVersion = mk.getContainerVersion();
             if (!TextUtils.isEmpty(containerVersion) && Util.P(containerVersion, str) != Util.VersionCompare.EQUAL) {
-                z.Eh().I(System.currentTimeMillis() - currentTimeMillis);
+                z.Ee().G(System.currentTimeMillis() - currentTimeMillis);
             }
         }
         initSettings();
@@ -140,7 +140,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
         MessageManager.getInstance().registerListener(this.mMemListener);
         if (this.isRemoteProcess) {
-            z.Eh().Z(System.currentTimeMillis() - this.processCreateTime);
+            z.Ee().X(System.currentTimeMillis() - this.processCreateTime);
         }
         if (isMainProcess(true)) {
             long currentTimeMillis2 = System.currentTimeMillis();
@@ -148,12 +148,12 @@ public class TbadkApplication extends TbadkCoreApplication {
             NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.3
                 @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                 public void callback(String str2, String str3) {
-                    az.uW().b(null, new String[]{str3});
+                    az.uT().b(null, new String[]{str3});
                 }
             });
-            z.Eh().R(System.currentTimeMillis() - currentTimeMillis2);
+            z.Ee().P(System.currentTimeMillis() - currentTimeMillis2);
         }
-        z.Eh().F(System.currentTimeMillis());
+        z.Ee().D(System.currentTimeMillis());
     }
 
     private void initSettings() {
@@ -259,7 +259,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     }
 
     public void loginShareRemove() {
-        b.tu().remove("account_share");
+        b.tr().remove("account_share");
     }
 
     public String loginShareRead() {

@@ -24,14 +24,14 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     public d() {
-        BZ();
+        BW();
         registerListener(this.aQV);
         registerListener(this.dgF);
         registerListener(this.dgG);
         sendMessage(new CustomMessage(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB));
     }
 
-    private void BZ() {
+    private void BW() {
         com.baidu.tieba.tbadkCore.a.a.a(309010, TopThemeListSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309010, CmdConfigHttp.CMD_TOP_THEME_LIST, TbConfig.TOP_THEME_LIST_PAGE, TopThemeListHttpResponseMessage.class, false, false, false, false);
     }
@@ -44,11 +44,11 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azC() {
+    public void azy() {
         if (this.dgA != null && this.mThemeList != null && this.mThemeList.size() > 0) {
             for (com.baidu.tieba.themeCenter.theme.top.a aVar : this.mThemeList) {
-                if (aVar != null && aVar.azJ() != null && aVar.azJ().size() > 0) {
-                    for (com.baidu.tieba.themeCenter.b bVar : aVar.azJ()) {
+                if (aVar != null && aVar.azF() != null && aVar.azF().size() > 0) {
+                    for (com.baidu.tieba.themeCenter.b bVar : aVar.azF()) {
                         if (bVar != null) {
                             bVar.lr(com.baidu.tieba.themeCenter.i.a(bVar, this.dgA));
                         }

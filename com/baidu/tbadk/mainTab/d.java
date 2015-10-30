@@ -25,7 +25,7 @@ public class d {
         }
     }
 
-    public ArrayList<b> qz() {
+    public ArrayList<b> qw() {
         return this.SC;
     }
 

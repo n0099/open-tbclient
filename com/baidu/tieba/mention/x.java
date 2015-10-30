@@ -23,7 +23,7 @@ public class x extends Handler {
             if (!MessageManager.getInstance().getSocketClient().isValid()) {
                 iM = this.caF.iM();
                 if (iM) {
-                    this.caF.ada();
+                    this.caF.acW();
                 }
             }
             handler = this.caF.mHandler;

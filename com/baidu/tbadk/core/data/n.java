@@ -35,7 +35,7 @@ public class n {
         return this.stat;
     }
 
-    public long rG() {
+    public long rD() {
         return this.UV;
     }
 

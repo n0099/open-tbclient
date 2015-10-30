@@ -38,7 +38,7 @@ public class b {
             this.cfx = (ImageView) this.rootView.findViewById(i.f.chosen_pb_comment_reply);
             this.line = this.rootView.findViewById(i.f.chosen_pb_comment_line);
             this.cfv.setTextSize(TbConfig.getContentSize());
-            tc();
+            sZ();
         }
     }
 
@@ -48,7 +48,7 @@ public class b {
         }
     }
 
-    public void tc() {
+    public void sZ() {
         an.b(this.aHY, i.c.cp_cont_f, 1);
         an.c(this.cfx, i.e.btn_comment_list);
         an.j(this.line, i.c.cp_bg_line_b);

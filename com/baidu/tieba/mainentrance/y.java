@@ -14,7 +14,7 @@ class y implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean abe;
+        boolean aba;
         boolean z;
         if (this.bVC.bUV != null && this.bVC.bUV.trim().length() >= 1) {
             if (this.bVC.mMode != 0) {
@@ -32,14 +32,14 @@ class y implements View.OnClickListener {
             }
             z = this.bVC.arv;
             if (z) {
-                this.bVC.abo();
+                this.bVC.abk();
                 return;
             }
             return;
         }
         com.baidu.adp.lib.util.k.c(this.bVC.getPageContext().getPageActivity(), this.bVC.bUA);
-        abe = this.bVC.abe();
-        if (!abe) {
+        aba = this.bVC.aba();
+        if (!aba) {
             this.bVC.showToast(this.bVC.getResources().getString(i.h.write_keyword));
         }
     }

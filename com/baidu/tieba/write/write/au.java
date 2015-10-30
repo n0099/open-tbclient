@@ -14,7 +14,7 @@ public class au implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.dqi.aCj();
+        this.dqi.aCf();
     }
 
     @Override // android.text.TextWatcher

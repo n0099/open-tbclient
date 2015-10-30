@@ -37,13 +37,13 @@ class ai extends CustomMessageListener {
                 oVar = this.aUK.aTW;
                 if (oVar != null) {
                     oVar2 = this.aUK.aTW;
-                    if (oVar2.aeN() != null) {
+                    if (oVar2.aeJ() != null) {
                         oVar3 = this.aUK.aTW;
-                        oVar3.aeN().setLike(xVar.isLike());
+                        oVar3.aeJ().setLike(xVar.isLike());
                         oVar4 = this.aUK.aTW;
-                        oVar4.aeN().setUser_level(xVar.atD());
+                        oVar4.aeJ().setUser_level(xVar.atz());
                         oVar5 = this.aUK.aTW;
-                        oVar5.aeN().setLevelName(xVar.getLevelName());
+                        oVar5.aeJ().setLevelName(xVar.getLevelName());
                         if (z) {
                             aVar2 = this.aUK.aUk;
                             oVar7 = this.aUK.aTW;
@@ -53,11 +53,11 @@ class ai extends CustomMessageListener {
                             TbadkCoreApplication.m411getInst().addLikeForum(this.aUK.aTM);
                             return;
                         }
-                        com.baidu.tieba.tbadkCore.d.avt().H(this.aUK.aTM, false);
+                        com.baidu.tieba.tbadkCore.d.avp().H(this.aUK.aTM, false);
                         oVar6 = this.aUK.aTW;
-                        oVar6.aeN().setLike(0);
+                        oVar6.aeJ().setLike(0);
                         aVar = this.aUK.aUk;
-                        aVar.Nv();
+                        aVar.Nr();
                         kVar = this.aUK.aUl;
                         kVar.cl(false);
                         TbadkCoreApplication.m411getInst().delLikeForum(this.aUK.aTM);

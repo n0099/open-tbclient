@@ -100,7 +100,7 @@ public class b {
         this.den = str;
     }
 
-    public String azi() {
+    public String aze() {
         return this.deo;
     }
 
@@ -116,7 +116,7 @@ public class b {
         this.versionCode = i;
     }
 
-    public String azj() {
+    public String azf() {
         return this.dep;
     }
 
@@ -124,7 +124,7 @@ public class b {
         this.dep = str;
     }
 
-    public String azk() {
+    public String azg() {
         return this.deq;
     }
 
@@ -136,7 +136,7 @@ public class b {
         return this.description;
     }
 
-    public int azl() {
+    public int azh() {
         return this.der;
     }
 
@@ -152,7 +152,7 @@ public class b {
         this.activityUrl = str;
     }
 
-    public int azm() {
+    public int azi() {
         return this.aak;
     }
 
@@ -160,11 +160,11 @@ public class b {
         this.aak = i;
     }
 
-    public ArrayList<String> azn() {
+    public ArrayList<String> azj() {
         return this.des;
     }
 
-    public int Uj() {
+    public int Uf() {
         return this.byM;
     }
 
@@ -172,7 +172,7 @@ public class b {
         this.byM = i;
     }
 
-    public boolean azo() {
+    public boolean azk() {
         return this.det;
     }
 
@@ -188,7 +188,7 @@ public class b {
         this.newVersionCode = i;
     }
 
-    public String azp() {
+    public String azl() {
         return this.deu;
     }
 }

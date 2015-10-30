@@ -46,10 +46,10 @@ public final class cx extends LinearLayout {
         com.baidu.tbadk.core.util.an.b(this.aCJ, i.c.cp_cont_f, 1);
         this.bdH.setHintTextColor(com.baidu.tbadk.core.util.an.getColor(i.c.cp_cont_e));
         this.bdH.setPadding(context.getResources().getDimensionPixelSize(i.d.ds20), 0, 0, 0);
-        Od();
+        NZ();
     }
 
-    public void Od() {
+    public void NZ() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
@@ -69,10 +69,10 @@ public final class cx extends LinearLayout {
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
         this.bIW = shareFromPBMsgData;
-        vw();
+        vt();
     }
 
-    private void vw() {
+    private void vt() {
         this.alu.setText(this.bIW.getTitle());
         BdLog.e("mData.getImageUrl()的图片URL" + this.bIW.getImageUrl());
         this.bIH.setTag(this.bIW.getImageUrl());

@@ -20,8 +20,8 @@ class b implements Handler.Callback {
                 blVar = this.ciK.cih;
                 if (blVar != null) {
                     blVar2 = this.ciK.cih;
-                    if (blVar2.qk()) {
-                        this.ciK.afs();
+                    if (blVar2.qh()) {
+                        this.ciK.afo();
                         break;
                     }
                 }

@@ -13,7 +13,7 @@ public class i implements h.a {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.h.a
-    public void YU() {
+    public void YQ() {
         FloatingPersonalChatView.a aVar;
         FloatingPersonalChatView.a aVar2;
         int i;

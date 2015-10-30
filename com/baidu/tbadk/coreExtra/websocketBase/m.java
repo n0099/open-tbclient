@@ -12,7 +12,7 @@ class m implements a.InterfaceC0044a {
     }
 
     @Override // com.baidu.tbadk.coreExtra.websocketBase.a.InterfaceC0044a
-    public void zw() {
+    public void zt() {
         i iVar;
         i iVar2;
         i iVar3;
@@ -22,7 +22,7 @@ class m implements a.InterfaceC0044a {
         iVar = this.anc.ana;
         iVar.currentIndex = 0;
         iVar2 = this.anc.ana;
-        iVar2.amo = a.zq().zt();
+        iVar2.amo = a.zn().zq();
         iVar3 = this.anc.ana;
         list = iVar3.amo;
         if (list != null) {

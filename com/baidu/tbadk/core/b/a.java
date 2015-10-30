@@ -65,7 +65,7 @@ public class a extends CustomMessageListener {
         Wn = new HashMap<>();
     }
 
-    public static a sO() {
+    public static a sL() {
         if (Wk == null) {
             Wk = new a();
         }

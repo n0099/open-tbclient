@@ -28,7 +28,7 @@ public class g implements a.InterfaceC0053a {
             aVar.a((a.InterfaceC0053a) null);
             aVar2 = this.awT.awP;
             aVar2.stop();
-            this.awT.DK();
+            this.awT.DH();
         }
         this.awT.ex(i);
     }

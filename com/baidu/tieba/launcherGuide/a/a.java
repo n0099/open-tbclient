@@ -31,7 +31,7 @@ public class a extends e<BaseFragmentActivity> {
         super(baseFragmentActivity.getPageContext());
     }
 
-    public boolean aaF() {
+    public boolean aaB() {
         return this.bSs;
     }
 
@@ -39,7 +39,7 @@ public class a extends e<BaseFragmentActivity> {
         this.bSs = z;
     }
 
-    public InterestFrsData aaG() {
+    public InterestFrsData aaC() {
         return this.bSt;
     }
 
@@ -52,7 +52,7 @@ public class a extends e<BaseFragmentActivity> {
         this.bSu.execute(new Void[0]);
     }
 
-    public void aaH() {
+    public void aaD() {
         if (this.bSu != null) {
             this.bSu.cancel();
         }
@@ -84,10 +84,10 @@ public class a extends e<BaseFragmentActivity> {
             wVar.o(OfficalBarChatActivityConfig.USER_TYPE, String.valueOf(this.userType));
             wVar.o("offset", String.valueOf(this.offset));
             wVar.o("limit", String.valueOf(this.limit));
-            String tG = wVar.tG();
-            if (wVar.uh().uZ().qV()) {
+            String tD = wVar.tD();
+            if (wVar.ue().uW().qS()) {
                 try {
-                    return (InterestFrsData) i.objectWithJsonStr(tG, InterestFrsData.class);
+                    return (InterestFrsData) i.objectWithJsonStr(tD, InterestFrsData.class);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     InterestFrsData interestFrsData = new InterestFrsData();
@@ -97,7 +97,7 @@ public class a extends e<BaseFragmentActivity> {
                 }
             }
             InterestFrsData interestFrsData2 = new InterestFrsData();
-            interestFrsData2.setErrno(wVar.ul() == 0 ? TbErrInfo.ERR_IMG_GET_REMOTE : wVar.ul());
+            interestFrsData2.setErrno(wVar.ui() == 0 ? TbErrInfo.ERR_IMG_GET_REMOTE : wVar.ui());
             interestFrsData2.setErrmsg(wVar.getErrorString());
             return interestFrsData2;
         }

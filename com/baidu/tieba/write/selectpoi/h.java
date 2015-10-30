@@ -23,20 +23,20 @@ public class h extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dlP == null || this.dlP.aBK() == null || this.dlP.aBK().isEmpty()) {
+        if (this.dlP == null || this.dlP.aBG() == null || this.dlP.aBG().isEmpty()) {
             this.aPV = false;
             return 1;
         }
         this.aPV = true;
-        return this.dlP.aBK().size();
+        return this.dlP.aBG().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.dlP == null || this.dlP.aBK() == null || this.dlP.aBK().isEmpty()) {
+        if (this.dlP == null || this.dlP.aBG() == null || this.dlP.aBG().isEmpty()) {
             return null;
         }
-        return this.dlP.aBK().get(i);
+        return this.dlP.aBG().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -59,7 +59,7 @@ public class h extends BaseAdapter {
             view.setTag(aVar);
         }
         a aVar2 = aVar;
-        aVar2.dlR.setText(this.dlP.aBK().get(i).getName());
+        aVar2.dlR.setText(this.dlP.aBG().get(i).getName());
         an.j(aVar2.line, i.c.cp_bg_line_b);
         an.b(aVar2.dlR, i.c.cp_cont_b, 1);
         an.i(view, i.e.home_recommend_item_bg);
@@ -70,7 +70,7 @@ public class h extends BaseAdapter {
         this.dlP = bVar;
     }
 
-    public boolean aBR() {
+    public boolean aBN() {
         return this.aPV;
     }
 

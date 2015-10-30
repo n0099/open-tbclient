@@ -13,7 +13,7 @@ public class ci implements LiveBroadcastCard.a {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.LiveBroadcastCard.a
-    public boolean yX() {
+    public boolean yU() {
         BaseActivity baseActivity;
         baseActivity = this.aXq.aSe;
         return baseActivity.checkUpIsLogin();

@@ -32,7 +32,7 @@ public class d implements NetModel.b<h, g> {
             if (requestData == null) {
                 str = null;
             } else {
-                str = requestData.aqo();
+                str = requestData.aqk();
             }
             if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.getError() != 0 || mvcHttpResponsedMessage.getData() == null) {
                 aVar = this.cIG.cIF;
@@ -48,7 +48,7 @@ public class d implements NetModel.b<h, g> {
             if (aVar3 != null) {
                 aVar4 = this.cIG.cIF;
                 hVar = this.cIG.cIE;
-                aVar4.a(true, data, hVar.aqu() != 0, str);
+                aVar4.a(true, data, hVar.aqq() != 0, str);
             }
         }
     }
@@ -66,7 +66,7 @@ public class d implements NetModel.b<h, g> {
             if (requestData == null) {
                 str = null;
             } else {
-                str = requestData.aqo();
+                str = requestData.aqk();
             }
             if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.getError() != 0 || mvcSocketResponsedMessage.getData() == null) {
                 aVar = this.cIG.cIF;
@@ -82,7 +82,7 @@ public class d implements NetModel.b<h, g> {
             if (aVar3 != null) {
                 aVar4 = this.cIG.cIF;
                 hVar = this.cIG.cIE;
-                aVar4.a(true, data, hVar.aqu() != 0, str);
+                aVar4.a(true, data, hVar.aqq() != 0, str);
             }
         }
     }

@@ -38,42 +38,42 @@ class h implements bd {
         com.baidu.tieba.tbadkCore.o oVar3;
         com.baidu.tieba.frs.mc.a aVar;
         bsVar = this.aUK.aTU;
-        if (i != bsVar.LZ().Lw()) {
+        if (i != bsVar.LV().Ls()) {
             bsVar2 = this.aUK.aTU;
-            if (i != bsVar2.LZ().KM()) {
+            if (i != bsVar2.LV().KI()) {
                 bsVar3 = this.aUK.aTU;
-                if (i != bsVar3.LZ().Ly()) {
+                if (i != bsVar3.LV().Lu()) {
                     bsVar4 = this.aUK.aTU;
-                    if (i != bsVar4.LZ().Lx()) {
+                    if (i != bsVar4.LV().Lt()) {
                         bsVar5 = this.aUK.aTU;
-                        if (i != bsVar5.LZ().Lz()) {
+                        if (i != bsVar5.LV().Lv()) {
                             bsVar6 = this.aUK.aTU;
-                            if (i != bsVar6.LZ().LA()) {
+                            if (i != bsVar6.LV().Lw()) {
                                 bsVar8 = this.aUK.aTU;
-                                if (i != bsVar8.LZ().LB()) {
+                                if (i != bsVar8.LV().Lx()) {
                                     bsVar9 = this.aUK.aTU;
-                                    if (i == bsVar9.LZ().LC()) {
+                                    if (i == bsVar9.LV().Ly()) {
                                         this.aUK.aTL = wVar;
-                                        this.aUK.Le();
+                                        this.aUK.La();
                                         TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10179").ae(ImageViewerConfig.FORUM_ID, this.aUK.getForumId()));
                                         return;
                                     }
                                     return;
                                 }
                             }
-                            this.aUK.Ld();
+                            this.aUK.KZ();
                             bsVar7 = this.aUK.aTU;
-                            TiebaStatic.log(new com.baidu.tbadk.core.util.aq(i == bsVar7.LZ().LA() ? "c10177" : "c10244").ae(ImageViewerConfig.FORUM_ID, this.aUK.getForumId()));
+                            TiebaStatic.log(new com.baidu.tbadk.core.util.aq(i == bsVar7.LV().Lw() ? "c10177" : "c10244").ae(ImageViewerConfig.FORUM_ID, this.aUK.getForumId()));
                             return;
                         } else if (this.aUK.checkUpIsLogin()) {
                             TiebaStatic.log("my_service_ck");
                             oVar = this.aUK.aTW;
                             if (oVar != null) {
                                 oVar2 = this.aUK.aTW;
-                                if (oVar2.aeN() != null) {
+                                if (oVar2.aeJ() != null) {
                                     oVar3 = this.aUK.aTW;
-                                    ForumData aeN = oVar3.aeN();
-                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(this.aUK.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(aeN.getId(), 0L), aeN.getName(), aeN.getImage_url(), 0)));
+                                    ForumData aeJ = oVar3.aeJ();
+                                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(this.aUK.getPageContext().getPageActivity(), com.baidu.adp.lib.g.b.c(aeJ.getId(), 0L), aeJ.getName(), aeJ.getImage_url(), 0)));
                                     return;
                                 }
                                 return;
@@ -84,7 +84,7 @@ class h implements bd {
                         }
                     } else if (this.aUK.checkUpIsLogin()) {
                         TiebaStatic.log("forum_fortune_click");
-                        this.aUK.Lc();
+                        this.aUK.KY();
                         return;
                     } else {
                         return;
@@ -99,14 +99,14 @@ class h implements bd {
             }
             com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c10077");
             aVar = this.aUK.aUi;
-            aqVar.r("obj_source", aVar.Ng());
+            aqVar.r("obj_source", aVar.Nc());
             TiebaStatic.log(aqVar);
             this.aUK.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.aUK.getPageContext().getPageActivity()).createFromThreadCfg(wVar, this.aUK.aTM, null, 18003, true, false, false)));
-        } else if (this.aUK.checkUpIsLogin() && wVar != null && wVar.so() != null && wVar.so().get(0) != null && !StringUtils.isNull(wVar.so().get(0).getUrl())) {
-            com.baidu.tbadk.core.util.az.uW().b(this.aUK.getPageContext(), new String[]{wVar.so().get(0).getUrl()});
-            if (wVar.so().get(0).rl() == 1) {
+        } else if (this.aUK.checkUpIsLogin() && wVar != null && wVar.sl() != null && wVar.sl().get(0) != null && !StringUtils.isNull(wVar.sl().get(0).getUrl())) {
+            com.baidu.tbadk.core.util.az.uT().b(this.aUK.getPageContext(), new String[]{wVar.sl().get(0).getUrl()});
+            if (wVar.sl().get(0).ri() == 1) {
                 TiebaStatic.eventStat(this.aUK.getPageContext().getPageActivity(), "lottery", "click", 1, "page", "frs");
-            } else if (wVar.so().get(0).rl() == 2) {
+            } else if (wVar.sl().get(0).ri() == 2) {
                 TiebaStatic.eventStat(this.aUK.getPageContext().getPageActivity(), "show_picture", "click", 1, "page", "frs");
             }
         }

@@ -29,7 +29,7 @@ public class v implements a.InterfaceC0052a<com.baidu.tieba.discover.data.a> {
             aVar = this.aKS.aKR;
             if (aVar != null) {
                 aVar2 = this.aKS.aKR;
-                aVar2.a(false, this.aKS.HH(), true);
+                aVar2.a(false, this.aKS.HD(), true);
             }
         } else {
             com.baidu.tieba.discover.data.a aVar5 = readCacheRespMsg.getData().get(0);
@@ -39,10 +39,10 @@ public class v implements a.InterfaceC0052a<com.baidu.tieba.discover.data.a> {
                 aVar4.a(false, aVar5, true);
             }
             bVar = this.aKS.aKQ;
-            bVar.aj(aVar5.HI());
+            bVar.ah(aVar5.HE());
         }
         xVar = this.aKS.aKP;
-        xVar.CS();
+        xVar.CP();
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a

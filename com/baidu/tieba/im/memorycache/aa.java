@@ -21,7 +21,7 @@ public class aa extends CustomMessageListener {
             this.this$0.bDO = null;
             com.baidu.tieba.im.c.a.hx(0);
             com.baidu.tieba.im.c.a.hy(0);
-            b.VW().init();
+            b.VS().init();
         }
     }
 }

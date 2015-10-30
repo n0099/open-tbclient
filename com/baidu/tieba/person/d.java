@@ -10,25 +10,25 @@ public abstract class d extends FragmentPagerAdapter {
     private int[] bFV;
     private ArrayList<BaseFragment> cnY;
 
-    protected abstract BaseFragment aif();
+    protected abstract BaseFragment aib();
 
     public d(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
         this.cnY = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
-        BaseFragment aif = aif();
-        aif.setArguments(bundle);
-        this.cnY.add(aif);
+        BaseFragment aib = aib();
+        aib.setArguments(bundle);
+        this.cnY.add(aib);
         if (z) {
             this.bFV = new int[1];
             return;
         }
         Bundle bundle2 = new Bundle();
         bundle2.putInt("page_type", 1);
-        BaseFragment aif2 = aif();
-        aif2.setArguments(bundle2);
-        this.cnY.add(aif2);
+        BaseFragment aib2 = aib();
+        aib2.setArguments(bundle2);
+        this.cnY.add(aib2);
         this.bFV = new int[]{0, 1};
     }
 

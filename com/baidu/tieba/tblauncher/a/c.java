@@ -39,14 +39,14 @@ public class c extends com.baidu.tbadk.mvc.g.a<a, com.baidu.tbadk.mvc.d.b> {
             if (this.aNv != null) {
                 String str = "";
                 try {
-                    str = TbadkCoreApplication.m411getInst().getString(aVar.ayR());
+                    str = TbadkCoreApplication.m411getInst().getString(aVar.ayN());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 this.aNv.setText(str);
-                this.aNv.setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(aVar.ayS()), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.aNv.setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(aVar.ayO()), (Drawable) null, (Drawable) null, (Drawable) null);
             }
-            switch (aVar.ayT()) {
+            switch (aVar.ayP()) {
                 case 1:
                     this.aLa.setImageDrawable(null);
                     this.aLa.setVisibility(8);

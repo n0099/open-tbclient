@@ -27,6 +27,6 @@ class b implements d.a {
         }
         this.dhw.showToast(str);
         hVar3 = this.dhw.dhv;
-        hVar3.Kr();
+        hVar3.Kn();
     }
 }

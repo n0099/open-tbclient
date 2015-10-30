@@ -47,9 +47,9 @@ public class co extends bn<com.baidu.tbadk.core.data.q, cp> implements View.OnCl
         cpVar.aXE.setShowRefreshTimeInHead(true);
         cpVar.aXE.setShowLiveIcon(true);
         cpVar.aXE.setHeadPaddingTop(0);
-        cpVar.aXE.setChooseStyle(qVar.rO().getShowStyle());
-        cpVar.aXE.setShowImage(com.baidu.tbadk.core.m.qX().rb());
-        cpVar.aXE.setData(qVar.rO());
+        cpVar.aXE.setChooseStyle(qVar.rL().getShowStyle());
+        cpVar.aXE.setShowImage(com.baidu.tbadk.core.m.qU().qY());
+        cpVar.aXE.setData(qVar.rL());
         cpVar.aXE.setPortraitClicklistener(this);
         cpVar.aXF.setOnClickListener(this);
         cpVar.aXF.setTag(qVar);
@@ -75,11 +75,11 @@ public class co extends bn<com.baidu.tbadk.core.data.q, cp> implements View.OnCl
         }
     }
 
-    public int Ml() {
+    public int Mh() {
         return i.f.more_live_list;
     }
 
-    public int LC() {
+    public int Ly() {
         return i.f.make_headlines;
     }
 }

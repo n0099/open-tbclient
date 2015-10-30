@@ -38,17 +38,17 @@ public class a extends BaseAdapter {
         void lY(int i);
     }
 
-    public void aCu() {
+    public void aCq() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
-            aCv();
+            aCr();
         } else if (this.chosedFiles.size() < this.dni) {
             if (this.chosedFiles.size() <= 0 || !this.chosedFiles.get(this.chosedFiles.size() - 1).getFilePath().startsWith("android.resource://")) {
-                aCv();
+                aCr();
             }
         }
     }
 
-    private void aCv() {
+    private void aCr() {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath("android.resource://" + this.mContext.getPackageName() + "/" + i.e.btn_addpic_n);
         imageFileInfo.setTempFile(true);
@@ -59,14 +59,14 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public boolean aCw() {
+    public boolean aCs() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
             return false;
         }
         return this.chosedFiles.get(this.chosedFiles.size() + (-1)).getFilePath().startsWith("android.resource://");
     }
 
-    public void aCx() {
+    public void aCt() {
         if (this.chosedFiles != null && this.chosedFiles.size() > 0) {
             int size = this.chosedFiles.size() - 1;
             if (this.chosedFiles.get(size).getFilePath().startsWith("android.resource://")) {
@@ -123,7 +123,7 @@ public class a extends BaseAdapter {
         if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.size() > 0) {
             this.chosedFiles.addAll(writeImagesInfo.getChosedFiles());
         }
-        aCu();
+        aCq();
         notifyDataSetInvalidated();
     }
 

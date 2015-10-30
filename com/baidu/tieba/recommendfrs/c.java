@@ -24,7 +24,7 @@ public class c extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, 
         Object item = getItem(i);
         if (item instanceof com.baidu.tieba.recommendfrs.data.b) {
             com.baidu.tieba.recommendfrs.data.b bVar = (com.baidu.tieba.recommendfrs.data.b) item;
-            if (bVar.aqf() == 33) {
+            if (bVar.aqb() == 33) {
                 return 8;
             }
             return bVar.getType() == 2 ? 1 : 0;
@@ -38,7 +38,7 @@ public class c extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, 
                 return 7;
             }
         } else if (item instanceof com.baidu.tieba.recommendfrs.data.c) {
-            List<Pic> list = ((com.baidu.tieba.recommendfrs.data.c) item).aqh().pics;
+            List<Pic> list = ((com.baidu.tieba.recommendfrs.data.c) item).aqd().pics;
             if (list != null) {
                 int size = list.size();
                 if (size >= 3) {
@@ -55,7 +55,7 @@ public class c extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, 
         return 0;
     }
 
-    public com.baidu.tieba.recommendfrs.data.b apP() {
+    public com.baidu.tieba.recommendfrs.data.b apL() {
         com.baidu.tieba.recommendfrs.data.b bVar;
         for (int count = getCount() - 1; count >= 0; count--) {
             Object item = getItem(count);

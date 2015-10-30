@@ -106,7 +106,7 @@ public class c {
         }
     }
 
-    public static synchronized void ty() {
+    public static synchronized void tv() {
         synchronized (c.class) {
             YX.clear();
         }

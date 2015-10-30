@@ -29,7 +29,7 @@ public class h {
 
     /* loaded from: classes.dex */
     public interface a {
-        void YU();
+        void YQ();
     }
 
     public h(RelativeLayout relativeLayout, int i) {
@@ -55,7 +55,7 @@ public class h {
 
     public void a(com.baidu.adp.lib.g.d dVar) {
         if (this.bMk.getVisibility() == 0) {
-            this.bMm = new TranslateAnimation(YR(), 0.0f, 0.0f, 0.0f);
+            this.bMm = new TranslateAnimation(YN(), 0.0f, 0.0f, 0.0f);
             this.bMm.setDuration(300L);
             if (dVar != null) {
                 this.bMm.setAnimationListener(dVar);
@@ -64,7 +64,7 @@ public class h {
         }
     }
 
-    private int YR() {
+    private int YN() {
         int[] iArr = new int[2];
         this.bMk.getLocationInWindow(iArr);
         int K = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst());
@@ -73,7 +73,7 @@ public class h {
 
     public void b(com.baidu.adp.lib.g.d dVar) {
         if (this.bMk.getVisibility() == 0) {
-            this.bMn = new TranslateAnimation(0.0f, YR(), 0.0f, 0.0f);
+            this.bMn = new TranslateAnimation(0.0f, YN(), 0.0f, 0.0f);
             this.bMn.setDuration(300L);
             if (dVar != null) {
                 this.bMn.setAnimationListener(dVar);
@@ -82,13 +82,13 @@ public class h {
         }
     }
 
-    public void YS() {
+    public void YO() {
         TranslateAnimation translateAnimation = new TranslateAnimation(this.bMk.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
         translateAnimation.setDuration(300L);
         this.bMk.startAnimation(translateAnimation);
     }
 
-    public void YT() {
+    public void YP() {
         TranslateAnimation translateAnimation = new TranslateAnimation(-this.bMk.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
         translateAnimation.setDuration(300L);
         this.bMk.startAnimation(translateAnimation);

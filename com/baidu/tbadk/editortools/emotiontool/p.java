@@ -62,7 +62,7 @@ public class p extends t {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.t
-    public EmotionGroupType AZ() {
+    public EmotionGroupType AW() {
         return EmotionGroupType.LOCAL;
     }
 
@@ -87,7 +87,7 @@ public class p extends t {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.t
-    public boolean Ba() {
+    public boolean AX() {
         return true;
     }
 }

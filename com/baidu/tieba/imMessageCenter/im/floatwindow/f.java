@@ -25,7 +25,7 @@ public class f extends g {
 
     public void b(int i, int i2, String str, int i3) {
         ao(i, i2);
-        Yx();
+        Yt();
         this.aHW.d(str, 12, false);
         this.aHW.setUrl(str);
         hF(i3);
@@ -59,7 +59,7 @@ public class f extends g {
         an.i((View) this.bLl, i2);
     }
 
-    public e Yu() {
+    public e Yq() {
         this.bLk.Q(this.bLr);
         return this.bLk;
     }

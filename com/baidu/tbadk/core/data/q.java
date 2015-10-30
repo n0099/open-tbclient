@@ -6,7 +6,7 @@ public class q extends w {
     public static final BdUniqueId Vc = BdUniqueId.gen();
     private PhotoLiveCardData Vd;
 
-    public PhotoLiveCardData rO() {
+    public PhotoLiveCardData rL() {
         return this.Vd;
     }
 

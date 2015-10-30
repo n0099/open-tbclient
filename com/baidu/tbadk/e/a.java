@@ -11,7 +11,7 @@ public class a {
         this.auB = view;
     }
 
-    public boolean Cq() {
+    public boolean Cn() {
         return this.auC;
     }
 
@@ -19,13 +19,13 @@ public class a {
         if (view != null && this.auB != null && this.auB.getParent() == null) {
             this.auC = true;
             d.w(view).a(view, this.auB, z);
-            Cr();
+            Co();
         }
     }
 
     public void u(View view) {
         if (view != null && this.auB != null && this.auB.getParent() != null && (view instanceof ViewGroup)) {
-            Cs();
+            Cp();
             ((ViewGroup) view).removeView(this.auB);
             this.auC = false;
         }
@@ -35,9 +35,9 @@ public class a {
         b(view, false);
     }
 
-    protected void Cr() {
+    protected void Co() {
     }
 
-    protected void Cs() {
+    protected void Cp() {
     }
 }

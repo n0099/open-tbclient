@@ -64,24 +64,24 @@ public class av extends com.baidu.adp.base.f<SystemHelpSettingActivity> {
         }
         this.cOV = (TbSettingTextTipView) this.cOQ.findViewById(i.f.baidu_wallet);
         this.cOV.setOnClickListener(this.cOQ);
-        if (!com.baidu.tbadk.pay.e.DA().DB()) {
+        if (!com.baidu.tbadk.pay.e.Dx().Dy()) {
             this.cOV.setVisibility(8);
         }
     }
 
-    public BdSwitchView atf() {
+    public BdSwitchView atb() {
         return this.cOT;
     }
 
-    public TbSettingTextTipView atg() {
+    public TbSettingTextTipView atc() {
         return this.cOR;
     }
 
-    public TbSettingTextTipView ath() {
+    public TbSettingTextTipView atd() {
         return this.cOS;
     }
 
-    public TbSettingTextTipView ati() {
+    public TbSettingTextTipView ate() {
         return this.cOV;
     }
 
@@ -93,7 +93,7 @@ public class av extends com.baidu.adp.base.f<SystemHelpSettingActivity> {
         com.baidu.tbadk.core.util.an.i(this.cOR, i.e.more_all);
     }
 
-    public TbSettingTextNewDotView atj() {
+    public TbSettingTextNewDotView atf() {
         return this.cOU;
     }
 }

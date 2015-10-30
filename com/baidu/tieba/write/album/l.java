@@ -39,7 +39,7 @@ public class l {
         return this.mWriteImagesInfo.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> aBs() {
+    public List<ImageFileInfo> aBo() {
         if (this.mWriteImagesInfo != null) {
             return this.mWriteImagesInfo.getChosedFiles();
         }
@@ -75,7 +75,7 @@ public class l {
         return 0;
     }
 
-    public String aBt() {
+    public String aBp() {
         return this.dkp;
     }
 
@@ -83,7 +83,7 @@ public class l {
         this.dkp = str;
     }
 
-    public List<ImageFileInfo> aBu() {
+    public List<ImageFileInfo> aBq() {
         return this.dkv;
     }
 
@@ -99,7 +99,7 @@ public class l {
         this.apZ = i;
     }
 
-    public List<a> aBv() {
+    public List<a> aBr() {
         return this.dki;
     }
 
@@ -107,7 +107,7 @@ public class l {
         this.dki = list;
     }
 
-    public List<ImageFileInfo> aBw() {
+    public List<ImageFileInfo> aBs() {
         return this.dkw;
     }
 
@@ -122,7 +122,7 @@ public class l {
         return this.mWriteImagesInfo.size();
     }
 
-    public String aBx() {
+    public String aBt() {
         return this.dkx;
     }
 
@@ -138,7 +138,7 @@ public class l {
         return this.mWriteImagesInfo.isOriginalImg();
     }
 
-    public boolean aBy() {
+    public boolean aBu() {
         return this.dky;
     }
 

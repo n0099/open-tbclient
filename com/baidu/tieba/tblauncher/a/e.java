@@ -37,7 +37,7 @@ public class e implements View.OnClickListener, AdapterView.OnItemClickListener 
         void fo(int i);
     }
 
-    private void ayl() {
+    private void ayh() {
         if (this.mContext != null) {
             this.mContext.registerListener(this.cOW);
             this.mContext.registerListener(this.ddW);
@@ -45,10 +45,10 @@ public class e implements View.OnClickListener, AdapterView.OnItemClickListener 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aym() {
+    public void ayi() {
         if (this.mContext != null) {
-            p.azb().n(this.mContext);
-            p.azb().b(new k(this));
+            p.ayX().n(this.mContext);
+            p.ayX().b(new k(this));
         }
     }
 
@@ -56,8 +56,8 @@ public class e implements View.OnClickListener, AdapterView.OnItemClickListener 
         this.mContext = tbPageContext;
         this.ddT = new com.baidu.tbadk.mvc.g.d<>(tbPageContext, c.class, i.g.left_navi_item, null);
         this.ddT.bo(false);
-        p.azb().n(tbPageContext);
-        p.azb().b(new l(this));
+        p.ayX().n(tbPageContext);
+        p.ayX().b(new l(this));
     }
 
     public d m(TbPageContext tbPageContext) {
@@ -65,9 +65,9 @@ public class e implements View.OnClickListener, AdapterView.OnItemClickListener 
             return null;
         }
         this.ddS = new d(tbPageContext.getPageActivity());
-        ayl();
+        ayh();
         l(tbPageContext);
-        ayl();
+        ayh();
         this.ddS.setListAdapter(this.ddT);
         this.ddS.setOnPersonInfoViewClicked(this.ddX);
         this.ddS.setOnListItemClicked(this);
@@ -79,7 +79,7 @@ public class e implements View.OnClickListener, AdapterView.OnItemClickListener 
         return this.ddS;
     }
 
-    public void ayV() {
+    public void ayR() {
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null && this.ddS != null) {
             this.ddS.lQ(currentAccountObj.getPortrait());
@@ -90,16 +90,16 @@ public class e implements View.OnClickListener, AdapterView.OnItemClickListener 
         }
     }
 
-    public void ayW() {
-        aK(4, com.baidu.tbadk.core.sharedPref.b.tu().getBoolean(new StringBuilder("show_member_new_icon_").append(TbadkCoreApplication.m411getInst().getVersionCode()).append(TbadkCoreApplication.getCurrentAccount()).toString(), true) ? 1 : 0);
+    public void ayS() {
+        aK(4, com.baidu.tbadk.core.sharedPref.b.tr().getBoolean(new StringBuilder("show_member_new_icon_").append(TbadkCoreApplication.m411getInst().getVersionCode()).append(TbadkCoreApplication.getCurrentAccount()).toString(), true) ? 1 : 0);
     }
 
-    public void ayX() {
-        aK(3, com.baidu.tbadk.core.sharedPref.b.tu().getBoolean(new StringBuilder("show_my_new_icon").append(TbadkCoreApplication.getCurrentAccount()).toString(), true) ? 1 : 0);
+    public void ayT() {
+        aK(3, com.baidu.tbadk.core.sharedPref.b.tr().getBoolean(new StringBuilder("show_my_new_icon").append(TbadkCoreApplication.getCurrentAccount()).toString(), true) ? 1 : 0);
     }
 
     public void aK(int i, int i2) {
-        p.azb().b(new n(this, i, i2));
+        p.ayX().b(new n(this, i, i2));
     }
 
     public void gH(boolean z) {
@@ -128,7 +128,7 @@ public class e implements View.OnClickListener, AdapterView.OnItemClickListener 
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddressListActivityConfig(view.getContext())));
                     return;
                 case 1:
-                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "my_favorite_entry", "is_redpoint", item.ayT() == 0 ? 0 : 1, new Object[0]);
+                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "my_favorite_entry", "is_redpoint", item.ayP() == 0 ? 0 : 1, new Object[0]);
                     aK(1, 0);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.LEFT_NAV_COLLECTION_CLICK));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_EDITMARK, new IntentConfig(view.getContext())));
@@ -138,19 +138,19 @@ public class e implements View.OnClickListener, AdapterView.OnItemClickListener 
                     return;
                 case 3:
                     TiebaStatic.eventStat(view.getContext(), "myself_broadcast", "click", 1, new Object[0]);
-                    com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("show_my_new_icon" + TbadkCoreApplication.getCurrentAccount(), false);
+                    com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("show_my_new_icon" + TbadkCoreApplication.getCurrentAccount(), false);
                     aK(3, 0);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.LEFT_NAV_LIVE_CLICK));
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MyLiveActivityConfig(view.getContext())));
                     return;
                 case 4:
-                    com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("show_member_new_icon_" + TbadkCoreApplication.m411getInst().getVersionCode() + TbadkCoreApplication.getCurrentAccount(), false);
+                    com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("show_member_new_icon_" + TbadkCoreApplication.m411getInst().getVersionCode() + TbadkCoreApplication.getCurrentAccount(), false);
                     aK(4, 0);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPrivilegeActivityConfig(view.getContext())));
                     return;
                 case 5:
                     aK(5, 0);
-                    com.baidu.tbadk.core.sharedPref.b.tu().putLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
+                    com.baidu.tbadk.core.sharedPref.b.tr().putLong("left_nav_dressup_center_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new DressupCenterActivityConfig(view.getContext())));
                     return;
                 case 6:
@@ -159,11 +159,11 @@ public class e implements View.OnClickListener, AdapterView.OnItemClickListener 
                 case 7:
                 default:
                     item.onClick();
-                    p.azb().b(new o(this));
+                    p.ayX().b(new o(this));
                     return;
                 case 8:
                     TiebaStatic.log("c10072");
-                    aU(view.getContext()).sR();
+                    aU(view.getContext()).sO();
                     TiebaStatic.eventStat(view.getContext(), "sidebar_quit", "click", 1, new Object[0]);
                     return;
             }
@@ -184,7 +184,7 @@ public class e implements View.OnClickListener, AdapterView.OnItemClickListener 
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.LEFT_NAV_SETTING_CLICK));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_MORE, new IntentConfig(view.getContext())));
         } else if (view == this.ddS.getDayNightView()) {
-            aza();
+            ayW();
         } else if (view == this.ddS.getUserIconView()) {
             ay(view);
         }
@@ -198,7 +198,7 @@ public class e implements View.OnClickListener, AdapterView.OnItemClickListener 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ayY() {
+    public void ayU() {
         if (this.ddS != null) {
             if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
                 this.ddS.setDayNightViewText(TbadkCoreApplication.m411getInst().getString(i.h.skin_mode_day));
@@ -208,11 +208,11 @@ public class e implements View.OnClickListener, AdapterView.OnItemClickListener 
         }
     }
 
-    public d ayZ() {
+    public d ayV() {
         return this.ddS;
     }
 
-    public void aza() {
+    public void ayW() {
         int i = 0;
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
         if (skinType == 0 || skinType == 2) {
@@ -229,7 +229,7 @@ public class e implements View.OnClickListener, AdapterView.OnItemClickListener 
     public void e(TbPageContext tbPageContext) {
         if (this.ddS != null) {
             this.ddS.e(tbPageContext);
-            ayY();
+            ayU();
         }
         if (this.ddT != null) {
             this.ddT.a(tbPageContext, TbadkCoreApplication.m411getInst().getSkinType());

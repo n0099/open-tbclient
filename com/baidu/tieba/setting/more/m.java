@@ -13,7 +13,7 @@ class m implements BdSwitchView.a {
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        com.baidu.tbadk.core.m.qX().af(switchState == BdSwitchView.SwitchState.ON);
-        this.cNs.arM();
+        com.baidu.tbadk.core.m.qU().af(switchState == BdSwitchView.SwitchState.ON);
+        this.cNs.arI();
     }
 }

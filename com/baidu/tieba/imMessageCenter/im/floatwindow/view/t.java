@@ -38,9 +38,9 @@ class t implements View.OnClickListener {
                         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(context, String.valueOf(str4), userData.getUserName(), userData.getPortrait(), null, false, AddFriendActivityConfig.TYPE_FRS_RECOM)));
                         return;
                     } else if (iG == 4) {
-                        com.baidu.tbadk.newFriends.a Dr = com.baidu.tbadk.newFriends.a.Dr();
+                        com.baidu.tbadk.newFriends.a Do = com.baidu.tbadk.newFriends.a.Do();
                         str3 = this.bMx.azB;
-                        Dr.b(com.baidu.adp.lib.g.b.c(str3, 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);
+                        Do.b(com.baidu.adp.lib.g.b.c(str3, 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);
                         return;
                     } else {
                         return;

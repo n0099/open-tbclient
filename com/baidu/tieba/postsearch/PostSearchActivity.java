@@ -23,38 +23,38 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public void iW(String str) {
         this.bUV = str;
         this.cDZ.kb(1);
-        this.cEa.aow();
-        this.cDZ.KB();
+        this.cEa.aos();
+        this.cDZ.Kx();
     }
 
     public void kI(String str) {
         this.cDZ.kI(str);
     }
 
-    public void aoi() {
+    public void aoe() {
         this.cDZ.ac(this.cEa.cEw);
     }
 
     public void a(int i, j jVar, boolean z) {
-        if (i == 1 && (jVar == null || !jVar.WW())) {
-            this.cDZ.amT();
-            this.cDZ.aoA();
+        if (i == 1 && (jVar == null || !jVar.WS())) {
+            this.cDZ.amP();
+            this.cDZ.aow();
             return;
         }
-        this.cDZ.amT();
-        this.cDZ.aop();
+        this.cDZ.amP();
+        this.cDZ.aol();
         this.cDZ.a(i, jVar, z);
     }
 
-    public boolean aoj() {
-        return this.cDZ.aoj();
+    public boolean aof() {
+        return this.cDZ.aof();
     }
 
-    public void aoe() {
-        this.cDZ.aoe();
+    public void aoa() {
+        this.cDZ.aoa();
     }
 
-    public s aok() {
+    public s aog() {
         return this.cEa;
     }
 
@@ -69,6 +69,6 @@ public class PostSearchActivity extends BaseFragmentActivity {
         if (intent != null) {
             this.mForumName = intent.getStringExtra("forum_name");
         }
-        this.cEa.aot();
+        this.cEa.aop();
     }
 }

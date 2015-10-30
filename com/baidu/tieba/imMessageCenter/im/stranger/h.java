@@ -24,7 +24,7 @@ class h implements c.b {
         cVar.dismiss();
         if (this.bOx == 1) {
             strangerListModel2 = this.bOw.bOr;
-            strangerListModel2.ZJ();
+            strangerListModel2.ZF();
             this.bOw.finish();
             return;
         }

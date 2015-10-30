@@ -29,7 +29,7 @@ class j implements a.d {
                     if (!AntiHelper.g(antiData)) {
                         writeData.setVcodeMD5(lVar.getVcode_md5());
                         writeData.setVcodeUrl(lVar.getVcode_pic_url());
-                        if (lVar.ws().equals("4")) {
+                        if (lVar.wp().equals("4")) {
                             this.dnV.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.dnV.getPageContext().getPageActivity(), 12006, writeData, false)));
                             return;
                         } else {

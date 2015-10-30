@@ -54,7 +54,7 @@ public class a extends bn<g, k> {
         BaseWebView webView = cVar.getWebView();
         webView.setOnLoadUrlListener(new b(this, gVar));
         webView.setHorizontalScrollBarEnabled(false);
-        if (!cVar.MX() && gVar != null) {
+        if (!cVar.MT() && gVar != null) {
             CompatibleUtile.getInstance().loadUrl(webView, gVar.url);
             cVar.setWebViewLoading(true);
         }

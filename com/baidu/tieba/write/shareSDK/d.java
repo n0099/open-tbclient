@@ -13,7 +13,7 @@ class d implements View.OnFocusChangeListener {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x002b, code lost:
-        if (r4 == r0.aCo()) goto L19;
+        if (r4 == r0.aCk()) goto L19;
      */
     @Override // android.view.View.OnFocusChangeListener
     /*
@@ -37,40 +37,40 @@ class d implements View.OnFocusChangeListener {
         oVar = this.dmy.dmi;
         if (oVar != null) {
             oVar2 = this.dmy.dmi;
-            if (view != oVar2.aCl()) {
+            if (view != oVar2.aCh()) {
                 oVar11 = this.dmy.dmi;
-                if (view != oVar11.aCn()) {
+                if (view != oVar11.aCj()) {
                     oVar12 = this.dmy.dmi;
                 }
             }
             if (!z) {
                 oVar3 = this.dmy.dmi;
-                if (view == oVar3.aCl()) {
+                if (view == oVar3.aCh()) {
                     oVar4 = this.dmy.dmi;
-                    if (oVar4.aCp() != null) {
+                    if (oVar4.aCl() != null) {
                         oVar5 = this.dmy.dmi;
-                        oVar5.aCp().setVisibility(0);
+                        oVar5.aCl().setVisibility(0);
                     }
                 }
             } else {
                 WriteShareActivity writeShareActivity = this.dmy;
                 inputMethodManager = this.dmy.mInputManager;
                 oVar6 = this.dmy.dmi;
-                writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar6.aCl());
+                writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar6.aCh());
             }
             oVar7 = this.dmy.dmi;
-            if (view == oVar7.amS()) {
+            if (view == oVar7.amO()) {
                 if (z) {
                     oVar10 = this.dmy.dmi;
-                    oVar10.amS().setHint((CharSequence) null);
+                    oVar10.amO().setHint((CharSequence) null);
                 } else {
                     oVar8 = this.dmy.dmi;
-                    oVar8.amS().setHint(i.h.content);
+                    oVar8.amO().setHint(i.h.content);
                 }
                 WriteShareActivity writeShareActivity2 = this.dmy;
                 inputMethodManager2 = this.dmy.mInputManager;
                 oVar9 = this.dmy.dmi;
-                writeShareActivity2.ShowSoftKeyPad(inputMethodManager2, oVar9.aCl());
+                writeShareActivity2.ShowSoftKeyPad(inputMethodManager2, oVar9.aCh());
             }
         }
     }

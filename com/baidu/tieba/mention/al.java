@@ -63,7 +63,7 @@ public class al extends k {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof t) {
-            this.aKt.r(((t) aVar).adc());
+            this.aKt.r(((t) aVar).acY());
         }
     }
 
@@ -93,37 +93,37 @@ public class al extends k {
         this.caU.b(this.caj);
         this.caU.b(this.aSD);
         this.caU.c(this.caj);
-        this.caU.Ax().onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
-        if (this.caU.Ax() != null) {
+        this.caU.Au().onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+        if (this.caU.Au() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.mRootView.addView(this.caU.Ax(), layoutParams);
-            this.caU.Ax().hide();
+            this.mRootView.addView(this.caU.Au(), layoutParams);
+            this.caU.Au().hide();
         }
         this.caU.a(new ap(this));
         this.caU.b(new aq(this));
     }
 
     @Override // com.baidu.tieba.mention.k, com.baidu.tbadk.mvc.f.a.a
-    public void Dg() {
-        super.Dg();
-        if (this.caU != null && this.caU.Ax() != null) {
-            this.caU.Ax().hide();
+    public void Dd() {
+        super.Dd();
+        if (this.caU != null && this.caU.Au() != null) {
+            this.caU.Au().hide();
         }
     }
 
     public boolean onBackPressed() {
-        if (this.caU == null || this.caU.Ax() == null || !this.caU.Ax().AA()) {
+        if (this.caU == null || this.caU.Au() == null || !this.caU.Au().Ax()) {
             return false;
         }
-        this.caU.BM();
+        this.caU.BJ();
         return true;
     }
 
     public void d(com.baidu.tbadk.mvc.c.b bVar) {
         long c;
-        if (bVar != null && bVar.CD() == 9486) {
-            FeedData feedData = (FeedData) bVar.CE();
+        if (bVar != null && bVar.CA() == 9486) {
+            FeedData feedData = (FeedData) bVar.CB();
             ViewParent viewParent = (ViewParent) bVar.getView();
             while (viewParent != null && (viewParent instanceof View) && viewParent != this.caS) {
                 viewParent = viewParent.getParent();
@@ -133,7 +133,7 @@ public class al extends k {
                 bVar.getView().getDrawingRect(rect);
                 this.caS.offsetDescendantRectToMyCoords(bVar.getView(), rect);
                 this.mBottom = rect.bottom;
-                this.anL = bVar.CF();
+                this.anL = bVar.CC();
                 this.caV = feedData;
                 if (feedData.getIsFloor()) {
                     c = com.baidu.adp.lib.g.b.c(feedData.getQuote_pid(), 0L);
@@ -146,7 +146,7 @@ public class al extends k {
     }
 
     @Override // com.baidu.tbadk.mvc.f.a.a
-    public com.baidu.tbadk.mvc.f.a.b Df() {
+    public com.baidu.tbadk.mvc.f.a.b Dc() {
         if (this.cap == null) {
             this.cap = new com.baidu.tbadk.mvc.f.a.b();
             this.cap.setTitle(this.caj.getPageContext().getString(i.h.mention_replyme));

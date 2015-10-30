@@ -32,9 +32,9 @@ public class o implements AdapterView.OnItemClickListener {
                 i2 = 0;
                 break;
         }
-        com.baidu.tbadk.core.m.qX().bp(i2);
+        com.baidu.tbadk.core.m.qU().bp(i2);
         this.cNs.kC(i2);
-        this.cNs.arN();
-        com.baidu.tbadk.core.util.at.uJ().uS();
+        this.cNs.arJ();
+        com.baidu.tbadk.core.util.at.uG().uP();
     }
 }

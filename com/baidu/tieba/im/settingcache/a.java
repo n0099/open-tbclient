@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class a {
     protected HashMap<String, com.baidu.tieba.im.pushNotify.a> bHx = new HashMap<>();
 
-    protected abstract o<String> Xf();
+    protected abstract o<String> Xb();
 
     public abstract void a(com.baidu.tieba.im.pushNotify.a aVar);
 
@@ -30,12 +30,12 @@ public abstract class a {
         if (str2 != null && str2.length() != 0) {
             String str3 = String.valueOf(str2) + "@";
             synchronized (this.bHx) {
-                o<String> Xf = Xf();
-                List<o.b<String>> b = s.b(Xf);
+                o<String> Xb = Xb();
+                List<o.b<String>> b = s.b(Xb);
                 if (b != null) {
                     for (o.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = Xf.get(str4)) != null) {
+                        if (str4 != null && str4.startsWith(str3) && (str = Xb.get(str4)) != null) {
                             this.bHx.put(str4, (com.baidu.tieba.im.pushNotify.a) com.baidu.adp.lib.a.b.a.a.i.objectWithJsonStr(str, cls));
                         }
                     }

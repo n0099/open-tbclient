@@ -260,12 +260,12 @@ public class CDNProblemUploader extends p {
                 this.Ti.o("ab_num_error", new StringBuilder(String.valueOf(this.bRe)).toString());
                 this.Ti.o("error", this.XV);
             }
-            String tG = this.Ti.tG();
-            if (!this.Ti.uk() || TextUtils.isEmpty(tG)) {
+            String tD = this.Ti.tD();
+            if (!this.Ti.uh() || TextUtils.isEmpty(tD)) {
                 return null;
             }
             try {
-                return new JSONObject(tG);
+                return new JSONObject(tD);
             } catch (JSONException e) {
                 BdLog.e(e.getMessage());
                 return null;

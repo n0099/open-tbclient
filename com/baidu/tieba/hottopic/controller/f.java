@@ -15,11 +15,11 @@ public class f implements p.a {
     public void onListPullRefresh(boolean z) {
         com.baidu.tieba.hottopic.view.a aVar;
         if (com.baidu.adp.lib.util.i.iM()) {
-            this.boL.QM();
+            this.boL.QI();
             return;
         }
         HotTopicActivity hotTopicActivity = this.boL;
         aVar = this.boL.boz;
-        hotTopicActivity.showNetRefreshView(aVar.Ra(), null);
+        hotTopicActivity.showNetRefreshView(aVar.QW(), null);
     }
 }

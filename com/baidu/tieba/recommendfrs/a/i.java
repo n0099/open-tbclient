@@ -41,9 +41,9 @@ public class i extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
     public void B(com.baidu.tieba.recommendfrs.data.b bVar) {
         super.B(bVar);
         if (bVar != null) {
-            String str = (bVar.aqc() == null || bVar.aqc().size() <= 0) ? null : bVar.aqc().get(0);
+            String str = (bVar.apY() == null || bVar.apY().size() <= 0) ? null : bVar.apY().get(0);
             TbImageView tbImageView = this.aJW;
-            if (!bVar.aqt()) {
+            if (!bVar.aqp()) {
                 str = null;
             }
             tbImageView.d(str, 10, false);
@@ -56,11 +56,11 @@ public class i extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
                 this.aJX.setText(getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(bVar.getForumName(), 7, false)));
                 this.aJX.setOnClickListener(new j(this, bVar));
             }
-            this.aJY.setText(as.s(bVar.apZ()));
-            this.aJZ.setText(as.s(bVar.aqa()));
-            this.aKa.setVisibility(bVar.aqe() ? 0 : 4);
+            this.aJY.setText(as.q(bVar.apV()));
+            this.aJZ.setText(as.q(bVar.apW()));
+            this.aKa.setVisibility(bVar.aqa() ? 0 : 4);
             p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.lL(String.valueOf(bVar.aqb()))) {
+            if (readThreadHistory != null && readThreadHistory.lL(String.valueOf(bVar.apX()))) {
                 an.b(this.alu, i.c.cp_cont_d, 1);
             } else {
                 an.b(this.alu, i.c.cp_cont_b, 1);

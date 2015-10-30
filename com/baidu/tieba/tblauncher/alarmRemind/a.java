@@ -26,7 +26,7 @@ public class a {
         ddA.put(6, new Pair<>("讲述:第一次给奇葩相亲女发好人卡", "http://tieba.baidu.com/p/3871991340"));
     }
 
-    public static RemindRecommendMessage ayM() {
+    public static RemindRecommendMessage ayI() {
         int i = 0;
         String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_index";
         int loadInt = TbadkSettings.getInst().loadInt(str, 0);
@@ -51,7 +51,7 @@ public class a {
         return remindRecommendMessage;
     }
 
-    public static boolean aqI() {
+    public static boolean aqE() {
         return TbadkSettings.getInst().loadInt(new StringBuilder(String.valueOf(TbadkCoreApplication.getCurrentAccount())).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
@@ -89,7 +89,7 @@ public class a {
         }
     }
 
-    public static long ayN() {
+    public static long ayJ() {
         int i;
         int i2;
         int i3;

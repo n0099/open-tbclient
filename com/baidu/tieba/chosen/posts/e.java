@@ -31,7 +31,7 @@ public class e extends com.baidu.adp.base.f<ChosenPostActivity> {
     private View mRootView;
     int paddingTop;
 
-    protected r Ho() {
+    protected r Hk() {
         if (this.mPullView == null) {
             this.mPullView = new r(this.aJN.getPageContext());
         }
@@ -61,7 +61,7 @@ public class e extends com.baidu.adp.base.f<ChosenPostActivity> {
         this.aJS = (NoNetworkView) getView().findViewById(i.f.view_no_network);
         this.aJP = new com.baidu.tieba.chosen.posts.a(this.aJN.getPageContext(), new Class[]{com.baidu.tieba.chosen.posts.a.e.class, com.baidu.tieba.chosen.posts.a.c.class, com.baidu.tieba.chosen.posts.a.a.class}, new int[]{i.g.chosen_picture_layout, i.g.chosen_no_picture_layout, i.g.chosen_image_text_layout}, this.aJN.oF());
         this.aJO.setAdapter((ListAdapter) this.aJP);
-        this.mPullView = Ho();
+        this.mPullView = Hk();
         this.aJO.setPullRefresh(this.mPullView);
         this.mPullView.a(new f(this));
         this.aJO.setOnItemClickListener(new g(this));
@@ -71,9 +71,9 @@ public class e extends com.baidu.adp.base.f<ChosenPostActivity> {
         this.aJQ.no();
         getListView().setNextPage(this.aJQ);
         this.MY = new com.baidu.tbadk.e.f(getActivity());
-        this.MY.tc();
+        this.MY.sZ();
         this.MY.b(getView(), true);
-        this.aJN.Hj().oR();
+        this.aJN.Hf().oR();
     }
 
     public Activity getActivity() {
@@ -81,7 +81,7 @@ public class e extends com.baidu.adp.base.f<ChosenPostActivity> {
     }
 
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        switch (bVar.CD()) {
+        switch (bVar.CA()) {
             case 4097:
                 this.aJR = false;
                 break;
@@ -89,7 +89,7 @@ public class e extends com.baidu.adp.base.f<ChosenPostActivity> {
                 this.aJR = true;
                 break;
             case FragmentTransaction.TRANSIT_FRAGMENT_FADE /* 4099 */:
-                a(bVar.CE());
+                a(bVar.CB());
                 break;
             case 4102:
                 c(bVar);
@@ -101,9 +101,9 @@ public class e extends com.baidu.adp.base.f<ChosenPostActivity> {
     private void c(com.baidu.tbadk.mvc.c.b bVar) {
         Object extra = bVar.getExtra();
         if (extra instanceof Long) {
-            this.aJP.ah(((Long) extra).longValue());
+            this.aJP.af(((Long) extra).longValue());
             if (this.aJP.getCount() <= 5) {
-                Hp();
+                Hl();
             }
         }
     }
@@ -113,7 +113,7 @@ public class e extends com.baidu.adp.base.f<ChosenPostActivity> {
         if (this.MY != null) {
             this.MY.u(getView());
         }
-        if (errorData != null && this.aJP.Dn() <= 0) {
+        if (errorData != null && this.aJP.Dk() <= 0) {
             showNetRefreshView(getView(), getPageContext().getResources().getString(i.h.net_error_text, errorData.getError_msg(), Integer.valueOf(errorData.getError_code())), true);
         }
         this.aJO.completePullRefresh();
@@ -144,11 +144,11 @@ public class e extends com.baidu.adp.base.f<ChosenPostActivity> {
     public void d(com.baidu.tbadk.mvc.d.b bVar) {
         if (bVar instanceof com.baidu.tbadk.mvc.d.a) {
             com.baidu.tbadk.mvc.d.a aVar = (com.baidu.tbadk.mvc.d.a) bVar;
-            if (aVar.Dd()) {
+            if (aVar.Da()) {
                 this.aJQ.ow();
-                if (aVar.Db()) {
+                if (aVar.CY()) {
                     this.aJQ.et(i.h.loading);
-                } else if (!aVar.Dc()) {
+                } else if (!aVar.CZ()) {
                     this.aJQ.eu(i.h.no_more_msg);
                 }
             } else {
@@ -163,30 +163,30 @@ public class e extends com.baidu.adp.base.f<ChosenPostActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof com.baidu.tieba.chosen.posts.request.d) {
-            List<tinfo> Hs = ((com.baidu.tieba.chosen.posts.request.d) aVar).Hs();
-            if (Hs != null && Hs.size() > 0) {
+            List<tinfo> Ho = ((com.baidu.tieba.chosen.posts.request.d) aVar).Ho();
+            if (Ho != null && Ho.size() > 0) {
                 this.aJO.setVisibility(0);
             }
             if (this.MY != null) {
                 this.MY.u(getView());
             }
             if (this.aJR) {
-                this.aJP.q(Hs);
+                this.aJP.q(Ho);
                 return;
             }
-            this.aJP.r(Hs);
-            if (Hs != null) {
-                BdToast a2 = BdToast.a(getActivity(), getActivity().getString(i.h.chosen_post_recommend, new Object[]{Integer.valueOf(Hs.size())}), 0);
+            this.aJP.r(Ho);
+            if (Ho != null) {
+                BdToast a2 = BdToast.a(getActivity(), getActivity().getString(i.h.chosen_post_recommend, new Object[]{Integer.valueOf(Ho.size())}), 0);
                 a2.bR(48);
                 a2.bT(this.paddingTop);
                 a2.bP(this.Xe);
-                a2.sX().sZ();
+                a2.sU().sW();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hp() {
+    public void Hl() {
         com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4100, null, null, null);
         bVar.setUniqueId(this.aJN.getUniqueId());
         this.aJN.oF().dispatchMvcEvent(bVar);
@@ -202,7 +202,7 @@ public class e extends com.baidu.adp.base.f<ChosenPostActivity> {
         }
         this.aJT.fv(str);
         this.aJT.b(view, z);
-        this.aJT.Cw();
+        this.aJT.Ct();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -226,7 +226,7 @@ public class e extends com.baidu.adp.base.f<ChosenPostActivity> {
         public void onClick(View view) {
             e.this.hideNetRefreshView(e.this.getView());
             e.this.MY.b(e.this.getView(), true);
-            e.this.Hp();
+            e.this.Hl();
         }
     }
 

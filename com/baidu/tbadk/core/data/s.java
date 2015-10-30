@@ -13,11 +13,11 @@ public class s {
     private int sex;
     private long userId;
 
-    public void rW() {
+    public void rT() {
         this.isAdded = true;
     }
 
-    public boolean rX() {
+    public boolean rU() {
         return this.isAdded;
     }
 
@@ -41,7 +41,7 @@ public class s {
         return this.userId;
     }
 
-    public String rY() {
+    public String rV() {
         return this.Vn;
     }
 
@@ -49,15 +49,15 @@ public class s {
         return this.name;
     }
 
-    public boolean rZ() {
+    public boolean rW() {
         return 2 == this.sex;
     }
 
-    public String sa() {
+    public String rX() {
         return this.Vo;
     }
 
-    public IconData sb() {
+    public IconData rY() {
         return this.Vp;
     }
 

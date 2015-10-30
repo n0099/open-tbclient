@@ -40,7 +40,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         registerListener(this.mListener);
         registerListener(this.bNo);
         Intent intent = getIntent();
-        Hy();
+        Hu();
         if (intent != null) {
             this.isFromInviteChat = intent.getBooleanExtra(InviteFriendListActivityConfig.IS_FROM_INVITE_CHAT, false);
             z = intent.getBooleanExtra(InviteFriendListActivityConfig.KEY_FINISH_ACTIVITY, false);
@@ -50,13 +50,13 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             this.bNj.initWithBundle(bundle);
         }
         initView();
-        JH();
+        JD();
         if (z) {
-            Zn();
+            Zj();
         }
     }
 
-    private void Zn() {
+    private void Zj() {
         registerListener(new m(this, CmdConfigCustom.CMD_PERSONAL_CHAT_INITED));
     }
 
@@ -70,14 +70,14 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onStart() {
         super.onStart();
-        this.bNi.Zx();
+        this.bNi.Zt();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        this.bNi.Zy();
+        this.bNi.Zu();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -90,7 +90,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         }
     }
 
-    private void Hy() {
+    private void Hu() {
         this.bNj = new y(this);
     }
 
@@ -99,8 +99,8 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         this.bNi.hP(100);
     }
 
-    private void JH() {
-        Zo();
+    private void JD() {
+        Zk();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
@@ -111,7 +111,7 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
         }
     }
 
-    public void Zo() {
+    public void Zk() {
         String trim;
         if (!isFinishing()) {
             if (this.bNk == null) {
@@ -122,11 +122,11 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
                 }
                 return;
             }
-            String Zv = this.bNi.Zv();
-            if (Zv == null) {
+            String Zr = this.bNi.Zr();
+            if (Zr == null) {
                 trim = "";
             } else {
-                trim = Zv.trim();
+                trim = Zr.trim();
             }
             if (this.bNk.isEmpty() && trim.length() > 0) {
                 showToast(getPageContext().getString(i.h.invite_friend_no_data_now));
@@ -138,8 +138,8 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
             }
             this.bNl.clear();
             for (com.baidu.tbadk.coreExtra.relationship.a aVar : this.bNk) {
-                String yw = aVar.yw();
-                if (yw != null && yw.contains(trim)) {
+                String yt = aVar.yt();
+                if (yt != null && yt.contains(trim)) {
                     this.bNl.add(aVar);
                 }
             }
@@ -151,10 +151,10 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.bNi != null) {
-            this.bNi.ZB();
-            if (view.getId() == this.bNi.Zu()) {
-                Zf();
-                this.bNj.iJ(this.bNi.Zw());
+            this.bNi.Zx();
+            if (view.getId() == this.bNi.Zq()) {
+                Zb();
+                this.bNj.iJ(this.bNi.Zs());
             }
         }
     }
@@ -187,20 +187,20 @@ public class InviteFriendListActivity extends BaseActivity<InviteFriendListActiv
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.bNi.Zt()) {
-            this.bNi.Zs();
+        if (i == 4 && this.bNi.Zp()) {
+            this.bNi.Zo();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    public void Zf() {
+    public void Zb() {
         showLoadingDialog((String) null, new n(this));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.bNi.vA();
+        this.bNi.vx();
     }
 }

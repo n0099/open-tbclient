@@ -72,7 +72,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                     }
                     c cVar2 = new c(8);
                     this.aBk++;
-                    cVar2.a(next.EY());
+                    cVar2.a(next.EU());
                     this.aBl.add(cVar2);
                 } else if (z && next.getType() == 32) {
                     if (cVar != null) {
@@ -80,10 +80,10 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                     }
                     c cVar3 = new c(32);
                     cVar3.fP(next.getVideoUrl());
-                    cVar3.a(next.Fc());
+                    cVar3.a(next.EY());
                     this.aBl.add(cVar3);
                     cVar = new c(1);
-                    CharSequence x = next.x(cVar.EX());
+                    CharSequence x = next.x(cVar.ET());
                     if (x != null) {
                         cVar.append(x);
                     }
@@ -93,7 +93,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                         cVar = null;
                     }
                     c cVar4 = new c(512);
-                    cVar4.a(next.Fa());
+                    cVar4.a(next.EW());
                     this.aBl.add(cVar4);
                 } else if (next.getType() == 17) {
                     if (cVar != null) {
@@ -101,13 +101,13 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                         cVar = null;
                     }
                     c cVar5 = new c(17);
-                    cVar5.a(next.Fd());
+                    cVar5.a(next.EZ());
                     this.aBl.add(cVar5);
                 } else {
                     if (cVar == null) {
                         cVar = new c(1);
                     }
-                    CharSequence x2 = next.x(cVar.EX());
+                    CharSequence x2 = next.x(cVar.ET());
                     if (x2 != null) {
                         cVar.append(x2);
                     }
@@ -154,7 +154,7 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public ArrayList<c> ET() {
+    public ArrayList<c> EP() {
         return this.aBl;
     }
 
@@ -167,8 +167,8 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         for (int i = 0; i < size; i++) {
             c cVar = this.aBl.get(i);
             String cVar2 = cVar.toString();
-            if (cVar.getType() == 1 && cVar.Fe() > 0) {
-                cVar2 = cVar2.substring(cVar.Fe());
+            if (cVar.getType() == 1 && cVar.Fa() > 0) {
+                cVar2 = cVar2.substring(cVar.Fa());
             }
             if (i == size - 1 && cVar.getType() == 1 && this.aBm) {
                 sb.append(cVar2.substring(0, cVar2.length() - this.aBn));
@@ -176,11 +176,11 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
                 sb.append(this.aBo);
             } else if (cVar.getType() == 512) {
                 sb.append(this.aBp);
-            } else if (cVar.getType() == 32 && cVar.Fc() != null) {
-                if (StringUtils.isNull(cVar.Fc().getVideoUrl())) {
+            } else if (cVar.getType() == 32 && cVar.EY() != null) {
+                if (StringUtils.isNull(cVar.EY().getVideoUrl())) {
                     sb.append(cVar2);
                 } else {
-                    sb.append(this.aBq).append(cVar.Fc().getVideoUrl());
+                    sb.append(this.aBq).append(cVar.EY().getVideoUrl());
                 }
             } else {
                 sb.append(cVar2);

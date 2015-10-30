@@ -19,18 +19,18 @@ class ad implements TimePickerDialog.OnTimeSetListener {
         ae aeVar;
         ae aeVar2;
         if (this.val$id == i.f.sign_remind) {
-            com.baidu.tbadk.coreExtra.messageCenter.c.xh().setSignAlertTime(i, i2);
+            com.baidu.tbadk.coreExtra.messageCenter.c.xe().setSignAlertTime(i, i2);
             aeVar2 = this.cNU.cNS;
-            aeVar2.asw();
+            aeVar2.ass();
         } else if (this.val$id == i.f.no_disturb_end_time || this.val$id == i.f.no_disturb_start_time) {
             String str = String.valueOf(String.valueOf(i < 10 ? "0" : "") + i) + ":" + (String.valueOf(i2 < 10 ? "0" : "") + i2);
             if (this.val$id == i.f.no_disturb_start_time) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().dY(str);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().dY(str);
             } else {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().dZ(str);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().dZ(str);
             }
             aeVar = this.cNU.cNS;
-            aeVar.asx();
+            aeVar.ast();
         }
     }
 }

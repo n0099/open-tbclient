@@ -27,15 +27,15 @@ class af implements u {
         lVar2 = this.dlo.djP;
         if (lVar2.size() < maxImagesAllowed) {
             lVar3 = this.dlo.djP;
-            if (lVar3.aBy()) {
+            if (lVar3.aBu()) {
                 lVar5 = this.dlo.djP;
                 lVar5.mn(String.valueOf(System.currentTimeMillis()));
             }
             lVar4 = this.dlo.djP;
-            String aBx = lVar4.aBx();
-            if (!StringUtils.isNull(aBx, true)) {
+            String aBt = lVar4.aBt();
+            if (!StringUtils.isNull(aBt, true)) {
                 albumActivity2 = this.dlo.djW;
-                am.a(albumActivity2.getPageContext(), aBx);
+                am.a(albumActivity2.getPageContext(), aBt);
                 return;
             }
             albumActivity = this.dlo.djW;

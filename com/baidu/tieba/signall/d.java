@@ -14,6 +14,6 @@ class d implements Comparator<e> {
     @Override // java.util.Comparator
     /* renamed from: a */
     public int compare(e eVar, e eVar2) {
-        return eVar2.atD() - eVar.atD();
+        return eVar2.atz() - eVar.atz();
     }
 }

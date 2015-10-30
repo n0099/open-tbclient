@@ -93,13 +93,13 @@ public class d {
         return null;
     }
 
-    public void tc() {
+    public void sZ() {
         an.i(this.rootView, i.c.recommend_pb_comment_background);
         an.b(this.aKd, i.c.cp_cont_f, 1);
         an.j(this.cfD, i.c.cp_bg_line_b);
-        this.cfA.tc();
-        this.cfB.tc();
-        this.cfC.tc();
+        this.cfA.sZ();
+        this.cfB.sZ();
+        this.cfC.sZ();
     }
 
     public View getView() {

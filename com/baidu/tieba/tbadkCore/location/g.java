@@ -39,7 +39,7 @@ public class g extends CustomMessageListener {
             bVar = this.daV.daP;
             if (bVar != null) {
                 bVar2 = this.daV.daP;
-                bVar2.BG();
+                bVar2.BD();
             }
         }
     }

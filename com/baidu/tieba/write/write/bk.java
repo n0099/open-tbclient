@@ -18,11 +18,11 @@ public class bk implements a.b {
         com.baidu.tieba.tbadkCore.location.d dVar;
         if (!com.baidu.adp.lib.util.i.iM()) {
             aVar2 = this.dqi.asi;
-            aVar2.BF();
+            aVar2.BC();
         } else {
             this.dqi.a(1, true, (String) null);
             dVar = this.dqi.arV;
-            dVar.axu();
+            dVar.axq();
         }
         aVar.dismiss();
     }

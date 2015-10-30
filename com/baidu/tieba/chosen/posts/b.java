@@ -28,7 +28,7 @@ public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetMo
     private a.InterfaceC0052a<com.baidu.tieba.chosen.posts.request.d> aJK;
     private com.baidu.adp.framework.listener.a aJL;
 
-    private void Hl() {
+    private void Hh() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(307007);
         socketMessageTask.i(true);
         socketMessageTask.setResponsedClass(UnlikeSocketReponse.class);
@@ -36,7 +36,7 @@ public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetMo
         MessageManager.getInstance().registerTask(socketMessageTask);
     }
 
-    private void Hm() {
+    private void Hi() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, com.baidu.tieba.tbadkCore.a.a.ad(TbConfig.HOT_THREAD_UNLIKE, 307007));
         tbHttpMessageTask.setResponsedClass(UnlikeHttpResponse.class);
@@ -44,7 +44,7 @@ public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetMo
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ai(long j) {
+    public void ag(long j) {
         com.baidu.tbadk.mvc.c.b bVar = new com.baidu.tbadk.mvc.c.b(4102, null, null, null);
         bVar.setExtra(Long.valueOf(j));
         bVar.setUniqueId(getUniqueId());
@@ -57,16 +57,16 @@ public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetMo
         this.aJK = new c(this);
         this.aJL = new d(this, CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, 307007);
         this.aJF = chosenPostActivity;
-        Hm();
-        Hl();
+        Hi();
+        Hh();
         registerListener(this.aJL);
     }
 
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        if (bVar.CD() == 4100) {
-            this.aJG.CS();
+        if (bVar.CA() == 4100) {
+            this.aJG.CP();
             return false;
-        } else if (bVar.CD() == 4101) {
+        } else if (bVar.CA() == 4101) {
             Object extra = bVar.getExtra();
             if (extra instanceof tinfo) {
                 tinfo tinfoVar = (tinfo) extra;
@@ -84,16 +84,16 @@ public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetMo
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean oR() {
-        this.aJH.CI();
+        this.aJH.CF();
         return true;
     }
 
     protected boolean a(com.baidu.tieba.chosen.posts.request.c cVar, com.baidu.tieba.chosen.posts.request.d dVar) {
-        this.aJF.Hk().a(dVar);
+        this.aJF.Hg().a(dVar);
         if (dVar != null) {
             this.aJI.bj(false);
             this.aJI.bk(false);
-            this.aJF.Hk().d(this.aJI);
+            this.aJF.Hg().d(this.aJI);
             return true;
         }
         return true;
@@ -110,21 +110,21 @@ public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetMo
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean bB(boolean z) {
         this.aJI.bj(true);
-        this.aJF.Hk().d(this.aJI);
+        this.aJF.Hg().d(this.aJI);
         bC(true);
-        this.aJJ.Hr();
-        this.aJG.CS();
+        this.aJJ.Hn();
+        this.aJG.CP();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean Hn() {
-        this.aJJ.Hr();
-        this.aJG.CS();
+    public boolean Hj() {
+        this.aJJ.Hn();
+        this.aJG.CP();
         this.aJI.bk(true);
         this.aJI.bm(true);
         bC(false);
-        this.aJF.Hk().d(this.aJI);
+        this.aJF.Hg().d(this.aJI);
         return true;
     }
 
@@ -160,7 +160,7 @@ public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetMo
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.aJF.a(errorData);
-            this.aJF.Hk().a(errorData);
+            this.aJF.Hg().a(errorData);
         }
     }
 
@@ -185,7 +185,7 @@ public class b extends com.baidu.adp.base.e<ChosenPostActivity> implements NetMo
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.aJF.a(errorData);
-            this.aJF.Hk().a(errorData);
+            this.aJF.Hg().a(errorData);
         }
     }
 

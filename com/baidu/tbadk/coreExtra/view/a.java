@@ -48,10 +48,10 @@ public class a implements View.OnClickListener {
             if (aVar == null) {
                 str2 = this.ajC.link;
                 if (!TextUtils.isEmpty(str2)) {
-                    az uW = az.uW();
+                    az uT = az.uT();
                     tbPageContext = this.ajC.mContext;
                     str3 = this.ajC.link;
-                    uW.b(tbPageContext, new String[]{str3});
+                    uT.b(tbPageContext, new String[]{str3});
                     str4 = this.ajC.link;
                     if (str4.startsWith("game:detail:")) {
                         str7 = this.ajC.type;
@@ -76,7 +76,7 @@ public class a implements View.OnClickListener {
                 return;
             }
             aVar2 = this.ajC.ajA;
-            aVar2.yK();
+            aVar2.yH();
             return;
         }
         str9 = this.ajC.aju;
@@ -89,7 +89,7 @@ public class a implements View.OnClickListener {
         aVar3 = this.ajC.ajA;
         if (aVar3 != null) {
             aVar4 = this.ajC.ajA;
-            aVar4.yL();
+            aVar4.yI();
         }
     }
 }

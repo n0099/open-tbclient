@@ -44,11 +44,11 @@ public class ax {
         return str;
     }
 
-    public static String uU() {
+    public static String uR() {
         return abr;
     }
 
-    public static String uV() {
+    public static String uS() {
         return abt;
     }
 }

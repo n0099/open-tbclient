@@ -15,13 +15,13 @@ public class m extends r {
     private final Handler axi = new n(this, Looper.getMainLooper());
     public long uF;
 
-    public void DN() {
+    public void DK() {
         this.axi.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void DO() {
-        u uVar = (u) y.Eb().eB(this.mSubType);
+    public void DL() {
+        u uVar = (u) y.DY().eB(this.mSubType);
         if (uVar != null) {
             uVar.c(this);
         }
@@ -38,8 +38,8 @@ public class m extends r {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
-            m.this.awV = y.Eb().Ef();
-            m.this.DO();
+            m.this.awV = y.DY().Ec();
+            m.this.DL();
             return Boolean.TRUE;
         }
 

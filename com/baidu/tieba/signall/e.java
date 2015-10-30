@@ -33,23 +33,23 @@ public class e implements ae {
         return this.avatar;
     }
 
-    public int atB() {
+    public int atx() {
         return this.cPX;
     }
 
-    public int atC() {
+    public int aty() {
         return this.cPY;
     }
 
-    public int atD() {
+    public int atz() {
         return this.cPZ;
     }
 
-    public int atE() {
+    public int atA() {
         return this.cQa;
     }
 
-    public int atF() {
+    public int atB() {
         return this.cQb;
     }
 
@@ -65,7 +65,7 @@ public class e implements ae {
         this.cPZ = i;
     }
 
-    public boolean atG() {
+    public boolean atC() {
         return this.cQc;
     }
 
@@ -74,7 +74,7 @@ public class e implements ae {
         this.cPX = 1;
     }
 
-    public boolean atH() {
+    public boolean atD() {
         return this.cQe;
     }
 
@@ -83,7 +83,7 @@ public class e implements ae {
         this.cPX = 0;
     }
 
-    public boolean atI() {
+    public boolean atE() {
         return this.cQf;
     }
 
@@ -91,7 +91,7 @@ public class e implements ae {
         this.cQf = z;
     }
 
-    public int atJ() {
+    public int atF() {
         return this.cQg;
     }
 
@@ -107,7 +107,7 @@ public class e implements ae {
         this.errorMsg = str;
     }
 
-    public boolean atK() {
+    public boolean atG() {
         return this.cQd;
     }
 

@@ -63,23 +63,23 @@ public class as extends com.baidu.adp.base.d<MsglistActivity<?>> {
         this.anL = i;
     }
 
-    public void aB(long j) {
+    public void az(long j) {
         this.brX = j;
     }
 
-    public void aC(long j) {
+    public void aA(long j) {
         this.brY = Calendar.getInstance();
         this.brY.setTimeInMillis(1000 * j);
     }
 
-    private boolean aD(long j) {
+    private boolean aB(long j) {
         if (j < 1000) {
             return false;
         }
         return this.brX == 0 || j - this.brX >= 180;
     }
 
-    private String aE(long j) {
+    private String aC(long j) {
         if (j < 1000) {
             return "";
         }
@@ -151,14 +151,14 @@ public class as extends com.baidu.adp.base.d<MsglistActivity<?>> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void b(ChatMessage chatMessage) {
         boolean z = chatMessage.getCacheData() != null && chatMessage.getCacheData().getIs_show_time() == 1;
-        boolean aD = aD(chatMessage.getTime());
-        if (z || aD) {
+        boolean aB = aB(chatMessage.getTime());
+        if (z || aB) {
             this.aPX.setVisibility(0);
-            this.aPX.setText(aE(chatMessage.getTime()));
+            this.aPX.setText(aC(chatMessage.getTime()));
         } else {
             this.aPX.setVisibility(8);
         }
-        if (!z && aD) {
+        if (!z && aB) {
             MsgCacheData cacheData = chatMessage.getCacheData();
             if (cacheData == null) {
                 MsgCacheData msgCacheData = new MsgCacheData();

@@ -132,7 +132,7 @@ public class ai extends BaseAdapter {
         aVar.cnf = (LinearLayout) inflate.findViewById(i.f.sub_pb_item_columnlayout);
         aVar.cng = (TextView) inflate.findViewById(i.f.manage_btn);
         aVar.chp = (TbRichTextView) inflate.findViewById(i.f.new_sub_pb_list_richText);
-        aVar.chp.Fq();
+        aVar.chp.Fm();
         aVar.chp.setLineSpacing(1.0f);
         aVar.chp.setTextSize(TbConfig.getContentSizeOfLzl(this.mContext));
         aVar.chp.setTextColor(an.getColor(i.c.gray_day_3));
@@ -163,34 +163,34 @@ public class ai extends BaseAdapter {
                 sparseArray.put(i.f.tag_is_subpb, true);
             }
             aVar.chp.setLinkTextColor(an.getColor(i.c.cp_link_tip_c));
-            com.baidu.tbadk.widget.richText.a awJ = kVar.awJ();
-            if (awJ != null) {
-                ArrayList<com.baidu.tbadk.widget.richText.c> ET = awJ.ET();
-                if (ET.size() > 0) {
-                    com.baidu.tbadk.widget.richText.c cVar2 = ET.get(ET.size() - 1);
+            com.baidu.tbadk.widget.richText.a awF = kVar.awF();
+            if (awF != null) {
+                ArrayList<com.baidu.tbadk.widget.richText.c> EP = awF.EP();
+                if (EP.size() > 0) {
+                    com.baidu.tbadk.widget.richText.c cVar2 = EP.get(EP.size() - 1);
                     int type = cVar2.getType();
                     String str = "";
                     if (type == 1) {
-                        String o = (ET.size() <= 1 || ET.get(ET.size() + (-2)).getType() == type) ? "  " + as.o(kVar.getTime()) : as.o(kVar.getTime());
-                        SpannableStringBuilder EZ = cVar2.EZ();
-                        if (awJ.aBm) {
-                            EZ.delete(EZ.length() - awJ.aBn, EZ.length());
+                        String m = (EP.size() <= 1 || EP.get(EP.size() + (-2)).getType() == type) ? "  " + as.m(kVar.getTime()) : as.m(kVar.getTime());
+                        SpannableStringBuilder EV = cVar2.EV();
+                        if (awF.aBm) {
+                            EV.delete(EV.length() - awF.aBn, EV.length());
                         }
-                        str = as.dm(o);
-                        EZ.append((CharSequence) str);
-                        awJ.aBm = true;
-                        awJ.aBn = str.length();
+                        str = as.dm(m);
+                        EV.append((CharSequence) str);
+                        awF.aBm = true;
+                        awF.aBn = str.length();
                         cVar = cVar2;
-                    } else if (awJ.aBm) {
+                    } else if (awF.aBm) {
                         cVar = cVar2;
                     } else {
-                        String o2 = as.o(kVar.getTime());
+                        String m2 = as.m(kVar.getTime());
                         com.baidu.tbadk.widget.richText.c cVar3 = new com.baidu.tbadk.widget.richText.c(1);
-                        String dm = as.dm(o2);
+                        String dm = as.dm(m2);
                         cVar3.append(dm);
-                        awJ.aBm = true;
-                        awJ.aBn = dm.length();
-                        ET.add(cVar3);
+                        awF.aBm = true;
+                        awF.aBn = dm.length();
+                        EP.add(cVar3);
                         cVar = cVar3;
                         str = dm;
                     }
@@ -199,12 +199,12 @@ public class ai extends BaseAdapter {
                     } else {
                         textAppearanceSpan = new TextAppearanceSpan(this.mContext, i.C0057i.subtext);
                     }
-                    SpannableStringBuilder EZ2 = cVar.EZ();
-                    EZ2.setSpan(textAppearanceSpan, EZ2.length() - str.length(), EZ2.length(), 33);
+                    SpannableStringBuilder EV2 = cVar.EV();
+                    EV2.setSpan(textAppearanceSpan, EV2.length() - str.length(), EV2.length(), 33);
                 }
                 aVar.chp.setVoiceViewRes(i.g.voice_play_btn);
                 aVar.chp.setIsFromCDN(this.mIsFromCDN);
-                aVar.chp.setText(kVar.awJ());
+                aVar.chp.setText(kVar.awF());
             }
             boolean z5 = false;
             boolean z6 = false;

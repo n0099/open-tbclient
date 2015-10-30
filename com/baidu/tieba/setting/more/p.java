@@ -19,16 +19,16 @@ public class p implements AdapterView.OnItemClickListener {
         eVar.bO(i);
         switch (i) {
             case 0:
-                com.baidu.tbadk.core.m.qX().bo(0);
+                com.baidu.tbadk.core.m.qU().bo(0);
                 break;
             case 1:
-                com.baidu.tbadk.core.m.qX().bo(1);
+                com.baidu.tbadk.core.m.qU().bo(1);
                 break;
             case 2:
-                com.baidu.tbadk.core.m.qX().bo(2);
+                com.baidu.tbadk.core.m.qU().bo(2);
                 break;
         }
-        this.cNs.arQ();
-        this.cNs.arN();
+        this.cNs.arM();
+        this.cNs.arJ();
     }
 }

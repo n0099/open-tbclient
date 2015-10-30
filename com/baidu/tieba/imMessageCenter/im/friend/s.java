@@ -24,7 +24,7 @@ public class s implements View.OnClickListener {
         if (view2 != null) {
             view3 = this.bNJ.bNG;
             if (view3.getVisibility() == 0) {
-                this.bNJ.Zs();
+                this.bNJ.Zo();
                 return;
             }
         }

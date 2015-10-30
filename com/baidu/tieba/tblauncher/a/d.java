@@ -60,10 +60,10 @@ public class d extends LinearLayout {
         this.ddQ = (TextView) findViewById(i.f.left_navi_daynight);
         this.ddR = (UserIconBox) findViewById(i.f.user_icon);
         com.baidu.adp.lib.util.k.a(getContext(), this.ddQ, 15, 10, 10, 10);
-        ajG();
-        ayU();
+        ajC();
+        ayQ();
         if (this.ddQ != null) {
-            if (!Mz()) {
+            if (!Mv()) {
                 TbadkCoreApplication.m411getInst().setSkinType(0);
                 this.ddQ.setVisibility(8);
                 return;
@@ -72,7 +72,7 @@ public class d extends LinearLayout {
         }
     }
 
-    public boolean Mz() {
+    public boolean Mv() {
         return MessageManager.getInstance().runTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, Boolean.class) != null;
     }
 
@@ -115,7 +115,7 @@ public class d extends LinearLayout {
         }
     }
 
-    private void ajG() {
+    private void ajC() {
         if (this.ctw != null) {
             this.ctw.setIsRound(true);
             this.ctw.setDefaultBgResource(0);
@@ -137,7 +137,7 @@ public class d extends LinearLayout {
         }
     }
 
-    private void ayU() {
+    private void ayQ() {
         this.ddL.setGifIconSupport(false);
         this.ddL.setVisibility(8);
     }

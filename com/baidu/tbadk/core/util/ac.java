@@ -19,7 +19,7 @@ public class ac {
             int i2 = 0;
             int i3 = 0;
             int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
-            boolean uT = at.uT();
+            boolean uQ = at.uQ();
             int firstVisiblePosition = listView.getFirstVisiblePosition();
             int lastVisiblePosition = listView.getLastVisiblePosition();
             com.baidu.adp.lib.f.c.ha().a(bdUniqueId, (com.baidu.adp.lib.f.b) null);
@@ -65,9 +65,9 @@ public class ac {
                                     if (i10 <= 13 && pbImageSize < bigImageMaxUsedMemory && i4 > lastVisiblePosition) {
                                         if (next.aaA != null) {
                                             com.baidu.tbadk.widget.richText.d dVar = next.aaA;
-                                            String str = uT ? dVar.atF.ati : dVar.atF.ath;
+                                            String str = uQ ? dVar.atF.ati : dVar.atF.ath;
                                             if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.f.c.ha().a(dVar.atF.atg, next.aaz, null, 0, 0, bdUniqueId, dVar.atF.mGid, dVar.atF.atg, Boolean.valueOf(uT), str);
+                                                com.baidu.adp.lib.f.c.ha().a(dVar.atF.atg, next.aaz, null, 0, 0, bdUniqueId, dVar.atF.mGid, dVar.atF.atg, Boolean.valueOf(uQ), str);
                                                 i7 = pbImageSize;
                                                 i6 = i10;
                                             }

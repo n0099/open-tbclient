@@ -22,7 +22,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public CharSequence ahQ() {
+    public CharSequence ahM() {
         return b(this.cnF);
     }
 
@@ -30,11 +30,11 @@ public class a implements c {
         String str;
         int eM;
         a.C0049a fk;
-        if (this.cnG == null && (eM = TbFaceManager.Ce().eM((str = content.text))) != 0) {
-            String str2 = "#(" + TbFaceManager.Ce().eO(str) + ")";
+        if (this.cnG == null && (eM = TbFaceManager.Cb().eM((str = content.text))) != 0) {
+            String str2 = "#(" + TbFaceManager.Cb().eO(str) + ")";
             this.cnG = new SpannableString(String.valueOf(str2) + " ");
             com.baidu.tbadk.widget.richText.e eVar = new com.baidu.tbadk.widget.richText.e(TbadkCoreApplication.m411getInst().getContext(), eM);
-            if (TbFaceManager.Ce().fk(str) != null) {
+            if (TbFaceManager.Cb().fk(str) != null) {
                 int width = (int) (fk.getWidth() * 0.6d);
                 eVar.setBounds(new Rect(0, 0, width, width));
             } else {
@@ -46,7 +46,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public boolean ahR() {
+    public boolean ahN() {
         return false;
     }
 }

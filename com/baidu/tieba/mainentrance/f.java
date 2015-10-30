@@ -8,7 +8,7 @@ public class f {
     private long mId;
     private String mName;
 
-    public String Ia() {
+    public String HW() {
         return this.aLu;
     }
 
@@ -37,7 +37,7 @@ public class f {
         this.aLu = str;
     }
 
-    public void aP(long j) {
+    public void aN(long j) {
         this.aLv = j;
     }
 

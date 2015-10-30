@@ -36,7 +36,7 @@ class e extends CustomMessageListener {
                     aoVar = this.this$0.dcB;
                     aoVar.gB(false);
                     aoVar2 = this.this$0.dcB;
-                    aoVar2.ayK().gH(false);
+                    aoVar2.ayG().gH(false);
                     return;
                 }
                 return;

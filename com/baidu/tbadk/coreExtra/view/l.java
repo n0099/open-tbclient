@@ -13,7 +13,7 @@ public class l implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.akD.yR();
-        this.akD.yP();
+        this.akD.yO();
+        this.akD.yM();
     }
 }

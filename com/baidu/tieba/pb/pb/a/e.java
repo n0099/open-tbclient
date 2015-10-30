@@ -87,7 +87,7 @@ public class e extends x.a {
         this.chf = view.findViewById(i.f.new_pb_list_item_line_top);
         this.chg = view.findViewById(i.f.new_pb_list_item_line_top_full);
         this.chh = view.findViewById(i.f.new_pb_list_item_blank_top);
-        this.chp.Fq();
+        this.chp.Fm();
         this.chp.setImageViewStretch(true);
         this.chr.setMaxImageWidth(com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst()) - (((int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds30)) * 2));
         this.chr.setMaxImageHeight((int) TbadkCoreApplication.m411getInst().getResources().getDimension(i.d.ds484));

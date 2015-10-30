@@ -35,7 +35,7 @@ public class ac extends com.baidu.adp.framework.listener.a {
                 TiebaStatic.log(r.r("obj_type", dressItemData2.getFreeUserLevel()));
                 dressItemData3 = this.dge.dfw;
                 dressItemData3.setInUse(true);
-                this.dge.azz();
+                this.dge.azv();
             }
         }
     }

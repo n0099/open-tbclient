@@ -18,7 +18,7 @@ public class d extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001363) {
-            this.ddG.ayP();
+            this.ddG.ayL();
         }
     }
 }

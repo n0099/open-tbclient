@@ -119,10 +119,10 @@ public class v extends com.baidu.adp.base.e<FrsGoodActivity> {
             this.aZR.clear();
             this.aZS.clear();
         }
-        int wo = TbadkCoreApplication.m411getInst().getListItemRule().wo() - this.aZR.size();
+        int wl = TbadkCoreApplication.m411getInst().getListItemRule().wl() - this.aZR.size();
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
-            if (i < wo) {
+            if (i < wl) {
                 this.aZR.add(arrayList.get(i));
             } else {
                 this.aZS.add(arrayList.get(i));
@@ -134,11 +134,11 @@ public class v extends com.baidu.adp.base.e<FrsGoodActivity> {
         return arrayList2;
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.u> MM() {
+    public ArrayList<com.baidu.adp.widget.ListView.u> MI() {
         int i;
         int size = this.aZS.size() + 30;
-        int wn = TbadkCoreApplication.m411getInst().getListItemRule().wn();
-        if (size > wn && this.aZS.size() > (i = size - wn)) {
+        int wk = TbadkCoreApplication.m411getInst().getListItemRule().wk();
+        if (size > wk && this.aZS.size() > (i = size - wk)) {
             for (int i2 = 0; i2 < i; i2++) {
                 this.aZS.remove(0);
             }

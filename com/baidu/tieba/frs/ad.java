@@ -17,7 +17,7 @@ public class ad implements a.b {
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        if (this.aUR.rq()) {
+        if (this.aUR.rn()) {
             this.aUK.a(this.aUR, "area_download");
             this.aUK.b(this.aUR, "download");
             this.aUK.b(this.aUR, this.val$position);

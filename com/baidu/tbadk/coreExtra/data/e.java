@@ -38,7 +38,7 @@ public class e {
         this.tL = new HashMap<>();
     }
 
-    public int wi() {
+    public int wf() {
         return this.age;
     }
 
@@ -46,7 +46,7 @@ public class e {
         return this.agf;
     }
 
-    public k wj() {
+    public k wg() {
         return this.agi;
     }
 
@@ -67,9 +67,9 @@ public class e {
                 this.agi.parserJson(jSONObject.optJSONObject("webview_checkurl"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("log_together");
                 if (optJSONObject != null) {
-                    com.baidu.tbadk.distribute.a.Ag().dM(optJSONObject.optInt("distance", 60));
-                    com.baidu.tbadk.distribute.a.Ag().dN(optJSONObject.optInt("items_num", 10));
-                    com.baidu.tbadk.distribute.a.Ag().aZ(1 == optJSONObject.optInt("ad_show", 1));
+                    com.baidu.tbadk.distribute.a.Ad().dM(optJSONObject.optInt("distance", 60));
+                    com.baidu.tbadk.distribute.a.Ad().dN(optJSONObject.optInt("items_num", 10));
+                    com.baidu.tbadk.distribute.a.Ad().aZ(1 == optJSONObject.optInt("ad_show", 1));
                 }
                 TbadkCoreApplication.m411getInst().setYijianfankuiFname(this.mYijianfankuiFname);
                 if (this.agg == null) {
@@ -88,7 +88,7 @@ public class e {
                     com.baidu.tbadk.core.util.a.e.getInstance().setCDNImageTimeData(aVar);
                     com.baidu.tbadk.core.util.a.e.getInstance().setIpDisableTime(jSONObject.optInt("ip_unavailable_time"));
                 }
-                y.Eb().D(jSONObject.optLong("small_flow_time_out"));
+                y.DY().B(jSONObject.optLong("small_flow_time_out"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("switch");
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
@@ -107,7 +107,7 @@ public class e {
                                 com.baidu.tbadk.coreExtra.a.a.checkPassV6Switch();
                             }
                             if ("is_plugin_resource_open_net".equals(optString)) {
-                                com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("is_plugin_resource_open_net", valueOf.intValue() == 1);
+                                com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("is_plugin_resource_open_net", valueOf.intValue() == 1);
                                 if (valueOf.intValue() != 1) {
                                     TbadkCoreApplication.m411getInst().setPluginResourceSwitch(false);
                                 }
@@ -161,9 +161,9 @@ public class e {
                     TbadkCoreApplication.m411getInst().setImTimeOut(new int[]{optJSONObject5.optInt("2gTo", 0) * 1000, optJSONObject5.optInt("3gTo", 0) * 1000, optJSONObject5.optInt("wifiTo", 0) * 1000});
                 }
                 JSONObject optJSONObject6 = jSONObject.optJSONObject("imNotifyRecordStrategy");
-                com.baidu.tbadk.data.c zV = com.baidu.tbadk.data.c.zV();
+                com.baidu.tbadk.data.c zS = com.baidu.tbadk.data.c.zS();
                 if (optJSONObject6 != null) {
-                    zV.parserJson(optJSONObject6);
+                    zS.parserJson(optJSONObject6);
                 }
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_RESET_CONNECT_STRATEGY));
                 TbConfig.setPbListNum(this.afX);

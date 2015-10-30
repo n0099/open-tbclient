@@ -49,8 +49,8 @@ public class af implements com.baidu.tbadk.editortools.b {
         WriteImagesInfo writeImagesInfo2;
         WriteImagesInfo writeImagesInfo3;
         WriteImagesInfo writeImagesInfo4;
-        boolean aDu;
-        boolean aDu2;
+        boolean aDq;
+        boolean aDq2;
         if (aVar != null) {
             if (aVar.code != 16) {
                 if (aVar.code != 21) {
@@ -59,18 +59,18 @@ public class af implements com.baidu.tbadk.editortools.b {
                         return;
                     } else if (aVar.code != 24) {
                         if (aVar.code == 3) {
-                            this.dqi.aDy();
+                            this.dqi.aDu();
                             return;
                         } else if (aVar.code == 10) {
                             if (aVar.data != null && (aVar.data instanceof VoiceData.VoiceModel)) {
                                 this.dqi.arS = (VoiceData.VoiceModel) aVar.data;
-                                this.dqi.aCj();
+                                this.dqi.aCf();
                                 return;
                             }
                             return;
                         } else if (aVar.code == 11) {
                             this.dqi.arS = null;
-                            this.dqi.aCj();
+                            this.dqi.aCf();
                             return;
                         } else if (aVar.code != 12 && aVar.code != 13) {
                             if (aVar.code != 22 && aVar.code != 23) {
@@ -101,20 +101,20 @@ public class af implements com.baidu.tbadk.editortools.b {
                                     if (aVar.data != null) {
                                         additionData = this.dqi.dpE;
                                         if (additionData == null) {
-                                            this.dqi.Bq();
+                                            this.dqi.Bn();
                                             return;
                                         }
                                     }
                                     i = this.dqi.ase;
                                     switch (i) {
                                         case 0:
-                                            this.dqi.Bo();
+                                            this.dqi.Bl();
                                             return;
                                         case 1:
                                         default:
                                             return;
                                         case 2:
-                                            this.dqi.Bn();
+                                            this.dqi.Bk();
                                             return;
                                     }
                                 } else if (aVar.code == 25) {
@@ -126,7 +126,7 @@ public class af implements com.baidu.tbadk.editortools.b {
                                     this.dqi.hb(false);
                                     return;
                                 } else if (aVar.code == 27) {
-                                    com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("xiaoying_has_click", true);
+                                    com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("xiaoying_has_click", true);
                                     jVar5 = this.dqi.dpD;
                                     jVar5.b(new com.baidu.tbadk.editortools.a(2, 19, null));
                                     TiebaStatic.log("c10057");
@@ -140,9 +140,9 @@ public class af implements com.baidu.tbadk.editortools.b {
                                     } else if (XiaoyingUtil.isXiaoyingInstalled()) {
                                         if (!XiaoyingUtil.isXiaoyingForbidden()) {
                                             jVar6 = this.dqi.dpD;
-                                            if (jVar6.AA()) {
+                                            if (jVar6.Ax()) {
                                                 jVar7 = this.dqi.dpD;
-                                                jVar7.za();
+                                                jVar7.yX();
                                                 jVar8 = this.dqi.dpD;
                                                 jVar8.b(new com.baidu.tbadk.editortools.a(5, -1, null));
                                             }
@@ -164,14 +164,14 @@ public class af implements com.baidu.tbadk.editortools.b {
                                     jVar2.b(aVar4);
                                     writeData = this.dqi.dbx;
                                     writeData.setVideoInfo(null);
-                                    this.dqi.aCj();
+                                    this.dqi.aCf();
                                     editText = this.dqi.dmD;
                                     if (editText != null) {
                                         editText3 = this.dqi.dmD;
                                         editText3.requestFocus();
                                     }
                                     jVar3 = this.dqi.dpD;
-                                    jVar3.za();
+                                    jVar3.yX();
                                     jVar4 = this.dqi.dpD;
                                     jVar4.b(new com.baidu.tbadk.editortools.a(5, -1, null));
                                     WriteActivity writeActivity = this.dqi;
@@ -183,16 +183,16 @@ public class af implements com.baidu.tbadk.editortools.b {
                                     return;
                                 }
                             }
-                            this.dqi.aCj();
+                            this.dqi.aCf();
                             return;
                         } else {
-                            this.dqi.aDG();
-                            this.dqi.aCj();
+                            this.dqi.aDC();
+                            this.dqi.aCf();
                             return;
                         }
                     } else {
-                        aDu = this.dqi.aDu();
-                        if (aDu) {
+                        aDq = this.dqi.aDq();
+                        if (aDq) {
                             this.dqi.showToast(i.h.over_limit_tip);
                             return;
                         } else if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.coreExtra.data.f)) {
@@ -203,11 +203,11 @@ public class af implements com.baidu.tbadk.editortools.b {
                         }
                     }
                 }
-                this.dqi.aDv();
+                this.dqi.aDr();
                 return;
             }
-            aDu2 = this.dqi.aDu();
-            if (aDu2) {
+            aDq2 = this.dqi.aDq();
+            if (aDq2) {
                 this.dqi.showToast(i.h.over_limit_tip);
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.dqi.getPageContext().getPageActivity(), 12004, true)));

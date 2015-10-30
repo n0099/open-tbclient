@@ -68,7 +68,7 @@ public class m {
         }
     }
 
-    public static void EF() {
+    public static void EB() {
         BdAsyncTask.removeAllTask(azM);
     }
 }

@@ -14,6 +14,6 @@ public class k implements DialogInterface.OnCancelListener {
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         this.dnV.destroyWaitingDialog();
-        this.dnV.aCb();
+        this.dnV.aBX();
     }
 }

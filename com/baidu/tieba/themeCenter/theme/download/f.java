@@ -49,7 +49,7 @@ public class f extends CustomMessageListener {
                 arrayList5 = this.dhp.dhm;
                 arrayList5.addAll(list2);
             }
-            this.dhp.azC();
+            this.dhp.azy();
             aVar = this.dhp.dhn;
             if (aVar != null) {
                 aVar2 = this.dhp.dhn;

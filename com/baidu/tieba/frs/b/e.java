@@ -28,15 +28,15 @@ public class e implements a.b {
         ai aiVar;
         aVar.dismiss();
         frsActivity = this.bbY.baR;
-        com.baidu.tieba.tbadkCore.o Lh = frsActivity.Lh();
+        com.baidu.tieba.tbadkCore.o Ld = frsActivity.Ld();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
             TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
             frsActivity2 = this.bbY.baR;
             m411getInst.login(frsActivity2.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.bbY.getPageContext().getPageActivity(), this.bbY.getPageContext().getString(i.h.login_to_use), true, 11036)));
-        } else if (Lh != null && Lh.aeN() != null) {
+        } else if (Ld != null && Ld.aeJ() != null) {
             aiVar = this.bbY.bbR;
-            aiVar.k(Lh.aeN().getName(), com.baidu.adp.lib.g.b.c(Lh.aeN().getId(), 0L));
+            aiVar.k(Ld.aeJ().getName(), com.baidu.adp.lib.g.b.c(Ld.aeJ().getId(), 0L));
         }
     }
 }

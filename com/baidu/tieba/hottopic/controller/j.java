@@ -20,7 +20,7 @@ class j extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ArrayList arrayList;
-        RelateForumItemData az;
+        RelateForumItemData ax;
         com.baidu.tieba.hottopic.view.e eVar;
         ArrayList arrayList2;
         if (customResponsedMessage != null) {
@@ -28,16 +28,16 @@ class j extends CustomMessageListener {
             if (!arrayList.isEmpty()) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Long) {
-                    az = this.boP.az(((Long) data).longValue());
-                    if (az != null) {
-                        az.followNum++;
-                        az.setIsLiked(true);
+                    ax = this.boP.ax(((Long) data).longValue());
+                    if (ax != null) {
+                        ax.followNum++;
+                        ax.setIsLiked(true);
                         eVar = this.boP.boO;
-                        n Rj = eVar.Rj();
-                        if (Rj != null) {
+                        n Rf = eVar.Rf();
+                        if (Rf != null) {
                             arrayList2 = this.boP.Xq;
-                            Rj.setData(arrayList2);
-                            Rj.notifyDataSetChanged();
+                            Rf.setData(arrayList2);
+                            Rf.notifyDataSetChanged();
                         }
                     }
                 }

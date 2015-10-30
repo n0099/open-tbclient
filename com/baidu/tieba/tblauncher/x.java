@@ -24,13 +24,13 @@ class x extends CustomMessageListener {
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();
             if ((intValue == 3 || intValue == 1 || intValue == 0) && TbadkCoreApplication.m411getInst().getOldSkinType() == 2) {
                 aoVar3 = this.this$0.dcB;
-                aoVar3.ayI().cb(1);
+                aoVar3.ayE().cb(1);
             } else if (TbadkCoreApplication.m411getInst().isThemeIconCover()) {
                 aoVar2 = this.this$0.dcB;
-                aoVar2.ayI().cb(2);
+                aoVar2.ayE().cb(2);
             } else {
                 aoVar = this.this$0.dcB;
-                aoVar.ayI().cb(1);
+                aoVar.ayE().cb(1);
             }
         }
     }

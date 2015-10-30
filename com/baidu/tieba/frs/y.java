@@ -22,7 +22,7 @@ class y implements Runnable {
         int L = com.baidu.adp.lib.util.k.L(this.aUK.getPageContext().getPageActivity());
         float f = TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density;
         int i = 1;
-        if (com.baidu.tbadk.core.util.at.uJ().uL()) {
+        if (com.baidu.tbadk.core.util.at.uG().uI()) {
             i = 2;
         }
         RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();

@@ -110,7 +110,7 @@ public class e extends BaseFragment {
 
     private void initData() {
         this.bJY = new ImMessageCenterModel();
-        dw(com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("is_shut_down_validate", false) ? false : true);
+        dw(com.baidu.tbadk.core.sharedPref.b.tr().getBoolean("is_shut_down_validate", false) ? false : true);
     }
 
     private void x(View view) {
@@ -162,17 +162,17 @@ public class e extends BaseFragment {
         }
     }
 
-    private void XO() {
+    private void XK() {
         if (isAdded()) {
             if (this.mIsLogin) {
-                XP();
+                XL();
             } else {
-                XQ();
+                XM();
             }
         }
     }
 
-    private void XP() {
+    private void XL() {
         NoDataViewFactory.b bVar = null;
         if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
             bVar = NoDataViewFactory.b.a(new NoDataViewFactory.a(getString(i.h.maintab_imcenter_button_text), new o(this)));
@@ -181,7 +181,7 @@ public class e extends BaseFragment {
         this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    private void XQ() {
+    private void XM() {
         NoDataViewFactory.a aVar = new NoDataViewFactory.a(getString(i.h.maintab_imcenter_unlogin_button_text), new p(this));
         int dimensionPixelSize = getResources().getDimensionPixelSize(i.d.ds100);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(i.d.ds480);
@@ -195,7 +195,7 @@ public class e extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        XO();
+        XK();
         if (!z) {
             dv(true);
         } else {
@@ -225,7 +225,7 @@ public class e extends BaseFragment {
 
     public void du(boolean z) {
         if (z) {
-            if (XR() && this.bKe.getVisibility() != 0) {
+            if (XN() && this.bKe.getVisibility() != 0) {
                 this.bKe.setVisibility(0);
             }
         } else if (this.bKe.getVisibility() != 8) {
@@ -236,7 +236,7 @@ public class e extends BaseFragment {
     public void dv(boolean z) {
         if (z) {
             if (this.mNoDataView == null) {
-                XO();
+                XK();
             }
             if (this.mNoDataView != null) {
                 this.mNoDataView.setVisibility(0);
@@ -248,7 +248,7 @@ public class e extends BaseFragment {
         }
     }
 
-    public boolean XR() {
+    public boolean XN() {
         return this.bKi;
     }
 

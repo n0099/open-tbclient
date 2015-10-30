@@ -22,7 +22,7 @@ public class j extends com.baidu.adp.a.a.a {
         if (!dO()) {
             super.start();
             this.axb.sendEmptyMessageDelayed(0, 10000L);
-            DL();
+            DI();
             try {
                 d.a(this.awW, new l(this));
             } catch (Exception e) {
@@ -34,10 +34,10 @@ public class j extends com.baidu.adp.a.a.a {
     @Override // com.baidu.adp.a.a.a
     public void stop() {
         super.stop();
-        DM();
+        DJ();
     }
 
-    private void DL() {
+    private void DI() {
         if (this.awY == null) {
             this.awY = new d();
         }
@@ -46,7 +46,7 @@ public class j extends com.baidu.adp.a.a.a {
         }
     }
 
-    private void DM() {
+    private void DJ() {
         if (this.awY != null && this.awY.dO()) {
             this.awY.stop();
         }

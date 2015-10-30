@@ -22,11 +22,11 @@ class h implements a.InterfaceC0003a {
                     float longitude = (float) address.getLongitude();
                     float latitude = (float) address.getLatitude();
                     cVar = this.cLe.mModel;
-                    if (cVar.adj()) {
+                    if (cVar.adf()) {
                         cVar2 = this.cLe.mModel;
                         cVar2.a(1, longitude, latitude);
                         cVar3 = this.cLe.mModel;
-                        cVar3.adk();
+                        cVar3.adg();
                         return;
                     }
                     return;

@@ -81,21 +81,21 @@ public class q extends com.baidu.adp.base.f<PaymentConfirmActivity> {
             if (goods_info != null) {
                 this.ceh.d(goods_info.getGoods_pic(), 10, false);
                 this.cei.setText(goods_info.getGoods_name());
-                String s = as.s(goods_info.getGoods_num());
-                this.cej.setText(h(String.valueOf(this.cef.getResources().getString(i.h.payment_confirm_goods_num, s)) + goods_info.getGoods_unit(), s, an.getColor(i.c.cp_link_tip_d)));
+                String q = as.q(goods_info.getGoods_num());
+                this.cej.setText(h(String.valueOf(this.cef.getResources().getString(i.h.payment_confirm_goods_num, q)) + goods_info.getGoods_unit(), q, an.getColor(i.c.cp_link_tip_d)));
                 int goods_duration = goods_info.getGoods_duration();
                 if (goods_duration > 0) {
-                    String s2 = as.s(goods_duration);
-                    this.cek.setText(h(this.cef.getResources().getString(i.h.payment_confirm_goods_timelength, s2), s2, an.getColor(i.c.cp_link_tip_d)));
+                    String q2 = as.q(goods_duration);
+                    this.cek.setText(h(this.cef.getResources().getString(i.h.payment_confirm_goods_timelength, q2), q2, an.getColor(i.c.cp_link_tip_d)));
                 } else {
                     this.cek.setText(a(this.cef.getResources().getString(i.h.payment_confirm_goods_timelength_default), 3, 5, an.getColor(i.c.cp_link_tip_d)));
                 }
                 this.cel.setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_huobi_tdou), (Drawable) null, (Drawable) null, (Drawable) null);
-                this.cel.setText(as.t(goods_info.getTdou_num()));
+                this.cel.setText(as.r(goods_info.getTdou_num()));
                 this.cem.setText(this.cef.getResources().getString(i.h.payment_confirm_goods_name_tip, goods_info.getGoods_name()));
                 if (z) {
                     an.b(this.cen, i.c.cp_cont_b, 1);
-                    this.cen.setText(aR(goods_info.getTdou_num()));
+                    this.cen.setText(aP(goods_info.getTdou_num()));
                 } else {
                     an.b(this.cen, i.c.cp_cont_h, 1);
                     this.cen.setText(i.h.payment_confirm_goods_price_tip_notenough);
@@ -131,16 +131,16 @@ public class q extends com.baidu.adp.base.f<PaymentConfirmActivity> {
         }
     }
 
-    private SpannableStringBuilder aR(long j) {
-        String s = as.s(j);
-        String string = this.cef.getResources().getString(i.h.payment_confirm_goods_price_tip, s);
+    private SpannableStringBuilder aP(long j) {
+        String q = as.q(j);
+        String string = this.cef.getResources().getString(i.h.payment_confirm_goods_price_tip, q);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(string);
-        int indexOf = string.indexOf(s);
+        int indexOf = string.indexOf(q);
         if (indexOf >= 0) {
             spannableStringBuilder.insert(indexOf, (CharSequence) " ");
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(an.getColor(i.c.cp_link_tip_d));
             spannableStringBuilder.setSpan(new com.baidu.adp.widget.d(getPageContext().getPageActivity(), an.cw(i.e.icon_huobi_tdou), 1), indexOf, indexOf + 1, 33);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf + 1, s.length() + indexOf + 1, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf + 1, q.length() + indexOf + 1, 33);
         }
         return spannableStringBuilder;
     }
@@ -156,7 +156,7 @@ public class q extends com.baidu.adp.base.f<PaymentConfirmActivity> {
         return (StringUtils.isNull(str) || StringUtils.isNull(str2) || (indexOf = str.indexOf(str2)) < 0) ? new SpannableString(str) : a(str, indexOf, str2.length() + indexOf, i);
     }
 
-    public ViewGroup aet() {
+    public ViewGroup aep() {
         if (this.cet == null) {
             this.cet = (ViewGroup) LayoutInflater.from(this.cef.getPageContext().getPageActivity()).inflate(i.g.input_password_dialog, (ViewGroup) null, false);
             com.baidu.tbadk.h.a.a(this.cef.getPageContext(), this.cet);
@@ -190,21 +190,21 @@ public class q extends com.baidu.adp.base.f<PaymentConfirmActivity> {
         }
     }
 
-    public void aeu() {
+    public void aeq() {
         if (this.cet != null && this.cet.getParent() != null) {
             ((ViewGroup) this.cet.getParent()).removeAllViews();
         }
     }
 
-    public ViewGroup aev() {
+    public ViewGroup aer() {
         return this.WN;
     }
 
-    public CheckBox aew() {
+    public CheckBox aes() {
         return this.ceo;
     }
 
-    public TextView aex() {
+    public TextView aet() {
         return this.ces;
     }
 
@@ -212,11 +212,11 @@ public class q extends com.baidu.adp.base.f<PaymentConfirmActivity> {
         this.ces.setEnabled(z);
     }
 
-    public TextView aey() {
+    public TextView aeu() {
         return this.cex;
     }
 
-    public String aez() {
+    public String aev() {
         return this.ceu != null ? this.ceu.getText().toString() : "";
     }
 
@@ -226,7 +226,7 @@ public class q extends com.baidu.adp.base.f<PaymentConfirmActivity> {
         }
     }
 
-    public EditText aeA() {
+    public EditText aew() {
         return this.ceu;
     }
 

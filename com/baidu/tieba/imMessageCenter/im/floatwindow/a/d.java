@@ -66,7 +66,7 @@ public class d implements b {
         return (int) (((this.k * i) + this.bLx.y) - (this.k * this.bLx.x));
     }
 
-    private long YG() {
+    private long YC() {
         return SystemClock.elapsedRealtime() - this.startTime;
     }
 
@@ -75,34 +75,34 @@ public class d implements b {
         if (!this.bLz.equals(this.bLy)) {
             switch (this.bLD) {
                 case 0:
-                    YA();
+                    Yw();
                     break;
                 case 1:
-                    YC();
+                    Yy();
                     break;
                 case 2:
-                    YB();
+                    Yx();
                     break;
                 case 3:
-                    YD();
+                    Yz();
                     break;
                 case 4:
-                    YE();
+                    YA();
                     break;
                 case 5:
-                    YF();
+                    YB();
                     break;
             }
             return false;
         }
         if (this.bLC != null) {
-            this.bLC.Yt();
+            this.bLC.Yp();
         }
         return true;
     }
 
-    private void YA() {
-        this.bLz.y = (int) (this.bLx.y + (this.bLF * ((float) YG())));
+    private void Yw() {
+        this.bLz.y = (int) (this.bLx.y + (this.bLF * ((float) YC())));
         if (this.bLz.y > this.bLy.y) {
             this.bLz.y = this.bLy.y;
         }
@@ -111,8 +111,8 @@ public class d implements b {
         }
     }
 
-    private void YB() {
-        this.bLz.x = (int) (this.bLx.x + (this.bLE * ((float) YG())));
+    private void Yx() {
+        this.bLz.x = (int) (this.bLx.x + (this.bLE * ((float) YC())));
         if (this.bLz.x > this.bLy.x) {
             this.bLz.x = this.bLy.x;
         }
@@ -121,8 +121,8 @@ public class d implements b {
         }
     }
 
-    private void YC() {
-        this.bLz.y = (int) (this.bLx.y - (this.bLF * ((float) YG())));
+    private void Yy() {
+        this.bLz.y = (int) (this.bLx.y - (this.bLF * ((float) YC())));
         if (this.bLz.y < this.bLy.y) {
             this.bLz.y = this.bLy.y;
         }
@@ -131,8 +131,8 @@ public class d implements b {
         }
     }
 
-    private void YD() {
-        this.bLz.x = (int) (this.bLx.x - (this.bLE * ((float) YG())));
+    private void Yz() {
+        this.bLz.x = (int) (this.bLx.x - (this.bLE * ((float) YC())));
         if (this.bLz.x < this.bLy.x) {
             this.bLz.x = this.bLy.x;
         }
@@ -141,9 +141,9 @@ public class d implements b {
         }
     }
 
-    private void YE() {
+    private void YA() {
         boolean z = true;
-        this.bLz.x = (int) (this.bLx.x - (this.bLE * ((float) YG())));
+        this.bLz.x = (int) (this.bLx.x - (this.bLE * ((float) YC())));
         this.bLz.y = hG(this.bLz.x);
         if (this.bLx.y <= this.bLy.y ? this.bLz.y <= this.bLy.y : this.bLz.y >= this.bLy.y) {
             z = false;
@@ -157,9 +157,9 @@ public class d implements b {
         }
     }
 
-    private void YF() {
+    private void YB() {
         boolean z = true;
-        this.bLz.x = (int) (this.bLx.x + (this.bLE * ((float) YG())));
+        this.bLz.x = (int) (this.bLx.x + (this.bLE * ((float) YC())));
         this.bLz.y = hG(this.bLz.x);
         if (this.bLx.y <= this.bLy.y ? this.bLz.y <= this.bLy.y : this.bLz.y >= this.bLy.y) {
             z = false;

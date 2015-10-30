@@ -42,7 +42,7 @@ public class af implements View.OnClickListener {
         fragmentTabIndicator.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down_s);
         fragmentTabIndicator2 = this.bVC.bUw;
         fragmentTabIndicator2.cP(TbadkCoreApplication.m411getInst().getSkinType());
-        this.bVC.abl();
+        this.bVC.abh();
         if (!TextUtils.isEmpty(this.bVC.bUV)) {
             this.bVC.G(1, this.bVC.bUV);
         }

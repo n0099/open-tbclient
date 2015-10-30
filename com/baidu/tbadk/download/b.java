@@ -29,7 +29,7 @@ public class b {
     private b() {
     }
 
-    public static b An() {
+    public static b Ak() {
         synchronized (b.class) {
             if (aof == null) {
                 aof = new b();
@@ -67,17 +67,17 @@ public class b {
         cVar.bc(z2);
         cVar.setNeedNotify(z3);
         aok.add(cVar);
-        Ao();
+        Al();
     }
 
     public void eG(String str) {
         if (!StringUtils.isNull(str)) {
-            d.As().eJ(str);
+            d.Ap().eJ(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ao() {
+    public void Al() {
         if (aoj == null && !aok.isEmpty()) {
             aoj = aok.get(0);
             if (aoj != null) {
@@ -164,7 +164,7 @@ public class b {
             if (list == null) {
                 list = new LinkedList<>();
             }
-            for (DownloadData downloadData : d.As().me()) {
+            for (DownloadData downloadData : d.Ap().me()) {
                 Iterator<com.baidu.tbadk.core.data.b> it = this.aom.iterator();
                 while (it.hasNext()) {
                     if (TextUtils.equals(it.next().Ua, downloadData.getId())) {
@@ -179,7 +179,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public String aD(String str) {
         StringBuilder sb = new StringBuilder();
-        sb.append(n.tD());
+        sb.append(n.tA());
         File file = new File(sb.toString());
         if (!file.exists()) {
             file.mkdirs();
@@ -209,18 +209,18 @@ public class b {
             String name = cVar.getName();
             String url = cVar.getUrl();
             int position = cVar.getPosition();
-            int Aq = cVar.Aq();
+            int An = cVar.An();
             boolean isNeedInvokeApk = cVar.isNeedInvokeApk();
-            boolean Ar = cVar.Ar();
+            boolean Ao = cVar.Ao();
             boolean isNeedNotify = cVar.isNeedNotify();
             if (as.isEmpty(key) || as.isEmpty(name)) {
                 return null;
             }
             String str = String.valueOf(key.replace(".", "_")) + ".apk";
             String aD = b.this.aD(str);
-            if (Ar) {
+            if (Ao) {
                 DownloadData downloadData = new DownloadData(key, name, url, new com.baidu.tbadk.download.a());
-                downloadData.setNotifyId(Aq);
+                downloadData.setNotifyId(An);
                 downloadData.setNeedInvokeApk(isNeedInvokeApk);
                 downloadData.setNeedNotify(isNeedNotify);
                 downloadData.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
@@ -239,7 +239,7 @@ public class b {
                 return downloadData2;
             } else {
                 DownloadData downloadData3 = new DownloadData(key, name, url, new com.baidu.tbadk.download.a());
-                downloadData3.setNotifyId(Aq);
+                downloadData3.setNotifyId(An);
                 downloadData3.setNeedInvokeApk(isNeedInvokeApk);
                 downloadData3.setNeedNotify(isNeedNotify);
                 downloadData3.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
@@ -266,7 +266,7 @@ public class b {
                 } else {
                     downloadData.setStatus(1);
                     b.this.e(downloadData);
-                    d.As().a(downloadData, 5);
+                    d.Ap().a(downloadData, 5);
                     if (downloadData.isNeedNotify()) {
                         NotificationHelper.showProgressNotification(TbadkCoreApplication.m411getInst().getApp(), downloadData.getNotifyId(), null, 0, TbadkCoreApplication.m411getInst().getApp().getString(i.h.download_will_begin), downloadData.getName(), true);
                     }
@@ -274,7 +274,7 @@ public class b {
                 b.aoj = null;
                 if (!b.aok.isEmpty()) {
                     b.aok.remove(0);
-                    b.this.Ao();
+                    b.this.Al();
                 }
             }
         }
@@ -310,7 +310,7 @@ public class b {
     }
 
     public boolean eH(String str) {
-        for (DownloadData downloadData : d.As().me()) {
+        for (DownloadData downloadData : d.Ap().me()) {
             if (downloadData.getId() != null && downloadData.getId().equals(str)) {
                 return true;
             }
@@ -368,7 +368,7 @@ public class b {
             return this.position;
         }
 
-        public int Aq() {
+        public int An() {
             return this.aon;
         }
 
@@ -384,7 +384,7 @@ public class b {
             this.isNeedInvokeApk = z;
         }
 
-        public boolean Ar() {
+        public boolean Ao() {
             return this.aoo;
         }
 

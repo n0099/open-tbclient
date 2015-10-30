@@ -44,23 +44,23 @@ public class c implements View.OnClickListener {
         FrsActivity frsActivity8;
         FrsActivity frsActivity9;
         frsActivity = this.bbY.baR;
-        com.baidu.tieba.tbadkCore.o Lh = frsActivity.Lh();
-        if (Lh != null && Lh.aeN() != null) {
-            if (this.bbY.Nn() != null && (view == this.bbY.Nn().NF() || view == this.bbY.Nn().NU())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(this.bbY.getPageContext().getPageActivity(), Lh.aeN().getId(), ForumDetailActivityConfig.FromType.FRS)));
+        com.baidu.tieba.tbadkCore.o Ld = frsActivity.Ld();
+        if (Ld != null && Ld.aeJ() != null) {
+            if (this.bbY.Nj() != null && (view == this.bbY.Nj().NB() || view == this.bbY.Nj().NQ())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(this.bbY.getPageContext().getPageActivity(), Ld.aeJ().getId(), ForumDetailActivityConfig.FromType.FRS)));
                 return;
-            } else if (this.bbY.No() != null && (view == this.bbY.No().NF() || view == this.bbY.No().NU())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(this.bbY.getPageContext().getPageActivity(), Lh.aeN().getId(), ForumDetailActivityConfig.FromType.FRS)));
+            } else if (this.bbY.Nk() != null && (view == this.bbY.Nk().NB() || view == this.bbY.Nk().NQ())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(this.bbY.getPageContext().getPageActivity(), Ld.aeJ().getId(), ForumDetailActivityConfig.FromType.FRS)));
                 return;
             }
         }
-        FrsHeaderView Nn = this.bbY.Nn();
-        com.baidu.tieba.frs.view.q No = this.bbY.No();
-        if ((Nn != null && Nn.E(view)) || (No != null && No.E(view))) {
+        FrsHeaderView Nj = this.bbY.Nj();
+        com.baidu.tieba.frs.view.q Nk = this.bbY.Nk();
+        if ((Nj != null && Nj.E(view)) || (Nk != null && Nk.E(view))) {
             TiebaStatic.log("forum_fortune_click");
             if (TbadkCoreApplication.isLogin()) {
                 frsActivity8 = this.bbY.baR;
-                frsActivity8.Lc();
+                frsActivity8.KY();
             } else {
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
                 frsActivity9 = this.bbY.baR;
@@ -70,7 +70,7 @@ public class c implements View.OnClickListener {
         int id = view.getId();
         if (id == i.f.btn_love) {
             frsActivity6 = this.bbY.baR;
-            if (!frsActivity6.Li() && com.baidu.adp.lib.util.i.iM()) {
+            if (!frsActivity6.Le() && com.baidu.adp.lib.util.i.iM()) {
                 frsActivity7 = this.bbY.baR;
                 if (frsActivity7.checkUpIsLogin()) {
                     this.bbY.oN();
@@ -78,21 +78,21 @@ public class c implements View.OnClickListener {
             }
         } else if (id == i.f.btn_sign) {
             frsActivity4 = this.bbY.baR;
-            if (!frsActivity4.Li() && com.baidu.adp.lib.util.i.iM()) {
+            if (!frsActivity4.Le() && com.baidu.adp.lib.util.i.iM()) {
                 frsActivity5 = this.bbY.baR;
-                if (frsActivity5.checkUpIsLogin() && !this.bbY.ND()) {
-                    this.bbY.NG();
+                if (frsActivity5.checkUpIsLogin() && !this.bbY.Nz()) {
+                    this.bbY.NC();
                 }
             }
         } else if (id == i.f.frs_header_games) {
             frsActivity3 = this.bbY.baR;
-            if (frsActivity3.checkUpIsLogin() && Lh != null && Lh.avF() != null) {
-                String avF = Lh.avF();
-                int da = com.baidu.tbadk.core.util.o.da(avF);
+            if (frsActivity3.checkUpIsLogin() && Ld != null && Ld.avB() != null) {
+                String avB = Ld.avB();
+                int da = com.baidu.tbadk.core.util.o.da(avB);
                 if (da == 2) {
-                    az.uW().a((TbPageContext) this.bbY.getPageContext(), new String[]{avF}, true);
+                    az.uT().a((TbPageContext) this.bbY.getPageContext(), new String[]{avB}, true);
                 } else if (da == 1) {
-                    String lI = com.baidu.tieba.tbadkCore.util.n.lI(avF);
+                    String lI = com.baidu.tieba.tbadkCore.util.n.lI(avB);
                     if (TextUtils.isEmpty(lI) || Build.VERSION.SDK_INT < 11) {
                         com.baidu.adp.lib.util.k.showToast(this.bbY.getPageContext().getPageActivity(), this.bbY.getPageContext().getPageActivity().getString(i.h.frs_header_games_unavailable));
                         return;
@@ -100,12 +100,12 @@ public class c implements View.OnClickListener {
                     TiebaStatic.eventStat(this.bbY.getPageContext().getPageActivity(), "frs_ourgame", "click", 1, "dev_id", lI, "ref_id", "1000601", "ref_type", "603");
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(this.bbY.getPageContext().getPageActivity(), lI, "1000601")));
                 } else if (da == 3) {
-                    com.baidu.tbadk.core.util.o.a(this.bbY.getPageContext(), avF);
+                    com.baidu.tbadk.core.util.o.a(this.bbY.getPageContext(), avB);
                 }
             }
         } else if (id == i.f.btn_love_content) {
             frsActivity2 = this.bbY.baR;
-            if (!frsActivity2.Li()) {
+            if (!frsActivity2.Le()) {
                 i = this.bbY.mScrollState;
                 if (i == 0) {
                     str = this.bbY.mPageType;

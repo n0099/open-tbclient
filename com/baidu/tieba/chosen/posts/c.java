@@ -31,9 +31,9 @@ public class c implements a.InterfaceC0052a<com.baidu.tieba.chosen.posts.request
             chosenPostActivity.oF().dispatchMvcEvent(bVar2);
         }
         cVar = this.aJM.aJJ;
-        cVar.Hr();
+        cVar.Hn();
         bVar = this.aJM.aJG;
-        bVar.CS();
+        bVar.CP();
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a

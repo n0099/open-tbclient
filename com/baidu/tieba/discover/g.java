@@ -33,13 +33,13 @@ public class g implements u.a {
                 list.clear();
                 list2 = this.aKG.aKv;
                 list2.clear();
-                if (aVar.HK() != null && !aVar.HK().isEmpty()) {
-                    for (com.baidu.tieba.discover.data.d dVar : aVar.HK()) {
-                        if (dVar != null && dVar.HS() != null) {
+                if (aVar.HG() != null && !aVar.HG().isEmpty()) {
+                    for (com.baidu.tieba.discover.data.d dVar : aVar.HG()) {
+                        if (dVar != null && dVar.HO() != null) {
                             if (dVar.getType() == 1) {
                                 list3 = this.aKG.aKu;
                                 if (list3.isEmpty()) {
-                                    this.aKG.aKu = dVar.HS();
+                                    this.aKG.aKu = dVar.HO();
                                 }
                             } else {
                                 list4 = this.aKG.aKv;
@@ -48,14 +48,14 @@ public class g implements u.a {
                         }
                     }
                 }
-                this.aKG.a(aVar.HJ());
+                this.aKG.a(aVar.HF());
                 this.aKG.bE(true);
             }
         }
     }
 
     @Override // com.baidu.tieba.discover.u.a
-    public void HE() {
+    public void HA() {
         BdListView bdListView;
         bdListView = this.aKG.aKp;
         bdListView.completePullRefresh();

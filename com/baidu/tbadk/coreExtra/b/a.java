@@ -30,7 +30,7 @@ public class a {
         }
     }
 
-    public static synchronized a wb() {
+    public static synchronized a vY() {
         a aVar;
         synchronized (a.class) {
             if (afR == null) {
@@ -41,11 +41,11 @@ public class a {
         return aVar;
     }
 
-    public boolean wc() {
+    public boolean vZ() {
         return this.afQ;
     }
 
-    public String wd() {
+    public String wa() {
         return this.afQ ? "pub_env=3;" : "";
     }
 }

@@ -28,14 +28,14 @@ public class i extends CustomMessageListener {
                 dVar2 = this.ddY.ddS;
                 if (dVar2.getDayNightView() != null) {
                     dVar3 = this.ddY.ddS;
-                    if (dVar3.Mz()) {
+                    if (dVar3.Mv()) {
                         dVar5 = this.ddY.ddS;
                         dVar5.getDayNightView().setVisibility(0);
                     } else {
                         dVar4 = this.ddY.ddS;
                         dVar4.getDayNightView().setVisibility(8);
                     }
-                    this.ddY.ayY();
+                    this.ddY.ayU();
                 }
             }
         }

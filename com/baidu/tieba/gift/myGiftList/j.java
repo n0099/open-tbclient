@@ -106,7 +106,7 @@ public class j extends BaseAdapter {
             aVar.bng.setAutoChangeStyle(false);
             aVar.bng.setDrawBorder(false);
             aVar.bnh.setText(String.valueOf(this.bnb.getPageContext().getString(i.h.mutil_sign)) + item.gift.num);
-            aVar.aPX.setText(as.o(item.gift.send_time.intValue() * 1000));
+            aVar.aPX.setText(as.m(item.gift.send_time.intValue() * 1000));
             this.bnd = item.gift.play_url;
             boolean isEmpty = TextUtils.isEmpty(this.bnd);
             if (this.mIsHost && !isEmpty && com.baidu.adp.lib.util.k.jg()) {
@@ -125,13 +125,13 @@ public class j extends BaseAdapter {
 
     private View createNoDataView() {
         View inflate = LayoutInflater.from(this.bnb.getPageContext().getPageActivity()).inflate(i.g.buy_no_face_item, (ViewGroup) null);
-        NoDataViewFactory.b a2 = NoDataViewFactory.b.a(new NoDataViewFactory.a(this.bnb.getResources().getString(i.h.send_gift), this.bnb.Qv()));
+        NoDataViewFactory.b a2 = NoDataViewFactory.b.a(new NoDataViewFactory.a(this.bnb.getResources().getString(i.h.send_gift), this.bnb.Qr()));
         int dimension = (int) this.bnb.getResources().getDimension(i.d.ds22);
         int dimension2 = (int) this.bnb.getResources().getDimension(i.d.ds140);
-        String Qx = this.bnb.Qx();
+        String Qt = this.bnb.Qt();
         String string = this.bnb.getPageContext().getString(i.h.no_gift);
         String string2 = this.bnb.getPageContext().getString(i.h.come_on);
-        String format = String.format(this.bnb.getPageContext().getString(i.h.send_him_gift_note), Qx);
+        String format = String.format(this.bnb.getPageContext().getString(i.h.send_him_gift_note), Qt);
         Activity pageActivity = this.bnb.getPageContext().getPageActivity();
         NoDataViewFactory.ImgType imgType = NoDataViewFactory.ImgType.GIFT;
         if (!this.mIsHost) {

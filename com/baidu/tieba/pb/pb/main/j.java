@@ -25,7 +25,7 @@ class j implements a.InterfaceC0039a {
         com.baidu.tbadk.baseEditMark.a aVar3;
         com.baidu.tbadk.baseEditMark.a aVar4;
         ccVar = this.ciK.cim;
-        ccVar.agB();
+        ccVar.agx();
         if (z) {
             aVar = this.ciK.cii;
             if (aVar != null) {
@@ -35,20 +35,20 @@ class j implements a.InterfaceC0039a {
             blVar = this.ciK.cih;
             blVar.ez(z2);
             blVar2 = this.ciK.cih;
-            if (!blVar2.qk()) {
+            if (!blVar2.qh()) {
                 ccVar2 = this.ciK.cim;
                 blVar3 = this.ciK.cih;
                 ccVar2.h(blVar3.getPbData());
             } else {
-                this.ciK.afs();
+                this.ciK.afo();
             }
             if (z2) {
                 aVar2 = this.ciK.cii;
                 if (aVar2 != null) {
                     aVar3 = this.ciK.cii;
-                    MarkData qn = aVar3.qn();
-                    if (qn != null) {
-                        this.ciK.showToast(MessageFormat.format(this.ciK.getPageContext().getString(i.h.add_mark_on_pb), Integer.valueOf(qn.getFloor())));
+                    MarkData qk = aVar3.qk();
+                    if (qk != null) {
+                        this.ciK.showToast(MessageFormat.format(this.ciK.getPageContext().getString(i.h.add_mark_on_pb), Integer.valueOf(qk.getFloor())));
                         return;
                     } else {
                         this.ciK.showToast(this.ciK.getPageContext().getString(i.h.add_mark));

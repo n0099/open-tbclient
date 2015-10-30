@@ -45,10 +45,10 @@ public final class ShareFromPBView extends LinearLayout {
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
         this.bIW = shareFromPBMsgData;
-        vw();
+        vt();
     }
 
-    private void vw() {
+    private void vt() {
         this.alu.setText(this.bIW.getTitle());
         this.bdI.setDefaultResource(i.e.icon_default_ba_120);
         this.bdI.setAutoChangeStyle(false);

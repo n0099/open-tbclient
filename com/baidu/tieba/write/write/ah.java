@@ -13,7 +13,7 @@ public class ah implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.dqi.aCb();
-        this.dqi.aDn();
+        this.dqi.aBX();
+        this.dqi.aDj();
     }
 }

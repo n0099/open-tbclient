@@ -25,6 +25,6 @@ public class k implements Animation.AnimationListener {
         View view;
         view = this.bmC.blY;
         view.setVisibility(0);
-        this.bmC.Qo();
+        this.bmC.Qk();
     }
 }

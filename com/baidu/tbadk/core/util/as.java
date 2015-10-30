@@ -45,7 +45,7 @@ public class as extends com.baidu.adp.lib.util.j {
         }
     }
 
-    public static String uG() {
+    public static String uD() {
         String format;
         Date date = new Date();
         synchronized (yx) {
@@ -79,7 +79,7 @@ public class as extends com.baidu.adp.lib.util.j {
         }
     }
 
-    public static int uH() {
+    public static int uE() {
         Calendar calendar = Calendar.getInstance();
         return calendar.get(5) + 0 + (calendar.get(1) * 10000) + ((calendar.get(2) + 1) * 100);
     }
@@ -183,7 +183,7 @@ public class as extends com.baidu.adp.lib.util.j {
         }
     }
 
-    public static String n(long j) {
+    public static String l(long j) {
         long abs = Math.abs(System.currentTimeMillis() - (1000 * j));
         if (abs <= 120000) {
             return "刚刚";
@@ -229,7 +229,7 @@ public class as extends com.baidu.adp.lib.util.j {
         }
     }
 
-    public static String o(long j) {
+    public static String m(long j) {
         String g;
         synchronized (abl) {
             abl.setTime(j);
@@ -259,7 +259,7 @@ public class as extends com.baidu.adp.lib.util.j {
         return d(date);
     }
 
-    public static String p(long j) {
+    public static String n(long j) {
         String valueOf;
         Date date = new Date(j);
         if (date.getMinutes() < 10) {
@@ -282,12 +282,12 @@ public class as extends com.baidu.adp.lib.util.j {
         return new StringBuilder().append(i).toString();
     }
 
-    public static String q(long j) {
+    public static String o(long j) {
         if (j >= 10000000) {
-            return u(j);
+            return s(j);
         }
         if (j >= 10000) {
-            return r(j);
+            return p(j);
         }
         if (j >= 0) {
             return new StringBuilder(String.valueOf(j)).toString();
@@ -296,7 +296,7 @@ public class as extends com.baidu.adp.lib.util.j {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 long)] */
-    public static String r(long j) {
+    public static String p(long j) {
         if (j > 9999) {
             return String.valueOf((int) (((float) j) / 10000.0f)) + "w";
         }
@@ -307,7 +307,7 @@ public class as extends com.baidu.adp.lib.util.j {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r5v0 long)] */
-    public static String s(long j) {
+    public static String q(long j) {
         if (j > 9999) {
             return String.format(Locale.getDefault(), "%.1fw", Float.valueOf(((float) j) / 10000.0f));
         }
@@ -318,7 +318,7 @@ public class as extends com.baidu.adp.lib.util.j {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 long)] */
-    public static String t(long j) {
+    public static String r(long j) {
         if (j > 9999999) {
             float f = ((float) j) / 10000.0f;
             long round = Math.round(f);
@@ -334,7 +334,7 @@ public class as extends com.baidu.adp.lib.util.j {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 long)] */
-    public static String u(long j) {
+    public static String s(long j) {
         if (j > 9999999) {
             float f = ((float) j) / 10000.0f;
             long round = Math.round(f);
@@ -350,7 +350,7 @@ public class as extends com.baidu.adp.lib.util.j {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r4v0 long)] */
-    public static String v(long j) {
+    public static String t(long j) {
         if (j > 9999) {
             float f = ((float) j) / 10000.0f;
             long round = Math.round(f);
@@ -365,7 +365,7 @@ public class as extends com.baidu.adp.lib.util.j {
         }
     }
 
-    public static String w(long j) {
+    public static String u(long j) {
         float f;
         long j2;
         if (j < 0) {
@@ -381,7 +381,7 @@ public class as extends com.baidu.adp.lib.util.j {
         return valueOf;
     }
 
-    public static String x(long j) {
+    public static String v(long j) {
         if (j < 0) {
             return "0";
         }
@@ -439,7 +439,7 @@ public class as extends com.baidu.adp.lib.util.j {
         return spannableStringBuilder == null ? new SpannableStringBuilder("") : new SpannableStringBuilder("\u202d").append((CharSequence) spannableStringBuilder).append((CharSequence) "\u202c");
     }
 
-    public static String uI() {
+    public static String uF() {
         return "-∞";
     }
 
@@ -457,7 +457,7 @@ public class as extends com.baidu.adp.lib.util.j {
         return str;
     }
 
-    public static String y(long j) {
+    public static String w(long j) {
         return ((float) j) >= abg ? String.format(Locale.getDefault(), "%.1fM", Float.valueOf(((float) j) / abg)) : ((float) j) >= abh / 10.0f ? String.format(Locale.getDefault(), "%.1fK", Float.valueOf(((float) j) / abh)) : TbadkCoreApplication.m411getInst().getString(i.h.less_than_zero_dot_one_k);
     }
 }

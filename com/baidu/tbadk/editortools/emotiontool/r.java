@@ -23,7 +23,7 @@ public class r {
     private ArrayList<t> aqS = new ArrayList<>();
     private final List<com.baidu.tbadk.editortools.emotiontool.a> aqT = new ArrayList();
 
-    public static r Bc() {
+    public static r AZ() {
         return aqR;
     }
 
@@ -39,7 +39,7 @@ public class r {
         }
     }
 
-    public void Bd() {
+    public void Ba() {
         new a().execute(new Void[0]);
     }
 
@@ -92,7 +92,7 @@ public class r {
     }
 
     public com.baidu.adp.widget.a.a eS(String str) {
-        return com.baidu.tbadk.imageManager.c.Cf().fo(str);
+        return com.baidu.tbadk.imageManager.c.Cc().fo(str);
     }
 
     public String s(String str, boolean z) {
@@ -106,7 +106,7 @@ public class r {
     public com.baidu.adp.widget.a.a al(String str, String str2) {
         com.baidu.adp.widget.a.a aVar;
         Bitmap am;
-        com.baidu.adp.widget.a.a fo = com.baidu.tbadk.imageManager.c.Cf().fo(str2);
+        com.baidu.adp.widget.a.a fo = com.baidu.tbadk.imageManager.c.Cc().fo(str2);
         if (fo != null) {
             return fo;
         }
@@ -130,8 +130,8 @@ public class r {
     }
 
     public String m(String str, boolean z) {
-        if (!q.Bb().isEmpty()) {
-            List<t> groups = q.Bb().getGroups();
+        if (!q.AY().isEmpty()) {
+            List<t> groups = q.AY().getGroups();
             if (z) {
                 for (t tVar : groups) {
                     if (tVar.eP(str)) {
@@ -148,14 +148,14 @@ public class r {
     public void a(String str, com.baidu.adp.widget.a.a aVar, boolean z) {
         if (aVar != null) {
             if (z) {
-                com.baidu.tbadk.imageManager.c.Cf().c(m(str, z), aVar, true);
+                com.baidu.tbadk.imageManager.c.Cc().c(m(str, z), aVar, true);
                 return;
             }
-            com.baidu.tbadk.imageManager.c.Cf().c(str, aVar, false);
+            com.baidu.tbadk.imageManager.c.Cc().c(str, aVar, false);
         }
     }
 
-    public ArrayList<t> Be() {
+    public ArrayList<t> Bb() {
         return this.aqS;
     }
 

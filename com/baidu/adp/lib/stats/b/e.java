@@ -23,7 +23,7 @@ public class e extends DiskFileOperate {
     public void l(boolean z) {
         super.l(z);
         if (z) {
-            this.xr.i(0L);
+            this.xr.g(0L);
             com.baidu.adp.lib.stats.upload.b.ik().a(this.xr, this.xt, this.xu, this.xv);
         } else if (this.xr.hQ() >= 307200 && this.xr.hU() != "stat") {
             c.a(com.baidu.adp.lib.stats.a.hi().hm(), this.xr.hP(), this.xr);

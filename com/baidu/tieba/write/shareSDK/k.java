@@ -22,16 +22,16 @@ class k implements DialogInterface.OnKeyListener {
             oVar = this.dmy.dmi;
             if (oVar != null) {
                 oVar2 = this.dmy.dmi;
-                if (oVar2.aCm() != null) {
+                if (oVar2.aCi() != null) {
                     oVar3 = this.dmy.dmi;
-                    if (oVar3.aCm().isShowing()) {
+                    if (oVar3.aCi().isShowing()) {
                         oVar4 = this.dmy.dmi;
-                        com.baidu.adp.lib.g.j.a(oVar4.aCm(), this.dmy.getPageContext().getPageActivity());
+                        com.baidu.adp.lib.g.j.a(oVar4.aCi(), this.dmy.getPageContext().getPageActivity());
                         return true;
                     }
                 }
             }
-            this.dmy.aCb();
+            this.dmy.aBX();
             z = this.dmy.dml;
             if (z) {
                 this.dmy.setResult(-1);

@@ -51,7 +51,7 @@ public class a implements i {
             }
             try {
                 this.afb = new RandomAccessFile(this.file, "rw");
-                vO();
+                vL();
                 setFilePath(this.file.getParent());
                 return true;
             } catch (FileNotFoundException e2) {
@@ -70,7 +70,7 @@ public class a implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vK() {
+    public void vH() {
         if (this.afa != null && this.file != null) {
             try {
                 this.aeZ = true;
@@ -98,7 +98,7 @@ public class a implements i {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean vL() {
+    public boolean vI() {
         Thread thread = new Thread(new b(this));
         thread.setPriority(10);
         thread.setDaemon(true);
@@ -107,16 +107,16 @@ public class a implements i {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void vM() {
+    public void vJ() {
         this.aeZ = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean vN() {
+    public boolean vK() {
         return this.aeZ;
     }
 
-    private void vO() {
+    private void vL() {
         try {
             this.afb.setLength(0L);
             this.afb.writeBytes("RIFF");

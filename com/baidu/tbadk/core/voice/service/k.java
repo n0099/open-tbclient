@@ -14,7 +14,7 @@ public class k extends MediaPlayer implements h {
     private k() {
     }
 
-    public static k vW() {
+    public static k vT() {
         if (afH == null) {
             synchronized (afG) {
                 if (afH == null) {
@@ -64,13 +64,13 @@ public class k extends MediaPlayer implements h {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void vS() {
+    public void vP() {
         start();
         this.afJ = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void vM() {
+    public void vJ() {
         if (!this.afJ) {
             stop();
             this.afJ = true;
@@ -79,12 +79,12 @@ public class k extends MediaPlayer implements h {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void vT() {
+    public void vQ() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public void vU() {
+    public void vR() {
         reset();
         this.afI = false;
         this.afJ = true;
@@ -97,7 +97,7 @@ public class k extends MediaPlayer implements h {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.h
-    public boolean vV() {
+    public boolean vS() {
         return this.afI;
     }
 

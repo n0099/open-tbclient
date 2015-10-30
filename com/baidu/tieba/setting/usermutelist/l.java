@@ -38,10 +38,10 @@ public class l extends com.baidu.adp.base.f<UserMuteListActivity> {
         this.mNavigationBar.setTitleText(i.h.user_mute_list_text);
         this.mListView = (BdListView) this.mRoot.findViewById(i.f.mute_user_list);
         this.mNoDataView = NoDataViewFactory.a(this.aSe.getPageContext().getContext(), this.mRoot, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.cK(i.h.user_mute_list_no_data_text), null);
-        vA();
+        vx();
     }
 
-    private void vA() {
+    private void vx() {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
         this.aSe.getLayoutMode().ad(skinType == 1);
         this.aSe.getLayoutMode().k(this.mRoot);

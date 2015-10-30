@@ -36,21 +36,21 @@ public class be extends CustomMessageListener {
             bVar = this.cje.cgN;
             if (bVar != null && customResponsedMessage.getCmd() == 2001122 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
                 bVar2 = this.cje.cgN;
-                ArrayList<com.baidu.tieba.tbadkCore.data.j> aeW = bVar2.aeW();
-                if (aeW != null && aeW.size() != 0) {
-                    Iterator<com.baidu.tieba.tbadkCore.data.j> it = aeW.iterator();
+                ArrayList<com.baidu.tieba.tbadkCore.data.j> aeS = bVar2.aeS();
+                if (aeS != null && aeS.size() != 0) {
+                    Iterator<com.baidu.tieba.tbadkCore.data.j> it = aeS.iterator();
                     boolean z = false;
                     while (it.hasNext()) {
                         com.baidu.tieba.tbadkCore.data.j next = it.next();
-                        if (next != null && next.aww() != null && !TextUtils.isEmpty(next.aww().apk_name)) {
-                            com.baidu.tieba.tbadkCore.data.a aww = next.aww();
+                        if (next != null && next.aws() != null && !TextUtils.isEmpty(next.aws().apk_name)) {
+                            com.baidu.tieba.tbadkCore.data.a aws = next.aws();
                             Iterator<DownloadData> it2 = data.iterator();
                             while (true) {
                                 if (!it2.hasNext()) {
                                     break;
                                 }
                                 DownloadData next2 = it2.next();
-                                if (next2 != null && aww.apk_name.equals(next2.getId())) {
+                                if (next2 != null && aws.apk_name.equals(next2.getId())) {
                                     int status = next2.getStatus();
                                     if (status == 3 || status == 0) {
                                         next.hS(2);

@@ -16,10 +16,10 @@ public class i extends Handler {
     public void handleMessage(Message message) {
         switch (message.what) {
             case 0:
-                this.bRT.aaC();
+                this.bRT.aay();
                 return;
             case 1:
-                this.bRT.aaB();
+                this.bRT.aax();
                 return;
             default:
                 return;

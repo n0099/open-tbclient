@@ -4,8 +4,9 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.setting.model.g;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class z implements g.a {
+public class z implements g.a {
     final /* synthetic */ MsgRemindActivity cNU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -27,71 +28,71 @@ class z implements g.a {
         ae aeVar10;
         if (i == 14) {
             aeVar8 = this.cNU.cNS;
-            BdSwitchView asB = aeVar8.asB();
+            BdSwitchView asx = aeVar8.asx();
             if (z) {
                 if (z2) {
-                    com.baidu.tbadk.coreExtra.messageCenter.c.xh().dc(300);
+                    com.baidu.tbadk.coreExtra.messageCenter.c.xe().dc(300);
                     aeVar10 = this.cNU.cNS;
                     aeVar10.gb(true);
                     SettingStatic.r(0, true);
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.c.xh().dc(0);
+                    com.baidu.tbadk.coreExtra.messageCenter.c.xe().dc(0);
                     aeVar9 = this.cNU.cNS;
                     aeVar9.gb(false);
                     SettingStatic.r(0, false);
                 }
-                if (asB != null) {
-                    com.baidu.adp.lib.g.h.hg().postDelayed(new aa(this, z2, asB), 500L);
+                if (asx != null) {
+                    com.baidu.adp.lib.g.h.hg().postDelayed(new aa(this, z2, asx), 500L);
                 }
-            } else if (asB != null) {
-                com.baidu.adp.lib.g.h.hg().postDelayed(new ab(this, z2, asB), 500L);
+            } else if (asx != null) {
+                com.baidu.adp.lib.g.h.hg().postDelayed(new ab(this, z2, asx), 500L);
             }
         } else if (i == 2) {
             if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aK(z2);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aK(z2);
             }
             aeVar7 = this.cNU.cNS;
-            aeVar7.asU();
+            aeVar7.asQ();
         } else if (i == 3) {
             if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aL(z2);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aL(z2);
             }
             aeVar6 = this.cNU.cNS;
-            aeVar6.asV();
+            aeVar6.asR();
         } else if (i == 4) {
             if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aA(z2);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aA(z2);
                 if (!z2) {
                     TiebaStatic.eventStat(this.cNU.getPageContext().getPageActivity(), "group_message_remind", "check_click", 1, new Object[0]);
                 }
             }
             aeVar5 = this.cNU.cNS;
-            aeVar5.asX();
+            aeVar5.asT();
         } else if (i == 5) {
             if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().az(z2);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().az(z2);
                 SettingStatic.r(1, z2);
             }
             aeVar4 = this.cNU.cNS;
-            aeVar4.asW();
+            aeVar4.asS();
         } else if (i == 1) {
             if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aJ(z2);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aJ(z2);
             }
             aeVar3 = this.cNU.cNS;
-            aeVar3.asS();
+            aeVar3.asO();
         } else if (i == 13) {
             if (z) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aB(z2);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aB(z2);
             }
             aeVar2 = this.cNU.cNS;
-            aeVar2.asT();
+            aeVar2.asP();
         } else if (i == 6) {
             if (!z) {
                 aeVar = this.cNU.cNS;
-                BdSwitchView asz = aeVar.asz();
-                if (asz != null) {
-                    com.baidu.adp.lib.g.h.hg().postDelayed(new ac(this, z2, asz), 500L);
+                BdSwitchView asv = aeVar.asv();
+                if (asv != null) {
+                    com.baidu.adp.lib.g.h.hg().postDelayed(new ac(this, z2, asv), 500L);
                     return;
                 }
                 return;

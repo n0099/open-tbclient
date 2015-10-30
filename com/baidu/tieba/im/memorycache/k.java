@@ -23,7 +23,7 @@ public class k implements a.InterfaceC0059a {
             ImMessageCenterPojo next = it.next();
             l = this.bDI.l(next);
             if (l) {
-                this.bDN.put(com.baidu.adp.lib.g.b.g(next.getGid(), 0), Long.valueOf(com.baidu.tieba.im.util.g.aM(next.getPulled_msgId())));
+                this.bDN.put(com.baidu.adp.lib.g.b.g(next.getGid(), 0), Long.valueOf(com.baidu.tieba.im.util.g.aK(next.getPulled_msgId())));
             }
         }
     }

@@ -39,7 +39,7 @@ public class b {
     private i bLe = new com.baidu.tieba.imMessageCenter.im.floatwindow.c(this);
     private a.InterfaceC0062a bLf = new com.baidu.tieba.imMessageCenter.im.floatwindow.d(this);
 
-    public static synchronized b Yh() {
+    public static synchronized b Yd() {
         b bVar;
         synchronized (b.class) {
             if (bKR == null) {
@@ -75,11 +75,11 @@ public class b {
     }
 
     public void dB(boolean z) {
-        if (!Yi()) {
-            if (this.bKX.Yg()) {
-                Yk();
-                if (!Ym().Yw()) {
-                    Ym().a(this.handler, z);
+        if (!Ye()) {
+            if (this.bKX.Yc()) {
+                Yg();
+                if (!Yi().Ys()) {
+                    Yi().a(this.handler, z);
                     return;
                 }
                 return;
@@ -88,11 +88,11 @@ public class b {
         }
     }
 
-    private boolean Yi() {
-        return TbadkCoreApplication.m411getInst().isMIUIRom() || !TbadkCoreApplication.m411getInst().isFloatingWindowOpened() || this.bKS || !Yj() || com.baidu.tbadk.coreExtra.messageCenter.c.xh().xk() == 0 || !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xp();
+    private boolean Ye() {
+        return TbadkCoreApplication.m411getInst().isMIUIRom() || !TbadkCoreApplication.m411getInst().isFloatingWindowOpened() || this.bKS || !Yf() || com.baidu.tbadk.coreExtra.messageCenter.c.xe().xh() == 0 || !com.baidu.tbadk.coreExtra.messageCenter.c.xe().xm();
     }
 
-    private boolean Yj() {
+    private boolean Yf() {
         List<ActivityManager.RunningTaskInfo> runningTasks = ((ActivityManager) TbadkCoreApplication.m411getInst().getSystemService("activity")).getRunningTasks(5);
         if (runningTasks == null || runningTasks.size() <= 0) {
             return false;
@@ -108,28 +108,28 @@ public class b {
     public void iC(String str) {
         if (!StringUtils.isNull(str)) {
             this.bKX.iw(str);
-            Ym().E(this.bKX.Yd());
+            Yi().E(this.bKX.XZ());
         }
     }
 
     public void iD(String str) {
         this.bKX.ix(str);
-        if (!this.bKX.Yg()) {
+        if (!this.bKX.Yc()) {
             dC(false);
         } else {
-            Yk();
+            Yg();
         }
     }
 
-    private void Yk() {
-        Ym().E(this.bKX.Yd());
-        Ym().hI(this.bKX.Yc());
+    private void Yg() {
+        Yi().E(this.bKX.XZ());
+        Yi().hI(this.bKX.XY());
     }
 
     public void dC(boolean z) {
         if (this.bKU != null) {
-            Yn().c(this.handler);
-            this.bKU.Yy();
+            Yj().c(this.handler);
+            this.bKU.Yu();
             if (z) {
                 this.bKU.an(0, getPaddingTop());
                 this.bKX.removeAll();
@@ -138,36 +138,36 @@ public class b {
     }
 
     public void P(String str, int i) {
-        if (Yo().Yw()) {
-            Yo().Q(str, i);
+        if (Yk().Ys()) {
+            Yk().Q(str, i);
         }
     }
 
     public void a(int i, int i2, String str, int i3) {
-        Yo().b(i, i2, str, i3);
-        Yn().b(this.handler);
+        Yk().b(i, i2, str, i3);
+        Yj().b(this.handler);
     }
 
     public void aj(int i, int i2) {
-        Yo().am(i, i2);
-        if (a(Yo().Yu(), this.bKV.YL())) {
-            Yn().YM();
+        Yk().am(i, i2);
+        if (a(Yk().Yq(), this.bKV.YH())) {
+            Yj().YI();
         } else {
-            Yn().YN();
+            Yj().YJ();
         }
     }
 
     public void a(h.a aVar) {
-        if (a(Yo().Yu(), Yn().YL())) {
-            aVar.YU();
+        if (a(Yk().Yq(), Yj().YH())) {
+            aVar.YQ();
         }
-        Yo().Yy();
-        Yn().c(this.handler);
+        Yk().Yu();
+        Yj().c(this.handler);
     }
 
-    public void Yl() {
+    public void Yh() {
         this.bKT = true;
-        Ym().YJ();
+        Yi().YF();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -176,7 +176,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Ym() {
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Yi() {
         if (this.bKU == null) {
             this.bKU = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.a(TbadkCoreApplication.m411getInst());
             this.bKU.a(this.bLe);
@@ -187,7 +187,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn() {
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yj() {
         if (this.bKV == null) {
             this.bKV = new com.baidu.tieba.imMessageCenter.im.floatwindow.view.e(TbadkCoreApplication.m411getInst());
         }
@@ -207,23 +207,23 @@ public class b {
         return G + H + resources.getDimensionPixelSize(i.d.ds40);
     }
 
-    private f Yo() {
+    private f Yk() {
         if (this.bKW == null) {
             this.bKW = new f();
         }
         return this.bKW;
     }
 
-    public void Yp() {
+    public void Yl() {
         this.bKS = true;
-        this.bKX.Ya();
-        Ym().setTouchable(false);
+        this.bKX.XW();
+        Yi().setTouchable(false);
     }
 
-    public void Yq() {
+    public void Ym() {
         this.bKS = false;
-        this.bKX.Yb();
-        Ym().setTouchable(true);
+        this.bKX.XX();
+        Yi().setTouchable(true);
     }
 
     /* loaded from: classes.dex */
@@ -236,10 +236,10 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             int v;
-            if ((customResponsedMessage instanceof MemoryChangedMessage) && !TbadkCoreApplication.m411getInst().isMIUIRom() && com.baidu.tbadk.coreExtra.messageCenter.c.xh().xy() && !b.this.isBackground && com.baidu.tbadk.coreExtra.messageCenter.c.xh().xk() != 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xh().xp()) {
+            if ((customResponsedMessage instanceof MemoryChangedMessage) && !TbadkCoreApplication.m411getInst().isMIUIRom() && com.baidu.tbadk.coreExtra.messageCenter.c.xe().xv() && !b.this.isBackground && com.baidu.tbadk.coreExtra.messageCenter.c.xe().xh() != 0 && com.baidu.tbadk.coreExtra.messageCenter.c.xe().xm()) {
                 ImMessageCenterPojo data = ((MemoryChangedMessage) customResponsedMessage).getData();
                 if ((2 == data.getCustomGroupType() || -7 == data.getCustomGroupType()) && !b.this.bKY.contains(data.getGid())) {
-                    if ((com.baidu.tbadk.coreExtra.messageCenter.c.xh().xl() || data.getIsFriend() != 0) && com.baidu.tieba.im.settingcache.j.Xj().aL(TbadkCoreApplication.getCurrentAccount(), data.getGid())) {
+                    if ((com.baidu.tbadk.coreExtra.messageCenter.c.xe().xi() || data.getIsFriend() != 0) && com.baidu.tieba.im.settingcache.j.Xf().aL(TbadkCoreApplication.getCurrentAccount(), data.getGid())) {
                         if (2 == data.getCustomGroupType()) {
                             v = b.this.bKX.u(data);
                         } else {
@@ -277,7 +277,7 @@ public class b {
                         }
                         return;
                     case 2:
-                        if (!isOpen && b.this.bKX.Yf()) {
+                        if (!isOpen && b.this.bKX.Yb()) {
                             b.this.dB(false);
                             return;
                         }

@@ -33,10 +33,10 @@ public class t extends w {
             this.Vr.setTitle(wVar.getTitle());
             this.Vr.setLastModifiedTime(wVar.getLast_time_int());
             this.Vr.setPhotoLiveCover(wVar.getPhotoLiveCover());
-            this.Vr.setContent(wVar.sm());
+            this.Vr.setContent(wVar.sj());
             this.Vr.setThreadId(com.baidu.adp.lib.g.b.c(wVar.getTid(), 0L));
             this.Vr.setHeadlive(wVar.isHeadLive());
-            this.Vr.setExpressionDatas(wVar.su());
+            this.Vr.setExpressionDatas(wVar.sr());
             if (this.Vr.getShowStyle() < 0) {
                 this.Vr.setShowStyle(this.Vr.getRandom(3, i));
             }
@@ -44,8 +44,8 @@ public class t extends w {
         }
         cn(wVar.getTid());
         setId(wVar.getId());
-        bC(wVar.sq());
-        co(wVar.sj());
+        bC(wVar.sn());
+        co(wVar.sg());
         return this.Vr;
     }
 
@@ -99,7 +99,7 @@ public class t extends w {
         return arrayList;
     }
 
-    public PhotoLiveCardData sc() {
+    public PhotoLiveCardData rZ() {
         return this.Vr;
     }
 

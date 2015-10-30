@@ -16,7 +16,7 @@ public class f implements Handler.Callback {
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 1:
-                this.bqb.Mn();
+                this.bqb.Mj();
                 return false;
             default:
                 return false;

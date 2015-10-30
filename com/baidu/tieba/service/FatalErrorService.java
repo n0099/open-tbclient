@@ -135,7 +135,7 @@ public class FatalErrorService extends BdBaseService {
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
                                         this.afh.o(FatalErrorService.ERROR_TYPE_KEY, str2);
                                     }
-                                    this.afh.tJ();
+                                    this.afh.tG();
                                     if (byteArrayOutputStream2 != null) {
                                         byteArrayOutputStream2.close();
                                         byteArrayOutputStream3 = null;
@@ -204,9 +204,9 @@ public class FatalErrorService extends BdBaseService {
                                         fileInputStream2 = fileInputStream;
                                     }
                                     try {
-                                        if (this.afh.uh().uZ().qV()) {
+                                        if (this.afh.ue().uW().qS()) {
                                             if (z2) {
-                                                w(file);
+                                                x(file);
                                             }
                                             FileWriter fileWriter3 = new FileWriter(file, false);
                                             try {
@@ -315,7 +315,7 @@ public class FatalErrorService extends BdBaseService {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private void w(File file) {
+        private void x(File file) {
             BufferedReader bufferedReader;
             BufferedReader bufferedReader2 = null;
             try {
@@ -376,15 +376,15 @@ public class FatalErrorService extends BdBaseService {
             try {
                 a(n.cJ(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                 a(n.cJ(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                if (!TbConfig.getVersion().equals(com.baidu.tbadk.core.sharedPref.b.tu().getString("native_crash_dump_version", ""))) {
-                    com.baidu.tbadk.core.sharedPref.b.tu().putString("native_crash_dump_version", TbConfig.getVersion());
+                if (!TbConfig.getVersion().equals(com.baidu.tbadk.core.sharedPref.b.tr().getString("native_crash_dump_version", ""))) {
+                    com.baidu.tbadk.core.sharedPref.b.tr().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
                 }
                 File cJ = n.cJ(TbConfig.FATAL_ERROR_NATIVE_DIR);
                 if (cJ != null) {
                     for (File file : cJ.listFiles()) {
                         if (file.length() >= 1024 && z) {
-                            x(file);
+                            y(file);
                             a(file, TbConfig.ERROR_UPLOAD_SERVER, FatalErrorService.ERROR_TYPE_NATIVE_C, true, true);
                         } else {
                             file.delete();
@@ -399,7 +399,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void x(File file) {
+        private void y(File file) {
             FileWriter fileWriter;
             if (file != null && file.exists() && file.isFile()) {
                 try {
@@ -408,7 +408,7 @@ public class FatalErrorService extends BdBaseService {
                             fileWriter = new FileWriter(file, true);
                             try {
                                 fileWriter.append("\n##TIEBA_NATIVE##\n");
-                                a(fileWriter, as.uG(), null);
+                                a(fileWriter, as.uD(), null);
                                 a(fileWriter, "version", TbConfig.getVersion());
                                 a(fileWriter, "model", Build.MODEL);
                                 a(fileWriter, "android_version", Build.VERSION.RELEASE);

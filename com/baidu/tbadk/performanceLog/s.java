@@ -6,16 +6,16 @@ public class s extends r {
     public boolean axr;
     public boolean isSuccess;
 
-    public void DT() {
+    public void DQ() {
         aa aaVar;
-        if (y.Eb().Ec() && (aaVar = (aa) y.Eb().eB(this.mSubType)) != null) {
+        if (y.DY().DZ() && (aaVar = (aa) y.DY().eB(this.mSubType)) != null) {
             aaVar.a(this, "head");
         }
     }
 
-    public void DU() {
+    public void DR() {
         aa aaVar;
-        if (y.Eb().Ec() && (aaVar = (aa) y.Eb().eB(this.mSubType)) != null) {
+        if (y.DY().DZ() && (aaVar = (aa) y.DY().eB(this.mSubType)) != null) {
             aaVar.a(this, "img");
         }
     }

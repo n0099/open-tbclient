@@ -26,9 +26,9 @@ public class FrsActivityStatic {
     private static final CustomMessageListener aVe = new at(CmdConfigCustom.MSG_READ);
 
     static {
-        Lq();
-        Lr();
-        GW();
+        Lm();
+        Ln();
+        GS();
         MessageManager.getInstance().registerListener(aVd);
         MessageManager.getInstance().registerListener(aVe);
         com.baidu.tieba.tbadkCore.a.a.a(301001, FRSPageSocketResponsedMessage.class, false, false).setPriority(4);
@@ -41,27 +41,27 @@ public class FrsActivityStatic {
         tbHttpMessageTask.setIsImm(true);
         tbHttpMessageTask.setPriority(4);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        com.baidu.tieba.tbadkCore.location.d.axs();
+        com.baidu.tieba.tbadkCore.location.d.axo();
     }
 
-    private static void Lq() {
+    private static void Lm() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_START_NORMAL, new au());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Lr() {
+    private static void Ln() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.ACTIVITY_REFRESH, new av());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void GW() {
-        com.baidu.tbadk.core.util.az.uW().a(new aw());
+    private static void GS() {
+        com.baidu.tbadk.core.util.az.uT().a(new aw());
     }
 
-    public static boolean Ls() {
-        return !TbadkCoreApplication.m411getInst().isMIUIRom() && TbadkCoreApplication.m411getInst().isFloatingWindowOpened() && com.baidu.tbadk.coreExtra.messageCenter.c.xh().xy();
+    public static boolean Lo() {
+        return !TbadkCoreApplication.m411getInst().isMIUIRom() && TbadkCoreApplication.m411getInst().isFloatingWindowOpened() && com.baidu.tbadk.coreExtra.messageCenter.c.xe().xv();
     }
 
     public static void i(TbPageContext<?> tbPageContext) {
@@ -112,7 +112,7 @@ public class FrsActivityStatic {
             aVar.a(string, new az(tbPageContext, pluginConfig));
             aVar.b(TbadkCoreApplication.m411getInst().getString(i.h.cancel), new ba());
             aVar.b(tbPageContext);
-            aVar.sR();
+            aVar.sO();
         }
     }
 }

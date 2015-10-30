@@ -93,11 +93,11 @@ public class d extends FrameLayout implements AbsListView.OnScrollListener, Adap
         this.cIr = bVar;
     }
 
-    public void apQ() {
+    public void apM() {
         this.cIo = System.currentTimeMillis();
         if (!this.aKx) {
             if (this.aKw && !k.jd()) {
-                if (this.cIk.Dn() <= 0) {
+                if (this.cIk.Dk() <= 0) {
                     this.cIk.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.ajk), NoDataViewFactory.d.cK(i.h.neterror), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
                     this.cIk.notifyDataSetChanged();
                     return;
@@ -130,7 +130,7 @@ public class d extends FrameLayout implements AbsListView.OnScrollListener, Adap
             this.aKp.completePullRefresh();
         }
         if (this.aWW != null) {
-            this.aWW.vy();
+            this.aWW.vv();
         }
         if (eVar == null) {
             ap(this);
@@ -139,27 +139,27 @@ public class d extends FrameLayout implements AbsListView.OnScrollListener, Adap
             return;
         }
         this.aSW = false;
-        this.aKx = eVar.aql();
-        this.aKw = eVar.aqk();
+        this.aKx = eVar.aqh();
+        this.aKw = eVar.aqg();
         this.cIs = eVar.getTag();
-        this.cIt = eVar.aqi();
+        this.cIt = eVar.aqe();
         setHasMore(eVar.hasMore());
-        bo(eVar.aqn());
-        List<Object> aqm = eVar.aqm();
+        bo(eVar.aqj());
+        List<Object> aqi = eVar.aqi();
         if (this.cIk != null) {
-            if (aqm == null || aqm.size() <= 0) {
+            if (aqi == null || aqi.size() <= 0) {
                 if (this.aKw && this.aKx) {
                     this.cIk.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.ajk), NoDataViewFactory.d.cK(i.h.invite_friend_no_data_now), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
                 } else {
                     this.cIk.a((NoDataViewFactory.c) null, (NoDataViewFactory.d) null, (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
                 }
             }
-            this.cIk.r(aqm);
+            this.cIk.r(aqi);
         }
         if (z) {
-            this.aKp.setSelection(eVar.aqj());
+            this.aKp.setSelection(eVar.aqf());
         }
-        if (this.aKx || (aqm != null && !aqm.isEmpty())) {
+        if (this.aKx || (aqi != null && !aqi.isEmpty())) {
             ap(this);
         }
     }
@@ -192,8 +192,8 @@ public class d extends FrameLayout implements AbsListView.OnScrollListener, Adap
             this.aKp.completePullRefresh();
         }
         this.aSW = false;
-        this.aWW.vy();
-        if (this.cIk.Dn() <= 0 && this.aKw) {
+        this.aWW.vv();
+        if (this.cIk.Dk() <= 0 && this.aKw) {
             this.cIk.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, this.ajk), NoDataViewFactory.d.dC(str), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
             this.cIk.r(new ArrayList());
         }
@@ -210,14 +210,14 @@ public class d extends FrameLayout implements AbsListView.OnScrollListener, Adap
             return;
         }
         if (this.cIi == null) {
-            apR();
+            apN();
             this.aKp.addHeaderView(this.cIi.getView());
         }
-        this.cIi.setTitle(UtilHelper.getFixedText(list.get(0).apV(), 14, true));
+        this.cIi.setTitle(UtilHelper.getFixedText(list.get(0).apR(), 14, true));
         this.cIi.setData(list);
     }
 
-    private void apR() {
+    private void apN() {
         this.cIi = new m(getContext());
         this.cIi.e(this.pageContext);
         this.cIi.a(new e(this));
@@ -231,7 +231,7 @@ public class d extends FrameLayout implements AbsListView.OnScrollListener, Adap
 
     private void a(ZhiBoInfoTW zhiBoInfoTW) {
         if (zhiBoInfoTW != null) {
-            this.pageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.pageContext.getContext(), String.valueOf(zhiBoInfoTW.thread_id)).ci("from_frs").bs(18003).rk()));
+            this.pageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.pageContext.getContext(), String.valueOf(zhiBoInfoTW.thread_id)).ci("from_frs").bs(18003).rh()));
             TiebaStatic.log("c10258");
         }
     }
@@ -242,21 +242,21 @@ public class d extends FrameLayout implements AbsListView.OnScrollListener, Adap
         Object item = this.cIk.getItem(i);
         if (item instanceof com.baidu.tieba.recommendfrs.data.b) {
             com.baidu.tieba.recommendfrs.data.b bVar = (com.baidu.tieba.recommendfrs.data.b) item;
-            String str = (bVar.aqc() == null || bVar.aqc().isEmpty()) ? null : bVar.aqc().get(0);
-            TiebaStatic.eventStat(getContext(), "kantie_card", null, 1, PbChosenActivityConfig.KEY_TID, Long.valueOf(bVar.aqb()));
-            if (bVar.aqf() == 33) {
-                a(bVar.aqg());
+            String str = (bVar.apY() == null || bVar.apY().isEmpty()) ? null : bVar.apY().get(0);
+            TiebaStatic.eventStat(getContext(), "kantie_card", null, 1, PbChosenActivityConfig.KEY_TID, Long.valueOf(bVar.apX()));
+            if (bVar.aqb() == 33) {
+                a(bVar.aqc());
             } else {
-                bb(String.valueOf(bVar.aqb()), str);
+                bb(String.valueOf(bVar.apX()), str);
             }
             p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && !readThreadHistory.lL(String.valueOf(bVar.aqb()))) {
-                readThreadHistory.lK(String.valueOf(bVar.aqb()));
+            if (readThreadHistory != null && !readThreadHistory.lL(String.valueOf(bVar.apX()))) {
+                readThreadHistory.lK(String.valueOf(bVar.apX()));
                 this.cIk.A(item);
             }
         } else if (item instanceof com.baidu.tieba.recommendfrs.data.c) {
             TiebaStatic.eventStat(getContext(), "kantie_3", null);
-            long longValue = ((com.baidu.tieba.recommendfrs.data.c) item).aqh().thread_id.longValue();
+            long longValue = ((com.baidu.tieba.recommendfrs.data.c) item).aqd().thread_id.longValue();
             TiebaStatic.eventStat(getContext(), "kantie_card", null, 1, PbChosenActivityConfig.KEY_TID, Long.valueOf(longValue));
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getContext()).createNormalCfg(new StringBuilder().append(longValue).toString(), null, "")));
         } else if ((item instanceof com.baidu.tieba.recommendfrs.data.d) && ((com.baidu.tieba.recommendfrs.data.d) item).getType() == "text_type_check_more" && bd.ah(getContext())) {
@@ -280,7 +280,7 @@ public class d extends FrameLayout implements AbsListView.OnScrollListener, Adap
             this.cIj.setVisibility(0);
         } else if (item instanceof com.baidu.tieba.recommendfrs.data.i) {
             this.cIj.setVisibility(0);
-            this.cIj.setText(((com.baidu.tieba.recommendfrs.data.i) item).aqv());
+            this.cIj.setText(((com.baidu.tieba.recommendfrs.data.i) item).aqr());
         }
         if (this.cIk.getItem(this.aKp.pointToPosition(0, this.cIj.getBottom() + 5) - this.aKp.getHeaderViewsCount()) instanceof String) {
             fN(true);
@@ -309,9 +309,9 @@ public class d extends FrameLayout implements AbsListView.OnScrollListener, Adap
                     this.cIp.b(0, this.cIs, 0);
                     return;
                 }
-                com.baidu.tieba.recommendfrs.data.b apP = this.cIk.apP();
-                if (apP != null) {
-                    this.cIp.b(apP.aqd(), this.cIs, apP.apY());
+                com.baidu.tieba.recommendfrs.data.b apL = this.cIk.apL();
+                if (apL != null) {
+                    this.cIp.b(apL.apZ(), this.cIs, apL.apU());
                 }
             }
         }
@@ -371,7 +371,7 @@ public class d extends FrameLayout implements AbsListView.OnScrollListener, Adap
             } else {
                 this.cIq = new f(getContext(), i);
             }
-            this.cIq.tc();
+            this.cIq.sZ();
         }
         this.cIq.b(view, z);
         if (this.mPullView != null) {

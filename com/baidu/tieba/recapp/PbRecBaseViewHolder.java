@@ -20,8 +20,8 @@ public abstract class PbRecBaseViewHolder extends x.a {
 
     public void update(j jVar, int i, boolean z) {
         if (!jVar.cZd) {
-            com.baidu.tbadk.distribute.a.Ag().a(this.rootView.getContext(), jVar.awD(), "show", "pb", jVar.cZe, jVar.threadId);
-            com.baidu.tbadk.distribute.a.Ag().a(jVar.awD(), jVar.cZe, jVar.threadId, "PB", "show", jVar.cHN);
+            com.baidu.tbadk.distribute.a.Ad().a(this.rootView.getContext(), jVar.awz(), "show", "pb", jVar.cZe, jVar.threadId);
+            com.baidu.tbadk.distribute.a.Ad().a(jVar.awz(), jVar.cZe, jVar.threadId, "PB", "show", jVar.cHN);
             jVar.cZd = true;
         }
         if (jVar != null) {

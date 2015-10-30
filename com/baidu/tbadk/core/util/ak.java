@@ -49,6 +49,6 @@ public class ak extends Thread {
         if (this.mObjTp != null) {
             wVar.o("obj_tp", this.mObjTp);
         }
-        wVar.tG();
+        wVar.tD();
     }
 }

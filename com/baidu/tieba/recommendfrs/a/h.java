@@ -43,21 +43,21 @@ public class h extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
     /* renamed from: a */
     public void B(com.baidu.tieba.recommendfrs.data.b bVar) {
         super.B(bVar);
-        if (bVar != null && bVar.aqg() != null) {
-            ZhiBoInfoTW aqg = bVar.aqg();
-            this.cED.setText(d(aqg.title));
-            this.cJN.setText(b(aqg));
-            this.alA.d(aqg.livecover_src, 10, false);
-            if (StringUtils.isNull(aqg.forum_name)) {
+        if (bVar != null && bVar.aqc() != null) {
+            ZhiBoInfoTW aqc = bVar.aqc();
+            this.cED.setText(d(aqc.title));
+            this.cJN.setText(b(aqc));
+            this.alA.d(aqc.livecover_src, 10, false);
+            if (StringUtils.isNull(aqc.forum_name)) {
                 this.cJO.setVisibility(8);
             } else {
                 this.cJO.setVisibility(0);
-                this.cJO.setText(getContext().getString(i.h.chosen_pb_original_bar, aqg.forum_name));
+                this.cJO.setText(getContext().getString(i.h.chosen_pb_original_bar, aqc.forum_name));
             }
-            this.cJQ.setText(as.s(aqg.reply_num.intValue()));
-            this.aKa.setVisibility(bVar.aqe() ? 0 : 4);
+            this.cJQ.setText(as.q(aqc.reply_num.intValue()));
+            this.aKa.setVisibility(bVar.aqa() ? 0 : 4);
             p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.lL(String.valueOf(bVar.aqb()))) {
+            if (readThreadHistory != null && readThreadHistory.lL(String.valueOf(bVar.apX()))) {
                 an.b(this.cED, i.c.cp_cont_c, 1);
             } else {
                 an.b(this.cED, i.c.cp_cont_b, 1);
@@ -66,7 +66,7 @@ public class h extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
     }
 
     private String b(ZhiBoInfoTW zhiBoInfoTW) {
-        return TbadkCoreApplication.m411getInst().getString(i.h.photo_live_thread_expression_time, new Object[]{as.o(zhiBoInfoTW.last_modified_time.longValue() * 1000)});
+        return TbadkCoreApplication.m411getInst().getString(i.h.photo_live_thread_expression_time, new Object[]{as.m(zhiBoInfoTW.last_modified_time.longValue() * 1000)});
     }
 
     private SpannableStringBuilder d(CharSequence charSequence) {

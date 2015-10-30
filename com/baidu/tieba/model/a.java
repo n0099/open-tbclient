@@ -18,15 +18,15 @@ public class a {
 
     public static AccountData j(String str, String str2, String str3) {
         w wVar = new w(TbConfig.LOGIN_FULL_ADDRESS);
-        wVar.uh().uY().mIsUseCurrentBDUSS = false;
+        wVar.ue().uV().mIsUseCurrentBDUSS = false;
         wVar.o("bdusstoken", String.valueOf(str2) + "|" + str3);
         wVar.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
         wVar.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-        wVar.uh().uY().abO = false;
-        String tG = wVar.tG();
-        if (wVar.uh().uZ().qV() && tG != null) {
+        wVar.ue().uV().abO = false;
+        String tD = wVar.tD();
+        if (wVar.ue().uW().qS() && tD != null) {
             l lVar = new l();
-            lVar.parserJson(tG);
+            lVar.parserJson(tD);
             AccountData accountData = new AccountData();
             accountData.setAccount(lVar.getUser().getUserName());
             accountData.setPassword("");
@@ -34,8 +34,8 @@ public class a {
             accountData.setBDUSS(lVar.getUser().getBDUSS());
             accountData.setPortrait(lVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (lVar.rF() != null) {
-                accountData.setTbs(lVar.rF().getTbs());
+            if (lVar.rC() != null) {
+                accountData.setTbs(lVar.rC().getTbs());
                 return accountData;
             }
             return accountData;
@@ -76,28 +76,28 @@ public class a {
         public AccountData doInBackground(String... strArr) {
             a.b a;
             this.afh = new w(TbConfig.LOGIN_FULL_ADDRESS);
-            this.afh.uh().uY().mIsUseCurrentBDUSS = false;
+            this.afh.ue().uV().mIsUseCurrentBDUSS = false;
             this.afh.o("bdusstoken", String.valueOf(this.cbg) + "|" + this.TD);
             this.afh.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
             this.afh.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-            this.afh.uh().uY().abO = false;
-            String tG = this.afh.tG();
-            if (this.afh.uh().uZ().qV() && tG != null) {
+            this.afh.ue().uV().abO = false;
+            String tD = this.afh.tD();
+            if (this.afh.ue().uW().qS() && tD != null) {
                 l lVar = new l();
-                lVar.parserJson(tG);
+                lVar.parserJson(tD);
                 AccountData accountData = new AccountData();
                 accountData.setAccount(lVar.getUser().getUserName());
                 accountData.setPassword("");
                 accountData.setID(lVar.getUser().getUserId());
                 String bduss = lVar.getUser().getBDUSS();
-                if (this.cbi && (a = f.a(com.baidu.tbadk.core.a.a.rd().cc(bduss))) != null) {
+                if (this.cbi && (a = f.a(com.baidu.tbadk.core.a.a.ra().cc(bduss))) != null) {
                     bduss = String.valueOf(a.ws) + "|" + a.TD;
                 }
                 accountData.setBDUSS(bduss);
                 accountData.setPortrait(lVar.getUser().getPortrait());
                 accountData.setIsActive(1);
-                if (lVar.rF() != null) {
-                    accountData.setTbs(lVar.rF().getTbs());
+                if (lVar.rC() != null) {
+                    accountData.setTbs(lVar.rC().getTbs());
                     return accountData;
                 }
                 return accountData;
@@ -112,8 +112,8 @@ public class a {
         public void onPostExecute(AccountData accountData) {
             int i = 0;
             super.onPostExecute(accountData);
-            ReloginManager.tp().aq(false);
-            com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "cslogin_result", this.afh.ul(), this.afh.getErrorString(), new Object[0]);
+            ReloginManager.tm().aq(false);
+            com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "cslogin_result", this.afh.ui(), this.afh.getErrorString(), new Object[0]);
             if (accountData != null && accountData.getBDUSS() != null) {
                 this.cbh.a(accountData);
                 return;
@@ -121,7 +121,7 @@ public class a {
             String str = null;
             if (this.afh != null) {
                 str = this.afh.getErrorString();
-                i = this.afh.ul();
+                i = this.afh.ui();
             }
             if (str == null) {
                 str = TbadkCoreApplication.m411getInst().getApp().getResources().getString(i.h.data_load_error);

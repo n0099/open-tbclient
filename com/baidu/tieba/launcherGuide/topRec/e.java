@@ -56,7 +56,7 @@ public class e {
         this.bTk = this.bTl.findViewById(i.f.footer_background);
         this.bTm = (TextView) this.bTl.findViewById(i.f.footer_text);
         this.bTn = (ImageView) this.bTl.findViewById(i.f.footer_icon);
-        aaW();
+        aaS();
         this.bTq = AnimationUtils.loadAnimation(this.bSY.getPageContext().getPageActivity(), i.a.top_recommended_finish_a);
         this.bTr = AnimationUtils.loadAnimation(this.bSY.getPageContext().getPageActivity(), i.a.top_recommended_finish_b);
         this.bTq.setAnimationListener(new f(this));
@@ -66,11 +66,11 @@ public class e {
         this.mProgressBar = (ProgressBar) this.bSY.findViewById(i.f.loading);
     }
 
-    public LinearLayout aaU() {
+    public LinearLayout aaQ() {
         return this.bTl;
     }
 
-    public Button aaV() {
+    public Button aaR() {
         return this.bTj;
     }
 
@@ -102,13 +102,13 @@ public class e {
         this.bTo = i;
     }
 
-    public void aaW() {
+    public void aaS() {
         this.bTm.setText(this.bSY.getPageContext().getString(i.h.flist_expand_list));
         an.i(this.bTn, i.e.ico_downward);
         this.bTl.setOnClickListener(this.bSY);
     }
 
-    public void aaX() {
+    public void aaT() {
         this.bTm.setText(this.bSY.getPageContext().getString(i.h.to_the_end));
         this.bTn.setVisibility(8);
         this.bTl.setClickable(false);

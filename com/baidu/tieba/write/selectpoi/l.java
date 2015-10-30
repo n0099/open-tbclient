@@ -22,10 +22,10 @@ public class l extends BaseAdapter {
     public l(SelectLocationActivity selectLocationActivity) {
         this.isShowLocation = true;
         this.dlX = selectLocationActivity;
-        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.axm().getLocationData();
-        this.isShowLocation = com.baidu.tieba.tbadkCore.location.c.axm().axn() ? false : true;
+        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.axi().getLocationData();
+        this.isShowLocation = com.baidu.tieba.tbadkCore.location.c.axi().axj() ? false : true;
         if (locationData != null) {
-            this.data = d(locationData.axj(), locationData.axi());
+            this.data = d(locationData.axf(), locationData.axe());
         }
     }
 
@@ -188,10 +188,10 @@ public class l extends BaseAdapter {
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.dlR.setText(c0078a.axl());
+            aVar.dlR.setText(c0078a.axh());
             if (this.isShowLocation && i == 1) {
                 aVar.dlY.setVisibility(0);
-                if (TextUtils.isEmpty(c0078a.axl())) {
+                if (TextUtils.isEmpty(c0078a.axh())) {
                     aVar.dlR.setText(i.h.select_location_current);
                 }
             } else {

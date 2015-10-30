@@ -26,7 +26,7 @@ public class e implements u {
         return bpb;
     }
 
-    public boolean QX() {
+    public boolean QT() {
         return this.bpc;
     }
 

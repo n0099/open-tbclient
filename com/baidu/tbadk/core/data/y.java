@@ -14,7 +14,7 @@ public class y {
         return this.title;
     }
 
-    public String sK() {
+    public String sH() {
         return this.title_link;
     }
 

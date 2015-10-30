@@ -17,7 +17,7 @@ public class h implements BannerView.a {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void yL() {
+    public void yI() {
         BdListView bdListView;
         BannerView bannerView;
         bdListView = this.aKG.aKp;
@@ -26,9 +26,9 @@ public class h implements BannerView.a {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void yK() {
+    public void yH() {
         if (!StringUtils.isNull(this.aKI)) {
-            az.uW().b(this.aKG.getPageContext(), new String[]{this.aKI});
+            az.uT().b(this.aKG.getPageContext(), new String[]{this.aKI});
         }
     }
 }

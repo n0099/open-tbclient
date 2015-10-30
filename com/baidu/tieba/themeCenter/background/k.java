@@ -18,7 +18,7 @@ class k implements o.a {
         r rVar3;
         r rVar4;
         rVar = this.dfB.dfz;
-        rVar.azy();
+        rVar.azu();
         BackgroundListActivity backgroundListActivity = this.dfB;
         rVar2 = this.dfB.dfz;
         backgroundListActivity.hideLoadingView(rVar2.getRootView());
@@ -29,6 +29,6 @@ class k implements o.a {
         }
         this.dfB.showToast(str);
         rVar4 = this.dfB.dfz;
-        rVar4.Kr();
+        rVar4.Kn();
     }
 }

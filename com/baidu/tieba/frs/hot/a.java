@@ -10,12 +10,12 @@ public class a {
     private final long aQT = TbConfig.APP_OVERDUR_DRAFT_BOX;
 
     public a() {
-        Kp();
+        Kl();
     }
 
-    public void Kp() {
+    public void Kl() {
         if (this.aQS == null) {
-            this.aQS = com.baidu.tbadk.core.b.a.sO().cq("tb.forum_hot_thread");
+            this.aQS = com.baidu.tbadk.core.b.a.sL().cq("tb.forum_hot_thread");
         }
     }
 
@@ -33,7 +33,7 @@ public class a {
     public void k(String str, byte[] bArr) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(str)) {
-            Kp();
+            Kl();
             this.aQS.a(String.valueOf(str) + "/" + currentAccount, bArr, TbConfig.APP_OVERDUR_DRAFT_BOX);
         }
     }

@@ -26,7 +26,7 @@ class i implements AdapterView.OnItemClickListener {
                 Object item = lVar2.getItem(i);
                 if (item instanceof a.C0078a) {
                     a.C0078a c0078a = (a.C0078a) item;
-                    messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0078a.getName(), c0078a.axl(), c0078a.axk()));
+                    messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0078a.getName(), c0078a.axh(), c0078a.axg()));
                     this.dlW.finish();
                     return;
                 }

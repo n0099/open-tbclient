@@ -9,7 +9,7 @@ import tbclient.HotThread.HotThreadReqIdl;
 public class c implements e, h {
     private int aKm;
 
-    public void Hr() {
+    public void Hn() {
         this.aKm++;
     }
 
@@ -34,12 +34,12 @@ public class c implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String CA() {
+    public String Cx() {
         return "tb.pb_normal";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean CB() {
+    public boolean Cy() {
         return true;
     }
 

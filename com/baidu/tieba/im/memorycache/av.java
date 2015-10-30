@@ -19,7 +19,7 @@ class av implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
-            com.baidu.tieba.im.db.i.TO().c(this.bEx);
+            com.baidu.tieba.im.db.i.TK().c(this.bEx);
             return null;
         } catch (Exception e) {
             BdLog.detailException(e);

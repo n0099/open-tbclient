@@ -18,7 +18,7 @@ public class o implements View.OnClickListener {
         akVar = this.cmC.cmt;
         if (akVar != null) {
             akVar2 = this.cmC.cmt;
-            akVar2.CS();
+            akVar2.CP();
         }
     }
 }

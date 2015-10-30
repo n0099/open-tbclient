@@ -33,11 +33,11 @@ public class y extends com.baidu.adp.base.e<PersonInfoActivity> {
     private UserData mUserData;
     private String stType;
 
-    public long ajM() {
+    public long ajI() {
         return this.ctQ;
     }
 
-    public void aT(long j) {
+    public void aR(long j) {
         this.ctQ = j;
     }
 
@@ -45,7 +45,7 @@ public class y extends com.baidu.adp.base.e<PersonInfoActivity> {
         this.ctR = i;
     }
 
-    public AntiData afh() {
+    public AntiData afd() {
         return this.cgz;
     }
 
@@ -68,7 +68,7 @@ public class y extends com.baidu.adp.base.e<PersonInfoActivity> {
         return this.ctN;
     }
 
-    public PersonTainInfo ajN() {
+    public PersonTainInfo ajJ() {
         return this.ctO;
     }
 
@@ -88,7 +88,7 @@ public class y extends com.baidu.adp.base.e<PersonInfoActivity> {
         this.bnk = z;
     }
 
-    public boolean ajO() {
+    public boolean ajK() {
         return this.ctK;
     }
 
@@ -96,7 +96,7 @@ public class y extends com.baidu.adp.base.e<PersonInfoActivity> {
         this.ctK = z;
     }
 
-    public boolean ajP() {
+    public boolean ajL() {
         return this.ctL;
     }
 
@@ -128,7 +128,7 @@ public class y extends com.baidu.adp.base.e<PersonInfoActivity> {
         this.stType = str;
     }
 
-    public String ajQ() {
+    public String ajM() {
         return this.ctM;
     }
 
@@ -152,28 +152,28 @@ public class y extends com.baidu.adp.base.e<PersonInfoActivity> {
         return false;
     }
 
-    public void ajR() {
+    public void ajN() {
         if (this.mUserData != null && this.ctP != null) {
             this.ctP.a(this.mUserData.getHave_attention() != 1, this.mUserData.getPortrait(), this.mUserData.getUserId());
         }
     }
 
-    public void ajS() {
+    public void ajO() {
         MessageManager.getInstance().unRegisterListener(this.cqZ);
     }
 
-    public void aiP() {
+    public void aiL() {
         com.baidu.tbadk.task.a aVar = new com.baidu.tbadk.task.a(CmdConfigCustom.CMD_CACHE_PERSONINFO, new ac());
         aVar.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
         MessageManager.getInstance().registerTask(aVar);
         registerListener(this.cqZ);
     }
 
-    public void ajT() {
+    public void ajP() {
         sendMessage(new RequestPersonInfoMessage());
     }
 
-    public void ajU() {
+    public void ajQ() {
         ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             profileRequestMessage.set_uid(Long.valueOf(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L)));
@@ -189,9 +189,9 @@ public class y extends com.baidu.adp.base.e<PersonInfoActivity> {
             profileRequestMessage.set_friend_uid(Long.valueOf(com.baidu.adp.lib.g.b.c(getId(), 0L)));
             profileRequestMessage.set_is_guest(1);
         }
-        if (ajQ() != null) {
+        if (ajM() != null) {
             try {
-                profileRequestMessage.set_st_type(ajQ());
+                profileRequestMessage.set_st_type(ajM());
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
@@ -216,15 +216,15 @@ public class y extends com.baidu.adp.base.e<PersonInfoActivity> {
     public void a(boolean z, String str, boolean z2, boolean z3) {
         if (!z) {
             if (getIsSelf()) {
-                com.baidu.tbadk.getUserInfo.b.BY().a(this.mUserData);
+                com.baidu.tbadk.getUserInfo.b.BV().a(this.mUserData);
             }
             UserData userData = this.mUserData;
             if (userData != null) {
                 i(userData);
             }
-            AntiData afh = afh();
-            if (afh != null) {
-                b(afh);
+            AntiData afd = afd();
+            if (afd != null) {
+                b(afd);
             }
             this.mLoadDataCallBack.d(true);
             return;

@@ -23,7 +23,7 @@ public class FloatingPersonalChatActivityStatic {
         return mUserDataList;
     }
 
-    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e YV() {
+    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e YR() {
         return bJH;
     }
 

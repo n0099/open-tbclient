@@ -13,7 +13,7 @@ public class al implements h.a {
     }
 
     @Override // com.baidu.tbadk.core.view.h.a
-    public void qw() {
+    public void qt() {
         MorePopupWindow morePopupWindow;
         PersonInfoActivity personInfoActivity;
         morePopupWindow = this.cuW.cuU;
@@ -22,7 +22,7 @@ public class al implements h.a {
     }
 
     @Override // com.baidu.tbadk.core.view.h.a
-    public void qx() {
+    public void qu() {
         MorePopupWindow morePopupWindow;
         PersonInfoActivity personInfoActivity;
         morePopupWindow = this.cuW.cuU;

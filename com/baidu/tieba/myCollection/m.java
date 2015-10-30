@@ -41,10 +41,10 @@ public class m extends BaseAdapter {
     public m(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
         ea(true);
-        adx();
+        adt();
     }
 
-    public void adw() {
+    public void ads() {
         if (this.cbL != null) {
             Iterator<ProgressBar> it = this.cbL.iterator();
             while (it.hasNext()) {
@@ -57,7 +57,7 @@ public class m extends BaseAdapter {
         this.hasMore = z;
     }
 
-    public void adx() {
+    public void adt() {
         this.cbJ = false;
         if (this.Xh == null) {
             this.mSize = 0;
@@ -86,7 +86,7 @@ public class m extends BaseAdapter {
         if (arrayList != null) {
             this.Xh.addAll(arrayList);
         }
-        adx();
+        adt();
         notifyDataSetChanged();
     }
 
@@ -291,7 +291,7 @@ public class m extends BaseAdapter {
         this.aEC = z;
     }
 
-    public boolean FV() {
+    public boolean FR() {
         return this.aEC;
     }
 

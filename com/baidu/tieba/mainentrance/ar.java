@@ -23,7 +23,7 @@ class ar implements Runnable {
                 stringBuffer.append(TbConfig.SERVER_ADDRESS);
                 stringBuffer.append("c/f/forum/search");
                 BasicNameValuePair basicNameValuePair = new BasicNameValuePair("query", this.bVC.bUV.trim());
-                this.bVC.abf();
+                this.bVC.abb();
                 this.bVC.bUT = new SquareSearchActivity.a(stringBuffer.toString(), basicNameValuePair, true);
                 aVar = this.bVC.bUT;
                 aVar.setPriority(3);

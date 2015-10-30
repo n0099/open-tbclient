@@ -53,15 +53,15 @@ public class c extends GestureDetector.SimpleOnGestureListener {
                     a aVar2 = this.aAC;
                     f5 = this.aAC.azZ;
                     aVar2.aAa = f5;
-                    this.aAC.EM();
-                    this.aAC.EK();
+                    this.aAC.EI();
+                    this.aAC.EG();
                     return true;
                 }
                 a aVar3 = this.aAC;
                 f3 = this.aAC.azX;
                 aVar3.azZ = f3 * 2.0f;
                 this.aAC.e(true, (int) motionEvent.getX(), (int) motionEvent.getY());
-                this.aAC.EK();
+                this.aAC.EG();
                 return true;
             }
         }

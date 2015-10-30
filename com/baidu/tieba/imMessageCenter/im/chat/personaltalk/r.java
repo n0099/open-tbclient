@@ -20,10 +20,10 @@ public class r {
 
     /* loaded from: classes.dex */
     public interface a {
-        void vw();
+        void vt();
     }
 
-    public boolean XU() {
+    public boolean XQ() {
         return this.bKz;
     }
 
@@ -31,11 +31,11 @@ public class r {
         this.bKz = z;
     }
 
-    public DataRes XV() {
+    public DataRes XR() {
         return this.data;
     }
 
-    public boolean XW() {
+    public boolean XS() {
         return this.bKy;
     }
 
@@ -73,11 +73,11 @@ public class r {
         }
     }
 
-    public com.baidu.adp.framework.listener.e XX() {
+    public com.baidu.adp.framework.listener.e XT() {
         return this.mListener;
     }
 
-    public CustomMessageListener XY() {
+    public CustomMessageListener XU() {
         return this.mCustomListener;
     }
 }

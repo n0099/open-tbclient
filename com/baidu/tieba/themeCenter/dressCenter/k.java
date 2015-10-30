@@ -21,11 +21,11 @@ public class k {
         return this.iconUrl;
     }
 
-    public String azA() {
+    public String azw() {
         return this.acX;
     }
 
-    public String Ui() {
+    public String Ue() {
         return this.byL;
     }
 }

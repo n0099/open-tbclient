@@ -26,7 +26,7 @@ public class cq implements View.OnClickListener {
         if (pbActivity.checkUpIsLogin()) {
             jVar = this.clJ.KA;
             if (jVar != null) {
-                this.clJ.agq();
+                this.clJ.agm();
             }
             jVar2 = this.clJ.KA;
             if (jVar2 != null) {

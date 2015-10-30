@@ -79,7 +79,7 @@ public class d implements View.OnClickListener {
         TextView textView = (TextView) LayoutInflater.from(TbadkCoreApplication.m411getInst().getContext()).inflate(i.g.share_icon_text, (ViewGroup) null);
         textView.setCompoundDrawables(null, TbadkCoreApplication.m411getInst().getResources().getDrawable(i2), null, null);
         textView.setText(i);
-        textView.setLayoutParams(yD());
+        textView.setLayoutParams(yA());
         textView.setTag(Integer.valueOf(i2));
         textView.setOnClickListener(this);
         this.aiD.add(textView);
@@ -90,12 +90,12 @@ public class d implements View.OnClickListener {
         TextView textView = (TextView) LayoutInflater.from(TbadkCoreApplication.m411getInst().getContext()).inflate(i.g.share_icon_text, (ViewGroup) null);
         textView.setCompoundDrawables(null, TbadkCoreApplication.m411getInst().getResources().getDrawable(i2), null, null);
         textView.setText(i);
-        textView.setLayoutParams(yD());
+        textView.setLayoutParams(yA());
         textView.setTag(Integer.valueOf(i2));
         return textView;
     }
 
-    public LinearLayout.LayoutParams yD() {
+    public LinearLayout.LayoutParams yA() {
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
         layoutParams.weight = 1.0f;
         layoutParams.gravity = 17;
@@ -185,7 +185,7 @@ public class d implements View.OnClickListener {
         }
     }
 
-    public void yE() {
+    public void yB() {
         int size = this.aiD.size();
         if (size < 10) {
             for (int i = 0; i < 10 - size; i++) {
@@ -208,7 +208,7 @@ public class d implements View.OnClickListener {
             k.showToast(TbadkCoreApplication.m411getInst().getContext(), i.h.share_on_no_network);
             return;
         }
-        yE();
+        yB();
         this.Wy = new AlertDialog.Builder(this.mContext).create();
         this.Wy.setCanceledOnTouchOutside(true);
         if (this.mContext instanceof Activity) {
@@ -220,7 +220,7 @@ public class d implements View.OnClickListener {
         window.setLayout(-1, -2);
         a(this.aiK);
         window.setContentView(this.mRootView);
-        yF();
+        yC();
     }
 
     public void setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
@@ -251,7 +251,7 @@ public class d implements View.OnClickListener {
                 f dA = dA(1);
                 if (id == i.f.btnShareCancel) {
                     c("share_cancel", new Object[0]);
-                    this.aiK.yA();
+                    this.aiK.yx();
                 }
                 if (i == i.e.icon_weixin) {
                     c("share_to_weixin", new Object[0]);
@@ -353,8 +353,8 @@ public class d implements View.OnClickListener {
             this.aiH = true;
             if (this.aiJ != null) {
                 j jVar = this.aiJ.get(i);
-                if (!StringUtils.isNull(jVar.wp()) && jVar.wq() != null && jVar.wq().size() > 0) {
-                    c(jVar.wp(), jVar.wq());
+                if (!StringUtils.isNull(jVar.wm()) && jVar.wn() != null && jVar.wn().size() > 0) {
+                    c(jVar.wm(), jVar.wn());
                     return;
                 }
             }
@@ -385,7 +385,7 @@ public class d implements View.OnClickListener {
         }
     }
 
-    private void yF() {
+    private void yC() {
         int size = this.aiD.size();
         for (int i = 0; i < size; i++) {
             TextView textView = this.aiD.get(i);

@@ -71,7 +71,7 @@ public class CDNIPDirectConnect extends e {
         try {
             this.bQA = new a();
             this.bQz = new TbCdnMobileGetIpModel();
-            aas();
+            aao();
             this.bQu = new IPListReceiver(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbCDNTachometerService.TB_CDNIP_BROADCASE_ACTION);
@@ -90,11 +90,11 @@ public class CDNIPDirectConnect extends e {
         }
     }
 
-    private void aas() {
-        CdnCacheItem aat = aat();
+    private void aao() {
+        CdnCacheItem aap = aap();
         long currentTimeMillis = System.currentTimeMillis();
-        if (aat != null && aat.firstUseIpTime > 0 && currentTimeMillis - aat.firstUseIpTime < TbConfig.APP_OVERDUR_DRAFT_BOX) {
-            this.bQt = aat;
+        if (aap != null && aap.firstUseIpTime > 0 && currentTimeMillis - aap.firstUseIpTime < TbConfig.APP_OVERDUR_DRAFT_BOX) {
+            this.bQt = aap;
         }
         if (this.bQt == null) {
             this.bQt = new CdnCacheItem();
@@ -118,7 +118,7 @@ public class CDNIPDirectConnect extends e {
             }
         } else if (this.bQt.mobileLastTachometerTime == 0 || z || (this.bQt.mobileIsUsedIp() && currentTimeMillis - this.bQt.mobileLastTachometerTime > 3600000)) {
             this.bQt.identifier = netIdentifier;
-            aar();
+            aan();
         }
     }
 
@@ -198,7 +198,7 @@ public class CDNIPDirectConnect extends e {
             return new HttpGet(str);
         }
         if (System.currentTimeMillis() - this.bQt.mobileLastTachometerTime > 3600000) {
-            aar();
+            aan();
         }
         return aQ(str, mobileCdnIp);
     }
@@ -232,7 +232,7 @@ public class CDNIPDirectConnect extends e {
         TbCDNTachometerService.startTachometerService(TbadkCoreApplication.m411getInst().getApp(), false, false);
     }
 
-    private void aar() {
+    private void aan() {
         if (this.bQA.Sw) {
             this.bQt.mobileLastTachometerTime = System.currentTimeMillis();
             this.bQz.startGetMobileIpList();
@@ -272,11 +272,11 @@ public class CDNIPDirectConnect extends e {
                 }
             } else if (str2 != null && str2.length() > 0) {
                 if (this.bQt.setMoblieIPRank(i, 100.0f, str2) >= 100.0f) {
-                    aar();
+                    aan();
                     b(this.bQt);
                 }
             } else if (this.bQt.setMoblieIPRank(i, 100.0f, null) >= 100.0f) {
-                aar();
+                aan();
                 b(this.bQt);
             }
         }
@@ -344,8 +344,8 @@ public class CDNIPDirectConnect extends e {
         return null;
     }
 
-    private CdnCacheItem aat() {
-        String string = b.tu().getString("cdn_iplist_cache_key_three", "");
+    private CdnCacheItem aap() {
+        String string = b.tr().getString("cdn_iplist_cache_key_three", "");
         if (string == null || string.length() == 0) {
             return null;
         }
@@ -364,7 +364,7 @@ public class CDNIPDirectConnect extends e {
             try {
                 String encodeBytes = c.encodeBytes(a);
                 if (encodeBytes != null) {
-                    b.tu().putString("cdn_iplist_cache_key_three", encodeBytes);
+                    b.tr().putString("cdn_iplist_cache_key_three", encodeBytes);
                 }
             } catch (Exception e) {
                 BdLog.e(e);

@@ -118,7 +118,7 @@ public class bb {
         a(arrayList, oVar, this.aVF, this.ajY);
     }
 
-    public int Lt() {
+    public int Lp() {
         return this.aVg.getHeaderViewsCount();
     }
 
@@ -165,7 +165,7 @@ public class bb {
         }
     }
 
-    public HashMap<Integer, com.baidu.tbadk.core.data.w> Lu() {
+    public HashMap<Integer, com.baidu.tbadk.core.data.w> Lq() {
         return this.aVD;
     }
 
@@ -199,7 +199,7 @@ public class bb {
         }
     }
 
-    public void Lv() {
+    public void Lr() {
         if (this.aVg != null && this.aVg.getData() != null && this.aVg.getData().size() != 0) {
             for (com.baidu.adp.widget.ListView.u uVar : this.aVg.getData()) {
                 if ((uVar instanceof com.baidu.tbadk.core.data.w) && ((com.baidu.tbadk.core.data.w) uVar).getIs_top() != 0) {
@@ -271,58 +271,58 @@ public class bb {
         }
     }
 
-    public int Lw() {
+    public int Ls() {
         if (this.aVl != null) {
-            return this.aVl.Lw();
+            return this.aVl.Ls();
         }
         return 0;
     }
 
-    public int KM() {
+    public int KI() {
         if (this.aVl != null) {
-            return this.aVl.KM();
+            return this.aVl.KI();
+        }
+        return 0;
+    }
+
+    public int Lt() {
+        if (this.aVs != null) {
+            return this.aVs.Lt();
+        }
+        return 0;
+    }
+
+    public int Lu() {
+        if (this.aVl != null) {
+            return this.aVl.Lu();
+        }
+        return 0;
+    }
+
+    public int Lv() {
+        if (this.aVs != null) {
+            return this.aVs.Lv();
+        }
+        return 0;
+    }
+
+    public int Lw() {
+        if (this.aVu != null) {
+            return this.aVu.Mh();
         }
         return 0;
     }
 
     public int Lx() {
-        if (this.aVs != null) {
-            return this.aVs.Lx();
+        if (this.aVr != null) {
+            return this.aVr.Mi();
         }
         return 0;
     }
 
     public int Ly() {
-        if (this.aVl != null) {
-            return this.aVl.Ly();
-        }
-        return 0;
-    }
-
-    public int Lz() {
-        if (this.aVs != null) {
-            return this.aVs.Lz();
-        }
-        return 0;
-    }
-
-    public int LA() {
         if (this.aVu != null) {
-            return this.aVu.Ml();
-        }
-        return 0;
-    }
-
-    public int LB() {
-        if (this.aVr != null) {
-            return this.aVr.Mm();
-        }
-        return 0;
-    }
-
-    public int LC() {
-        if (this.aVu != null) {
-            return this.aVu.LC();
+            return this.aVu.Ly();
         }
         return 0;
     }

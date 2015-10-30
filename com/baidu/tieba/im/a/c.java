@@ -45,20 +45,20 @@ public class c {
         bDu = null;
     }
 
-    public String VD() {
+    public String Vz() {
         return this.bDs;
     }
 
-    public String VE() {
+    public String VA() {
         return this.bDr;
     }
 
-    public void VF() {
+    public void VB() {
         this.bDr = null;
         this.bDs = null;
     }
 
-    public static synchronized c VG() {
+    public static synchronized c VC() {
         c cVar;
         synchronized (c.class) {
             if (bDu == null) {
@@ -70,19 +70,19 @@ public class c {
     }
 
     public void start() {
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), VU());
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), VS());
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(3), VQ());
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(2), VO());
     }
 
     public c() {
         this.bDp = null;
         this.bDq = null;
-        VH();
+        VD();
         this.bDq = new ArrayList();
         this.bDp = new ArrayList();
     }
 
-    private void VH() {
+    private void VD() {
         MessageManager.getInstance().registerListener(this.xl);
         MessageManager.getInstance().registerListener(this.bDv);
         MessageManager.getInstance().registerListener(this.bDw);
@@ -90,22 +90,22 @@ public class c {
         MessageManager.getInstance().registerListener(this.bDy);
     }
 
-    public void VI() {
+    public void VE() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(4));
     }
 
     public void id(String str) {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
-        if (VQ() && System.currentTimeMillis() - this.wN > VS()) {
+        if (VM() && System.currentTimeMillis() - this.wN > VO()) {
             this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
         }
     }
 
-    public String VJ() {
+    public String VF() {
         return String.valueOf(com.baidu.adp.lib.util.i.iS());
     }
 
-    public String VK() {
+    public String VG() {
         switch (com.baidu.adp.lib.util.i.iS()) {
             case 1:
                 return "wifi";
@@ -120,12 +120,12 @@ public class c {
         }
     }
 
-    public int VL() {
+    public int VH() {
         return TbadkCoreApplication.m411getInst().isInBackground() ? 2 : 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void VM() {
+    public void VI() {
         if (!this.bDt) {
             if (this.bDp != null && this.bDp.size() > 0) {
                 ArrayList arrayList = new ArrayList();
@@ -159,16 +159,16 @@ public class c {
                 }
             }
             this.bDp.clear();
-            if (this.bDq.size() > VT() && VP() && com.baidu.adp.lib.util.i.iM()) {
+            if (this.bDq.size() > VP() && VL() && com.baidu.adp.lib.util.i.iM()) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
             }
-            if (this.bDq.size() > 100 && !VQ() && !VP()) {
+            if (this.bDq.size() > 100 && !VM() && !VL()) {
                 this.bDq.clear();
             }
         }
     }
 
-    public void VN() {
+    public void VJ() {
         if (this.bDq.size() > 0) {
             this.bDt = true;
             ArrayList arrayList = new ArrayList();
@@ -187,54 +187,54 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean VO() {
+    public boolean VK() {
         String str;
-        com.baidu.tbadk.data.c VR = VR();
-        return (VR == null || (str = VR.anz) == null || !str.equals("1")) ? false : true;
+        com.baidu.tbadk.data.c VN = VN();
+        return (VN == null || (str = VN.anz) == null || !str.equals("1")) ? false : true;
     }
 
-    private boolean VP() {
+    private boolean VL() {
         String str;
-        com.baidu.tbadk.data.c VR = VR();
-        return VR == null || (str = VR.anx.get(VK())) == null || !str.equals("-1");
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean VQ() {
-        String str;
-        com.baidu.tbadk.data.c VR = VR();
-        return VR == null || (str = VR.anw.get(VK())) == null || !str.equals("-1");
-    }
-
-    private com.baidu.tbadk.data.c VR() {
-        return com.baidu.tbadk.data.c.zV();
+        com.baidu.tbadk.data.c VN = VN();
+        return VN == null || (str = VN.anx.get(VG())) == null || !str.equals("-1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long VS() {
+    public boolean VM() {
         String str;
-        com.baidu.tbadk.data.c VR = VR();
-        if (VR != null && (str = VR.anw.get(VK())) != null && str.length() > 0) {
+        com.baidu.tbadk.data.c VN = VN();
+        return VN == null || (str = VN.anw.get(VG())) == null || !str.equals("-1");
+    }
+
+    private com.baidu.tbadk.data.c VN() {
+        return com.baidu.tbadk.data.c.zS();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public long VO() {
+        String str;
+        com.baidu.tbadk.data.c VN = VN();
+        if (VN != null && (str = VN.anw.get(VG())) != null && str.length() > 0) {
             long c = com.baidu.adp.lib.g.b.c(str, 0L);
             if (c > 2) {
                 return c * 1000;
             }
         }
-        return bDm.get(VK()).longValue() * 1000;
+        return bDm.get(VG()).longValue() * 1000;
     }
 
-    private int VT() {
+    private int VP() {
         String str;
         int g;
-        com.baidu.tbadk.data.c VR = VR();
-        return (VR == null || (str = VR.anx.get(VK())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? bDn.get(VK()).intValue() : g;
+        com.baidu.tbadk.data.c VN = VN();
+        return (VN == null || (str = VN.anx.get(VG())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? bDn.get(VG()).intValue() : g;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public long VU() {
+    public long VQ() {
         String str;
         int g;
-        com.baidu.tbadk.data.c VR = VR();
-        return (VR == null || (str = VR.any.get(VK())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? bDo.get(VK()).longValue() * 1000 : g * 1000;
+        com.baidu.tbadk.data.c VN = VN();
+        return (VN == null || (str = VN.any.get(VG())) == null || str.length() <= 0 || (g = com.baidu.adp.lib.g.b.g(str, 0)) < 2) ? bDo.get(VG()).longValue() * 1000 : g * 1000;
     }
 }

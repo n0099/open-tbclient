@@ -20,7 +20,7 @@ public class f extends a {
     private int currentIndex;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int Ct() {
+    public int Cq() {
         this.currentIndex++;
         if (this.currentIndex >= this.auG) {
             this.currentIndex = 0;
@@ -51,37 +51,37 @@ public class f extends a {
         this.auG = this.auE.length;
     }
 
-    private void Cu() {
+    private void Cr() {
         if (this.auD != null && (this.auD.getBackground() instanceof AnimationDrawable)) {
             ((AnimationDrawable) this.auD.getBackground()).start();
         }
     }
 
-    private void Cv() {
+    private void Cs() {
         if (this.auD != null && (this.auD.getBackground() instanceof AnimationDrawable)) {
             ((AnimationDrawable) this.auD.getBackground()).stop();
         }
     }
 
     @Override // com.baidu.tbadk.e.a
-    protected void Cr() {
+    protected void Co() {
         an.i(this.auD, i.e.loading_animation);
-        Cu();
+        Cr();
         this.alQ.setText(this.auE[0]);
         TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.Iy);
         TbadkCoreApplication.m411getInst().handler.postDelayed(this.Iy, 200L);
     }
 
     @Override // com.baidu.tbadk.e.a
-    protected void Cs() {
-        Cv();
+    protected void Cp() {
+        Cs();
         TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.Iy);
         this.auD.setBackgroundResource(0);
     }
 
-    public void tc() {
+    public void sZ() {
         an.i(this.auD, i.e.loading_animation);
-        Cu();
+        Cr();
         an.b(this.alQ, i.c.cp_cont_c, 1);
         an.b(this.auF, i.c.cp_cont_c, 1);
         an.j(this.auB, i.c.cp_bg_line_d);

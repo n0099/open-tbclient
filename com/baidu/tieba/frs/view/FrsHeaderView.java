@@ -83,7 +83,7 @@ public class FrsHeaderView extends a {
         layoutParams.setMargins(0, com.baidu.adp.lib.util.k.d(this.mContext.getPageActivity(), i.d.ds280), 0, 0);
         this.bcB.setLayoutParams(layoutParams);
         this.bcA = (CoverFlowView) this.LS.findViewById(i.f.nomal_frs_coverflowview);
-        Oa();
+        NW();
         this.bct = (RelativeLayout) this.LS.findViewById(i.f.btn_love_content);
         this.bcL = (ImageView) this.LS.findViewById(i.f.speed_icon);
         this.bcQ = new i(this.LS, this.mContext.getPageActivity());
@@ -140,7 +140,7 @@ public class FrsHeaderView extends a {
             gc(0);
         }
         if (this.bcA != null) {
-            this.bcA.tc();
+            this.bcA.sZ();
         }
         this.bcM.invalidate();
         an.c(this.bcv, com.baidu.tbadk.core.util.c.ci(this.bcY));
@@ -200,12 +200,12 @@ public class FrsHeaderView extends a {
         mediaData.setPic(this.mImageUrl);
         this.bcW.getMedias().add(mediaData);
         this.bcQ.setForumName(forumData.getName());
-        Ob();
+        NX();
     }
 
-    private void Ob() {
+    private void NX() {
         if (this.bcV != null) {
-            a(this.bcV.avv());
+            a(this.bcV.avr());
         }
         if (this.LL != null) {
             this.LL.setText(String.valueOf(this.mMemberNum));
@@ -222,8 +222,8 @@ public class FrsHeaderView extends a {
             }
         }
         if (this.bcy != null && this.bcz != null) {
-            if (this.bcV != null && this.bcV.avB()) {
-                int da = com.baidu.tbadk.core.util.o.da(this.bcV.avF());
+            if (this.bcV != null && this.bcV.avx()) {
+                int da = com.baidu.tbadk.core.util.o.da(this.bcV.avB());
                 boolean z = GameDetailActivityConfig.isHaveActivity;
                 if (da == 1 && !z) {
                     this.bcy.setVisibility(8);
@@ -231,7 +231,7 @@ public class FrsHeaderView extends a {
                     this.bcy.setVisibility(0);
                     if (!TextUtils.isEmpty(this.bcV.getGameName()) && !TextUtils.isEmpty(this.bcV.getGameName().trim())) {
                         this.bcz.setText(UtilHelper.getFixedText(this.bcV.getGameName(), 10));
-                        String lI = com.baidu.tieba.tbadkCore.util.n.lI(this.bcV.avF());
+                        String lI = com.baidu.tieba.tbadkCore.util.n.lI(this.bcV.avB());
                         if (!StringUtils.isNull(lI)) {
                             TiebaStatic.eventStat(this.mContext.getPageActivity(), "game_show", "show", 1, "dev_id", lI, "ref_id", "1000601", "ref_type", "603");
                         }
@@ -243,16 +243,16 @@ public class FrsHeaderView extends a {
                 this.bcy.setVisibility(8);
             }
         }
-        if (this.bcV != null && this.bcV.avC() != null && this.bcV.avC().size() > 0) {
-            List<com.baidu.tieba.tbadkCore.h> avC = this.bcV.avC();
-            aa(avC);
-            int size = avC.size();
+        if (this.bcV != null && this.bcV.avy() != null && this.bcV.avy().size() > 0) {
+            List<com.baidu.tieba.tbadkCore.h> avy = this.bcV.avy();
+            aa(avy);
+            int size = avy.size();
             int i = size > 5 ? 5 : size;
             if (i > 0) {
                 this.bcD.setVisibility(0);
                 this.bcD.removeAllViews();
                 for (int i2 = 0; i2 < i; i2++) {
-                    com.baidu.tieba.tbadkCore.h hVar = avC.get(i2);
+                    com.baidu.tieba.tbadkCore.h hVar = avy.get(i2);
                     if (hVar != null && !gQ(hVar.getUrl())) {
                         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.frs_header_enter_lay, (ViewGroup) null);
                         TbImageView tbImageView = (TbImageView) linearLayout.findViewById(i.f.frs_header_enters_icon);
@@ -276,7 +276,7 @@ public class FrsHeaderView extends a {
             this.bcD.setVisibility(8);
         }
         if (this.bcV != null) {
-            this.bcR.a(this.bcV.avu(), this.bcV.aeN());
+            this.bcR.a(this.bcV.avq(), this.bcV.aeJ());
         } else {
             this.bcR.a(null, null);
         }
@@ -286,20 +286,20 @@ public class FrsHeaderView extends a {
             LinkedList linkedList = new LinkedList();
             for (int i3 = 0; i3 < this.bcO.size(); i3++) {
                 IconData iconData = new IconData();
-                iconData.setIconName(this.bcO.get(i3).rt());
-                iconData.setIcon(this.bcO.get(i3).rs());
-                this.bcX = this.bcO.get(i3).ru();
+                iconData.setIconName(this.bcO.get(i3).rq());
+                iconData.setIcon(this.bcO.get(i3).rp());
+                this.bcX = this.bcO.get(i3).rr();
                 linkedList.add(iconData);
             }
             this.bcN.setOnClickListener(this.bdl);
             this.bcN.a(linkedList, 2, this.mContext.getResources().getDimensionPixelSize(i.d.frs_header_badge_width), this.mContext.getResources().getDimensionPixelSize(i.d.frs_header_badge_height), this.mContext.getResources().getDimensionPixelSize(i.d.frs_header_badge_margin));
         }
         this.bcG.a(this.bcE, this.bcF);
-        Oc();
+        NY();
     }
 
-    private void Oc() {
-        View Of;
+    private void NY() {
+        View Ob;
         if (this.bcG.getTopCodeView() != null && this.bcG.getNewsInfoView() != null && this.bcG.getTopCodeViewDivider() != null && this.bcG.getTopCodeView().getVisibility() != 0) {
             if (this.bcG.getTopCodeView().getVisibility() == 8 && this.bcG.getNewsInfoView().getVisibility() == 0) {
                 this.bcG.getTopCodeViewDivider().setVisibility(8);
@@ -309,8 +309,8 @@ public class FrsHeaderView extends a {
                 if (this.bcD.getChildCount() > 0) {
                     ((LinearLayout) this.bcD.getChildAt(0)).findViewById(i.f.frs_header_divider_enters).setVisibility(8);
                 }
-            } else if (this.bcD.getVisibility() == 8 && this.bcR.Oe() != null && (Of = this.bcR.Of()) != null) {
-                Of.setVisibility(8);
+            } else if (this.bcD.getVisibility() == 8 && this.bcR.Oa() != null && (Ob = this.bcR.Ob()) != null) {
+                Ob.setVisibility(8);
             }
         }
     }
@@ -365,11 +365,11 @@ public class FrsHeaderView extends a {
             aVar.b(i.h.cancel_text, new l(this));
             aVar.a(i.h.open_now, new m(this));
             aVar.b(this.mContext);
-            aVar.sR();
+            aVar.sO();
         }
     }
 
-    public void Ns() {
+    public void No() {
         PopupWindow popupWindow = new PopupWindow(this.mContext.getPageActivity());
         View inflate = LayoutInflater.from(this.mContext.getContext()).inflate(i.g.speed_tip, (ViewGroup) null);
         this.mContext.getLayoutMode().k(inflate);

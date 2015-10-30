@@ -25,12 +25,12 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         this.cOM = new av(this);
         this.cON = new com.baidu.tieba.setting.model.j(this);
         if (TbadkCoreApplication.m411getInst().isHeadsetModeOn()) {
-            this.cOM.atf().mB();
+            this.cOM.atb().mB();
         } else {
-            this.cOM.atf().mC();
+            this.cOM.atb().mC();
         }
-        this.cOM.atg().setTip(getPageContext().getString(i.h.calc_cache_size));
-        this.cOM.atg().displayTip();
+        this.cOM.atc().setTip(getPageContext().getString(i.h.calc_cache_size));
+        this.cOM.atc().displayTip();
         this.cON.a(new ap(this, this));
         registerListener(new aq(this, CmdConfigCustom.IM_CLEAR_MSG));
     }
@@ -40,9 +40,9 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
     public void onResume() {
         super.onResume();
         if (this.cON != null) {
-            this.cON.art();
+            this.cON.arp();
         }
-        arv();
+        arr();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -52,40 +52,40 @@ public class SystemHelpSettingActivity extends BaseActivity<SystemHelpSettingAct
         this.cOM.onChangeSkinType(i);
     }
 
-    private void arv() {
-        this.cOM.atj().refresh();
+    private void arr() {
+        this.cOM.atf().refresh();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.cOM != null) {
-            if (view == this.cOM.atg()) {
+            if (view == this.cOM.atc()) {
                 if (this.cON != null) {
-                    if (TextUtils.isEmpty(this.cOM.atg().getTip())) {
+                    if (TextUtils.isEmpty(this.cOM.atc().getTip())) {
                         showToast(i.h.no_cache_delete);
                     } else {
-                        this.cOO = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bF(i.h.alert_clear_all_cache).a(i.h.alert_yes_button, new ar(this)).b(i.h.alert_no_button, new as(this)).b(getPageContext()).sR();
+                        this.cOO = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bF(i.h.alert_clear_all_cache).a(i.h.alert_yes_button, new ar(this)).b(i.h.alert_no_button, new as(this)).b(getPageContext()).sO();
                     }
                 }
-            } else if (view == this.cOM.ath()) {
+            } else if (view == this.cOM.atd()) {
                 if (this.cON != null) {
-                    this.cOO = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bF(i.h.alert_clear_cache).a(i.h.alert_yes_button, new at(this)).b(i.h.alert_no_button, new au(this)).b(getPageContext()).sR();
+                    this.cOO = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity()).bF(i.h.alert_clear_cache).a(i.h.alert_yes_button, new at(this)).b(i.h.alert_no_button, new au(this)).b(getPageContext()).sO();
                 }
-            } else if (view == this.cOM.atj()) {
+            } else if (view == this.cOM.atf()) {
                 sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginCenterActivityConfig(getPageContext().getPageActivity())));
-            } else if (view == this.cOM.ati()) {
-                ate();
+            } else if (view == this.cOM.ate()) {
+                ata();
             }
         }
     }
 
-    private void ate() {
+    private void ata() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_MY_WALLET, new IntentConfig(getPageContext().getPageActivity())));
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view != null && view.equals(this.cOM.atf())) {
+        if (view != null && view.equals(this.cOM.atb())) {
             if (BdSwitchView.SwitchState.ON == switchState) {
                 this.cON.setHeadsetModeOn(true);
             } else {

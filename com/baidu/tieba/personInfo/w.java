@@ -87,14 +87,14 @@ public class w {
         this.ctH = (LinearLayout) this.mRootView.findViewById(i.f.my_gift_ll);
         this.ctH.setOnClickListener(this.cqE);
         this.ctI = (ImageView) this.mRootView.findViewById(i.f.my_gift);
-        ajF();
-        ajG();
+        ajB();
+        ajC();
     }
 
     public void f(UserData userData) {
         String bg_pic = userData.getBg_pic();
         if (StringUtils.isNull(bg_pic)) {
-            com.baidu.tbadk.imageManager.c.Cf().en(1152000);
+            com.baidu.tbadk.imageManager.c.Cc().en(1152000);
             for (int i = 0; i < 3; i++) {
                 this.mBitmap = an.h((Resources) null, i.e.bg_mycenter_banner);
                 if (this.mBitmap != null) {
@@ -107,19 +107,19 @@ public class w {
         com.baidu.adp.lib.f.c.ha().a(bg_pic, 10, this.azq, 0, 0, null, new Object[0]);
     }
 
-    public void ajE() {
+    public void ajA() {
         if (this.mBitmap != null) {
             this.mBitmap.recycle();
             com.baidu.tbadk.core.util.c.cg(i.e.bg_mycenter_banner);
             System.gc();
         }
         if (this.ctw != null) {
-            this.ctw.Cc();
+            this.ctw.BZ();
         }
         this.cts.setImageBitmap(null);
     }
 
-    private void ajF() {
+    private void ajB() {
         if (TbadkCoreApplication.m411getInst().isGiftSwitchOn()) {
             this.ctH.setVisibility(0);
         } else {
@@ -151,7 +151,7 @@ public class w {
         an.i(this.ctG, i.e.icon_mycenter_bar_date);
     }
 
-    private void ajG() {
+    private void ajC() {
         this.ctw.setIsRound(true);
         this.ctw.setDrawBorder(false);
         this.ctw.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -160,11 +160,11 @@ public class w {
         }
     }
 
-    public HeadImageView ajH() {
+    public HeadImageView ajD() {
         return this.ctw;
     }
 
-    public UserIconBox ajI() {
+    public UserIconBox ajE() {
         return this.ctB;
     }
 
@@ -194,20 +194,20 @@ public class w {
         this.ctt.startAnimation((RotateAnimation) AnimationUtils.loadAnimation(this.cqE.getPageContext().getPageActivity(), i.a.user_info_center_head_rotate));
     }
 
-    public void ajC() {
-        y ajf = this.cqE.ajf();
-        UserData userData = ajf.getUserData();
+    public void ajy() {
+        y ajb = this.cqE.ajb();
+        UserData userData = ajb.getUserData();
         f(userData);
         g(userData);
-        d(ajf.ajN(), userData);
+        d(ajb.ajJ(), userData);
     }
 
     private void d(PersonTainInfo personTainInfo, UserData userData) {
         com.baidu.tbadk.data.f personPrivate;
         if (personTainInfo != null) {
             int isFriend = personTainInfo.getIsFriend();
-            int zY = (userData == null || (personPrivate = userData.getPersonPrivate()) == null) ? 1 : personPrivate.zY();
-            if (zY == 1 || (zY == 2 && isFriend == 1)) {
+            int zV = (userData == null || (personPrivate = userData.getPersonPrivate()) == null) ? 1 : personPrivate.zV();
+            if (zV == 1 || (zV == 2 && isFriend == 1)) {
                 DistanceInfo distanceInfo = personTainInfo.getDistanceInfo();
                 if (distanceInfo != null) {
                     String distance = distanceInfo.getDistance();
@@ -276,15 +276,15 @@ public class w {
         }
     }
 
-    public LinearLayout ajJ() {
+    public LinearLayout ajF() {
         return this.ctH;
     }
 
-    public TextView ajK() {
+    public TextView ajG() {
         return this.ctC;
     }
 
-    public UserIconBox ajL() {
+    public UserIconBox ajH() {
         return this.ctx;
     }
 

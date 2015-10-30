@@ -8,7 +8,7 @@ public class a {
     private a() {
     }
 
-    public static a Dr() {
+    public static a Do() {
         return awq;
     }
 
@@ -34,7 +34,7 @@ public class a {
         MessageManager.getInstance().sendMessage(requestPassFriendMessage);
     }
 
-    public void C(long j) {
+    public void A(long j) {
         RequestDeleteFriendMessage requestDeleteFriendMessage = new RequestDeleteFriendMessage();
         requestDeleteFriendMessage.setFriendId(j);
         MessageManager.getInstance().sendMessage(requestDeleteFriendMessage);

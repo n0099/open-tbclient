@@ -81,11 +81,11 @@ public class b extends BaseAdapter {
                 if (cVar == null || c0066b2 == null) {
                     break;
                 }
-                String aba = cVar.aba();
-                c0066b2.bTd.setTag(aba);
-                c0066b2.bTd.d(aba, 10, false);
+                String aaW = cVar.aaW();
+                c0066b2.bTd.setTag(aaW);
+                c0066b2.bTd.d(aaW, 10, false);
                 c0066b2.aNC.setText(cVar.getForumName());
-                c0066b2.bTe.setText(String.valueOf(this.aSe.getPageContext().getString(i.h.forum_list_attention_tv)) + aO(cVar.abb() > 0 ? cVar.abb() : 0L));
+                c0066b2.bTe.setText(String.valueOf(this.aSe.getPageContext().getString(i.h.forum_list_attention_tv)) + aM(cVar.aaX() > 0 ? cVar.aaX() : 0L));
                 c0066b2.bUc.setTag(Integer.valueOf((i * 2) + i3));
                 i2 = i3 + 1;
             } else {
@@ -96,9 +96,9 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    public String aO(long j) {
+    public String aM(long j) {
         if (j >= 100000) {
-            return com.baidu.tbadk.core.util.as.v(j);
+            return com.baidu.tbadk.core.util.as.t(j);
         }
         return String.valueOf(j);
     }

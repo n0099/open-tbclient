@@ -15,14 +15,14 @@ class k implements f.a {
         z zVar;
         z zVar2;
         zVar = this.cQx.cQp;
-        zVar.IU();
-        a atr = cVar.atr();
-        if (atr != null && atr.getErrorNumber() == 0) {
+        zVar.IQ();
+        a atn = cVar.atn();
+        if (atn != null && atn.getErrorNumber() == 0) {
             zVar2 = this.cQx.cQp;
             zVar2.d(cVar);
             return;
         }
-        this.cQx.showToast(atr.getUserMsg(), false);
+        this.cQx.showToast(atn.getUserMsg(), false);
         this.cQx.finish();
     }
 
@@ -30,7 +30,7 @@ class k implements f.a {
     public void hQ(String str) {
         z zVar;
         zVar = this.cQx.cQp;
-        zVar.IU();
+        zVar.IQ();
         this.cQx.showToast(str, false);
         this.cQx.finish();
     }

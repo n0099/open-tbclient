@@ -46,7 +46,7 @@ public class bf extends com.baidu.adp.base.e {
         return this.mData;
     }
 
-    public void HF() {
+    public void HB() {
         super.sendMessage(new PersonFriendByUidLocalMessage());
     }
 

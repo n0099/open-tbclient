@@ -34,7 +34,7 @@ public class g implements TextWatcher {
             textView.setVisibility(0);
             return;
         }
-        this.cDY.aoh();
+        this.cDY.aod();
         textView2 = this.cDY.bUB;
         textView2.setVisibility(8);
     }

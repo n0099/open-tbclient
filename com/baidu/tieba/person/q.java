@@ -25,7 +25,7 @@ public class q {
         setHasMore(false);
     }
 
-    public int aik() {
+    public int aig() {
         return this.coX;
     }
 
@@ -37,7 +37,7 @@ public class q {
         this.coX += i;
     }
 
-    public int ail() {
+    public int aih() {
         return this.coY;
     }
 
@@ -49,23 +49,23 @@ public class q {
         this.coY += i;
     }
 
-    public ArrayList<ForumData> aim() {
+    public ArrayList<ForumData> aii() {
         return this.coR;
     }
 
-    public ArrayList<ForumData> ain() {
+    public ArrayList<ForumData> aij() {
         return this.coS;
     }
 
-    public ArrayList<ForumData> aio() {
+    public ArrayList<ForumData> aik() {
         return this.coU;
     }
 
-    public ArrayList<ForumData> aip() {
+    public ArrayList<ForumData> ail() {
         return this.coV;
     }
 
-    public ArrayList<ForumData> aiq() {
+    public ArrayList<ForumData> aim() {
         return this.coQ;
     }
 
@@ -113,7 +113,7 @@ public class q {
         }
     }
 
-    public ArrayList<ForumData> air() {
+    public ArrayList<ForumData> ain() {
         return this.coT;
     }
 

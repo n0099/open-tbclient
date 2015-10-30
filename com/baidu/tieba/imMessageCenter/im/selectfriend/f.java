@@ -26,7 +26,7 @@ class f implements a.b {
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        long O = com.baidu.tieba.im.memorycache.b.VW().O(String.valueOf(this.aUU), 2);
+        long O = com.baidu.tieba.im.memorycache.b.VS().O(String.valueOf(this.aUU), 2);
         MessageUtils.createPersonalChatMessage(O, 9, this.bFS.toChatMessageContent(), this.aUU, this.val$name, this.aUV);
         MessageUtils.createPersonalChatMessage(O + 1, 1, this.bFT.getLeaveMsg(), this.aUU, this.val$name, this.aUV);
         aVar.dismiss();

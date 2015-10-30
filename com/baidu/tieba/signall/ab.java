@@ -36,7 +36,7 @@ public class ab extends com.baidu.adp.base.e<SignAllForumActivity> {
         return false;
     }
 
-    public void aue() {
+    public void aua() {
         if (this.cRz != null) {
             this.cRz.cancel();
             this.cRz = null;
@@ -82,14 +82,14 @@ public class ab extends com.baidu.adp.base.e<SignAllForumActivity> {
                 this.afh = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
                 this.afh.o("kw", ab.this.mForumName);
                 this.afh.o(ImageViewerConfig.FORUM_ID, ab.this.mForumId);
-                this.afh.uh().uY().mIsNeedTbs = true;
-                String tG = this.afh.tG();
-                if (!this.afh.uk() || !this.afh.uh().uZ().qV()) {
+                this.afh.ue().uV().mIsNeedTbs = true;
+                String tD = this.afh.tD();
+                if (!this.afh.uh() || !this.afh.ue().uW().qS()) {
                     return null;
                 }
                 signData = new SignData();
                 try {
-                    signData.parserJson(tG);
+                    signData.parserJson(tD);
                     signData.setForumId(ab.this.mForumId);
                     signData.setForumName(ab.this.mForumName);
                     return signData;
@@ -124,7 +124,7 @@ public class ab extends com.baidu.adp.base.e<SignAllForumActivity> {
                 ab.this.cRA.c(signData);
                 return;
             }
-            ab.this.mErrorCode = this.afh.ul();
+            ab.this.mErrorCode = this.afh.ui();
             ab.this.mErrorString = this.afh.getErrorString();
             ab.this.cRA.bd(ab.this.mForumId, ab.this.mErrorString);
         }

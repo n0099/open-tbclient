@@ -63,13 +63,13 @@ public class c extends com.baidu.adp.base.e<MoreActivity> {
                 profileRequestMessage.set_uid(Long.valueOf(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L)));
             }
             if (z) {
-                arp();
+                arl();
             }
             profileRequestMessage.set_has_plist(0);
             profileRequestMessage.set_from_db(z);
             profileRequestMessage.set_error_hint(z2);
             profileRequestMessage.setSelf(true);
-            ajh();
+            ajd();
             sendMessage(profileRequestMessage);
         }
     }
@@ -80,7 +80,7 @@ public class c extends com.baidu.adp.base.e<MoreActivity> {
             if (user != null) {
                 setUser(user);
             }
-            com.baidu.tbadk.getUserInfo.b.BY().a(getUser());
+            com.baidu.tbadk.getUserInfo.b.BV().a(getUser());
             this.mLoadDataMode = 1;
             this.mLoadDataCallBack.d(true);
             return;
@@ -134,8 +134,8 @@ public class c extends com.baidu.adp.base.e<MoreActivity> {
         }
     }
 
-    public void arp() {
-        IE().a("profile_cache_key", new e(this));
+    public void arl() {
+        IA().a("profile_cache_key", new e(this));
     }
 
     public void a(DataRes dataRes) {
@@ -149,11 +149,11 @@ public class c extends com.baidu.adp.base.e<MoreActivity> {
         }
     }
 
-    private o<byte[]> IE() {
-        return com.baidu.tbadk.core.b.a.sO().T("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+    private o<byte[]> IA() {
+        return com.baidu.tbadk.core.b.a.sL().T("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
     }
 
-    private void ajh() {
+    private void ajd() {
         if (this.aMl == null) {
             this.aMl = new com.baidu.tieba.tbadkCore.e.a("profileStat");
             this.aMl.start();

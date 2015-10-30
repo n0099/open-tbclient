@@ -8,7 +8,7 @@ public class b implements com.baidu.adp.lib.stats.e {
     private b() {
     }
 
-    public static synchronized b tx() {
+    public static synchronized b tu() {
         b bVar;
         synchronized (b.class) {
             if (YV == null) {

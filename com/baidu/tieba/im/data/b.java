@@ -48,7 +48,7 @@ public class b {
         this.status = i;
     }
 
-    public int Tv() {
+    public int Tr() {
         return this.bwE;
     }
 

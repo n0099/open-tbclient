@@ -17,6 +17,6 @@ public class f implements View.OnClickListener {
         EditText editText;
         editText = this.cDY.bUA;
         editText.setText("");
-        this.cDY.aoh();
+        this.cDY.aod();
     }
 }

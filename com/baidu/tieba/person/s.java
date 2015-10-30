@@ -29,7 +29,7 @@ public class s extends com.baidu.adp.framework.listener.e {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        PersonBarActivity ais;
+        PersonBarActivity aio;
         boolean z;
         View view;
         View view2;
@@ -41,7 +41,7 @@ public class s extends com.baidu.adp.framework.listener.e {
         ac acVar2;
         ArrayList<ForumData> arrayList2;
         ac acVar3;
-        PersonBarActivity ais2;
+        PersonBarActivity aio2;
         View view3;
         String str;
         this.cpq.mListView.completePullRefresh();
@@ -50,10 +50,10 @@ public class s extends com.baidu.adp.framework.listener.e {
         } else if (socketResponsedMessage.getCmd() == 107129 && (socketResponsedMessage instanceof ResponseGetLivableForumList)) {
             ResponseGetLivableForumList responseGetLivableForumList = (ResponseGetLivableForumList) socketResponsedMessage;
             if (responseGetLivableForumList.getError() == 0) {
-                ais = this.cpq.ais();
-                if (ais != null) {
-                    ais2 = this.cpq.ais();
-                    if (ais2.getRequestCode() != 23011) {
+                aio = this.cpq.aio();
+                if (aio != null) {
+                    aio2 = this.cpq.aio();
+                    if (aio2.getRequestCode() != 23011) {
                         view3 = this.cpq.cph;
                         view3.setVisibility(8);
                         acVar = this.cpq.cpa;

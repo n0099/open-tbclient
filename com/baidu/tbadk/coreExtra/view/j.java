@@ -200,7 +200,7 @@ public class j extends PagerAdapter {
                 if (currentView != null) {
                     currentView.restoreSize();
                 }
-                ((z) obj).zm();
+                ((z) obj).zj();
                 ((z) obj).aT(this.ake);
                 iVar.setCurrentView(imageView);
                 if (((z) obj).getImageType() == 1) {

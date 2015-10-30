@@ -50,10 +50,10 @@ public class f {
             wVar.o("user_id", this.aFx);
             wVar.o("user_name", this.aFy);
             wVar.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, this.aFz);
-            String tG = wVar.tG();
-            if (wVar.uh().uZ().qV()) {
+            String tD = wVar.tD();
+            if (wVar.ue().uW().qS()) {
                 try {
-                    return (AppealData) i.objectWithJsonStr(tG, AppealData.class);
+                    return (AppealData) i.objectWithJsonStr(tD, AppealData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     AppealData appealData = new AppealData();
@@ -62,7 +62,7 @@ public class f {
                 }
             }
             AppealData appealData2 = new AppealData();
-            appealData2.errNo = wVar.ul();
+            appealData2.errNo = wVar.ui();
             appealData2.errMsg = wVar.getErrorString();
             return appealData2;
         }

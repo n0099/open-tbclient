@@ -17,7 +17,7 @@ public class ao implements a.b {
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
         if (!com.baidu.tbadk.core.util.n.fi()) {
-            this.ciK.showToast(com.baidu.tbadk.core.util.n.tB());
+            this.ciK.showToast(com.baidu.tbadk.core.util.n.ty());
         } else {
             FileDownloader.download(this.ciK.getPageContext().getPageActivity(), "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.ciK.getPageContext().getString(i.h.download_baidu_video));
         }

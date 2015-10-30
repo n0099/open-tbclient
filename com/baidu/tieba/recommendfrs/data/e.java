@@ -33,7 +33,7 @@ public class e {
         }
     }
 
-    public boolean aqi() {
+    public boolean aqe() {
         return this.cIt;
     }
 
@@ -41,15 +41,15 @@ public class e {
         this.cIS = i;
     }
 
-    public int aqj() {
+    public int aqf() {
         return this.cIS;
     }
 
-    public boolean aqk() {
+    public boolean aqg() {
         return this.cIU;
     }
 
-    public boolean aql() {
+    public boolean aqh() {
         return this.cIV;
     }
 
@@ -79,7 +79,7 @@ public class e {
             }
             this.awa = a;
             if (this.awa != null && this.awa.size() > 0) {
-                this.cIQ = gVar.aqp();
+                this.cIQ = gVar.aql();
             } else {
                 this.cIQ = null;
             }
@@ -101,14 +101,14 @@ public class e {
     }
 
     private List<Object> a(boolean z, g gVar) {
-        List<Hot_Thread> aqq;
+        List<Hot_Thread> aqm;
         ArrayList arrayList = new ArrayList();
-        if (gVar == null || gVar.aqr() == null) {
+        if (gVar == null || gVar.aqn() == null) {
             return arrayList;
         }
         String str = null;
         int i = 0;
-        for (EverydayThread everydayThread : gVar.aqr()) {
+        for (EverydayThread everydayThread : gVar.aqn()) {
             if (everydayThread.show_time != null) {
                 i = everydayThread.show_time.intValue();
             }
@@ -129,9 +129,9 @@ public class e {
                         b bVar = new b();
                         bVar.a(fineThreadInfo);
                         bVar.lc(str);
-                        bVar.setShowImage(gVar.aqt());
+                        bVar.setShowImage(gVar.aqp());
                         bVar.fO(i2 != size + (-1));
-                        if (bVar.aqf() != 33) {
+                        if (bVar.aqb() != 33) {
                             arrayList.add(bVar);
                         } else if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                             arrayList.add(bVar);
@@ -141,10 +141,10 @@ public class e {
                 }
             }
         }
-        if (i >= this.cIR && !this.cIT && (aqq = gVar.aqq()) != null && aqq.size() > 0) {
+        if (i >= this.cIR && !this.cIT && (aqm = gVar.aqm()) != null && aqm.size() > 0) {
             this.cIT = true;
             arrayList.add(new d("text_type_title", str));
-            arrayList.addAll(a(aqq, str, gVar.aqt()));
+            arrayList.addAll(a(aqm, str, gVar.aqp()));
             arrayList.add(new d("text_type_check_more", str));
         }
         this.cIR = i;
@@ -178,11 +178,11 @@ public class e {
         return arrayList;
     }
 
-    public List<Object> aqm() {
+    public List<Object> aqi() {
         return this.awa;
     }
 
-    public List<a> aqn() {
+    public List<a> aqj() {
         return this.cIQ;
     }
 }

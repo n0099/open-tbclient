@@ -17,10 +17,10 @@ class n implements View.OnClickListener {
         InputMethodManager inputMethodManager;
         o oVar2;
         oVar = this.dmy.dmi;
-        oVar.amS().requestFocus();
+        oVar.amO().requestFocus();
         WriteShareActivity writeShareActivity = this.dmy;
         inputMethodManager = this.dmy.mInputManager;
         oVar2 = this.dmy.dmi;
-        writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar2.amS());
+        writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar2.amO());
     }
 }

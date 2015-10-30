@@ -113,7 +113,7 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
     }
 
     private void init(Context context, AttributeSet attributeSet) {
-        ER();
+        EN();
         this.aAT = 30.0f;
         this.aAY = new s();
     }
@@ -141,8 +141,8 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
                 return null;
             }
             String str = (String) tag;
-            com.baidu.adp.widget.a.a fo = com.baidu.tbadk.imageManager.c.Cf().fo(str);
-            return fo == null ? com.baidu.tbadk.imageManager.c.Cf().fn(str) : fo;
+            com.baidu.adp.widget.a.a fo = com.baidu.tbadk.imageManager.c.Cc().fo(str);
+            return fo == null ? com.baidu.tbadk.imageManager.c.Cc().fn(str) : fo;
         }
         return (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.c.ha().a(this.mUrl, this.mType, new Object[0]);
     }
@@ -202,7 +202,7 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
             return;
         }
         if (!(str.equals(this.mUrl) && i == this.mType && bdUniqueId == this.atH)) {
-            Cc();
+            BZ();
             this.Bl = true;
             requestLayout();
         } else if (getBdImage() != null) {
@@ -235,7 +235,7 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
         }
     }
 
-    public void Cc() {
+    public void BZ() {
         if (!TextUtils.isEmpty(this.mUrl)) {
             com.baidu.adp.lib.f.c.ha().a(this.mUrl, this.mType, this.azq);
             stopLoading();
@@ -255,14 +255,14 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Cc();
+        BZ();
         MessageManager.getInstance().unRegisterListener(this.aeF);
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
-        Cc();
+        BZ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -270,7 +270,7 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
     public void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i == 8 || i == 4) {
-            Cc();
+            BZ();
         } else {
             refresh();
         }
@@ -279,13 +279,13 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.newwidget.a.b, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        ER();
+        EN();
         super.onDraw(canvas);
     }
 
     public void startLoading() {
         this.aAW = true;
-        Cb();
+        BY();
     }
 
     public void stopLoading() {
@@ -297,7 +297,7 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
         invalidate();
     }
 
-    private void Cb() {
+    private void BY() {
         removeCallbacks(this);
         postDelayed(this, 150L);
     }
@@ -313,11 +313,11 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
             this.mMatrix.postRotate(this.atv, getWidth() / 2.0f, getHeight() / 2.0f);
             setExtraMatrix(this.mMatrix);
             invalidate();
-            Cb();
+            BY();
         }
     }
 
-    private void ER() {
+    private void EN() {
         if (this.mAutoChangeStyle) {
             this.Bb.BB = TbadkCoreApplication.m411getInst().getSkinType() == 1;
         } else {
@@ -423,11 +423,11 @@ public class TbImageView extends com.baidu.adp.newwidget.a.b implements View.OnC
         return this.aAY;
     }
 
-    public void vr() {
+    public void vo() {
         if (!this.aAV) {
             this.aAV = true;
         } else if (this.aAY != null && this.aAY.axr) {
-            this.aAY.DU();
+            this.aAY.DR();
         }
     }
 }

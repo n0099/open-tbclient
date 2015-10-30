@@ -41,13 +41,13 @@ class s implements com.baidu.tbadk.editortools.b {
                 default:
                     return;
                 case 7:
-                    this.asy.Bv().showToast(i.h.over_limit_tip);
+                    this.asy.Bs().showToast(i.h.over_limit_tip);
                     this.asx.asn = true;
                     return;
                 case 8:
-                    b = this.asx.b(this.asy.Bv().getPageContext(), 11001);
+                    b = this.asx.b(this.asy.Bs().getPageContext(), 11001);
                     if (b) {
-                        this.asy.BI();
+                        this.asy.BF();
                         TiebaStatic.log("c10090");
                         return;
                     }
@@ -65,11 +65,11 @@ class s implements com.baidu.tbadk.editortools.b {
                 case 16:
                     z = this.asx.asn;
                     if (z) {
-                        this.asy.Bv().showToast(i.h.over_limit_tip);
+                        this.asy.Bs().showToast(i.h.over_limit_tip);
                     }
-                    b2 = this.asx.b(this.asy.Bv().getPageContext(), 11025);
+                    b2 = this.asx.b(this.asy.Bs().getPageContext(), 11025);
                     if (b2) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.asy.Bv().getActivity(), 12005, true)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.asy.Bs().getActivity(), 12005, true)));
                         return;
                     }
                     return;

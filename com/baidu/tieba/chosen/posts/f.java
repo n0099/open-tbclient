@@ -15,6 +15,6 @@ public class f implements p.a {
     public void onListPullRefresh(boolean z) {
         ChosenPostActivity chosenPostActivity;
         chosenPostActivity = this.aJU.aJN;
-        chosenPostActivity.Hj().bB(z);
+        chosenPostActivity.Hf().bB(z);
     }
 }

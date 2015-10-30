@@ -53,9 +53,9 @@ public class j extends Dialog {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface a {
-        void FM();
+        void FI();
 
-        void FN();
+        void FJ();
 
         void bw(boolean z);
 
@@ -144,10 +144,10 @@ public class j extends Dialog {
         this.aDR.setOnClickListener(new l(this));
         this.aDO.setOnClickListener(new m(this));
         this.aDN.setOnClickListener(new n(this));
-        FK();
+        FG();
     }
 
-    private void FK() {
+    private void FG() {
         WindowManager.LayoutParams attributes;
         Window window = getWindow();
         if (window != null && (attributes = window.getAttributes()) != null) {
@@ -219,7 +219,7 @@ public class j extends Dialog {
             this.aDU.setVisibility(0);
             return;
         }
-        this.aEa.FN();
+        this.aEa.FJ();
     }
 
     public void a(VersionData versionData, CombineDownload combineDownload, a aVar) {
@@ -228,7 +228,7 @@ public class j extends Dialog {
         this.aEa = aVar;
     }
 
-    public void FL() {
+    public void FH() {
         this.aDU.setVisibility(8);
         this.aDI.setVisibility(0);
     }

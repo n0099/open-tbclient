@@ -42,7 +42,7 @@ class e extends com.baidu.adp.framework.listener.a {
                 aVar = this.cLw.cLk;
                 aVar.a(aVar6);
                 aVar2 = this.cLw.cLk;
-                aVar2.aqV();
+                aVar2.aqR();
                 iVar = this.cLw.cLj;
                 iVar.fS(true);
                 iVar2 = this.cLw.cLj;
@@ -53,7 +53,7 @@ class e extends com.baidu.adp.framework.listener.a {
                 secretSettingActivity.b(aVar4);
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
                 aVar5 = this.cLw.cLk;
-                m411getInst.setLocationShared(aVar5.aqX());
+                m411getInst.setLocationShared(aVar5.aqT());
             }
         }
     }

@@ -37,7 +37,7 @@ class j extends CustomMessageListener {
             this.bNp.bNk = contacts;
             pVar2 = this.bNp.bNi;
             if (pVar2 != null) {
-                this.bNp.Zo();
+                this.bNp.Zk();
             }
         }
     }

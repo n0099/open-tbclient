@@ -71,7 +71,7 @@ public class c extends BaseAdapter {
         if (item != null) {
             aVar.dgj.d(item.getIconUrl(), 10, false);
             aVar.WO.setText(item.getName());
-            if (item.getUpdateTime() - com.baidu.tbadk.core.sharedPref.b.tu().getLong("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
+            if (item.getUpdateTime() - com.baidu.tbadk.core.sharedPref.b.tr().getLong("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
                 aVar.cBG.setVisibility(0);
             } else {
                 aVar.cBG.setVisibility(4);

@@ -44,31 +44,31 @@ public class b extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
     /* renamed from: a */
     public void B(com.baidu.tieba.recommendfrs.data.c cVar) {
         super.B(cVar);
-        if (cVar != null && cVar.aqh() != null) {
-            Hot_Thread aqh = cVar.aqh();
-            String str = (aqh.pics == null || aqh.pics.size() <= 0) ? null : aqh.pics.get(0).small_pic;
+        if (cVar != null && cVar.aqd() != null) {
+            Hot_Thread aqd = cVar.aqd();
+            String str = (aqd.pics == null || aqd.pics.size() <= 0) ? null : aqd.pics.get(0).small_pic;
             TbImageView tbImageView = this.aJW;
-            if (!cVar.aqt()) {
+            if (!cVar.aqp()) {
                 str = null;
             }
             tbImageView.d(str, 10, false);
-            this.alu.setText(aqh.title);
-            if (StringUtils.isNull(aqh.forum_name)) {
+            this.alu.setText(aqd.title);
+            if (StringUtils.isNull(aqd.forum_name)) {
                 this.aJX.setVisibility(8);
             } else {
                 this.aJX.setVisibility(0);
-                String string = getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(aqh.forum_name, 7, false));
+                String string = getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(aqd.forum_name, 7, false));
                 this.cJF.setForumName(string);
                 this.aJX.setText(string);
             }
-            if (aqh.zan_num != null) {
-                this.aJY.setText(as.s(aqh.zan_num.intValue()));
+            if (aqd.zan_num != null) {
+                this.aJY.setText(as.q(aqd.zan_num.intValue()));
             }
-            if (aqh.reply_num != null) {
-                this.aJZ.setText(as.s(aqh.reply_num.intValue()));
+            if (aqd.reply_num != null) {
+                this.aJZ.setText(as.q(aqd.reply_num.intValue()));
             }
             p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.lL(String.valueOf(aqh.forum_id))) {
+            if (readThreadHistory != null && readThreadHistory.lL(String.valueOf(aqd.forum_id))) {
                 an.b(this.alu, i.c.cp_cont_d, 1);
             } else {
                 an.b(this.alu, i.c.cp_cont_b, 1);

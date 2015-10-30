@@ -51,7 +51,7 @@ public class ac extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public boolean FV() {
+    public boolean FR() {
         return this.aEC;
     }
 
@@ -66,14 +66,14 @@ public class ac extends BaseAdapter {
         return 0;
     }
 
-    public void adx() {
+    public void adt() {
         this.cbJ = false;
         if (this.cps == null || this.cps.size() == 0) {
             this.cbJ = true;
         }
     }
 
-    public boolean aiu() {
+    public boolean aiq() {
         return this.cbJ;
     }
 
@@ -178,7 +178,7 @@ public class ac extends BaseAdapter {
                     aVar.cpC.setText(String.format(this.cpr.getPageContext().getString(i.h.sign_point_new), Integer.valueOf(forumData.getCurScore()), Integer.valueOf(forumData.getLevelupScore())));
                     aVar.cpD.setOnClickListener(this.cpt);
                     aVar.cpD.setTag(Integer.valueOf(i));
-                    if (i < this.mData.aik()) {
+                    if (i < this.mData.aig()) {
                         aVar.bsm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.an.getDrawable(i.e.icon_v), (Drawable) null);
                         if (!this.cnT && this.cpu) {
                             aVar.cpE.setVisibility(0);
@@ -194,12 +194,12 @@ public class ac extends BaseAdapter {
                         aVar.cpF.setVisibility(0);
                     }
                 } else {
-                    if ((this.cpr.WI() == 0 && i < this.mData.aik()) || (this.cpr.WI() == 1 && i < this.mData.ail())) {
+                    if ((this.cpr.WE() == 0 && i < this.mData.aig()) || (this.cpr.WE() == 1 && i < this.mData.aih())) {
                         aVar.bsm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, com.baidu.tbadk.core.util.an.getDrawable(i.e.icon_v), (Drawable) null);
                     } else {
                         aVar.bsm.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
                     }
-                    if (this.cpr.WI() == 1) {
+                    if (this.cpr.WE() == 1) {
                         aVar.cpz.setVisibility(8);
                     }
                     aVar.cpE.setVisibility(8);
@@ -212,7 +212,7 @@ public class ac extends BaseAdapter {
                     view2 = view3;
                 } else {
                     aVar.cpD.setVisibility(8);
-                    if (i < this.mData.aik() && this.bnk && !this.cnT && this.cpu) {
+                    if (i < this.mData.aig() && this.bnk && !this.cnT && this.cpu) {
                         aVar.cpE.setVisibility(0);
                         view2 = view3;
                     } else {

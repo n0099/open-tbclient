@@ -55,7 +55,7 @@ public class DragLayer extends FrameLayout {
         return this.daI;
     }
 
-    public void axh() {
+    public void axd() {
         if (this.daI != null) {
             if (this.daI.aAK != null) {
                 this.daI.aAK.recycle();
@@ -81,6 +81,6 @@ public class DragLayer extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        axh();
+        axd();
     }
 }

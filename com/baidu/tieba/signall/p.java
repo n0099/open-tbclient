@@ -14,27 +14,27 @@ public class p {
     private a cPU = new a();
     private ArrayList<q> cQU = new ArrayList<>();
 
-    public int atO() {
+    public int atK() {
         return this.cPy;
     }
 
-    public String atp() {
+    public String atl() {
         return this.cPz;
     }
 
-    public a atr() {
+    public a atn() {
         return this.cPU;
     }
 
-    public ArrayList<q> atP() {
+    public ArrayList<q> atL() {
         return this.cQU;
     }
 
-    public int atQ() {
+    public int atM() {
         return this.cQS;
     }
 
-    public String atR() {
+    public String atN() {
         return this.cQT;
     }
 

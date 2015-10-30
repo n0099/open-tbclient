@@ -72,7 +72,7 @@ public class s {
             aVar2.a(i.h.share, new w(aVar, pbChosenActivity, nVar, j, str, str2, str3));
             aVar2.b(i.h.alert_no_button, new x(pbChosenActivity, nVar));
             aVar2.ak(false);
-            aVar2.b(pbChosenActivity.getPageContext()).sR();
+            aVar2.b(pbChosenActivity.getPageContext()).sO();
         }
     }
 
@@ -87,7 +87,7 @@ public class s {
             aVar2.a(i.h.share, new y(aVar, pbChosenActivity, nVar, i, str, j, str2));
             aVar2.b(i.h.alert_no_button, new z(pbChosenActivity, nVar));
             aVar2.ak(false);
-            aVar2.b(pbChosenActivity.getPageContext()).sR();
+            aVar2.b(pbChosenActivity.getPageContext()).sO();
         }
     }
 }

@@ -14,9 +14,9 @@ public class aa implements View.OnTouchListener {
 
     /* loaded from: classes.dex */
     public interface a {
-        void Mi();
+        void Me();
 
-        void Mj();
+        void Mf();
     }
 
     public aa(a aVar) {
@@ -37,7 +37,7 @@ public class aa implements View.OnTouchListener {
             } else if (this.count == 2) {
                 this.cgD = System.currentTimeMillis();
                 if (this.cgD - this.cgC < this.cgF) {
-                    this.cYg.Mj();
+                    this.cYg.Mf();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

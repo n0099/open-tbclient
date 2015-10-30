@@ -7,7 +7,7 @@ public class a {
     private ArrayList<c> SC;
     private Context anJ;
 
-    public ArrayList<c> Ad() {
+    public ArrayList<c> Aa() {
         return this.SC;
     }
 

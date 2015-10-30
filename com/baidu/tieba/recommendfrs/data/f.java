@@ -7,7 +7,7 @@ public class f implements com.baidu.tbadk.mvc.b.e {
         this.cIW = str;
     }
 
-    public String aqo() {
+    public String aqk() {
         return this.cIW;
     }
 
@@ -17,12 +17,12 @@ public class f implements com.baidu.tbadk.mvc.b.e {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String CA() {
+    public String Cx() {
         return "RecommendFrsCache";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean CB() {
+    public boolean Cy() {
         return true;
     }
 

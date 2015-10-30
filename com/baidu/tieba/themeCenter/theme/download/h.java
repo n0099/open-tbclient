@@ -43,26 +43,26 @@ public class h {
 
     public void bC(List<com.baidu.tieba.themeCenter.theme.top.a> list) {
         if (list == null || list.size() <= 0) {
-            Kr();
+            Kn();
             return;
         }
-        azF();
-        Ks();
+        azB();
+        Ko();
         this.dgK.setData(list);
         this.dgK.notifyDataSetChanged();
     }
 
-    public void Kr() {
+    public void Kn() {
         this.mListView.setVisibility(8);
         this.dhq.showNetRefreshView(this.mRoot, this.dhq.getPageContext().getResources().getString(i.h.no_data_text), false);
     }
 
-    public void Ks() {
+    public void Ko() {
         this.mListView.setVisibility(0);
         this.dhq.hideNetRefreshView(this.mRoot);
     }
 
-    public void azF() {
+    public void azB() {
         if (this.dho) {
             this.dhr.setVisibility(0);
             return;
@@ -71,7 +71,7 @@ public class h {
         this.dhg = false;
     }
 
-    public void tc() {
+    public void sZ() {
         this.dhq.getLayoutMode().ad(TbadkApplication.getInst().getSkinType() == 1);
         this.dhq.getLayoutMode().k(this.mRoot);
         if (this.mNavigationBar != null) {
@@ -86,7 +86,7 @@ public class h {
         an.b(this.dhr, i.c.navi_op_text, 1);
     }
 
-    public boolean azG() {
+    public boolean azC() {
         if (this.dhg) {
             this.dhr.setText(i.h.theme_manager);
             this.dhg = false;
@@ -102,7 +102,7 @@ public class h {
         return this.dhg;
     }
 
-    public TextView azH() {
+    public TextView azD() {
         return this.dhr;
     }
 

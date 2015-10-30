@@ -34,7 +34,7 @@ class a extends com.baidu.adp.framework.listener.e {
         com.baidu.tbadk.core.dialog.a aVar6;
         h hVar4;
         hVar = this.bMU.bMS;
-        hVar.Zh();
+        hVar.Zd();
         this.bMU.closeLoadingDialog();
         if (socketResponsedMessage != null) {
             if (socketResponsedMessage.getCmd() == 104103 && (socketResponsedMessage instanceof ResponseGetMaskInfoMessage)) {
@@ -52,7 +52,7 @@ class a extends com.baidu.adp.framework.listener.e {
                 this.bMU.showToast(StringUtils.isNull(responseGetMaskInfoMessage.getErrorString()) ? this.bMU.getResources().getString(i.h.neterror) : responseGetMaskInfoMessage.getErrorString());
                 if (com.baidu.adp.lib.util.i.iM()) {
                     hVar4 = this.bMU.bMS;
-                    hVar4.Ko();
+                    hVar4.Kk();
                 }
             } else if (socketResponsedMessage.getCmd() == 104102 && (socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage) && (orginalMessage = (responseUpdateMaskInfoMessage = (ResponseUpdateMaskInfoMessage) socketResponsedMessage).getOrginalMessage()) != null && (orginalMessage instanceof RequestUpdateMaskInfoMessage) && ((RequestUpdateMaskInfoMessage) orginalMessage).getMaskType() == 10) {
                 if (responseUpdateMaskInfoMessage.getError() == 0) {

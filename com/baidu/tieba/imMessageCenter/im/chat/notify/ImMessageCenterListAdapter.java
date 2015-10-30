@@ -71,15 +71,15 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
             str = "";
             i = 0;
         } else if (String.valueOf(7).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xl()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xi()) {
                 str = "";
                 i = 0;
-            } else if (!com.baidu.tieba.im.settingcache.l.Xk().isAcceptNotify()) {
+            } else if (!com.baidu.tieba.im.settingcache.l.Xg().isAcceptNotify()) {
                 str = "";
                 i = 0;
             }
         } else if (String.valueOf(1).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xw()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xt()) {
                 str = "";
                 i = 0;
             } else {
@@ -90,7 +90,7 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
                 }
             }
         } else if (String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xp()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xm()) {
                 str = "";
                 i = 0;
             } else {
@@ -101,15 +101,15 @@ public class ImMessageCenterListAdapter extends com.baidu.tieba.im.chat.notify.b
                 }
             }
         } else if (String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xp() || !TbadkCoreApplication.m411getInst().isPromotedMessageOn()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xm() || !TbadkCoreApplication.m411getInst().isPromotedMessageOn()) {
                 str = "";
                 i = 0;
             }
         } else if (String.valueOf(5).equals(imMessageCenterShowItemData.getOwnerName())) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xp()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xm()) {
                 str = "";
                 i = 0;
-            } else if (!com.baidu.tieba.im.settingcache.g.Xh().isAcceptNotify()) {
+            } else if (!com.baidu.tieba.im.settingcache.g.Xd().isAcceptNotify()) {
                 str = "";
                 i = 0;
             }

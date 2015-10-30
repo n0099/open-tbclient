@@ -24,10 +24,10 @@ class d extends CustomMessageListener {
             aoVar = this.this$0.dcB;
             if (aoVar != null) {
                 aoVar2 = this.this$0.dcB;
-                if (aoVar2.ayI() != null) {
+                if (aoVar2.ayE() != null) {
                     MainTabActivity mainTabActivity = this.this$0;
                     aoVar3 = this.this$0.dcB;
-                    mainTabActivity.dcv = aoVar3.ayI().getCurrentTabType();
+                    mainTabActivity.dcv = aoVar3.ayE().getCurrentTabType();
                 }
             }
             this.this$0.dcw = true;

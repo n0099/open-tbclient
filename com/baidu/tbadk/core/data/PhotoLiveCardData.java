@@ -114,15 +114,15 @@ public class PhotoLiveCardData implements Serializable {
 
     @Deprecated
     public String buildRefreshTime() {
-        return String.valueOf(as.o(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(i.h.update_floor_num, new Object[]{as.s(this.postNum)});
+        return String.valueOf(as.m(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(i.h.update_floor_num, new Object[]{as.q(this.postNum)});
     }
 
     public String buildRefreshTimeWithPostNum() {
-        return String.valueOf(as.o(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(i.h.update_floor_num, new Object[]{as.s(this.postNum)});
+        return String.valueOf(as.m(this.lastModifiedTime * 1000)) + " " + TbadkCoreApplication.m411getInst().getString(i.h.update_floor_num, new Object[]{as.q(this.postNum)});
     }
 
     public String buildRefreshTimeWithoutPostNum() {
-        return TbadkCoreApplication.m411getInst().getString(i.h.photo_live_thread_expression_time, new Object[]{as.o(this.lastModifiedTime * 1000)});
+        return TbadkCoreApplication.m411getInst().getString(i.h.photo_live_thread_expression_time, new Object[]{as.m(this.lastModifiedTime * 1000)});
     }
 
     public void setPhotoLiveCover(String str) {

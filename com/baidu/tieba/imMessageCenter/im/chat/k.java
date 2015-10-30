@@ -16,9 +16,9 @@ class k extends com.baidu.tbadk.util.l<Void> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.l
-    /* renamed from: Gl */
+    /* renamed from: Gh */
     public Void doInBackground() {
-        com.baidu.tieba.im.settingcache.j.Xj().a(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(0), this.bty);
+        com.baidu.tieba.im.settingcache.j.Xf().a(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(0), this.bty);
         return null;
     }
 }

@@ -32,7 +32,7 @@ public class h implements View.OnClickListener {
                 i = this.dnM.mId;
                 bVar.ma(i);
             }
-        } else if (this.dnM.aCA()) {
+        } else if (this.dnM.aCw()) {
             bVar3 = this.dnM.dnL;
             i3 = this.dnM.mId;
             imageFileInfo = this.dnM.dnJ;

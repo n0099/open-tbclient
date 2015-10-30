@@ -21,8 +21,8 @@ class as extends CustomMessageListener {
                 FrsActivityStatic.aVc = true;
             }
             boolean z = intValue == 3;
-            boolean Ls = FrsActivityStatic.Ls();
-            if (z && Ls) {
+            boolean Lo = FrsActivityStatic.Lo();
+            if (z && Lo) {
                 FrsActivityStatic.aVa = false;
             } else {
                 FrsActivityStatic.aVa = true;

@@ -60,7 +60,7 @@ public class g extends com.baidu.adp.base.e<MsgRemindActivity> {
             if (this.cLZ != null) {
                 this.cLZ.a(i, true, z2);
                 if (i != 14) {
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xm() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xp() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xn() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xo() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xx() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xw() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xl()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xj() && !com.baidu.tbadk.coreExtra.messageCenter.c.xe().xm() && !com.baidu.tbadk.coreExtra.messageCenter.c.xe().xk() && !com.baidu.tbadk.coreExtra.messageCenter.c.xe().xl() && !com.baidu.tbadk.coreExtra.messageCenter.c.xe().xu() && !com.baidu.tbadk.coreExtra.messageCenter.c.xe().xt() && !com.baidu.tbadk.coreExtra.messageCenter.c.xe().xi()) {
                         this.cLZ.a(14, true, false);
                         return;
                     }

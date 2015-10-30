@@ -80,7 +80,7 @@ public class k {
         this.akA = aVar;
     }
 
-    public void yN() {
+    public void yK() {
         if (this.aki == null) {
             this.akh = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.main_input_username, (ViewGroup) null);
             this.akj = (EditText) this.akh.findViewById(i.f.account);
@@ -101,7 +101,7 @@ public class k {
             this.ako.setOnCheckedChangeListener(this.akm);
             this.akp.setOnCheckedChangeListener(this.akm);
             this.akw = (TextView) this.akh.findViewById(i.f.phone_info);
-            yQ();
+            yN();
             this.aki = new Dialog(this.mContext.getPageActivity(), i.C0057i.input_username_dialog);
             this.aki.setCanceledOnTouchOutside(false);
             this.aki.setCancelable(false);
@@ -110,7 +110,7 @@ public class k {
         }
         if (!this.aki.isShowing()) {
             this.akj.setText((CharSequence) null);
-            yQ();
+            yN();
             et(null);
             if (this.akx == null || this.akx.length() <= 0) {
                 this.akw.setText("Hi," + this.mContext.getString(i.h.bar_friend));
@@ -127,7 +127,7 @@ public class k {
         }
     }
 
-    public void yO() {
+    public void yL() {
         String editable = this.akj.getText().toString();
         if (editable == null || editable.length() <= 0) {
             et(this.mContext.getString(i.h.input_name));
@@ -146,7 +146,7 @@ public class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void yP() {
+    public void yM() {
         if (this.akA != null) {
             this.akA.i(null);
         }
@@ -193,10 +193,10 @@ public class k {
             this.aks.cancel();
             this.aks = null;
         }
-        yR();
+        yO();
     }
 
-    public void yQ() {
+    public void yN() {
         this.akk.setVisibility(8);
         this.akk.clearCheck();
         this.akl.setVisibility(8);
@@ -209,7 +209,7 @@ public class k {
         this.akp.setChecked(false);
     }
 
-    public void yR() {
+    public void yO() {
         if (this.aki != null && this.aki.isShowing()) {
             com.baidu.adp.lib.g.j.b(this.aki, this.mContext);
         }
@@ -267,13 +267,13 @@ public class k {
             if (aVar == null) {
                 k.this.et(this.afh.getErrorString());
             } else if (aVar.getUser().getUserName() != null) {
-                k.this.yR();
+                k.this.yO();
                 TbadkCoreApplication.setCurrentAccount(k.this.aky, k.this.mContext.getPageActivity());
                 if (k.this.akz != null) {
                     k.this.akz.i(k.this.aky);
                 }
             } else {
-                k.this.n(aVar.we());
+                k.this.n(aVar.wb());
             }
         }
 
@@ -283,7 +283,7 @@ public class k {
             k.this.akv.setVisibility(0);
             k.this.aku.setEnabled(false);
             k.this.et(null);
-            k.this.yQ();
+            k.this.yN();
             super.onPreExecute();
         }
 
@@ -313,7 +313,7 @@ public class k {
         public com.baidu.tbadk.coreExtra.data.a doInBackground(String... strArr) {
             String str;
             Exception e;
-            String tG;
+            String tD;
             String str2 = null;
             str2 = null;
             str2 = null;
@@ -322,14 +322,14 @@ public class k {
                 this.afh = new com.baidu.tbadk.core.util.w(this.mUrl);
                 this.afh.o("un", this.mAccount);
                 this.afh.o("BDUSS", k.this.aky.getBDUSS());
-                this.afh.uh().uY().abO = false;
-                tG = this.afh.tG();
+                this.afh.ue().uV().abO = false;
+                tD = this.afh.tD();
             } catch (Exception e2) {
                 str = str2;
                 e = e2;
             }
-            if (this.afh.uk()) {
-                str = this.afh.ul();
+            if (this.afh.uh()) {
+                str = this.afh.ui();
                 try {
                 } catch (Exception e3) {
                     e = e3;
@@ -338,7 +338,7 @@ public class k {
                 }
                 if (str == 0) {
                     com.baidu.tbadk.coreExtra.data.a aVar = new com.baidu.tbadk.coreExtra.data.a();
-                    aVar.parserJson(tG);
+                    aVar.parserJson(tD);
                     String userName = aVar.getUser().getUserName();
                     String bduss = aVar.getUser().getBDUSS();
                     str = aVar;
@@ -358,12 +358,12 @@ public class k {
                             str2 = r1;
                         }
                     }
-                } else if (this.afh.ul() == 36) {
+                } else if (this.afh.ui() == 36) {
                     com.baidu.tbadk.coreExtra.data.a aVar2 = new com.baidu.tbadk.coreExtra.data.a();
-                    aVar2.parserJson(tG);
+                    aVar2.parserJson(tD);
                     str = aVar2;
-                } else if (this.afh.ul() == 1) {
-                    k.this.yR();
+                } else if (this.afh.ui() == 1) {
+                    k.this.yO();
                     str = 0;
                     return str;
                 }
@@ -394,12 +394,12 @@ public class k {
         public com.baidu.tbadk.coreExtra.data.a doInBackground(String... strArr) {
             this.afh = new com.baidu.tbadk.core.util.w(this.mUrl);
             this.afh.o("un", this.mAccount);
-            String tG = this.afh.tG();
-            if (!this.afh.uk() || this.afh.ul() != 36) {
+            String tD = this.afh.tD();
+            if (!this.afh.uh() || this.afh.ui() != 36) {
                 return null;
             }
             com.baidu.tbadk.coreExtra.data.a aVar = new com.baidu.tbadk.coreExtra.data.a();
-            aVar.parserJson(tG);
+            aVar.parserJson(tD);
             return aVar;
         }
 
@@ -410,14 +410,14 @@ public class k {
         public void onPostExecute(com.baidu.tbadk.coreExtra.data.a aVar) {
             super.onPostExecute(aVar);
             this.akD.aks = null;
-            if (!this.afh.uk()) {
+            if (!this.afh.uh()) {
                 this.akD.et(this.afh.getErrorString());
-            } else if (this.afh.ul() == 0) {
+            } else if (this.afh.ui() == 0) {
                 this.akD.et(this.akD.mContext.getString(i.h.name_not_use));
-            } else if (this.afh.ul() == 36) {
+            } else if (this.afh.ui() == 36) {
                 this.akD.et(this.afh.getErrorString());
                 if (aVar != null) {
-                    this.akD.n(aVar.we());
+                    this.akD.n(aVar.wb());
                 }
             } else {
                 this.akD.et(this.afh.getErrorString());
@@ -428,7 +428,7 @@ public class k {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             this.akD.et(null);
-            this.akD.yQ();
+            this.akD.yN();
             super.onPreExecute();
         }
     }

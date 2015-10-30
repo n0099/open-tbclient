@@ -14,7 +14,7 @@ public class g implements a.b {
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        this.aLW.Il();
-        com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("enter_forum_edit_mode", false);
+        this.aLW.Ih();
+        com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("enter_forum_edit_mode", false);
     }
 }

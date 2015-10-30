@@ -9,9 +9,9 @@ class l implements com.baidu.tbadk.editortools.c.b {
     }
 
     @Override // com.baidu.tbadk.editortools.c.b
-    public void Bm() {
+    public void Bj() {
         t tVar;
         tVar = this.cmC.cmv;
-        tVar.ahm();
+        tVar.ahi();
     }
 }

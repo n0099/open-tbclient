@@ -16,11 +16,11 @@ class t implements BdListView.e {
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         String str;
-        PersonBarActivity ais;
+        PersonBarActivity aio;
         if (this.cpq.hasMore) {
-            this.cpq.coZ.Kj();
-            ais = this.cpq.ais();
-            if (ais.getRequestCode() == 23011) {
+            this.cpq.coZ.Kf();
+            aio = this.cpq.aio();
+            if (aio.getRequestCode() == 23011) {
                 RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
                 requestGetLivableForumList.setGetLikeForum(1);
                 requestGetLivableForumList.setPageNo(this.cpq.cpd);

@@ -33,9 +33,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
     public interface d {
         ListView getListView();
 
-        int vG();
+        int vD();
 
-        com.baidu.adp.lib.e.b<HeadImageView> vH();
+        com.baidu.adp.lib.e.b<HeadImageView> vE();
     }
 
     public void setAutoChangeStyle(boolean z) {
@@ -75,9 +75,9 @@ public class UserPhotoLayout extends LinearLayout implements AbsListView.Recycle
         this.mItemSize = (int) this.mContext.getResources().getDimension(i.d.ds60);
         if (this.mContext instanceof d) {
             d dVar = (d) this.mContext;
-            this.mUserPhotoPool = dVar.vH();
+            this.mUserPhotoPool = dVar.vE();
             if (dVar.getListView() != null && this.mTbRecyclerListener == null) {
-                this.mTbRecyclerListener = new c(dVar.vG());
+                this.mTbRecyclerListener = new c(dVar.vD());
                 dVar.getListView().setRecyclerListener(this.mTbRecyclerListener);
             }
         }

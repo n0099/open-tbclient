@@ -25,11 +25,11 @@ public class ab implements c.b {
                 case 1:
                     this.aUK.aTK = true;
                     this.aUK.fr(4);
-                    com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("isAlreadyShowIcon" + TbadkCoreApplication.getCurrentAccount(), true);
+                    com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("isAlreadyShowIcon" + TbadkCoreApplication.getCurrentAccount(), true);
                     return;
                 case 2:
                     this.aUK.aTK = false;
-                    this.aUK.KY();
+                    this.aUK.KU();
                     return;
                 default:
                     return;

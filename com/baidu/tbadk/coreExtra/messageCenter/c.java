@@ -34,67 +34,67 @@ public class c {
     private c() {
     }
 
-    public static c xh() {
+    public static c xe() {
         return agZ;
     }
 
     public void initSetting() {
-        m.axH();
+        m.axD();
     }
 
-    public void xi() {
-        m.xi();
+    public void xf() {
+        m.xf();
     }
 
-    public boolean xj() {
+    public boolean xg() {
         return this.aha > 0;
     }
 
-    public int xk() {
+    public int xh() {
         return this.aha;
     }
 
-    public boolean xl() {
+    public boolean xi() {
         return this.ahc;
     }
 
-    public boolean xm() {
+    public boolean xj() {
         return this.ahd;
     }
 
-    public boolean xn() {
+    public boolean xk() {
         return this.ahf;
     }
 
-    public boolean xo() {
+    public boolean xl() {
         return this.ahe;
     }
 
-    public boolean xp() {
+    public boolean xm() {
         return this.ahb;
     }
 
-    public boolean xq() {
+    public boolean xn() {
         return this.ahh;
     }
 
-    public boolean xr() {
+    public boolean xo() {
         return this.ahi;
     }
 
-    public boolean xs() {
+    public boolean xp() {
         return this.ahj;
     }
 
-    public boolean xt() {
+    public boolean xq() {
         return this.ahg;
     }
 
-    public String xu() {
+    public String xr() {
         return this.ahk;
     }
 
-    public String xv() {
+    public String xs() {
         return this.ahl;
     }
 
@@ -106,14 +106,14 @@ public class c {
     public void dc(int i) {
         if (i == 0) {
             this.aha = i;
-            a.wK().ay(true);
+            a.wH().ay(true);
         } else {
             this.aha = 300;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
-    public boolean xw() {
+    public boolean xt() {
         return TbadkSettings.getInst().loadBoolean("group_notify", true) && TbadkCoreApplication.m411getInst().appResponseToIntentClass(GroupChatActivityConfig.class);
     }
 
@@ -122,7 +122,7 @@ public class c {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MEMORY_SWITCH_CHANGE));
     }
 
-    public boolean xx() {
+    public boolean xu() {
         return TbadkSettings.getInst().loadBoolean("zan_disjunctor_setting" + TbadkCoreApplication.getCurrentAccount(), true);
     }
 
@@ -159,19 +159,19 @@ public class c {
     }
 
     public void aH(boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("chat_float_window_switch", z);
+        com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("chat_float_window_switch", z);
     }
 
-    public boolean xy() {
-        return com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("chat_float_window_switch", true);
+    public boolean xv() {
+        return com.baidu.tbadk.core.sharedPref.b.tr().getBoolean("chat_float_window_switch", true);
     }
 
     public void aI(boolean z) {
-        com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("permit_screen_lock", z);
+        com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("permit_screen_lock", z);
     }
 
-    public boolean xz() {
-        return com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("permit_screen_lock", true);
+    public boolean xw() {
+        return com.baidu.tbadk.core.sharedPref.b.tr().getBoolean("permit_screen_lock", true);
     }
 
     public void aJ(boolean z) {
@@ -274,7 +274,7 @@ public class c {
         }
     }
 
-    public int xA() {
+    public int xx() {
         if (!this.ahh && !this.ahg) {
             return 0;
         }
@@ -291,7 +291,7 @@ public class c {
         TbadkSettings.getInst().saveBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_switch", z);
     }
 
-    public boolean xB() {
+    public boolean xy() {
         return TbadkSettings.getInst().loadBoolean(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_switch", true);
     }
 }

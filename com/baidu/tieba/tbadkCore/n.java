@@ -21,27 +21,27 @@ public class n {
     private long cXP = 0;
     private String cXQ = null;
 
-    public int avK() {
+    public int avG() {
         return this.cXC;
     }
 
-    public String avL() {
+    public String avH() {
         return this.cXE;
     }
 
-    public String avM() {
+    public String avI() {
         return this.cXF;
     }
 
-    public boolean avN() {
+    public boolean avJ() {
         return this.cXO;
     }
 
-    public long avO() {
+    public long avK() {
         return this.cXP;
     }
 
-    public String avP() {
+    public String avL() {
         return this.cXQ;
     }
 

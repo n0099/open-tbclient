@@ -20,6 +20,6 @@ public class a extends Thread {
         wVar.o("tid", this.bOS);
         wVar.o("phonenum", this.chT);
         wVar.o("optype", this.chU);
-        wVar.tG();
+        wVar.tD();
     }
 }

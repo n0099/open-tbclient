@@ -52,7 +52,7 @@ public class c {
         this.clW.setVisibility(z ? 0 : 8);
     }
 
-    public NavigationBar agU() {
+    public NavigationBar agQ() {
         return this.mNavigationBar;
     }
 
@@ -63,7 +63,7 @@ public class c {
         }
     }
 
-    public void agV() {
+    public void agR() {
         this.clV.setVisibility(4);
         this.clV.setEnabled(false);
     }
@@ -98,11 +98,11 @@ public class c {
                 this.clY.eB(true);
             }
             if (h.aj(this.ciU.getPageContext().getPageActivity())) {
-                this.clY.afZ().setVisibility(0);
-                this.clY.aga().setVisibility(0);
+                this.clY.afV().setVisibility(0);
+                this.clY.afW().setVisibility(0);
             } else {
-                this.clY.afZ().setVisibility(8);
-                this.clY.aga().setVisibility(8);
+                this.clY.afV().setVisibility(8);
+                this.clY.afW().setVisibility(8);
             }
             if (this.mPopWindow != null) {
                 this.mPopWindow.refresh();
@@ -115,33 +115,33 @@ public class c {
     private void k(boolean z, boolean z2) {
         if (this.clY != null) {
             if (!z) {
-                this.clY.agc().setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_recommend_see_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.clY.afY().setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_recommend_see_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.clY.agc().setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_recommend_see_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.clY.afY().setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_recommend_see_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
             if (z2) {
-                this.clY.afY().setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_recommend_collect_s), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.clY.afU().setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_recommend_collect_s), (Drawable) null, (Drawable) null, (Drawable) null);
             } else {
-                this.clY.afY().setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_recommend_collect_n), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.clY.afU().setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_recommend_collect_n), (Drawable) null, (Drawable) null, (Drawable) null);
             }
         }
     }
 
-    public void qu() {
+    public void qr() {
         if (this.mPopWindow != null) {
             j.a(this.mPopWindow, this.ciU.getPageContext().getPageActivity());
         }
     }
 
-    public bp agW() {
+    public bp agS() {
         return this.clY;
     }
 
-    public boolean agX() {
+    public boolean agT() {
         return this.mPopWindow != null && this.mPopWindow.isShowing();
     }
 
-    public void aaK() {
+    public void aaG() {
         this.mPopWindow = null;
         this.clY = null;
     }

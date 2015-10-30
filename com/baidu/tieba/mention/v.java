@@ -21,7 +21,7 @@ public class v {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static synchronized v acZ() {
+    public static synchronized v acV() {
         v vVar;
         synchronized (v.class) {
             if (caC == null) {
@@ -37,7 +37,7 @@ public class v {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ada() {
+    public void acW() {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
     }
 
@@ -46,7 +46,7 @@ public class v {
         return com.baidu.adp.lib.util.i.iM();
     }
 
-    public void adb() {
+    public void acX() {
         this.caE = 0L;
         destroy();
         start();

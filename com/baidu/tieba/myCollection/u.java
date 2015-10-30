@@ -37,7 +37,7 @@ public class u {
         this.bro = (RelativeLayout) view.findViewById(i.f.parent);
         this.mNoDataView = NoDataViewFactory.a(this.aFU.getPageContext().getPageActivity(), null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, com.baidu.adp.lib.util.k.d(this.aFU.getPageContext().getPageActivity(), i.d.ds80)), NoDataViewFactory.d.C(i.h.mark_nodata, i.h.mark_nodata_2), null);
         this.cbE = new m(pVar.getPageContext());
-        this.cbE.adx();
+        this.cbE.adt();
         this.mPullView = new com.baidu.tbadk.core.view.r(pVar.getPageContext());
         this.bby = (BdListView) view.findViewById(i.f.list);
         this.bby.setPullRefresh(this.mPullView);
@@ -57,7 +57,7 @@ public class u {
         this.cbE.notifyDataSetChanged();
     }
 
-    public int adt() {
+    public int adp() {
         return i.f.home_lv_markitem_delete;
     }
 
@@ -70,7 +70,7 @@ public class u {
         this.cbE.notifyDataSetChanged();
     }
 
-    public void MW() {
+    public void MS() {
         this.mProgressBar.setVisibility(8);
     }
 
@@ -80,17 +80,17 @@ public class u {
             this.aFU.showToast(str);
         }
         if (aVar != null) {
-            if (aVar.adD() == 0 && !z) {
+            if (aVar.adz() == 0 && !z) {
                 aVar.getCount();
             }
-            if (aVar.adD() < 20) {
+            if (aVar.adz() < 20) {
                 this.cbE.setHasMore(false);
                 this.cbE.dZ(aVar.isFirst() ? false : true);
             } else {
                 this.cbE.setHasMore(true);
                 this.cbE.dZ(true);
             }
-            this.cbE.setData(aVar.adC());
+            this.cbE.setData(aVar.ady());
             if (aVar.getCount() > 0) {
                 this.mNoDataView.setVisibility(8);
                 this.bby.removeHeaderView(this.mNoDataView);
@@ -109,7 +109,7 @@ public class u {
         }
     }
 
-    public void adA() {
+    public void adw() {
         if (this.mNoDataView.isShown()) {
             this.mNoDataView.e(this.aFU.getPageContext());
         }
@@ -122,31 +122,31 @@ public class u {
     public void a(boolean z, String str, boolean z2) {
         this.aFU.closeLoadingDialog();
         if (z) {
-            this.cbE.adx();
+            this.cbE.adt();
         }
         if (str != null) {
             this.aFU.showToast(str);
         }
         if (z2) {
-            adu();
+            adq();
         }
         this.cbE.notifyDataSetChanged();
     }
 
-    public void Jq() {
+    public void Jm() {
         this.mProgressBar.setVisibility(0);
     }
 
     public void a(boolean z, String str, com.baidu.tieba.myCollection.baseEditMark.a aVar) {
         if (z) {
             this.aFU.showToast(this.aFU.getPageContext().getString(i.h.del_mark_success));
-            if (aVar == null || aVar.adC() == null) {
+            if (aVar == null || aVar.ady() == null) {
                 this.mProgressBar.setVisibility(8);
                 return;
-            } else if (aVar.adC().size() == 0) {
+            } else if (aVar.ady().size() == 0) {
                 aVar.f(true);
             } else {
-                this.cbE.setData(aVar.adC());
+                this.cbE.setData(aVar.ady());
             }
         } else {
             this.aFU.showToast(str);
@@ -159,7 +159,7 @@ public class u {
         this.cbE.setData(arrayList);
     }
 
-    private void adu() {
+    private void adq() {
         if (this.cbF == null) {
             this.cbF = new com.baidu.tbadk.core.dialog.a(this.aFU.getPageContext().getPageActivity());
             this.cbF.ct(this.aFU.getPageContext().getString(i.h.sync_mark_fail));
@@ -171,7 +171,7 @@ public class u {
             this.cbF.b(this.aFU.getPageContext());
             this.cbF.ak(true);
         }
-        this.cbF.sR();
+        this.cbF.sO();
     }
 
     public void onChangeSkinType(int i) {
@@ -185,8 +185,8 @@ public class u {
         }
     }
 
-    public void adv() {
-        this.cbE.adx();
+    public void adr() {
+        this.cbE.adt();
         this.cbE.notifyDataSetChanged();
     }
 
@@ -198,7 +198,7 @@ public class u {
         if (this.mProgressBar != null) {
             this.mProgressBar.setVisibility(8);
         }
-        this.cbE.adw();
+        this.cbE.ads();
     }
 
     public void completePullRefresh() {

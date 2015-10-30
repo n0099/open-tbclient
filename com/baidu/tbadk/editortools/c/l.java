@@ -50,24 +50,24 @@ public class l extends com.baidu.tbadk.editortools.d {
     @Override // com.baidu.tbadk.editortools.d
     protected void b(com.baidu.tbadk.editortools.f fVar) {
         if (fVar instanceof d) {
-            com.baidu.tbadk.editortools.j Ax = fVar.Ax();
-            m mVar = new m(this, (d) fVar, Ax);
-            Ax.a(5, mVar);
-            Ax.a(4, mVar);
-            Ax.a(7, mVar);
-            Ax.a(16, mVar);
-            Ax.a(14, mVar);
-            Ax.a(15, mVar);
-            Ax.a(21, mVar);
-            Ax.a(22, mVar);
-            Ax.a(23, mVar);
-            Ax.a(8, mVar);
-            Ax.a(18, mVar);
-            Ax.a(20, mVar);
-            Ax.a(10, mVar);
-            Ax.a(11, mVar);
-            Ax.a(27, mVar);
-            Ax.a(29, mVar);
+            com.baidu.tbadk.editortools.j Au = fVar.Au();
+            m mVar = new m(this, (d) fVar, Au);
+            Au.a(5, mVar);
+            Au.a(4, mVar);
+            Au.a(7, mVar);
+            Au.a(16, mVar);
+            Au.a(14, mVar);
+            Au.a(15, mVar);
+            Au.a(21, mVar);
+            Au.a(22, mVar);
+            Au.a(23, mVar);
+            Au.a(8, mVar);
+            Au.a(18, mVar);
+            Au.a(20, mVar);
+            Au.a(10, mVar);
+            Au.a(11, mVar);
+            Au.a(27, mVar);
+            Au.a(29, mVar);
         }
     }
 
@@ -77,47 +77,47 @@ public class l extends com.baidu.tbadk.editortools.d {
         v vVar;
         v vVar2;
         v vVar3;
-        com.baidu.tbadk.editortools.j Ax = fVar.Ax();
-        Ax.b(new com.baidu.tbadk.editortools.emotiontool.m(Ax.getContext(), 1));
+        com.baidu.tbadk.editortools.j Au = fVar.Au();
+        Au.b(new com.baidu.tbadk.editortools.emotiontool.m(Au.getContext(), 1));
         if (XiaoyingUtil.showXiaoyingTool()) {
-            CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GET_XIAOYING_TOOL, Ax.getContext()), v.class);
+            CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GET_XIAOYING_TOOL, Au.getContext()), v.class);
             if (runTask2 != null && (vVar3 = (v) runTask2.getData()) != null) {
                 vVar3.apu = 2;
-                Ax.b(vVar3);
+                Au.b(vVar3);
             }
-            CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GET_XIAOYING_PANNEL_TOOL, Ax.getContext()), v.class);
+            CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_GET_XIAOYING_PANNEL_TOOL, Au.getContext()), v.class);
             if (runTask3 != null && (vVar2 = (v) runTask3.getData()) != null) {
-                Ax.b(vVar2);
+                Au.b(vVar2);
             }
         }
-        Ax.b(new com.baidu.tbadk.editortools.imagetool.i(Ax.getContext(), 3));
-        Ax.b(new com.baidu.tbadk.editortools.imagetool.b(Ax.getContext()));
-        if (com.baidu.tieba.tbadkCore.voice.b.axN() && u.a(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Ax.getContext()), v.class)) != null && (vVar = (v) runTask.getData()) != null) {
+        Au.b(new com.baidu.tbadk.editortools.imagetool.i(Au.getContext(), 3));
+        Au.b(new com.baidu.tbadk.editortools.imagetool.b(Au.getContext()));
+        if (com.baidu.tieba.tbadkCore.voice.b.axJ() && u.a(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_VOICE_RECORDER_CTRL, Au.getContext()), v.class)) != null && (vVar = (v) runTask.getData()) != null) {
             vVar.apu = 4;
-            Ax.b(vVar);
+            Au.b(vVar);
         }
-        Ax.b(new com.baidu.tbadk.editortools.a.a(Ax.getContext(), 5));
-        Ax.b(new com.baidu.tbadk.editortools.locationtool.c(Ax.getContext(), 6));
-        Ax.b(new com.baidu.tbadk.editortools.locationtool.b(Ax.getContext()));
-        CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_BUBBLE_TOOL_CRTL, Ax.getContext()), v.class);
+        Au.b(new com.baidu.tbadk.editortools.a.a(Au.getContext(), 5));
+        Au.b(new com.baidu.tbadk.editortools.locationtool.c(Au.getContext(), 6));
+        Au.b(new com.baidu.tbadk.editortools.locationtool.b(Au.getContext()));
+        CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_BUBBLE_TOOL_CRTL, Au.getContext()), v.class);
         if (runTask4 != null && runTask4.getData() != null) {
             v vVar4 = (v) runTask4.getData();
             vVar4.apu = 7;
-            Ax.b(vVar4);
+            Au.b(vVar4);
         }
         if (TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_BAOBAO_STARTMATCHIMAGE)) {
-            Ax.b(new com.baidu.tbadk.editortools.b.b(Ax.getContext(), 8));
-            Ax.b(new com.baidu.tbadk.editortools.b.a(Ax.getContext()));
+            Au.b(new com.baidu.tbadk.editortools.b.b(Au.getContext(), 8));
+            Au.b(new com.baidu.tbadk.editortools.b.a(Au.getContext()));
         }
-        Ax.b(new com.baidu.tbadk.editortools.inputtool.a(Ax.getContext(), true));
-        Ax.b(new com.baidu.tbadk.editortools.sendtool.a(Ax.getContext()));
-        CustomResponsedMessage runTask5 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_TAIL_TOOL_CRTL, Ax.getContext()), v.class);
+        Au.b(new com.baidu.tbadk.editortools.inputtool.a(Au.getContext(), true));
+        Au.b(new com.baidu.tbadk.editortools.sendtool.a(Au.getContext()));
+        CustomResponsedMessage runTask5 = MessageManager.getInstance().runTask(new CustomMessage<>((int) CmdConfigCustom.CMD_TAIL_TOOL_CRTL, Au.getContext()), v.class);
         if (runTask5 != null && runTask5.getData() != null) {
             v vVar5 = (v) runTask5.getData();
             vVar5.apu = 9;
-            Ax.b(vVar5);
+            Au.b(vVar5);
         }
-        Ax.Ay();
+        Au.Av();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

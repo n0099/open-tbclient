@@ -31,7 +31,7 @@ public class m extends com.baidu.adp.base.e {
         sendMessage(userMuteQueryRequestMessage);
     }
 
-    public void bi(long j) {
+    public void bg(long j) {
         a(j, 1, 10);
     }
 

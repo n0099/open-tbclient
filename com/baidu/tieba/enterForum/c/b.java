@@ -7,7 +7,7 @@ import java.util.List;
 public class b {
     private static b aMh;
 
-    public static b Iw() {
+    public static b Is() {
         if (aMh == null) {
             synchronized (b.class) {
                 if (aMh == null) {

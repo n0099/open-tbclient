@@ -13,7 +13,7 @@ class av implements d.a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
-    public void BF() {
+    public void BC() {
         this.dqi.showToast(i.h.no_network_guide);
         this.dqi.a(0, true, (String) null);
     }
@@ -30,10 +30,10 @@ class av implements d.a {
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
     public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-        if (aVar == null || StringUtils.isNull(aVar.axi())) {
+        if (aVar == null || StringUtils.isNull(aVar.axe())) {
             fb(null);
         } else {
-            this.dqi.a(2, true, aVar.axi());
+            this.dqi.a(2, true, aVar.axe());
         }
     }
 }

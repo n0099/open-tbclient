@@ -57,7 +57,7 @@ public class m extends com.baidu.adp.base.f<MyGiftListActivity> {
         this.mList = new ArrayList();
         this.bnq = eVar;
         initView();
-        Qz();
+        Qv();
         if (this.mIsHost || !TbadkApplication.getInst().isGiftSwitchOn()) {
             this.bnx.setVisibility(8);
         } else {
@@ -72,7 +72,7 @@ public class m extends com.baidu.adp.base.f<MyGiftListActivity> {
         this.bnn = this.bnb.findViewById(i.f.root);
         this.bnm = (BdListView) this.bnn.findViewById(i.f.list_view);
         this.bdY = (NavigationBar) this.bnn.findViewById(i.f.navigation_bar);
-        String format = String.format(this.bnb.getPageContext().getString(i.h.he_gift_title), this.bnb.Qx());
+        String format = String.format(this.bnb.getPageContext().getString(i.h.he_gift_title), this.bnb.Qt());
         if (this.mIsHost) {
             this.bdY.setTitleText(i.h.my_gift_list);
         } else {
@@ -102,10 +102,10 @@ public class m extends com.baidu.adp.base.f<MyGiftListActivity> {
         this.bnm.setOnItemClickListener(this.bfK);
     }
 
-    private void Qz() {
+    private void Qv() {
         this.bnx = (RelativeLayout) this.bnb.findViewById(i.f.gift_relation_ll);
         this.bny = (TextView) this.bnb.findViewById(i.f.gift_relation_text);
-        this.bny.setOnClickListener(this.bnb.Qv());
+        this.bny.setOnClickListener(this.bnb.Qr());
         this.bnz = this.bnb.findViewById(i.f.his_gift_line);
         if (!this.mIsHost && TbadkApplication.getInst().isGiftSwitchOn()) {
             this.bnm.setOnScrollListener(new p(this));
@@ -191,7 +191,7 @@ public class m extends com.baidu.adp.base.f<MyGiftListActivity> {
         }
     }
 
-    public void QA() {
+    public void Qw() {
         this.bnm.completePullRefresh();
     }
 

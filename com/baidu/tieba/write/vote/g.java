@@ -53,15 +53,15 @@ public class g extends com.baidu.adp.base.f<WriteVoteActivity> {
         } else {
             this.dnH.addTextChangedListener(new a(15, this.dnH));
         }
-        aCF();
+        aCB();
     }
 
-    public boolean aCA() {
+    public boolean aCw() {
         return (this.dnJ == null || TextUtils.isEmpty(this.dnJ.getFilePath())) ? false : true;
     }
 
-    public boolean aCB() {
-        return !TextUtils.isEmpty(aCC());
+    public boolean aCx() {
+        return !TextUtils.isEmpty(aCy());
     }
 
     public void a(ImageFileInfo imageFileInfo, com.baidu.adp.widget.a.a aVar) {
@@ -81,7 +81,7 @@ public class g extends com.baidu.adp.base.f<WriteVoteActivity> {
         return this.mId;
     }
 
-    public String aCC() {
+    public String aCy() {
         return this.dnH == null ? "" : this.dnH.getText().toString().trim();
     }
 
@@ -93,17 +93,17 @@ public class g extends com.baidu.adp.base.f<WriteVoteActivity> {
         }
     }
 
-    public void aCD() {
+    public void aCz() {
         if (this.dnH != null) {
             this.dnH.requestFocus();
         }
     }
 
-    public ImageFileInfo aCE() {
+    public ImageFileInfo aCA() {
         return this.dnJ;
     }
 
-    public void aCF() {
+    public void aCB() {
         if (this.mRootView != null) {
             com.baidu.tbadk.h.a.a(this.dnC.getPageContext(), this.mRootView);
         }

@@ -42,7 +42,7 @@ public class e implements a.b {
                     e.printStackTrace();
                 }
             }
-            this.bmC.Qp();
+            this.bmC.Ql();
             editText2 = this.bmC.bmu;
             editText2.setText("");
             return;

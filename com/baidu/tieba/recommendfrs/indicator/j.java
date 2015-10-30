@@ -24,7 +24,7 @@ public class j extends com.baidu.adp.lib.g.d {
         aVar = this.cJu.cJs;
         if (aVar != null) {
             aVar2 = this.cJu.cJs;
-            aVar2.aqA();
+            aVar2.aqw();
         }
         viewGroup = this.cJu.cJr;
         view = this.cJu.rootView;

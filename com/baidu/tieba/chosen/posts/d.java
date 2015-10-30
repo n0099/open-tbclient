@@ -22,14 +22,14 @@ public class d extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if (responsedMessage.getError() != 0) {
                 chosenPostActivity = this.aJM.aJF;
-                BdToast.a(chosenPostActivity.getActivity(), responsedMessage.getErrorString(), 0).sX().sZ();
+                BdToast.a(chosenPostActivity.getActivity(), responsedMessage.getErrorString(), 0).sU().sW();
             } else if (!(responsedMessage instanceof UnlikeHttpResponse)) {
                 if (!(responsedMessage instanceof UnlikeSocketReponse)) {
                     return;
                 }
-                this.aJM.ai(((UnlikeSocketReponse) responsedMessage).getThreadId());
+                this.aJM.ag(((UnlikeSocketReponse) responsedMessage).getThreadId());
             } else {
-                this.aJM.ai(((UnlikeHttpResponse) responsedMessage).getThreadId());
+                this.aJM.ag(((UnlikeHttpResponse) responsedMessage).getThreadId());
             }
         }
     }

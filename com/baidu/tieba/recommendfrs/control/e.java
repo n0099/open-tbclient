@@ -16,7 +16,7 @@ public class e implements b.a {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0075, code lost:
-        if (r0.aqz() == false) goto L27;
+        if (r0.aqv() == false) goto L27;
      */
     /* JADX WARN: Code restructure failed: missing block: B:27:0x00a0, code lost:
         if (r0.containsAll(r1) == false) goto L31;
@@ -42,7 +42,7 @@ public class e implements b.a {
         if (!TextUtils.isEmpty(str)) {
             if (z) {
                 scrollFragmentTabHost8 = this.cIB.cIv;
-                if (!scrollFragmentTabHost8.aqz() && gVar != null && gVar.isEmpty()) {
+                if (!scrollFragmentTabHost8.aqv() && gVar != null && gVar.isEmpty()) {
                     if (this.cIB.getPageContext() == null || this.cIB.getPageContext().getResources() == null) {
                         return;
                     }
@@ -51,32 +51,32 @@ public class e implements b.a {
                     return;
                 }
             }
-            if (gVar != null && gVar.aqs() != null && "头条".equals(str)) {
+            if (gVar != null && gVar.aqo() != null && "头条".equals(str)) {
                 if (!z) {
                     scrollFragmentTabHost7 = this.cIB.cIv;
                 }
                 this.cIB.ap(this.cIB.getView());
                 list = this.cIB.cIx;
-                if (list.containsAll(gVar.aqs())) {
-                    List<String> aqs = gVar.aqs();
+                if (list.containsAll(gVar.aqo())) {
+                    List<String> aqo = gVar.aqo();
                     list4 = this.cIB.cIx;
                 }
                 list2 = this.cIB.cIx;
                 list2.clear();
                 list3 = this.cIB.cIx;
-                list3.addAll(gVar.aqs());
+                list3.addAll(gVar.aqo());
                 scrollFragmentTabHost3 = this.cIB.cIv;
                 scrollFragmentTabHost3.reset();
                 scrollFragmentTabHost4 = this.cIB.cIv;
                 aVar = this.cIB.cIA;
                 scrollFragmentTabHost4.b(aVar);
                 scrollFragmentTabHost5 = this.cIB.cIv;
-                scrollFragmentTabHost5.bp(gVar.aqs());
+                scrollFragmentTabHost5.bp(gVar.aqo());
                 scrollFragmentTabHost6 = this.cIB.cIv;
                 scrollFragmentTabHost6.setCurrentTab(0);
             }
             scrollFragmentTabHost = this.cIB.cIv;
-            if (scrollFragmentTabHost.aqz()) {
+            if (scrollFragmentTabHost.aqv()) {
                 scrollFragmentTabHost2 = this.cIB.cIv;
                 scrollFragmentTabHost2.b(z, str, gVar, z2);
             }
@@ -92,7 +92,7 @@ public class e implements b.a {
         }
         this.cIB.ap(this.cIB.getView());
         scrollFragmentTabHost = this.cIB.cIv;
-        if (scrollFragmentTabHost.aqz()) {
+        if (scrollFragmentTabHost.aqv()) {
             scrollFragmentTabHost2 = this.cIB.cIv;
             scrollFragmentTabHost2.j(str, str2, i);
         } else if (this.cIB.getPageContext() == null || this.cIB.getPageContext().getResources() == null) {

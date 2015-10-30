@@ -23,7 +23,7 @@ public class l extends DiskFileOperate {
     public void l(boolean z) {
         super.l(z);
         if (z) {
-            this.xr.j(0L);
+            this.xr.h(0L);
             com.baidu.adp.lib.stats.upload.b.ik().a(this.xr, this.xt, true, this.xv);
         }
     }

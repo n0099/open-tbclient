@@ -43,8 +43,8 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.djW = (AlbumActivity) getBaseFragmentActivity();
-        this.djP = this.djW.aBe();
-        m.aBz().a(this);
+        this.djP = this.djW.aBa();
+        m.aBv().a(this);
         this.dlj = new e(this.djW.getPageContext().getPageActivity());
         this.dlm = new com.baidu.tieba.write.view.a(this.djW);
         this.djP.mm("-1");
@@ -87,21 +87,21 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
         super.onResume();
         this.chV = false;
         if (isShow()) {
-            aBo();
+            aBk();
         }
     }
 
-    private void aBn() {
+    private void aBj() {
         if (this.djP == null && this.djW != null) {
-            this.djP = this.djW.aBe();
+            this.djP = this.djW.aBa();
         }
-        if (this.djP != null && this.djP.aBw() == null) {
-            setData(aBF(), true);
+        if (this.djP != null && this.djP.aBs() == null) {
+            setData(aBB(), true);
             mo("-1");
         }
     }
 
-    private List<ImageFileInfo> aBF() {
+    private List<ImageFileInfo> aBB() {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < 20; i++) {
             arrayList.add(new ImageFileInfo());
@@ -119,7 +119,7 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aBG() {
+    public void aBC() {
         this.dlj.a(new aj(this));
     }
 
@@ -149,7 +149,7 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
         }
     }
 
-    public View akd() {
+    public View ajZ() {
         return this.cuM;
     }
 
@@ -157,9 +157,9 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
     public void onDestroy() {
         super.onDestroy();
         if (this.dlj != null) {
-            this.dlj.aBq();
+            this.dlj.aBm();
         }
-        m.aBz().b(this);
+        m.aBv().b(this);
     }
 
     public void v(int i, boolean z) {
@@ -200,12 +200,12 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
 
     @Override // com.baidu.tieba.write.album.m.a
     public void gS(boolean z) {
-        aBo();
+        aBk();
     }
 
-    private void aBo() {
+    private void aBk() {
         if (!isHidden() && !this.chV) {
-            aBn();
+            aBj();
         }
     }
 
@@ -232,11 +232,11 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
             this.dln.gU(true);
         } else if (this.dln.isScroll()) {
             this.dln.gU(false);
-            aBH();
+            aBD();
         }
     }
 
-    private void aBH() {
+    private void aBD() {
         int childCount = this.mGridView.getChildCount();
         int firstVisiblePosition = this.mGridView.getFirstVisiblePosition();
         for (int i = 0; i < childCount; i++) {
@@ -246,7 +246,7 @@ public class ac extends BaseFragment implements AbsListView.OnScrollListener, m.
                 ImageFileInfo item = this.dln.getItem(firstVisiblePosition + i);
                 if (item != null && headImageView != null) {
                     headImageView.setTag(item.toCachedKey(false));
-                    this.djW.aBf().a(item, new ak(this), false, false);
+                    this.djW.aBb().a(item, new ak(this), false, false);
                 }
             }
         }

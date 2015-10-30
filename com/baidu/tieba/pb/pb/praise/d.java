@@ -71,7 +71,7 @@ public class d {
         return this.mThreadId;
     }
 
-    public boolean ahb() {
+    public boolean agX() {
         return this.cmh;
     }
 
@@ -95,13 +95,13 @@ public class d {
         bundle.putInt(str, this.cmj);
     }
 
-    public void ahc() {
+    public void agY() {
         MessageManager messageManager = MessageManager.getInstance();
         messageManager.unRegisterListener(this.cmn);
         messageManager.unRegisterTask(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
     }
 
-    public String ahd() {
+    public String agZ() {
         return this.cmg;
     }
 
@@ -116,7 +116,7 @@ public class d {
         return this.cml.get(i);
     }
 
-    public void Gx() {
+    public void Gt() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
         httpMessage.addParam("post_id", new StringBuilder(String.valueOf(this.mPostId)).toString());
         httpMessage.addParam("page_num", new StringBuilder(String.valueOf(this.cmi)).toString());

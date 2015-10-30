@@ -15,7 +15,7 @@ public class f {
     private IWXAPI dqW = WXAPIFactory.createWXAPI(TbadkApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID, false);
     private ConcurrentHashMap<String, IWXAPIEventHandler> dqX = new ConcurrentHashMap<>();
 
-    public static f aDN() {
+    public static f aDJ() {
         if (dqV == null) {
             dqV = new f();
         }

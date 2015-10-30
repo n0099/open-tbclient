@@ -87,7 +87,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
         this.avf = s;
     }
 
-    public List<D> Dm() {
+    public List<D> Dj() {
         return this.awa == null ? new ArrayList() : new ArrayList(this.awa);
     }
 
@@ -102,7 +102,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
         return this.awa.size();
     }
 
-    public int Dn() {
+    public int Dk() {
         if (this.awa == null) {
             return 0;
         }
@@ -187,7 +187,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Do() {
+    public void Dl() {
         if (this.awh != null && this.awg != null) {
             this.awh.removeView(this.awg);
             this.awg = null;
@@ -231,7 +231,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean Dp() {
+    public boolean Dm() {
         return this.awa != null && this.awa.size() == 0;
     }
 }

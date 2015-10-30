@@ -19,7 +19,7 @@ class a implements i.a {
         boolean z;
         t tVar2;
         tVar = this.cmC.cmv;
-        tVar.agS();
+        tVar.agO();
         SparseArray<Object> sparseArray = (SparseArray) obj;
         if (i == 0 && dataRes != null) {
             boolean z2 = com.baidu.adp.lib.g.b.g(dataRes.is_mute, 0) == 1;

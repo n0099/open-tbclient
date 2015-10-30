@@ -47,7 +47,7 @@ public class p<T> extends com.baidu.adp.base.e<T> {
         }
     }
 
-    public void aek() {
+    public void aeg() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAYMENT_CONFIRM_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/consume/getBuyForm");
         tbHttpMessageTask.setResponsedClass(ResponsePaymentConfirmInfoMessage.class);
@@ -70,7 +70,7 @@ public class p<T> extends com.baidu.adp.base.e<T> {
         }
     }
 
-    public void aes() {
+    public void aeo() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAYMENT_PAY, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/encourage/consume/payOpenGoods");
         tbHttpMessageTask.setResponsedClass(ResponsePaymentPayMessage.class);

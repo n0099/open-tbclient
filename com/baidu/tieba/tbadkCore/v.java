@@ -31,7 +31,7 @@ public class v implements com.baidu.tbadk.mvc.b.a {
         this.cXT = i;
     }
 
-    public int awa() {
+    public int avW() {
         return this.cXT;
     }
 

@@ -229,14 +229,14 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mHandler.removeMessages(1);
-        Cc();
+        BZ();
     }
 
     @Override // android.view.View
     public void onStartTemporaryDetach() {
         super.onStartTemporaryDetach();
         this.mHandler.removeMessages(1);
-        Cc();
+        BZ();
     }
 
     @Override // android.view.View
@@ -294,7 +294,7 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
     public void startLoading() {
         if (!this.atu) {
             this.atu = true;
-            Cb();
+            BY();
         }
     }
 
@@ -337,7 +337,7 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
         invalidate();
     }
 
-    private void Cb() {
+    private void BY() {
         removeCallbacks(this);
         postDelayed(this, 150L);
     }
@@ -349,7 +349,7 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
             this.atv = 0.0f;
         }
         invalidate();
-        Cb();
+        BY();
     }
 
     public void setPlayCallback(a aVar) {
@@ -372,7 +372,7 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
             this.atF = null;
             return;
         }
-        boolean EA = com.baidu.tbadk.util.e.EA();
+        boolean Ew = com.baidu.tbadk.util.e.Ew();
         k A = l.A(getContext());
         if (A != null) {
             bdUniqueId = A.getUniqueId();
@@ -382,12 +382,12 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
             z = false;
         }
         if (!(aVar == this.atF && this.atH == bdUniqueId)) {
-            Cc();
+            BZ();
         }
         this.atF = aVar;
         this.atH = bdUniqueId;
-        String str = EA ? this.atF.ati : this.atF.ath;
-        com.baidu.adp.widget.a.a aVar2 = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.c.ha().a(this.atF.atg, 20, this.atF.mGid, this.atF.atg, Boolean.valueOf(EA), str);
+        String str = Ew ? this.atF.ati : this.atF.ath;
+        com.baidu.adp.widget.a.a aVar2 = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.c.ha().a(this.atF.atg, 20, this.atF.mGid, this.atF.atg, Boolean.valueOf(Ew), str);
         if (aVar2 != null) {
             stopLoading();
             setGif(aVar2);
@@ -398,12 +398,12 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
         } else {
             startLoading();
             if (!z) {
-                com.baidu.adp.lib.f.c.ha().a(this.atF.atg, 20, this.atI, 0, 0, this.atH, this.atF.mGid, this.atF.atg, Boolean.valueOf(EA), str);
+                com.baidu.adp.lib.f.c.ha().a(this.atF.atg, 20, this.atI, 0, 0, this.atH, this.atF.mGid, this.atF.atg, Boolean.valueOf(Ew), str);
             }
         }
     }
 
-    public void Cc() {
+    public void BZ() {
         stopLoading();
         this.ats = false;
         this.aty = false;
@@ -430,15 +430,15 @@ public class GifView extends ImageView implements View.OnClickListener, i, Runna
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.atF != null) {
-            boolean EA = com.baidu.tbadk.util.e.EA();
-            String str = EA ? this.atF.ati : this.atF.ath;
-            com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.c.ha().a(this.atF.atg, 20, this.atF.mGid, this.atF.atg, Boolean.valueOf(EA), str);
+            boolean Ew = com.baidu.tbadk.util.e.Ew();
+            String str = Ew ? this.atF.ati : this.atF.ath;
+            com.baidu.adp.widget.a.a aVar = (com.baidu.adp.widget.a.a) com.baidu.adp.lib.f.c.ha().a(this.atF.atg, 20, this.atF.mGid, this.atF.atg, Boolean.valueOf(Ew), str);
             if (aVar != null) {
                 this.atF.atf = false;
                 setGif(aVar);
             } else {
                 startLoading();
-                com.baidu.adp.lib.f.c.ha().a(this.atF.atg, 20, this.atI, 0, 0, this.atH, this.atF.mGid, this.atF.atg, Boolean.valueOf(EA), str);
+                com.baidu.adp.lib.f.c.ha().a(this.atF.atg, 20, this.atI, 0, 0, this.atH, this.atF.mGid, this.atF.atg, Boolean.valueOf(Ew), str);
                 return;
             }
         }

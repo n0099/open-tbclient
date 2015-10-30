@@ -63,7 +63,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         setContentView(i.g.image_activity_2);
         initData(bundle);
         initUI();
-        Rp();
+        Rl();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -80,7 +80,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        Rp();
+        Rl();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -166,7 +166,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.bqD.G(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.bqD.setOnPageChangeListener(this.mOnPageChangeListener);
         this.bqD.setItemOnclickListener(this.mOnClickListener);
-        this.bqD.setCurrentItem(Ro(), false);
+        this.bqD.setCurrentItem(Rk(), false);
         this.bqD.setOnScrollOutListener(this.bqE);
         this.bqD.setItemOnLongClickListener(fVar);
         this.bqD.setHasNext(false);
@@ -178,7 +178,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Rn() {
+    public void Rj() {
         if (this.bqz != null) {
             String valueOf = String.valueOf(this.mIndex + 1);
             if (this.wB > 0) {
@@ -194,7 +194,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    private int Ro() {
+    private int Rk() {
         if (this.bqz != null && this.bqz.size() > 0) {
             int size = this.bqz.size();
             if (this.mIndex >= size) {
@@ -247,7 +247,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.bqM = new HashMap<>();
     }
 
-    private void Rp() {
+    private void Rl() {
         if (TextUtils.isEmpty(this.id)) {
             finish();
         }
@@ -290,7 +290,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         public String doInBackground(String... strArr) {
             switch (com.baidu.tbadk.core.util.n.a(this.mUrl, this.mData, AbsMsgImageActivity.this.getPageContext().getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.n.tB();
+                    return com.baidu.tbadk.core.util.n.ty();
                 case -1:
                 default:
                     return AbsMsgImageActivity.this.getPageContext().getString(i.h.save_error);

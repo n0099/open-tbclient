@@ -69,23 +69,23 @@ public class c extends com.baidu.adp.base.e {
         return this.unique_id;
     }
 
-    public long Ix() {
+    public long It() {
         return this.aMp;
     }
 
-    public long Iy() {
+    public long Iu() {
         return this.aMn;
     }
 
-    public long Iz() {
+    public long Iv() {
         return this.aMo;
     }
 
-    public long IA() {
+    public long Iw() {
         return this.aMm;
     }
 
-    public com.baidu.tieba.enterForum.b.b IB() {
+    public com.baidu.tieba.enterForum.b.b Ix() {
         return this.aMi;
     }
 
@@ -105,11 +105,11 @@ public class c extends com.baidu.adp.base.e {
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         cancelMessage();
-        IC();
+        Iy();
         return true;
     }
 
-    private void IC() {
+    private void Iy() {
         if (this.aMl != null) {
             this.aMl.destory();
             this.aMl = null;
@@ -133,7 +133,7 @@ public class c extends com.baidu.adp.base.e {
 
     public boolean bO(boolean z) {
         this.aMj = z;
-        ID();
+        Iz();
         return true;
     }
 
@@ -244,24 +244,24 @@ public class c extends com.baidu.adp.base.e {
         }
     }
 
-    private void ID() {
-        IE().a("forumRecommend_cache_key", new d(this, new com.baidu.tieba.enterForum.b.b()));
+    private void Iz() {
+        IA().a("forumRecommend_cache_key", new d(this, new com.baidu.tieba.enterForum.b.b()));
     }
 
-    private o<byte[]> IE() {
-        return com.baidu.tbadk.core.b.a.sO().T("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
+    private o<byte[]> IA() {
+        return com.baidu.tbadk.core.b.a.sL().T("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
     }
 
     public void eY(int i) {
-        com.baidu.tbadk.core.sharedPref.b.tu().putInt("shared_key_forum_column_type_" + TbadkCoreApplication.getCurrentAccount(), i);
+        com.baidu.tbadk.core.sharedPref.b.tr().putInt("shared_key_forum_column_type_" + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
     public int eZ(int i) {
-        return com.baidu.tbadk.core.sharedPref.b.tu().getInt("shared_key_forum_column_type_" + TbadkCoreApplication.getCurrentAccount(), i);
+        return com.baidu.tbadk.core.sharedPref.b.tr().getInt("shared_key_forum_column_type_" + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
     public boolean hasShowForumEditGuide() {
-        return com.baidu.tbadk.core.sharedPref.b.tu().getString(new StringBuilder("shared_key_forum_edit_guide_").append(TbadkCoreApplication.getCurrentAccount()).toString(), "").equals(TbConfig.getVersion());
+        return com.baidu.tbadk.core.sharedPref.b.tr().getString(new StringBuilder("shared_key_forum_edit_guide_").append(TbadkCoreApplication.getCurrentAccount()).toString(), "").equals(TbConfig.getVersion());
     }
 
     public void L(List<v> list) {
@@ -272,12 +272,12 @@ public class c extends com.baidu.adp.base.e {
                     sb.append(vVar.getId()).append("#");
                 }
             }
-            com.baidu.tbadk.core.sharedPref.b.tu().putString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), sb.toString());
+            com.baidu.tbadk.core.sharedPref.b.tr().putString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), sb.toString());
         }
     }
 
-    public String[] IF() {
-        return com.baidu.tbadk.core.sharedPref.b.tu().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "").split("#");
+    public String[] IB() {
+        return com.baidu.tbadk.core.sharedPref.b.tr().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "").split("#");
     }
 
     public List<v> a(List<v> list, String[] strArr) {
@@ -312,15 +312,15 @@ public class c extends com.baidu.adp.base.e {
         return list;
     }
 
-    public void ak(long j) {
-        com.baidu.tbadk.core.sharedPref.b.tu().putLong("last_close_recommend_time@" + TbadkCoreApplication.getCurrentAccount(), j);
+    public void ai(long j) {
+        com.baidu.tbadk.core.sharedPref.b.tr().putLong("last_close_recommend_time@" + TbadkCoreApplication.getCurrentAccount(), j);
     }
 
-    public long IG() {
-        return com.baidu.tbadk.core.sharedPref.b.tu().getLong("last_close_recommend_time@" + TbadkCoreApplication.getCurrentAccount(), 0L);
+    public long IC() {
+        return com.baidu.tbadk.core.sharedPref.b.tr().getLong("last_close_recommend_time@" + TbadkCoreApplication.getCurrentAccount(), 0L);
     }
 
-    public boolean al(long j) {
+    public boolean aj(long j) {
         return System.currentTimeMillis() - j > TbConfig.APP_OVERDUR_DRAFT_BOX;
     }
 

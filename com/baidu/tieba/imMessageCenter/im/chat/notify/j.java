@@ -27,7 +27,7 @@ public class j implements AdapterView.OnItemLongClickListener {
         imMessageCenterShowItemData = this.bKl.bKa;
         eVar2.c(imMessageCenterShowItemData);
         if (this.bKl.bKf != null) {
-            this.bKl.bKf.sU();
+            this.bKl.bKf.sR();
         }
         return true;
     }

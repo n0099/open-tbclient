@@ -249,10 +249,10 @@ public class a extends ImageView {
         this.aAj = false;
         this.aAb = false;
         this.mMode = 0;
-        EL();
+        EH();
         if (this.azZ < this.azX) {
             this.azZ = this.azX;
-            EM();
+            EI();
         }
     }
 
@@ -307,7 +307,7 @@ public class a extends ImageView {
                                     if (this.azZ < this.azX / 4.0f) {
                                         this.azZ = this.azX / 4.0f;
                                     }
-                                    EM();
+                                    EI();
                                     break;
                                 }
                             }
@@ -374,8 +374,8 @@ public class a extends ImageView {
             this.azW.add(Float.valueOf(this.azX));
             this.azZ = this.azX;
             this.aAa = this.azZ;
-            EM();
-            EK();
+            EI();
+            EG();
             return;
         }
         this.azU = 0.0f;
@@ -396,7 +396,7 @@ public class a extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void EK() {
+    public void EG() {
         if (this.aAe != null) {
             this.aAe.a(this, canZoomIn(), canZoomOut());
         }
@@ -430,7 +430,7 @@ public class a extends ImageView {
         int i3;
         boolean z;
         int i4;
-        if (this.abQ == 2 && this.aAp != 0 && !this.aAg.EQ()) {
+        if (this.abQ == 2 && this.aAp != 0 && !this.aAg.EM()) {
             int width = getWidth();
             int height = getHeight();
             Drawable drawable = getDrawable();
@@ -596,7 +596,7 @@ public class a extends ImageView {
         this.mGestureDetector = new GestureDetector(getContext(), new com.baidu.tbadk.widget.c(this));
     }
 
-    private void EL() {
+    private void EH() {
         int i = 0;
         int scrollX = getScrollX();
         if (this.azU >= getWidth()) {
@@ -646,7 +646,7 @@ public class a extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
-        if (this.aAg.EQ()) {
+        if (this.aAg.EM()) {
             this.aAg.stopAnimation();
         }
         this.aAp = 0;
@@ -662,7 +662,7 @@ public class a extends ImageView {
                 setImageBitmap(bitmap);
                 return;
             }
-            if (this.aAg.EQ()) {
+            if (this.aAg.EM()) {
                 this.aAg.stopAnimation();
             }
             int scrollX = getScrollX();
@@ -675,7 +675,7 @@ public class a extends ImageView {
     }
 
     public void a(byte[] bArr, Bitmap bitmap) {
-        if (this.aAg.EQ()) {
+        if (this.aAg.EM()) {
             this.aAg.stopAnimation();
         }
         super.setImageDrawable(null);
@@ -690,7 +690,7 @@ public class a extends ImageView {
     }
 
     public void onDestroy() {
-        if (this.aAg.EQ()) {
+        if (this.aAg.EM()) {
             this.aAg.stopAnimation();
         }
         super.setImageDrawable(null);
@@ -704,7 +704,7 @@ public class a extends ImageView {
     }
 
     public void release() {
-        if (this.aAg.EQ()) {
+        if (this.aAg.EM()) {
             this.aAg.stopAnimation();
         }
         stop();
@@ -713,7 +713,7 @@ public class a extends ImageView {
     }
 
     public void setDefaultBitmap() {
-        if (this.aAg.EQ()) {
+        if (this.aAg.EM()) {
             this.aAg.stopAnimation();
         }
         if (this.aAr) {
@@ -733,8 +733,8 @@ public class a extends ImageView {
             } else {
                 this.azW.add(Float.valueOf(this.azX));
             }
-            EM();
-            EK();
+            EI();
+            EG();
         }
     }
 
@@ -744,19 +744,19 @@ public class a extends ImageView {
             if (size > 1) {
                 this.azW.remove(size - 1);
             }
-            EM();
-            EK();
+            EI();
+            EG();
         }
     }
 
     public void restoreSize() {
-        EK();
+        EG();
         if (this.abQ != 1 && this.abQ != 2 && this.azZ != this.azX) {
             this.azW.clear();
             this.azW.add(Float.valueOf(this.azX));
             this.azZ = this.azX;
             this.aAa = this.azZ;
-            EM();
+            EI();
         }
     }
 
@@ -786,7 +786,7 @@ public class a extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void EM() {
+    public void EI() {
         e(false, -1, -1);
     }
 
@@ -982,7 +982,7 @@ public class a extends ImageView {
             return false;
         }
 
-        public boolean EQ() {
+        public boolean EM() {
             return this.aAD;
         }
 
@@ -1021,7 +1021,7 @@ public class a extends ImageView {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void EN() {
+    public void EJ() {
         long j;
         c poll = this.aAw.poll();
         if (poll == null) {
@@ -1040,7 +1040,7 @@ public class a extends ImageView {
         this.mHandler.sendEmptyMessageDelayed(2, j > 0 ? j : 0L);
     }
 
-    public c EO() {
+    public c EK() {
         c poll = this.aAx.poll();
         if (poll == null) {
             poll = new c(null);
@@ -1096,14 +1096,14 @@ public class a extends ImageView {
             while (a.this.mState == 1 && a.this.aAl != null && a.this.aAu > 0 && a.this.width > 0 && a.this.height > 0) {
                 try {
                     a.this.aAl.F(a.this.aAy);
-                    c EO = a.this.EO();
-                    if (EO.aAK == null || (EO.aAK.getWidth() != a.this.width && EO.aAK.getHeight() != a.this.height)) {
+                    c EK = a.this.EK();
+                    if (EK.aAK == null || (EK.aAK.getWidth() != a.this.width && EK.aAK.getHeight() != a.this.height)) {
                         try {
-                            EO.aAK = Bitmap.createBitmap(a.this.width, a.this.height, Bitmap.Config.ARGB_8888);
+                            EK.aAK = Bitmap.createBitmap(a.this.width, a.this.height, Bitmap.Config.ARGB_8888);
                         } catch (OutOfMemoryError e) {
                             TbadkCoreApplication.m411getInst().onAppMemoryLow();
                             try {
-                                EO.aAK = Bitmap.createBitmap(a.this.width, a.this.height, Bitmap.Config.ARGB_4444);
+                                EK.aAK = Bitmap.createBitmap(a.this.width, a.this.height, Bitmap.Config.ARGB_4444);
                             } catch (OutOfMemoryError e2) {
                                 TbadkCoreApplication.m411getInst().onAppMemoryLow();
                             } catch (Throwable th) {
@@ -1113,14 +1113,14 @@ public class a extends ImageView {
                             BdLog.e(th2.getMessage());
                         }
                     }
-                    a.this.aAl.a(EO.aAK, null);
-                    EO.delay = a.this.aAl.G(a.this.aAy);
+                    a.this.aAl.a(EK.aAK, null);
+                    EK.delay = a.this.aAl.G(a.this.aAy);
                     a.this.aAy++;
-                    if (EO.aAK == null) {
+                    if (EK.aAK == null) {
                         a.this.aAy++;
                     }
                     a.this.aAy %= a.this.aAu;
-                    a.this.aAw.put(EO);
+                    a.this.aAw.put(EK);
                     if (a.this.aAB) {
                         a.this.mHandler.sendEmptyMessage(1);
                     }
@@ -1131,7 +1131,7 @@ public class a extends ImageView {
         }
     }
 
-    public boolean EP() {
+    public boolean EL() {
         return this.aAq;
     }
 

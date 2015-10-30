@@ -39,7 +39,7 @@ public class f extends CustomMessageListener {
                         if (aVar == null) {
                             return;
                         }
-                        this.dhy.azC();
+                        this.dhy.azy();
                         aVar2 = this.dhy.dgE;
                         int error = customResponsedMessage.getError();
                         String errorString = customResponsedMessage.getErrorString();

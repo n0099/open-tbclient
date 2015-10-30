@@ -15,14 +15,14 @@ class n implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         LinearLayout linearLayout;
-        boolean Zk;
+        boolean Zg;
         AtSelectFriendList.a aVar;
         AtSelectFriendList.a aVar2;
         linearLayout = this.doF.bNb;
         linearLayout.removeView(view);
-        Zk = this.doF.Zk();
-        if (!Zk) {
-            this.doF.Zi();
+        Zg = this.doF.Zg();
+        if (!Zg) {
+            this.doF.Ze();
         }
         aVar = this.doF.doE;
         if (aVar != null) {

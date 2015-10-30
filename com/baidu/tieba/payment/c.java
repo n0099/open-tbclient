@@ -31,7 +31,7 @@ class c extends HttpMessageListener {
         boolean z2;
         PaymentConfirmActivity paymentConfirmActivity = this.ced;
         qVar = this.ced.cdV;
-        paymentConfirmActivity.hideLoadingView(qVar.aev());
+        paymentConfirmActivity.hideLoadingView(qVar.aer());
         if (httpResponsedMessage != null && (httpResponsedMessage instanceof ResponsePaymentConfirmInfoMessage)) {
             ResponsePaymentConfirmInfoMessage responsePaymentConfirmInfoMessage = (ResponsePaymentConfirmInfoMessage) httpResponsedMessage;
             this.ced.paymentConfirmInfoData = responsePaymentConfirmInfoMessage.getPaymentConfirmInfoData();

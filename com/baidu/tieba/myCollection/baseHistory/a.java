@@ -9,22 +9,22 @@ public class a extends com.baidu.tbadk.mvc.model.a<b, BaseActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public Class<b> CO() {
+    public Class<b> CL() {
         return b.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int CP() {
+    public int CM() {
         return CmdConfigCustom.CMD_READ_PB_HISTORY_LIST;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int CQ() {
+    public int CN() {
         return CmdConfigCustom.CMD_WRITE_PB_HISTORY;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public String CA() {
+    public String Cx() {
         return "tb.pb_history";
     }
 }

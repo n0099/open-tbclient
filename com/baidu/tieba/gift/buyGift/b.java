@@ -13,6 +13,6 @@ public class b implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bmC.Qp();
+        this.bmC.Ql();
     }
 }

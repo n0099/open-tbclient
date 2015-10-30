@@ -49,11 +49,11 @@ public class a {
             this.aWW = new PbListView(this.bqh.getPageActivity());
             this.aWW.no();
             this.aWW.cM(i.c.cp_bg_line_c);
-            Rb();
+            QX();
         }
     }
 
-    public void Me() {
+    public void Ma() {
         if (this.aVg != null && this.aWW != null) {
             this.mHasMore = true;
             this.aVg.setNextPage(this.aWW);
@@ -61,31 +61,31 @@ public class a {
         }
     }
 
-    public void Mf() {
+    public void Mb() {
         if (this.aVg != null && this.aWW != null) {
             this.mHasMore = false;
             if (this.aWX > 0) {
                 this.aWW.cO(this.aWX);
             }
             this.aVg.setNextPage(this.aWW);
-            this.aWW.vy();
+            this.aWW.vv();
             this.aWW.setText(this.bqh.getResources().getString(i.h.list_no_more));
         }
     }
 
-    public void Mg() {
+    public void Mc() {
         if (this.aVg != null && this.aWW != null) {
             this.mHasMore = false;
             this.aVg.setNextPage(null);
-            this.aWW.vz();
+            this.aWW.vw();
         }
     }
 
-    public View Ra() {
+    public View QW() {
         return this.bqi;
     }
 
-    private void Rb() {
+    private void QX() {
         an.j(this.bqi, i.c.cp_bg_line_d);
         an.j(this.aVg, i.c.cp_bg_line_d);
         this.aVg.setDividerHeight(0);
@@ -116,23 +116,23 @@ public class a {
         }
     }
 
-    public void Rc() {
+    public void QY() {
         if (this.bqj != null) {
             this.bqj.notifyDataSetChanged();
         }
     }
 
-    public BdTypeListView Rd() {
+    public BdTypeListView QZ() {
         return this.aVg;
     }
 
-    public void Re() {
+    public void Ra() {
         if (this.aVg != null) {
             this.aVg.completePullRefresh();
         }
     }
 
-    public void Rf() {
+    public void Rb() {
         if (this.aVg != null) {
             this.aVg.nw();
         }
@@ -149,13 +149,13 @@ public class a {
         }
     }
 
-    public void Rg() {
+    public void Rc() {
         if (this.aMQ != null && this.aSa != null) {
             this.aMQ.b(this.aSa);
         }
     }
 
-    public void Rh() {
+    public void Rd() {
         if (this.mPullView != null) {
             this.mPullView.a((p.a) null);
         }

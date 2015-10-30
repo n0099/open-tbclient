@@ -44,10 +44,10 @@ public final class n extends LinearLayout {
         an.b(this.aCJ, i.c.cp_cont_f, 1);
         this.bdH.setHintTextColor(an.getColor(i.c.cp_cont_e));
         this.bdH.setPadding(context.getResources().getDimensionPixelSize(i.d.ds20), 0, 0, 0);
-        Od();
+        NZ();
     }
 
-    public void Od() {
+    public void NZ() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();

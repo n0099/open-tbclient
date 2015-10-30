@@ -8,11 +8,11 @@ import tbclient.FoundNew.FoundNewReqIdl;
 public class b implements h {
     private long aKT;
 
-    public void aj(long j) {
+    public void ah(long j) {
         this.aKT = j;
     }
 
-    public long HI() {
+    public long HE() {
         return this.aKT;
     }
 

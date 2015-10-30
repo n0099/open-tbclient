@@ -36,11 +36,11 @@ public class r extends com.baidu.tbadk.editortools.view.a {
         ec(4);
         eb(2);
         a(new s(this));
-        BQ().c(this);
+        BN().c(this);
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
-    public void AG() {
+    public void AD() {
         if (this.aoK != null) {
             this.aoK.clear();
         }

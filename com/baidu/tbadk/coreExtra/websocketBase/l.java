@@ -15,19 +15,19 @@ public class l implements e.b {
     @Override // com.baidu.tbadk.coreExtra.websocketBase.e.b
     public void aW(boolean z) {
         List list;
-        c.zy().dG(z ? 2 : 1);
+        c.zv().dG(z ? 2 : 1);
         if (z) {
-            this.ana.amo = a.zq().zt();
+            this.ana.amo = a.zn().zq();
             list = this.ana.amo;
             if (list != null) {
                 this.ana.eE("change ip to reconnect with DNS' failed.");
                 return;
             } else {
-                a.zq().a(new m(this));
+                a.zn().a(new m(this));
                 return;
             }
         }
         this.ana.amY = false;
-        this.ana.zL();
+        this.ana.zI();
     }
 }

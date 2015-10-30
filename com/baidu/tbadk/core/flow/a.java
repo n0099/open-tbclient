@@ -97,7 +97,7 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
     }
 
-    public void tc() {
+    public void sZ() {
         if (this.Xp != null && this.Xp.size() > 0) {
             Iterator<TbImageView> it = this.Xp.iterator();
             while (it.hasNext()) {

@@ -37,7 +37,7 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
     /* renamed from: com.baidu.tieba.imMessageCenter.im.floatwindow.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0062a {
-        void Yt();
+        void Yp();
     }
 
     public a(Context context) {
@@ -66,18 +66,18 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
         headImageView.setDefaultBgResource(0);
     }
 
-    public boolean YH() {
+    public boolean YD() {
         return this.bLU;
     }
 
-    public com.baidu.tieba.imMessageCenter.im.floatwindow.e Yu() {
+    public com.baidu.tieba.imMessageCenter.im.floatwindow.e Yq() {
         this.bLk.Q(this.bLr);
         return this.bLk;
     }
 
     public void a(Handler handler, boolean z) {
-        if (!Yw()) {
-            Yx();
+        if (!Ys()) {
+            Yt();
             if (handler != null && z) {
                 handler.post(this.bLV);
             }
@@ -108,7 +108,7 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
         this.bLP.setBackgroundResource(i2);
     }
 
-    public void YI() {
+    public void YE() {
         int i;
         int measuredWidth = this.bLr.getMeasuredWidth();
         int i2 = this.bLt.x;
@@ -117,7 +117,7 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
         } else {
             i = 0;
         }
-        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.Yz().a(ap(i2, i));
+        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.Yv().a(ap(i2, i));
     }
 
     public void b(Point point) {
@@ -125,10 +125,10 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
         this.bLT.y = this.bLt.y;
         this.bLU = true;
         setTouchable(false);
-        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.Yz().a(c(point));
+        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.Yv().a(c(point));
     }
 
-    public void YJ() {
+    public void YF() {
         int measuredWidth = this.bLr.getMeasuredWidth();
         boolean z = this.bLT.x != 0;
         boolean z2 = this.bLT.x != this.bLn - measuredWidth;
@@ -141,7 +141,7 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
         }
         this.bLU = true;
         setTouchable(false);
-        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.Yz().a(c(this.bLT));
+        com.baidu.tieba.imMessageCenter.im.floatwindow.a.a.Yv().a(c(this.bLT));
     }
 
     public void E(ArrayList<String> arrayList) {
@@ -181,7 +181,7 @@ public class a extends com.baidu.tieba.imMessageCenter.im.floatwindow.g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation YK() {
+    public Animation YG() {
         if (this.bLQ == null) {
             this.bLQ = AnimationUtils.loadAnimation(TbadkCoreApplication.m411getInst(), i.a.float_window_in_anim);
         }

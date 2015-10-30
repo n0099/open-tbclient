@@ -19,7 +19,7 @@ public class h implements com.baidu.tbadk.core.flow.a.d<com.baidu.tbadk.core.dat
 
     @Override // com.baidu.tbadk.core.flow.a.d
     public void o(int i, String str) {
-        az.uW().b(this.bdn.mContext, new String[]{str});
+        az.uT().b(this.bdn.mContext, new String[]{str});
         String str2 = "";
         if (this.bdn.aVf != null) {
             str2 = this.bdn.aVf.getForumId();

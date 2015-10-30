@@ -57,7 +57,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         return this.mRoot;
     }
 
-    public void vx() {
+    public void vu() {
         this.aer.setVisibility(0);
     }
 
@@ -67,7 +67,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         cN(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    public void vy() {
+    public void vv() {
         this.mProgressBar.setVisibility(8);
         if (this.aep != null) {
             this.mTextView.setText(this.aep);
@@ -148,7 +148,7 @@ public class PbListView extends com.baidu.adp.widget.ListView.c {
         this.aeo.setVisibility(0);
     }
 
-    public void vz() {
+    public void vw() {
         this.aeo.setVisibility(8);
     }
 }

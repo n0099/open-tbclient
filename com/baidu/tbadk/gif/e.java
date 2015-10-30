@@ -19,7 +19,7 @@ public class e extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
         super.a((e) aVar, str, i);
         if (aVar == null) {
             aVar2 = this.atN.atK;
-            aVar2.Cd();
+            aVar2.Ca();
         }
         this.atN.stopLoading();
         this.atN.setGif(aVar);

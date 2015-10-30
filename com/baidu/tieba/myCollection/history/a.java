@@ -4,7 +4,7 @@ import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.tbadkCore.i.a {
     @Override // com.baidu.tieba.tbadkCore.i.a
-    public int adJ() {
+    public int adF() {
         return i.e.icon_home_history;
     }
 }

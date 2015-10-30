@@ -16,7 +16,7 @@ class ar implements a.b {
         com.baidu.tieba.setting.model.j jVar;
         this.cOP.showLoadingDialog(this.cOP.getPageContext().getString(i.h.deleting));
         jVar = this.cOP.cON;
-        jVar.arr();
+        jVar.arn();
         aVar.dismiss();
     }
 }

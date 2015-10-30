@@ -52,7 +52,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                         PayVcodeActivity.this.cdG = payNewVcodeInfoData.getCaptcha_vcode_str();
                         PayVcodeActivity.this.mVcodeUrl = payNewVcodeInfoData.getVcode_pic_url();
                         PayVcodeActivity.this.cdH = payNewVcodeInfoData.getCaptcha_code_type();
-                        PayVcodeActivity.this.aeg();
+                        PayVcodeActivity.this.aec();
                         return;
                     }
                     String errorString = responsePayNewVcodeInfoMessage.getErrorString();
@@ -76,14 +76,14 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         setActivityBgTransparent();
         initData(bundle);
         initUI();
-        AJ();
+        AG();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
         if (z && !this.bmw) {
-            Qm();
+            Qi();
         }
     }
 
@@ -98,7 +98,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 super.handleMessage(message);
                 switch (message.what) {
                     case 1:
-                        PayVcodeActivity.this.aei();
+                        PayVcodeActivity.this.aee();
                         return;
                     case 2:
                         PayVcodeActivity.this.showToast(i.h.payment_vcode_error);
@@ -113,26 +113,26 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         };
     }
 
-    private void AJ() {
-        this.cdE.aek();
+    private void AG() {
+        this.cdE.aeg();
         registerListener(this.cdM);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aef() {
+    public void aeb() {
         this.cdF.da(true);
         this.cdF.getWebView().loadUrl(this.mUrl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aeg() {
+    public void aec() {
         if (!StringUtils.isNull(this.cdJ)) {
             this.cdF.getWebView().loadUrl("javascript:" + this.cdJ + "()");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aeh() {
+    public void aed() {
         if (!StringUtils.isNull(this.cdK) && this.cdL) {
             this.cdF.getWebView().loadUrl("javascript:" + this.cdK + "()");
         }
@@ -156,13 +156,13 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
 
     private void initUI() {
         this.cdF = new b(this);
-        this.cdF.ael().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.3
+        this.cdF.aeh().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PayVcodeActivity.this.aeh();
+                PayVcodeActivity.this.aed();
             }
         });
-        this.cdF.aem().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.4
+        this.cdF.aei().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!PayVcodeActivity.this.cdL) {
@@ -181,7 +181,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 PayVcodeActivity.this.cdF.eg(PayVcodeActivity.this.cdL ? false : true);
             }
         });
-        this.cdF.aen().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
+        this.cdF.aej().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PayVcodeActivity.this.ef(false);
@@ -190,9 +190,9 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aei() {
+    public void aee() {
         this.cdF.da(true);
-        this.cdE.aej();
+        this.cdE.aef();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -200,11 +200,11 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         ef(true);
     }
 
-    public void Qm() {
-        this.cdF.aen().setBackgroundColor(an.getColor(i.c.album_list_window_bg));
+    public void Qi() {
+        this.cdF.aej().setBackgroundColor(an.getColor(i.c.album_list_window_bg));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
         alphaAnimation.setDuration(300L);
-        this.cdF.aen().startAnimation(alphaAnimation);
+        this.cdF.aej().startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), i.a.bottom_fold_up);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
@@ -219,19 +219,19 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                PayVcodeActivity.this.aef();
+                PayVcodeActivity.this.aeb();
             }
         });
-        this.cdF.aeo().startAnimation(loadAnimation);
+        this.cdF.aek().startAnimation(loadAnimation);
         this.bmw = true;
     }
 
     public void ef(final boolean z) {
-        this.cdF.aen().setBackgroundColor(an.getColor(i.c.album_list_window_bg));
+        this.cdF.aej().setBackgroundColor(an.getColor(i.c.album_list_window_bg));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
         alphaAnimation.setDuration(300L);
         alphaAnimation.setFillAfter(true);
-        this.cdF.aen().startAnimation(alphaAnimation);
+        this.cdF.aej().startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), i.a.bottom_fold_down);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
@@ -255,7 +255,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 PayVcodeActivity.this.closeActivity();
             }
         });
-        this.cdF.aeo().startAnimation(loadAnimation);
+        this.cdF.aek().startAnimation(loadAnimation);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback

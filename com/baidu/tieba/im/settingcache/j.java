@@ -12,7 +12,7 @@ public class j extends a {
     private j() {
     }
 
-    public static j Xj() {
+    public static j Xf() {
         return bHI;
     }
 
@@ -44,7 +44,7 @@ public class j extends a {
         return personalSettingItemData;
     }
 
-    public void TE() {
+    public void TA() {
         super.l(PersonalSettingItemData.class);
     }
 
@@ -59,8 +59,8 @@ public class j extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.settingcache.a
-    public o<String> Xf() {
-        return com.baidu.tbadk.core.b.a.sO().cr("tb.im_personal_chat_setting");
+    public o<String> Xb() {
+        return com.baidu.tbadk.core.b.a.sL().cr("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -75,13 +75,13 @@ public class j extends a {
                 }
                 return;
             }
-            o<String> Xf = Xf();
+            o<String> Xb = Xb();
             String str = String.valueOf(myUid) + "@" + toUid;
             String jsonStrWithObject = com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(personalSettingItemData);
             synchronized (this.bHx) {
                 this.bHx.put(str, personalSettingItemData);
             }
-            Xf.f(str, jsonStrWithObject);
+            Xb.f(str, jsonStrWithObject);
         }
     }
 

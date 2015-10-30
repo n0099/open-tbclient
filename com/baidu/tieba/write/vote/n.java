@@ -43,47 +43,47 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
     private int mCurrentTab;
     private NavigationBar mNavigationBar;
 
-    public View aCI() {
+    public View aCE() {
         return this.dnX;
     }
 
-    public TextView aCJ() {
+    public TextView aCF() {
         return this.dmF;
     }
 
-    public View aCK() {
+    public View aCG() {
         return this.dmE;
     }
 
-    public EditText aCL() {
+    public EditText aCH() {
         return this.dmz;
     }
 
-    public EditText aCM() {
+    public EditText aCI() {
         return this.dmD;
     }
 
-    public BdSwitchView aCN() {
+    public BdSwitchView aCJ() {
         return this.doh;
     }
 
-    public c aCO() {
+    public c aCK() {
         return this.doe;
     }
 
-    public TextView aCP() {
+    public TextView aCL() {
         return this.dod;
     }
 
-    public View aCQ() {
+    public View aCM() {
         return this.dog;
     }
 
-    public ArrayList<g> aCR() {
+    public ArrayList<g> aCN() {
         return this.doi;
     }
 
-    public ArrayList<g> aCS() {
+    public ArrayList<g> aCO() {
         return this.doj;
     }
 
@@ -100,7 +100,7 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
         this.dnC = writeVoteActivity;
         initView();
         initListener();
-        aCT();
+        aCP();
         gt(this.mCurrentTab);
     }
 
@@ -181,7 +181,7 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
         }
     }
 
-    private void aCT() {
+    private void aCP() {
         this.doi.add(new g(this.dnC, 0));
         this.doi.add(new g(this.dnC, 0));
         this.doj.add(new g(this.dnC, 1));
@@ -201,7 +201,7 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
 
     public void gt(int i) {
         this.mCurrentTab = i;
-        aCV();
+        aCR();
         if (this.mCurrentTab == 0) {
             aj(this.doi);
         } else if (this.mCurrentTab == 1) {
@@ -209,7 +209,7 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
         }
     }
 
-    private void aCU() {
+    private void aCQ() {
         if (this.mCurrentTab == 0) {
             if (this.doi.size() >= 10) {
                 this.dog.setVisibility(8);
@@ -238,14 +238,14 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
                     }
                     i = i2 + 1;
                 } else {
-                    aCU();
+                    aCQ();
                     return;
                 }
             }
         }
     }
 
-    private void aCV() {
+    private void aCR() {
         if (this.dob != null && this.doc != null) {
             if (this.mCurrentTab == 0) {
                 an.b(this.dob, i.c.cp_link_tip_c, 3);
@@ -268,7 +268,7 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
             this.doj.add(gVar);
             this.dof.addView(gVar.getView());
         }
-        aCU();
+        aCQ();
         return gVar;
     }
 
@@ -287,7 +287,7 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
         gVar.a(imageFileInfo, aVar);
         this.doi.add(gVar);
         this.dof.addView(gVar.getView());
-        aCU();
+        aCQ();
         return gVar;
     }
 
@@ -309,7 +309,7 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
                 return;
             }
         }
-        aCU();
+        aCQ();
     }
 
     private g bL(List<g> list) {
@@ -317,7 +317,7 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
             return null;
         }
         for (g gVar : list) {
-            if (!gVar.aCA()) {
+            if (!gVar.aCw()) {
                 return gVar;
             }
         }
@@ -390,6 +390,6 @@ public class n extends com.baidu.adp.base.f<WriteVoteActivity> {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
         an.i((View) this.dmE, i.e.s_navbar_button_bg);
-        aCV();
+        aCR();
     }
 }

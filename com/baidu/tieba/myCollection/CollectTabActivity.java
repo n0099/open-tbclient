@@ -41,8 +41,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cbn.adq()) {
-            this.cbn.dW(!this.cbn.adr());
+        if (view == this.cbn.adm()) {
+            this.cbn.dW(!this.cbn.adn());
         }
     }
 
@@ -50,9 +50,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment adp = this.cbn.adp();
-        if (adp != null) {
-            adp.onActivityResult(i, i2, intent);
+        Fragment adl = this.cbn.adl();
+        if (adl != null) {
+            adl.onActivityResult(i, i2, intent);
         }
     }
 

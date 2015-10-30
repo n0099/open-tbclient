@@ -49,6 +49,6 @@ public class p implements ea {
     }
 
     @Override // com.baidu.tieba.frs.ea
-    public void Ku() {
+    public void Kq() {
     }
 }

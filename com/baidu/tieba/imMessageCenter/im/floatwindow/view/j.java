@@ -28,11 +28,11 @@ public class j implements View.OnLongClickListener {
         relativeLayout.getLocationOnScreen(iArr);
         int i2 = iArr[0];
         relativeLayout2 = this.bMs.bMk;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.b Yh = com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yh();
+        com.baidu.tieba.imMessageCenter.im.floatwindow.b Yd = com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yd();
         headImageView = this.bMs.aHW;
         String url = headImageView.getUrl();
         i = this.bMs.bMo;
-        Yh.a(i2 + relativeLayout2.getMeasuredWidth(), iArr[1] - 25, url, i);
+        Yd.a(i2 + relativeLayout2.getMeasuredWidth(), iArr[1] - 25, url, i);
         this.bMs.bMp = true;
         headImageView2 = this.bMs.aHW;
         headImageView2.setVisibility(4);

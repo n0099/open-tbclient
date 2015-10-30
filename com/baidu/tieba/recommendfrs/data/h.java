@@ -12,7 +12,7 @@ public class h implements com.baidu.tbadk.mvc.b.h {
     private int cJa;
     private String tag;
 
-    public String aqo() {
+    public String aqk() {
         return this.tag;
     }
 
@@ -28,7 +28,7 @@ public class h implements com.baidu.tbadk.mvc.b.h {
         this.cJa = i;
     }
 
-    public int aqu() {
+    public int aqq() {
         return this.cJa;
     }
 
@@ -45,7 +45,7 @@ public class h implements com.baidu.tbadk.mvc.b.h {
         builder.scr_h = Integer.valueOf(k.L(TbadkCoreApplication.m411getInst()));
         builder.scr_dip = Double.valueOf(k.M(TbadkCoreApplication.m411getInst()));
         builder.tag = this.tag;
-        builder.q_type = Integer.valueOf(at.uJ().uL() ? 2 : 1);
+        builder.q_type = Integer.valueOf(at.uG().uI() ? 2 : 1);
         builder.forder = Integer.valueOf(this.cIN);
         FinefrspageReqIdl.Builder builder2 = new FinefrspageReqIdl.Builder();
         builder2.data = builder.build(false);

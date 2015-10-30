@@ -14,8 +14,8 @@ public class y implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         int[] iArr = new int[2];
-        if (this.cYa != null && this.cYa.Ax() != null) {
-            this.cYa.Ax().getLocationInWindow(iArr);
+        if (this.cYa != null && this.cYa.Au() != null) {
+            this.cYa.Au().getLocationInWindow(iArr);
             this.cYb.setSelectionFromTop(this.position + this.cYb.getHeaderViewsCount(), ((iArr[1] - this.distance) - this.cYc) - com.baidu.adp.lib.util.k.l(this.aID));
             this.cYb.invalidate();
         }

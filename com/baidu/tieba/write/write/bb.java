@@ -14,6 +14,6 @@ public class bb implements DialogInterface.OnCancelListener {
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
         this.dqi.destroyWaitingDialog();
-        this.dqi.aCb();
+        this.dqi.aBX();
     }
 }

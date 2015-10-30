@@ -63,8 +63,8 @@ public class ac extends LinearLayout implements View.OnClickListener {
             if (fVar.getType() == 0) {
                 setVisibility(0);
                 this.aNC.setText(fVar.getForumName());
-                this.aND.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.attention_n)) + fd(fVar.Id()));
-                this.aNE.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.text_post)) + fd(fVar.Ie()));
+                this.aND.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.attention_n)) + fd(fVar.HZ()));
+                this.aNE.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.text_post)) + fd(fVar.Ia()));
                 this.aNF.setText(fVar.getSlogan());
                 if (!StringUtils.isNULL(fVar.getAvatar())) {
                     this.aNB.d(fVar.getAvatar(), 10, false);

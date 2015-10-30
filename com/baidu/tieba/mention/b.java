@@ -50,7 +50,7 @@ public class b extends com.baidu.tbadk.mvc.g.a<FeedData, com.baidu.tbadk.mvc.d.b
                 this.aTj.setImageResource(i.e.photo);
             }
         }
-        this.aPX.setText(com.baidu.tbadk.core.util.as.o(feedData.getTime()));
+        this.aPX.setText(com.baidu.tbadk.core.util.as.m(feedData.getTime()));
         this.cah.setText(feedData.getContent());
     }
 

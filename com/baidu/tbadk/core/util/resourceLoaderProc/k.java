@@ -23,12 +23,12 @@ public class k extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vl() {
+    public boolean vi() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vm() {
+    public boolean vj() {
         return false;
     }
 

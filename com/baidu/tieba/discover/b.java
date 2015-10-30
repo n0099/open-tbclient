@@ -23,10 +23,10 @@ public class b extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
             dVar = this.aKG.aKt;
-            List<D> Dm = dVar.Dm();
-            if (Dm != 0 && !Dm.isEmpty()) {
-                for (D d : Dm) {
-                    if (d != null && "discover_game_center".equals(d.HN())) {
+            List<D> Dj = dVar.Dj();
+            if (Dj != 0 && !Dj.isEmpty()) {
+                for (D d : Dj) {
+                    if (d != null && "discover_game_center".equals(d.HJ())) {
                         d.bH(booleanValue);
                         dVar2 = this.aKG.aKt;
                         dVar2.A(d);

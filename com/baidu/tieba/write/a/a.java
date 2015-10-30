@@ -120,11 +120,11 @@ public class a extends LinearLayout implements w {
                     this.dlC = 0;
                     break;
             }
-            aBM();
+            aBI();
         }
     }
 
-    private void aBM() {
+    private void aBI() {
         if (this.dlz > 0) {
             this.dlv.setVisibility(0);
             this.dlv.setText(String.valueOf(this.dlz));
@@ -178,20 +178,20 @@ public class a extends LinearLayout implements w {
     @Override // com.baidu.tbadk.editortools.w
     public void onChangeSkinType(int i) {
         if (this.dlu != null) {
-            this.dlu.vA();
+            this.dlu.vx();
         }
         if (this.dlv != null) {
-            this.dlv.vA();
+            this.dlv.vx();
         }
         if (this.dlw != null) {
-            this.dlw.vA();
+            this.dlw.vx();
         }
         if (this.dlx != null) {
-            this.dlx.vA();
+            this.dlx.vx();
             this.dlx.setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_posts_camers_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         }
         if (this.dly != null) {
-            this.dly.vA();
+            this.dly.vx();
             this.dly.setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_posts_microphone_gray), (Drawable) null, (Drawable) null, (Drawable) null);
         }
     }

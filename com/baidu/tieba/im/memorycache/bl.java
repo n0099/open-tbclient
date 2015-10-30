@@ -20,13 +20,13 @@ public class bl implements CustomMessageTask.CustomRunnable<String> {
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         if (customMessage != null && (customMessage instanceof CustomMessage)) {
             try {
-                com.baidu.tieba.im.db.g.TJ().TK();
-                com.baidu.tieba.im.db.i.TO().E(this.bEQ, 1);
-                com.baidu.tieba.im.db.c.TF().hG(this.bEQ);
+                com.baidu.tieba.im.db.g.TF().TG();
+                com.baidu.tieba.im.db.i.TK().E(this.bEQ, 1);
+                com.baidu.tieba.im.db.c.TB().hG(this.bEQ);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             } finally {
-                com.baidu.tieba.im.db.g.TJ().endTransaction();
+                com.baidu.tieba.im.db.g.TF().endTransaction();
             }
         }
         return null;

@@ -14,16 +14,16 @@ class ab implements p.a {
 
     @Override // com.baidu.tbadk.core.view.p.a
     public void onListPullRefresh(boolean z) {
-        PersonBarActivity ais;
-        PersonBarActivity ais2;
-        PersonBarActivity ais3;
-        ais = this.cpq.ais();
-        if (ais != null) {
+        PersonBarActivity aio;
+        PersonBarActivity aio2;
+        PersonBarActivity aio3;
+        aio = this.cpq.aio();
+        if (aio != null) {
             this.cpq.cpd = 1;
-            ais2 = this.cpq.ais();
-            if (ais2 != null) {
-                ais3 = this.cpq.ais();
-                if (ais3.getRequestCode() == 23011) {
+            aio2 = this.cpq.aio();
+            if (aio2 != null) {
+                aio3 = this.cpq.aio();
+                if (aio3.getRequestCode() == 23011) {
                     RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
                     requestGetLivableForumList.setGetLikeForum(1);
                     requestGetLivableForumList.setPageNo(this.cpq.cpd);
@@ -33,7 +33,7 @@ class ab implements p.a {
                     return;
                 }
             }
-            this.cpq.Ko();
+            this.cpq.Kk();
         }
     }
 }

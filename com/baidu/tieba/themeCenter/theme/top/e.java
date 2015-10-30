@@ -37,7 +37,7 @@ public class e extends com.baidu.adp.framework.listener.a {
                 if (aVar == null) {
                     return;
                 }
-                this.dhy.azC();
+                this.dhy.azy();
                 aVar2 = this.dhy.dgE;
                 int error = responsedMessage.getError();
                 String errorString = responsedMessage.getErrorString();

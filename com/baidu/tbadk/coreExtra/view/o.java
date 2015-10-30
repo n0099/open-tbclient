@@ -28,7 +28,7 @@ public class o {
         this.akE = i;
     }
 
-    public int yS() {
+    public int yP() {
         return this.akE;
     }
 
@@ -36,7 +36,7 @@ public class o {
         this.akF = z;
     }
 
-    public boolean yT() {
+    public boolean yQ() {
         return this.akF;
     }
 
@@ -44,7 +44,7 @@ public class o {
         this.labelId = str;
     }
 
-    public String yU() {
+    public String yR() {
         return this.labelId;
     }
 
@@ -52,7 +52,7 @@ public class o {
         this.akH = z;
     }
 
-    public boolean yV() {
+    public boolean yS() {
         return this.akH;
     }
 
@@ -60,12 +60,12 @@ public class o {
         this.akI = onGlobalLayoutListener;
     }
 
-    public ViewTreeObserver.OnGlobalLayoutListener yW() {
+    public ViewTreeObserver.OnGlobalLayoutListener yT() {
         return this.akI;
     }
 
     public SpannableStringBuilder ak(String str, String str2) {
-        String str3 = String.valueOf(str) + "(" + as.s(com.baidu.adp.lib.g.b.c(str2, 0L)) + ")";
+        String str3 = String.valueOf(str) + "(" + as.q(com.baidu.adp.lib.g.b.c(str2, 0L)) + ")";
         if (com.baidu.adp.lib.g.b.c(str2, 0L) > 0) {
             str = str3;
         }

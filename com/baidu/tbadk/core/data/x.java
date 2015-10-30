@@ -13,7 +13,7 @@ public class x {
     private long Wf;
     private String summary;
 
-    public String sf() {
+    public String sc() {
         return this.Wa;
     }
 
@@ -21,15 +21,15 @@ public class x {
         return this.summary;
     }
 
-    public String sH() {
+    public String sE() {
         return this.Wc;
     }
 
-    public int sI() {
+    public int sF() {
         return this.Wd;
     }
 
-    public String sJ() {
+    public String sG() {
         return this.We;
     }
 

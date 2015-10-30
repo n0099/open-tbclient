@@ -14,7 +14,7 @@ public class c implements b {
 
     /* loaded from: classes.dex */
     public interface a {
-        void Yt();
+        void Yp();
 
         void a(Point point);
     }
@@ -28,33 +28,33 @@ public class c implements b {
         if (!this.bLz.equals(this.bLy)) {
             switch (this.bLD) {
                 case 0:
-                    YA();
+                    Yw();
                     break;
                 case 1:
-                    YC();
+                    Yy();
                     break;
                 case 2:
-                    YB();
+                    Yx();
                     break;
                 case 3:
-                    YD();
+                    Yz();
                     break;
                 case 4:
-                    YE();
+                    YA();
                     break;
                 case 5:
-                    YF();
+                    YB();
                     break;
             }
             return false;
         }
         if (this.bLC != null) {
-            this.bLC.Yt();
+            this.bLC.Yp();
         }
         return true;
     }
 
-    private void YA() {
+    private void Yw() {
         this.bLz.y += this.bLB;
         if (this.bLz.y > this.bLy.y) {
             this.bLz.y = this.bLy.y;
@@ -64,7 +64,7 @@ public class c implements b {
         }
     }
 
-    private void YB() {
+    private void Yx() {
         this.bLz.x += this.bLA;
         if (this.bLz.x > this.bLy.x) {
             this.bLz.x = this.bLy.x;
@@ -74,7 +74,7 @@ public class c implements b {
         }
     }
 
-    private void YC() {
+    private void Yy() {
         this.bLz.y -= this.bLB;
         if (this.bLz.y < this.bLy.y) {
             this.bLz.y = this.bLy.y;
@@ -84,7 +84,7 @@ public class c implements b {
         }
     }
 
-    private void YD() {
+    private void Yz() {
         this.bLz.x -= this.bLA;
         if (this.bLz.x < this.bLy.x) {
             this.bLz.x = this.bLy.x;
@@ -94,7 +94,7 @@ public class c implements b {
         }
     }
 
-    private void YE() {
+    private void YA() {
         this.bLz.x -= this.bLA;
         this.bLz.y = hG(this.bLz.x);
         if (this.bLz.x < this.bLy.x && this.bLz.y < this.bLy.y) {
@@ -106,7 +106,7 @@ public class c implements b {
         }
     }
 
-    private void YF() {
+    private void YB() {
         this.bLz.x += this.bLA;
         this.bLz.y = hG(this.bLz.x);
         if (this.bLz.x > this.bLy.x && this.bLz.y > this.bLy.y) {

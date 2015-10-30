@@ -22,7 +22,7 @@ public class ac implements TbImageView.a {
         BannerView bannerView2;
         if (z) {
             bannerView = this.aZW.aKs;
-            if (bannerView.yJ()) {
+            if (bannerView.yG()) {
                 z2 = this.aZW.aWT;
                 if (!z2) {
                     bdTypeListView = this.aZW.aWD;

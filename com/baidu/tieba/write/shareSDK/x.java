@@ -13,7 +13,7 @@ class x implements TextWatcher {
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.dmR.aCj();
+        this.dmR.aCf();
     }
 
     @Override // android.text.TextWatcher

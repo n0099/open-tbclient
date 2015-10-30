@@ -21,12 +21,12 @@ public class q extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        boolean ayY;
+        boolean ayZ;
+        boolean aza;
+        boolean azb;
         boolean azc;
         boolean azd;
-        boolean aze;
-        boolean azf;
-        boolean azg;
-        boolean azh;
         b bVar;
         b bVar2;
         b bVar3;
@@ -43,8 +43,8 @@ public class q extends CustomMessageListener {
         b bVar14;
         if (customResponsedMessage != null && (customResponsedMessage instanceof LeftNaviScanMessage) && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof LeftNaviScanMessage.a)) {
             ArrayList arrayList = new ArrayList();
-            azc = this.dej.azc();
-            if (azc) {
+            ayY = this.dej.ayY();
+            if (ayY) {
                 bVar13 = this.dej.deg;
                 if (bVar13 != null) {
                     p pVar = this.dej;
@@ -52,8 +52,8 @@ public class q extends CustomMessageListener {
                     pVar.b(bVar14, arrayList);
                 }
             }
-            azd = this.dej.azd();
-            if (azd) {
+            ayZ = this.dej.ayZ();
+            if (ayZ) {
                 bVar11 = this.dej.dec;
                 if (bVar11 != null) {
                     p pVar2 = this.dej;
@@ -61,8 +61,8 @@ public class q extends CustomMessageListener {
                     pVar2.b(bVar12, arrayList);
                 }
             }
-            aze = this.dej.aze();
-            if (aze) {
+            aza = this.dej.aza();
+            if (aza) {
                 bVar9 = this.dej.ded;
                 if (bVar9 != null) {
                     p pVar3 = this.dej;
@@ -70,11 +70,11 @@ public class q extends CustomMessageListener {
                     pVar3.b(bVar10, arrayList);
                 }
             }
-            azf = this.dej.azf();
-            if (azf) {
+            azb = this.dej.azb();
+            if (azb) {
                 bVar6 = this.dej.dee;
                 if (bVar6 != null) {
-                    boolean z = com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("show_my_new_icon" + TbadkCoreApplication.getCurrentAccount(), true);
+                    boolean z = com.baidu.tbadk.core.sharedPref.b.tr().getBoolean("show_my_new_icon" + TbadkCoreApplication.getCurrentAccount(), true);
                     bVar7 = this.dej.dee;
                     bVar7.lp(z ? 1 : 0);
                     p pVar4 = this.dej;
@@ -82,11 +82,11 @@ public class q extends CustomMessageListener {
                     pVar4.b(bVar8, arrayList);
                 }
             }
-            azg = this.dej.azg();
-            if (azg) {
+            azc = this.dej.azc();
+            if (azc) {
                 bVar3 = this.dej.def;
                 if (bVar3 != null) {
-                    boolean z2 = com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("show_member_new_icon_" + TbadkCoreApplication.m411getInst().getVersionCode() + TbadkCoreApplication.getCurrentAccount(), true);
+                    boolean z2 = com.baidu.tbadk.core.sharedPref.b.tr().getBoolean("show_member_new_icon_" + TbadkCoreApplication.m411getInst().getVersionCode() + TbadkCoreApplication.getCurrentAccount(), true);
                     bVar4 = this.dej.def;
                     bVar4.lp(z2 ? 1 : 0);
                     p pVar5 = this.dej;
@@ -94,8 +94,8 @@ public class q extends CustomMessageListener {
                     pVar5.b(bVar5, arrayList);
                 }
             }
-            azh = this.dej.azh();
-            if (azh) {
+            azd = this.dej.azd();
+            if (azd) {
                 bVar = this.dej.deh;
                 if (bVar != null) {
                     p pVar6 = this.dej;

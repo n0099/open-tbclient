@@ -13,7 +13,7 @@ public interface a {
 
     int getCurrentTabType();
 
-    Class<?> tn();
+    Class<?> tk();
 
-    String to();
+    String tl();
 }

@@ -60,7 +60,7 @@ public final class Invite2GroupView extends LinearLayout {
         this.bJg.d(this.bJj.getPortrait(), 10, false);
         this.bJh.setText(this.bJj.getNotice());
         setOnClickListener(new b(this, tbPageContext));
-        if (com.baidu.tieba.im.memorycache.b.VW().J(String.valueOf(this.bJj.getGroupId()), 1) != null) {
+        if (com.baidu.tieba.im.memorycache.b.VS().J(String.valueOf(this.bJj.getGroupId()), 1) != null) {
             if (String.valueOf(this.bJj.getGroupId()).equals(this.bJi.getTag())) {
                 this.bJi.setText(i.h.i_want_talk);
                 this.bJi.setOnClickListener(new c(this));
@@ -68,6 +68,6 @@ public final class Invite2GroupView extends LinearLayout {
             }
             return;
         }
-        com.baidu.tieba.im.settingcache.c.Xg().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.bJj.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this, tbPageContext));
+        com.baidu.tieba.im.settingcache.c.Xc().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.bJj.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this, tbPageContext));
     }
 }

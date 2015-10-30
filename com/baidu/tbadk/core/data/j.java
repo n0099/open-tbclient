@@ -12,11 +12,11 @@ public class j {
     private int mType;
     private String mValue;
 
-    public int rB() {
+    public int ry() {
         return this.UN;
     }
 
-    public String rC() {
+    public String rz() {
         return this.UO;
     }
 

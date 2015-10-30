@@ -31,13 +31,13 @@ public class k implements a.InterfaceC0040a {
         this.cdn.closeLoadingDialog();
         if (!TextUtils.isEmpty(accountData.getAccount())) {
             p(accountData);
-            this.cdn.FX();
+            this.cdn.FT();
             i = this.cdn.mFrom;
             if (i != 4) {
-                this.cdn.adY();
+                this.cdn.adU();
                 return;
             } else {
-                this.cdn.FY();
+                this.cdn.FU();
                 return;
             }
         }

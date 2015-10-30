@@ -29,7 +29,7 @@ public class q extends CustomMessageListener {
                 return;
             }
             uVar = this.cbV.cbU;
-            uVar.MW();
+            uVar.MS();
             uVar2 = this.cbV.cbU;
             uVar2.completePullRefresh();
             uVar3 = this.cbV.cbU;

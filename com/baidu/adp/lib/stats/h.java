@@ -61,7 +61,7 @@ public class h {
             a aVar3 = new a(this, null);
             aVar3.C(false);
             aVar3.B(false);
-            aVar3.g(currentTimeMillis);
+            aVar3.e(currentTimeMillis);
             this.wv.put(str, aVar3);
             aVar = aVar3;
         } else {
@@ -83,14 +83,14 @@ public class h {
             }
             aVar.C(false);
             aVar.X(0);
-            aVar.g(currentTimeMillis);
+            aVar.e(currentTimeMillis);
             return false;
         } else if (currentTimeMillis - aVar.hE() < bVar.hG()) {
             aVar.C(true);
-            aVar.f(currentTimeMillis);
+            aVar.d(currentTimeMillis);
             return false;
         } else {
-            aVar.g(currentTimeMillis);
+            aVar.e(currentTimeMillis);
             return false;
         }
     }
@@ -134,7 +134,7 @@ public class h {
             return this.wC;
         }
 
-        public void f(long j) {
+        public void d(long j) {
             this.wC = j;
         }
 
@@ -150,7 +150,7 @@ public class h {
             return this.wz;
         }
 
-        public void g(long j) {
+        public void e(long j) {
             this.wz = j;
         }
 

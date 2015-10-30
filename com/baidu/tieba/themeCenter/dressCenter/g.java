@@ -33,7 +33,7 @@ public class g implements AdapterView.OnItemClickListener {
         cVar = this.dgo.dgn;
         j item = cVar.getItem(i);
         if (item != null) {
-            com.baidu.tbadk.core.sharedPref.b.tu().putLong("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), System.currentTimeMillis() / 1000);
+            com.baidu.tbadk.core.sharedPref.b.tr().putLong("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), System.currentTimeMillis() / 1000);
             cVar2 = this.dgo.dgn;
             cVar2.notifyDataSetChanged();
             if (!StringUtils.isNull(item.getType())) {
@@ -47,9 +47,9 @@ public class g implements AdapterView.OnItemClickListener {
                     dressupCenterActivity2 = this.dgo.dgm;
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropGroupActivityConfig(dressupCenterActivity2.getActivity())));
                 } else {
-                    az uW = az.uW();
+                    az uT = az.uT();
                     dressupCenterActivity = this.dgo.dgm;
-                    uW.b(dressupCenterActivity.getPageContext(), new String[]{type});
+                    uT.b(dressupCenterActivity.getPageContext(), new String[]{type});
                 }
             }
         }

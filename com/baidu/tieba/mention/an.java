@@ -23,7 +23,7 @@ public class an implements AbsListView.OnScrollListener {
             nVar = this.caZ.caU;
             if (nVar != null) {
                 nVar2 = this.caZ.caU;
-                nVar2.BM();
+                nVar2.BJ();
             }
         }
     }

@@ -64,11 +64,11 @@ public class b implements a.InterfaceC0081a {
                     jVar4.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                 }
             }
-            this.dnn.aCx();
+            this.dnn.aCt();
             baseActivity = this.dnn.dnk;
             linkedList4 = this.dnn.chosedFiles;
             ((WriteActivity) baseActivity).n(linkedList4);
-            this.dnn.aCu();
+            this.dnn.aCq();
             this.dnn.notifyDataSetChanged();
             gridView = this.dnn.mGridView;
             gridView.invalidateViews();

@@ -80,7 +80,7 @@ public class TbListTextView extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.ES();
+        return a.EO();
     }
 
     private boolean c(CharSequence charSequence, int i) {
@@ -135,7 +135,7 @@ public class TbListTextView extends TextView {
             return new a(true, list, list2);
         }
 
-        public static a ES() {
+        public static a EO() {
             return new a(false, null, null);
         }
 

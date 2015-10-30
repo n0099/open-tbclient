@@ -36,9 +36,9 @@ public class d implements ea {
                 this.baz.pn = ecVar.pn;
                 gK(ecVar.forumId);
             } else if (ecVar.pn == this.bax && !this.baw) {
-                MY();
+                MU();
             } else {
-                c(com.baidu.adp.lib.g.b.c(ecVar.forumId, 0L), true);
+                a(com.baidu.adp.lib.g.b.c(ecVar.forumId, 0L), true);
             }
         }
     }
@@ -51,11 +51,11 @@ public class d implements ea {
     @Override // com.baidu.tieba.frs.ea
     public void init() {
         registerListener();
-        BZ();
+        BW();
     }
 
     @Override // com.baidu.tieba.frs.ea
-    public void Ku() {
+    public void Kq() {
         unRegisterListener();
     }
 
@@ -63,7 +63,7 @@ public class d implements ea {
         MessageManager.getInstance().sendMessage(new FrsHotThreadRequestCacheMessage(str));
     }
 
-    private void MY() {
+    private void MU() {
         if (this.bay != null) {
             if (this.baA == null || this.baA.size() == 0) {
                 this.baz.aZb = false;
@@ -75,7 +75,7 @@ public class d implements ea {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(long j, boolean z) {
+    public void a(long j, boolean z) {
         MessageManager.getInstance().sendMessage(new RequestFrsHotThreadMessage(j, this.baz.pn));
     }
 
@@ -89,7 +89,7 @@ public class d implements ea {
         MessageManager.getInstance().unRegisterListener(this.baB);
     }
 
-    private void BZ() {
+    private void BW() {
         com.baidu.tieba.tbadkCore.a.a.a(301003, ResponsedFrsHotSocketMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(301003, CmdConfigHttp.FRS_HOT_TAB_CMD, TbConfig.GET_FRS_HOT, ResponsedFrsHotHttpMessage.class, false, false, false, false);
         com.baidu.tieba.tbadkCore.a.a.b(CmdConfigCustom.CMD_FRS_HOT_CACHE, b.class);

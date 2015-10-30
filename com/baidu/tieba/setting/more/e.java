@@ -34,9 +34,9 @@ class e extends com.baidu.adp.framework.listener.a {
             if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                 aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
             }
-            if (aVar != null && aVar.aqY() != null) {
-                this.cMA.cMx = aVar.aqY().secureemail;
-                this.cMA.cMy = aVar.aqY().securemobil;
+            if (aVar != null && aVar.aqU() != null) {
+                this.cMA.cMx = aVar.aqU().secureemail;
+                this.cMA.cMy = aVar.aqU().securemobil;
                 if (this.cMA.cMw != null) {
                     this.cMA.cMw.fW(true);
                 }

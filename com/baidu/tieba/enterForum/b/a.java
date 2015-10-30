@@ -11,11 +11,11 @@ public class a implements com.baidu.tbadk.mvc.b.a {
         this.aLk = vVar2;
     }
 
-    public v HU() {
+    public v HQ() {
         return this.aLj;
     }
 
-    public v HV() {
+    public v HR() {
         return this.aLk;
     }
 }

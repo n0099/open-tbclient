@@ -17,7 +17,7 @@ public class l {
         return this.vcode_pic_url;
     }
 
-    public String ws() {
+    public String wp() {
         return this.ags;
     }
 

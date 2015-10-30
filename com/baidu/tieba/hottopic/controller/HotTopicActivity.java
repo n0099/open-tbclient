@@ -49,18 +49,18 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
         this.boI.setLoadDataCallBack(this.aLU);
         this.boB = new a(this);
         this.boB.a(this);
-        QN();
-        QL();
+        QJ();
+        QH();
     }
 
-    private void QL() {
-        showLoadingView(this.boz.Ra(), true);
+    private void QH() {
+        showLoadingView(this.boz.QW(), true);
         if (!com.baidu.adp.lib.util.i.iM()) {
-            hideLoadingView(this.boz.Ra());
-            showNetRefreshView(this.boz.Ra(), null);
+            hideLoadingView(this.boz.QW());
+            showNetRefreshView(this.boz.QW(), null);
             return;
         }
-        QM();
+        QI();
     }
 
     private void i(Bundle bundle) {
@@ -78,13 +78,13 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        QO();
+        QK();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        hideNetRefreshView(this.boz.Ra());
+        hideNetRefreshView(this.boz.QW());
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
         super.onResume();
     }
@@ -104,21 +104,21 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
 
     @Override // com.baidu.adp.base.BdBaseActivity
     public BdListView onGetPreLoadListView() {
-        return this.boz.Rd();
+        return this.boz.QZ();
     }
 
     @Override // com.baidu.tieba.hottopic.controller.h.a
     public void a(boolean z, com.baidu.tieba.hottopic.data.b bVar) {
-        this.boz.Re();
+        this.boz.Ra();
         if (!z || bVar == null || this.boz == null) {
-            hideLoadingView(this.boz.Ra());
-            showNetRefreshView(this.boz.Ra(), null);
+            hideLoadingView(this.boz.QW());
+            showNetRefreshView(this.boz.QW(), null);
             return;
         }
         this.boD = bVar;
-        a(bVar.QV());
+        a(bVar.QR());
         this.boz.b(bVar);
-        this.boz.Rc();
+        this.boz.QY();
     }
 
     private void a(o oVar) {
@@ -128,38 +128,38 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
             }
             this.boG.boE = this.boE;
             this.boG.boF = this.boF;
-            this.boG.bpn = oVar.rL() != 0;
+            this.boG.bpn = oVar.rI() != 0;
             this.boG.bpo = 10;
             if (this.boG.bpn) {
                 this.boG.bpm++;
-                this.boz.Me();
+                this.boz.Ma();
                 return;
             }
-            this.boz.Mg();
-            this.boz.Mf();
+            this.boz.Mc();
+            this.boz.Mb();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void QM() {
+    public void QI() {
         if (!com.baidu.adp.lib.util.i.iM()) {
-            this.boz.Re();
+            this.boz.Ra();
         } else if (this.boA != null) {
             this.boA.aC(this.boE, this.boF);
         }
     }
 
-    private void QN() {
+    private void QJ() {
         this.boz.a(new f(this));
         this.boz.g(new g(this));
         registerListener(this.boJ);
         registerListener(this.boK);
     }
 
-    private void QO() {
+    private void QK() {
         if (this.boz != null) {
-            this.boz.Rg();
-            this.boz.Rh();
+            this.boz.Rc();
+            this.boz.Rd();
         }
         if (this.boH != null) {
             this.boH.destory();
@@ -168,12 +168,12 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
-        hideNetRefreshView(this.boz.Ra());
-        QL();
+        hideNetRefreshView(this.boz.QW());
+        QH();
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.e.b<TbImageView> KD() {
+    public com.baidu.adp.lib.e.b<TbImageView> Kz() {
         if (this.boC == null) {
             this.boC = FrsCommonImageLayout.n(getPageContext().getPageActivity(), 12);
         }
@@ -181,7 +181,7 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public com.baidu.adp.lib.e.b<TbImageView> vE() {
+    public com.baidu.adp.lib.e.b<TbImageView> vB() {
         if (this.aeI == null) {
             this.aeI = UserIconBox.g(getPageContext().getPageActivity(), 8);
         }
@@ -189,14 +189,14 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public int vD() {
-        return com.baidu.tieba.hottopic.b.a.QY();
+    public int vA() {
+        return com.baidu.tieba.hottopic.b.a.QU();
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
     public ListView getListView() {
         if (this.boz != null) {
-            return this.boz.Rd();
+            return this.boz.QZ();
         }
         return null;
     }
@@ -204,15 +204,15 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (!com.baidu.adp.lib.util.i.iM()) {
-            this.boz.Mg();
-        } else if (this.boz == null || this.boD == null || this.boD.QT() == null || this.boG == null) {
-            this.boz.Mf();
+            this.boz.Mc();
+        } else if (this.boz == null || this.boD == null || this.boD.QP() == null || this.boG == null) {
+            this.boz.Mb();
         } else {
-            this.boz.Me();
+            this.boz.Ma();
             if (this.boG.bpn) {
                 this.boB.b(this.boG);
             } else {
-                this.boz.Mf();
+                this.boz.Mb();
             }
         }
     }
@@ -228,17 +228,17 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
 
     @Override // com.baidu.tieba.hottopic.controller.a.InterfaceC0056a
     public void a(boolean z, com.baidu.tieba.hottopic.data.a aVar) {
-        this.boz.Mg();
+        this.boz.Mc();
         if (!z || aVar == null || this.boD == null) {
-            this.boz.Mf();
+            this.boz.Mb();
             return;
         }
         this.boD.a(aVar);
-        this.boz.Rc();
+        this.boz.QY();
         a(aVar.boR);
     }
 
-    public String QP() {
+    public String QL() {
         return this.boE;
     }
 
@@ -247,9 +247,9 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public RelateForumItemData ay(long j) {
-        if (this.boD != null && this.boD.QT() != null && this.boD.QT().bpq != null) {
-            for (RelateForumItemData relateForumItemData : this.boD.QT().bpq) {
+    public RelateForumItemData aw(long j) {
+        if (this.boD != null && this.boD.QP() != null && this.boD.QP().bpq != null) {
+            for (RelateForumItemData relateForumItemData : this.boD.QP().bpq) {
                 if (relateForumItemData != null && relateForumItemData.forumId == j) {
                     return relateForumItemData;
                 }

@@ -59,7 +59,7 @@ public class XiaoyingUtil {
     public static void startXiaoying(Context context) {
         if (context != null) {
             if (!i.iM()) {
-                BdToast.b(context, context.getString(i.h.neterror)).sZ();
+                BdToast.b(context, context.getString(i.h.neterror)).sW();
                 return;
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
@@ -77,9 +77,9 @@ public class XiaoyingUtil {
     public static void startPlayXiaoyingVideo(Context context, String str) {
         if (context != null && !StringUtils.isNull(str)) {
             if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
-                BdToast.b(context, context.getString(i.h.plugin_xiaoying_install_fail)).sZ();
+                BdToast.b(context, context.getString(i.h.plugin_xiaoying_install_fail)).sW();
             } else if (!com.baidu.adp.lib.util.i.iM()) {
-                BdToast.b(context, context.getString(i.h.neterror)).sZ();
+                BdToast.b(context, context.getString(i.h.neterror)).sW();
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new XiaoyingPlayerConfig(context, str)));
             }
@@ -102,7 +102,7 @@ public class XiaoyingUtil {
             aVar.cu(str);
             aVar.a(str2, new c(pageActivity, tbPageContext));
             aVar.b(i.h.cancel, new d());
-            aVar.b(tbPageContext).sR();
+            aVar.b(tbPageContext).sO();
         }
     }
 
@@ -161,12 +161,12 @@ public class XiaoyingUtil {
             wVar.o("uid", currentAccount);
             wVar.o("_client_version", TbConfig.getVersion());
             wVar.o("method", "uidEncode");
-            String tG = wVar.tG();
-            if (!wVar.uk() || StringUtils.isNull(tG)) {
+            String tD = wVar.tD();
+            if (!wVar.uh() || StringUtils.isNull(tD)) {
                 return null;
             }
             try {
-                JSONObject jSONObject = new JSONObject(tG);
+                JSONObject jSONObject = new JSONObject(tD);
                 if (jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE) == 0) {
                     String optString = jSONObject.optString("uid");
                     if (!StringUtils.isNull(optString)) {

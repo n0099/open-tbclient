@@ -31,9 +31,9 @@ public abstract class a {
 
     public abstract AccountData j(String str, String str2, String str3);
 
-    public abstract void re();
+    public abstract void rb();
 
-    public static a rd() {
+    public static a ra() {
         return TC;
     }
 

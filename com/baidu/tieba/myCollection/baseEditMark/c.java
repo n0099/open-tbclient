@@ -27,11 +27,11 @@ public class c extends com.baidu.adp.base.e {
         this.ccj = new MarkData();
     }
 
-    public boolean qk() {
+    public boolean qh() {
         return this.cci;
     }
 
-    public MarkData qn() {
+    public MarkData qk() {
         return this.ccj;
     }
 
@@ -43,14 +43,14 @@ public class c extends com.baidu.adp.base.e {
         this.cci = z;
     }
 
-    public String qj() {
+    public String qg() {
         if (this.ccj != null) {
             return this.ccj.getPostId();
         }
         return null;
     }
 
-    public void qm() {
+    public void qj() {
         if (this.cck != null) {
             this.cck.cancel();
         }
@@ -59,7 +59,7 @@ public class c extends com.baidu.adp.base.e {
         this.cck.execute(new Boolean[0]);
     }
 
-    public void ql() {
+    public void qi() {
         if (this.cck != null) {
             this.cck.cancel();
         }
@@ -102,9 +102,9 @@ public class c extends com.baidu.adp.base.e {
                 this.Ti.o("user_id", c.this.ccj.getAccount());
                 this.Ti.o("tid", c.this.ccj.getId());
             }
-            this.cce.parserJson(this.Ti.tG());
+            this.cce.parserJson(this.Ti.tD());
             boolean z = this.cce.getErrorCode() == 0;
-            if (this.Ti.uh().uZ().qV() && z) {
+            if (this.Ti.ue().uW().qS() && z) {
                 return true;
             }
             return false;
@@ -130,7 +130,7 @@ public class c extends com.baidu.adp.base.e {
                         c.this.ccl.a(true, this.aJR, null);
                     }
                 } else if (c.this.ccl != null) {
-                    if (this.Ti == null || this.Ti.uh().uZ().qV()) {
+                    if (this.Ti == null || this.Ti.ue().uW().qS()) {
                         c.this.ccl.a(false, this.aJR, this.cce.getErrorString());
                     } else {
                         c.this.ccl.a(false, this.aJR, this.Ti.getErrorString());

@@ -15,7 +15,7 @@ public class ac implements CustomMessageTask.CustomRunnable<Object> {
         ResponsePersonInfoMessage responsePersonInfoMessage = null;
         if (customMessage instanceof RequestPersonInfoMessage) {
             try {
-                profileResIdl = (ProfileResIdl) new Wire(new Class[0]).parseFrom(com.baidu.tbadk.core.b.a.sO().T("tb_user_profile", TbadkCoreApplication.getCurrentAccountName()).get("profile_cache_key"), ProfileResIdl.class);
+                profileResIdl = (ProfileResIdl) new Wire(new Class[0]).parseFrom(com.baidu.tbadk.core.b.a.sL().T("tb_user_profile", TbadkCoreApplication.getCurrentAccountName()).get("profile_cache_key"), ProfileResIdl.class);
             } catch (IOException e) {
                 e.printStackTrace();
                 profileResIdl = null;

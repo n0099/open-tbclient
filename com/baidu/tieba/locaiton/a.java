@@ -31,7 +31,7 @@ public class a implements com.baidu.adp.lib.d.d {
         MessageManager.getInstance().registerListener(new b(CmdConfigCustom.CMD_BAIDU_LOCATION_SWITCH));
     }
 
-    public static a aaY() {
+    public static a aaU() {
         if (bTE == null) {
             synchronized (a.class) {
                 if (bTE == null) {

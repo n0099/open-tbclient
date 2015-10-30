@@ -37,7 +37,7 @@ public class e extends com.baidu.adp.framework.listener.a {
                     if (arrayList2.size() <= 2) {
                         return;
                     }
-                    this.dhp.azC();
+                    this.dhp.azy();
                     aVar = this.dhp.dhn;
                     if (aVar != null) {
                         aVar2 = this.dhp.dhn;

@@ -20,6 +20,6 @@ public class f extends CustomMessageListener {
         if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2001274) {
             return;
         }
-        this.ddY.aym();
+        this.ddY.ayi();
     }
 }

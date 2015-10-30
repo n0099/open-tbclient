@@ -28,14 +28,14 @@ public class i {
         }
     }
 
-    public static i vn() {
+    public static i vk() {
         if (acH == null) {
             acH = new i();
         }
         return acH;
     }
 
-    public void c(int i, long j) {
+    public void b(int i, long j) {
         a aVar = new a(this, null);
         aVar.uL = i;
         aVar.acM = j;
@@ -43,7 +43,7 @@ public class i {
         if (this.acI.size() > 5) {
             this.acI.poll();
         }
-        if (vo()) {
+        if (vl()) {
             int i2 = 0;
             for (a aVar2 : this.acI) {
                 if (j > 0) {
@@ -54,7 +54,7 @@ public class i {
         }
     }
 
-    public boolean vo() {
+    public boolean vl() {
         return this.acI.size() == 5;
     }
 
@@ -62,7 +62,7 @@ public class i {
         if (!com.baidu.adp.lib.util.i.iP()) {
             return null;
         }
-        if (vo() && this.acL < 20.0f) {
+        if (vl() && this.acL < 20.0f) {
             if (this.acJ == null) {
                 this.acJ = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
             }

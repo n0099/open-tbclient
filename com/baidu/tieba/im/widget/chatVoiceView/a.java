@@ -21,6 +21,6 @@ public class a extends l<Boolean> {
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.util.l
     public Boolean doInBackground() {
-        return Boolean.valueOf(com.baidu.tieba.im.db.c.TF().a(this.val$groupMsg.getGroupId(), this.val$list, false));
+        return Boolean.valueOf(com.baidu.tieba.im.db.c.TB().a(this.val$groupMsg.getGroupId(), this.val$list, false));
     }
 }

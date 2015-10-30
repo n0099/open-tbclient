@@ -66,7 +66,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
     /* loaded from: classes.dex */
     public interface c {
-        com.baidu.adp.lib.e.b<TbImageView> KD();
+        com.baidu.adp.lib.e.b<TbImageView> Kz();
     }
 
     public void setDrawNum(boolean z) {
@@ -157,7 +157,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             } else if (FrsCommonImageLayout.this.cVQ != null && this.mIndex < FrsCommonImageLayout.this.cVQ.length) {
                 if (FrsCommonImageLayout.this.cVQ[this.mIndex].getType() == 5) {
                     if (FrsCommonImageLayout.this.cWZ instanceof TbPageContext) {
-                        az.uW().b((TbPageContext) FrsCommonImageLayout.this.cWZ, new String[]{FrsCommonImageLayout.this.cVQ[this.mIndex].getVideoUrl()});
+                        az.uT().b((TbPageContext) FrsCommonImageLayout.this.cWZ, new String[]{FrsCommonImageLayout.this.cVQ[this.mIndex].getVideoUrl()});
                         return;
                     }
                     return;
@@ -223,7 +223,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         Resources resources = getResources();
         this.str = String.valueOf(resources.getString(i.h.frs_item_common_image_canvas_text1)) + this.cWW + resources.getString(i.h.frs_item_common_image_canvas_text2);
         if (this.cWY == null && (hVar.getOrignalPage() instanceof c)) {
-            this.cWY = ((c) hVar.getOrignalPage()).KD();
+            this.cWY = ((c) hVar.getOrignalPage()).Kz();
         }
         if (this.cVQ == null || this.cVQ.length <= 0) {
             requestLayout();

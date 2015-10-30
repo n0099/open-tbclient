@@ -13,16 +13,16 @@ public class h {
 
     public Bitmap aq(Context context) {
         Bitmap bitmap = null;
-        String xD = this.aDB.xD();
-        if (!StringUtils.isNull(xD)) {
+        String xA = this.aDB.xA();
+        if (!StringUtils.isNull(xA)) {
             try {
-                File cJ = com.baidu.tbadk.core.util.n.cJ(au.dn(xD));
+                File cJ = com.baidu.tbadk.core.util.n.cJ(au.dn(xA));
                 if (cJ == null) {
-                    this.aDB.xE();
+                    this.aDB.xB();
                 } else {
                     bitmap = BitmapFactory.decodeFile(cJ.getAbsolutePath());
                     if (bitmap == null) {
-                        this.aDB.xE();
+                        this.aDB.xB();
                     }
                 }
             } catch (Throwable th) {

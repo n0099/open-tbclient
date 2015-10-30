@@ -1,11 +1,11 @@
 package com.baidu.tieba.tblauncher.a;
 /* loaded from: classes.dex */
 public interface a {
-    int ayR();
+    int ayN();
 
-    int ayS();
+    int ayO();
 
-    int ayT();
+    int ayP();
 
     int getType();
 

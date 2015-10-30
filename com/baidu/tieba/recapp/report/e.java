@@ -25,16 +25,16 @@ public class e {
     }
 
     public static a a(j jVar, String str) {
-        if (jVar == null || jVar.aww() == null) {
+        if (jVar == null || jVar.aws() == null) {
             return null;
         }
-        com.baidu.tieba.tbadkCore.data.a aww = jVar.aww();
+        com.baidu.tieba.tbadkCore.data.a aws = jVar.aws();
         a aVar = new a();
-        aVar.km(com.baidu.adp.lib.g.b.g(aww.pos_name, 0));
-        aVar.kS(aww.ext_info);
+        aVar.km(com.baidu.adp.lib.g.b.g(aws.pos_name, 0));
+        aVar.kS(aws.ext_info);
         aVar.kn(jVar.cHN);
         aVar.kT(str);
-        aVar.kU(aww.price);
+        aVar.kU(aws.price);
         return aVar;
     }
 }

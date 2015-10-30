@@ -19,7 +19,7 @@ public class g {
         return oI;
     }
 
-    public synchronized void b(Map<String, String> map) {
+    public synchronized void a(Map<String, String> map) {
         if (map != null) {
             try {
                 this.ou = Integer.valueOf(map.get("Seq-Id")).intValue();

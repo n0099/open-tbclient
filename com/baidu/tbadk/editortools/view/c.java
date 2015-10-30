@@ -36,10 +36,10 @@ public class c implements b.a {
         boolean z2 = false;
         while (i3 < size) {
             arrayList3 = this.asS.Xh;
-            a.b BN = ((a) arrayList3.get(i3)).BN();
-            if (BN != null) {
+            a.b BK = ((a) arrayList3.get(i3)).BK();
+            if (BK != null) {
                 z = true;
-                this.asS.c(BN);
+                this.asS.c(BK);
             } else {
                 z = z2;
             }
@@ -61,12 +61,12 @@ public class c implements b.a {
     }
 
     @Override // com.baidu.tbadk.editortools.view.b.a
-    public void BR() {
+    public void BO() {
         this.asS.showProgressBar();
     }
 
     @Override // com.baidu.tbadk.editortools.view.b.a
-    public void BS() {
+    public void BP() {
         this.asS.hideProgressBar();
     }
 }

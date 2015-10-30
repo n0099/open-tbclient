@@ -28,12 +28,12 @@ class ah implements a.InterfaceC0082a {
         String name = aVar.getName();
         if (!TextUtils.isEmpty(albumId)) {
             lVar = this.dlo.djP;
-            if (!albumId.equals(lVar.aBt())) {
+            if (!albumId.equals(lVar.aBp())) {
                 lVar2 = this.dlo.djP;
-                List<ImageFileInfo> aBw = lVar2.aBw();
+                List<ImageFileInfo> aBs = lVar2.aBs();
                 if (!albumId.equals("-1")) {
                     list = new ArrayList<>();
-                    for (ImageFileInfo imageFileInfo : aBw) {
+                    for (ImageFileInfo imageFileInfo : aBs) {
                         if (albumId.equals(imageFileInfo.getAlbumId())) {
                             list.add(imageFileInfo);
                         }
@@ -41,7 +41,7 @@ class ah implements a.InterfaceC0082a {
                     z = false;
                 } else {
                     z = true;
-                    list = aBw;
+                    list = aBs;
                 }
                 lVar3 = this.dlo.djP;
                 lVar3.bG(list);

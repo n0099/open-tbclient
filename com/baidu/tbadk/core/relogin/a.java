@@ -38,7 +38,7 @@ public class a extends HttpMessageListener {
                 arrayList.clear();
                 return;
             }
-            this.XT.tq();
+            this.XT.tn();
         }
     }
 }

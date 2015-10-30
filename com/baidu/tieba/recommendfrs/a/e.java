@@ -32,22 +32,22 @@ public class e extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
     /* renamed from: a */
     public void B(com.baidu.tieba.recommendfrs.data.c cVar) {
         super.B(cVar);
-        if (cVar != null && cVar.aqh() != null) {
-            Hot_Thread aqh = cVar.aqh();
-            this.alu.setText(UtilHelper.getFixedText(aqh.title, 14, true));
-            this.aCJ.setText(aqh._abstract);
-            if (StringUtils.isNull(aqh.forum_name)) {
+        if (cVar != null && cVar.aqd() != null) {
+            Hot_Thread aqd = cVar.aqd();
+            this.alu.setText(UtilHelper.getFixedText(aqd.title, 14, true));
+            this.aCJ.setText(aqd._abstract);
+            if (StringUtils.isNull(aqd.forum_name)) {
                 this.aJX.setVisibility(8);
             } else {
                 this.aJX.setVisibility(0);
-                this.aJX.setText(getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(aqh.forum_name, 7, false)));
-                this.aJX.setOnClickListener(new f(this, aqh));
+                this.aJX.setText(getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(aqd.forum_name, 7, false)));
+                this.aJX.setOnClickListener(new f(this, aqd));
             }
-            if (aqh.zan_num != null) {
-                this.aJY.setText(as.s(aqh.zan_num.intValue()));
+            if (aqd.zan_num != null) {
+                this.aJY.setText(as.q(aqd.zan_num.intValue()));
             }
-            if (aqh.reply_num != null) {
-                this.aJZ.setText(as.s(aqh.reply_num.intValue()));
+            if (aqd.reply_num != null) {
+                this.aJZ.setText(as.q(aqd.reply_num.intValue()));
             }
         }
     }

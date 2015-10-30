@@ -27,13 +27,13 @@ public class r implements NewSubPbActivity.a {
         Object[] objArr = (Object[]) obj;
         String str = "";
         akVar = this.cmC.cmt;
-        if (akVar.ahA() != null) {
+        if (akVar.ahw() != null) {
             akVar5 = this.cmC.cmt;
-            if (akVar5.ahA().afi() != null) {
+            if (akVar5.ahw().afe() != null) {
                 akVar6 = this.cmC.cmt;
-                if (akVar6.ahA().afi().getAuthor() != null) {
+                if (akVar6.ahw().afe().getAuthor() != null) {
                     akVar7 = this.cmC.cmt;
-                    str = String.valueOf(akVar7.ahA().afi().getAuthor().getUserId());
+                    str = String.valueOf(akVar7.ahw().afe().getAuthor().getUserId());
                 }
             }
         }
@@ -48,10 +48,10 @@ public class r implements NewSubPbActivity.a {
         NewSubPbActivity newSubPbActivity = this.cmC;
         Activity pageActivity = this.cmC.getPageContext().getPageActivity();
         akVar2 = this.cmC.cmt;
-        String id = akVar2.ahA().afg().getId();
+        String id = akVar2.ahw().afc().getId();
         akVar3 = this.cmC.cmt;
-        String name = akVar3.ahA().afg().getName();
+        String name = akVar3.ahw().afc().getName();
         akVar4 = this.cmC.cmt;
-        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, akVar4.ahA().afi().getId(), str, str2, str3)));
+        newSubPbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, akVar4.ahw().afe().getId(), str, str2, str3)));
     }
 }

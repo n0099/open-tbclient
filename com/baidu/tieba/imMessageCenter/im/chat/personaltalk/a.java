@@ -9,11 +9,11 @@ public class a {
         this.timeStamp = j;
     }
 
-    public com.baidu.tbadk.coreExtra.relationship.b XT() {
+    public com.baidu.tbadk.coreExtra.relationship.b XP() {
         return this.bJx;
     }
 
-    public long HI() {
+    public long HE() {
         return this.timeStamp;
     }
 }

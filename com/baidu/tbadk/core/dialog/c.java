@@ -126,7 +126,7 @@ public class c {
         return this;
     }
 
-    public c sU() {
+    public c sR() {
         if (!this.WA) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }

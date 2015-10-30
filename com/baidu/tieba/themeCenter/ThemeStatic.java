@@ -55,7 +55,7 @@ public class ThemeStatic {
                 if (com.baidu.tbadk.core.util.n.cH(String.valueOf(bVar.getId()) + ".apk")) {
                     arrayList.add(bVar);
                 } else {
-                    l.azs().lu(bVar.getId());
+                    l.azo().lu(bVar.getId());
                 }
             }
         }

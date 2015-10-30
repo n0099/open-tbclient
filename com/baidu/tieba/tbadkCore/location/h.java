@@ -37,6 +37,6 @@ public class h extends HttpMessageListener {
             return;
         }
         TbadkCoreApplication.m411getInst().setLocationShared(true);
-        this.daV.axp();
+        this.daV.axl();
     }
 }

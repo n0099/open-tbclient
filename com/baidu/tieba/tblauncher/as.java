@@ -29,7 +29,7 @@ public class as implements View.OnClickListener {
         MainTabActivity mainTabActivity6;
         imageView = this.ddy.ddr;
         imageView.setVisibility(4);
-        com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("game_is_show_tip", false);
+        com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("game_is_show_tip", false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHOW_GAME_MSG_TIP, false));
         mainTabActivity = this.ddy.ddt;
         mainTabActivity2 = this.ddy.ddt;

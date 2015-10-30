@@ -47,9 +47,9 @@ public class b {
         auv = new k(tbPageContext);
         auv.a(new c());
         auv.b(new d());
-        auv.yR();
+        auv.yO();
         auv.h(accountData);
-        auv.yN();
+        auv.yK();
     }
 
     public static void bi(boolean z) {
@@ -60,7 +60,7 @@ public class b {
         com.baidu.adp.lib.g.h.hg().postDelayed(new i(customResponsedMessage), auu);
     }
 
-    public static void Co() {
+    public static void Cl() {
         a("login", new Class[0], new Object[0], new j());
     }
 }

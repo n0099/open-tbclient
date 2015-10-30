@@ -39,18 +39,18 @@ public class b extends w {
     public String price;
     public String userId;
 
-    public boolean rp() {
+    public boolean rm() {
         if (StringUtils.isNull(this.Ub) || TextUtils.isEmpty(this.TV) || TextUtils.isEmpty(this.TV.trim()) || this.TX == 2) {
             return false;
         }
-        return rq() || rr();
+        return rn() || ro();
     }
 
-    public boolean rq() {
+    public boolean rn() {
         return (this.TX != 3 || TextUtils.isEmpty(this.Ua) || TextUtils.isEmpty(this.TZ) || TextUtils.isEmpty(this.Ua.trim()) || TextUtils.isEmpty(this.TZ.trim())) ? false : true;
     }
 
-    public boolean rr() {
+    public boolean ro() {
         return (this.TX != 1 || TextUtils.isEmpty(this.TY) || TextUtils.isEmpty(this.TY.trim())) ? false : true;
     }
 

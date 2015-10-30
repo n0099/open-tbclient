@@ -22,17 +22,17 @@ class m implements a.d {
         this.cfl.hideProgressBar();
         if (z) {
             dVar = this.cfl.aSC;
-            dVar.Ax().hide();
+            dVar.Au().hide();
             mVar = this.cfl.ceS;
             mVar.setVisible(true);
             if (postWriteCallBackData != null) {
-                BdToast.a(this.cfl.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), BdToast.DefaultIcon.SUCCESS).sZ();
+                BdToast.a(this.cfl.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), BdToast.DefaultIcon.SUCCESS).sW();
             }
         } else if (postWriteCallBackData != null && lVar == null) {
             if (AntiHelper.lc(postWriteCallBackData.getErrorCode())) {
                 AntiHelper.P(this.cfl.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
             } else {
-                BdToast.b(this.cfl.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString()).sZ();
+                BdToast.b(this.cfl.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString()).sW();
             }
         }
     }

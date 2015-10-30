@@ -35,7 +35,7 @@ class c extends HttpMessageListener {
                     this.cLw.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.cLw.getResources().getString(i.h.neterror) : httpResponsedMessage.getErrorString());
                     if (TextUtils.equals("location", operation)) {
                         iVar = this.cLw.cLj;
-                        this.cLw.mHandler.postDelayed(new d(this, iVar.arl()), 500L);
+                        this.cLw.mHandler.postDelayed(new d(this, iVar.arh()), 500L);
                         return;
                     }
                     return;
@@ -50,7 +50,7 @@ class c extends HttpMessageListener {
                 }
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
                 iVar3 = this.cLw.cLj;
-                m411getInst.setLocationShared(iVar3.arl());
+                m411getInst.setLocationShared(iVar3.arh());
                 iVar4 = this.cLw.cLj;
                 iVar4.fT(TbadkCoreApplication.m411getInst().getLocationShared());
             }

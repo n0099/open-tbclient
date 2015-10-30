@@ -52,7 +52,7 @@ public class c extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void MW() {
+    public void MS() {
         this.mWebView.setVisibility(0);
         this.bas.setVisibility(8);
         this.HM.setVisibility(8);
@@ -72,7 +72,7 @@ public class c extends FrameLayout {
         return this.mWebView;
     }
 
-    public boolean MX() {
+    public boolean MT() {
         return this.avC;
     }
 

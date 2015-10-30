@@ -23,7 +23,7 @@ class p implements BdListView.e {
             blVar = this.ciK.cih;
             if (blVar.ex(false)) {
                 ccVar2 = this.ciK.cim;
-                ccVar2.agz();
+                ccVar2.agv();
                 TiebaStatic.eventStat(this.ciK.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
                 return;
             }
