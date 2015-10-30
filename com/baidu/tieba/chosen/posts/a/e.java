@@ -78,7 +78,7 @@ public class e extends com.baidu.tbadk.mvc.g.a<tinfo, com.baidu.tbadk.mvc.d.b> {
 
     private void b(tinfo tinfoVar) {
         if (tinfoVar != null) {
-            if (m.qX().rb() && tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
+            if (m.qU().qY() && tinfoVar.pics != null && tinfoVar.pics.size() > 0) {
                 this.aKi.setVisibility(0);
                 switch (tinfoVar.pics.size()) {
                     case 0:

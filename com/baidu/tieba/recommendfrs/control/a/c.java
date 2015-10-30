@@ -25,23 +25,23 @@ public class c implements a.InterfaceC0052a<g> {
         b.a aVar2;
         b.a aVar3;
         b.a aVar4;
-        String aqo = (readCacheMessage == null || readCacheMessage.getRequestData() == null || !(readCacheMessage.getRequestData() instanceof f)) ? null : ((f) readCacheMessage.getRequestData()).aqo();
-        if (aqo != null) {
+        String aqk = (readCacheMessage == null || readCacheMessage.getRequestData() == null || !(readCacheMessage.getRequestData() instanceof f)) ? null : ((f) readCacheMessage.getRequestData()).aqk();
+        if (aqk != null) {
             if (readCacheRespMsg == null || readCacheRespMsg.getData() == null || readCacheRespMsg.getData().size() <= 0 || readCacheRespMsg.getData().get(0) == null) {
                 aVar = this.cIG.cIF;
                 if (aVar != null) {
                     aVar2 = this.cIG.cIF;
-                    aVar2.a(false, null, false, aqo);
+                    aVar2.a(false, null, false, aqk);
                 }
             } else {
                 g gVar = readCacheRespMsg.getData().get(0);
                 aVar3 = this.cIG.cIF;
                 if (aVar3 != null) {
                     aVar4 = this.cIG.cIF;
-                    aVar4.a(false, gVar, false, aqo);
+                    aVar4.a(false, gVar, false, aqk);
                 }
             }
-            this.cIG.c(0, aqo, 0);
+            this.cIG.c(0, aqk, 0);
         }
     }
 

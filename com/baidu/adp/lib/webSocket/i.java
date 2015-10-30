@@ -45,12 +45,12 @@ public class i implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void d(Map<String, String> map) {
+    public void c(Map<String, String> map) {
         ArrayList arrayList;
         arrayList = this.zF.zD;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            ((g.a) it.next()).d(map);
+            ((g.a) it.next()).c(map);
         }
     }
 

@@ -80,18 +80,18 @@ public class ef extends com.baidu.adp.base.f<FrsActivity> {
     }
 
     public void init() {
-        MC();
-        MD();
+        My();
+        Mz();
     }
 
-    private void My() {
+    private void Mu() {
         this.mRootView = this.LS.findViewById(i.f.scroll_view);
         this.mRootView.setBackgroundDrawable(new BitmapDrawable(com.baidu.tbadk.core.util.an.cz(i.e.s_leftbar_bg)));
     }
 
     private void initUI() {
         this.LS = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.frs_sidebar, (ViewGroup) null);
-        My();
+        Mu();
         this.LS.setBackgroundDrawable(new BitmapDrawable(com.baidu.tbadk.core.util.an.cz(i.e.s_rightbar_bg)));
         this.aZh = (LinearLayout) this.LS.findViewById(i.f.post_search_ll);
         this.aZi = (LinearLayout) this.LS.findViewById(i.f.show_content);
@@ -124,7 +124,7 @@ public class ef extends com.baidu.adp.base.f<FrsActivity> {
         if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(ForumDetailActivityConfig.class)) {
             this.aZm.setVisibility(8);
         }
-        if (!Mz()) {
+        if (!Mv()) {
             this.aZc.setVisibility(8);
             this.aZd.setVisibility(8);
         }
@@ -149,7 +149,7 @@ public class ef extends com.baidu.adp.base.f<FrsActivity> {
         return view;
     }
 
-    public boolean Mz() {
+    public boolean Mv() {
         return MessageManager.getInstance().runTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, Boolean.class) != null;
     }
 
@@ -165,11 +165,11 @@ public class ef extends com.baidu.adp.base.f<FrsActivity> {
         }
     }
 
-    public BdSwitchView MA() {
+    public BdSwitchView Mw() {
         return this.aZd;
     }
 
-    public boolean MB() {
+    public boolean Mx() {
         return this.aZx;
     }
 
@@ -177,7 +177,7 @@ public class ef extends com.baidu.adp.base.f<FrsActivity> {
         this.aZx = z;
     }
 
-    public void MC() {
+    public void My() {
         if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
             this.aZd.mB();
         } else {
@@ -185,9 +185,9 @@ public class ef extends com.baidu.adp.base.f<FrsActivity> {
         }
     }
 
-    public void MD() {
+    public void Mz() {
         this.aZe.setOnSwitchStateChangeListener(null);
-        if (com.baidu.tbadk.core.m.qX().rb()) {
+        if (com.baidu.tbadk.core.m.qU().qY()) {
             this.aZe.mB();
         } else {
             this.aZe.mC();
@@ -204,7 +204,7 @@ public class ef extends com.baidu.adp.base.f<FrsActivity> {
         long j = 0;
         if (z) {
             if (dgVar != null) {
-                j = dgVar.Mu();
+                j = dgVar.Mq();
             }
             c(this.aZf, j);
         } else {
@@ -212,7 +212,7 @@ public class ef extends com.baidu.adp.base.f<FrsActivity> {
         }
         if (z2) {
             if (dgVar != null) {
-                j = dgVar.Mt();
+                j = dgVar.Mp();
             }
             c(this.aZg, j);
             return;

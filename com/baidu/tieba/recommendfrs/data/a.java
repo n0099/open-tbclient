@@ -10,7 +10,7 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
         this.cIJ = str;
     }
 
-    public String apU() {
+    public String apQ() {
         return this.cIJ;
     }
 
@@ -18,7 +18,7 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
         this.ftid = j;
     }
 
-    public String apV() {
+    public String apR() {
         return this.cIH;
     }
 
@@ -26,7 +26,7 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
         this.cIH = str;
     }
 
-    public String apW() {
+    public String apS() {
         return this.cII;
     }
 
@@ -40,12 +40,12 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String ry() {
+    public String rv() {
         return String.valueOf(this.ftid);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: apX */
+    /* renamed from: apT */
     public a clone() {
         a aVar = new a();
         aVar.ftid = this.ftid;

@@ -17,11 +17,11 @@ public class i implements a.b {
         com.baidu.tieba.enterForum.c.c cVar;
         long j;
         TiebaStatic.eventStat(this.aLW.aFU.getPageContext().getPageActivity(), "recom_flist_unlike", "click", 1, new Object[0]);
-        this.aLW.aLF.IY();
+        this.aLW.aLF.IU();
         this.aLW.aLL = System.currentTimeMillis();
         cVar = this.aLW.aLG;
         j = this.aLW.aLL;
-        cVar.ak(j);
+        cVar.ai(j);
         aVar.dismiss();
     }
 }

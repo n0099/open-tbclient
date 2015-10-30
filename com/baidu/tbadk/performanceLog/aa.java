@@ -4,12 +4,12 @@ import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 /* loaded from: classes.dex */
 public class aa extends x {
     public void a(t tVar) {
-        if (y.Eb().Ec()) {
+        if (y.DY().DZ()) {
             com.baidu.adp.lib.stats.d hb = hb();
             hb.q("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
             hb.q("ishttp", tVar.axE ? "1" : "0");
             hb.q("issuccess", tVar.isSuccess ? "1" : "0");
-            hb.q("nettype", y.Eb().getNetType());
+            hb.q("nettype", y.DY().getNetType());
             hb.q("ct", String.valueOf(tVar.axs));
             hb.q("wt", String.valueOf(tVar.axz));
             hb.q("qt", String.valueOf(tVar.axt));
@@ -25,7 +25,7 @@ public class aa extends x {
     }
 
     public void b(t tVar) {
-        if (y.Eb().Ec() && tVar.axz > 0) {
+        if (y.DY().DZ() && tVar.axz > 0) {
             com.baidu.adp.lib.stats.d hb = hb();
             hb.q("action", "white");
             hb.q("ct", String.valueOf(tVar.axs));
@@ -35,7 +35,7 @@ public class aa extends x {
     }
 
     public void c(t tVar) {
-        if (y.Eb().Ec() && tVar.axA > 0) {
+        if (y.DY().DZ() && tVar.axA > 0) {
             com.baidu.adp.lib.stats.d hb = hb();
             hb.q("action", "readCache");
             hb.q("rct", String.valueOf(tVar.axA));
@@ -44,7 +44,7 @@ public class aa extends x {
     }
 
     public void d(t tVar) {
-        if (y.Eb().Ec() && tVar.axB > 0) {
+        if (y.DY().DZ() && tVar.axB > 0) {
             com.baidu.adp.lib.stats.d hb = hb();
             hb.q("action", "writeCache");
             hb.q("wct", String.valueOf(tVar.axB));
@@ -53,7 +53,7 @@ public class aa extends x {
     }
 
     public void a(s sVar, String str) {
-        if (sVar != null && str != null && y.Eb().Ec()) {
+        if (sVar != null && str != null && y.DY().DZ()) {
             com.baidu.adp.lib.stats.d hb = hb();
             hb.q("action", "resource");
             hb.q("actype", str);
@@ -66,21 +66,21 @@ public class aa extends x {
     }
 
     public void g(e eVar) {
-        if (eVar != null && y.Eb().Ec()) {
+        if (eVar != null && y.DY().DZ()) {
             com.baidu.adp.lib.stats.d hb = hb();
             hb.q("action", "fluency");
-            hb.q("fps", String.valueOf(eVar.DH()));
-            hb.q("memp", String.valueOf(eVar.DJ()));
+            hb.q("fps", String.valueOf(eVar.DE()));
+            hb.q("memp", String.valueOf(eVar.DG()));
             hb.q("cpu", String.valueOf(eVar.getCpuString()));
             com.baidu.adp.lib.stats.a.hi().a(this.subType, hb);
         }
     }
 
     public void h(e eVar) {
-        if (y.Eb().Ec()) {
+        if (y.DY().DZ()) {
             com.baidu.adp.lib.stats.d hb = hb();
             hb.q("action", "gc");
-            hb.q("gc", String.valueOf(eVar.DI()));
+            hb.q("gc", String.valueOf(eVar.DF()));
             com.baidu.adp.lib.stats.a.hi().a(this.subType, hb);
         }
     }

@@ -358,7 +358,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
 
     @Override // com.baidu.tbadk.widget.richText.i
     public void onLinkClicked(Context context, String str) {
-        com.baidu.tbadk.core.util.az.uW().b(getPageContext(), new String[]{str});
+        com.baidu.tbadk.core.util.az.uT().b(getPageContext(), new String[]{str});
     }
 
     @Override // com.baidu.tbadk.widget.richText.i
@@ -635,7 +635,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                 aVar.cu(TbadkCoreApplication.m411getInst().getString(i.h.sure_to_resend_this_message));
                 aVar.a(TbadkCoreApplication.m411getInst().getString(i.h.msg_resend), new bw(this, i2));
                 aVar.b(TbadkCoreApplication.m411getInst().getString(i.h.delete), new bx(this, i2));
-                aVar.b(getPageContext()).sR();
+                aVar.b(getPageContext()).sO();
                 return;
             case 2:
             case 3:
@@ -673,17 +673,17 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                 if (msg4 != null && msg4.getContent() != null) {
                     com.baidu.tieba.im.widget.a aVar2 = new com.baidu.tieba.im.widget.a();
                     aVar2.aP(msg4.getContent(), getClass().getName());
-                    if (aVar2.XA() == 1 && aVar2.XB() != null) {
-                        String theNewThemeId = ((ShareFromPBMsgData) aVar2.XB()).getTheNewThemeId();
+                    if (aVar2.Xw() == 1 && aVar2.Xx() != null) {
+                        String theNewThemeId = ((ShareFromPBMsgData) aVar2.Xx()).getTheNewThemeId();
                         if (!StringUtils.isNull(theNewThemeId)) {
                             long c = com.baidu.adp.lib.g.b.c(theNewThemeId, 0L);
                             if (c > 0) {
-                                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbChosenActivityConfig(getPageContext().getContext(), c, ((ShareFromPBMsgData) aVar2.XB()).getImageUrl())));
+                                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbChosenActivityConfig(getPageContext().getContext(), c, ((ShareFromPBMsgData) aVar2.Xx()).getImageUrl())));
                                 return;
                             }
                             return;
-                        } else if (!StringUtils.isNull(((ShareFromPBMsgData) aVar2.XB()).getThreadId())) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromPBMsgData) aVar2.XB()).getThreadId(), ((ShareFromPBMsgData) aVar2.XB()).getPostId(), null)));
+                        } else if (!StringUtils.isNull(((ShareFromPBMsgData) aVar2.Xx()).getThreadId())) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromPBMsgData) aVar2.Xx()).getThreadId(), ((ShareFromPBMsgData) aVar2.Xx()).getPostId(), null)));
                             return;
                         } else {
                             return;
@@ -701,7 +701,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                 if (msg5 != null && msg5.getContent() != null) {
                     com.baidu.tieba.im.widget.a aVar3 = new com.baidu.tieba.im.widget.a();
                     aVar3.aP(msg5.getContent(), getClass().getName());
-                    if (aVar3.XA() == 1 && aVar3.XB() != null) {
+                    if (aVar3.Xw() == 1 && aVar3.Xx() != null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GAME_SHARE_ITEM_CLICK, aVar3));
                         return;
                     }
@@ -717,8 +717,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                 if (msg6 != null && msg6.getContent() != null) {
                     com.baidu.tieba.im.widget.a aVar4 = new com.baidu.tieba.im.widget.a();
                     aVar4.aP(msg6.getContent(), getClass().getName());
-                    if (aVar4.XA() == 1 && aVar4.XB() != null) {
-                        String shareSourceUrl = ((ShareFromGameCenterMsgData) aVar4.XB()).getShareSourceUrl();
+                    if (aVar4.Xw() == 1 && aVar4.Xx() != null) {
+                        String shareSourceUrl = ((ShareFromGameCenterMsgData) aVar4.Xx()).getShareSourceUrl();
                         if (!TextUtils.isEmpty(shareSourceUrl) && shareSourceUrl.equalsIgnoreCase("default")) {
                             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameCenterActivityConfig(getPageContext().getContext())));
                             TiebaStatic.eventStat(getPageContext().getContext(), "game_ck_tail", "click", 1, shareSourceUrl);
@@ -761,8 +761,8 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Vie
                 if (msg8 != null && msg8.getContent() != null) {
                     com.baidu.tieba.im.widget.a aVar5 = new com.baidu.tieba.im.widget.a();
                     aVar5.aP(msg8.getContent(), getClass().getName());
-                    if (aVar5.XA() == 4 && aVar5.XB() != null && !StringUtils.isNull(((ShareFromFrsMsgData) aVar5.XB()).getName())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromFrsMsgData) aVar5.XB()).getName(), null)));
+                    if (aVar5.Xw() == 4 && aVar5.Xx() != null && !StringUtils.isNull(((ShareFromFrsMsgData) aVar5.Xx()).getName())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(getPageContext().getContext()).createNormalCfg(((ShareFromFrsMsgData) aVar5.Xx()).getName(), null)));
                         return;
                     }
                     return;

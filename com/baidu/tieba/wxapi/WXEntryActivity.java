@@ -81,7 +81,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
     public void onReq(BaseReq baseReq) {
         if (this.dqS != null) {
-            f.aDN().ad(this.dqS);
+            f.aDJ().ad(this.dqS);
         }
         closeActivity();
     }

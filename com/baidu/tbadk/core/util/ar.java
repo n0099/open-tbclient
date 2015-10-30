@@ -8,7 +8,7 @@ import java.io.File;
 public class ar {
     private static ar abb;
 
-    public static synchronized ar uD() {
+    public static synchronized ar uA() {
         ar arVar;
         synchronized (ar.class) {
             if (abb == null) {
@@ -70,12 +70,12 @@ public class ar {
         }
     }
 
-    private void t(File file) {
+    private void u(File file) {
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    t(file2);
+                    u(file2);
                     file2.delete();
                 } else {
                     file2.delete();
@@ -84,22 +84,22 @@ public class ar {
         }
     }
 
-    public void uE() {
-        t(new File(n.xU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
-        t(new File(n.xU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
+    public void uB() {
+        u(new File(n.xU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
+        u(new File(n.xU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public void uF() {
-        u(new File(n.xU + "/" + TbConfig.getTempDirName() + "/" + n.cj(3)));
+    public void uC() {
+        v(new File(n.xU + "/" + TbConfig.getTempDirName() + "/" + n.cj(3)));
     }
 
-    private void u(File file) {
+    private void v(File file) {
         long currentTimeMillis = System.currentTimeMillis();
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    t(file2);
+                    u(file2);
                     file2.delete();
                 } else if (currentTimeMillis - file2.lastModified() >= -1702967296) {
                     file2.delete();

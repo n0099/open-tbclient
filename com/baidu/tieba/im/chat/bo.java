@@ -28,7 +28,7 @@ public class bo {
     public String l(String str, byte[] bArr) {
         switch (com.baidu.tbadk.core.util.n.a(str, bArr, this.aSe.getPageContext().getPageActivity())) {
             case -2:
-                return com.baidu.tbadk.core.util.n.tB();
+                return com.baidu.tbadk.core.util.n.ty();
             case -1:
             default:
                 return this.aSe.getPageContext().getString(i.h.save_error);

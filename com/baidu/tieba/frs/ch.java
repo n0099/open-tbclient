@@ -21,7 +21,7 @@ public class ch implements com.baidu.adp.lib.e.c<cf.a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Mk */
+    /* renamed from: Mg */
     public cf.a gZ() {
         Context context;
         BaseActivity baseActivity;

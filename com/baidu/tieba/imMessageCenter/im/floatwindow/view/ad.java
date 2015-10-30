@@ -10,7 +10,7 @@ class ad implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yh().dC(false);
-        this.bMM.YY();
+        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yd().dC(false);
+        this.bMM.YU();
     }
 }

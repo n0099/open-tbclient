@@ -40,7 +40,7 @@ public class k extends BaseFragment {
 
     /* loaded from: classes.dex */
     public interface a {
-        void aaE();
+        void aaA();
     }
 
     public void c(InterestFrsData interestFrsData) {
@@ -52,7 +52,7 @@ public class k extends BaseFragment {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.bRO = (NewUserGuideActivity) getBaseFragmentActivity();
-        this.bRo = this.bRO.aay();
+        this.bRo = this.bRO.aau();
         initData(bundle);
     }
 
@@ -63,7 +63,7 @@ public class k extends BaseFragment {
             } else {
                 this.bRq = this.bRO.getIntent().getBooleanExtra("is_new_user", false);
             }
-            d(this.bRo.aaG());
+            d(this.bRo.aaC());
         }
     }
 
@@ -125,7 +125,7 @@ public class k extends BaseFragment {
                 throw e;
             }
             BdLog.e(e);
-            this.bRO.aaA();
+            this.bRO.aaw();
             TbadkApplication.getInst().onAppMemoryLow();
             return new FrameLayout(layoutInflater.getContext());
         }

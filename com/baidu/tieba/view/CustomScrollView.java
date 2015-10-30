@@ -35,7 +35,7 @@ public class CustomScrollView extends ScrollView {
     @Override // android.widget.ScrollView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            aAJ();
+            aAF();
         }
         return super.onInterceptTouchEvent(motionEvent) && this.mGestureDetector.onTouchEvent(motionEvent);
     }
@@ -82,7 +82,7 @@ public class CustomScrollView extends ScrollView {
         super.onScrollChanged(i, i2, i3, i4);
     }
 
-    private void aAJ() {
+    private void aAF() {
         try {
             if (this.djj == null) {
                 this.djj = k.d(this, "mScroller");

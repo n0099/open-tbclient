@@ -37,13 +37,13 @@ public class d extends com.baidu.adp.base.e<d> {
         this.dgD = new com.baidu.tieba.themeCenter.b();
         this.dgD.setTitle(TbadkCoreApplication.m411getInst().getString(i.h.night_theme));
         this.dgD.setId(-2);
-        BZ();
+        BW();
         registerListener(this.aQV);
         registerListener(this.dgF);
         registerListener(this.dgG);
     }
 
-    private void BZ() {
+    private void BW() {
         com.baidu.tieba.tbadkCore.a.a.a(309013, SkinUpdateSocketResponsedMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309013, CmdConfigHttp.CMD_THEME_LIST_UPDATE, TbConfig.THEME_LIST_UPDATE, SkinUpdateHttpResponsedMessage.class, false, false, false, false);
     }
@@ -64,7 +64,7 @@ public class d extends com.baidu.adp.base.e<d> {
     public void gK(boolean z) {
         this.dhg = z;
         if (this.dhn != null) {
-            azC();
+            azy();
             this.dhn.a(this.dho, this.mThemeList);
         }
     }
@@ -76,7 +76,7 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azC() {
+    public void azy() {
         if (this.dhm == null || this.dhm.size() <= 0) {
             this.dho = false;
             this.dhg = false;

@@ -32,7 +32,7 @@ class t implements com.baidu.adp.widget.ListView.w {
             if (wVar instanceof com.baidu.tbadk.core.data.b) {
                 wVar2 = this.aUK.aTY;
                 com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) wVar2;
-                if (bVar.rr()) {
+                if (bVar.ro()) {
                     return false;
                 }
                 if (bVar.TU == 0) {
@@ -44,7 +44,7 @@ class t implements com.baidu.adp.widget.ListView.w {
             if (bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TR.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TS.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TT.getId()) {
                 if (uVar instanceof com.baidu.tbadk.core.data.b) {
                     com.baidu.tbadk.core.data.b bVar2 = (com.baidu.tbadk.core.data.b) uVar;
-                    if (bVar2.rq()) {
+                    if (bVar2.rn()) {
                         if (bVar2.TU == 0) {
                             this.aUK.a(bVar2, i);
                         }
@@ -61,8 +61,8 @@ class t implements com.baidu.adp.widget.ListView.w {
                         wVar5 = this.aUK.aTY;
                         frsActivity.mThreadId = wVar5.getId();
                         wVar6 = this.aUK.aTY;
-                        String sl = wVar6.sl();
-                        if (sl == null || sl.equals("")) {
+                        String si = wVar6.si();
+                        if (si == null || si.equals("")) {
                             this.aUK.aTS = false;
                         } else {
                             this.aUK.aTS = true;
@@ -71,7 +71,7 @@ class t implements com.baidu.adp.widget.ListView.w {
                         wVar7 = this.aUK.aTY;
                         frsActivity2.a(wVar7);
                         bsVar = this.aUK.aTU;
-                        bsVar.LN();
+                        bsVar.LJ();
                     }
                 }
             }

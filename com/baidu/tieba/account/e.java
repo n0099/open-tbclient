@@ -25,7 +25,7 @@ public class e implements AdapterView.OnItemClickListener {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         AccountData accountData;
         if (this.aEw.aEq.getItemId(i) >= 0) {
-            if (!this.aEw.aEq.FV() && (accountData = (AccountData) this.aEw.aEq.getItem(i)) != null && accountData.getIsActive() != 1) {
+            if (!this.aEw.aEq.FR() && (accountData = (AccountData) this.aEw.aEq.getItem(i)) != null && accountData.getIsActive() != 1) {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_ACCOUNT, TbadkCoreApplication.getCurrentAccount()));
                 this.aEw.j(accountData);
                 return;

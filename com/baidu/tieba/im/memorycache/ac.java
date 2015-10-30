@@ -19,9 +19,9 @@ class ac implements CustomMessageTask.CustomRunnable<String> {
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        com.baidu.tieba.im.db.i.TO().a(this.bDL, 2);
+        com.baidu.tieba.im.db.i.TK().a(this.bDL, 2);
         if (this.bEC != null) {
-            com.baidu.tieba.im.db.i.TO().a(this.bEC, 2);
+            com.baidu.tieba.im.db.i.TK().a(this.bEC, 2);
             return null;
         }
         return null;

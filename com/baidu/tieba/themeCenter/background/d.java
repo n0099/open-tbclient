@@ -22,18 +22,18 @@ public class d extends com.baidu.adp.base.e<BackgroundGroupActivity> {
         this.dfk = new e(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, 309020);
         this.dfl = new f(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
         this.dfh = backgroundGroupActivity;
-        azv();
+        azr();
         registerListener(this.dfk);
-        azw();
+        azs();
         registerListener(this.dfl);
     }
 
-    private void azv() {
+    private void azr() {
         com.baidu.tieba.tbadkCore.a.a.a(309020, BackgroundGroupSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void azw() {
+    private void azs() {
         com.baidu.tieba.tbadkCore.a.a.a(309022, BackgroundSetSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }

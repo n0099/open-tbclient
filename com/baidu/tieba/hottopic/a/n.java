@@ -79,8 +79,8 @@ public class n extends BaseAdapter {
             if (!StringUtils.isNULL(this.Xq.get(i).forumAvatar)) {
                 iVar.bqc.d(this.Xq.get(i).forumAvatar, 10, false);
             }
-            iVar.bdJ.setText(ax(this.Xq.get(i).postNum));
-            iVar.bdK.setText(ax(this.Xq.get(i).followNum));
+            iVar.bdJ.setText(av(this.Xq.get(i).postNum));
+            iVar.bdK.setText(av(this.Xq.get(i).followNum));
             iVar.aly.setText(as.dm(this.Xq.get(i).forumAbstract));
             a(iVar.bqg, this.Xq.get(i).isLiked);
             if (i == this.Xq.size() - 1) {
@@ -104,7 +104,7 @@ public class n extends BaseAdapter {
         textView.setEnabled(true);
     }
 
-    private String ax(long j) {
+    private String av(long j) {
         if (j < 0) {
             return "0";
         }

@@ -19,7 +19,7 @@ public class p {
     private p() {
     }
 
-    public static synchronized p Sb() {
+    public static synchronized p RX() {
         p pVar;
         synchronized (p.class) {
             if (buF == null) {

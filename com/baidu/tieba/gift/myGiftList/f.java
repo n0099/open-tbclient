@@ -31,7 +31,7 @@ class f extends com.baidu.adp.framework.listener.e {
             mVar.getFooterView().setVisibility(8);
             ResponseMyGiftListMessage responseMyGiftListMessage = (ResponseMyGiftListMessage) socketResponsedMessage;
             mVar2 = this.bmY.bmT;
-            mVar2.QA();
+            mVar2.Qw();
             if (responseMyGiftListMessage.hasError()) {
                 this.bmY.showToast(StringUtils.isNull(responseMyGiftListMessage.getErrorString()) ? this.bmY.getResources().getString(i.h.neterror) : responseMyGiftListMessage.getErrorString());
                 return;
@@ -45,7 +45,7 @@ class f extends com.baidu.adp.framework.listener.e {
                 lVar3.setHasMore(giftPageInfo.page.has_more.intValue() == 1);
                 mVar3 = this.bmY.bmT;
                 lVar4 = this.bmY.bmS;
-                mVar3.a(giftPageInfo, lVar4.Qy());
+                mVar3.a(giftPageInfo, lVar4.Qu());
             }
         }
     }

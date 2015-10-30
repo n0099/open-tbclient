@@ -28,7 +28,7 @@ public class ac implements View.OnClickListener {
             if (strArr.length < 6 || strArr[5] == null || com.baidu.adp.lib.g.b.g(strArr[5], 0) != 33) {
                 z = false;
             } else if ("0".equals(strArr[3])) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context, strArr[1]).rk()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context, strArr[1]).rh()));
                 z = true;
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(context).createPhotoLiveCommentActivityConfig(strArr[1], strArr[2], false)));

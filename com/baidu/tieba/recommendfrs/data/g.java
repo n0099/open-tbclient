@@ -26,19 +26,19 @@ public class g implements com.baidu.tbadk.mvc.b.b, j {
         return this.cIx == null || this.cIx.size() <= 0 || this.cIY == null || this.cIY.size() <= 0;
     }
 
-    public List<a> aqp() {
+    public List<a> aql() {
         return this.cIX;
     }
 
-    public List<Hot_Thread> aqq() {
+    public List<Hot_Thread> aqm() {
         return this.cIZ;
     }
 
-    public List<EverydayThread> aqr() {
+    public List<EverydayThread> aqn() {
         return this.cIY;
     }
 
-    public List<String> aqs() {
+    public List<String> aqo() {
         return this.cIx;
     }
 
@@ -90,7 +90,7 @@ public class g implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Cz() {
+    public byte[] Cw() {
         return null;
     }
 
@@ -105,7 +105,7 @@ public class g implements com.baidu.tbadk.mvc.b.b, j {
         }
     }
 
-    public boolean aqt() {
+    public boolean aqp() {
         return this.cgK;
     }
 }

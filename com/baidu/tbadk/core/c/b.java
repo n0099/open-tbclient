@@ -29,18 +29,18 @@ public class b {
         }
     }
 
-    public static Class<?> tn() {
+    public static Class<?> tk() {
         if (XL == null) {
             return null;
         }
-        return XL.tn();
+        return XL.tk();
     }
 
-    public static String to() {
+    public static String tl() {
         if (XL == null) {
             return null;
         }
-        return XL.to();
+        return XL.tl();
     }
 
     public static void a(a aVar) {

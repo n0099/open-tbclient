@@ -15,7 +15,7 @@ public class TopThemeListActivity extends BaseActivity<TopThemeListActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.dgr = new com.baidu.tieba.themeCenter.d(getPageContext());
-        this.dhv = new h(this, this.dgr.azq());
+        this.dhv = new h(this, this.dgr.azm());
         this.dhu = new d();
         this.dhu.a(this.dgs);
         showLoadingView(this.dhv.getRootView());

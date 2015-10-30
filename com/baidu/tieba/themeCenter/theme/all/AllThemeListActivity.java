@@ -17,7 +17,7 @@ public class AllThemeListActivity extends BaseActivity<AllThemeListActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.dgr = new com.baidu.tieba.themeCenter.d(getPageContext());
-        this.dgq = new h(this, this.dgr.azq());
+        this.dgq = new h(this, this.dgr.azm());
         this.dgq.setOnSrollToBottomListener(this.mScrollToBottomListener);
         this.dgp = new d();
         this.dgp.a(this.dgs);
@@ -30,7 +30,7 @@ public class AllThemeListActivity extends BaseActivity<AllThemeListActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.dgq != null) {
-            this.dgq.tc();
+            this.dgq.sZ();
         }
     }
 

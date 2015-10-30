@@ -39,13 +39,13 @@ public class ah implements View.OnClickListener {
                 linearLayout = this.cYz.cYq;
                 if (view == linearLayout) {
                     aaVar = this.cYz.news_info;
-                    if (!TextUtils.isEmpty(aaVar.sN())) {
+                    if (!TextUtils.isEmpty(aaVar.sK())) {
                         context2 = this.cYz.mContext;
                         TiebaStatic.eventStat(context2, "info_click", "click", 1, "page", "frs");
-                        az uW = az.uW();
+                        az uT = az.uT();
                         context3 = this.cYz.mContext;
                         aaVar2 = this.cYz.news_info;
-                        uW.b((TbPageContext) com.baidu.adp.base.l.C(context3), new String[]{aaVar2.sN()});
+                        uT.b((TbPageContext) com.baidu.adp.base.l.C(context3), new String[]{aaVar2.sK()});
                         return;
                     }
                     return;
@@ -53,13 +53,13 @@ public class ah implements View.OnClickListener {
                 return;
             }
             xVar = this.cYz.top_code;
-            if (!TextUtils.isEmpty(xVar.sH())) {
+            if (!TextUtils.isEmpty(xVar.sE())) {
                 context4 = this.cYz.mContext;
                 TiebaStatic.eventStat(context4, "num_click", "click", 1, new Object[0]);
-                az uW2 = az.uW();
+                az uT2 = az.uT();
                 context5 = this.cYz.mContext;
                 xVar2 = this.cYz.top_code;
-                uW2.b((TbPageContext) com.baidu.adp.base.l.C(context5), new String[]{xVar2.sH()});
+                uT2.b((TbPageContext) com.baidu.adp.base.l.C(context5), new String[]{xVar2.sE()});
             }
         }
     }

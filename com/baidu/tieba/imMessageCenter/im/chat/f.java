@@ -48,7 +48,7 @@ class f extends com.baidu.adp.framework.listener.e {
                     PersonalChatActivity personalChatActivity = this.bJG;
                     PersonalChatActivity personalChatActivity2 = this.bJG;
                     bVar3 = this.bJG.bJx;
-                    personalChatActivity.bJw = personalChatActivity2.it(as.n(bVar3.getTime()));
+                    personalChatActivity.bJw = personalChatActivity2.it(as.l(bVar3.getTime()));
                     j = this.bJG.bJw;
                     if (j != 0) {
                         handler = this.bJG.mHandler;
@@ -56,16 +56,16 @@ class f extends com.baidu.adp.framework.listener.e {
                         j2 = this.bJG.bJw;
                         handler.postDelayed(runnable, j2);
                     }
-                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e XJ = PersonalChatActivityStatic.XJ();
+                    com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e XF = PersonalChatActivityStatic.XF();
                     str = this.bJG.bJy;
                     String str2 = String.valueOf(str) + "&" + user.getUserId();
                     bVar4 = this.bJG.bJx;
-                    XJ.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
+                    XF.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
                 } else {
                     return;
                 }
             }
-            TbadkCoreApplication.m411getInst().getAlarmManager().qh();
+            TbadkCoreApplication.m411getInst().getAlarmManager().qe();
         }
     }
 }

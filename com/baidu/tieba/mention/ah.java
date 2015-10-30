@@ -42,16 +42,16 @@ public class ah extends com.baidu.adp.base.e<SingleMentionActivity> implements N
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean Hn() {
-        if (this.caP.isLoading() || !this.aJI.Dc()) {
+    public boolean Hj() {
+        if (this.caP.isLoading() || !this.aJI.CZ()) {
             return false;
         }
         this.aJI.bk(true);
         this.aJI.bm(true);
         this.caO.b(this.can);
         this.caP.setNeedCache(false);
-        this.caP.CS();
-        this.caj.ade().d(this.aJI);
+        this.caP.CP();
+        this.caj.ada().d(this.aJI);
         return true;
     }
 
@@ -63,7 +63,7 @@ public class ah extends com.baidu.adp.base.e<SingleMentionActivity> implements N
         this.can = null;
         this.caO.reset();
         this.caP.setNeedCache(true);
-        this.caP.CS();
+        this.caP.CP();
         return true;
     }
 
@@ -74,13 +74,13 @@ public class ah extends com.baidu.adp.base.e<SingleMentionActivity> implements N
 
     protected boolean a(aj ajVar, ak akVar) {
         if (ajVar.getUpdateType() != 4) {
-            this.cao.adc().clear();
+            this.cao.acY().clear();
         }
         this.cao.a(akVar);
-        if (akVar != null && akVar.adc() != null && akVar.adc().size() > 0) {
-            this.can = akVar.adc().get(akVar.adc().size() - 1);
+        if (akVar != null && akVar.acY() != null && akVar.acY().size() > 0) {
+            this.can = akVar.acY().get(akVar.acY().size() - 1);
             if (this.cao.getPage() != null) {
-                this.aJI.bl(this.cao.getPage().rL() == 1);
+                this.aJI.bl(this.cao.getPage().rI() == 1);
             } else {
                 this.aJI.bl(true);
             }
@@ -95,10 +95,10 @@ public class ah extends com.baidu.adp.base.e<SingleMentionActivity> implements N
         }
         this.aJI.bk(false);
         this.aJI.bj(false);
-        com.baidu.tbadk.coreExtra.messageCenter.a.wK().wZ();
-        this.caj.adi().o(1, true);
-        this.caj.ade().a(this.cao);
-        this.caj.ade().d(this.aJI);
+        com.baidu.tbadk.coreExtra.messageCenter.a.wH().wW();
+        this.caj.ade().o(1, true);
+        this.caj.ada().a(this.cao);
+        this.caj.ada().d(this.aJI);
         return false;
     }
 
@@ -110,7 +110,7 @@ public class ah extends com.baidu.adp.base.e<SingleMentionActivity> implements N
         this.can = null;
         this.caO.reset();
         this.caP.setNeedCache(true);
-        this.caP.CS();
+        this.caP.CP();
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a
@@ -127,7 +127,7 @@ public class ah extends com.baidu.adp.base.e<SingleMentionActivity> implements N
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.wK().setMsgReplyme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.wH().setMsgReplyme(0);
             akVar = null;
         }
         if (r1 == null || akVar == null || !a(r1, akVar)) {
@@ -139,7 +139,7 @@ public class ah extends com.baidu.adp.base.e<SingleMentionActivity> implements N
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.caj.a(errorData);
-            this.caj.ade().a(errorData);
+            this.caj.ada().a(errorData);
         }
     }
 
@@ -153,7 +153,7 @@ public class ah extends com.baidu.adp.base.e<SingleMentionActivity> implements N
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.wK().setMsgReplyme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.wH().setMsgReplyme(0);
             akVar = null;
         }
         if (r1 == null || akVar == null || !a(r1, akVar)) {
@@ -165,7 +165,7 @@ public class ah extends com.baidu.adp.base.e<SingleMentionActivity> implements N
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.caj.a(errorData);
-            this.caj.ade().a(errorData);
+            this.caj.ada().a(errorData);
         }
     }
 

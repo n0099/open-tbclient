@@ -17,11 +17,11 @@ class a extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> qz;
+        ArrayList<com.baidu.tbadk.mainTab.b> qw;
         c cVar;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof com.baidu.tbadk.b.a) && (qz = ((com.baidu.tbadk.b.a) customResponsedMessage.getData()).qz()) != null && !qz.isEmpty()) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof com.baidu.tbadk.b.a) && (qw = ((com.baidu.tbadk.b.a) customResponsedMessage.getData()).qw()) != null && !qw.isEmpty()) {
             cVar = this.cbq.cbn;
-            cVar.L(qz);
+            cVar.L(qw);
         }
     }
 }

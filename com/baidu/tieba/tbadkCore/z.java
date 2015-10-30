@@ -8,7 +8,7 @@ public class z extends com.baidu.tbadk.core.data.w {
     private p cYf;
     private String fortune_desc;
 
-    public boolean awc() {
+    public boolean avY() {
         return this.cYe;
     }
 
@@ -16,7 +16,7 @@ public class z extends com.baidu.tbadk.core.data.w {
         this.cYe = z;
     }
 
-    public String awd() {
+    public String avZ() {
         return this.fortune_desc;
     }
 
@@ -24,7 +24,7 @@ public class z extends com.baidu.tbadk.core.data.w {
         this.fortune_desc = str;
     }
 
-    public p awe() {
+    public p awa() {
         return this.cYf;
     }
 

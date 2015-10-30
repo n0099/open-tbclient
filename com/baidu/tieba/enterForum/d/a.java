@@ -52,18 +52,18 @@ public class a extends GridView implements AdapterView.OnItemLongClickListener {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         this.aMB = (int) motionEvent.getRawX();
         this.aMC = (int) motionEvent.getRawY();
-        if (com.baidu.tieba.enterForum.c.a.Ir().Is()) {
+        if (com.baidu.tieba.enterForum.c.a.In().Io()) {
             switch (motionEvent.getAction()) {
                 case 1:
                 case 3:
                     com.baidu.adp.lib.g.h.hg().removeCallbacks(this.aMF);
-                    com.baidu.tieba.enterForum.c.a.Ir().Iv();
+                    com.baidu.tieba.enterForum.c.a.In().Ir();
                     this.aMD.eU(-1);
-                    this.aMD.HT();
+                    this.aMD.HP();
                     break;
                 case 2:
-                    this.mOffset = com.baidu.tieba.enterForum.c.b.Iw().a(motionEvent.getY(), this.aME, getHeight());
-                    com.baidu.tieba.enterForum.c.a.Ir().S(this.aMB, this.aMC - this.mOffset);
+                    this.mOffset = com.baidu.tieba.enterForum.c.b.Is().a(motionEvent.getY(), this.aME, getHeight());
+                    com.baidu.tieba.enterForum.c.a.In().S(this.aMB, this.aMC - this.mOffset);
                     U((int) motionEvent.getX(), ((int) motionEvent.getY()) - this.mOffset);
                     break;
             }
@@ -76,9 +76,9 @@ public class a extends GridView implements AdapterView.OnItemLongClickListener {
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         TiebaStatic.eventStat(getContext(), "list_drag_order", null);
         this.aMA = i;
-        com.baidu.tieba.enterForum.c.a.Ir().a(getContext(), view, this.aMB, this.aMC);
+        com.baidu.tieba.enterForum.c.a.In().a(getContext(), view, this.aMB, this.aMC);
         this.aMD.eU(i);
-        this.aMD.HT();
+        this.aMD.HP();
         this.aME = view.getHeight();
         com.baidu.adp.lib.g.h.hg().postDelayed(this.aMF, 200L);
         return true;

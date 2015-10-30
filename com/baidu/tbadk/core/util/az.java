@@ -59,7 +59,7 @@ public class az {
         return spannableString;
     }
 
-    public static az uW() {
+    public static az uT() {
         return abv;
     }
 

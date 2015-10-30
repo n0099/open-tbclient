@@ -35,7 +35,7 @@ public class a {
         this.cHQ = str;
     }
 
-    public JSONObject apF() {
+    public JSONObject apB() {
         if (this.jsonObject != null) {
             return this.jsonObject;
         }

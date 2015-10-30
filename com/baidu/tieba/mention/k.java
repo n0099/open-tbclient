@@ -28,11 +28,11 @@ public abstract class k extends com.baidu.adp.base.f<SingleMentionActivity> impl
     public void d(com.baidu.tbadk.mvc.d.b bVar) {
         if (bVar instanceof com.baidu.tbadk.mvc.d.a) {
             com.baidu.tbadk.mvc.d.a aVar = (com.baidu.tbadk.mvc.d.a) bVar;
-            if (aVar.Dd()) {
+            if (aVar.Da()) {
                 this.aJQ.ow();
-                if (aVar.Db()) {
+                if (aVar.CY()) {
                     this.aJQ.et(i.h.loading);
-                } else if (aVar.Dc()) {
+                } else if (aVar.CZ()) {
                     this.aJQ.et(i.h.loading);
                 } else {
                     this.aJQ.eu(i.h.no_more_msg);
@@ -41,35 +41,35 @@ public abstract class k extends com.baidu.adp.base.f<SingleMentionActivity> impl
                 this.aJQ.hide();
             }
             if (aVar.isPullRefreshing()) {
-                acO();
+                acK();
             } else {
-                acP();
+                acL();
             }
         }
     }
 
-    public void acO() {
+    public void acK() {
         this.mPullView.a((p.b) null);
         this.aJO.nw();
         this.mPullView.a(this);
     }
 
-    public void acP() {
+    public void acL() {
         this.aJO.completePullRefresh();
     }
 
     @Override // com.baidu.tbadk.core.view.p.b
     public void a(View view, boolean z) {
         if (this instanceof j) {
-            this.caj.adh().bB(z);
+            this.caj.add().bB(z);
         } else {
-            this.caj.adg().bB(z);
+            this.caj.adc().bB(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(ErrorData errorData) {
-        acP();
+        acL();
         if (this.aJQ != null) {
             this.aJQ.eu(i.h.no_more_msg);
         }
@@ -103,9 +103,9 @@ public abstract class k extends com.baidu.adp.base.f<SingleMentionActivity> impl
             this.car = false;
             this.cas = false;
             if (this instanceof j) {
-                this.caj.adh().oR();
+                this.caj.add().oR();
             } else {
-                this.caj.adg().oR();
+                this.caj.adc().oR();
             }
         }
     }
@@ -117,11 +117,11 @@ public abstract class k extends com.baidu.adp.base.f<SingleMentionActivity> impl
         }
     }
 
-    public void Dg() {
+    public void Dd() {
     }
 
     @Override // com.baidu.tbadk.mvc.f.a.a
-    public void Dh() {
+    public void De() {
     }
 
     public void dV(boolean z) {

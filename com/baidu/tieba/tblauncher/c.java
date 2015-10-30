@@ -18,15 +18,15 @@ class c extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<com.baidu.tbadk.mainTab.b> qz;
+        ArrayList<com.baidu.tbadk.mainTab.b> qw;
         ao aoVar;
         boolean z;
         ao aoVar2;
         int i;
         boolean z2;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (qz = ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).qz()) != null && qz.size() != 0) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null && (qw = ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).qw()) != null && qw.size() != 0) {
             aoVar = this.this$0.dcB;
-            aoVar.L(qz);
+            aoVar.L(qw);
             z = this.this$0.isUserChanged;
             if (!z) {
                 z2 = this.this$0.dcw;
@@ -37,9 +37,9 @@ class c extends CustomMessageListener {
                 }
             }
             aoVar2 = this.this$0.dcB;
-            FragmentTabHost ayI = aoVar2.ayI();
+            FragmentTabHost ayE = aoVar2.ayE();
             i = this.this$0.dcv;
-            ayI.setCurrentTabByType(i);
+            ayE.setCurrentTabByType(i);
             this.this$0.isUserChanged = false;
             this.this$0.dcw = false;
         }

@@ -40,7 +40,7 @@ public class c implements View.OnTouchListener {
             iVar = this.bbp.bbg;
             if (iVar != null) {
                 iVar2 = this.bbp.bbg;
-                iVar2.Nm();
+                iVar2.Ni();
                 return false;
             }
             return false;

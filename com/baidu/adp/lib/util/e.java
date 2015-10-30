@@ -267,12 +267,12 @@ public class e {
                                 }
                                 bArr = byteArrayOutputStream.toByteArray();
                                 o.d(fileInputStream);
-                                o.b(byteArrayOutputStream);
+                                o.b((OutputStream) byteArrayOutputStream);
                             } catch (IOException e) {
                                 e = e;
                                 BdLog.e(e.getMessage());
                                 o.d(fileInputStream);
-                                o.b(byteArrayOutputStream);
+                                o.b((OutputStream) byteArrayOutputStream);
                                 return bArr;
                             }
                         } catch (IOException e2) {
@@ -367,9 +367,9 @@ public class e {
                             long size = fileChannel2.size();
                             for (long j = 0; j < size; j += channel.transferFrom(fileChannel2, j, size - j > 31457280 ? 31457280L : size - j)) {
                             }
-                            o.c(channel);
-                            o.b(fileOutputStream);
-                            o.c(fileChannel2);
+                            o.b(channel);
+                            o.b((OutputStream) fileOutputStream);
+                            o.b(fileChannel2);
                             o.d(fileInputStream2);
                             if (file.length() != file2.length()) {
                                 throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
@@ -382,9 +382,9 @@ public class e {
                             th = th3;
                             fileChannel = fileChannel2;
                             closeable = channel;
-                            o.c(closeable);
-                            o.b(fileOutputStream);
-                            o.c(fileChannel);
+                            o.b(closeable);
+                            o.b((OutputStream) fileOutputStream);
+                            o.b(fileChannel);
                             o.d(fileInputStream);
                             throw th;
                         }
@@ -398,9 +398,9 @@ public class e {
                             fileChannel = fileChannel2;
                             closeable = null;
                             th = th4;
-                            o.c(closeable);
-                            o.b(fileOutputStream);
-                            o.c(fileChannel);
+                            o.b(closeable);
+                            o.b((OutputStream) fileOutputStream);
+                            o.b(fileChannel);
                             o.d(fileInputStream);
                             throw th;
                         }

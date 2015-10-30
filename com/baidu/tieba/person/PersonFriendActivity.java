@@ -11,56 +11,56 @@ public class PersonFriendActivity extends BasePersonInfoActivity {
     @Override // com.baidu.tieba.person.BasePersonInfoActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cqh = new bf(getPageContext(), WK());
+        this.cqh = new bf(getPageContext(), WG());
         this.cqh.setSex(getSex());
         this.cqh.setId(getUid());
         this.cqh.setUniqueId(getUniqueId());
     }
 
-    public bf aiF() {
+    public bf aiB() {
         return this.cqh;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
     public d a(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         if (this.cqg == null) {
-            this.cqg = new av(this, WK());
+            this.cqg = new av(this, WG());
         }
         return this.cqg;
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ahU() {
+    public String ahQ() {
         return getPageContext().getString(i.h.person_friend_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ahV() {
+    public String ahR() {
         return getPageContext().getString(i.h.person_friend_no_personal_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ahW() {
+    public String ahS() {
         return getPageContext().getString(i.h.person_friend_no_common_title);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ahX() {
+    public String ahT() {
         return getPageContext().getString(i.h.person_friend_personal);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String ahY() {
+    public String ahU() {
         return getPageContext().getString(i.h.person_friend_common);
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public String aic() {
+    public String ahY() {
         return "common_frd";
     }
 
     @Override // com.baidu.tieba.person.BasePersonInfoActivity
-    public int aid() {
+    public int ahZ() {
         return 5;
     }
 }

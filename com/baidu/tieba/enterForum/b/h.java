@@ -10,7 +10,7 @@ import tbclient.ForumRecommend.Banner;
 public class h {
     private ArrayList<u> aLD = new ArrayList<>();
 
-    public ArrayList<u> Ig() {
+    public ArrayList<u> Ic() {
         return this.aLD;
     }
 

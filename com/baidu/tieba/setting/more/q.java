@@ -29,6 +29,6 @@ public class q implements AdapterView.OnItemClickListener {
                 TbadkCoreApplication.m411getInst().setFontSize(3);
                 break;
         }
-        this.cNs.arR();
+        this.cNs.arN();
     }
 }

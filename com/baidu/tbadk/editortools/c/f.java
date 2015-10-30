@@ -12,7 +12,7 @@ public class f implements d.b {
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.b
-    public void BG() {
+    public void BD() {
         this.asm.a(0, false, null);
     }
 

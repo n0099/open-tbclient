@@ -25,11 +25,11 @@ class o implements com.baidu.tieba.tbadkCore.r {
         switch (i) {
             case 1:
                 this.aZM.aZG.cd(true);
-                this.aZM.aZG.LQ();
+                this.aZM.aZG.LM();
                 return;
             case 2:
                 this.aZM.aZG.ce(true);
-                this.aZM.aZG.LQ();
+                this.aZM.aZG.LM();
                 return;
             case 3:
                 this.aZM.aZG.cc(true);
@@ -40,7 +40,7 @@ class o implements com.baidu.tieba.tbadkCore.r {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0086, code lost:
-        if (r1.avz().size() == 0) goto L15;
+        if (r1.avv().size() == 0) goto L15;
      */
     /* JADX WARN: Removed duplicated region for block: B:23:0x00b6  */
     /* JADX WARN: Removed duplicated region for block: B:33:0x014b  */
@@ -90,7 +90,7 @@ class o implements com.baidu.tieba.tbadkCore.r {
         if (aVar == null) {
             this.aZO = 1L;
         } else if (aVar.isSuccess) {
-            this.aZM.aZG.MN().bV(at.uJ().uL());
+            this.aZM.aZG.MJ().bV(at.uG().uI());
             this.aUb = 0L;
             this.aUc = 0L;
             this.aZO = 0L;
@@ -103,23 +103,23 @@ class o implements com.baidu.tieba.tbadkCore.r {
             vVar3.resetData();
         }
         this.aZM.aZG.cc(false);
-        if (this.aZM.ML().MR() != null) {
-            this.aZM.aTW = this.aZM.ML().MR();
+        if (this.aZM.MH().MN() != null) {
+            this.aZM.aTW = this.aZM.MH().MN();
         }
         FrsGoodActivity frsGoodActivity = this.aZM;
         oVar = this.aZM.aTW;
-        frsGoodActivity.aUn = oVar.getPage().rL();
+        frsGoodActivity.aUn = oVar.getPage().rI();
         i2 = this.aZM.aUn;
         if (i2 == 0) {
             oVar23 = this.aZM.aTW;
-            if (oVar23.avz() != null) {
+            if (oVar23.avv() != null) {
                 oVar26 = this.aZM.aTW;
             }
             oVar24 = this.aZM.aTW;
             if (oVar24.getThreadList() != null) {
                 oVar25 = this.aZM.aTW;
                 if (oVar25.getThreadList().size() != 0) {
-                    this.aZM.aZG.Mf();
+                    this.aZM.aZG.Mb();
                     if (i == 4) {
                         vVar2 = this.aZM.aZJ;
                         oVar20 = this.aZM.aTW;
@@ -139,18 +139,18 @@ class o implements com.baidu.tieba.tbadkCore.r {
                     switch (i) {
                         case 1:
                             this.aZM.aZG.cd(false);
-                            this.aZM.aZG.LQ();
+                            this.aZM.aZG.LM();
                             break;
                         case 2:
                             this.aZM.aZG.ce(false);
-                            this.aZM.aZG.LQ();
+                            this.aZM.aZG.LM();
                             break;
                     }
                     z2 = this.aZM.aTT;
                     if (!z2) {
-                        this.aZM.MG();
+                        this.aZM.MC();
                     } else {
-                        this.aZM.MI();
+                        this.aZM.ME();
                     }
                     if (this.aZO != 0) {
                         z4 = this.aZM.aTT;
@@ -165,35 +165,35 @@ class o implements com.baidu.tieba.tbadkCore.r {
                         if (oVar2 != null) {
                             FrsGoodActivity frsGoodActivity2 = this.aZM;
                             oVar16 = this.aZM.aTW;
-                            frsGoodActivity2.aTM = oVar16.aeN().getName();
+                            frsGoodActivity2.aTM = oVar16.aeJ().getName();
                             FrsGoodActivity frsGoodActivity3 = this.aZM;
                             oVar17 = this.aZM.aTW;
-                            frsGoodActivity3.forumId = oVar17.aeN().getId();
+                            frsGoodActivity3.forumId = oVar17.aeJ().getId();
                             x xVar2 = this.aZM.aZG;
                             oVar18 = this.aZM.aTW;
-                            ForumData aeN = oVar18.aeN();
+                            ForumData aeJ = oVar18.aeJ();
                             oVar19 = this.aZM.aTW;
-                            xVar2.b(aeN, oVar19.getUserData());
+                            xVar2.b(aeJ, oVar19.getUserData());
                         }
                         z3 = this.aZM.aUh;
                         if (z3) {
                             oVar13 = this.aZM.aTW;
                             if (oVar13 != null) {
                                 oVar14 = this.aZM.aTW;
-                                oVar14.avT();
+                                oVar14.avP();
                                 oVar15 = this.aZM.aTW;
-                                oVar15.avX();
+                                oVar15.avT();
                             }
                         }
                         oVar3 = this.aZM.aTW;
                         if (oVar3 != null) {
                             oVar11 = this.aZM.aTW;
-                            com.baidu.tbadk.core.data.y top_notice_data = oVar11.aeN().getTop_notice_data();
+                            com.baidu.tbadk.core.data.y top_notice_data = oVar11.aeJ().getTop_notice_data();
                             if (top_notice_data != null && top_notice_data.getTitle() != null) {
                                 com.baidu.tbadk.core.data.w wVar = new com.baidu.tbadk.core.data.w();
                                 wVar.setTitle(top_notice_data.getTitle());
                                 wVar.bA(2);
-                                wVar.cn(top_notice_data.sK());
+                                wVar.cn(top_notice_data.sH());
                                 wVar.parser_title();
                                 oVar12 = this.aZM.aTW;
                                 oVar12.f(wVar);
@@ -211,7 +211,7 @@ class o implements com.baidu.tieba.tbadkCore.r {
                             oVar9 = this.aZM.aTW;
                             if (oVar9.getThreadList() != null) {
                                 oVar10 = this.aZM.aTW;
-                                if (oVar10.getThreadList().size() == 0 && this.aZM.ML().getType() == 4) {
+                                if (oVar10.getThreadList().size() == 0 && this.aZM.MH().getType() == 4) {
                                     this.aZM.showToast(this.aZM.getPageContext().getString(i.h.no_more_to_load));
                                     i3 = this.aZM.mPn;
                                     if (i3 > 1) {
@@ -221,7 +221,7 @@ class o implements com.baidu.tieba.tbadkCore.r {
                                     }
                                     if (this.aZM.aLJ > -1) {
                                         long currentTimeMillis2 = System.currentTimeMillis();
-                                        TiebaStatic.page("op_frs_enter", currentTimeMillis2 - this.aZM.aLJ, this.aZM.ML().IA() - this.aZM.aLJ, this.aZM.ML().Iy(), this.aZM.ML().Iz(), currentTimeMillis2 - this.aZM.ML().Ix());
+                                        TiebaStatic.page("op_frs_enter", currentTimeMillis2 - this.aZM.aLJ, this.aZM.MH().Iw() - this.aZM.aLJ, this.aZM.MH().Iu(), this.aZM.MH().Iv(), currentTimeMillis2 - this.aZM.MH().It());
                                         this.aZM.aLJ = -1L;
                                     }
                                     this.aZM.axy = System.currentTimeMillis() - currentTimeMillis;
@@ -239,11 +239,11 @@ class o implements com.baidu.tieba.tbadkCore.r {
                                 oVar8.af(a2);
                             }
                         }
-                        this.aZM.La();
+                        this.aZM.KW();
                     }
                     if (this.aZM.aLJ > -1) {
                         long currentTimeMillis3 = System.currentTimeMillis();
-                        TiebaStatic.page("op_frs_enter", currentTimeMillis3 - this.aZM.aLJ, this.aZM.ML().IA() - this.aZM.aLJ, this.aZM.ML().Iy(), this.aZM.ML().Iz(), currentTimeMillis3 - this.aZM.ML().Ix());
+                        TiebaStatic.page("op_frs_enter", currentTimeMillis3 - this.aZM.aLJ, this.aZM.MH().Iw() - this.aZM.aLJ, this.aZM.MH().Iu(), this.aZM.MH().Iv(), currentTimeMillis3 - this.aZM.MH().It());
                         this.aZM.aLJ = -1L;
                     }
                     this.aZM.axy = System.currentTimeMillis() - currentTimeMillis;
@@ -251,11 +251,11 @@ class o implements com.baidu.tieba.tbadkCore.r {
                     return;
                 }
             }
-            this.aZM.aZG.Mg();
+            this.aZM.aZG.Mc();
             if (i == 4) {
             }
         }
-        this.aZM.aZG.Me();
+        this.aZM.aZG.Ma();
         if (i == 4) {
         }
     }

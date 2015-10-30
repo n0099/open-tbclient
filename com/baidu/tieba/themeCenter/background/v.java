@@ -25,7 +25,7 @@ public class v {
         this.dfQ = (TextView) this.mRootView.findViewById(i.f.text_bg_name);
         this.dex = (TbImageView) this.mRootView.findViewById(i.f.bg_permission_icon);
         this.dfR = (TextView) this.mRootView.findViewById(i.f.text_bg_description);
-        tc();
+        sZ();
     }
 
     public void c(DressItemData dressItemData) {
@@ -40,7 +40,7 @@ public class v {
         return this.mRootView;
     }
 
-    public void tc() {
+    public void sZ() {
         com.baidu.tbadk.h.a.a(this.mContext, this.mRootView);
     }
 }

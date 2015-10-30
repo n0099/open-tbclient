@@ -57,7 +57,7 @@ public class d extends com.baidu.adp.base.e<d> {
         return false;
     }
 
-    public void azB() {
+    public void azx() {
         if (this.hasMore) {
             this.MH++;
             AllThemeListRequestMessage allThemeListRequestMessage = new AllThemeListRequestMessage();
@@ -73,7 +73,7 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azC() {
+    public void azy() {
         if (this.dgB != null && this.dgB.size() > 0) {
             if (this.dgA == null || this.dgA.size() <= 0) {
                 if (this.dgB.size() >= 2) {

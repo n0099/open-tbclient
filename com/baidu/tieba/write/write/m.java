@@ -94,7 +94,7 @@ public class m extends BaseAdapter {
         a aVar;
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
         if (obj == null) {
-            aVar = aCW();
+            aVar = aCS();
         } else {
             aVar = (a) obj;
         }
@@ -116,7 +116,7 @@ public class m extends BaseAdapter {
         return aVar;
     }
 
-    private a aCW() {
+    private a aCS() {
         a aVar = new a(this, null);
         aVar.rootView = LayoutInflater.from(this.mContext).inflate(i.g.invite_friend_list_item, (ViewGroup) null);
         aVar.bMY = (HeadImageView) aVar.rootView.findViewById(i.f.photo);

@@ -28,11 +28,11 @@ public class h extends com.baidu.adp.base.f<IMBlackListActivity> {
         initialize();
     }
 
-    public void BR() {
+    public void BO() {
         this.mProgress.setVisibility(0);
     }
 
-    public void Zh() {
+    public void Zd() {
         this.mProgress.setVisibility(8);
     }
 
@@ -48,7 +48,7 @@ public class h extends com.baidu.adp.base.f<IMBlackListActivity> {
         this.bNa.notifyDataSetChanged();
     }
 
-    public void Ko() {
+    public void Kk() {
         if (this.bNa.getCount() <= 0) {
             this.mListView.setVisibility(8);
             this.mNoDataView.setVisibility(0);
@@ -83,10 +83,10 @@ public class h extends com.baidu.adp.base.f<IMBlackListActivity> {
         this.mProgress = (ProgressBar) this.mRoot.findViewById(i.f.progress);
         this.bNa = new f(this.bMV);
         this.mListView.setAdapter((ListAdapter) this.bNa);
-        vA();
+        vx();
     }
 
-    private void vA() {
+    private void vx() {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
         this.bMV.getLayoutMode().ad(skinType == 1);
         this.bMV.getLayoutMode().k(this.mRoot);

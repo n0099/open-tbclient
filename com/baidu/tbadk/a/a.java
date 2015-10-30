@@ -44,7 +44,7 @@ public class a {
         }
     }
 
-    public void qh() {
+    public void qe() {
         if (this.RQ != null && this.RR != null) {
             if (this.RS <= 0) {
                 this.RS = 3600000L;
@@ -53,7 +53,7 @@ public class a {
         }
     }
 
-    public long qi() {
+    public long qf() {
         if (this.RS <= 0) {
             this.RS = 3600000L;
         }

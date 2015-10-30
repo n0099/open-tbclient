@@ -77,7 +77,7 @@ public class PersonPostModel extends com.baidu.adp.base.e<BaseFragmentActivity> 
         int K = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp());
         int L = com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp());
         float f = TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = com.baidu.tbadk.core.util.at.uJ().uL() ? 2 : 1;
+        int i2 = com.baidu.tbadk.core.util.at.uG().uI() ? 2 : 1;
         userPostPageRequestMessage.set_scr_w(K);
         userPostPageRequestMessage.set_scr_h(L);
         userPostPageRequestMessage.set_scr_dip(f);

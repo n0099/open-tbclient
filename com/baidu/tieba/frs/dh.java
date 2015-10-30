@@ -36,8 +36,8 @@ public class dh extends bn<com.baidu.tbadk.core.data.t, di> implements View.OnCl
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.t tVar, di diVar) {
         super.a(i, view, viewGroup, (ViewGroup) tVar, (com.baidu.tbadk.core.data.t) diVar);
         com.baidu.tbadk.h.a.a(this.aSe.getPageContext(), view);
-        PhotoLiveCardData sc = tVar.sc();
-        if (2 == b(sc)) {
+        PhotoLiveCardData rZ = tVar.rZ();
+        if (2 == b(rZ)) {
             diVar.aYs.setShowContent(true);
             diVar.aYs.setShowCover(false);
             diVar.aYs.setShowExpression(false);
@@ -48,13 +48,13 @@ public class dh extends bn<com.baidu.tbadk.core.data.t, di> implements View.OnCl
         }
         diVar.aYs.setContentPaddingBottom(i.d.ds36);
         diVar.aYs.setShowBottom(false);
-        diVar.aYs.setChooseStyle(sc.getShowStyle());
+        diVar.aYs.setChooseStyle(rZ.getShowStyle());
         diVar.aYs.setShowRefreshTimeInHead(true);
         diVar.aYs.setShowLiveIcon(true);
         diVar.aYs.setHeadPaddingTop(i.d.ds24);
         diVar.aYs.setPortraitClicklistener(this);
-        diVar.aYs.setShowImage(com.baidu.tbadk.core.m.qX().rb());
-        diVar.aYs.setData(sc);
+        diVar.aYs.setShowImage(com.baidu.tbadk.core.m.qU().qY());
+        diVar.aYs.setData(rZ);
         return view;
     }
 

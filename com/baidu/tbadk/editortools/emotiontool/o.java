@@ -19,7 +19,7 @@ public class o {
         this.aqM = tVar;
     }
 
-    public t AR() {
+    public t AO() {
         return this.aqM;
     }
 
@@ -27,7 +27,7 @@ public class o {
         this.aqH = emotionGroupType;
     }
 
-    public EmotionGroupType AS() {
+    public EmotionGroupType AP() {
         return this.aqH;
     }
 
@@ -43,7 +43,7 @@ public class o {
         this.column = i;
     }
 
-    public int AT() {
+    public int AQ() {
         return this.column;
     }
 
@@ -51,7 +51,7 @@ public class o {
         this.aqO = i;
     }
 
-    public int AU() {
+    public int AR() {
         return this.aqO;
     }
 
@@ -59,7 +59,7 @@ public class o {
         this.aqN = i;
     }
 
-    public int AV() {
+    public int AS() {
         return this.aqN;
     }
 
@@ -67,7 +67,7 @@ public class o {
         this.aqI = i;
     }
 
-    public int AW() {
+    public int AT() {
         return this.aqI;
     }
 
@@ -75,7 +75,7 @@ public class o {
         this.aqK = i;
     }
 
-    public int AX() {
+    public int AU() {
         return this.aqK;
     }
 
@@ -95,7 +95,7 @@ public class o {
         this.aqJ = i;
     }
 
-    public int AY() {
+    public int AV() {
         return this.aqJ;
     }
 }

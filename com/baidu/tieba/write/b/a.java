@@ -6,7 +6,7 @@ public class a {
     private com.baidu.tieba.write.data.a dlF = null;
     private c dlG = null;
 
-    public com.baidu.tieba.write.data.a aBN() {
+    public com.baidu.tieba.write.data.a aBJ() {
         return this.dlF;
     }
 
@@ -14,7 +14,7 @@ public class a {
         this.dlF = aVar;
     }
 
-    public c aBO() {
+    public c aBK() {
         return this.dlG;
     }
 

@@ -86,7 +86,7 @@ public class e extends com.baidu.adp.framework.listener.a {
                     if (aVar == null) {
                         return;
                     }
-                    this.dgH.azC();
+                    this.dgH.azy();
                     aVar2 = this.dgH.dgE;
                     int error = responsedMessage.getError();
                     String errorString = responsedMessage.getErrorString();
@@ -102,7 +102,7 @@ public class e extends com.baidu.adp.framework.listener.a {
                 if (aVar3 == null) {
                     return;
                 }
-                this.dgH.azC();
+                this.dgH.azy();
                 aVar4 = this.dgH.dgE;
                 int error2 = responsedMessage.getError();
                 String errorString2 = responsedMessage.getErrorString();

@@ -8,11 +8,11 @@ public class g {
     private ArrayList<String> UE = new ArrayList<>();
     private int UF;
 
-    public ArrayList<String> rv() {
+    public ArrayList<String> rs() {
         return this.UE;
     }
 
-    public int rw() {
+    public int rt() {
         return this.UF;
     }
 

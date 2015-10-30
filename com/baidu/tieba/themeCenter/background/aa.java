@@ -46,10 +46,10 @@ public class aa {
     public void d(DressItemData dressItemData) {
         this.dfw = dressItemData;
         if (this.dfw == null) {
-            Kr();
+            Kn();
             return;
         }
-        Ks();
+        Ko();
         this.dgb = new w(this.dfS);
         this.dgb.c(dressItemData);
         this.dgc.addHeaderView(this.dgb.getRootView());
@@ -58,20 +58,20 @@ public class aa {
         this.dgd = new u(this.dfS.getPageContext(), dressItemData);
         this.dgc.setAdapter((ListAdapter) this.dgd);
         if (!this.dfw.getIsActivity()) {
-            azw();
+            azs();
             this.dfS.registerListener(this.dfl);
         }
         this.dfv.setOnClickListener(this.aUx);
-        azz();
+        azv();
     }
 
-    private void azw() {
+    private void azs() {
         com.baidu.tieba.tbadkCore.a.a.a(309022, BackgroundSetSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azz() {
+    public void azv() {
         boolean inUse = this.dfw.getInUse();
         this.dfv.setFontSize(com.baidu.adp.lib.util.k.d(this.dfS.getPageContext().getPageActivity(), i.d.fontsize32));
         if (inUse) {
@@ -85,13 +85,13 @@ public class aa {
         this.dgc.setExpandListRefreshListener(aVar);
     }
 
-    public void Kr() {
+    public void Kn() {
         this.dfn.setVisibility(8);
         an.j(this.mRoot, i.c.cp_bg_line_d);
         this.dfS.showNetRefreshView(this.mRoot, this.dfS.getPageContext().getResources().getString(i.h.no_data_text), false);
     }
 
-    public void Ks() {
+    public void Ko() {
         an.j(this.mRoot, i.c.cp_bg_line_c);
         this.dfS.hideNetRefreshView(this.mRoot);
         this.dfn.setVisibility(0);

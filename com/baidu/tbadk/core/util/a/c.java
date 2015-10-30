@@ -11,11 +11,11 @@ public class c {
     public boolean rG = false;
     public Map<String, List<String>> mHeader = null;
 
-    public boolean uk() {
+    public boolean uh() {
         return this.abR == 200;
     }
 
-    public boolean qV() {
+    public boolean qS() {
         return this.abR == 200 && this.abS == 0;
     }
 

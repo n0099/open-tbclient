@@ -37,7 +37,7 @@ public class d implements v {
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(hotTopicActivity2.getPageContext().getPageActivity()).createNormalCfg(((w) uVar).getTid(), null, HotTopicActivityConfig.ST_TYPE)));
                 aq ae = new aq("c10368").ae("tid", ((w) uVar).getTid());
                 hotTopicActivity3 = this.bog.bod;
-                TiebaStatic.log(ae.ae("obj_id", hotTopicActivity3.QP()));
+                TiebaStatic.log(ae.ae("obj_id", hotTopicActivity3.QL()));
             }
         }
     }

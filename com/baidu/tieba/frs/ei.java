@@ -9,27 +9,27 @@ public class ei implements com.baidu.tbadk.widget.vote.a {
     private int aZF = 0;
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Fz() {
+    public int Fv() {
         return this.aZD;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Fw() {
+    public String Fs() {
         return this.aZE;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Fx() {
+    public String Ft() {
         return null;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int FA() {
+    public int Fw() {
         return this.aZF;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Fy() {
+    public String Fu() {
         return String.valueOf(this.aZF) + "%";
     }
 
@@ -62,7 +62,7 @@ public class ei implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String FB() {
+    public String Fx() {
         return null;
     }
 

@@ -25,7 +25,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.cMh = new c(this, new com.baidu.tieba.setting.more.a(this));
-        this.cMh.arv();
+        this.cMh.arr();
         regReceiver();
     }
 
@@ -34,7 +34,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public void onResume() {
         super.onResume();
         if (this.cMh != null) {
-            this.cMh.arv();
+            this.cMh.arr();
         }
     }
 
@@ -67,9 +67,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         } else {
             this.cMi.cancelLoadData();
         }
-        this.cMi.arm();
+        this.cMi.ari();
         if (this.cMh != null) {
-            this.cMh.aru();
+            this.cMh.arq();
         }
     }
 
@@ -80,14 +80,14 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         }
         com.baidu.tbadk.coreExtra.d.d dVar = obj != null ? (com.baidu.tbadk.coreExtra.d.d) obj : null;
         if (dVar != null) {
-            TbadkCoreApplication.m411getInst().setVersionData(dVar.xM());
+            TbadkCoreApplication.m411getInst().setVersionData(dVar.xJ());
             TbadkCoreApplication.m411getInst().refreshNewVersion(false);
-            if (dVar.xM().hasNewVer() && TbConfig.COULD_UPDATE) {
-                if (dVar.xM().forceUpdate()) {
-                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), dVar.xM(), dVar.xL())));
+            if (dVar.xJ().hasNewVer() && TbConfig.COULD_UPDATE) {
+                if (dVar.xJ().forceUpdate()) {
+                    sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), dVar.xJ(), dVar.xI())));
                 } else {
                     Long valueOf = Long.valueOf(new Date().getTime());
-                    CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), dVar.xM(), dVar.xL()));
+                    CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new UpdateDialogConfig(TbadkCoreApplication.m411getInst().getApp(), dVar.xJ(), dVar.xI()));
                     TbadkCoreApplication.m411getInst().setUpdateNotifyTime(valueOf.longValue());
                     sendMessage(customMessage);
                 }
@@ -95,7 +95,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 showToast(getResources().getString(i.h.neednot_update));
             }
             if (this.cMh != null) {
-                this.cMh.arv();
+                this.cMh.arr();
                 return;
             }
             return;
@@ -116,7 +116,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (AboutActivity.this.cMh != null) {
-                AboutActivity.this.cMh.arv();
+                AboutActivity.this.cMh.arr();
             }
         }
     }

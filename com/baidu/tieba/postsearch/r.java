@@ -78,17 +78,17 @@ public class r extends BaseFragment implements BdListView.e {
         hideLoadingView(this.mRootView);
         if (jVar == null || jVar.ctN == null || jVar.ctN.size() == 0) {
             if (!z || this.cEl == null || this.cEl.ctN == null || this.cEl.ctN.size() == 0) {
-                Mg();
+                Mc();
                 showNoDataView();
                 this.cEj.setVisibility(8);
                 this.cEl = jVar;
                 return;
             }
-            if (this.cEl.cEb.rL() == 1) {
-                Me();
+            if (this.cEl.cEb.rI() == 1) {
+                Ma();
                 return;
             } else {
-                Mf();
+                Mb();
                 return;
             }
         }
@@ -98,10 +98,10 @@ public class r extends BaseFragment implements BdListView.e {
             this.cEl.cEb = jVar.cEb;
             this.cEl.ctN.addAll(jVar.ctN);
         }
-        if (this.cEl.cEb.rL() == 1) {
-            Me();
+        if (this.cEl.cEb.rI() == 1) {
+            Ma();
         } else {
-            Mf();
+            Mb();
         }
         this.cEk.clear();
         this.cEk.bj(this.cEl.ctN);
@@ -116,25 +116,25 @@ public class r extends BaseFragment implements BdListView.e {
         String str = this.cDW.bUV;
         if (!StringUtils.isNull(str)) {
             boolean z2 = !str.equals(this.cEm) || z;
-            if (this.cEl == null || (this.cEl != null && !this.cEl.WW() && this.cEl.isHasMore())) {
+            if (this.cEl == null || (this.cEl != null && !this.cEl.WS() && this.cEl.isHasMore())) {
                 z2 = true;
             }
             if (z2) {
                 showLoadingView(this.mRootView, false, this.cDW.getResources().getDimensionPixelSize(i.d.ds320));
-                this.cDW.aok().X(str, this.mTabType);
+                this.cDW.aog().X(str, this.mTabType);
                 this.cEm = str;
             }
         }
     }
 
-    public void aor() {
+    public void aon() {
         if (this.cEl != null && this.cEl.ctN != null) {
             this.cEl.ctN.clear();
             this.cEk.clear();
             this.cEk.bj(this.cEl.ctN);
             this.cEk.notifyDataSetChanged();
         }
-        Mg();
+        Mc();
         hideNoDataView();
     }
 
@@ -144,29 +144,29 @@ public class r extends BaseFragment implements BdListView.e {
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!StringUtils.isNull(this.cEm) && this.cEl != null && this.cEl.isHasMore() && this.cDW.aok().X(this.cEm, this.mTabType)) {
-            aos();
+        if (!StringUtils.isNull(this.cEm) && this.cEl != null && this.cEl.isHasMore() && this.cDW.aog().X(this.cEm, this.mTabType)) {
+            aoo();
         }
     }
 
-    private void aos() {
+    private void aoo() {
         this.cEj.setNextPage(this.aWW);
         this.aWW.startLoadData();
     }
 
-    private void Me() {
+    private void Ma() {
         this.cEj.setNextPage(this.aWW);
-        this.aWW.vy();
+        this.aWW.vv();
         this.aWW.setText(this.cDW.getResources().getString(i.h.pb_load_more));
     }
 
-    private void Mf() {
+    private void Mb() {
         this.cEj.setNextPage(this.aWW);
-        this.aWW.vy();
+        this.aWW.vv();
         this.aWW.setText(this.cDW.getResources().getString(i.h.list_no_more));
     }
 
-    private void Mg() {
+    private void Mc() {
         this.cEj.setNextPage(null);
     }
 

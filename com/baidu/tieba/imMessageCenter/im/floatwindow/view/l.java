@@ -62,7 +62,7 @@ public class l {
     public void refreshPersonalHeadFooter(String str, com.baidu.tbadk.coreExtra.relationship.b bVar) {
         this.aDl.setText(str);
         if (bVar != null) {
-            if (bVar.yy() < 0 || bVar.yy() > 1) {
+            if (bVar.yv() < 0 || bVar.yv() > 1) {
                 this.bMt.setVisibility(8);
                 this.bsP.setVisibility(8);
                 return;
@@ -73,7 +73,7 @@ public class l {
             if (!StringUtils.isNull(bVar.getDistance()) && bVar.getTime() > 0) {
                 this.bMt.setVisibility(0);
                 this.bMt.setText(bVar.getDistance());
-                this.bsP.setText(as.n(bVar.getTime()));
+                this.bsP.setText(as.l(bVar.getTime()));
                 return;
             }
             this.bMt.setVisibility(8);

@@ -23,7 +23,7 @@ public class TbCheckBox extends ImageView {
 
     public void setTagData(b bVar) {
         setTag(bVar);
-        vA();
+        vx();
     }
 
     public TbCheckBox(Context context) {
@@ -38,15 +38,15 @@ public class TbCheckBox extends ImageView {
 
     private void initialize() {
         setOnClickListener(new o(this));
-        vA();
+        vx();
     }
 
     public void setStatedChangedListener(a aVar) {
         this.aeu = aVar;
     }
 
-    public void vA() {
-        if (vB()) {
+    public void vx() {
+        if (vy()) {
             an.c(this, i.e.icon_set_list_ok_s);
         } else {
             an.c(this, i.e.icon_set_list_ok_n);
@@ -54,11 +54,11 @@ public class TbCheckBox extends ImageView {
     }
 
     public boolean isChecked() {
-        return vB();
+        return vy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean vB() {
+    public boolean vy() {
         Object tag = getTag();
         if (tag == null || !(tag instanceof b)) {
             return false;
@@ -71,7 +71,7 @@ public class TbCheckBox extends ImageView {
         if (tag != null && (tag instanceof b)) {
             ((b) tag).setChecked(z);
         }
-        vA();
+        vx();
         if (this.aeu != null) {
             this.aeu.handler(this, z, getTag());
         }

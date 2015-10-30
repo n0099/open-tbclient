@@ -34,12 +34,12 @@ public class aa {
         this.ctT.setOnClickListener(this.cqE);
     }
 
-    public RelativeLayout ajs() {
+    public RelativeLayout ajo() {
         return this.ctT;
     }
 
-    public void ajC() {
-        UserData userData = this.cqE.ajf().getUserData();
+    public void ajy() {
+        UserData userData = this.cqE.ajb().getUserData();
         if (userData != null) {
             this.ctU.setText(String.valueOf(userData.getMarkCount()));
             if (userData.getMarkCount() <= 0) {

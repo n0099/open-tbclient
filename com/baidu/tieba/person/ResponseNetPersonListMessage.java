@@ -56,7 +56,7 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
             BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
             boolean z = tag != null && tag.equals(bt.cqW);
             String str = new String(bArr);
-            com.baidu.adp.lib.cache.o<String> cr = com.baidu.tbadk.core.b.a.sO().cr("tb.my_pages");
+            com.baidu.adp.lib.cache.o<String> cr = com.baidu.tbadk.core.b.a.sL().cr("tb.my_pages");
             if (cr != null) {
                 cr.a(String.valueOf(z ? "personal_followme" : "personal_myfollow") + "_" + this.mModel.getId(), str, TbConfig.APP_OVERDUR_DRAFT_BOX);
             }

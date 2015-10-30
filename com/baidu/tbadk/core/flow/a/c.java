@@ -21,7 +21,7 @@ public class c {
         this.XD = i;
     }
 
-    public int tm() {
+    public int tj() {
         return this.XD;
     }
 

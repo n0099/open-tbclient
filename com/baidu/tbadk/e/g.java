@@ -15,14 +15,14 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        int Ct;
+        int Cq;
         TextView textView;
         String[] strArr;
         Runnable runnable;
-        Ct = this.auH.Ct();
+        Cq = this.auH.Cq();
         textView = this.auH.alQ;
         strArr = this.auH.auE;
-        textView.setText(strArr[Ct]);
+        textView.setText(strArr[Cq]);
         Handler handler = TbadkCoreApplication.m411getInst().handler;
         runnable = this.auH.Iy;
         handler.postDelayed(runnable, 200L);

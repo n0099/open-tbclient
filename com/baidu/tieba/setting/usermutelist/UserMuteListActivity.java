@@ -30,7 +30,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        Zf();
+        Zb();
         this.cPa = new m(this.cPb);
         this.cik = new UserMuteAddAndDelModel(this);
         registerListener(this.cPd);
@@ -38,7 +38,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         this.cOZ = new h(this, this.cPe, this.cPf);
         this.cOY = new l(this, this.cOZ);
         this.cOY.getListView().setAdapter((ListAdapter) this.cOZ);
-        this.cPa.bi(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
+        this.cPa.bg(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -55,13 +55,13 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         if (this.cas) {
             this.cas = false;
             if (this.cik != null) {
-                Zf();
-                this.cPa.bi(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
+                Zb();
+                this.cPa.bg(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
             }
         }
     }
 
-    private void Zf() {
+    private void Zb() {
         if (this.aLO == null) {
             this.aLO = new com.baidu.tbadk.core.view.a(getPageContext());
             this.aLO.b(new f(this));

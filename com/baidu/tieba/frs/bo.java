@@ -20,7 +20,7 @@ public class bo implements com.baidu.adp.widget.ListView.u {
         this.height = i;
     }
 
-    public int LD() {
+    public int Lz() {
         return this.aWi;
     }
 

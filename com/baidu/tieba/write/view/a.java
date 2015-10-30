@@ -110,24 +110,24 @@ public class a extends PopupWindow {
     public void P(View view) {
         this.aSV.setSelection(this.dmV);
         showAsDropDown(view);
-        aCs();
+        aCo();
     }
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        Xy();
+        Xu();
     }
 
-    public void Xy() {
-        Qn();
+    public void Xu() {
+        Qj();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCr() {
+    public void aCn() {
         super.dismiss();
     }
 
-    private void aCs() {
+    private void aCo() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
@@ -138,7 +138,7 @@ public class a extends PopupWindow {
         this.dmT.startAnimation(alphaAnimation);
     }
 
-    private void Qn() {
+    private void Qj() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setFillAfter(true);

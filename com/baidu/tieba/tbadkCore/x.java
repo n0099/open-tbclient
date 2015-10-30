@@ -32,7 +32,7 @@ public class x {
         this.fid = str;
     }
 
-    public int atD() {
+    public int atz() {
         return this.user_level;
     }
 

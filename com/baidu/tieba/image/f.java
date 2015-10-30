@@ -23,7 +23,7 @@ public class f implements a.b {
         i iVar2;
         com.baidu.tbadk.core.data.b bVar4;
         iVar = this.bOO.bOL;
-        iVar.ZY();
+        iVar.ZU();
         bVar = this.bOO.bOI;
         String str = bVar.Ua;
         bVar2 = this.bOO.bOI;

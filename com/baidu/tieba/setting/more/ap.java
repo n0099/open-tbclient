@@ -23,11 +23,11 @@ class ap extends BaseActivity<SystemHelpSettingActivity>.LoadDataCallBack {
             if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
                 this.cOP.closeLoadingDialog();
                 avVar2 = this.cOP.cOM;
-                avVar2.atg().setTip("");
+                avVar2.atc().setTip("");
                 this.cOP.showToast(i.h.systemhelpsetting_clear_cache_success);
             } else if (obj == MoreModel.TaskType.GET_SIZE) {
                 avVar = this.cOP.cOM;
-                avVar.atg().setTip((String) objArr[1]);
+                avVar.atc().setTip((String) objArr[1]);
             }
         }
     }

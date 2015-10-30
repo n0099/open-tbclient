@@ -24,7 +24,7 @@ class a implements r {
             if (i == 2) {
                 this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GUILD, new GuildActivityConfig(this.this$0.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE)));
             } else if (i == 3) {
-                com.baidu.tbadk.core.sharedPref.b.tu().putBoolean(ao.cOK, true);
+                com.baidu.tbadk.core.sharedPref.b.tr().putBoolean(ao.cOK, true);
                 Activity pageActivity = this.this$0.getPageContext().getPageActivity();
                 String string = this.this$0.getPageContext().getString(i.h.setting_funtion_intro);
                 str = this.this$0.cMk;

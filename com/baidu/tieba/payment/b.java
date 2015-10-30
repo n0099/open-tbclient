@@ -41,11 +41,11 @@ public class b extends com.baidu.adp.base.f<PayVcodeActivity> {
         this.mWebView.getSettings().setJavaScriptEnabled(true);
     }
 
-    public TextView ael() {
+    public TextView aeh() {
         return this.cdT;
     }
 
-    public TextView aem() {
+    public TextView aei() {
         return this.cdU;
     }
 
@@ -64,11 +64,11 @@ public class b extends com.baidu.adp.base.f<PayVcodeActivity> {
         an.b(this.cdT, i.c.cp_cont_i, 1);
     }
 
-    public View aen() {
+    public View aej() {
         return this.cdR;
     }
 
-    public ViewGroup aeo() {
+    public ViewGroup aek() {
         return this.cdS;
     }
 

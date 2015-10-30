@@ -29,9 +29,9 @@ public class y {
     }
 
     public void kb(int i) {
-        this.cEK.Od();
-        aoe();
-        this.cEK.aof();
+        this.cEK.NZ();
+        aoa();
+        this.cEK.aob();
         this.cEM.fL(true);
         this.cEM.kb(i);
     }
@@ -44,28 +44,28 @@ public class y {
         this.cEM.a(i, jVar, z);
     }
 
-    public boolean aoj() {
-        return this.cEL.aoq();
+    public boolean aof() {
+        return this.cEL.aom();
     }
 
-    public void KB() {
-        this.cEL.KB();
+    public void Kx() {
+        this.cEL.Kx();
     }
 
-    public void amT() {
-        this.cEL.amT();
+    public void amP() {
+        this.cEL.amP();
     }
 
-    public void aop() {
-        this.cEL.aop();
+    public void aol() {
+        this.cEL.aol();
     }
 
-    public void aoe() {
-        this.cEK.aoe();
+    public void aoa() {
+        this.cEK.aoa();
     }
 
-    public void aoA() {
-        this.cEL.aoo();
+    public void aow() {
+        this.cEL.aok();
     }
 
     public void onChangeSkinType(int i) {

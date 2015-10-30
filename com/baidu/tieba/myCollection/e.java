@@ -37,7 +37,7 @@ class e extends l {
                 jVar7.a(r1, aVar4, ((Boolean) objArr[2]).booleanValue());
                 EditMarkActivity editMarkActivity = this.cbC;
                 aVar5 = this.cbC.cby;
-                editMarkActivity.cbB = aVar5.adC();
+                editMarkActivity.cbB = aVar5.ady();
             } else if (((Integer) objArr[0]).intValue() == 3) {
                 jVar4 = this.cbC.cbz;
                 jVar4.completePullRefresh();

@@ -22,7 +22,7 @@ class ad implements w {
             lVar = this.dlo.djP;
             if (lVar.isOriginalImg()) {
                 albumActivity3 = this.dlo.djW;
-                albumActivity3.aBj();
+                albumActivity3.aBf();
                 return c;
             }
             return c;

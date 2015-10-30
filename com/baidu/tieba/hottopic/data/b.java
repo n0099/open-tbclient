@@ -53,7 +53,7 @@ public class b {
                     this.boR.a(dataRes.hot_thread.page);
                 }
             }
-            QW();
+            QS();
         }
     }
 
@@ -65,19 +65,19 @@ public class b {
         }
     }
 
-    public g QT() {
+    public g QP() {
         return this.boV;
     }
 
-    public ArrayList<u> QU() {
+    public ArrayList<u> QQ() {
         return this.boS;
     }
 
-    public o QV() {
+    public o QR() {
         return this.boR;
     }
 
-    private ArrayList<u> QW() {
+    private ArrayList<u> QS() {
         if (this.boT != null && !StringUtils.isNull(this.boT.boF) && !StringUtils.isNull(this.boT.boY)) {
             this.boS.add(this.boT);
         }

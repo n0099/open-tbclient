@@ -14,9 +14,9 @@ class k extends com.baidu.tbadk.util.l<Boolean> {
     public Boolean doInBackground() {
         PersonalTalkSettingActivity personalTalkSettingActivity;
         long j;
-        com.baidu.tieba.im.db.l TU = com.baidu.tieba.im.db.l.TU();
+        com.baidu.tieba.im.db.l TQ = com.baidu.tieba.im.db.l.TQ();
         personalTalkSettingActivity = this.bKw.bKu;
         j = personalTalkSettingActivity.userId;
-        return Boolean.valueOf(TU.hI(String.valueOf(j)));
+        return Boolean.valueOf(TQ.hI(String.valueOf(j)));
     }
 }

@@ -12,20 +12,20 @@ public class bt implements BannerView.a {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void yK() {
+    public void yH() {
         com.baidu.tbadk.core.data.j jVar;
         com.baidu.tbadk.core.data.j jVar2;
         jVar = this.aXd.aWS;
         if (jVar != null) {
             jVar2 = this.aXd.aWS;
             if (jVar2.getType() == 2) {
-                this.aXd.LG();
+                this.aXd.LC();
             }
         }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void yL() {
-        this.aXd.LU();
+    public void yI() {
+        this.aXd.LQ();
     }
 }

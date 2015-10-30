@@ -17,14 +17,14 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         this.bMS = new h(this);
     }
 
-    private void Hy() {
+    private void Hu() {
         this.bMR = new BlackListModel(this);
         this.bMR.setUniqueId(getUniqueId());
     }
 
-    private void JH() {
+    private void JD() {
         this.bMR.loadBlackList();
-        this.bMS.BR();
+        this.bMS.BO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,8 +34,8 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         registerListener(104103, this.mListener);
         registerListener(104102, this.mListener);
         initView();
-        Hy();
-        JH();
+        Hu();
+        JD();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -48,13 +48,13 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zf() {
+    public void Zb() {
         showLoadingDialog((String) null, new b(this));
     }
 
     private void a(com.baidu.tieba.im.data.a aVar) {
         iI(String.format(getPageContext().getString(i.h.black_list_ensure_toremove_text), aVar.getUserName()));
-        this.Lu.sR();
+        this.Lu.sO();
     }
 
     private void iI(String str) {

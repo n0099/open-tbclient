@@ -26,7 +26,7 @@ class s implements BaseViewPager.a {
             this.this$0.getPageContext().getPageActivity().sendBroadcast(intent);
         } else if (i == 0) {
             jVar = this.this$0.bPG;
-            jVar.aae();
+            jVar.aaa();
         }
     }
 }

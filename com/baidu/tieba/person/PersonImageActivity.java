@@ -178,7 +178,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
         public String doInBackground(String... strArr) {
             switch (com.baidu.tbadk.core.util.n.a(this.mUrl, this.mData, PersonImageActivity.this.getPageContext().getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.n.tB();
+                    return com.baidu.tbadk.core.util.n.ty();
                 case -1:
                 default:
                     return PersonImageActivity.this.getPageContext().getString(i.h.save_error);

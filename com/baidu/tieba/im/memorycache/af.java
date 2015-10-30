@@ -19,7 +19,7 @@ class af implements CustomMessageTask.CustomRunnable<MemoryModifyVisibilityMessa
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<MemoryModifyVisibilityMessage.a> customMessage) {
         if (customMessage != null && customMessage.getData() != null) {
-            com.baidu.tieba.im.db.i.TO().c(this.bDL);
+            com.baidu.tieba.im.db.i.TK().c(this.bDL);
         }
         return null;
     }

@@ -39,8 +39,8 @@ public class ap extends com.baidu.adp.base.g {
             view2.setVisibility(8);
             return;
         }
-        ArrayList<com.baidu.tbadk.core.data.w> aCX = oVar.aCX();
+        ArrayList<com.baidu.tbadk.core.data.w> aCT = oVar.aCT();
         feedBackTopListView3 = this.dqi.dpu;
-        feedBackTopListView3.a(aCX, this.dqi.getPageContext());
+        feedBackTopListView3.a(aCT, this.dqi.getPageContext());
     }
 }

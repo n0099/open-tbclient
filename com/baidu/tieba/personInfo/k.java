@@ -34,7 +34,7 @@ public class k implements c.b {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ChangeSystemPhotoActivityConfig(this.csI.getPageContext().getPageActivity(), 12014)));
             }
         } else {
-            this.csI.ajm();
+            this.csI.aji();
         }
         cVar.dismiss();
     }

@@ -14,7 +14,7 @@ public class c implements c.a {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.c.a
-    public void Yt() {
+    public void Yp() {
         a.InterfaceC0062a interfaceC0062a;
         a.InterfaceC0062a interfaceC0062a2;
         this.bLY.bLU = false;
@@ -22,7 +22,7 @@ public class c implements c.a {
         interfaceC0062a = this.bLY.bLf;
         if (interfaceC0062a != null) {
             interfaceC0062a2 = this.bLY.bLf;
-            interfaceC0062a2.Yt();
+            interfaceC0062a2.Yp();
         }
     }
 

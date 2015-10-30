@@ -16,7 +16,7 @@ public class n implements View.OnTouchListener {
     public boolean onTouch(View view, MotionEvent motionEvent) {
         PostSearchActivity postSearchActivity;
         postSearchActivity = this.cEi.cDW;
-        postSearchActivity.aoe();
+        postSearchActivity.aoa();
         return false;
     }
 }

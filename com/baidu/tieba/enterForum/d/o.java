@@ -42,10 +42,10 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
     public void B(com.baidu.tieba.enterForum.b.a aVar) {
         super.B(aVar);
         if (aVar != null) {
-            a(aVar.HU(), true);
-            a(aVar.HV(), false);
-            b(aVar.HU(), true);
-            b(aVar.HV(), false);
+            a(aVar.HQ(), true);
+            a(aVar.HR(), false);
+            b(aVar.HQ(), true);
+            b(aVar.HR(), false);
         }
     }
 
@@ -72,7 +72,7 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
                     imageView.setVisibility(8);
                     textView2.setVisibility(0);
                     textView2.setText(vVar.getName());
-                    if (vVar.awa() == 0) {
+                    if (vVar.avW() == 0) {
                         textView.setVisibility(8);
                     } else {
                         textView.setVisibility(0);
@@ -104,11 +104,11 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
         com.baidu.tbadk.h.a.a(tbPageContext, getRootView());
         this.aNf.setBackgroundDrawable(an.getDrawable(i.e.home_like_item_bg));
         this.aNk.setBackgroundDrawable(an.getDrawable(i.e.home_like_item_bg));
-        if (this.aNi.getVisibility() == 0 && getData() != null && getData().HU() != null) {
-            an.i((View) this.aNi, com.baidu.tbadk.core.util.c.ch(getData().HU().getLevel()));
+        if (this.aNi.getVisibility() == 0 && getData() != null && getData().HQ() != null) {
+            an.i((View) this.aNi, com.baidu.tbadk.core.util.c.ch(getData().HQ().getLevel()));
         }
-        if (this.aNn.getVisibility() == 0 && getData() != null && getData().HV() != null) {
-            an.i((View) this.aNn, com.baidu.tbadk.core.util.c.ch(getData().HV().getLevel()));
+        if (this.aNn.getVisibility() == 0 && getData() != null && getData().HR() != null) {
+            an.i((View) this.aNn, com.baidu.tbadk.core.util.c.ch(getData().HR().getLevel()));
             return true;
         }
         return true;

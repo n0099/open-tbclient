@@ -1,11 +1,11 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public interface i {
-    String aws();
+    String awo();
 
-    String awt();
+    String awp();
 
-    String awu();
+    String awq();
 
-    long awv();
+    long awr();
 }

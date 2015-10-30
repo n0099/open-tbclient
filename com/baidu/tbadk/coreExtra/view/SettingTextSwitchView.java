@@ -24,7 +24,7 @@ public class SettingTextSwitchView extends FrameLayout {
     public SettingTextSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        zk();
+        zh();
         c(attributeSet);
         dF(TbadkCoreApplication.m411getInst().getSkinType());
     }
@@ -32,14 +32,14 @@ public class SettingTextSwitchView extends FrameLayout {
     public SettingTextSwitchView(Context context) {
         super(context);
         this.mContext = context;
-        zk();
+        zh();
         dF(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        zk();
+        zh();
         c(attributeSet);
         dF(TbadkCoreApplication.m411getInst().getSkinType());
     }
@@ -80,7 +80,7 @@ public class SettingTextSwitchView extends FrameLayout {
         this.alS.setOnSwitchStateChangeListener(aVar);
     }
 
-    private void zk() {
+    private void zh() {
         LayoutInflater.from(this.mContext).inflate(i.g.setting_text_switch_view, (ViewGroup) this, true);
         this.container = (LinearLayout) findViewById(i.f.container);
         this.alQ = (TextView) findViewById(i.f.text);

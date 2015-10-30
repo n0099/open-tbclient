@@ -22,7 +22,7 @@ public class aa implements c.b {
                 return;
             case 1:
                 this.aUK.aTK = false;
-                this.aUK.KY();
+                this.aUK.KU();
                 return;
             default:
                 return;

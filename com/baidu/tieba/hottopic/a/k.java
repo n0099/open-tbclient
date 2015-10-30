@@ -34,6 +34,6 @@ public class k implements View.OnClickListener {
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, String.valueOf(this.bon), this.boo)));
         aq ae = new aq("c10366").ae("post_id", this.bop).ae("obj_type", "1");
         hotTopicActivity = this.bom.bod;
-        TiebaStatic.log(ae.ae("obj_id", hotTopicActivity.QP()));
+        TiebaStatic.log(ae.ae("obj_id", hotTopicActivity.QL()));
     }
 }

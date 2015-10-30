@@ -44,7 +44,7 @@ public class d implements AdapterView.OnItemClickListener {
                 cVar3.mb(i2);
                 break;
             case 3:
-                this.dnF.aCz();
+                this.dnF.aCv();
                 break;
         }
         eVar2 = this.dnF.dny;

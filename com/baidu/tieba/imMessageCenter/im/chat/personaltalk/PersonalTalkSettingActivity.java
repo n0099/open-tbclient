@@ -24,9 +24,9 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
         super.onCreate(bundle);
         initView();
         initData(bundle);
-        registerListener(205003, this.bKs.XX());
-        registerListener(104102, this.bKs.XX());
-        registerListener(CmdConfigCustom.CMD_UPDATE_ATTENTION, this.bKs.XY());
+        registerListener(205003, this.bKs.XT());
+        registerListener(104102, this.bKs.XT());
+        registerListener(CmdConfigCustom.CMD_UPDATE_ATTENTION, this.bKs.XU());
         registerListener(this.bKt);
     }
 
@@ -69,27 +69,27 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public void onClick(View view) {
         int id = view.getId();
         if (id == i.f.user_info_lin) {
-            if (this.bKs != null && this.bKs.XV() != null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.userId), this.bKs.XV().name)));
+            if (this.bKs != null && this.bKs.XR() != null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getContext(), String.valueOf(this.userId), this.bKs.XR().name)));
             }
         } else if (id == i.f.remove_from_black_man) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-            aVar.cu(getPageContext().getContext().getString(i.h.add_black_alert, this.bKs.XV().name)).a(i.h.alert_yes_button, new h(this)).b(i.h.alert_no_button, new i(this)).b(getPageContext());
-            aVar.sR();
+            aVar.cu(getPageContext().getContext().getString(i.h.add_black_alert, this.bKs.XR().name)).a(i.h.alert_yes_button, new h(this)).b(i.h.alert_no_button, new i(this)).b(getPageContext());
+            aVar.sO();
         } else if (id == i.f.st_delete_talk_history) {
             com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
             aVar2.cu(getPageContext().getContext().getString(i.h.remove_personal_history)).a(i.h.alert_yes_button, new j(this)).b(i.h.alert_no_button, new m(this)).b(getPageContext());
-            aVar2.sR();
+            aVar2.sO();
         } else if (id == i.f.add_to_black) {
             com.baidu.tbadk.core.dialog.a aVar3 = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-            aVar3.ct(getPageContext().getContext().getString(i.h.sure_add_somebody_to_black, this.bKs.XV().name));
+            aVar3.ct(getPageContext().getContext().getString(i.h.sure_add_somebody_to_black, this.bKs.XR().name));
             aVar3.cu(getPageContext().getContext().getString(i.h.remove_black_alert)).a(i.h.alert_yes_button, new n(this)).b(i.h.alert_no_button, new o(this)).b(getPageContext());
-            aVar3.sR();
+            aVar3.sO();
         }
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.chat.personaltalk.r.a
-    public void vw() {
+    public void vt() {
         closeLoadingDialog();
         if (this.bKr != null && this.bKs != null) {
             this.bKr.e(this.bKs);
@@ -100,12 +100,12 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     public void a(View view, BdSwitchView.SwitchState switchState) {
         boolean z = BdSwitchView.SwitchState.ON == switchState;
         if (z) {
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xj() || !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xp()) {
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xg() || !com.baidu.tbadk.coreExtra.messageCenter.c.xe().xm()) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
                 aVar.bF(i.h.error_open_personal_single_alloff);
                 aVar.b(getResources().getString(i.h.group_create_private_isee), new p(this, aVar));
                 aVar.b(getPageContext());
-                aVar.sR();
+                aVar.sO();
                 g(false, z);
                 return;
             }
@@ -120,11 +120,11 @@ public class PersonalTalkSettingActivity extends BaseActivity<PersonalTalkSettin
     /* JADX INFO: Access modifiers changed from: private */
     public void g(boolean z, boolean z2) {
         if (z) {
-            boolean XU = this.bKs.XU();
+            boolean XQ = this.bKs.XQ();
             this.bKs.dx(z2);
             this.bKr.dA(z2);
             new q(this, z2).execute(new Void[0]);
-            if (XU != this.bKs.XU()) {
+            if (XQ != this.bKs.XQ()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(3));
                 return;
             }

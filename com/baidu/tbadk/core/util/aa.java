@@ -34,7 +34,7 @@ public class aa {
         }
     }
 
-    public static synchronized a uq() {
+    public static synchronized a un() {
         a remove;
         synchronized (aa.class) {
             int size = aal.size();

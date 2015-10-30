@@ -35,7 +35,7 @@ public class a {
     private int anZ = 10;
     private boolean anW = i.iM();
 
-    public static a Ag() {
+    public static a Ad() {
         return anV;
     }
 
@@ -46,16 +46,16 @@ public class a {
             if (z) {
                 ba(true);
             } else {
-                Ah();
+                Ae();
             }
         }
     }
 
-    private void Ah() {
+    private void Ae() {
         this.handler.removeMessages(1);
     }
 
-    private void Ai() {
+    private void Af() {
         this.handler.removeMessages(1);
         this.handler.sendEmptyMessageDelayed(1, this.anY);
     }
@@ -76,15 +76,15 @@ public class a {
     private a() {
     }
 
-    public void Aj() {
+    public void Ag() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerTask(Am());
-        messageManager.registerTask(Ak());
+        messageManager.registerTask(Aj());
+        messageManager.registerTask(Ah());
         messageManager.registerListener(this.aoa);
         messageManager.registerListener(this.aob);
     }
 
-    private HttpMessageTask Ak() {
+    private HttpMessageTask Ah() {
         HttpMessageTask httpMessageTask = new HttpMessageTask(CmdConfigHttp.DISTRIBUTE_ACTRUAL_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOG_TOGETHER + "?cmd=303101");
         httpMessageTask.setResponsedClass(DistributeHttpResponse.class);
         return httpMessageTask;
@@ -129,7 +129,7 @@ public class a {
         ba(false);
     }
 
-    private boolean Al() {
+    private boolean Ai() {
         return this.handler.hasMessages(1);
     }
 
@@ -137,12 +137,12 @@ public class a {
     public void ba(boolean z) {
         if (this.anW && this.isUpload) {
             List<AdReq> bb = bb(z);
-            if (z || !Al()) {
-                Ai();
+            if (z || !Ai()) {
+                Af();
             }
             if (bb != null && bb.size() != 0) {
                 if (!z) {
-                    Ai();
+                    Af();
                 }
                 MessageManager.getInstance().sendMessage(new DistributeRequest(bb));
             }
@@ -169,7 +169,7 @@ public class a {
         return arrayList;
     }
 
-    private SocketMessageTask Am() {
+    private SocketMessageTask Aj() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(303101);
         socketMessageTask.i(true);
         socketMessageTask.setResponsedClass(DistributeSocketResponse.class);

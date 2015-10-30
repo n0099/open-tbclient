@@ -34,11 +34,11 @@ public class q extends PagerAdapter implements ViewPager.OnPageChangeListener, d
     public interface a {
         void a(com.baidu.tbadk.coreExtra.view.d dVar, int i);
 
-        void aDa();
+        void aCW();
 
-        void aDb();
+        void aCX();
 
-        void aDc();
+        void aCY();
     }
 
     public q(WriteMultiImgsActivity writeMultiImgsActivity, ViewPager viewPager, LinkedList<ImageFileInfo> linkedList, int i, a aVar) {
@@ -83,9 +83,9 @@ public class q extends PagerAdapter implements ViewPager.OnPageChangeListener, d
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void mj(int i) {
-        if (this.doO[this.apZ].aDd()) {
+        if (this.doO[this.apZ].aCZ()) {
             this.doM[this.apZ].addPageAction(com.baidu.tbadk.img.effect.e.eo(i));
-            this.doL.aDK();
+            this.doL.aDG();
             if (this.doP[this.apZ] != null) {
                 String selectedFilter = this.doP[this.apZ].getSelectedFilter();
                 if (selectedFilter != null && !selectedFilter.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
@@ -104,13 +104,13 @@ public class q extends PagerAdapter implements ViewPager.OnPageChangeListener, d
     @Override // com.baidu.tbadk.coreExtra.view.d.a
     public void er(String str) {
         if (str != null && !str.equals(WriteImageActivityConfig.FILTER_NAME_NORMAL)) {
-            this.doL.aDK();
+            this.doL.aDG();
             ImageFileInfo cloneWithoutFilterAction = this.doM[this.apZ].cloneWithoutFilterAction(false);
             cloneWithoutFilterAction.addPageAction(com.baidu.tbadk.img.effect.a.fq(str));
             this.doO[this.apZ].j(cloneWithoutFilterAction);
             return;
         }
-        this.doL.aDL();
+        this.doL.aDH();
         this.doO[this.apZ].j(this.doM[this.apZ]);
     }
 
@@ -131,18 +131,18 @@ public class q extends PagerAdapter implements ViewPager.OnPageChangeListener, d
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         this.apZ = i;
-        aCY();
+        aCU();
         if (this.doN != null) {
             this.doN.a(this.doP[i], i);
         }
     }
 
-    private void aCY() {
+    private void aCU() {
         if (this.apZ >= 0) {
             if (this.doO != null) {
                 for (int i = 0; i < this.doO.length; i++) {
                     if (this.doO[i] != null) {
-                        this.doO[i].axR();
+                        this.doO[i].axN();
                     }
                 }
                 if (this.doO[this.apZ] == null) {
@@ -194,7 +194,7 @@ public class q extends PagerAdapter implements ViewPager.OnPageChangeListener, d
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aCZ() {
+    public void aCV() {
         String selectedFilter;
         for (int i = 0; i < this.doM.length; i++) {
             this.doM[i].applayRotatePageActionToPersistAction();
@@ -234,7 +234,7 @@ public class q extends PagerAdapter implements ViewPager.OnPageChangeListener, d
         }
 
         public void j(ImageFileInfo imageFileInfo) {
-            axR();
+            axN();
             this.aCV.setDefaultResource(0);
             this.aCV.setDefaultBgResource(0);
             com.baidu.adp.widget.a.a a = this.doT.a(imageFileInfo, false);
@@ -246,16 +246,16 @@ public class q extends PagerAdapter implements ViewPager.OnPageChangeListener, d
             this.doT.a(imageFileInfo, new s(this), false);
         }
 
-        public void axR() {
+        public void axN() {
             if (this.doT != null) {
-                this.doT.Cm();
+                this.doT.Cj();
             }
             if (this.aCV != null) {
                 this.aCV.setImageDrawable(null);
             }
         }
 
-        public boolean aDd() {
+        public boolean aCZ() {
             return this.cwJ.getVisibility() != 0;
         }
 
@@ -264,14 +264,14 @@ public class q extends PagerAdapter implements ViewPager.OnPageChangeListener, d
             if (z) {
                 if (this.cwJ.getVisibility() != 8) {
                     if (q.this.doN != null) {
-                        q.this.doN.aDc();
+                        q.this.doN.aCY();
                     }
                     this.cwJ.setVisibility(8);
                     q.this.doP[this.index].setCanbeClick(true);
                 }
             } else if (this.cwJ.getVisibility() != 0) {
                 if (q.this.doN != null) {
-                    q.this.doN.aDb();
+                    q.this.doN.aCX();
                 }
                 this.cwJ.setVisibility(0);
                 q.this.doP[this.index].setCanbeClick(false);

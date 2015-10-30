@@ -39,7 +39,7 @@ public class m {
         }
     }
 
-    public LinkedList<l> aag() {
+    public LinkedList<l> aac() {
         return this.bPr;
     }
 
@@ -168,7 +168,7 @@ public class m {
         this.bPv = i;
     }
 
-    public com.baidu.tbadk.core.data.b aah() {
+    public com.baidu.tbadk.core.data.b aad() {
         return this.bPu;
     }
 }

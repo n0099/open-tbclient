@@ -14,11 +14,11 @@ public class a {
     private HashMap<String, ImMessageCenterPojo> bKP = new HashMap<>();
     private HashMap<String, Integer> bKQ = new HashMap<>();
 
-    public void Ya() {
+    public void XW() {
         this.bKN = false;
     }
 
-    public void Yb() {
+    public void XX() {
         this.bKN = true;
     }
 
@@ -78,7 +78,7 @@ public class a {
         this.bKP.clear();
     }
 
-    public int Yc() {
+    public int XY() {
         int i = 0;
         Iterator<ImMessageCenterPojo> it = this.bKP.values().iterator();
         while (true) {
@@ -91,7 +91,7 @@ public class a {
         }
     }
 
-    public ArrayList<String> Yd() {
+    public ArrayList<String> XZ() {
         ArrayList<String> arrayList = new ArrayList<>();
         int size = this.bKO.size() - 1;
         if (size >= 0) {
@@ -157,7 +157,7 @@ public class a {
         if (imMessageCenterPojo == null) {
             return 0;
         }
-        return ((imMessageCenterPojo.getIs_hidden() == 1) && Yf()) ? 6 : 0;
+        return ((imMessageCenterPojo.getIs_hidden() == 1) && Yb()) ? 6 : 0;
     }
 
     private void iy(String str) {
@@ -166,7 +166,7 @@ public class a {
         }
     }
 
-    public ArrayList<UserData> Ye() {
+    public ArrayList<UserData> Ya() {
         if (this.bKO == null || this.bKO.isEmpty()) {
             return null;
         }
@@ -191,7 +191,7 @@ public class a {
         return arrayList;
     }
 
-    public boolean Yf() {
+    public boolean Yb() {
         Iterator<Map.Entry<String, ImMessageCenterPojo>> it = this.bKP.entrySet().iterator();
         boolean z = false;
         while (it.hasNext()) {
@@ -206,7 +206,7 @@ public class a {
         return z;
     }
 
-    public boolean Yg() {
+    public boolean Yc() {
         return (this.bKO == null || this.bKO.isEmpty()) ? false : true;
     }
 }

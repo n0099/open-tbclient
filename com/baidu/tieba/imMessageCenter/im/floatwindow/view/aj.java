@@ -17,7 +17,7 @@ public class aj {
 
     /* loaded from: classes.dex */
     public interface a {
-        void Ze();
+        void Za();
     }
 
     public void a(a aVar) {
@@ -87,7 +87,7 @@ public class aj {
         if (bVar != null && bVar.getId() != 0) {
             this.bMN.put(String.valueOf(bVar.getId()), Integer.valueOf(r0));
             if (this.bMP != null) {
-                this.bMP.Ze();
+                this.bMP.Za();
             }
         }
     }

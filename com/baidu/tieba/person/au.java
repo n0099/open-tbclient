@@ -14,7 +14,7 @@ public class au extends com.baidu.adp.base.e {
         }
     }
 
-    public PersonChangeData aiE() {
+    public PersonChangeData aiA() {
         return this.cqf;
     }
 

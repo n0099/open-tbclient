@@ -22,10 +22,10 @@ class b implements View.OnClickListener {
             hVar = this.dhk.dhe;
             if (hVar != null) {
                 hVar2 = this.dhk.dhe;
-                if (view == hVar2.azH()) {
+                if (view == hVar2.azD()) {
                     DownloadedThemeListActivity downloadedThemeListActivity = this.dhk;
                     hVar3 = this.dhk.dhe;
-                    downloadedThemeListActivity.dhg = hVar3.azG();
+                    downloadedThemeListActivity.dhg = hVar3.azC();
                     dVar = this.dhk.dhf;
                     if (dVar != null) {
                         dVar2 = this.dhk.dhf;

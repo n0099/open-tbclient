@@ -15,7 +15,7 @@ public class g implements com.baidu.tbadk.coreExtra.a.c {
     private g() {
     }
 
-    public static synchronized g aee() {
+    public static synchronized g aea() {
         g gVar;
         synchronized (g.class) {
             if (cdD == null) {
@@ -40,7 +40,7 @@ public class g implements com.baidu.tbadk.coreExtra.a.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public void vZ() {
+    public void vW() {
         SapiAccountManager.getInstance().logout();
     }
 
@@ -62,11 +62,11 @@ public class g implements com.baidu.tbadk.coreExtra.a.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public AccountData ts() {
+    public AccountData tp() {
         SapiAccount session;
         AccountData j;
         SapiAccount.ReloginCredentials reloginCredentials = SapiAccountManager.getInstance().getSession().getReloginCredentials();
-        if (reloginCredentials == null || SapiAccountManager.getInstance().getAccountService().blockingRelogin(reloginCredentials) != 0 || (session = SapiAccountManager.getInstance().getSession()) == null || com.baidu.tbadk.core.a.a.rd() == null || (j = com.baidu.tbadk.core.a.a.rd().j(session.username, session.bduss, session.ptoken)) == null) {
+        if (reloginCredentials == null || SapiAccountManager.getInstance().getAccountService().blockingRelogin(reloginCredentials) != 0 || (session = SapiAccountManager.getInstance().getSession()) == null || com.baidu.tbadk.core.a.a.ra() == null || (j = com.baidu.tbadk.core.a.a.ra().j(session.username, session.bduss, session.ptoken)) == null) {
             return null;
         }
         com.baidu.tbadk.core.a.b.b(j);
@@ -80,7 +80,7 @@ public class g implements com.baidu.tbadk.coreExtra.a.c {
     }
 
     @Override // com.baidu.tbadk.coreExtra.a.c
-    public List<AccountData> wa() {
+    public List<AccountData> vX() {
         ArrayList arrayList = new ArrayList();
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();

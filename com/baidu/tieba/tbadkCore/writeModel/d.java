@@ -21,7 +21,7 @@ public class d {
         return this.errorCode != 0;
     }
 
-    public boolean axT() {
+    public boolean axP() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
@@ -37,7 +37,7 @@ public class d {
         this.errorString = str;
     }
 
-    public AntiData afh() {
+    public AntiData afd() {
         return this.bPq;
     }
 

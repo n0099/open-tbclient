@@ -21,7 +21,7 @@ class l implements BdListView.e {
             rVar = this.dfB.dfz;
             backgroundListActivity.showLoadingView(rVar.getRootView());
             oVar2 = this.dfB.dfy;
-            oVar2.azx();
+            oVar2.azt();
         }
     }
 }

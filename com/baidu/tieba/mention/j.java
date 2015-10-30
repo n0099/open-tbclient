@@ -21,7 +21,7 @@ public class j extends k {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof t) {
-            this.aKt.r(((t) aVar).adc());
+            this.aKt.r(((t) aVar).acY());
         }
     }
 
@@ -44,7 +44,7 @@ public class j extends k {
     }
 
     @Override // com.baidu.tbadk.mvc.f.a.a
-    public com.baidu.tbadk.mvc.f.a.b Df() {
+    public com.baidu.tbadk.mvc.f.a.b Dc() {
         if (this.cap == null) {
             this.cap = new com.baidu.tbadk.mvc.f.a.b();
             this.cap.setTitle(this.caj.getPageContext().getString(i.h.mention_atme));

@@ -37,7 +37,7 @@ public class o implements a.d {
         if (z) {
             this.asw.arR = null;
             this.asw.bg(true);
-            this.asw.BK();
+            this.asw.BH();
         }
         int i = -1;
         String str = "";
@@ -47,28 +47,28 @@ public class o implements a.d {
         }
         if (z) {
             aVar = this.asw.arW;
-            WriteData axO = aVar.axO();
+            WriteData axK = aVar.axK();
             aVar2 = this.asw.arW;
             aVar2.c((WriteData) null);
             aVar3 = this.asw.arW;
             aVar3.gw(false);
             this.asw.arS = null;
-            if (axO != null && axO != null && axO.getType() == 2) {
+            if (axK != null && axK != null && axK.getType() == 2) {
                 aVar4 = this.asw.ast;
-                aVar4.Bk();
+                aVar4.Bh();
             }
         } else if (i == 230277 || i == 230278 || i == 340016 || AntiHelper.lc(i)) {
             this.asw.t(i, str);
         } else if (lVar != null && writeData != null && !StringUtils.isNull(lVar.getVcode_pic_url())) {
             writeData.setVcodeMD5(lVar.getVcode_md5());
             writeData.setVcodeUrl(lVar.getVcode_pic_url());
-            if (lVar.ws().equals("4")) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.asw.Bv().getActivity(), 12006, writeData, false)));
+            if (lVar.wp().equals("4")) {
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.asw.Bs().getActivity(), 12006, writeData, false)));
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.asw.Bv().getActivity(), writeData, 12006)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.asw.Bs().getActivity(), writeData, 12006)));
             }
         } else {
-            this.asw.Bv().showToast(str);
+            this.asw.Bs().showToast(str);
         }
     }
 }

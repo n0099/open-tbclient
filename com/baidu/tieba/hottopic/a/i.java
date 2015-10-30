@@ -75,7 +75,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     private void a(com.baidu.tieba.hottopic.b.c cVar, com.baidu.tieba.hottopic.data.e eVar) {
         if (cVar != null && eVar != null) {
-            if (eVar.QX()) {
+            if (eVar.QT()) {
                 cVar.bpG.setVisibility(0);
                 cVar.bpH.setVisibility(0);
                 cVar.bpO.setVisibility(8);
@@ -104,7 +104,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
             cVar.bpN.setVisibility(0);
             cVar.bpO.setVisibility(0);
             cVar.bpK.setText(as.d(eVar.bpf.trim(), 14, "..."));
-            cVar.bpL.setText(as.o(eVar.bph * 1000));
+            cVar.bpL.setText(as.m(eVar.bph * 1000));
             cVar.bpM.setText(TbadkCoreApplication.m411getInst().getString(i.h.magic_post_comment));
             cVar.bpN.setMaxLines(2);
             cVar.bpN.setEllipsize(TextUtils.TruncateAt.END);
@@ -127,12 +127,12 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(com.baidu.tieba.hottopic.data.e eVar) {
-        if (eVar == null || eVar.QX()) {
+        if (eVar == null || eVar.QT()) {
             return false;
         }
         String valueOf = String.valueOf(eVar.threadId);
         String valueOf2 = String.valueOf(eVar.postId);
-        TiebaStatic.log(new aq("c10366").ae("post_id", valueOf2).ae("obj_type", "2").ae("obj_id", this.bod.QP()));
+        TiebaStatic.log(new aq("c10366").ae("post_id", valueOf2).ae("obj_type", "2").ae("obj_id", this.bod.QL()));
         if (!eVar.bpk) {
             return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(this.bod.getActivity()).createSubPbActivityConfig(valueOf, valueOf2, HotTopicActivityConfig.ST_TYPE, true, true)));
         }

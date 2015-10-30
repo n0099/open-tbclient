@@ -21,7 +21,7 @@ public class l extends CustomMessageListener {
         if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2009503) {
             return;
         }
-        this.aKG.Hu();
+        this.aKG.Hq();
         this.aKG.bE(false);
         if (customResponsedMessage.getData() instanceof Integer) {
             int intValue = ((Integer) customResponsedMessage.getData()).intValue();

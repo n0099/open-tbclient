@@ -29,7 +29,7 @@ public class w implements NetModel.b<com.baidu.tieba.discover.data.b, com.baidu.
             aVar = this.aKS.aKR;
             if (aVar != null) {
                 aVar2 = this.aKS.aKR;
-                aVar2.HE();
+                aVar2.HA();
                 return;
             }
             return;
@@ -38,12 +38,12 @@ public class w implements NetModel.b<com.baidu.tieba.discover.data.b, com.baidu.
         aVar3 = this.aKS.aKR;
         if (aVar3 != null) {
             aVar4 = this.aKS.aKR;
-            long HI = data.HI();
+            long HE = data.HE();
             bVar2 = this.aKS.aKQ;
-            aVar4.a(true, data, HI > bVar2.HI());
+            aVar4.a(true, data, HE > bVar2.HE());
         }
         bVar = this.aKS.aKQ;
-        bVar.aj(data.HI());
+        bVar.ah(data.HE());
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.d
@@ -58,7 +58,7 @@ public class w implements NetModel.b<com.baidu.tieba.discover.data.b, com.baidu.
             aVar = this.aKS.aKR;
             if (aVar != null) {
                 aVar2 = this.aKS.aKR;
-                aVar2.HE();
+                aVar2.HA();
                 return;
             }
             return;
@@ -67,11 +67,11 @@ public class w implements NetModel.b<com.baidu.tieba.discover.data.b, com.baidu.
         aVar3 = this.aKS.aKR;
         if (aVar3 != null) {
             aVar4 = this.aKS.aKR;
-            long HI = data.HI();
+            long HE = data.HE();
             bVar2 = this.aKS.aKQ;
-            aVar4.a(true, data, HI > bVar2.HI());
+            aVar4.a(true, data, HE > bVar2.HE());
         }
         bVar = this.aKS.aKQ;
-        bVar.aj(data.HI());
+        bVar.ah(data.HE());
     }
 }

@@ -100,21 +100,21 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
                 this.Xt.setCount(size);
                 this.Xs.setCurrentItem(1, false);
                 this.Xt.setPosition(0.0f);
-                tg();
+                td();
                 return;
             }
             this.Xt.setVisibility(8);
-            th();
+            te();
         }
     }
 
     public void setCoverFlowFactory(com.baidu.tbadk.core.flow.b bVar) {
         if (bVar != null) {
             this.Xw = bVar;
-            this.Xu = bVar.td();
+            this.Xu = bVar.ta();
             this.Xu.g(this.Xt);
-            bVar.te().a(this.Xs);
-            this.mCustomView = bVar.tf();
+            bVar.tb().a(this.Xs);
+            this.mCustomView = bVar.tc();
             if (this.mCustomView != null) {
                 removeAllViews();
                 addView(this.Xs);
@@ -124,22 +124,22 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         }
     }
 
-    public void tg() {
-        ti();
+    public void td() {
+        tf();
     }
 
-    public void th() {
+    public void te() {
         this.Xx.removeMessages(1);
     }
 
-    public void ti() {
+    public void tf() {
         this.Xx.removeMessages(1);
         this.Xx.sendEmptyMessageDelayed(1, this.XB);
     }
 
     public void setMarqueenTime(long j) {
         this.XB = j;
-        ti();
+        tf();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -157,7 +157,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    CoverFlowView.this.tj();
+                    CoverFlowView.this.tg();
                     return;
                 default:
                     return;
@@ -166,7 +166,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tj() {
+    public void tg() {
         int count;
         if (this.Xs != null && this.Xv != null && (count = this.Xv.getCount()) > 1) {
             int currentItem = this.Xs.getCurrentItem();
@@ -182,7 +182,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
         }
     }
 
-    private boolean tk() {
+    private boolean th() {
         int count;
         if (this.Xv != null && (count = this.Xv.getCount()) > 1) {
             int currentItem = this.Xs.getCurrentItem();
@@ -242,7 +242,7 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             }
             switch (i) {
                 case 0:
-                    CoverFlowView.this.tl();
+                    CoverFlowView.this.ti();
                     return;
                 default:
                     return;
@@ -251,9 +251,9 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tl() {
-        if (tk()) {
-            ti();
+    public void ti() {
+        if (th()) {
+            tf();
         }
     }
 
@@ -272,15 +272,15 @@ public class CoverFlowView<T extends com.baidu.tbadk.core.flow.a.a> extends Fram
             int intValue;
             com.baidu.tbadk.core.flow.a.a bW;
             if (CoverFlowView.this.Xy != null && (view.getTag() instanceof Integer) && (bW = CoverFlowView.this.Xv.bW((intValue = ((Integer) view.getTag()).intValue()))) != null) {
-                CoverFlowView.this.Xy.o(intValue, bW.ry());
+                CoverFlowView.this.Xy.o(intValue, bW.rv());
             }
         }
     }
 
-    public void tc() {
-        this.Xv.tc();
+    public void sZ() {
+        this.Xv.sZ();
         if (this.Xt != null && this.Xu != null) {
-            this.Xt.setDrawable(an.getDrawable(this.Xu.tm()));
+            this.Xt.setDrawable(an.getDrawable(this.Xu.tj()));
             this.Xt.setSelector(an.getDrawable(this.Xu.getSelectedId()));
         }
     }

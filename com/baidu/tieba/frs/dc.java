@@ -52,13 +52,13 @@ public class dc extends bn<com.baidu.tbadk.core.data.r, br> {
     }
 
     private void a(br brVar, com.baidu.tbadk.core.data.r rVar, boolean z) {
-        if (brVar != null && rVar != null && rVar.rS() != null) {
-            a(brVar.aWt, rVar.rS(), z);
-            if (rVar.rP() > 0) {
-                if (!TextUtils.isEmpty(rVar.rQ())) {
-                    brVar.aHN.setText(rVar.rQ());
+        if (brVar != null && rVar != null && rVar.rP() != null) {
+            a(brVar.aWt, rVar.rP(), z);
+            if (rVar.rM() > 0) {
+                if (!TextUtils.isEmpty(rVar.rN())) {
+                    brVar.aHN.setText(rVar.rN());
                 }
-                if (rVar.rP() < 3) {
+                if (rVar.rM() < 3) {
                     brVar.aHO.setVisibility(8);
                 } else {
                     brVar.aHO.setVisibility(0);
@@ -68,34 +68,34 @@ public class dc extends bn<com.baidu.tbadk.core.data.r, br> {
                 brVar.aHV.setVisibility(8);
                 brVar.aWu.setVisibility(8);
             }
-            if (com.baidu.tbadk.core.m.qX().rb() && rVar.rT() != null && rVar.rT().size() > 0) {
+            if (com.baidu.tbadk.core.m.qU().qY() && rVar.rQ() != null && rVar.rQ().size() > 0) {
                 brVar.aHU.setVisibility(0);
-                if (rVar.rS().rZ()) {
+                if (rVar.rP().rW()) {
                     brVar.aHP.setText(i.h.add_friend_her_posts);
                 } else {
                     brVar.aHP.setText(i.h.add_friend_his_posts);
                 }
-                switch (rVar.rT().size()) {
+                switch (rVar.rQ().size()) {
                     case 1:
                         brVar.aHR.setVisibility(0);
                         brVar.aHS.setVisibility(4);
                         brVar.aHT.setVisibility(4);
-                        brVar.aHR.d(rVar.rT().get(0), 10, false);
+                        brVar.aHR.d(rVar.rQ().get(0), 10, false);
                         break;
                     case 2:
                         brVar.aHR.setVisibility(0);
                         brVar.aHS.setVisibility(0);
                         brVar.aHT.setVisibility(4);
-                        brVar.aHR.d(rVar.rT().get(0), 10, false);
-                        brVar.aHS.d(rVar.rT().get(1), 10, false);
+                        brVar.aHR.d(rVar.rQ().get(0), 10, false);
+                        brVar.aHS.d(rVar.rQ().get(1), 10, false);
                         break;
                     default:
                         brVar.aHR.setVisibility(0);
                         brVar.aHS.setVisibility(0);
                         brVar.aHT.setVisibility(0);
-                        brVar.aHR.d(rVar.rT().get(0), 10, false);
-                        brVar.aHS.d(rVar.rT().get(1), 10, false);
-                        brVar.aHT.d(rVar.rT().get(2), 10, false);
+                        brVar.aHR.d(rVar.rQ().get(0), 10, false);
+                        brVar.aHS.d(rVar.rQ().get(1), 10, false);
+                        brVar.aHT.d(rVar.rQ().get(2), 10, false);
                         break;
                 }
             } else {
@@ -117,33 +117,33 @@ public class dc extends bn<com.baidu.tbadk.core.data.r, br> {
 
     private void a(br.a aVar, com.baidu.tbadk.core.data.s sVar, boolean z) {
         if (sVar != null && aVar != null) {
-            if (com.baidu.tbadk.core.m.qX().qZ()) {
+            if (com.baidu.tbadk.core.m.qU().qW()) {
                 aVar.aHW.setVisibility(0);
-                if (!TextUtils.isEmpty(sVar.rY())) {
+                if (!TextUtils.isEmpty(sVar.rV())) {
                     aVar.aHW.setUserId(String.valueOf(sVar.getUserId()));
                     aVar.aHW.setImageDrawable(null);
-                    aVar.aHW.d(sVar.rY(), 12, false);
+                    aVar.aHW.d(sVar.rV(), 12, false);
                 }
             } else {
                 aVar.aHW.setVisibility(8);
             }
-            if (sVar.sb() != null && !TextUtils.isEmpty(sVar.sb().getUrl())) {
+            if (sVar.rY() != null && !TextUtils.isEmpty(sVar.rY().getUrl())) {
                 aVar.aHX.setVisibility(0);
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(sVar.sb());
+                arrayList.add(sVar.rY());
                 aVar.aHX.a(arrayList, 1, this.mContext.getResources().getDimensionPixelSize(i.d.small_icon_width), this.mContext.getResources().getDimensionPixelSize(i.d.small_icon_height), this.mContext.getResources().getDimensionPixelSize(i.d.small_icon_margin));
             } else {
                 aVar.aHX.setVisibility(8);
             }
             aVar.aHY.setText(sVar.getName());
-            aVar.aHZ.setText(sVar.sa());
-            if (sVar.rZ()) {
+            aVar.aHZ.setText(sVar.rX());
+            if (sVar.rW()) {
                 com.baidu.tbadk.core.util.an.c(aVar.aId, i.e.icon_pop_qz_girl);
             } else {
                 com.baidu.tbadk.core.util.an.c(aVar.aId, i.e.icon_pop_qz_boy);
             }
             a(aVar, this.aYk, z);
-            if (sVar.rX()) {
+            if (sVar.rU()) {
                 aVar.aIc.setClickable(false);
                 aVar.aIc.setBackgroundResource(i.c.transparent);
                 aVar.aIc.setText(i.h.waiting);
@@ -156,8 +156,8 @@ public class dc extends bn<com.baidu.tbadk.core.data.r, br> {
     }
 
     public void aq(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && this.aYk != null && this.aYk.rS() != null && TextUtils.equals(this.aYk.rS().getName(), str2) && TextUtils.equals(str, String.valueOf(this.aYk.rS().getUserId()))) {
-            this.aYk.rS().rW();
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && this.aYk != null && this.aYk.rP() != null && TextUtils.equals(this.aYk.rP().getName(), str2) && TextUtils.equals(str, String.valueOf(this.aYk.rP().getUserId()))) {
+            this.aYk.rP().rT();
             notifyDataSetChanged();
         }
     }
@@ -165,13 +165,13 @@ public class dc extends bn<com.baidu.tbadk.core.data.r, br> {
     public void a(br.a aVar, com.baidu.tbadk.core.data.r rVar, boolean z) {
         if (rVar != null && aVar != null) {
             if (rVar.getLbsInfo() != null) {
-                if (rVar.getLbsInfo().yy() == 1) {
+                if (rVar.getLbsInfo().yv() == 1) {
                     aVar.aGp.setVisibility(0);
                     com.baidu.tbadk.core.util.an.b(aVar.aGp, this.aGl, 1);
                     aVar.aGp.setText(this.mContext.getResources().getString(i.h.contact_yinshen));
                     aVar.aGp.setCompoundDrawables(null, null, null, null);
                     aVar.aHZ.setVisibility(8);
-                } else if (rVar.getLbsInfo().yy() == 0) {
+                } else if (rVar.getLbsInfo().yv() == 0) {
                     if (StringUtils.isNull(rVar.getLbsInfo().getDistance())) {
                         aVar.aGp.setVisibility(8);
                         aVar.aHZ.setVisibility(0);
@@ -192,7 +192,7 @@ public class dc extends bn<com.baidu.tbadk.core.data.r, br> {
                 aVar.aGp.setVisibility(8);
                 aVar.aHZ.setVisibility(0);
             }
-            if (rVar.rS() != null && StringUtils.isNull(rVar.rS().sa())) {
+            if (rVar.rP() != null && StringUtils.isNull(rVar.rP().rX())) {
                 aVar.aHZ.setVisibility(8);
             }
         }

@@ -46,7 +46,7 @@ public class j {
         return spannableString;
     }
 
-    public boolean Fo() {
+    public boolean Fk() {
         return this.aBR == 12;
     }
 

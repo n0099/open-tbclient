@@ -55,7 +55,7 @@ public class o {
     public o(WriteShareActivity writeShareActivity) {
         this.dbx = null;
         this.dmO = writeShareActivity;
-        this.dbx = writeShareActivity.axO();
+        this.dbx = writeShareActivity.axK();
         if (this.dmP == null) {
             this.dmP = new com.baidu.tbadk.img.b();
         }
@@ -75,16 +75,16 @@ public class o {
         this.dmL = (ShareSDKImageView) this.dmO.findViewById(i.f.post_share_image);
         this.dmM = (TextView) this.dmO.findViewById(i.f.post_share_title);
         this.dmN = (TextView) this.dmO.findViewById(i.f.post_share_content);
-        aCi();
-        aCk();
+        aCe();
+        aCg();
         this.dmC = (LinearLayout) this.dmO.findViewById(i.f.post_content_container);
         this.dmC.setDrawingCacheEnabled(false);
         this.dmz.setVisibility(0);
         this.dmD.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
-        aCj();
+        aCf();
     }
 
-    public void aCg() {
+    public void aCc() {
         this.dmJ = (LinearLayout) this.dmO.findViewById(i.f.post_share_layout);
         this.dmL = (ShareSDKImageView) this.dmO.findViewById(i.f.post_share_image);
         this.dmL.setIsRound(false);
@@ -102,7 +102,7 @@ public class o {
                     this.dmL.d(this.dbx.getShareSummaryImg(), 10, true);
                 } else {
                     this.dmQ = true;
-                    aCj();
+                    aCf();
                 }
             } else {
                 Bitmap N = com.baidu.tbadk.core.util.c.N(this.dbx.getShareLocalImageData());
@@ -114,14 +114,14 @@ public class o {
                         imageFileInfo.setFilePath(com.baidu.tbadk.core.util.n.a(TbadkCoreApplication.m411getInst().getApp(), Uri.parse(this.dbx.getShareLocalImageUri())));
                     }
                     imageFileInfo.clearAllActions();
-                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.J(at.uJ().uP(), at.uJ().uP()));
+                    imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.J(at.uG().uM(), at.uG().uM()));
                     this.dmL.setTag(imageFileInfo.toCachedKey(true));
                     if (this.dmP.a(imageFileInfo, new q(this), true) != null) {
                         this.dmL.invalidate();
                     }
                 }
                 this.dmQ = true;
-                aCj();
+                aCf();
             }
             this.dbx.setShareSummaryImgType(com.baidu.adp.lib.util.e.aJ(this.dbx.getShareSummaryImg()));
             this.dmM.setText(this.dbx.getShareSummaryTitle());
@@ -129,7 +129,7 @@ public class o {
         }
     }
 
-    private void aCh() {
+    private void aCd() {
         this.dmI = this.dmO.findViewById(i.f.post_prefix_layout);
         this.dmF = (TextView) this.dmO.findViewById(i.f.post_prefix);
         this.dmH = (ImageView) this.dmO.findViewById(i.f.prefix_icon);
@@ -181,7 +181,7 @@ public class o {
         this.dmI.setVisibility(8);
     }
 
-    protected void aCi() {
+    protected void aCe() {
         this.dmz = (EditText) this.dmO.findViewById(i.f.post_title);
         if (this.dbx.getType() == 3) {
             if (this.dbx.getTitle() != null && this.dbx.getTitle().trim().length() > 0) {
@@ -200,12 +200,12 @@ public class o {
         this.dmz.addTextChangedListener(new v(this));
     }
 
-    public void aCj() {
+    public void aCf() {
         String str = null;
         if (this.dbx.getType() == 3) {
             String trim = this.dmz.getText().toString().trim();
             if (this.mPrefixData != null && this.mPrefixData.getPrefixs().size() > 0) {
-                if (this.dmO.aCd() == this.mPrefixData.getPrefixs().size() - 1) {
+                if (this.dmO.aBZ() == this.mPrefixData.getPrefixs().size() - 1) {
                     if (TextUtils.isEmpty(trim)) {
                         this.dbx.setIsNoTitle(true);
                     } else {
@@ -230,11 +230,11 @@ public class o {
         }
     }
 
-    protected void aCk() {
+    protected void aCg() {
         this.dmD = (EditText) this.dmO.findViewById(i.f.post_content);
         this.dmD.setDrawingCacheEnabled(false);
         if (this.dbx.getContent() != null && this.dbx.getContent().length() > 0) {
-            SpannableString G = TbFaceManager.Ce().G(this.dmO.getPageContext().getContext(), this.dbx.getContent());
+            SpannableString G = TbFaceManager.Cb().G(this.dmO.getPageContext().getContext(), this.dbx.getContent());
             this.dmD.setText(G);
             this.dmD.setSelection(G.length());
         }
@@ -252,17 +252,17 @@ public class o {
         editText.setSelection(selectionStart, selectionEnd);
     }
 
-    public EditText aCl() {
+    public EditText aCh() {
         return this.dmz;
     }
 
-    public EditText amS() {
+    public EditText amO() {
         return this.dmD;
     }
 
     public void a(PostPrefixData postPrefixData) {
         this.mPrefixData = postPrefixData;
-        aCh();
+        aCd();
     }
 
     public void a(View.OnFocusChangeListener onFocusChangeListener) {
@@ -272,19 +272,19 @@ public class o {
         this.dmE.setOnFocusChangeListener(onFocusChangeListener);
     }
 
-    public cd aCm() {
+    public cd aCi() {
         return this.dmG;
     }
 
-    public View aCn() {
+    public View aCj() {
         return this.mBack;
     }
 
-    public TextView aCo() {
+    public TextView aCk() {
         return this.dmE;
     }
 
-    public TextView aCp() {
+    public TextView aCl() {
         return this.dmF;
     }
 
@@ -318,11 +318,11 @@ public class o {
             this.dmN.setTextColor(an.getColor(i.c.cp_cont_d));
             a(this.dmz, color2);
             a(this.dmD, color2);
-            aCj();
+            aCf();
         }
     }
 
-    public ShareSDKImageView aCq() {
+    public ShareSDKImageView aCm() {
         return this.dmL;
     }
 }

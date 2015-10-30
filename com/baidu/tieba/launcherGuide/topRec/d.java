@@ -37,7 +37,7 @@ public class d extends BaseAdapter implements View.OnClickListener {
         notifyDataSetChanged();
     }
 
-    public void aaR() {
+    public void aaN() {
         if (this.bSP != null) {
             if (this.bSP.forum_list.length - this.bTb > 20) {
                 this.bTb += 20;
@@ -50,7 +50,7 @@ public class d extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public boolean aaS() {
+    public boolean aaO() {
         return this.bSX;
     }
 
@@ -165,7 +165,7 @@ public class d extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public int aaT() {
+    public int aaP() {
         if (this.bSP == null || this.bSP.forum_list == null) {
             return 0;
         }

@@ -15,9 +15,9 @@ public class a implements View.OnTouchListener {
     /* renamed from: com.baidu.tieba.pb.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0070a {
-        void Mi();
+        void Me();
 
-        void Mj();
+        void Mf();
     }
 
     public a(InterfaceC0070a interfaceC0070a) {
@@ -38,7 +38,7 @@ public class a implements View.OnTouchListener {
             } else if (this.count == 2) {
                 this.cgD = System.currentTimeMillis();
                 if (this.cgD - this.cgC < this.cgF) {
-                    this.cgE.Mj();
+                    this.cgE.Mf();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

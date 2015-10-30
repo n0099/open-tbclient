@@ -15,9 +15,9 @@ class bc implements TbFaceManager.a {
 
     @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
     public ImageSpan fl(String str) {
-        com.baidu.adp.widget.a.a eS = com.baidu.tbadk.editortools.emotiontool.r.Bc().eS(str);
+        com.baidu.adp.widget.a.a eS = com.baidu.tbadk.editortools.emotiontool.r.AZ().eS(str);
         if (eS == null) {
-            eS = com.baidu.tbadk.editortools.emotiontool.r.Bc().al(null, str);
+            eS = com.baidu.tbadk.editortools.emotiontool.r.AZ().al(null, str);
         }
         if (eS == null) {
             return null;

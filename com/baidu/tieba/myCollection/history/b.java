@@ -28,7 +28,7 @@ class b implements a.InterfaceC0052a<com.baidu.tieba.myCollection.baseHistory.b>
     public void a(WriteCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.b>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.myCollection.baseHistory.b> writeCacheMessage) {
         if (writeCacheRespMsg != null && writeCacheRespMsg.isSuccess()) {
             if (!writeCacheMessage.isClear()) {
-                this.ccp.Ko();
+                this.ccp.Kk();
             } else {
                 this.ccp.aX(new ArrayList());
             }

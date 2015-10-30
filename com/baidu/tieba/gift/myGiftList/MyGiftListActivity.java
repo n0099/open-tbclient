@@ -30,7 +30,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.tbadk.coreExtra.messageCenter.a.wK().xb();
+        com.baidu.tbadk.coreExtra.messageCenter.a.wH().wY();
         Intent intent = getIntent();
         if (intent != null) {
             this.bmU = intent.getStringExtra("id");
@@ -49,21 +49,21 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         registerListener(this.bmW);
         this.bmS.cA(false);
         this.bmT.nw();
-        com.baidu.tbadk.coreExtra.messageCenter.a.wK().setMsgGiftNum(0);
+        com.baidu.tbadk.coreExtra.messageCenter.a.wH().setMsgGiftNum(0);
         MessageManager.getInstance().dispatchResponsedMessage(this.bmV);
     }
 
     private void initUI() {
         this.bmT = new m(this, this.bmX, this.mIsHost);
         this.bmT.b(new h(this));
-        Qw();
+        Qs();
     }
 
-    public View.OnClickListener Qv() {
+    public View.OnClickListener Qr() {
         return new i(this);
     }
 
-    private void Qw() {
+    private void Qs() {
         this.bmT.h(this.aOY);
     }
 
@@ -74,7 +74,7 @@ public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
         this.bmT.onChangeSkinType(i);
     }
 
-    public String Qx() {
+    public String Qt() {
         String string = getPageContext().getString(i.h.he);
         if (this.sex == 2) {
             return getPageContext().getString(i.h.she);

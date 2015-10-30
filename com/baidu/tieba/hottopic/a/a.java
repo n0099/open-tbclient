@@ -91,7 +91,7 @@ public class a extends com.baidu.adp.widget.ListView.a<w, com.baidu.tieba.hottop
             aVar.aTq.setOnClickListener(this);
             aVar.aXu.setTag(Integer.valueOf(i));
             aVar.aTq.setTag(Integer.valueOf(i));
-            if (wVar != null && !wVar.sy() && !TextUtils.isEmpty(wVar.getAddress()) && !TextUtils.isEmpty(wVar.getAddress().trim())) {
+            if (wVar != null && !wVar.sv() && !TextUtils.isEmpty(wVar.getAddress()) && !TextUtils.isEmpty(wVar.getAddress().trim())) {
                 aVar.aXw.setVisibility(0);
                 aVar.aXx.setVisibility(0);
                 aVar.aXw.setText(wVar.getAddress());
@@ -99,7 +99,7 @@ public class a extends com.baidu.adp.widget.ListView.a<w, com.baidu.tieba.hottop
                 aVar.aXw.setVisibility(8);
                 aVar.aXx.setVisibility(8);
             }
-            aVar.aTg.setText(as.o(wVar.getLast_time_int() * 1000));
+            aVar.aTg.setText(as.m(wVar.getLast_time_int() * 1000));
             aVar.aTj.setVisibility(0);
             String portrait = wVar.getAuthor().getPortrait();
             aVar.aTj.setUserId(wVar.getAuthor().getUserId());
@@ -133,7 +133,7 @@ public class a extends com.baidu.adp.widget.ListView.a<w, com.baidu.tieba.hottop
             p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
             aVar.aPq.setMaxLines(2);
             aVar.aPq.setEllipsize(TextUtils.TruncateAt.END);
-            if (wVar.sr() == 1) {
+            if (wVar.so() == 1) {
                 aVar.aPq.setVisibility(8);
             } else {
                 aVar.aPq.setVisibility(0);
@@ -146,8 +146,8 @@ public class a extends com.baidu.adp.widget.ListView.a<w, com.baidu.tieba.hottop
                 }
             }
             StringBuffer stringBuffer = new StringBuffer();
-            if (wVar.sm() != null && wVar.sm().trim().length() > 0) {
-                stringBuffer.append(wVar.sm());
+            if (wVar.sj() != null && wVar.sj().trim().length() > 0) {
+                stringBuffer.append(wVar.sj());
             }
             ArrayList<MediaData> medias = wVar.getMedias();
             if (medias != null) {
@@ -183,7 +183,7 @@ public class a extends com.baidu.adp.widget.ListView.a<w, com.baidu.tieba.hottop
                     aVar.aTd.setVisibility(8);
                 }
             }
-            if (com.baidu.tbadk.core.m.qX().rb() && medias != null && medias.size() > 0) {
+            if (com.baidu.tbadk.core.m.qU().qY() && medias != null && medias.size() > 0) {
                 int i4 = 0;
                 int i5 = 0;
                 while (true) {
@@ -215,7 +215,7 @@ public class a extends com.baidu.adp.widget.ListView.a<w, com.baidu.tieba.hottop
                         i7 = i9 + 1;
                     }
                     aVar.bpB.setVisibility(0);
-                    aVar.bpB.a(wVar, wVar.sj(), wVar.getId(), wVar.getTid());
+                    aVar.bpB.a(wVar, wVar.sg(), wVar.getId(), wVar.getTid());
                     aVar.bpB.setShowBig(com.baidu.adp.lib.util.i.iN());
                     aVar.bpB.setDrawNum(true);
                     aVar.bpB.setFromCDN(true);
@@ -229,14 +229,14 @@ public class a extends com.baidu.adp.widget.ListView.a<w, com.baidu.tieba.hottop
             }
             if (wVar.getPraise() != null && wVar.getPraise().getNum() > 0) {
                 aVar.aTm.setVisibility(0);
-                aVar.aTm.setText(as.s(wVar.getPraise().getNum()));
+                aVar.aTm.setText(as.q(wVar.getPraise().getNum()));
             } else {
                 aVar.aTm.setVisibility(8);
             }
             int reply_num = wVar.getReply_num();
             if (reply_num > 0) {
                 aVar.aTo.setVisibility(0);
-                aVar.aTo.setText(as.s(reply_num));
+                aVar.aTo.setText(as.q(reply_num));
             } else {
                 aVar.aTo.setVisibility(8);
             }

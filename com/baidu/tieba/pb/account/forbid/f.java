@@ -60,11 +60,11 @@ public class f {
             wVar.o("reason", this.Ag);
             wVar.o("ntn", "banid");
             wVar.o("post_id", this.mPostId);
-            wVar.uh().uY().mIsNeedTbs = true;
-            String tG = wVar.tG();
-            if (wVar.uh().uZ().qV()) {
+            wVar.ue().uV().mIsNeedTbs = true;
+            String tD = wVar.tD();
+            if (wVar.ue().uW().qS()) {
                 try {
-                    return (ForbidResultData) i.objectWithJsonStr(tG, ForbidResultData.class);
+                    return (ForbidResultData) i.objectWithJsonStr(tD, ForbidResultData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidResultData forbidResultData = new ForbidResultData();
@@ -73,7 +73,7 @@ public class f {
                 }
             }
             ForbidResultData forbidResultData2 = new ForbidResultData();
-            forbidResultData2.error_code = wVar.ul();
+            forbidResultData2.error_code = wVar.ui();
             forbidResultData2.error_msg = wVar.getErrorString();
             return forbidResultData2;
         }

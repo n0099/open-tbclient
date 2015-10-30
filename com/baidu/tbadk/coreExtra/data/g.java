@@ -5,7 +5,7 @@ public class g {
     private int agn;
     private int ago;
 
-    public int wm() {
+    public int wj() {
         if (this.agm == 0) {
             return Integer.MAX_VALUE;
         }
@@ -16,7 +16,7 @@ public class g {
         this.agm = com.baidu.adp.lib.g.b.g(str, 0);
     }
 
-    public int wn() {
+    public int wk() {
         return this.agn;
     }
 
@@ -24,7 +24,7 @@ public class g {
         this.agn = com.baidu.adp.lib.g.b.g(str, 0);
     }
 
-    public int wo() {
+    public int wl() {
         return this.ago;
     }
 

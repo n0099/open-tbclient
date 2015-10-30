@@ -17,12 +17,12 @@ public class u extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        boolean Ik;
-        Ik = this.aLW.Ik();
-        if (!Ik) {
-            this.aLW.Il();
+        boolean Ig;
+        Ig = this.aLW.Ig();
+        if (!Ig) {
+            this.aLW.Ih();
         } else {
-            this.aLW.Io();
+            this.aLW.Ik();
         }
     }
 }

@@ -32,7 +32,7 @@ public class e {
             if (message.what != 0 || (eVar = this.amK.get()) == null) {
                 return;
             }
-            eVar.zD();
+            eVar.zA();
         }
     }
 
@@ -45,10 +45,10 @@ public class e {
         this.amF.sendEmptyMessageDelayed(0, 50000L);
         this.amH = new a(this, null);
         this.amH.setSelfExecute(true);
-        this.amH.execute(String.valueOf(zC()) + str);
+        this.amH.execute(String.valueOf(zz()) + str);
     }
 
-    private String zC() {
+    private String zz() {
         switch (com.baidu.adp.lib.util.i.iS()) {
             case 1:
                 return "ping -c 3 -w 3000 ";
@@ -62,7 +62,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zD() {
+    public void zA() {
         if (this.amH != null) {
             this.amH.cancel(true);
         }

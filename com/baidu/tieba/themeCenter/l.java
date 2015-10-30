@@ -12,7 +12,7 @@ public class l {
     private static l deS;
     private SQLiteDatabase deT = new m(TbadkCoreApplication.m411getInst().getApp()).getWritableDatabase();
 
-    public static synchronized l azs() {
+    public static synchronized l azo() {
         l lVar;
         synchronized (l.class) {
             if (deS == null) {
@@ -26,7 +26,7 @@ public class l {
     private l() {
     }
 
-    public void azt() {
+    public void azp() {
         new m(TbadkCoreApplication.m411getInst().getApp()).n(this.deT);
     }
 
@@ -39,12 +39,12 @@ public class l {
         contentValues.put("title", bVar.getTitle());
         contentValues.put("picUrl", bVar.getPicUrl());
         contentValues.put("packageSize", bVar.getPackageSize());
-        contentValues.put("packageUrl", bVar.azi());
+        contentValues.put("packageUrl", bVar.aze());
         contentValues.put("versionCode", Integer.valueOf(bVar.getVersionCode()));
-        contentValues.put("permissionIconUrl", bVar.azj());
-        contentValues.put("stateIconUrl", bVar.azk());
+        contentValues.put("permissionIconUrl", bVar.azf());
+        contentValues.put("stateIconUrl", bVar.azg());
         contentValues.put("activityUrl", bVar.getActivityUrl());
-        contentValues.put("permissionType", Integer.valueOf(bVar.azl()));
+        contentValues.put("permissionType", Integer.valueOf(bVar.azh()));
         return contentValues;
     }
 
@@ -68,7 +68,7 @@ public class l {
         return (this.deT == null || StringUtils.isNull(currentAccount) || this.deT.delete(new StringBuilder("theme_").append(currentAccount).toString(), "id = ?", new String[]{String.valueOf(i)}) <= 0) ? false : true;
     }
 
-    public List<b> azu() {
+    public List<b> azq() {
         ArrayList arrayList = null;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.deT != null && !StringUtils.isNull(currentAccount)) {

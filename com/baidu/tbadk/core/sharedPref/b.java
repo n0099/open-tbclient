@@ -36,7 +36,7 @@ public class b {
         mContentResolver = TbadkCoreApplication.m411getInst().getContentResolver();
     }
 
-    public static synchronized b tu() {
+    public static synchronized b tr() {
         b bVar;
         synchronized (b.class) {
             if (Yh == null) {
@@ -183,39 +183,39 @@ public class b {
     }
 
     private String getValue(String str) {
-        return b(Uri.parse(String.valueOf(tw()) + str));
+        return b(Uri.parse(String.valueOf(tt()) + str));
     }
 
     private void X(String str, String str2) {
-        Uri parse = Uri.parse(String.valueOf(tw()) + str);
+        Uri parse = Uri.parse(String.valueOf(tt()) + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, str2);
         a(parse, contentValues);
     }
 
     private void o(String str, int i) {
-        Uri parse = Uri.parse(String.valueOf(tw()) + str);
+        Uri parse = Uri.parse(String.valueOf(tt()) + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(i));
         a(parse, contentValues);
     }
 
     private void f(String str, long j) {
-        Uri parse = Uri.parse(String.valueOf(tw()) + str);
+        Uri parse = Uri.parse(String.valueOf(tt()) + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(j));
         a(parse, contentValues);
     }
 
     private void i(String str, boolean z) {
-        Uri parse = Uri.parse(String.valueOf(tw()) + str);
+        Uri parse = Uri.parse(String.valueOf(tt()) + str);
         ContentValues contentValues = new ContentValues();
         contentValues.put(str, String.valueOf(z));
         a(parse, contentValues);
     }
 
     private void removeValue(String str) {
-        c(Uri.parse(String.valueOf(tw()) + str));
+        c(Uri.parse(String.valueOf(tt()) + str));
     }
 
     private synchronized SharedPreferences getSharedPreferences() {
@@ -254,32 +254,32 @@ public class b {
         return a.XW;
     }
 
-    public void tv() {
+    public void ts() {
         SharedPreferences sharedPreferences = TbadkCoreApplication.m411getInst().getSharedPreferences(TbConfig.SETTINGFILE, 0);
         String string = sharedPreferences.getString("lase_version", "");
         String version = TbConfig.getVersion();
         if (string != null && string.length() != 0 && version != null && version.length() != 0 && !string.equals(version) && "4.5.0".compareTo(string) > 0 && "4.5.0".compareTo(version) <= 0) {
-            tu().putInt("skin_" + TbadkCoreApplication.getCurrentAccount(), sharedPreferences.getInt("skin_" + TbadkCoreApplication.getCurrentAccount(), 0));
+            tr().putInt("skin_" + TbadkCoreApplication.getCurrentAccount(), sharedPreferences.getInt("skin_" + TbadkCoreApplication.getCurrentAccount(), 0));
             String string2 = sharedPreferences.getString("from_id", null);
             if (string2 != null && string2.length() > 0) {
-                tu().putString("from_id", string2);
+                tr().putString("from_id", string2);
             }
             String string3 = sharedPreferences.getString("install_other_app_file_name", null);
             if (string3 != null && string3.length() > 0) {
-                tu().putString("install_other_app_file_name", string3);
+                tr().putString("install_other_app_file_name", string3);
             }
             String string4 = sharedPreferences.getString(SocialConstants.PARAM_CUID, null);
             if (string4 != null && string4.length() > 0) {
-                tu().putString(SocialConstants.PARAM_CUID, string4);
+                tr().putString(SocialConstants.PARAM_CUID, string4);
             }
             String string5 = sharedPreferences.getString("client_id", null);
             if (string5 != null && string5.length() > 0) {
-                tu().putString("client_id", string5);
+                tr().putString("client_id", string5);
             }
         }
     }
 
-    protected String tw() {
+    protected String tt() {
         if (this.Yn == null) {
             String packageName = TbadkCoreApplication.m411getInst().getContext().getPackageName();
             if (TbConfig.MAIN_PACKAGE_NAME.equals(packageName)) {

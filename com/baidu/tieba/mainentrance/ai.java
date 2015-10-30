@@ -66,7 +66,7 @@ public class ai implements a.b {
             this.bVC.bUz.setVisibility(8);
             this.bVC.mNoDataView.setVisibility(0);
             this.bVC.mNoDataView.setTextOption(NoDataViewFactory.d.cK(i.h.text_no_search_record));
-            com.baidu.tieba.tbadkCore.util.m.axF();
+            com.baidu.tieba.tbadkCore.util.m.axB();
             return;
         }
         com.baidu.adp.lib.g.k.hh().c(new aj(this));

@@ -36,17 +36,17 @@ class p extends CustomMessageListener {
                     replyInfo.setFriendId(friendId);
                     replyInfo.setMessage(content);
                     yVar3 = this.csI.csv;
-                    yVar3.ajN().getReplyInfo().add(replyInfo);
+                    yVar3.ajJ().getReplyInfo().add(replyInfo);
                     yVar4 = this.csI.csv;
-                    yVar4.ajU();
+                    yVar4.ajQ();
                 }
             } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
                 yVar = this.csI.csv;
-                if (yVar.ajN() != null) {
+                if (yVar.ajJ() != null) {
                     yVar2 = this.csI.csv;
-                    yVar2.ajN().setIsFriend(1);
+                    yVar2.ajJ().setIsFriend(1);
                     ajVar = this.csI.csw;
-                    ajVar.aka();
+                    ajVar.ajW();
                 }
             }
         }

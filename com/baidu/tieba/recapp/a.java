@@ -11,7 +11,7 @@ public class a {
     private static a cHA;
     private HashMap<Integer, Class<? extends PbRecBaseViewHolder>> cHB = new HashMap<>();
 
-    public static final a apA() {
+    public static final a apw() {
         if (cHA != null) {
             return cHA;
         }

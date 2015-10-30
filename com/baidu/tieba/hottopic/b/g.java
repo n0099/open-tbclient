@@ -36,14 +36,14 @@ public class g implements ViewPager.OnPageChangeListener {
                         relateForumViewPager2 = this.bqb.bpT;
                         relateForumViewPager2.setCurrentItem(1, false);
                     }
-                    this.bqb.Mo();
+                    this.bqb.Mk();
                     return;
                 }
                 return;
             }
             return;
         }
-        this.bqb.Mp();
+        this.bqb.Ml();
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener

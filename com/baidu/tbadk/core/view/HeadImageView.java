@@ -64,11 +64,11 @@ public class HeadImageView extends TbClipImageView {
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
-    public void vr() {
+    public void vo() {
         if (!this.aAV) {
             this.aAV = true;
         } else if (this.aAY != null && this.aAY.axr) {
-            this.aAY.DT();
+            this.aAY.DQ();
         }
     }
 }

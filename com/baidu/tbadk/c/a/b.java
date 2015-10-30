@@ -56,8 +56,8 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view != null) {
             a aVar = (a) view.getTag();
-            aVar.anS.setImageResource(this.anR.get(i).Ae());
-            aVar.alu.setText(this.anR.get(i).Af());
+            aVar.anS.setImageResource(this.anR.get(i).Ab());
+            aVar.alu.setText(this.anR.get(i).Ac());
             aVar.anT.setText(i);
             return view;
         }

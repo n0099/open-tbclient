@@ -61,14 +61,14 @@ public class h extends BaseFragment {
                 throw e;
             }
             BdLog.e(e);
-            this.bRO.aaA();
+            this.bRO.aaw();
             TbadkApplication.getInst().onAppMemoryLow();
             return new FrameLayout(layoutInflater.getContext());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aaB() {
+    public void aax() {
         this.bRP.setImageResource(i.e.pic_startpage1_one);
         this.bRQ.setImageResource(i.e.pic_startpage1_two);
         this.bRR.setImageResource(i.e.pic_startpage1_three);
@@ -83,13 +83,13 @@ public class h extends BaseFragment {
         stop();
     }
 
-    public void aaC() {
+    public void aay() {
         if (this.bRS != null) {
             this.bRS.onStart();
         }
     }
 
-    public void aaD() {
+    public void aaz() {
         if (this.bRS != null) {
             this.bRS.onStop();
         }

@@ -19,7 +19,7 @@ public class e implements BaseWebView.c {
         this.bat.avC = false;
         z = this.bat.isError;
         if (!z) {
-            this.bat.MW();
+            this.bat.MS();
             ViewGroup.LayoutParams layoutParams = this.bat.getLayoutParams();
             layoutParams.height = -2;
             this.bat.setLayoutParams(layoutParams);

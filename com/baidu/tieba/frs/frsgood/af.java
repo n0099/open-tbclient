@@ -32,16 +32,16 @@ public class af extends com.baidu.adp.base.f<FrsGoodActivity> {
     public void oQ() {
         this.aZG = new x(this.aZX, this.aZX.aUx);
         this.aZX.a(this.aZG);
-        MU();
+        MQ();
     }
 
-    private void MU() {
+    private void MQ() {
         this.bag = (HorizontalTabView) this.aZX.findViewById(i.f.frs_good_tabview);
     }
 
     public void b(com.baidu.tieba.tbadkCore.o oVar) {
         ArrayList<com.baidu.tbadk.core.data.k> good_classify;
-        if (oVar != null && oVar.aeN() != null && oVar.aeN().getGood_classify() != null && (good_classify = oVar.aeN().getGood_classify()) != null) {
+        if (oVar != null && oVar.aeJ() != null && oVar.aeJ().getGood_classify() != null && (good_classify = oVar.aeJ().getGood_classify()) != null) {
             this.aWj = this.aZX.getPageContext().getResources().getString(i.h.forum_list_menu_all);
             this.bai = new TabData();
             com.baidu.tieba.frs.tab.g gVar = new com.baidu.tieba.frs.tab.g();
@@ -49,10 +49,10 @@ public class af extends com.baidu.adp.base.f<FrsGoodActivity> {
             gVar.name = this.aWj;
             this.bai.add(gVar);
             for (com.baidu.tbadk.core.data.k kVar : good_classify) {
-                if (kVar != null && kVar.rE() > 0 && !TextUtils.isEmpty(kVar.rD()) && !TextUtils.isEmpty(kVar.rD().trim())) {
+                if (kVar != null && kVar.rB() > 0 && !TextUtils.isEmpty(kVar.rA()) && !TextUtils.isEmpty(kVar.rA().trim())) {
                     com.baidu.tieba.frs.tab.g gVar2 = new com.baidu.tieba.frs.tab.g();
-                    gVar2.bbr = kVar.rE();
-                    gVar2.name = kVar.rD();
+                    gVar2.bbr = kVar.rB();
+                    gVar2.name = kVar.rA();
                     this.bai.add(gVar2);
                 }
             }
@@ -60,7 +60,7 @@ public class af extends com.baidu.adp.base.f<FrsGoodActivity> {
         }
     }
 
-    public HorizontalTabView MV() {
+    public HorizontalTabView MR() {
         return this.bag;
     }
 
@@ -72,7 +72,7 @@ public class af extends com.baidu.adp.base.f<FrsGoodActivity> {
 
     public void onChangeSkinType(int i) {
         if (this.bag != null) {
-            this.bag.vA();
+            this.bag.vx();
         }
     }
 }

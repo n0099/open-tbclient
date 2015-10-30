@@ -63,7 +63,7 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public static AccountData aS(String str, String str2) {
         w wVar;
-        String tG;
+        String tD;
         try {
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -73,16 +73,16 @@ public class f {
             wVar.o("isphone", "0");
             wVar.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
             wVar.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-            wVar.uh().uY().vb().acl = true;
-            wVar.uh().uY().mIsNeedAddCommenParam = false;
-            wVar.uh().uY().mIsUseCurrentBDUSS = false;
-            tG = wVar.tG();
+            wVar.ue().uV().uY().acl = true;
+            wVar.ue().uV().mIsNeedAddCommenParam = false;
+            wVar.ue().uV().mIsUseCurrentBDUSS = false;
+            tD = wVar.tD();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (wVar.uh().uZ().qV() && tG != null) {
+        if (wVar.ue().uW().qS() && tD != null) {
             l lVar = new l();
-            lVar.parserJson(tG);
+            lVar.parserJson(tD);
             String userId = lVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
                 return null;
@@ -98,19 +98,19 @@ public class f {
             accountData.setBDUSS(lVar.getUser().getBDUSS());
             accountData.setPortrait(lVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (lVar.rF() != null) {
-                accountData.setTbs(lVar.rF().getTbs());
+            if (lVar.rC() != null) {
+                accountData.setTbs(lVar.rC().getTbs());
                 return accountData;
             }
             return accountData;
         }
-        if (wVar.uk()) {
-            switch (wVar.ul()) {
+        if (wVar.uh()) {
+            switch (wVar.ui()) {
                 case 1:
                 case 2:
                 case 5:
                     wVar.gJ();
-                    ReloginManager.tp().e(null);
+                    ReloginManager.tm().e(null);
                     break;
             }
             return null;

@@ -10,12 +10,12 @@ public class a {
     private boolean cLh;
     private SimpleUser cLi;
 
-    public boolean aqT() {
-        com.baidu.tbadk.core.sharedPref.b tu = com.baidu.tbadk.core.sharedPref.b.tu();
+    public boolean aqP() {
+        com.baidu.tbadk.core.sharedPref.b tr = com.baidu.tbadk.core.sharedPref.b.tr();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.cLf = tu.getInt("post" + currentAccount, 0);
-        this.cLg = tu.getInt("like" + currentAccount, 0);
-        this.anG = tu.getInt("group" + currentAccount, 0);
+        this.cLf = tr.getInt("post" + currentAccount, 0);
+        this.cLg = tr.getInt("like" + currentAccount, 0);
+        this.anG = tr.getInt("group" + currentAccount, 0);
         this.cLh = TbadkCoreApplication.m411getInst().getLocationShared();
         return (this.cLf == 0 && this.cLg == 0 && this.anG == 0) ? false : true;
     }
@@ -27,20 +27,20 @@ public class a {
         this.cLh = aVar.cLh;
     }
 
-    public int aqU() {
+    public int aqQ() {
         return this.cLf;
     }
 
     public void aa(String str, int i) {
-        com.baidu.tbadk.core.sharedPref.b.tu().putInt(String.valueOf(str) + TbadkCoreApplication.getCurrentAccount(), i);
+        com.baidu.tbadk.core.sharedPref.b.tr().putInt(String.valueOf(str) + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void aqV() {
+    public void aqR() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        com.baidu.tbadk.core.sharedPref.b tu = com.baidu.tbadk.core.sharedPref.b.tu();
-        tu.putInt("post" + currentAccount, this.cLf);
-        tu.putInt("like" + currentAccount, this.cLg);
-        tu.putInt("group" + currentAccount, this.anG);
+        com.baidu.tbadk.core.sharedPref.b tr = com.baidu.tbadk.core.sharedPref.b.tr();
+        tr.putInt("post" + currentAccount, this.cLf);
+        tr.putInt("like" + currentAccount, this.cLg);
+        tr.putInt("group" + currentAccount, this.anG);
         TbadkCoreApplication.m411getInst().setLocationShared(this.cLh);
     }
 
@@ -50,7 +50,7 @@ public class a {
         }
     }
 
-    public int aqW() {
+    public int aqS() {
         return this.cLg;
     }
 
@@ -60,7 +60,7 @@ public class a {
         }
     }
 
-    public int Aa() {
+    public int zX() {
         return this.anG;
     }
 
@@ -70,7 +70,7 @@ public class a {
         }
     }
 
-    public boolean aqX() {
+    public boolean aqT() {
         return this.cLh;
     }
 
@@ -85,7 +85,7 @@ public class a {
         }
     }
 
-    public SimpleUser aqY() {
+    public SimpleUser aqU() {
         return this.cLi;
     }
 

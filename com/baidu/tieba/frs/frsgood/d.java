@@ -14,7 +14,7 @@ class d implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int intValue = ((Integer) view.getTag()).intValue();
-        com.baidu.adp.widget.ListView.u aA = this.aZM.aZG.MN().aA(intValue);
+        com.baidu.adp.widget.ListView.u aA = this.aZM.aZG.MJ().aA(intValue);
         if (aA instanceof com.baidu.tbadk.core.data.b) {
             com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) aA;
             int i = bVar.TU;

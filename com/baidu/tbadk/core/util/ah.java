@@ -19,20 +19,20 @@ public class ah implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        File ux;
+        File uu;
         boolean c;
         boolean cs;
-        ux = this.aaK.ux();
-        c = this.aaK.c(ux, this.aaL);
+        uu = this.aaK.uu();
+        c = this.aaK.c(uu, this.aaL);
         if (c) {
-            this.aaK.r(ux);
+            this.aaK.s(uu);
             cs = this.aaK.cs(this.aaM);
             if (cs) {
-                this.aaK.uv();
+                this.aaK.us();
                 return;
             }
         }
-        this.aaK.uz();
+        this.aaK.uw();
         this.aaK.d(this.aaN, this.aaL, this.aaM);
     }
 }

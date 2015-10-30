@@ -41,7 +41,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         registerListener(this.dlM);
-        SearchLocationActivityStatic.aBQ();
+        SearchLocationActivityStatic.aBM();
         setContentView(i.g.search_location_layout);
         initUI();
         initData();
@@ -66,9 +66,9 @@ public class SearchLocationActivity extends NavigationBarActivity {
 
     public void initData() {
         this.dlH = new com.baidu.tieba.write.data.b();
-        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.axm().getLocationData();
+        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.axi().getLocationData();
         if (locationData != null) {
-            this.dlH.ai(a(locationData.axj(), locationData.axi(), locationData.axk()));
+            this.dlH.ai(a(locationData.axf(), locationData.axe(), locationData.axg()));
         }
         this.dlI.a(this.dlH);
         this.dlI.notifyDataSetChanged();
@@ -87,7 +87,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
                 } else {
                     b.a aVar = new b.a();
                     aVar.setName(c0078a2.getName());
-                    aVar.mq(c0078a2.axk());
+                    aVar.mq(c0078a2.axg());
                     arrayList.add(aVar);
                 }
             }
@@ -95,7 +95,7 @@ public class SearchLocationActivity extends NavigationBarActivity {
         if (c0078a != null) {
             b.a aVar2 = new b.a();
             aVar2.setName(c0078a.getName());
-            aVar2.mq(c0078a.axk());
+            aVar2.mq(c0078a.axg());
             arrayList.add(0, aVar2);
         } else {
             b.a aVar3 = new b.a();
@@ -106,13 +106,13 @@ public class SearchLocationActivity extends NavigationBarActivity {
         return arrayList;
     }
 
-    public void aBP() {
+    public void aBL() {
         LocationSearchNetRequestMessage locationSearchNetRequestMessage = new LocationSearchNetRequestMessage();
-        locationSearchNetRequestMessage.setAddrName(aqE());
+        locationSearchNetRequestMessage.setAddrName(aqA());
         sendMessage(locationSearchNetRequestMessage);
     }
 
-    public String aqE() {
+    public String aqA() {
         if (this.bUA != null) {
             return com.baidu.adp.lib.util.j.a(this.bUA.getText(), null);
         }

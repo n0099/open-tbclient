@@ -73,7 +73,7 @@ public class bk extends bn<com.baidu.tbadk.core.data.b, bm> {
             return null;
         }
         if (this.aSe != null && (this.aSe instanceof FrsActivity)) {
-            ((FrsActivity) this.aSe).Lm().Nb();
+            ((FrsActivity) this.aSe).Li().MX();
         }
         bmVar.aVL.setPadding(0, i - this.aTQ == 0 ? this.aSR : this.aSS, 0, 0);
         this.aSe.getLayoutMode().ad(this.mSkinType == 1);
@@ -94,8 +94,8 @@ public class bk extends bn<com.baidu.tbadk.core.data.b, bm> {
                 bmVar.aVR.setVisibility(0);
                 bmVar.aVR.setText(bVar.Uj.Um);
             }
-            bmVar.aVP.setText(com.baidu.tbadk.core.util.as.o(bVar.Ui));
-            if (com.baidu.tbadk.core.m.qX().qZ()) {
+            bmVar.aVP.setText(com.baidu.tbadk.core.util.as.m(bVar.Ui));
+            if (com.baidu.tbadk.core.m.qU().qW()) {
                 bmVar.aVN.setVisibility(0);
                 bmVar.aVN.d(bVar.Uj.userPortrait, this.mIsFromCDN ? 13 : 14, false);
             } else {
@@ -103,7 +103,7 @@ public class bk extends bn<com.baidu.tbadk.core.data.b, bm> {
             }
             bmVar.aVN.setTag(bVar.Uj.userPortrait);
             boolean a = a(bmVar.aWe, bVar);
-            if (com.baidu.tbadk.core.m.qX().rb() && !TextUtils.isEmpty(bVar.Uj.Uo) && a) {
+            if (com.baidu.tbadk.core.m.qU().qY() && !TextUtils.isEmpty(bVar.Uj.Uo) && a) {
                 bmVar.aWe.setVisibility(0);
                 bmVar.aWe.d(bVar.Uj.Uo, this.mIsFromCDN ? 30 : 31, false);
                 bmVar.aVR.setPadding(0, 0, 0, 0);
@@ -112,7 +112,7 @@ public class bk extends bn<com.baidu.tbadk.core.data.b, bm> {
                 bmVar.aVR.setPadding(0, 0, 0, this.mContext.getResources().getDimensionPixelSize(i.d.ds30));
             }
             bmVar.aWf.setTag(Integer.valueOf(i));
-            if (bVar.rr()) {
+            if (bVar.ro()) {
                 if (!TextUtils.isEmpty(bVar.Uj.Ut) && !TextUtils.isEmpty(bVar.Uj.Ut.trim())) {
                     a(true, bmVar);
                     bmVar.aWf.setText(bVar.Uj.Ut);
@@ -121,7 +121,7 @@ public class bk extends bn<com.baidu.tbadk.core.data.b, bm> {
                 }
                 bmVar.aWf.setVisibility(8);
                 return view;
-            } else if (bVar.rq()) {
+            } else if (bVar.rn()) {
                 bmVar.aWf.setVisibility(0);
                 switch (bVar.TU) {
                     case 0:

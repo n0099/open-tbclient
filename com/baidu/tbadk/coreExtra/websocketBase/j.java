@@ -13,13 +13,13 @@ public class j implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void d(Map<String, String> map) {
+    public void c(Map<String, String> map) {
         int i;
         i = this.ana.amV;
         if (i >= 5) {
             com.baidu.adp.framework.client.socket.k.a("RetryIpListManager", 0, 0, "retry_iplist_succ", 0, "URL-" + com.baidu.adp.framework.client.socket.j.getUrl());
-            a.zq().ey(com.baidu.adp.framework.client.socket.j.getUrl());
-            a.zq().zu();
+            a.zn().ey(com.baidu.adp.framework.client.socket.j.getUrl());
+            a.zn().zr();
         }
         this.ana.amV = 0;
     }
@@ -35,7 +35,7 @@ public class j implements g.a {
             i3 = this.ana.amV;
             if (i3 >= 5) {
                 com.baidu.adp.framework.client.socket.k.a("RetryIpListManager", 0, 0, "retry_iplist", 0, "retryiplist");
-                this.ana.zM();
+                this.ana.zJ();
             }
         }
     }

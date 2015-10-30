@@ -107,9 +107,9 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         if (this.requestCode == 12002 || this.requestCode == 12001) {
             initUI();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.StartService(this.requestCode, intent.getData(), com.baidu.tbadk.core.util.at.uJ().uP(), this.mDisplaySize);
+                TiebaPrepareImageService.StartService(this.requestCode, intent.getData(), com.baidu.tbadk.core.util.at.uG().uM(), this.mDisplaySize);
             } else {
-                TiebaPrepareImageService.StartService(this.requestCode, null, com.baidu.tbadk.core.util.at.uJ().uP(), this.mDisplaySize, stringExtra);
+                TiebaPrepareImageService.StartService(this.requestCode, null, com.baidu.tbadk.core.util.at.uG().uM(), this.mDisplaySize, stringExtra);
             }
             regReceiver();
         } else {
@@ -125,10 +125,10 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
             this.dqo.cancel();
         }
         this.aDq.setImageDrawable(null);
-        aig();
+        aic();
     }
 
-    private void aig() {
+    private void aic() {
         synchronized (this.dqs) {
             if (this.coz != null) {
                 for (Map.Entry<String, ImageView> entry : this.coz.entrySet()) {

@@ -24,7 +24,7 @@ class ae extends CustomMessageListener {
             aoVar = this.this$0.dcB;
             if (booleanValue) {
                 aoVar2 = this.this$0.dcB;
-                if (aoVar2.ayA()) {
+                if (aoVar2.ayw()) {
                     z = true;
                     aoVar.gD(z);
                 }

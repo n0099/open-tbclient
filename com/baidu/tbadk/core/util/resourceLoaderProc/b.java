@@ -42,12 +42,12 @@ public class b extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vl() {
+    public boolean vi() {
         return this.acD;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vm() {
+    public boolean vj() {
         return this.acC;
     }
 }

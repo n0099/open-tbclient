@@ -14,9 +14,9 @@ public class l implements BdListView.f {
     @Override // com.baidu.adp.widget.ListView.BdListView.f
     public void s(BdListView bdListView) {
         if (this.cat instanceof j) {
-            this.cat.caj.adh().Hn();
+            this.cat.caj.add().Hj();
         } else {
-            this.cat.caj.adg().Hn();
+            this.cat.caj.adc().Hj();
         }
     }
 }

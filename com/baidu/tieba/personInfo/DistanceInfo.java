@@ -34,6 +34,6 @@ public class DistanceInfo implements Serializable {
     }
 
     public String getTimeFormat() {
-        return this.time != 0 ? as.n(this.time) : "";
+        return this.time != 0 ? as.l(this.time) : "";
     }
 }

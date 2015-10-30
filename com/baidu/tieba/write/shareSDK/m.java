@@ -20,11 +20,11 @@ class m implements View.OnClickListener {
         WriteShareActivity writeShareActivity = this.dmy;
         inputMethodManager = this.dmy.mInputManager;
         oVar = this.dmy.dmi;
-        writeShareActivity.HidenSoftKeyPad(inputMethodManager, oVar.aCl());
+        writeShareActivity.HidenSoftKeyPad(inputMethodManager, oVar.aCh());
         WriteShareActivity writeShareActivity2 = this.dmy;
         inputMethodManager2 = this.dmy.mInputManager;
         oVar2 = this.dmy.dmi;
-        writeShareActivity2.HidenSoftKeyPad(inputMethodManager2, oVar2.amS());
-        this.dmy.aCe();
+        writeShareActivity2.HidenSoftKeyPad(inputMethodManager2, oVar2.amO());
+        this.dmy.aCa();
     }
 }

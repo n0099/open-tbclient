@@ -51,8 +51,8 @@ public class f extends CustomMessageListener {
             eeVar2 = this.baC.baz;
             eeVar2.errMsg = frsHotThreadResponseCacheMessage.getErrorString();
             eeVar3 = this.baC.baz;
-            eeVar3.pn = page.rJ();
-            this.baC.bax = page.rJ();
+            eeVar3.pn = page.rG();
+            this.baC.bax = page.rG();
             if (threadList == null || threadList.size() == 0) {
                 eeVar4 = this.baC.baz;
                 eeVar4.aZb = false;
@@ -81,7 +81,7 @@ public class f extends CustomMessageListener {
                 if (threadList == null || threadList.size() == 0) {
                     z3 = true;
                 }
-                this.baC.c(com.baidu.adp.lib.g.b.c(frsHotThreadRequestCacheMessage.getData(), 0L), z3);
+                this.baC.a(com.baidu.adp.lib.g.b.c(frsHotThreadRequestCacheMessage.getData(), 0L), z3);
             }
         }
     }

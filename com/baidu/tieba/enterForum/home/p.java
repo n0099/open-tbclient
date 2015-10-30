@@ -24,7 +24,7 @@ public class p extends com.baidu.adp.framework.listener.a {
         if ((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) {
             cVar = this.aLW.aLG;
             if (cVar.getUniqueId() == responsedMessage.getOrginalMessage().getTag()) {
-                this.aLW.aLF.IU();
+                this.aLW.aLF.IQ();
                 if (responsedMessage.hasError()) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
                         errorString = this.aLW.aFU.getResources().getString(i.h.neterror);

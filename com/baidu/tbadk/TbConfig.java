@@ -32,7 +32,7 @@ public class TbConfig {
     private static final String BROADCAST_PAGE_ADDED = "com.baidu.tieba.broadcast.imagepb.pageadded";
     private static final String BROADCAST_PAGE_CHANGED = "com.baidu.tieba.broadcast.imagepb.pagechanged";
     private static final String BROADCAST_SIGN_ALERT = "com.baidu.tieba.broadcast.signalert";
-    public static final int BUILD_NUMBER = 47;
+    public static final int BUILD_NUMBER = 6;
     public static final String BUY_FACE_PACKAGE_URL = "c/e/faces/buyfacepack";
     public static final String CDN_LOG_ADDRESS = "c/p/updata";
     public static final String CHANNEL_FILE = "channel.dat";

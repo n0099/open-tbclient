@@ -13,12 +13,12 @@ public class bx implements aa.a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.aa.a
-    public void Mi() {
-        this.aXd.aVf.Lg();
+    public void Me() {
+        this.aXd.aVf.Lc();
     }
 
     @Override // com.baidu.tieba.tbadkCore.aa.a
-    public void Mj() {
+    public void Mf() {
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
         bdTypeListView = this.aXd.aWD;

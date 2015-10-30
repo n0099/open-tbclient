@@ -12,7 +12,7 @@ public class a {
     private int total_num;
     private String url;
 
-    public int rl() {
+    public int ri() {
         return this.TK;
     }
 
@@ -20,11 +20,11 @@ public class a {
         return this.status;
     }
 
-    public int rm() {
+    public int rj() {
         return this.TL;
     }
 
-    public int rn() {
+    public int rk() {
         return this.TM;
     }
 
@@ -32,7 +32,7 @@ public class a {
         return this.url;
     }
 
-    public int ro() {
+    public int rl() {
         return this.total_num;
     }
 

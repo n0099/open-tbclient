@@ -81,37 +81,37 @@ public class z extends com.baidu.adp.base.f<SignAllForumActivity> {
     public void d(c cVar) {
         if (cVar != null) {
             this.cQh = cVar;
-            atY();
-            ArrayList<e> atq = cVar.atq();
+            atU();
+            ArrayList<e> atm = cVar.atm();
             this.cRs.b(this.cQh);
-            if (atq.size() == cRn) {
+            if (atm.size() == cRn) {
                 this.cRx.setVisibility(0);
-                this.cRx.setText(cVar.atn());
+                this.cRx.setText(cVar.atj());
                 return;
             }
             this.cRx.setVisibility(8);
         }
     }
 
-    private void atY() {
+    private void atU() {
         if (this.cQh != null) {
-            this.cRq.setHasPrivilege(this.cQh.atu());
-            this.cRq.setmCurrentStatus(this.cQh.atw());
+            this.cRq.setHasPrivilege(this.cQh.atq());
+            this.cRq.setmCurrentStatus(this.cQh.ats());
             TextView message1 = this.cRq.getMessage1();
-            SpannableString spannableString = new SpannableString(String.valueOf(this.cQh.atk()) + this.cQh.ahT() + this.cQh.atl());
+            SpannableString spannableString = new SpannableString(String.valueOf(this.cQh.atg()) + this.cQh.ahP() + this.cQh.ath());
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(TbadkApplication.getInst().getResources().getColor(i.c.sign_all_forum_text_color));
-            int length = this.cQh.atk().length();
-            spannableString.setSpan(foregroundColorSpan, length, this.cQh.ahT().length() + length, 33);
+            int length = this.cQh.atg().length();
+            spannableString.setSpan(foregroundColorSpan, length, this.cQh.ahP().length() + length, 33);
             message1.setText(spannableString);
-            this.cRq.getMessage2().setText(this.cQh.atm());
+            this.cRq.getMessage2().setText(this.cQh.ati());
             this.cRu.setText(this.cQh.getContent());
-            if (TextUtils.isEmpty(this.cQh.atv())) {
+            if (TextUtils.isEmpty(this.cQh.atr())) {
                 this.cRv.setText(i.h.sign_all_forum_memberbtn_content);
             } else {
-                this.cRv.setText(this.cQh.atv());
+                this.cRv.setText(this.cQh.atr());
             }
             this.cRq.setVisibility(0);
-            if (this.cQh.atu() || TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
+            if (this.cQh.atq() || TbadkApplication.getInst().getIntentClass(MemberPrivilegeActivityConfig.class) == null) {
                 this.cRt.setVisibility(8);
             } else {
                 this.cRt.setVisibility(0);
@@ -123,7 +123,7 @@ public class z extends com.baidu.adp.base.f<SignAllForumActivity> {
         this.cRr.nw();
     }
 
-    public void IU() {
+    public void IQ() {
         this.cRr.completePullRefresh();
     }
 
@@ -135,7 +135,7 @@ public class z extends com.baidu.adp.base.f<SignAllForumActivity> {
         this.cRr.setOnItemClickListener(onItemClickListener);
     }
 
-    public s atZ() {
+    public s atV() {
         return this.cRq;
     }
 
@@ -143,19 +143,19 @@ public class z extends com.baidu.adp.base.f<SignAllForumActivity> {
         return this.mProgressBar;
     }
 
-    public BdListView aua() {
+    public BdListView atW() {
         return this.cRr;
     }
 
-    public c aub() {
+    public c atX() {
         return this.cQh;
     }
 
-    public n auc() {
+    public n atY() {
         return this.cRs;
     }
 
-    public LinearLayout aud() {
+    public LinearLayout atZ() {
         return this.cRw;
     }
 }

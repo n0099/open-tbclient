@@ -68,7 +68,7 @@ public class a extends x.a {
         this.bpt.setBackgroundResource(i.c.transparent);
     }
 
-    public static int QY() {
+    public static int QU() {
         return i.f.hot_thread_user_icon_box;
     }
 }

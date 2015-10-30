@@ -71,8 +71,8 @@ public class a {
                         this.afh.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.UNFOLLOW_ADDRESS);
                     }
                     this.afh.o(IntentConfig.PORTRAIT, this.portrait);
-                    this.afh.uh().uY().mIsNeedTbs = true;
-                    this.afh.tG();
+                    this.afh.ue().uV().mIsNeedTbs = true;
+                    this.afh.tD();
                     return null;
                 }
                 return null;
@@ -90,7 +90,7 @@ public class a {
             a.this.ahn = null;
             if (this.afh != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.Cj = this.afh.uh().uZ().qV();
+                aVar.Cj = this.afh.ue().uW().qS();
                 aVar.errorString = this.afh.getErrorString();
                 aVar.agI = this.agI;
                 aVar.toUid = this.toUid;

@@ -13,7 +13,7 @@ public class cp implements a.InterfaceC0070a {
     }
 
     @Override // com.baidu.tieba.pb.b.a.InterfaceC0070a
-    public void Mj() {
+    public void Mf() {
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
         bdTypeListView = this.clJ.aVg;
@@ -24,9 +24,9 @@ public class cp implements a.InterfaceC0070a {
     }
 
     @Override // com.baidu.tieba.pb.b.a.InterfaceC0070a
-    public void Mi() {
+    public void Me() {
         PbActivity pbActivity;
         pbActivity = this.clJ.ciU;
-        pbActivity.Lg();
+        pbActivity.Lc();
     }
 }

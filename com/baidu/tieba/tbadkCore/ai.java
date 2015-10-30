@@ -65,8 +65,8 @@ public class ai {
                     this.afh.o("kw", this.mForumName);
                     this.afh.o("favo_type", "1");
                     this.afh.o("st_type", this.mFrom);
-                    this.afh.uh().uY().mIsNeedTbs = true;
-                    this.afh.tG();
+                    this.afh.ue().uV().mIsNeedTbs = true;
+                    this.afh.tD();
                 }
                 return 1;
             } catch (Exception e) {
@@ -83,7 +83,7 @@ public class ai {
             super.onPostExecute((b) num);
             if (this.cYB != null && (aVar = this.cYB.get()) != null) {
                 if (this.afh != null) {
-                    if (this.afh.uh().uZ().qV()) {
+                    if (this.afh.ue().uW().qS()) {
                         if (num.intValue() == 1) {
                             TbadkCoreApplication.m411getInst().delLikeForum(this.mForumName);
                             aVar.g(this.mForumName, this.mForumId);

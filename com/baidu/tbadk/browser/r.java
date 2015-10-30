@@ -12,11 +12,11 @@ public class r implements h.a {
     }
 
     @Override // com.baidu.tbadk.core.view.h.a
-    public void qw() {
-        this.Sn.qt();
+    public void qt() {
+        this.Sn.qq();
     }
 
     @Override // com.baidu.tbadk.core.view.h.a
-    public void qx() {
+    public void qu() {
     }
 }

@@ -20,18 +20,18 @@ class aj implements CustomMessageTask.CustomRunnable<String> {
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
             try {
-                com.baidu.tieba.im.db.g.TJ().TK();
-                com.baidu.tieba.im.db.i.TO().c(this.bEx);
-                com.baidu.tieba.im.db.c.TF().hJ(this.bEx.getGid());
-                com.baidu.tieba.im.db.g.TJ().endTransaction();
+                com.baidu.tieba.im.db.g.TF().TG();
+                com.baidu.tieba.im.db.i.TK().c(this.bEx);
+                com.baidu.tieba.im.db.c.TB().hJ(this.bEx.getGid());
+                com.baidu.tieba.im.db.g.TF().endTransaction();
                 return null;
             } catch (Exception e) {
                 BdLog.detailException(e);
-                com.baidu.tieba.im.db.g.TJ().endTransaction();
+                com.baidu.tieba.im.db.g.TF().endTransaction();
                 return null;
             }
         } catch (Throwable th) {
-            com.baidu.tieba.im.db.g.TJ().endTransaction();
+            com.baidu.tieba.im.db.g.TF().endTransaction();
             throw th;
         }
     }

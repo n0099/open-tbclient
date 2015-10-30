@@ -9,15 +9,15 @@ public class c {
     private String badge_url;
     private String webview;
 
-    public String rs() {
+    public String rp() {
         return this.badge_url;
     }
 
-    public String rt() {
+    public String rq() {
         return String.valueOf(this.Uw);
     }
 
-    public String ru() {
+    public String rr() {
         return this.webview;
     }
 

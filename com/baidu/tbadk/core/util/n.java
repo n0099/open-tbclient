@@ -34,7 +34,7 @@ public class n {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static String tB() {
+    public static String ty() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("removed")) {
             return TbadkCoreApplication.m411getInst().getApp().getString(i.h.error_no_sdcard);
@@ -64,7 +64,7 @@ public class n {
         return false;
     }
 
-    public static boolean tC() {
+    public static boolean tz() {
         return cG(xU + "/" + TbConfig.getTempDirName() + "/");
     }
 
@@ -105,7 +105,7 @@ public class n {
     }
 
     public static File cJ(String str) {
-        if (tC()) {
+        if (tz()) {
             File file = new File(xU + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -147,14 +147,14 @@ public class n {
     }
 
     public static File cM(String str) {
-        if (!tC()) {
+        if (!tz()) {
             return null;
         }
         return new File(xU + "/" + TbConfig.getTempDirName() + "/" + str);
     }
 
     public static File cN(String str) {
-        if (tC()) {
+        if (tz()) {
             File file = new File(xU + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (!file.exists() || file.delete()) {
@@ -174,7 +174,7 @@ public class n {
     }
 
     public static File cO(String str) {
-        if (tC()) {
+        if (tz()) {
             File file = new File(xU + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -544,7 +544,7 @@ public class n {
                             if (read == -1) {
                                 fileOutputStream.flush();
                                 String path = file.getPath();
-                                com.baidu.adp.lib.util.o.b(fileOutputStream);
+                                com.baidu.adp.lib.util.o.b((OutputStream) fileOutputStream);
                                 return path;
                             }
                             fileOutputStream.write(bArr, 0, read);
@@ -553,7 +553,7 @@ public class n {
                         e = e;
                         BdLog.e(e.getMessage());
                         TiebaStatic.file(e, "FileHelper.saveFile " + str + "/" + str2);
-                        com.baidu.adp.lib.util.o.b(fileOutputStream);
+                        com.baidu.adp.lib.util.o.b((OutputStream) fileOutputStream);
                         return null;
                     }
                 }
@@ -575,7 +575,7 @@ public class n {
 
     public static byte[] ab(String str, String str2) {
         String str3;
-        if (!tC() || str2 == null) {
+        if (!tz() || str2 == null) {
             return null;
         }
         if (str != null) {
@@ -893,7 +893,7 @@ public class n {
     }
 
     public static boolean cR(String str) {
-        if (tC()) {
+        if (tz()) {
             File file = new File(xU + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -909,7 +909,7 @@ public class n {
         return false;
     }
 
-    public static String tD() {
+    public static String tA() {
         return xU + "/" + TbConfig.getTempDirName() + "/";
     }
 
@@ -929,7 +929,7 @@ public class n {
         return false;
     }
 
-    public static long tE() {
+    public static long tB() {
         String absolutePath;
         if (fi()) {
             absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -998,7 +998,7 @@ public class n {
         }
         StringBuilder sb = new StringBuilder();
         if (z) {
-            sb.append(tD());
+            sb.append(tA());
         }
         sb.append(cj(i));
         sb.append(File.separator);
@@ -1072,7 +1072,7 @@ public class n {
         return j;
     }
 
-    public static boolean deleteFile(File file) {
+    public static boolean q(File file) {
         try {
             return file.delete();
         } catch (Exception e) {
@@ -1141,7 +1141,7 @@ public class n {
             }
         }
 
-        public static void q(File file) {
+        public static void r(File file) {
             try {
                 if (file.exists()) {
                     if (file.isDirectory()) {
@@ -1151,7 +1151,7 @@ public class n {
                             if (listFiles[i].isFile()) {
                                 listFiles[i].delete();
                             } else {
-                                q(listFiles[i]);
+                                r(listFiles[i]);
                             }
                         }
                     }
@@ -1170,7 +1170,7 @@ public class n {
                     if (!file.isDirectory()) {
                         return false;
                     }
-                    q(file);
+                    r(file);
                 }
                 return file.mkdirs();
             } catch (Exception e) {

@@ -13,7 +13,7 @@ class n implements z.b {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.z.b
-    public void zp() {
+    public void zm() {
         String str;
         String str2;
         aq aqVar = new aq("c10351");

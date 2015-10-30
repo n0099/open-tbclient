@@ -20,7 +20,7 @@ public class b {
         this.cYU = TextUtils.equals(this.cYV, "pb");
     }
 
-    public void awm() {
+    public void awi() {
         if (this.cYS != null) {
             this.cYS.clear();
         }

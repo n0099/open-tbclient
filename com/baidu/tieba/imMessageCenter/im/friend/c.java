@@ -17,10 +17,10 @@ public class c implements a.b {
         com.baidu.tieba.im.data.a aVar2;
         BlackListModel blackListModel;
         com.baidu.tieba.im.data.a aVar3;
-        aVar.sR();
+        aVar.sO();
         aVar2 = this.bMU.bMT;
         if (aVar2 != null) {
-            this.bMU.Zf();
+            this.bMU.Zb();
             blackListModel = this.bMU.bMR;
             aVar3 = this.bMU.bMT;
             blackListModel.removeFromBlackList(aVar3.getUserId());

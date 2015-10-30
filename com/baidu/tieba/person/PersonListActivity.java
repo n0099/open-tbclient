@@ -56,11 +56,11 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.mModel.aiP();
-        this.mModel.Ij();
+        this.mModel.aiL();
+        this.mModel.If();
         if (this.cqJ) {
             this.cqJ = false;
-            aiM();
+            aiI();
         }
     }
 
@@ -68,7 +68,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.mModel.aiR();
+        this.mModel.aiN();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -113,7 +113,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putBoolean(PersonListActivityConfig.FOLLOW, this.mModel.aiN());
+        bundle.putBoolean(PersonListActivityConfig.FOLLOW, this.mModel.aiJ());
         bundle.putString("user_id", this.mModel.getId());
         bundle.putInt(IntentConfig.USER_SEX, this.cqL);
     }
@@ -128,12 +128,12 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         String id = this.mModel.getId();
         if (currentAccount != null && currentAccount.equals(id)) {
-            if (this.mModel.aiN()) {
+            if (this.mModel.aiJ()) {
                 this.LN.setText(i.h.my_attention);
             } else {
                 this.LN.setText(i.h.fans);
             }
-        } else if (this.mModel.aiN()) {
+        } else if (this.mModel.aiJ()) {
             if (this.cqL == 2) {
                 this.LN.setText(i.h.her_attention_people);
             } else if (this.cqL == 1) {
@@ -175,8 +175,8 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 a(aVar);
             }
             c(aVar, z);
-            if (!this.mModel.aiN()) {
-                com.baidu.tbadk.coreExtra.messageCenter.a.wK().setMsgFans(0);
+            if (!this.mModel.aiJ()) {
+                com.baidu.tbadk.coreExtra.messageCenter.a.wH().setMsgFans(0);
             }
             b(aVar, z);
         }
@@ -190,11 +190,11 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             if (this.mModel.getPage() == 1) {
                 this.mProgress.setVisibility(8);
             }
-            if (aVar.getPage().rI() > 0) {
+            if (aVar.getPage().rF() > 0) {
                 this.cqF.setVisibility(0);
                 this.mListView.setVisibility(0);
                 this.mNoDataView.setVisibility(8);
-                if (this.mModel.aiN()) {
+                if (this.mModel.aiJ()) {
                     if (this.mModel.getId() != null && this.mModel.getId().equals(TbadkCoreApplication.getCurrentAccount())) {
                         string = getPageContext().getString(i.h.my_attention_prefix);
                         string2 = getPageContext().getString(i.h.person);
@@ -230,7 +230,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                     string2 = getPageContext().getString(i.h.her_fans_suffix);
                     this.mNoDataView.setTextOption(NoDataViewFactory.d.cK(i.h.him_no_fan_other));
                 }
-                this.cqH.setText(String.valueOf(string) + String.valueOf(aVar.getPage().rI()) + string2);
+                this.cqH.setText(String.valueOf(string) + String.valueOf(aVar.getPage().rF()) + string2);
                 return;
             }
             this.cqF.setVisibility(8);
@@ -238,7 +238,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             if (!z) {
                 this.mNoDataView.setVisibility(0);
             }
-            if (this.mModel.aiN()) {
+            if (this.mModel.aiJ()) {
                 if (this.mModel.getId() != null && this.mModel.getId().equals(TbadkCoreApplication.getCurrentAccount())) {
                     this.mNoDataView.setTextOption(NoDataViewFactory.d.cK(i.h.not_have_attention));
                 } else if (this.cqL == 2) {
@@ -261,53 +261,53 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     private void a(com.baidu.tieba.person.data.a aVar) {
-        this.mModel.ji(aVar.getPage().rJ());
+        this.mModel.ji(aVar.getPage().rG());
     }
 
     private void c(com.baidu.tieba.person.data.a aVar, boolean z) {
         boolean z2 = true;
         if (this.cqI != null) {
             if (!z) {
-                if (aVar.getPage().rJ() == 1) {
+                if (aVar.getPage().rG() == 1) {
                     this.cqI.resetData();
                 }
                 com.baidu.tbadk.core.data.o page = aVar.getPage();
                 bs bsVar = this.cqI;
-                if (page == null || page.rL() != 1) {
+                if (page == null || page.rI() != 1) {
                     z2 = false;
                 }
                 bsVar.setHasMore(z2);
-                this.cqI.T(aVar.aiS());
+                this.cqI.T(aVar.aiO());
                 this.cqI.eW(false);
-                this.cqI.adx();
+                this.cqI.adt();
                 this.cqI.notifyDataSetChanged();
                 return;
             }
             this.cqI.setHasMore(false);
-            this.cqI.T(aVar.aiS());
+            this.cqI.T(aVar.aiO());
             this.cqI.eW(false);
-            this.cqI.adx();
+            this.cqI.adt();
             this.cqI.notifyDataSetChanged();
         }
     }
 
-    private void aiM() {
+    private void aiI() {
         this.mProgress.setVisibility(0);
-        this.mModel.aiQ();
-        this.mModel.aiO();
+        this.mModel.aiM();
+        this.mModel.aiK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiH() {
+    public void aiD() {
         if (this.cqI != null) {
             this.cqI.eW(true);
             this.cqI.notifyDataSetChanged();
         }
-        this.mModel.aiO();
+        this.mModel.aiK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiI() {
+    public void aiE() {
         UserData userData;
         if (this.cqI != null && this.cqI.getItemViewType(this.cqj) == 0 && (userData = (UserData) this.cqI.getItem(this.cqj)) != null && userData.getUserId() != null && userData.getUserName() != null && !userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "enter_chat", "personlistclick", 1, new Object[0]);
@@ -322,7 +322,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         if (i2 == -1 && i == 11028) {
-            aiI();
+            aiE();
         }
     }
 }

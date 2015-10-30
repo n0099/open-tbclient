@@ -16,13 +16,13 @@ public class f implements Runnable {
     public void run() {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
-        Animation YK;
-        if (this.bMj.Yw()) {
+        Animation YG;
+        if (this.bMj.Ys()) {
             linearLayout = this.bMj.bLZ;
             linearLayout.clearAnimation();
             linearLayout2 = this.bMj.bLZ;
-            YK = this.bMj.YK();
-            linearLayout2.startAnimation(YK);
+            YG = this.bMj.YG();
+            linearLayout2.startAnimation(YG);
         }
     }
 }

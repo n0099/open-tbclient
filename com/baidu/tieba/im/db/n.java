@@ -14,7 +14,7 @@ class n extends com.baidu.tbadk.util.l<Void> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.l
-    /* renamed from: Gl */
+    /* renamed from: Gh */
     public Void doInBackground() {
         if (this.bxc.getData() instanceof String) {
             f.hO((String) this.bxc.getData());

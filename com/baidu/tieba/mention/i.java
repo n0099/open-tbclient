@@ -9,7 +9,7 @@ public class i extends y implements com.baidu.tbadk.mvc.b.f {
     }
 
     @Override // com.baidu.tbadk.mvc.b.f
-    public String CC() {
+    public String Cz() {
         return null;
     }
 

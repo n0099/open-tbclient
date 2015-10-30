@@ -44,8 +44,8 @@ public class w implements View.OnClickListener {
         this.bdP = forumData;
         String string = this.mContext.getString(i.h.frs_star_ticket_name);
         if (nVar != null) {
-            z = nVar.avN();
-            if (com.baidu.tbadk.core.sharedPref.b.tu().getLong("FRS_STARTICKET_LAST_CLICK_TIME" + forumData.getId() + TbadkCoreApplication.getCurrentAccount(), 0L) >= nVar.avO()) {
+            z = nVar.avJ();
+            if (com.baidu.tbadk.core.sharedPref.b.tr().getLong("FRS_STARTICKET_LAST_CLICK_TIME" + forumData.getId() + TbadkCoreApplication.getCurrentAccount(), 0L) >= nVar.avK()) {
                 z2 = false;
             }
         } else {
@@ -66,11 +66,11 @@ public class w implements View.OnClickListener {
         this.bdQ.setVisibility(8);
     }
 
-    public ViewGroup Oe() {
+    public ViewGroup Oa() {
         return this.bdQ;
     }
 
-    public View Of() {
+    public View Ob() {
         return this.bdR;
     }
 
@@ -86,9 +86,9 @@ public class w implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.bdQ) {
             if ((this.mTbPageContext == null || this.mTbPageContext.getOrignalPage() == null || this.mTbPageContext.getOrignalPage().checkUpIsLogin()) && this.bdO != null && this.bdP != null) {
-                com.baidu.tbadk.core.sharedPref.b.tu().putLong("FRS_STARTICKET_LAST_CLICK_TIME" + this.bdP.getId() + TbadkCoreApplication.getCurrentAccount(), this.bdO.avO());
+                com.baidu.tbadk.core.sharedPref.b.tr().putLong("FRS_STARTICKET_LAST_CLICK_TIME" + this.bdP.getId() + TbadkCoreApplication.getCurrentAccount(), this.bdO.avK());
                 cn(false);
-                com.baidu.tbadk.browser.g.a(this.bdQ.getContext(), com.baidu.adp.lib.util.j.a(this.bdS.getText(), this.mContext.getString(i.h.frs_star_ticket_name)), com.baidu.tbadk.browser.g.appendVersionCode(com.baidu.tbadk.browser.g.appendCuidParam(this.bdO.avP())), true, false, false);
+                com.baidu.tbadk.browser.g.a(this.bdQ.getContext(), com.baidu.adp.lib.util.j.a(this.bdS.getText(), this.mContext.getString(i.h.frs_star_ticket_name)), com.baidu.tbadk.browser.g.appendVersionCode(com.baidu.tbadk.browser.g.appendCuidParam(this.bdO.avL())), true, false, false);
             }
         }
     }

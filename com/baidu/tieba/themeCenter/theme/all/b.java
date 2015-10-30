@@ -17,7 +17,7 @@ class b implements BdListView.e {
         dVar = this.dgt.dgp;
         if (dVar != null) {
             dVar2 = this.dgt.dgp;
-            dVar2.azB();
+            dVar2.azx();
         }
     }
 }

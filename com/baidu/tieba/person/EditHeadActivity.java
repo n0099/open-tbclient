@@ -107,9 +107,9 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         if (this.requestCode == 12002 || this.requestCode == 12001) {
             initUI();
             if (intent.getData() != null) {
-                TiebaPrepareImageService.StartService(this.requestCode, intent.getData(), com.baidu.tbadk.core.util.at.uJ().uP());
+                TiebaPrepareImageService.StartService(this.requestCode, intent.getData(), com.baidu.tbadk.core.util.at.uG().uM());
             } else {
-                TiebaPrepareImageService.StartService(this.requestCode, null, com.baidu.tbadk.core.util.at.uJ().uP(), 0, stringExtra);
+                TiebaPrepareImageService.StartService(this.requestCode, null, com.baidu.tbadk.core.util.at.uG().uM(), 0, stringExtra);
             }
             regReceiver();
         } else {
@@ -138,10 +138,10 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.coj.cancel();
         }
         this.cod.setImageDrawable(null);
-        aig();
+        aic();
     }
 
-    private void aig() {
+    private void aic() {
         if (this.coz != null) {
             for (Map.Entry<String, ImageView> entry : this.coz.entrySet()) {
                 ImageView value = entry.getValue();
@@ -206,7 +206,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aih() {
+    public void aid() {
         if (this.cop != null) {
             this.cop.cancel();
         }
@@ -460,7 +460,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            if (!this.coD || yM()) {
+            if (!this.coD || yJ()) {
                 EditHeadActivity.this.mProgress.setVisibility(0);
                 EditHeadActivity.this.cof.setEnabled(false);
                 return;
@@ -502,7 +502,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             return this.bitmap;
         }
 
-        private boolean yM() {
+        private boolean yJ() {
             PluginPackageManager.PluginStatus bw = PluginPackageManager.lR().bw(PluginCenter.NAME_MOTUSDK);
             if (bw == PluginPackageManager.PluginStatus.NROMAL) {
                 return true;
@@ -637,7 +637,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 e = e2;
             }
             try {
-                if (this.afh.uh().uZ().qV()) {
+                if (this.afh.ue().uW().qS()) {
                     return str;
                 }
                 return null;
@@ -664,7 +664,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public void onPostExecute(String str) {
             EditHeadActivity.this.closeLoadingDialog();
             if (this.afh != null) {
-                if (this.afh.uh().uZ().qV()) {
+                if (this.afh.ue().uW().qS()) {
                     EditHeadActivity.this.setResult(-1);
                     EditHeadActivity.this.finish();
                     EditHeadActivity.this.showToast(EditHeadActivity.this.getPageContext().getString(i.h.upload_head_ok));

@@ -78,7 +78,7 @@ public class c extends BaseAdapter {
         }
     }
 
-    public ArrayList<String> azD() {
+    public ArrayList<String> azz() {
         return this.dgT;
     }
 

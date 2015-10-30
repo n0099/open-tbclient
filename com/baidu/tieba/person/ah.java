@@ -39,7 +39,7 @@ public class ah implements TextWatcher {
         linearLayout = this.cqc.cpO;
         linearLayout.setVisibility(0);
         this.cqc.jf(0);
-        this.cqc.aiA();
+        this.cqc.aiw();
         if (length > 50) {
             this.cqc.showToast(i.h.over_limit_tip);
             int selectionEnd = Selection.getSelectionEnd(text);
@@ -61,7 +61,7 @@ public class ah implements TextWatcher {
         View view;
         TextView textView;
         TextView textView2;
-        if (!editable.toString().replaceAll("\\s*", "").equals(this.cqc.cpT.aiE().getIntro())) {
+        if (!editable.toString().replaceAll("\\s*", "").equals(this.cqc.cpT.aiA().getIntro())) {
             view = this.cqc.cpI;
             view.setEnabled(true);
             if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {

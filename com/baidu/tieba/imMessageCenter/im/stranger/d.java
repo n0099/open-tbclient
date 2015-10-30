@@ -18,7 +18,7 @@ class d implements a.b {
         aVar2 = this.bOw.bOt;
         aVar2.dismiss();
         strangerListModel = this.bOw.bOr;
-        strangerListModel.ZJ();
+        strangerListModel.ZF();
         this.bOw.showToast(i.h.cash_del_suc, false);
         this.bOw.finish();
     }

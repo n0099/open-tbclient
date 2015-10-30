@@ -88,11 +88,11 @@ public class m extends PagerAdapter {
         }
     }
 
-    public void QK() {
+    public void QG() {
         if (this.bor != null) {
             for (com.baidu.tieba.hottopic.view.b bVar : this.bor) {
                 if (bVar != null) {
-                    bVar.QK();
+                    bVar.QG();
                 }
             }
         }

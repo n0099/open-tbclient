@@ -2,8 +2,9 @@ package com.baidu.tbadk.editortools.inputtool;
 
 import android.view.MotionEvent;
 import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements View.OnTouchListener {
+public class c implements View.OnTouchListener {
     final /* synthetic */ InputView arG;
 
     /* JADX INFO: Access modifiers changed from: package-private */

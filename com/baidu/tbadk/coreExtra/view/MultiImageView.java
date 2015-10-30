@@ -211,13 +211,13 @@ public class MultiImageView extends RelativeLayout {
         this.akL.setEnabled(false);
     }
 
-    public void yZ() {
+    public void yW() {
         if (!this.akT) {
             this.akN.setVisibility(0);
         }
     }
 
-    public void za() {
+    public void yX() {
         if (!this.akT) {
             this.akN.setVisibility(8);
         }

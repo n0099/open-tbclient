@@ -17,15 +17,15 @@ public class a implements com.baidu.tbadk.mvc.b.b, j {
     private Banner aKU;
     private List<d> aKV;
 
-    public long HI() {
+    public long HE() {
         return this.aKT;
     }
 
-    public Banner HJ() {
+    public Banner HF() {
         return this.aKU;
     }
 
-    public List<d> HK() {
+    public List<d> HG() {
         return this.aKV;
     }
 
@@ -74,7 +74,7 @@ public class a implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Cz() {
+    public byte[] Cw() {
         return null;
     }
 

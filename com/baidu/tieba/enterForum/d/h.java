@@ -20,10 +20,10 @@ class h implements Runnable {
         BdListView bdListView;
         eVar = this.aMU.aMS;
         gVar = eVar.aMM;
-        if (gVar.IH() != null) {
+        if (gVar.ID() != null) {
             eVar2 = this.aMU.aMS;
             gVar2 = eVar2.aMM;
-            gVar2.IH().setVisibility(0);
+            gVar2.ID().setVisibility(0);
             eVar3 = this.aMU.aMS;
             bdListView = eVar3.aKp;
             bdListView.setVisibility(8);

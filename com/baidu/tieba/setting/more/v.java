@@ -40,10 +40,10 @@ public class v extends com.baidu.adp.base.f<MoreActivity> {
         this.cNz = moreActivity;
         this.cNA = rVar;
         this.cNz.setContentView(i.g.more_activity);
-        zk();
+        zh();
     }
 
-    public void asf() {
+    public void asb() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
             this.cNE.setVisibility(8);
@@ -55,12 +55,12 @@ public class v extends com.baidu.adp.base.f<MoreActivity> {
     public void F(String str, boolean z) {
         if (str == null || str.length() <= 0) {
             if (this.cNE != null) {
-                this.cNE.atc();
+                this.cNE.asY();
                 return;
             }
             return;
         }
-        this.cNE.atd();
+        this.cNE.asZ();
         this.cNE.G(str, z);
     }
 
@@ -73,7 +73,7 @@ public class v extends com.baidu.adp.base.f<MoreActivity> {
         }
     }
 
-    public void ark() {
+    public void arg() {
         this.cNE.recycle();
         this.cNF.recycle();
         this.cNG.recycle();
@@ -102,8 +102,8 @@ public class v extends com.baidu.adp.base.f<MoreActivity> {
         refreshNewVersion();
     }
 
-    private void zk() {
-        View.OnClickListener asg = asg();
+    private void zh() {
+        View.OnClickListener asc = asc();
         this.cNP = (RelativeLayout) this.cNz.findViewById(i.f.parent);
         this.mNavigationBar = (NavigationBar) this.cNz.findViewById(i.f.view_navigation_bar);
         this.cNQ = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -128,16 +128,16 @@ public class v extends com.baidu.adp.base.f<MoreActivity> {
         this.cNN = (TbSettingTextNewDotView) this.cNz.findViewById(i.f.systemhelpsetting);
         this.cNO = (TextView) this.cNz.findViewById(i.f.quit);
         refreshNewVersion();
-        asf();
-        this.cNE.atc();
+        asb();
+        this.cNE.asY();
         dF(TbadkCoreApplication.m411getInst().getSkinType());
-        I(asg);
-        if (!Mz()) {
+        I(asc);
+        if (!Mv()) {
             this.cNG.setTip(this.cNz.getResources().getString(i.h.browsing_settings_tip_no_night));
         }
     }
 
-    private boolean Mz() {
+    private boolean Mv() {
         return MessageManager.getInstance().runTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, Boolean.class) != null;
     }
 
@@ -172,18 +172,18 @@ public class v extends com.baidu.adp.base.f<MoreActivity> {
         this.cNO.setOnClickListener(onClickListener);
     }
 
-    private View.OnClickListener asg() {
+    private View.OnClickListener asc() {
         return new y(this);
     }
 
-    public void ash() {
+    public void asd() {
         if (this.cNB == null) {
             createDialog();
         }
         com.baidu.adp.lib.g.j.a(this.cNB, this.cNz.getPageContext());
     }
 
-    public void asi() {
+    public void ase() {
         if (this.cNB == null) {
             com.baidu.adp.lib.g.j.b(this.cNB, this.cNz.getPageContext());
         }

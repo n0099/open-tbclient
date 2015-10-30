@@ -59,7 +59,7 @@ public class p extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
         this.cry.fetchPost(this.mActivity.getPageContext(), this, z, this.wq, true, this.cjB);
     }
 
-    public void aiX() {
+    public void aiT() {
         if (this.cry != null) {
             this.cry.cancelLoadData();
         }
@@ -166,7 +166,7 @@ public class p extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
                 bVar.csa.setData(a2);
             } else {
                 bVar.crY.setVisibility(8);
-                if (com.baidu.tbadk.core.m.qX().rb() && item.media != null && item.media.length > 0) {
+                if (com.baidu.tbadk.core.m.qU().qY() && item.media != null && item.media.length > 0) {
                     int min = Math.min(item.media.length, 3);
                     PersonPostModel.Media[] mediaArr = new PersonPostModel.Media[min];
                     for (int i2 = 0; i2 < min; i2++) {
@@ -416,11 +416,11 @@ public class p extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
         Object tag = view.getTag();
         if (tag instanceof PhotoLiveCardData) {
             this.crU = (PhotoLiveCardData) tag;
-            aiY();
+            aiU();
         }
     }
 
-    public void aiY() {
+    public void aiU() {
         if (this.ckS == null) {
             String string = this.mActivity.getPageContext().getResources().getString(i.h.del_thread_confirm);
             this.ckS = new com.baidu.tbadk.core.dialog.a(this.mActivity.getActivity());
@@ -430,17 +430,17 @@ public class p extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
             this.ckS.aj(true);
             this.ckS.b(this.mActivity.getPageContext());
         }
-        this.ckS.sR();
+        this.ckS.sO();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiZ() {
+    public void aiV() {
         if (this.crU != null) {
             if (this.cij == null) {
                 this.cij = new com.baidu.tieba.tbadkCore.g.a(this.mActivity);
                 this.cij.setLoadDataCallBack(this.ciC);
             }
-            if (!this.cij.axw()) {
+            if (!this.cij.axs()) {
                 this.mActivity.showProgressBar();
                 String valueOf = String.valueOf(this.crU.getForumId());
                 String forumName = this.crU.getForumName();
@@ -484,7 +484,7 @@ public class p extends BaseAdapter implements PhotoLiveCardView.a, PhotoLiveCard
         }
     }
 
-    public PersonPostModel aja() {
+    public PersonPostModel aiW() {
         return this.cry;
     }
 }

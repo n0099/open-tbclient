@@ -24,9 +24,9 @@ public class s extends CustomMessageListener {
         aoVar = this.this$0.dcB;
         aoVar.dW(booleanValue);
         aoVar2 = this.this$0.dcB;
-        if (aoVar2.ayJ() != null) {
+        if (aoVar2.ayF() != null) {
             aoVar3 = this.this$0.dcB;
-            aoVar3.ayJ().setEnabled(booleanValue ? false : true);
+            aoVar3.ayF().setEnabled(booleanValue ? false : true);
         }
     }
 }

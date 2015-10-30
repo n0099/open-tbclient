@@ -18,15 +18,15 @@ class at implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
-            com.baidu.tieba.im.db.g.TJ().TK();
-            com.baidu.tieba.im.db.i.TO().E(String.valueOf(this.aGB), 2);
-            com.baidu.tieba.im.db.l.TU().hG(String.valueOf(this.aGB));
+            com.baidu.tieba.im.db.g.TF().TG();
+            com.baidu.tieba.im.db.i.TK().E(String.valueOf(this.aGB), 2);
+            com.baidu.tieba.im.db.l.TQ().hG(String.valueOf(this.aGB));
             return null;
         } catch (Exception e) {
             BdLog.detailException(e);
             return null;
         } finally {
-            com.baidu.tieba.im.db.g.TJ().endTransaction();
+            com.baidu.tieba.im.db.g.TF().endTransaction();
         }
     }
 }

@@ -41,19 +41,19 @@ public class c {
         }
     }
 
-    public int xF() {
+    public int xC() {
         return this.ahr;
     }
 
-    public int xG() {
+    public int xD() {
         return this.ahs;
     }
 
-    public int xH() {
+    public int xE() {
         return this.aht;
     }
 
-    public int[] xI() {
+    public int[] xF() {
         return this.ahu;
     }
 

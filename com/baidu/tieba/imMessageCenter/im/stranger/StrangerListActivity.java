@@ -94,7 +94,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         ImMessageCenterShowItemData gK;
-        if (this.bOq != null && this.bOq.ZK() != null && (gK = this.bOq.ZK().getItem(i)) != null) {
+        if (this.bOq != null && this.bOq.ZG() != null && (gK = this.bOq.ZG().getItem(i)) != null) {
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(this.bOs.getPageContext().getContext(), com.baidu.adp.lib.g.b.c(gK.getFriendId(), 0L), gK.getFriendName(), gK.getFriendPortrait(), 0, 0)));
         }
     }
@@ -102,7 +102,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         ImMessageCenterShowItemData gK;
-        if (this.bOq == null || this.bOq.ZK() == null || (gK = this.bOq.ZK().getItem(i)) == null) {
+        if (this.bOq == null || this.bOq.ZG() == null || (gK = this.bOq.ZG().getItem(i)) == null) {
             return false;
         }
         com.baidu.tbadk.coreExtra.e.a.a(getPageContext().getContext(), new h(this, this.bOr.getData().size(), gK));
@@ -112,8 +112,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.bOq.ZL() && this.bOt != null) {
-            this.bOt.sR();
+        if (view == this.bOq.ZH() && this.bOt != null) {
+            this.bOt.sO();
         }
     }
 
@@ -121,8 +121,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.bOq != null && this.bOq.ZK() != null) {
-            this.bOq.ZK().notifyDataSetChanged();
+        if (this.bOq != null && this.bOq.ZG() != null) {
+            this.bOq.ZG().notifyDataSetChanged();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a("-1001", -7)));
     }

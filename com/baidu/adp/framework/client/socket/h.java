@@ -298,15 +298,15 @@ public class h extends com.baidu.adp.framework.client.a<SocketMessage, SocketMes
     }
 
     @Override // com.baidu.adp.framework.client.socket.link.e
-    public void c(Map<String, String> map) {
-        g.et().b(map);
+    public void b(Map<String, String> map) {
+        g.et().a(map);
         if (this.oP != null) {
             this.oP.dX();
         }
         this.oO = true;
         k.a("queue", 0, 0, "onConnected", j.pA, "Queue blocked");
         if (this.oN != null) {
-            this.oN.c(map);
+            this.oN.b(map);
         }
     }
 

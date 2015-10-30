@@ -58,7 +58,7 @@ public class MyAudioRecorder implements i {
                 while (true) {
                     myAudioRecorder = new MyAudioRecorder(true, 1, afq[i], 2, 2);
                     int i2 = i - 1;
-                    if (!(myAudioRecorder.vQ() != State.INITIALIZING) || !(i2 >= 0)) {
+                    if (!(myAudioRecorder.vN() != State.INITIALIZING) || !(i2 >= 0)) {
                         break;
                     }
                     i = i2;
@@ -70,7 +70,7 @@ public class MyAudioRecorder implements i {
         return myAudioRecorder;
     }
 
-    public State vQ() {
+    public State vN() {
         return this.afw;
     }
 
@@ -146,7 +146,7 @@ public class MyAudioRecorder implements i {
         }
     }
 
-    public boolean vR() {
+    public boolean vO() {
         try {
             if (this.afw == State.INITIALIZING) {
                 if (this.afs) {
@@ -260,13 +260,13 @@ public class MyAudioRecorder implements i {
     @Override // com.baidu.tbadk.core.voice.service.i
     public boolean dH(String str) {
         if (dJ(str)) {
-            return vR();
+            return vO();
         }
         return false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean vL() {
+    public boolean vI() {
         synchronized (mLock) {
             if (this.afr == null || !this.afr.isAlive()) {
                 this.afr = new Thread(new g(this));
@@ -277,21 +277,21 @@ public class MyAudioRecorder implements i {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public void vM() {
+    public void vJ() {
         this.afw = State.STOPPED;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.i
-    public boolean vN() {
+    public boolean vK() {
         return this.afw == State.RECORDING;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vK() {
+    public void vH() {
         if (aft != null) {
             try {
                 start();
-                while (vN()) {
+                while (vK()) {
                     aft.read(this.buffer, 0, this.buffer.length);
                     try {
                         System.out.println(this.buffer);

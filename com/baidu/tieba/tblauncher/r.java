@@ -22,7 +22,7 @@ class r extends CustomMessageListener {
             if (aoVar.isMenuShowing()) {
                 return;
             }
-            this.this$0.ayx();
+            this.this$0.ayt();
         }
     }
 }

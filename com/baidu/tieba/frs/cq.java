@@ -41,7 +41,7 @@ public class cq extends bn<com.baidu.tbadk.core.data.p, cv> implements View.OnCl
         }
     }
 
-    public int Mm() {
+    public int Mi() {
         return i.f.all_live_list;
     }
 }

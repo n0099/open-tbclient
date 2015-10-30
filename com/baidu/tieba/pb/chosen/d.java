@@ -30,7 +30,7 @@ class d extends com.baidu.adp.framework.listener.a {
                 PbChosenActivity pbChosenActivity = this.cfl;
                 relativeLayout = this.cfl.ceO;
                 pbChosenActivity.hideLoadingView(relativeLayout);
-                BdToast.b(this.cfl.getPageContext().getPageActivity(), StringUtils.isNull(aVar.getErrorText()) ? this.cfl.getResources().getString(i.h.neterror) : aVar.getErrorText()).sZ();
+                BdToast.b(this.cfl.getPageContext().getPageActivity(), StringUtils.isNull(aVar.getErrorText()) ? this.cfl.getResources().getString(i.h.neterror) : aVar.getErrorText()).sW();
             } else {
                 this.cfl.a(aVar);
             }

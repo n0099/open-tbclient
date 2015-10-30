@@ -91,7 +91,7 @@ public class u extends BaseFragment implements AbsListView.OnScrollListener, com
         this.csf.a(this);
         this.csd.mBdListView.setOnScrollListener(this);
         this.csh = new a(getBaseFragmentActivity());
-        this.csh.ajd();
+        this.csh.aiZ();
         this.csd.mBdListView.setNextPage(this.csh);
     }
 
@@ -129,13 +129,13 @@ public class u extends BaseFragment implements AbsListView.OnScrollListener, com
             this.aFU.getLayoutMode().k(this.awp);
         }
 
-        public void Kj() {
+        public void Kf() {
             this.mProgressBar.setVisibility(0);
             this.mTextView.setText(this.aFU.getPageContext().getPageActivity().getText(i.h.loading));
             this.awp.setVisibility(0);
         }
 
-        public void ajc() {
+        public void aiY() {
             if (this.mProgressBar != null) {
                 this.mProgressBar.setVisibility(8);
             }
@@ -145,7 +145,7 @@ public class u extends BaseFragment implements AbsListView.OnScrollListener, com
             }
         }
 
-        public void ajd() {
+        public void aiZ() {
             this.bgColor = i.c.cp_bg_line_c;
         }
 
@@ -159,7 +159,7 @@ public class u extends BaseFragment implements AbsListView.OnScrollListener, com
             }
         }
 
-        public void Kk() {
+        public void Kg() {
             this.mProgressBar.setVisibility(8);
             this.awp.setVisibility(0);
             this.mTextView.setText(i.h.load_more);
@@ -192,9 +192,9 @@ public class u extends BaseFragment implements AbsListView.OnScrollListener, com
         if (this.csd.mNoDataView != null) {
             this.csd.mNoDataView.e(getPageContext());
         }
-        if (this.csf.aja() != null) {
-            this.crO.setTag(this.csf.aja().getUniqueId());
-            this.crP.setTag(this.csf.aja().getUniqueId());
+        if (this.csf.aiW() != null) {
+            this.crO.setTag(this.csf.aiW().getUniqueId());
+            this.crP.setTag(this.csf.aiW().getUniqueId());
             this.crO.setSelfListener(true);
             this.crP.setSelfListener(true);
         }
@@ -221,7 +221,7 @@ public class u extends BaseFragment implements AbsListView.OnScrollListener, com
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         if (this.csf != null) {
-            this.csf.aiX();
+            this.csf.aiT();
         }
         super.onDestroy();
     }
@@ -259,7 +259,7 @@ public class u extends BaseFragment implements AbsListView.OnScrollListener, com
         }
     }
 
-    public ab ajb() {
+    public ab aiX() {
         return this.csd;
     }
 
@@ -283,7 +283,7 @@ public class u extends BaseFragment implements AbsListView.OnScrollListener, com
                     if (personPostModel.getErrorCode() != 0) {
                         com.baidu.adp.lib.util.k.showToast(getActivity(), personPostModel.getErrorString());
                     }
-                    this.csh.ajc();
+                    this.csh.aiY();
                     if (z) {
                         if (personPostModel.post_list.size() < 20) {
                             this.mHasMore = false;
@@ -306,7 +306,7 @@ public class u extends BaseFragment implements AbsListView.OnScrollListener, com
         this.csf = null;
         com.baidu.adp.lib.util.k.c(getActivity(), i.h.his_post_not_available);
         new Timer().schedule(new aa(this), 2000L);
-        this.csh.Kk();
+        this.csh.Kg();
         return false;
     }
 
@@ -319,7 +319,7 @@ public class u extends BaseFragment implements AbsListView.OnScrollListener, com
         if (this.mHasMore && i3 > 2 && this.crM != i3 && i + i2 == i3) {
             this.crM = i3;
             this.csf.eX(false);
-            this.csh.Kj();
+            this.csh.Kf();
             this.avO = true;
         }
     }

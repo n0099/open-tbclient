@@ -21,12 +21,12 @@ public class ba extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        EditText aDw;
+        EditText aDs;
         super.a((ba) aVar, str, i);
         if (aVar == null) {
             return;
         }
-        aDw = this.dqi.aDw();
-        this.dqi.a(this.cad, aDw.getSelectionStart(), aVar, this.caf);
+        aDs = this.dqi.aDs();
+        this.dqi.a(this.cad, aDs.getSelectionStart(), aVar, this.caf);
     }
 }

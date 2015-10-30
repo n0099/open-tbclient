@@ -12,7 +12,7 @@ class cn implements a.b {
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.clJ.agM();
+        this.clJ.agI();
         aVar.dismiss();
     }
 }

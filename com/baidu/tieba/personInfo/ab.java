@@ -66,22 +66,22 @@ public class ab {
 
     public void c(AntiData antiData) {
         oO();
-        y ajf = this.cqE.ajf();
-        UserData userData = ajf.getUserData();
+        y ajb = this.cqE.ajb();
+        UserData userData = ajb.getUserData();
         if (userData != null) {
             com.baidu.tbadk.data.f personPrivate = userData.getPersonPrivate();
-            PersonTainInfo ajN = ajf.ajN();
-            int Ab = personPrivate != null ? personPrivate.Ab() : 1;
-            int isFriend = ajN != null ? ajN.getIsFriend() : 1;
+            PersonTainInfo ajJ = ajb.ajJ();
+            int zY = personPrivate != null ? personPrivate.zY() : 1;
+            int isFriend = ajJ != null ? ajJ.getIsFriend() : 1;
             if (this.mIsHost) {
                 if (antiData != null && (AntiHelper.e(antiData) || AntiHelper.g(antiData))) {
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ctX.getLayoutParams();
                     layoutParams.bottomMargin = com.baidu.adp.lib.util.k.d(this.cqE.getPageContext().getPageActivity(), i.d.ds156);
                     this.ctX.setLayoutParams(layoutParams);
                 }
-                a(userData, ajf);
-            } else if (Ab == 1 || (Ab == 2 && isFriend == 1)) {
-                a(userData, ajf);
+                a(userData, ajb);
+            } else if (zY == 1 || (zY == 2 && isFriend == 1)) {
+                a(userData, ajb);
             } else {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.ctZ.getLayoutParams();
                 layoutParams2.topMargin = 0;
@@ -148,7 +148,7 @@ public class ab {
         }
     }
 
-    public RelativeLayout ajA() {
+    public RelativeLayout ajw() {
         return this.ctX;
     }
 

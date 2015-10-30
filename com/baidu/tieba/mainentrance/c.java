@@ -18,11 +18,11 @@ public class c {
         return this.forumName;
     }
 
-    public String aba() {
+    public String aaW() {
         return this.forumAvatar;
     }
 
-    public long abb() {
+    public long aaX() {
         return this.bUe;
     }
 

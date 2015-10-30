@@ -3,6 +3,7 @@ package com.baidu.adp.lib.network.http;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.j;
 import java.io.DataOutputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -127,7 +128,7 @@ public class f {
                 dataOutputStream.flush();
                 i = dataOutputStream.size();
             } finally {
-                com.baidu.adp.lib.g.a.b(dataOutputStream);
+                com.baidu.adp.lib.g.a.b((OutputStream) dataOutputStream);
             }
         }
         if (dVar != null) {
@@ -143,10 +144,10 @@ public class f {
             try {
                 dataOutputStream.writeBytes(sb);
                 dataOutputStream.flush();
-                com.baidu.adp.lib.g.a.b(dataOutputStream);
+                com.baidu.adp.lib.g.a.b((OutputStream) dataOutputStream);
                 i = sb.length();
             } catch (Throwable th) {
-                com.baidu.adp.lib.g.a.b(dataOutputStream);
+                com.baidu.adp.lib.g.a.b((OutputStream) dataOutputStream);
                 throw th;
             }
         }

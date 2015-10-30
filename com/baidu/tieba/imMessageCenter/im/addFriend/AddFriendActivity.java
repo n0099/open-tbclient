@@ -41,7 +41,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         super.onCreate(bundle);
         setContentView(i.g.activity_add_friend);
         this.bmx = (InputMethodManager) getPageContext().getPageActivity().getSystemService("input_method");
-        Gg();
+        Gc();
         initData(bundle);
         initListener();
     }
@@ -111,7 +111,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         }
     }
 
-    private void Gg() {
+    private void Gc() {
         this.aFZ = getPageContext().getPageActivity().findViewById(i.f.search_friend_parent);
         this.aFZ.setOnClickListener(new b(this));
         this.bJs = (ImageView) getPageContext().getPageActivity().findViewById(i.f.cancle);

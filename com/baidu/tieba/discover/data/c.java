@@ -56,15 +56,15 @@ public class c {
         this.title = str;
     }
 
-    public String HL() {
+    public String HH() {
         return this.link_url;
     }
 
-    public String HM() {
+    public String HI() {
         return this.describe;
     }
 
-    public String HN() {
+    public String HJ() {
         return this.statistics;
     }
 
@@ -72,7 +72,7 @@ public class c {
         this.statistics = str;
     }
 
-    public boolean HO() {
+    public boolean HK() {
         return this.aKW;
     }
 
@@ -80,7 +80,7 @@ public class c {
         this.aKW = z;
     }
 
-    public boolean HP() {
+    public boolean HL() {
         return this.aKX;
     }
 
@@ -88,7 +88,7 @@ public class c {
         this.aKX = z;
     }
 
-    public int HQ() {
+    public int HM() {
         return this.aKY;
     }
 
@@ -96,7 +96,7 @@ public class c {
         this.aKY = i;
     }
 
-    public boolean HR() {
+    public boolean HN() {
         return this.aKZ;
     }
 

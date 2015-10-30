@@ -20,7 +20,7 @@ class i extends CustomMessageListener {
         z zVar;
         if (customResponsedMessage != null && (num = (Integer) customResponsedMessage.getData()) != null && num.intValue() == 2) {
             zVar = this.cQx.cQp;
-            zVar.atZ().setHasPrivilege(true);
+            zVar.atV().setHasPrivilege(true);
         }
     }
 }

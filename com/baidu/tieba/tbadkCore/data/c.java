@@ -8,7 +8,7 @@ public class c {
         this.status = i;
     }
 
-    public String awn() {
+    public String awj() {
         return this.cYW;
     }
 

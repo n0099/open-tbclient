@@ -23,7 +23,7 @@ public class b implements Runnable {
         com.baidu.tbadk.core.dialog.a aVar2;
         LogoActivity.a aVar3;
         LogoActivity.a aVar4;
-        z.Eh().N(System.currentTimeMillis());
+        z.Ee().L(System.currentTimeMillis());
         imageView = this.aDw.aDq;
         bitmap = this.aDw.mBitmap;
         imageView.setImageBitmap(bitmap);

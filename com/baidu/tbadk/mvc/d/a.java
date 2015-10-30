@@ -18,7 +18,7 @@ public class a implements b {
         this.avL = z;
     }
 
-    public boolean Db() {
+    public boolean CY() {
         return this.avN;
     }
 
@@ -26,7 +26,7 @@ public class a implements b {
         this.avN = z;
     }
 
-    public boolean Dc() {
+    public boolean CZ() {
         return this.avO;
     }
 
@@ -34,7 +34,7 @@ public class a implements b {
         this.avO = z;
     }
 
-    public boolean Dd() {
+    public boolean Da() {
         return this.avP;
     }
 

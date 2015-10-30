@@ -25,7 +25,7 @@ class b extends CustomMessageListener {
             int i = bundle.getInt(com.baidu.tbadk.b.b.FRAGMENT_TYPE, -1);
             if (i != -1) {
                 cVar = this.cbq.cbn;
-                if (i == cVar.ado()) {
+                if (i == cVar.adk()) {
                     cVar2 = this.cbq.cbn;
                     cVar2.dX(z);
                 }

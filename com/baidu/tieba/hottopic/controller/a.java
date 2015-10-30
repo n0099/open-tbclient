@@ -38,7 +38,7 @@ public class a extends com.baidu.adp.base.e<BaseActivity<?>> {
         requestGetTopicRelateThreadMessage.setScrDip(Double.valueOf(TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density));
         requestGetTopicRelateThreadMessage.setRn(Integer.valueOf(fVar.bpo));
         requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(fVar.bpm));
-        requestGetTopicRelateThreadMessage.setQType(Integer.valueOf(m.qX().getViewImageQuality()));
+        requestGetTopicRelateThreadMessage.setQType(Integer.valueOf(m.qU().getViewImageQuality()));
         sendMessage(requestGetTopicRelateThreadMessage);
     }
 

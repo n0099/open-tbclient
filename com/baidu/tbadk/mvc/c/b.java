@@ -22,11 +22,11 @@ public class b {
         this.avg = aVar2;
     }
 
-    public int CD() {
+    public int CA() {
         return this.avc;
     }
 
-    public com.baidu.tbadk.mvc.b.a CE() {
+    public com.baidu.tbadk.mvc.b.a CB() {
         return this.ave;
     }
 
@@ -49,7 +49,7 @@ public class b {
         this.avj = new WeakReference<>(view);
     }
 
-    public int CF() {
+    public int CC() {
         return this.avh;
     }
 
@@ -57,7 +57,7 @@ public class b {
         this.avh = i;
     }
 
-    public boolean CG() {
+    public boolean CD() {
         return this.avd;
     }
 

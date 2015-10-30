@@ -25,18 +25,18 @@ public class g implements NoNetworkView.a {
                 hVar2 = this.boL.boA;
                 if (hVar2.getHotTopicData() != null) {
                     hVar3 = this.boL.boA;
-                    if (hVar3.getHotTopicData().QU() != null) {
+                    if (hVar3.getHotTopicData().QQ() != null) {
                         hVar4 = this.boL.boA;
-                        if (hVar4.getHotTopicData().QU().size() != 0) {
+                        if (hVar4.getHotTopicData().QQ().size() != 0) {
                             return;
                         }
                     }
                 }
                 HotTopicActivity hotTopicActivity = this.boL;
                 aVar = this.boL.boz;
-                hotTopicActivity.hideNetRefreshView(aVar.Ra());
+                hotTopicActivity.hideNetRefreshView(aVar.QW());
                 aVar2 = this.boL.boz;
-                aVar2.Rf();
+                aVar2.Rb();
             }
         }
     }

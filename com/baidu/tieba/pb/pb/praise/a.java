@@ -32,11 +32,11 @@ public class a {
         return this.mPortrait;
     }
 
-    public String agY() {
+    public String agU() {
         return this.cma;
     }
 
-    public long agZ() {
+    public long agV() {
         return this.cmb;
     }
 }

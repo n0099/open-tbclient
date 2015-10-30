@@ -19,11 +19,11 @@ public class a {
         }
     }
 
-    public static c vX() {
+    public static c vU() {
         return afO;
     }
 
-    public static boolean vY() {
+    public static boolean vV() {
         return afN;
     }
 

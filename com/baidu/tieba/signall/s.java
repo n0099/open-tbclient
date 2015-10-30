@@ -49,7 +49,7 @@ public class s extends FrameLayout {
         this.aPs = (TextView) findViewById(i.f.signallforun_status);
         this.cRh = (TextView) findViewById(i.f.signallforun_message1);
         this.cRi = (TextView) findViewById(i.f.signallforun_message2);
-        vw();
+        vt();
         this.mScroller = new Scroller(this.mContext, new DecelerateInterpolator());
         BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), BitmapFactory.decodeResource(getResources(), i.e.bg_all_sign));
         bitmapDrawable.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
@@ -60,7 +60,7 @@ public class s extends FrameLayout {
     protected void dispatchSetPressed(boolean z) {
     }
 
-    public void vw() {
+    public void vt() {
         removeCallbacks(this.cRj);
         removeCallbacks(this.cRk);
         TbadkCoreApplication.m411getInst().getSkinType();
@@ -136,14 +136,14 @@ public class s extends FrameLayout {
         if (this.cRf != 1 && this.cRf == 0) {
             this.mProgress.setProgress(i);
             this.cRf = 1;
-            vw();
+            vt();
         }
     }
 
-    public void atV() {
+    public void atR() {
         if (this.cRf != 2) {
             this.cRf = 2;
-            vw();
+            vt();
         }
     }
 
@@ -177,7 +177,7 @@ public class s extends FrameLayout {
 
     public void setmCurrentStatus(int i) {
         this.cRf = i;
-        vw();
+        vt();
     }
 
     public void setmContext(Context context) {
@@ -210,7 +210,7 @@ public class s extends FrameLayout {
 
     public void setHasPrivilege(boolean z) {
         this.cPB = z;
-        vw();
+        vt();
     }
 
     public void setProgressAnimation(Runnable runnable) {

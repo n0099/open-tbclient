@@ -12,7 +12,7 @@ public class e {
     private e() {
     }
 
-    public static e BW() {
+    public static e BT() {
         if (ata == null) {
             ata = new e();
         }

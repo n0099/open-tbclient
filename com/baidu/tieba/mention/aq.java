@@ -23,7 +23,7 @@ public class aq implements a.d {
         singleMentionActivity = this.caZ.caL;
         singleMentionActivity.hideProgressBar();
         nVar = this.caZ.caU;
-        nVar.Ax().hide();
+        nVar.Au().hide();
         if (postWriteCallBackData != null && lVar == null && !AntiHelper.lc(postWriteCallBackData.getErrorCode())) {
             singleMentionActivity2 = this.caZ.caL;
             singleMentionActivity2.showToast(postWriteCallBackData.getErrorString());

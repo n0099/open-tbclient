@@ -84,7 +84,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         initWebView();
         this.mView = new o(this);
         initData();
-        this.mView.qs();
+        this.mView.qp();
         this.mView.b(new c(this));
         this.mView.ac(this.mIsLogin);
     }
@@ -153,7 +153,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         dismissAllPopupWindow();
         hideListMenu();
         if (this.mView != null) {
-            this.mView.qu();
+            this.mView.qr();
         }
     }
 
@@ -256,13 +256,13 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         super.onClick(view);
         int id = view.getId();
         if (id == i.f.webview_more_pop_item_share_friend_layout) {
-            this.mView.qu();
+            this.mView.qr();
             loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
         } else if (id == i.f.webview_more_pop_item_open_browser_layout) {
-            this.mView.qu();
+            this.mView.qr();
             g.D(getPageContext().getPageActivity(), this.mUrl);
         } else if (id == i.f.webview_more_pop_item_copy_link_layout) {
-            this.mView.qu();
+            this.mView.qr();
             com.baidu.adp.lib.util.a.aA(this.mUrl);
             com.baidu.adp.lib.util.k.showToast(view.getContext(), view.getResources().getString(i.h.copy_pb_url_success));
         }
@@ -367,7 +367,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str2;
         boolean z;
         String str3 = "";
-        a.b cc = com.baidu.tbadk.core.a.a.rd().cc(TbadkCoreApplication.getCurrentBduss());
+        a.b cc = com.baidu.tbadk.core.a.a.ra().cc(TbadkCoreApplication.getCurrentBduss());
         if (cc != null) {
             if (cc.ws != null) {
                 str3 = cc.ws;

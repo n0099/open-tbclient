@@ -34,9 +34,9 @@ class u implements SlidingMenu.OnOpenedListener {
         oVar = this.aUK.aTW;
         if (oVar != null) {
             oVar2 = this.aUK.aTW;
-            if (oVar2.aeN() != null) {
+            if (oVar2.aeJ() != null) {
                 oVar3 = this.aUK.aTW;
-                ArrayList<RecommendForumData> recommendForumData = oVar3.aeN().getRecommendForumData();
+                ArrayList<RecommendForumData> recommendForumData = oVar3.aeJ().getRecommendForumData();
                 if (recommendForumData != null) {
                     Iterator<RecommendForumData> it = recommendForumData.iterator();
                     while (it.hasNext()) {

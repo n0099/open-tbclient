@@ -16,11 +16,11 @@ public class b implements Handler.Callback {
     public boolean handleMessage(Message message) {
         switch (message.what) {
             case 0:
-                this.aAC.EN();
+                this.aAC.EJ();
                 break;
             case 1:
                 if (this.aAC.aAB) {
-                    this.aAC.EN();
+                    this.aAC.EJ();
                     break;
                 }
                 break;

@@ -3,10 +3,10 @@ package com.baidu.tieba.tbadkCore.location;
 public class c {
     private static c daM;
     private long aKT;
-    private boolean daN = com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("no_longer_show_address", false);
+    private boolean daN = com.baidu.tbadk.core.sharedPref.b.tr().getBoolean("no_longer_show_address", false);
     private a mLocationData;
 
-    public static c axm() {
+    public static c axi() {
         if (daM == null) {
             synchronized (c.class) {
                 if (daM == null) {
@@ -17,11 +17,11 @@ public class c {
         return daM;
     }
 
-    public long HI() {
+    public long HE() {
         return this.aKT;
     }
 
-    public void aj(long j) {
+    public void ah(long j) {
         this.aKT = j;
     }
 
@@ -33,7 +33,7 @@ public class c {
         this.mLocationData = aVar;
     }
 
-    public boolean axn() {
+    public boolean axj() {
         return this.daN;
     }
 

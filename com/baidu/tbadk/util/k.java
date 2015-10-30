@@ -28,6 +28,6 @@ public class k extends Thread {
         if (this.type != null) {
             wVar.o("img_type", this.type);
         }
-        wVar.tG();
+        wVar.tD();
     }
 }

@@ -30,7 +30,7 @@ public class e extends BdAsyncTask<Void, Void, Void> {
         wVar.o("eventid", "XYTiebaShare");
         buildEventJSON = XiaoyingUtil.buildEventJSON(this.ayW, this.ayX, this.ayY, this.val$url, this.ayZ);
         wVar.o("userjson", buildEventJSON);
-        wVar.tG();
+        wVar.tD();
         return null;
     }
 }

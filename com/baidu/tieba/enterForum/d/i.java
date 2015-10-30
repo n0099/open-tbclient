@@ -38,7 +38,7 @@ public class i extends LinearLayout {
         this.mType = i;
         if (i == 2) {
             if (this.aMX == null) {
-                Jc();
+                IY();
             }
             if (this.aMX.getParent() == null) {
                 addView(this.aMX);
@@ -46,26 +46,26 @@ public class i extends LinearLayout {
             removeView(this.aMY);
         } else {
             if (this.aMY == null) {
-                Jb();
+                IX();
             }
             if (this.aMY.getParent() == null) {
                 addView(this.aMY);
             }
-            Jd();
+            IZ();
             removeView(this.aMX);
         }
         setStateForDisplayView(i);
     }
 
-    private void Jb() {
+    private void IX() {
         this.aMY = new c(getContext());
         this.aMY.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
         this.aMY.setSelector(new ColorDrawable(0));
         a(this.aMY);
-        Jd();
+        IZ();
     }
 
-    private void Jc() {
+    private void IY() {
         this.aMX = new a(getContext());
         this.aMX.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
         this.aMX.setNumColumns(2);
@@ -74,7 +74,7 @@ public class i extends LinearLayout {
         a(this.aMX);
     }
 
-    private void Jd() {
+    private void IZ() {
         this.aMY.setDivider(an.getDrawable(i.e.enter_forum_list_divider));
         this.aMY.setDividerHeight(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds1));
     }
@@ -156,7 +156,7 @@ public class i extends LinearLayout {
         setBackgroundColor(an.getColor(i.c.cp_bg_line_d));
         setStateForDisplayView(this.mType);
         if (this.mType == 1) {
-            Jd();
+            IZ();
         }
     }
 }

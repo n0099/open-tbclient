@@ -55,7 +55,7 @@ public class cf extends bn<com.baidu.tbadk.core.data.w, cl> implements View.OnCl
         if (wVar == null) {
             return null;
         }
-        if (wVar != null && wVar.sF() == 0) {
+        if (wVar != null && wVar.sC() == 0) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.setMargins(this.aXl, 0, this.aXm, 0);
             layoutParams.gravity = 1;
@@ -79,7 +79,7 @@ public class cf extends bn<com.baidu.tbadk.core.data.w, cl> implements View.OnCl
         clVar.aTq.setOnClickListener(this);
         clVar.aXu.setTag(Integer.valueOf(i));
         clVar.aTq.setTag(Integer.valueOf(i));
-        if (wVar != null && !wVar.sy() && !TextUtils.isEmpty(wVar.getAddress()) && !TextUtils.isEmpty(wVar.getAddress().trim())) {
+        if (wVar != null && !wVar.sv() && !TextUtils.isEmpty(wVar.getAddress()) && !TextUtils.isEmpty(wVar.getAddress().trim())) {
             clVar.aXw.setVisibility(0);
             clVar.aXx.setVisibility(0);
             clVar.aXw.setText(wVar.getAddress());
@@ -87,8 +87,8 @@ public class cf extends bn<com.baidu.tbadk.core.data.w, cl> implements View.OnCl
             clVar.aXw.setVisibility(8);
             clVar.aXx.setVisibility(8);
         }
-        clVar.aTg.setText(com.baidu.tbadk.core.util.as.o(wVar.getLast_time_int() * 1000));
-        if (com.baidu.tbadk.core.m.qX().qZ()) {
+        clVar.aTg.setText(com.baidu.tbadk.core.util.as.m(wVar.getLast_time_int() * 1000));
+        if (com.baidu.tbadk.core.m.qU().qW()) {
             clVar.aTj.setVisibility(0);
             String portrait = wVar.getAuthor().getPortrait();
             clVar.aTj.setUserId(wVar.getAuthor().getUserId());
@@ -124,7 +124,7 @@ public class cf extends bn<com.baidu.tbadk.core.data.w, cl> implements View.OnCl
         }
         clVar.aTh.setText(wVar.getAuthor().getUserName());
         com.baidu.tieba.tbadkCore.util.p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-        if (wVar.sr() == 1) {
+        if (wVar.so() == 1) {
             clVar.aPq.setVisibility(8);
         } else {
             clVar.aPq.setVisibility(0);
@@ -137,8 +137,8 @@ public class cf extends bn<com.baidu.tbadk.core.data.w, cl> implements View.OnCl
             }
         }
         StringBuffer stringBuffer = new StringBuffer();
-        if (wVar.sm() != null && wVar.sm().trim().length() > 0) {
-            stringBuffer.append(wVar.sm());
+        if (wVar.sj() != null && wVar.sj().trim().length() > 0) {
+            stringBuffer.append(wVar.sj());
         }
         ArrayList<MediaData> medias = wVar.getMedias();
         if (medias != null) {
@@ -214,7 +214,7 @@ public class cf extends bn<com.baidu.tbadk.core.data.w, cl> implements View.OnCl
             clVar.aTc.removeView(clVar.aXv.aTt);
             clVar.aXv = null;
         }
-        if (com.baidu.tbadk.core.m.qX().rb() && medias != null && medias.size() > 0 && !z) {
+        if (com.baidu.tbadk.core.m.qU().qY() && medias != null && medias.size() > 0 && !z) {
             int i4 = 0;
             int i5 = 0;
             int i6 = 0;
@@ -248,7 +248,7 @@ public class cf extends bn<com.baidu.tbadk.core.data.w, cl> implements View.OnCl
                     i8 = i10 + 1;
                 }
                 clVar.aTf.setVisibility(0);
-                clVar.aTf.a(wVar, this.aTW.aeN().getName(), this.aTW.aeN().getId(), wVar.getTid());
+                clVar.aTf.a(wVar, this.aTW.aeJ().getName(), this.aTW.aeJ().getId(), wVar.getTid());
                 clVar.aTf.setShowBig(this.aSP);
                 clVar.aTf.setDrawNum(true);
                 clVar.aTf.setFromCDN(this.mIsFromCDN);
@@ -260,13 +260,13 @@ public class cf extends bn<com.baidu.tbadk.core.data.w, cl> implements View.OnCl
         } else {
             clVar.aTf.setVisibility(8);
         }
-        ArrayList<VoiceData.VoiceModel> sp = wVar.sp();
-        if (sp != null && sp.size() > 0) {
+        ArrayList<VoiceData.VoiceModel> sm = wVar.sm();
+        if (sm != null && sm.size() > 0) {
             clVar.aTe.setVisibility(0);
-            VoiceData.VoiceModel voiceModel = sp.get(0);
+            VoiceData.VoiceModel voiceModel = sm.get(0);
             clVar.aTe.setVoiceModel(voiceModel);
             clVar.aTe.setTag(voiceModel);
-            clVar.aTe.axM();
+            clVar.aTe.axI();
             if (voiceModel != null) {
                 clVar.aTe.hE(voiceModel.voice_status.intValue());
             }
@@ -275,29 +275,29 @@ public class cf extends bn<com.baidu.tbadk.core.data.w, cl> implements View.OnCl
         }
         if (wVar.getPraise() != null && wVar.getPraise().getNum() > 0) {
             clVar.aTm.setVisibility(0);
-            clVar.aTm.setText(com.baidu.tbadk.core.util.as.s(wVar.getPraise().getNum()));
+            clVar.aTm.setText(com.baidu.tbadk.core.util.as.q(wVar.getPraise().getNum()));
         } else {
             clVar.aTm.setVisibility(8);
         }
         int reply_num = wVar.getReply_num();
         if (reply_num > 0) {
             clVar.aTo.setVisibility(0);
-            clVar.aTo.setText(com.baidu.tbadk.core.util.as.s(reply_num));
+            clVar.aTo.setText(com.baidu.tbadk.core.util.as.q(reply_num));
         } else {
             clVar.aTo.setVisibility(8);
         }
-        if (wVar.sy()) {
+        if (wVar.sv()) {
             clVar.aPq.setMaxLines(2);
             clVar.aPq.setEllipsize(TextUtils.TruncateAt.END);
-            if (wVar.sx() == 1) {
-                if (wVar.so().get(0).getStatus() == 1) {
+            if (wVar.su() == 1) {
+                if (wVar.sl().get(0).getStatus() == 1) {
                     clVar.aXu.setText(this.mContext.getResources().getString(i.h.i_want_lottery));
                     clVar.aXu.setVisibility(0);
                 } else {
                     clVar.aXu.setVisibility(8);
                 }
-            } else if (wVar.sx() == 2) {
-                if (wVar.so().get(0).getStatus() == 1) {
+            } else if (wVar.su() == 2) {
+                if (wVar.sl().get(0).getStatus() == 1) {
                     clVar.aXu.setText(this.mContext.getResources().getString(i.h.i_want_share_picture));
                     clVar.aXu.setVisibility(0);
                 } else {
@@ -337,11 +337,11 @@ public class cf extends bn<com.baidu.tbadk.core.data.w, cl> implements View.OnCl
         }
     }
 
-    public int KM() {
+    public int KI() {
         return i.f.frs_more_abstract;
     }
 
-    public int Lw() {
+    public int Ls() {
         return i.f.action_button;
     }
 
@@ -388,7 +388,7 @@ public class cf extends bn<com.baidu.tbadk.core.data.w, cl> implements View.OnCl
         return a(i, view, wVar, clVar);
     }
 
-    public int Ly() {
+    public int Lu() {
         return i.f.frs_user_tshow_icon_box;
     }
 }

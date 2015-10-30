@@ -109,10 +109,10 @@ class a extends com.baidu.adp.framework.listener.a {
                     yVar4 = this.csI.csv;
                     UserData userData = yVar4.getUserData();
                     if (userData != null && (personPrivate = userData.getPersonPrivate()) != null) {
-                        com.baidu.tbadk.core.a.h.w(5, personPrivate.Ac());
-                        com.baidu.tbadk.core.a.h.w(3, personPrivate.Aa());
-                        com.baidu.tbadk.core.a.h.w(4, personPrivate.Ab());
-                        com.baidu.tbadk.core.a.h.w(2, personPrivate.zZ());
+                        com.baidu.tbadk.core.a.h.w(5, personPrivate.zZ());
+                        com.baidu.tbadk.core.a.h.w(3, personPrivate.zX());
+                        com.baidu.tbadk.core.a.h.w(4, personPrivate.zY());
+                        com.baidu.tbadk.core.a.h.w(2, personPrivate.zW());
                     }
                 }
             }

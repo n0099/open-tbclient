@@ -32,12 +32,12 @@ public class cn extends bn<com.baidu.tieba.tbadkCore.z, cm> implements View.OnCl
     @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.z zVar, cm cmVar) {
         super.a(i, view, viewGroup, (ViewGroup) zVar, (com.baidu.tieba.tbadkCore.z) cmVar);
-        if (zVar.awc()) {
-            String awd = zVar.awd();
-            if (awd != null) {
-                cmVar.aXz.setText(awd);
-            } else if (this.aTW.aeN() != null && this.aTW.aeN().getName() != null) {
-                cmVar.aXz.setText(this.mContext.getString(i.h.get_fortune_hint_format, this.aTW.aeN().getName()));
+        if (zVar.avY()) {
+            String avZ = zVar.avZ();
+            if (avZ != null) {
+                cmVar.aXz.setText(avZ);
+            } else if (this.aTW.aeJ() != null && this.aTW.aeJ().getName() != null) {
+                cmVar.aXz.setText(this.mContext.getString(i.h.get_fortune_hint_format, this.aTW.aeJ().getName()));
             }
             cmVar.aXy.setTag(Integer.valueOf(i));
             cmVar.aXy.setOnClickListener(this);
@@ -45,9 +45,9 @@ public class cn extends bn<com.baidu.tieba.tbadkCore.z, cm> implements View.OnCl
         } else {
             cmVar.aXy.setVisibility(8);
         }
-        com.baidu.tieba.tbadkCore.p awe = zVar.awe();
-        if (awe != null && awe.avY() && !TextUtils.isEmpty(awe.avZ())) {
-            cmVar.aXB.setText(awe.avZ());
+        com.baidu.tieba.tbadkCore.p awa = zVar.awa();
+        if (awa != null && awa.avU() && !TextUtils.isEmpty(awa.avV())) {
+            cmVar.aXB.setText(awa.avV());
             cmVar.aXA.setTag(Integer.valueOf(i));
             cmVar.aXA.setOnClickListener(this);
             cmVar.aXA.setVisibility(0);
@@ -56,17 +56,17 @@ public class cn extends bn<com.baidu.tieba.tbadkCore.z, cm> implements View.OnCl
         }
         this.aSe.getLayoutMode().ad(this.mSkinType == 1);
         this.aSe.getLayoutMode().k(view);
-        if (!this.aXC && !zVar.awc()) {
+        if (!this.aXC && !zVar.avY()) {
             return new View(this.mContext);
         }
         return view;
     }
 
-    public int Lx() {
+    public int Lt() {
         return i.f.frs_fortune_bag_item;
     }
 
-    public int Lz() {
+    public int Lv() {
         return i.f.frs_my_service_item;
     }
 

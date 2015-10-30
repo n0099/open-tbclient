@@ -13,13 +13,13 @@ public class e implements h.a {
     }
 
     @Override // com.baidu.tbadk.core.view.h.a
-    public void qw() {
+    public void qt() {
         PbActivity pbActivity;
         pbActivity = this.clZ.ciU;
-        pbActivity.afn();
+        pbActivity.afj();
     }
 
     @Override // com.baidu.tbadk.core.view.h.a
-    public void qx() {
+    public void qu() {
     }
 }

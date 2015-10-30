@@ -77,7 +77,7 @@ public class a {
         return this.wN;
     }
 
-    public void h(long j) {
+    public void f(long j) {
         this.wN = j;
     }
 
@@ -119,11 +119,11 @@ public class a {
         return this.wP;
     }
 
-    public void i(long j) {
+    public void g(long j) {
         this.wO = j;
     }
 
-    public void j(long j) {
+    public void h(long j) {
         this.wP = j;
     }
 

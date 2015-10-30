@@ -14,9 +14,9 @@ public class m implements NoNetworkView.a {
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
     public void ax(boolean z) {
         if (!z) {
-            this.aLW.aLF.IU();
+            this.aLW.aLF.IQ();
         } else if (!this.aLW.isPrimary() || !this.aLW.isResumed()) {
-            this.aLW.aLF.IU();
+            this.aLW.aLF.IQ();
         } else {
             this.aLW.aLF.nw();
         }

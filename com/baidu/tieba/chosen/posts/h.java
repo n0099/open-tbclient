@@ -22,7 +22,7 @@ public class h implements AdapterView.OnItemLongClickListener {
         aVar.a(i.h.confirm, new j(this, aVar, i));
         iVar = this.aJU.aJN;
         aVar.b(iVar.getPageContext());
-        aVar.sR();
+        aVar.sO();
         return true;
     }
 }

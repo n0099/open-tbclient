@@ -27,7 +27,7 @@ public class p extends com.baidu.tbadk.b.b implements View.OnClickListener, BdLi
     private int cbA = -1;
     private final CustomMessageListener mNetworkChangedMessageListener = new q(this, 2000994);
 
-    public static final p adz() {
+    public static final p adv() {
         return new p();
     }
 
@@ -50,7 +50,7 @@ public class p extends com.baidu.tbadk.b.b implements View.OnClickListener, BdLi
     }
 
     private void refresh() {
-        if (this.cby.getCount() == 0 || this.cby.adF() < 0) {
+        if (this.cby.getCount() == 0 || this.cby.adB() < 0) {
             this.cbU.iy(this.cby.getOffset());
             return;
         }
@@ -75,7 +75,7 @@ public class p extends com.baidu.tbadk.b.b implements View.OnClickListener, BdLi
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        this.cbU.adA();
+        this.cbU.adw();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -91,11 +91,11 @@ public class p extends com.baidu.tbadk.b.b implements View.OnClickListener, BdLi
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == this.cbU.adt()) {
+        if (view.getId() == this.cbU.adp()) {
             int intValue = ((Integer) view.getTag()).intValue();
-            this.cbU.Jq();
+            this.cbU.Jm();
             if (!this.cby.iA(intValue)) {
-                this.cbU.MW();
+                this.cbU.MS();
             }
         }
         super.onClick(view);
@@ -103,21 +103,21 @@ public class p extends com.baidu.tbadk.b.b implements View.OnClickListener, BdLi
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        if (i >= 0 && i < this.cby.adC().size()) {
+        if (i >= 0 && i < this.cby.ady().size()) {
             this.cbA = i;
-            MarkData markData = this.cby.adC().get(i);
+            MarkData markData = this.cby.ady().get(i);
             MarkData markData2 = this.cbB.get(i);
-            int adB = this.cby.adB();
-            int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.wK().getMsgBookmark();
+            int adx = this.cby.adx();
+            int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.wH().getMsgBookmark();
             TiebaStatic.eventStat(TbadkCoreApplication.m411getInst(), "my_favorite_content", "is_redpoint", markData2.getNewCounts() > 0 ? 1 : 0, new Object[0]);
             if (markData2.getNewCounts() > 0) {
                 if (msgBookmark > 0) {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.wK().setMsgBookmark(msgBookmark - 1);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.wH().setMsgBookmark(msgBookmark - 1);
                 } else {
-                    com.baidu.tbadk.coreExtra.messageCenter.a.wK().setMsgBookmark(0);
+                    com.baidu.tbadk.coreExtra.messageCenter.a.wH().setMsgBookmark(0);
                 }
-                if (adB > 0) {
-                    this.cby.iz(adB - 1);
+                if (adx > 0) {
+                    this.cby.iz(adx - 1);
                 } else {
                     this.cby.iz(0);
                 }
@@ -126,7 +126,7 @@ public class p extends com.baidu.tbadk.b.b implements View.OnClickListener, BdLi
             if (markData != null) {
                 if (markData.isPhotoLiveThread()) {
                     TiebaStatic.log("c10252");
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), markData.getThreadId()).bs(17001).cg(markData.getPostId()).ci("from_mark").rk()));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), markData.getThreadId()).bs(17001).cg(markData.getPostId()).ci("from_mark").rh()));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createMarkCfg(markData.getThreadId(), markData.getPostId(), markData.getHostMode(), markData.getSequence().booleanValue(), null, 17001)));
                 }
@@ -142,11 +142,11 @@ public class p extends com.baidu.tbadk.b.b implements View.OnClickListener, BdLi
             switch (i) {
                 case 17001:
                     MarkData markData = (MarkData) intent.getSerializableExtra(PbActivityConfig.KEY_MARK);
-                    if (markData != null && this.cby.adC().size() > this.cbA && this.cbA >= 0) {
-                        this.cby.adC().get(this.cbA).setPostId(markData.getPostId());
-                        this.cby.adC().get(this.cbA).setHostMode(markData.getHostMode());
-                        this.cby.adC().get(this.cbA).setSequence(markData.getSequence());
-                        this.cbU.adv();
+                    if (markData != null && this.cby.ady().size() > this.cbA && this.cbA >= 0) {
+                        this.cby.ady().get(this.cbA).setPostId(markData.getPostId());
+                        this.cby.ady().get(this.cbA).setHostMode(markData.getHostMode());
+                        this.cby.ady().get(this.cbA).setSequence(markData.getSequence());
+                        this.cbU.adr();
                         return;
                     }
                     return;
@@ -156,9 +156,9 @@ public class p extends com.baidu.tbadk.b.b implements View.OnClickListener, BdLi
         } else if (i2 == 1) {
             switch (i) {
                 case 17001:
-                    if (this.cby.adC().size() > this.cbA && this.cbA >= 0) {
-                        this.cby.adC().remove(this.cbA);
-                        this.cbU.adv();
+                    if (this.cby.ady().size() > this.cbA && this.cbA >= 0) {
+                        this.cby.ady().remove(this.cbA);
+                        this.cbU.adr();
                         return;
                     }
                     return;

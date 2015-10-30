@@ -17,17 +17,17 @@ public class al implements View.OnTouchListener {
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         InputMethodManager inputMethodManager;
-        EditText aDx;
+        EditText aDt;
         InputMethodManager inputMethodManager2;
-        EditText aDw;
+        EditText aDs;
         WriteActivity writeActivity = this.dqi;
         inputMethodManager = this.dqi.mInputManager;
-        aDx = this.dqi.aDx();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, aDx);
+        aDt = this.dqi.aDt();
+        writeActivity.HidenSoftKeyPad(inputMethodManager, aDt);
         WriteActivity writeActivity2 = this.dqi;
         inputMethodManager2 = this.dqi.mInputManager;
-        aDw = this.dqi.aDw();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, aDw);
+        aDs = this.dqi.aDs();
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, aDs);
         return false;
     }
 }

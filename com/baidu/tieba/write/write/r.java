@@ -19,7 +19,7 @@ public class r implements View.OnClickListener {
         qVar = q.this;
         if (qVar.doN != null) {
             qVar2 = q.this;
-            qVar2.doN.aDa();
+            qVar2.doN.aCW();
         }
     }
 }

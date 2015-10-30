@@ -13,11 +13,11 @@ public class ab implements aa.a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.aa.a
-    public void Mi() {
+    public void Me() {
     }
 
     @Override // com.baidu.tieba.tbadkCore.aa.a
-    public void Mj() {
+    public void Mf() {
         BdTypeListView bdTypeListView;
         BdTypeListView bdTypeListView2;
         bdTypeListView = this.aZW.aWD;

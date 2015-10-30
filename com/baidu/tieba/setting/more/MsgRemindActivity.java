@@ -38,65 +38,65 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.cNS.asz()) {
+        if (view == this.cNS.asv()) {
             this.cNT.a(6, switchState == BdSwitchView.SwitchState.ON, this.cLZ);
-        } else if (view == this.cNS.asA()) {
+        } else if (view == this.cNS.asw()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().setSignAlertOn(true);
-                this.cNS.asw();
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().setSignAlertOn(true);
+                this.cNS.ass();
                 this.cNS.ga(true);
                 return;
             }
-            com.baidu.tbadk.coreExtra.messageCenter.c.xh().setSignAlertOn(false);
+            com.baidu.tbadk.coreExtra.messageCenter.c.xe().setSignAlertOn(false);
             this.cNS.ga(false);
-        } else if (view == this.cNS.asB()) {
+        } else if (view == this.cNS.asx()) {
             this.cNT.a(14, switchState == BdSwitchView.SwitchState.ON, this.cLZ);
-        } else if (view == this.cNS.asD()) {
+        } else if (view == this.cNS.asz()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aD(true);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aD(true);
                 this.cNS.fZ(true);
                 return;
             }
-            com.baidu.tbadk.coreExtra.messageCenter.c.xh().aD(false);
+            com.baidu.tbadk.coreExtra.messageCenter.c.xe().aD(false);
             this.cNS.fZ(false);
+        } else if (view == this.cNS.asD()) {
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aG(true);
+            } else {
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aG(false);
+            }
+        } else if (view == this.cNS.asE()) {
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aE(true);
+            } else {
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aE(false);
+            }
+        } else if (view == this.cNS.asF()) {
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aF(true);
+            } else {
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aF(false);
+            }
+        } else if (view == this.cNS.asG()) {
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aI(true);
+            } else {
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aI(false);
+            }
         } else if (view == this.cNS.asH()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aG(true);
-            } else {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aG(false);
-            }
-        } else if (view == this.cNS.asI()) {
-            if (switchState == BdSwitchView.SwitchState.ON) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aE(true);
-            } else {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aE(false);
-            }
-        } else if (view == this.cNS.asJ()) {
-            if (switchState == BdSwitchView.SwitchState.ON) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aF(true);
-            } else {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aF(false);
-            }
-        } else if (view == this.cNS.asK()) {
-            if (switchState == BdSwitchView.SwitchState.ON) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aI(true);
-            } else {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aI(false);
-            }
-        } else if (view == this.cNS.asL()) {
-            if (switchState == BdSwitchView.SwitchState.ON) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aH(true);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aH(true);
                 SettingStatic.r(3, true);
                 return;
             }
-            com.baidu.tbadk.coreExtra.messageCenter.c.xh().aH(false);
+            com.baidu.tbadk.coreExtra.messageCenter.c.xe().aH(false);
             SettingStatic.r(3, false);
-        } else if (view == this.cNS.asy()) {
+        } else if (view == this.cNS.asu()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aM(true);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aM(true);
                 TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10308").r("obj_type", 1));
             } else {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xh().aM(false);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xe().aM(false);
                 TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10308").r("obj_type", 0));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REMIND_RECOMMEND_SWITCH));
@@ -105,25 +105,25 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        this.cNS.akd().performClick();
+        this.cNS.ajZ().performClick();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.cNS.akd()) {
+        if (view == this.cNS.ajZ()) {
             if (this.cNS.cOz) {
                 finish();
             } else {
                 this.cNS.gc(true);
             }
-        } else if (view == this.cNS.asC()) {
+        } else if (view == this.cNS.asy()) {
             showDialog(i.f.sign_remind);
-        } else if (view == this.cNS.asE()) {
+        } else if (view == this.cNS.asA()) {
             this.cNS.gc(false);
-        } else if (view == this.cNS.asF()) {
+        } else if (view == this.cNS.asB()) {
             showDialog(i.f.no_disturb_start_time);
-        } else if (view == this.cNS.asG()) {
+        } else if (view == this.cNS.asC()) {
             showDialog(i.f.no_disturb_end_time);
         }
     }
@@ -148,13 +148,13 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         String[] split;
         if (dialog instanceof TimePickerDialog) {
             if (i == i.f.sign_remind) {
-                ((TimePickerDialog) dialog).updateTime(com.baidu.tbadk.coreExtra.messageCenter.c.xh().getSignAlertHours(), com.baidu.tbadk.coreExtra.messageCenter.c.xh().getSignAlertMins());
+                ((TimePickerDialog) dialog).updateTime(com.baidu.tbadk.coreExtra.messageCenter.c.xe().getSignAlertHours(), com.baidu.tbadk.coreExtra.messageCenter.c.xe().getSignAlertMins());
                 return;
             } else if (i == i.f.no_disturb_start_time || i == i.f.no_disturb_end_time) {
                 if (i == i.f.no_disturb_start_time) {
-                    split = com.baidu.tbadk.coreExtra.messageCenter.c.xh().xu().split(":");
+                    split = com.baidu.tbadk.coreExtra.messageCenter.c.xe().xr().split(":");
                 } else {
-                    split = com.baidu.tbadk.coreExtra.messageCenter.c.xh().xv().split(":");
+                    split = com.baidu.tbadk.coreExtra.messageCenter.c.xe().xs().split(":");
                 }
                 ((TimePickerDialog) dialog).updateTime(Integer.parseInt(split[0]), Integer.parseInt(split[1]));
                 return;
@@ -184,25 +184,25 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        com.baidu.tbadk.coreExtra.messageCenter.c.xh().xi();
+        com.baidu.tbadk.coreExtra.messageCenter.c.xe().xf();
     }
 
     @Override // android.widget.CompoundButton.OnCheckedChangeListener
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
-        if (compoundButton == this.cNS.asM()) {
+        if (compoundButton == this.cNS.asI()) {
             this.cNT.a(1, z, this.cLZ);
-        } else if (compoundButton == this.cNS.asN()) {
-            com.baidu.tbadk.coreExtra.messageCenter.c.xh().aB(z);
-            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xm() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xp() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xn() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xo() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xx() && !com.baidu.tbadk.coreExtra.messageCenter.c.xh().xw()) {
+        } else if (compoundButton == this.cNS.asJ()) {
+            com.baidu.tbadk.coreExtra.messageCenter.c.xe().aB(z);
+            if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xj() && !com.baidu.tbadk.coreExtra.messageCenter.c.xe().xm() && !com.baidu.tbadk.coreExtra.messageCenter.c.xe().xk() && !com.baidu.tbadk.coreExtra.messageCenter.c.xe().xl() && !com.baidu.tbadk.coreExtra.messageCenter.c.xe().xu() && !com.baidu.tbadk.coreExtra.messageCenter.c.xe().xt()) {
                 this.cLZ.a(14, true, false);
             }
-        } else if (compoundButton == this.cNS.asO()) {
+        } else if (compoundButton == this.cNS.asK()) {
             this.cNT.a(2, z, this.cLZ);
-        } else if (compoundButton == this.cNS.asP()) {
+        } else if (compoundButton == this.cNS.asL()) {
             this.cNT.a(5, z, this.cLZ);
-        } else if (compoundButton == this.cNS.asQ()) {
+        } else if (compoundButton == this.cNS.asM()) {
             this.cNT.a(4, z, this.cLZ);
-        } else if (compoundButton == this.cNS.asR()) {
+        } else if (compoundButton == this.cNS.asN()) {
             this.cNT.a(3, z, this.cLZ);
         }
     }

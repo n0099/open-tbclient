@@ -76,13 +76,13 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
         this.mProgress = (ProgressBar) findViewById(i.f.progress);
     }
 
-    private void XC() {
+    private void Xy() {
         this.bIX.setVisibility(8);
         this.bIY.setVisibility(0);
         ((AnimationDrawable) this.bIY.getBackground()).start();
     }
 
-    private void XD() {
+    private void Xz() {
         ((AnimationDrawable) this.bIY.getBackground()).stop();
         this.bIY.clearAnimation();
         this.bIX.setVisibility(0);
@@ -93,7 +93,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         try {
-            XD();
+            Xz();
         } catch (Exception e) {
         }
     }
@@ -107,7 +107,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
                 this.bIX.setVisibility(0);
             }
             this.mProgress.setVisibility(4);
-            XC();
+            Xy();
             VoiceMsgData v = com.baidu.tieba.im.util.h.v(this.bHu);
             if (v != null && v.getHas_read() != 1) {
                 v.setHas_read(1);
@@ -141,7 +141,7 @@ public class ChatVoiceView extends LinearLayout implements View.OnClickListener,
             }
             return;
         }
-        XD();
+        Xz();
         if (i == 1) {
             if (this.bIX != null) {
                 this.bIX.setVisibility(0);

@@ -38,13 +38,13 @@ public class b implements View.OnClickListener {
         bVar = this.bOO.bOI;
         if (bVar != null) {
             iVar = this.bOO.bOL;
-            iVar.aac();
+            iVar.ZY();
             bVar2 = this.bOO.bOI;
             int i = bVar2.TU;
             if (i == 0) {
                 if (!com.baidu.adp.lib.util.i.iM() || com.baidu.adp.lib.util.i.iN()) {
                     iVar2 = this.bOO.bOL;
-                    iVar2.aab();
+                    iVar2.ZX();
                     bVar8 = this.bOO.bOI;
                     String str = bVar8.TW;
                     if (StringUtils.isNull(str)) {
@@ -68,9 +68,9 @@ public class b implements View.OnClickListener {
                 bVar12 = this.bOO.bOI;
                 aVar.b(bVar12);
             } else if (i == 2) {
-                com.baidu.tbadk.download.b An = com.baidu.tbadk.download.b.An();
+                com.baidu.tbadk.download.b Ak = com.baidu.tbadk.download.b.Ak();
                 bVar3 = this.bOO.bOI;
-                if (An.eI(bVar3.Ua)) {
+                if (Ak.eI(bVar3.Ua)) {
                     bVar5 = this.bOO.bOI;
                     String str3 = bVar5.Ua;
                     bVar6 = this.bOO.bOI;
@@ -83,7 +83,7 @@ public class b implements View.OnClickListener {
                 }
                 bVar4 = this.bOO.bOI;
                 bVar4.TU = 0;
-                this.bOO.ZN();
+                this.bOO.ZJ();
             }
         }
     }

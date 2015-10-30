@@ -23,7 +23,7 @@ public class a implements DialogInterface.OnCancelListener, View.OnClickListener
     }
 
     private void init() {
-        this.bmO = Qu();
+        this.bmO = Qq();
         this.bmP = (LinearLayout) this.bmO.findViewById(i.f.gift_gif_ll);
         this.bmQ = (GiftGifView) this.bmO.findViewById(i.f.gift_gif_view);
         this.bmP.setOnClickListener(this);
@@ -43,7 +43,7 @@ public class a implements DialogInterface.OnCancelListener, View.OnClickListener
         }
     }
 
-    private Dialog Qu() {
+    private Dialog Qq() {
         Dialog dialog = new Dialog(this.mActivity, i.C0057i.dialog_full_screen);
         dialog.setContentView(i.g.gif_play_dialog);
         dialog.setOnDismissListener(new c(this));
@@ -52,7 +52,7 @@ public class a implements DialogInterface.OnCancelListener, View.OnClickListener
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.bmQ.Cc();
+        this.bmQ.BZ();
         com.baidu.adp.lib.g.j.b(this.bmO, this.mActivity);
     }
 

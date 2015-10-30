@@ -42,7 +42,7 @@ public class g extends BaseAdapter {
         this.cry.fetchPost(this.aPm, this.crz, z, this.wq, false);
     }
 
-    public void aiX() {
+    public void aiT() {
         if (this.cry != null) {
             this.cry.cancelLoadData();
         }
@@ -107,7 +107,7 @@ public class g extends BaseAdapter {
                 for (int i3 = 0; i3 < length2; i3++) {
                     stringBuffer.append(jj.content[i2].post_content[i3].text);
                 }
-                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(jj.thread_id), String.valueOf(jj.content[i2].post_id), String.valueOf(jj.content[i2].post_type), as.o(jj.content[i2].create_time * 1000), String.valueOf(jj.thread_type)});
+                arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(jj.thread_id), String.valueOf(jj.content[i2].post_id), String.valueOf(jj.content[i2].post_type), as.m(jj.content[i2].create_time * 1000), String.valueOf(jj.thread_type)});
             }
         }
         aVar.crC.setContent(arrayList);

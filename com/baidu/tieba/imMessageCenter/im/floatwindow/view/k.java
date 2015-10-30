@@ -38,16 +38,16 @@ public class k implements View.OnTouchListener {
                 h hVar = this.bMs;
                 i = this.bMs.bMo;
                 hVar.hI(i);
-                com.baidu.tieba.imMessageCenter.im.floatwindow.b Yh = com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yh();
+                com.baidu.tieba.imMessageCenter.im.floatwindow.b Yd = com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yd();
                 aVar = this.bMs.bMq;
-                Yh.a(aVar);
+                Yd.a(aVar);
                 break;
             case 2:
-                com.baidu.tieba.imMessageCenter.im.floatwindow.b Yh2 = com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yh();
+                com.baidu.tieba.imMessageCenter.im.floatwindow.b Yd2 = com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yd();
                 point = this.bMs.bLm;
                 int rawX = ((int) motionEvent.getRawX()) + point.x;
                 point2 = this.bMs.bLm;
-                Yh2.aj(rawX, (((int) motionEvent.getRawY()) - point2.y) - 25);
+                Yd2.aj(rawX, (((int) motionEvent.getRawY()) - point2.y) - 25);
                 break;
         }
         return false;

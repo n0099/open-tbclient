@@ -55,7 +55,7 @@ public class b {
         this.aLn = gVar;
     }
 
-    public g HW() {
+    public g HS() {
         return this.aLn;
     }
 
@@ -98,7 +98,7 @@ public class b {
         }
     }
 
-    public h HX() {
+    public h HT() {
         return this.aLm;
     }
 
@@ -106,7 +106,7 @@ public class b {
         this.aLm = hVar;
     }
 
-    public d HY() {
+    public d HU() {
         return this.aLl;
     }
 
@@ -122,14 +122,14 @@ public class b {
         return this.Cj;
     }
 
-    public boolean HZ() {
+    public boolean HV() {
         return System.currentTimeMillis() / com.baidu.tbadk.data.b.anm.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.anm.longValue();
     }
 
     public boolean isEmpty() {
         boolean z = false;
         if (this.Cj) {
-            if (this.aLl == null || this.aLl.Ib() == null || this.aLl.Ib().size() < 1) {
+            if (this.aLl == null || this.aLl.HX() == null || this.aLl.HX().size() < 1) {
                 z = true;
             }
             return z;

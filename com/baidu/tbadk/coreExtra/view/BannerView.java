@@ -28,9 +28,9 @@ public class BannerView extends RelativeLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void yK();
+        void yH();
 
-        void yL();
+        void yI();
     }
 
     public void setBannerType(String str) {
@@ -89,7 +89,7 @@ public class BannerView extends RelativeLayout {
         this.ajA = aVar;
     }
 
-    public boolean yJ() {
+    public boolean yG() {
         return this.ajz;
     }
 

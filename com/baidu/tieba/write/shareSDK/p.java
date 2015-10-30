@@ -41,15 +41,15 @@ public class p implements TbImageView.a {
                     writeShareActivity3 = this.dmR.dmO;
                     if (writeShareActivity3 != null) {
                         writeShareActivity4 = this.dmR.dmO;
-                        WriteData axO = writeShareActivity4.axO();
+                        WriteData axK = writeShareActivity4.axK();
                         i = this.dmR.width;
-                        axO.setShareSummaryImgWidth(i);
+                        axK.setShareSummaryImgWidth(i);
                         writeShareActivity5 = this.dmR.dmO;
-                        WriteData axO2 = writeShareActivity5.axO();
+                        WriteData axK2 = writeShareActivity5.axK();
                         i2 = this.dmR.height;
-                        axO2.setShareSummaryImgHeight(i2);
+                        axK2.setShareSummaryImgHeight(i2);
                         this.dmR.dmQ = true;
-                        this.dmR.aCj();
+                        this.dmR.aCf();
                         return;
                     }
                     return;
@@ -59,7 +59,7 @@ public class p implements TbImageView.a {
             return;
         }
         this.dmR.dmQ = false;
-        this.dmR.aCj();
+        this.dmR.aCf();
         writeShareActivity = this.dmR.dmO;
         if (writeShareActivity != null) {
             writeShareActivity2 = this.dmR.dmO;
@@ -72,7 +72,7 @@ public class p implements TbImageView.a {
         WriteShareActivity writeShareActivity;
         WriteShareActivity writeShareActivity2;
         this.dmR.dmQ = false;
-        this.dmR.aCj();
+        this.dmR.aCf();
         writeShareActivity = this.dmR.dmO;
         if (writeShareActivity != null) {
             writeShareActivity2 = this.dmR.dmO;

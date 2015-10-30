@@ -20,7 +20,7 @@ class d extends CustomMessageListener {
         com.baidu.tieba.hottopic.data.b bVar;
         com.baidu.tieba.hottopic.data.b bVar2;
         com.baidu.tieba.hottopic.data.b bVar3;
-        RelateForumItemData ay;
+        RelateForumItemData aw;
         com.baidu.tieba.hottopic.data.b bVar4;
         com.baidu.tieba.hottopic.view.a aVar;
         com.baidu.tieba.hottopic.data.b bVar5;
@@ -29,22 +29,22 @@ class d extends CustomMessageListener {
             bVar = this.boL.boD;
             if (bVar != null) {
                 bVar2 = this.boL.boD;
-                if (bVar2.QT() != null) {
+                if (bVar2.QP() != null) {
                     bVar3 = this.boL.boD;
-                    if (bVar3.QT().bpq != null) {
+                    if (bVar3.QP().bpq != null) {
                         Object data = customResponsedMessage.getData();
                         if (data instanceof Long) {
-                            ay = this.boL.ay(((Long) data).longValue());
-                            if (ay != null) {
-                                ay.followNum--;
-                                ay.setIsLiked(false);
+                            aw = this.boL.aw(((Long) data).longValue());
+                            if (aw != null) {
+                                aw.followNum--;
+                                aw.setIsLiked(false);
                                 bVar4 = this.boL.boD;
-                                bVar4.QT().bps = true;
+                                bVar4.QP().bps = true;
                                 aVar = this.boL.boz;
                                 bVar5 = this.boL.boD;
                                 aVar.b(bVar5);
                                 aVar2 = this.boL.boz;
-                                aVar2.Rc();
+                                aVar2.QY();
                             }
                         }
                     }

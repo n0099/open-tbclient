@@ -16,7 +16,7 @@ class k implements View.OnClickListener {
         bs bsVar;
         int intValue = ((Integer) view.getTag()).intValue();
         bsVar = this.aUK.aTU;
-        com.baidu.adp.widget.ListView.u aA = bsVar.LZ().aA(intValue);
+        com.baidu.adp.widget.ListView.u aA = bsVar.LV().aA(intValue);
         if (aA instanceof com.baidu.tbadk.core.data.b) {
             com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) aA;
             int i = bVar.TU;

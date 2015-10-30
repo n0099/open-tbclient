@@ -57,12 +57,12 @@ class i implements bl.a {
         this.ciK.cfb = true;
         long currentTimeMillis = System.currentTimeMillis();
         ccVar = this.ciK.cim;
-        ccVar.agB();
+        ccVar.agx();
         PbActivity pbActivity = this.ciK;
         ccVar2 = this.ciK.cim;
         pbActivity.hideLoadingView(ccVar2.getView());
         ccVar3 = this.ciK.cim;
-        ccVar3.Vv();
+        ccVar3.Vr();
         ccVar4 = this.ciK.cim;
         ccVar4.eP(false);
         z2 = this.ciK.atu;
@@ -76,28 +76,28 @@ class i implements bl.a {
         }
         if (z && bVar != null) {
             ccVar9 = this.ciK.cim;
-            ccVar9.LP();
+            ccVar9.LL();
             dVar = this.ciK.ciu;
             if (dVar != null) {
                 ccVar14 = this.ciK.cim;
                 dVar8 = this.ciK.ciu;
-                ccVar14.eN(dVar8.Br());
+                ccVar14.eN(dVar8.Bo());
             }
             TbadkCoreApplication.m411getInst().setDefaultBubble(bVar.getUserData().getBimg_url());
             TbadkCoreApplication.m411getInst().setDefaultBubbleEndTime(bVar.getUserData().getBimg_end_time());
             dVar2 = this.ciK.ciu;
             if (dVar2 != null) {
                 dVar6 = this.ciK.ciu;
-                dVar6.a(bVar.rF());
+                dVar6.a(bVar.rC());
                 dVar7 = this.ciK.ciu;
-                dVar7.a(bVar.aeN(), bVar.getUserData());
+                dVar7.a(bVar.aeJ(), bVar.getUserData());
             }
             aVar = this.ciK.cii;
             if (aVar != null) {
                 aVar2 = this.ciK.cii;
-                aVar2.ab(bVar.qk());
+                aVar2.ab(bVar.qh());
             }
-            if (bVar == null || bVar.aeT() != 1) {
+            if (bVar == null || bVar.aeP() != 1) {
                 this.ciK.mIsFromCDN = false;
             } else {
                 this.ciK.mIsFromCDN = true;
@@ -107,27 +107,27 @@ class i implements bl.a {
             ccVar10.eO(z4);
             ccVar11 = this.ciK.cim;
             blVar = this.ciK.cih;
-            boolean afL = blVar.afL();
+            boolean afH = blVar.afH();
             blVar2 = this.ciK.cih;
-            ccVar11.a(bVar, i2, i3, afL, i4, blVar2.getIsFromMark());
+            ccVar11.a(bVar, i2, i3, afH, i4, blVar2.getIsFromMark());
             ccVar12 = this.ciK.cim;
             blVar3 = this.ciK.cih;
-            ccVar12.a(bVar, blVar3.afL(), false, i2);
+            ccVar12.a(bVar, blVar3.afH(), false, i2);
             ccVar13 = this.ciK.cim;
             blVar4 = this.ciK.cih;
             ccVar13.eL(blVar4.getHostMode());
-            this.ciK.afy();
-            AntiData rF = bVar.rF();
-            if (rF != null) {
-                this.ciK.asc = rF.getVoice_message();
+            this.ciK.afu();
+            AntiData rC = bVar.rC();
+            if (rC != null) {
+                this.ciK.asc = rC.getVoice_message();
                 str2 = this.ciK.asc;
                 if (!StringUtils.isNull(str2)) {
                     dVar3 = this.ciK.ciu;
                     if (dVar3 != null) {
                         dVar4 = this.ciK.ciu;
-                        if (dVar4.Ax() != null) {
+                        if (dVar4.Au() != null) {
                             dVar5 = this.ciK.ciu;
-                            com.baidu.tbadk.editortools.p dS = dVar5.Ax().dS(6);
+                            com.baidu.tbadk.editortools.p dS = dVar5.Au().dS(6);
                             if (dS != null) {
                                 str3 = this.ciK.asc;
                                 if (!TextUtils.isEmpty(str3)) {
@@ -147,7 +147,7 @@ class i implements bl.a {
                     ccVar7 = this.ciK.cim;
                     pbActivity2.showNetRefreshView(ccVar7.getView(), this.ciK.getPageContext().getResources().getString(i.h.net_error_text, str, Integer.valueOf(i)), true);
                     ccVar8 = this.ciK.cim;
-                    ccVar8.agQ();
+                    ccVar8.agM();
                 }
             } else {
                 this.ciK.showToast(str);
@@ -155,7 +155,7 @@ class i implements bl.a {
             ccVar5 = this.ciK.cim;
             ccVar5.jQ(this.ciK.getResources().getString(i.h.list_no_more));
             ccVar6 = this.ciK.cim;
-            ccVar6.vy();
+            ccVar6.vv();
         }
         this.ciK.axy = System.currentTimeMillis() - currentTimeMillis;
     }
@@ -183,7 +183,7 @@ class i implements bl.a {
             tVar.axs = j2;
             j3 = this.ciK.axz;
             tVar.axz = j3;
-            tVar.DV();
+            tVar.DS();
         }
     }
 
@@ -209,7 +209,7 @@ class i implements bl.a {
                 j4 = this.ciK.axz;
             }
             tVar.axz = j4;
-            tVar.DW();
+            tVar.DT();
         }
     }
 }

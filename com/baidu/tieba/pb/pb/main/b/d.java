@@ -16,6 +16,6 @@ public class d implements View.OnClickListener {
     public void onClick(View view) {
         PbActivity pbActivity;
         pbActivity = this.clZ.ciU;
-        pbActivity.Lg();
+        pbActivity.Lc();
     }
 }

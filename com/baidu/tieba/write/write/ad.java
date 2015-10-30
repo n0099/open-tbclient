@@ -18,11 +18,11 @@ public class ad implements View.OnFocusChangeListener {
         if (z) {
             this.dqi.dqb = false;
             this.dqi.dqf = false;
-            this.dqi.aDh();
+            this.dqi.aDd();
             jVar = this.dqi.dpD;
             if (jVar != null) {
                 jVar2 = this.dqi.dpD;
-                jVar2.za();
+                jVar2.yX();
             }
         }
     }

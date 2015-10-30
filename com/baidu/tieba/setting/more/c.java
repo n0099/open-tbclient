@@ -28,11 +28,11 @@ public class c extends com.baidu.adp.base.f<AboutActivity> {
         this.cMl = 0;
         this.lastClickTime = 0L;
         this.cMm = aboutActivity;
-        zk();
+        zh();
         a(rVar);
     }
 
-    public void aru() {
+    public void arq() {
         if (this.cMs != null) {
             this.cMs.setVisibility(0);
         }
@@ -44,7 +44,7 @@ public class c extends com.baidu.adp.base.f<AboutActivity> {
         }
     }
 
-    private void zk() {
+    private void zh() {
         this.cMm.setContentView(i.g.about_activity);
         this.cMn = (RelativeLayout) this.cMm.findViewById(i.f.parent);
         this.mNavigationBar = (NavigationBar) this.cMm.findViewById(i.f.view_navigation_bar);
@@ -75,7 +75,7 @@ public class c extends com.baidu.adp.base.f<AboutActivity> {
         this.cMo.setOnClickListener(dVar);
     }
 
-    public void arv() {
+    public void arr() {
         if (this.cMp != null) {
             this.cMp.refresh();
         }
@@ -86,6 +86,6 @@ public class c extends com.baidu.adp.base.f<AboutActivity> {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         this.cMm.getLayoutMode().ad(i == 1);
         this.cMm.getLayoutMode().k(this.cMn);
-        arv();
+        arr();
     }
 }

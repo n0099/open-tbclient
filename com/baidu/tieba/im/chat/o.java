@@ -210,7 +210,7 @@ public class o {
                             }
                             str2 = "";
                         }
-                        SpannableString a = a(cVar.EX(), name, str3);
+                        SpannableString a = a(cVar.ET(), name, str3);
                         if (a != null) {
                             cVar.append(a);
                         }
@@ -237,14 +237,14 @@ public class o {
 
     private static SpannableString a(ArrayList<com.baidu.tbadk.widget.richText.e> arrayList, String str, String str2) {
         SpannableString spannableString = null;
-        int eM = TbFaceManager.Ce().eM(str);
+        int eM = TbFaceManager.Cb().eM(str);
         if (eM != 0) {
             spannableString = new SpannableString(String.valueOf(str2) + " ");
             com.baidu.tbadk.widget.richText.e eVar = new com.baidu.tbadk.widget.richText.e(TbadkCoreApplication.m411getInst(), eM);
             if (arrayList != null) {
                 arrayList.add(eVar);
             }
-            a.C0049a fk = TbFaceManager.Ce().fk(str);
+            a.C0049a fk = TbFaceManager.Cb().fk(str);
             if (fk != null) {
                 int width = (int) (0.5d * fk.getWidth());
                 eVar.setBounds(new Rect(0, 0, width, width));

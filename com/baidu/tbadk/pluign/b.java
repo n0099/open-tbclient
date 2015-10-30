@@ -15,11 +15,11 @@ class b extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-            long j = com.baidu.tbadk.core.sharedPref.b.tu().getLong("clear_redundance_files_time", 0L);
+            long j = com.baidu.tbadk.core.sharedPref.b.tr().getLong("clear_redundance_files_time", 0L);
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - j > 86400000) {
                 PluginPackageManager.lR().mc();
-                com.baidu.tbadk.core.sharedPref.b.tu().putLong("clear_redundance_files_time", currentTimeMillis);
+                com.baidu.tbadk.core.sharedPref.b.tr().putLong("clear_redundance_files_time", currentTimeMillis);
             }
         }
     }

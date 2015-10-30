@@ -34,8 +34,8 @@ public class d implements o.a<byte[]> {
             } catch (Exception e) {
                 this.aMr.ap(false);
             }
-            if (this.aMr.isSuccess() && !this.aMr.HZ()) {
-                this.aMr.HY().Ic();
+            if (this.aMr.isSuccess() && !this.aMr.HV()) {
+                this.aMr.HU().HY();
             }
             BdLog.d("EnterForumTask,TYPE_DB,data.isEmpty=" + this.aMr.isEmpty());
             handler = this.aMq.mUIHandler;

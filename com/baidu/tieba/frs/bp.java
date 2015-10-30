@@ -22,7 +22,7 @@ public class bp extends BaseAdapter {
         this.mContext = context;
         this.Xh = arrayList;
         this.aWj = this.mContext.getText(i.h.frs_good).toString();
-        LE();
+        LA();
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -34,10 +34,10 @@ public class bp extends BaseAdapter {
 
     public void setData(ArrayList<com.baidu.tbadk.core.data.k> arrayList) {
         this.Xh = arrayList;
-        LE();
+        LA();
     }
 
-    private void LE() {
+    private void LA() {
         int i = 0;
         if (this.Xh != null) {
             ArrayList<com.baidu.tbadk.core.data.k> arrayList = new ArrayList<>();
@@ -52,7 +52,7 @@ public class bp extends BaseAdapter {
                         break;
                     }
                     com.baidu.tbadk.core.data.k kVar2 = this.Xh.get(i2);
-                    if (kVar2.rE() != 0) {
+                    if (kVar2.rB() != 0) {
                         arrayList.add(kVar2);
                     }
                     i = i2 + 1;
@@ -134,7 +134,7 @@ public class bp extends BaseAdapter {
             if (item == null) {
                 return view3;
             }
-            aVar.aEE.setText(((com.baidu.tbadk.core.data.k) item).rD());
+            aVar.aEE.setText(((com.baidu.tbadk.core.data.k) item).rA());
             return view3;
         } catch (Exception e2) {
             exc = e2;

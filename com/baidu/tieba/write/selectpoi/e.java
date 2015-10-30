@@ -26,7 +26,7 @@ public class e implements TextWatcher {
     public void afterTextChanged(Editable editable) {
         TextView textView;
         TextView textView2;
-        if (StringUtils.isNull(this.dlO.aqE())) {
+        if (StringUtils.isNull(this.dlO.aqA())) {
             textView2 = this.dlO.dlK;
             textView2.setEnabled(false);
             return;

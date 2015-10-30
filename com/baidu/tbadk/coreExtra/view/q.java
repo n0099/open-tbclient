@@ -25,7 +25,7 @@ public class q implements View.OnClickListener {
         aVar = this.akJ.mCardOnClickDispatch;
         if (aVar != null) {
             aVar2 = this.akJ.mCardOnClickDispatch;
-            if (!aVar2.yX()) {
+            if (!aVar2.yU()) {
                 return;
             }
         }

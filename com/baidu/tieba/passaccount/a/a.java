@@ -24,7 +24,7 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a aed() {
+    public static a adZ() {
         if (cdt == null) {
             cdt = new a();
         }
@@ -62,7 +62,7 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public void re() {
+    public void rb() {
         AccountData currentAccountObj;
         a.b cc;
         if (i.iM() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (cc = cc(currentAccountObj.getBDUSS())) != null) {

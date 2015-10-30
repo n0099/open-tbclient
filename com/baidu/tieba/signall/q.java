@@ -21,7 +21,7 @@ public class q {
         return this.signed;
     }
 
-    public int atS() {
+    public int atO() {
         return this.cQX;
     }
 
@@ -29,7 +29,7 @@ public class q {
         return this.cQY;
     }
 
-    public a atr() {
+    public a atn() {
         return this.cPU;
     }
 

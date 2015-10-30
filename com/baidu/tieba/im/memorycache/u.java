@@ -30,13 +30,13 @@ public class u implements CustomMessageTask.CustomRunnable<String> {
             return null;
         }
         try {
-            com.baidu.tieba.im.db.g.TJ().TK();
-            com.baidu.tieba.im.db.i.TO().a(this.bEx, 3);
-            com.baidu.tieba.im.db.c.TF().c(this.bEy.getGroupId(), String.valueOf(this.bEy.getRecordId()), String.valueOf(this.bEy.getMsgId()), this.bEy.getLocalData().getStatus().shortValue());
+            com.baidu.tieba.im.db.g.TF().TG();
+            com.baidu.tieba.im.db.i.TK().a(this.bEx, 3);
+            com.baidu.tieba.im.db.c.TB().c(this.bEy.getGroupId(), String.valueOf(this.bEy.getRecordId()), String.valueOf(this.bEy.getMsgId()), this.bEy.getLocalData().getStatus().shortValue());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
-            com.baidu.tieba.im.db.g.TJ().endTransaction();
+            com.baidu.tieba.im.db.g.TF().endTransaction();
         }
         return new CustomResponsedMessage<>(CmdConfigCustom.MEMORY_COMMIT_MSG_ACK, this.bEz);
     }

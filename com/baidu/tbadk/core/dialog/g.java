@@ -14,7 +14,7 @@ public class g {
         this.Xn = z;
     }
 
-    public String ta() {
+    public String sX() {
         return this.tip;
     }
 

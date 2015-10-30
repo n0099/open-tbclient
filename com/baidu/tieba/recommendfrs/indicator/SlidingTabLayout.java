@@ -44,7 +44,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         this.mViewPager = viewPager;
         if (viewPager != null) {
             viewPager.setOnPageChangeListener(new a(this, null));
-            aqD();
+            aqz();
         }
     }
 
@@ -68,7 +68,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         return textView;
     }
 
-    private void aqD() {
+    private void aqz() {
         PagerAdapter adapter = this.mViewPager.getAdapter();
         b bVar = new b(this, null);
         for (int i = 0; i < adapter.getCount(); i++) {

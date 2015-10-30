@@ -26,6 +26,6 @@ class a implements d.a {
         }
         this.deY.showToast(str);
         gVar3 = this.deY.deV;
-        gVar3.Kr();
+        gVar3.Kn();
     }
 }

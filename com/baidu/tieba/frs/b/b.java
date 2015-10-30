@@ -79,7 +79,7 @@ public class b implements ea {
                 if (frsHeaderView4 != null) {
                     bdListView6 = this.bbY.bbG;
                     frsHeaderView5 = this.bbY.bbH;
-                    bdListView6.removeHeaderView(frsHeaderView5.NT());
+                    bdListView6.removeHeaderView(frsHeaderView5.NP());
                     this.bbY.bbV = false;
                 }
             }
@@ -89,7 +89,7 @@ public class b implements ea {
                 if (qVar4 != null) {
                     bdListView5 = this.bbY.bbG;
                     qVar5 = this.bbY.bbI;
-                    bdListView5.removeHeaderView(qVar5.NT());
+                    bdListView5.removeHeaderView(qVar5.NP());
                     this.bbY.bbV = false;
                 }
             }
@@ -99,14 +99,14 @@ public class b implements ea {
                 frsHeaderView = this.bbY.bbH;
                 if (frsHeaderView != null) {
                     frsHeaderView2 = this.bbY.bbH;
-                    if (frsHeaderView2.NT() != null) {
+                    if (frsHeaderView2.NP() != null) {
                         z2 = this.bbY.bbV;
                         if (!z2) {
                             bdListView3 = this.bbY.bbG;
                             frsHeaderView3 = this.bbY.bbH;
-                            View NT = frsHeaderView3.NT();
+                            View NP = frsHeaderView3.NP();
                             bdListView4 = this.bbY.bbG;
-                            bdListView3.d(NT, bdListView4.getHeaderViewsCount());
+                            bdListView3.d(NP, bdListView4.getHeaderViewsCount());
                             this.bbY.bbV = true;
                         }
                     }
@@ -117,14 +117,14 @@ public class b implements ea {
                 qVar = this.bbY.bbI;
                 if (qVar != null) {
                     qVar2 = this.bbY.bbI;
-                    if (qVar2.NT() != null) {
+                    if (qVar2.NP() != null) {
                         z = this.bbY.bbV;
                         if (!z) {
                             bdListView = this.bbY.bbG;
                             qVar3 = this.bbY.bbI;
-                            View NT2 = qVar3.NT();
+                            View NP2 = qVar3.NP();
                             bdListView2 = this.bbY.bbG;
-                            bdListView.d(NT2, bdListView2.getHeaderViewsCount());
+                            bdListView.d(NP2, bdListView2.getHeaderViewsCount());
                             this.bbY.bbV = true;
                         }
                     }
@@ -144,6 +144,6 @@ public class b implements ea {
     }
 
     @Override // com.baidu.tieba.frs.ea
-    public void Ku() {
+    public void Kq() {
     }
 }

@@ -140,7 +140,7 @@ public class i extends BaseAdapter {
         this.aEC = z;
     }
 
-    public boolean FV() {
+    public boolean FR() {
         return this.aEC;
     }
 

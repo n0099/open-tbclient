@@ -31,7 +31,7 @@ public class c implements View.OnClickListener {
             messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(hotTopicActivity.getPageContext().getPageActivity()).createNormalCfg(this.ayZ, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
             aq ae = new aq("c10365").ae("obj_type", "1");
             hotTopicActivity2 = this.bqr.bod;
-            TiebaStatic.log(ae.ae("obj_id", hotTopicActivity2.QP()));
+            TiebaStatic.log(ae.ae("obj_id", hotTopicActivity2.QL()));
         }
     }
 }

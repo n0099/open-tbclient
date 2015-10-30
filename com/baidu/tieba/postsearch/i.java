@@ -11,7 +11,7 @@ class i implements CustomMessageTask.CustomRunnable<Void> {
         if (customMessage == null) {
             return null;
         }
-        com.baidu.tieba.tbadkCore.util.m.axF();
+        com.baidu.tieba.tbadkCore.util.m.axB();
         return new CustomResponsedMessage<>(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA);
     }
 }

@@ -20,8 +20,8 @@ public class az extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        EditText aDw;
-        EditText aDw2;
+        EditText aDs;
+        EditText aDs2;
         a.InterfaceC0074a interfaceC0074a;
         super.a((az) aVar, str, i);
         if (aVar != null && aVar.na() != null && aVar.ne() != null) {
@@ -29,13 +29,13 @@ public class az extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
             if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
                 ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.ac.mAlpha);
             }
-            aDw = this.dqi.aDw();
-            aDw.setBackgroundDrawable(ninePatchDrawable);
+            aDs = this.dqi.aDs();
+            aDs.setBackgroundDrawable(ninePatchDrawable);
             if (this.dql) {
                 WriteActivity writeActivity = this.dqi;
-                aDw2 = this.dqi.aDw();
+                aDs2 = this.dqi.aDs();
                 interfaceC0074a = this.dqi.clE;
-                com.baidu.tieba.tbadkCore.c.a.a(writeActivity, aDw2, true, interfaceC0074a);
+                com.baidu.tieba.tbadkCore.c.a.a(writeActivity, aDs2, true, interfaceC0074a);
             }
         }
     }

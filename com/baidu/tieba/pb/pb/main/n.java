@@ -17,7 +17,7 @@ class n implements PbActivity.b {
         blVar = this.ciK.cih;
         if (blVar.ey(true)) {
             ccVar = this.ciK.cim;
-            ccVar.agA();
+            ccVar.agw();
         }
     }
 }

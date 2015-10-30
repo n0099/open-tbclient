@@ -12,6 +12,6 @@ class r implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB, ThemeStatic.bz(l.azs().azu()));
+        return new CustomResponsedMessage<>(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB, ThemeStatic.bz(l.azo().azq()));
     }
 }

@@ -144,10 +144,10 @@ public class m implements com.baidu.tbadk.mvc.b.c {
                         wVar.a(list3.get(i4));
                         wVar.parser_title();
                         wVar.j(this.cXz);
-                        if (wVar.sq() == 33 && !wVar.sv()) {
+                        if (wVar.sn() == 33 && !wVar.ss()) {
                             com.baidu.tbadk.core.data.t tVar = new com.baidu.tbadk.core.data.t();
                             tVar.a(wVar, i5);
-                            i = tVar.sc() != null ? tVar.sc().getShowStyle() : i5;
+                            i = tVar.rZ() != null ? tVar.rZ().getShowStyle() : i5;
                             if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                                 this.threadList.add(tVar);
                             }
@@ -212,7 +212,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Cz() {
+    public byte[] Cw() {
         return null;
     }
 
@@ -234,7 +234,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
     public void a(Message message) {
     }
 
-    public ForumData aeN() {
+    public ForumData aeJ() {
         return this.cgf;
     }
 
@@ -250,7 +250,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.threadList = arrayList;
     }
 
-    public AntiData rF() {
+    public AntiData rC() {
         return this.UT;
     }
 
@@ -266,7 +266,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.caH = oVar;
     }
 
-    public n avu() {
+    public n avq() {
         return this.cXm;
     }
 
@@ -274,7 +274,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.cXm = nVar;
     }
 
-    public com.baidu.tbadk.core.data.h avv() {
+    public com.baidu.tbadk.core.data.h avr() {
         return this.cXA;
     }
 
@@ -282,7 +282,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.cXA = hVar;
     }
 
-    public boolean avw() {
+    public boolean avs() {
         return this.cXn;
     }
 
@@ -290,7 +290,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.cXn = z;
     }
 
-    public String avx() {
+    public String avt() {
         return this.cXo;
     }
 
@@ -298,7 +298,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.cXo = str;
     }
 
-    public p avy() {
+    public p avu() {
         return this.cXp;
     }
 
@@ -314,7 +314,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.cgl = userData;
     }
 
-    public List<Long> avz() {
+    public List<Long> avv() {
         return this.cXl;
     }
 
@@ -322,7 +322,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.cXl = list;
     }
 
-    public b avA() {
+    public b avw() {
         return this.cXq;
     }
 
@@ -330,7 +330,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.cXq = bVar;
     }
 
-    public boolean avB() {
+    public boolean avx() {
         return this.cXr;
     }
 
@@ -346,7 +346,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.gameName = str;
     }
 
-    public List<h> avC() {
+    public List<h> avy() {
         return this.cXs;
     }
 
@@ -362,7 +362,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.userMap = hashMap;
     }
 
-    public int aeT() {
+    public int aeP() {
         return this.cXt;
     }
 
@@ -370,7 +370,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.cXt = i;
     }
 
-    public ArrayList<LiveCardData> avD() {
+    public ArrayList<LiveCardData> avz() {
         return this.cXu;
     }
 
@@ -378,11 +378,11 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.cXu = arrayList;
     }
 
-    public List<PhotoLiveCardData> avE() {
+    public List<PhotoLiveCardData> avA() {
         return this.cXv;
     }
 
-    public String avF() {
+    public String avB() {
         return this.cXy;
     }
 
@@ -390,7 +390,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.cXy = str;
     }
 
-    public List<FrsTabInfo> avG() {
+    public List<FrsTabInfo> avC() {
         return this.cXB;
     }
 
@@ -402,11 +402,11 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.cXv = list;
     }
 
-    public boolean avH() {
+    public boolean avD() {
         return this.cXx != null;
     }
 
-    public PhotoLiveCardData avI() {
+    public PhotoLiveCardData avE() {
         return this.cXx;
     }
 
@@ -414,7 +414,7 @@ public class m implements com.baidu.tbadk.mvc.b.c {
         this.cXx = photoLiveCardData;
     }
 
-    public int avJ() {
+    public int avF() {
         return this.cXw;
     }
 

@@ -19,7 +19,7 @@ class r implements Runnable {
         FrsActivity frsActivity;
         oVar = this.bcg.bcf;
         bsVar = oVar.aTU;
-        if (bsVar.KN()) {
+        if (bsVar.KJ()) {
             oVar2 = this.bcg.bcf;
             frsActivity = oVar2.baR;
             frsActivity.loadMore();

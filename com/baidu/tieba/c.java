@@ -52,7 +52,7 @@ class c implements View.OnClickListener {
                 intent.putExtra("jump_url", loadString);
                 TbadkCoreApplication.setIntent(intent);
                 logoActivity14 = this.aDx.aDw;
-                logoActivity14.FH();
+                logoActivity14.FD();
             }
         } else if (loadInt == 3) {
             String loadString2 = TbadkSettings.getInst().loadString("apk_url", "");
@@ -97,7 +97,7 @@ class c implements View.OnClickListener {
                 aVar5.b(baseActivity.getPageContext());
                 logoActivity10 = this.aDx.aDw;
                 aVar6 = logoActivity10.Lu;
-                aVar6.sR();
+                aVar6.sO();
                 com.baidu.adp.lib.g.h hg = com.baidu.adp.lib.g.h.hg();
                 logoActivity11 = this.aDx.aDw;
                 aVar7 = logoActivity11.aDu;

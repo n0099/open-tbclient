@@ -11,7 +11,7 @@ public class h {
     private int height;
     private int width;
 
-    public ArrayList<i> rx() {
+    public ArrayList<i> ru() {
         return this.UI;
     }
 

@@ -78,21 +78,21 @@ public class f implements a.InterfaceC0004a {
     }
 
     public f(com.baidu.adp.lib.network.http.e eVar) {
-        vd();
+        va();
         this.acc = eVar;
         this.mContext = TbadkCoreApplication.m411getInst().getApp();
     }
 
-    public static void vd() {
+    public static void va() {
         synchronized (f.class) {
             if (!abY) {
                 abY = true;
-                ve();
+                vb();
             }
         }
     }
 
-    public static synchronized void ve() {
+    public static synchronized void vb() {
         synchronized (f.class) {
             try {
                 Cursor query = TbadkCoreApplication.m411getInst().getApp().getContentResolver().query(Uri.parse("content://telephony/carriers/preferapn"), null, null, null, null);
@@ -110,10 +110,10 @@ public class f implements a.InterfaceC0004a {
     public void gJ() {
         this.acb = true;
         this.acc.gQ().vd = true;
-        vf();
+        vc();
     }
 
-    private void vf() {
+    private void vc() {
         try {
             if (this.abZ != null) {
                 this.abZ.abort();
@@ -329,7 +329,7 @@ public class f implements a.InterfaceC0004a {
                     } catch (Exception e5) {
                     }
                 }
-                vf();
+                vc();
                 this.acc.b(dVar);
                 if ((str == null || str.length() == 0) && c != null) {
                     boolean iN2 = com.baidu.adp.lib.util.i.iN();
@@ -382,7 +382,7 @@ public class f implements a.InterfaceC0004a {
                     this.acc.gQ().contentType = obj2;
                     if (obj2.contains("text/vnd.wap.wml")) {
                         if (this.aca < 1) {
-                            vf();
+                            vc();
                             this.aca++;
                             this.acc.gQ().responseCode = 0;
                             i2--;
@@ -392,7 +392,7 @@ public class f implements a.InterfaceC0004a {
                                 } catch (Exception e10) {
                                 }
                             }
-                            vf();
+                            vc();
                             this.acc.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean iN3 = com.baidu.adp.lib.util.i.iN();
@@ -417,7 +417,7 @@ public class f implements a.InterfaceC0004a {
                                 } catch (Exception e11) {
                                 }
                             }
-                            vf();
+                            vc();
                             this.acc.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean iN4 = com.baidu.adp.lib.util.i.iN();
@@ -445,7 +445,7 @@ public class f implements a.InterfaceC0004a {
                         } catch (Exception e12) {
                         }
                     }
-                    vf();
+                    vc();
                     this.acc.b(dVar);
                     if ((str == null || str.length() == 0) && c != null) {
                         boolean iN5 = com.baidu.adp.lib.util.i.iN();
@@ -499,7 +499,7 @@ public class f implements a.InterfaceC0004a {
                         } catch (Exception e13) {
                         }
                     }
-                    vf();
+                    vc();
                     this.acc.b(dVar);
                     if ((str == null || str.length() == 0) && c != null) {
                         boolean iN6 = com.baidu.adp.lib.util.i.iN();
@@ -558,7 +558,7 @@ public class f implements a.InterfaceC0004a {
                             } catch (Exception e15) {
                             }
                         }
-                        vf();
+                        vc();
                         this.acc.b(dVar);
                         if ((str == null || str.length() == 0) && c != null) {
                             boolean iN7 = com.baidu.adp.lib.util.i.iN();
@@ -587,7 +587,7 @@ public class f implements a.InterfaceC0004a {
                             } catch (Exception e17) {
                             }
                         }
-                        vf();
+                        vc();
                         this.acc.b(dVar);
                         if ((str == null || str.length() == 0) && c != null) {
                             boolean iN8 = com.baidu.adp.lib.util.i.iN();
@@ -618,7 +618,7 @@ public class f implements a.InterfaceC0004a {
                                 } catch (Exception e19) {
                                 }
                             }
-                            vf();
+                            vc();
                             this.acc.b(dVar);
                             if ((str == null || str.length() == 0) && c != null) {
                                 boolean iN9 = com.baidu.adp.lib.util.i.iN();
@@ -645,7 +645,7 @@ public class f implements a.InterfaceC0004a {
                                 } catch (Exception e20) {
                                 }
                             }
-                            vf();
+                            vc();
                             this.acc.b(dVar);
                             if ((str != null || str.length() == 0) && c != null) {
                                 iN = com.baidu.adp.lib.util.i.iN();
@@ -674,7 +674,7 @@ public class f implements a.InterfaceC0004a {
                             } catch (Exception e22) {
                             }
                         }
-                        vf();
+                        vc();
                         this.acc.b(dVar);
                         if ((str == null || str.length() == 0) && c != null) {
                             boolean iN10 = com.baidu.adp.lib.util.i.iN();
@@ -697,7 +697,7 @@ public class f implements a.InterfaceC0004a {
                         z16 = z10;
                         if (inputStream != null) {
                         }
-                        vf();
+                        vc();
                         this.acc.b(dVar);
                         if (str != null) {
                         }
@@ -715,7 +715,7 @@ public class f implements a.InterfaceC0004a {
         }
         this.aca = 0;
         this.acc.gQ().vf = bArr;
-        vf();
+        vc();
         this.acc.b(dVar);
         if ((str == null || str.length() == 0) && c != null) {
             boolean iN11 = com.baidu.adp.lib.util.i.iN();
@@ -735,7 +735,7 @@ public class f implements a.InterfaceC0004a {
         this.acc.gQ().vf = bArr;
     }
 
-    public void vg() {
+    public void vd() {
         e(null, null, -1);
     }
 
@@ -743,7 +743,7 @@ public class f implements a.InterfaceC0004a {
         return this.rG;
     }
 
-    public boolean vh() {
+    public boolean ve() {
         return this.acg;
     }
 

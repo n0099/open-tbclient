@@ -9,7 +9,7 @@ class k implements com.baidu.tbadk.editortools.c.b {
     }
 
     @Override // com.baidu.tbadk.editortools.c.b
-    public void Bm() {
+    public void Bj() {
         this.cfl.showProgressBar();
     }
 }

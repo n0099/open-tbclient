@@ -58,11 +58,11 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                         wVar.setUserMap(this.userMap);
                         wVar.a(list2.get(i2));
                         wVar.parser_title();
-                        if (wVar.sq() == 33) {
+                        if (wVar.sn() == 33) {
                             t tVar = new t();
                             tVar.a(wVar, i5);
-                            if (tVar.sc() != null) {
-                                i5 = tVar.sc().getShowStyle();
+                            if (tVar.rZ() != null) {
+                                i5 = tVar.rZ().getShowStyle();
                             }
                             if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                                 this.threadList.add(tVar);

@@ -58,7 +58,7 @@ public class j implements com.baidu.adp.plugin.packageManager.pluginFileDownload
         if (bdFileDownloadData != null && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().findPluginSetting((id = bdFileDownloadData.getId()))) != null) {
             com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().l(id, a.b.DX);
             com.baidu.adp.plugin.b.a.lF().H("plugin_download", bdFileDownloadData.getId());
-            if (Util.l(findPluginSetting.size)) {
+            if (Util.j(findPluginSetting.size)) {
                 dVar2 = this.this$0.DC;
                 if (dVar2 != null) {
                     PluginPackageManager.a aVar = new PluginPackageManager.a(this.this$0, null);

@@ -68,25 +68,25 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xC() {
+    public void xz() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String xD() {
+    public String xA() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
     public void ea(String str) {
-        String xD = xD();
-        if (!TextUtils.equals(xD, str) || !eb(xD)) {
-            ai(str, xD);
+        String xA = xA();
+        if (!TextUtils.equals(xA, str) || !eb(xA)) {
+            ai(str, xA);
         }
     }
 
-    public void xE() {
+    public void xB() {
         if (i.iN()) {
             TbadkSettings inst = TbadkSettings.getInst();
             ai(inst.loadString("launch_config_remote_url", ""), inst.loadString("launch_config_local_url", ""));
@@ -146,7 +146,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
             if (bool != null && bool.booleanValue()) {
-                new b().xC();
+                new b().xz();
             }
         }
     }

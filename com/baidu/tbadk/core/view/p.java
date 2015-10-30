@@ -43,7 +43,7 @@ public class p extends com.baidu.adp.widget.ListView.d {
         this.aew = LayoutInflater.from(getContext()).inflate(i.g.tb_pull_view, (ViewGroup) null);
         this.aex = (LinearLayout) this.aew.findViewById(i.f.pull_root);
         this.aey = (ImageView) this.aew.findViewById(i.f.pull_image);
-        this.aeB = af.ut().cq(TbadkCoreApplication.m411getInst().getSkinType());
+        this.aeB = af.uq().cq(TbadkCoreApplication.m411getInst().getSkinType());
         this.aey.setBackgroundDrawable(this.aeB);
         return this.aew;
     }

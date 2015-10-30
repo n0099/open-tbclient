@@ -160,7 +160,7 @@ public class PluginPackageManager {
         if (this.Dv) {
             com.baidu.adp.plugin.b.a.lF().a("plugin_install", str2, (PluginSetting) null);
             com.baidu.adp.plugin.b.a.lF().d("plugin_install", "plugin_install", str2, null);
-            if (!Util.l(new File(str).length())) {
+            if (!Util.j(new File(str).length())) {
                 m.c(str, str2, "rom_size", String.valueOf(Util.mx()));
             } else if (str != null && (file = new File(str)) != null) {
                 if (file.exists()) {
@@ -512,7 +512,7 @@ public class PluginPackageManager {
             bdFileDownloadData.setPath(Util.f(pluginSetting));
             bdFileDownloadData.setCheck(pluginSetting.tempMd5);
             BdLog.i("pluginFileDownloader startDownload downloadPlugin");
-            if (!Util.l(pluginSetting.size)) {
+            if (!Util.j(pluginSetting.size)) {
                 if (aVar != null) {
                     bdFileDownloadData.setStatusMsg(BdBaseApplication.getInst().getString(R.string.rom_too_small));
                     bdFileDownloadData.setStatus(2);

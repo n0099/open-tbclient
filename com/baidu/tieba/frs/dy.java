@@ -24,6 +24,6 @@ public class dy implements View.OnClickListener {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
         context = this.aYP.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXr.getAuthor().getUserId(), this.aXr.getAuthor().getName_show(), this.aYP.aTW.aeN().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXr.getAuthor().getUserId(), this.aXr.getAuthor().getName_show(), this.aYP.aTW.aeJ().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

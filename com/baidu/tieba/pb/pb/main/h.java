@@ -47,19 +47,19 @@ class h implements a.d {
         }
         if (z) {
             ccVar2 = this.ciK.cim;
-            ccVar2.agM();
+            ccVar2.agI();
             dVar = this.ciK.ciu;
             if (dVar != null) {
                 ccVar8 = this.ciK.cim;
                 dVar2 = this.ciK.ciu;
-                ccVar8.eN(dVar2.Br());
+                ccVar8.eN(dVar2.Bo());
             }
             ccVar3 = this.ciK.cim;
-            ccVar3.agn();
+            ccVar3.agj();
             ccVar4 = this.ciK.cim;
             ccVar4.eP(true);
             blVar = this.ciK.cih;
-            blVar.afW();
+            blVar.afS();
             this.ciK.a(antiData, postWriteCallBackData);
             if (writeData != null) {
                 String floor = writeData.getFloor();
@@ -68,18 +68,18 @@ class h implements a.d {
                     if (blVar2.getHostMode()) {
                         blVar4 = this.ciK.cih;
                         com.baidu.tieba.pb.a.b pbData = blVar4.getPbData();
-                        if (pbData != null && pbData.aeO() != null && pbData.aeO().getAuthor() != null && (userId = pbData.aeO().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+                        if (pbData != null && pbData.aeK() != null && pbData.aeK().getAuthor() != null && (userId = pbData.aeK().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
                             blVar5 = this.ciK.cih;
-                            if (blVar5.afR()) {
+                            if (blVar5.afN()) {
                                 ccVar6 = this.ciK.cim;
-                                ccVar6.agx();
+                                ccVar6.agt();
                             }
                         }
                     } else {
                         blVar3 = this.ciK.cih;
-                        if (blVar3.afR()) {
+                        if (blVar3.afN()) {
                             ccVar5 = this.ciK.cim;
-                            ccVar5.agx();
+                            ccVar5.agt();
                         }
                     }
                 } else if (floor != null) {
@@ -89,7 +89,7 @@ class h implements a.d {
                     ccVar7.h(pbData2);
                 }
                 blVar6 = this.ciK.cih;
-                if (blVar6.afN()) {
+                if (blVar6.afJ()) {
                     com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c10369");
                     blVar7 = this.ciK.cih;
                     TiebaStatic.log(aqVar.ae("tid", blVar7.getThreadID()));

@@ -91,10 +91,10 @@ public class InputView extends EditText implements w {
                 case 24:
                     if (aVar.data != null && (aVar.data instanceof f)) {
                         f fVar = (f) aVar.data;
-                        if ((!this.arB || fVar.wk() == EmotionGroupType.LOCAL) && fVar.getName() != null) {
+                        if ((!this.arB || fVar.wh() == EmotionGroupType.LOCAL) && fVar.getName() != null) {
                             String editable = getText().toString();
                             if (this.arF && eU(editable) >= 10 && getContext() != null) {
-                                g.tA().showToast(i.h.too_many_face);
+                                g.tx().showToast(i.h.too_many_face);
                                 return;
                             }
                             getText().insert(getSelectionStart(), fVar.getName());
@@ -134,7 +134,7 @@ public class InputView extends EditText implements w {
         if (str != null && str.length() != 0) {
             Matcher matcher = arC.matcher(str);
             while (matcher.find()) {
-                if (r.Bc().eP(matcher.group())) {
+                if (r.AZ().eP(matcher.group())) {
                     i++;
                 }
             }

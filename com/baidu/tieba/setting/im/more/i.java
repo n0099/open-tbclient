@@ -38,17 +38,17 @@ public class i extends com.baidu.adp.base.f<SecretSettingActivity> {
     public interface a {
         void a(BdSwitchView.SwitchState switchState);
 
+        void ara();
+
+        void arb();
+
+        void arc();
+
+        void ard();
+
         void are();
 
         void arf();
-
-        void arg();
-
-        void arh();
-
-        void ari();
-
-        void arj();
 
         void b(BdSwitchView.SwitchState switchState);
 
@@ -118,7 +118,7 @@ public class i extends com.baidu.adp.base.f<SecretSettingActivity> {
         this.cLP = aVar;
     }
 
-    public void ark() {
+    public void arg() {
         this.cLA.recycle();
     }
 
@@ -151,19 +151,19 @@ public class i extends com.baidu.adp.base.f<SecretSettingActivity> {
     public void c(com.baidu.tieba.setting.im.more.a aVar) {
         if (aVar != null && this.cLN != null) {
             int length = this.cLN.length;
-            int Aa = aVar.Aa() - 1;
-            if (Aa < length && Aa >= 0) {
-                this.cLF.setTip(this.cLN[Aa]);
+            int zX = aVar.zX() - 1;
+            if (zX < length && zX >= 0) {
+                this.cLF.setTip(this.cLN[zX]);
             }
-            int aqW = aVar.aqW() - 1;
-            if (aqW < length && aqW >= 0) {
-                this.cLB.setTip(this.cLN[aqW]);
+            int aqS = aVar.aqS() - 1;
+            if (aqS < length && aqS >= 0) {
+                this.cLB.setTip(this.cLN[aqS]);
             }
-            int aqU = aVar.aqU() - 1;
-            if (aqU < length && aqU >= 0) {
-                this.cLC.setTip(this.cLN[aqU]);
+            int aqQ = aVar.aqQ() - 1;
+            if (aqQ < length && aqQ >= 0) {
+                this.cLC.setTip(this.cLN[aqQ]);
             }
-            fT(aVar.aqX());
+            fT(aVar.aqT());
         }
     }
 
@@ -188,7 +188,7 @@ public class i extends com.baidu.adp.base.f<SecretSettingActivity> {
         }
     }
 
-    public boolean arl() {
+    public boolean arh() {
         return this.cLG.getSwitchView().hx();
     }
 }

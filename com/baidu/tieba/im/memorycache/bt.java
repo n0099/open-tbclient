@@ -17,7 +17,7 @@ class bt implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         if (customMessage != null && (customMessage instanceof CustomMessage)) {
-            com.baidu.tieba.im.db.c.TF().hG(this.bEQ);
+            com.baidu.tieba.im.db.c.TB().hG(this.bEQ);
         }
         return null;
     }

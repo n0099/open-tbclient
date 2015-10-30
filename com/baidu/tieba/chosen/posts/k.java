@@ -20,7 +20,7 @@ public class k implements BdListView.f {
         ChosenPostActivity chosenPostActivity;
         if (com.baidu.adp.lib.util.k.jd()) {
             chosenPostActivity = this.aJU.aJN;
-            chosenPostActivity.Hj().Hn();
+            chosenPostActivity.Hf().Hj();
             return;
         }
         aVar = this.aJU.aJQ;

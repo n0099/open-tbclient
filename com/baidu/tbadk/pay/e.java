@@ -19,7 +19,7 @@ public class e {
     private e() {
     }
 
-    public static synchronized e DA() {
+    public static synchronized e Dx() {
         e eVar;
         synchronized (e.class) {
             if (awv == null) {
@@ -30,11 +30,11 @@ public class e {
         return eVar;
     }
 
-    public boolean DB() {
-        return TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.m411getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && DC();
+    public boolean Dy() {
+        return TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_MY_WALLET) && TbadkCoreApplication.m411getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && Dz();
     }
 
-    public boolean DC() {
+    public boolean Dz() {
         try {
             Class.forName("com.baidu.wallet.api.BaiduWallet");
             return true;
@@ -46,14 +46,14 @@ public class e {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            az.uW().b(tbPageContext, new String[]{str});
+            az.uT().b(tbPageContext, new String[]{str});
         }
     }
 
     public void a(PayConfig payConfig, Context context) {
         if (payConfig == null || context == null) {
             showToast(i.h.plugin_pay_error);
-        } else if (!DB()) {
+        } else if (!Dy()) {
             showToast(i.h.plugin_pay_wallet_not_found);
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PayWalletActivityConfig(context, payConfig)));

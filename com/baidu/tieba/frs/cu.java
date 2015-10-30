@@ -29,11 +29,11 @@ public class cu implements ChildViewPager.a {
         aVar = this.aXL.aXI;
         int fE = aVar.fE(i);
         pVar = this.aXL.aXJ;
-        List<PhotoLiveCardData> rN = pVar.rN();
-        if (rN != null && fE >= 0 && fE < rN.size()) {
-            PhotoLiveCardData photoLiveCardData = rN.get(fE);
+        List<PhotoLiveCardData> rK = pVar.rK();
+        if (rK != null && fE >= 0 && fE < rK.size()) {
+            PhotoLiveCardData photoLiveCardData = rK.get(fE);
             context = this.aXL.mContext;
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context, String.valueOf(photoLiveCardData.getThreadId())).ci("from_frs").bs(18003).rk()));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(context, String.valueOf(photoLiveCardData.getThreadId())).ci("from_frs").bs(18003).rh()));
             TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10242").ae(ImageViewerConfig.FORUM_ID, String.valueOf(photoLiveCardData.getForumId())).r("obj_locate", fE + 1));
         }
     }

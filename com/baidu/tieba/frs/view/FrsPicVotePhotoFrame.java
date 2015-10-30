@@ -82,7 +82,7 @@ public class FrsPicVotePhotoFrame extends FrameLayout {
             str2 = "";
         }
         this.bdD.setText(str2);
-        this.bdE.setText(as.q(j));
+        this.bdE.setText(as.o(j));
     }
 
     public void onChangeSkinType(int i) {

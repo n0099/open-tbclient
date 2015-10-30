@@ -43,7 +43,7 @@ public class dn extends SparseArray<ea> {
                 ea valueAt = valueAt(i2);
                 if (valueAt != null) {
                     valueAt.a(null);
-                    valueAt.Ku();
+                    valueAt.Kq();
                 }
                 i = i2 + 1;
             } else {

@@ -81,7 +81,7 @@ public class m {
         InputStream inputStream = null;
         try {
             inputStream = BdBaseApplication.getInst().getAssets().open(substring);
-            if (Util.l(inputStream.available())) {
+            if (Util.j(inputStream.available())) {
                 a(inputStream, str, str2);
                 com.baidu.adp.lib.g.a.d(inputStream);
                 substring = substring;
@@ -156,7 +156,7 @@ public class m {
             th = th;
         }
         try {
-            if (Util.l(fileInputStream.available())) {
+            if (Util.j(fileInputStream.available())) {
                 a(fileInputStream, str, str2);
                 com.baidu.adp.lib.g.a.d(fileInputStream);
             } else {
@@ -215,14 +215,14 @@ public class m {
         }
         long currentTimeMillis = System.currentTimeMillis();
         File file = new File(Util.mw(), String.valueOf(System.currentTimeMillis()));
-        String b = Util.b(inputStream, file);
-        if (!TextUtils.isEmpty(b)) {
+        String a = Util.a(inputStream, file);
+        if (!TextUtils.isEmpty(a)) {
             try {
                 file.delete();
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            c(str, str2, "copy_temp_fail", b);
+            c(str, str2, "copy_temp_fail", a);
             return null;
         }
         com.baidu.adp.plugin.b.a.lF().a("plugin_copy_file", System.currentTimeMillis() - currentTimeMillis, str2);
@@ -475,10 +475,10 @@ public class m {
                     fileInputStream = null;
                 }
                 try {
-                    String b2 = Util.b(fileInputStream2, file3);
+                    String a2 = Util.a(fileInputStream2, file3);
                     file.delete();
-                    if (!TextUtils.isEmpty(b2)) {
-                        c(str, str6, "copy_todest_fail", b2);
+                    if (!TextUtils.isEmpty(a2)) {
+                        c(str, str6, "copy_todest_fail", a2);
                         com.baidu.adp.lib.g.a.d(fileInputStream2);
                         return null;
                     }
@@ -639,7 +639,7 @@ public class m {
                     String name = next.getName();
                     int lastIndexOf = name.lastIndexOf("/");
                     inputStream = zipFile.getInputStream(next);
-                    Util.b(inputStream, new File(str, name.substring(lastIndexOf)));
+                    Util.a(inputStream, new File(str, name.substring(lastIndexOf)));
                 } catch (IOException e) {
                     BdLog.e(e);
                 } finally {

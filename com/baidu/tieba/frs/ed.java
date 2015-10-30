@@ -56,7 +56,7 @@ public class ed extends PagerAdapter {
         if (i < this.mDatas.size()) {
             int size = this.aYZ.size();
             PhotoLiveCardView remove = size > 0 ? this.aYZ.remove(size - 1) : null;
-            photoLiveCardView = remove == null ? Mx() : remove;
+            photoLiveCardView = remove == null ? Mt() : remove;
             photoLiveCardView.setData(this.mDatas.get(i));
             if (this.akW != null) {
                 photoLiveCardView.setPortraitClicklistener(this.akW);
@@ -72,7 +72,7 @@ public class ed extends PagerAdapter {
         this.aYZ.add(photoLiveCardView);
     }
 
-    private PhotoLiveCardView Mx() {
+    private PhotoLiveCardView Mt() {
         PhotoLiveCardView photoLiveCardView = (PhotoLiveCardView) LayoutInflater.from(this.mContext).inflate(i.g.frs_photo_live_view_pager_item, (ViewGroup) null);
         photoLiveCardView.setShowContent(false);
         photoLiveCardView.setShowBottom(true);

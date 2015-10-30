@@ -8,7 +8,7 @@ public class a {
     private static a dbe = null;
     private CustomMessageListener dbf = new b(this, 0);
 
-    public static synchronized a axz() {
+    public static synchronized a axv() {
         a aVar;
         synchronized (a.class) {
             if (dbe == null) {

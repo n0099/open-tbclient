@@ -47,16 +47,16 @@ public class ak extends com.baidu.adp.framework.listener.e {
             }
             com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), "comment", "uType " + toUserType, "touid", Long.valueOf(chatMessage.getToUserId()), CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, chatMessage.getContent());
             if (chatMessage instanceof PersonalChatMessage) {
-                b.VW().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                b.VS().a(2, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                b.VW().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
+                b.VS().a(4, chatMessage, String.valueOf(chatMessage.getToUserId()), 3);
             } else {
                 return;
             }
             if (chatMessage instanceof PersonalChatMessage) {
-                J = b.VW().J(String.valueOf(com.baidu.tieba.im.util.h.o(chatMessage)), 2);
+                J = b.VS().J(String.valueOf(com.baidu.tieba.im.util.h.o(chatMessage)), 2);
             } else if (chatMessage instanceof OfficialChatMessage) {
-                J = b.VW().J(String.valueOf(com.baidu.tieba.im.util.h.o(chatMessage)), 4);
+                J = b.VS().J(String.valueOf(com.baidu.tieba.im.util.h.o(chatMessage)), 4);
             } else {
                 return;
             }

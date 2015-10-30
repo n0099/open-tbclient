@@ -18,13 +18,12 @@ public class bx {
         MessageManager.getInstance().registerListener(new bz(CmdConfigCustom.PB_RECORDER_RESET_CMD));
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    public static class a {
+    private static class a {
         private static bx ckf = new bx(null);
     }
 
-    public static bx age() {
+    public static bx aga() {
         return a.ckf;
     }
 
@@ -62,7 +61,7 @@ public class bx {
         if (!this.ckc) {
             this.ckd = false;
             return null;
-        } else if (this.cjA != null && this.cjA.aeP() != null && this.cjA.aeP().size() > 0) {
+        } else if (this.cjA != null && this.cjA.aeL() != null && this.cjA.aeL().size() > 0) {
             this.ckd = true;
             com.baidu.tieba.pb.a.b bVar = this.cjA;
             this.cjA = null;
@@ -74,7 +73,7 @@ public class bx {
         }
     }
 
-    public Parcelable agf() {
+    public Parcelable agb() {
         if (this.ckd) {
             this.ckd = false;
             Parcelable parcelable = this.cke;
@@ -85,11 +84,11 @@ public class bx {
         return null;
     }
 
-    public boolean afL() {
+    public boolean afH() {
         return this.cjo;
     }
 
-    public boolean agg() {
+    public boolean agc() {
         return this.cjm;
     }
 
@@ -101,10 +100,10 @@ public class bx {
         } else if (bVar == null) {
             reset();
             return false;
-        } else if (bVar.aeP() == null) {
+        } else if (bVar.aeL() == null) {
             reset();
             return false;
-        } else if (bVar.aeP().size() < 1) {
+        } else if (bVar.aeL().size() < 1) {
             reset();
             return false;
         } else if (parcelable == null) {

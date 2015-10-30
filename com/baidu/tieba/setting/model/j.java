@@ -33,21 +33,21 @@ public class j extends com.baidu.adp.base.e {
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void arr() {
+    public void arn() {
         if (this.cMd == null) {
             this.cMd = new a(this, null);
             this.cMd.execute(new String[0]);
         }
     }
 
-    public void ars() {
+    public void aro() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
         }
     }
 
-    public void art() {
+    public void arp() {
         if (this.cMe == null) {
             this.cMe = new b(this, null);
             this.cMe.execute(new String[0]);
@@ -84,10 +84,10 @@ public class j extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().dN();
-            com.baidu.tbadk.core.voice.a.b.vJ();
+            com.baidu.tbadk.core.voice.a.b.vG();
             try {
-                ar.uD().uE();
-                ar.uD().uF();
+                ar.uA().uB();
+                ar.uA().uC();
                 MessageManager.getInstance().sendMessageFromBackground(new CustomMessage((int) CmdConfigCustom.CMD_BAOBAO_CLEARIMAGE, ""));
                 return null;
             } catch (Exception e) {
@@ -111,8 +111,8 @@ public class j extends com.baidu.adp.base.e {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            String tD = n.tD();
-            long k = n.k(TbConfig.IMAGE_CACHE_DIR_NAME, false) + n.k(String.valueOf(tD) + TbConfig.TMP_PIC_DIR_NAME, false) + n.k(String.valueOf(tD) + "voice", false) + n.cS(String.valueOf(tD) + TbConfig.TMP_DATABASE_NAME);
+            String tA = n.tA();
+            long k = n.k(TbConfig.IMAGE_CACHE_DIR_NAME, false) + n.k(String.valueOf(tA) + TbConfig.TMP_PIC_DIR_NAME, false) + n.k(String.valueOf(tA) + "voice", false) + n.cS(String.valueOf(tA) + TbConfig.TMP_DATABASE_NAME);
             float f = 0.0f + ((float) k);
             if (k < 10485.76d) {
                 return "";

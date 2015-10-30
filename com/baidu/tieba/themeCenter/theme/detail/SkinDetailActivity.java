@@ -60,7 +60,7 @@ public class SkinDetailActivity extends BaseActivity<SkinDetailActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.dgN != null) {
-            this.dgN.vA();
+            this.dgN.vx();
         }
     }
 }

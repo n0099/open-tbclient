@@ -29,6 +29,6 @@ public class b implements AdapterView.OnItemClickListener {
                 interfaceC0082a2.a(i, aVar);
             }
         }
-        this.dmX.Xy();
+        this.dmX.Xu();
     }
 }

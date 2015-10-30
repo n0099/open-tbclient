@@ -96,7 +96,7 @@ public class a extends PagerAdapter {
         if (this.mPrimaryPosition != i) {
             this.mPrimaryPosition = i;
             if (obj instanceof com.baidu.tieba.recommendfrs.d) {
-                ((com.baidu.tieba.recommendfrs.d) obj).apQ();
+                ((com.baidu.tieba.recommendfrs.d) obj).apM();
             }
         }
     }

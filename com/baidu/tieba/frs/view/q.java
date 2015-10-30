@@ -83,8 +83,8 @@ public class q extends a implements com.baidu.tbadk.imageManager.b {
         layoutParams.setMargins(0, com.baidu.adp.lib.util.k.d(this.mContext.getPageActivity(), i.d.ds280), 0, 0);
         this.bcB.setLayoutParams(layoutParams);
         this.bcA = (CoverFlowView) this.LS.findViewById(i.f.frs_coverflowview);
-        Oa();
-        this.bcA.tc();
+        NW();
+        this.bcA.sZ();
         this.bcM = (BarImageView) this.LS.findViewById(i.f.frs_star_bottom_photo);
         this.bcM.setGifIconSupport(false);
         this.bcN = (UserIconBox) this.LS.findViewById(i.f.frs_badge_box);
@@ -118,7 +118,7 @@ public class q extends a implements com.baidu.tbadk.imageManager.b {
         this.mContext.getLayoutMode().k(this.bcI);
         this.mContext.getLayoutMode().k(this.bcx);
         if (this.bcA != null) {
-            this.bcA.tc();
+            this.bcA.sZ();
         }
         if (this.bdg) {
             gc(1);
@@ -166,7 +166,7 @@ public class q extends a implements com.baidu.tbadk.imageManager.b {
             this.bcU = forumData.getAccelerateContent();
             this.bbM = forumData.getLevelupScore();
             this.bcV = oVar;
-            this.bdM = oVar.avu();
+            this.bdM = oVar.avq();
             this.bcO = forumData.getBadgeData();
             this.bcW = new com.baidu.tbadk.core.data.w();
             this.bcE = forumData.getTopCode();
@@ -174,29 +174,29 @@ public class q extends a implements com.baidu.tbadk.imageManager.b {
             if (this.bdM != null) {
                 MediaData mediaData = new MediaData();
                 mediaData.setType(3);
-                mediaData.setPic(this.bdM.avL());
+                mediaData.setPic(this.bdM.avH());
                 this.bcW.getMedias().add(mediaData);
                 MediaData mediaData2 = new MediaData();
                 mediaData2.setType(3);
-                mediaData2.setPic(this.bdM.avM());
+                mediaData2.setPic(this.bdM.avI());
                 this.bcW.getMedias().add(mediaData2);
             }
             this.LS.setVisibility(0);
             this.bcQ.setForumName(forumData.getName());
-            Ob();
+            NX();
         }
     }
 
-    private void Ob() {
+    private void NX() {
         if (this.bcV != null) {
-            if (this.bcV.avv() == null || this.bcV.avv().rx() == null || this.bcV.avv().rx().size() <= 0) {
+            if (this.bcV.avr() == null || this.bcV.avr().ru() == null || this.bcV.avr().ru().size() <= 0) {
                 this.bcB.setVisibility(8);
                 ArrayList<com.baidu.tbadk.core.data.i> arrayList = new ArrayList<>();
                 String str = "";
-                if (this.bcV.aeN() != null && this.bcV.aeN().getFrsBannerData() != null) {
-                    str = this.bcV.aeN().getFrsBannerData().getValue();
+                if (this.bcV.aeJ() != null && this.bcV.aeJ().getFrsBannerData() != null) {
+                    str = this.bcV.aeJ().getFrsBannerData().getValue();
                 }
-                com.baidu.tbadk.core.data.i iVar = new com.baidu.tbadk.core.data.i(this.bdM.avL(), str, null);
+                com.baidu.tbadk.core.data.i iVar = new com.baidu.tbadk.core.data.i(this.bdM.avH(), str, null);
                 iVar.ah(true);
                 arrayList.add(iVar);
                 com.baidu.tbadk.core.data.h hVar = new com.baidu.tbadk.core.data.h();
@@ -204,7 +204,7 @@ public class q extends a implements com.baidu.tbadk.imageManager.b {
                 a(hVar);
             } else {
                 this.bcB.setVisibility(0);
-                a(this.bcV.avv());
+                a(this.bcV.avr());
             }
         }
         if (this.LL != null) {
@@ -220,8 +220,8 @@ public class q extends a implements com.baidu.tbadk.imageManager.b {
             this.LN.setText(String.valueOf(this.mForumName) + this.mContext.getString(i.h.forum));
         }
         if (this.bcy != null && this.bcz != null) {
-            if (this.bcV != null && this.bcV.avB()) {
-                int da = com.baidu.tbadk.core.util.o.da(this.bcV.avF());
+            if (this.bcV != null && this.bcV.avx()) {
+                int da = com.baidu.tbadk.core.util.o.da(this.bcV.avB());
                 boolean z = GameDetailActivityConfig.isHaveActivity;
                 if (da == 1 && !z) {
                     this.bcy.setVisibility(8);
@@ -229,7 +229,7 @@ public class q extends a implements com.baidu.tbadk.imageManager.b {
                     this.bcy.setVisibility(0);
                     if (!TextUtils.isEmpty(this.bcV.getGameName()) && !TextUtils.isEmpty(this.bcV.getGameName().trim())) {
                         this.bcz.setText(UtilHelper.getFixedText(this.bcV.getGameName(), 10));
-                        String lI = com.baidu.tieba.tbadkCore.util.n.lI(this.bcV.avF());
+                        String lI = com.baidu.tieba.tbadkCore.util.n.lI(this.bcV.avB());
                         if (!StringUtils.isNull(lI)) {
                             TiebaStatic.eventStat(this.mContext.getPageActivity(), "game_show", "show", 1, "dev_id", lI, "ref_id", "1000601", "ref_type", "603");
                         }
@@ -241,16 +241,16 @@ public class q extends a implements com.baidu.tbadk.imageManager.b {
                 this.bcy.setVisibility(8);
             }
         }
-        if (this.bcV != null && this.bcV.avC() != null && this.bcV.avC().size() > 0) {
-            List<com.baidu.tieba.tbadkCore.h> avC = this.bcV.avC();
-            aa(avC);
-            int size = avC.size();
+        if (this.bcV != null && this.bcV.avy() != null && this.bcV.avy().size() > 0) {
+            List<com.baidu.tieba.tbadkCore.h> avy = this.bcV.avy();
+            aa(avy);
+            int size = avy.size();
             int i = size > 5 ? 5 : size;
             if (i > 0) {
                 this.bcD.setVisibility(0);
                 this.bcD.removeAllViews();
                 for (int i2 = 0; i2 < i; i2++) {
-                    com.baidu.tieba.tbadkCore.h hVar2 = avC.get(i2);
+                    com.baidu.tieba.tbadkCore.h hVar2 = avy.get(i2);
                     if (hVar2 != null && !gQ(hVar2.getUrl())) {
                         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.frs_header_enter_lay, (ViewGroup) null);
                         TbImageView tbImageView = (TbImageView) linearLayout.findViewById(i.f.frs_header_enters_icon);
@@ -274,30 +274,30 @@ public class q extends a implements com.baidu.tbadk.imageManager.b {
             this.bcD.setVisibility(8);
         }
         this.bcM.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.bcM.d(this.bdM.avM(), 16, false);
+        this.bcM.d(this.bdM.avI(), 16, false);
         if (this.bcN != null && this.bcO != null && this.bcO.size() > 0) {
             LinkedList linkedList = new LinkedList();
             for (int i3 = 0; i3 < this.bcO.size(); i3++) {
                 IconData iconData = new IconData();
-                iconData.setIconName(this.bcO.get(i3).rt());
-                iconData.setIcon(this.bcO.get(i3).rs());
-                this.bcX = this.bcO.get(i3).ru();
+                iconData.setIconName(this.bcO.get(i3).rq());
+                iconData.setIcon(this.bcO.get(i3).rp());
+                this.bcX = this.bcO.get(i3).rr();
                 linkedList.add(iconData);
             }
             this.bcN.setOnClickListener(this.bdl);
             this.bcN.a(linkedList, 2, this.mContext.getResources().getDimensionPixelSize(i.d.frs_starheader_badge_width), this.mContext.getResources().getDimensionPixelSize(i.d.frs_starheader_badge_height), this.mContext.getResources().getDimensionPixelSize(i.d.frs_starheader_badge_margin));
         }
         if (this.bcV != null) {
-            this.bcR.a(this.bcV.avu(), this.bcV.aeN());
+            this.bcR.a(this.bcV.avq(), this.bcV.aeJ());
         } else {
             this.bcR.a(null, null);
         }
         this.bcG.a(this.bcE, this.bcF);
-        Oc();
+        NY();
     }
 
-    private void Oc() {
-        View Of;
+    private void NY() {
+        View Ob;
         if (this.bcG.getTopCodeView() != null && this.bcG.getNewsInfoView() != null && this.bcG.getTopCodeViewDivider() != null && this.bcG.getTopCodeView().getVisibility() != 0) {
             if (this.bcG.getTopCodeView().getVisibility() == 8 && this.bcG.getNewsInfoView().getVisibility() == 0) {
                 this.bcG.getTopCodeViewDivider().setVisibility(8);
@@ -307,13 +307,13 @@ public class q extends a implements com.baidu.tbadk.imageManager.b {
                 if (this.bcD.getChildCount() > 0) {
                     ((LinearLayout) this.bcD.getChildAt(0)).findViewById(i.f.frs_header_divider_enters).setVisibility(8);
                 }
-            } else if (this.bcD.getVisibility() == 8 && this.bcR.Oe() != null && (Of = this.bcR.Of()) != null) {
-                Of.setVisibility(8);
+            } else if (this.bcD.getVisibility() == 8 && this.bcR.Oa() != null && (Ob = this.bcR.Ob()) != null) {
+                Ob.setVisibility(8);
             }
         }
     }
 
-    public void Ns() {
+    public void No() {
         PopupWindow popupWindow = new PopupWindow(this.mContext.getPageActivity());
         View inflate = LayoutInflater.from(this.mContext.getContext()).inflate(i.g.speed_tip, (ViewGroup) null);
         this.mContext.getLayoutMode().k(inflate);
@@ -402,7 +402,7 @@ public class q extends a implements com.baidu.tbadk.imageManager.b {
             a(textView, textView2);
             aVar.b(i.h.cancel_text, new u(this));
             aVar.a(i.h.open_now, new v(this));
-            aVar.b(this.mContext).sR();
+            aVar.b(this.mContext).sO();
         }
     }
 

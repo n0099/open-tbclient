@@ -43,7 +43,7 @@ public class h extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Ay() {
+    public void Av() {
         Iterator<w> it = this.aoL.iterator();
         while (it.hasNext()) {
             w next = it.next();
@@ -90,7 +90,7 @@ public class h extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: protected */
     public void dQ(int i) {
         if (dT(i)) {
-            if (AB()) {
+            if (Ay()) {
                 this.aoN = true;
             } else {
                 this.aoN = false;
@@ -161,11 +161,11 @@ public class h extends FrameLayout {
         }
     }
 
-    public boolean AA() {
-        return getVisibility() == 0 && AB();
+    public boolean Ax() {
+        return getVisibility() == 0 && Ay();
     }
 
-    private boolean AB() {
+    private boolean Ay() {
         Iterator<w> it = this.aoL.iterator();
         while (it.hasNext()) {
             if (((View) it.next()).getVisibility() == 0) {

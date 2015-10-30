@@ -53,7 +53,7 @@ public class bi extends bn<com.baidu.tbadk.core.data.b, bj> {
         List<String> list = bVar.Uj.Uu;
         if (list == null || list.size() <= 0) {
             bjVar.aVM.setVisibility(8);
-        } else if (!com.baidu.tbadk.core.m.qX().rb()) {
+        } else if (!com.baidu.tbadk.core.m.qU().qY()) {
             bjVar.aVM.setVisibility(8);
         } else {
             bjVar.aVM.setVisibility(0);
@@ -93,7 +93,7 @@ public class bi extends bn<com.baidu.tbadk.core.data.b, bj> {
 
     private void b(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.b bVar, bj bjVar) {
         if (this.aSe != null && bVar != null && bVar.Uj != null && this.aSe != null && (this.aSe instanceof FrsActivity)) {
-            ((FrsActivity) this.aSe).Lm().Nb();
+            ((FrsActivity) this.aSe).Li().MX();
             bjVar.aVL.setPadding(0, i - this.aTQ == 0 ? this.aSR : this.aSS, 0, 0);
             this.aSe.getLayoutMode().ad(this.mSkinType == 1);
             this.aSe.getLayoutMode().k(view);
@@ -115,8 +115,8 @@ public class bi extends bn<com.baidu.tbadk.core.data.b, bj> {
                 bjVar.aVR.setVisibility(0);
                 bjVar.aVR.setText(bVar.Uj.Un);
             }
-            bjVar.aVP.setText(com.baidu.tbadk.core.util.as.o(bVar.Ui));
-            if (com.baidu.tbadk.core.m.qX().qZ()) {
+            bjVar.aVP.setText(com.baidu.tbadk.core.util.as.m(bVar.Ui));
+            if (com.baidu.tbadk.core.m.qU().qW()) {
                 bjVar.aVN.setVisibility(0);
                 bjVar.aVN.d(bVar.Uj.userPortrait, this.mIsFromCDN ? 13 : 14, false);
             } else {
@@ -124,7 +124,7 @@ public class bi extends bn<com.baidu.tbadk.core.data.b, bj> {
             }
             bjVar.aVN.setTag(bVar.Uj.userPortrait);
             bjVar.aVV.setTag(Integer.valueOf(i));
-            if (bVar.rr()) {
+            if (bVar.ro()) {
                 if (StringUtils.isNull(bVar.Uj.Ut)) {
                     bjVar.aVV.setVisibility(8);
                     return;
@@ -132,7 +132,7 @@ public class bi extends bn<com.baidu.tbadk.core.data.b, bj> {
                 a(true, bjVar);
                 bjVar.aVV.setText(bVar.Uj.Ut);
                 bjVar.aVV.setOnClickListener(this.aUz);
-            } else if (bVar.rq()) {
+            } else if (bVar.rn()) {
                 bjVar.aVV.setVisibility(0);
                 switch (bVar.TU) {
                     case 0:

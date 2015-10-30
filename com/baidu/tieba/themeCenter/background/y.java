@@ -19,11 +19,11 @@ public class y extends com.baidu.adp.base.e<y> {
     public y(int i, int i2) {
         this.dft = i;
         this.dfM = i2;
-        BZ();
+        BW();
         registerListener(this.aQV);
     }
 
-    private void BZ() {
+    private void BW() {
         com.baidu.tieba.tbadkCore.a.a.a(309023, BackgroundGetSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
     }

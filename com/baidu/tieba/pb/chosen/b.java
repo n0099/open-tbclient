@@ -49,7 +49,7 @@ class b implements e.b {
     }
 
     @Override // com.baidu.tieba.pb.chosen.a.e.b
-    public void aeE() {
+    public void aeA() {
         com.baidu.tieba.pb.chosen.net.a aVar;
         com.baidu.tieba.pb.chosen.net.a aVar2;
         com.baidu.tieba.pb.chosen.net.a aVar3;
@@ -60,7 +60,7 @@ class b implements e.b {
         com.baidu.tieba.pb.chosen.net.a aVar4;
         com.baidu.tieba.pb.chosen.net.a aVar5;
         if (!com.baidu.adp.lib.util.i.iM()) {
-            BdToast.b(this.cfl.getPageContext().getPageActivity(), this.cfl.getResources().getString(i.h.neterror)).sZ();
+            BdToast.b(this.cfl.getPageContext().getPageActivity(), this.cfl.getResources().getString(i.h.neterror)).sW();
         } else if (this.cfl.checkUpIsLogin()) {
             aVar = this.cfl.chosenData;
             if (aVar != null) {

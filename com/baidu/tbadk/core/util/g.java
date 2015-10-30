@@ -10,7 +10,7 @@ public class g {
     private static Handler mHandler = new Handler();
     private static Runnable YZ = new h();
 
-    public static g tA() {
+    public static g tx() {
         return new g();
     }
 

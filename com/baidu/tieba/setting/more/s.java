@@ -34,14 +34,14 @@ public class s implements r {
                                             return;
                                         } else if (i != 9) {
                                             if (i == 10) {
-                                                this.this$0.cNt.ash();
+                                                this.this$0.cNt.asd();
                                                 return;
                                             } else if (i == 12) {
                                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                                                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
                                                 TbadkCoreApplication.m411getInst().deleteAccountAllInfo(currentAccount);
                                                 TbadkCoreApplication.setCurrentAccount(null, this.this$0.getPageContext().getPageActivity());
-                                                com.baidu.tbadk.coreExtra.a.a.vX().vZ();
+                                                com.baidu.tbadk.coreExtra.a.a.vU().vW();
                                                 TbadkCoreApplication.m411getInst().onUserChanged();
                                                 com.baidu.tbadk.core.c.b.b(this.this$0.getPageContext().getPageActivity(), 11, false);
                                                 return;
@@ -53,36 +53,36 @@ public class s implements r {
                                             } else if (i != 13) {
                                                 return;
                                             } else {
-                                                this.this$0.arX();
+                                                this.this$0.arT();
                                                 TiebaStatic.log("c10017");
                                                 return;
                                             }
                                         } else {
-                                            this.this$0.ase();
+                                            this.this$0.asa();
                                             return;
                                         }
                                     }
-                                    this.this$0.arW();
+                                    this.this$0.arS();
                                     return;
                                 }
                                 this.this$0.goToFeedBack();
                                 return;
                             }
-                            this.this$0.arY();
+                            this.this$0.arU();
                             return;
                         }
-                        this.this$0.asd();
+                        this.this$0.arZ();
                         return;
                     }
-                    this.this$0.arZ();
+                    this.this$0.arV();
                     return;
                 }
-                this.this$0.asa();
+                this.this$0.arW();
                 return;
             }
-            this.this$0.asb();
+            this.this$0.arX();
             return;
         }
-        this.this$0.asc();
+        this.this$0.arY();
     }
 }

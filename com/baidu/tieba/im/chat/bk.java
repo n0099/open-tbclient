@@ -31,12 +31,12 @@ public class bk {
         this.bsv = new bl(this, CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN);
         this.mContext = tbPageContext;
         this.aVg = bdTypeListView;
-        RR();
+        RN();
         this.bss.gI(i);
         this.bst.gI(i);
     }
 
-    private void RR() {
+    private void RN() {
         this.bss = new MsgLeftViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_LEFT);
         this.bss.cJ(true);
         this.bss.cI(true);
@@ -73,7 +73,7 @@ public class bk {
 
     public void a(com.baidu.adp.lib.c.a aVar) {
         for (ap apVar : this.aVC) {
-            if (apVar.RO()) {
+            if (apVar.RK()) {
                 apVar.a(aVar);
             }
         }
@@ -81,7 +81,7 @@ public class bk {
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
         for (ap apVar : this.aVC) {
-            if (apVar.RN()) {
+            if (apVar.RJ()) {
                 apVar.setOnItemViewLongClickListener(bVar);
             }
         }

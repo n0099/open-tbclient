@@ -18,7 +18,7 @@ public class v implements MediaScannerConnection.MediaScannerConnectionClient {
 
     /* loaded from: classes.dex */
     public interface a {
-        void uf();
+        void uc();
     }
 
     public v(Context context) {
@@ -68,7 +68,7 @@ public class v implements MediaScannerConnection.MediaScannerConnectionClient {
             }
         }
         if (this.ZR && this.ZS != null) {
-            this.ZS.uf();
+            this.ZS.uc();
         }
     }
 }

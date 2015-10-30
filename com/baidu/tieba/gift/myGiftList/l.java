@@ -32,7 +32,7 @@ public class l extends com.baidu.adp.base.e {
         return false;
     }
 
-    private MyGiftListRequestMessage f(int i, long j) {
+    private MyGiftListRequestMessage e(int i, long j) {
         MyGiftListRequestMessage myGiftListRequestMessage = new MyGiftListRequestMessage();
         if (i < 1) {
             i = 1;
@@ -71,16 +71,16 @@ public class l extends com.baidu.adp.base.e {
     }
 
     public void sendMessage() {
-        MyGiftListRequestMessage f;
+        MyGiftListRequestMessage e;
         if (this.bnk) {
             this.mUid = 0L;
         }
         if (!this.bnj) {
-            f = f(1, this.mUid);
+            e = e(1, this.mUid);
         } else {
-            f = f(this.mPageNum, this.mUid);
+            e = e(this.mPageNum, this.mUid);
         }
-        sendMessage(f);
+        sendMessage(e);
     }
 
     public boolean isHasMore() {
@@ -103,7 +103,7 @@ public class l extends com.baidu.adp.base.e {
         this.bnj = z;
     }
 
-    public boolean Qy() {
+    public boolean Qu() {
         return this.bnj;
     }
 }

@@ -14,8 +14,8 @@ public class d extends l<CommonMsgPojo> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.l
-    /* renamed from: ZI */
+    /* renamed from: ZE */
     public CommonMsgPojo doInBackground() {
-        return com.baidu.tieba.im.db.l.TU().H(this.bNR.getUser().getUserId(), 23);
+        return com.baidu.tieba.im.db.l.TQ().H(this.bNR.getUser().getUserId(), 23);
     }
 }

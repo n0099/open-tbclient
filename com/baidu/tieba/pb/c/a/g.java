@@ -50,20 +50,20 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public CharSequence ahQ() {
+    public CharSequence ahM() {
         return this.cnL;
     }
 
-    public int ahS() {
+    public int ahO() {
         return this.cnM;
     }
 
-    public String ahT() {
+    public String ahP() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public boolean ahR() {
+    public boolean ahN() {
         return (this.cnM > 0 && this.cnM < 3) || !StringUtils.isNull(this.color);
     }
 

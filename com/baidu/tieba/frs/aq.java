@@ -36,13 +36,13 @@ class aq implements com.baidu.tieba.tbadkCore.r {
                     bsVar5 = this.aUK.aTU;
                     bsVar5.cd(true);
                     bsVar6 = this.aUK.aTU;
-                    bsVar6.LQ();
+                    bsVar6.LM();
                     return;
                 case 2:
                     bsVar2 = this.aUK.aTU;
                     bsVar2.ce(true);
                     bsVar3 = this.aUK.aTU;
-                    bsVar3.LQ();
+                    bsVar3.LM();
                     return;
                 case 3:
                     bsVar4 = this.aUK.aTU;
@@ -55,7 +55,7 @@ class aq implements com.baidu.tieba.tbadkCore.r {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x00b2, code lost:
-        if (r1.avz().size() == 0) goto L18;
+        if (r1.avv().size() == 0) goto L18;
      */
     /* JADX WARN: Removed duplicated region for block: B:126:0x0665  */
     /* JADX WARN: Removed duplicated region for block: B:134:0x06ad  */
@@ -151,7 +151,7 @@ class aq implements com.baidu.tieba.tbadkCore.r {
         this.aUK.aUt = true;
         if (aVar != null && aVar.isSuccess) {
             bsVar20 = this.aUK.aTU;
-            bsVar20.LZ().bV(com.baidu.tbadk.core.util.at.uJ().uL());
+            bsVar20.LV().bV(com.baidu.tbadk.core.util.at.uG().uI());
             FrsActivity.aUb = 0L;
             FrsActivity.aUc = 0L;
             FrsActivity.aUd = 0;
@@ -165,16 +165,16 @@ class aq implements com.baidu.tieba.tbadkCore.r {
         long currentTimeMillis = System.currentTimeMillis();
         bsVar = this.aUK.aTU;
         bsVar.cc(false);
-        if (this.aUK.Lm().MR() != null) {
-            this.aUK.aTW = this.aUK.Lm().MR();
+        if (this.aUK.Li().MN() != null) {
+            this.aUK.aTW = this.aUK.Li().MN();
         }
         FrsActivity frsActivity = this.aUK;
         oVar = this.aUK.aTW;
-        frsActivity.aUn = oVar.getPage().rL();
+        frsActivity.aUn = oVar.getPage().rI();
         i2 = this.aUK.aUn;
         if (i2 == 0) {
             oVar39 = this.aUK.aTW;
-            if (oVar39.avz() != null) {
+            if (oVar39.avv() != null) {
                 oVar42 = this.aUK.aTW;
             }
             oVar40 = this.aUK.aTW;
@@ -182,31 +182,31 @@ class aq implements com.baidu.tieba.tbadkCore.r {
                 oVar41 = this.aUK.aTW;
                 if (oVar41.getThreadList().size() != 0) {
                     bsVar19 = this.aUK.aTU;
-                    bsVar19.Mf();
+                    bsVar19.Mb();
                     if (i != 4) {
                         switch (i) {
                             case 1:
                                 bsVar5 = this.aUK.aTU;
                                 bsVar5.cd(false);
                                 bsVar6 = this.aUK.aTU;
-                                bsVar6.LQ();
+                                bsVar6.LM();
                                 break;
                             case 2:
                                 bsVar3 = this.aUK.aTU;
                                 bsVar3.ce(false);
                                 bsVar4 = this.aUK.aTU;
-                                bsVar4.LQ();
+                                bsVar4.LM();
                                 break;
                             case 3:
                                 bVar = this.aUK.aTR;
                                 if (bVar != null) {
                                     bVar2 = this.aUK.aTR;
-                                    bVar2.awm();
+                                    bVar2.awi();
                                 }
                                 oVar2 = this.aUK.aTW;
                                 if (oVar2 != null) {
                                     oVar3 = this.aUK.aTW;
-                                    oVar3.avQ();
+                                    oVar3.avM();
                                     break;
                                 }
                                 break;
@@ -215,7 +215,7 @@ class aq implements com.baidu.tieba.tbadkCore.r {
                         bsVar7 = this.aUK.aTU;
                         frsActivity2.hideLoadingView(bsVar7.getRootView());
                         bsVar8 = this.aUK.aTU;
-                        bsVar8.LX();
+                        bsVar8.LT();
                         if (z || (aVar != null && aVar.errorCode != 0)) {
                             z2 = this.aUK.aTH;
                             if (!z2) {
@@ -256,37 +256,37 @@ class aq implements com.baidu.tieba.tbadkCore.r {
                             if (oVar8 != null) {
                                 FrsActivity frsActivity7 = this.aUK;
                                 oVar30 = this.aUK.aTW;
-                                frsActivity7.aTM = oVar30.aeN().getName();
+                                frsActivity7.aTM = oVar30.aeJ().getName();
                                 FrsActivity frsActivity8 = this.aUK;
                                 oVar31 = this.aUK.aTW;
-                                frsActivity8.forumId = oVar31.aeN().getId();
+                                frsActivity8.forumId = oVar31.aeJ().getId();
                                 oVar32 = this.aUK.aTW;
-                                if (oVar32.aeN().getFrsBannerData().getType() == 2) {
+                                if (oVar32.aeJ().getFrsBannerData().getType() == 2) {
                                     aVar6 = this.aUK.aUk;
                                     oVar35 = this.aUK.aTW;
                                     aVar6.fT(oVar35.getUserData().getIsMem());
                                 }
                                 bsVar16 = this.aUK.aTU;
                                 oVar33 = this.aUK.aTW;
-                                ForumData aeN = oVar33.aeN();
+                                ForumData aeJ = oVar33.aeJ();
                                 oVar34 = this.aUK.aTW;
-                                bsVar16.b(aeN, oVar34.getUserData());
+                                bsVar16.b(aeJ, oVar34.getUserData());
                             }
                             z3 = this.aUK.aUh;
                             if (z3) {
                                 oVar24 = this.aUK.aTW;
                                 if (oVar24 != null) {
                                     aVar5 = this.aUK.aUi;
-                                    if (aVar5.Ng() == 1) {
+                                    if (aVar5.Nc() == 1) {
                                         oVar25 = this.aUK.aTW;
-                                        oVar25.avT();
+                                        oVar25.avP();
                                         oVar26 = this.aUK.aTW;
-                                        oVar26.avX();
-                                        if (!this.aUK.Lm().Nd() && TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
+                                        oVar26.avT();
+                                        if (!this.aUK.Li().MZ() && TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                                             oVar28 = this.aUK.aTW;
-                                            oVar28.avW();
+                                            oVar28.avS();
                                             oVar29 = this.aUK.aTW;
-                                            oVar29.avV();
+                                            oVar29.avR();
                                         }
                                         if (TbadkCoreApplication.m411getInst().isRecAppExist()) {
                                             oVar27 = this.aUK.aTW;
@@ -296,20 +296,20 @@ class aq implements com.baidu.tieba.tbadkCore.r {
                                 }
                             }
                             oVar9 = this.aUK.aTW;
-                            com.baidu.tbadk.core.data.y top_notice_data = oVar9.aeN().getTop_notice_data();
+                            com.baidu.tbadk.core.data.y top_notice_data = oVar9.aeJ().getTop_notice_data();
                             if (top_notice_data != null && top_notice_data.getTitle() != null) {
                                 com.baidu.tbadk.core.data.w wVar = new com.baidu.tbadk.core.data.w();
                                 wVar.setTitle(top_notice_data.getTitle());
                                 wVar.bA(2);
-                                wVar.cn(top_notice_data.sK());
+                                wVar.cn(top_notice_data.sH());
                                 wVar.parser_title();
                                 oVar23 = this.aUK.aTW;
                                 oVar23.f(wVar);
                             }
                             aVar2 = this.aUK.aUk;
-                            String Nc = this.aUK.Lm().Nc();
+                            String MY = this.aUK.Li().MY();
                             oVar10 = this.aUK.aTW;
-                            aVar2.a(Nc, oVar10);
+                            aVar2.a(MY, oVar10);
                             FrsActivity.aUb = (System.nanoTime() - this.startTime) / 1000000;
                             if (aVar != null) {
                                 FrsActivity.aUc = aVar.cWU;
@@ -319,7 +319,7 @@ class aq implements com.baidu.tieba.tbadkCore.r {
                                 oVar21 = this.aUK.aTW;
                                 if (oVar21.getThreadList() != null) {
                                     oVar22 = this.aUK.aTW;
-                                    if (oVar22.getThreadList().size() == 0 && this.aUK.Lm().getType() == 4) {
+                                    if (oVar22.getThreadList().size() == 0 && this.aUK.Li().getType() == 4) {
                                         this.aUK.showToast(this.aUK.getPageContext().getString(i.h.no_more_to_load));
                                         i3 = this.aUK.mPn;
                                         if (i3 > 1) {
@@ -329,7 +329,7 @@ class aq implements com.baidu.tieba.tbadkCore.r {
                                         }
                                         if (this.aUK.aLJ > -1) {
                                             long currentTimeMillis2 = System.currentTimeMillis();
-                                            TiebaStatic.page("op_frs_enter", currentTimeMillis2 - this.aUK.aLJ, this.aUK.Lm().IA() - this.aUK.aLJ, this.aUK.Lm().Iy(), this.aUK.Lm().Iz(), currentTimeMillis2 - this.aUK.Lm().Ix());
+                                            TiebaStatic.page("op_frs_enter", currentTimeMillis2 - this.aUK.aLJ, this.aUK.Li().Iw() - this.aUK.aLJ, this.aUK.Li().Iu(), this.aUK.Li().Iv(), currentTimeMillis2 - this.aUK.Li().It());
                                             this.aUK.aLJ = -1L;
                                         }
                                         this.aUK.axy = System.currentTimeMillis() - currentTimeMillis;
@@ -348,10 +348,10 @@ class aq implements com.baidu.tieba.tbadkCore.r {
                                         oVar13 = this.aUK.aTW;
                                         if (oVar13 != null) {
                                             oVar17 = this.aUK.aTW;
-                                            if (oVar17.aeN() != null) {
+                                            if (oVar17.aeJ() != null) {
                                                 kVar2 = this.aUK.aUl;
                                                 oVar18 = this.aUK.aTW;
-                                                kVar2.cl(oVar18.aeN().isLike() == 1);
+                                                kVar2.cl(oVar18.aeJ().isLike() == 1);
                                             }
                                         }
                                         aVar3 = this.aUK.aUm;
@@ -361,10 +361,10 @@ class aq implements com.baidu.tieba.tbadkCore.r {
                                             oVar16 = this.aUK.aTW;
                                             oVar16.af(a);
                                         }
-                                        this.aUK.La();
+                                        this.aUK.KW();
                                         aVar4 = this.aUK.aUk;
                                         oVar15 = this.aUK.aTW;
-                                        aVar4.cj(oVar15.avw());
+                                        aVar4.cj(oVar15.avs());
                                     }
                                 }
                             }
@@ -378,17 +378,17 @@ class aq implements com.baidu.tieba.tbadkCore.r {
                             a = aVar3.a(true, oVar14.getThreadList());
                             if (a != null) {
                             }
-                            this.aUK.La();
+                            this.aUK.KW();
                             aVar4 = this.aUK.aUk;
                             oVar15 = this.aUK.aTW;
-                            aVar4.cj(oVar15.avw());
+                            aVar4.cj(oVar15.avs());
                         }
                         FrsActivity frsActivity10 = this.aUK;
                         oVar4 = this.aUK.aTW;
-                        frsActivity10.aTQ = oVar4.Nj();
+                        frsActivity10.aTQ = oVar4.Nf();
                         if (this.aUK.aLJ > -1) {
                             long currentTimeMillis3 = System.currentTimeMillis();
-                            TiebaStatic.page("op_frs_enter", currentTimeMillis3 - this.aUK.aLJ, this.aUK.Lm().IA() - this.aUK.aLJ, this.aUK.Lm().Iy(), this.aUK.Lm().Iz(), currentTimeMillis3 - this.aUK.Lm().Ix());
+                            TiebaStatic.page("op_frs_enter", currentTimeMillis3 - this.aUK.aLJ, this.aUK.Li().Iw() - this.aUK.aLJ, this.aUK.Li().Iu(), this.aUK.Li().Iv(), currentTimeMillis3 - this.aUK.Li().It());
                             this.aUK.aLJ = -1L;
                         }
                         oVar5 = this.aUK.aTW;
@@ -421,12 +421,12 @@ class aq implements com.baidu.tieba.tbadkCore.r {
                 }
             }
             bsVar18 = this.aUK.aTU;
-            bsVar18.Mg();
+            bsVar18.Mc();
             if (i != 4) {
             }
         }
         bsVar2 = this.aUK.aTU;
-        bsVar2.Me();
+        bsVar2.Ma();
         if (i != 4) {
         }
     }
@@ -434,7 +434,7 @@ class aq implements com.baidu.tieba.tbadkCore.r {
     @Override // com.baidu.tieba.tbadkCore.r
     public void b(com.baidu.tieba.tbadkCore.m mVar) {
         if (mVar != null) {
-            if (!"normal_page".equals(this.aUK.Lm().Nc()) && !"frs_page".equals(this.aUK.Lm().Nc())) {
+            if (!"normal_page".equals(this.aUK.Li().MY()) && !"frs_page".equals(this.aUK.Li().MY())) {
                 return;
             }
             this.aUK.a(mVar);

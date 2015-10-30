@@ -59,7 +59,7 @@ public class U9InfoView extends LinearLayout {
         this.cYw = (TextView) findViewById(i.f.news_info_text);
         this.cYx = new ForegroundColorSpan(an.getColor(i.c.cp_cont_c));
         this.aKj = new ah(this);
-        awk();
+        awg();
     }
 
     public void a(com.baidu.tbadk.core.data.x xVar, com.baidu.tbadk.core.data.aa aaVar) {
@@ -74,17 +74,17 @@ public class U9InfoView extends LinearLayout {
         } else {
             this.cYp.setVisibility(0);
             this.cYv.setVisibility(0);
-            this.cYr.d(this.top_code.sf(), 10, false);
+            this.cYr.d(this.top_code.sc(), 10, false);
             this.cYs.setText(this.top_code.getSummary());
-            if (TextUtils.isEmpty(this.top_code.sJ()) || TextUtils.isEmpty(this.top_code.sJ().trim())) {
+            if (TextUtils.isEmpty(this.top_code.sG()) || TextUtils.isEmpty(this.top_code.sG().trim())) {
                 this.cYt.setVisibility(8);
             } else {
-                SpannableString spannableString = new SpannableString(String.valueOf(this.mContext.getResources().getString(i.h.u9_shengyu)) + this.top_code.sJ());
+                SpannableString spannableString = new SpannableString(String.valueOf(this.mContext.getResources().getString(i.h.u9_shengyu)) + this.top_code.sG());
                 spannableString.setSpan(this.cYx, 0, 2, 34);
                 this.cYt.setText(spannableString);
                 this.cYt.setVisibility(0);
             }
-            if (this.top_code.sI() == 2) {
+            if (this.top_code.sF() == 2) {
                 this.cYu.setText(this.mContext.getResources().getString(i.h.u9_taohao));
             } else {
                 this.cYu.setText(this.mContext.getResources().getString(i.h.u9_linghao));
@@ -98,7 +98,7 @@ public class U9InfoView extends LinearLayout {
         this.cYw.setText(aaVar.getSummary());
     }
 
-    public void awk() {
+    public void awg() {
         this.cYp.setOnClickListener(this.aKj);
         this.cYq.setOnClickListener(this.aKj);
     }

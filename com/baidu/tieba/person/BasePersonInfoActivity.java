@@ -43,19 +43,19 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
 
     public abstract d a(BasePersonInfoActivity basePersonInfoActivity, boolean z);
 
+    public abstract String ahQ();
+
+    public abstract String ahR();
+
+    public abstract String ahS();
+
+    public abstract String ahT();
+
     public abstract String ahU();
-
-    public abstract String ahV();
-
-    public abstract String ahW();
-
-    public abstract String ahX();
 
     public abstract String ahY();
 
-    public abstract String aic();
-
-    public abstract int aid();
+    public abstract int ahZ();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
@@ -116,12 +116,12 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                 this.mNavigationBar.setTitleText(i.h.share_choose_bar_title);
             }
         } else {
-            this.mNavigationBar.setTitleText(String.format(ahU(), this.bFH));
+            this.mNavigationBar.setTitleText(String.format(ahQ(), this.bFH));
         }
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
         if (this.mIsHost && this.requestCode != 23003 && !this.cnT) {
             this.bFI = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.widget_nb_item_privacy, (View.OnClickListener) null);
-            com.baidu.tbadk.core.util.an.c(this.bFI, bFM[com.baidu.tbadk.core.a.h.br(aid()) - 1]);
+            com.baidu.tbadk.core.util.an.c(this.bFI, bFM[com.baidu.tbadk.core.a.h.br(ahZ()) - 1]);
             this.bFI.setOnClickListener(new c(this));
         }
         this.bFF = new int[]{0, 1};
@@ -131,25 +131,25 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         this.bee.setTabWidgetBackgroundColor(getResources().getColor(i.c.maintab_bg));
         this.bee.setOnPageChangeListener(this);
         this.bee.reset();
-        WH();
+        WD();
         if (this.mIsHost) {
             this.bee.getTabWrapper().setVisibility(8);
         }
         this.bee.setCurrentTab(this.bFE);
     }
 
-    private void WH() {
+    private void WD() {
         if (this.cnV != null) {
             int i = this.mIsHost ? 1 : 2;
             for (int i2 = 0; i2 < i; i2++) {
                 Fragment item = this.cnV.getItem(i2);
                 int hv = this.cnV.hv(i2);
-                String ahV = ahV();
+                String ahR = ahR();
                 if (hv == 1) {
-                    ahV = ahW();
+                    ahR = ahS();
                 }
                 if (item != null) {
-                    a(item, hv, ahV);
+                    a(item, hv, ahR);
                 }
             }
             this.bee.initViewPager();
@@ -179,15 +179,15 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (!this.mIsHost && this.cnV != null) {
             FragmentTabIndicator fragmentTabIndicator = this.bee.ce(0).YF;
             if (i <= 0) {
-                fragmentTabIndicator.setText(ahV());
+                fragmentTabIndicator.setText(ahR());
             } else {
-                fragmentTabIndicator.setText(String.format(ahX(), Integer.valueOf(i)));
+                fragmentTabIndicator.setText(String.format(ahT(), Integer.valueOf(i)));
             }
             FragmentTabIndicator fragmentTabIndicator2 = this.bee.ce(1).YF;
             if (i2 <= 0) {
-                fragmentTabIndicator2.setText(ahW());
+                fragmentTabIndicator2.setText(ahS());
             } else {
-                fragmentTabIndicator2.setText(String.format(ahY(), Integer.valueOf(i2)));
+                fragmentTabIndicator2.setText(String.format(ahU(), Integer.valueOf(i2)));
             }
         }
     }
@@ -200,27 +200,27 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         return this.mSex;
     }
 
-    public String WJ() {
+    public String WF() {
         return this.bFH;
     }
 
-    public boolean WK() {
+    public boolean WG() {
         return this.mIsHost;
     }
 
-    public boolean ahZ() {
+    public boolean ahV() {
         return this.cnT;
     }
 
-    public int WI() {
+    public int WE() {
         return this.bFE == 0 ? 0 : 1;
     }
 
-    public int aia() {
+    public int ahW() {
         return this.cnS;
     }
 
-    public String aib() {
+    public String ahX() {
         return this.cnU;
     }
 
@@ -260,7 +260,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (i >= 0 && i < 2 && i != this.bFE) {
             this.bFE = i;
             if (!this.mIsHost && this.bFF[i] == 1) {
-                TiebaStatic.eventStat(getPageContext().getContext(), aic(), "click", 1, new Object[0]);
+                TiebaStatic.eventStat(getPageContext().getContext(), ahY(), "click", 1, new Object[0]);
             }
         }
     }

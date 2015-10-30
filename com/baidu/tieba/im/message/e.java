@@ -22,7 +22,7 @@ class e implements a.b {
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
         int i2 = 2;
         if (imMessageCenterPojo != null) {
-            i.TO().a(imMessageCenterPojo, 2);
+            i.TK().a(imMessageCenterPojo, 2);
             int userType = imMessageCenterPojo.getUserType();
             if (this.bFm != null) {
                 if (userType == 1 || userType == 3) {
@@ -38,7 +38,7 @@ class e implements a.b {
                     if (z) {
                         this.bFm.setIs_hidden(0);
                     }
-                    i.TO().a(this.bFm, i2);
+                    i.TK().a(this.bFm, i2);
                 }
             }
         }
@@ -46,6 +46,6 @@ class e implements a.b {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void e(String str, List<CommonMsgPojo> list) {
-        k.TT().a(b.c(str, 0L), list, true);
+        k.TP().a(b.c(str, 0L), list, true);
     }
 }

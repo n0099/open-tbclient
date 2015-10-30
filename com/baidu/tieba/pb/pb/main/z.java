@@ -35,10 +35,10 @@ public class z implements PbActivity.a {
         PbActivity pbActivity = this.ciK;
         Activity pageActivity = this.ciK.getPageContext().getPageActivity();
         blVar2 = this.ciK.cih;
-        String id = blVar2.getPbData().aeN().getId();
+        String id = blVar2.getPbData().aeJ().getId();
         blVar3 = this.ciK.cih;
-        String name = blVar3.getPbData().aeN().getName();
+        String name = blVar3.getPbData().aeJ().getName();
         blVar4 = this.ciK.cih;
-        pbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, blVar4.getPbData().aeO().getId(), valueOf, str, str2)));
+        pbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, blVar4.getPbData().aeK().getId(), valueOf, str, str2)));
     }
 }

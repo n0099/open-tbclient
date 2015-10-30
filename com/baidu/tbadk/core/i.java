@@ -25,21 +25,21 @@ public class i {
         this.Ti.o(str, str2);
     }
 
-    protected String qU() {
-        String tG = this.Ti.tG();
+    protected String qR() {
+        String tD = this.Ti.tD();
         this.Tj = new NewErrorData();
-        this.Tj.parserJson(tG);
-        return tG;
+        this.Tj.parserJson(tD);
+        return tD;
     }
 
-    public boolean qV() {
+    public boolean qS() {
         if (this.Ti != null) {
-            return this.Ti.uh().uZ().qV();
+            return this.Ti.ue().uW().qS();
         }
         return false;
     }
 
-    public String qW() {
+    public String qT() {
         if (this.Ti != null) {
             return this.Ti.getErrorString();
         }

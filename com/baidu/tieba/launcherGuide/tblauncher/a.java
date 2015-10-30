@@ -26,7 +26,7 @@ class a implements BaseViewPager.a {
             }
             str = this.bSK.bSw;
             if (!str.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
-                this.bSK.FY();
+                this.bSK.FU();
             }
             CompatibleUtile.setAnim(this.bSK.getPageContext().getPageActivity(), 0, i.a.left);
             this.bSK.closeActivity();

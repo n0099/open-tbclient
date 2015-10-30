@@ -19,7 +19,7 @@ public class a {
         }
     }
 
-    public static void c(Closeable closeable) {
+    public static void b(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();

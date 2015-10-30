@@ -8,7 +8,7 @@ public class i {
         this.cJb = str;
     }
 
-    public String aqv() {
+    public String aqr() {
         return this.cJb;
     }
 
@@ -16,7 +16,7 @@ public class i {
         this.alN = z;
     }
 
-    public boolean aqt() {
+    public boolean aqp() {
         return this.alN;
     }
 }

@@ -190,7 +190,7 @@ public class n implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public int AQ() {
+    public int AN() {
         return aqE.size();
     }
 

@@ -35,7 +35,7 @@ public class o implements a.c {
                 hashMap = this.bHf.bHa;
                 aVar = (com.baidu.tbadk.img.a) hashMap.remove(str);
             }
-            if (aVar != null && (chatMessage = (ChatMessage) aVar.Ci()) != null) {
+            if (aVar != null && (chatMessage = (ChatMessage) aVar.Cf()) != null) {
                 if (imageUploadResult == null || imageUploadResult.error_code != 0 || imageUploadResult.picInfo == null) {
                     if (imageUploadResult != null) {
                         com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "up_pic_ret", imageUploadResult.error_code, imageUploadResult.error_msg, new Object[0]);
@@ -66,7 +66,7 @@ public class o implements a.c {
                         str2 = null;
                     }
                     chatMessage.setContent(a.b(str3, str2, i2, i));
-                    a.Xd().n(chatMessage);
+                    a.WZ().n(chatMessage);
                     aeVar = this.bHf.mSendCallback;
                     if (aeVar != null) {
                         aeVar2 = this.bHf.mSendCallback;

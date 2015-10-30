@@ -17,10 +17,10 @@ public class d implements AbsListView.OnScrollListener {
         com.baidu.tbadk.editortools.c.n nVar;
         if (i == 2 || i == 1) {
             tVar = this.cmC.cmv;
-            tVar.agM();
+            tVar.agI();
         }
         nVar = this.cmC.caU;
-        nVar.BM();
+        nVar.BJ();
     }
 
     @Override // android.widget.AbsListView.OnScrollListener

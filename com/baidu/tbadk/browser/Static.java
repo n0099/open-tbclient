@@ -26,8 +26,8 @@ public class Static {
 
     static {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new h(0));
-        az.uW().a(new i());
-        az.uW().a(new j());
+        az.uT().a(new i());
+        az.uT().a(new j());
         com.baidu.adp.lib.b.e.gv().a(new com.baidu.adp.lib.b.c("switch_mbaidu_startup", 1, null));
     }
 
@@ -96,7 +96,7 @@ public class Static {
     public static void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
         String bR = bR(str);
-        if (!bU(bR) && qp() && bW("com.baidu.searchbox") && bV(bR) && RW) {
+        if (!bU(bR) && qm() && bW("com.baidu.searchbox") && bV(bR) && RW) {
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_2", null);
             b(tbPageContext, str, str2, z, z2, z3, z4);
             return;
@@ -108,7 +108,7 @@ public class Static {
         return WhiteListData.createBySP().checkUrl(str);
     }
 
-    private static boolean qp() {
+    private static boolean qm() {
         return com.baidu.adp.lib.b.e.gv().ah("switch_mbaidu_startup") == 1;
     }
 
@@ -152,7 +152,7 @@ public class Static {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean qq() {
+    public static boolean qn() {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TbadkCoreApplication.m411getInst().getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses != null && runningAppProcesses.size() > 0) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {

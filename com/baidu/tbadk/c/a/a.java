@@ -17,11 +17,11 @@ public abstract class a {
         this.anP = i4;
     }
 
-    public int Ae() {
+    public int Ab() {
         return this.iconId;
     }
 
-    public int Af() {
+    public int Ac() {
         return this.anO;
     }
 }

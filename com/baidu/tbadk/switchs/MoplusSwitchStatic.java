@@ -2,9 +2,6 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.b.a;
 import com.baidu.adp.lib.b.e;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class MoplusSwitchStatic extends a {
     public static final String[] azd;
@@ -42,12 +39,5 @@ public class MoplusSwitchStatic extends a {
     @Override // com.baidu.adp.lib.b.a
     protected int getMaxCrashTimes() {
         return 10;
-    }
-
-    public static boolean Er() {
-        if (TbadkCoreApplication.m411getInst().isMainProcess(false)) {
-            return TbadkSettings.getInst().loadInt(new StringBuilder("moplus_crash_count_").append(TbConfig.getVersion()).toString(), 0) <= TbadkCoreApplication.m411getInst().getFeatureCrashAutoCloseLimit() && e.gv().ah("android_moplus") == 1;
-        }
-        return false;
     }
 }

@@ -50,7 +50,7 @@ public class b implements GiftGifView.a {
     }
 
     @Override // com.baidu.tbadk.gif.GiftGifView.a
-    public void Cd() {
+    public void Ca() {
         ProgressDialog progressDialog;
         Dialog dialog;
         Activity activity;

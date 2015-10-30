@@ -98,19 +98,19 @@ public class v {
         }
     }
 
-    public void ajC() {
-        y ajf = this.cqE.ajf();
-        UserData userData = ajf.getUserData();
-        PersonTainInfo ajN = ajf.ajN();
-        c(ajN, userData);
-        a(ajN, userData);
+    public void ajy() {
+        y ajb = this.cqE.ajb();
+        UserData userData = ajb.getUserData();
+        PersonTainInfo ajJ = ajb.ajJ();
+        c(ajJ, userData);
+        a(ajJ, userData);
         oO();
     }
 
     private void a(PersonTainInfo personTainInfo, UserData userData) {
         if (userData != null && personTainInfo != null) {
             com.baidu.tbadk.data.f personPrivate = userData.getPersonPrivate();
-            int Aa = personPrivate != null ? personPrivate.Aa() : 1;
+            int zX = personPrivate != null ? personPrivate.zX() : 1;
             int isFriend = personTainInfo != null ? personTainInfo.getIsFriend() : 1;
             if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(PersonGroupActivityConfig.class)) {
                 this.cte.setVisibility(8);
@@ -121,7 +121,7 @@ public class v {
             this.line.setVisibility(0);
             if (this.mIsHost) {
                 b(personTainInfo, userData);
-            } else if (Aa == 1 || (Aa == 2 && isFriend == 1)) {
+            } else if (zX == 1 || (zX == 2 && isFriend == 1)) {
                 b(personTainInfo, userData);
             } else {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ctg.getLayoutParams();
@@ -183,11 +183,11 @@ public class v {
     private void c(PersonTainInfo personTainInfo, UserData userData) {
         if (userData != null && personTainInfo != null) {
             com.baidu.tbadk.data.f personPrivate = userData.getPersonPrivate();
-            int zZ = personPrivate != null ? personPrivate.zZ() : 1;
+            int zW = personPrivate != null ? personPrivate.zW() : 1;
             int isFriend = personTainInfo != null ? personTainInfo.getIsFriend() : 1;
             if (this.mIsHost) {
                 e(userData);
-            } else if (zZ == 1 || (zZ == 2 && isFriend == 1)) {
+            } else if (zW == 1 || (zW == 2 && isFriend == 1)) {
                 e(userData);
             } else {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ctm.getLayoutParams();
@@ -237,7 +237,7 @@ public class v {
             if (size > 4) {
                 size = 4;
             }
-            ajD();
+            ajz();
             switch (size) {
                 case 1:
                     this.ctn.setText((CharSequence) arrayList.get(0));
@@ -263,18 +263,18 @@ public class v {
         }
     }
 
-    private void ajD() {
+    private void ajz() {
         this.ctn.setText((CharSequence) null);
         this.cto.setText((CharSequence) null);
         this.ctp.setText((CharSequence) null);
         this.ctq.setText((CharSequence) null);
     }
 
-    public RelativeLayout ajy() {
+    public RelativeLayout aju() {
         return this.cte;
     }
 
-    public RelativeLayout ajr() {
+    public RelativeLayout ajn() {
         return this.ctj;
     }
 

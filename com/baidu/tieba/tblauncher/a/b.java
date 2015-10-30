@@ -19,12 +19,12 @@ public class b implements a {
     }
 
     @Override // com.baidu.tieba.tblauncher.a.a
-    public int ayS() {
+    public int ayO() {
         return this.ddH;
     }
 
     @Override // com.baidu.tieba.tblauncher.a.a
-    public int ayR() {
+    public int ayN() {
         return this.ddI;
     }
 
@@ -34,7 +34,7 @@ public class b implements a {
     }
 
     @Override // com.baidu.tieba.tblauncher.a.a
-    public int ayT() {
+    public int ayP() {
         return this.ddJ;
     }
 

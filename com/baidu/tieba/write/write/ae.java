@@ -12,7 +12,7 @@ public class ae implements PhotoLiveLinearLayout.a {
     }
 
     @Override // com.baidu.tieba.write.view.PhotoLiveView.PhotoLiveLinearLayout.a
-    public void aCy() {
-        this.dqi.aDF();
+    public void aCu() {
+        this.dqi.aDB();
     }
 }

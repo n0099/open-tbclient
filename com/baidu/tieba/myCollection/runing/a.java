@@ -17,7 +17,7 @@ public class a {
         ccu = null;
     }
 
-    public static synchronized a adK() {
+    public static synchronized a adG() {
         a aVar;
         synchronized (a.class) {
             if (ccu == null) {
@@ -32,7 +32,7 @@ public class a {
         MessageManager.getInstance().registerListener(this.mListener);
     }
 
-    public void adb() {
+    public void acX() {
         this.caE = 0L;
         destroy();
         start();

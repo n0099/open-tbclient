@@ -47,7 +47,7 @@ public class h extends com.baidu.adp.base.e<BaseActivity<?>> {
         requestHotTopicMessage.setScrH(Integer.valueOf(L));
         requestHotTopicMessage.setScrW(Integer.valueOf(K));
         requestHotTopicMessage.setSrcDip(Double.valueOf(TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density));
-        requestHotTopicMessage.setQType(Integer.valueOf(m.qX().getViewImageQuality()));
+        requestHotTopicMessage.setQType(Integer.valueOf(m.qU().getViewImageQuality()));
         sendMessage(requestHotTopicMessage);
     }
 

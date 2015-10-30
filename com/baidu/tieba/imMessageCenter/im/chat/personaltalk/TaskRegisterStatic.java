@@ -14,6 +14,6 @@ public class TaskRegisterStatic {
         com.baidu.tieba.im.e.b(CmdConfigCustom.CMD_LOAD_DRAFT_PERSONAL, b.class);
         com.baidu.tieba.im.e.b(CmdConfigCustom.CMD_LOAD_HISTORY_PERSONAL, d.class);
         com.baidu.tieba.im.e.b(CmdConfigCustom.CMD_SAVE_DRAFT_PERSONAL, c.class);
-        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yh().registerListener();
+        com.baidu.tieba.imMessageCenter.im.floatwindow.b.Yd().registerListener();
     }
 }

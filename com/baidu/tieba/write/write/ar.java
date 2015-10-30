@@ -18,9 +18,9 @@ public class ar implements a.b {
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         WriteData writeData;
-        EditText aDx;
+        EditText aDt;
         WriteData writeData2;
-        EditText aDw;
+        EditText aDs;
         WriteData writeData3;
         WriteData writeData4;
         WriteData writeData5;
@@ -29,11 +29,11 @@ public class ar implements a.b {
         WriteData writeData7;
         aVar.dismiss();
         writeData = this.dqi.dbx;
-        aDx = this.dqi.aDx();
-        writeData.setTitle(aDx.getText().toString());
+        aDt = this.dqi.aDt();
+        writeData.setTitle(aDt.getText().toString());
         writeData2 = this.dqi.dbx;
-        aDw = this.dqi.aDw();
-        writeData2.setContent(aDw.getText().toString());
+        aDs = this.dqi.aDs();
+        writeData2.setContent(aDs.getText().toString());
         writeData3 = this.dqi.dbx;
         int type = writeData3.getType();
         if (type == 0) {

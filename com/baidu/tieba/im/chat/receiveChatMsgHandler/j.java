@@ -28,7 +28,7 @@ public class j {
             if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.c.a.bGX) {
                 return -1L;
             }
-            return com.baidu.tieba.im.util.g.aL(optJSONObject.optLong("readMsgId"));
+            return com.baidu.tieba.im.util.g.aJ(optJSONObject.optLong("readMsgId"));
         } catch (Exception e) {
             return -1L;
         }

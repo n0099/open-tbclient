@@ -44,9 +44,9 @@ class q implements a.InterfaceC0040a {
             if (i3 != 2) {
                 return;
             }
-            this.aFj.Gb();
+            this.aFj.FX();
             return;
         }
-        this.aFj.Ga();
+        this.aFj.FW();
     }
 }

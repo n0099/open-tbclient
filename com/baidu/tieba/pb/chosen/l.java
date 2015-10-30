@@ -21,9 +21,9 @@ class l implements View.OnClickListener {
             dVar = this.cfl.aSC;
             if (dVar != null) {
                 dVar2 = this.cfl.aSC;
-                if (dVar2.Ax() != null) {
+                if (dVar2.Au() != null) {
                     dVar3 = this.cfl.aSC;
-                    dVar3.Ax().ow();
+                    dVar3.Au().ow();
                     mVar = this.cfl.ceS;
                     mVar.setVisible(false);
                     TiebaStatic.log("c10094");

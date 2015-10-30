@@ -17,6 +17,6 @@ public class ax implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MAINTAB_TAB_NAVI_EDIT_CANCEL));
-        com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("enter_forum_edit_mode", false);
+        com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("enter_forum_edit_mode", false);
     }
 }

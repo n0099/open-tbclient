@@ -19,7 +19,7 @@ public class m extends DiskFileOperate {
     public void l(boolean z) {
         super.l(z);
         if (z) {
-            this.xB.j(0L);
+            this.xB.h(0L);
         }
     }
 }

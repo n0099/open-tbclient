@@ -40,7 +40,7 @@ public class MoreModel extends com.baidu.adp.base.e {
         this.cLW = z;
     }
 
-    public boolean arq() {
+    public boolean arm() {
         return this.cLW;
     }
 

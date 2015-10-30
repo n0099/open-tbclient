@@ -20,7 +20,7 @@ public class c implements ViewPager.OnPageChangeListener {
         i2 = this.bqP.mIndex;
         absMsgImageActivity.ad(i2, i);
         this.bqP.mIndex = i;
-        this.bqP.Rn();
+        this.bqP.Rj();
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener

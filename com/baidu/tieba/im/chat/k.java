@@ -18,7 +18,7 @@ public class k implements View.OnTouchListener {
     public boolean onTouch(View view, MotionEvent motionEvent) {
         com.baidu.adp.lib.util.k.c(this.bqT.getActivity(), this.bqT.getActivity().getCurrentFocus());
         if (this.bqS.mTool != null) {
-            this.bqS.mTool.za();
+            this.bqS.mTool.yX();
         }
         this.bqS.MainOnTouch();
         return false;

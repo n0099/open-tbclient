@@ -69,22 +69,22 @@ public class e extends com.baidu.adp.base.f<RelateTopicForumActivity> {
         this.mListView.setOnItemClickListener(this.bqv);
     }
 
-    public void Mf() {
+    public void Mb() {
         if (this.mListView != null && this.aWW != null) {
             this.mListView.setNextPage(this.aWW);
-            this.aWW.vy();
+            this.aWW.vv();
             this.aWW.setText(this.bqs.getResources().getString(i.h.list_no_more));
         }
     }
 
-    public void Mg() {
+    public void Mc() {
         if (this.mListView != null && this.aWW != null) {
             this.mListView.setNextPage(null);
-            this.aWW.vz();
+            this.aWW.vw();
         }
     }
 
-    public n Rj() {
+    public n Rf() {
         return this.bqt;
     }
 }

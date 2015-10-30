@@ -25,10 +25,10 @@ public class o {
         }
     }
 
-    public void aqP() {
+    public void aqL() {
         try {
             this.cKP.reenableKeyguard();
-            f.aqH().cKv++;
+            f.aqD().cKv++;
             if (this.cKO != null) {
                 this.cKO.release();
                 this.cKO = null;
@@ -38,7 +38,7 @@ public class o {
         }
     }
 
-    public void aqQ() {
+    public void aqM() {
         try {
             if (this.cKO == null) {
                 this.cKO = this.cKN.newWakeLock(268435462, "ScreenLockNotify");
@@ -47,15 +47,15 @@ public class o {
             if (this.cKO != null) {
                 this.cKO.acquire(10000L);
                 this.cKP.disableKeyguard();
-                f.aqH().cKs = 0;
-                f.aqH().cKw++;
+                f.aqD().cKs = 0;
+                f.aqD().cKw++;
             }
         } catch (Throwable th) {
             th.printStackTrace();
         }
     }
 
-    public boolean aqR() {
+    public boolean aqN() {
         try {
             return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.cKo, new Object[0])).booleanValue();
         } catch (Throwable th) {

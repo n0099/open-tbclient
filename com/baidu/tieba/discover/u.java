@@ -15,7 +15,7 @@ public class u {
 
     /* loaded from: classes.dex */
     public interface a {
-        void HE();
+        void HA();
 
         void a(boolean z, com.baidu.tieba.discover.data.a aVar, boolean z2);
     }
@@ -27,19 +27,19 @@ public class u {
         this.aKP.a(new w(this));
     }
 
-    public void HF() {
-        this.aKO.CI();
+    public void HB() {
+        this.aKO.CF();
     }
 
-    public void Gx() {
-        this.aKP.CS();
+    public void Gt() {
+        this.aKP.CP();
     }
 
     public void a(a aVar) {
         this.aKR = aVar;
     }
 
-    private static void HG() {
+    private static void HC() {
         aKN = new HashMap<>();
         aKN.put("discover_friend", Integer.valueOf(i.e.icon_find_trends));
         aKN.put("discover_nearby", Integer.valueOf(i.e.icon_find_nearby));
@@ -55,13 +55,13 @@ public class u {
 
     public static int gp(String str) {
         if (aKN == null) {
-            HG();
+            HC();
         }
         Integer num = aKN.get(str);
         return num == null ? i.e.img_default_100 : num.intValue();
     }
 
-    public com.baidu.tieba.discover.data.a HH() {
+    public com.baidu.tieba.discover.data.a HD() {
         com.baidu.tieba.discover.data.a aVar = new com.baidu.tieba.discover.data.a();
         ArrayList arrayList = new ArrayList();
         com.baidu.tieba.discover.data.d dVar = new com.baidu.tieba.discover.data.d();

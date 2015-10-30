@@ -18,7 +18,7 @@ class o implements p.a {
         blVar = this.ciK.cih;
         if (!blVar.ey(true)) {
             ccVar = this.ciK.cim;
-            ccVar.agC();
+            ccVar.agy();
             return;
         }
         TiebaStatic.eventStat(this.ciK.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);

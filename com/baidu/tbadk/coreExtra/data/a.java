@@ -21,7 +21,7 @@ public class a {
         return this.mUser;
     }
 
-    public ArrayList<String> we() {
+    public ArrayList<String> wb() {
         return this.UU;
     }
 

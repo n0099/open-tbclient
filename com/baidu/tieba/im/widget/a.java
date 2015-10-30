@@ -73,11 +73,11 @@ public class a<T> {
         return i;
     }
 
-    public int XA() {
+    public int Xw() {
         return this.subType;
     }
 
-    public T XB() {
+    public T Xx() {
         return this.bIG;
     }
 }

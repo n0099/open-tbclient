@@ -48,11 +48,11 @@ public class a {
         }
     }
 
-    public ArrayList<MetaData> aBI() {
+    public ArrayList<MetaData> aBE() {
         return this.dlq;
     }
 
-    public HashMap<String, String> aBJ() {
+    public HashMap<String, String> aBF() {
         return this.dlr;
     }
 }

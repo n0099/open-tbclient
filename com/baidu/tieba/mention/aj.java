@@ -66,12 +66,12 @@ public class aj implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String CA() {
+    public String Cx() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean CB() {
+    public boolean Cy() {
         return true;
     }
 

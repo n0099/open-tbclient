@@ -69,7 +69,7 @@ public class SingleMentionActivity extends BaseActivity<SingleMentionActivity> i
         setContentView(this.cbb.oZ());
         this.cbb.oQ();
         this.cbb.a(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
-        this.cbb.acR();
+        this.cbb.acN();
         UtilHelper.startHardAccelerated(getWindow());
         MentionActivityConfig.newJumpIn = true;
         this.mVoiceManager = getVoiceManager();
@@ -127,7 +127,7 @@ public class SingleMentionActivity extends BaseActivity<SingleMentionActivity> i
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.cbb.acQ();
+        this.cbb.acM();
         this.mVoiceManager = getVoiceManager();
         if (this.mVoiceManager != null) {
             this.mVoiceManager.onResume(getPageContext());
@@ -207,22 +207,22 @@ public class SingleMentionActivity extends BaseActivity<SingleMentionActivity> i
         if (bVar == null) {
             return true;
         }
-        if (bVar.CD() == 9485) {
-            com.baidu.tbadk.mvc.b.a CE = bVar.CE();
-            if (CE instanceof FeedData) {
-                return c((FeedData) CE);
+        if (bVar.CA() == 9485) {
+            com.baidu.tbadk.mvc.b.a CB = bVar.CB();
+            if (CB instanceof FeedData) {
+                return c((FeedData) CB);
             }
-        } else if (bVar.CD() == 9484) {
-            com.baidu.tbadk.mvc.b.a CE2 = bVar.CE();
-            if (CE2 instanceof FeedData) {
-                return d((FeedData) CE2);
+        } else if (bVar.CA() == 9484) {
+            com.baidu.tbadk.mvc.b.a CB2 = bVar.CB();
+            if (CB2 instanceof FeedData) {
+                return d((FeedData) CB2);
             }
-        } else if (bVar.CD() == 9483) {
-            com.baidu.tbadk.mvc.b.a CE3 = bVar.CE();
-            if (CE3 instanceof FeedData) {
-                return e((FeedData) CE3);
+        } else if (bVar.CA() == 9483) {
+            com.baidu.tbadk.mvc.b.a CB3 = bVar.CB();
+            if (CB3 instanceof FeedData) {
+                return e((FeedData) CB3);
             }
-        } else if (bVar.CD() == 9486) {
+        } else if (bVar.CA() == 9486) {
             this.cbc.d(bVar);
             return true;
         }
@@ -278,7 +278,7 @@ public class SingleMentionActivity extends BaseActivity<SingleMentionActivity> i
             }
             if (feedData.getThread_Type() == 33) {
                 TiebaStatic.log("c10384");
-                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), feedData.getThread_id()).cg(feedData.getPost_id()).ch("mention").rk()));
+                sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), feedData.getThread_id()).cg(feedData.getPost_id()).ch("mention").rh()));
                 return false;
             }
             return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getActivity()).createNormalCfg(feedData.getThread_id(), feedData.getPost_id(), "mention")));
@@ -315,23 +315,23 @@ public class SingleMentionActivity extends BaseActivity<SingleMentionActivity> i
         return this.cba;
     }
 
-    public al ade() {
+    public al ada() {
         return this.cbc;
     }
 
-    public j adf() {
+    public j adb() {
         return this.cbd;
     }
 
-    public ah adg() {
+    public ah adc() {
         return this.cbe;
     }
 
-    public f adh() {
+    public f add() {
         return this.cbf;
     }
 
-    public n adi() {
+    public n ade() {
         return this.cbb;
     }
 

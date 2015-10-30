@@ -180,7 +180,7 @@ public class b {
                                 }
                                 bArr = byteArrayOutputStream.toByteArray();
                                 com.baidu.adp.lib.g.a.d(fileInputStream);
-                                com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
+                                com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
                             } catch (Exception e2) {
                                 e = e2;
                                 BdLog.e(e.getMessage());
@@ -353,12 +353,12 @@ public class b {
                         } catch (Throwable th) {
                             th = th;
                             fileOutputStream = fileOutputStream2;
-                            com.baidu.adp.lib.g.a.b(fileOutputStream);
+                            com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
                             throw th;
                         }
                     }
                     fileOutputStream2.flush();
-                    com.baidu.adp.lib.g.a.b(fileOutputStream2);
+                    com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
                     return true;
                 }
                 com.baidu.adp.lib.g.a.b((OutputStream) null);

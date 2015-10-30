@@ -19,7 +19,7 @@ class i extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001189 && customResponsedMessage.getError() == 0) {
             this.this$0.dcJ = false;
             this.this$0.dcH = 0;
-            this.this$0.ayo();
+            this.this$0.ayk();
             this.this$0.gy(false);
         }
     }

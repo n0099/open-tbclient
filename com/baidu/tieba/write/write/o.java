@@ -24,7 +24,7 @@ public class o extends com.baidu.adp.base.e<WriteActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<com.baidu.tbadk.core.data.w> aCX() {
+    public ArrayList<com.baidu.tbadk.core.data.w> aCT() {
         return this.doH;
     }
 
@@ -62,12 +62,12 @@ public class o extends com.baidu.adp.base.e<WriteActivity> {
             String obj = objArr[0].toString();
             this.Ti = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
             this.Ti.o("kw", obj);
-            String tG = this.Ti.tG();
-            if (!this.Ti.uh().uZ().qV()) {
+            String tD = this.Ti.tD();
+            if (!this.Ti.ue().uW().qS()) {
                 return null;
             }
             o oVar = new o(o.this.doI);
-            oVar.parserJson(tG);
+            oVar.parserJson(tD);
             return oVar;
         }
 

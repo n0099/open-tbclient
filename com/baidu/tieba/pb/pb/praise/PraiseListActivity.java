@@ -33,9 +33,9 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (this.cme == null) {
             this.cme = new d();
         }
-        this.cmc = new f(this, this.cme.ahd());
+        this.cmc = new f(this, this.cme.agZ());
         this.cmc.eR(false);
-        this.cme.Gx();
+        this.cme.Gt();
     }
 
     @Override // android.app.Activity
@@ -51,11 +51,11 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.cmc.getPageHeadView()) {
-            aha();
-            if (!this.cme.ahb()) {
+            agW();
+            if (!this.cme.agX()) {
                 String threadId = this.cme.getThreadId();
                 if (threadId != null && threadId.startsWith("twzb:")) {
-                    g.a(CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), threadId.substring(5)).ch("praise_list").rk());
+                    g.a(CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), threadId.substring(5)).ch("praise_list").rh());
                 } else {
                     g.a(CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(threadId, null, "praise_list"));
                 }
@@ -63,7 +63,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
             finish();
         } else if (view == this.cmc.getPageFootContinue() && !this.cmc.isLoading()) {
             this.cmc.eR(true);
-            this.cme.Gx();
+            this.cme.Gt();
         }
     }
 
@@ -71,13 +71,13 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         a iV = this.cme.iV(i);
         if (iV != null) {
-            g.a(CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), iV.getUserId(), iV.agY(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+            g.a(CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), iV.getUserId(), iV.agU(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 
-    private void aha() {
+    private void agW() {
         if (this.cme != null) {
-            this.cme.ahc();
+            this.cme.agY();
         }
     }
 

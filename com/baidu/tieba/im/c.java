@@ -17,7 +17,7 @@ class c extends l<Integer> {
     @Override // com.baidu.tbadk.util.l
     public Integer doInBackground() {
         if (!this.bqy) {
-            com.baidu.tieba.im.db.b.TD().TE();
+            com.baidu.tieba.im.db.b.Tz().TA();
         }
         return 0;
     }

@@ -196,10 +196,10 @@ public class c {
         if (this.Tb != null && this.Tb.containsKey(str)) {
             b bVar = this.Tb.get(str);
             if (viewGroup instanceof AdapterView) {
-                if ((viewGroup instanceof ListView) && bVar.qF() != 0) {
+                if ((viewGroup instanceof ListView) && bVar.qC() != 0) {
                     ListView listView = (ListView) viewGroup;
                     int dividerHeight = listView.getDividerHeight();
-                    listView.setDivider(b(this.Ta, bVar.qE(), bVar.qF()));
+                    listView.setDivider(b(this.Ta, bVar.qB(), bVar.qC()));
                     listView.setDividerHeight(dividerHeight);
                 }
                 Adapter adapter = ((AdapterView) viewGroup).getAdapter();
@@ -207,16 +207,16 @@ public class c {
                     ((BaseAdapter) adapter).notifyDataSetChanged();
                 }
             }
-            if (bVar.qJ() != 0) {
+            if (bVar.qG() != 0) {
                 int paddingLeft = viewGroup.getPaddingLeft();
                 int paddingTop = viewGroup.getPaddingTop();
                 int paddingRight = viewGroup.getPaddingRight();
                 int paddingBottom = viewGroup.getPaddingBottom();
-                String resourceTypeName = this.Tc.getResourceTypeName(bVar.qI());
+                String resourceTypeName = this.Tc.getResourceTypeName(bVar.qF());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    viewGroup.setBackgroundColor(c(this.Ta, bVar.qI(), bVar.qJ()));
+                    viewGroup.setBackgroundColor(c(this.Ta, bVar.qF(), bVar.qG()));
                 } else {
-                    viewGroup.setBackgroundDrawable(b(this.Ta, bVar.qI(), bVar.qJ()));
+                    viewGroup.setBackgroundDrawable(b(this.Ta, bVar.qF(), bVar.qG()));
                 }
                 viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -231,45 +231,45 @@ public class c {
         if (this.Tb != null && this.Tb.containsKey(str)) {
             b bVar = this.Tb.get(str);
             if (view instanceof TextView) {
+                if (bVar.qK() != 0) {
+                    ((TextView) view).setTextColor(d(this.Ta, bVar.qJ(), bVar.qK()));
+                }
+                if (bVar.qI() != 0) {
+                    ((TextView) view).setHintTextColor(d(this.Ta, bVar.qH(), bVar.qI()));
+                }
                 if (bVar.qN() != 0) {
-                    ((TextView) view).setTextColor(d(this.Ta, bVar.qM(), bVar.qN()));
+                    ((TextView) view).setTextAppearance(view.getContext(), this.Ta ? bVar.qN() : bVar.qO());
                 }
-                if (bVar.qL() != 0) {
-                    ((TextView) view).setHintTextColor(d(this.Ta, bVar.qK(), bVar.qL()));
+                if (bVar.qA() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, b(this.Ta, bVar.qz(), bVar.qA()), (Drawable) null, (Drawable) null);
                 }
-                if (bVar.qQ() != 0) {
-                    ((TextView) view).setTextAppearance(view.getContext(), this.Ta ? bVar.qQ() : bVar.qR());
+                if (bVar.qy() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(b(this.Ta, bVar.qx(), bVar.qy()), (Drawable) null, (Drawable) null, (Drawable) null);
                 }
-                if (bVar.qD() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, b(this.Ta, bVar.qC(), bVar.qD()), (Drawable) null, (Drawable) null);
-                }
-                if (bVar.qB() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(b(this.Ta, bVar.qA(), bVar.qB()), (Drawable) null, (Drawable) null, (Drawable) null);
-                }
-                if (bVar.qH() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, b(this.Ta, bVar.qG(), bVar.qH()), (Drawable) null);
+                if (bVar.qE() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, b(this.Ta, bVar.qD(), bVar.qE()), (Drawable) null);
                 }
             } else if (view instanceof ImageButton) {
-                if (bVar.qO() != 0 && (b3 = b(this.Ta, bVar.qP(), bVar.qO())) != null) {
+                if (bVar.qL() != 0 && (b3 = b(this.Ta, bVar.qM(), bVar.qL())) != null) {
                     ((ImageView) view).setImageDrawable(b3);
                 }
             } else if (view instanceof ImageView) {
-                if (bVar.qO() != 0 && (b2 = b(this.Ta, bVar.qP(), bVar.qO())) != null) {
+                if (bVar.qL() != 0 && (b2 = b(this.Ta, bVar.qM(), bVar.qL())) != null) {
                     ((ImageView) view).setImageDrawable(b2);
                 }
-            } else if ((view instanceof ProgressBar) && bVar.qT() != 0 && (b = b(this.Ta, bVar.qS(), bVar.qT())) != null) {
+            } else if ((view instanceof ProgressBar) && bVar.qQ() != 0 && (b = b(this.Ta, bVar.qP(), bVar.qQ())) != null) {
                 ((ProgressBar) view).setProgressDrawable(b);
             }
-            if (bVar.qJ() != 0) {
+            if (bVar.qG() != 0) {
                 int paddingLeft = view.getPaddingLeft();
                 int paddingTop = view.getPaddingTop();
                 int paddingRight = view.getPaddingRight();
                 int paddingBottom = view.getPaddingBottom();
-                String resourceTypeName = this.Tc.getResourceTypeName(bVar.qI());
+                String resourceTypeName = this.Tc.getResourceTypeName(bVar.qF());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    view.setBackgroundColor(c(this.Ta, bVar.qI(), bVar.qJ()));
+                    view.setBackgroundColor(c(this.Ta, bVar.qF(), bVar.qG()));
                 } else {
-                    view.setBackgroundDrawable(b(this.Ta, bVar.qI(), bVar.qJ()));
+                    view.setBackgroundDrawable(b(this.Ta, bVar.qF(), bVar.qG()));
                 }
                 view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }

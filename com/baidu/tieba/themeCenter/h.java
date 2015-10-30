@@ -55,7 +55,7 @@ class h extends CustomMessageListener {
                 }
                 switch (downloadData.getStatus()) {
                     case 0:
-                        this.deP.azr();
+                        this.deP.azn();
                         return;
                     case 1:
                         this.deP.e(2, ((float) downloadData.getLength()) / ((float) downloadData.getSize()));
@@ -70,7 +70,7 @@ class h extends CustomMessageListener {
                         com.baidu.adp.lib.util.k.showToast(context, i.h.tip_download_error);
                         return;
                     case 3:
-                        this.deP.azr();
+                        this.deP.azn();
                         return;
                     case 4:
                         this.deP.e(3, 0.0f);

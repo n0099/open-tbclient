@@ -38,7 +38,7 @@ public class b implements eb {
             oVar = this.bbd.aTW;
             oVar.af(arrayList2);
             oVar2 = this.bbd.aTW;
-            oVar2.avU();
+            oVar2.avQ();
             ebVar2 = this.bbd.bbb;
             ebVar2.a(i, i2, eeVar, arrayList);
         }

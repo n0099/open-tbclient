@@ -23,7 +23,7 @@ public class u extends CustomMessageListener {
         if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
             this.cEz.cEw = (ArrayList) data;
             postSearchActivity = this.cEz.cDW;
-            postSearchActivity.aoi();
+            postSearchActivity.aoe();
         }
     }
 }

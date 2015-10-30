@@ -38,7 +38,7 @@ class s extends CustomMessageListener {
                     this.csI.showToast(i.h.unlike_success);
                 }
                 ajVar = this.csI.csw;
-                ajVar.aka();
+                ajVar.ajW();
             } else if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().errorString != null) {
                 this.csI.showToast(updateAttentionMessage.getData().errorString);
             }

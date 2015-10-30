@@ -48,11 +48,11 @@ public class aa implements FragmentTabWidget.a {
                 if (view.getVisibility() == 0) {
                     view2 = this.bVC.bUF;
                     view2.setVisibility(8);
-                    this.bVC.abl();
+                    this.bVC.abh();
                     fragmentTabIndicator6 = this.bVC.bUw;
                     fragmentTabIndicator6.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down_s);
                 } else {
-                    this.bVC.abz();
+                    this.bVC.abv();
                     fragmentTabIndicator5 = this.bVC.bUw;
                     fragmentTabIndicator5.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_up_s);
                 }

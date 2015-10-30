@@ -126,8 +126,8 @@ public class ad {
         an.i((View) this.cue, this.cuw);
     }
 
-    public void ajC() {
-        UserData userData = this.cqE.ajf().getUserData();
+    public void ajy() {
+        UserData userData = this.cqE.ajb().getUserData();
         k(userData);
         l(userData);
         j(userData);
@@ -255,15 +255,15 @@ public class ad {
         }
     }
 
-    public TextView ajt() {
+    public TextView ajp() {
         return this.cui;
     }
 
-    public RelativeLayout ajo() {
+    public RelativeLayout ajk() {
         return this.cuc;
     }
 
-    public void ajp() {
+    public void ajl() {
         if (this.cuc != null) {
             this.cuc.setVisibility(8);
         }
@@ -272,15 +272,15 @@ public class ad {
         }
     }
 
-    public RelativeLayout ajv() {
+    public RelativeLayout ajr() {
         return this.cuk;
     }
 
-    public RelativeLayout ajw() {
+    public RelativeLayout ajs() {
         return this.cut;
     }
 
-    public RelativeLayout ajx() {
+    public RelativeLayout ajt() {
         return this.cuo;
     }
 

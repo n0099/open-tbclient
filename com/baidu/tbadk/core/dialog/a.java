@@ -129,7 +129,7 @@ public class a {
     }
 
     public a bG(int i) {
-        if (sT()) {
+        if (sQ()) {
             this.Wt = an.getColor(i);
         } else {
             this.Wt = this.mActivity.getResources().getColor(i);
@@ -156,10 +156,10 @@ public class a {
                 linearLayout.removeAllViews();
                 linearLayout.addView(this.mContentView);
             } else {
-                View sP = sP();
-                if (sP != null) {
+                View sM = sM();
+                if (sM != null) {
                     linearLayout.removeAllViews();
-                    linearLayout.addView(sP);
+                    linearLayout.addView(sM);
                 }
             }
             c(hVar);
@@ -197,7 +197,7 @@ public class a {
         return this;
     }
 
-    public View sP() {
+    public View sM() {
         boolean z = !StringUtils.isNull(this.mTitle);
         boolean z2 = StringUtils.isNull(this.Wq) ? false : true;
         if (z || z2) {
@@ -220,7 +220,7 @@ public class a {
     }
 
     private void c(h<?> hVar) {
-        int skinType = sT() ? TbadkCoreApplication.m411getInst().getSkinType() : 0;
+        int skinType = sQ() ? TbadkCoreApplication.m411getInst().getSkinType() : 0;
         if (hVar instanceof TbPageContext) {
             ((TbPageContext) hVar).getLayoutMode().ad(skinType == 1);
             ((TbPageContext) hVar).getLayoutMode().k(this.mRootView);
@@ -237,7 +237,7 @@ public class a {
             this.WG.setVisibility(0);
             return;
         }
-        int skinType = sT() ? TbadkCoreApplication.m411getInst().getSkinType() : 0;
+        int skinType = sQ() ? TbadkCoreApplication.m411getInst().getSkinType() : 0;
         this.WF.setVisibility(8);
         if (!z && !z2) {
             this.WD.setVisibility(8);
@@ -260,7 +260,7 @@ public class a {
         }
     }
 
-    public a sQ() {
+    public a sN() {
         return al(false);
     }
 
@@ -325,7 +325,7 @@ public class a {
         }
     }
 
-    public a sR() {
+    public a sO() {
         return al(true);
     }
 
@@ -359,11 +359,11 @@ public class a {
         this.WC = obj;
     }
 
-    public Object sS() {
+    public Object sP() {
         return this.WC;
     }
 
-    public boolean sT() {
+    public boolean sQ() {
         return this.WH;
     }
 

@@ -13,14 +13,14 @@ public class SignAllForumStatic {
     private static Context mContext;
 
     static {
-        BZ();
+        BW();
         x xVar = new x(CmdConfigCustom.DISCOVER_ADD_VIEW);
         xVar.setPriority(3);
         MessageManager.getInstance().registerListener(xVar);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.DISCOVER_NEED_ADD_VIEW, null));
     }
 
-    private static void BZ() {
+    private static void BW() {
         CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.SIGN_ALL_FORUM_CUSTOM_CMD, new y());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

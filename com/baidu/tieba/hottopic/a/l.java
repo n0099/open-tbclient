@@ -49,7 +49,7 @@ public class l extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
         if (view != null) {
             c(dVar.apS, view);
             if (dVar.bpU != null) {
-                dVar.bpU.QK();
+                dVar.bpU.QG();
             }
         }
     }

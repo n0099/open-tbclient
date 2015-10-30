@@ -20,13 +20,13 @@ class aq implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
-            com.baidu.tieba.im.db.g.TJ().TK();
-            com.baidu.tieba.im.db.c.TF().hJ(this.bEK.getGid());
-            com.baidu.tieba.im.db.i.TO().c(this.bEK);
+            com.baidu.tieba.im.db.g.TF().TG();
+            com.baidu.tieba.im.db.c.TB().hJ(this.bEK.getGid());
+            com.baidu.tieba.im.db.i.TK().c(this.bEK);
         } catch (Exception e) {
             BdLog.detailException(e);
         } finally {
-            com.baidu.tieba.im.db.g.TJ().endTransaction();
+            com.baidu.tieba.im.db.g.TF().endTransaction();
         }
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_IM_GROUP_CONFIRM_PASSED);
     }

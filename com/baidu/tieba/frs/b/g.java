@@ -33,13 +33,13 @@ public class g extends com.baidu.adp.base.g {
         FrsActivity frsActivity5;
         boolean z = false;
         frsActivity = this.bbY.baR;
-        com.baidu.tieba.tbadkCore.o Lh = frsActivity.Lh();
-        if (Lh != null && Lh.aeN() != null) {
-            String name = Lh.aeN().getName();
+        com.baidu.tieba.tbadkCore.o Ld = frsActivity.Ld();
+        if (Ld != null && Ld.aeJ() != null) {
+            String name = Ld.aeJ().getName();
             if (obj != null && (obj instanceof x)) {
-                com.baidu.tieba.tbadkCore.d.avt().H(name, false);
+                com.baidu.tieba.tbadkCore.d.avp().H(name, false);
                 ((x) obj).setLike(1);
-                Lh.b((x) obj);
+                Ld.b((x) obj);
                 z = true;
             }
             frsActivity2 = this.bbY.baR;
@@ -63,11 +63,11 @@ public class g extends com.baidu.adp.base.g {
                 AntiHelper.P(pageActivity, wVar4.getErrorString());
                 return;
             }
-            this.bbY.a(Lh, true);
+            this.bbY.a(Ld, true);
             frsActivity5 = this.bbY.baR;
             frsActivity5.showToast(this.bbY.getPageContext().getString(i.h.like_success));
             TbadkCoreApplication.m411getInst().addLikeForum(name);
-            this.bbY.e(true, Lh.aeN().getId());
+            this.bbY.e(true, Ld.aeJ().getId());
             x xVar = (x) obj;
             xVar.setLike(1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, xVar));

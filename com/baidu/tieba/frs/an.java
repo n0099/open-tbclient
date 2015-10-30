@@ -26,9 +26,9 @@ class an extends CustomMessageListener {
                 bsVar = this.aUK.aTU;
                 if (bsVar != null) {
                     bsVar2 = this.aUK.aTU;
-                    if (bsVar2.LZ() != null) {
+                    if (bsVar2.LV() != null) {
                         bsVar3 = this.aUK.aTU;
-                        bsVar3.LZ().aq(iVar.userId, iVar.userName);
+                        bsVar3.LV().aq(iVar.userId, iVar.userName);
                     }
                 }
             }

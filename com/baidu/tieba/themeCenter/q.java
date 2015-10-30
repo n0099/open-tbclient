@@ -12,8 +12,8 @@ class q implements CustomMessageTask.CustomRunnable<b> {
         if (customMessage == null || !(customMessage.getData() instanceof b)) {
             return null;
         }
-        if (l.azs().f(customMessage.getData())) {
-            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB, l.azs().azu());
+        if (l.azo().f(customMessage.getData())) {
+            return new CustomResponsedMessage<>(CmdConfigCustom.CMD_READ_SKIN_DATA_FROM_DB, l.azo().azq());
         }
         return null;
     }

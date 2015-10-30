@@ -23,7 +23,7 @@ public class f extends b {
             return null;
         }
         if (this.aut > 0.0f) {
-            com.baidu.tbadk.imageManager.c.Cf().en(com.baidu.tbadk.core.util.c.f(bitmap) * 2);
+            com.baidu.tbadk.imageManager.c.Cc().en(com.baidu.tbadk.core.util.c.f(bitmap) * 2);
             return com.baidu.tbadk.core.util.c.a(bitmap, this.aut, z);
         }
         return bitmap;

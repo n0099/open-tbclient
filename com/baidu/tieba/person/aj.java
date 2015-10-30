@@ -16,12 +16,12 @@ public class aj implements a.b {
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         aVar.dismiss();
-        if (this.cqc.cpT.aiE().getPhotoChanged()) {
+        if (this.cqc.cpT.aiA().getPhotoChanged()) {
             Intent intent = new Intent();
             if (this.cqc.cpH.booleanValue()) {
-                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cqc.cpT.aiE());
+                intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cqc.cpT.aiA());
             } else {
-                intent.putExtra("data", this.cqc.cpT.aiE());
+                intent.putExtra("data", this.cqc.cpT.aiA());
             }
             this.cqc.setResult(-1, intent);
         }

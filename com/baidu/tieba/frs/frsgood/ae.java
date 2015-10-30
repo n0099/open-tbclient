@@ -125,7 +125,7 @@ public class ae extends com.baidu.adp.base.e<FrsGoodActivity> implements NetMode
         this.aZZ.a(lVar);
         this.mType = i;
         lVar.setKw(this.aTM);
-        if (com.baidu.tbadk.core.m.qX().rb()) {
+        if (com.baidu.tbadk.core.m.qU().qY()) {
             lVar.setRn(35);
         } else {
             lVar.setRn(50);
@@ -136,7 +136,7 @@ public class ae extends com.baidu.adp.base.e<FrsGoodActivity> implements NetMode
         int K = com.baidu.adp.lib.util.k.K(this.aZX.getPageContext().getPageActivity());
         int L = com.baidu.adp.lib.util.k.L(this.aZX.getPageContext().getPageActivity());
         float f = TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density;
-        int i2 = at.uJ().uL() ? 2 : 1;
+        int i2 = at.uG().uI() ? 2 : 1;
         lVar.setScrW(K);
         lVar.setScrH(L);
         lVar.setScrDip(f);
@@ -160,7 +160,7 @@ public class ae extends com.baidu.adp.base.e<FrsGoodActivity> implements NetMode
             this.aMl = new com.baidu.tieba.tbadkCore.e.a("frsStat");
             this.aMl.start();
         }
-        MS();
+        MO();
     }
 
     protected boolean a(com.baidu.tieba.tbadkCore.l lVar, com.baidu.tieba.tbadkCore.m mVar) {
@@ -209,7 +209,7 @@ public class ae extends com.baidu.adp.base.e<FrsGoodActivity> implements NetMode
             this.mErrorCode = mvcSocketResponsedMessage.getError();
             this.mErrorString = mvcSocketResponsedMessage.getErrorString();
         }
-        MQ();
+        MM();
         if (this.aMl != null) {
             this.aMl.a(false, aVar.isSuccess, aVar.errorCode, aVar.errorMsg, aVar.cWU);
             this.aMl = null;
@@ -281,7 +281,7 @@ public class ae extends com.baidu.adp.base.e<FrsGoodActivity> implements NetMode
             this.mErrorCode = mvcHttpResponsedMessage.getError();
             this.mErrorString = mvcHttpResponsedMessage.getErrorString();
         }
-        MQ();
+        MM();
         if (this.aMl != null) {
             this.aMl.a(true, aVar.isSuccess, aVar.errorCode, aVar.errorMsg, aVar.cWU);
             this.aMl = null;
@@ -325,7 +325,7 @@ public class ae extends com.baidu.adp.base.e<FrsGoodActivity> implements NetMode
         com.baidu.tbadk.core.log.b.a("frs", j, cmd, "http_resp", error, errorString, objArr);
     }
 
-    public void MQ() {
+    public void MM() {
         if (!this.bae) {
             this.bae = true;
             this.axz = System.currentTimeMillis() - this.aZX.aUa;
@@ -333,7 +333,7 @@ public class ae extends com.baidu.adp.base.e<FrsGoodActivity> implements NetMode
             tVar.ez(1000);
             tVar.axs = this.aZX.createTime;
             tVar.axz = this.axz;
-            tVar.DV();
+            tVar.DS();
         }
     }
 
@@ -343,7 +343,7 @@ public class ae extends com.baidu.adp.base.e<FrsGoodActivity> implements NetMode
             this.aZX.createTime = 0L;
             tVar.axy = this.aZX.axy;
             tVar.axz = this.axz == 0 ? System.currentTimeMillis() - this.aZX.aUa : this.axz;
-            tVar.DW();
+            tVar.DT();
         }
     }
 
@@ -351,28 +351,28 @@ public class ae extends com.baidu.adp.base.e<FrsGoodActivity> implements NetMode
         return this.mType;
     }
 
-    public com.baidu.tieba.tbadkCore.o MR() {
+    public com.baidu.tieba.tbadkCore.o MN() {
         return this.aTW;
     }
 
-    private void MS() {
+    private void MO() {
         this.aMm = System.currentTimeMillis();
-        this.aZZ.CS();
+        this.aZZ.CP();
     }
 
-    public long Ix() {
+    public long It() {
         return this.aMp;
     }
 
-    public long Iy() {
+    public long Iu() {
         return this.aMn;
     }
 
-    public long Iz() {
+    public long Iv() {
         return this.aMo;
     }
 
-    public long IA() {
+    public long Iw() {
         return this.aMm;
     }
 
@@ -385,7 +385,7 @@ public class ae extends com.baidu.adp.base.e<FrsGoodActivity> implements NetMode
         bB(true);
     }
 
-    public boolean MT() {
+    public boolean MP() {
         return this.bad < 100;
     }
 

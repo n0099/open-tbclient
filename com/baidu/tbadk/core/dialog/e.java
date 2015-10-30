@@ -70,7 +70,7 @@ public class e {
         return this;
     }
 
-    public e sV() {
+    public e sS() {
         if (!this.WA) {
             this.WA = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -99,7 +99,7 @@ public class e {
         this.WZ.setData(this.mItems);
     }
 
-    public e sW() {
+    public e sT() {
         if (!this.WA) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }

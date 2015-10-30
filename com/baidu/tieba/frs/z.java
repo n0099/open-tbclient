@@ -49,6 +49,6 @@ public class z implements c.b {
             readThreadHistory.lK(this.aUQ.getId());
         }
         bsVar = this.aUK.aTU;
-        bsVar.LQ();
+        bsVar.LM();
     }
 }

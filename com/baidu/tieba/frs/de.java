@@ -23,11 +23,11 @@ public class de implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        com.baidu.tbadk.core.data.s rS = this.aYm.rS();
+        com.baidu.tbadk.core.data.s rP = this.aYm.rP();
         if (com.baidu.adp.lib.util.i.iM()) {
             MessageManager messageManager = MessageManager.getInstance();
             context = this.aYl.mContext;
-            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, String.valueOf(rS.getUserId()), rS.getName(), null, AddFriendActivityConfig.TYPE_ADD_FRD)));
+            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, String.valueOf(rP.getUserId()), rP.getName(), null, AddFriendActivityConfig.TYPE_ADD_FRD)));
             return;
         }
         this.aYl.aSe.showToast(i.h.im_error_default);

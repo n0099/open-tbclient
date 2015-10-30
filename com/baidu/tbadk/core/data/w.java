@@ -110,7 +110,7 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         this.VY = 0;
     }
 
-    public PollInfo sg() {
+    public PollInfo sd() {
         return this.VZ;
     }
 
@@ -170,7 +170,7 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         return this.last_time_int;
     }
 
-    public void m(long j) {
+    public void k(long j) {
         this.last_time_int = j;
     }
 
@@ -190,11 +190,11 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         this.is_good = i;
     }
 
-    public int sh() {
+    public int se() {
         return this.VA;
     }
 
-    public z si() {
+    public z sf() {
         return this.VB;
     }
 
@@ -202,7 +202,7 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         return this.author;
     }
 
-    public String sj() {
+    public String sg() {
         return this.forum_name;
     }
 
@@ -210,15 +210,15 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         this.forum_name = str;
     }
 
-    public int sk() {
+    public int sh() {
         return this.VD;
     }
 
-    public String sl() {
+    public String si() {
         return this.VE;
     }
 
-    public String sm() {
+    public String sj() {
         return this.abstract_text;
     }
 
@@ -230,7 +230,7 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         this.isMarked = i;
     }
 
-    public String sn() {
+    public String sk() {
         return this.VJ;
     }
 
@@ -242,7 +242,7 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         return this.VG;
     }
 
-    public ArrayList<a> so() {
+    public ArrayList<a> sl() {
         return this.VS;
     }
 
@@ -250,11 +250,11 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         this.VS = arrayList;
     }
 
-    public ArrayList<VoiceData.VoiceModel> sp() {
+    public ArrayList<VoiceData.VoiceModel> sm() {
         return this.VH;
     }
 
-    public int sq() {
+    public int sn() {
         return this.threadType;
     }
 
@@ -262,7 +262,7 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         this.threadType = i;
     }
 
-    public int sr() {
+    public int so() {
         return this.VL;
     }
 
@@ -270,11 +270,11 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         return this.address;
     }
 
-    public String ss() {
+    public String sp() {
         return this.VQ;
     }
 
-    public MediaData st() {
+    public MediaData sq() {
         return this.VI;
     }
 
@@ -286,7 +286,7 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         this.VU = str;
     }
 
-    public ArrayList<com.baidu.tbadk.coreExtra.view.o> su() {
+    public ArrayList<com.baidu.tbadk.coreExtra.view.o> sr() {
         return this.VO;
     }
 
@@ -534,41 +534,41 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         return this.VF;
     }
 
-    public boolean sv() {
+    public boolean ss() {
         return getIs_top() != 0;
     }
 
-    public int sw() {
-        if (sy() && this.VS.size() >= 1) {
+    public int st() {
+        if (sv() && this.VS.size() >= 1) {
             a aVar = this.VS.get(0);
             int status = aVar.getStatus();
             if (status == 3) {
                 return status;
             }
-            int rm = aVar.rm();
-            int rn = aVar.rn();
+            int rj = aVar.rj();
+            int rk = aVar.rk();
             int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
-            if (currentTimeMillis < rm) {
+            if (currentTimeMillis < rj) {
                 return 4;
             }
-            return currentTimeMillis > rn ? 2 : 1;
+            return currentTimeMillis > rk ? 2 : 1;
         }
         return -1;
     }
 
-    public int sx() {
-        if (!sy() || this.VS.size() < 1 || this.VS.get(0) == null) {
+    public int su() {
+        if (!sv() || this.VS.size() < 1 || this.VS.get(0) == null) {
             return -1;
         }
-        return this.VS.get(0).rl();
+        return this.VS.get(0).ri();
     }
 
-    public boolean sy() {
+    public boolean sv() {
         return this.VN == 1;
     }
 
-    public String sz() {
-        return (!sy() || this.VS.size() < 1 || this.VS.get(0) == null) ? "" : this.VS.get(0).getUrl();
+    public String sw() {
+        return (!sv() || this.VS.size() < 1 || this.VS.get(0) == null) ? "" : this.VS.get(0).getUrl();
     }
 
     private void ai(boolean z) {
@@ -580,10 +580,10 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
             } else if (getIs_top() == 2) {
                 arrayList.add(Integer.valueOf(i.e.icon_notice));
             }
-            if (sh() == 1 || this.VB.sL() != 0) {
+            if (se() == 1 || this.VB.sI() != 0) {
                 arrayList.add(Integer.valueOf(i.e.icon_zhibo));
             }
-            if (getIs_good() == 1 && !sv()) {
+            if (getIs_good() == 1 && !ss()) {
                 arrayList.add(Integer.valueOf(i.e.icon_elite));
             }
             if (getType() == Vw || getType() == Vx) {
@@ -595,17 +595,17 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
             if (this.anchorInfoData != null && this.anchorInfoData.getGroup_id() != 0) {
                 arrayList.add(Integer.valueOf(i.e.icon_live_on));
             }
-            if (sk() == 1) {
+            if (sh() == 1) {
                 arrayList.add(Integer.valueOf(i.e.frs_post_ding));
             }
             if (z) {
-                Integer num = VT.get(new Point(sx(), sw()));
+                Integer num = VT.get(new Point(su(), st()));
                 if (num != null) {
                     arrayList.add(num);
                 }
-            } else if (sx() == 1) {
+            } else if (su() == 1) {
                 arrayList.add(Integer.valueOf(i.e.label_frs_lottery));
-            } else if (sx() == 2) {
+            } else if (su() == 2) {
                 arrayList.add(Integer.valueOf(i.e.label_frs_activity_shai));
             }
             if (arrayList.size() > 0) {
@@ -638,7 +638,7 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         ai(false);
     }
 
-    public void sA() {
+    public void sx() {
         ai(true);
     }
 
@@ -650,7 +650,7 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         return this.threadType == 33;
     }
 
-    public boolean sB() {
+    public boolean sy() {
         return this.threadType == 36;
     }
 
@@ -662,7 +662,7 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         this.post_num = i;
     }
 
-    public int sC() {
+    public int sz() {
         return this.VR;
     }
 
@@ -670,14 +670,14 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         this.VR = i;
     }
 
-    public int sD() {
+    public int sA() {
         return this.VY;
     }
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<ad> getImages() {
         ArrayList<MediaData> medias = getMedias();
-        if (medias == null || sv()) {
+        if (medias == null || ss()) {
             return null;
         }
         ArrayList<ad> arrayList = new ArrayList<>();
@@ -704,7 +704,7 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         return arrayList;
     }
 
-    public boolean sE() {
+    public boolean sB() {
         String userId;
         return this.author == null || (userId = this.author.getUserId()) == null || userId.equals("0");
     }
@@ -718,16 +718,16 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         if (this.VI != null) {
             return Vv;
         }
-        if (sg() != null && sq() == 36 && sg().type.intValue() == 2) {
+        if (sd() != null && sn() == 36 && sd().type.intValue() == 2) {
             return Vw;
         }
-        if (sg() != null && sq() == 36 && sg().type.intValue() == 1) {
+        if (sd() != null && sn() == 36 && sd().type.intValue() == 1) {
             return Vx;
         }
         return Vu;
     }
 
-    public int sF() {
+    public int sC() {
         return this.UF;
     }
 
@@ -735,7 +735,7 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
         return this.isHeadLive;
     }
 
-    public LiveCoverStatus sG() {
+    public LiveCoverStatus sD() {
         return this.VX;
     }
 
@@ -749,13 +749,13 @@ public class w implements com.baidu.adp.widget.ListView.u, ae {
             Iterator<g> it = arrayList.iterator();
             while (it.hasNext()) {
                 g next = it.next();
-                if (next != null && next.rv() != null && !StringUtils.isNull(this.title)) {
-                    Iterator<String> it2 = next.rv().iterator();
+                if (next != null && next.rs() != null && !StringUtils.isNull(this.title)) {
+                    Iterator<String> it2 = next.rs().iterator();
                     while (true) {
                         if (it2.hasNext()) {
                             String next2 = it2.next();
                             if (!StringUtils.isNull(next2) && this.title.contains(next2)) {
-                                this.UF = next.rw();
+                                this.UF = next.rt();
                                 break;
                             }
                         }

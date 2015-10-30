@@ -59,7 +59,7 @@ public class u implements ViewPager.OnPageChangeListener {
             iVar4 = this.akU.akO;
             View childAt = iVar4.getChildAt(i2);
             if (childAt != null && (childAt instanceof z)) {
-                ((z) childAt).zn();
+                ((z) childAt).zk();
             }
         }
         z = this.akU.akS;

@@ -9,9 +9,9 @@ class m implements com.baidu.tbadk.editortools.c.b {
     }
 
     @Override // com.baidu.tbadk.editortools.c.b
-    public void Bm() {
+    public void Bj() {
         cc ccVar;
         ccVar = this.ciK.cim;
-        ccVar.agy();
+        ccVar.agu();
     }
 }

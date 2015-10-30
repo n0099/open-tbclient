@@ -45,34 +45,34 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vs() {
+    public void vp() {
         int height = this.adD.getHeight();
         if (height > this.mScreenHeight) {
             this.mScreenHeight = height;
         }
-        int vt = vt();
-        if (vt != this.adE) {
+        int vq = vq();
+        if (vq != this.adE) {
             int i = this.mScreenHeight;
-            int i2 = i - vt;
+            int i2 = i - vq;
             if (i2 > i / 4) {
                 this.adF.height = i - i2;
                 cJ(200);
             } else {
                 this.adF.height = i;
-                vu();
+                vr();
             }
-            this.adE = vt;
+            this.adE = vq;
         }
     }
 
-    private int vt() {
+    private int vq() {
         Rect rect = new Rect();
         this.adD.getWindowVisibleDisplayFrame(rect);
         return rect.bottom;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vu() {
+    public void vr() {
         this.adD.requestLayout();
     }
 

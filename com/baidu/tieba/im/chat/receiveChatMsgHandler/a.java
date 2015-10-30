@@ -64,27 +64,27 @@ public abstract class a {
                     MessageManager.getInstance().sendMessage(new CustomMessage(CmdConfigCustom.FRIEND_FEED_NEW));
                 }
                 if (optInt >= 0 && optInt3 >= 0 && optInt5 >= 0 && optInt4 >= 0) {
-                    if (com.baidu.tbadk.coreExtra.messageCenter.c.xh().xk() <= 0) {
+                    if (com.baidu.tbadk.coreExtra.messageCenter.c.xe().xh() <= 0) {
                         optInt5 = 0;
                         optInt4 = 0;
                         optInt3 = 0;
                         optInt = 0;
                     }
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xx()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xu()) {
                         optInt -= optInt2;
                     }
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xo()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xl()) {
                         optInt = 0;
                     }
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xh().xm()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xj()) {
                         optInt5 = 0;
                     }
-                    int i = com.baidu.tbadk.coreExtra.messageCenter.c.xh().xn() ? optInt3 : 0;
+                    int i = com.baidu.tbadk.coreExtra.messageCenter.c.xe().xk() ? optInt3 : 0;
                     if (currentAccount != null && currentAccount.length() > 0) {
-                        int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.wK().getMsgChat();
-                        int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.wK().getMsgBookmark();
-                        com.baidu.tbadk.coreExtra.messageCenter.a.wK().i(jSONObject);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.wK().a(optInt, optInt5, msgChat, i, msgBookmark, optInt4);
+                        int msgChat = com.baidu.tbadk.coreExtra.messageCenter.a.wH().getMsgChat();
+                        int msgBookmark = com.baidu.tbadk.coreExtra.messageCenter.a.wH().getMsgBookmark();
+                        com.baidu.tbadk.coreExtra.messageCenter.a.wH().i(jSONObject);
+                        com.baidu.tbadk.coreExtra.messageCenter.a.wH().a(optInt, optInt5, msgChat, i, msgBookmark, optInt4);
                     }
                 }
             } catch (Exception e) {

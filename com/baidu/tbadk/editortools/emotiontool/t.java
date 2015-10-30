@@ -8,9 +8,9 @@ public abstract class t {
     private int arb;
     private int arc;
 
-    public abstract EmotionGroupType AZ();
+    public abstract EmotionGroupType AW();
 
-    public abstract boolean Ba();
+    public abstract boolean AX();
 
     public abstract boolean eP(String str);
 
@@ -30,7 +30,7 @@ public abstract class t {
 
     public abstract int getWidth();
 
-    public com.baidu.adp.widget.a.a Bg() {
+    public com.baidu.adp.widget.a.a Bd() {
         return this.aqZ;
     }
 
@@ -41,7 +41,7 @@ public abstract class t {
         this.aqZ = aVar;
     }
 
-    public com.baidu.adp.widget.a.a Bh() {
+    public com.baidu.adp.widget.a.a Be() {
         return this.ara;
     }
 
@@ -52,7 +52,7 @@ public abstract class t {
         this.ara = aVar;
     }
 
-    public int Bi() {
+    public int Bf() {
         return this.arc;
     }
 
@@ -61,7 +61,7 @@ public abstract class t {
         this.arc = i;
     }
 
-    public int Bj() {
+    public int Bg() {
         return this.arb;
     }
 

@@ -20,7 +20,7 @@ public class aw implements TextWatcher {
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
         boolean z;
-        this.dqi.aCj();
+        this.dqi.aCf();
         z = this.dqi.dqa;
         if (z) {
             this.cxP = this.bHW.getSelectionStart();

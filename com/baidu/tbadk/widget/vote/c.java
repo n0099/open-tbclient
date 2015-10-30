@@ -36,8 +36,8 @@ public class c {
     public void eL(int i) {
         if (i >= 0) {
             if (this.aCL != null) {
-                int FA = this.aCL.FA();
-                i = ((FA <= 100 ? FA : 100) * i) / 100;
+                int Fw = this.aCL.Fw();
+                i = ((Fw <= 100 ? Fw : 100) * i) / 100;
             }
             ViewGroup.LayoutParams layoutParams = this.aCI.getLayoutParams();
             if (layoutParams == null) {
@@ -56,21 +56,21 @@ public class c {
         if (aVar == null) {
             return 0;
         }
-        if (aVar.Fz() <= 0) {
+        if (aVar.Fv() <= 0) {
             this.aCH.setImageDrawable(null);
             this.aCH.setVisibility(8);
             intrinsicWidth = 0;
         } else {
-            Drawable drawable = an.getDrawable(aVar.Fz());
+            Drawable drawable = an.getDrawable(aVar.Fv());
             this.aCH.setImageDrawable(drawable);
             intrinsicWidth = drawable.getIntrinsicWidth() + this.parent.getResources().getDimensionPixelSize(i.d.ds24);
             this.aCH.setVisibility(0);
         }
-        if (StringUtils.isNull(aVar.Fw())) {
+        if (StringUtils.isNull(aVar.Fs())) {
             this.alu.setText((CharSequence) null);
             this.alu.setVisibility(8);
         } else {
-            this.alu.setText(UtilHelper.getFixedText(aVar.Fw(), 15, false));
+            this.alu.setText(UtilHelper.getFixedText(aVar.Fs(), 15, false));
             this.alu.setVisibility(0);
         }
         if (aVar.isSelected()) {
@@ -78,8 +78,8 @@ public class c {
         } else {
             an.j(this.aCK, i.c.vote_progress_unselected_color);
         }
-        boolean isNull = StringUtils.isNull(aVar.Fx());
-        boolean isNull2 = StringUtils.isNull(aVar.Fy());
+        boolean isNull = StringUtils.isNull(aVar.Ft());
+        boolean isNull2 = StringUtils.isNull(aVar.Fu());
         if (isNull && isNull2) {
             this.aCJ.setText((CharSequence) null);
             this.aCJ.setVisibility(8);
@@ -87,13 +87,13 @@ public class c {
         } else {
             this.aCJ.setVisibility(0);
             if (isNull) {
-                string = aVar.Fy();
+                string = aVar.Fu();
                 this.aCJ.setText(string);
             } else if (isNull2) {
-                string = aVar.Fx();
+                string = aVar.Ft();
                 this.aCJ.setText(string);
             } else {
-                string = TbadkCoreApplication.m411getInst().getString(i.h.vote_number_text, new Object[]{aVar.Fx(), aVar.Fy()});
+                string = TbadkCoreApplication.m411getInst().getString(i.h.vote_number_text, new Object[]{aVar.Ft(), aVar.Fu()});
                 this.aCJ.setText(string);
             }
         }
@@ -121,8 +121,8 @@ public class c {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aCL != null && this.aCL.Fz() > 0) {
-            an.b(this.aCH, this.aCL.Fz(), i);
+        if (this.aCL != null && this.aCL.Fv() > 0) {
+            an.b(this.aCH, this.aCL.Fv(), i);
         }
         an.b(this.alu, i.c.cp_cont_b, 1);
         an.b(this.aCJ, i.c.cp_cont_c, 1);

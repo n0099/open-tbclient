@@ -45,7 +45,7 @@ public class j {
         this.aPn.addView(this.mNoDataView, 1);
         this.cbE = new m(editMarkActivity.getPageContext());
         this.cbE.ea(false);
-        this.cbE.adx();
+        this.cbE.adt();
         this.mPullView = new com.baidu.tbadk.core.view.r(editMarkActivity.getPageContext());
         this.mPullView.a(editMarkActivity);
         this.bby = (BdListView) editMarkActivity.findViewById(i.f.list);
@@ -62,7 +62,7 @@ public class j {
         this.cbE.x(editMarkActivity);
     }
 
-    public TextView ads() {
+    public TextView ado() {
         return this.aEs;
     }
 
@@ -71,7 +71,7 @@ public class j {
     }
 
     public void changeEditState() {
-        if (!this.cbE.FV()) {
+        if (!this.cbE.FR()) {
             this.cbE.setEditState(true);
             this.aEs.setText(i.h.done);
             an.g(this.aEs, TbadkCoreApplication.m411getInst().getSkinType());
@@ -84,11 +84,11 @@ public class j {
         this.cbE.notifyDataSetChanged();
     }
 
-    public boolean IR() {
-        return this.cbE.FV();
+    public boolean IN() {
+        return this.cbE.FR();
     }
 
-    public int adt() {
+    public int adp() {
         return i.f.home_lv_markitem_delete;
     }
 
@@ -104,7 +104,7 @@ public class j {
         this.mProgressBar.setVisibility(0);
     }
 
-    public void MW() {
+    public void MS() {
         this.mProgressBar.setVisibility(8);
     }
 
@@ -114,10 +114,10 @@ public class j {
             this.cbD.showToast(str);
         }
         if (aVar != null) {
-            if (aVar.adD() == 0 && !z) {
+            if (aVar.adz() == 0 && !z) {
                 aVar.getCount();
             }
-            if (aVar.adD() < 20) {
+            if (aVar.adz() < 20) {
                 this.cbE.setHasMore(false);
                 this.cbE.dZ(!aVar.isFirst());
             } else {
@@ -125,7 +125,7 @@ public class j {
                 this.cbE.dZ(true);
             }
             this.cbE.ea(true);
-            this.cbE.setData(aVar.adC());
+            this.cbE.setData(aVar.ady());
             if (aVar.getCount() > 0) {
                 this.aEs.setVisibility(0);
                 this.mNoDataView.setVisibility(8);
@@ -154,31 +154,31 @@ public class j {
     public void a(boolean z, String str, boolean z2) {
         this.cbD.closeLoadingDialog();
         if (z) {
-            this.cbE.adx();
+            this.cbE.adt();
         }
         if (str != null) {
             this.cbD.showToast(str);
         }
         if (z2) {
-            adu();
+            adq();
         }
         this.cbE.notifyDataSetChanged();
     }
 
-    public void Jq() {
+    public void Jm() {
         this.mProgressBar.setVisibility(0);
     }
 
     public void a(boolean z, String str, com.baidu.tieba.myCollection.baseEditMark.a aVar) {
         if (z) {
             this.cbD.showToast(this.cbD.getPageContext().getString(i.h.del_mark_success));
-            if (aVar == null || aVar.adC() == null) {
+            if (aVar == null || aVar.ady() == null) {
                 this.mProgressBar.setVisibility(8);
                 return;
-            } else if (aVar.adC().size() == 0) {
+            } else if (aVar.ady().size() == 0) {
                 aVar.a((Boolean) true, false);
             } else {
-                this.cbE.setData(aVar.adC());
+                this.cbE.setData(aVar.ady());
                 this.cbE.ea(true);
             }
         } else {
@@ -192,7 +192,7 @@ public class j {
         this.cbE.setData(arrayList);
     }
 
-    private void adu() {
+    private void adq() {
         if (this.cbF == null) {
             this.cbF = new com.baidu.tbadk.core.dialog.a(this.cbD.getPageContext().getPageActivity());
             this.cbF.ct(this.cbD.getPageContext().getString(i.h.sync_mark_fail));
@@ -204,7 +204,7 @@ public class j {
             this.cbF.b(this.cbD.getPageContext());
             this.cbF.ak(true);
         }
-        this.cbF.sR();
+        this.cbF.sO();
     }
 
     public void onChangeSkinType(int i) {
@@ -218,8 +218,8 @@ public class j {
         }
     }
 
-    public void adv() {
-        this.cbE.adx();
+    public void adr() {
+        this.cbE.adt();
         this.cbE.notifyDataSetChanged();
     }
 
@@ -231,7 +231,7 @@ public class j {
         if (this.mProgressBar != null) {
             this.mProgressBar.setVisibility(8);
         }
-        this.cbE.adw();
+        this.cbE.ads();
     }
 
     public void completePullRefresh() {

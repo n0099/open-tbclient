@@ -76,8 +76,8 @@ class d implements View.OnClickListener {
             }
             jVar = this.dnn.aox;
             if (jVar != null) {
-                if (this.dnn.aCw()) {
-                    this.dnn.aCx();
+                if (this.dnn.aCs()) {
+                    this.dnn.aCt();
                 }
                 baseActivity = this.dnn.dnk;
                 linkedList = this.dnn.chosedFiles;

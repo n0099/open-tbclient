@@ -40,7 +40,7 @@ public class f {
         this.aRa = (NoNetworkView) this.mRoot.findViewById(i.f.view_no_network);
         this.mListView = (BdListView) this.mRoot.findViewById(i.f.dress_listview);
         this.bcA = (CoverFlowView) this.mRoot.findViewById(i.f.dressup_center_coverflowview);
-        Oa();
+        NW();
         this.dfo = (MemberRecommendView) this.mRoot.findViewById(i.f.dressup_center_recommend);
         this.dfo.setFromType(1);
         this.dgn = new c(this.dgm.getPageContext());
@@ -51,11 +51,11 @@ public class f {
     }
 
     public void a(List<b> list, k kVar, List<j> list2) {
-        if ((list == null || list.size() <= 0) && ((kVar == null || StringUtils.isNull(kVar.azA())) && (list2 == null || list2.size() <= 0))) {
-            Kr();
+        if ((list == null || list.size() <= 0) && ((kVar == null || StringUtils.isNull(kVar.azw())) && (list2 == null || list2.size() <= 0))) {
+            Kn();
             return;
         }
-        Ks();
+        Ko();
         e(list2, bB(list) || b(kVar));
     }
 
@@ -70,7 +70,7 @@ public class f {
     }
 
     private boolean b(k kVar) {
-        if (kVar == null || StringUtils.isNull(kVar.azA())) {
+        if (kVar == null || StringUtils.isNull(kVar.azw())) {
             this.dfo.setVisibility(8);
             return false;
         }
@@ -105,18 +105,18 @@ public class f {
             this.aRa.onChangeSkinType(this.dgm.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
         if (this.bcA != null && this.bcA.getVisibility() == 0) {
-            this.bcA.tc();
+            this.bcA.sZ();
         }
         if (this.mListView != null && this.mListView.getVisibility() == 0 && this.dgn != null) {
             this.dgn.notifyDataSetChanged();
         }
         if (this.dfo != null && this.dfo.getVisibility() == 0) {
-            this.dfo.vA();
+            this.dfo.vx();
         }
         an.j((View) this.dfp, i.c.cp_bg_line_c);
     }
 
-    public void Kr() {
+    public void Kn() {
         this.mListView.setVisibility(8);
         this.bcA.setVisibility(8);
         this.dfo.setVisibility(8);
@@ -125,14 +125,14 @@ public class f {
         this.dgm.showNetRefreshView(this.mRoot, string, false);
     }
 
-    public void Ks() {
+    public void Ko() {
         this.dgm.hideNetRefreshView(this.mRoot);
         this.mListView.setVisibility(0);
         this.dfo.setVisibility(0);
         this.bcA.setVisibility(0);
     }
 
-    private void Oa() {
+    private void NW() {
         if (this.bcA != null) {
             this.bcA.setCoverFlowFactory(new h(this));
             this.bcA.setCallback(new i(this));

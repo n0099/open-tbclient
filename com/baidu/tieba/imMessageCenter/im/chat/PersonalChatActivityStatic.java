@@ -16,7 +16,7 @@ public class PersonalChatActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e XJ() {
+    public static com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e XF() {
         return bJH;
     }
 

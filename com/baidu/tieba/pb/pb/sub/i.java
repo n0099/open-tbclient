@@ -15,12 +15,12 @@ class i implements com.baidu.adp.lib.e.c<ImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: afA */
+    /* renamed from: afw */
     public ImageView gZ() {
         com.baidu.tbadk.widget.d dVar = new com.baidu.tbadk.widget.d(this.cmC.getPageContext().getPageActivity());
-        boolean rb = com.baidu.tbadk.core.m.qX().rb();
+        boolean qY = com.baidu.tbadk.core.m.qU().qY();
         dVar.setDefaultBg(an.getDrawable(i.c.pb_default_image_bg));
-        if (rb) {
+        if (qY) {
             dVar.setAdjustViewBounds(false);
             dVar.setInterceptOnClick(false);
         } else {
@@ -51,7 +51,7 @@ class i implements com.baidu.adp.lib.e.c<ImageView> {
         if (imageView instanceof TbImageView) {
             TbImageView tbImageView = (TbImageView) imageView;
             tbImageView.setTag(null);
-            if (com.baidu.tbadk.core.m.qX().rb()) {
+            if (com.baidu.tbadk.core.m.qU().qY()) {
                 tbImageView.setAdjustViewBounds(false);
                 tbImageView.setInterceptOnClick(false);
             } else {

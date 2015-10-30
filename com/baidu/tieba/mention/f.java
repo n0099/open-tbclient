@@ -42,16 +42,16 @@ public class f extends com.baidu.adp.base.e<SingleMentionActivity> implements Ne
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean Hn() {
-        if (this.cal.isLoading() || !this.aJI.Dc()) {
+    public boolean Hj() {
+        if (this.cal.isLoading() || !this.aJI.CZ()) {
             return false;
         }
         this.aJI.bk(true);
         this.aJI.bm(true);
         this.cak.b(this.can);
         this.cal.setNeedCache(false);
-        this.cal.CS();
-        this.caj.adf().d(this.aJI);
+        this.cal.CP();
+        this.caj.adb().d(this.aJI);
         return true;
     }
 
@@ -63,7 +63,7 @@ public class f extends com.baidu.adp.base.e<SingleMentionActivity> implements Ne
         this.can = null;
         this.cak.reset();
         this.cal.setNeedCache(true);
-        this.cal.CS();
+        this.cal.CP();
         return true;
     }
 
@@ -74,13 +74,13 @@ public class f extends com.baidu.adp.base.e<SingleMentionActivity> implements Ne
 
     protected boolean a(h hVar, i iVar) {
         if (hVar.getUpdateType() != 4) {
-            this.cao.adc().clear();
+            this.cao.acY().clear();
         }
         this.cao.a(iVar);
-        if (iVar != null && iVar.adc() != null && iVar.adc().size() > 0) {
-            this.can = iVar.adc().get(iVar.adc().size() - 1);
+        if (iVar != null && iVar.acY() != null && iVar.acY().size() > 0) {
+            this.can = iVar.acY().get(iVar.acY().size() - 1);
             if (this.cao.getPage() != null) {
-                this.aJI.bl(this.cao.getPage().rL() == 1);
+                this.aJI.bl(this.cao.getPage().rI() == 1);
             } else {
                 this.aJI.bl(true);
             }
@@ -95,10 +95,10 @@ public class f extends com.baidu.adp.base.e<SingleMentionActivity> implements Ne
         }
         this.aJI.bk(false);
         this.aJI.bj(false);
-        com.baidu.tbadk.coreExtra.messageCenter.a.wK().xa();
-        this.caj.adi().o(2, true);
-        this.caj.adf().a(this.cao);
-        this.caj.adf().d(this.aJI);
+        com.baidu.tbadk.coreExtra.messageCenter.a.wH().wX();
+        this.caj.ade().o(2, true);
+        this.caj.adb().a(this.cao);
+        this.caj.adb().d(this.aJI);
         return false;
     }
 
@@ -110,7 +110,7 @@ public class f extends com.baidu.adp.base.e<SingleMentionActivity> implements Ne
         this.can = null;
         this.cak.reset();
         this.cal.setNeedCache(true);
-        this.cal.CS();
+        this.cal.CP();
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a
@@ -127,7 +127,7 @@ public class f extends com.baidu.adp.base.e<SingleMentionActivity> implements Ne
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.wK().setMsgAtme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.wH().setMsgAtme(0);
             iVar = null;
         }
         if (r1 == null || iVar == null || !a(r1, iVar)) {
@@ -139,7 +139,7 @@ public class f extends com.baidu.adp.base.e<SingleMentionActivity> implements Ne
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.caj.a(errorData);
-            this.caj.adf().a(errorData);
+            this.caj.adb().a(errorData);
         }
     }
 
@@ -153,7 +153,7 @@ public class f extends com.baidu.adp.base.e<SingleMentionActivity> implements Ne
                 r1 = mvcNetMessage.getRequestData();
             }
         } else {
-            com.baidu.tbadk.coreExtra.messageCenter.a.wK().setMsgAtme(0);
+            com.baidu.tbadk.coreExtra.messageCenter.a.wH().setMsgAtme(0);
             iVar = null;
         }
         if (r1 == null || iVar == null || !a(r1, iVar)) {
@@ -165,7 +165,7 @@ public class f extends com.baidu.adp.base.e<SingleMentionActivity> implements Ne
             errorData.setError_code(this.mErrorCode);
             errorData.setError_msg(this.mErrorString);
             this.caj.a(errorData);
-            this.caj.adf().a(errorData);
+            this.caj.adb().a(errorData);
         }
     }
 

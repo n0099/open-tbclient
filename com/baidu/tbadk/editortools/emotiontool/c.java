@@ -13,7 +13,7 @@ class c implements com.baidu.adp.lib.e.c<GridView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: AL */
+    /* renamed from: AI */
     public GridView gZ() {
         return new GridView(this.apU.getContext());
     }

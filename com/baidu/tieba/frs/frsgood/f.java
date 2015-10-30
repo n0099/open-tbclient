@@ -39,8 +39,8 @@ public class f implements com.baidu.adp.widget.ListView.v {
                 if (bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TR.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TS.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TT.getId()) {
                     if (uVar != null && (uVar instanceof com.baidu.tbadk.core.data.b)) {
                         com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) uVar;
-                        if (!bVar.rq()) {
-                            if (!bVar.rr()) {
+                        if (!bVar.rn()) {
+                            if (!bVar.ro()) {
                                 return;
                             }
                             this.aZM.a(bVar);
@@ -51,33 +51,33 @@ public class f implements com.baidu.adp.widget.ListView.v {
                 } else if (uVar != null && (uVar instanceof com.baidu.tbadk.core.data.w)) {
                     com.baidu.tbadk.core.data.w wVar = (com.baidu.tbadk.core.data.w) uVar;
                     if (wVar.getAnchorInfoData() == null || wVar.getAnchorInfoData().getGroup_id() == 0 || this.aZM.checkUpIsLogin()) {
-                        if ((wVar.sx() != 1 && wVar.sx() != 2) || this.aZM.checkUpIsLogin()) {
+                        if ((wVar.su() != 1 && wVar.su() != 2) || this.aZM.checkUpIsLogin()) {
                             com.baidu.tieba.tbadkCore.util.p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
                             if (readThreadHistory != null && !readThreadHistory.lL(wVar.getId())) {
                                 readThreadHistory.lK(wVar.getId());
                             }
                             boolean z = false;
-                            String sl = wVar.sl();
-                            if (sl != null && !sl.equals("")) {
+                            String si = wVar.si();
+                            if (si != null && !si.equals("")) {
                                 z = true;
-                                new Thread(new g(this, sl)).start();
+                                new Thread(new g(this, si)).start();
                             }
                             String tid = wVar.getTid();
                             if (tid == null) {
                                 tid = "";
                             }
                             if (wVar.getIs_top() == 2 && !tid.startsWith("pb:")) {
-                                az uW = az.uW();
+                                az uT = az.uT();
                                 TbPageContext<?> pageContext = this.aZM.getPageContext();
                                 String[] strArr = new String[3];
                                 strArr[0] = tid;
                                 strArr[1] = "";
-                                uW.b(pageContext, strArr);
-                            } else if (wVar.sq() == 33 || (wVar instanceof com.baidu.tbadk.core.data.q)) {
-                                aq aqVar = new aq(wVar.sq() == 33 ? "c10245" : "c10180");
+                                uT.b(pageContext, strArr);
+                            } else if (wVar.sn() == 33 || (wVar instanceof com.baidu.tbadk.core.data.q)) {
+                                aq aqVar = new aq(wVar.sn() == 33 ? "c10245" : "c10180");
                                 str = this.aZM.forumId;
                                 TiebaStatic.log(aqVar.ae(ImageViewerConfig.FORUM_ID, str));
-                                this.aZM.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.aZM.getPageContext().getPageActivity(), wVar.getTid()).ci("from_frs").bs(18003).rk()));
+                                this.aZM.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.aZM.getPageContext().getPageActivity(), wVar.getTid()).ci("from_frs").bs(18003).rh()));
                             } else {
                                 if (tid.startsWith("pb:")) {
                                     wVar.setId(tid.substring(3));

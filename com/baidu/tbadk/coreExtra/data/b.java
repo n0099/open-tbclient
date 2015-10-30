@@ -5,7 +5,7 @@ public class b {
     private long afT;
     private int afU;
 
-    public String wf() {
+    public String wc() {
         return this.afS;
     }
 
@@ -17,11 +17,11 @@ public class b {
         return this.afT;
     }
 
-    public void A(long j) {
+    public void y(long j) {
         this.afT = j;
     }
 
-    public int wg() {
+    public int wd() {
         return this.afU;
     }
 

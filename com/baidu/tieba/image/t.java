@@ -21,14 +21,14 @@ class t implements ViewPager.OnPageChangeListener {
         j jVar;
         j jVar2;
         int i2;
-        boolean aak;
+        boolean aag;
         a aVar;
         z = this.this$0.bPM;
         if (!z) {
             jVar = this.this$0.bPG;
             if (jVar != null && i > this.this$0.bPE.getItemNum() - 5) {
                 jVar2 = this.this$0.bPG;
-                jVar2.aad();
+                jVar2.ZZ();
             }
         } else {
             Intent intent = new Intent(TbConfig.getBroadcastActionPageChanged());
@@ -39,12 +39,12 @@ class t implements ViewPager.OnPageChangeListener {
         i2 = this.this$0.mIndex;
         imageViewerActivity.ad(i2, i);
         this.this$0.mIndex = i;
-        this.this$0.aaj();
-        this.this$0.aap();
-        aak = this.this$0.aak();
-        if (aak) {
+        this.this$0.aaf();
+        this.this$0.aal();
+        aag = this.this$0.aag();
+        if (aag) {
             aVar = this.this$0.bPO;
-            aVar.ZQ();
+            aVar.ZM();
         }
     }
 

@@ -21,15 +21,15 @@ public class ax implements CustomMessageTask.CustomRunnable<String> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
-            com.baidu.tieba.im.db.g.TJ().TK();
-            com.baidu.tieba.im.db.i.TO().c(this.bEx);
+            com.baidu.tieba.im.db.g.TF().TG();
+            com.baidu.tieba.im.db.i.TK().c(this.bEx);
             if (this.bEx.getCustomGroupType() == 1) {
-                com.baidu.tieba.im.db.c.TF().hJ(this.bEx.getGid());
+                com.baidu.tieba.im.db.c.TB().hJ(this.bEx.getGid());
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         } finally {
-            com.baidu.tieba.im.db.g.TJ().endTransaction();
+            com.baidu.tieba.im.db.g.TF().endTransaction();
         }
         return new ResponseMemoryNotifyUpdataGroupMessage(this.bEx);
     }

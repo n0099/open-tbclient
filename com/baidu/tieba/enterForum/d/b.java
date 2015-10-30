@@ -19,7 +19,7 @@ public class b implements Runnable {
         if (i != 0) {
             i2 = this.aMG.mOffset;
             boolean z = i2 > 0;
-            com.baidu.tieba.enterForum.c.b Iw = com.baidu.tieba.enterForum.c.b.Iw();
+            com.baidu.tieba.enterForum.c.b Is = com.baidu.tieba.enterForum.c.b.Is();
             a aVar = this.aMG;
             if (z) {
                 i4 = this.aMG.aME;
@@ -27,7 +27,7 @@ public class b implements Runnable {
                 i3 = this.aMG.aME;
                 i4 = -i3;
             }
-            if (!Iw.a(aVar, i4, 200)) {
+            if (!Is.a(aVar, i4, 200)) {
                 this.aMG.setSelection(z ? this.aMG.getFirstVisiblePosition() + 2 : this.aMG.getFirstVisiblePosition() - 2);
             }
         }

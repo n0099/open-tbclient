@@ -17,8 +17,8 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         oF().addEventDelegate(this);
-        this.aJD = Hj();
-        this.aJE = Hk();
+        this.aJD = Hf();
+        this.aJE = Hg();
         if (getIntent() != null) {
             this.aJD.f(getIntent().getExtras());
         } else if (bundle != null) {
@@ -31,14 +31,14 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         this.aJE.onChangeSkinType(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    public b Hj() {
+    public b Hf() {
         if (this.aJD == null) {
             this.aJD = new b(this);
         }
         return this.aJD;
     }
 
-    public e Hk() {
+    public e Hg() {
         if (this.aJE == null) {
             this.aJE = new e(this);
         }
@@ -59,18 +59,18 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
 
     @Override // com.baidu.tbadk.mvc.c.a
     public boolean a(com.baidu.tbadk.mvc.c.b bVar) {
-        switch (bVar.CD()) {
+        switch (bVar.CA()) {
             case 4096:
                 b(bVar);
                 break;
         }
-        return Hk().a(bVar) || Hj().a(bVar);
+        return Hg().a(bVar) || Hf().a(bVar);
     }
 
     private void b(com.baidu.tbadk.mvc.c.b bVar) {
-        com.baidu.tbadk.mvc.b.a CE = bVar.CE();
-        if (CE instanceof com.baidu.tieba.chosen.posts.a.h) {
-            sendMessage(((com.baidu.tieba.chosen.posts.a.h) CE).ar(getPageContext().getPageActivity()));
+        com.baidu.tbadk.mvc.b.a CB = bVar.CB();
+        if (CB instanceof com.baidu.tieba.chosen.posts.a.h) {
+            sendMessage(((com.baidu.tieba.chosen.posts.a.h) CB).ar(getPageContext().getPageActivity()));
         }
     }
 
@@ -85,6 +85,6 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        Hk().onChangeSkinType(getPageContext(), i);
+        Hg().onChangeSkinType(getPageContext(), i);
     }
 }

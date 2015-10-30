@@ -20,9 +20,9 @@ public class aq implements View.OnClickListener {
         WriteData writeData;
         WriteData writeData2;
         InputMethodManager inputMethodManager;
-        EditText aDx;
+        EditText aDt;
         InputMethodManager inputMethodManager2;
-        EditText aDw;
+        EditText aDs;
         com.baidu.tbadk.editortools.j jVar;
         boolean z;
         writeData = this.dqi.dbx;
@@ -36,15 +36,15 @@ public class aq implements View.OnClickListener {
             }
             WriteActivity writeActivity = this.dqi;
             inputMethodManager = this.dqi.mInputManager;
-            aDx = this.dqi.aDx();
-            writeActivity.HidenSoftKeyPad(inputMethodManager, aDx);
+            aDt = this.dqi.aDt();
+            writeActivity.HidenSoftKeyPad(inputMethodManager, aDt);
             WriteActivity writeActivity2 = this.dqi;
             inputMethodManager2 = this.dqi.mInputManager;
-            aDw = this.dqi.aDw();
-            writeActivity2.HidenSoftKeyPad(inputMethodManager2, aDw);
+            aDs = this.dqi.aDs();
+            writeActivity2.HidenSoftKeyPad(inputMethodManager2, aDs);
             jVar = this.dqi.dpD;
-            jVar.za();
-            this.dqi.aCG();
+            jVar.yX();
+            this.dqi.aCC();
             z = this.dqi.dpq;
             if (z) {
                 com.baidu.adp.lib.stats.a.hi().hr();

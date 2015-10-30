@@ -34,7 +34,7 @@ public class k extends HttpMessageListener {
                         if (userInfo != null) {
                             if (!TextUtils.isEmpty(userInfo.toJson())) {
                                 if (TbadkCoreApplication.isLogin()) {
-                                    com.baidu.tbadk.core.sharedPref.b.tu().putString("open_user_info_" + TbadkCoreApplication.getCurrentAccount(), userInfo.toJson());
+                                    com.baidu.tbadk.core.sharedPref.b.tr().putString("open_user_info_" + TbadkCoreApplication.getCurrentAccount(), userInfo.toJson());
                                     this.aKG.m(str, userInfo.getOpenID(), userInfo.getUserName());
                                     return;
                                 }

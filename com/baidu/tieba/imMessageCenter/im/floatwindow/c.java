@@ -18,31 +18,31 @@ public class c implements i {
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
     public void ak(int i, int i2) {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yj;
         Handler handler;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Ym;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Yi;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yj2;
         boolean a;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn3;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn4;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yj3;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yj4;
         if (SystemClock.elapsedRealtime() - this.bLg <= 300) {
             return;
         }
-        Yn = this.bLh.Yn();
+        Yj = this.bLh.Yj();
         handler = this.bLh.handler;
-        Yn.b(handler);
+        Yj.b(handler);
         b bVar = this.bLh;
-        Ym = this.bLh.Ym();
-        e Yu = Ym.Yu();
-        Yn2 = this.bLh.Yn();
-        a = bVar.a(Yu, Yn2.YL());
+        Yi = this.bLh.Yi();
+        e Yq = Yi.Yq();
+        Yj2 = this.bLh.Yj();
+        a = bVar.a(Yq, Yj2.YH());
         if (a) {
-            Yn4 = this.bLh.Yn();
-            Yn4.YM();
+            Yj4 = this.bLh.Yj();
+            Yj4.YI();
             return;
         }
-        Yn3 = this.bLh.Yn();
-        Yn3.YN();
+        Yj3 = this.bLh.Yj();
+        Yj3.YJ();
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
@@ -51,44 +51,44 @@ public class c implements i {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
-    public void Yr() {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Ym;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn;
+    public void Yn() {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Yi;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yj;
         boolean a;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Ym2;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Yi2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yj2;
         Handler handler;
         b bVar = this.bLh;
-        Ym = this.bLh.Ym();
-        e Yu = Ym.Yu();
-        Yn = this.bLh.Yn();
-        a = bVar.a(Yu, Yn.YL());
+        Yi = this.bLh.Yi();
+        e Yq = Yi.Yq();
+        Yj = this.bLh.Yj();
+        a = bVar.a(Yq, Yj.YH());
         if (a) {
             this.bLh.dC(true);
         } else {
-            Ym2 = this.bLh.Ym();
-            Ym2.YI();
+            Yi2 = this.bLh.Yi();
+            Yi2.YE();
         }
-        Yn2 = this.bLh.Yn();
+        Yj2 = this.bLh.Yj();
         handler = this.bLh.handler;
-        Yn2.c(handler);
+        Yj2.c(handler);
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.i
-    public void Ys() {
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Ym;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Ym2;
-        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yn;
+    public void Yo() {
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Yi;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.a Yi2;
+        com.baidu.tieba.imMessageCenter.im.floatwindow.view.e Yj;
         Handler handler;
-        Ym = this.bLh.Ym();
-        if (!Ym.YH()) {
+        Yi = this.bLh.Yi();
+        if (!Yi.YD()) {
             Point point = new Point(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds30), TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds20));
             this.bLh.bKT = false;
-            Ym2 = this.bLh.Ym();
-            Ym2.b(point);
-            Yn = this.bLh.Yn();
+            Yi2 = this.bLh.Yi();
+            Yi2.b(point);
+            Yj = this.bLh.Yj();
             handler = this.bLh.handler;
-            Yn.c(handler);
+            Yj.c(handler);
         }
     }
 }

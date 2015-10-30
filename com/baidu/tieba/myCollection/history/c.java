@@ -18,6 +18,6 @@ public class c implements View.OnClickListener {
         aVar.bF(i.h.pb_history_clear_tip);
         aVar.a(i.h.confirm, new d(this));
         aVar.b(i.h.cancel, new e(this));
-        aVar.b(this.ccp.getPageContext()).sR();
+        aVar.b(this.ccp.getPageContext()).sO();
     }
 }

@@ -18,11 +18,11 @@ public class ac implements View.OnFocusChangeListener {
         if (z) {
             this.dqi.dqb = true;
             this.dqi.dqf = true;
-            this.dqi.aDh();
+            this.dqi.aDd();
             jVar = this.dqi.dpD;
             if (jVar != null) {
                 jVar2 = this.dqi.dpD;
-                jVar2.za();
+                jVar2.yX();
             }
         }
     }

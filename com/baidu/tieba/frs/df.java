@@ -26,6 +26,6 @@ public class df implements View.OnClickListener {
         int intValue = ((Integer) view.getTag(i.f.tag_second)).intValue();
         BaseActivity<?> baseActivity = this.aYl.aSe;
         context = this.aYl.mContext;
-        baseActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(context).createConfig(this.aYn.rU(), intValue, this.aYn.rQ(), "", "", true, rVar.rU().get(this.aYn.rU().size() - 1), true)));
+        baseActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, new ImageViewerConfig(context).createConfig(this.aYn.rR(), intValue, this.aYn.rN(), "", "", true, rVar.rR().get(this.aYn.rR().size() - 1), true)));
     }
 }

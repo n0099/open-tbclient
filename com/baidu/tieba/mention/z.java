@@ -9,22 +9,22 @@ public class z extends com.baidu.tbadk.mvc.model.a<ak, SingleMentionActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public Class<ak> CO() {
+    public Class<ak> CL() {
         return ak.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int CP() {
+    public int CM() {
         return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int CQ() {
+    public int CN() {
         return CmdConfigCustom.CMD_MENTION_REPLYME_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public String CA() {
+    public String Cx() {
         return "tb_user_replyme";
     }
 }

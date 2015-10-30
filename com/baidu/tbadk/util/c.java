@@ -17,7 +17,7 @@ public class c {
     private c() {
     }
 
-    public static c Ex() {
+    public static c Et() {
         return azC;
     }
 
@@ -32,7 +32,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Ey() {
+    public boolean Eu() {
         int i;
         long j = 0;
         byte[] aH = com.baidu.adp.lib.util.e.aH("crash_hour_record.log");
@@ -73,7 +73,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(c.this.Ey());
+            return Boolean.valueOf(c.this.Eu());
         }
 
         /* JADX DEBUG: Method merged with bridge method */

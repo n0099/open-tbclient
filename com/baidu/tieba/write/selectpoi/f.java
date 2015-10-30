@@ -16,8 +16,8 @@ class f implements View.OnClickListener {
     public void onClick(View view) {
         if (!com.baidu.adp.lib.util.k.jd()) {
             this.dlO.showToast(i.h.no_network_guide);
-        } else if (!StringUtils.isNull(this.dlO.aqE())) {
-            this.dlO.aBP();
+        } else if (!StringUtils.isNull(this.dlO.aqA())) {
+            this.dlO.aBL();
         }
     }
 }

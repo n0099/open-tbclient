@@ -53,7 +53,7 @@ public class s extends com.baidu.adp.framework.listener.e {
                                 aVar3 = this.bKD.bKC;
                                 if (aVar3 != null) {
                                     aVar4 = this.bKD.bKC;
-                                    aVar4.vw();
+                                    aVar4.vt();
                                     return;
                                 }
                                 return;
@@ -85,7 +85,7 @@ public class s extends com.baidu.adp.framework.listener.e {
                             aVar = this.bKD.bKC;
                             if (aVar != null) {
                                 aVar2 = this.bKD.bKC;
-                                aVar2.vw();
+                                aVar2.vt();
                                 return;
                             }
                             return;

@@ -27,11 +27,11 @@ public class c {
     private ArrayList<k> cgv = new ArrayList<>();
     private int cgw = 1;
 
-    public Error aeY() {
+    public Error aeU() {
         return this.cgB;
     }
 
-    public k aeZ() {
+    public k aeV() {
         return this.cgu;
     }
 
@@ -39,41 +39,41 @@ public class c {
         this.cgu = kVar;
     }
 
-    public int afa() {
+    public int aeW() {
         if (this.cgy == -1) {
             this.cgy = this.bax;
         }
         return this.cgy;
     }
 
-    public int afb() {
+    public int aeX() {
         return this.cgy;
     }
 
     public void a(c cVar, boolean z) {
         if (cVar != null) {
-            b(cVar.afh());
+            b(cVar.afd());
             this.cgy = cVar.getCurrentPage();
-            b(cVar.afg());
-            setPageSize(cVar.aff());
-            e(cVar.afi());
+            b(cVar.afc());
+            setPageSize(cVar.afb());
+            e(cVar.afe());
             setTotalCount(cVar.getTotalCount());
-            iI(cVar.afe());
-            this.cgv.addAll(0, cVar.afd());
+            iI(cVar.afa());
+            this.cgv.addAll(0, cVar.aeZ());
         }
     }
 
     public void b(c cVar, boolean z) {
         if (cVar != null) {
-            b(cVar.afh());
-            b(cVar.afg());
-            a(cVar.aeZ());
-            e(cVar.afi());
-            if (cVar.afd() != null && cVar.afd().size() > 0) {
+            b(cVar.afd());
+            b(cVar.afc());
+            a(cVar.aeV());
+            e(cVar.afe());
+            if (cVar.aeZ() != null && cVar.aeZ().size() > 0) {
                 setCurrentPage(cVar.getCurrentPage());
-                setPageSize(cVar.aff());
+                setPageSize(cVar.afb());
                 setTotalCount(cVar.getTotalCount());
-                iI(cVar.afe());
+                iI(cVar.afa());
             }
             int size = this.cgv.size();
             if (z && size % this.cgx != 0) {
@@ -81,21 +81,21 @@ public class c {
                     this.cgv.remove(this.cgv.size() - 1);
                 }
             }
-            this.cgv.addAll(cVar.afd());
+            this.cgv.addAll(cVar.aeZ());
         }
     }
 
     public void c(c cVar, boolean z) {
         if (cVar != null) {
-            b(cVar.afh());
-            b(cVar.afg());
-            a(cVar.aeZ());
-            e(cVar.afi());
-            if (cVar.afd() != null && cVar.afd().size() > 0) {
+            b(cVar.afd());
+            b(cVar.afc());
+            a(cVar.aeV());
+            e(cVar.afe());
+            if (cVar.aeZ() != null && cVar.aeZ().size() > 0) {
                 setCurrentPage(cVar.getCurrentPage());
-                setPageSize(cVar.aff());
+                setPageSize(cVar.afb());
                 setTotalCount(cVar.getTotalCount());
-                iI(cVar.afe());
+                iI(cVar.afa());
             }
             int size = this.cgv.size();
             if (z && size % this.cgx != 0) {
@@ -103,8 +103,8 @@ public class c {
                     this.cgv.remove(this.cgv.size() - 1);
                 }
             }
-            this.cgv.addAll(cVar.afd());
-            afc();
+            this.cgv.addAll(cVar.aeZ());
+            aeY();
         }
     }
 
@@ -114,25 +114,25 @@ public class c {
 
     public void a(c cVar) {
         if (cVar != null) {
-            b(cVar.afh());
-            b(cVar.afg());
-            a(cVar.aeZ());
-            e(cVar.afi());
-            if (cVar.afd() != null && cVar.afd().size() > 0) {
+            b(cVar.afd());
+            b(cVar.afc());
+            a(cVar.aeV());
+            e(cVar.afe());
+            if (cVar.aeZ() != null && cVar.aeZ().size() > 0) {
                 setCurrentPage(cVar.getCurrentPage());
-                setPageSize(cVar.aff());
+                setPageSize(cVar.afb());
                 setTotalCount(cVar.getTotalCount());
-                iI(cVar.afe());
-                this.cgy = (this.bax - (((cVar.afd().size() - 1) + this.cgx) / this.cgx)) + 1;
+                iI(cVar.afa());
+                this.cgy = (this.bax - (((cVar.aeZ().size() - 1) + this.cgx) / this.cgx)) + 1;
                 if (this.cgy < 0) {
                     this.cgy = 0;
                 }
             }
-            this.cgv.addAll(cVar.afd());
+            this.cgv.addAll(cVar.aeZ());
         }
     }
 
-    public void afc() {
+    public void aeY() {
         if (this.cgy < 0) {
             this.cgy = this.bax;
         } else if (this.cgy > this.bax) {
@@ -140,7 +140,7 @@ public class c {
         }
     }
 
-    public ArrayList<k> afd() {
+    public ArrayList<k> aeZ() {
         return this.cgv;
     }
 
@@ -148,7 +148,7 @@ public class c {
         this.cgv = arrayList;
     }
 
-    public int afe() {
+    public int afa() {
         return this.cgw;
     }
 
@@ -164,7 +164,7 @@ public class c {
         this.asC = i;
     }
 
-    public int aff() {
+    public int afb() {
         return this.cgx;
     }
 
@@ -186,7 +186,7 @@ public class c {
         this.cgt = forumData;
     }
 
-    public ForumData afg() {
+    public ForumData afc() {
         return this.cgt;
     }
 
@@ -194,7 +194,7 @@ public class c {
         this.cgz = antiData;
     }
 
-    public AntiData afh() {
+    public AntiData afd() {
         return this.cgz;
     }
 
@@ -202,11 +202,11 @@ public class c {
         this.aTY = wVar;
     }
 
-    public boolean WK() {
+    public boolean WG() {
         return (this.aTY == null || this.cgu == null || this.aTY.getAuthor() == null || this.aTY.getAuthor().getUserId() == null || this.cgu.getAuthor() == null || this.cgu.getAuthor().getUserId() == null || !this.aTY.getAuthor().getUserId().equals(this.cgu.getAuthor().getUserId())) ? false : true;
     }
 
-    public boolean qk() {
+    public boolean qh() {
         return this.cgA;
     }
 
@@ -214,7 +214,7 @@ public class c {
         return this.bax < this.cgw;
     }
 
-    public w afi() {
+    public w afe() {
         return this.aTY;
     }
 

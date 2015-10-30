@@ -20,22 +20,22 @@ public class ao implements View.OnClickListener {
         cd cdVar;
         com.baidu.tbadk.editortools.j jVar;
         InputMethodManager inputMethodManager;
-        EditText aDx;
+        EditText aDt;
         InputMethodManager inputMethodManager2;
-        EditText aDw;
+        EditText aDs;
         textView = this.dqi.dmF;
         textView.setSelected(true);
         cdVar = this.dqi.dmG;
         com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(cdVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.dqi.getPageContext().getPageActivity(), 1.0f));
         jVar = this.dqi.dpD;
-        jVar.za();
+        jVar.yX();
         WriteActivity writeActivity = this.dqi;
         inputMethodManager = this.dqi.mInputManager;
-        aDx = this.dqi.aDx();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, aDx);
+        aDt = this.dqi.aDt();
+        writeActivity.HidenSoftKeyPad(inputMethodManager, aDt);
         WriteActivity writeActivity2 = this.dqi;
         inputMethodManager2 = this.dqi.mInputManager;
-        aDw = this.dqi.aDw();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, aDw);
+        aDs = this.dqi.aDs();
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, aDs);
     }
 }

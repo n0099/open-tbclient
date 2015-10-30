@@ -23,7 +23,7 @@ public class i extends BaseAdapter {
 
     public i(AlbumActivity albumActivity) {
         this.djW = albumActivity;
-        this.amg = albumActivity.aBf();
+        this.amg = albumActivity.aBb();
         this.mWidth = (int) this.djW.getResources().getDimension(i.d.album_image_height);
         this.dkq = com.baidu.adp.lib.util.k.K(this.djW.getPageContext().getPageActivity()) / 2;
     }
@@ -78,7 +78,7 @@ public class i extends BaseAdapter {
         if (item != null) {
             if (!TextUtils.isEmpty(item.getName())) {
                 item.getName();
-                aVar.dkt.setText(String.valueOf(com.baidu.adp.lib.util.k.a(aVar.dkt.getPaint(), item.getName(), this.dkq)) + "(" + item.aBk() + ")");
+                aVar.dkt.setText(String.valueOf(com.baidu.adp.lib.util.k.a(aVar.dkt.getPaint(), item.getName(), this.dkq)) + "(" + item.aBg() + ")");
             } else {
                 aVar.dkt.setText("");
             }
@@ -88,16 +88,16 @@ public class i extends BaseAdapter {
             } else {
                 aVar.dku.setVisibility(8);
             }
-            ImageFileInfo aBl = item.aBl();
-            if (aBl != null) {
-                aBl.clearPageActions();
-                aBl.addPageAction(com.baidu.tbadk.img.effect.d.J(this.mWidth, this.mWidth));
-                com.baidu.adp.widget.a.a a2 = this.amg.a(aBl, false);
-                aVar.dks.setTag(aBl.toCachedKey(false));
+            ImageFileInfo aBh = item.aBh();
+            if (aBh != null) {
+                aBh.clearPageActions();
+                aBh.addPageAction(com.baidu.tbadk.img.effect.d.J(this.mWidth, this.mWidth));
+                com.baidu.adp.widget.a.a a2 = this.amg.a(aBh, false);
+                aVar.dks.setTag(aBh.toCachedKey(false));
                 if (a2 != null) {
                     aVar.dks.invalidate();
                 } else {
-                    this.amg.a(aBl, new j(this, viewGroup), false, this.djW.isScroll());
+                    this.amg.a(aBh, new j(this, viewGroup), false, this.djW.isScroll());
                 }
             }
         } else {

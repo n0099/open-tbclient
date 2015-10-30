@@ -55,7 +55,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
             } else {
                 bVar.bpD.setText(cVar.boF);
             }
-            bVar.bpE.setText(TbadkCoreApplication.m411getInst().getString(i.h.hot_topic_info_threadCount).replace("%s", as.x(cVar.postNum)));
+            bVar.bpE.setText(TbadkCoreApplication.m411getInst().getString(i.h.hot_topic_info_threadCount).replace("%s", as.v(cVar.postNum)));
             bVar.bpF.setMaxLines(3);
             if (StringUtils.isNull(cVar.boY)) {
                 bVar.bpF.setVisibility(8);

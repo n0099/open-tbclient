@@ -38,8 +38,8 @@ public class t extends HttpMessageListener {
                 postSearchActivity4 = this.cEz.cDW;
                 postSearchActivity4.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
                 this.cEz.jX(intValue);
-                this.cEz.aou();
-                this.cEz.aox();
+                this.cEz.aoq();
+                this.cEz.aot();
                 return;
             }
             String errorString = postSearchHttpResponseMessage.getErrorString();

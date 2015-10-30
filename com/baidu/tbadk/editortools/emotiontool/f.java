@@ -24,16 +24,16 @@ class f implements AdapterView.OnItemClickListener {
         if (jVar != null) {
             com.baidu.tbadk.coreExtra.data.f fVar = new com.baidu.tbadk.coreExtra.data.f();
             EmotionTabContentView.a aVar = (EmotionTabContentView.a) adapterView.getAdapter();
-            if (aVar != null && aVar.AN() != null) {
-                o AN = aVar.AN();
-                int AM = aVar.AM();
-                t AR = AN.AR();
-                fVar.setName(AN.AR().ei(AM + i));
-                fVar.a(AR.AZ());
-                fVar.dM(AR.getGroupName());
-                fVar.setPid(AR.getGroupId());
-                fVar.setWidth(AR.getWidth());
-                fVar.setHeight(AR.getHeight());
+            if (aVar != null && aVar.AK() != null) {
+                o AK = aVar.AK();
+                int AJ = aVar.AJ();
+                t AO = AK.AO();
+                fVar.setName(AK.AO().ei(AJ + i));
+                fVar.a(AO.AW());
+                fVar.dM(AO.getGroupName());
+                fVar.setPid(AO.getGroupId());
+                fVar.setWidth(AO.getWidth());
+                fVar.setHeight(AO.getHeight());
                 emotionTabContentView2 = EmotionTabContentView.this;
                 jVar2 = emotionTabContentView2.KA;
                 jVar2.b(new com.baidu.tbadk.editortools.a(24, -1, fVar));

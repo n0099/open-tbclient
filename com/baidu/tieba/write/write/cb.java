@@ -25,6 +25,6 @@ class cb implements a.b {
             aVar3.dismiss();
         }
         writeMultiImgsActivity2 = this.dqN.dqM;
-        writeMultiImgsActivity2.aDM();
+        writeMultiImgsActivity2.aDI();
     }
 }

@@ -7,7 +7,7 @@ public class c {
     private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> atS;
     private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> atT;
 
-    public static c Cf() {
+    public static c Cc() {
         return atR;
     }
 
@@ -18,7 +18,7 @@ public class c {
         this.atT = new e(this, 0);
     }
 
-    public int Cg() {
+    public int Cd() {
         return this.atT.gd();
     }
 

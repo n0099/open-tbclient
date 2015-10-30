@@ -35,15 +35,15 @@ public class g implements a.d {
         com.baidu.tieba.tbadkCore.writeModel.a aVar2;
         if (writeData == null) {
             aVar2 = this.asm.arW;
-            writeData2 = aVar2.axO();
+            writeData2 = aVar2.axK();
         } else {
             writeData2 = writeData;
         }
         if (!z) {
-            if (writeData2 != null && lVar != null && !TextUtils.isEmpty(lVar.ws())) {
+            if (writeData2 != null && lVar != null && !TextUtils.isEmpty(lVar.wp())) {
                 writeData2.setVcodeMD5(lVar.getVcode_md5());
                 writeData2.setVcodeUrl(lVar.getVcode_pic_url());
-                if (lVar.ws().equals("4")) {
+                if (lVar.wp().equals("4")) {
                     MessageManager messageManager = MessageManager.getInstance();
                     baseActivity2 = this.asm.asb;
                     messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(baseActivity2.getActivity(), 12006, writeData2, false)));
@@ -56,16 +56,16 @@ public class g implements a.d {
         } else {
             this.asm.bg(true);
             aVar = this.asm.arW;
-            WriteData axO = aVar.axO();
+            WriteData axK = aVar.axK();
             this.asm.resetData();
             str = this.asm.mThreadId;
             ad.c(str, (WriteData) null);
-            if (axO != null) {
-                if (axO != null && axO.getType() == 2) {
-                    ad.a(axO.getThreadId(), this.asm);
+            if (axK != null) {
+                if (axK != null && axK.getType() == 2) {
+                    ad.a(axK.getThreadId(), this.asm);
                 }
-                if (postWriteCallBackData != null && axO != null && axO.getVideoInfo() != null) {
-                    XiaoyingUtil.reportEvent(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), axO.getForumId(), axO.getVideoInfo().getVideoUrl(), axO.getForumName());
+                if (postWriteCallBackData != null && axK != null && axK.getVideoInfo() != null) {
+                    XiaoyingUtil.reportEvent(postWriteCallBackData.getThreadId(), postWriteCallBackData.getPostId(), axK.getForumId(), axK.getVideoInfo().getVideoUrl(), axK.getForumName());
                 }
             } else {
                 return;

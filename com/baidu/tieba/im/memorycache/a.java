@@ -18,7 +18,7 @@ public class a {
         interfaceC0059a.a(this.bDA.values().iterator());
     }
 
-    public void VV() {
+    public void VR() {
         this.bDA.clear();
     }
 

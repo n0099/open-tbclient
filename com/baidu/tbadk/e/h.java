@@ -24,7 +24,7 @@ public class h extends a {
         this.auL = (TextView) this.auB.findViewById(i.f.net_refresh_button);
         this.auL.setOnClickListener(onClickListener);
         this.auB.setOnClickListener(null);
-        tc();
+        sZ();
     }
 
     public void fv(String str) {
@@ -40,19 +40,19 @@ public class h extends a {
         }
     }
 
-    public void Cw() {
+    public void Ct() {
         this.auL.setVisibility(0);
         this.auK.setVisibility(0);
         an.b(this.auJ, i.c.cp_cont_d, 1);
     }
 
-    public void Cx() {
+    public void Cu() {
         this.auL.setVisibility(8);
         this.auK.setVisibility(8);
         an.b(this.auJ, i.c.cp_cont_b, 1);
     }
 
-    public void tc() {
+    public void sZ() {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
         an.c(this.auI, i.e.net_refresh_emotion);
         an.a(this.auJ, i.c.cp_cont_d, 1, skinType);

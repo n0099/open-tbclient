@@ -29,6 +29,6 @@ public class h implements AdapterView.OnItemClickListener {
         skinDetailActivity2 = this.dhd.dgY;
         ImageViewerConfig imageViewerConfig = new ImageViewerConfig(skinDetailActivity2.getPageContext().getPageActivity());
         cVar2 = this.dhd.dhb;
-        skinDetailActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, imageViewerConfig.createConfig(cVar2.azD(), i, null, "", "", true, "", true)));
+        skinDetailActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, imageViewerConfig.createConfig(cVar2.azz(), i, null, "", "", true, "", true)));
     }
 }

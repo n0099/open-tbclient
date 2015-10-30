@@ -46,7 +46,7 @@ public class cr implements PhotoLiveCardView.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Mn() {
+    public void Mj() {
         int count;
         if (this.aXG != null && this.aXH != null && (count = this.aXH.getCount()) >= 2) {
             int currentItem = this.aXG.getCurrentItem();
@@ -62,33 +62,33 @@ public class cr implements PhotoLiveCardView.b {
     }
 
     public void a(com.baidu.tbadk.core.data.p pVar) {
-        if (pVar != null && pVar.rN() != null) {
+        if (pVar != null && pVar.rK() != null) {
             this.aXJ = pVar;
-            this.aXI = new a(pVar.rN());
-            this.aXH.setDatas(this.aXI.Ms());
+            this.aXI = new a(pVar.rK());
+            this.aXH.setDatas(this.aXI.Mo());
             this.aXG.setAdapter(this.aXH);
-            this.aXG.setCurrentItem(this.aXI.Mr(), false);
-            if (this.aXI.Mq() >= 2) {
+            this.aXG.setCurrentItem(this.aXI.Mn(), false);
+            if (this.aXI.Mm() >= 2) {
                 this.apA.setVisibility(0);
-                if (this.apA.getCount() != this.aXI.Mq()) {
-                    this.apA.setCount(this.aXI.Mq());
+                if (this.apA.getCount() != this.aXI.Mm()) {
+                    this.apA.setCount(this.aXI.Mm());
                 }
-                Mo();
+                Mk();
                 return;
             }
             this.apA.setVisibility(8);
-            Mp();
+            Ml();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Mo() {
+    public void Mk() {
         this.mHandler.removeMessages(1);
         this.mHandler.sendEmptyMessageDelayed(1, TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Mp() {
+    public void Ml() {
         this.mHandler.removeMessages(1);
     }
 
@@ -156,18 +156,18 @@ public class cr implements PhotoLiveCardView.b {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public int Mq() {
+        public int Mm() {
             if (this.aXM == null) {
                 return 0;
             }
             return this.aXM.size();
         }
 
-        public int Mr() {
+        public int Mn() {
             return this.aXO ? 1 : 0;
         }
 
-        public List<PhotoLiveCardData> Ms() {
+        public List<PhotoLiveCardData> Mo() {
             return this.aXN;
         }
     }

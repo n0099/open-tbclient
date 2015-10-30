@@ -67,7 +67,7 @@ public class o {
         this.Sl.setOnClickListener(this.Sf);
     }
 
-    public boolean qs() {
+    public boolean qp() {
         try {
             this.Sg.addView(this.Sf.createWebView());
             this.Sh.setVisibility(8);
@@ -97,11 +97,11 @@ public class o {
         }
     }
 
-    public void qt() {
+    public void qq() {
         this.mPopWindow.showWindowInRightBottomOfHost();
     }
 
-    public void qu() {
+    public void qr() {
         com.baidu.adp.lib.g.j.a(this.mPopWindow, this.Sf.getPageContext().getPageActivity());
     }
 
@@ -128,11 +128,11 @@ public class o {
     public void a(com.baidu.tbadk.coreExtra.share.f fVar) {
         if (fVar != null) {
             TiebaStatic.eventStat(this.Sf.getPageContext().getPageActivity(), TbConfig.TMP_SHARE_DIR_NAME, "click", 1, new Object[0]);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.Sf.getPageContext().getPageActivity(), fVar, true, qv())));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig(this.Sf.getPageContext().getPageActivity(), fVar, true, qs())));
         }
     }
 
-    private SparseArray<String> qv() {
+    private SparseArray<String> qs() {
         if (0 != 0) {
             return null;
         }

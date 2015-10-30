@@ -194,7 +194,7 @@ public class a {
                         inputStream = inputStream2;
                         th = th2;
                         this.uE = System.currentTimeMillis();
-                        com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
+                        com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
                         com.baidu.adp.lib.g.a.d(inputStream);
                         throw th;
                     }
@@ -211,7 +211,7 @@ public class a {
             bArr = null;
         }
         this.uE = System.currentTimeMillis();
-        com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
+        com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
         com.baidu.adp.lib.g.a.d(inputStream2);
         return bArr;
     }
@@ -331,7 +331,7 @@ public class a {
                         this.uE = System.currentTimeMillis();
                         com.baidu.adp.lib.g.a.d(null);
                         com.baidu.adp.lib.g.a.e(this.uC);
-                        com.baidu.adp.lib.g.a.b(fileOutputStream2);
+                        com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
                         return a;
                     }
                     int i3 = 0;
@@ -352,14 +352,14 @@ public class a {
                         this.uE = System.currentTimeMillis();
                         com.baidu.adp.lib.g.a.d(null);
                         com.baidu.adp.lib.g.a.e(this.uC);
-                        com.baidu.adp.lib.g.a.b(fileOutputStream2);
+                        com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
                         return true;
                     } else if (length >= g) {
                         this.uE = System.currentTimeMillis();
                         this.uE = System.currentTimeMillis();
                         com.baidu.adp.lib.g.a.d(null);
                         com.baidu.adp.lib.g.a.e(this.uC);
-                        com.baidu.adp.lib.g.a.b(fileOutputStream2);
+                        com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
                         return true;
                     } else {
                         InputStream inputStream2 = this.uC.getInputStream();
@@ -393,7 +393,7 @@ public class a {
                                 this.uE = System.currentTimeMillis();
                                 com.baidu.adp.lib.g.a.d(inputStream2);
                                 com.baidu.adp.lib.g.a.e(this.uC);
-                                com.baidu.adp.lib.g.a.b(fileOutputStream2);
+                                com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
                                 return z3;
                             } catch (Exception e2) {
                                 throw new FileNotFoundException();
@@ -405,7 +405,7 @@ public class a {
                             this.uE = System.currentTimeMillis();
                             com.baidu.adp.lib.g.a.d(inputStream);
                             com.baidu.adp.lib.g.a.e(this.uC);
-                            com.baidu.adp.lib.g.a.b(fileOutputStream);
+                            com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
                             throw th;
                         }
                     }

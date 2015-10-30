@@ -22,7 +22,7 @@ public class r extends w {
     private ArrayList<String> Vk = new ArrayList<>();
     private ArrayList<String> Vm = new ArrayList<>();
 
-    public int rP() {
+    public int rM() {
         return this.Vh;
     }
 
@@ -86,23 +86,23 @@ public class r extends w {
         }
     }
 
-    public String rQ() {
+    public String rN() {
         return this.Vf;
     }
 
-    public String rR() {
+    public String rO() {
         return this.Vg;
     }
 
-    public s rS() {
+    public s rP() {
         return this.Vi;
     }
 
-    public ArrayList<String> rT() {
+    public ArrayList<String> rQ() {
         return this.Vk;
     }
 
-    public ArrayList<String> rU() {
+    public ArrayList<String> rR() {
         return this.Vm;
     }
 
@@ -146,7 +146,7 @@ public class r extends w {
         return Ve;
     }
 
-    public String rV() {
+    public String rS() {
         return this.Vl;
     }
 

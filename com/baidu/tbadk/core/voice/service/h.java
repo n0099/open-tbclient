@@ -11,13 +11,13 @@ public interface h {
 
     int jp();
 
-    void vM();
+    void vJ();
 
-    void vS();
+    void vP();
 
-    void vT();
+    void vQ();
 
-    void vU();
+    void vR();
 
-    boolean vV();
+    boolean vS();
 }

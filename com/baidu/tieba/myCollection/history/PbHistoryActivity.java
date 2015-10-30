@@ -52,7 +52,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        Ko();
+        Kk();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,8 +65,8 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ko() {
-        this.cco.CI();
+    public void Kk() {
+        this.cco.CF();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -88,7 +88,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         if (list != null && list.size() != 0) {
             Iterator<com.baidu.tieba.myCollection.baseHistory.b> it = list.iterator();
             while (it.hasNext()) {
-                if (it.next().sq() == 33) {
+                if (it.next().sn() == 33) {
                     it.remove();
                 }
             }

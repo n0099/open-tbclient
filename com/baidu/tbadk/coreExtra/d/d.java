@@ -63,27 +63,27 @@ public class d {
         }
     }
 
-    public com.baidu.tbadk.coreExtra.data.e xJ() {
+    public com.baidu.tbadk.coreExtra.data.e xG() {
         return this.ahx;
     }
 
-    public String xK() {
+    public String xH() {
         return this.mConfigVersion;
     }
 
-    public CombineDownload xL() {
+    public CombineDownload xI() {
         return this.ahy;
     }
 
-    public VersionData xM() {
+    public VersionData xJ() {
         return this.ahv;
     }
 
-    public com.baidu.tbadk.coreExtra.data.d xN() {
+    public com.baidu.tbadk.coreExtra.data.d xK() {
         return this.ahw;
     }
 
-    public m xO() {
+    public m xL() {
         return this.ahA;
     }
 }

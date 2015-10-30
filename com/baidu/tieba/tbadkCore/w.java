@@ -42,7 +42,7 @@ public class w extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void ME() {
+    public void MA() {
         if (this.cXV != null) {
             this.cXV.cancel();
             this.cXV = null;
@@ -64,7 +64,7 @@ public class w extends com.baidu.adp.base.e {
         }
     }
 
-    public boolean awb() {
+    public boolean avX() {
         return this.cXV != null;
     }
 
@@ -101,11 +101,11 @@ public class w extends com.baidu.adp.base.e {
                 if (!TextUtils.isEmpty(w.this.cXU)) {
                     this.afh.o("pagefrom", w.this.cXU);
                 }
-                this.afh.uh().uY().mIsNeedTbs = true;
-                String tG = this.afh.tG();
-                if (this.afh.uh().uZ().qV() && tG != null) {
+                this.afh.ue().uV().mIsNeedTbs = true;
+                String tD = this.afh.tD();
+                if (this.afh.ue().uW().qS() && tD != null) {
                     x xVar = new x();
-                    xVar.parserJson(tG);
+                    xVar.parserJson(tD);
                     xVar.lx(w.this.mForumId);
                     return xVar;
                 }
@@ -126,7 +126,7 @@ public class w extends com.baidu.adp.base.e {
                 TbadkCoreApplication.m411getInst().addLikeForum(w.this.mForumName);
             }
             if (xVar == null && this.afh != null) {
-                w.this.mErrorCode = this.afh.ul();
+                w.this.mErrorCode = this.afh.ui();
                 w.this.mErrorString = this.afh.getErrorString();
             }
             if (w.this.mLoadDataCallBack != null) {

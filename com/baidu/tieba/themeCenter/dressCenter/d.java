@@ -18,11 +18,11 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     public d() {
-        BZ();
+        BW();
         registerListener(this.aQV);
     }
 
-    private void BZ() {
+    private void BW() {
         com.baidu.tieba.tbadkCore.a.a.a(309001, DressupCenterSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
     }

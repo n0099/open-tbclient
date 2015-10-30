@@ -32,7 +32,7 @@ public class c implements com.baidu.adp.lib.d.d {
     private final LocationListener bTS = new d(this);
     private final LocationListener bTT = new e(this);
 
-    public static c aaZ() {
+    public static c aaV() {
         if (bTM == null) {
             synchronized (c.class) {
                 if (bTM == null) {

@@ -39,7 +39,7 @@ public class e {
         this.aML = new ah(viewEventCenter);
         this.aMM = new com.baidu.tieba.enterForum.c.g(dVar.getPageContext(), viewEventCenter);
         x(this.aMI.getView());
-        IO();
+        IK();
         this.aKp.setAdapter((ListAdapter) this.aMJ);
         this.aMR = TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_SQUARE_FORUM_SQUARE);
     }
@@ -57,15 +57,15 @@ public class e {
         this.aKp.addHeaderView(this.aMK);
     }
 
-    public int IJ() {
+    public int IF() {
         return this.aMz;
     }
 
-    public int IN() {
-        return this.aMM.IJ();
+    public int IJ() {
+        return this.aMM.IF();
     }
 
-    private void IO() {
+    private void IK() {
         this.aMJ = new f(this, this.aMI.getPageContext(), new Class[]{z.class, w.class, o.class}, new int[]{i.g.home_like_item_with_portrait, i.g.home_like_item_extra_with_text, i.g.home_like_two_column_item}, this.aLM);
         this.aMJ.bo(false);
     }
@@ -78,49 +78,49 @@ public class e {
         this.aMM.N(list);
     }
 
-    public List<com.baidu.tieba.tbadkCore.v> IP() {
-        return this.aMM.Dm();
+    public List<com.baidu.tieba.tbadkCore.v> IL() {
+        return this.aMM.Dj();
     }
 
-    public void IQ() {
-        this.aMM.IK();
+    public void IM() {
+        this.aMM.IG();
     }
 
-    public boolean IR() {
+    public boolean IN() {
         return this.aMO;
     }
 
-    public void IS() {
-        this.aMz = this.aMM.IJ();
-        S(this.aMM.Dm());
+    public void IO() {
+        this.aMz = this.aMM.IF();
+        S(this.aMM.Dj());
     }
 
     public void fa(int i) {
         this.aMO = true;
-        if (this.aMM.IH() == null) {
-            this.aMM.II();
+        if (this.aMM.ID() == null) {
+            this.aMM.IE();
         }
-        i IH = this.aMM.IH();
-        IH.e(this.aMI.getPageContext());
-        if (IH.getParent() == null) {
-            this.aMN.addView(IH, new FrameLayout.LayoutParams(-1, -1));
+        i ID = this.aMM.ID();
+        ID.e(this.aMI.getPageContext());
+        if (ID.getParent() == null) {
+            this.aMN.addView(ID, new FrameLayout.LayoutParams(-1, -1));
         }
         this.aMM.a(this.aMz, this.aMP);
         com.baidu.adp.lib.g.h.hg().post(new g(this, i));
     }
 
-    public void IT() {
+    public void IP() {
         this.aMO = false;
         this.aKp.setVisibility(0);
-        if (this.aMM.IH() != null) {
-            this.aMN.removeView(this.aMM.IH());
+        if (this.aMM.ID() != null) {
+            this.aMN.removeView(this.aMM.ID());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void fb(int i) {
         int i2;
-        if (this.aMM.IH() != null && this.aKp != null && this.aKp.getChildCount() > 0) {
+        if (this.aMM.ID() != null && this.aKp != null && this.aKp.getChildCount() > 0) {
             int firstVisiblePosition = this.aKp.getFirstVisiblePosition();
             if (this.aMz == 2) {
                 i2 = (firstVisiblePosition * 2) - 1;
@@ -131,7 +131,7 @@ public class e {
                 i2 = 0;
             }
             View childAt = this.aKp.getChildAt(0);
-            this.aMM.IH().setSelectionFromTop(i2, childAt != null ? childAt.getTop() : 0);
+            this.aMM.ID().setSelectionFromTop(i2, childAt != null ? childAt.getTop() : 0);
         }
     }
 
@@ -139,7 +139,7 @@ public class e {
         this.aKp.nw();
     }
 
-    public void IU() {
+    public void IQ() {
         this.aKp.completePullRefresh();
     }
 
@@ -153,22 +153,22 @@ public class e {
 
     public void P(List<com.baidu.tieba.enterForum.b.f> list) {
         if (list == null || list.isEmpty()) {
-            IY();
+            IU();
             return;
         }
         this.aML.a(this.aMI.getFragmentActivity(), list, this.aMI.getPageContext());
         if (this.aKp.getFooterViewsCount() < 1) {
-            this.aKp.addFooterView(this.aML.Ji(), null, false);
-            com.baidu.tbadk.h.a.a(this.aMI.getPageContext(), this.aML.Ji());
+            this.aKp.addFooterView(this.aML.Je(), null, false);
+            com.baidu.tbadk.h.a.a(this.aMI.getPageContext(), this.aML.Je());
         }
     }
 
-    public List<com.baidu.tieba.tbadkCore.v> IV() {
+    public List<com.baidu.tieba.tbadkCore.v> IR() {
         return this.aMP;
     }
 
-    public List<com.baidu.tieba.tbadkCore.v> IW() {
-        return this.aMM.Dm();
+    public List<com.baidu.tieba.tbadkCore.v> IS() {
+        return this.aMM.Dj();
     }
 
     public void fc(int i) {
@@ -243,15 +243,15 @@ public class e {
         this.aMJ.r(Q(list));
     }
 
-    public void IX() {
+    public void IT() {
         if (this.aML != null) {
             this.aML.g(this.aMI.getPageContext());
         }
     }
 
-    public void IY() {
-        if (this.aML != null && this.aML.Ji() != null) {
-            this.aKp.removeFooterView(this.aML.Ji());
+    public void IU() {
+        if (this.aML != null && this.aML.Je() != null) {
+            this.aKp.removeFooterView(this.aML.Je());
         }
     }
 
@@ -264,7 +264,7 @@ public class e {
     public void onStop() {
     }
 
-    public void IZ() {
+    public void IV() {
         if (this.aMQ != null) {
             this.aMQ.aw(true);
         }
@@ -283,13 +283,13 @@ public class e {
         if (this.mPullView != null) {
             this.mPullView.cN(TbadkCoreApplication.m411getInst().getSkinType());
         }
-        if (this.aML.Ji() != null) {
-            this.aML.Ji().e(this.aMI.getPageContext());
+        if (this.aML.Je() != null) {
+            this.aML.Je().e(this.aMI.getPageContext());
         }
         if (this.aMK != null) {
             this.aMK.e(this.aMI.getPageContext());
         }
-        if (this.aMM.IH() != null && this.aMM.IH().getVisibility() == 0) {
+        if (this.aMM.ID() != null && this.aMM.ID().getVisibility() == 0) {
             this.aMM.e(this.aMI.getPageContext());
         }
     }
@@ -298,7 +298,7 @@ public class e {
         this.mPullView.a(aVar);
     }
 
-    public void Ja() {
+    public void IW() {
         this.aMR = true;
         S(this.aMP);
     }

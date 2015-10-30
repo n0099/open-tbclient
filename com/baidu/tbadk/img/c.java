@@ -238,13 +238,13 @@ public class c {
                                 BdLog.e(e.getMessage());
                             }
                             com.baidu.tbadk.core.log.b.a("img", -1L, -1, "imageUpload", imageUploadResult2.error_code, imageUploadResult2.error_msg, "comment", sb.toString());
-                            com.baidu.adp.lib.g.a.c(randomAccessFile2);
+                            com.baidu.adp.lib.g.a.b(randomAccessFile2);
                             this.afh = null;
                             return imageUploadResult2;
                         } catch (Throwable th2) {
                             th = th2;
                             randomAccessFile = randomAccessFile2;
-                            com.baidu.adp.lib.g.a.c(randomAccessFile);
+                            com.baidu.adp.lib.g.a.b(randomAccessFile);
                             this.afh = null;
                             throw th;
                         }
@@ -326,9 +326,9 @@ public class c {
                                     } else {
                                         this.afh.o("saveOrigin", "0");
                                     }
-                                    String tJ = this.afh.tJ();
-                                    imageUploadResult2 = ImageUploadResult.parser(tJ);
-                                    if (tJ == null || imageUploadResult2 == null || !(imageUploadResult2.error_code == 0 || imageUploadResult2.error_code == ImageUploadResult.CHUNK_ERROR)) {
+                                    String tG = this.afh.tG();
+                                    imageUploadResult2 = ImageUploadResult.parser(tG);
+                                    if (tG == null || imageUploadResult2 == null || !(imageUploadResult2.error_code == 0 || imageUploadResult2.error_code == ImageUploadResult.CHUNK_ERROR)) {
                                         break;
                                     }
                                     if (imageUploadResult2.error_code == ImageUploadResult.CHUNK_ERROR) {
@@ -369,12 +369,12 @@ public class c {
                         }
                     } catch (Throwable th3) {
                         th = th3;
-                        com.baidu.adp.lib.g.a.c(randomAccessFile);
+                        com.baidu.adp.lib.g.a.b(randomAccessFile);
                         this.afh = null;
                         throw th;
                     }
                 }
-                com.baidu.adp.lib.g.a.c(randomAccessFile3);
+                com.baidu.adp.lib.g.a.b(randomAccessFile3);
                 this.afh = null;
                 return imageUploadResult;
             } catch (Exception e6) {

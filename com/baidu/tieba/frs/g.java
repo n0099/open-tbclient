@@ -37,19 +37,19 @@ class g implements AbsListView.OnScrollListener {
             bsVar = this.aUK.aTU;
             if (bsVar != null) {
                 bsVar2 = this.aUK.aTU;
-                if (bsVar2.LZ() != null) {
+                if (bsVar2.LV() != null) {
                     oVar2 = this.aUK.aTW;
-                    int avR = oVar2.avR();
+                    int avN = oVar2.avN();
                     i4 = this.aUK.aTQ;
                     int i8 = (i + i2) - i4;
                     bsVar3 = this.aUK.aTU;
-                    int Lt = (i8 - bsVar3.LZ().Lt()) - avR;
+                    int Lp = (i8 - bsVar3.LV().Lp()) - avN;
                     i5 = this.aUK.aTQ;
-                    int i9 = ((i5 + Lt) - 1) + avR;
+                    int i9 = ((i5 + Lp) - 1) + avN;
                     bVar = this.aUK.aTR;
                     if (bVar != null) {
                         bVar2 = this.aUK.aTR;
-                        if (bVar2.kU(Lt) && i9 >= 0) {
+                        if (bVar2.kU(Lp) && i9 >= 0) {
                             oVar3 = this.aUK.aTW;
                             if (i9 < oVar3.getThreadList().size()) {
                                 oVar4 = this.aUK.aTW;
@@ -57,16 +57,16 @@ class g implements AbsListView.OnScrollListener {
                                 if (uVar instanceof com.baidu.tbadk.core.data.b) {
                                     bVar4 = this.aUK.aTR;
                                     str2 = this.aUK.forumId;
-                                    bVar4.d(Lt, 1, str2);
+                                    bVar4.d(Lp, 1, str2);
                                     i7 = this.aUK.mPn;
-                                    com.baidu.tieba.recapp.report.b.apG().a(com.baidu.tieba.recapp.report.e.a((com.baidu.tbadk.core.data.b) uVar, "show", i7));
+                                    com.baidu.tieba.recapp.report.b.apC().a(com.baidu.tieba.recapp.report.e.a((com.baidu.tbadk.core.data.b) uVar, "show", i7));
                                     return;
                                 }
                                 bVar3 = this.aUK.aTR;
                                 str = this.aUK.forumId;
-                                bVar3.d(Lt, 2, str);
+                                bVar3.d(Lp, 2, str);
                                 i6 = this.aUK.mPn;
-                                com.baidu.tieba.recapp.report.b.apG().a(com.baidu.tieba.recapp.report.e.g("store", Lt, i6));
+                                com.baidu.tieba.recapp.report.b.apC().a(com.baidu.tieba.recapp.report.e.g("store", Lp, i6));
                             }
                         }
                     }
@@ -96,7 +96,7 @@ class g implements AbsListView.OnScrollListener {
             if (!z) {
                 this.aUK.aUe = true;
                 bsVar = this.aUK.aTU;
-                bsVar.Md();
+                bsVar.LZ();
             }
         }
         if (this.aUK.aUf == null) {
@@ -117,6 +117,6 @@ class g implements AbsListView.OnScrollListener {
             bsVar3.cf(true);
             this.aUK.Jj = true;
         }
-        this.aUK.aUf.DE();
+        this.aUK.aUf.DB();
     }
 }

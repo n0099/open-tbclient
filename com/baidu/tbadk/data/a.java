@@ -23,7 +23,7 @@ public class a {
         return this.icon_url;
     }
 
-    public String zS() {
+    public String zP() {
         return this.icon_link;
     }
 
@@ -31,7 +31,7 @@ public class a {
         return this.content;
     }
 
-    public int zT() {
+    public int zQ() {
         return this.ani;
     }
 }

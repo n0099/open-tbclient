@@ -17,10 +17,10 @@ class u implements NoNetworkView.a {
         z2 = this.ciK.chV;
         if (!z2 && z) {
             blVar = this.ciK.cih;
-            if (blVar.afQ()) {
+            if (blVar.afM()) {
                 return;
             }
-            this.ciK.afx();
+            this.ciK.aft();
         }
     }
 }

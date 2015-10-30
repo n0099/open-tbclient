@@ -78,12 +78,12 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void aaP() {
+    public synchronized void aaL() {
         this.bST++;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void aaQ() {
+    public synchronized void aaM() {
         if (this.bST != 0) {
             this.bST--;
         }
@@ -102,7 +102,7 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
         int size2 = this.bSS.size();
         for (int i2 = 0; i2 < size2; i2++) {
             if (this.bSS.get(i2) != null) {
-                this.bSS.get(i2).ME();
+                this.bSS.get(i2).MA();
             }
         }
     }
@@ -112,10 +112,10 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
     public void onResume() {
         super.onResume();
         if (this.bSM != null) {
-            int aaT = this.bSM.aaT();
-            if (aaT != 0) {
-                this.bSQ += aaT;
-                this.bST = aaT + this.bST;
+            int aaP = this.bSM.aaP();
+            if (aaP != 0) {
+                this.bSQ += aaP;
+                this.bST = aaP + this.bST;
                 this.bSL.hX(this.bSQ);
             }
             this.bSM.notifyDataSetChanged();
@@ -146,12 +146,12 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.bSL.aaU()) {
-            this.bSM.aaR();
-            if (this.bSM.aaS()) {
-                this.bSL.aaX();
+        if (view == this.bSL.aaQ()) {
+            this.bSM.aaN();
+            if (this.bSM.aaO()) {
+                this.bSL.aaT();
             }
-        } else if (view == this.bSL.aaV()) {
+        } else if (view == this.bSL.aaR()) {
             if (this.bST != 0) {
                 showToast(String.valueOf(getPageContext().getString(i.h.top_rec_like_finish_a)) + this.bST + getPageContext().getString(i.h.top_rec_like_finish_b));
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "top_rec_have_like", "people_number", 1, new Object[0]);
@@ -173,7 +173,7 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
                     return;
                 }
                 this.LT = new w(getPageContext());
-                if (!this.LT.awb()) {
+                if (!this.LT.avX()) {
                     this.bSS.add(this.LT);
                     aq(hW, intValue);
                     this.LT.setLoadDataCallBack(new c(this, hW, intValue));
@@ -219,8 +219,8 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
                     this.afh.o("kw", this.bSW.forum_name);
                     this.afh.o("favo_type", "1");
                     this.afh.o("st_type", "from_topRec");
-                    this.afh.uh().uY().mIsNeedTbs = true;
-                    this.afh.tG();
+                    this.afh.ue().uV().mIsNeedTbs = true;
+                    this.afh.tD();
                     return null;
                 }
                 return null;
@@ -238,13 +238,13 @@ public class TopRecActivity extends BaseActivity<TopRecActivity> {
             TopRecActivity.this.bSO = null;
             if (this.afh == null) {
                 TopRecActivity.this.aq(this.position, this.bSW.forum_id);
-            } else if (!this.afh.uh().uZ().qV()) {
+            } else if (!this.afh.ue().uW().qS()) {
                 TopRecActivity.this.aq(this.position, this.bSW.forum_id);
             } else if (str == null) {
                 TopRecActivity.this.aq(this.position, this.bSW.forum_id);
             } else {
                 TbadkApplication.getInst().delLikeForum(this.bSW.forum_name);
-                TopRecActivity.this.aaQ();
+                TopRecActivity.this.aaM();
             }
         }
 

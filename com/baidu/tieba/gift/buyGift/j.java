@@ -17,6 +17,6 @@ class j extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         this.bmC.bmr = true;
-        this.bmC.Qp();
+        this.bmC.Ql();
     }
 }

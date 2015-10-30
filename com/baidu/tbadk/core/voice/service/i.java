@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.voice.service;
 public interface i {
     boolean dH(String str);
 
-    boolean vL();
+    boolean vI();
 
-    void vM();
+    void vJ();
 
-    boolean vN();
+    boolean vK();
 }

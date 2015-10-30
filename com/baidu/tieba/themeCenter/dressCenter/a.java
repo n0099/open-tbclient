@@ -26,6 +26,6 @@ class a implements d.a {
         }
         this.dgi.showToast(str);
         fVar3 = this.dgi.dgf;
-        fVar3.Kr();
+        fVar3.Kn();
     }
 }

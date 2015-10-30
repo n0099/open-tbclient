@@ -38,7 +38,7 @@ public class s {
             return false;
         }
         if (!str.equals(this.bUV)) {
-            aow();
+            aos();
         }
         switch (i) {
             case 1:
@@ -85,32 +85,32 @@ public class s {
         return true;
     }
 
-    public void aot() {
+    public void aop() {
         this.cDW.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
     }
 
-    public void aou() {
+    public void aoq() {
         if (!StringUtils.isNull(this.bUV) && !this.bUV.equals(this.cEn)) {
             this.cDW.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.bUV));
             this.cEn = this.bUV;
         }
     }
 
-    public void aov() {
+    public void aor() {
         if (this.cEw != null) {
             this.cEw.clear();
         }
         this.cDW.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
     }
 
-    public void aow() {
+    public void aos() {
         this.cEq = 1;
         this.cEr = 1;
         this.cEs = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aox() {
+    public void aot() {
         if (this.cEw == null) {
             this.cEw = new ArrayList<>();
         }

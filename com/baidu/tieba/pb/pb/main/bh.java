@@ -12,6 +12,6 @@ public class bh extends bi {
 
     @Override // com.baidu.tieba.pb.pb.main.bi
     protected PbRecBaseViewHolder J(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.apA().l(this.mContext, 3);
+        return com.baidu.tieba.recapp.a.apw().l(this.mContext, 3);
     }
 }

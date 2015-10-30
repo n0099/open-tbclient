@@ -26,22 +26,22 @@ public class a extends com.baidu.tbadk.mvc.g.b<tinfo, com.baidu.tbadk.mvc.d.b, c
         return 1;
     }
 
-    public void ah(long j) {
-        List<tinfo> Dm;
+    public void af(long j) {
+        List<tinfo> Dj;
         tinfo tinfoVar;
-        if (j > 0 && (Dm = Dm()) != null && Dm.size() > 0) {
-            int size = Dm.size();
+        if (j > 0 && (Dj = Dj()) != null && Dj.size() > 0) {
+            int size = Dj.size();
             int i = 0;
             while (true) {
                 if (i >= size) {
                     tinfoVar = null;
                     break;
                 }
-                tinfo tinfoVar2 = Dm.get(i);
+                tinfo tinfoVar2 = Dj.get(i);
                 if (tinfoVar2 == null || tinfoVar2.thread_id == null || tinfoVar2.thread_id.longValue() != j) {
                     i++;
                 } else {
-                    tinfoVar = Dm.get(i);
+                    tinfoVar = Dj.get(i);
                     break;
                 }
             }

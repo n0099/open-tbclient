@@ -27,7 +27,7 @@ public class x extends BaseAdapter {
 
     public x(AlbumActivity albumActivity, l lVar) {
         this.djW = albumActivity;
-        this.amg = albumActivity.aBf();
+        this.amg = albumActivity.aBb();
         this.dkV = lVar;
         this.mWidth = (int) this.djW.getResources().getDimension(i.d.album_gridview_item_height);
     }

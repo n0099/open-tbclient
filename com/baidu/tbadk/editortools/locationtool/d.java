@@ -25,7 +25,7 @@ public class d extends LinearLayout implements View.OnClickListener, w {
         this(context, null);
         LayoutInflater.from(context).inflate(i.g.pb_editor_locationinfo_container, (ViewGroup) this, true);
         initView();
-        vA();
+        vx();
     }
 
     public d(Context context, AttributeSet attributeSet) {
@@ -34,7 +34,7 @@ public class d extends LinearLayout implements View.OnClickListener, w {
         this.arN = true;
         LayoutInflater.from(context).inflate(i.g.pb_editor_locationinfo_container, (ViewGroup) this, true);
         initView();
-        vA();
+        vx();
     }
 
     private void initView() {
@@ -45,8 +45,8 @@ public class d extends LinearLayout implements View.OnClickListener, w {
         this.arJ.setOnClickListener(this);
     }
 
-    public void vA() {
-        this.arI.tc();
+    public void vx() {
+        this.arI.sZ();
         an.j(this.arK, i.c.cp_cont_e);
         an.i(this, i.c.pb_editor_location_bg_alpha);
         an.c(this.arJ, i.e.icon_tips_close);
@@ -146,6 +146,6 @@ public class d extends LinearLayout implements View.OnClickListener, w {
 
     @Override // com.baidu.tbadk.editortools.w
     public void onChangeSkinType(int i) {
-        vA();
+        vx();
     }
 }

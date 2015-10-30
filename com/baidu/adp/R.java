@@ -87,12 +87,12 @@ public final class R {
     /* loaded from: classes.dex */
     public static final class drawable {
         public static final int adp_down_arrow = 0x7f020007;
-        public static final int bg_switch_close = 0x7f020213;
-        public static final int bg_switch_open = 0x7f020214;
-        public static final int btn_handle = 0x7f020347;
-        public static final int icon_gif = 0x7f020788;
-        public static final int listview_pull_refresh01 = 0x7f020b9f;
-        public static final int listview_pull_refresh02 = 0x7f020ba1;
+        public static final int bg_switch_close = 0x7f020212;
+        public static final int bg_switch_open = 0x7f020213;
+        public static final int btn_handle = 0x7f020346;
+        public static final int icon_gif = 0x7f020787;
+        public static final int listview_pull_refresh01 = 0x7f020b9e;
+        public static final int listview_pull_refresh02 = 0x7f020ba0;
     }
 
     /* loaded from: classes.dex */

@@ -28,7 +28,7 @@ public class g extends CustomMessageListener {
             if (aVar == null) {
                 return;
             }
-            this.dhp.azC();
+            this.dhp.azy();
             aVar2 = this.dhp.dhn;
             z = this.dhp.dho;
             list = this.dhp.mThemeList;

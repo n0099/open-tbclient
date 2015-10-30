@@ -24,9 +24,9 @@ class a implements AbsListView.OnScrollListener {
             dVar = this.cfl.aSC;
             if (dVar != null) {
                 dVar2 = this.cfl.aSC;
-                if (dVar2.Ax() != null) {
+                if (dVar2.Au() != null) {
                     dVar3 = this.cfl.aSC;
-                    dVar3.Ax().hide();
+                    dVar3.Au().hide();
                     mVar = this.cfl.ceS;
                     mVar.setVisible(true);
                 }

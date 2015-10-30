@@ -32,22 +32,22 @@ class k implements AbsListView.OnScrollListener {
         com.baidu.tbadk.performanceLog.e eVar5;
         if (i == 2 || i == 1) {
             ccVar = this.ciK.cim;
-            ccVar.agM();
+            ccVar.agI();
             dVar = this.ciK.ciu;
             if (dVar != null) {
                 ccVar4 = this.ciK.cim;
                 dVar3 = this.ciK.ciu;
-                ccVar4.eN(dVar3.Br());
+                ccVar4.eN(dVar3.Bo());
             }
             ccVar2 = this.ciK.cim;
-            ccVar2.ago();
+            ccVar2.agk();
             dVar2 = this.ciK.ciu;
-            dVar2.Bu();
+            dVar2.Br();
             z = this.ciK.cif;
             if (!z) {
                 this.ciK.cif = true;
                 ccVar3 = this.ciK.cim;
-                ccVar3.agP();
+                ccVar3.agL();
             }
         }
         eVar = this.ciK.cig;
@@ -58,18 +58,18 @@ class k implements AbsListView.OnScrollListener {
         }
         if (i == 0) {
             ccVar5 = this.ciK.cim;
-            if (ccVar5.ags() != null) {
+            if (ccVar5.ago() != null) {
                 ccVar6 = this.ciK.cim;
-                ccVar6.ags().notifyDataSetChanged();
+                ccVar6.ago().notifyDataSetChanged();
             }
             eVar4 = this.ciK.cig;
-            eVar4.DE();
+            eVar4.DB();
         } else if (i == 1) {
             eVar3 = this.ciK.cig;
-            eVar3.DE();
+            eVar3.DB();
         } else {
             eVar2 = this.ciK.cig;
-            eVar2.DE();
+            eVar2.DB();
         }
     }
 
@@ -97,17 +97,17 @@ class k implements AbsListView.OnScrollListener {
                 ccVar = this.ciK.cim;
                 if (ccVar != null) {
                     ccVar2 = this.ciK.cim;
-                    if (ccVar2.ags() != null) {
+                    if (ccVar2.ago() != null) {
                         blVar3 = this.ciK.cih;
                         com.baidu.tieba.pb.a.b pbData = blVar3.getPbData();
-                        ArrayList<com.baidu.tieba.tbadkCore.data.k> aeP = pbData.aeP();
-                        if (aeP != null && !aeP.isEmpty()) {
+                        ArrayList<com.baidu.tieba.tbadkCore.data.k> aeL = pbData.aeL();
+                        if (aeL != null && !aeL.isEmpty()) {
                             ccVar3 = this.ciK.cim;
-                            int Lt = ((i + i2) - ccVar3.ags().Lt()) - 1;
-                            int i4 = (pbData.aeQ() == null || StringUtils.isNull(pbData.aeQ().getSummary())) ? Lt : Lt - 1;
-                            int size = aeP.size();
+                            int Lp = ((i + i2) - ccVar3.ago().Lp()) - 1;
+                            int i4 = (pbData.aeM() == null || StringUtils.isNull(pbData.aeM().getSummary())) ? Lp : Lp - 1;
+                            int size = aeL.size();
                             if (i4 >= 0 && i4 < size) {
-                                com.baidu.tieba.tbadkCore.data.k kVar = aeP.get(i4);
+                                com.baidu.tieba.tbadkCore.data.k kVar = aeL.get(i4);
                                 bVar = this.ciK.cit;
                                 if (bVar != null) {
                                     bVar2 = this.ciK.cit;
@@ -116,7 +116,7 @@ class k implements AbsListView.OnScrollListener {
                                             bVar4 = this.ciK.cit;
                                             blVar8 = this.ciK.cih;
                                             bVar4.d(i4, 1, blVar8.getThreadID());
-                                            com.baidu.tieba.recapp.report.b.apG().a(com.baidu.tieba.recapp.report.e.a((com.baidu.tieba.tbadkCore.data.j) kVar, "show"));
+                                            com.baidu.tieba.recapp.report.b.apC().a(com.baidu.tieba.recapp.report.e.a((com.baidu.tieba.tbadkCore.data.j) kVar, "show"));
                                             return;
                                         }
                                         bVar3 = this.ciK.cit;
@@ -126,12 +126,12 @@ class k implements AbsListView.OnScrollListener {
                                         blVar5 = this.ciK.cih;
                                         if (blVar5 != null) {
                                             blVar6 = this.ciK.cih;
-                                            if (blVar6.QV() != null) {
+                                            if (blVar6.QR() != null) {
                                                 blVar7 = this.ciK.cih;
-                                                i5 = blVar7.QV().rJ();
+                                                i5 = blVar7.QR().rG();
                                             }
                                         }
-                                        com.baidu.tieba.recapp.report.b.apG().a(com.baidu.tieba.recapp.report.e.g("store", i4, i5));
+                                        com.baidu.tieba.recapp.report.b.apC().a(com.baidu.tieba.recapp.report.e.g("store", i4, i5));
                                     }
                                 }
                             }

@@ -84,7 +84,7 @@ public class k extends Handler {
                 aVar11 = this.zX.zQ;
                 if (aVar11 != null) {
                     aVar12 = this.zX.zQ;
-                    aVar12.d(qVar.mHeaders);
+                    aVar12.c(qVar.mHeaders);
                     this.zX.zS = true;
                     this.zX.zT = false;
                     aVar13 = this.zX.zQ;

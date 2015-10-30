@@ -46,15 +46,15 @@ public class aj extends com.baidu.adp.base.f<PersonInfoActivity> {
         super(personInfoActivity.getPageContext());
         this.cqE = personInfoActivity;
         this.mIsHost = z;
-        this.cuK = personInfoActivity.ajf().getName();
+        this.cuK = personInfoActivity.ajb().getName();
         personInfoActivity.setContentView(i.g.person_info_view);
         this.bnn = personInfoActivity.findViewById(i.f.root);
-        ajX();
-        PL();
-        Qz();
+        ajT();
+        PH();
+        Qv();
     }
 
-    private void Qz() {
+    private void Qv() {
         this.cuQ = (LinearLayout) this.cqE.findViewById(i.f.relation_root);
         this.cuR = (LinearLayout) this.cqE.findViewById(i.f.relation_ll);
         this.line = this.cqE.findViewById(i.f.line);
@@ -64,13 +64,13 @@ public class aj extends com.baidu.adp.base.f<PersonInfoActivity> {
         this.relation_text = (TextView) this.cqE.findViewById(i.f.relation_text);
     }
 
-    private void ajV() {
+    private void ajR() {
         if (this.mIsHost) {
-            AntiData afh = this.cqE.ajf().afh();
-            if (afh != null && AppealActivityConfig.isExistActivity) {
-                if (AntiHelper.e(afh) || AntiHelper.g(afh)) {
+            AntiData afd = this.cqE.ajb().afd();
+            if (afd != null && AppealActivityConfig.isExistActivity) {
+                if (AntiHelper.e(afd) || AntiHelper.g(afd)) {
                     if (this.cuO != null) {
-                        this.cuO.b(afh);
+                        this.cuO.b(afd);
                     }
                     this.cuQ.setVisibility(0);
                     this.cuT.setVisibility(8);
@@ -82,8 +82,8 @@ public class aj extends com.baidu.adp.base.f<PersonInfoActivity> {
                 return;
             }
         } else {
-            PersonTainInfo ajN = this.cqE.ajf().ajN();
-            int isFriend = ajN != null ? ajN.getIsFriend() : 1;
+            PersonTainInfo ajJ = this.cqE.ajb().ajJ();
+            int isFriend = ajJ != null ? ajJ.getIsFriend() : 1;
             this.cuQ.setVisibility(0);
             if (isFriend == 0) {
                 this.relation_text.setText(i.h.addfriend);
@@ -106,14 +106,14 @@ public class aj extends com.baidu.adp.base.f<PersonInfoActivity> {
         }
         an.j(this.line, i.c.cp_bg_line_e);
         an.i(this.cuR, i.e.bg_mycenter_toolbar);
-        h(this.cqE.ajf().getUserData());
+        h(this.cqE.ajb().getUserData());
     }
 
-    public void ajW() {
+    public void ajS() {
         if (this.mIsHost) {
-            AntiData afh = this.cqE.ajf().afh();
-            if (afh != null) {
-                if (AntiHelper.e(afh) || AntiHelper.g(afh)) {
+            AntiData afd = this.cqE.ajb().afd();
+            if (afd != null) {
+                if (AntiHelper.e(afd) || AntiHelper.g(afd)) {
                     an.i(this.cuS, i.e.btn_pop_news);
                     an.b(this.relation_text, i.c.cp_link_tip_c, 1);
                 }
@@ -121,8 +121,8 @@ public class aj extends com.baidu.adp.base.f<PersonInfoActivity> {
                 return;
             }
         } else {
-            PersonTainInfo ajN = this.cqE.ajf().ajN();
-            int isFriend = ajN != null ? ajN.getIsFriend() : 1;
+            PersonTainInfo ajJ = this.cqE.ajb().ajJ();
+            int isFriend = ajJ != null ? ajJ.getIsFriend() : 1;
             if (isFriend == 0) {
                 an.i(this.cuS, i.e.btn_blue_bg);
                 an.i(this.cuT, i.e.icon_person_add);
@@ -141,7 +141,7 @@ public class aj extends com.baidu.adp.base.f<PersonInfoActivity> {
         }
         an.j(this.line, i.c.cp_bg_line_e);
         an.i(this.cuR, i.e.bg_mycenter_toolbar);
-        h(this.cqE.ajf().getUserData());
+        h(this.cqE.ajb().getUserData());
     }
 
     private void h(UserData userData) {
@@ -151,11 +151,11 @@ public class aj extends com.baidu.adp.base.f<PersonInfoActivity> {
             an.i(this.cuT, i.e.icon_pop_news);
             an.b(this.relation_text, i.c.cp_link_tip_c, 1);
             this.cuL.setVisibility(8);
-            this.cuO.ajp();
+            this.cuO.ajl();
         }
     }
 
-    private void ajX() {
+    private void ajT() {
         this.bdY = (NavigationBar) this.cqE.findViewById(i.f.navigation_bar);
         if (!this.mIsHost) {
             this.bdY.setTitleText(this.cuK);
@@ -172,7 +172,7 @@ public class aj extends com.baidu.adp.base.f<PersonInfoActivity> {
         }
     }
 
-    private void PL() {
+    private void PH() {
         this.cuN = (BdExpandListView) this.cqE.findViewById(i.f.personcenter_list);
         this.cuP = new w(this.cqE, this.mIsHost);
         this.cuN.addHeaderView(this.cuP.getRootView());
@@ -183,11 +183,11 @@ public class aj extends com.baidu.adp.base.f<PersonInfoActivity> {
     }
 
     public void onDestroy() {
-        this.cuP.ajE();
+        this.cuP.ajA();
     }
 
-    public RelativeLayout ajs() {
-        return this.cuO.ajs();
+    public RelativeLayout ajo() {
+        return this.cuO.ajo();
     }
 
     public void startLoad() {
@@ -210,45 +210,45 @@ public class aj extends com.baidu.adp.base.f<PersonInfoActivity> {
             this.cuO.notifyDataSetChanged();
         }
         this.cuP.oO();
-        ajW();
+        ajS();
         this.bdY.onChangeSkinType(getPageContext(), i);
         fd(this.mIsHost);
     }
 
-    public UserIconBox ajI() {
-        return this.cuP.ajI();
+    public UserIconBox ajE() {
+        return this.cuP.ajE();
     }
 
-    public UserIconBox ajL() {
-        return this.cuP.ajL();
+    public UserIconBox ajH() {
+        return this.cuP.ajH();
     }
 
-    public w ajY() {
+    public w ajU() {
         return this.cuP;
     }
 
-    public TextView ajK() {
-        return this.cuP.ajK();
+    public TextView ajG() {
+        return this.cuP.ajG();
     }
 
-    public LinearLayout ajZ() {
+    public LinearLayout ajV() {
         return this.cuS;
     }
 
-    public void aka() {
-        ajV();
-        this.bdY.setTitleText(this.cqE.ajf().getName());
-        this.cuP.ajC();
+    public void ajW() {
+        ajR();
+        this.bdY.setTitleText(this.cqE.ajb().getName());
+        this.cuP.ajy();
         this.cuO.notifyDataSetChanged();
         fd(this.mIsHost);
     }
 
-    public HeadImageView ajH() {
-        return this.cuP.ajH();
+    public HeadImageView ajD() {
+        return this.cuP.ajD();
     }
 
-    public RelativeLayout ajo() {
-        return this.cuO.ajo();
+    public RelativeLayout ajk() {
+        return this.cuO.ajk();
     }
 
     public void fd(boolean z) {
@@ -264,16 +264,32 @@ public class aj extends com.baidu.adp.base.f<PersonInfoActivity> {
         }
     }
 
-    public LinearLayout ajJ() {
-        return this.cuP.ajJ();
+    public LinearLayout ajF() {
+        return this.cuP.ajF();
     }
 
-    public TextView ajt() {
-        return this.cuO.ajt();
+    public TextView ajp() {
+        return this.cuO.ajp();
+    }
+
+    public RelativeLayout ajn() {
+        return this.cuO.ajn();
+    }
+
+    public RelativeLayout ajq() {
+        return this.cuO.ajq();
     }
 
     public RelativeLayout ajr() {
         return this.cuO.ajr();
+    }
+
+    public RelativeLayout ajs() {
+        return this.cuO.ajs();
+    }
+
+    public RelativeLayout ajt() {
+        return this.cuO.ajt();
     }
 
     public RelativeLayout aju() {
@@ -288,30 +304,14 @@ public class aj extends com.baidu.adp.base.f<PersonInfoActivity> {
         return this.cuO.ajw();
     }
 
-    public RelativeLayout ajx() {
-        return this.cuO.ajx();
-    }
-
-    public RelativeLayout ajy() {
-        return this.cuO.ajy();
-    }
-
-    public RelativeLayout ajz() {
-        return this.cuO.ajz();
-    }
-
-    public RelativeLayout ajA() {
-        return this.cuO.ajA();
-    }
-
     public void fa(boolean z) {
         if (this.mIsHost) {
             this.cuO.fa(z);
         }
     }
 
-    public RelativeLayout ajq() {
-        return this.cuO.ajq();
+    public RelativeLayout ajm() {
+        return this.cuO.ajm();
     }
 
     public void jm(int i) {
@@ -332,40 +332,40 @@ public class aj extends com.baidu.adp.base.f<PersonInfoActivity> {
         this.cuU.showWindowInRightBottomOfHost();
     }
 
-    public void akb() {
+    public void ajX() {
         com.baidu.adp.lib.g.j.a(this.cuU, this.cqE.getPageContext().getPageActivity());
     }
 
-    public ImageView akc() {
+    public ImageView ajY() {
         return this.cuL;
     }
 
-    public View akd() {
+    public View ajZ() {
         return this.cuM;
     }
 
-    public t ake() {
+    public t aka() {
         return this.cuO;
     }
 
-    public View aiK() {
+    public View aiG() {
         if (this.cuV == null) {
             return null;
         }
-        return this.cuV.aiK();
+        return this.cuV.aiG();
     }
 
-    public View aiJ() {
+    public View aiF() {
         if (this.cuV == null) {
             return null;
         }
-        return this.cuV.aiJ();
+        return this.cuV.aiF();
     }
 
-    public View aiL() {
+    public View aiH() {
         if (this.cuV == null) {
             return null;
         }
-        return this.cuV.aiL();
+        return this.cuV.aiH();
     }
 }

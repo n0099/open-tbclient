@@ -39,7 +39,7 @@ public class d implements View.OnClickListener {
                     }
                     aq ae = new aq("c10365").ae("obj_type", "2");
                     hotTopicActivity3 = this.bqr.bod;
-                    TiebaStatic.log(ae.ae("obj_id", hotTopicActivity3.QP()));
+                    TiebaStatic.log(ae.ae("obj_id", hotTopicActivity3.QL()));
                 }
             }
         }

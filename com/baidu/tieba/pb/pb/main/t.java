@@ -34,10 +34,10 @@ class t implements View.OnLongClickListener {
                 aVar = this.ciK.cii;
                 if (aVar != null) {
                     aVar2 = this.ciK.cii;
-                    if (aVar2.qk() && this.ciK.ciI.getId() != null) {
+                    if (aVar2.qh() && this.ciK.ciI.getId() != null) {
                         String id = this.ciK.ciI.getId();
                         blVar = this.ciK.cih;
-                        if (id.equals(blVar.sn())) {
+                        if (id.equals(blVar.sk())) {
                             z = true;
                             boolean booleanValue = ((Boolean) sparseArray.get(i.f.tag_is_subpb)).booleanValue();
                             ccVar = this.ciK.cim;

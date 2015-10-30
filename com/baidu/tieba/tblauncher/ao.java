@@ -62,10 +62,10 @@ public class ao {
         }
         this.bee.setTabWidgetBackgroundRes(i.e.s_tabbar_bg);
         this.bee.setOnPageChangeListener(new az(this));
-        Ok();
+        Og();
         this.ddn = (PluginErrorTipView) this.ddt.findViewById(i.f.view_plugin_error_tip);
-        ayD();
-        ayB();
+        ayz();
+        ayx();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SHOW_FLOATING_LAYER_MAINTAB, this.ddt.getPageContext()));
         switchNaviBarStatus(z);
     }
@@ -76,7 +76,7 @@ public class ao {
         }
     }
 
-    public boolean ayA() {
+    public boolean ayw() {
         return this.ddq != null && this.ddq.getVisibility() == 0;
     }
 
@@ -139,7 +139,7 @@ public class ao {
         }
     }
 
-    private void ayB() {
+    private void ayx() {
         this.bbZ = new SlidingMenu(this.ddt.getPageContext().getPageActivity());
         this.bbZ.setBackgroundDrawable(new BitmapDrawable(com.baidu.tbadk.core.util.an.cx(i.e.s_leftbar_bg)));
         this.bbZ.setMode(0);
@@ -154,7 +154,7 @@ public class ao {
         this.bbZ.setFadeDegree(1.0f);
         this.bbZ.setFadeType(0);
         this.bbZ.setSettleDuration(400);
-        ayC();
+        ayy();
         this.bbZ.attachToActivity(this.ddt.getPageContext().getPageActivity(), 1, true);
         this.bbZ.setOnAboveViewScrollListener(new bb(this));
         this.bbZ.setAboveCanvasTransformer(new bc(this));
@@ -174,8 +174,8 @@ public class ao {
             TextView textView = (TextView) inflate.findViewById(i.f.member_died_line_tip);
             boolean z = TbadkCoreApplication.m411getInst().getSkinType() == 1;
             com.baidu.tbadk.core.util.an.b(textView, i.c.cp_cont_b, 1);
-            if (!StringUtils.isNull(eVar.zX())) {
-                textView.setText(eVar.zX());
+            if (!StringUtils.isNull(eVar.zU())) {
+                textView.setText(eVar.zU());
             }
             if (!StringUtils.isNull(eVar.getUrl())) {
                 tbImageView.d(eVar.getUrl(), 21, false);
@@ -193,27 +193,27 @@ public class ao {
             }
             aVar.a(string, new bh(this, aVar, i));
             aVar.ak(false);
-            aVar.b(this.ddt.getPageContext()).sR();
-            com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("show_member_deid_line", false);
+            aVar.b(this.ddt.getPageContext()).sO();
+            com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("show_member_deid_line", false);
         }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.tblauncher.MainTabActivity */
     /* JADX WARN: Multi-variable type inference failed */
-    public void ayC() {
-        if (this.ddw != null && this.ddw.ayZ() == null) {
+    public void ayy() {
+        if (this.ddw != null && this.ddw.ayV() == null) {
             this.ddw.m(this.ddt.getPageContext());
-            this.ddw.ayV();
-            this.bbZ.setMenu(this.ddw.ayZ());
+            this.ddw.ayR();
+            this.bbZ.setMenu(this.ddw.ayV());
         }
     }
 
-    private void ayD() {
+    private void ayz() {
         this.ddw = new com.baidu.tieba.tblauncher.a.e();
         this.ddw.a(new aq(this));
     }
 
-    private void ayE() {
+    private void ayA() {
         if (this.ddu != null) {
             this.ddu.setIsRound(true);
             this.ddu.setDefaultBgResource(0);
@@ -221,7 +221,7 @@ public class ao {
         }
     }
 
-    public void ayF() {
+    public void ayB() {
         if (this.ddu != null) {
             this.ddu.d(TbadkCoreApplication.getCurrentPortrait(), 25, false);
         }
@@ -239,11 +239,11 @@ public class ao {
         }
     }
 
-    public HeadImageView ayG() {
+    public HeadImageView ayC() {
         return this.ddu;
     }
 
-    public void Ok() {
+    public void Og() {
         this.mNavigationBar = (NavigationBar) this.ddt.findViewById(i.f.view_navigation_bar);
         if (this.mNavigationBar != null) {
             try {
@@ -255,8 +255,8 @@ public class ao {
                 this.ddx.setOnClickListener(new ar(this));
                 this.ddu = (HeadImageView) this.ddx.findViewById(i.f.top_navi_avatar_icon);
                 this.ddv = (TbImageView) this.ddx.findViewById(i.f.top_navi_avatar_msg_icon);
-                ayE();
-                ayF();
+                ayA();
+                ayB();
             }
             View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.game_tip_view, (View.OnClickListener) null);
             this.ddq = (ImageView) addCustomView.findViewById(i.f.game_button_iv);
@@ -295,7 +295,7 @@ public class ao {
         this.cbw = z;
         if (z) {
             if (this.ddl == null) {
-                ayH();
+                ayD();
             }
             this.ddl.setVisibility(0);
             this.mNavigationBar.setVisibility(8);
@@ -307,11 +307,11 @@ public class ao {
         this.mNavigationBar.setVisibility(0);
     }
 
-    public boolean adr() {
+    public boolean adn() {
         return this.cbw;
     }
 
-    private void ayH() {
+    private void ayD() {
         this.ddl = (NavigationBar) ((ViewStub) this.ddt.findViewById(i.f.viewstub_navigation_bar_in_edit)).inflate();
         this.ddl.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, i.g.enter_forum_edit_cancel, new ax(this));
         this.ddm = this.ddl.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.enter_forum_edit_confirm, new ay(this));
@@ -406,19 +406,19 @@ public class ao {
         }
     }
 
-    public FragmentTabHost ayI() {
+    public FragmentTabHost ayE() {
         return this.bee;
     }
 
-    public SlidingMenu ayJ() {
+    public SlidingMenu ayF() {
         return this.bbZ;
     }
 
-    public com.baidu.tieba.tblauncher.a.e ayK() {
+    public com.baidu.tieba.tblauncher.a.e ayG() {
         return this.ddw;
     }
 
-    public View ayL() {
+    public View ayH() {
         return this.ddo;
     }
 

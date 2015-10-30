@@ -18,13 +18,13 @@ public class cm implements View.OnClickListener {
         boolean z;
         pbActivity = this.clJ.ciU;
         if (pbActivity.checkUpIsLogin()) {
-            this.clJ.Zf();
+            this.clJ.Zb();
             if (this.clJ.ciD != null) {
                 PbActivity.b bVar = this.clJ.ciD;
                 z = this.clJ.cgM;
                 bVar.ev(z);
             }
-            this.clJ.agE();
+            this.clJ.agA();
         }
     }
 }

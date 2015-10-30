@@ -17,11 +17,11 @@ public class b {
         this.title = str;
     }
 
-    public int Di() {
+    public int Df() {
         return this.avV;
     }
 
-    public FragmentTabIndicator.a Dj() {
+    public FragmentTabIndicator.a Dg() {
         return this.avW;
     }
 
@@ -29,7 +29,7 @@ public class b {
         this.avW = aVar;
     }
 
-    public String Dk() {
+    public String Dh() {
         return this.avX;
     }
 
@@ -37,7 +37,7 @@ public class b {
         this.avX = str;
     }
 
-    public int Dl() {
+    public int Di() {
         return this.avU;
     }
 

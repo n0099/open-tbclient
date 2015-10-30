@@ -18,9 +18,9 @@ public class i implements com.baidu.tbadk.core.flow.a.d<b> {
     public void o(int i, String str) {
         DressupCenterActivity dressupCenterActivity;
         TiebaStatic.log("c10262");
-        az uW = az.uW();
+        az uT = az.uT();
         dressupCenterActivity = this.dgo.dgm;
-        uW.b(dressupCenterActivity.getPageContext(), new String[]{str});
+        uT.b(dressupCenterActivity.getPageContext(), new String[]{str});
     }
 
     /* JADX DEBUG: Method merged with bridge method */

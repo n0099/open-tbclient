@@ -34,8 +34,8 @@ public class g {
 
     public void a(com.baidu.tieba.hottopic.data.b bVar) {
         ArrayList<u> arrayList;
-        if (bVar.QU() != null) {
-            arrayList = bVar.QU();
+        if (bVar.QQ() != null) {
+            arrayList = bVar.QQ();
         } else {
             arrayList = new ArrayList<>();
         }

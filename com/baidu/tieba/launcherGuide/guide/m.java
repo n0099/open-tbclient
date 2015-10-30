@@ -12,7 +12,7 @@ class m implements k.a {
     }
 
     @Override // com.baidu.tieba.launcherGuide.guide.k.a
-    public void aaE() {
+    public void aaA() {
         k kVar;
         View view;
         kVar = this.bSk.bSj;

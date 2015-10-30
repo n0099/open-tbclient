@@ -78,7 +78,7 @@ public class bo extends com.baidu.adp.framework.listener.a {
                     if (z3) {
                         this.cjM.cjG = true;
                         com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
-                        tVar.ez(this.cjM.afI());
+                        tVar.ez(this.cjM.afE());
                         tVar.axE = z2;
                         tVar.isSuccess = z;
                         tVar.axt = responsedMessage.performanceData.qw;

@@ -55,7 +55,7 @@ class q extends com.baidu.adp.framework.listener.e {
                 FloatingPersonalChatActivity floatingPersonalChatActivity = this.bMx;
                 FloatingPersonalChatActivity floatingPersonalChatActivity2 = this.bMx;
                 bVar3 = this.bMx.bJx;
-                it = floatingPersonalChatActivity2.it(as.n(bVar3.getTime()));
+                it = floatingPersonalChatActivity2.it(as.l(bVar3.getTime()));
                 floatingPersonalChatActivity.bJw = it;
                 j = this.bMx.bJw;
                 if (j != 0) {
@@ -64,13 +64,13 @@ class q extends com.baidu.adp.framework.listener.e {
                     j2 = this.bMx.bJw;
                     handler.postDelayed(runnable, j2);
                 }
-                com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e YV = FloatingPersonalChatActivityStatic.YV();
+                com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e YR = FloatingPersonalChatActivityStatic.YR();
                 str = this.bMx.bJy;
                 String str2 = String.valueOf(str) + "&" + userData.getUserId();
                 bVar4 = this.bMx.bJx;
-                YV.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
+                YR.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
             }
-            TbadkCoreApplication.m411getInst().getAlarmManager().qh();
+            TbadkCoreApplication.m411getInst().getAlarmManager().qe();
         }
     }
 }

@@ -33,7 +33,7 @@ public class b {
         this.SZ.append(str).append(" || ");
     }
 
-    public int qA() {
+    public int qx() {
         return this.ST;
     }
 
@@ -41,7 +41,7 @@ public class b {
         this.ST = i;
     }
 
-    public int qB() {
+    public int qy() {
         return this.SU;
     }
 
@@ -49,7 +49,7 @@ public class b {
         this.SU = i;
     }
 
-    public int qC() {
+    public int qz() {
         return this.SR;
     }
 
@@ -57,7 +57,7 @@ public class b {
         this.SR = i;
     }
 
-    public int qD() {
+    public int qA() {
         return this.SS;
     }
 
@@ -65,7 +65,7 @@ public class b {
         this.SS = i;
     }
 
-    public int qE() {
+    public int qB() {
         return this.SP;
     }
 
@@ -73,7 +73,7 @@ public class b {
         this.SP = i;
     }
 
-    public int qF() {
+    public int qC() {
         return this.SQ;
     }
 
@@ -85,7 +85,7 @@ public class b {
         return this.id;
     }
 
-    public int qG() {
+    public int qD() {
         return this.SV;
     }
 
@@ -93,7 +93,7 @@ public class b {
         this.SV = i;
     }
 
-    public int qH() {
+    public int qE() {
         return this.SW;
     }
 
@@ -109,7 +109,7 @@ public class b {
         this.SE = str;
     }
 
-    public int qI() {
+    public int qF() {
         return this.SF;
     }
 
@@ -117,7 +117,7 @@ public class b {
         this.SF = i;
     }
 
-    public int qJ() {
+    public int qG() {
         return this.SG;
     }
 
@@ -125,7 +125,7 @@ public class b {
         this.SG = i;
     }
 
-    public int qK() {
+    public int qH() {
         return this.SJ;
     }
 
@@ -133,7 +133,7 @@ public class b {
         this.SJ = i;
     }
 
-    public int qL() {
+    public int qI() {
         return this.SK;
     }
 
@@ -141,7 +141,7 @@ public class b {
         this.SK = i;
     }
 
-    public int qM() {
+    public int qJ() {
         return this.SH;
     }
 
@@ -149,7 +149,7 @@ public class b {
         this.SH = i;
     }
 
-    public int qN() {
+    public int qK() {
         return this.SI;
     }
 
@@ -157,11 +157,11 @@ public class b {
         this.SI = i;
     }
 
-    public int qO() {
+    public int qL() {
         return this.SM;
     }
 
-    public int qP() {
+    public int qM() {
         return this.SL;
     }
 
@@ -173,7 +173,7 @@ public class b {
         this.SM = i;
     }
 
-    public int qQ() {
+    public int qN() {
         return this.SO;
     }
 
@@ -181,7 +181,7 @@ public class b {
         this.SO = i;
     }
 
-    public int qR() {
+    public int qO() {
         return this.SN;
     }
 
@@ -189,7 +189,7 @@ public class b {
         this.SN = i;
     }
 
-    public int qS() {
+    public int qP() {
         return this.SX;
     }
 
@@ -197,7 +197,7 @@ public class b {
         this.SX = i;
     }
 
-    public int qT() {
+    public int qQ() {
         return this.SY;
     }
 

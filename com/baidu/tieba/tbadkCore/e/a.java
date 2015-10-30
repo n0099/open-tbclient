@@ -38,28 +38,28 @@ public class a {
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e awY;
-        if (this.cZK != null && (awY = awY()) != null) {
+        e awU;
+        if (this.cZK != null && (awU = awU()) != null) {
             if (z) {
-                if (awY.cZS != null) {
-                    awY.cZS.num++;
+                if (awU.cZS != null) {
+                    awU.cZS.num++;
                     if (z2) {
-                        awY.cZS.cZP += j2;
-                        awY.cZS.size += j;
+                        awU.cZS.cZP += j2;
+                        awU.cZS.size += j;
                     } else {
-                        awY.cZS.cZQ++;
+                        awU.cZS.cZQ++;
                     }
                 } else {
                     return;
                 }
-            } else if (awY.cZT != null) {
-                awY.cZT.num++;
+            } else if (awU.cZT != null) {
+                awU.cZT.num++;
                 if (z2) {
-                    awY.cZT.cZP += j3;
-                    awY.cZT.size += j;
+                    awU.cZT.cZP += j3;
+                    awU.cZT.size += j;
                     j2 = j3;
                 } else {
-                    awY.cZT.cZQ++;
+                    awU.cZT.cZQ++;
                     j2 = j3;
                 }
             } else {
@@ -67,7 +67,7 @@ public class a {
             }
             this.cZK = null;
             if (z2) {
-                b.a(awY, 10);
+                b.a(awU, 10);
             }
             if (this.cZN == "frsStat") {
                 if (!z2 || j2 > 3000) {
@@ -86,19 +86,19 @@ public class a {
     }
 
     public void destory() {
-        e awY;
-        if (this.cZK != null && (awY = awY()) != null && awY.cZU != null) {
+        e awU;
+        if (this.cZK != null && (awU = awU()) != null && awU.cZU != null) {
             long hz = this.cZK.hz();
             if (hz > 3000) {
-                d dVar = awY.cZU;
+                d dVar = awU.cZU;
                 dVar.cZP = hz + dVar.cZP;
-                awY.cZU.num++;
-                b.a(awY, 10);
+                awU.cZU.num++;
+                b.a(awU, 10);
             }
         }
     }
 
-    private e awY() {
+    private e awU() {
         return b.k(this.cZN, getNetType(), this.acm);
     }
 

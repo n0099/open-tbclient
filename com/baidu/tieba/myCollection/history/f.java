@@ -21,11 +21,11 @@ class f implements AdapterView.OnItemClickListener {
         dVar = this.ccp.aKt;
         com.baidu.tieba.myCollection.baseHistory.b bVar = (com.baidu.tieba.myCollection.baseHistory.b) dVar.getItem(i);
         if (bVar != null) {
-            if (bVar.sq() == 33) {
-                this.ccp.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.ccp.getPageContext().getPageActivity(), bVar.getThreadId()).cg(bVar.Bl()).rk()));
+            if (bVar.sn() == 33) {
+                this.ccp.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.ccp.getPageContext().getPageActivity(), bVar.getThreadId()).cg(bVar.Bi()).rh()));
                 return;
             }
-            this.ccp.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.ccp.getPageContext().getPageActivity()).createHistoryCfg(bVar.getThreadId(), bVar.Bl(), bVar.adH(), bVar.adI(), null)));
+            this.ccp.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.ccp.getPageContext().getPageActivity()).createHistoryCfg(bVar.getThreadId(), bVar.Bi(), bVar.adD(), bVar.adE(), null)));
         }
     }
 }

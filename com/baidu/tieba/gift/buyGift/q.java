@@ -33,7 +33,7 @@ public class q extends BaseAdapter {
         this.bmo = i;
     }
 
-    public int Qt() {
+    public int Qp() {
         return this.bmo;
     }
 

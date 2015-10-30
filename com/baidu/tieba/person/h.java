@@ -38,7 +38,7 @@ public class h implements View.OnClickListener {
             if (i3 == 0) {
                 z = this.this$0.azp;
                 if (z) {
-                    this.this$0.aih();
+                    this.this$0.aid();
                     return;
                 }
                 this.this$0.setResult(-1);
@@ -46,9 +46,9 @@ public class h implements View.OnClickListener {
                 return;
             }
             com.baidu.tbadk.img.a aVar = new com.baidu.tbadk.img.a(com.baidu.tbadk.core.util.n.cI(TbConfig.GROUP_HEAD_FILE), "head");
-            aVar.Cj();
+            aVar.Cg();
             aVar.a(new i(this));
-            aVar.Ch();
+            aVar.Ce();
             this.this$0.showLoadingDialog(this.this$0.getPageContext().getString(i.h.uploading));
         }
     }

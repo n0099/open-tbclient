@@ -66,7 +66,7 @@ public class a {
             return null;
         }
         this.afh = new w();
-        this.afh.uh().uY().mIsNeedTbs = true;
+        this.afh.ue().uV().mIsNeedTbs = true;
         if (writeData.getType() == 3) {
             if (writeData.getVcode() != null && writeData.getVcode().length() > 0) {
                 this.afh.o("vcode", writeData.getVcode());
@@ -131,9 +131,9 @@ public class a {
                 String q = n.q(voice, 1);
                 com.baidu.tbadk.coreExtra.data.c dI = cVar.dI(q);
                 if (dI != null && dI.isSuccess()) {
-                    b wh = dI.wh();
-                    if (wh != null) {
-                        returnVoiceMd5 = wh.wf();
+                    b we = dI.we();
+                    if (we != null) {
+                        returnVoiceMd5 = we.wc();
                         com.baidu.tbadk.core.voice.a.b.ah(writeData.getVoice(), returnVoiceMd5);
                         writeData.setReturnVoiceMd5(returnVoiceMd5);
                     } else {
@@ -281,11 +281,11 @@ public class a {
                     break;
             }
         }
-        String tG = this.afh.tG();
-        if (this.afh.uh().uZ().qV()) {
-            this.cZH.parserJson(tG);
+        String tD = this.afh.tD();
+        if (this.afh.ue().uW().qS()) {
+            this.cZH.parserJson(tD);
         } else {
-            this.cZH.setError_code(this.afh.uk() ? this.afh.ul() : this.afh.um());
+            this.cZH.setError_code(this.afh.uh() ? this.afh.ui() : this.afh.uj());
             this.cZH.setError_msg(this.afh.getErrorString());
         }
         if (this.cZH.error_code != 0 && !com.baidu.adp.lib.util.i.iM()) {
@@ -295,17 +295,17 @@ public class a {
         }
         try {
             this.cZI = new AntiData();
-            this.cZI.parserJson(new JSONObject(tG).optJSONObject("anti_stat"));
+            this.cZI.parserJson(new JSONObject(tD).optJSONObject("anti_stat"));
         } catch (Exception e) {
         }
-        return tG;
+        return tD;
     }
 
-    public boolean qV() {
+    public boolean qS() {
         if (this.afh == null) {
             return false;
         }
-        return this.afh.uh().uZ().qV();
+        return this.afh.ue().uW().qS();
     }
 
     public void cancel() {
@@ -318,11 +318,11 @@ public class a {
         }
     }
 
-    public AntiData awW() {
+    public AntiData awS() {
         return this.cZI;
     }
 
-    public ErrorData awX() {
+    public ErrorData awT() {
         return this.cZH;
     }
 }

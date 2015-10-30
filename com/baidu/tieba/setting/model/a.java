@@ -36,7 +36,7 @@ public class a extends com.baidu.adp.base.e<AboutActivity> {
         return false;
     }
 
-    public void arm() {
+    public void ari() {
         if (this.cLR == null) {
             this.cLR = new C0073a(this, null);
         }
@@ -78,7 +78,7 @@ public class a extends com.baidu.adp.base.e<AboutActivity> {
                 stringBuffer.append(",");
                 stringBuffer.append(String.valueOf(k.L(TbadkCoreApplication.m411getInst().getApp())));
                 this.Ti.o("_phone_screen", stringBuffer.toString());
-                if (com.baidu.tbadk.coreExtra.messageCenter.c.xh().xk() > 0) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.c.xe().xh() > 0) {
                     this.Ti.o("_msg_status", "0");
                 } else {
                     this.Ti.o("_msg_status", "1");
@@ -88,16 +88,16 @@ public class a extends com.baidu.adp.base.e<AboutActivity> {
                 this.Ti.o("versioncode", new StringBuilder(String.valueOf(TbadkCoreApplication.m411getInst().getVersionCode())).toString());
                 this.Ti.o("signmd5", au.b(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.Ti.o("md5", UtilHelper.getTiebaApkMd5());
-                String tG = this.Ti.tG();
-                if (!this.Ti.uh().uZ().qV()) {
+                String tD = this.Ti.tD();
+                if (!this.Ti.ue().uW().qS()) {
                     return null;
                 }
                 dVar = new com.baidu.tbadk.coreExtra.d.d();
                 try {
-                    dVar.parserJson(tG);
-                    if (TbadkCoreApplication.getClientId() == null && dVar.xN().getClientId() != null && dVar.xN().getClientId().length() > 0) {
-                        TbadkCoreApplication.saveClientId(a.this.mContext, dVar.xN().getClientId());
-                        TbadkCoreApplication.setClientId(dVar.xN().getClientId());
+                    dVar.parserJson(tD);
+                    if (TbadkCoreApplication.getClientId() == null && dVar.xK().getClientId() != null && dVar.xK().getClientId().length() > 0) {
+                        TbadkCoreApplication.saveClientId(a.this.mContext, dVar.xK().getClientId());
+                        TbadkCoreApplication.setClientId(dVar.xK().getClientId());
                         return dVar;
                     }
                     return dVar;

@@ -55,19 +55,19 @@ public class b extends i {
         return this;
     }
 
-    public int apY() {
+    public int apU() {
         return this.cIN;
     }
 
-    public long apZ() {
+    public long apV() {
         return this.btq;
     }
 
-    public long aqa() {
+    public long apW() {
         return this.cIM;
     }
 
-    public long aqb() {
+    public long apX() {
         return this.ftid;
     }
 
@@ -83,11 +83,11 @@ public class b extends i {
         return this.desc;
     }
 
-    public List<String> aqc() {
+    public List<String> apY() {
         return this.thumbnail;
     }
 
-    public int aqd() {
+    public int apZ() {
         return this.cIK;
     }
 
@@ -95,7 +95,7 @@ public class b extends i {
         return this.forumName;
     }
 
-    public boolean aqe() {
+    public boolean aqa() {
         return this.cIL;
     }
 
@@ -103,11 +103,11 @@ public class b extends i {
         this.cIL = z;
     }
 
-    public int aqf() {
+    public int aqb() {
         return this.thread_type;
     }
 
-    public ZhiBoInfoTW aqg() {
+    public ZhiBoInfoTW aqc() {
         return this.twzhibo_info;
     }
 }

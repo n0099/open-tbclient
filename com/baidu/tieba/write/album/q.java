@@ -88,7 +88,7 @@ public class q extends com.baidu.adp.base.f<BaseFragmentActivity> {
         return (TbImageView) frameLayout.findViewById(i.f.item_iv);
     }
 
-    public void aBA() {
+    public void aBw() {
         this.dkN = new Fragment[2];
         this.dkO = new String[2];
         this.dkN[0] = new ac();
@@ -116,24 +116,24 @@ public class q extends com.baidu.adp.base.f<BaseFragmentActivity> {
         this.djW.getLayoutMode().k(this.bNs);
     }
 
-    public Button aBB() {
+    public Button aBx() {
         return this.dkG;
     }
 
-    public View aBC() {
+    public View aBy() {
         Fragment lN = lN(0);
         if (lN == null || !(lN instanceof ac)) {
             return null;
         }
-        return ((ac) lN).akd();
+        return ((ac) lN).ajZ();
     }
 
-    public View aBD() {
+    public View aBz() {
         Fragment lN = lN(1);
         if (lN == null || !(lN instanceof b)) {
             return null;
         }
-        return ((b) lN).akd();
+        return ((b) lN).ajZ();
     }
 
     public void n(boolean z, String str) {
@@ -164,12 +164,12 @@ public class q extends com.baidu.adp.base.f<BaseFragmentActivity> {
                     imageFileInfo.clearPageActions();
                     imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.J(this.dkR, this.dkR));
                     a.setTag(imageFileInfo.toCachedKey(false));
-                    com.baidu.adp.widget.a.a a2 = this.djW.aBf().a(imageFileInfo, false);
+                    com.baidu.adp.widget.a.a a2 = this.djW.aBb().a(imageFileInfo, false);
                     if (a2 != null) {
                         a2.a(a);
                         return;
                     } else {
-                        this.djW.aBf().a(imageFileInfo, new s(this, imageFileInfo), false);
+                        this.djW.aBb().a(imageFileInfo, new s(this, imageFileInfo), false);
                         return;
                     }
                 }
@@ -221,8 +221,8 @@ public class q extends com.baidu.adp.base.f<BaseFragmentActivity> {
         if (this.mHandler != null && this.ajG != null) {
             this.mHandler.removeCallbacks(this.ajG);
         }
-        if (this.djW.aBf() != null) {
-            this.djW.aBf().Cm();
+        if (this.djW.aBb() != null) {
+            this.djW.aBb().Cj();
         }
     }
 
@@ -262,7 +262,7 @@ public class q extends com.baidu.adp.base.f<BaseFragmentActivity> {
             sb.append(dkD);
             if (j > 0) {
                 sb.append("(");
-                sb.append(as.y(j));
+                sb.append(as.w(j));
                 sb.append(")");
             }
             this.dkM.setText(sb.toString());
@@ -272,7 +272,7 @@ public class q extends com.baidu.adp.base.f<BaseFragmentActivity> {
         this.dkM.setText(dkD);
     }
 
-    public View aBE() {
+    public View aBA() {
         return this.dkM;
     }
 }

@@ -8,11 +8,11 @@ public class CoreSearchRequestStatic {
     private static com.baidu.tieba.enterForum.c.c aLE;
 
     static {
-        Ih();
+        Id();
     }
 
-    private static void Ih() {
-        com.baidu.tieba.tbadkCore.e.b.awZ();
+    private static void Id() {
+        com.baidu.tieba.tbadkCore.e.b.awV();
         if (aLE == null) {
             aLE = new com.baidu.tieba.enterForum.c.c(null);
             aLE.a(new a());

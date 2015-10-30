@@ -20,13 +20,13 @@ class o extends CustomMessageListener {
         int g;
         y yVar;
         aj ajVar;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001233 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.c) && (g = com.baidu.adp.lib.g.b.g(((com.baidu.tieba.tbadkCore.data.c) customResponsedMessage.getData()).awn(), 0)) > 0) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001233 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.c) && (g = com.baidu.adp.lib.g.b.g(((com.baidu.tieba.tbadkCore.data.c) customResponsedMessage.getData()).awj(), 0)) > 0) {
             yVar = this.csI.csv;
             UserData userData = yVar.getUserData();
             if (userData != null) {
                 userData.setTDouNum(userData.getTDouNum() + g);
                 ajVar = this.csI.csw;
-                ajVar.ake().notifyDataSetChanged();
+                ajVar.aka().notifyDataSetChanged();
             }
         }
     }

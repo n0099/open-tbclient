@@ -67,7 +67,7 @@ public class f extends BaseAdapter {
         return null;
     }
 
-    private a Zg() {
+    private a Zc() {
         a aVar = new a(this, null);
         aVar.rootView = LayoutInflater.from(this.bMV.getPageContext().getContext()).inflate(i.g.im_black_list_item, (ViewGroup) null);
         aVar.bMY = (HeadImageView) aVar.rootView.findViewById(i.f.header_view);
@@ -82,11 +82,11 @@ public class f extends BaseAdapter {
     private a a(Object obj, com.baidu.tieba.im.data.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = Zg();
+            aVar2 = Zc();
         } else {
             aVar2 = (a) obj;
         }
-        a(aVar2, aVar.Tu());
+        a(aVar2, aVar.Tq());
         aVar2.aHY.setText(aVar.getUserName());
         aVar2.bMZ.setTag(aVar);
         this.bMV.getLayoutMode().k(aVar2.rootView);

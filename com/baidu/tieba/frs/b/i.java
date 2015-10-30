@@ -21,7 +21,7 @@ class i extends BdAsyncTask<Void, Void, Void> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public Void doInBackground(Void... voidArr) {
         if (!TextUtils.isEmpty(this.aLY)) {
-            com.baidu.tieba.im.settingcache.h.Xi().e(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aLY), this.aLZ);
+            com.baidu.tieba.im.settingcache.h.Xe().e(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.aLY), this.aLZ);
         }
         return null;
     }

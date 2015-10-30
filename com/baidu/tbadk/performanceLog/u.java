@@ -4,13 +4,13 @@ public class u extends x {
     public static int axF = 100;
     public static int axG = 10;
 
-    public static void DZ() {
-        if (y.Eb().Ec()) {
+    public static void DW() {
+        if (y.DY().DZ()) {
             if (b.axK > axG) {
-                b.DO();
+                b.DL();
             }
             if (a.axH > axG) {
-                a.DO();
+                a.DL();
             }
         }
     }
@@ -23,12 +23,12 @@ public class u extends x {
             a.axJ++;
         }
         if (a.axH > axF) {
-            a.DO();
+            a.DL();
         }
     }
 
     public void c(m mVar) {
-        if (y.Eb().Ec()) {
+        if (y.DY().DZ()) {
             if (b.axK < axF) {
                 b.axL += mVar.uF;
                 b.axM += mVar.axe;
@@ -39,7 +39,7 @@ public class u extends x {
                 b.axK++;
                 return;
             }
-            b.DO();
+            b.DL();
         }
     }
 
@@ -50,7 +50,7 @@ public class u extends x {
         public static int axI;
         public static int axJ;
 
-        public static void DO() {
+        public static void DL() {
             com.baidu.adp.lib.stats.d hb = u.hb();
             hb.q("action", "imbusy");
             hb.q("totalNum", String.valueOf(axH));
@@ -78,7 +78,7 @@ public class u extends x {
         public static int axP;
         public static long axQ;
 
-        public static void DO() {
+        public static void DL() {
             com.baidu.adp.lib.stats.d hb = u.hb();
             hb.q("action", "imcost");
             hb.q("dect", String.valueOf(axL));
@@ -89,10 +89,10 @@ public class u extends x {
             hb.q("cpu", String.valueOf(axP));
             hb.q("totalNum", String.valueOf(axK));
             com.baidu.adp.lib.stats.a.hi().a("im", hb);
-            Ea();
+            DX();
         }
 
-        public static void Ea() {
+        public static void DX() {
             axK = 0;
             axL = 0L;
             axM = 0L;

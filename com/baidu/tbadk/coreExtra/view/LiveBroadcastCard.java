@@ -84,7 +84,7 @@ public class LiveBroadcastCard extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        boolean yX();
+        boolean yU();
     }
 
     /* loaded from: classes.dex */
@@ -214,7 +214,7 @@ public class LiveBroadcastCard extends FrameLayout {
 
     public void setData(LiveCardData liveCardData) {
         if (liveCardData != null) {
-            c.yY().b(this);
+            c.yV().b(this);
             unRegisterTimeUpdateListener();
             this.hasLivingTip = false;
             this.mGroupId = liveCardData.getGroupId();
@@ -430,7 +430,7 @@ public class LiveBroadcastCard extends FrameLayout {
             this.mCardLivingImage.setVisibility(8);
         }
         this.mCardStatus = 3;
-        c.yY().b(this);
+        c.yV().b(this);
         unRegisterTimeUpdateListener();
     }
 
@@ -459,7 +459,7 @@ public class LiveBroadcastCard extends FrameLayout {
         this.mCardStatus = 0;
         dealStatusWillStart();
         registerTimeUpdateListener();
-        c.yY().a(this);
+        c.yV().a(this);
     }
 
     private void updateStatusClose() {
@@ -531,7 +531,7 @@ public class LiveBroadcastCard extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        c.yY().b(this);
+        c.yV().b(this);
         unRegisterTimeUpdateListener();
     }
 
@@ -579,7 +579,7 @@ public class LiveBroadcastCard extends FrameLayout {
         private static Handler mHandler = new s();
         private LinkedList<WeakReference<LiveBroadcastCard>> cards = new LinkedList<>();
 
-        public static c yY() {
+        public static c yV() {
             if (akK == null) {
                 akK = new c();
             }

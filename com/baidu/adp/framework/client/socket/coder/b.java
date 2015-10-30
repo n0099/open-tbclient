@@ -9,6 +9,7 @@ import com.baidu.adp.lib.util.v;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class b {
     private static b pP = null;
@@ -121,7 +122,7 @@ public class b {
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
+            com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
             com.baidu.adp.lib.g.a.d(byteArrayInputStream);
         }
     }
@@ -134,7 +135,7 @@ public class b {
             byteArrayOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } finally {
-            com.baidu.adp.lib.g.a.b(byteArrayOutputStream);
+            com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
             com.baidu.adp.lib.g.a.d(byteArrayInputStream);
         }
     }

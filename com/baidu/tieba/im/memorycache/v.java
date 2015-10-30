@@ -22,7 +22,7 @@ public class v extends CustomMessageListener {
             MemoryItemRemoveMessage.a aVar = (MemoryItemRemoveMessage.a) customResponsedMessage.getData();
             if (aVar.customGroupType != 1) {
                 if (aVar.customGroupType == 3) {
-                    b.VW().L(aVar.id, 3);
+                    b.VS().L(aVar.id, 3);
                     return;
                 }
                 return;

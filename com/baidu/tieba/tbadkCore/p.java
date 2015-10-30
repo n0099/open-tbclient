@@ -6,11 +6,11 @@ public class p {
     private boolean cXS;
     private String menu_name;
 
-    public boolean avY() {
+    public boolean avU() {
         return this.cXS;
     }
 
-    public String avZ() {
+    public String avV() {
         return this.menu_name;
     }
 

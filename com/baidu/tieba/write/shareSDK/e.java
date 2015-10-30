@@ -49,7 +49,7 @@ public class e implements a.InterfaceC0080a {
     }
 
     @Override // com.baidu.tieba.write.shareSDK.a.InterfaceC0080a
-    public void aBT() {
+    public void aBP() {
         o oVar;
         this.dmy.mPrefixData = null;
         oVar = this.dmy.dmi;

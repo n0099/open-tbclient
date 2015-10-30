@@ -13,7 +13,7 @@ class l implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
-        this.dmy.aCb();
+        this.dmy.aBX();
         z = this.dmy.dml;
         if (z) {
             this.dmy.setResult(-1);

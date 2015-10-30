@@ -83,13 +83,13 @@ public class i {
         }
     }
 
-    public void Nm() {
+    public void Ni() {
         if (this.mPopWindow != null) {
             com.baidu.adp.lib.g.j.a(this.mPopWindow);
         }
     }
 
-    public void vA() {
+    public void vx() {
         this.bbA.notifyDataSetChanged();
         if (this.bbz != null) {
             an.i(this.bbz, i.c.black_alpha40);

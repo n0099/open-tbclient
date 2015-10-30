@@ -15,14 +15,14 @@ public class p implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aCE.EZ() != null) {
+        if (this.aCE.EV() != null) {
             if (this.aCC.getContext() instanceof i) {
-                ((i) this.aCC.getContext()).onVideoClicked(this.aCC.getContext(), this.aCE.EZ().toString());
+                ((i) this.aCC.getContext()).onVideoClicked(this.aCC.getContext(), this.aCE.EV().toString());
                 return;
             }
             com.baidu.adp.base.h<?> C = com.baidu.adp.base.l.C(this.aCC.getContext());
             if (C != null && (C.getOrignalPage() instanceof i)) {
-                ((i) C.getOrignalPage()).onVideoClicked(this.aCC.getContext(), this.aCE.EZ().toString());
+                ((i) C.getOrignalPage()).onVideoClicked(this.aCC.getContext(), this.aCE.EV().toString());
             }
         }
     }

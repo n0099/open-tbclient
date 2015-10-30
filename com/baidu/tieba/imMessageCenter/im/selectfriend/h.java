@@ -62,7 +62,7 @@ public class h extends BaseAdapter {
         if (item == null) {
             return 2;
         }
-        if (!TextUtils.isEmpty(item.yx()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.getUserPortrait())) {
+        if (!TextUtils.isEmpty(item.yu()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.getUserPortrait())) {
             return 0;
         }
         return 1;
@@ -88,8 +88,8 @@ public class h extends BaseAdapter {
             } else {
                 bVar = (b) view.getTag();
             }
-            if (item.yx() != null) {
-                bVar.aGs.setText(item.yx());
+            if (item.yu() != null) {
+                bVar.aGs.setText(item.yu());
             }
             an.b(bVar.aGs, this.aGk, 1);
             an.j(bVar.Xl, i.c.cp_bg_line_b);

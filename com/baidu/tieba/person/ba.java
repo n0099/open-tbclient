@@ -18,9 +18,9 @@ class ba implements View.OnClickListener {
         if (!z) {
             aw awVar = this.cqq;
             bfVar = this.cqq.cqh;
-            awVar.pageNum = bfVar.getData().getPage().rJ() + 1;
+            awVar.pageNum = bfVar.getData().getPage().rG() + 1;
             this.cqq.cqm = true;
-            this.cqq.aiH();
+            this.cqq.aiD();
         }
     }
 }

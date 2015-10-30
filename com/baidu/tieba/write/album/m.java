@@ -26,7 +26,7 @@ public class m {
         void gS(boolean z);
     }
 
-    public static m aBz() {
+    public static m aBv() {
         if (dkz == null) {
             dkz = new m();
             dkz.init(TbadkCoreApplication.m411getInst());

@@ -12,7 +12,7 @@ public class aa implements com.baidu.adp.widget.ListView.u {
     private int position = 0;
     private String summary;
 
-    public String sN() {
+    public String sK() {
         return this.Wj;
     }
 

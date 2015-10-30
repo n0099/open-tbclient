@@ -72,7 +72,7 @@ public class n extends BaseAdapter {
         aVar.cKF.setText(pVar.content);
         aVar.cKb.setText(pVar.groupName);
         aVar.cKG.setText(kt(pVar.cKQ));
-        aVar.cKc.setText(bh(pVar.cIR));
+        aVar.cKc.setText(bf(pVar.cIR));
         if (z) {
             aVar.mLine.setVisibility(0);
         } else {
@@ -120,7 +120,7 @@ public class n extends BaseAdapter {
             view.setTag(dVar);
         }
         dVar.cKJ.setText(pVar.groupName);
-        dVar.cKc.setText(bh(pVar.cIR));
+        dVar.cKc.setText(bf(pVar.cIR));
         dVar.cKK.setText(pVar.title);
         dVar.cKI.setText(pVar.content);
         dVar.cKL.setDefaultResource(i.e.icon_default_bear);
@@ -135,7 +135,7 @@ public class n extends BaseAdapter {
         return view;
     }
 
-    public String bh(long j) {
+    public String bf(long j) {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 

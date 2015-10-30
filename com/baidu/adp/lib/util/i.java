@@ -135,7 +135,7 @@ public class i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void k(long j) {
+    public void i(long j) {
         this.ym = j;
     }
 
@@ -245,7 +245,7 @@ public class i {
                     networkState.mlastChangedTime = iZ;
                     long currentTimeMillis = System.currentTimeMillis();
                     networkState.mCurChangedTime = currentTimeMillis;
-                    i.iL().k(currentTimeMillis);
+                    i.iL().i(currentTimeMillis);
                     MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangedMessage(networkState));
                 }
             } catch (Exception e) {

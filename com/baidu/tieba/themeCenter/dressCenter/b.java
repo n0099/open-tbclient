@@ -12,7 +12,7 @@ public class b implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String ry() {
+    public String rv() {
         return this.linkUrl;
     }
 

@@ -49,15 +49,15 @@ public class bl extends com.baidu.adp.base.f {
         return this.mView;
     }
 
-    public View aiJ() {
+    public View aiF() {
         return this.cqA;
     }
 
-    public View aiK() {
+    public View aiG() {
         return this.cqB;
     }
 
-    public View aiL() {
+    public View aiH() {
         return this.cqC;
     }
 

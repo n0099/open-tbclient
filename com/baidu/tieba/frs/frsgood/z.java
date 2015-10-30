@@ -12,12 +12,12 @@ public class z implements BannerView.a {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void yK() {
-        this.aZW.LG();
+    public void yH() {
+        this.aZW.LC();
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void yL() {
-        this.aZW.LU();
+    public void yI() {
+        this.aZW.LQ();
     }
 }

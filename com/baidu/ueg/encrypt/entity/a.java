@@ -9,11 +9,11 @@ public class a {
         this.drU = str;
     }
 
-    public EncryptAlgorithm aDW() {
+    public EncryptAlgorithm aDS() {
         return this.drT;
     }
 
-    public String aDX() {
+    public String aDT() {
         return this.drU;
     }
 }

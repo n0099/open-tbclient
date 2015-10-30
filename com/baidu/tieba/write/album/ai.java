@@ -34,7 +34,7 @@ public class ai implements al {
         if (!this.dlp.equals("-1")) {
             textView = this.dlo.LN;
             textView.setText(str);
-            this.dlo.aBG();
+            this.dlo.aBC();
             z = false;
         } else {
             ArrayList arrayList2 = new ArrayList();

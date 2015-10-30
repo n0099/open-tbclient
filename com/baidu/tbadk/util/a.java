@@ -9,7 +9,7 @@ public class a {
     private a() {
     }
 
-    public static synchronized a Et() {
+    public static synchronized a Ep() {
         a aVar;
         synchronized (a.class) {
             if (azz == null) {
@@ -20,14 +20,14 @@ public class a {
         return aVar;
     }
 
-    public void Eu() {
-        String Ev = Ev();
-        if (!TextUtils.isEmpty(Ev)) {
-            com.baidu.adp.lib.f.c.ha().a(Ev, 10, null, 0, 0, null, new Object[0]);
+    public void Eq() {
+        String Er = Er();
+        if (!TextUtils.isEmpty(Er)) {
+            com.baidu.adp.lib.f.c.ha().a(Er, 10, null, 0, 0, null, new Object[0]);
         }
     }
 
-    public String Ev() {
+    public String Er() {
         return TbadkSettings.getInst().loadString("ad_url", null);
     }
 }

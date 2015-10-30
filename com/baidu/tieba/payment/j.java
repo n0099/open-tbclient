@@ -15,13 +15,13 @@ public class j implements CompoundButton.OnCheckedChangeListener {
     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
         String jy;
         String jy2;
-        com.baidu.tbadk.core.sharedPref.b tu = com.baidu.tbadk.core.sharedPref.b.tu();
+        com.baidu.tbadk.core.sharedPref.b tr = com.baidu.tbadk.core.sharedPref.b.tr();
         jy = this.ced.jy("payment_confirm_show");
-        tu.putBoolean(jy, !z);
+        tr.putBoolean(jy, !z);
         if (!z) {
-            com.baidu.tbadk.core.sharedPref.b tu2 = com.baidu.tbadk.core.sharedPref.b.tu();
+            com.baidu.tbadk.core.sharedPref.b tr2 = com.baidu.tbadk.core.sharedPref.b.tr();
             jy2 = this.ced.jy("payment_confirm_notshow_count");
-            tu2.putInt(jy2, 0);
+            tr2.putInt(jy2, 0);
         }
     }
 }

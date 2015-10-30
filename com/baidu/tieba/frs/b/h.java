@@ -23,10 +23,10 @@ public class h implements ai.a {
         FrsActivity frsActivity;
         FrsActivity frsActivity2;
         frsActivity = this.bbY.baR;
-        com.baidu.tieba.tbadkCore.o Lh = frsActivity.Lh();
-        if (Lh != null && Lh.aeN() != null) {
-            com.baidu.tieba.tbadkCore.d.avt().H(Lh.aeN().getName(), false);
-            Lh.aeN().setLike(0);
+        com.baidu.tieba.tbadkCore.o Ld = frsActivity.Ld();
+        if (Ld != null && Ld.aeJ() != null) {
+            com.baidu.tieba.tbadkCore.d.avp().H(Ld.aeJ().getName(), false);
+            Ld.aeJ().setLike(0);
             this.bbY.fV(0);
             frsActivity2 = this.bbY.baR;
             frsActivity2.aUI.d(true);

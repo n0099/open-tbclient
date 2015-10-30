@@ -44,10 +44,10 @@ class a implements eb {
             if (aVar4.isSuccess) {
                 if (arrayList == null || arrayList.size() == 0) {
                     bsVar7 = this.aUK.aTU;
-                    bsVar7.Mg();
+                    bsVar7.Mc();
                 } else if (eeVar.hasMore) {
                     bsVar11 = this.aUK.aTU;
-                    bsVar11.Me();
+                    bsVar11.Ma();
                 } else if (eeVar.aZb) {
                     bsVar9 = this.aUK.aTU;
                     i5 = FrsActivity.aTE;
@@ -55,10 +55,10 @@ class a implements eb {
                     i6 = FrsActivity.aTF;
                     bsVar9.fB(i5 - (size * i6));
                     bsVar10 = this.aUK.aTU;
-                    bsVar10.Mf();
+                    bsVar10.Mb();
                 } else {
                     bsVar8 = this.aUK.aTU;
-                    bsVar8.Mg();
+                    bsVar8.Mc();
                 }
             }
         } else {
@@ -77,10 +77,10 @@ class a implements eb {
         oVar = this.aUK.aUj;
         if (!oVar.Z(i, i2)) {
             aVar2 = this.aUK.aUk;
-            if (aVar2.NJ()) {
+            if (aVar2.NF()) {
                 o.a aVar5 = new o.a();
                 aVar3 = this.aUK.aUk;
-                if (aVar3.NL()) {
+                if (aVar3.NH()) {
                     bsVar6 = this.aUK.aTU;
                     aVar5.bch = bsVar6.getListView().getHeaderViewsCount() - 2;
                 } else {
@@ -110,15 +110,15 @@ class a implements eb {
             }
             bsVar4 = this.aUK.aTU;
             bsVar4.cc(false);
-            if (this.aUK.Lm().MR() != null) {
-                this.aUK.aTW = this.aUK.Lm().MR();
+            if (this.aUK.Li().MN() != null) {
+                this.aUK.aTW = this.aUK.Li().MN();
             }
-            this.aUK.La();
+            this.aUK.KW();
         }
         oVar2 = this.aUK.aUj;
-        if (oVar2.NQ() != null) {
+        if (oVar2.NM() != null) {
             oVar3 = this.aUK.aUj;
-            oVar3.NQ().a(i, i2, eeVar, arrayList);
+            oVar3.NM().a(i, i2, eeVar, arrayList);
         }
     }
 }

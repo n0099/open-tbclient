@@ -19,9 +19,9 @@ public class e implements c.b {
         cVar.dismiss();
         com.baidu.tieba.tbadkCore.data.k kVar = null;
         akVar = this.cmC.cmt;
-        if (akVar.ahA() != null) {
+        if (akVar.ahw() != null) {
             akVar2 = this.cmC.cmt;
-            kVar = akVar2.ahA().aeZ();
+            kVar = akVar2.ahw().aeV();
         }
         if (kVar != null) {
             if (i == 0) {

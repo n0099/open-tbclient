@@ -135,7 +135,7 @@ public class bq {
         }
     }
 
-    public HashMap<Integer, com.baidu.tbadk.core.data.w> Lu() {
+    public HashMap<Integer, com.baidu.tbadk.core.data.w> Lq() {
         return this.aVD;
     }
 
@@ -163,7 +163,7 @@ public class bq {
         }
     }
 
-    public void Lv() {
+    public void Lr() {
         if (this.aVg != null && this.aVg.getData() != null && this.aVg.getData().size() != 0) {
             for (com.baidu.adp.widget.ListView.u uVar : this.aVg.getData()) {
                 if ((uVar instanceof com.baidu.tbadk.core.data.w) && ((com.baidu.tbadk.core.data.w) uVar).getIs_top() != 0) {
@@ -224,37 +224,37 @@ public class bq {
         }
     }
 
-    public int Lw() {
+    public int Ls() {
         if (this.aVl != null) {
-            return this.aVl.Lw();
+            return this.aVl.Ls();
         }
         return 0;
     }
 
-    public int KM() {
+    public int KI() {
         if (this.aVl != null) {
-            return this.aVl.KM();
+            return this.aVl.KI();
         }
         return 0;
     }
 
-    public int Lx() {
+    public int Lt() {
         if (this.aVs != null) {
-            return this.aVs.Lx();
+            return this.aVs.Lt();
         }
         return 0;
     }
 
-    public int Ly() {
+    public int Lu() {
         if (this.aVl != null) {
-            return this.aVl.Ly();
+            return this.aVl.Lu();
         }
         return 0;
     }
 
-    public int Lz() {
+    public int Lv() {
         if (this.aVs != null) {
-            return this.aVs.Lz();
+            return this.aVs.Lv();
         }
         return 0;
     }

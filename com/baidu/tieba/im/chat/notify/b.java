@@ -144,7 +144,7 @@ public abstract class b extends BaseAdapter {
         if (unReadCount > 0) {
             aVar.bsK.setVisibility(0);
             String valueOf = unReadCount > 99 ? "..." : String.valueOf(unReadCount);
-            if (c.xh().xk() == 0) {
+            if (c.xe().xh() == 0) {
                 valueOf = "";
                 unReadCount = 0;
             } else {

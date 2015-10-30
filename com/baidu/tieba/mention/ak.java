@@ -17,7 +17,7 @@ public class ak extends y implements com.baidu.tbadk.mvc.b.c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Cz() {
+    public byte[] Cw() {
         return null;
     }
 

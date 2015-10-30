@@ -59,7 +59,7 @@ public class e {
         }
     }
 
-    public void aqB() {
+    public void aqx() {
         this.cJp = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, true));
         if (this.cJl != null) {
@@ -71,7 +71,7 @@ public class e {
         this.cJm.setDrawBottomLine(false);
     }
 
-    public void aqC() {
+    public void aqy() {
         this.cJp = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_MAINTAB_LAYER_VISIBLE, false));
         if (this.cJl != null) {

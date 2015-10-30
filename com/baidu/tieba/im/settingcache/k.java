@@ -15,9 +15,9 @@ public class k extends com.baidu.tbadk.util.l<Void> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.l
-    /* renamed from: Gl */
+    /* renamed from: Gh */
     public Void doInBackground() {
-        this.bHJ.Xf().f(this.tz, com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(this.bHK));
+        this.bHJ.Xb().f(this.tz, com.baidu.adp.lib.a.b.a.a.i.jsonStrWithObject(this.bHK));
         return null;
     }
 }

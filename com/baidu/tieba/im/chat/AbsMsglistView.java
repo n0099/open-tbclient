@@ -74,7 +74,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.f<MsglistActivit
 
     /* loaded from: classes.dex */
     public interface a {
-        void Rq();
+        void Rm();
 
         void c(VoiceData.VoiceModel voiceModel);
     }
@@ -229,7 +229,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.f<MsglistActivit
         com.baidu.tbadk.editortools.sendtool.a aVar2 = new com.baidu.tbadk.editortools.sendtool.a(talkableActivity.getActivity());
         aVar2.setText(i.h.send_msg);
         this.mTool.b(aVar2);
-        this.mTool.Ay();
+        this.mTool.Av();
         this.mInputControl.addView(this.mTool, new ViewGroup.LayoutParams(-1, -2));
         this.mTool.a(24, this.mActionListener);
         this.mTool.a(8, this.mActionListener);
@@ -276,9 +276,9 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.f<MsglistActivit
     public void refreshPersonalHeadFooter(String str, com.baidu.tbadk.coreExtra.relationship.b bVar) {
         this.personal_lbs_title_name.setText(str);
         if (bVar != null) {
-            if (bVar.yy() < 0 || bVar.yy() > 1) {
+            if (bVar.yv() < 0 || bVar.yv() > 1) {
                 this.personal_lbs_title_lbsinfo.setVisibility(8);
-            } else if (bVar.yy() == 1) {
+            } else if (bVar.yv() == 1) {
                 this.personal_lbs_title_lbsinfo.setVisibility(0);
                 this.personal_lbs_title_lbsinfo.setText(getPageContext().getResources().getString(i.h.contact_yinshen));
                 this.personal_lbs_shadow.setVisibility(8);
@@ -287,7 +287,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.f<MsglistActivit
                 this.personal_lbs_title_lbsinfo.setVisibility(0);
                 this.personal_lbs_shadow.setVisibility(0);
                 this.personal_lbs_title_time.setVisibility(0);
-                this.personal_lbs_title_time.setText(com.baidu.tbadk.core.util.as.n(bVar.getTime()));
+                this.personal_lbs_title_time.setText(com.baidu.tbadk.core.util.as.l(bVar.getTime()));
                 this.personal_lbs_title_lbsinfo.setText(bVar.getDistance());
             } else {
                 this.personal_lbs_title_lbsinfo.setVisibility(8);
@@ -395,7 +395,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.f<MsglistActivit
 
     public void sendmsgCloseSoftkey() {
         if (this.mTool != null) {
-            this.mTool.za();
+            this.mTool.yX();
         }
         com.baidu.adp.lib.util.k.c(this.mContext.getActivity(), this.mContext.getCurrentFocus());
     }
@@ -509,7 +509,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.f<MsglistActivit
             this.mMsgItemOperation = cVar;
             this.mMsgItemOperation.d(this.mContext.getPageContext());
             this.mMsgItemOperation.getRootView().setTag(Integer.valueOf(i));
-            this.mMsgItemOperation.sU();
+            this.mMsgItemOperation.sR();
         }
     }
 
@@ -537,12 +537,12 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.f<MsglistActivit
         if (this.mTool == null) {
             return false;
         }
-        return this.mTool.AA();
+        return this.mTool.Ax();
     }
 
     public void hideMore() {
         if (this.mTool != null) {
-            this.mTool.za();
+            this.mTool.yX();
         }
     }
 
@@ -606,7 +606,7 @@ public abstract class AbsMsglistView extends com.baidu.adp.base.f<MsglistActivit
     public void onDeletedVoice(String str) {
         this.mModel = null;
         if (this.mCallback != null) {
-            this.mCallback.Rq();
+            this.mCallback.Rm();
         }
     }
 

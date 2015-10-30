@@ -15,10 +15,10 @@ public class eg implements BdSwitchView.a {
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (switchState == BdSwitchView.SwitchState.ON) {
-            com.baidu.tbadk.core.m.qX().bq(0);
-            com.baidu.tbadk.core.m.qX().ae(true);
+            com.baidu.tbadk.core.m.qU().bq(0);
+            com.baidu.tbadk.core.m.qU().ae(true);
         } else {
-            com.baidu.tbadk.core.m.qX().ae(false);
+            com.baidu.tbadk.core.m.qU().ae(false);
         }
         this.aZz.aZx = true;
     }

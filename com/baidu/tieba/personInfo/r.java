@@ -24,7 +24,7 @@ class r extends CustomMessageListener {
             long c = com.baidu.adp.lib.g.b.c(yVar.getId(), 0L);
             if (l != null && c == l.longValue()) {
                 yVar2 = this.csI.csv;
-                yVar2.ajU();
+                yVar2.ajQ();
             }
         }
     }

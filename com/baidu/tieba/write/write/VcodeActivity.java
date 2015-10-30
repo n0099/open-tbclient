@@ -191,7 +191,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                         this.afh.o("vcode", editable);
                     }
                     this.afh.o("tag", "11");
-                    this.afh.uh().uY().mIsNeedTbs = true;
+                    this.afh.ue().uV().mIsNeedTbs = true;
                     this.afh.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(this.dpp.getContent()) + imagesCodeForPost);
                     this.afh.setUrl(com.baidu.tieba.tbadkCore.d.a.cZG);
                     this.afh.o(ImageViewerConfig.FORUM_NAME, this.dpp.getForumName());
@@ -235,7 +235,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     if (editable.length() > 0) {
                         this.afh.o("vcode", editable);
                     }
-                    this.afh.uh().uY().mIsNeedTbs = true;
+                    this.afh.ue().uV().mIsNeedTbs = true;
                     if (this.dpp.getVoice() != null) {
                         this.afh.o("voice_md5", this.dpp.getVoice());
                         this.afh.o("during_time", String.valueOf(this.dpp.getVoiceDuringTime()));
@@ -278,7 +278,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                         }
                     }
                 }
-                this.dbJ = this.afh.tG();
+                this.dbJ = this.afh.tD();
             }
             return null;
         }
@@ -308,7 +308,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             VcodeActivity.this.closeLoadingDialog();
             VcodeActivity.this.dpl = null;
             if (this.afh != null) {
-                if (this.afh.uh().uZ().qV()) {
+                if (this.afh.ue().uW().qS()) {
                     ErrorData errorData = new ErrorData();
                     errorData.parserJson(this.dbJ);
                     if (errorData.error_code == 0) {
@@ -326,7 +326,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                         }
                         this.dpp.deleteUploadedTempImages();
                         if (this.dpp != null && this.dpp.isBabaoPosted()) {
-                            com.baidu.tieba.tbadkCore.PbEditor.a.awj();
+                            com.baidu.tieba.tbadkCore.PbEditor.a.awf();
                         }
                     } else if ((this.dpp.isHasImages() || this.dpp.getIsBaobao()) && com.baidu.adp.lib.util.j.isEmpty(String.valueOf(this.dpp.getContent()) + this.dpp.getImagesCodeForPost())) {
                         VcodeActivity.this.showToast(TbadkCoreApplication.m411getInst().getString(i.h.img_upload_error));
@@ -378,7 +378,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                 } else if (this.dpp.isHasImages() && com.baidu.adp.lib.util.j.isEmpty(String.valueOf(this.dpp.getContent()) + this.dpp.getImagesCodeForPost())) {
                     VcodeActivity.this.showToast(TbadkCoreApplication.m411getInst().getString(i.h.img_upload_error));
                 } else {
-                    if (this.afh.ul() == 5 || this.afh.ul() == 6) {
+                    if (this.afh.ui() == 5 || this.afh.ui() == 6) {
                         com.baidu.tbadk.coreExtra.data.l lVar2 = new com.baidu.tbadk.coreExtra.data.l();
                         lVar2.parserJson(this.dbJ);
                         if (lVar2.getVcode_pic_url() != null) {
@@ -442,19 +442,19 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     this.Ti.o("pub_type", "2");
                     this.Ti.o("tid", VcodeActivity.this.doW.getThreadId());
                 }
-                String tG = this.Ti.tG();
-                if (!this.Ti.uh().uZ().qV()) {
+                String tD = this.Ti.tD();
+                if (!this.Ti.ue().uW().qS()) {
                     return null;
                 }
                 this.dpo = new com.baidu.tbadk.coreExtra.data.l();
-                this.dpo.parserJson(tG);
+                this.dpo.parserJson(tD);
                 str = this.dpo.getVcode_pic_url();
             }
             if (this.aOK) {
                 return null;
             }
             this.Ti = new com.baidu.tbadk.core.util.w(str);
-            return com.baidu.tbadk.core.util.c.N(this.Ti.tH());
+            return com.baidu.tbadk.core.util.c.N(this.Ti.tE());
         }
 
         /* JADX DEBUG: Method merged with bridge method */

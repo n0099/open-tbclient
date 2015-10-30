@@ -44,7 +44,7 @@ public class i implements a.InterfaceC0072a {
                 z = false;
             } else if ("0".equals(strArr[2]) || strArr[1] == null) {
                 tbPageContext3 = this.crB.aPm;
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(tbPageContext3.getPageActivity(), strArr[0]).rk()));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(tbPageContext3.getPageActivity(), strArr[0]).rh()));
                 z = true;
             } else {
                 tbPageContext4 = this.crB.aPm;

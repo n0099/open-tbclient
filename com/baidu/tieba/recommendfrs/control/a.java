@@ -50,7 +50,7 @@ public class a extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        Hy();
+        Hu();
         this.cIv = (ScrollFragmentTabHost) getView().findViewById(i.f.recommend_frs_tab_host);
     }
 
@@ -58,7 +58,7 @@ public class a extends BaseFragment {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         registerListener(this.cIz);
-        apS();
+        apO();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -67,13 +67,13 @@ public class a extends BaseFragment {
         MessageManager.getInstance().unRegisterTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED);
     }
 
-    private void apS() {
+    private void apO() {
         this.cIy = new CustomMessageTask(CmdConfigCustom.CMD_RECOMMEND_FRS_BACK_PRESSED, new d(this));
         this.cIy.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(this.cIy);
     }
 
-    private void Hy() {
+    private void Hu() {
         this.cIw = new com.baidu.tieba.recommendfrs.control.a.b(getPageContext(), getUniqueId());
         this.cIw.a(new e(this));
     }
@@ -86,7 +86,7 @@ public class a extends BaseFragment {
             } else {
                 this.cIq = new com.baidu.tbadk.e.f(getActivity(), i);
             }
-            this.cIq.tc();
+            this.cIq.sZ();
         }
         this.cIq.b(view, z);
     }
@@ -107,11 +107,11 @@ public class a extends BaseFragment {
         this.refreshView.ep(getResources().getDimensionPixelSize(i.d.ds160));
         this.refreshView.fv(str);
         this.refreshView.b(view, z);
-        this.refreshView.Cw();
+        this.refreshView.Ct();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void apT() {
+    public void apP() {
         if (this.refreshView != null) {
             this.refreshView.u(getView());
             this.refreshView = null;

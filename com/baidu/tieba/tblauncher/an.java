@@ -36,12 +36,12 @@ public class an implements com.baidu.tbadk.core.c.a {
     }
 
     @Override // com.baidu.tbadk.core.c.a
-    public Class<?> tn() {
+    public Class<?> tk() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.c.a
-    public String to() {
+    public String tl() {
         return MainTabActivity.class.getName();
     }
 

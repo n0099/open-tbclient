@@ -71,7 +71,7 @@ public class k implements PersonPostModel.a {
                     }
                 }
                 pbListView = this.crQ.crJ;
-                pbListView.vy();
+                pbListView.vv();
                 if (z) {
                     if (j.ba(personPostModel.post_list) < 20) {
                         this.crQ.crL = false;

@@ -24,9 +24,9 @@ class r implements View.OnClickListener {
         if (tag instanceof PersonPostModel.PostInfoList) {
             TiebaStatic.log("c10254");
             baseFragmentActivity = this.crV.mActivity;
-            PhotoLiveActivityConfig rk = new PhotoLiveActivityConfig.a(baseFragmentActivity.getPageContext().getContext(), String.valueOf(((PersonPostModel.PostInfoList) tag).thread_id)).ci(PhotoLiveActivityConfig.KEY_FROM_MY_OR_HIS_THREAD).bs(23014).rk();
+            PhotoLiveActivityConfig rh = new PhotoLiveActivityConfig.a(baseFragmentActivity.getPageContext().getContext(), String.valueOf(((PersonPostModel.PostInfoList) tag).thread_id)).ci(PhotoLiveActivityConfig.KEY_FROM_MY_OR_HIS_THREAD).bs(23014).rh();
             baseFragmentActivity2 = this.crV.mActivity;
-            baseFragmentActivity2.getPageContext().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, rk));
+            baseFragmentActivity2.getPageContext().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, rh));
         }
     }
 }

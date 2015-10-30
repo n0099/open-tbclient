@@ -26,14 +26,14 @@ public class o extends r {
     }
 
     public o() {
-        DF();
+        DC();
     }
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.mId);
     }
 
-    public boolean DP() {
+    public boolean DM() {
         return this.axl;
     }
 
@@ -41,8 +41,8 @@ public class o extends r {
         this.axl = z;
     }
 
-    public void DE() {
-        DG();
+    public void DB() {
+        DD();
     }
 
     public void K(int i, int i2) {
@@ -62,8 +62,8 @@ public class o extends r {
         }
     }
 
-    public void DQ() {
-        DS();
+    public void DN() {
+        DP();
         if (this.awK != null) {
             this.awK.clear();
         }
@@ -75,13 +75,13 @@ public class o extends r {
         }
     }
 
-    private void DF() {
+    private void DC() {
         this.customNormalListener.setTag(this.mId);
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().registerListener(this.customNormalListener);
     }
 
-    private void DG() {
+    private void DD() {
         CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_PERF_LIVE_SAMPLE, new a());
         customMessage.setTag(this.mId);
         MessageManager.getInstance().sendMessage(customMessage);
@@ -116,11 +116,11 @@ public class o extends r {
         this.awK.add(valueOf);
     }
 
-    public String DR() {
+    public String DO() {
         return r(this.axk);
     }
 
-    public String DJ() {
+    public String DG() {
         return r(this.awJ);
     }
 
@@ -147,9 +147,9 @@ public class o extends r {
         return stringBuffer.toString();
     }
 
-    private void DS() {
+    private void DP() {
         w wVar;
-        if (this.awJ != null && this.awJ.size() > 0 && this.awK != null && this.awK.size() > 0 && this.axk != null && this.axk.size() > 0 && (wVar = (w) y.Eb().eB(this.mSubType)) != null) {
+        if (this.awJ != null && this.awJ.size() > 0 && this.awK != null && this.awK.size() > 0 && this.axk != null && this.axk.size() > 0 && (wVar = (w) y.DY().eB(this.mSubType)) != null) {
             wVar.b(this);
         }
     }

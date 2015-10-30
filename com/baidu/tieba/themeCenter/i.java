@@ -166,7 +166,7 @@ public class i {
             aVar.b(i.h.cancel_text, new j(aVar));
             aVar.a(i.h.become_member_immediately, new k(aVar, i, tbPageContext));
             aVar.b(tbPageContext);
-            aVar.sR();
+            aVar.sO();
         }
     }
 }

@@ -40,7 +40,7 @@ public class f implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Fw() {
+    public String Fs() {
         return this.Zb;
     }
 
@@ -50,27 +50,27 @@ public class f implements com.baidu.tbadk.widget.vote.a {
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Fx() {
+    public String Ft() {
         return String.valueOf(this.bWZ) + TbadkCoreApplication.m411getInst().getString(i.h.vote_unit);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String Fy() {
+    public String Fu() {
         return String.valueOf(this.aZF) + TbadkCoreApplication.m411getInst().getString(i.h.vote_percent);
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int Fz() {
+    public int Fv() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public int FA() {
+    public int Fw() {
         return this.aZF;
     }
 
     @Override // com.baidu.tbadk.widget.vote.a
-    public String FB() {
+    public String Fx() {
         return this.mUrl;
     }
 }

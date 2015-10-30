@@ -37,9 +37,9 @@ public class al implements c.b {
             textView = this.cqc.cpM;
             textView.setText(this.cqe);
         }
-        this.cqc.aiy();
+        this.cqc.aiu();
         i2 = this.cqc.mSex;
-        if (i2 != this.cqc.cpT.aiE().getSex()) {
+        if (i2 != this.cqc.cpT.aiA().getSex()) {
             view2 = this.cqc.cpI;
             view2.setEnabled(true);
             if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {

@@ -11,7 +11,7 @@ class d implements h.a {
     }
 
     @Override // com.baidu.tieba.recommendfrs.indicator.h.a
-    public void aqA() {
+    public void aqw() {
         e eVar;
         h hVar;
         h hVar2;
@@ -19,7 +19,7 @@ class d implements h.a {
         eVar = this.cJj.cJd;
         if (eVar != null) {
             eVar2 = this.cJj.cJd;
-            eVar2.aqC();
+            eVar2.aqy();
         }
         hVar = this.cJj.cJg;
         if (hVar != null) {

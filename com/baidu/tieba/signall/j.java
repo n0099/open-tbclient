@@ -21,11 +21,11 @@ class j extends CustomMessageListener {
         z zVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData)) {
             zVar = this.cQx.cQp;
-            c aub = zVar.aub();
-            if (aub != null) {
-                aub.b((SignData) customResponsedMessage.getData());
+            c atX = zVar.atX();
+            if (atX != null) {
+                atX.b((SignData) customResponsedMessage.getData());
                 zVar2 = this.cQx.cQp;
-                zVar2.auc().notifyDataSetChanged();
+                zVar2.atY().notifyDataSetChanged();
             }
         }
     }

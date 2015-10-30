@@ -25,11 +25,11 @@ public class f implements com.baidu.tbadk.mvc.b.a {
         return this.mForumName;
     }
 
-    public int Id() {
+    public int HZ() {
         return this.aLA;
     }
 
-    public int Ie() {
+    public int Ia() {
         return this.mThreadNum;
     }
 

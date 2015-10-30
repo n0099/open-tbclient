@@ -10,6 +10,6 @@ class aj implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tieba.tbadkCore.util.m.axE();
+        com.baidu.tieba.tbadkCore.util.m.axA();
     }
 }

@@ -19,8 +19,8 @@ class b extends l<Boolean> {
     @Override // com.baidu.tbadk.util.l
     public Boolean doInBackground() {
         UserData userData;
-        com.baidu.tieba.im.db.l TU = com.baidu.tieba.im.db.l.TU();
+        com.baidu.tieba.im.db.l TQ = com.baidu.tieba.im.db.l.TQ();
         userData = this.bNR.mUser;
-        return Boolean.valueOf(TU.aG(String.valueOf(userData.getUserId()), String.valueOf(this.val$msg.getMsgId())));
+        return Boolean.valueOf(TQ.aG(String.valueOf(userData.getUserId()), String.valueOf(this.val$msg.getMsgId())));
     }
 }

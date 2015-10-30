@@ -45,8 +45,8 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(i.g.account_activity);
-        FR();
-        FS();
+        FN();
+        FO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -59,15 +59,15 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         this.aEq.notifyDataSetChanged();
     }
 
-    private void FR() {
+    private void FN() {
         if (TbadkCoreApplication.m411getInst().isAccountsDataFromPass()) {
-            this.aEp = com.baidu.tbadk.coreExtra.a.a.vX().wa();
+            this.aEp = com.baidu.tbadk.coreExtra.a.a.vU().vX();
         } else {
-            this.aEp = com.baidu.tbadk.core.a.b.ri();
+            this.aEp = com.baidu.tbadk.core.a.b.rf();
         }
     }
 
-    private void FS() {
+    private void FO() {
         this.aEr = (RelativeLayout) findViewById(i.f.account_container);
         this.aEt = new com.baidu.tieba.account.b(this);
         this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
@@ -90,7 +90,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         if (this.aEu == null) {
             fT("account changed");
             showLoadingDialog(getPageContext().getString(i.h.account_logining), new f(this));
-            com.baidu.tbadk.core.a.a.rd().a(accountData.getAccount(), accountData.getBDUSS(), "", new c(accountData));
+            com.baidu.tbadk.core.a.a.ra().a(accountData.getAccount(), accountData.getBDUSS(), "", new c(accountData));
         }
     }
 
@@ -99,7 +99,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         this.aEu = new d(accountData);
         this.aEu.setPriority(3);
         if (this.aEu != null) {
-            if (FU()) {
+            if (FQ()) {
                 this.mHandler.removeMessages(2);
                 Message obtainMessage = this.mHandler.obtainMessage(2);
                 obtainMessage.obj = accountData;
@@ -138,9 +138,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 }
                 this.mAccount.setIsActive(1);
                 com.baidu.tbadk.core.a.b.b(this.mAccount);
-                com.baidu.tbadk.coreExtra.a.c vX = com.baidu.tbadk.coreExtra.a.a.vX();
-                if (vX != null) {
-                    vX.f(this.mAccount);
+                com.baidu.tbadk.coreExtra.a.c vU = com.baidu.tbadk.coreExtra.a.a.vU();
+                if (vU != null) {
+                    vU.f(this.mAccount);
                 }
             } catch (Exception e2) {
                 BdLog.detailException(e2);
@@ -182,7 +182,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             AccountActivity.this.closeLoadingDialog();
             AccountActivity.this.showToast(str2);
             if (i == 1 && this.aky != null) {
-                ReloginManager.tp().e(this.aky);
+                ReloginManager.tm().e(this.aky);
                 AccountActivity.this.a(false, this.aky);
             }
         }
@@ -209,14 +209,14 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             showLoadingDialog(getPageContext().getString(i.h.deleting), new g(this, z2));
             this.aEv = new a(z, accountData);
             this.aEv.setPriority(3);
-            FT();
+            FP();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FT() {
+    public void FP() {
         if (this.aEv != null) {
-            if (FU()) {
+            if (FQ()) {
                 this.mHandler.removeMessages(1);
                 this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 200L);
                 return;
@@ -261,17 +261,17 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_DELETE_ACCOUNT, this.aEA.getID()));
                     j.deleteAccountAllInfo(this.aEA.getID());
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    com.baidu.tbadk.core.sharedPref.b.tu().remove("get_addresslist_switch" + this.aEA.getID());
+                    com.baidu.tbadk.core.sharedPref.b.tr().remove("get_addresslist_switch" + this.aEA.getID());
                     if (this.aEA.getID().equals(currentAccount)) {
-                        com.baidu.tbadk.coreExtra.a.c vX = com.baidu.tbadk.coreExtra.a.a.vX();
-                        if (vX != null) {
-                            vX.vZ();
+                        com.baidu.tbadk.coreExtra.a.c vU = com.baidu.tbadk.coreExtra.a.a.vU();
+                        if (vU != null) {
+                            vU.vW();
                         }
                         this.mType = 2;
                     } else {
-                        com.baidu.tbadk.coreExtra.a.c vX2 = com.baidu.tbadk.coreExtra.a.a.vX();
-                        if (vX2 != null) {
-                            vX2.g(this.aEA);
+                        com.baidu.tbadk.coreExtra.a.c vU2 = com.baidu.tbadk.coreExtra.a.a.vU();
+                        if (vU2 != null) {
+                            vU2.g(this.aEA);
                         }
                         this.mType = 0;
                     }
@@ -339,16 +339,16 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public void run() {
             super.run();
             w wVar = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/logout");
-            wVar.uh().uY().abO = false;
-            wVar.uh().uY().mIsUseCurrentBDUSS = false;
+            wVar.ue().uV().abO = false;
+            wVar.ue().uV().mIsUseCurrentBDUSS = false;
             wVar.o("BDUSS", this.ws);
             wVar.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
             wVar.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-            wVar.tG();
+            wVar.tD();
         }
     }
 
-    private boolean FU() {
+    private boolean FQ() {
         return MessageManager.getInstance().getSocketClient().ey() > 0;
     }
 

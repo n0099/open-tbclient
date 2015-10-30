@@ -45,7 +45,7 @@ public class LocationInfoView extends EditorInfoView {
             }
             setText(str);
         }
-        AI();
+        AF();
     }
 
     public int getState() {
@@ -53,12 +53,12 @@ public class LocationInfoView extends EditorInfoView {
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView
-    protected void tc() {
-        super.tc();
-        AI();
+    protected void sZ() {
+        super.sZ();
+        AF();
     }
 
-    private void AI() {
+    private void AF() {
         if (this.mState == 1) {
             Animatable animatable = (Animatable) an.getDrawable(i.e.icon_posts_pin_loading_anim);
             setCompoundDrawablesWithIntrinsicBounds((Drawable) animatable, (Drawable) null, (Drawable) null, (Drawable) null);

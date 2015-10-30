@@ -18,7 +18,7 @@ public class p {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
                 if (this.dbn.size() >= this.cGg) {
-                    axI();
+                    axE();
                 }
                 this.dbm++;
                 this.dbn.put(valueOf, Integer.valueOf(this.dbm));
@@ -28,7 +28,7 @@ public class p {
         }
     }
 
-    public void axI() {
+    public void axE() {
         synchronized (this) {
             int i = 134217727;
             Long l = null;

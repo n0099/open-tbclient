@@ -29,7 +29,7 @@ class x implements View.OnClickListener {
         acVar = this.cpq.cpa;
         if (acVar != null) {
             acVar2 = this.cpq.cpa;
-            if (!acVar2.FV()) {
+            if (!acVar2.FR()) {
                 acVar5 = this.cpq.cpa;
                 acVar5.setEditState(true);
                 textView3 = this.cpq.aEs;

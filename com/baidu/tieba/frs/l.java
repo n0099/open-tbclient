@@ -26,29 +26,29 @@ class l implements ea {
         com.baidu.tieba.frs.b.o oVar3;
         com.baidu.tieba.frs.mc.a aVar6;
         oVar = this.aUK.aUj;
-        if (oVar.NP() != null) {
+        if (oVar.NL() != null) {
             oVar2 = this.aUK.aUj;
-            ea NP = oVar2.NP();
+            ea NL = oVar2.NL();
             aVar2 = this.aUK.aUi;
-            int Ng = aVar2.Ng();
+            int Nc = aVar2.Nc();
             aVar3 = this.aUK.aUi;
-            int Nh = aVar3.Nh();
+            int Nd = aVar3.Nd();
             aVar4 = this.aUK.aUi;
-            NP.a(Ng, Nh, aVar4.Ni());
+            NL.a(Nc, Nd, aVar4.Ne());
             aVar5 = this.aUK.aUk;
-            if (!aVar5.NJ()) {
+            if (!aVar5.NF()) {
                 oVar3 = this.aUK.aUj;
-                ea NP2 = oVar3.NP();
+                ea NL2 = oVar3.NL();
                 aVar6 = this.aUK.aUi;
-                NP2.a(i, i2, aVar6.Ni());
+                NL2.a(i, i2, aVar6.Ne());
             }
         }
         if (i == 1) {
             bsVar2 = this.aUK.aTU;
-            bsVar2.LX();
+            bsVar2.LT();
         } else {
             bsVar = this.aUK.aTU;
-            bsVar.LY();
+            bsVar.LU();
         }
         this.aUK.stopVoice();
         aVar = this.aUK.aUi;
@@ -60,6 +60,6 @@ class l implements ea {
     }
 
     @Override // com.baidu.tieba.frs.ea
-    public void Ku() {
+    public void Kq() {
     }
 }

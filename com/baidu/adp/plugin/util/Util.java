@@ -56,7 +56,7 @@ public final class Util {
         return ((short) ((bArr[i + 1] << 8) | (bArr[i] & 255))) & 65535;
     }
 
-    public static final boolean l(long j) {
+    public static final boolean j(long j) {
         long mx = mx();
         if (j <= 0) {
             return mx <= 0 || mx >= 31457280;
@@ -71,7 +71,7 @@ public final class Util {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, CONST_STR, RETURN] complete} */
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [144=4, 146=4, 147=4, 148=4, 149=4, 151=4, 154=4] */
-    public static String b(InputStream inputStream, File file) {
+    public static String a(InputStream inputStream, File file) {
         if (inputStream == null || file == null) {
             return "illegal_param";
         }

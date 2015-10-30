@@ -8,7 +8,7 @@ public class s {
     private String ZK = "";
     private final long ZL = 120000;
 
-    public static s tZ() {
+    public static s tW() {
         if (ZM == null) {
             synchronized (s.class) {
                 if (ZM == null) {
@@ -19,7 +19,7 @@ public class s {
         return ZM;
     }
 
-    public String ua() {
+    public String tX() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.ZH > 120000) {
             if (com.baidu.adp.lib.util.k.jc()) {

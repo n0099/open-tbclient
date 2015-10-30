@@ -39,27 +39,27 @@ public class bp extends com.baidu.adp.base.f<PbActivity> {
         return this.mView;
     }
 
-    public TextView afY() {
+    public TextView afU() {
         return this.cjQ;
     }
 
-    public TextView afZ() {
+    public TextView afV() {
         return this.cjR;
     }
 
-    public View aga() {
+    public View afW() {
         return this.cjS;
     }
 
-    public TextView agb() {
+    public TextView afX() {
         return this.cjT;
     }
 
-    public TextView agc() {
+    public TextView afY() {
         return this.cjU;
     }
 
-    public TextView agd() {
+    public TextView afZ() {
         return this.cjV;
     }
 

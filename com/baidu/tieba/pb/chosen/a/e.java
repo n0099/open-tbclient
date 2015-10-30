@@ -33,7 +33,7 @@ public class e {
     public interface b {
         void aV(String str, String str2);
 
-        void aeE();
+        void aeA();
 
         void jB(String str);
     }
@@ -53,7 +53,7 @@ public class e {
         this.cfI = (TextView) this.cfE.findViewById(i.f.chosen_pb_person_info_remark);
     }
 
-    public View aeH() {
+    public View aeD() {
         return this.cfE;
     }
 
@@ -87,7 +87,7 @@ public class e {
                 this.cfI.setText(forumInfo.authorremark);
             }
             if (this.cfJ != null && forumInfo.member_num != null) {
-                this.cfJ.setText(as.s(forumInfo.member_num.longValue()));
+                this.cfJ.setText(as.q(forumInfo.member_num.longValue()));
             }
             if (forumInfo.is_like != null && forumInfo.is_like.intValue() == 1) {
                 el(true);

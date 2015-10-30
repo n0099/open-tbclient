@@ -31,7 +31,7 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
 
     private void initUI() {
         this.boO = new com.baidu.tieba.hottopic.view.e((RelateTopicForumActivity) getPageContext().getOrignalPage(), this.Xq);
-        QS();
+        QO();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -61,16 +61,16 @@ public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActiv
         }
     }
 
-    private void QS() {
+    private void QO() {
         if (this.boO == null || this.Xq.isEmpty()) {
-            this.boO.Mg();
+            this.boO.Mc();
         } else {
-            this.boO.Mf();
+            this.boO.Mb();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public RelateForumItemData az(long j) {
+    public RelateForumItemData ax(long j) {
         int i = 0;
         while (true) {
             int i2 = i;

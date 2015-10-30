@@ -11,12 +11,12 @@ public class e {
 
     public boolean iu(String str) {
         a aVar;
-        return (this.bKq == null || (aVar = this.bKq.get(str)) == null || Math.abs(System.currentTimeMillis() - aVar.HI()) >= 300000) ? false : true;
+        return (this.bKq == null || (aVar = this.bKq.get(str)) == null || Math.abs(System.currentTimeMillis() - aVar.HE()) >= 300000) ? false : true;
     }
 
     public com.baidu.tbadk.coreExtra.relationship.b iv(String str) {
         if (this.bKq.get(str) != null) {
-            return this.bKq.get(str).XT();
+            return this.bKq.get(str).XP();
         }
         return null;
     }

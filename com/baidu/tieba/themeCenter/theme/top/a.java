@@ -26,11 +26,11 @@ public class a {
         }
     }
 
-    public String azI() {
+    public String azE() {
         return this.dhs;
     }
 
-    public List<com.baidu.tieba.themeCenter.b> azJ() {
+    public List<com.baidu.tieba.themeCenter.b> azF() {
         return this.dht;
     }
 

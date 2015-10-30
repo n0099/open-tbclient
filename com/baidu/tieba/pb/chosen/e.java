@@ -22,9 +22,9 @@ class e extends com.baidu.adp.framework.listener.a {
         com.baidu.tieba.pb.chosen.a.i iVar2;
         if (responsedMessage != null) {
             iVar = this.cfl.ceQ;
-            iVar.aeJ();
+            iVar.aeF();
             if (responsedMessage.hasError()) {
-                BdToast.b(this.cfl.getPageContext().getPageActivity(), StringUtils.isNull(responsedMessage.getErrorString()) ? this.cfl.getResources().getString(i.h.neterror) : responsedMessage.getErrorString()).sZ();
+                BdToast.b(this.cfl.getPageContext().getPageActivity(), StringUtils.isNull(responsedMessage.getErrorString()) ? this.cfl.getResources().getString(i.h.neterror) : responsedMessage.getErrorString()).sW();
                 return;
             }
             Object extra = responsedMessage.getOrginalMessage().getExtra();

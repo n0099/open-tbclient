@@ -16,7 +16,7 @@ public class y implements com.baidu.tbadk.mvc.b.j {
     protected com.baidu.tbadk.core.data.o caH = new com.baidu.tbadk.core.data.o();
     protected u caI = new u();
 
-    public ArrayList<FeedData> adc() {
+    public ArrayList<FeedData> acY() {
         return this.caG;
     }
 

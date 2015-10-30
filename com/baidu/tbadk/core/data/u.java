@@ -8,7 +8,7 @@ public class u {
     protected String img_url = null;
     protected String link = null;
 
-    public String sf() {
+    public String sc() {
         return this.img_url;
     }
 

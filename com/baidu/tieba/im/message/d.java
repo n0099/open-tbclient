@@ -22,7 +22,7 @@ class d implements a.b {
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
         int i2 = 2;
         if (imMessageCenterPojo != null) {
-            i.TO().a(imMessageCenterPojo, 2);
+            i.TK().a(imMessageCenterPojo, 2);
             if (imMessageCenterPojo.getIsFriend() == 0 && this.bFl != null) {
                 this.bFl.setGid(String.valueOf("-1001"));
                 this.bFl.setCustomGroupType(-7);
@@ -36,13 +36,13 @@ class d implements a.b {
                 if (z) {
                     this.bFl.setIs_hidden(0);
                 }
-                i.TO().a(this.bFl, i2);
+                i.TK().a(this.bFl, i2);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void e(String str, List<CommonMsgPojo> list) {
-        l.TU().a(b.c(str, 0L), list, true);
+        l.TQ().a(b.c(str, 0L), list, true);
     }
 }

@@ -50,50 +50,50 @@ class b implements View.OnClickListener {
             bVar = this.dgS.mSkinData;
             if (bVar != null) {
                 bVar2 = this.dgS.mSkinData;
-                int azm = bVar2.azm();
-                if (azm == 1 || azm == 5 || azm == 3) {
-                    if (azm == 1) {
+                int azi = bVar2.azi();
+                if (azi == 1 || azi == 5 || azi == 3) {
+                    if (azi == 1) {
                         TiebaStatic.log("c10275");
-                    } else if (azm == 5) {
+                    } else if (azi == 5) {
                         TiebaStatic.log("c10354");
                     }
                     bVar3 = this.dgS.mSkinData;
-                    if (!StringUtils.isNull(bVar3.azi())) {
+                    if (!StringUtils.isNull(bVar3.aze())) {
                         bVar4 = this.dgS.mSkinData;
-                        if (i.lt(bVar4.azl())) {
+                        if (i.lt(bVar4.azh())) {
                             fVar = this.dgS.dgN;
                             fVar.e(2, 0.0f);
                             bVar5 = this.dgS.mSkinData;
                             bVar5.lr(2);
-                            com.baidu.tbadk.download.b An = com.baidu.tbadk.download.b.An();
+                            com.baidu.tbadk.download.b Ak = com.baidu.tbadk.download.b.Ak();
                             StringBuilder sb = new StringBuilder();
                             bVar6 = this.dgS.mSkinData;
                             String sb2 = sb.append(bVar6.getId()).toString();
                             bVar7 = this.dgS.mSkinData;
-                            String azi = bVar7.azi();
+                            String aze = bVar7.aze();
                             bVar8 = this.dgS.mSkinData;
                             String title = bVar8.getTitle();
                             bVar9 = this.dgS.mSkinData;
-                            An.a(sb2, azi, title, 0, bVar9.getId(), false, true, false);
+                            Ak.a(sb2, aze, title, 0, bVar9.getId(), false, true, false);
                             return;
                         }
                         i.a(this.dgS.getPageContext(), 3, i.h.become_member_can_use);
                     }
-                } else if (azm == 2) {
+                } else if (azi == 2) {
                     fVar3 = this.dgS.dgN;
                     fVar3.e(3, 0.0f);
                     bVar18 = this.dgS.mSkinData;
                     bVar18.lr(3);
-                    com.baidu.tbadk.download.b An2 = com.baidu.tbadk.download.b.An();
+                    com.baidu.tbadk.download.b Ak2 = com.baidu.tbadk.download.b.Ak();
                     bVar19 = this.dgS.mSkinData;
-                    An2.eG(bVar19.azi());
+                    Ak2.eG(bVar19.aze());
                     SkinDetailActivity skinDetailActivity = this.dgS;
                     bVar20 = this.dgS.mSkinData;
                     skinDetailActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_DELETE_SKIN_TEMP_FILE, bVar20));
-                } else if (azm == 4) {
+                } else if (azi == 4) {
                     TiebaStatic.log("c10269");
                     bVar10 = this.dgS.mSkinData;
-                    if (com.baidu.tieba.themeCenter.i.lt(bVar10.azl())) {
+                    if (com.baidu.tieba.themeCenter.i.lt(bVar10.azh())) {
                         bVar11 = this.dgS.mSkinData;
                         if (bVar11.getId() != -1) {
                             bVar12 = this.dgS.mSkinData;
@@ -104,12 +104,12 @@ class b implements View.OnClickListener {
                                 bVar13 = this.dgS.mSkinData;
                                 int id = bVar13.getId();
                                 bVar14 = this.dgS.mSkinData;
-                                m411getInst.setUsedTheme(id, bVar14.azl());
+                                m411getInst.setUsedTheme(id, bVar14.azh());
                                 aq aqVar = new aq("c10220");
                                 bVar15 = this.dgS.mSkinData;
                                 aq r = aqVar.r("obj_id", bVar15.getId());
                                 bVar16 = this.dgS.mSkinData;
-                                TiebaStatic.log(r.r("obj_type", bVar16.azl()));
+                                TiebaStatic.log(r.r("obj_type", bVar16.azh()));
                             }
                         } else {
                             TbadkCoreApplication.m411getInst().setSkinType(0);

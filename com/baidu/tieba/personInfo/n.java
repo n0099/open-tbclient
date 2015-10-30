@@ -22,11 +22,11 @@ class n extends CustomMessageListener {
         aj ajVar;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001178 && ((ResponseNewFriendUpdateUiMsg) customResponsedMessage).getAction() == 0) {
             yVar = this.csI.csv;
-            if (yVar.ajN() != null) {
+            if (yVar.ajJ() != null) {
                 yVar2 = this.csI.csv;
-                yVar2.ajN().setIsFriend(1);
+                yVar2.ajJ().setIsFriend(1);
                 ajVar = this.csI.csw;
-                ajVar.aka();
+                ajVar.ajW();
             }
         }
     }

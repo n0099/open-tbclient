@@ -32,7 +32,7 @@ public class o implements AdapterView.OnItemClickListener {
                     PersonPostModel.PostInfoList jj = gVar3.jj(i);
                     if (jj != null) {
                         if (jj.thread_type == 33) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.crQ.getActivity(), String.valueOf(jj.thread_id)).cg(String.valueOf(jj.post_id)).bs(18005).rk()));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.crQ.getActivity(), String.valueOf(jj.thread_id)).cg(String.valueOf(jj.post_id)).bs(18005).rh()));
                             return;
                         }
                         this.crQ.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.crQ.getActivity()).createCfgForPersonCenter(String.valueOf(jj.thread_id), String.valueOf(jj.post_id), "person_post", 18005)));

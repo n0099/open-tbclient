@@ -36,7 +36,7 @@ public class ad extends NoPressedLinearLayout {
         super(context, attributeSet);
         setOrientation(1);
         this.aNI = new ArrayList();
-        HD();
+        Hz();
         addView(this.aew);
     }
 
@@ -80,7 +80,7 @@ public class ad extends NoPressedLinearLayout {
         }
     }
 
-    private void HD() {
+    private void Hz() {
         this.aew = LayoutInflater.from(getContext()).inflate(i.g.enter_forum_recommendinfo_notice, (ViewGroup) null);
         this.aew.findViewById(i.f.iv_dismiss).setOnClickListener(new ae(this));
         this.aNL = this.aew.findViewById(i.f.enterforum_forumrecommendinfo_change);
@@ -99,7 +99,7 @@ public class ad extends NoPressedLinearLayout {
     private void f(TbPageContext<BaseFragmentActivity> tbPageContext) {
         int size;
         if (this.aNI != null && this.aNI.size() != 0) {
-            Jf();
+            Jb();
             List<ac> allRecomItemView = getAllRecomItemView();
             for (int i = 0; i < this.aNI.size(); i++) {
                 com.baidu.tieba.enterForum.b.f fVar = this.aNI.get(i);
@@ -118,13 +118,13 @@ public class ad extends NoPressedLinearLayout {
             if (TbadkCoreApplication.isLogin()) {
                 this.mEmptyView.setVisibility(0);
                 this.aNK.setVisibility(0);
-                Jf();
+                Jb();
                 return;
             }
             this.mEmptyView.setVisibility(8);
             this.aNK.setVisibility(8);
             if (TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_SQUARE_FORUM_SQUARE)) {
-                Jg();
+                Jc();
             }
         }
     }
@@ -141,14 +141,14 @@ public class ad extends NoPressedLinearLayout {
         return arrayList;
     }
 
-    private void Jf() {
+    private void Jb() {
         if (this.aNJ != null) {
             removeView(this.aNJ);
             this.aNJ = null;
         }
     }
 
-    private void Jg() {
+    private void Jc() {
         if (this.aNJ == null) {
             this.aNJ = new TextView(getContext());
             this.aNJ.setText(i.h.discover_more_bar);

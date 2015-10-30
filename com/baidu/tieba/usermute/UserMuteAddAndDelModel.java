@@ -56,8 +56,8 @@ public class UserMuteAddAndDelModel<T> extends com.baidu.adp.base.e<T> {
     /* JADX WARN: Multi-variable type inference failed */
     public UserMuteAddAndDelModel(BaseActivity<T> baseActivity) {
         this.aSe = baseActivity;
-        aAG();
-        aAH();
+        aAC();
+        aAD();
         this.diY.setSelfListener(true);
         this.diZ.setSelfListener(true);
         this.aSe.registerListener(this.diY);
@@ -97,14 +97,14 @@ public class UserMuteAddAndDelModel<T> extends com.baidu.adp.base.e<T> {
         this.aSe.sendMessage(httpMessage);
     }
 
-    private void aAG() {
+    private void aAC() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_USER_MUTE_ADD, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.USER_MUTE_ADD);
         tbHttpMessageTask.setResponsedClass(UserMuteAddResponseMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private void aAH() {
+    private void aAD() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_USER_MUTE_DEL, String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.USER_MUTE_DEL);
         tbHttpMessageTask.setResponsedClass(UserMuteDelResponseMessage.class);
@@ -116,7 +116,7 @@ public class UserMuteAddAndDelModel<T> extends com.baidu.adp.base.e<T> {
         aVar.cu(this.aSe.getResources().getString(i.h.block_mute_message_alert, str));
         aVar.a(i.h.confirm, new c(this, str2, str3));
         aVar.b(i.h.cancel, new d(this));
-        aVar.b(this.aSe.getPageContext()).sR();
+        aVar.b(this.aSe.getPageContext()).sO();
     }
 
     public void fd(String str) {
@@ -126,7 +126,7 @@ public class UserMuteAddAndDelModel<T> extends com.baidu.adp.base.e<T> {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.aSe.getPageContext().getPageActivity());
         aVar.cu(str);
         aVar.b(i.h.know, new e(this));
-        aVar.b(this.aSe.getPageContext()).sR();
+        aVar.b(this.aSe.getPageContext()).sO();
     }
 
     public void a(boolean z, String str, String str2, String str3, String str4, From from) {
@@ -144,7 +144,7 @@ public class UserMuteAddAndDelModel<T> extends com.baidu.adp.base.e<T> {
                 } else if (from == From.Setting) {
                     TiebaStatic.log("c10047");
                 }
-                Zf();
+                Zb();
                 me(str);
                 return;
             }
@@ -158,12 +158,12 @@ public class UserMuteAddAndDelModel<T> extends com.baidu.adp.base.e<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aAI() {
+    public void aAE() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.aSe.getPageContext().getPageActivity());
         aVar.cu(this.aSe.getResources().getString(i.h.mute_is_super_member_function));
         aVar.a(i.h.open_now, new f(this));
         aVar.b(i.h.cancel, new g(this));
-        aVar.b(this.aSe.getPageContext()).sR();
+        aVar.b(this.aSe.getPageContext()).sO();
     }
 
     @Override // com.baidu.adp.base.e
@@ -178,7 +178,7 @@ public class UserMuteAddAndDelModel<T> extends com.baidu.adp.base.e<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zf() {
+    public void Zb() {
         if (this.aLO == null) {
             this.aLO = new com.baidu.tbadk.core.view.a(this.aSe.getPageContext());
             this.aLO.b(new h(this));

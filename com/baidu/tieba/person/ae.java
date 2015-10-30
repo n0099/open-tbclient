@@ -17,19 +17,19 @@ class ae implements View.OnClickListener {
         int i;
         boolean z;
         com.baidu.tbadk.core.dialog.a aVar;
-        int sex = this.cqc.cpT.aiE().getSex();
+        int sex = this.cqc.cpT.aiA().getSex();
         i = this.cqc.mSex;
         if (sex != i) {
             this.cqc.cox = true;
         }
         z = this.cqc.cox;
         if (!z) {
-            if (this.cqc.cpT != null && this.cqc.cpT.aiE().getPhotoChanged()) {
+            if (this.cqc.cpT != null && this.cqc.cpT.aiA().getPhotoChanged()) {
                 Intent intent = new Intent();
                 if (this.cqc.cpH.booleanValue()) {
-                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cqc.cpT.aiE());
+                    intent.putExtra(PersonChangeData.TAG_PERSON_INFO, this.cqc.cpT.aiA());
                 } else {
-                    intent.putExtra("data", this.cqc.cpT.aiE());
+                    intent.putExtra("data", this.cqc.cpT.aiA());
                 }
                 this.cqc.setResult(-1, intent);
             }
@@ -37,6 +37,6 @@ class ae implements View.OnClickListener {
             return;
         }
         aVar = this.cqc.cpY;
-        aVar.sR();
+        aVar.sO();
     }
 }

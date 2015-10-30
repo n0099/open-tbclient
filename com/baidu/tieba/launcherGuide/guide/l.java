@@ -32,7 +32,7 @@ public class l implements View.OnClickListener {
             button = this.bSj.mNext;
             if (view == button) {
                 newUserGuideActivity = this.bSj.bRO;
-                if (newUserGuideActivity.aaw()) {
+                if (newUserGuideActivity.aas()) {
                     TbadkApplication.getInst().setLikeBarChanged(true);
                 }
                 k kVar = this.bSj;

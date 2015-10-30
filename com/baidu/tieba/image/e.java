@@ -17,16 +17,16 @@ public class e implements TbImageView.a {
         h hVar2;
         if (z) {
             hVar2 = this.bOO.bOK;
-            hVar2.ZV();
+            hVar2.ZR();
         }
         hVar = this.bOO.bOK;
-        hVar.ZX();
+        hVar.ZT();
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
     public void onCancel() {
         h hVar;
         hVar = this.bOO.bOK;
-        hVar.ZX();
+        hVar.ZT();
     }
 }

@@ -18,7 +18,7 @@ public class b {
     private b() {
     }
 
-    public static b BY() {
+    public static b BV() {
         if (atc == null) {
             synchronized (b.class) {
                 if (atc == null) {
@@ -29,12 +29,12 @@ public class b {
         return atc;
     }
 
-    public void BZ() {
+    public void BW() {
         com.baidu.tieba.tbadkCore.a.a.a(303024, GetUserInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void Ca() {
+    public void BX() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -58,7 +58,7 @@ public class b {
             currentAccountObj.setSex(userData.getSex());
             currentAccountObj.setMemberType(userData.getIsMem());
             e payMemberInfoData = userData.getPayMemberInfoData();
-            if (payMemberInfoData != null && userData.getIsMem() != 0 && payMemberInfoData.rn() * 1000 > System.currentTimeMillis() && !StringUtils.isNull(payMemberInfoData.getUrl())) {
+            if (payMemberInfoData != null && userData.getIsMem() != 0 && payMemberInfoData.rk() * 1000 > System.currentTimeMillis() && !StringUtils.isNull(payMemberInfoData.getUrl())) {
                 currentAccountObj.setMemberIconUrl(payMemberInfoData.getUrl());
             } else {
                 currentAccountObj.setMemberIconUrl(null);

@@ -14,7 +14,7 @@ public class at implements View.OnFocusChangeListener {
     @Override // android.view.View.OnFocusChangeListener
     public void onFocusChange(View view, boolean z) {
         if (!z) {
-            this.cqc.aiw();
+            this.cqc.ais();
         }
     }
 }

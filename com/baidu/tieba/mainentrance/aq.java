@@ -55,7 +55,7 @@ class aq extends HttpMessageListener {
                     this.bVC.showToast(i.h.neterror);
                 } else {
                     this.bVC.showToast(httpResponsedMessage.getErrorString());
-                    this.bVC.aby();
+                    this.bVC.abu();
                     this.bVC.mNoDataView.setTextOption(NoDataViewFactory.d.cK(i.h.text_no_suggest));
                 }
             }

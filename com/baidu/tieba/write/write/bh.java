@@ -56,9 +56,9 @@ class bh implements View.OnFocusChangeListener {
             }
         } else {
             this.dqi.dqf = true;
-            this.dqi.aDh();
+            this.dqi.aDd();
             jVar = this.dqi.dpD;
-            jVar.za();
+            jVar.yX();
             Activity activity = this.dqi.getActivity();
             editText3 = this.dqi.dmz;
             com.baidu.adp.lib.util.k.d(activity, editText3);
@@ -81,9 +81,9 @@ class bh implements View.OnFocusChangeListener {
             }
             editText6 = this.dqi.dmD;
             editText6.setHint((CharSequence) null);
-            this.dqi.aDh();
+            this.dqi.aDd();
             jVar2 = this.dqi.dpD;
-            jVar2.za();
+            jVar2.yX();
             Activity activity2 = this.dqi.getActivity();
             editText7 = this.dqi.dmD;
             com.baidu.adp.lib.util.k.d(activity2, editText7);

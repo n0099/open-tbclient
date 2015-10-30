@@ -25,7 +25,7 @@ public class b extends HttpMessageListener {
         if (interfaceC0080a != null) {
             if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1002701) {
                 interfaceC0080a2 = this.dma.dlZ;
-                interfaceC0080a2.aBT();
+                interfaceC0080a2.aBP();
                 return;
             }
             int statusCode = httpResponsedMessage.getStatusCode();

@@ -13,11 +13,11 @@ public class m implements h.a {
     }
 
     @Override // com.baidu.tbadk.core.view.h.a
-    public void qw() {
+    public void qt() {
     }
 
     @Override // com.baidu.tbadk.core.view.h.a
-    public void qx() {
+    public void qu() {
         MorePopupWindow morePopupWindow;
         MorePopupWindow morePopupWindow2;
         morePopupWindow = this.bbB.mPopWindow;

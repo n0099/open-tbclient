@@ -24,14 +24,14 @@ public class BrowseSettingActivity extends BaseActivity implements BdSwitchView.
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cMV.arA()) {
-            this.cMV.arE();
-        } else if (view == this.cMV.arB()) {
-            this.cMV.arF();
-        } else if (view == this.cMV.arC()) {
-            this.cMV.arG();
-        } else if (view == this.cMV.arD()) {
-            this.cMV.arH();
+        if (view == this.cMV.arw()) {
+            this.cMV.arA();
+        } else if (view == this.cMV.arx()) {
+            this.cMV.arB();
+        } else if (view == this.cMV.ary()) {
+            this.cMV.arC();
+        } else if (view == this.cMV.arz()) {
+            this.cMV.arD();
         }
     }
 

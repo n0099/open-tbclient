@@ -104,18 +104,18 @@ public class a extends com.baidu.adp.lib.a.b.a.a.i {
         }
     }
 
-    public boolean rp() {
+    public boolean rm() {
         if (this.cYI == 2) {
             return false;
         }
-        return rq() || rr();
+        return rn() || ro();
     }
 
-    public boolean rq() {
+    public boolean rn() {
         return (this.cYI != 3 || StringUtils.isNull(this.apk_name) || StringUtils.isNull(this.apk_url)) ? false : true;
     }
 
-    public boolean rr() {
+    public boolean ro() {
         return this.cYI == 1 && !StringUtils.isNull(this.url);
     }
 

@@ -17,7 +17,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         if (i.iM()) {
             String loadString = TbadkSettings.getInst().loadString(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "remind_recommend_info", "");
             if (TextUtils.isEmpty(loadString)) {
-                lO = a.ayM();
+                lO = a.ayI();
             } else {
                 lO = a.lO(loadString);
             }

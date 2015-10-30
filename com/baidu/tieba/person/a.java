@@ -29,10 +29,10 @@ public class a extends HttpMessageListener {
         int i3;
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
-                int aid = this.cnX.aid();
+                int ahZ = this.cnX.ahZ();
                 iArr = BasePersonInfoActivity.bFO;
                 i = this.cnX.bFG;
-                com.baidu.tbadk.core.a.h.w(aid, iArr[i]);
+                com.baidu.tbadk.core.a.h.w(ahZ, iArr[i]);
                 imageView = this.cnX.bFI;
                 iArr2 = BasePersonInfoActivity.bFM;
                 i2 = this.cnX.bFG;

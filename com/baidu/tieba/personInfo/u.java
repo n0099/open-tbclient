@@ -66,15 +66,15 @@ public class u {
         oO();
     }
 
-    public RelativeLayout ajB() {
+    public RelativeLayout ajx() {
         return this.cta;
     }
 
-    public RelativeLayout ajr() {
+    public RelativeLayout ajn() {
         return this.csQ;
     }
 
-    public RelativeLayout aju() {
+    public RelativeLayout ajq() {
         return this.csV;
     }
 
@@ -99,16 +99,16 @@ public class u {
         }
     }
 
-    public void ajC() {
+    public void ajy() {
         oO();
-        y ajf = this.cqE.ajf();
-        PersonTainInfo ajN = ajf.ajN();
-        if (ajN == null) {
+        y ajb = this.cqE.ajb();
+        PersonTainInfo ajJ = ajb.ajJ();
+        if (ajJ == null) {
             this.csP.setVisibility(8);
-        } else if (ajN.getIsFriend() == 1) {
+        } else if (ajJ.getIsFriend() == 1) {
             this.csP.setVisibility(8);
         } else {
-            UserData userData = ajf.getUserData();
+            UserData userData = ajb.getUserData();
             if (userData == null) {
                 this.csP.setVisibility(8);
                 return;
@@ -118,23 +118,23 @@ public class u {
                 this.csP.setVisibility(8);
                 return;
             }
-            if (personPrivate.zZ() == 1) {
+            if (personPrivate.zW() == 1) {
                 this.csQ.setVisibility(0);
                 this.csU.setVisibility(0);
             } else {
                 this.csQ.setVisibility(8);
                 this.csU.setVisibility(8);
             }
-            if (personPrivate.Ac() == 1) {
+            if (personPrivate.zZ() == 1) {
                 this.csV.setVisibility(0);
                 this.csU.setVisibility(0);
             } else {
                 this.csV.setVisibility(8);
                 this.csU.setVisibility(8);
             }
-            int Aa = personPrivate.Aa();
+            int zX = personPrivate.zX();
             boolean appResponseToIntentClass = TbadkCoreApplication.m411getInst().appResponseToIntentClass(PersonGroupActivityConfig.class);
-            if (Aa == 1 && appResponseToIntentClass) {
+            if (zX == 1 && appResponseToIntentClass) {
                 this.cta.setVisibility(0);
                 this.csZ.setVisibility(0);
             } else {
@@ -142,7 +142,7 @@ public class u {
                 this.csZ.setVisibility(8);
             }
             this.csP.setVisibility(0);
-            List<CommonForum> commonForum = ajN.getCommonForum();
+            List<CommonForum> commonForum = ajJ.getCommonForum();
             if (commonForum != null && commonForum.size() > 0) {
                 ArrayList<String> arrayList = new ArrayList<>();
                 for (int i = 0; i < commonForum.size(); i++) {
@@ -155,7 +155,7 @@ public class u {
                 this.csQ.setVisibility(8);
                 this.csU.setVisibility(8);
             }
-            List<CommonFriend> commonFriend = ajN.getCommonFriend();
+            List<CommonFriend> commonFriend = ajJ.getCommonFriend();
             if (commonFriend != null && commonFriend.size() > 0) {
                 ArrayList<String> arrayList2 = new ArrayList<>();
                 for (int i2 = 0; i2 < commonFriend.size(); i2++) {
@@ -168,7 +168,7 @@ public class u {
                 this.csV.setVisibility(8);
                 this.csU.setVisibility(8);
             }
-            List<CommonGroup> commonGroup = ajN.getCommonGroup();
+            List<CommonGroup> commonGroup = ajJ.getCommonGroup();
             if (commonGroup != null && commonGroup.size() > 0) {
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 for (int i3 = 0; i3 < commonGroup.size(); i3++) {

@@ -23,12 +23,12 @@ class ba implements ae.a {
         if (aeVar != null) {
             blVar = this.ciK.cih;
             com.baidu.tieba.pb.a.b pbData = blVar.getPbData();
-            if (pbData.aeO().getPraise().getIsLike() == 1) {
+            if (pbData.aeK().getPraise().getIsLike() == 1) {
                 this.ciK.fp(0);
             } else {
                 this.ciK.fp(1);
             }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.aeO()));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.aeK()));
         }
     }
 

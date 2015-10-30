@@ -42,19 +42,19 @@ public class c extends com.baidu.adp.base.e {
         return false;
     }
 
-    public boolean adj() {
+    public boolean adf() {
         return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.m411getInst().getReporyUserInfoLastTime()) >= this.RS;
     }
 
-    public void adk() {
+    public void adg() {
         TbadkCoreApplication.m411getInst().setReporyUserInfoCurrentTime();
     }
 
-    public void aQ(long j) {
+    public void aO(long j) {
         this.RS = j;
     }
 
-    public void adl() {
+    public void adh() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/user/report");
         tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);

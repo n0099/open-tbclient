@@ -110,7 +110,7 @@ public class ChatClipImageItemView extends TbImageView implements j.a {
         this.buG = z;
     }
 
-    public void Sc() {
+    public void RY() {
         this.buH.kk();
         this.buH.G(true);
     }

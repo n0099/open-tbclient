@@ -17,7 +17,7 @@ class bi extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001310) {
-            this.dqi.aym();
+            this.dqi.ayi();
         }
     }
 }

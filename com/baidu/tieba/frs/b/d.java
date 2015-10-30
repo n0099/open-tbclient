@@ -41,9 +41,9 @@ public class d implements Runnable {
                             qVar = this.bbY.bbI;
                             if (qVar != null) {
                                 qVar2 = this.bbY.bbI;
-                                if (qVar2.NS()) {
+                                if (qVar2.NO()) {
                                     TbadkSettings.getInst().saveBoolean(FrsActivity.aTD, true);
-                                    this.bbY.Ns();
+                                    this.bbY.No();
                                     frsActivity2 = this.bbY.baR;
                                     frsActivity2.aTI = true;
                                     this.bbY.bbQ = true;
@@ -58,9 +58,9 @@ public class d implements Runnable {
                             frsHeaderView = this.bbY.bbH;
                             if (frsHeaderView != null) {
                                 frsHeaderView2 = this.bbY.bbH;
-                                if (frsHeaderView2.NS()) {
+                                if (frsHeaderView2.NO()) {
                                     TbadkSettings.getInst().saveBoolean(FrsActivity.aTD, true);
-                                    this.bbY.Ns();
+                                    this.bbY.No();
                                     frsActivity = this.bbY.baR;
                                     frsActivity.aTI = true;
                                     this.bbY.bbQ = true;

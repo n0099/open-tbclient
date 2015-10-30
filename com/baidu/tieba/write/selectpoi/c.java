@@ -24,7 +24,7 @@ class c implements AdapterView.OnItemClickListener {
         hVar = this.dlO.dlI;
         if (hVar != null) {
             hVar2 = this.dlO.dlI;
-            if (hVar2.aBR()) {
+            if (hVar2.aBN()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CLOSE_SELECT_LOCATION_ACTIVITY));
                 MessageManager messageManager = MessageManager.getInstance();
                 hVar3 = this.dlO.dlI;

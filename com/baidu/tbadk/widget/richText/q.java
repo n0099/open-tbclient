@@ -20,9 +20,9 @@ public class q implements View.OnClickListener {
         TbRichTextView.b bVar2;
         bVar = this.aCC.aCu;
         if (bVar != null) {
-            d Fd = this.aCE.Fd();
+            d EZ = this.aCE.EZ();
             bVar2 = this.aCC.aCu;
-            bVar2.a(view, Fd.atF.mGid, Fd.atF.mPackageName, Fd.atF.atl, Fd.atF.ath, Fd.atF.ati, Fd.atF.atg, Fd.atF.atj, Fd.atF.atk);
+            bVar2.a(view, EZ.atF.mGid, EZ.atF.mPackageName, EZ.atF.atl, EZ.atF.ath, EZ.atF.ati, EZ.atF.atg, EZ.atF.atj, EZ.atF.atk);
         }
     }
 }

@@ -12,7 +12,7 @@ class ak implements com.baidu.adp.lib.e.c<GifView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: afB */
+    /* renamed from: afx */
     public GifView gZ() {
         return new GifView(this.ciK.getPageContext().getPageActivity());
     }

@@ -74,12 +74,12 @@ public class j extends NoPressedLinearLayout implements EmotionTabContentView.c,
         }
     }
 
-    private ArrayList<t> AP() {
+    private ArrayList<t> AM() {
         ArrayList<t> arrayList = new ArrayList<>();
-        Iterator<t> it = r.Bc().Be().iterator();
+        Iterator<t> it = r.AZ().Bb().iterator();
         while (it.hasNext()) {
             t next = it.next();
-            if (next.AZ() != EmotionGroupType.BIG_EMOTION) {
+            if (next.AW() != EmotionGroupType.BIG_EMOTION) {
                 arrayList.add(next);
             }
         }
@@ -88,15 +88,15 @@ public class j extends NoPressedLinearLayout implements EmotionTabContentView.c,
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setup() {
-        this.aqr = r.Bc().Be();
+        this.aqr = r.AZ().Bb();
         if (!this.aqv) {
-            this.aqs = AP();
+            this.aqs = AM();
         } else {
-            this.aqs = r.Bc().Be();
+            this.aqs = r.AZ().Bb();
         }
         if ((this.aqr == null || this.aqr.size() <= 0) && this.aqw < 3) {
             this.aqw++;
-            r.Bc().Bd();
+            r.AZ().Ba();
             return;
         }
         this.aqp.setDatas(this.aqr);
@@ -143,7 +143,7 @@ public class j extends NoPressedLinearLayout implements EmotionTabContentView.c,
             t tVar = this.aqs.get(i);
             this.aqo.c(this.aqs, i);
             if (this.aqu) {
-                if (tVar.AZ() == EmotionGroupType.LOCAL) {
+                if (tVar.AW() == EmotionGroupType.LOCAL) {
                     this.aqp.setShowDelete(true);
                 } else {
                     this.aqp.setShowDelete(false);

@@ -17,7 +17,7 @@ public class f implements View.OnClickListener {
         com.baidu.tieba.recommendfrs.control.a.b bVar;
         bVar = this.cIB.cIw;
         bVar.c(0, "头条", 0);
-        this.cIB.apT();
+        this.cIB.apP();
         this.cIB.a(this.cIB.getView(), false, this.cIB.getResources().getDimensionPixelSize(i.d.ds360));
     }
 }

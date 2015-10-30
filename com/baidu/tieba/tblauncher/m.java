@@ -22,7 +22,7 @@ class m extends CustomMessageListener {
             if (data instanceof Boolean) {
                 boolean booleanValue = ((Boolean) data).booleanValue();
                 aoVar = this.this$0.dcB;
-                aoVar.ayI().setWidgetLayerVisible(booleanValue);
+                aoVar.ayE().setWidgetLayerVisible(booleanValue);
             }
         }
     }

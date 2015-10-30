@@ -53,10 +53,10 @@ public class e implements RelateForumViewPager.a {
             } else {
                 this.aXO = false;
             }
-            this.aXN = QZ();
+            this.aXN = QV();
         }
 
-        private List<RelateForumItemData> QZ() {
+        private List<RelateForumItemData> QV() {
             ArrayList arrayList = new ArrayList();
             if (this.aXM != null) {
                 if (this.aXO) {
@@ -94,18 +94,18 @@ public class e implements RelateForumViewPager.a {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public int Mq() {
+        public int Mm() {
             if (this.aXM == null) {
                 return 0;
             }
             return this.aXM.size();
         }
 
-        public int Mr() {
+        public int Mn() {
             return this.aXO ? 1 : 0;
         }
 
-        public List<RelateForumItemData> Ms() {
+        public List<RelateForumItemData> Mo() {
             return this.aXN;
         }
     }
@@ -114,31 +114,31 @@ public class e implements RelateForumViewPager.a {
         if (gVar.getCount() > 0) {
             this.bpZ = gVar;
             this.bpX = new a(gVar.bpq);
-            this.bpW.setDatas(this.bpX.Ms());
+            this.bpW.setDatas(this.bpX.Mo());
             this.bpT.setAdapter(this.bpW);
-            this.bpT.setCurrentItem(this.bpX.Mr(), false);
-            if (this.bpX.Mq() > 0) {
-                if (this.bpX.Mq() > 4) {
+            this.bpT.setCurrentItem(this.bpX.Mn(), false);
+            if (this.bpX.Mm() > 0) {
+                if (this.bpX.Mm() > 4) {
                     this.apA.setVisibility(8);
                     an.b(this.bpV, i.c.cp_cont_d, 1);
                     this.bpV.setText(TbadkCoreApplication.m411getInst().getString(i.h.relate_forum_scan_all));
                     this.bpV.setVisibility(0);
                     this.bpV.setOnClickListener(new h(this));
-                    Mp();
+                    Ml();
                 }
-                if (this.bpX.Mq() >= 2 && this.bpX.Mq() <= 4) {
+                if (this.bpX.Mm() >= 2 && this.bpX.Mm() <= 4) {
                     this.bpV.setVisibility(8);
                     this.bpV.getRootView().setEnabled(false);
                     this.apA.setVisibility(0);
-                    if (this.apA.getCount() != this.bpX.Mq()) {
-                        this.apA.setCount(this.bpX.Mq());
+                    if (this.apA.getCount() != this.bpX.Mm()) {
+                        this.apA.setCount(this.bpX.Mm());
                     }
-                    Mo();
+                    Mk();
                 }
-                if (this.bpX.Mq() < 2) {
+                if (this.bpX.Mm() < 2) {
                     this.bpV.setVisibility(8);
                     this.apA.setVisibility(8);
-                    Mp();
+                    Ml();
                 }
                 this.bpW.notifyDataSetChanged();
             }
@@ -146,7 +146,7 @@ public class e implements RelateForumViewPager.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Mn() {
+    public void Mj() {
         int count;
         if (this.bpT != null && this.bpW != null && (count = this.bpW.getCount()) >= 2) {
             int currentItem = this.bpT.getCurrentItem();
@@ -162,13 +162,13 @@ public class e implements RelateForumViewPager.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Mo() {
+    public void Mk() {
         this.mHandler.removeMessages(1);
         this.mHandler.sendEmptyMessageDelayed(1, TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Mp() {
+    public void Ml() {
         this.mHandler.removeMessages(1);
     }
 
@@ -178,8 +178,8 @@ public class e implements RelateForumViewPager.a {
         this.bpT.removeAllViews();
     }
 
-    public void QK() {
-        this.bpW.QK();
+    public void QG() {
+        this.bpW.QG();
         this.apA.setSelector(an.getDrawable(i.e.icon_choose_dot_s));
         this.apA.setDrawable(an.getDrawable(i.e.icon_choose_dot_n));
     }

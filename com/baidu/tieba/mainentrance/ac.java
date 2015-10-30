@@ -39,7 +39,7 @@ public class ac implements AdapterView.OnItemClickListener {
                 if (aVar.is_floor != 1) {
                     if (aVar.thread_type == 33) {
                         TiebaStatic.log("c10257");
-                        this.bVC.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.bVC.getPageContext().getPageActivity(), new StringBuilder().append(aVar.tid).toString()).rk()));
+                        this.bVC.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.bVC.getPageContext().getPageActivity(), new StringBuilder().append(aVar.tid).toString()).rh()));
                         return;
                     }
                     this.bVC.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.bVC.getPageContext().getPageActivity()).createNormalCfg(new StringBuilder().append(aVar.tid).toString(), null, "search_post")));

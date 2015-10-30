@@ -23,7 +23,7 @@ class az implements View.OnClickListener {
         if (currentAccount == null || currentAccount.length() <= 0) {
             TbadkCoreApplication.m411getInst().login(this.cqq.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.cqq.getBaseFragmentActivity().getPageContext().getPageActivity(), this.cqq.getString(i.h.login_to_chat), true, 11028)));
         } else {
-            this.cqq.aiI();
+            this.cqq.aiE();
         }
     }
 }

@@ -95,24 +95,24 @@ public class SkinItemView extends LinearLayout {
             }
             this.mSkinData = bVar;
             this.dew.d(bVar.getPicUrl(), 10, false);
-            this.dex.d(bVar.azj(), 10, false);
-            this.dey.d(bVar.azk(), 10, false);
+            this.dex.d(bVar.azf(), 10, false);
+            this.dey.d(bVar.azg(), 10, false);
             this.deB.setText(com.baidu.tbadk.util.n.v(bVar.getTitle(), 10));
             this.deC.setText(bVar.getPackageSize());
             this.deD.setSkinData(this.mSkinData);
-            if (bVar.azo() && (bVar.getId() < 0 || bVar.Uj() != 7)) {
+            if (bVar.azk() && (bVar.getId() < 0 || bVar.Uf() != 7)) {
                 this.dez.setVisibility(0);
                 an.c(this.dez, i.e.icon_choose_photo);
             } else {
                 this.dez.setVisibility(8);
             }
-            if (bVar.Uj() == 7 && bVar.getId() > 0) {
+            if (bVar.Uf() == 7 && bVar.getId() > 0) {
                 this.deA.setVisibility(0);
                 an.c(this.deA, i.e.account_active_account_check);
             } else {
                 this.deA.setVisibility(4);
             }
-            this.deD.e(bVar.azm(), 0.0f);
+            this.deD.e(bVar.azi(), 0.0f);
         }
     }
 

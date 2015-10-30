@@ -16,6 +16,6 @@ public class s implements DialogInterface.OnDismissListener {
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        this.bSq.aaE();
+        this.bSq.aaA();
     }
 }

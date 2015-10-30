@@ -11,23 +11,23 @@ public class f extends i {
     private int anH = 1;
     private int anI = 1;
 
-    public int zY() {
+    public int zV() {
         return this.anE;
     }
 
-    public int zZ() {
+    public int zW() {
         return this.anF;
     }
 
-    public int Aa() {
+    public int zX() {
         return this.anG;
     }
 
-    public int Ab() {
+    public int zY() {
         return this.anH;
     }
 
-    public int Ac() {
+    public int zZ() {
         return this.anI;
     }
 

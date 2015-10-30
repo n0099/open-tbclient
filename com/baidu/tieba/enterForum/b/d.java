@@ -13,7 +13,7 @@ public class d {
     private boolean aLx;
     private int level;
 
-    public ArrayList<v> Ib() {
+    public ArrayList<v> HX() {
         return this.aLw;
     }
 
@@ -21,7 +21,7 @@ public class d {
         this.level = i;
     }
 
-    public void Ic() {
+    public void HY() {
         Iterator<v> it = this.aLw.iterator();
         while (it.hasNext()) {
             it.next().kS(0);

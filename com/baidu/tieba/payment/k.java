@@ -20,11 +20,11 @@ public class k implements View.OnClickListener {
             z2 = this.ced.cdY;
             if (z2) {
                 r.jz("c10292");
-                this.ced.aer();
+                this.ced.aen();
                 return;
             }
             r.jz("c10293");
-            this.ced.aeq();
+            this.ced.aem();
             return;
         }
         this.ced.I(0, null);

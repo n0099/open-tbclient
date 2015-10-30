@@ -48,6 +48,6 @@ public class i implements c.b {
         if (readThreadHistory != null && this.aUQ != null && !readThreadHistory.lL(this.aUQ.getId())) {
             readThreadHistory.lK(this.aUQ.getId());
         }
-        this.aZM.aZG.LQ();
+        this.aZM.aZG.LM();
     }
 }

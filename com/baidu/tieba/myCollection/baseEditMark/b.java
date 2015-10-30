@@ -18,8 +18,8 @@ public class b extends com.baidu.tbadk.baseEditMark.a {
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String qj() {
-        return this.cch.qj();
+    public String qg() {
+        return this.cch.qg();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
@@ -28,18 +28,18 @@ public class b extends com.baidu.tbadk.baseEditMark.a {
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void ql() {
-        this.cch.ql();
+    public void qi() {
+        this.cch.qi();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void qm() {
-        this.cch.qm();
+    public void qj() {
+        this.cch.qj();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData qn() {
-        return this.cch.qn();
+    public MarkData qk() {
+        return this.cch.qk();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
@@ -48,7 +48,7 @@ public class b extends com.baidu.tbadk.baseEditMark.a {
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean qk() {
-        return this.cch.qk();
+    public boolean qh() {
+        return this.cch.qh();
     }
 }

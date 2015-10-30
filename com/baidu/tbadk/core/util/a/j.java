@@ -28,7 +28,7 @@ public class j implements a.InterfaceC0004a {
     private boolean acy = false;
     public boolean acz = false;
 
-    public boolean vi() {
+    public boolean vf() {
         return this.acy;
     }
 
@@ -36,7 +36,7 @@ public class j implements a.InterfaceC0004a {
         return this.acr;
     }
 
-    public void vj() {
+    public void vg() {
         this.acx = null;
         this.uR = "";
         this.acy = false;
@@ -57,7 +57,7 @@ public class j implements a.InterfaceC0004a {
         int i = 0;
         try {
             try {
-                vj();
+                vg();
                 if (this.acp != null) {
                     cancel();
                     this.ol = null;
@@ -153,7 +153,7 @@ public class j implements a.InterfaceC0004a {
         try {
             if (TbadkCoreApplication.m411getInst().isHttpClientOpen()) {
                 try {
-                    vj();
+                    vg();
                     if (this.acu != null) {
                         cancel();
                     }
@@ -165,7 +165,7 @@ public class j implements a.InterfaceC0004a {
                             this.acp.gP().o(entry.getKey(), entry.getValue());
                         }
                     }
-                    this.acu.vg();
+                    this.acu.vd();
                     this.acr = this.acp.gQ();
                     bArr = this.acp.gQ().vf;
                     this.responseCode = this.acp.gQ().responseCode;
@@ -176,7 +176,7 @@ public class j implements a.InterfaceC0004a {
                         this.dataSize = 0;
                     }
                     this.Ge = this.acu.fF();
-                    this.acz = this.acu.vh();
+                    this.acz = this.acu.ve();
                     if (!this.acy) {
                         a(str, null);
                     }
@@ -334,7 +334,7 @@ public class j implements a.InterfaceC0004a {
         }
     }
 
-    public boolean vk() {
+    public boolean vh() {
         if (this.acu == null) {
             return false;
         }

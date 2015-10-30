@@ -42,23 +42,23 @@ public class d extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.discover.data.c, 
     public void B(com.baidu.tieba.discover.data.c cVar) {
         super.B(cVar);
         if (cVar != null) {
-            this.ME.setDefaultResource(u.gp(cVar.HN()));
+            this.ME.setDefaultResource(u.gp(cVar.HJ()));
             if (!StringUtils.isNull(cVar.getIcon_url())) {
                 this.ME.d(cVar.getIcon_url(), 10, false);
             }
             this.alu.setText(n.e(cVar.getTitle(), 0, 16));
-            this.aCJ.setText(cVar.HM());
-            if (cVar.HO()) {
+            this.aCJ.setText(cVar.HI());
+            if (cVar.HK()) {
                 this.aLe.setVisibility(0);
             } else {
                 this.aLe.setVisibility(8);
             }
-            if (cVar.HP()) {
+            if (cVar.HL()) {
                 this.aLa.setVisibility(0);
             } else {
                 this.aLa.setVisibility(8);
             }
-            switch (cVar.HQ()) {
+            switch (cVar.HM()) {
                 case 1:
                     this.aLf.setVisibility(0);
                     this.aLg.setVisibility(0);

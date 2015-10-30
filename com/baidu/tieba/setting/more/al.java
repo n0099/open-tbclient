@@ -13,6 +13,6 @@ class al extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         SettingStatic.cOH = true;
-        SettingStatic.ata();
+        SettingStatic.asW();
     }
 }

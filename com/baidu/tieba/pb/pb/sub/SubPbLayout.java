@@ -84,14 +84,14 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         SparseArray sparseArray;
-        if (this.cgP == null || this.cnm == null || this.cnm.awE() == null) {
+        if (this.cgP == null || this.cnm == null || this.cnm.awA() == null) {
             setMeasuredDimension(0, 0);
             return;
         }
         int size = View.MeasureSpec.getSize(i);
-        ArrayList<com.baidu.tieba.tbadkCore.data.k> awE = this.cnm.awE();
-        int size2 = awE.size();
-        if (this.cnm.awQ()) {
+        ArrayList<com.baidu.tieba.tbadkCore.data.k> awA = this.cnm.awA();
+        int size2 = awA.size();
+        if (this.cnm.awM()) {
             this.cnm.gt(true);
             if (size2 <= 10) {
                 this.cnl = size2;
@@ -132,17 +132,17 @@ public class SubPbLayout extends ViewGroup {
             }
             sparseArray.put(i.f.tag_load_sub_view, this.mRootView);
             sparseArray.put(i.f.tag_is_subpb, true);
-            if (awE.get(i3) != null && awE.get(i3).getAuthor() != null) {
-                sparseArray.put(i.f.tag_photo_username, awE.get(i3).getAuthor().getUserName());
-                sparseArray.put(i.f.tag_clip_board, awE.get(i3));
+            if (awA.get(i3) != null && awA.get(i3).getAuthor() != null) {
+                sparseArray.put(i.f.tag_photo_username, awA.get(i3).getAuthor().getUserName());
+                sparseArray.put(i.f.tag_clip_board, awA.get(i3));
             }
-            this.cgP.a((ai.a) sparseArray.get(i.f.tag_holder), awE.get(i3), this.cnm.awM() > awE.size() || awE.size() - i3 > 1, i3 == 0);
+            this.cgP.a((ai.a) sparseArray.get(i.f.tag_holder), awA.get(i3), this.cnm.awI() > awA.size() || awA.size() - i3 > 1, i3 == 0);
             view.measure(((size - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
             i3++;
             i4 += view.getMeasuredHeight();
         }
-        if (awE != null && awE.size() > 0 && this.cnm.awM() > this.cnl) {
-            a(getContext(), (TextView) this.cno.findViewById(i.f.sub_pb_more_text), this.cnm.awM() - this.cnl);
+        if (awA != null && awA.size() > 0 && this.cnm.awI() > this.cnl) {
+            a(getContext(), (TextView) this.cno.findViewById(i.f.sub_pb_more_text), this.cnm.awI() - this.cnl);
             this.cno.setOnClickListener(this.cni);
             SparseArray sparseArray4 = (SparseArray) this.cno.getTag();
             if (sparseArray4 == null) {
@@ -163,7 +163,7 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5;
-        if (this.cnm != null && this.cnm.awE() != null) {
+        if (this.cnm != null && this.cnm.awA() != null) {
             int size = this.cnn.size();
             for (int i6 = 0; i6 < size; i6++) {
                 a poll = this.cnn.poll();
@@ -215,7 +215,7 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
-        if (this.cnm != null && this.cnm.awE() != null) {
+        if (this.cnm != null && this.cnm.awA() != null) {
             int i = this.cnl;
             for (int i2 = 0; i2 < i; i2++) {
                 if (i < getChildCount()) {
@@ -236,7 +236,7 @@ public class SubPbLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: ahz */
+    /* renamed from: ahv */
     public ViewGroup.MarginLayoutParams generateDefaultLayoutParams() {
         return new ViewGroup.MarginLayoutParams(-2, -2);
     }

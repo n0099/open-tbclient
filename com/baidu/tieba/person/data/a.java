@@ -22,11 +22,11 @@ public class a {
         return this.mPage;
     }
 
-    public ArrayList<UserData> aiS() {
+    public ArrayList<UserData> aiO() {
         return this.crd;
     }
 
-    public ArrayList<UserData> aiT() {
+    public ArrayList<UserData> aiP() {
         return this.cre;
     }
 
@@ -34,7 +34,7 @@ public class a {
         return this.friendNum;
     }
 
-    public int aiU() {
+    public int aiQ() {
         return this.crf;
     }
 

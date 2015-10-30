@@ -42,7 +42,7 @@ public class b extends com.baidu.adp.base.f<PbActivity> {
         }
     }
 
-    public void aAK() {
+    public void aAG() {
         if (this.djo != null) {
             this.djo.setPadding(0, 0, 0, 0);
         }
@@ -63,17 +63,17 @@ public class b extends com.baidu.adp.base.f<PbActivity> {
     }
 
     public void a(View view, com.baidu.tieba.pb.a.b bVar) {
-        if (bVar != null && bVar.aeN() != null && bVar.aeO() != null && view != null) {
-            this.mForumId = com.baidu.adp.lib.g.b.c(bVar.aeN().getId(), 0L);
-            this.mThreadId = com.baidu.adp.lib.g.b.c(bVar.aeO().getId(), 0L);
-            if (bVar.aeO().sB() && bVar.aeO().sg() != null) {
+        if (bVar != null && bVar.aeJ() != null && bVar.aeK() != null && view != null) {
+            this.mForumId = com.baidu.adp.lib.g.b.c(bVar.aeJ().getId(), 0L);
+            this.mThreadId = com.baidu.adp.lib.g.b.c(bVar.aeK().getId(), 0L);
+            if (bVar.aeK().sy() && bVar.aeK().sd() != null) {
                 if (this.djn == null) {
                     this.djn = ((ViewStub) view.findViewById(i.f.vote_card_layout)).inflate();
                     this.djr = (TextView) this.djn.findViewById(i.f.btn_pb_vote);
                     this.djs = this.djn.findViewById(i.f.vote_top_line);
                     this.djt = this.djn.findViewById(i.f.vote_middle_line);
-                    tc();
-                    this.dju = bVar.aeM();
+                    sZ();
+                    this.dju = bVar.aeI();
                     a(this.dju, false);
                 }
                 if (!this.djn.isShown()) {
@@ -88,12 +88,12 @@ public class b extends com.baidu.adp.base.f<PbActivity> {
     private void a(VoteDataInfo voteDataInfo, boolean z) {
         this.dju = voteDataInfo;
         if (this.dju != null) {
-            aAL();
+            aAH();
             if (this.dju.getVoteType() == 1) {
                 if (this.dju.getStatus() == 2 || this.dju.getIsPolled() == 1) {
                     gP(z);
                 } else {
-                    aAM();
+                    aAI();
                 }
             } else if (this.dju.getVoteType() == 2) {
                 if (this.dju.getStatus() == 2 || this.dju.getIsPolled() == 1) {
@@ -121,15 +121,15 @@ public class b extends com.baidu.adp.base.f<PbActivity> {
         }
     }
 
-    private void aAL() {
+    private void aAH() {
         if (this.djn != null && this.dju != null) {
             ((TextView) this.djn.findViewById(i.f.tv_vote_endtime)).setText(this.dju.getTips());
             ((TextView) this.djn.findViewById(i.f.vote_num)).setText(getPageContext().getPageActivity().getString(i.h.pb_vote_num, new Object[]{Long.valueOf(this.dju.getTotalNum())}));
-            aAO();
+            aAK();
         }
     }
 
-    private void aAM() {
+    private void aAI() {
         if (this.djn != null && this.dju != null) {
             this.djp = (VoteTextGroupView) this.djn.findViewById(i.f.textvote_view);
             this.djp.setOnVoteCheckedChangedListener(this.aCP);
@@ -155,7 +155,7 @@ public class b extends com.baidu.adp.base.f<PbActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aAN() {
+    public void aAJ() {
         if (this.dju != null) {
             if (this.djx != null && this.ciU != null) {
                 this.djx.dA(this.ciU.getActivity().getString(i.h.vote_succ));
@@ -186,14 +186,14 @@ public class b extends com.baidu.adp.base.f<PbActivity> {
         return (responsedMessage == null || this.mContext == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.mContext.getUniqueId()) ? false : true;
     }
 
-    public void tc() {
+    public void sZ() {
         if (this.djn != null) {
             com.baidu.tbadk.h.a.a(this.ciU.getPageContext(), this.djn);
         }
-        aAO();
+        aAK();
     }
 
-    private void aAO() {
+    private void aAK() {
         if (this.djr != null && this.dju != null) {
             if (this.dju.getStatus() == 2) {
                 an.i((View) this.djr, i.e.btn_pb_vote_d);

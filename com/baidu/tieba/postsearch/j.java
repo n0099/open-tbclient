@@ -30,17 +30,17 @@ public class j {
         public String title;
     }
 
-    public boolean WW() {
+    public boolean WS() {
         return (this.ctN == null || this.ctN.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.cEb != null && this.cEb.rL() == 1;
+        return this.cEb != null && this.cEb.rI() == 1;
     }
 
     public int getCurrentPage() {
         if (this.cEb != null) {
-            return this.cEb.rJ();
+            return this.cEb.rG();
         }
         return 0;
     }

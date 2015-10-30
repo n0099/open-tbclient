@@ -29,7 +29,7 @@ public class bs extends BaseAdapter {
     private boolean cqs = false;
     boolean cbJ = false;
 
-    public void adx() {
+    public void adt() {
         this.cbJ = false;
         if (this.Xh != null && this.Xh.size() == 0) {
             this.cbJ = true;

@@ -32,11 +32,11 @@ public class g extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.myCollection.base
     public void B(com.baidu.tieba.myCollection.baseHistory.b bVar) {
         super.B(bVar);
         if (bVar != null) {
-            if (this.ccr != null && bVar.adG() != null) {
-                if (bVar.sq() == 33) {
-                    this.ccr.setText(PhotoLiveCardData.getLiveIconTitle(bVar.adG()));
+            if (this.ccr != null && bVar.adC() != null) {
+                if (bVar.sn() == 33) {
+                    this.ccr.setText(PhotoLiveCardData.getLiveIconTitle(bVar.adC()));
                 } else {
-                    this.ccr.setText(bVar.adG());
+                    this.ccr.setText(bVar.adC());
                 }
             }
             if (this.ccs != null && bVar.getForumName() != null) {

@@ -33,7 +33,7 @@ public class b extends LinearLayout {
             int size = this.mData.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.tieba.discover.data.c cVar = this.mData.get(i);
-                if (cVar != null && str.equals(cVar.HN())) {
+                if (cVar != null && str.equals(cVar.HJ())) {
                     cVar.bH(z);
                     if (i < getChildCount() && (getChildAt(i) instanceof a)) {
                         ((a) getChildAt(i)).bJ(z);
@@ -58,9 +58,9 @@ public class b extends LinearLayout {
     private void a(com.baidu.tieba.discover.data.c cVar, int i, int i2) {
         if (cVar != null) {
             a aVar = new a(getContext());
-            aVar.ar(cVar.getIcon_url(), cVar.HN());
+            aVar.ar(cVar.getIcon_url(), cVar.HJ());
             aVar.setTitle(cVar.getTitle());
-            aVar.bJ(cVar.HP());
+            aVar.bJ(cVar.HL());
             aVar.setLayoutParams(new LinearLayout.LayoutParams(0, -2, 1.0f));
             if (i2 > 1) {
                 if (i == 0) {

@@ -15,7 +15,7 @@ public class c {
     public HashMap<String, String> any = new HashMap<>();
     public String anz;
 
-    public static synchronized c zV() {
+    public static synchronized c zS() {
         c cVar;
         synchronized (c.class) {
             if (anv == null) {

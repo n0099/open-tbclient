@@ -106,6 +106,6 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         aVar.a(i.h.share, new f(this, j, shareFromGameCenterMsgData, str, str2, bVar));
         aVar.b(i.h.alert_no_button, new g(this, bVar));
         aVar.ak(false);
-        aVar.b(getPageContext()).sR();
+        aVar.b(getPageContext()).sO();
     }
 }

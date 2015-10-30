@@ -15,7 +15,7 @@ public class e implements d.a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
-    public void BF() {
+    public void BC() {
         BaseActivity baseActivity;
         baseActivity = this.asm.asb;
         baseActivity.showToast(i.h.no_network_guide);
@@ -27,7 +27,7 @@ public class e implements d.a {
         BaseActivity baseActivity;
         baseActivity = this.asm.asb;
         if (StringUtils.isNull(str)) {
-            str = this.asm.Ax().getContext().getString(i.h.location_fail);
+            str = this.asm.Au().getContext().getString(i.h.location_fail);
         }
         baseActivity.showToast(str);
         this.asm.a(0, false, null);
@@ -35,10 +35,10 @@ public class e implements d.a {
 
     @Override // com.baidu.tieba.tbadkCore.location.d.a
     public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-        if (aVar == null || StringUtils.isNull(aVar.axi())) {
+        if (aVar == null || StringUtils.isNull(aVar.axe())) {
             fb(null);
         } else {
-            this.asm.a(2, true, aVar.axi());
+            this.asm.a(2, true, aVar.axe());
         }
     }
 }

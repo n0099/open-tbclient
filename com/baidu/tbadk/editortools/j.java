@@ -31,7 +31,7 @@ public class j extends LinearLayout {
     private View.OnClickListener ape;
     private Runnable apf;
 
-    public void AC() {
+    public void Az() {
         v dU = dU(3);
         if (dU != null && (dU.aoJ instanceof View)) {
             View view = (View) dU.aoJ;
@@ -141,7 +141,7 @@ public class j extends LinearLayout {
                     v dU2 = dU(aVar.id);
                     if (dU2 != null && dU2.apv == 5) {
                         this.aoS.hide();
-                        AD();
+                        AA();
                     } else {
                         this.aoS.dQ(aVar.id);
                     }
@@ -168,7 +168,7 @@ public class j extends LinearLayout {
         }
     }
 
-    private void AD() {
+    private void AA() {
         boolean z;
         v dU;
         com.baidu.adp.lib.g.h.hg().removeCallbacks(this.apf);
@@ -220,7 +220,7 @@ public class j extends LinearLayout {
         this.aoS.onChangeSkinType(i);
     }
 
-    public void Ay() {
+    public void Av() {
         if (this.aoT != null && this.aoT.size() != 0) {
             clear();
             LinkedList linkedList = new LinkedList();
@@ -282,8 +282,8 @@ public class j extends LinearLayout {
                 a.hide();
                 this.aoR.a(0, a);
             }
-            this.aoR.Ay();
-            this.aoS.Ay();
+            this.aoR.Av();
+            this.aoS.Av();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             this.aoR.setLayoutParams(layoutParams);
             this.aoS.setLayoutParams(layoutParams);
@@ -316,7 +316,7 @@ public class j extends LinearLayout {
         return dS;
     }
 
-    public void AE() {
+    public void AB() {
         this.aoR.e(this.ape);
     }
 
@@ -336,9 +336,9 @@ public class j extends LinearLayout {
         }
         if (this.apc) {
             this.apc = false;
-            za();
+            yX();
         }
-        if (!AA() && z) {
+        if (!Ax() && z) {
             com.baidu.adp.lib.g.h.hg().postDelayed(this.apf, 200L);
         }
         setVisibility(0);
@@ -351,10 +351,10 @@ public class j extends LinearLayout {
     public void hide() {
         this.aoS.hide();
         setVisibility(8);
-        AD();
+        AA();
     }
 
-    public void za() {
+    public void yX() {
         this.aoS.hide();
     }
 
@@ -362,8 +362,8 @@ public class j extends LinearLayout {
         this.aoR.setBarLauncherEnabled(z);
     }
 
-    public boolean AA() {
-        return this.aoS.AA();
+    public boolean Ax() {
+        return this.aoS.Ax();
     }
 
     public void setFrom(int i) {

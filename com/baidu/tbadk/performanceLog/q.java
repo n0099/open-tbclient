@@ -29,7 +29,7 @@ class q extends CustomMessageListener {
             if (arrayList != null) {
                 arrayList2 = this.axp.awK;
                 if (arrayList2.size() >= 20) {
-                    this.axp.DQ();
+                    this.axp.DN();
                 }
             }
         }

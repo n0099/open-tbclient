@@ -24,7 +24,7 @@ public class TbSettingTextTipView extends FrameLayout {
         super(context, attributeSet);
         this.alT = true;
         this.mContext = context;
-        zl();
+        zi();
         c(attributeSet);
     }
 
@@ -32,7 +32,7 @@ public class TbSettingTextTipView extends FrameLayout {
         super(context);
         this.alT = true;
         this.mContext = context;
-        zl();
+        zi();
     }
 
     public void displayTip() {
@@ -85,7 +85,7 @@ public class TbSettingTextTipView extends FrameLayout {
         this.alR.setBackgroundDrawable(drawable);
     }
 
-    protected void zl() {
+    protected void zi() {
         LayoutInflater.from(this.mContext).inflate(i.g.tb_setting_text_tip_view, (ViewGroup) this, true);
         this.container = (LinearLayout) findViewById(i.f.container);
         this.alQ = (TextView) findViewById(i.f.text);

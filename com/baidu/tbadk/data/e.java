@@ -31,11 +31,11 @@ public class e {
         }
     }
 
-    public int zW() {
+    public int zT() {
         return this.anD;
     }
 
-    public int rn() {
+    public int rk() {
         return this.TM;
     }
 
@@ -43,7 +43,7 @@ public class e {
         return this.url;
     }
 
-    public String zX() {
+    public String zU() {
         return this.expire_remind;
     }
 

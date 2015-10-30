@@ -17,9 +17,9 @@ public class h {
         this.Ti = new com.baidu.tbadk.core.util.w(cQo);
         this.Ti.o("user_id", str2);
         this.Ti.o("forum_ids", str);
-        this.Ti.uh().uY().abO = true;
-        this.Ti.uh().uY().mIsNeedTbs = true;
-        return this.Ti.tG();
+        this.Ti.ue().uV().abO = true;
+        this.Ti.ue().uV().mIsNeedTbs = true;
+        return this.Ti.tD();
     }
 
     public void cancel() {
@@ -28,14 +28,14 @@ public class h {
         }
     }
 
-    public boolean qV() {
+    public boolean qS() {
         if (this.Ti != null) {
-            return this.Ti.uh().uZ().qV();
+            return this.Ti.ue().uW().qS();
         }
         return false;
     }
 
-    public String qW() {
+    public String qT() {
         if (this.Ti != null) {
             return this.Ti.getErrorString();
         }

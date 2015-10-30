@@ -108,11 +108,11 @@ public class j extends BaseFragment implements AbsListView.OnScrollListener {
     public void onDestroy() {
         super.onDestroy();
         if (this.crH != null) {
-            this.crH.aiX();
+            this.crH.aiT();
         }
     }
 
-    private void IO() {
+    private void IK() {
         this.crH = new g(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL));
         this.crH.a(this.crx);
         this.crH.eX(true);
@@ -122,7 +122,7 @@ public class j extends BaseFragment implements AbsListView.OnScrollListener {
 
     public void onActive() {
         if (!this.crI) {
-            IO();
+            IK();
             this.crI = true;
         }
     }

@@ -50,11 +50,11 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
             if (this.mViewPager.getChildCount() <= 0 || this.asC != count) {
                 this.mViewPager.setAdapter(null);
                 this.asC = count;
-                int BP = aVar.BP();
+                int BM = aVar.BM();
                 int row = aVar.getRow();
-                if (count != 0 && BP != 0 && row != 0) {
-                    int i3 = count / (BP * row);
-                    int i4 = count % (BP * row) == 0 ? i3 : i3 + 1;
+                if (count != 0 && BM != 0 && row != 0) {
+                    int i3 = count / (BM * row);
+                    int i4 = count % (BM * row) == 0 ? i3 : i3 + 1;
                     if (i4 > 1) {
                         this.apA.setVisibility(0);
                         this.apA.setCount(i4);
@@ -65,18 +65,18 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                     ArrayList arrayList = new ArrayList();
                     for (int i5 = 0; i5 < i4; i5++) {
                         GridView gridView = new GridView(getContext());
-                        gridView.setNumColumns(BP);
+                        gridView.setNumColumns(BM);
                         gridView.setVerticalSpacing(aVar.getVerticalSpacing());
                         gridView.setGravity(17);
                         gridView.setHorizontalSpacing(aVar.getHorizontalSpacing());
                         gridView.setSelector(i.c.transparent);
                         gridView.setSelection(-1);
                         if (i5 < i4 - 1) {
-                            i = BP * row;
+                            i = BM * row;
                         } else {
-                            i = count - ((BP * row) * (i4 - 1));
+                            i = count - ((BM * row) * (i4 - 1));
                         }
-                        gridView.setAdapter((ListAdapter) new a(getContext(), i, i5 * BP * row, aVar.BO()));
+                        gridView.setAdapter((ListAdapter) new a(getContext(), i, i5 * BM * row, aVar.BL()));
                         arrayList.add(gridView);
                     }
                     this.mViewPager.setAdapter(new b(arrayList));

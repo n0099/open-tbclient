@@ -8,27 +8,27 @@ public class dg {
     private long aYq;
 
     public dg(Context context) {
-        ao(0L);
-        ap(0L);
+        am(0L);
+        an(0L);
     }
 
-    public void ao(long j) {
+    public void am(long j) {
         this.aYo = j;
     }
 
-    public long Mt() {
+    public long Mp() {
         return this.aYo + this.aYp;
     }
 
-    public void ap(long j) {
+    public void an(long j) {
         this.aYp = j;
     }
 
-    public long Mu() {
+    public long Mq() {
         return this.aYq;
     }
 
-    public void aq(long j) {
+    public void ao(long j) {
         this.aYq = j;
     }
 }

@@ -29,7 +29,7 @@ class j implements a.c {
                 writeData.setVcodeMD5(lVar.getVcode_md5());
                 writeData.setVcodeUrl(lVar.getVcode_pic_url());
                 this.dmy.dmk = true;
-                if (lVar.ws().equals("4")) {
+                if (lVar.wp().equals("4")) {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.dmy.getPageContext().getPageActivity(), 12006, writeData, false)));
                     return;
                 } else {
@@ -37,23 +37,23 @@ class j implements a.c {
                     return;
                 }
             }
-            this.dmy.aCa();
+            this.dmy.aBW();
             eVar = this.dmy.dmn;
             if (eVar != null) {
                 this.dmy.dml = false;
                 eVar2 = this.dmy.dmn;
-                eVar2.aCt();
+                eVar2.aCp();
                 return;
             }
             return;
         }
-        this.dmy.aBZ();
+        this.dmy.aBV();
         eVar3 = this.dmy.dmm;
         if (eVar3 != null) {
             this.dmy.dml = true;
             this.dmy.setResult(-1);
             eVar4 = this.dmy.dmm;
-            eVar4.aCt();
+            eVar4.aCp();
         }
     }
 }

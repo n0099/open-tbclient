@@ -24,6 +24,6 @@ public class ds implements View.OnClickListener {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
         context = this.aYB.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXr.getAuthor().getUserId(), this.aXr.getAuthor().getName_show(), this.aYB.aTW.aeN().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXr.getAuthor().getUserId(), this.aXr.getAuthor().getName_show(), this.aYB.aTW.aeJ().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

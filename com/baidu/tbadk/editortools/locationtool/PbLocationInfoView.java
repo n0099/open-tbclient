@@ -27,12 +27,12 @@ public class PbLocationInfoView extends TextView {
     private void init() {
         this.arO = new Rect(0, 0, getResources().getDimensionPixelSize(i.d.ds32), getResources().getDimensionPixelSize(i.d.ds32));
         r(0, null);
-        tc();
+        sZ();
     }
 
-    public void tc() {
+    public void sZ() {
         setTextColor(an.getColor(i.c.cp_cont_c));
-        AI();
+        AF();
     }
 
     public void r(int i, String str) {
@@ -53,14 +53,14 @@ public class PbLocationInfoView extends TextView {
             }
             setText(str);
         }
-        AI();
+        AF();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void AI() {
+    public void AF() {
         if (this.mState == 1) {
             Drawable drawable = an.getDrawable(i.e.icon_posts_pin_loading_anim);
             if (drawable != null) {

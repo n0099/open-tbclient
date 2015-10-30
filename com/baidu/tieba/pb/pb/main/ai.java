@@ -25,7 +25,7 @@ class ai extends CustomMessageListener {
             if (dVar != null) {
                 ccVar2 = this.ciK.cim;
                 dVar2 = this.ciK.ciu;
-                ccVar2.eN(dVar2.Br());
+                ccVar2.eN(dVar2.Bo());
             }
             ccVar = this.ciK.cim;
             ccVar.eP(false);

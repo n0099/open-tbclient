@@ -19,7 +19,7 @@ public class c implements View.OnFocusChangeListener {
             com.baidu.adp.lib.util.k.c(postSearchActivity.getPageContext().getPageActivity(), view);
             return;
         }
-        this.cDY.aoh();
-        this.cDY.aog();
+        this.cDY.aod();
+        this.cDY.aoc();
     }
 }
