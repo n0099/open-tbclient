@@ -5,11 +5,11 @@ import android.view.ViewGroup;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements ViewGroup.OnHierarchyChangeListener {
-    final /* synthetic */ UserPhotoLayout aeS;
+    final /* synthetic */ UserPhotoLayout aeX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(UserPhotoLayout userPhotoLayout) {
-        this.aeS = userPhotoLayout;
+        this.aeX = userPhotoLayout;
     }
 
     @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -17,9 +17,9 @@ public class y implements ViewGroup.OnHierarchyChangeListener {
         com.baidu.adp.lib.e.b bVar;
         com.baidu.adp.lib.e.b bVar2;
         if (view2 instanceof HeadImageView) {
-            bVar = this.aeS.mUserPhotoPool;
+            bVar = this.aeX.mUserPhotoPool;
             if (bVar != null) {
-                bVar2 = this.aeS.mUserPhotoPool;
+                bVar2 = this.aeX.mUserPhotoPool;
                 bVar2.k((HeadImageView) view2);
             }
         }

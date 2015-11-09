@@ -96,6 +96,7 @@ public class CmdConfigHttp {
     public static final int MSG_GET_MYGMAE_LIST = 1002505;
     public static final int MSG_REMINDER_CMD = 1002500;
     public static final int PB_HTTP_CMD = 1001800;
+    public static final int PB_LOTTERY_HTTP_CMD = 1001802;
     public static final int PB_PAGE_HTTP_CMD = 1001801;
     public static final int PHOTO_LIVE_ADD_BLACK_LIST_HTTP_CMD = 1003103;
     public static final int PHOTO_LIVE_DEL_BLACK_LIST_HTTP_CMD = 1003104;

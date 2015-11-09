@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ SecretSettingActivity cLw;
+    final /* synthetic */ SecretSettingActivity cMS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(SecretSettingActivity secretSettingActivity, int i, int i2) {
         super(i, i2);
-        this.cLw = secretSettingActivity;
+        this.cMS = secretSettingActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -24,11 +24,11 @@ class e extends com.baidu.adp.framework.listener.a {
         a aVar3;
         a aVar4;
         a aVar5;
-        this.cLw.hideProgressBar();
+        this.cMS.hideProgressBar();
         if (responsedMessage != null) {
-            this.cLw.cLl = true;
+            this.cMS.cMH = true;
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                this.cLw.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.cLw.getResources().getString(i.h.neterror) : responsedMessage.getErrorString());
+                this.cMS.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.cMS.getResources().getString(i.h.neterror) : responsedMessage.getErrorString());
                 return;
             }
             a aVar6 = null;
@@ -39,21 +39,21 @@ class e extends com.baidu.adp.framework.listener.a {
                 aVar6 = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
             }
             if (aVar6 != null) {
-                aVar = this.cLw.cLk;
+                aVar = this.cMS.cMG;
                 aVar.a(aVar6);
-                aVar2 = this.cLw.cLk;
-                aVar2.aqR();
-                iVar = this.cLw.cLj;
-                iVar.fS(true);
-                iVar2 = this.cLw.cLj;
-                aVar3 = this.cLw.cLk;
+                aVar2 = this.cMS.cMG;
+                aVar2.arx();
+                iVar = this.cMS.cMF;
+                iVar.fV(true);
+                iVar2 = this.cMS.cMF;
+                aVar3 = this.cMS.cMG;
                 iVar2.c(aVar3);
-                SecretSettingActivity secretSettingActivity = this.cLw;
-                aVar4 = this.cLw.cLk;
+                SecretSettingActivity secretSettingActivity = this.cMS;
+                aVar4 = this.cMS.cMG;
                 secretSettingActivity.b(aVar4);
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                aVar5 = this.cLw.cLk;
-                m411getInst.setLocationShared(aVar5.aqT());
+                aVar5 = this.cMS.cMG;
+                m411getInst.setLocationShared(aVar5.arz());
             }
         }
     }

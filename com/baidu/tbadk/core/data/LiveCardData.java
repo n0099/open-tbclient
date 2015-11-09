@@ -348,8 +348,8 @@ public class LiveCardData implements ae, Serializable {
     public ArrayList<ad> getImages() {
         ArrayList<ad> arrayList = new ArrayList<>();
         ad adVar = new ad();
-        adVar.Wa = this.portrait;
-        adVar.aaz = 10;
+        adVar.Wd = this.portrait;
+        adVar.aaD = 10;
         arrayList.add(adVar);
         return arrayList;
     }

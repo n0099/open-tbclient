@@ -16,20 +16,20 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class ChatMessageActivity extends BaseFragmentActivity {
-    private ImageView bJm;
-    private FragmentTransaction bJn;
+    private ImageView bJH;
+    private FragmentTransaction bJI;
     private FragmentManager mFragmentManager;
     private NavigationBar mNavigationBar;
     private View mRootView;
     private View.OnClickListener mOnClickListener = null;
-    private CustomMessageListener Ts = new a(this, CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT);
+    private CustomMessageListener Tt = new a(this, CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initUI();
-        registerListener(this.Ts);
+        registerListener(this.Tt);
         sendMessage(new CustomMessage(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT));
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MSG_READ, 1));
     }
@@ -40,7 +40,7 @@ public class ChatMessageActivity extends BaseFragmentActivity {
         super.changeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         an.i(this.mRootView, i.c.cp_bg_line_d);
-        an.a(this.bJm, i.e.icon_write_news_bg_s, i.e.icon_write_news_bg);
+        an.a(this.bJH, i.e.icon_write_news_bg_s, i.e.icon_write_news_bg);
     }
 
     private void initUI() {
@@ -50,6 +50,6 @@ public class ChatMessageActivity extends BaseFragmentActivity {
         this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.setTitleText(i.h.my_chat);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bJm = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.widget_nb_item_addchat, this.mOnClickListener);
+        this.bJH = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.widget_nb_item_addchat, this.mOnClickListener);
     }
 }

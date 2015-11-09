@@ -13,24 +13,24 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.setting.more.MsgSettingItemView;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.base.f<SecretSettingActivity> {
-    private View.OnClickListener aKj;
-    private LinearLayout aPn;
-    private TbSettingTextTipView cLA;
-    private TbSettingTextTipView cLB;
-    private TbSettingTextTipView cLC;
-    private TbSettingTextTipView cLD;
-    private View cLE;
-    private TbSettingTextTipView cLF;
-    private MsgSettingItemView cLG;
-    private TextView cLH;
-    private MsgSettingItemView cLI;
-    private View cLJ;
-    private TbSettingTextTipView cLK;
-    private SecretSettingActivity cLL;
-    private View cLM;
-    private String[] cLN;
-    private BdSwitchView.a cLO;
-    private a cLP;
+    private View.OnClickListener aJd;
+    private LinearLayout aPv;
+    private TbSettingTextTipView cMW;
+    private TbSettingTextTipView cMX;
+    private TbSettingTextTipView cMY;
+    private TbSettingTextTipView cMZ;
+    private View cNa;
+    private TbSettingTextTipView cNb;
+    private MsgSettingItemView cNc;
+    private TextView cNd;
+    private MsgSettingItemView cNe;
+    private View cNf;
+    private TbSettingTextTipView cNg;
+    private SecretSettingActivity cNh;
+    private View cNi;
+    private String[] cNj;
+    private BdSwitchView.a cNk;
+    private a cNl;
     private View mBack;
     private NavigationBar mNavigationBar;
 
@@ -38,17 +38,17 @@ public class i extends com.baidu.adp.base.f<SecretSettingActivity> {
     public interface a {
         void a(BdSwitchView.SwitchState switchState);
 
-        void ara();
+        void arG();
 
-        void arb();
+        void arH();
 
-        void arc();
+        void arI();
 
-        void ard();
+        void arJ();
 
-        void are();
+        void arK();
 
-        void arf();
+        void arL();
 
         void b(BdSwitchView.SwitchState switchState);
 
@@ -58,9 +58,9 @@ public class i extends com.baidu.adp.base.f<SecretSettingActivity> {
     public i(SecretSettingActivity secretSettingActivity) {
         super(secretSettingActivity.getPageContext());
         this.mNavigationBar = null;
-        this.aKj = new j(this);
-        this.cLO = new k(this);
-        this.cLL = secretSettingActivity;
+        this.aJd = new j(this);
+        this.cNk = new k(this);
+        this.cNh = secretSettingActivity;
         secretSettingActivity.setContentView(i.g.secret_setting_activity);
         i(secretSettingActivity);
     }
@@ -68,127 +68,127 @@ public class i extends com.baidu.adp.base.f<SecretSettingActivity> {
     /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: com.baidu.tieba.setting.im.more.SecretSettingActivity */
     /* JADX WARN: Multi-variable type inference failed */
     public void onChangeSkinType(int i) {
-        this.cLL.getLayoutMode().ad(i == 1);
-        this.cLL.getLayoutMode().k(this.aPn);
-        this.mNavigationBar.onChangeSkinType(this.cLL.getPageContext(), i);
-        this.cLG.onChangeSkinType(this.cLL.getPageContext(), i);
+        this.cNh.getLayoutMode().ad(i == 1);
+        this.cNh.getLayoutMode().k(this.aPv);
+        this.mNavigationBar.onChangeSkinType(this.cNh.getPageContext(), i);
+        this.cNc.onChangeSkinType(this.cNh.getPageContext(), i);
     }
 
     private void i(SecretSettingActivity secretSettingActivity) {
-        this.aPn = (LinearLayout) secretSettingActivity.findViewById(i.f.parent);
+        this.aPv = (LinearLayout) secretSettingActivity.findViewById(i.f.parent);
         this.mNavigationBar = (NavigationBar) secretSettingActivity.findViewById(i.f.view_navigation_bar);
         this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(secretSettingActivity.getPageContext().getString(i.h.secretSetting_title));
-        this.cLA = (TbSettingTextTipView) secretSettingActivity.findViewById(i.f.black_address_list);
-        this.cLB = (TbSettingTextTipView) secretSettingActivity.findViewById(i.f.privacy_attention_bar);
-        this.cLF = (TbSettingTextTipView) secretSettingActivity.findViewById(i.f.privacy_attention_group);
-        this.cLE = secretSettingActivity.findViewById(i.f.divide_line_under_privacy_attention_group);
-        this.cLC = (TbSettingTextTipView) secretSettingActivity.findViewById(i.f.privacy_attention_forum);
-        this.cLD = (TbSettingTextTipView) secretSettingActivity.findViewById(i.f.user_mute_list);
-        this.mBack.setOnClickListener(this.aKj);
-        this.cLA.setOnClickListener(this.aKj);
-        this.cLD.setOnClickListener(this.aKj);
-        this.cLF.setOnClickListener(this.aKj);
-        this.cLB.setOnClickListener(this.aKj);
-        this.cLC.setOnClickListener(this.aKj);
-        this.cLM = this.cLL.findViewById(i.f.privacy_setting_container);
-        this.cLN = this.cLL.getResources().getStringArray(i.b.privacy_setting_config);
-        this.cLG = (MsgSettingItemView) this.cLL.findViewById(i.f.sv_shared_location);
-        this.cLG.setLineVisibility(false);
-        this.cLG.setText(i.h.privacy_setting_shared_location);
-        this.cLG.setOnSwitchStateChangeListener(this.cLO);
-        this.cLI = (MsgSettingItemView) this.cLL.findViewById(i.f.sv_voicelogin_setting);
-        this.cLJ = this.cLL.findViewById(i.f.divide_line_voicelogin);
-        this.cLK = (TbSettingTextTipView) this.cLL.findViewById(i.f.voicelogin_again);
-        this.cLH = (TextView) this.cLL.findViewById(i.f.voicelogin_setting_title);
-        this.cLK.setOnClickListener(this.aKj);
-        this.cLI.setText(i.h.privacy_setting_voicelogin);
-        this.cLI.setTipText(i.h.privacy_setting_voicelogin_tip);
-        this.cLI.setOnSwitchStateChangeListener(this.cLO);
+        this.cMW = (TbSettingTextTipView) secretSettingActivity.findViewById(i.f.black_address_list);
+        this.cMX = (TbSettingTextTipView) secretSettingActivity.findViewById(i.f.privacy_attention_bar);
+        this.cNb = (TbSettingTextTipView) secretSettingActivity.findViewById(i.f.privacy_attention_group);
+        this.cNa = secretSettingActivity.findViewById(i.f.divide_line_under_privacy_attention_group);
+        this.cMY = (TbSettingTextTipView) secretSettingActivity.findViewById(i.f.privacy_attention_forum);
+        this.cMZ = (TbSettingTextTipView) secretSettingActivity.findViewById(i.f.user_mute_list);
+        this.mBack.setOnClickListener(this.aJd);
+        this.cMW.setOnClickListener(this.aJd);
+        this.cMZ.setOnClickListener(this.aJd);
+        this.cNb.setOnClickListener(this.aJd);
+        this.cMX.setOnClickListener(this.aJd);
+        this.cMY.setOnClickListener(this.aJd);
+        this.cNi = this.cNh.findViewById(i.f.privacy_setting_container);
+        this.cNj = this.cNh.getResources().getStringArray(i.b.privacy_setting_config);
+        this.cNc = (MsgSettingItemView) this.cNh.findViewById(i.f.sv_shared_location);
+        this.cNc.setLineVisibility(false);
+        this.cNc.setText(i.h.privacy_setting_shared_location);
+        this.cNc.setOnSwitchStateChangeListener(this.cNk);
+        this.cNe = (MsgSettingItemView) this.cNh.findViewById(i.f.sv_voicelogin_setting);
+        this.cNf = this.cNh.findViewById(i.f.divide_line_voicelogin);
+        this.cNg = (TbSettingTextTipView) this.cNh.findViewById(i.f.voicelogin_again);
+        this.cNd = (TextView) this.cNh.findViewById(i.f.voicelogin_setting_title);
+        this.cNg.setOnClickListener(this.aJd);
+        this.cNe.setText(i.h.privacy_setting_voicelogin);
+        this.cNe.setTipText(i.h.privacy_setting_voicelogin_tip);
+        this.cNe.setOnSwitchStateChangeListener(this.cNk);
         if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PersonGroupActivityConfig.class)) {
-            this.cLF.setVisibility(0);
-            this.cLE.setVisibility(0);
+            this.cNb.setVisibility(0);
+            this.cNa.setVisibility(0);
             return;
         }
-        this.cLF.setVisibility(8);
-        this.cLE.setVisibility(8);
+        this.cNb.setVisibility(8);
+        this.cNa.setVisibility(8);
     }
 
     public void a(a aVar) {
-        this.cLP = aVar;
+        this.cNl = aVar;
     }
 
-    public void arg() {
-        this.cLA.recycle();
+    public void arM() {
+        this.cMW.recycle();
     }
 
-    public void fR(boolean z) {
-        this.cLJ.setVisibility(z ? 0 : 8);
-        this.cLK.setVisibility(z ? 0 : 8);
+    public void fU(boolean z) {
+        this.cNf.setVisibility(z ? 0 : 8);
+        this.cNg.setVisibility(z ? 0 : 8);
     }
 
-    public void fS(boolean z) {
+    public void fV(boolean z) {
         if (z) {
-            this.cLM.setVisibility(0);
+            this.cNi.setVisibility(0);
         } else {
-            this.cLM.setVisibility(8);
+            this.cNi.setVisibility(8);
         }
     }
 
     public void ac(String str, int i) {
         int i2 = i - 1;
-        if (this.cLN != null && i2 < this.cLN.length && i2 >= 0) {
+        if (this.cNj != null && i2 < this.cNj.length && i2 >= 0) {
             if (TextUtils.equals(str, "like")) {
-                this.cLB.setTip(this.cLN[i2]);
+                this.cMX.setTip(this.cNj[i2]);
             } else if (TextUtils.equals(str, "post")) {
-                this.cLC.setTip(this.cLN[i2]);
+                this.cMY.setTip(this.cNj[i2]);
             } else if (TextUtils.equals(str, "group")) {
-                this.cLF.setTip(this.cLN[i2]);
+                this.cNb.setTip(this.cNj[i2]);
             }
         }
     }
 
     public void c(com.baidu.tieba.setting.im.more.a aVar) {
-        if (aVar != null && this.cLN != null) {
-            int length = this.cLN.length;
-            int zX = aVar.zX() - 1;
-            if (zX < length && zX >= 0) {
-                this.cLF.setTip(this.cLN[zX]);
+        if (aVar != null && this.cNj != null) {
+            int length = this.cNj.length;
+            int Ac = aVar.Ac() - 1;
+            if (Ac < length && Ac >= 0) {
+                this.cNb.setTip(this.cNj[Ac]);
             }
-            int aqS = aVar.aqS() - 1;
-            if (aqS < length && aqS >= 0) {
-                this.cLB.setTip(this.cLN[aqS]);
+            int ary = aVar.ary() - 1;
+            if (ary < length && ary >= 0) {
+                this.cMX.setTip(this.cNj[ary]);
             }
-            int aqQ = aVar.aqQ() - 1;
-            if (aqQ < length && aqQ >= 0) {
-                this.cLC.setTip(this.cLN[aqQ]);
+            int arw = aVar.arw() - 1;
+            if (arw < length && arw >= 0) {
+                this.cMY.setTip(this.cNj[arw]);
             }
-            fT(aVar.aqT());
+            fW(aVar.arz());
         }
     }
 
-    public void fT(boolean z) {
+    public void fW(boolean z) {
         if (z) {
-            this.cLG.getSwitchView().mz();
+            this.cNc.getSwitchView().mA();
         } else {
-            this.cLG.getSwitchView().mA();
+            this.cNc.getSwitchView().mB();
         }
     }
 
-    public void fU(boolean z) {
-        this.cLI.setVisibility(z ? 0 : 8);
-        this.cLH.setVisibility(z ? 0 : 8);
+    public void fX(boolean z) {
+        this.cNe.setVisibility(z ? 0 : 8);
+        this.cNd.setVisibility(z ? 0 : 8);
     }
 
-    public void fV(boolean z) {
+    public void fY(boolean z) {
         if (z) {
-            this.cLI.getSwitchView().mz();
+            this.cNe.getSwitchView().mA();
         } else {
-            this.cLI.getSwitchView().mA();
+            this.cNe.getSwitchView().mB();
         }
     }
 
-    public boolean arh() {
-        return this.cLG.getSwitchView().hx();
+    public boolean arN() {
+        return this.cNc.getSwitchView().hy();
     }
 }

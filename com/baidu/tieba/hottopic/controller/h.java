@@ -10,10 +10,10 @@ import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.base.e<BaseActivity<?>> {
-    private BaseActivity<?> aSe;
-    private com.baidu.tieba.hottopic.data.b boD;
-    private a boM;
-    private com.baidu.adp.framework.listener.a box;
+    private BaseActivity<?> aSm;
+    private com.baidu.adp.framework.listener.a bpb;
+    private com.baidu.tieba.hottopic.data.b bph;
+    private a bpq;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -22,19 +22,19 @@ public class h extends com.baidu.adp.base.e<BaseActivity<?>> {
 
     public h(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());
-        this.boD = null;
-        this.boM = null;
-        this.box = new i(this, CmdConfigHttp.CMD_HOT_TOPIC, 303050);
-        this.aSe = baseActivity;
-        registerListener(this.box);
-        this.boD = new com.baidu.tieba.hottopic.data.b();
+        this.bph = null;
+        this.bpq = null;
+        this.bpb = new i(this, CmdConfigHttp.CMD_HOT_TOPIC, 303050);
+        this.aSm = baseActivity;
+        registerListener(this.bpb);
+        this.bph = new com.baidu.tieba.hottopic.data.b();
     }
 
     public com.baidu.tieba.hottopic.data.b getHotTopicData() {
-        return this.boD;
+        return this.bph;
     }
 
-    public void aC(String str, String str2) {
+    public void aB(String str, String str2) {
         d(com.baidu.adp.lib.g.b.c(str, 0L), str2);
     }
 
@@ -47,7 +47,7 @@ public class h extends com.baidu.adp.base.e<BaseActivity<?>> {
         requestHotTopicMessage.setScrH(Integer.valueOf(L));
         requestHotTopicMessage.setScrW(Integer.valueOf(K));
         requestHotTopicMessage.setSrcDip(Double.valueOf(TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density));
-        requestHotTopicMessage.setQType(Integer.valueOf(m.qU().getViewImageQuality()));
+        requestHotTopicMessage.setQType(Integer.valueOf(m.qV().getViewImageQuality()));
         sendMessage(requestHotTopicMessage);
     }
 
@@ -61,12 +61,12 @@ public class h extends com.baidu.adp.base.e<BaseActivity<?>> {
             if ((responsedMessage instanceof ResponseSocketHotTopicMessage) && ((ResponseSocketHotTopicMessage) responsedMessage).getHotTopicData() != null) {
                 bVar = ((ResponseSocketHotTopicMessage) responsedMessage).getHotTopicData();
             }
-            this.boM.a(!responsedMessage.hasError(), bVar);
+            this.bpq.a(!responsedMessage.hasError(), bVar);
         }
     }
 
     public void a(a aVar) {
-        this.boM = aVar;
+        this.bpq = aVar;
     }
 
     @Override // com.baidu.adp.base.e

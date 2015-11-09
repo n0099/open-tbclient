@@ -4,29 +4,29 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ PaymentConfirmActivity ced;
+    final /* synthetic */ PaymentConfirmActivity ceE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(PaymentConfirmActivity paymentConfirmActivity) {
-        this.ced = paymentConfirmActivity;
+        this.ceE = paymentConfirmActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
         boolean z2;
-        z = this.ced.cdZ;
+        z = this.ceE.ceA;
         if (!z) {
-            z2 = this.ced.cdY;
+            z2 = this.ceE.cez;
             if (z2) {
-                r.jz("c10292");
-                this.ced.aen();
+                r.jB("c10292");
+                this.ceE.aeI();
                 return;
             }
-            r.jz("c10293");
-            this.ced.aem();
+            r.jB("c10293");
+            this.ceE.aeH();
             return;
         }
-        this.ced.I(0, null);
+        this.ceE.J(0, null);
     }
 }

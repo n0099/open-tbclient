@@ -8,15 +8,15 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements c.b {
-    final /* synthetic */ PersonChangeActivity cqc;
-    private final /* synthetic */ String cqd;
-    private final /* synthetic */ String cqe;
+    private final /* synthetic */ String crA;
+    final /* synthetic */ PersonChangeActivity cry;
+    private final /* synthetic */ String crz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(PersonChangeActivity personChangeActivity, String str, String str2) {
-        this.cqc = personChangeActivity;
-        this.cqd = str;
-        this.cqe = str2;
+        this.cry = personChangeActivity;
+        this.crz = str;
+        this.crA = str2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -29,25 +29,25 @@ public class al implements c.b {
         TextView textView4;
         cVar.dismiss();
         if (i == 0) {
-            this.cqc.mSex = 1;
-            textView4 = this.cqc.cpM;
-            textView4.setText(this.cqd);
+            this.cry.mSex = 1;
+            textView4 = this.cry.cri;
+            textView4.setText(this.crz);
         } else if (i == 1) {
-            this.cqc.mSex = 2;
-            textView = this.cqc.cpM;
-            textView.setText(this.cqe);
+            this.cry.mSex = 2;
+            textView = this.cry.cri;
+            textView.setText(this.crA);
         }
-        this.cqc.aiu();
-        i2 = this.cqc.mSex;
-        if (i2 != this.cqc.cpT.aiA().getSex()) {
-            view2 = this.cqc.cpI;
+        this.cry.aja();
+        i2 = this.cry.mSex;
+        if (i2 != this.cry.crp.ajg().getSex()) {
+            view2 = this.cry.cre;
             view2.setEnabled(true);
             if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-                textView3 = this.cqc.bBw;
+                textView3 = this.cry.bBR;
                 com.baidu.tbadk.core.util.an.b(textView3, i.c.navi_op_text, 1);
                 return;
             }
-            textView2 = this.cqc.bBw;
+            textView2 = this.cry.bBR;
             com.baidu.tbadk.core.util.an.b(textView2, i.c.cp_link_tip_a, 1);
         }
     }

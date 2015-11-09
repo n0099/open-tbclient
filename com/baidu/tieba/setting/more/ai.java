@@ -6,18 +6,18 @@ import com.baidu.tbadk.core.util.bd;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class ai implements SapiWebView.ChangePwdCallback {
-    final /* synthetic */ SapiWebViewActivity cOG;
+    final /* synthetic */ SapiWebViewActivity cQc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(SapiWebViewActivity sapiWebViewActivity) {
-        this.cOG = sapiWebViewActivity;
+        this.cQc = sapiWebViewActivity;
     }
 
     @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
     public void onSuccess() {
-        this.cOG.showToast(i.h.succ_modify_pwd);
+        this.cQc.showToast(i.h.succ_modify_pwd);
         SapiAccountManager.getInstance().logout();
-        bd.ag(this.cOG.getPageContext().getPageActivity());
-        this.cOG.finish();
+        bd.ag(this.cQc.getPageContext().getPageActivity());
+        this.cQc.finish();
     }
 }

@@ -10,9 +10,9 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class GoOnAnimView extends LinearLayout {
-    private ImageView bRP;
-    private ImageView bRQ;
-    private ImageView bRR;
+    private ImageView bSk;
+    private ImageView bSl;
+    private ImageView bSm;
     private Handler mHandler;
     private int tag;
 
@@ -30,12 +30,12 @@ public class GoOnAnimView extends LinearLayout {
 
     private void init(Context context) {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(i.g.go_on_anim, (ViewGroup) null, false);
-        this.bRP = (ImageView) linearLayout.findViewById(i.f.tip_go_on_1);
-        this.bRQ = (ImageView) linearLayout.findViewById(i.f.tip_go_on_2);
-        this.bRR = (ImageView) linearLayout.findViewById(i.f.tip_go_on_3);
-        this.bRP.setImageResource(i.e.pic_startpage1_next_3);
-        this.bRQ.setImageResource(i.e.pic_startpage1_next_2);
-        this.bRR.setImageResource(i.e.pic_startpage1_next_1);
+        this.bSk = (ImageView) linearLayout.findViewById(i.f.tip_go_on_1);
+        this.bSl = (ImageView) linearLayout.findViewById(i.f.tip_go_on_2);
+        this.bSm = (ImageView) linearLayout.findViewById(i.f.tip_go_on_3);
+        this.bSk.setImageResource(i.e.pic_startpage1_next_3);
+        this.bSl.setImageResource(i.e.pic_startpage1_next_2);
+        this.bSm.setImageResource(i.e.pic_startpage1_next_1);
         addView(linearLayout);
     }
 
@@ -50,14 +50,14 @@ public class GoOnAnimView extends LinearLayout {
 
     public void onDestroy() {
         this.mHandler.removeMessages(0);
-        if (this.bRP != null) {
-            this.bRP.setImageDrawable(null);
+        if (this.bSk != null) {
+            this.bSk.setImageDrawable(null);
         }
-        if (this.bRQ != null) {
-            this.bRQ.setImageDrawable(null);
+        if (this.bSl != null) {
+            this.bSl.setImageDrawable(null);
         }
-        if (this.bRR != null) {
-            this.bRR.setImageDrawable(null);
+        if (this.bSm != null) {
+            this.bSm.setImageDrawable(null);
         }
     }
 }

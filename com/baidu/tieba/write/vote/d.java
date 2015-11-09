@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements AdapterView.OnItemClickListener {
-    final /* synthetic */ c dnF;
+    final /* synthetic */ c dpu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.dnF = cVar;
+        this.dpu = cVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -19,35 +19,35 @@ public class d implements AdapterView.OnItemClickListener {
         int i3;
         int i4;
         com.baidu.tbadk.core.dialog.e eVar2;
-        eVar = this.dnF.dny;
+        eVar = this.dpu.dpn;
         eVar.bO(i);
         switch (i) {
             case 0:
-                this.dnF.dnw = 1;
-                this.dnF.dnx = false;
-                c cVar = this.dnF;
-                i4 = this.dnF.dnw;
-                cVar.mb(i4);
+                this.dpu.dpl = 1;
+                this.dpu.dpm = false;
+                c cVar = this.dpu;
+                i4 = this.dpu.dpl;
+                cVar.mp(i4);
                 break;
             case 1:
-                this.dnF.dnw = 7;
-                this.dnF.dnx = false;
-                c cVar2 = this.dnF;
-                i3 = this.dnF.dnw;
-                cVar2.mb(i3);
+                this.dpu.dpl = 7;
+                this.dpu.dpm = false;
+                c cVar2 = this.dpu;
+                i3 = this.dpu.dpl;
+                cVar2.mp(i3);
                 break;
             case 2:
-                this.dnF.dnw = 30;
-                this.dnF.dnx = false;
-                c cVar3 = this.dnF;
-                i2 = this.dnF.dnw;
-                cVar3.mb(i2);
+                this.dpu.dpl = 30;
+                this.dpu.dpm = false;
+                c cVar3 = this.dpu;
+                i2 = this.dpu.dpl;
+                cVar3.mp(i2);
                 break;
             case 3:
-                this.dnF.aCv();
+                this.dpu.aDn();
                 break;
         }
-        eVar2 = this.dnF.dny;
+        eVar2 = this.dpu.dpn;
         eVar2.dismiss();
     }
 }

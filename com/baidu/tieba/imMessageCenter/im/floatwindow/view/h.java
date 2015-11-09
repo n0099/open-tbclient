@@ -14,127 +14,127 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.imMessageCenter.im.floatwindow.view.FloatingPersonalChatView;
 /* loaded from: classes.dex */
 public class h {
-    private HeadImageView aHW;
-    private TextView bLl;
-    private RelativeLayout bMk;
-    private ImageView bMl;
-    private TranslateAnimation bMm;
-    private TranslateAnimation bMn;
-    private int bMo;
-    private FloatingPersonalChatView.a bMr;
+    private HeadImageView aGQ;
+    private TextView bLG;
+    private RelativeLayout bMF;
+    private ImageView bMG;
+    private TranslateAnimation bMH;
+    private TranslateAnimation bMI;
+    private int bMJ;
+    private FloatingPersonalChatView.a bMM;
     private final int index;
-    private boolean bMp = false;
-    private a bMq = new i(this);
-    private Point bLm = new Point();
+    private boolean bMK = false;
+    private a bML = new i(this);
+    private Point bLH = new Point();
 
     /* loaded from: classes.dex */
     public interface a {
-        void YQ();
+        void Zl();
     }
 
     public h(RelativeLayout relativeLayout, int i) {
         this.index = i;
-        this.bMk = relativeLayout;
-        this.aHW = (HeadImageView) relativeLayout.findViewById(i.f.im_floating_head_view);
-        this.bLl = (TextView) relativeLayout.findViewById(i.f.im_floating_unread_view);
-        this.bMl = (ImageView) relativeLayout.findViewById(i.f.im_floating_arrow);
-        this.aHW.setAutoChangeStyle(false);
-        this.aHW.setIsRound(true);
-        this.aHW.setTag(Integer.valueOf(i));
-        this.aHW.setOnLongClickListener(new j(this));
-        this.aHW.setOnTouchListener(new k(this));
+        this.bMF = relativeLayout;
+        this.aGQ = (HeadImageView) relativeLayout.findViewById(i.f.im_floating_head_view);
+        this.bLG = (TextView) relativeLayout.findViewById(i.f.im_floating_unread_view);
+        this.bMG = (ImageView) relativeLayout.findViewById(i.f.im_floating_arrow);
+        this.aGQ.setAutoChangeStyle(false);
+        this.aGQ.setIsRound(true);
+        this.aGQ.setTag(Integer.valueOf(i));
+        this.aGQ.setOnLongClickListener(new j(this));
+        this.aGQ.setOnTouchListener(new k(this));
     }
 
     public void a(FloatingPersonalChatView.a aVar) {
-        this.bMr = aVar;
+        this.bMM = aVar;
     }
 
     public boolean d(Animation animation) {
-        return this.bMn == animation;
+        return this.bMI == animation;
     }
 
     public void a(com.baidu.adp.lib.g.d dVar) {
-        if (this.bMk.getVisibility() == 0) {
-            this.bMm = new TranslateAnimation(YN(), 0.0f, 0.0f, 0.0f);
-            this.bMm.setDuration(300L);
+        if (this.bMF.getVisibility() == 0) {
+            this.bMH = new TranslateAnimation(Zi(), 0.0f, 0.0f, 0.0f);
+            this.bMH.setDuration(300L);
             if (dVar != null) {
-                this.bMm.setAnimationListener(dVar);
+                this.bMH.setAnimationListener(dVar);
             }
-            this.bMk.startAnimation(this.bMm);
+            this.bMF.startAnimation(this.bMH);
         }
     }
 
-    private int YN() {
+    private int Zi() {
         int[] iArr = new int[2];
-        this.bMk.getLocationInWindow(iArr);
+        this.bMF.getLocationInWindow(iArr);
         int K = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst());
-        return ((K - iArr[0]) - this.bMk.getMeasuredWidth()) - com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m411getInst(), 10.0f);
+        return ((K - iArr[0]) - this.bMF.getMeasuredWidth()) - com.baidu.adp.lib.util.k.dip2px(TbadkCoreApplication.m411getInst(), 10.0f);
     }
 
     public void b(com.baidu.adp.lib.g.d dVar) {
-        if (this.bMk.getVisibility() == 0) {
-            this.bMn = new TranslateAnimation(0.0f, YN(), 0.0f, 0.0f);
-            this.bMn.setDuration(300L);
+        if (this.bMF.getVisibility() == 0) {
+            this.bMI = new TranslateAnimation(0.0f, Zi(), 0.0f, 0.0f);
+            this.bMI.setDuration(300L);
             if (dVar != null) {
-                this.bMn.setAnimationListener(dVar);
+                this.bMI.setAnimationListener(dVar);
             }
-            this.bMk.startAnimation(this.bMn);
+            this.bMF.startAnimation(this.bMI);
         }
     }
 
-    public void YO() {
-        TranslateAnimation translateAnimation = new TranslateAnimation(this.bMk.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
+    public void Zj() {
+        TranslateAnimation translateAnimation = new TranslateAnimation(this.bMF.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
         translateAnimation.setDuration(300L);
-        this.bMk.startAnimation(translateAnimation);
+        this.bMF.startAnimation(translateAnimation);
     }
 
-    public void YP() {
-        TranslateAnimation translateAnimation = new TranslateAnimation(-this.bMk.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
+    public void Zk() {
+        TranslateAnimation translateAnimation = new TranslateAnimation(-this.bMF.getMeasuredWidth(), 0.0f, 0.0f, 0.0f);
         translateAnimation.setDuration(300L);
-        this.bMk.startAnimation(translateAnimation);
+        this.bMF.startAnimation(translateAnimation);
     }
 
     public void a(boolean z, UserData userData, int i) {
         if (z && userData != null) {
-            this.bMo = userData.getConcern_num();
-            hI(userData.getConcern_num());
-            this.aHW.d(userData.getPortrait(), 12, false);
-            this.aHW.setUrl(userData.getPortrait());
+            this.bMJ = userData.getConcern_num();
+            hV(userData.getConcern_num());
+            this.aGQ.d(userData.getPortrait(), 12, false);
+            this.aGQ.setUrl(userData.getPortrait());
             if (i == this.index) {
-                this.bMl.setVisibility(0);
+                this.bMG.setVisibility(0);
             } else {
-                this.bMl.setVisibility(8);
+                this.bMG.setVisibility(8);
             }
-            this.bMk.setVisibility(0);
+            this.bMF.setVisibility(0);
             return;
         }
-        this.bMk.setVisibility(8);
+        this.bMF.setVisibility(8);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aHW.setOnClickListener(onClickListener);
+        this.aGQ.setOnClickListener(onClickListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void hI(int i) {
+    public void hV(int i) {
         int i2;
-        if (!this.bMp) {
+        if (!this.bMK) {
             if (i <= 0) {
-                this.bLl.setVisibility(8);
+                this.bLG.setVisibility(8);
                 return;
             }
-            this.bLl.setVisibility(0);
+            this.bLG.setVisibility(0);
             if (i < 10) {
-                this.bLl.setText(String.valueOf(i));
+                this.bLG.setText(String.valueOf(i));
                 i2 = i.e.icon_news_head_prompt_one;
             } else if (i < 100) {
-                this.bLl.setText(String.valueOf(i));
+                this.bLG.setText(String.valueOf(i));
                 i2 = i.e.icon_news_head_prompt_two;
             } else {
-                this.bLl.setText("   ");
+                this.bLG.setText("   ");
                 i2 = i.e.icon_news_head_prompt_more;
             }
-            this.bLl.setBackgroundResource(i2);
+            this.bLG.setBackgroundResource(i2);
         }
     }
 }

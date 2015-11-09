@@ -10,56 +10,56 @@ import com.baidu.tbadk.core.util.af;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class r extends p {
-    private boolean aeD;
-    private boolean aeE;
-    private CustomMessageListener aeF;
-    private CustomMessageListener aeG;
+    private boolean aeI;
+    private boolean aeJ;
+    private CustomMessageListener aeK;
+    private CustomMessageListener aeL;
 
     public r(TbPageContext<?> tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.aeE = true;
-        this.aeF = new s(this, CmdConfigCustom.CMD_PULL_IMAGE_CHANGE);
-        this.aeG = new t(this, CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE);
+        this.aeJ = true;
+        this.aeK = new s(this, CmdConfigCustom.CMD_PULL_IMAGE_CHANGE);
+        this.aeL = new t(this, CmdConfigCustom.CMD_PULL_BGCOLOR_CHANGE);
         d(tbPageContext);
     }
 
     @Override // com.baidu.tbadk.core.view.p, com.baidu.adp.widget.ListView.d
     public void S(boolean z) {
-        this.aey.setBackgroundDrawable(null);
+        this.aeD.setBackgroundDrawable(null);
         super.S(z);
-        this.aeE = true;
+        this.aeJ = true;
     }
 
     @Override // com.baidu.tbadk.core.view.p, com.baidu.adp.widget.ListView.d
     public void R(boolean z) {
         super.R(z);
-        this.aeE = false;
-        if (!this.aeD) {
+        this.aeJ = false;
+        if (!this.aeI) {
             cN(TbadkCoreApplication.m411getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tbadk.core.view.p, com.baidu.adp.widget.ListView.d
-    public void nq() {
-        super.nq();
-        this.aeE = false;
+    public void nr() {
+        super.nr();
+        this.aeJ = false;
     }
 
     public void cN(int i) {
-        if (this.aex != null && this.aey != null) {
-            this.aeD = false;
-            this.aeB = af.uq().cp(i);
-            if (this.aeB != null) {
-                this.aeD = true;
+        if (this.aeC != null && this.aeD != null) {
+            this.aeI = false;
+            this.aeG = af.ut().cp(i);
+            if (this.aeG != null) {
+                this.aeI = true;
             } else {
-                this.aeB = new AnimationDrawable();
+                this.aeG = new AnimationDrawable();
             }
-            this.aex.setBackgroundColor(af.uq().cr(i));
-            if (!this.aeD) {
-                this.aeB = af.uq().cq(i);
+            this.aeC.setBackgroundColor(af.ut().cr(i));
+            if (!this.aeI) {
+                this.aeG = af.ut().cq(i);
             }
-            this.aeB.setOneShot(false);
-            this.aey.setBackgroundDrawable(this.aeB);
+            this.aeG.setOneShot(false);
+            this.aeD.setBackgroundDrawable(this.aeG);
         }
     }
 
@@ -70,18 +70,18 @@ public class r extends p {
     }
 
     private void d(TbPageContext<?> tbPageContext) {
-        this.aeF.setTag(tbPageContext.getUniqueId());
-        this.aeG.setTag(tbPageContext.getUniqueId());
-        tbPageContext.registerListener(this.aeF);
-        tbPageContext.registerListener(this.aeG);
+        this.aeK.setTag(tbPageContext.getUniqueId());
+        this.aeL.setTag(tbPageContext.getUniqueId());
+        tbPageContext.registerListener(this.aeK);
+        tbPageContext.registerListener(this.aeL);
     }
 
     public void setTag(BdUniqueId bdUniqueId) {
-        if (this.aeF != null) {
-            this.aeF.setTag(bdUniqueId);
+        if (this.aeK != null) {
+            this.aeK.setTag(bdUniqueId);
         }
-        if (this.aeG != null) {
-            this.aeG.setTag(bdUniqueId);
+        if (this.aeL != null) {
+            this.aeL.setTag(bdUniqueId);
         }
     }
 }

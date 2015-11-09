@@ -18,15 +18,15 @@ public class a {
 
     public static AccountData j(String str, String str2, String str3) {
         w wVar = new w(TbConfig.LOGIN_FULL_ADDRESS);
-        wVar.ue().uV().mIsUseCurrentBDUSS = false;
+        wVar.uh().uZ().mIsUseCurrentBDUSS = false;
         wVar.o("bdusstoken", String.valueOf(str2) + "|" + str3);
         wVar.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
         wVar.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-        wVar.ue().uV().abO = false;
-        String tD = wVar.tD();
-        if (wVar.ue().uW().qS() && tD != null) {
+        wVar.uh().uZ().abT = false;
+        String tG = wVar.tG();
+        if (wVar.uh().va().qT() && tG != null) {
             l lVar = new l();
-            lVar.parserJson(tD);
+            lVar.parserJson(tG);
             AccountData accountData = new AccountData();
             accountData.setAccount(lVar.getUser().getUserName());
             accountData.setPassword("");
@@ -34,8 +34,8 @@ public class a {
             accountData.setBDUSS(lVar.getUser().getBDUSS());
             accountData.setPortrait(lVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (lVar.rC() != null) {
-                accountData.setTbs(lVar.rC().getTbs());
+            if (lVar.rE() != null) {
+                accountData.setTbs(lVar.rE().getTbs());
                 return accountData;
             }
             return accountData;
@@ -47,26 +47,26 @@ public class a {
     /* renamed from: com.baidu.tieba.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0067a extends BdAsyncTask<String, Integer, AccountData> {
-        private final String TD;
-        private volatile w afh = null;
-        private final String cbg;
-        private final a.InterfaceC0040a cbh;
-        private final boolean cbi;
+        private final String TE;
+        private volatile w afm = null;
+        private final String cbH;
+        private final a.InterfaceC0040a cbI;
+        private final boolean cbJ;
         private final String mName;
 
         public C0067a(String str, String str2, String str3, a.InterfaceC0040a interfaceC0040a, boolean z) {
             this.mName = str;
-            this.cbg = str2;
-            this.TD = str3;
-            this.cbi = z;
-            this.cbh = interfaceC0040a == null ? new b(this) : interfaceC0040a;
+            this.cbH = str2;
+            this.TE = str3;
+            this.cbJ = z;
+            this.cbI = interfaceC0040a == null ? new b(this) : interfaceC0040a;
             setPriority(3);
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.cbh.cd(this.mName);
+            this.cbI.cb(this.mName);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,29 +75,29 @@ public class a {
         /* renamed from: t */
         public AccountData doInBackground(String... strArr) {
             a.b a;
-            this.afh = new w(TbConfig.LOGIN_FULL_ADDRESS);
-            this.afh.ue().uV().mIsUseCurrentBDUSS = false;
-            this.afh.o("bdusstoken", String.valueOf(this.cbg) + "|" + this.TD);
-            this.afh.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
-            this.afh.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
-            this.afh.ue().uV().abO = false;
-            String tD = this.afh.tD();
-            if (this.afh.ue().uW().qS() && tD != null) {
+            this.afm = new w(TbConfig.LOGIN_FULL_ADDRESS);
+            this.afm.uh().uZ().mIsUseCurrentBDUSS = false;
+            this.afm.o("bdusstoken", String.valueOf(this.cbH) + "|" + this.TE);
+            this.afm.o("channel_id", TbadkCoreApplication.m411getInst().getPushChannelId());
+            this.afm.o("channel_uid", TbadkCoreApplication.m411getInst().getPushChannelUserId());
+            this.afm.uh().uZ().abT = false;
+            String tG = this.afm.tG();
+            if (this.afm.uh().va().qT() && tG != null) {
                 l lVar = new l();
-                lVar.parserJson(tD);
+                lVar.parserJson(tG);
                 AccountData accountData = new AccountData();
                 accountData.setAccount(lVar.getUser().getUserName());
                 accountData.setPassword("");
                 accountData.setID(lVar.getUser().getUserId());
                 String bduss = lVar.getUser().getBDUSS();
-                if (this.cbi && (a = f.a(com.baidu.tbadk.core.a.a.ra().cc(bduss))) != null) {
-                    bduss = String.valueOf(a.ws) + "|" + a.TD;
+                if (this.cbJ && (a = f.a(com.baidu.tbadk.core.a.a.rb().ca(bduss))) != null) {
+                    bduss = String.valueOf(a.ws) + "|" + a.TE;
                 }
                 accountData.setBDUSS(bduss);
                 accountData.setPortrait(lVar.getUser().getPortrait());
                 accountData.setIsActive(1);
-                if (lVar.rC() != null) {
-                    accountData.setTbs(lVar.rC().getTbs());
+                if (lVar.rE() != null) {
+                    accountData.setTbs(lVar.rE().getTbs());
                     return accountData;
                 }
                 return accountData;
@@ -112,28 +112,28 @@ public class a {
         public void onPostExecute(AccountData accountData) {
             int i = 0;
             super.onPostExecute(accountData);
-            ReloginManager.tm().aq(false);
-            com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "cslogin_result", this.afh.ui(), this.afh.getErrorString(), new Object[0]);
+            ReloginManager.tp().aq(false);
+            com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "cslogin_result", this.afm.ul(), this.afm.getErrorString(), new Object[0]);
             if (accountData != null && accountData.getBDUSS() != null) {
-                this.cbh.a(accountData);
+                this.cbI.a(accountData);
                 return;
             }
             String str = null;
-            if (this.afh != null) {
-                str = this.afh.getErrorString();
-                i = this.afh.ui();
+            if (this.afm != null) {
+                str = this.afm.getErrorString();
+                i = this.afm.ul();
             }
             if (str == null) {
                 str = TbadkCoreApplication.m411getInst().getApp().getResources().getString(i.h.data_load_error);
             }
-            this.cbh.c(this.mName, i, str);
+            this.cbI.c(this.mName, i, str);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            if (this.afh != null) {
-                this.afh.gJ();
+            if (this.afm != null) {
+                this.afm.gJ();
             }
         }
     }

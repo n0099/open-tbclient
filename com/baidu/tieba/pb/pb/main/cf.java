@@ -1,50 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.view.View;
-import android.view.animation.Animation;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class cf implements Animation.AnimationListener {
-    final /* synthetic */ cc clJ;
+public class cf extends x.a {
+    public TextView cll;
+    public View clm;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cf(cc ccVar) {
-        this.clJ = ccVar;
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        boolean z;
-        com.baidu.tbadk.editortools.j jVar;
-        com.baidu.tbadk.editortools.j jVar2;
-        View view;
-        boolean z2;
-        z = this.clJ.cls;
-        if (!z) {
-            jVar = this.clJ.KA;
-            if (jVar != null) {
-                jVar2 = this.clJ.KA;
-                jVar2.ow();
-                return;
-            }
-            return;
-        }
-        view = this.clJ.clo;
-        if (view != null) {
-            z2 = this.clJ.clm;
-            if (z2) {
-                this.clJ.eE(false);
-            } else {
-                this.clJ.eF(false);
-            }
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    public cf(View view) {
+        super(view);
+        this.cll = (TextView) view.findViewById(i.f.pb_u9_text_view);
+        this.clm = view.findViewById(i.f.divide_line_up_pb_u9);
     }
 }

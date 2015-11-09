@@ -1,15 +1,98 @@
 package com.baidu.tieba.write.album;
-/* loaded from: classes.dex */
-class n implements Runnable {
-    final /* synthetic */ m this$0;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public n(m mVar) {
-        this.this$0 = mVar;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes.dex */
+public class n {
+    private static n dmh;
+    private BroadcastReceiver dmi;
+    private ContentObserver dmj;
+    private Handler mHandler = new Handler(Looper.getMainLooper());
+    private ArrayList<a> mListeners = new ArrayList<>();
+    private Handler handler = new Handler();
+    private Runnable dmk = new o(this);
+
+    /* loaded from: classes.dex */
+    public interface a {
+        void gV(boolean z);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.this$0.gR(false);
+    public static n aCl() {
+        if (dmh == null) {
+            synchronized (n.class) {
+                if (dmh == null) {
+                    dmh = new n();
+                    dmh.init(TbadkCoreApplication.m411getInst());
+                }
+            }
+        }
+        return dmh;
+    }
+
+    private n() {
+    }
+
+    private void init(Context context) {
+        this.dmi = new p(this);
+        this.dmj = new q(this, this.mHandler);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
+        intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
+        intentFilter.addAction("android.intent.action.MEDIA_SCANNER_STARTED");
+        intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
+        intentFilter.addAction("android.intent.action.MEDIA_EJECT");
+        intentFilter.addDataScheme("file");
+        context.registerReceiver(this.dmi, intentFilter);
+        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.dmj);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void X(Intent intent) {
+        if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
+            gU(true);
+            return;
+        }
+        this.handler.removeCallbacks(this.dmk);
+        this.handler.postDelayed(this.dmk, 2000L);
+    }
+
+    public void gU(boolean z) {
+        Iterator<a> it = this.mListeners.iterator();
+        while (it.hasNext()) {
+            it.next().gV(z);
+        }
+    }
+
+    public void a(a aVar) {
+        if (aVar != null && !this.mListeners.contains(aVar)) {
+            this.mListeners.add(aVar);
+        }
+    }
+
+    public void b(a aVar) {
+        if (this.mListeners.contains(aVar)) {
+            this.mListeners.remove(aVar);
+        }
+    }
+
+    public void removeAllListeners() {
+        this.mListeners.clear();
+    }
+
+    public void destory() {
+        removeAllListeners();
+        TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
+        m411getInst.unregisterReceiver(this.dmi);
+        m411getInst.getContentResolver().unregisterContentObserver(this.dmj);
+        dmh = null;
     }
 }

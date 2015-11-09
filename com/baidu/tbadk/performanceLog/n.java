@@ -7,23 +7,23 @@ import com.baidu.tbadk.performanceLog.m;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends Handler {
-    final /* synthetic */ m axj;
+    final /* synthetic */ m avY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(m mVar, Looper looper) {
         super(looper);
-        this.axj = mVar;
+        this.avY = mVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         m.a aVar;
         m.a aVar2;
-        this.axj.axh = new m.a();
-        aVar = this.axj.axh;
+        this.avY.avW = new m.a();
+        aVar = this.avY.avW;
         aVar.setSelfExecute(true);
-        aVar2 = this.axj.axh;
+        aVar2 = this.avY.avW;
         aVar2.execute(new String[0]);
     }
 }

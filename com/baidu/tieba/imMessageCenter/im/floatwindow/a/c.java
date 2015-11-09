@@ -3,118 +3,118 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.a;
 import android.graphics.Point;
 /* loaded from: classes.dex */
 public class c implements b {
-    private final int bLA;
-    private final int bLB;
-    private a bLC;
-    private int bLD;
-    private Point bLx;
-    private Point bLy;
-    private Point bLz;
+    private Point bLS;
+    private Point bLT;
+    private Point bLU;
+    private final int bLV;
+    private final int bLW;
+    private a bLX;
+    private int bLY;
     private float k;
 
     /* loaded from: classes.dex */
     public interface a {
-        void Yp();
+        void YK();
 
         void a(Point point);
     }
 
-    private int hG(int i) {
-        return (int) (((this.k * i) + this.bLx.y) - (this.k * this.bLx.x));
+    private int hT(int i) {
+        return (int) (((this.k * i) + this.bLS.y) - (this.k * this.bLS.x));
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.a.b
     public boolean execute() {
-        if (!this.bLz.equals(this.bLy)) {
-            switch (this.bLD) {
+        if (!this.bLU.equals(this.bLT)) {
+            switch (this.bLY) {
                 case 0:
-                    Yw();
+                    YR();
                     break;
                 case 1:
-                    Yy();
+                    YT();
                     break;
                 case 2:
-                    Yx();
+                    YS();
                     break;
                 case 3:
-                    Yz();
+                    YU();
                     break;
                 case 4:
-                    YA();
+                    YV();
                     break;
                 case 5:
-                    YB();
+                    YW();
                     break;
             }
             return false;
         }
-        if (this.bLC != null) {
-            this.bLC.Yp();
+        if (this.bLX != null) {
+            this.bLX.YK();
         }
         return true;
     }
 
-    private void Yw() {
-        this.bLz.y += this.bLB;
-        if (this.bLz.y > this.bLy.y) {
-            this.bLz.y = this.bLy.y;
+    private void YR() {
+        this.bLU.y += this.bLW;
+        if (this.bLU.y > this.bLT.y) {
+            this.bLU.y = this.bLT.y;
         }
-        if (this.bLC != null) {
-            this.bLC.a(this.bLz);
-        }
-    }
-
-    private void Yx() {
-        this.bLz.x += this.bLA;
-        if (this.bLz.x > this.bLy.x) {
-            this.bLz.x = this.bLy.x;
-        }
-        if (this.bLC != null) {
-            this.bLC.a(this.bLz);
+        if (this.bLX != null) {
+            this.bLX.a(this.bLU);
         }
     }
 
-    private void Yy() {
-        this.bLz.y -= this.bLB;
-        if (this.bLz.y < this.bLy.y) {
-            this.bLz.y = this.bLy.y;
+    private void YS() {
+        this.bLU.x += this.bLV;
+        if (this.bLU.x > this.bLT.x) {
+            this.bLU.x = this.bLT.x;
         }
-        if (this.bLC != null) {
-            this.bLC.a(this.bLz);
-        }
-    }
-
-    private void Yz() {
-        this.bLz.x -= this.bLA;
-        if (this.bLz.x < this.bLy.x) {
-            this.bLz.x = this.bLy.x;
-        }
-        if (this.bLC != null) {
-            this.bLC.a(this.bLz);
+        if (this.bLX != null) {
+            this.bLX.a(this.bLU);
         }
     }
 
-    private void YA() {
-        this.bLz.x -= this.bLA;
-        this.bLz.y = hG(this.bLz.x);
-        if (this.bLz.x < this.bLy.x && this.bLz.y < this.bLy.y) {
-            this.bLz.x = this.bLy.x;
-            this.bLz.y = this.bLy.y;
+    private void YT() {
+        this.bLU.y -= this.bLW;
+        if (this.bLU.y < this.bLT.y) {
+            this.bLU.y = this.bLT.y;
         }
-        if (this.bLC != null) {
-            this.bLC.a(this.bLz);
+        if (this.bLX != null) {
+            this.bLX.a(this.bLU);
         }
     }
 
-    private void YB() {
-        this.bLz.x += this.bLA;
-        this.bLz.y = hG(this.bLz.x);
-        if (this.bLz.x > this.bLy.x && this.bLz.y > this.bLy.y) {
-            this.bLz.x = this.bLy.x;
-            this.bLz.y = this.bLy.y;
+    private void YU() {
+        this.bLU.x -= this.bLV;
+        if (this.bLU.x < this.bLT.x) {
+            this.bLU.x = this.bLT.x;
         }
-        if (this.bLC != null) {
-            this.bLC.a(this.bLz);
+        if (this.bLX != null) {
+            this.bLX.a(this.bLU);
+        }
+    }
+
+    private void YV() {
+        this.bLU.x -= this.bLV;
+        this.bLU.y = hT(this.bLU.x);
+        if (this.bLU.x < this.bLT.x && this.bLU.y < this.bLT.y) {
+            this.bLU.x = this.bLT.x;
+            this.bLU.y = this.bLT.y;
+        }
+        if (this.bLX != null) {
+            this.bLX.a(this.bLU);
+        }
+    }
+
+    private void YW() {
+        this.bLU.x += this.bLV;
+        this.bLU.y = hT(this.bLU.x);
+        if (this.bLU.x > this.bLT.x && this.bLU.y > this.bLT.y) {
+            this.bLU.x = this.bLT.x;
+            this.bLU.y = this.bLT.y;
+        }
+        if (this.bLX != null) {
+            this.bLX.a(this.bLU);
         }
     }
 }

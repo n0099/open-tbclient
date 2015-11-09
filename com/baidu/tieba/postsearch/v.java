@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class v extends BaseAdapter {
-    private static final int cEA = TbadkCoreApplication.m411getInst().getListItemRule().wj();
+    private static final int cFW = TbadkCoreApplication.m411getInst().getListItemRule().wo();
     private TbPageContext<?> mContext;
     private List<j.a> mData = new ArrayList();
 
@@ -26,17 +26,17 @@ public class v extends BaseAdapter {
         this.mContext = tbPageContext;
     }
 
-    public int bj(List<j.a> list) {
+    public int bn(List<j.a> list) {
         if (list == null) {
             return 0;
         }
         int size = this.mData.size() + list.size();
-        if (size <= cEA) {
+        if (size <= cFW) {
             this.mData.addAll(list);
             return 0;
         }
-        int i = size - cEA;
-        ka(i);
+        int i = size - cFW;
+        ko(i);
         this.mData.addAll(list);
         return i;
     }
@@ -45,7 +45,7 @@ public class v extends BaseAdapter {
         this.mData.clear();
     }
 
-    private void ka(int i) {
+    private void ko(int i) {
         if (this.mData.size() <= i) {
             this.mData.clear();
         }
@@ -87,11 +87,11 @@ public class v extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.post_search_list_item, (ViewGroup) null);
             a aVar = new a(null);
-            aVar.cED = (TextView) view.findViewById(i.f.title_text);
-            aVar.cEE = (TextView) view.findViewById(i.f.content_text);
-            aVar.cEF = (TextView) view.findViewById(i.f.label_text);
-            aVar.ccS = (TextView) view.findViewById(i.f.user_name);
-            aVar.cEG = (TextView) view.findViewById(i.f.time_text);
+            aVar.cFZ = (TextView) view.findViewById(i.f.title_text);
+            aVar.cGa = (TextView) view.findViewById(i.f.content_text);
+            aVar.cGb = (TextView) view.findViewById(i.f.label_text);
+            aVar.cdt = (TextView) view.findViewById(i.f.user_name);
+            aVar.cGc = (TextView) view.findViewById(i.f.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -103,20 +103,20 @@ public class v extends BaseAdapter {
             }
             Spanned fromHtml = Html.fromHtml(as.af(aVar3.title, str));
             if (aVar3.thread_type == 33) {
-                aVar2.cED.setText(PhotoLiveCardData.getLiveIconTitle(fromHtml));
+                aVar2.cFZ.setText(PhotoLiveCardData.getLiveIconTitle(fromHtml));
             } else {
-                aVar2.cED.setText(fromHtml);
+                aVar2.cFZ.setText(fromHtml);
             }
-            aVar2.cEE.setText(Html.fromHtml(as.af(aVar3.content, str)));
-            aVar2.ccS.setText(aVar3.name_show);
-            aVar2.cEG.setText(as.m(aVar3.time));
-            aVar2.cEF.setVisibility(0);
+            aVar2.cGa.setText(Html.fromHtml(as.af(aVar3.content, str)));
+            aVar2.cdt.setText(aVar3.name_show);
+            aVar2.cGc.setText(as.m(aVar3.time));
+            aVar2.cGb.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.cEF.setText(i.h.floor_text);
-            } else if (aVar3.cEc == 1) {
-                aVar2.cEF.setText(i.h.reply_post);
+                aVar2.cGb.setText(i.h.floor_text);
+            } else if (aVar3.cFy == 1) {
+                aVar2.cGb.setText(i.h.reply_post);
             } else {
-                aVar2.cEF.setVisibility(8);
+                aVar2.cGb.setVisibility(8);
             }
             view.setOnClickListener(new w(this, aVar3));
             com.baidu.tbadk.h.a.a(this.mContext, view);
@@ -126,11 +126,11 @@ public class v extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private static class a {
-        TextView cED;
-        TextView cEE;
-        TextView cEF;
-        TextView cEG;
-        TextView ccS;
+        TextView cFZ;
+        TextView cGa;
+        TextView cGb;
+        TextView cGc;
+        TextView cdt;
 
         private a() {
         }

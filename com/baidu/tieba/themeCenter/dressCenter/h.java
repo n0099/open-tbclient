@@ -8,15 +8,15 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class h implements com.baidu.tbadk.core.flow.b {
-    final /* synthetic */ f dgo;
+    final /* synthetic */ f dhU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar) {
-        this.dgo = fVar;
+        this.dhU = fVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.c ta() {
+    public com.baidu.tbadk.core.flow.a.c td() {
         com.baidu.tbadk.core.flow.a.c cVar = new com.baidu.tbadk.core.flow.a.c();
         cVar.setDrawableId(i.e.icon_diandian_white_n);
         cVar.bX(i.e.icon_diandian_white_s);
@@ -36,14 +36,14 @@ class h implements com.baidu.tbadk.core.flow.b {
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public com.baidu.tbadk.core.flow.a.e tb() {
+    public com.baidu.tbadk.core.flow.a.e te() {
         com.baidu.tbadk.core.flow.a.e eVar = new com.baidu.tbadk.core.flow.a.e();
         eVar.setHeight(TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds280));
         return eVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.b
-    public View tc() {
+    public View tf() {
         return null;
     }
 }

@@ -1,54 +1,29 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.BitmapDrawable;
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class du extends bn<com.baidu.tbadk.core.data.w, dv> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public du(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
+public class du implements View.OnClickListener {
+    private final /* synthetic */ com.baidu.tbadk.core.data.w aXA;
+    final /* synthetic */ dr aYN;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public du(dr drVar, com.baidu.tbadk.core.data.w wVar) {
+        this.aYN = drVar;
+        this.aXA = wVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: s */
-    public dv a(ViewGroup viewGroup) {
-        return new dv(LayoutInflater.from(this.mContext).inflate(i.g.frs_top_item, (ViewGroup) null));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.w wVar, dv dvVar) {
-        BitmapDrawable bitmapDrawable;
-        super.a(i, view, viewGroup, (ViewGroup) wVar, (com.baidu.tbadk.core.data.w) dvVar);
-        this.aSe.getLayoutMode().ad(this.mSkinType == 1);
-        this.aSe.getLayoutMode().k(view);
-        if (wVar == null) {
-            return null;
-        }
-        dvVar.aPq.setText(wVar.getTitle());
-        com.baidu.tieba.tbadkCore.util.p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.lL(wVar.getId())) {
-            com.baidu.tbadk.core.util.an.b(dvVar.aPq, i.c.cp_cont_c, 1);
-        }
-        if (wVar.getIs_top() == 1) {
-            bitmapDrawable = (BitmapDrawable) com.baidu.tbadk.core.util.an.getDrawable(i.e.icon_top);
-        } else {
-            bitmapDrawable = wVar.getIs_top() == 2 ? (BitmapDrawable) com.baidu.tbadk.core.util.an.getDrawable(i.e.icon_notice) : null;
-        }
-        com.baidu.tbadk.core.util.an.i(dvVar.aVZ, i.e.frs_top_item_bg);
-        if (bitmapDrawable != null) {
-            bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-        }
-        dvVar.aPq.setCompoundDrawables(bitmapDrawable, null, null, null);
-        return view;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.aYN.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXA.getAuthor().getUserId(), this.aXA.getAuthor().getName_show(), this.aYN.aUe.afg().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

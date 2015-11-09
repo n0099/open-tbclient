@@ -10,32 +10,32 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class h {
-    private View aRw;
-    private View bUk;
-    private TextView bUl;
+    private View aRE;
+    private View bUL;
+    private TextView bUM;
 
     public void hide() {
-        this.bUl.setVisibility(8);
-        this.aRw.setVisibility(8);
+        this.bUM.setVisibility(8);
+        this.aRE.setVisibility(8);
     }
 
     public void show() {
-        this.bUl.setVisibility(0);
-        this.aRw.setVisibility(0);
+        this.bUM.setVisibility(0);
+        this.aRE.setVisibility(0);
     }
 
     public View getView() {
-        return this.bUk;
+        return this.bUL;
     }
 
     public h(TbPageContext<?> tbPageContext) {
-        this.bUk = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(i.g.square_search_recommand_fourm_header, (ViewGroup) null);
-        this.bUl = (TextView) this.bUk.findViewById(i.f.square_search_fourm_header_text);
-        this.aRw = this.bUk.findViewById(i.f.titleDivider);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aRw.getLayoutParams();
+        this.bUL = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(i.g.square_search_recommand_fourm_header, (ViewGroup) null);
+        this.bUM = (TextView) this.bUL.findViewById(i.f.square_search_fourm_header_text);
+        this.aRE = this.bUL.findViewById(i.f.titleDivider);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aRE.getLayoutParams();
         layoutParams.bottomMargin = TbadkCoreApplication.m411getInst().getResources().getDimensionPixelOffset(i.d.ds10);
-        this.aRw.setLayoutParams(layoutParams);
-        this.bUl.setText(tbPageContext.getResources().getText(i.h.hot_forum_title));
+        this.aRE.setLayoutParams(layoutParams);
+        this.bUM.setText(tbPageContext.getResources().getText(i.h.hot_forum_title));
         hide();
     }
 }

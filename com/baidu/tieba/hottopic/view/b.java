@@ -15,104 +15,104 @@ import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class b extends LinearLayout {
-    public int apS;
-    private HotTopicActivity bod;
-    private BarImageView bqc;
-    private TextView bqd;
-    private TextView bqg;
-    private RelateForumItemData bqk;
-    private LinearLayout bql;
-    private LinearLayout bqm;
-    private LinearLayout bqn;
-    private TextView bqo;
-    private TextView bqp;
-    private TextView bqq;
+    public int arf;
+    private HotTopicActivity boH;
+    private BarImageView bqG;
+    private TextView bqH;
+    private TextView bqK;
+    private RelateForumItemData bqO;
+    private LinearLayout bqP;
+    private LinearLayout bqQ;
+    private LinearLayout bqR;
+    private TextView bqS;
+    private TextView bqT;
+    private TextView bqU;
 
     public b(HotTopicActivity hotTopicActivity) {
         super(hotTopicActivity.getPageContext().getPageActivity());
-        this.apS = 3;
-        this.bod = hotTopicActivity;
+        this.arf = 3;
+        this.boH = hotTopicActivity;
         initView();
-        Re();
+        RA();
     }
 
     private void initView() {
-        View inflate = ((LayoutInflater) this.bod.getPageContext().getPageActivity().getSystemService("layout_inflater")).inflate(i.g.hot_topic_relate_forum_recommendinfo, this);
-        this.bql = (LinearLayout) inflate.findViewById(i.f.forum_info_card_root);
-        this.bqc = (BarImageView) inflate.findViewById(i.f.forum_avatar);
-        this.bqm = (LinearLayout) inflate.findViewById(i.f.forum_text_info);
-        this.bqd = (TextView) inflate.findViewById(i.f.forum_name);
-        this.bqn = (LinearLayout) inflate.findViewById(i.f.forum_info_text_center);
-        this.bqo = (TextView) inflate.findViewById(i.f.forum_follows_count);
-        this.bqp = (TextView) inflate.findViewById(i.f.forum_thread_count);
-        this.bqq = (TextView) inflate.findViewById(i.f.forum_intro);
-        this.bqg = (TextView) inflate.findViewById(i.f.forum_add_love);
+        View inflate = ((LayoutInflater) this.boH.getPageContext().getPageActivity().getSystemService("layout_inflater")).inflate(i.g.hot_topic_relate_forum_recommendinfo, this);
+        this.bqP = (LinearLayout) inflate.findViewById(i.f.forum_info_card_root);
+        this.bqG = (BarImageView) inflate.findViewById(i.f.forum_avatar);
+        this.bqQ = (LinearLayout) inflate.findViewById(i.f.forum_text_info);
+        this.bqH = (TextView) inflate.findViewById(i.f.forum_name);
+        this.bqR = (LinearLayout) inflate.findViewById(i.f.forum_info_text_center);
+        this.bqS = (TextView) inflate.findViewById(i.f.forum_follows_count);
+        this.bqT = (TextView) inflate.findViewById(i.f.forum_thread_count);
+        this.bqU = (TextView) inflate.findViewById(i.f.forum_intro);
+        this.bqK = (TextView) inflate.findViewById(i.f.forum_add_love);
     }
 
-    private void Re() {
-        an.b(this.bqd, i.c.cp_cont_b, 1);
-        an.b(this.bqo, i.c.cp_cont_c, 1);
-        an.b(this.bqp, i.c.cp_cont_c, 1);
-        an.b(this.bqq, i.c.cp_cont_d, 1);
-        an.i((View) this.bqg, i.e.btn_appdownload);
-        an.i(this.bql, i.e.list_item_selector);
+    private void RA() {
+        an.b(this.bqH, i.c.cp_cont_b, 1);
+        an.b(this.bqS, i.c.cp_cont_c, 1);
+        an.b(this.bqT, i.c.cp_cont_c, 1);
+        an.b(this.bqU, i.c.cp_cont_d, 1);
+        an.i((View) this.bqK, i.e.btn_appdownload);
+        an.i(this.bqP, i.e.list_item_selector);
     }
 
     public void setData(RelateForumItemData relateForumItemData) {
         if (relateForumItemData != null && !StringUtils.isNull(relateForumItemData.forumName)) {
-            this.bqk = relateForumItemData;
+            this.bqO = relateForumItemData;
             if (!StringUtils.isNull(relateForumItemData.forumAvatar)) {
-                this.bqc.d(relateForumItemData.forumAvatar, 10, false);
+                this.bqG.d(relateForumItemData.forumAvatar, 10, false);
             }
             if (!StringUtils.isNull(relateForumItemData.forumName)) {
-                this.bqd.setSingleLine();
-                this.bqd.setText(as.d(relateForumItemData.forumName.trim(), 14, "..."));
+                this.bqH.setSingleLine();
+                this.bqH.setText(as.d(relateForumItemData.forumName.trim(), 14, "..."));
             }
-            this.bqo.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.forum_list_attention_tv)) + " " + av(relateForumItemData.followNum));
-            this.bqp.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.forum_list_thread_tv)) + " " + av(relateForumItemData.postNum));
+            this.bqS.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.forum_list_attention_tv)) + " " + av(relateForumItemData.followNum));
+            this.bqT.setText(String.valueOf(TbadkCoreApplication.m411getInst().getString(i.h.forum_list_thread_tv)) + " " + av(relateForumItemData.postNum));
             relateForumItemData.forumAbstract = relateForumItemData.forumAbstract.trim();
             if (!StringUtils.isNull(relateForumItemData.forumAbstract)) {
-                this.bqq.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
-                this.bqq.setText(relateForumItemData.forumAbstract);
+                this.bqU.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
+                this.bqU.setText(relateForumItemData.forumAbstract);
             }
-            cD(relateForumItemData.isLiked);
+            cF(relateForumItemData.isLiked);
             registerListener();
-            QG();
+            Rc();
         }
     }
 
-    public void QG() {
-        if (TbadkCoreApplication.m411getInst().getSkinType() != this.apS) {
-            Re();
-            if (this.bqk != null) {
-                cD(this.bqk.isLiked);
+    public void Rc() {
+        if (TbadkCoreApplication.m411getInst().getSkinType() != this.arf) {
+            RA();
+            if (this.bqO != null) {
+                cF(this.bqO.isLiked);
             }
-            this.apS = TbadkCoreApplication.m411getInst().getSkinType();
+            this.arf = TbadkCoreApplication.m411getInst().getSkinType();
         }
     }
 
-    private void cD(boolean z) {
+    private void cF(boolean z) {
         if (z) {
-            this.bqg.setEnabled(false);
-            an.b(this.bqg, i.c.cp_cont_e, 1);
-            this.bqg.setText(TbadkCoreApplication.m411getInst().getString(i.h.relate_forum_is_followed));
-            this.bqg.setBackgroundDrawable(null);
+            this.bqK.setEnabled(false);
+            an.b(this.bqK, i.c.cp_cont_e, 1);
+            this.bqK.setText(TbadkCoreApplication.m411getInst().getString(i.h.relate_forum_is_followed));
+            this.bqK.setBackgroundDrawable(null);
             return;
         }
-        an.b(this.bqg, i.c.cp_cont_i, 1);
-        this.bqg.setText(TbadkCoreApplication.m411getInst().getString(i.h.forum_list_attention_tv));
-        an.i((View) this.bqg, i.e.btn_appdownload);
-        this.bqg.setEnabled(true);
+        an.b(this.bqK, i.c.cp_cont_i, 1);
+        this.bqK.setText(TbadkCoreApplication.m411getInst().getString(i.h.forum_list_attention_tv));
+        an.i((View) this.bqK, i.e.btn_appdownload);
+        this.bqK.setEnabled(true);
     }
 
     private void registerListener() {
-        if (this.bqk != null) {
-            String valueOf = String.valueOf(this.bqk.forumId);
-            String str = this.bqk.forumName;
-            this.bql.setClickable(true);
-            this.bql.setOnClickListener(new c(this, str));
-            this.bqg.setClickable(true);
-            this.bqg.setOnClickListener(new d(this, str, valueOf));
+        if (this.bqO != null) {
+            String valueOf = String.valueOf(this.bqO.forumId);
+            String str = this.bqO.forumName;
+            this.bqP.setClickable(true);
+            this.bqP.setOnClickListener(new c(this, str));
+            this.bqK.setClickable(true);
+            this.bqK.setOnClickListener(new d(this, str, valueOf));
         }
     }
 

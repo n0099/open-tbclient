@@ -1,47 +1,72 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.PbContent;
 /* loaded from: classes.dex */
-class k implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView aCC;
+public class k extends com.baidu.adp.lib.a.b.a.a.i {
+    private boolean aAC;
+    private boolean aAD;
+    private String cdn_src;
+    private String link;
+    private int mHeight;
+    private int mWidth;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public k(TbRichTextView tbRichTextView) {
-        this.aCC = tbRichTextView;
+    public k() {
+        this.mWidth = 1;
+        this.mHeight = 1;
+        this.cdn_src = null;
+        this.link = null;
+        this.aAC = false;
+        this.aAD = true;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        TbRichTextView.c cVar;
-        String str;
-        TbRichTextView.c cVar2;
-        cVar = this.aCC.aCn;
-        if (cVar != null && (view instanceof ImageView)) {
-            Object tag = view.getTag();
-            if (tag != null && (tag instanceof String)) {
-                str = (String) tag;
-            } else if (!(view instanceof TbImageView)) {
-                str = null;
-            } else {
-                str = ((TbImageView) view).getUrl();
+    public k(PbContent pbContent) {
+        this.mWidth = 1;
+        this.mHeight = 1;
+        this.cdn_src = null;
+        this.link = null;
+        this.aAC = false;
+        this.aAD = true;
+        this.cdn_src = pbContent.cdn_src;
+        this.link = pbContent.link;
+        String str = pbContent.bsize;
+        if (str != null) {
+            try {
+                String[] split = str.split(",");
+                this.mWidth = Integer.valueOf(split[0]).intValue();
+                this.mHeight = Integer.valueOf(split[1]).intValue();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            int childCount = this.aCC.getChildCount();
-            int i = -1;
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = this.aCC.getChildAt(i2);
-                if ((childAt instanceof ImageView) && !(childAt instanceof GifView)) {
-                    i++;
-                }
-                if (view == childAt) {
-                    break;
-                }
-            }
-            cVar2 = this.aCC.aCn;
-            cVar2.a(view, str, i);
         }
+        if (this.mWidth <= 0) {
+            this.mWidth = 1;
+        }
+        if (this.mHeight <= 0) {
+            this.mHeight = 1;
+        }
+        if (this.cdn_src != null && this.cdn_src.indexOf(".baidu.com") != -1) {
+            this.aAC = true;
+        }
+    }
+
+    public int getWidth() {
+        return this.mWidth;
+    }
+
+    public int getHeight() {
+        return this.mHeight;
+    }
+
+    public String Fg() {
+        return this.cdn_src;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public boolean EZ() {
+        return this.aAD;
     }
 }

@@ -4,23 +4,23 @@ import android.widget.AbsListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements AbsListView.OnScrollListener {
-    final /* synthetic */ NewSubPbActivity cmC;
+    final /* synthetic */ NewSubPbActivity cnS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(NewSubPbActivity newSubPbActivity) {
-        this.cmC = newSubPbActivity;
+        this.cnS = newSubPbActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        t tVar;
-        com.baidu.tbadk.editortools.c.n nVar;
+        v vVar;
+        com.baidu.tbadk.editortools.c.p pVar;
         if (i == 2 || i == 1) {
-            tVar = this.cmC.cmv;
-            tVar.agI();
+            vVar = this.cnS.cnJ;
+            vVar.aho();
         }
-        nVar = this.cmC.caU;
-        nVar.BJ();
+        pVar = this.cnS.cbv;
+        pVar.BC();
     }
 
     @Override // android.widget.AbsListView.OnScrollListener

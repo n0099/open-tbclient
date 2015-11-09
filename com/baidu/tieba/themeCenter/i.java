@@ -9,7 +9,7 @@ import java.util.List;
 import tbclient.GetUpdateInfo.ThemeSkinUpdateInfo;
 /* loaded from: classes.dex */
 public class i {
-    public static boolean lt(int i) {
+    public static boolean lH(int i) {
         return i == 0 || TbadkCoreApplication.getCurrentMemberType() >= 2;
     }
 
@@ -21,26 +21,26 @@ public class i {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
         if (bVar.getId() == -1) {
             if (skinType == 3 || skinType == 0) {
-                bVar.gJ(true);
+                bVar.gM(true);
                 return 0;
             }
-            bVar.gJ(false);
+            bVar.gM(false);
             return 4;
         } else if (bVar.getId() == -2) {
             if (skinType == 1) {
-                bVar.gJ(true);
+                bVar.gM(true);
                 return 0;
             }
-            bVar.gJ(false);
+            bVar.gM(false);
             return 4;
         } else if (list == null || list.size() <= 0) {
-            bVar.gJ(false);
+            bVar.gM(false);
             return 1;
         } else {
             if (bVar.getId() == TbadkCoreApplication.m411getInst().getUsedThemeId() && skinType == 2) {
-                bVar.gJ(true);
+                bVar.gM(true);
             } else {
-                bVar.gJ(false);
+                bVar.gM(false);
             }
             Iterator<b> it = list.iterator();
             while (true) {
@@ -71,21 +71,21 @@ public class i {
         int skinType = TbadkCoreApplication.m411getInst().getSkinType();
         if (bVar.getId() == -1) {
             if (skinType == 3 || skinType == 0) {
-                bVar.gJ(true);
+                bVar.gM(true);
                 return 0;
             }
-            bVar.gJ(false);
+            bVar.gM(false);
             return 4;
         } else if (bVar.getId() == -2) {
             if (skinType == 1) {
-                bVar.gJ(true);
+                bVar.gM(true);
                 return 0;
             }
-            bVar.gJ(false);
+            bVar.gM(false);
             return 4;
         } else {
             boolean z = bVar.getId() == TbadkCoreApplication.m411getInst().getUsedThemeId() && skinType == 2;
-            bVar.gJ(z);
+            bVar.gM(z);
             if (arrayList == null || arrayList.size() <= 0) {
                 return !z ? 4 : 0;
             }
@@ -105,14 +105,14 @@ public class i {
             } else if (themeSkinUpdateInfo.props_version.intValue() <= bVar.getVersionCode()) {
                 return !z ? 4 : 0;
             } else {
-                bVar.lT(themeSkinUpdateInfo.package_url);
-                bVar.ls(themeSkinUpdateInfo.props_version.intValue());
+                bVar.lX(themeSkinUpdateInfo.package_url);
+                bVar.lG(themeSkinUpdateInfo.props_version.intValue());
                 return 5;
             }
         }
     }
 
-    public static ArrayList<com.baidu.tieba.themeCenter.theme.top.a> by(List<b> list) {
+    public static ArrayList<com.baidu.tieba.themeCenter.theme.top.a> bC(List<b> list) {
         int i;
         int i2 = 0;
         if (list == null || list.size() <= 0) {
@@ -131,7 +131,7 @@ public class i {
                 arrayList2.add(list.get(i5 - 2));
                 arrayList2.add(list.get(i5 - 1));
                 i = i2 + 3;
-                aVar.bD(arrayList2);
+                aVar.bH(arrayList2);
                 arrayList.add(aVar);
             } else {
                 i = i2;
@@ -152,7 +152,7 @@ public class i {
                 arrayList3.add(list.get(size - i7));
                 i6 = i7 - 1;
             }
-            aVar2.bD(arrayList3);
+            aVar2.bH(arrayList3);
             arrayList.add(aVar2);
         }
         return arrayList;
@@ -166,7 +166,7 @@ public class i {
             aVar.b(i.h.cancel_text, new j(aVar));
             aVar.a(i.h.become_member_immediately, new k(aVar, i, tbPageContext));
             aVar.b(tbPageContext);
-            aVar.sO();
+            aVar.sR();
         }
     }
 }

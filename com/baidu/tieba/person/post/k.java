@@ -9,11 +9,11 @@ import com.baidu.tieba.person.PersonPostModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements PersonPostModel.a {
-    final /* synthetic */ j crQ;
+    final /* synthetic */ j ctm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.crQ = jVar;
+        this.ctm = jVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x003a, code lost:
@@ -34,58 +34,58 @@ public class k implements PersonPostModel.a {
         View view2;
         BdListView bdListView4;
         boolean z2;
-        if (this.crQ.isAdded()) {
-            progressBar = this.crQ.mProgressBar;
+        if (this.ctm.isAdded()) {
+            progressBar = this.ctm.mProgressBar;
             progressBar.setVisibility(8);
-            bdListView = this.crQ.crG;
+            bdListView = this.ctm.ctc;
             bdListView.completePullRefresh();
             if (personPostModel != null) {
-                if (j.ba(personPostModel.post_list) == 0) {
-                    z2 = this.crQ.crN;
+                if (j.be(personPostModel.post_list) == 0) {
+                    z2 = this.ctm.ctj;
                     if (z2) {
                     }
                 }
-                if (j.ba(personPostModel.post_list) == 0) {
-                    this.crQ.mNoDataView.setVisibility(0);
-                    bdListView4 = this.crQ.crG;
+                if (j.be(personPostModel.post_list) == 0) {
+                    this.ctm.mNoDataView.setVisibility(0);
+                    bdListView4 = this.ctm.ctc;
                     bdListView4.setVisibility(0);
                 } else {
-                    this.crQ.mNoDataView.setVisibility(8);
-                    bdListView3 = this.crQ.crG;
+                    this.ctm.mNoDataView.setVisibility(8);
+                    bdListView3 = this.ctm.ctc;
                     bdListView3.setVisibility(0);
                 }
                 if (personPostModel.getErrorCode() != 0) {
-                    com.baidu.adp.lib.util.k.showToast(this.crQ.getActivity(), personPostModel.getErrorString());
+                    com.baidu.adp.lib.util.k.showToast(this.ctm.getActivity(), personPostModel.getErrorString());
                 }
-                int ba = j.ba(personPostModel.post_list);
-                if (ba < 20) {
-                    if (!com.baidu.adp.lib.util.i.iM() || ba <= 0) {
-                        view = this.crQ.crK;
+                int be = j.be(personPostModel.post_list);
+                if (be < 20) {
+                    if (!com.baidu.adp.lib.util.i.iN() || be <= 0) {
+                        view = this.ctm.ctg;
                         view.setVisibility(8);
                     } else {
-                        this.crQ.crL = false;
-                        pbListView2 = this.crQ.crJ;
-                        pbListView2.setText(this.crQ.getResources().getString(i.h.person_post_reply_no_more));
-                        view2 = this.crQ.crK;
+                        this.ctm.cth = false;
+                        pbListView2 = this.ctm.ctf;
+                        pbListView2.setText(this.ctm.getResources().getString(i.h.person_post_reply_no_more));
+                        view2 = this.ctm.ctg;
                         view2.setVisibility(0);
                     }
                 }
-                pbListView = this.crQ.crJ;
-                pbListView.vv();
+                pbListView = this.ctm.ctf;
+                pbListView.vz();
                 if (z) {
-                    if (j.ba(personPostModel.post_list) < 20) {
-                        this.crQ.crL = false;
+                    if (j.be(personPostModel.post_list) < 20) {
+                        this.ctm.cth = false;
                     } else {
-                        this.crQ.crL = true;
+                        this.ctm.cth = true;
                     }
-                    this.crQ.crM = 0;
-                    this.crQ.crN = false;
+                    this.ctm.cti = 0;
+                    this.ctm.ctj = false;
                     return;
                 }
                 return;
             }
-            this.crQ.mNoDataView.setVisibility(0);
-            bdListView2 = this.crQ.crG;
+            this.ctm.mNoDataView.setVisibility(0);
+            bdListView2 = this.ctm.ctc;
             bdListView2.setVisibility(0);
         }
     }

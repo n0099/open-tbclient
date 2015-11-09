@@ -11,18 +11,18 @@ import com.baidu.tieba.i;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class g extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.myCollection.baseHistory.b, com.baidu.tbadk.mvc.d.b> {
-    private TextView ccr;
-    private TextView ccs;
-    private TextView cct;
+    private TextView ccS;
+    private TextView ccT;
+    private TextView ccU;
     private View mLine;
     private View mRootView;
 
     public g(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.ccr = (TextView) view.findViewById(i.f.title);
-        this.ccs = (TextView) view.findViewById(i.f.content);
-        this.cct = (TextView) view.findViewById(i.f.time);
+        this.ccS = (TextView) view.findViewById(i.f.title);
+        this.ccT = (TextView) view.findViewById(i.f.content);
+        this.ccU = (TextView) view.findViewById(i.f.time);
         this.mLine = view.findViewById(i.f.line);
     }
 
@@ -32,22 +32,22 @@ public class g extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.myCollection.base
     public void B(com.baidu.tieba.myCollection.baseHistory.b bVar) {
         super.B(bVar);
         if (bVar != null) {
-            if (this.ccr != null && bVar.adC() != null) {
-                if (bVar.sn() == 33) {
-                    this.ccr.setText(PhotoLiveCardData.getLiveIconTitle(bVar.adC()));
+            if (this.ccS != null && bVar.adX() != null) {
+                if (bVar.sq() == 33) {
+                    this.ccS.setText(PhotoLiveCardData.getLiveIconTitle(bVar.adX()));
                 } else {
-                    this.ccr.setText(bVar.adC());
+                    this.ccS.setText(bVar.adX());
                 }
             }
-            if (this.ccs != null && bVar.getForumName() != null) {
-                this.ccs.setText(bVar.getForumName());
+            if (this.ccT != null && bVar.getForumName() != null) {
+                this.ccT.setText(bVar.getForumName());
             }
-            if (this.cct != null) {
+            if (this.ccU != null) {
                 String e = as.e(new Date(bVar.getTime()));
                 if (e == null) {
                     e = "";
                 }
-                this.cct.setText(e);
+                this.ccU.setText(e);
             }
         }
     }
@@ -56,9 +56,9 @@ public class g extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.myCollection.base
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         an.i(this.mRootView, i.e.list_item_selector);
         an.i(this.mLine, i.c.cp_bg_line_b);
-        an.b(this.ccr, i.c.cp_cont_b, 1);
-        an.b(this.ccs, i.c.cp_cont_d, 1);
-        an.b(this.cct, i.c.cp_cont_d, 1);
+        an.b(this.ccS, i.c.cp_cont_b, 1);
+        an.b(this.ccT, i.c.cp_cont_d, 1);
+        an.b(this.ccU, i.c.cp_cont_d, 1);
         return true;
     }
 }

@@ -55,8 +55,8 @@ public class j implements g {
                     try {
                         if (j.this.zJ.isConnected()) {
                             j.this.zV = System.currentTimeMillis() - currentTimeMillis;
+                            j.this.jK();
                             j.this.jJ();
-                            j.this.jI();
                             m.b bVar = new m.b(String.valueOf(j.this.zM) + ":" + j.this.zN);
                             bVar.mPath = j.this.zO;
                             bVar.Aa = j.this.zP;
@@ -86,7 +86,7 @@ public class j implements g {
     }
 
     public j() {
-        jH();
+        jI();
     }
 
     public boolean sendMessage(c cVar) {
@@ -201,7 +201,7 @@ public class j implements g {
         this.zG.sendMessage(obtainMessage);
     }
 
-    protected void jH() {
+    protected void jI() {
         this.zG = new k(this);
     }
 
@@ -209,22 +209,22 @@ public class j implements g {
     public void p(Object obj) {
     }
 
-    protected void jI() {
+    protected void jJ() {
         HandlerThread handlerThread = new HandlerThread("WebSocketWriter");
         handlerThread.start();
         this.zI = new q(handlerThread.getLooper(), this.zG, this.zJ, this.zR);
     }
 
-    protected void jJ() {
+    protected void jK() {
         this.zH = new o(this.zG, this.zJ, this.zR, "WebSocketReader");
         this.zH.start();
     }
 
-    public boolean jK() {
+    public boolean jL() {
         return this.zW != null;
     }
 
-    public boolean jD() {
+    public boolean jE() {
         return this.zT;
     }
 
@@ -237,9 +237,9 @@ public class j implements g {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void jE() {
+    public void jF() {
         if (this.zI != null) {
-            this.zI.jE();
+            this.zI.jF();
         }
     }
 
@@ -250,9 +250,9 @@ public class j implements g {
         return 0L;
     }
 
-    public void jF() {
+    public void jG() {
         if (this.zH != null) {
-            this.zH.jF();
+            this.zH.jG();
         }
     }
 
@@ -263,34 +263,34 @@ public class j implements g {
         return 0L;
     }
 
-    public long jL() {
+    public long jM() {
         if (this.zJ != null) {
-            return this.zJ.jw();
+            return this.zJ.jx();
         }
         return 0L;
     }
 
-    public String jM() {
+    public String jN() {
         if (this.zJ != null) {
-            return this.zJ.jv();
+            return this.zJ.jw();
         }
         return null;
     }
 
-    public long jN() {
+    public long jO() {
         return this.zV;
-    }
-
-    public String je() {
-        if (this.zJ != null) {
-            return this.zJ.je();
-        }
-        return null;
     }
 
     public String jf() {
         if (this.zJ != null) {
             return this.zJ.jf();
+        }
+        return null;
+    }
+
+    public String jg() {
+        if (this.zJ != null) {
+            return this.zJ.jg();
         }
         return null;
     }

@@ -6,18 +6,19 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class j {
-    private int UN;
-    private String UO;
+    private int UO;
     private String UQ;
+    private String UR;
+    private int US;
     private int mType;
     private String mValue;
 
-    public int ry() {
-        return this.UN;
+    public int rz() {
+        return this.UO;
     }
 
-    public String rz() {
-        return this.UO;
+    public String rA() {
+        return this.UQ;
     }
 
     public String getValue() {
@@ -31,11 +32,12 @@ public class j {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.UN = jSONObject.optInt("bannerType");
-                this.UO = jSONObject.optString("bannerUrl");
+                this.UO = jSONObject.optInt("bannerType");
+                this.UQ = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString("value");
                 this.mType = jSONObject.optInt("type");
-                this.UQ = jSONObject.optString("desc");
+                this.UR = jSONObject.optString("desc");
+                this.US = jSONObject.optInt("template_id");
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -44,11 +46,12 @@ public class j {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.UN = banner.banner_type.intValue();
-            this.UO = banner.banner_url;
+            this.UO = banner.banner_type.intValue();
+            this.UQ = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
-            this.UQ = banner.desc;
+            this.UR = banner.desc;
+            this.US = banner.template_id.intValue();
         }
     }
 
@@ -56,6 +59,10 @@ public class j {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.UN == 1 || this.UN == 4 || this.UN == 2 || this.UN == 3 : this.mType == 2 && !StringUtils.isNull(this.UQ);
+        return this.mType == 1 ? this.UO == 1 || this.UO == 4 || this.UO == 2 || this.UO == 3 : this.mType == 2 && !StringUtils.isNull(this.UR);
+    }
+
+    public int rB() {
+        return this.US;
     }
 }

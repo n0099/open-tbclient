@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.bd;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements View.OnClickListener {
-    final /* synthetic */ U9InfoView cYz;
+    final /* synthetic */ U9InfoView cZW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(U9InfoView u9InfoView) {
-        this.cYz = u9InfoView;
+        this.cZW = u9InfoView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,34 +32,34 @@ public class ah implements View.OnClickListener {
         Context context4;
         Context context5;
         com.baidu.tbadk.core.data.x xVar2;
-        context = this.cYz.mContext;
-        if (bd.ah(context) && com.baidu.adp.lib.util.k.jd()) {
-            relativeLayout = this.cYz.cYp;
+        context = this.cZW.mContext;
+        if (bd.ah(context) && com.baidu.adp.lib.util.k.je()) {
+            relativeLayout = this.cZW.cZM;
             if (view != relativeLayout) {
-                linearLayout = this.cYz.cYq;
+                linearLayout = this.cZW.cZN;
                 if (view == linearLayout) {
-                    aaVar = this.cYz.news_info;
-                    if (!TextUtils.isEmpty(aaVar.sK())) {
-                        context2 = this.cYz.mContext;
+                    aaVar = this.cZW.news_info;
+                    if (!TextUtils.isEmpty(aaVar.sN())) {
+                        context2 = this.cZW.mContext;
                         TiebaStatic.eventStat(context2, "info_click", "click", 1, "page", "frs");
-                        az uT = az.uT();
-                        context3 = this.cYz.mContext;
-                        aaVar2 = this.cYz.news_info;
-                        uT.b((TbPageContext) com.baidu.adp.base.l.C(context3), new String[]{aaVar2.sK()});
+                        az uX = az.uX();
+                        context3 = this.cZW.mContext;
+                        aaVar2 = this.cZW.news_info;
+                        uX.b((TbPageContext) com.baidu.adp.base.l.C(context3), new String[]{aaVar2.sN()});
                         return;
                     }
                     return;
                 }
                 return;
             }
-            xVar = this.cYz.top_code;
-            if (!TextUtils.isEmpty(xVar.sE())) {
-                context4 = this.cYz.mContext;
+            xVar = this.cZW.top_code;
+            if (!TextUtils.isEmpty(xVar.sH())) {
+                context4 = this.cZW.mContext;
                 TiebaStatic.eventStat(context4, "num_click", "click", 1, new Object[0]);
-                az uT2 = az.uT();
-                context5 = this.cYz.mContext;
-                xVar2 = this.cYz.top_code;
-                uT2.b((TbPageContext) com.baidu.adp.base.l.C(context5), new String[]{xVar2.sE()});
+                az uX2 = az.uX();
+                context5 = this.cZW.mContext;
+                xVar2 = this.cZW.top_code;
+                uX2.b((TbPageContext) com.baidu.adp.base.l.C(context5), new String[]{xVar2.sH()});
             }
         }
     }

@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GameCategoryDetailActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.game.GameInfoData;
@@ -15,18 +14,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c agH;
+    private static c agN;
 
     private c() {
     }
 
-    public static synchronized c wF() {
+    public static synchronized c wK() {
         c cVar;
         synchronized (c.class) {
-            if (agH == null) {
-                agH = new c();
+            if (agN == null) {
+                agN = new c();
             }
-            cVar = agH;
+            cVar = agN;
         }
         return cVar;
     }
@@ -50,7 +49,7 @@ public class c {
         contentValues.put("secret_key", gameInfoData.getSecretKey());
         contentValues.put("superscript_color", gameInfoData.getSuperscriptColor());
         contentValues.put("star", Integer.valueOf(gameInfoData.getStar()));
-        contentValues.put(GameCategoryDetailActivityConfig.CATEGORY_ID, Integer.valueOf(gameInfoData.getCategoryId()));
+        contentValues.put("category_id", Integer.valueOf(gameInfoData.getCategoryId()));
         contentValues.put("category_name", gameInfoData.getCategoryName());
         contentValues.put("version", gameInfoData.getVersion());
         contentValues.put("deadline", Long.valueOf(gameInfoData.getDeadline()));
@@ -62,16 +61,16 @@ public class c {
     }
 
     public boolean b(GameInfoData gameInfoData) {
-        SQLiteDatabase wE = b.wE();
+        SQLiteDatabase wJ = b.wJ();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (gameInfoData == null || wE == null || TextUtils.isEmpty(currentAccount) || TextUtils.isEmpty(gameInfoData.getGameId())) {
+        if (gameInfoData == null || wJ == null || TextUtils.isEmpty(currentAccount) || TextUtils.isEmpty(gameInfoData.getGameId())) {
             return false;
         }
         try {
-            n(wE);
+            n(wJ);
             ContentValues a = a(gameInfoData);
-            if (wE.update("table_download" + currentAccount, a, "game_id = ?", new String[]{gameInfoData.getGameId()}) == 0) {
-                wE.insert("table_download" + currentAccount, null, a);
+            if (wJ.update("table_download" + currentAccount, a, "game_id = ?", new String[]{gameInfoData.getGameId()}) == 0) {
+                wJ.insert("table_download" + currentAccount, null, a);
                 return true;
             }
             return true;
@@ -82,15 +81,15 @@ public class c {
     }
 
     public boolean s(String str, int i) {
-        SQLiteDatabase wE = b.wE();
+        SQLiteDatabase wJ = b.wJ();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || wE == null || TextUtils.isEmpty(currentAccount)) {
+        if (TextUtils.isEmpty(str) || wJ == null || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("label", Integer.valueOf(i));
-            if (wE.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
+            if (wJ.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -100,15 +99,15 @@ public class c {
     }
 
     public boolean dT(String str) {
-        SQLiteDatabase wE = b.wE();
+        SQLiteDatabase wJ = b.wJ();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || wE == null || TextUtils.isEmpty(currentAccount)) {
+        if (TextUtils.isEmpty(str) || wJ == null || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("current_Time", Long.valueOf(System.currentTimeMillis()));
-            if (wE.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
+            if (wJ.update("table_download" + currentAccount, contentValues, "game_id = ?", new String[]{str}) > 0) {
                 return true;
             }
         } catch (Exception e) {
@@ -120,18 +119,18 @@ public class c {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [198=4] */
     public boolean dU(String str) {
         Cursor cursor;
-        SQLiteDatabase wE = b.wE();
+        SQLiteDatabase wJ = b.wJ();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (TextUtils.isEmpty(str) || wE == null || TextUtils.isEmpty(currentAccount)) {
+        if (TextUtils.isEmpty(str) || wJ == null || TextUtils.isEmpty(currentAccount)) {
             return false;
         }
         try {
-            cursor = wE.query("table_download" + currentAccount, new String[]{"count(*)"}, "game_id = ?", new String[]{str}, null, null, null);
+            cursor = wJ.query("table_download" + currentAccount, new String[]{"count(*)"}, "game_id = ?", new String[]{str}, null, null, null);
             if (cursor != null) {
                 try {
                     try {
                         if (cursor.getCount() > 0) {
-                            if (wE.delete("table_download" + currentAccount, "game_id = ?", new String[]{str}) > 0) {
+                            if (wJ.delete("table_download" + currentAccount, "game_id = ?", new String[]{str}) > 0) {
                                 o.b(cursor);
                                 return true;
                             }
@@ -171,13 +170,13 @@ public class c {
     /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.StringBuilder] */
     public GameInfoData dV(String str) {
         Cursor cursor;
-        SQLiteDatabase wE = b.wE();
+        SQLiteDatabase wJ = b.wJ();
         ?? currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (wE != null) {
+        if (wJ != null) {
             try {
                 if (!TextUtils.isEmpty(currentAccount)) {
                     try {
-                        cursor = wE.query("table_download" + currentAccount, null, "andr_pk_name= ?", new String[]{str}, null, null, null);
+                        cursor = wJ.query("table_download" + currentAccount, null, "andr_pk_name= ?", new String[]{str}, null, null, null);
                         if (cursor != null) {
                             try {
                                 if (cursor.moveToFirst()) {
@@ -199,7 +198,7 @@ public class c {
                                     gameInfoData.setSecretKey(cursor.getString(cursor.getColumnIndex("secret_key")));
                                     gameInfoData.setSuperscriptColor(cursor.getString(cursor.getColumnIndex("superscript_color")));
                                     gameInfoData.setStar(cursor.getInt(cursor.getColumnIndex("star")));
-                                    gameInfoData.setCategoryId(cursor.getInt(cursor.getColumnIndex(GameCategoryDetailActivityConfig.CATEGORY_ID)));
+                                    gameInfoData.setCategoryId(cursor.getInt(cursor.getColumnIndex("category_id")));
                                     gameInfoData.setCategoryName(cursor.getString(cursor.getColumnIndex("category_name")));
                                     gameInfoData.setVersion(cursor.getString(cursor.getColumnIndex("version")));
                                     gameInfoData.setDeadline(cursor.getInt(cursor.getColumnIndex("deadline")));
@@ -241,16 +240,16 @@ public class c {
     /* JADX WARN: Type inference failed for: r1v1, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.StringBuilder] */
-    public List<GameInfoData> wG() {
+    public List<GameInfoData> wL() {
         Cursor cursor;
-        SQLiteDatabase wE = b.wE();
+        SQLiteDatabase wJ = b.wJ();
         ?? currentAccount = TbadkCoreApplication.getCurrentAccount();
         ArrayList arrayList = new ArrayList();
-        if (wE != null) {
+        if (wJ != null) {
             try {
                 if (!TextUtils.isEmpty(currentAccount)) {
                     try {
-                        cursor = wE.query("table_download" + currentAccount, null, "label=0 OR label=1", null, null, null, "current_Time DESC");
+                        cursor = wJ.query("table_download" + currentAccount, null, "label=0 OR label=1", null, null, null, "current_Time DESC");
                         if (cursor != null) {
                             while (cursor.moveToNext()) {
                                 try {
@@ -272,7 +271,7 @@ public class c {
                                     gameInfoData.setSecretKey(cursor.getString(cursor.getColumnIndex("secret_key")));
                                     gameInfoData.setSuperscriptColor(cursor.getString(cursor.getColumnIndex("superscript_color")));
                                     gameInfoData.setStar(cursor.getInt(cursor.getColumnIndex("star")));
-                                    gameInfoData.setCategoryId(cursor.getInt(cursor.getColumnIndex(GameCategoryDetailActivityConfig.CATEGORY_ID)));
+                                    gameInfoData.setCategoryId(cursor.getInt(cursor.getColumnIndex("category_id")));
                                     gameInfoData.setCategoryName(cursor.getString(cursor.getColumnIndex("category_name")));
                                     gameInfoData.setVersion(cursor.getString(cursor.getColumnIndex("version")));
                                     gameInfoData.setDeadline(cursor.getInt(cursor.getColumnIndex("deadline")));
@@ -315,15 +314,15 @@ public class c {
 
     public List<GameInfoData> cV(int i) {
         Cursor cursor;
-        SQLiteDatabase wE = b.wE();
+        SQLiteDatabase wJ = b.wJ();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         ArrayList arrayList = new ArrayList();
-        if (wE == null || TextUtils.isEmpty(currentAccount)) {
+        if (wJ == null || TextUtils.isEmpty(currentAccount)) {
             return arrayList;
         }
         if (i == 3 || i == 2) {
             try {
-                cursor = wE.query("table_download" + currentAccount, null, "label=" + i, null, "current_TimeDESC", null, null);
+                cursor = wJ.query("table_download" + currentAccount, null, "label=" + i, null, "current_TimeDESC", null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
@@ -365,7 +364,7 @@ public class c {
         try {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS table_download" + currentAccount + "(game_id TEXT PRIMARY KEY, game_name TEXT, game_type INTEGER, icon_url TEXT, player_num TEXT, package_link TEXT, package_size TEXT, game_link TEXT, " + PbActivityConfig.KEY_MARK + " INTEGER, bundle_id TEXT, introduce TEXT, launch_component TEXT, andr_pk_name TEXT, day_downloads TEXT, secret_key TEXT, superscript_color TEXT, star INTEGER, " + GameCategoryDetailActivityConfig.CATEGORY_ID + " INTEGER, category_name TEXT, version INTEGER, deadline TEXT, editor_rec TEXT, app_id TEXT, current_Time LONG, label INTEGER );");
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS table_download" + currentAccount + "(game_id TEXT PRIMARY KEY, game_name TEXT, game_type INTEGER, icon_url TEXT, player_num TEXT, package_link TEXT, package_size TEXT, game_link TEXT, " + PbActivityConfig.KEY_MARK + " INTEGER, bundle_id TEXT, introduce TEXT, launch_component TEXT, andr_pk_name TEXT, day_downloads TEXT, secret_key TEXT, superscript_color TEXT, star INTEGER, category_id INTEGER, category_name TEXT, version INTEGER, deadline TEXT, editor_rec TEXT, app_id TEXT, current_Time LONG, label INTEGER );");
             }
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "GameDbHelper.createTables", new Object[0]);

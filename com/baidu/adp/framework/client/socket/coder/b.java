@@ -109,7 +109,7 @@ public class b {
             if (socketMessage != null) {
                 j = socketMessage.getClientLogID();
             }
-            com.baidu.adp.lib.stats.a.hi().b("im", j, (String) null, IntentConfig.CMD, Integer.valueOf(i), "byteslength", Integer.valueOf(bArr != null ? bArr.length : 0), "comment", th != null ? th.getMessage() : null);
+            com.baidu.adp.lib.stats.a.hj().b("im", j, (String) null, IntentConfig.CMD, Integer.valueOf(i), "byteslength", Integer.valueOf(bArr != null ? bArr.length : 0), "comment", th != null ? th.getMessage() : null);
             throw new CoderException(j.oW);
         }
     }

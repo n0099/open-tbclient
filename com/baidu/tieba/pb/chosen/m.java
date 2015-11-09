@@ -8,31 +8,31 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class m implements a.d {
-    final /* synthetic */ PbChosenActivity cfl;
+    final /* synthetic */ PbChosenActivity cfM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(PbChosenActivity pbChosenActivity) {
-        this.cfl = pbChosenActivity;
+        this.cfM = pbChosenActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
     public void a(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.l lVar, WriteData writeData, AntiData antiData) {
-        com.baidu.tbadk.editortools.c.d dVar;
+        com.baidu.tbadk.editortools.c.e eVar;
         com.baidu.tieba.pb.chosen.a.m mVar;
-        this.cfl.hideProgressBar();
+        this.cfM.hideProgressBar();
         if (z) {
-            dVar = this.cfl.aSC;
-            dVar.Au().hide();
-            mVar = this.cfl.ceS;
+            eVar = this.cfM.aSK;
+            eVar.Az().hide();
+            mVar = this.cfM.cft;
             mVar.setVisible(true);
             if (postWriteCallBackData != null) {
-                BdToast.a(this.cfl.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), BdToast.DefaultIcon.SUCCESS).sW();
+                BdToast.a(this.cfM.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), BdToast.DefaultIcon.SUCCESS).sZ();
             }
         } else if (postWriteCallBackData != null && lVar == null) {
-            if (AntiHelper.lc(postWriteCallBackData.getErrorCode())) {
-                AntiHelper.P(this.cfl.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
+            if (AntiHelper.lr(postWriteCallBackData.getErrorCode())) {
+                AntiHelper.Q(this.cfM.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
             } else {
-                BdToast.b(this.cfl.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString()).sW();
+                BdToast.b(this.cfM.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString()).sZ();
             }
         }
     }

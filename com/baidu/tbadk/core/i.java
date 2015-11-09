@@ -3,59 +3,59 @@ package com.baidu.tbadk.core;
 import com.baidu.tbadk.core.data.NewErrorData;
 /* loaded from: classes.dex */
 public class i {
-    protected com.baidu.tbadk.core.util.w Ti;
-    protected NewErrorData Tj = null;
+    protected com.baidu.tbadk.core.util.w Tj;
+    protected NewErrorData Tk = null;
 
     public i() {
-        this.Ti = null;
-        this.Ti = new com.baidu.tbadk.core.util.w();
+        this.Tj = null;
+        this.Tj = new com.baidu.tbadk.core.util.w();
     }
 
     public void cancel() {
-        if (this.Ti != null) {
-            this.Ti.gJ();
+        if (this.Tj != null) {
+            this.Tj.gJ();
         }
     }
 
     protected void setUrl(String str) {
-        this.Ti.setUrl(str);
+        this.Tj.setUrl(str);
     }
 
     public void o(String str, String str2) {
-        this.Ti.o(str, str2);
+        this.Tj.o(str, str2);
     }
 
-    protected String qR() {
-        String tD = this.Ti.tD();
-        this.Tj = new NewErrorData();
-        this.Tj.parserJson(tD);
-        return tD;
+    protected String qS() {
+        String tG = this.Tj.tG();
+        this.Tk = new NewErrorData();
+        this.Tk.parserJson(tG);
+        return tG;
     }
 
-    public boolean qS() {
-        if (this.Ti != null) {
-            return this.Ti.ue().uW().qS();
+    public boolean qT() {
+        if (this.Tj != null) {
+            return this.Tj.uh().va().qT();
         }
         return false;
     }
 
-    public String qT() {
-        if (this.Ti != null) {
-            return this.Ti.getErrorString();
+    public String qU() {
+        if (this.Tj != null) {
+            return this.Tj.getErrorString();
         }
         return null;
     }
 
     public int getErrorCode() {
-        if (this.Tj != null) {
-            return this.Tj.getErrorNumber();
+        if (this.Tk != null) {
+            return this.Tk.getErrorNumber();
         }
         return -1;
     }
 
     public String getErrorMsg() {
-        if (this.Tj != null) {
-            return this.Tj.getErrorMsg();
+        if (this.Tk != null) {
+            return this.Tk.getErrorMsg();
         }
         return null;
     }

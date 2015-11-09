@@ -18,9 +18,9 @@ class n extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ao aoVar;
         if (customResponsedMessage != null) {
-            aoVar = this.this$0.dcB;
-            aoVar.lo(0);
-            MainTabActivity.dcs = false;
+            aoVar = this.this$0.deK;
+            aoVar.lD(0);
+            MainTabActivity.deB = false;
         }
     }
 }

@@ -1,47 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.tieba.tbadkCore.c.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class cq implements View.OnClickListener {
-    final /* synthetic */ cc clJ;
-
+class cq extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cq(cc ccVar) {
-        this.clJ = ccVar;
+    public cq(int i) {
+        super(i);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PbActivity pbActivity;
-        com.baidu.tbadk.editortools.j jVar;
-        com.baidu.tbadk.editortools.j jVar2;
-        View view2;
-        View view3;
-        PbActivity pbActivity2;
-        com.baidu.tbadk.editortools.j jVar3;
-        a.InterfaceC0074a interfaceC0074a;
-        pbActivity = this.clJ.ciU;
-        if (pbActivity.checkUpIsLogin()) {
-            jVar = this.clJ.KA;
-            if (jVar != null) {
-                this.clJ.agm();
-            }
-            jVar2 = this.clJ.KA;
-            if (jVar2 != null) {
-                this.clJ.cls = false;
-                pbActivity2 = this.clJ.ciU;
-                jVar3 = this.clJ.KA;
-                interfaceC0074a = this.clJ.clE;
-                com.baidu.tieba.tbadkCore.c.a.a(pbActivity2, (View) jVar3.dU(3).aoJ, false, interfaceC0074a);
-            }
-            view2 = this.clJ.clo;
-            if (view2 != null) {
-                view3 = this.clJ.clo;
-                view3.setVisibility(8);
-                this.clJ.cls = false;
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        cm.agF().a(0, customResponsedMessage);
     }
 }

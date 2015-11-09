@@ -6,13 +6,13 @@ import com.baidu.tieba.i;
 import tbclient.GetGiftMyList.DataRes;
 /* loaded from: classes.dex */
 class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ MyGiftListActivity bmY;
+    final /* synthetic */ MyGiftListActivity bnC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(MyGiftListActivity myGiftListActivity, int i) {
         super(i);
-        this.bmY = myGiftListActivity;
+        this.bnC = myGiftListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,26 +26,26 @@ class f extends com.baidu.adp.framework.listener.e {
         m mVar3;
         l lVar4;
         if (socketResponsedMessage instanceof ResponseMyGiftListMessage) {
-            this.bmY.closeLoadingDialog();
-            mVar = this.bmY.bmT;
+            this.bnC.closeLoadingDialog();
+            mVar = this.bnC.bnx;
             mVar.getFooterView().setVisibility(8);
             ResponseMyGiftListMessage responseMyGiftListMessage = (ResponseMyGiftListMessage) socketResponsedMessage;
-            mVar2 = this.bmY.bmT;
-            mVar2.Qw();
+            mVar2 = this.bnC.bnx;
+            mVar2.QS();
             if (responseMyGiftListMessage.hasError()) {
-                this.bmY.showToast(StringUtils.isNull(responseMyGiftListMessage.getErrorString()) ? this.bmY.getResources().getString(i.h.neterror) : responseMyGiftListMessage.getErrorString());
+                this.bnC.showToast(StringUtils.isNull(responseMyGiftListMessage.getErrorString()) ? this.bnC.getResources().getString(i.h.neterror) : responseMyGiftListMessage.getErrorString());
                 return;
             }
             DataRes giftPageInfo = responseMyGiftListMessage.getGiftPageInfo();
             if (giftPageInfo != null) {
-                lVar = this.bmY.bmS;
-                lVar2 = this.bmY.bmS;
+                lVar = this.bnC.bnw;
+                lVar2 = this.bnC.bnw;
                 lVar.setPageNum(lVar2.getPageNum() + 1);
-                lVar3 = this.bmY.bmS;
+                lVar3 = this.bnC.bnw;
                 lVar3.setHasMore(giftPageInfo.page.has_more.intValue() == 1);
-                mVar3 = this.bmY.bmT;
-                lVar4 = this.bmY.bmS;
-                mVar3.a(giftPageInfo, lVar4.Qu());
+                mVar3 = this.bnC.bnx;
+                lVar4 = this.bnC.bnw;
+                mVar3.a(giftPageInfo, lVar4.QQ());
             }
         }
     }

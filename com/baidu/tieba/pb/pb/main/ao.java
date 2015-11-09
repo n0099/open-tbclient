@@ -1,25 +1,42 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.i;
-import com.baidu.tieba.pb.FileDownloader;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-public class ao implements a.b {
-    final /* synthetic */ PbActivity ciK;
+class ao implements com.baidu.adp.lib.e.c<View> {
+    final /* synthetic */ PbActivity cjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(PbActivity pbActivity) {
-        this.ciK = pbActivity;
+        this.cjN = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
-        if (!com.baidu.tbadk.core.util.n.fi()) {
-            this.ciK.showToast(com.baidu.tbadk.core.util.n.ty());
-        } else {
-            FileDownloader.download(this.ciK.getPageContext().getPageActivity(), "http://bcscdn.baidu.com/videoandroid/baiduvideo_4099e.apk", null, this.ciK.getPageContext().getString(i.h.download_baidu_video));
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: agc */
+    public View ha() {
+        return new PlayVoiceBnt(this.cjN.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: X */
+    public void l(View view) {
+        ((PlayVoiceBnt) view).reset();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: Y */
+    public View m(View view) {
+        return view;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: Z */
+    public View n(View view) {
+        ((PlayVoiceBnt) view).reset();
+        return view;
     }
 }

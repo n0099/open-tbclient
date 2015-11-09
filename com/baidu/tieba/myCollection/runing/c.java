@@ -4,20 +4,20 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tieba.myCollection.message.ResponseQueryCollectUpdateNumMessage;
 /* loaded from: classes.dex */
 class c extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ a ccv;
+    final /* synthetic */ a ccW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(a aVar, int i) {
         super(i);
-        this.ccv = aVar;
+        this.ccW = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 303005 && (socketResponsedMessage instanceof ResponseQueryCollectUpdateNumMessage)) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.wH().setMsgBookmark(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
+            com.baidu.tbadk.coreExtra.messageCenter.a.wM().setMsgBookmark(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
         }
     }
 }

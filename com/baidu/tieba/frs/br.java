@@ -11,53 +11,53 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class br extends x.a {
-    public TextView aHN;
-    public TextView aHO;
-    public TextView aHP;
-    public TextView aHQ;
-    public TbImageView aHR;
-    public TbImageView aHS;
-    public TbImageView aHT;
-    public LinearLayout aHU;
-    public LinearLayout aHV;
-    public LinearLayout aWr;
-    public LinearLayout aWs;
-    public a aWt;
-    public View aWu;
+    public TextView aGH;
+    public TextView aGI;
+    public TextView aGJ;
+    public TextView aGK;
+    public TbImageView aGL;
+    public TbImageView aGM;
+    public TbImageView aGN;
+    public LinearLayout aGO;
+    public LinearLayout aGP;
+    public LinearLayout aWA;
+    public a aWB;
+    public View aWC;
+    public LinearLayout aWz;
 
     /* loaded from: classes.dex */
     public static class a {
-        public TextView aGp;
-        public HeadImageView aHW;
-        public UserIconBox aHX;
-        public TextView aHY;
-        public TextView aHZ;
-        public TextView aIc;
-        public ImageView aId;
+        public TextView aFj;
+        public HeadImageView aGQ;
+        public UserIconBox aGR;
+        public TextView aGS;
+        public TextView aGT;
+        public TextView aGW;
+        public ImageView aGX;
     }
 
     public br(View view) {
         super(view);
-        this.aWr = (LinearLayout) view.findViewById(i.f.frs_recommend_friend_item_root);
-        this.aWs = (LinearLayout) view.findViewById(i.f.frs_recommend_friend_item_top);
-        this.aWu = view.findViewById(i.f.line_3);
-        this.aWt = new a();
+        this.aWz = (LinearLayout) view.findViewById(i.f.frs_recommend_friend_item_root);
+        this.aWA = (LinearLayout) view.findViewById(i.f.frs_recommend_friend_item_top);
+        this.aWC = view.findViewById(i.f.line_3);
+        this.aWB = new a();
         View findViewById = view.findViewById(i.f.recommend_similar_top);
-        this.aWt.aHW = (HeadImageView) findViewById.findViewById(i.f.recommend_new_head);
-        this.aWt.aHX = (UserIconBox) findViewById.findViewById(i.f.recommend_new_crown);
-        this.aWt.aHY = (TextView) findViewById.findViewById(i.f.recommend_new_user_name);
-        this.aWt.aHZ = (TextView) findViewById.findViewById(i.f.recommend_new_introduce);
-        this.aWt.aGp = (TextView) findViewById.findViewById(i.f.recommond_detail_info_distance);
-        this.aWt.aIc = (TextView) findViewById.findViewById(i.f.recommend_new_add_friend);
-        this.aWt.aId = (ImageView) view.findViewById(i.f.recommend_new_user_sex);
-        this.aHN = (TextView) view.findViewById(i.f.recommend_similar_bar_names);
-        this.aHO = (TextView) view.findViewById(i.f.recommend_similar_bar_desc);
-        this.aHR = (TbImageView) view.findViewById(i.f.recommend_similar_pic_one);
-        this.aHS = (TbImageView) view.findViewById(i.f.recommend_similar_pic_two);
-        this.aHT = (TbImageView) view.findViewById(i.f.recommend_similar_pic_thr);
-        this.aHP = (TextView) view.findViewById(i.f.recommend_similar_forum);
-        this.aHQ = (TextView) view.findViewById(i.f.recommend_similar_common_conern);
-        this.aHU = (LinearLayout) view.findViewById(i.f.recommend_similar_forum_container);
-        this.aHV = (LinearLayout) view.findViewById(i.f.recommend_similar_commom_conern_container);
+        this.aWB.aGQ = (HeadImageView) findViewById.findViewById(i.f.recommend_new_head);
+        this.aWB.aGR = (UserIconBox) findViewById.findViewById(i.f.recommend_new_crown);
+        this.aWB.aGS = (TextView) findViewById.findViewById(i.f.recommend_new_user_name);
+        this.aWB.aGT = (TextView) findViewById.findViewById(i.f.recommend_new_introduce);
+        this.aWB.aFj = (TextView) findViewById.findViewById(i.f.recommond_detail_info_distance);
+        this.aWB.aGW = (TextView) findViewById.findViewById(i.f.recommend_new_add_friend);
+        this.aWB.aGX = (ImageView) view.findViewById(i.f.recommend_new_user_sex);
+        this.aGH = (TextView) view.findViewById(i.f.recommend_similar_bar_names);
+        this.aGI = (TextView) view.findViewById(i.f.recommend_similar_bar_desc);
+        this.aGL = (TbImageView) view.findViewById(i.f.recommend_similar_pic_one);
+        this.aGM = (TbImageView) view.findViewById(i.f.recommend_similar_pic_two);
+        this.aGN = (TbImageView) view.findViewById(i.f.recommend_similar_pic_thr);
+        this.aGJ = (TextView) view.findViewById(i.f.recommend_similar_forum);
+        this.aGK = (TextView) view.findViewById(i.f.recommend_similar_common_conern);
+        this.aGO = (LinearLayout) view.findViewById(i.f.recommend_similar_forum_container);
+        this.aGP = (LinearLayout) view.findViewById(i.f.recommend_similar_commom_conern_container);
     }
 }

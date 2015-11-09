@@ -1,29 +1,39 @@
 package com.baidu.tbadk.widget.richText;
+
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-class l extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbRichTextView aCC;
+public interface l {
+    com.baidu.adp.lib.e.b<GifView> getGifViewPool();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(TbRichTextView tbRichTextView) {
-        this.aCC = tbRichTextView;
-    }
+    com.baidu.adp.lib.e.b<ImageView> getImageViewPool();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        this.aCC.e(aVar);
-    }
+    ListView getListView();
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void onProgressUpdate(Object... objArr) {
-        super.onProgressUpdate(objArr);
-    }
+    int getRichTextViewId();
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void al(String str) {
-        super.al(str);
-    }
+    com.baidu.adp.lib.e.b<TextView> getTextViewPool();
+
+    com.baidu.adp.lib.e.b<LinearLayout> getTextVoiceViewPool();
+
+    com.baidu.adp.lib.e.b<View> getVoiceViewPool();
+
+    void onAtClicked(Context context, String str);
+
+    void onLinkButtonClicked(Context context, String str);
+
+    void onLinkClicked(Context context, String str);
+
+    void onPhoneClicked(Context context, String str, String str2);
+
+    void onSongClicked(Context context, String str);
+
+    void onVideoClicked(Context context, String str);
+
+    void onVideoP2PClicked(Context context, String str);
 }

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class i {
-    private int dft;
+    private int dgZ;
     private TbPageContext<?> mPageContext;
 
     public i(TbPageContext<?> tbPageContext) {
@@ -23,10 +23,10 @@ public class i {
 
     public void a(DressItemData dressItemData, boolean z) {
         if (dressItemData != null) {
-            if (com.baidu.tieba.themeCenter.i.lt(dressItemData.getFreeUserLevel())) {
-                this.dft = dressItemData.getPropsId();
+            if (com.baidu.tieba.themeCenter.i.lH(dressItemData.getFreeUserLevel())) {
+                this.dgZ = dressItemData.getPropsId();
                 BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
-                backgroundSetRequestMessage.setPropId(this.dft);
+                backgroundSetRequestMessage.setPropId(this.dgZ);
                 MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
                 return;
             }
@@ -35,6 +35,6 @@ public class i {
     }
 
     public int getPropId() {
-        return this.dft;
+        return this.dgZ;
     }
 }

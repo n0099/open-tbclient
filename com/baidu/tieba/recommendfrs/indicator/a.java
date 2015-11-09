@@ -12,25 +12,25 @@ import java.util.List;
 public class a extends PagerAdapter {
     private Context mContext;
     private int mPrimaryPosition = -1;
-    private com.baidu.tieba.recommendfrs.b cIr = new b(this);
+    private com.baidu.tieba.recommendfrs.b cJN = new b(this);
     private ArrayList<com.baidu.tieba.recommendfrs.data.e> rK = new ArrayList<>();
-    private ArrayList<com.baidu.tieba.recommendfrs.d> bot = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.recommendfrs.d> boX = new ArrayList<>();
 
     public a(Context context, com.baidu.tieba.recommendfrs.a aVar) {
         this.mContext = context;
-        this.bot.add(a(aVar));
-        this.bot.add(a(aVar));
-        this.bot.add(a(aVar));
+        this.boX.add(a(aVar));
+        this.boX.add(a(aVar));
+        this.boX.add(a(aVar));
     }
 
     private com.baidu.tieba.recommendfrs.d a(com.baidu.tieba.recommendfrs.a aVar) {
         com.baidu.tieba.recommendfrs.d dVar = new com.baidu.tieba.recommendfrs.d(this.mContext);
         dVar.setCallback(aVar);
-        dVar.setScrollCallback(this.cIr);
+        dVar.setScrollCallback(this.cJN);
         return dVar;
     }
 
-    public void ad(List<com.baidu.tieba.recommendfrs.data.e> list) {
+    public void ah(List<com.baidu.tieba.recommendfrs.data.e> list) {
         if (this.rK == null) {
             this.rK = new ArrayList<>();
         }
@@ -57,11 +57,11 @@ public class a extends PagerAdapter {
     }
 
     public void j(String str, String str2, int i) {
-        if (this.bot != null) {
-            Iterator<com.baidu.tieba.recommendfrs.d> it = this.bot.iterator();
+        if (this.boX != null) {
+            Iterator<com.baidu.tieba.recommendfrs.d> it = this.boX.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.recommendfrs.d next = it.next();
-                if (next != null && next.kW(str)) {
+                if (next != null && next.la(str)) {
                     next.Z(str2, i);
                     return;
                 }
@@ -70,11 +70,11 @@ public class a extends PagerAdapter {
     }
 
     private void a(String str, com.baidu.tieba.recommendfrs.data.e eVar) {
-        if (this.bot != null) {
-            Iterator<com.baidu.tieba.recommendfrs.d> it = this.bot.iterator();
+        if (this.boX != null) {
+            Iterator<com.baidu.tieba.recommendfrs.d> it = this.boX.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.recommendfrs.d next = it.next();
-                if (next != null && next.kW(str)) {
+                if (next != null && next.la(str)) {
                     next.a(eVar, false);
                     return;
                 }
@@ -96,12 +96,12 @@ public class a extends PagerAdapter {
         if (this.mPrimaryPosition != i) {
             this.mPrimaryPosition = i;
             if (obj instanceof com.baidu.tieba.recommendfrs.d) {
-                ((com.baidu.tieba.recommendfrs.d) obj).apM();
+                ((com.baidu.tieba.recommendfrs.d) obj).aqs();
             }
         }
     }
 
-    public int ld(String str) {
+    public int lh(String str) {
         if (this.rK == null) {
             return -1;
         }
@@ -124,7 +124,7 @@ public class a extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        com.baidu.tieba.recommendfrs.d dVar = this.bot.get(i % 3);
+        com.baidu.tieba.recommendfrs.d dVar = this.boX.get(i % 3);
         if (dVar.getParent() != null) {
             viewGroup.removeView(dVar);
         }
@@ -152,8 +152,8 @@ public class a extends PagerAdapter {
     }
 
     public void cP(int i) {
-        if (this.bot != null) {
-            Iterator<com.baidu.tieba.recommendfrs.d> it = this.bot.iterator();
+        if (this.boX != null) {
+            Iterator<com.baidu.tieba.recommendfrs.d> it = this.boX.iterator();
             while (it.hasNext()) {
                 com.baidu.tieba.recommendfrs.d next = it.next();
                 if (next != null) {

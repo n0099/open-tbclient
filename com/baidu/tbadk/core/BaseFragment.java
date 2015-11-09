@@ -41,7 +41,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
     @Override // android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         this.mId = BdUniqueId.gen();
-        this.customToast = com.baidu.tbadk.core.util.g.tx();
+        this.customToast = com.baidu.tbadk.core.util.g.tA();
         super.onCreate(bundle);
         this.mIsLogin = TbadkCoreApplication.isLogin();
     }
@@ -179,7 +179,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
 
     public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.sZ();
+            this.loadingView.tc();
         }
     }
 
@@ -242,7 +242,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
             } else {
                 this.loadingView = new com.baidu.tbadk.e.f(getActivity(), i);
             }
-            this.loadingView.sZ();
+            this.loadingView.tc();
         }
         this.loadingView.b(view, z);
     }
@@ -251,7 +251,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Cn();
+        return this.loadingView.Cg();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

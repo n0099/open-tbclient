@@ -10,8 +10,8 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.widget.ListView.c {
-    private TextView cnP;
-    private View.OnClickListener cnQ = new c(this);
+    private TextView cpg;
+    private View.OnClickListener cph = new c(this);
     private TbPageContext<PbActivity> mPageContext;
     private View mRootView;
 
@@ -20,10 +20,10 @@ public class b extends com.baidu.adp.widget.ListView.c {
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public View no() {
+    public View np() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(i.g.login_see_more_layout, (ViewGroup) null);
-        this.cnP = (TextView) this.mRootView.findViewById(i.f.login_button);
-        this.cnP.setOnClickListener(this.cnQ);
+        this.cpg = (TextView) this.mRootView.findViewById(i.f.login_button);
+        this.cpg.setOnClickListener(this.cph);
         cN(TbadkCoreApplication.m411getInst().getSkinType());
         return this.mRootView;
     }

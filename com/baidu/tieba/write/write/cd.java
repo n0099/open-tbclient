@@ -1,108 +1,30 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Context;
-import android.support.v4.widget.ExploreByTouchHelper;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.ScrollView;
-import java.lang.reflect.Method;
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class cd extends PopupWindow {
-    private int apZ;
-    private LinearLayout container;
-    private Context context;
-    private int count;
-    private a dqO;
-    private int maxHeight;
+class cd implements a.b {
+    final /* synthetic */ cc dsF;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void lS(int i);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cd(cc ccVar) {
+        this.dsF = ccVar;
     }
 
-    public cd(Context context) {
-        super(context);
-        this.apZ = -1;
-        this.context = context;
-        init(context);
-    }
-
-    private void init(Context context) {
-        ScrollView scrollView = new ScrollView(context);
-        scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.container = new LinearLayout(context);
-        this.container.setOrientation(1);
-        this.container.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.container);
-        scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        scrollView.setPadding(0, 0, com.baidu.adp.lib.util.k.dip2px(context, 1.0f), com.baidu.adp.lib.util.k.dip2px(context, 1.0f));
-        scrollView.setFadingEdgeLength(0);
-        scrollView.setScrollbarFadingEnabled(false);
-        try {
-            Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
-            declaredMethod.setAccessible(true);
-            declaredMethod.invoke(scrollView, 2);
-        } catch (Exception e) {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        WriteMultiImgsActivity writeMultiImgsActivity;
+        com.baidu.tbadk.core.dialog.a aVar2;
+        WriteMultiImgsActivity writeMultiImgsActivity2;
+        WriteMultiImgsActivity writeMultiImgsActivity3;
+        com.baidu.tbadk.core.dialog.a aVar3;
+        writeMultiImgsActivity = this.dsF.dsE;
+        aVar2 = writeMultiImgsActivity.dsA;
+        if (aVar2 != null) {
+            writeMultiImgsActivity3 = this.dsF.dsE;
+            aVar3 = writeMultiImgsActivity3.dsA;
+            aVar3.dismiss();
         }
-        setContentView(scrollView);
-    }
-
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view, int i, int i2) {
-        getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.context.getResources().getDisplayMetrics().widthPixels, ExploreByTouchHelper.INVALID_ID), View.MeasureSpec.makeMeasureSpec(this.context.getResources().getDisplayMetrics().heightPixels, ExploreByTouchHelper.INVALID_ID));
-        int measuredWidth = getContentView().getMeasuredWidth();
-        if (measuredWidth < view.getWidth()) {
-            measuredWidth = view.getWidth();
-        }
-        int measuredHeight = getContentView().getMeasuredHeight();
-        if (measuredHeight > this.maxHeight) {
-            measuredHeight = this.maxHeight;
-        }
-        setWidth(measuredWidth);
-        setHeight(measuredHeight);
-        super.showAsDropDown(view, i, i2);
-    }
-
-    public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.dqO));
-        this.container.addView(view);
-        this.count++;
-    }
-
-    public void setMaxHeight(int i) {
-        this.maxHeight = i;
-    }
-
-    public void lL(int i) {
-        if (this.apZ != -1) {
-            this.container.getChildAt(this.apZ).setSelected(false);
-        }
-        this.apZ = i;
-        this.container.getChildAt(this.apZ).setSelected(true);
-    }
-
-    public void a(a aVar) {
-        this.dqO = aVar;
-    }
-
-    /* loaded from: classes.dex */
-    public static class b implements View.OnClickListener {
-        private a dqP;
-        private int position;
-
-        public b(int i, a aVar) {
-            this.position = i;
-            this.dqP = aVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (this.dqP != null) {
-                this.dqP.lS(this.position);
-            }
-        }
+        writeMultiImgsActivity2 = this.dsF.dsE;
+        writeMultiImgsActivity2.aEC();
     }
 }

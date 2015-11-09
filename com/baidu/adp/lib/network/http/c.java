@@ -35,12 +35,12 @@ public class c {
                     a("downloadfile", dVar);
                     return z3;
                 } catch (FileNotFoundException e2) {
-                    this.oj.gQ().responseCode = -100;
+                    this.oj.gR().responseCode = -100;
                     i5++;
                     z4 = z3;
                 } catch (Exception e3) {
                     e = e3;
-                    this.oj.gQ().responseCode = -10;
+                    this.oj.gR().responseCode = -10;
                     BdLog.e(e.getMessage());
                     i5++;
                     z4 = z3;
@@ -72,7 +72,7 @@ public class c {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z = true;
-        for (int i4 = 0; !this.oj.gQ().vd && z && i4 < i; i4++) {
+        for (int i4 = 0; !this.oj.gR().vd && z && i4 < i; i4++) {
             d dVar = new d();
             try {
                 try {
@@ -81,8 +81,8 @@ public class c {
                         this.uJ = new a(this.oj);
                         this.uJ.a(i2, i3, dVar);
                     } catch (Exception e) {
-                        dVar.uR = String.valueOf(String.valueOf(this.oj.gQ().responseCode)) + "|retryCount:" + i4 + "|" + e.getClass() + "|" + e.getMessage();
-                        this.oj.gQ().responseCode = -10;
+                        dVar.uR = String.valueOf(String.valueOf(this.oj.gR().responseCode)) + "|retryCount:" + i4 + "|" + e.getClass() + "|" + e.getMessage();
+                        this.oj.gR().responseCode = -10;
                         BdLog.e(e.getMessage());
                         this.oj.a(dVar);
                         dVar.uP = System.currentTimeMillis() - currentTimeMillis;
@@ -90,28 +90,28 @@ public class c {
                         return;
                     }
                 } catch (SocketException e2) {
-                    dVar.uR = String.valueOf(String.valueOf(this.oj.gQ().responseCode)) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
-                    this.oj.gQ().responseCode = -12;
+                    dVar.uR = String.valueOf(String.valueOf(this.oj.gR().responseCode)) + "|retryCount:" + i4 + "|" + e2.getClass() + "|" + e2.getMessage();
+                    this.oj.gR().responseCode = -12;
                     this.oj.a(dVar);
                     dVar.uP = System.currentTimeMillis() - currentTimeMillis;
                     this.oj.a(dVar);
                     z = true;
                 } catch (SocketTimeoutException e3) {
-                    dVar.uR = String.valueOf(String.valueOf(this.oj.gQ().responseCode)) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
-                    this.oj.gQ().responseCode = -13;
+                    dVar.uR = String.valueOf(String.valueOf(this.oj.gR().responseCode)) + "|retryCount:" + i4 + "|" + e3.getClass() + "|" + e3.getMessage();
+                    this.oj.gR().responseCode = -13;
                     this.oj.a(dVar);
                     dVar.uP = System.currentTimeMillis() - currentTimeMillis;
                     this.oj.a(dVar);
                     z = true;
                 }
-                if (this.oj.gQ().responseCode == 200) {
+                if (this.oj.gR().responseCode == 200) {
                     a(null, dVar);
                     dVar.uP = System.currentTimeMillis() - currentTimeMillis;
                     this.oj.a(dVar);
                     return;
                 }
-                dVar.uR = String.valueOf(String.valueOf(this.oj.gQ().responseCode)) + "|retryCount:" + i4;
-                z = S(this.oj.gQ().responseCode);
+                dVar.uR = String.valueOf(String.valueOf(this.oj.gR().responseCode)) + "|retryCount:" + i4;
+                z = S(this.oj.gR().responseCode);
                 this.oj.a(dVar);
                 dVar.uP = System.currentTimeMillis() - currentTimeMillis;
                 this.oj.a(dVar);
@@ -136,7 +136,7 @@ public class c {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z = true;
-        for (int i4 = 0; !this.oj.gQ().vd && z && i4 < i; i4++) {
+        for (int i4 = 0; !this.oj.gR().vd && z && i4 < i; i4++) {
             d dVar = new d();
             dVar.uO = i4 + 1;
             try {
@@ -145,7 +145,7 @@ public class c {
                         this.uJ = new a(this.oj);
                         this.uJ.b(i2, i3, dVar);
                     } catch (UnsupportedOperationException e) {
-                        this.oj.gQ().responseCode = -14;
+                        this.oj.gR().responseCode = -14;
                         dVar.uR = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         this.oj.a(dVar);
                         dVar.uP = System.currentTimeMillis() - currentTimeMillis;
@@ -153,7 +153,7 @@ public class c {
                         z = false;
                     }
                 } catch (SocketException e2) {
-                    this.oj.gQ().responseCode = -12;
+                    this.oj.gR().responseCode = -12;
                     dVar.uR = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e2.getMessage());
                     this.oj.a(dVar);
@@ -161,7 +161,7 @@ public class c {
                     this.oj.a(dVar);
                     z = true;
                 } catch (SocketTimeoutException e3) {
-                    this.oj.gQ().responseCode = -13;
+                    this.oj.gR().responseCode = -13;
                     dVar.uR = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
                     this.oj.a(dVar);
@@ -169,12 +169,12 @@ public class c {
                     this.oj.a(dVar);
                     z = true;
                 }
-                if (this.oj.gQ().responseCode == 200) {
+                if (this.oj.gR().responseCode == 200) {
                     a(null, dVar);
                     return;
                 }
-                dVar.uR = String.valueOf(String.valueOf(this.oj.gQ().responseCode)) + "|retryCount:" + i4;
-                z = S(this.oj.gQ().responseCode);
+                dVar.uR = String.valueOf(String.valueOf(this.oj.gR().responseCode)) + "|retryCount:" + i4;
+                z = S(this.oj.gR().responseCode);
                 this.oj.a(dVar);
             } finally {
                 dVar.uP = System.currentTimeMillis() - currentTimeMillis;
@@ -191,7 +191,7 @@ public class c {
     }
 
     public void g(int i, int i2, int i3) {
-        if (this.oj.gP().gT()) {
+        if (this.oj.gQ().gU()) {
             f(i, i2, i3);
         } else {
             h(i, i2, i3);
@@ -211,7 +211,7 @@ public class c {
         }
         long currentTimeMillis = System.currentTimeMillis();
         boolean z = true;
-        for (int i4 = 0; !this.oj.gQ().vd && z && i4 < i; i4++) {
+        for (int i4 = 0; !this.oj.gR().vd && z && i4 < i; i4++) {
             d dVar = new d();
             dVar.uO = i4 + 1;
             try {
@@ -220,7 +220,7 @@ public class c {
                         this.uJ = new a(this.oj);
                         this.uJ.c(i2, i3, dVar);
                     } catch (UnsupportedOperationException e) {
-                        this.oj.gQ().responseCode = -14;
+                        this.oj.gR().responseCode = -14;
                         dVar.uR = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                         this.oj.a(dVar);
                         dVar.uP = System.currentTimeMillis() - currentTimeMillis;
@@ -228,7 +228,7 @@ public class c {
                         z = false;
                     }
                 } catch (SocketException e2) {
-                    this.oj.gQ().responseCode = -12;
+                    this.oj.gR().responseCode = -12;
                     dVar.uR = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e2.getMessage());
                     this.oj.a(dVar);
@@ -236,7 +236,7 @@ public class c {
                     this.oj.a(dVar);
                     z = true;
                 } catch (SocketTimeoutException e3) {
-                    this.oj.gQ().responseCode = -13;
+                    this.oj.gR().responseCode = -13;
                     dVar.uR = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.neterror);
                     BdLog.e(e3.getMessage());
                     this.oj.a(dVar);
@@ -244,12 +244,12 @@ public class c {
                     this.oj.a(dVar);
                     z = true;
                 }
-                if (this.oj.gQ().responseCode == 200) {
+                if (this.oj.gR().responseCode == 200) {
                     a(null, dVar);
                     return;
                 }
-                dVar.uR = String.valueOf(String.valueOf(this.oj.gQ().responseCode)) + "|retryCount:" + i4;
-                z = S(this.oj.gQ().responseCode);
+                dVar.uR = String.valueOf(String.valueOf(this.oj.gR().responseCode)) + "|retryCount:" + i4;
+                z = S(this.oj.gR().responseCode);
                 this.oj.a(dVar);
             } finally {
                 dVar.uP = System.currentTimeMillis() - currentTimeMillis;
@@ -268,24 +268,30 @@ public class c {
         if (this.oj == null) {
             return false;
         }
-        return this.oj.gQ().vd;
+        return this.oj.gR().vd;
     }
 
-    public long gM() {
-        if (this.uJ == null) {
-            return -1L;
+    public void gM() {
+        if (this.oj != null) {
+            this.oj.gR().vd = true;
         }
-        return this.uJ.gI();
     }
 
     public long gN() {
         if (this.uJ == null) {
             return -1L;
         }
-        return this.uJ.gH();
+        return this.uJ.gI();
     }
 
     public long gO() {
+        if (this.uJ == null) {
+            return -1L;
+        }
+        return this.uJ.gH();
+    }
+
+    public long gP() {
         if (this.uJ == null) {
             return -1L;
         }
@@ -293,8 +299,8 @@ public class c {
     }
 
     private void a(String str, d dVar) {
-        if (com.baidu.adp.b.a.my() != null && dVar != null && this.oj.gQ() != null) {
-            com.baidu.adp.b.a.my().b(str == null ? this.oj.gQ().contentType : str, dVar.uK, dVar.uL);
+        if (com.baidu.adp.b.a.mz() != null && dVar != null && this.oj.gR() != null) {
+            com.baidu.adp.b.a.mz().b(str == null ? this.oj.gR().contentType : str, dVar.uK, dVar.uL);
         }
     }
 }

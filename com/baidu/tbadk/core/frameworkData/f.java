@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.u;
 public class f {
     public static void initial() {
         try {
-            u.jn();
+            u.jo();
         } catch (Exception e) {
             e.printStackTrace();
         }

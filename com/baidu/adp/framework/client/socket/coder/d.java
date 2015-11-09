@@ -29,7 +29,7 @@ public class d {
             for (int i = 0; i < af.length(); i++) {
                 bArr2[i] = (byte) af.charAt(i);
             }
-            this.pV = v.aW(af);
+            this.pV = v.aU(af);
             this.pW = v.a(D, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());

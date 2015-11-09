@@ -14,8 +14,8 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.themeCenter.SkinItemView;
 /* loaded from: classes.dex */
 public class d {
-    private com.baidu.tbadk.core.dialog.a Lu;
-    private SkinItemView.a deE;
+    private com.baidu.tbadk.core.dialog.a Lv;
+    private SkinItemView.a dgk;
     private TbPageContext<?> mPageContext;
 
     public d(TbPageContext<?> tbPageContext) {
@@ -26,7 +26,7 @@ public class d {
     public void b(b bVar) {
         if (bVar != null && bVar.getId() > 0) {
             TiebaStatic.log("c10267");
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SkinDetailActivityConfig(this.mPageContext.getPageActivity(), bVar.getId(), bVar.azi(), bVar.getPicUrl(), bVar.azf())));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SkinDetailActivityConfig(this.mPageContext.getPageActivity(), bVar.getId(), bVar.azY(), bVar.getPicUrl(), bVar.azV())));
         }
     }
 
@@ -43,36 +43,36 @@ public class d {
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x003c: INVOKE  (r2v1 int A[REMOVE]) = (r11v0 com.baidu.tieba.themeCenter.b) type: VIRTUAL call: com.baidu.tieba.themeCenter.b.getId():int)] */
     public void b(SkinProgressView skinProgressView, b bVar) {
         if (skinProgressView != null && bVar != null) {
-            int azi = bVar.azi();
-            if (azi == 1 || azi == 5 || azi == 3) {
-                if (azi == 1) {
+            int azY = bVar.azY();
+            if (azY == 1 || azY == 5 || azY == 3) {
+                if (azY == 1) {
                     TiebaStatic.log("c10268");
-                } else if (azi == 5) {
+                } else if (azY == 5) {
                     TiebaStatic.log("c10270");
                 }
-                if (i.lt(bVar.azh())) {
-                    if (!StringUtils.isNull(bVar.aze())) {
+                if (i.lH(bVar.azX())) {
+                    if (!StringUtils.isNull(bVar.azU())) {
                         skinProgressView.e(2, 0.0f);
-                        com.baidu.tbadk.download.b.Ak().a(new StringBuilder().append(bVar.getId()).toString(), bVar.aze(), bVar.getTitle(), 0, bVar.getId(), false, true, false);
+                        com.baidu.tbadk.download.b.Ap().a(new StringBuilder().append(bVar.getId()).toString(), bVar.azU(), bVar.getTitle(), 0, bVar.getId(), false, true, false);
                         return;
                     }
                     return;
                 }
                 i.a(this.mPageContext, 1, i.h.become_member_can_use);
-            } else if (azi == 2) {
+            } else if (azY == 2) {
                 skinProgressView.e(3, 0.0f);
-                com.baidu.tbadk.download.b.Ak().eG(bVar.aze());
+                com.baidu.tbadk.download.b.Ap().eG(bVar.azU());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_DELETE_SKIN_TEMP_FILE, bVar));
-            } else if (azi == 4) {
+            } else if (azY == 4) {
                 TiebaStatic.log("c10269");
-                if (i.lt(bVar.azh())) {
+                if (i.lH(bVar.azX())) {
                     if (bVar.getId() == -1) {
                         TbadkCoreApplication.m411getInst().setSkinType(0);
                     } else if (bVar.getId() == -2) {
                         TbadkCoreApplication.m411getInst().setSkinType(1);
                     } else {
-                        TbadkCoreApplication.m411getInst().setUsedTheme(bVar.getId(), bVar.azh());
-                        TiebaStatic.log(new aq("c10220").r("obj_id", bVar.getId()).r("obj_type", bVar.azh()));
+                        TbadkCoreApplication.m411getInst().setUsedTheme(bVar.getId(), bVar.azX());
+                        TiebaStatic.log(new aq("c10220").r("obj_id", bVar.getId()).r("obj_type", bVar.azX()));
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_REFRESH_THEME_LIST));
                     return;
@@ -83,21 +83,21 @@ public class d {
     }
 
     private void d(b bVar) {
-        if (this.Lu == null) {
-            this.Lu = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-            this.Lu.bF(i.h.tip_delete_used_skin);
-            this.Lu.b(i.h.cancel_text, new f(this));
-            this.Lu.a(i.h.delete, new g(this, bVar));
-            this.Lu.b(this.mPageContext);
+        if (this.Lv == null) {
+            this.Lv = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
+            this.Lv.bF(i.h.tip_delete_used_skin);
+            this.Lv.b(i.h.cancel_text, new f(this));
+            this.Lv.a(i.h.delete, new g(this, bVar));
+            this.Lv.b(this.mPageContext);
         }
-        this.Lu.sO();
+        this.Lv.sR();
     }
 
-    public SkinItemView.a azm() {
-        return this.deE;
+    public SkinItemView.a aAc() {
+        return this.dgk;
     }
 
     public void a(SkinItemView.a aVar) {
-        this.deE = aVar;
+        this.dgk = aVar;
     }
 }

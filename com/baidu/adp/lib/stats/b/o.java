@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class o {
-    public void it() {
+    public void iu() {
         new a(null).execute(new String[0]);
     }
 
@@ -24,11 +24,11 @@ public class o {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            it();
+            iu();
             return null;
         }
 
-        private void it() {
+        private void iu() {
             int i;
             ArrayList<com.baidu.adp.lib.stats.base.c> E = com.baidu.adp.lib.stats.base.b.E(true);
             if (E != null && E.size() != 0) {

@@ -10,7 +10,7 @@ public class x extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String P(String str) {
+    public String N(String str) {
         String str2 = "cache_kv_t" + Math.abs(str.hashCode());
         this.sN.E("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
         return str2;
@@ -74,7 +74,7 @@ public class x extends c<String> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean Q(String str) {
+    protected boolean O(String str) {
         this.sN.E("DROP TABLE IF EXISTS " + this.sO);
         return true;
     }

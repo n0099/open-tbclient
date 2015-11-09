@@ -117,7 +117,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
             this.mWebView.setVisibility(8);
-            com.baidu.adp.lib.g.h.hg().postDelayed(new n(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
+            com.baidu.adp.lib.g.h.hh().postDelayed(new n(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
         }
     }
 
@@ -134,7 +134,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 if (StringUtils.isNull(TbWebViewActivity.this.mUrlTitle)) {
                     TbWebViewActivity.this.mUrlTitle = TbWebViewActivity.this.mWebView.getTitle();
                 }
-                TbWebViewActivity.this.mView.bX(TbWebViewActivity.this.mUrlTitle);
+                TbWebViewActivity.this.mView.bV(TbWebViewActivity.this.mUrlTitle);
                 TbWebViewActivity.this.mView.setNavBarVisibility(TbWebViewActivity.this.mIsShowNavBar);
                 TbWebViewActivity.this.hideProgressBar();
                 TbWebViewActivity.this.stopLoadTimer();

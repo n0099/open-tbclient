@@ -1,101 +1,87 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.az;
 import com.baidu.tieba.i;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.tieba.pb.pb.main.c;
 /* loaded from: classes.dex */
-class bc implements az.a {
-    Pattern ciT = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
+class bc extends HttpMessageListener {
+    final /* synthetic */ PbActivity cjN;
 
-    @Override // com.baidu.tbadk.core.util.az.a
-    public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
-        String substring;
-        boolean z;
-        String str;
-        boolean z2;
-        if (strArr == null || strArr.length == 0 || strArr[0] == null) {
-            return false;
-        }
-        String lowerCase = strArr[0].toLowerCase();
-        Matcher matcher = this.ciT.matcher(lowerCase);
-        if (matcher.find()) {
-            substring = matcher.group(1);
-            str = "allthread";
-            z2 = false;
-            z = true;
-        } else if (lowerCase != null && lowerCase.startsWith("http://tieba.baidu.com/f?")) {
-            String substring2 = lowerCase.substring("http://tieba.baidu.com/f?".length());
-            if (substring2 != null) {
-                String[] split = substring2.split("&");
-                int i = 0;
-                while (true) {
-                    if (i < split.length) {
-                        if (split[i] == null || !split[i].startsWith("kz=")) {
-                            i++;
-                        } else {
-                            substring = split[i].substring(3);
-                            z = true;
-                            break;
-                        }
-                    } else {
-                        substring = null;
-                        z = false;
-                        break;
-                    }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bc(PbActivity pbActivity, int i) {
+        super(i);
+        this.cjN = pbActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        if (httpResponsedMessage instanceof PbLotteryHttpResponseMessage) {
+            if (httpResponsedMessage.hasError()) {
+                this.cjN.showToast(i.h.neterror);
+                this.cjN.hideProgressBar();
+                return;
+            }
+            PbLotteryHttpResponseMessage pbLotteryHttpResponseMessage = (PbLotteryHttpResponseMessage) httpResponsedMessage;
+            if (pbLotteryHttpResponseMessage.getError() == 0) {
+                PbActivity.a(this.cjN, 1);
+                if (pbLotteryHttpResponseMessage.getLotteryInfo() != null) {
+                    c cVar = new c(this.cjN.getActivity());
+                    c.a aVar = new c.a();
+                    aVar.ciS = this.cjN.getPageContext();
+                    aVar.ciQ = pbLotteryHttpResponseMessage.getLotteryInfo().afd();
+                    aVar.ciP = pbLotteryHttpResponseMessage.getLotteryInfo().afc();
+                    aVar.ciT = this.cjN.getResources().getString(i.h.cancel);
+                    aVar.ciU = this.cjN.getResources().getString(i.h.check_immediately);
+                    aVar.ciV = new bd(this);
+                    aVar.ciW = new be(this, pbLotteryHttpResponseMessage);
+                    cVar.a(aVar);
+                } else {
+                    c cVar2 = new c(this.cjN.getActivity());
+                    c.C0072c c0072c = new c.C0072c();
+                    c0072c.ciS = this.cjN.getPageContext();
+                    c0072c.ciX = this.cjN.getResources().getString(i.h.very_sorry);
+                    c0072c.ciR = this.cjN.getResources().getString(i.h.not_win_lottery_tip);
+                    c0072c.ciT = this.cjN.getResources().getString(i.h.cancel);
+                    c0072c.ciU = this.cjN.getResources().getString(i.h.continue_lottery_tip);
+                    c0072c.ciV = new bf(this);
+                    c0072c.ciW = new bg(this, pbLotteryHttpResponseMessage);
+                    cVar2.a(c0072c);
                 }
-                if (!TextUtils.isEmpty(substring) && substring.contains("&")) {
-                    substring = substring.split("&")[0];
+            } else if (pbLotteryHttpResponseMessage.getError() == 2390003) {
+                PbActivity.a(this.cjN, 1);
+                if (pbLotteryHttpResponseMessage.getLotteryInfo() != null) {
+                    c cVar3 = new c(this.cjN.getActivity());
+                    c.C0072c c0072c2 = new c.C0072c();
+                    c0072c2.ciS = this.cjN.getPageContext();
+                    c0072c2.ciX = this.cjN.getResources().getString(i.h.no_lottery_chance_tip);
+                    c0072c2.ciR = this.cjN.getResources().getString(i.h.get_more_lottery_chance_tip);
+                    c0072c2.ciT = this.cjN.getResources().getString(i.h.cancel);
+                    c0072c2.ciU = this.cjN.getResources().getString(i.h.view);
+                    c0072c2.ciV = new bh(this);
+                    c0072c2.ciW = new bi(this, pbLotteryHttpResponseMessage);
+                    cVar3.a(c0072c2);
                 }
-                if (TextUtils.isEmpty(substring)) {
-                    substring = null;
-                }
+            } else if (pbLotteryHttpResponseMessage.getError() == 3110004) {
+                c cVar4 = new c(this.cjN.getActivity());
+                c.C0072c c0072c3 = new c.C0072c();
+                c0072c3.ciS = this.cjN.getPageContext();
+                c0072c3.ciX = this.cjN.getResources().getString(i.h.no_attention_on_forum);
+                c0072c3.ciR = this.cjN.getResources().getString(i.h.attention_before_lottery);
+                c0072c3.ciT = this.cjN.getResources().getString(i.h.cancel);
+                c0072c3.ciU = this.cjN.getResources().getString(i.h.attention);
+                c0072c3.ciV = new bj(this);
+                c0072c3.ciW = new bk(this, pbLotteryHttpResponseMessage);
+                cVar4.b(c0072c3);
+            } else if (StringUtils.isNull(pbLotteryHttpResponseMessage.getErrorString())) {
+                this.cjN.showToast(i.h.neterror);
             } else {
-                z = false;
-                substring = null;
-            }
-            str = "allthread";
-            z2 = false;
-        } else if (!lowerCase.startsWith("pb:")) {
-            if (!lowerCase.startsWith("com.baidu.tieba://?kz=")) {
-                return false;
-            }
-            substring = lowerCase.substring("com.baidu.tieba://?kz=".length());
-            z = false;
-            str = null;
-            z2 = true;
-        } else {
-            substring = lowerCase.substring(3);
-            if (strArr.length > 1) {
-                str = strArr[1];
-                z2 = false;
-                z = true;
-            } else {
-                z = true;
-                str = null;
-                z2 = false;
+                this.cjN.showToast(pbLotteryHttpResponseMessage.getErrorString());
             }
         }
-        if (!StringUtils.isNull(substring, true) && tbPageContext != null) {
-            tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(substring, null, str)));
-            return true;
-        } else if (z2 && !TextUtils.isEmpty(substring)) {
-            com.baidu.adp.lib.g.i.f(TbadkCoreApplication.m411getInst(), cb.L(TbadkCoreApplication.m411getInst(), substring));
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10320").r("obj_locate", 3).r("obj_type", 2));
-            return true;
-        } else if (z) {
-            tbPageContext.showToast(i.h.page_not_found);
-            return true;
-        } else {
-            return false;
-        }
+        com.baidu.adp.lib.g.h.hh().postDelayed(new bl(this), 500L);
     }
 }

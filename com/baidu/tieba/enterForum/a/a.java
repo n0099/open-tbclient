@@ -10,27 +10,27 @@ import com.baidu.tieba.tbadkCore.v;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends d<v, com.baidu.tbadk.mvc.d.b, m> implements c {
-    private int aLi;
+    private int aLq;
 
     public a(TbPageContext<?> tbPageContext, Class<m> cls, int i, ViewEventCenter viewEventCenter) {
         super(tbPageContext, cls, i, viewEventCenter);
-        this.aLi = -1;
+        this.aLq = -1;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
     public void R(int i, int i2) {
-        List<v> Dj = Dj();
-        com.baidu.tieba.enterForum.c.b.Is().a(Dj, i, i2);
-        r(Dj);
+        List<v> Dc = Dc();
+        com.baidu.tieba.enterForum.c.b.II().a(Dc, i, i2);
+        s(Dc);
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void eU(int i) {
-        this.aLi = i;
+    public void fc(int i) {
+        this.aLq = i;
     }
 
     @Override // com.baidu.tieba.enterForum.a.c
-    public void HP() {
+    public void If() {
         notifyDataSetChanged();
     }
 
@@ -38,7 +38,7 @@ public class a extends d<v, com.baidu.tbadk.mvc.d.b, m> implements c {
     public View getView(int i, View view, ViewGroup viewGroup) {
         View view2 = super.getView(i, view, viewGroup);
         if (view2 != null) {
-            if (i == this.aLi) {
+            if (i == this.aLq) {
                 view2.setVisibility(4);
             } else {
                 view2.setVisibility(0);

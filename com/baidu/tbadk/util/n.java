@@ -8,7 +8,7 @@ public class n {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int fO(String str) {
+    public static int fQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -24,7 +24,7 @@ public class n {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public static String eF(int i) {
+    public static String eD(int i) {
         if (i >= 100000000) {
             return String.valueOf(i / 100000000) + "亿+";
         }
@@ -38,7 +38,7 @@ public class n {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (fO(str) > i) {
+        if (fQ(str) > i) {
             return String.valueOf(e(str, 0, i - 2)) + "...";
         }
         return str;

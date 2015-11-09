@@ -9,11 +9,11 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.write.write.VcodeActivity;
 /* loaded from: classes.dex */
 class v implements View.OnClickListener {
-    final /* synthetic */ VcodeActivity dpn;
+    final /* synthetic */ VcodeActivity drb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(VcodeActivity vcodeActivity) {
-        this.dpn = vcodeActivity;
+        this.drb = vcodeActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,25 +25,25 @@ class v implements View.OnClickListener {
         VcodeActivity.b bVar2;
         VcodeActivity.b bVar3;
         VcodeActivity.b bVar4;
-        VcodeActivity vcodeActivity = this.dpn;
-        inputMethodManager = this.dpn.mInputManager;
-        vcodeActivity.HidenSoftKeyPad(inputMethodManager, this.dpn.mEdit);
-        VcodeActivity vcodeActivity2 = this.dpn;
-        Activity pageActivity = this.dpn.getPageContext().getPageActivity();
-        String string = this.dpn.getPageContext().getString(i.h.sending);
-        onCancelListener = this.dpn.cpX;
+        VcodeActivity vcodeActivity = this.drb;
+        inputMethodManager = this.drb.mInputManager;
+        vcodeActivity.HidenSoftKeyPad(inputMethodManager, this.drb.mEdit);
+        VcodeActivity vcodeActivity2 = this.drb;
+        Activity pageActivity = this.drb.getPageContext().getPageActivity();
+        String string = this.drb.getPageContext().getString(i.h.sending);
+        onCancelListener = this.drb.crt;
         vcodeActivity2.mWaitingDialog = ProgressDialog.show(pageActivity, "", string, true, false, onCancelListener);
-        progressDialog = this.dpn.mWaitingDialog;
+        progressDialog = this.drb.mWaitingDialog;
         progressDialog.setCanceledOnTouchOutside(false);
-        bVar = this.dpn.dpl;
+        bVar = this.drb.dqZ;
         if (bVar != null) {
-            bVar4 = this.dpn.dpl;
+            bVar4 = this.drb.dqZ;
             bVar4.cancel();
         }
-        this.dpn.dpl = new VcodeActivity.b(this.dpn.doW);
-        bVar2 = this.dpn.dpl;
+        this.drb.dqZ = new VcodeActivity.b(this.drb.dqL);
+        bVar2 = this.drb.dqZ;
         bVar2.setPriority(3);
-        bVar3 = this.dpn.dpl;
+        bVar3 = this.drb.dqZ;
         bVar3.execute(0);
     }
 }

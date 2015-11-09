@@ -6,15 +6,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.setting.usermutelist.h;
 /* loaded from: classes.dex */
 class e implements h.a {
-    final /* synthetic */ UserMuteListActivity cPg;
+    final /* synthetic */ UserMuteListActivity cQC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(UserMuteListActivity userMuteListActivity) {
-        this.cPg = userMuteListActivity;
+        this.cQC = userMuteListActivity;
     }
 
     @Override // com.baidu.tieba.setting.usermutelist.h.a
     public void h(long j, String str) {
-        this.cPg.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.cPg.getPageContext().getPageActivity(), new StringBuilder(String.valueOf(j)).toString(), str)));
+        this.cQC.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.cQC.getPageContext().getPageActivity(), new StringBuilder(String.valueOf(j)).toString(), str)));
     }
 }

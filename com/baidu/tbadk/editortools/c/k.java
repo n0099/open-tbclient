@@ -1,27 +1,19 @@
 package com.baidu.tbadk.editortools.c;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class k extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ d asm;
+public class k implements a.b {
+    final /* synthetic */ e aqO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public k(d dVar) {
-        this.asm = dVar;
+    public k(e eVar) {
+        this.aqO = eVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.asm.arU;
-        com.baidu.tbadk.core.util.n.q(new File(append.append(str).toString()));
-        return null;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.aqO.a(0, true, null);
+        aVar.dismiss();
     }
 }

@@ -15,8 +15,8 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
-    private TextView alR;
-    private CustomMessageListener bJW;
+    private TextView alW;
+    private CustomMessageListener bKr;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -26,23 +26,23 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.auZ = new e();
+        cVar.atN = new e();
         cVar.type = 3;
-        cVar.ava = i.h.enter_message;
-        cVar.avb = i.e.s_icon_tabbar_imcenter;
+        cVar.atO = i.h.enter_message;
+        cVar.atP = i.e.s_icon_tabbar_imcenter;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(i.g.fragmenttabindicator, (ViewGroup) null);
-        this.alR = (TextView) LayoutInflater.from(context).inflate(i.g.message_tip_item, (ViewGroup) null);
+        this.alW = (TextView) LayoutInflater.from(context).inflate(i.g.message_tip_item, (ViewGroup) null);
         FragmentTabIndicator.a aVar = new FragmentTabIndicator.a();
-        aVar.auY = this.mIndicator;
-        aVar.view = this.alR;
-        aVar.auW = i.e.icon_dot_orange;
-        aVar.auX = i.c.frs_slidebar_message_text;
-        this.alR.setVisibility(8);
+        aVar.atM = this.mIndicator;
+        aVar.view = this.alW;
+        aVar.atK = i.e.icon_dot_orange;
+        aVar.atL = i.c.frs_slidebar_message_text;
+        this.alW.setVisibility(8);
         this.mIndicator.a(AddFriendActivityConfig.MSG, aVar);
         return this.mIndicator;
     }
@@ -55,14 +55,14 @@ public class ImMessageCenterDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onAdd() {
-        this.bJW = new d(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
-        MessageManager.getInstance().registerListener(this.bJW);
+        this.bKr = new d(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
+        MessageManager.getInstance().registerListener(this.bKr);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.bJW);
+        MessageManager.getInstance().unRegisterListener(this.bKr);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

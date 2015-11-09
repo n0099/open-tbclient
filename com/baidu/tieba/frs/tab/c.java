@@ -5,11 +5,11 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnTouchListener {
-    final /* synthetic */ HorizontalTabView bbp;
+    final /* synthetic */ HorizontalTabView bbL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(HorizontalTabView horizontalTabView) {
-        this.bbp = horizontalTabView;
+        this.bbL = horizontalTabView;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -17,30 +17,30 @@ public class c implements View.OnTouchListener {
         i iVar;
         i iVar2;
         TabItemView tabItemView;
-        f fVar;
-        f fVar2;
+        g gVar;
+        g gVar2;
         TabItemView tabItemView2;
         if (motionEvent != null && motionEvent.getAction() == 0) {
             if (view instanceof TabItemView) {
-                this.bbp.a((TabItemView) view, false);
+                this.bbL.a((TabItemView) view, false);
             }
-            tabItemView = this.bbp.bbh;
+            tabItemView = this.bbL.bbD;
             if (tabItemView != null) {
-                fVar = this.bbp.bbi;
-                if (fVar != null) {
-                    fVar2 = this.bbp.bbi;
-                    tabItemView2 = this.bbp.bbh;
-                    fVar2.fP(tabItemView2.getTabId());
+                gVar = this.bbL.bbE;
+                if (gVar != null) {
+                    gVar2 = this.bbL.bbE;
+                    tabItemView2 = this.bbL.bbD;
+                    gVar2.fY(tabItemView2.getTabId());
                 }
             }
             return true;
         } else if (motionEvent == null || motionEvent.getAction() != 3) {
             return false;
         } else {
-            iVar = this.bbp.bbg;
+            iVar = this.bbL.bbC;
             if (iVar != null) {
-                iVar2 = this.bbp.bbg;
-                iVar2.Ni();
+                iVar2 = this.bbL.bbC;
+                iVar2.ND();
                 return false;
             }
             return false;

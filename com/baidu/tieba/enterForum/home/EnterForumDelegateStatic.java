@@ -18,10 +18,10 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.auZ = new d();
+        cVar.atN = new d();
         cVar.type = 1;
-        cVar.ava = i.h.home;
-        cVar.avb = i.e.s_icon_tabbar_enterforum;
+        cVar.atO = i.h.home;
+        cVar.atP = i.e.s_icon_tabbar_enterforum;
         return cVar;
     }
 

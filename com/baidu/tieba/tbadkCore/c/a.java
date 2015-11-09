@@ -20,15 +20,15 @@ import com.baidu.tieba.i;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static com.baidu.adp.lib.guide.d cYD;
+    private static com.baidu.adp.lib.guide.d daa;
 
     /* renamed from: com.baidu.tieba.tbadkCore.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0074a {
-        void nn();
+    public interface InterfaceC0075a {
+        void no();
     }
 
-    public static void a(BaseActivity<?> baseActivity, View view, boolean z, InterfaceC0074a interfaceC0074a) {
+    public static void a(BaseActivity<?> baseActivity, View view, boolean z, InterfaceC0075a interfaceC0075a) {
         int defaultBubbleEndTime;
         SpannableString spannableString;
         if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(MemberPayActivityConfig.class) && (defaultBubbleEndTime = TbadkCoreApplication.m411getInst().getDefaultBubbleEndTime()) > 0) {
@@ -37,8 +37,8 @@ public class a {
                 MessageManager.getInstance().runTask(CmdConfigCustom.CMD_RESET_BUBBLE, TbPageContext.class, baseActivity.getPageContext());
                 TbadkCoreApplication.m411getInst().setDefaultBubble(null);
                 TbadkCoreApplication.m411getInst().setDefaultBubbleEndTime(0);
-                if (interfaceC0074a != null) {
-                    interfaceC0074a.nn();
+                if (interfaceC0075a != null) {
+                    interfaceC0075a.no();
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(baseActivity.getPageContext().getPageActivity());
                 aVar.ak(false);
@@ -54,11 +54,11 @@ public class a {
                 aVar.a(i.h.open_now, new b(baseActivity));
                 aVar.b(i.h.group_create_private_isee, new c());
                 aVar.b(baseActivity.getPageContext());
-                aVar.sO();
+                aVar.sR();
                 return;
             }
             int i = (defaultBubbleEndTime - currentTimeMillis) / 86400;
-            if (i <= 3 && i >= 0 && System.currentTimeMillis() / 86400000 != com.baidu.tbadk.core.sharedPref.b.tr().getLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
+            if (i <= 3 && i >= 0 && System.currentTimeMillis() / 86400000 != com.baidu.tbadk.core.sharedPref.b.tu().getLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), 0L)) {
                 int i2 = i.c.cp_cont_g;
                 int i3 = i.c.cp_link_tip_d;
                 int i4 = i.e.pop_float_arrow;
@@ -82,17 +82,17 @@ public class a {
                 gVar.a(new d(baseActivity, z, spannableString, i4));
                 gVar.u(true);
                 gVar.w(false);
-                cYD = gVar.gy();
+                daa = gVar.gy();
                 new Handler().postDelayed(new f(baseActivity, z), 300L);
-                com.baidu.tbadk.core.sharedPref.b.tr().putLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
+                com.baidu.tbadk.core.sharedPref.b.tu().putLong("bubble_time@" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis() / 86400000);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void c(Activity activity, boolean z) {
-        if (cYD != null) {
-            cYD.i(activity);
+        if (daa != null) {
+            daa.i(activity);
         }
         if (!z) {
             new Handler().postDelayed(new g(), TbConfig.NOTIFY_SOUND_INTERVAL);

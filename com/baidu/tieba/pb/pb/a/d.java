@@ -1,25 +1,32 @@
 package com.baidu.tieba.pb.pb.a;
 
-import android.view.View;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.aq;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class d implements View.OnClickListener {
-    final /* synthetic */ a cgY;
-    private final /* synthetic */ int chc;
-    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.k chd;
-    private final /* synthetic */ int val$count;
+public class d implements a.b {
+    final /* synthetic */ a chy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(a aVar, int i, int i2, com.baidu.tieba.tbadkCore.data.k kVar) {
-        this.cgY = aVar;
-        this.chc = i;
-        this.val$count = i2;
-        this.chd = kVar;
+    public d(a aVar) {
+        this.chy = aVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.chd.kX(Math.min(this.chc + 5, this.val$count));
-        this.cgY.notifyDataSetChanged();
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tieba.pb.a.c cVar;
+        com.baidu.tieba.pb.a.c cVar2;
+        com.baidu.tieba.pb.a.c cVar3;
+        aVar.dismiss();
+        cVar = this.chy.chr;
+        if (cVar != null) {
+            aq aqVar = new aq("c10398");
+            cVar2 = this.chy.chr;
+            aq ae = aqVar.ae(ImageViewerConfig.FORUM_ID, cVar2.getForumId());
+            cVar3 = this.chy.chr;
+            TiebaStatic.log(ae.ae("tid", cVar3.getThreadId()).ae("is_like", "2"));
+        }
     }
 }

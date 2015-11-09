@@ -4,9 +4,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.base.e {
-    private String aPd;
-    private boolean bnj;
-    private boolean bnk;
+    private String aPl;
+    private boolean bnN;
+    private boolean bnO;
     private boolean mHasMore;
     private int mPageNum;
     private long mUid;
@@ -14,10 +14,10 @@ public class l extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: protected */
     public l(BaseActivity baseActivity, String str) {
         super(baseActivity.getPageContext());
-        this.bnj = false;
+        this.bnN = false;
         this.mUid = 0L;
-        this.bnk = true;
-        this.aPd = str;
+        this.bnO = true;
+        this.aPl = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -39,11 +39,11 @@ public class l extends com.baidu.adp.base.e {
         }
         myGiftListRequestMessage.setPageNum(i);
         myGiftListRequestMessage.setUid(j);
-        myGiftListRequestMessage.setStType(this.aPd);
+        myGiftListRequestMessage.setStType(this.aPl);
         return myGiftListRequestMessage;
     }
 
-    private void hp(String str) {
+    private void hr(String str) {
         if (str != null && str.length() > 0 && !str.equals("0") && !str.startsWith("-")) {
             if (TbadkApplication.getCurrentAccount() != null && TbadkApplication.getCurrentAccount().equals(str)) {
                 setIsSelf(true);
@@ -59,23 +59,23 @@ public class l extends com.baidu.adp.base.e {
 
     public void setUid(long j) {
         this.mUid = j;
-        hp(String.valueOf(this.mUid));
+        hr(String.valueOf(this.mUid));
     }
 
     public void setIsSelf(boolean z) {
-        this.bnk = z;
+        this.bnO = z;
     }
 
     public boolean getIsSelf() {
-        return this.bnk;
+        return this.bnO;
     }
 
     public void sendMessage() {
         MyGiftListRequestMessage e;
-        if (this.bnk) {
+        if (this.bnO) {
             this.mUid = 0L;
         }
-        if (!this.bnj) {
+        if (!this.bnN) {
             e = e(1, this.mUid);
         } else {
             e = e(this.mPageNum, this.mUid);
@@ -99,11 +99,11 @@ public class l extends com.baidu.adp.base.e {
         this.mPageNum = i;
     }
 
-    public void cA(boolean z) {
-        this.bnj = z;
+    public void cC(boolean z) {
+        this.bnN = z;
     }
 
-    public boolean Qu() {
-        return this.bnj;
+    public boolean QQ() {
+        return this.bnN;
     }
 }

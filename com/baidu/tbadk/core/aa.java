@@ -4,12 +4,12 @@ import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa extends com.baidu.tbadk.util.l<Boolean> {
-    final /* synthetic */ TbadkCoreApplication Tx;
+    final /* synthetic */ TbadkCoreApplication Ty;
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(TbadkCoreApplication tbadkCoreApplication, Context context) {
-        this.Tx = tbadkCoreApplication;
+        this.Ty = tbadkCoreApplication;
         this.val$context = context;
     }
 

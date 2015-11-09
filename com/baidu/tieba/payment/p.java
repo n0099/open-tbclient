@@ -12,10 +12,10 @@ import com.baidu.tieba.payment.message.ResponsePaymentPayMessage;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 /* loaded from: classes.dex */
 public class p<T> extends com.baidu.adp.base.e<T> {
-    private com.baidu.adp.base.h<T> cdP;
+    private com.baidu.adp.base.h<T> ceq;
 
     public p(com.baidu.adp.base.h<T> hVar) {
-        this.cdP = hVar;
+        this.ceq = hVar;
     }
 
     @Override // com.baidu.adp.base.e
@@ -43,11 +43,11 @@ public class p<T> extends com.baidu.adp.base.e<T> {
             httpMessage.addParam("goods_duration", String.valueOf(paymentConfirmRequestData.getGoods_duration()));
             httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
             httpMessage.addParam(PayTBeanActivityConfig.PAY_TYPE, String.valueOf(paymentConfirmRequestData.getPay_type()));
-            this.cdP.sendMessage(httpMessage);
+            this.ceq.sendMessage(httpMessage);
         }
     }
 
-    public void aeg() {
+    public void aeB() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAYMENT_CONFIRM_INFO, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/e/consume/getBuyForm");
         tbHttpMessageTask.setResponsedClass(ResponsePaymentConfirmInfoMessage.class);
@@ -66,11 +66,11 @@ public class p<T> extends com.baidu.adp.base.e<T> {
             httpMessage.addParam("password", payRequestData.getPassword());
             httpMessage.addParam("bindid", payRequestData.getBindId());
             httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
-            this.cdP.sendMessage(httpMessage);
+            this.ceq.sendMessage(httpMessage);
         }
     }
 
-    public void aeo() {
+    public void aeJ() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAYMENT_PAY, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/c/encourage/consume/payOpenGoods");
         tbHttpMessageTask.setResponsedClass(ResponsePaymentPayMessage.class);

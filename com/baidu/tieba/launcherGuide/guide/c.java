@@ -6,18 +6,18 @@ import com.baidu.tieba.launcherGuide.view.RightSlideViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ NewUserGuideActivity bRu;
+    final /* synthetic */ NewUserGuideActivity bRP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(NewUserGuideActivity newUserGuideActivity) {
-        this.bRu = newUserGuideActivity;
+        this.bRP = newUserGuideActivity;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
         RightSlideViewPager rightSlideViewPager;
         if (i == 1) {
-            rightSlideViewPager = this.bRu.bRs;
+            rightSlideViewPager = this.bRP.bRN;
             rightSlideViewPager.setTag(null);
         }
     }
@@ -25,21 +25,21 @@ public class c implements ViewPager.OnPageChangeListener {
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
         com.baidu.tieba.launcherGuide.a.a aVar;
-        aVar = this.bRu.bRo;
-        if (aVar.aaB() && i == 0 && f > 0.0f) {
-            this.bRu.aaw();
+        aVar = this.bRP.bRJ;
+        if (aVar.aaW() && i == 0 && f > 0.0f) {
+            this.bRP.aaR();
         }
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
         RightSlideViewPager rightSlideViewPager;
-        rightSlideViewPager = this.bRu.bRs;
+        rightSlideViewPager = this.bRP.bRN;
         h hVar = (h) ((FragmentPagerAdapter) rightSlideViewPager.getAdapter()).getItem(0);
         if (i == 0) {
-            hVar.aay();
+            hVar.aaT();
         } else {
-            hVar.aaz();
+            hVar.aaU();
         }
     }
 }

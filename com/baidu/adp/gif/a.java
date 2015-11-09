@@ -1,8 +1,6 @@
 package com.baidu.adp.gif;
 /* loaded from: classes.dex */
 public interface a {
-    com.baidu.adp.widget.a.a K(String str);
-
     com.baidu.adp.widget.a.a e(byte[] bArr, int i, int i2);
 
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
@@ -30,18 +28,6 @@ public interface a {
                 aVar = qP;
             }
             return aVar;
-        }
-
-        @Override // com.baidu.adp.gif.a
-        public com.baidu.adp.widget.a.a K(String str) {
-            if (this.qQ != 0) {
-                return null;
-            }
-            try {
-                return this.qR.K(str);
-            } catch (Exception e) {
-                return null;
-            }
         }
 
         @Override // com.baidu.adp.gif.a

@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class SettingTextSwitchView extends FrameLayout {
-    private TextView alQ;
-    protected TextView alR;
-    private BdSwitchView alS;
+    private TextView alV;
+    protected TextView alW;
+    private BdSwitchView alX;
     private LinearLayout container;
     private final Context mContext;
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        zh();
+        zm();
         c(attributeSet);
         dF(TbadkCoreApplication.m411getInst().getSkinType());
     }
@@ -32,14 +32,14 @@ public class SettingTextSwitchView extends FrameLayout {
     public SettingTextSwitchView(Context context) {
         super(context);
         this.mContext = context;
-        zh();
+        zm();
         dF(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        zh();
+        zm();
         c(attributeSet);
         dF(TbadkCoreApplication.m411getInst().getSkinType());
     }
@@ -49,47 +49,47 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     public void dF(int i) {
-        this.alS.a(an.cw(i.e.bg_switch_open), an.cw(i.e.bg_switch_close), an.cw(i.e.btn_handle));
-        an.b(this.alQ, i.c.cp_cont_b, 1);
-        if (this.alR != null) {
-            an.b(this.alR, i.c.cp_cont_d, 1);
+        this.alX.a(an.cw(i.e.bg_switch_open), an.cw(i.e.bg_switch_close), an.cw(i.e.btn_handle));
+        an.b(this.alV, i.c.cp_cont_b, 1);
+        if (this.alW != null) {
+            an.b(this.alW, i.c.cp_cont_d, 1);
         }
+    }
+
+    public void mD() {
+        this.alX.mD();
     }
 
     public void mC() {
-        this.alS.mC();
-    }
-
-    public void mB() {
-        this.alS.mB();
+        this.alX.mC();
     }
 
     public void P(boolean z) {
-        this.alS.P(z);
+        this.alX.P(z);
     }
 
     public void O(boolean z) {
-        this.alS.O(z);
+        this.alX.O(z);
     }
 
     public void setText(String str) {
-        this.alQ.setText(str);
+        this.alV.setText(str);
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.alS.setOnSwitchStateChangeListener(aVar);
+        this.alX.setOnSwitchStateChangeListener(aVar);
     }
 
-    private void zh() {
+    private void zm() {
         LayoutInflater.from(this.mContext).inflate(i.g.setting_text_switch_view, (ViewGroup) this, true);
         this.container = (LinearLayout) findViewById(i.f.container);
-        this.alQ = (TextView) findViewById(i.f.text);
-        this.alS = (BdSwitchView) findViewById(i.f.button);
-        this.alR = (TextView) findViewById(i.f.tip);
-        if (this.alR != null) {
-            this.alR.setVisibility(8);
+        this.alV = (TextView) findViewById(i.f.text);
+        this.alX = (BdSwitchView) findViewById(i.f.button);
+        this.alW = (TextView) findViewById(i.f.tip);
+        if (this.alW != null) {
+            this.alW.setVisibility(8);
         }
-        setTag(this.alS);
+        setTag(this.alX);
         this.container.setClickable(false);
         this.container.setFocusable(false);
     }
@@ -101,21 +101,21 @@ public class SettingTextSwitchView extends FrameLayout {
         float dimension = obtainStyledAttributes.getDimension(2, -1.0f);
         String string2 = obtainStyledAttributes.getString(3);
         int color2 = obtainStyledAttributes.getColor(4, -1);
-        if (this.alR != null && string2 != null) {
-            this.alR.setVisibility(0);
-            this.alR.setText(string2);
+        if (this.alW != null && string2 != null) {
+            this.alW.setVisibility(0);
+            this.alW.setText(string2);
             if (color2 > -1) {
-                this.alR.setTextColor(color2);
+                this.alW.setTextColor(color2);
             }
         }
         if (string != null) {
-            this.alQ.setText(string);
+            this.alV.setText(string);
         }
         if (color > -1) {
-            this.alQ.setTextColor(color);
+            this.alV.setTextColor(color);
         }
         if (dimension > -1.0f) {
-            this.alQ.setTextSize(0, dimension);
+            this.alV.setTextSize(0, dimension);
         }
         this.container.setClickable(false);
         this.container.setFocusable(false);
@@ -123,44 +123,44 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     public void setTip(String str) {
-        if (str != null && this.alR != null) {
+        if (str != null && this.alW != null) {
             displayTip();
-            this.alR.setText(str);
+            this.alW.setText(str);
         }
     }
 
     public void setTip(int i) {
-        if (i != -1 && this.alR != null) {
+        if (i != -1 && this.alW != null) {
             displayTip();
-            this.alR.setText(i);
+            this.alW.setText(i);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.alR != null) {
-            this.alR.setTextColor(i);
+        if (this.alW != null) {
+            this.alW.setTextColor(i);
         }
     }
 
     public void displayTip() {
-        if (this.alR != null) {
-            this.alR.setVisibility(8);
+        if (this.alW != null) {
+            this.alW.setVisibility(8);
         }
     }
 
     public void setTextLeftMargin(int i) {
-        if (this.alQ.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.alQ.getLayoutParams();
+        if (this.alV.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.alV.getLayoutParams();
             layoutParams.leftMargin = this.mContext.getResources().getDimensionPixelSize(i);
-            this.alQ.setLayoutParams(layoutParams);
+            this.alV.setLayoutParams(layoutParams);
         }
     }
 
     public BdSwitchView getSwitchView() {
-        return this.alS;
+        return this.alX;
     }
 
     public void setSwitchView(BdSwitchView bdSwitchView) {
-        this.alS = bdSwitchView;
+        this.alX = bdSwitchView;
     }
 }

@@ -4,13 +4,13 @@ import android.graphics.Bitmap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ad extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ z amj;
-    private final /* synthetic */ boolean aml;
+    final /* synthetic */ z amo;
+    private final /* synthetic */ boolean amq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(z zVar, boolean z) {
-        this.amj = zVar;
-        this.aml = z;
+        this.amo = zVar;
+        this.amq = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,32 +19,32 @@ public class ad extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
         boolean z;
         boolean z2;
-        this.amj.aS(this.aml);
-        z = this.amj.amb;
+        this.amo.aS(this.amq);
+        z = this.amo.amg;
         if (!z) {
             if (aVar != null) {
-                Bitmap na = aVar.na();
-                if (na != null) {
-                    this.amj.ama = true;
+                Bitmap nb = aVar.nb();
+                if (nb != null) {
+                    this.amo.amf = true;
                     if (!aVar.fF()) {
-                        z2 = this.amj.amf;
+                        z2 = this.amo.amk;
                         if (z2) {
-                            this.amj.alX.setVisibility(0);
+                            this.amo.amc.setVisibility(0);
                         }
-                        this.amj.alW.setImageBitmap(na);
-                        this.amj.alW.setImageData(aVar.nf());
+                        this.amo.amb.setImageBitmap(nb);
+                        this.amo.amb.setImageData(aVar.ng());
                         return;
                     }
-                    byte[] nf = aVar.nf();
-                    if (nf == null) {
-                        nf = com.baidu.tbadk.core.util.c.e(na, 100);
+                    byte[] ng = aVar.ng();
+                    if (ng == null) {
+                        ng = com.baidu.tbadk.core.util.c.e(nb, 100);
                     }
-                    this.amj.alW.a(nf, na);
-                } else if (!this.aml) {
-                    this.amj.alW.setDefaultBitmap();
+                    this.amo.amb.a(ng, nb);
+                } else if (!this.amq) {
+                    this.amo.amb.setDefaultBitmap();
                 }
-            } else if (!this.aml) {
-                this.amj.alW.setDefaultBitmap();
+            } else if (!this.amq) {
+                this.amo.amb.setDefaultBitmap();
             }
         }
     }

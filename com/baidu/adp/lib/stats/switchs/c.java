@@ -12,7 +12,7 @@ public class c {
     public long xf = 0;
     public String xg = null;
 
-    public boolean ii() {
+    public boolean ij() {
         String str = null;
         d dVar = new d("statisticConfig", "switchsConfig", DiskFileOperate.Action.READ);
         dVar.q(false);
@@ -34,7 +34,7 @@ public class c {
         return true;
     }
 
-    public void ax(String str) {
+    public void av(String str) {
         if (!TextUtils.isEmpty(str)) {
             long currentTimeMillis = System.currentTimeMillis();
             try {

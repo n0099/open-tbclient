@@ -1,29 +1,29 @@
 package com.baidu.tbadk.widget.richText;
-
-import android.view.View;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements View.OnClickListener {
-    final /* synthetic */ TbRichTextView aCC;
-    private final /* synthetic */ c aCE;
+class p extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ TbRichTextView aBw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public p(TbRichTextView tbRichTextView, c cVar) {
-        this.aCC = tbRichTextView;
-        this.aCE = cVar;
+    public p(TbRichTextView tbRichTextView) {
+        this.aBw = tbRichTextView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.aCE.EV() != null) {
-            if (this.aCC.getContext() instanceof i) {
-                ((i) this.aCC.getContext()).onVideoClicked(this.aCC.getContext(), this.aCE.EV().toString());
-                return;
-            }
-            com.baidu.adp.base.h<?> C = com.baidu.adp.base.l.C(this.aCC.getContext());
-            if (C != null && (C.getOrignalPage() instanceof i)) {
-                ((i) C.getOrignalPage()).onVideoClicked(this.aCC.getContext(), this.aCE.EV().toString());
-            }
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        this.aBw.e(aVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void onProgressUpdate(Object... objArr) {
+        super.onProgressUpdate(objArr);
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void aj(String str) {
+        super.aj(str);
     }
 }

@@ -6,20 +6,20 @@ import tbclient.ForumRecommend.DataRes;
 /* loaded from: classes.dex */
 public class b {
     private boolean Cj;
-    private int aLo;
-    private int aLp;
-    private int aLq;
-    private String aLr;
-    private int aLs;
-    private c aLt;
-    private boolean auh;
+    private int aLA;
+    private c aLB;
+    private int aLw;
+    private int aLx;
+    private int aLy;
+    private String aLz;
+    private boolean asV;
     private int time = 0;
-    private d aLl = new d();
-    private h aLm = new h();
-    private g aLn = new g();
+    private d aLt = new d();
+    private h aLu = new h();
+    private g aLv = new g();
 
-    public void bK(boolean z) {
-        this.auh = z;
+    public void bM(boolean z) {
+        this.asV = z;
     }
 
     public b() {
@@ -31,36 +31,36 @@ public class b {
         this.time = i;
     }
 
-    public void eV(int i) {
-        this.aLq = i;
+    public void fd(int i) {
+        this.aLy = i;
     }
 
     public void setIsMem(int i) {
-        this.aLs = i;
+        this.aLA = i;
     }
 
-    public void eW(int i) {
-        this.aLo = i;
+    public void fe(int i) {
+        this.aLw = i;
     }
 
-    public void eX(int i) {
-        this.aLp = i;
+    public void ff(int i) {
+        this.aLx = i;
     }
 
-    public void gt(String str) {
-        this.aLr = str;
+    public void gv(String str) {
+        this.aLz = str;
     }
 
     public void a(g gVar) {
-        this.aLn = gVar;
+        this.aLv = gVar;
     }
 
-    public g HS() {
-        return this.aLn;
+    public g Ii() {
+        return this.aLv;
     }
 
     public c getHotSearchInfoData() {
-        return this.aLt;
+        return this.aLB;
     }
 
     public void a(DataRes dataRes) {
@@ -72,25 +72,25 @@ public class b {
     public void a(DataRes dataRes, Context context) {
         if (dataRes != null) {
             try {
-                eW(dataRes.msign_valid.intValue());
-                eX(dataRes.msign_level.intValue());
-                eV(dataRes.is_login.intValue());
-                gt(dataRes.msign_text);
+                fe(dataRes.msign_valid.intValue());
+                ff(dataRes.msign_level.intValue());
+                fd(dataRes.is_login.intValue());
+                gv(dataRes.msign_text);
                 setIsMem(dataRes.is_mem.intValue());
                 setTime(dataRes.time.intValue());
-                this.aLl.setLevel(this.aLp);
+                this.aLt.setLevel(this.aLx);
                 if (dataRes.like_forum != null) {
-                    this.aLl.I(dataRes.like_forum);
+                    this.aLt.K(dataRes.like_forum);
                 }
                 if (dataRes.banner != null) {
-                    this.aLm.I(dataRes.banner);
+                    this.aLu.K(dataRes.banner);
                 }
                 if (dataRes.recommend_forum_info != null) {
-                    this.aLn.J(dataRes.recommend_forum_info);
+                    this.aLv.L(dataRes.recommend_forum_info);
                 }
                 if (dataRes.hot_search != null) {
-                    this.aLt = new c();
-                    this.aLt.a(dataRes.hot_search);
+                    this.aLB = new c();
+                    this.aLB.a(dataRes.hot_search);
                 }
             } catch (Exception e) {
                 BdLog.detailException(e);
@@ -98,20 +98,20 @@ public class b {
         }
     }
 
-    public h HT() {
-        return this.aLm;
+    public h Ij() {
+        return this.aLu;
     }
 
     public void a(h hVar) {
-        this.aLm = hVar;
+        this.aLu = hVar;
     }
 
-    public d HU() {
-        return this.aLl;
+    public d Ik() {
+        return this.aLt;
     }
 
     public void a(d dVar) {
-        this.aLl = dVar;
+        this.aLt = dVar;
     }
 
     public void ap(boolean z) {
@@ -122,14 +122,14 @@ public class b {
         return this.Cj;
     }
 
-    public boolean HV() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.b.anm.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.anm.longValue();
+    public boolean Il() {
+        return System.currentTimeMillis() / com.baidu.tbadk.data.b.anr.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.b.anr.longValue();
     }
 
     public boolean isEmpty() {
         boolean z = false;
         if (this.Cj) {
-            if (this.aLl == null || this.aLl.HX() == null || this.aLl.HX().size() < 1) {
+            if (this.aLt == null || this.aLt.In() == null || this.aLt.In().size() < 1) {
                 z = true;
             }
             return z;
@@ -138,6 +138,6 @@ public class b {
     }
 
     public void a(c cVar) {
-        this.aLt = cVar;
+        this.aLB = cVar;
     }
 }

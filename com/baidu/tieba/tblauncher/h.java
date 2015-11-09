@@ -20,14 +20,14 @@ class h extends CustomMessageListener {
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001180 && customResponsedMessage.getError() == 0 && (customResponsedMessage instanceof ResponseUnreadPointNum)) {
             ResponseUnreadPointNum responseUnreadPointNum = (ResponseUnreadPointNum) customResponsedMessage;
             if (responseUnreadPointNum.getNum() > 0) {
-                this.this$0.dcJ = true;
-                this.this$0.dcH = responseUnreadPointNum.getNum();
+                this.this$0.deS = true;
+                this.this$0.deQ = responseUnreadPointNum.getNum();
             } else {
-                this.this$0.dcJ = false;
-                this.this$0.dcH = 0;
+                this.this$0.deS = false;
+                this.this$0.deQ = 0;
             }
-            this.this$0.gy(false);
-            this.this$0.ayk();
+            this.this$0.gE(false);
+            this.this$0.azr();
         }
     }
 }

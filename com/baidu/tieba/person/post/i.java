@@ -14,16 +14,16 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.person.post.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements a.InterfaceC0072a {
-    final /* synthetic */ g crB;
+public class i implements a.InterfaceC0073a {
+    final /* synthetic */ g csX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(g gVar) {
-        this.crB = gVar;
+        this.csX = gVar;
     }
 
-    @Override // com.baidu.tieba.person.post.a.InterfaceC0072a
-    public void ae(View view) {
+    @Override // com.baidu.tieba.person.post.a.InterfaceC0073a
+    public void ad(View view) {
         String[] strArr;
         boolean z;
         TbPageContext tbPageContext;
@@ -34,31 +34,31 @@ public class i implements a.InterfaceC0072a {
         TbPageContext tbPageContext6;
         int id = view.getId();
         if (id == i.f.portrait) {
-            tbPageContext6 = this.crB.aPm;
+            tbPageContext6 = this.csX.aPu;
             ((BaseFragmentActivity) tbPageContext6.getOrignalPage()).finish();
         } else if (id == i.f.username) {
-            tbPageContext5 = this.crB.aPm;
+            tbPageContext5 = this.csX.aPu;
             ((BaseFragmentActivity) tbPageContext5.getOrignalPage()).finish();
         } else if ((id == i.f.item_header || id == i.f.original_post_title || id == i.f.item_footer) && (strArr = (String[]) view.getTag()) != null) {
             if (strArr.length < 4 || strArr[3] == null || com.baidu.adp.lib.g.b.g(strArr[3], 0) != 33) {
                 z = false;
             } else if ("0".equals(strArr[2]) || strArr[1] == null) {
-                tbPageContext3 = this.crB.aPm;
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(tbPageContext3.getPageActivity(), strArr[0]).rh()));
+                tbPageContext3 = this.csX.aPu;
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(tbPageContext3.getPageActivity(), strArr[0]).ri()));
                 z = true;
             } else {
-                tbPageContext4 = this.crB.aPm;
+                tbPageContext4 = this.csX.aPu;
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(tbPageContext4.getPageActivity()).createPhotoLiveCommentActivityConfig(strArr[0], strArr[1], false)));
                 z = true;
             }
             if (!z) {
                 if (!"0".equals(strArr[2]) && strArr[1] != null) {
-                    tbPageContext2 = this.crB.aPm;
+                    tbPageContext2 = this.csX.aPu;
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(tbPageContext2.getPageActivity()).createSubPbActivityConfig(strArr[0], strArr[1], "person_post_reply", false)));
                     return;
                 }
                 MessageManager messageManager = MessageManager.getInstance();
-                tbPageContext = this.crB.aPm;
+                tbPageContext = this.csX.aPu;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_post_reply")));
             }
         }

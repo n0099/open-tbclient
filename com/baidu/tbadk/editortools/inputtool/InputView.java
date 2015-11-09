@@ -4,33 +4,35 @@ import android.content.Context;
 import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.widget.EditText;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.g;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.coreExtra.data.f;
-import com.baidu.tbadk.editortools.emotiontool.r;
 import com.baidu.tbadk.editortools.j;
-import com.baidu.tbadk.editortools.w;
+import com.baidu.tbadk.editortools.x;
 import com.baidu.tieba.i;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class InputView extends EditText implements w {
-    private static final Pattern arC = Pattern.compile("#\\([a-zA-Z0-9_\\u4E00-\\u9FA5]+\\)");
-    private static final Pattern arD = Pattern.compile("#\\([^#\\)\\(]+\\)$");
-    private j KA;
-    private int Kz;
-    private boolean arB;
-    private TextWatcher arE;
-    private boolean arF;
+public class InputView extends EditText implements x {
+    private static final Pattern aqh = Pattern.compile("#\\([a-zA-Z0-9_\\u4E00-\\u9FA5]+\\)");
+    private static final Pattern aqi = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    private int KA;
+    private j KB;
+    private boolean aqg;
+    private TextWatcher aqj;
+    private boolean aqk;
 
     public InputView(Context context, boolean z) {
         super(context);
-        this.Kz = 0;
-        this.arB = false;
-        this.arE = null;
-        this.arF = true;
+        this.KA = 0;
+        this.aqg = false;
+        this.aqj = null;
+        this.aqk = true;
         setMinHeight(context.getResources().getDimensionPixelSize(i.d.ds80));
         setMaxLines(4);
         if (z) {
@@ -54,7 +56,7 @@ public class InputView extends EditText implements w {
                 case 3:
                     if (getSelectionStart() > 0) {
                         String substring = getText().toString().substring(0, getSelectionStart());
-                        Matcher matcher = arD.matcher(substring);
+                        Matcher matcher = aqi.matcher(substring);
                         if (matcher.find()) {
                             getText().delete(getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getSelectionStart());
                             return;
@@ -91,10 +93,10 @@ public class InputView extends EditText implements w {
                 case 24:
                     if (aVar.data != null && (aVar.data instanceof f)) {
                         f fVar = (f) aVar.data;
-                        if ((!this.arB || fVar.wh() == EmotionGroupType.LOCAL) && fVar.getName() != null) {
+                        if ((!this.aqg || fVar.wm() == EmotionGroupType.LOCAL) && fVar.getName() != null) {
                             String editable = getText().toString();
-                            if (this.arF && eU(editable) >= 10 && getContext() != null) {
-                                g.tx().showToast(i.h.too_many_face);
+                            if (this.aqk && eV(editable) >= 10 && getContext() != null) {
+                                g.tA().showToast(i.h.too_many_face);
                                 return;
                             }
                             getText().insert(getSelectionStart(), fVar.getName());
@@ -129,60 +131,63 @@ public class InputView extends EditText implements w {
         }
     }
 
-    private static int eU(String str) {
+    private static int eV(String str) {
+        CustomResponsedMessage runTask;
+        if (str == null || str.length() == 0) {
+            return 0;
+        }
+        Matcher matcher = aqh.matcher(str);
         int i = 0;
-        if (str != null && str.length() != 0) {
-            Matcher matcher = arC.matcher(str);
-            while (matcher.find()) {
-                if (r.AZ().eP(matcher.group())) {
-                    i++;
-                }
+        while (matcher.find()) {
+            String group = matcher.group();
+            if (MessageManager.getInstance().findTask(CmdConfigCustom.EMOTION_IS_VALID) != null && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.EMOTION_IS_VALID, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
+                i++;
             }
         }
         return i;
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        this.arB = z;
+        this.aqg = z;
     }
 
-    @Override // com.baidu.tbadk.editortools.w
+    @Override // com.baidu.tbadk.editortools.x
     public void setEditorTools(j jVar) {
-        this.KA = jVar;
+        this.KB = jVar;
     }
 
-    @Override // com.baidu.tbadk.editortools.w
+    @Override // com.baidu.tbadk.editortools.x
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.KA != null) {
-            this.KA.b(aVar);
+        if (this.KB != null) {
+            this.KB.b(aVar);
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.w
+    @Override // com.baidu.tbadk.editortools.x
     public void setToolId(int i) {
-        this.Kz = i;
+        this.KA = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.w
+    @Override // com.baidu.tbadk.editortools.x
     public int getToolId() {
-        return this.Kz;
+        return this.KA;
     }
 
-    @Override // com.baidu.tbadk.editortools.w
+    @Override // com.baidu.tbadk.editortools.x
     public void init() {
     }
 
-    @Override // com.baidu.tbadk.editortools.w
-    public void ow() {
+    @Override // com.baidu.tbadk.editortools.x
+    public void ox() {
         setVisibility(0);
     }
 
-    @Override // com.baidu.tbadk.editortools.w
+    @Override // com.baidu.tbadk.editortools.x
     public void hide() {
         setVisibility(8);
     }
 
-    @Override // com.baidu.tbadk.editortools.w
+    @Override // com.baidu.tbadk.editortools.x
     public void onChangeSkinType(int i) {
         an.c(this, i.e.foot_bar_input, i);
         an.a(this, i.c.cp_cont_b, 2, i);
@@ -194,10 +199,10 @@ public class InputView extends EditText implements w {
     }
 
     public void setOutTextWather(TextWatcher textWatcher) {
-        this.arE = textWatcher;
+        this.aqj = textWatcher;
     }
 
     public void setNeedFaceMaxCount(boolean z) {
-        this.arF = z;
+        this.aqk = z;
     }
 }

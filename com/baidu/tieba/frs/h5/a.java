@@ -15,13 +15,13 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class a extends bn<g, k> {
-    private final LinkedList<BaseWebView> bam;
-    private final LinkedList<c> ban;
+    private final LinkedList<BaseWebView> baG;
+    private final LinkedList<c> baH;
 
     public a(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity, bdUniqueId);
-        this.bam = new LinkedList<>();
-        this.ban = new LinkedList<>();
+        this.baG = new LinkedList<>();
+        this.baH = new LinkedList<>();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -38,8 +38,8 @@ public class a extends bn<g, k> {
         c cVar = new c(this.mContext);
         linearLayout.addView(view);
         linearLayout.addView(cVar);
-        this.bam.add(cVar.getWebView());
-        this.ban.add(cVar);
+        this.baG.add(cVar.getWebView());
+        this.baH.add(cVar);
         return new k(linearLayout, cVar, view);
     }
 
@@ -47,19 +47,19 @@ public class a extends bn<g, k> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, g gVar, k kVar) {
-        c cVar = kVar.bav;
+        c cVar = kVar.baO;
         if (cVar == null) {
             return null;
         }
         BaseWebView webView = cVar.getWebView();
         webView.setOnLoadUrlListener(new b(this, gVar));
         webView.setHorizontalScrollBarEnabled(false);
-        if (!cVar.MT() && gVar != null) {
+        if (!cVar.Nl() && gVar != null) {
             CompatibleUtile.getInstance().loadUrl(webView, gVar.url);
             cVar.setWebViewLoading(true);
         }
-        if (kVar.Xl != null) {
-            an.j(kVar.Xl, i.c.cp_bg_line_c);
+        if (kVar.Xo != null) {
+            an.j(kVar.Xo, i.c.cp_bg_line_c);
             return view;
         }
         return view;
@@ -68,7 +68,7 @@ public class a extends bn<g, k> {
     @Override // com.baidu.tieba.frs.bn
     public void release() {
         super.release();
-        Iterator<BaseWebView> it = this.bam.iterator();
+        Iterator<BaseWebView> it = this.baG.iterator();
         while (it.hasNext()) {
             BaseWebView next = it.next();
             if (next != null) {
@@ -76,11 +76,11 @@ public class a extends bn<g, k> {
                 next.destroy();
             }
         }
-        this.bam.clear();
-        Iterator<c> it2 = this.ban.iterator();
+        this.baG.clear();
+        Iterator<c> it2 = this.baH.iterator();
         while (it2.hasNext()) {
             it2.next().removeAllViews();
         }
-        this.ban.clear();
+        this.baH.clear();
     }
 }

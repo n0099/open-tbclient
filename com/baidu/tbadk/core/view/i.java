@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class i {
-    private View adD;
-    private int adE;
-    private ViewGroup.LayoutParams adF;
-    private Runnable adG;
+    private View adI;
+    private int adJ;
+    private ViewGroup.LayoutParams adK;
+    private Runnable adL;
     private int mScreenHeight;
 
     public static void r(Activity activity) {
@@ -39,49 +39,49 @@ public class i {
         } else {
             an.d(frameLayout, i.c.usual_page_bg, 0);
         }
-        this.adD = frameLayout.getChildAt(0);
-        this.adD.getViewTreeObserver().addOnGlobalLayoutListener(new j(this));
-        this.adF = this.adD.getLayoutParams();
+        this.adI = frameLayout.getChildAt(0);
+        this.adI.getViewTreeObserver().addOnGlobalLayoutListener(new j(this));
+        this.adK = this.adI.getLayoutParams();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vp() {
-        int height = this.adD.getHeight();
+    public void vt() {
+        int height = this.adI.getHeight();
         if (height > this.mScreenHeight) {
             this.mScreenHeight = height;
         }
-        int vq = vq();
-        if (vq != this.adE) {
+        int vu = vu();
+        if (vu != this.adJ) {
             int i = this.mScreenHeight;
-            int i2 = i - vq;
+            int i2 = i - vu;
             if (i2 > i / 4) {
-                this.adF.height = i - i2;
+                this.adK.height = i - i2;
                 cJ(200);
             } else {
-                this.adF.height = i;
-                vr();
+                this.adK.height = i;
+                vv();
             }
-            this.adE = vq;
+            this.adJ = vu;
         }
     }
 
-    private int vq() {
+    private int vu() {
         Rect rect = new Rect();
-        this.adD.getWindowVisibleDisplayFrame(rect);
+        this.adI.getWindowVisibleDisplayFrame(rect);
         return rect.bottom;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vr() {
-        this.adD.requestLayout();
+    public void vv() {
+        this.adI.requestLayout();
     }
 
     private void cJ(int i) {
-        if (this.adG != null) {
-            TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.adG);
-            this.adG = null;
+        if (this.adL != null) {
+            TbadkCoreApplication.m411getInst().handler.removeCallbacks(this.adL);
+            this.adL = null;
         }
-        this.adG = new k(this);
-        TbadkCoreApplication.m411getInst().handler.postDelayed(this.adG, i);
+        this.adL = new k(this);
+        TbadkCoreApplication.m411getInst().handler.postDelayed(this.adL, i);
     }
 }

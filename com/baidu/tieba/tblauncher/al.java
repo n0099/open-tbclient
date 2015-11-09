@@ -14,7 +14,7 @@ public class al implements CustomMessageTask.CustomRunnable<Game> {
             return null;
         }
         if (customMessage.getData() != null) {
-            MainTabActivityStatic.ddj = customMessage.getData();
+            MainTabActivityStatic.dfs = customMessage.getData();
         }
         return new CustomResponsedMessage<>(CmdConfigCustom.CMD_SHOW_GAME_ICON);
     }

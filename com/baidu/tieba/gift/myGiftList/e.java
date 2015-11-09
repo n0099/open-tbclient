@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class e extends CustomMessageListener {
-    final /* synthetic */ MyGiftListActivity bmY;
+    final /* synthetic */ MyGiftListActivity bnC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(MyGiftListActivity myGiftListActivity, int i) {
         super(i);
-        this.bmY = myGiftListActivity;
+        this.bnC = myGiftListActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,13 +22,13 @@ class e extends CustomMessageListener {
         l lVar;
         l lVar2;
         if (customResponsedMessage != null && (l = (Long) customResponsedMessage.getData()) != null) {
-            z = this.bmY.mIsHost;
+            z = this.bnC.mIsHost;
             if (!z) {
-                j = this.bmY.mUserId;
+                j = this.bnC.mUserId;
                 if (j == l.longValue()) {
-                    lVar = this.bmY.bmS;
-                    lVar.cA(false);
-                    lVar2 = this.bmY.bmS;
+                    lVar = this.bnC.bnw;
+                    lVar.cC(false);
+                    lVar2 = this.bnC.bnw;
                     lVar2.LoadData();
                 }
             }

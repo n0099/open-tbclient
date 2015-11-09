@@ -1,29 +1,25 @@
 package com.baidu.tbadk.editortools.c;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.tbadkCore.location.d;
+import android.graphics.Bitmap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class i implements a.b {
-    final /* synthetic */ d asm;
+public class i extends com.baidu.adp.base.g {
+    final /* synthetic */ e aqO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i(d dVar) {
-        this.asm = dVar;
+    public i(e eVar) {
+        this.aqO = eVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        d.a aVar2;
-        com.baidu.tieba.tbadkCore.location.d dVar;
-        if (!com.baidu.adp.lib.util.i.iM()) {
-            aVar2 = this.asm.asi;
-            aVar2.BC();
-        } else {
-            this.asm.a(1, true, null);
-            dVar = this.asm.arV;
-            dVar.axq();
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        com.baidu.tieba.tbadkCore.writeModel.a aVar;
+        if (obj instanceof Bitmap) {
+            Bitmap bitmap = (Bitmap) obj;
+            if (obj != null) {
+                aVar = this.aqO.aqv;
+                aVar.gC(true);
+            }
         }
-        aVar.dismiss();
     }
 }

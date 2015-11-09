@@ -11,8 +11,8 @@ public class k<T> extends e<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.e
-    public h<T> W(String str) {
-        return this.ti.R(str);
+    public h<T> U(String str) {
+        return this.ti.P(str);
     }
 
     @Override // com.baidu.adp.lib.cache.e
@@ -21,27 +21,27 @@ public class k<T> extends e<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.e
-    public void X(String str) {
-        this.ti.S(str);
+    public void V(String str) {
+        this.ti.Q(str);
     }
 
     @Override // com.baidu.adp.lib.cache.e
-    protected void Y(String str) {
+    protected void W(String str) {
         this.ti.c(str, true);
     }
 
     @Override // com.baidu.adp.lib.cache.n
-    public void aa(String str) {
-        this.ti.T(str);
+    public void Y(String str) {
+        this.ti.R(str);
     }
 
     @Override // com.baidu.adp.lib.cache.n
-    public void ab(String str) {
+    public void Z(String str) {
         if (this.sW instanceof f.b) {
-            com.baidu.adp.lib.g.k.hh().c(new l(this, str));
+            com.baidu.adp.lib.g.k.hi().c(new l(this, str));
         }
         if (this.sW instanceof f.a) {
-            com.baidu.adp.lib.g.k.hh().c(new m(this, str));
+            com.baidu.adp.lib.g.k.hi().c(new m(this, str));
         }
     }
 

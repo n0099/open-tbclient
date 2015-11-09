@@ -4,11 +4,11 @@ import android.view.animation.AlphaAnimation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements Runnable {
-    final /* synthetic */ z amj;
+    final /* synthetic */ z amo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(z zVar) {
-        this.amj = zVar;
+        this.amo = zVar;
     }
 
     @Override // java.lang.Runnable
@@ -16,6 +16,6 @@ public class aa implements Runnable {
         AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
         alphaAnimation.setDuration(200L);
         alphaAnimation.setAnimationListener(new ab(this));
-        this.amj.alX.startAnimation(alphaAnimation);
+        this.amo.amc.startAnimation(alphaAnimation);
     }
 }

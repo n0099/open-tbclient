@@ -12,13 +12,13 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class g extends com.baidu.adp.base.f<WriteVoteActivity> {
-    private WriteVoteActivity dnC;
-    private ImageView dnG;
-    private EditText dnH;
-    private ImageView dnI;
-    private ImageFileInfo dnJ;
-    private LayoutInflater dnK;
-    private b dnL;
+    private b dpA;
+    private WriteVoteActivity dpr;
+    private ImageView dpv;
+    private EditText dpw;
+    private ImageView dpx;
+    private ImageFileInfo dpy;
+    private LayoutInflater dpz;
     private View.OnClickListener mClickListener;
     private int mId;
     private View mRootView;
@@ -28,47 +28,47 @@ public class g extends com.baidu.adp.base.f<WriteVoteActivity> {
         super(writeVoteActivity.getPageContext());
         this.mType = 1;
         this.mClickListener = new h(this);
-        this.dnC = writeVoteActivity;
+        this.dpr = writeVoteActivity;
         this.mType = i;
-        this.dnL = writeVoteActivity;
+        this.dpA = writeVoteActivity;
         this.mId = BdUniqueId.gen().getId();
-        this.dnK = LayoutInflater.from(getActivity());
+        this.dpz = LayoutInflater.from(getActivity());
         initView();
     }
 
     private void initView() {
         if (this.mType == 0) {
-            this.mRootView = this.dnK.inflate(i.g.vote_pic_item, (ViewGroup) null);
-            this.dnG = (ImageView) this.mRootView.findViewById(i.f.item_pic);
+            this.mRootView = this.dpz.inflate(i.g.vote_pic_item, (ViewGroup) null);
+            this.dpv = (ImageView) this.mRootView.findViewById(i.f.item_pic);
         } else {
-            this.mRootView = this.dnK.inflate(i.g.vote_text_item, (ViewGroup) null);
-            this.dnG = (ImageView) this.mRootView.findViewById(i.f.item_icon);
+            this.mRootView = this.dpz.inflate(i.g.vote_text_item, (ViewGroup) null);
+            this.dpv = (ImageView) this.mRootView.findViewById(i.f.item_icon);
         }
-        this.dnH = (EditText) this.mRootView.findViewById(i.f.item_edittext);
-        this.dnI = (ImageView) this.mRootView.findViewById(i.f.item_delete);
-        this.dnG.setOnClickListener(this.mClickListener);
-        this.dnI.setOnClickListener(this.mClickListener);
+        this.dpw = (EditText) this.mRootView.findViewById(i.f.item_edittext);
+        this.dpx = (ImageView) this.mRootView.findViewById(i.f.item_delete);
+        this.dpv.setOnClickListener(this.mClickListener);
+        this.dpx.setOnClickListener(this.mClickListener);
         if (this.mType == 0) {
-            this.dnH.addTextChangedListener(new a(10, this.dnH));
+            this.dpw.addTextChangedListener(new a(10, this.dpw));
         } else {
-            this.dnH.addTextChangedListener(new a(15, this.dnH));
+            this.dpw.addTextChangedListener(new a(15, this.dpw));
         }
-        aCB();
+        aDt();
     }
 
-    public boolean aCw() {
-        return (this.dnJ == null || TextUtils.isEmpty(this.dnJ.getFilePath())) ? false : true;
+    public boolean aDo() {
+        return (this.dpy == null || TextUtils.isEmpty(this.dpy.getFilePath())) ? false : true;
     }
 
-    public boolean aCx() {
-        return !TextUtils.isEmpty(aCy());
+    public boolean aDp() {
+        return !TextUtils.isEmpty(aDq());
     }
 
     public void a(ImageFileInfo imageFileInfo, com.baidu.adp.widget.a.a aVar) {
         if (this.mType == 0) {
-            this.dnJ = imageFileInfo;
+            this.dpy = imageFileInfo;
             if (aVar != null) {
-                aVar.a(this.dnG);
+                aVar.a(this.dpv);
             }
         }
     }
@@ -81,35 +81,35 @@ public class g extends com.baidu.adp.base.f<WriteVoteActivity> {
         return this.mId;
     }
 
-    public String aCy() {
-        return this.dnH == null ? "" : this.dnH.getText().toString().trim();
+    public String aDq() {
+        return this.dpw == null ? "" : this.dpw.getText().toString().trim();
     }
 
-    public void mc(int i) {
-        if (this.dnH != null) {
-            this.dnH.setText("");
-            this.dnH.setHint(i);
-            this.dnH.requestFocus();
+    public void mq(int i) {
+        if (this.dpw != null) {
+            this.dpw.setText("");
+            this.dpw.setHint(i);
+            this.dpw.requestFocus();
         }
     }
 
-    public void aCz() {
-        if (this.dnH != null) {
-            this.dnH.requestFocus();
+    public void aDr() {
+        if (this.dpw != null) {
+            this.dpw.requestFocus();
         }
     }
 
-    public ImageFileInfo aCA() {
-        return this.dnJ;
+    public ImageFileInfo aDs() {
+        return this.dpy;
     }
 
-    public void aCB() {
+    public void aDt() {
         if (this.mRootView != null) {
-            com.baidu.tbadk.h.a.a(this.dnC.getPageContext(), this.mRootView);
+            com.baidu.tbadk.h.a.a(this.dpr.getPageContext(), this.mRootView);
         }
     }
 
     private Activity getActivity() {
-        return this.dnC.getPageContext().getPageActivity();
+        return this.dpr.getPageContext().getPageActivity();
     }
 }

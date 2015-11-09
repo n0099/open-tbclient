@@ -23,7 +23,7 @@ public class c implements Runnable {
     private final Runnable mPlayTimeThread = new d(this);
     private final Runnable ze = new e(this);
 
-    public int jp() {
+    public int jq() {
         if (this.yX == null) {
             return 0;
         }
@@ -222,7 +222,7 @@ public class c implements Runnable {
         }
     }
 
-    public void aX(String str) {
+    public void aV(String str) {
         this.yY = str;
     }
 

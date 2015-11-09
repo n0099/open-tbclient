@@ -4,11 +4,11 @@ import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.bs;
 /* loaded from: classes.dex */
 class r implements Runnable {
-    final /* synthetic */ q bcg;
+    final /* synthetic */ q bcL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(q qVar) {
-        this.bcg = qVar;
+        this.bcL = qVar;
     }
 
     @Override // java.lang.Runnable
@@ -17,11 +17,11 @@ class r implements Runnable {
         bs bsVar;
         o oVar2;
         FrsActivity frsActivity;
-        oVar = this.bcg.bcf;
-        bsVar = oVar.aTU;
-        if (bsVar.KJ()) {
-            oVar2 = this.bcg.bcf;
-            frsActivity = oVar2.baR;
+        oVar = this.bcL.bcK;
+        bsVar = oVar.aUc;
+        if (bsVar.KZ()) {
+            oVar2 = this.bcL.bcK;
+            frsActivity = oVar2.bbk;
             frsActivity.loadMore();
         }
     }

@@ -1,56 +1,46 @@
 package com.baidu.tieba.write.album;
 
-import android.text.TextUtils;
-import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.write.view.a;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class ah implements a.InterfaceC0082a {
-    final /* synthetic */ ac dlo;
+class ah implements v {
+    final /* synthetic */ ae dmW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ac acVar) {
-        this.dlo = acVar;
+    public ah(ae aeVar) {
+        this.dmW = aeVar;
     }
 
-    @Override // com.baidu.tieba.write.view.a.InterfaceC0082a
-    public void a(int i, a aVar) {
-        l lVar;
-        l lVar2;
-        boolean z;
-        List<ImageFileInfo> list;
-        l lVar3;
-        l lVar4;
-        TextView textView;
-        String albumId = aVar.getAlbumId();
-        String name = aVar.getName();
-        if (!TextUtils.isEmpty(albumId)) {
-            lVar = this.dlo.djP;
-            if (!albumId.equals(lVar.aBp())) {
-                lVar2 = this.dlo.djP;
-                List<ImageFileInfo> aBs = lVar2.aBs();
-                if (!albumId.equals("-1")) {
-                    list = new ArrayList<>();
-                    for (ImageFileInfo imageFileInfo : aBs) {
-                        if (albumId.equals(imageFileInfo.getAlbumId())) {
-                            list.add(imageFileInfo);
-                        }
-                    }
-                    z = false;
-                } else {
-                    z = true;
-                    list = aBs;
-                }
-                lVar3 = this.dlo.djP;
-                lVar3.bG(list);
-                lVar4 = this.dlo.djP;
-                lVar4.mm(albumId);
-                this.dlo.setData(list, z);
-                textView = this.dlo.LN;
-                textView.setText(name);
+    @Override // com.baidu.tieba.write.album.v
+    public void a(int i, ImageFileInfo imageFileInfo) {
+        m mVar;
+        m mVar2;
+        m mVar3;
+        m mVar4;
+        AlbumActivity albumActivity;
+        AlbumActivity albumActivity2;
+        m mVar5;
+        mVar = this.dmW.dlv;
+        int maxImagesAllowed = mVar.getMaxImagesAllowed();
+        mVar2 = this.dmW.dlv;
+        if (mVar2.size() < maxImagesAllowed) {
+            mVar3 = this.dmW.dlv;
+            if (mVar3.aCk()) {
+                mVar5 = this.dmW.dlv;
+                mVar5.mr(String.valueOf(System.currentTimeMillis()));
             }
+            mVar4 = this.dmW.dlv;
+            String aCj = mVar4.aCj();
+            if (!StringUtils.isNull(aCj, true)) {
+                albumActivity2 = this.dmW.dlE;
+                com.baidu.tbadk.core.util.am.a(albumActivity2.getPageContext(), aCj);
+                return;
+            }
+            albumActivity = this.dmW.dlE;
+            com.baidu.tbadk.core.util.am.c(albumActivity.getPageContext());
+            return;
         }
+        this.dmW.showToast(String.format(this.dmW.getPageContext().getString(i.h.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
     }
 }

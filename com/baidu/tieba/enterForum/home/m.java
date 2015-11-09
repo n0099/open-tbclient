@@ -4,21 +4,21 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m implements NoNetworkView.a {
-    final /* synthetic */ d aLW;
+    final /* synthetic */ d aMe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(d dVar) {
-        this.aLW = dVar;
+        this.aMe = dVar;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
     public void ax(boolean z) {
         if (!z) {
-            this.aLW.aLF.IQ();
-        } else if (!this.aLW.isPrimary() || !this.aLW.isResumed()) {
-            this.aLW.aLF.IQ();
+            this.aMe.aLN.Jg();
+        } else if (!this.aMe.isPrimary() || !this.aMe.isResumed()) {
+            this.aMe.aLN.Jg();
         } else {
-            this.aLW.aLF.nw();
+            this.aMe.aLN.nx();
         }
     }
 }

@@ -6,20 +6,20 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ b cnR;
+    final /* synthetic */ b cpi;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.cnR = bVar;
+        this.cpi = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TbPageContext tbPageContext;
         TbPageContext tbPageContext2;
-        tbPageContext = this.cnR.mPageContext;
+        tbPageContext = this.cpi.mPageContext;
         ((PbActivity) tbPageContext.getOrignalPage()).skipToRegisterActivity();
-        tbPageContext2 = this.cnR.mPageContext;
-        ((PbActivity) tbPageContext2.getOrignalPage()).et(true);
+        tbPageContext2 = this.cpi.mPageContext;
+        ((PbActivity) tbPageContext2.getOrignalPage()).ew(true);
     }
 }

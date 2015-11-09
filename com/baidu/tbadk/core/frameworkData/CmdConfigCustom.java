@@ -188,8 +188,6 @@ public class CmdConfigCustom {
     public static final int CMD_MENTION_CACHE = 2001229;
     public static final int CMD_MENTION_REPLYME_CACHE = 2001264;
     public static final int CMD_MESSAGE_NOTIFY_LOCAL = 2001124;
-    public static final int CMD_MOPLUS_GET_SERVICE = 2902080;
-    public static final int CMD_MOPLUS_START_SERVICE = 2902081;
     public static final int CMD_MSG_LIST_ADAPTER_SCAN = 2001282;
     public static final int CMD_MY_COLLECTION_RES_TOOL = 2001302;
     public static final int CMD_MY_HISTORY_RES_TOOL = 2001303;
@@ -348,7 +346,13 @@ public class CmdConfigCustom {
     public static final int DISCOVER_MORE_ADD_VIEW = 2009502;
     public static final int DISCOVER_NEED_ADD_VIEW = 2009503;
     public static final int DISCOVER_NEED_REFRESH_NET_PLUGIN = 2009504;
+    public static final int EDITOR_COLLECT_TOOL = 2010044;
     public static final int EDITOR_CONTENT_CHANGED = 2010041;
+    public static final int EMOTION_COLLECT_GROUPS = 2004602;
+    private static final int EMOTION_CUSTOM_BASE_CMD = 2004600;
+    public static final int EMOTION_IS_VALID = 2004608;
+    public static final int EMOTION_LOAD_STATIC_EMOTION = 2004604;
+    public static final int EMOTION_RELOAD_EMOTION_GROUPS = 2004603;
     public static final int EXIT_APPLICATION = 2002015;
     public static final int FRIEND_FEED_NEW = 2012118;
     private static final int FRS_CUSTOM_BASE_CMD = 2003000;
@@ -454,6 +458,7 @@ public class CmdConfigCustom {
     public static final int PB_LOAD_DRAFT = 2004008;
     public static final int PB_PAGE_CACHE_CMD = 2004003;
     public static final int PB_RECORDER_RESET_CMD = 2004006;
+    public static final int PB_SHOW_MULTIIAMGETOOL = 2004009;
     private static final int PHOTO_LIVE_CUSTOM_BASE_CMD = 2004500;
     private static final int PLUGIN_CUSTOM_BASE_CMD = 2902000;
     private static final int PLUGIN_INJECT_CUSTOM_BASE_CMD = 2802000;

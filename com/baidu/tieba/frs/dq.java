@@ -1,25 +1,27 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import android.util.SparseArray;
 /* loaded from: classes.dex */
-public class dq implements View.OnClickListener {
-    final /* synthetic */ dp aYB;
+public class dq {
+    private static dq aYM = new dq();
+    private final SparseArray<String> aYL = new SparseArray<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dq(dp dpVar) {
-        this.aYB = dpVar;
+    private dq() {
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        com.baidu.adp.widget.ListView.u aA;
-        if (this.aYB.aA(((Integer) view.getTag()).intValue()) instanceof com.baidu.tbadk.core.data.w) {
-            com.baidu.tbadk.browser.g.a(this.aYB.aSe.getApplicationContext(), TbadkCoreApplication.m411getInst().getString(i.h.user_icon_web_view_title), String.valueOf(com.baidu.tbadk.data.b.SERVER_ADDRESS_WEB_VIEW) + "mo/q/icon/panelIcon?user_id=" + ((com.baidu.tbadk.core.data.w) aA).getAuthor().getUserId(), true, true, false);
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10134").r("obj_type", 3));
+    public static dq MI() {
+        return aYM;
+    }
+
+    public void fP(int i) {
+        this.aYL.put(i, "1");
+    }
+
+    public boolean fQ(int i) {
+        if (i > 100) {
+            i = 100;
         }
+        return !TextUtils.isEmpty(this.aYL.get(i));
     }
 }

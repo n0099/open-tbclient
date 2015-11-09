@@ -381,6 +381,7 @@ public class ForumData implements ae, Serializable {
                 this.name = simpleForum.name;
                 this.is_exists = simpleForum.is_exists.intValue();
                 this.image_url = simpleForum.avatar;
+                this.is_like = simpleForum.is_liked.intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -601,8 +602,8 @@ public class ForumData implements ae, Serializable {
     public ArrayList<ad> getImages() {
         ArrayList<ad> arrayList = new ArrayList<>();
         ad adVar = new ad();
-        adVar.Wa = this.image_url;
-        adVar.aaz = 10;
+        adVar.Wd = this.image_url;
+        adVar.aaD = 10;
         arrayList.add(adVar);
         return arrayList;
     }

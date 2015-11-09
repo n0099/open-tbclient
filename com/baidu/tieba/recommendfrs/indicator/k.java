@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class k extends LinearLayout {
-    private int bmo;
-    private final Paint cJA;
-    private final Paint cJB;
-    private float cJC;
-    private boolean cJD;
-    private final int cJE;
-    private final int cJz;
+    private int bmS;
+    private final int cKV;
+    private final Paint cKW;
+    private final Paint cKX;
+    private float cKY;
+    private boolean cKZ;
+    private final int cLa;
 
     public k(Context context) {
         this(context, null);
@@ -25,23 +25,23 @@ public class k extends LinearLayout {
 
     public k(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cJD = true;
+        this.cKZ = true;
         setWillNotDraw(false);
-        this.cJz = getResources().getDimensionPixelSize(i.d.ds6);
-        this.cJA = new Paint();
-        this.cJA.setColor(an.d((Resources) null, i.c.s_actionbar_text_line_color_s));
-        this.cJB = new Paint();
-        this.cJB.setColor(an.getColor(i.c.cp_bg_line_b));
-        this.cJE = getResources().getDimensionPixelSize(i.d.ds1);
+        this.cKV = getResources().getDimensionPixelSize(i.d.ds6);
+        this.cKW = new Paint();
+        this.cKW.setColor(an.d((Resources) null, i.c.s_actionbar_text_line_color_s));
+        this.cKX = new Paint();
+        this.cKX.setColor(an.getColor(i.c.cp_bg_line_b));
+        this.cLa = getResources().getDimensionPixelSize(i.d.ds1);
     }
 
     public void d(int i, float f) {
-        this.bmo = i;
-        this.cJC = f;
+        this.bmS = i;
+        this.cKY = f;
         invalidate();
     }
 
-    public void aD(int i, int i2) {
+    public void aF(int i, int i2) {
         if (i != i2) {
             int childCount = getChildCount();
             if (i >= 0 && i < childCount) {
@@ -54,7 +54,7 @@ public class k extends LinearLayout {
     }
 
     public void setDrawBottomLine(boolean z) {
-        this.cJD = z;
+        this.cKZ = z;
         invalidate();
     }
 
@@ -64,33 +64,33 @@ public class k extends LinearLayout {
         int i2;
         if (getChildCount() > 0) {
             int height = getHeight();
-            View childAt = getChildAt(this.bmo);
+            View childAt = getChildAt(this.bmS);
             int left = childAt.getLeft();
             int right = childAt.getRight();
-            if (this.cJD) {
-                canvas.drawRect(0.0f, height - this.cJE, getRight(), height, this.cJB);
+            if (this.cKZ) {
+                canvas.drawRect(0.0f, height - this.cLa, getRight(), height, this.cKX);
             }
-            if (this.cJC <= 0.0f || this.bmo >= getChildCount() - 1) {
+            if (this.cKY <= 0.0f || this.bmS >= getChildCount() - 1) {
                 i = right;
                 i2 = left;
             } else {
-                View childAt2 = getChildAt(this.bmo + 1);
-                i2 = (int) ((this.cJC * childAt2.getLeft()) + ((1.0f - this.cJC) * left));
-                i = (int) ((childAt2.getRight() * this.cJC) + ((1.0f - this.cJC) * right));
+                View childAt2 = getChildAt(this.bmS + 1);
+                i2 = (int) ((this.cKY * childAt2.getLeft()) + ((1.0f - this.cKY) * left));
+                i = (int) ((childAt2.getRight() * this.cKY) + ((1.0f - this.cKY) * right));
             }
-            canvas.drawRect(i2, height - this.cJz, i, height, this.cJA);
+            canvas.drawRect(i2, height - this.cKV, i, height, this.cKW);
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.cJA.setColor(an.d((Resources) null, i.c.s_actionbar_text_line_color_s));
-        this.cJB.setColor(an.getColor(i.c.cp_bg_line_b));
+        this.cKW.setColor(an.d((Resources) null, i.c.s_actionbar_text_line_color_s));
+        this.cKX.setColor(an.getColor(i.c.cp_bg_line_b));
         invalidate();
         int childCount = getChildCount();
         if (childCount > 0) {
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = getChildAt(i2);
-                if (i2 == this.bmo) {
+                if (i2 == this.bmS) {
                     an.b(childAt, i.c.s_actionbar_text_line_color_s, 1);
                 } else {
                     an.b(childAt, i.c.cp_cont_c, 1);

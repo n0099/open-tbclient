@@ -1,10 +1,24 @@
 package com.baidu.tieba.write.album;
 
-import com.baidu.tbadk.img.ImageFileInfo;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public interface al {
-    void a(List<a> list, List<ImageFileInfo> list2, String str);
+public class al implements l {
+    final /* synthetic */ ae dmW;
 
-    void nu();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public al(ae aeVar) {
+        this.dmW = aeVar;
+    }
+
+    @Override // com.baidu.tieba.write.album.l
+    public void nv() {
+    }
+
+    @Override // com.baidu.tieba.write.album.l
+    public void bJ(List<b> list) {
+        m mVar;
+        mVar = this.dmW.dlv;
+        mVar.bL(list);
+    }
 }

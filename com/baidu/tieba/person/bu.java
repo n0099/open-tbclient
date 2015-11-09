@@ -8,13 +8,13 @@ import com.baidu.tieba.person.bt;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bu extends HttpMessageListener {
-    final /* synthetic */ bt cra;
+    final /* synthetic */ bt csw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bu(bt btVar, int i) {
         super(i);
-        this.cra = btVar;
+        this.csw = btVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,26 +30,26 @@ public class bu extends HttpMessageListener {
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (statusCode != 200 || error != 0) {
-                aVar = this.cra.cqM;
+                aVar = this.csw.csi;
                 if (aVar != null) {
                     if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                        personListActivity = this.cra.cqY;
+                        personListActivity = this.csw.csu;
                         errorString = personListActivity.getResources().getString(i.h.neterror);
                     } else {
                         errorString = httpResponsedMessage.getErrorString();
                     }
-                    aVar2 = this.cra.cqM;
+                    aVar2 = this.csw.csi;
                     aVar2.E(errorString, false);
                     return;
                 }
                 return;
             }
             ResponseNetPersonListMessage responseNetPersonListMessage = (ResponseNetPersonListMessage) httpResponsedMessage;
-            responseNetPersonListMessage.setModel(this.cra);
+            responseNetPersonListMessage.setModel(this.csw);
             com.baidu.tieba.person.data.a data = responseNetPersonListMessage.getData();
-            aVar3 = this.cra.cqM;
+            aVar3 = this.csw.csi;
             if (aVar3 != null) {
-                aVar4 = this.cra.cqM;
+                aVar4 = this.csw.csi;
                 aVar4.d(data, false);
             }
         }

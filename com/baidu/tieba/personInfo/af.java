@@ -8,18 +8,18 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements View.OnClickListener {
-    final /* synthetic */ ae cuI;
+    final /* synthetic */ ae cwe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(ae aeVar) {
-        this.cuI = aeVar;
+        this.cwe = aeVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PersonInfoActivity personInfoActivity;
         MessageManager messageManager = MessageManager.getInstance();
-        personInfoActivity = this.cuI.cqE;
+        personInfoActivity = this.cwe.csa;
         messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyTBeanActivityConfig(personInfoActivity.getPageContext().getPageActivity(), 0L)));
     }
 }

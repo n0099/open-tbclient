@@ -28,7 +28,7 @@ public class q extends Handler {
         this.Ax = handler;
         this.zJ = aVar;
         this.zR = nVar;
-        this.AQ = new a(nVar.jP() + 14, AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
+        this.AQ = new a(nVar.jQ() + 14, AccessibilityEventCompat.TYPE_GESTURE_DETECTION_START);
     }
 
     public boolean r(Object obj) {
@@ -43,7 +43,7 @@ public class q extends Handler {
         this.Ax.sendMessage(obtainMessage);
     }
 
-    private String ka() {
+    private String kb() {
         byte[] bArr = new byte[16];
         this.AP.nextBytes(bArr);
         return com.baidu.adp.lib.util.c.encodeBytes(bArr);
@@ -57,22 +57,22 @@ public class q extends Handler {
             str = bVar.mPath;
         }
         this.AQ.write("GET " + str + " HTTP/1.1");
-        this.AQ.jt();
+        this.AQ.ju();
         this.AQ.write("Host: " + bVar.zZ);
-        this.AQ.jt();
+        this.AQ.ju();
         this.AQ.write("Upgrade: WebSocket");
-        this.AQ.jt();
+        this.AQ.ju();
         this.AQ.write("Connection: Upgrade");
-        this.AQ.jt();
-        this.AQ.write("Sec-WebSocket-Key: " + ka());
-        this.AQ.jt();
-        if (this.zR != null && this.zR.jV() != null && this.zR.jV().length() > 0) {
-            this.AQ.write("Sec-WebSocket-Extensions: " + this.zR.jV());
-            this.AQ.jt();
+        this.AQ.ju();
+        this.AQ.write("Sec-WebSocket-Key: " + kb());
+        this.AQ.ju();
+        if (this.zR != null && this.zR.jW() != null && this.zR.jW().length() > 0) {
+            this.AQ.write("Sec-WebSocket-Extensions: " + this.zR.jW());
+            this.AQ.ju();
         }
         if (bVar.Ab != null && !bVar.Ab.equals("")) {
             this.AQ.write("Origin: " + bVar.Ab);
-            this.AQ.jt();
+            this.AQ.ju();
         }
         if (bVar.Ac != null && bVar.Ac.length > 0) {
             this.AQ.write("Sec-WebSocket-Protocol: ");
@@ -80,17 +80,17 @@ public class q extends Handler {
                 this.AQ.write(bVar.Ac[i]);
                 this.AQ.write(", ");
             }
-            this.AQ.jt();
+            this.AQ.ju();
         }
         this.AQ.write("Sec-WebSocket-Version: 13");
-        this.AQ.jt();
+        this.AQ.ju();
         if (bVar.Ae != null) {
             for (NameValuePair nameValuePair : bVar.Ae) {
                 this.AQ.write(String.valueOf(nameValuePair.getName()) + ":" + nameValuePair.getValue());
-                this.AQ.jt();
+                this.AQ.ju();
             }
         }
-        this.AQ.jt();
+        this.AQ.ju();
     }
 
     private void a(m.c cVar) {
@@ -132,19 +132,19 @@ public class q extends Handler {
     }
 
     private boolean a(m.i iVar) {
-        byte[] ju = iVar.Ak.ju();
-        if (ju == null) {
+        byte[] jv = iVar.Ak.jv();
+        if (jv == null) {
             return false;
         }
-        if (ju.length > this.zR.jQ()) {
+        if (jv.length > this.zR.jR()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
-        a(2, true, ju);
+        a(2, true, jv);
         return true;
     }
 
     private void a(m.a aVar) {
-        if (aVar.zY.length > this.zR.jQ()) {
+        if (aVar.zY.length > this.zR.jR()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
         a(2, true, aVar.zY);
@@ -152,14 +152,14 @@ public class q extends Handler {
 
     private void a(m.s sVar) {
         byte[] bytes = sVar.Ao.getBytes("UTF-8");
-        if (bytes.length > this.zR.jQ()) {
+        if (bytes.length > this.zR.jR()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
         a(1, true, bytes);
     }
 
     private void a(m.C0008m c0008m) {
-        if (c0008m.zY.length > this.zR.jQ()) {
+        if (c0008m.zY.length > this.zR.jR()) {
             throw new WebSocketException("message payload exceeds payload limit");
         }
         a(1, true, c0008m.zY);
@@ -180,7 +180,7 @@ public class q extends Handler {
         }
         this.AQ.write((byte) (b | ((byte) i)));
         byte b2 = 0;
-        if (this.zR.jU()) {
+        if (this.zR.jV()) {
             b2 = Byte.MIN_VALUE;
         }
         long j = i3;
@@ -193,14 +193,14 @@ public class q extends Handler {
             this.AQ.write((byte) (b2 | Byte.MAX_VALUE));
             this.AQ.write(new byte[]{(byte) ((j >> 56) & 255), (byte) ((j >> 48) & 255), (byte) ((j >> 40) & 255), (byte) ((j >> 32) & 255), (byte) ((j >> 24) & 255), (byte) ((j >> 16) & 255), (byte) ((j >> 8) & 255), (byte) (255 & j)});
         }
-        if (this.zR.jU()) {
+        if (this.zR.jV()) {
             this.AQ.write(0);
             this.AQ.write(0);
             this.AQ.write(0);
             this.AQ.write(0);
         }
         if (j > 0) {
-            this.zR.jU();
+            this.zR.jV();
             this.AQ.write(bArr, i2, i3);
         }
     }
@@ -227,7 +227,7 @@ public class q extends Handler {
                         q(new m.d(new SocketException("write socket = null")));
                         return;
                     }
-                    int write = this.zJ.write(this.AQ.js());
+                    int write = this.zJ.write(this.AQ.jt());
                     if (write > 0) {
                         synchronized (q.class) {
                             AR += write;
@@ -292,7 +292,7 @@ public class q extends Handler {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void jE() {
+    public void jF() {
         synchronized (q.class) {
             AR = 0L;
         }

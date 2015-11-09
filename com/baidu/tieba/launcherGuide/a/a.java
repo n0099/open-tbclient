@@ -15,10 +15,10 @@ import com.baidu.tieba.launcherGuide.data.InterestFrsData;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a extends e<BaseFragmentActivity> {
-    private static final String bSr = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/gettaglist";
-    private boolean bSs;
-    private InterestFrsData bSt;
-    private C0063a bSu;
+    private static final String bSM = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/gettaglist";
+    private boolean bSN;
+    private InterestFrsData bSO;
+    private C0063a bSP;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -31,30 +31,30 @@ public class a extends e<BaseFragmentActivity> {
         super(baseFragmentActivity.getPageContext());
     }
 
-    public boolean aaB() {
-        return this.bSs;
+    public boolean aaW() {
+        return this.bSN;
     }
 
-    public void dI(boolean z) {
-        this.bSs = z;
+    public void dK(boolean z) {
+        this.bSN = z;
     }
 
-    public InterestFrsData aaC() {
-        return this.bSt;
+    public InterestFrsData aaX() {
+        return this.bSO;
     }
 
     public void e(InterestFrsData interestFrsData) {
-        this.bSt = interestFrsData;
+        this.bSO = interestFrsData;
     }
 
     public void a(int i, int i2, int i3, b bVar) {
-        this.bSu = new C0063a(i, i2, i3, bVar);
-        this.bSu.execute(new Void[0]);
+        this.bSP = new C0063a(i, i2, i3, bVar);
+        this.bSP.execute(new Void[0]);
     }
 
-    public void aaD() {
-        if (this.bSu != null) {
-            this.bSu.cancel();
+    public void aaY() {
+        if (this.bSP != null) {
+            this.bSP.cancel();
         }
     }
 
@@ -62,7 +62,7 @@ public class a extends e<BaseFragmentActivity> {
     /* renamed from: com.baidu.tieba.launcherGuide.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0063a extends BdAsyncTask<Void, Void, InterestFrsData> {
-        private WeakReference<b> aFA;
+        private WeakReference<b> aEu;
         private int limit;
         private int offset;
         private int userType;
@@ -71,7 +71,7 @@ public class a extends e<BaseFragmentActivity> {
             this.userType = i;
             this.offset = i2;
             this.limit = i3;
-            this.aFA = new WeakReference<>(bVar);
+            this.aEu = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -80,14 +80,14 @@ public class a extends e<BaseFragmentActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: e */
         public InterestFrsData doInBackground(Void... voidArr) {
-            w wVar = new w(a.bSr);
+            w wVar = new w(a.bSM);
             wVar.o(OfficalBarChatActivityConfig.USER_TYPE, String.valueOf(this.userType));
             wVar.o("offset", String.valueOf(this.offset));
             wVar.o("limit", String.valueOf(this.limit));
-            String tD = wVar.tD();
-            if (wVar.ue().uW().qS()) {
+            String tG = wVar.tG();
+            if (wVar.uh().va().qT()) {
                 try {
-                    return (InterestFrsData) i.objectWithJsonStr(tD, InterestFrsData.class);
+                    return (InterestFrsData) i.objectWithJsonStr(tG, InterestFrsData.class);
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                     InterestFrsData interestFrsData = new InterestFrsData();
@@ -97,7 +97,7 @@ public class a extends e<BaseFragmentActivity> {
                 }
             }
             InterestFrsData interestFrsData2 = new InterestFrsData();
-            interestFrsData2.setErrno(wVar.ui() == 0 ? TbErrInfo.ERR_IMG_GET_REMOTE : wVar.ui());
+            interestFrsData2.setErrno(wVar.ul() == 0 ? TbErrInfo.ERR_IMG_GET_REMOTE : wVar.ul());
             interestFrsData2.setErrmsg(wVar.getErrorString());
             return interestFrsData2;
         }
@@ -108,7 +108,7 @@ public class a extends e<BaseFragmentActivity> {
         /* renamed from: f */
         public void onPostExecute(InterestFrsData interestFrsData) {
             super.onPostExecute(interestFrsData);
-            b bVar = this.aFA.get();
+            b bVar = this.aEu.get();
             if (bVar != null) {
                 if (interestFrsData.getErrno() == 0) {
                     bVar.a(interestFrsData);

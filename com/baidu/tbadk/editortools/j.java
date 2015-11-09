@@ -6,8 +6,12 @@ import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -15,26 +19,27 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class j extends LinearLayout {
-    private g aoR;
-    private h aoS;
-    private List<v> aoT;
-    private SparseArray<b> aoU;
-    private SparseArray<HashSet<b>> aoV;
-    private SparseArray<HashSet<Integer>> aoW;
-    private int aoX;
-    private int aoY;
-    private boolean aoZ;
-    private int apa;
-    private int apb;
-    private boolean apc;
-    private LinkedList<p> apd;
-    private View.OnClickListener ape;
-    private Runnable apf;
+    private g aoW;
+    private h aoX;
+    private List<w> aoY;
+    private SparseArray<b> aoZ;
+    private SparseArray<HashSet<b>> apa;
+    private SparseArray<HashSet<Integer>> apb;
+    private int apc;
+    private int apd;
+    private boolean ape;
+    private int apf;
+    private int apg;
+    private boolean aph;
+    private LinkedList<p> api;
+    private View.OnClickListener apj;
+    private Runnable apk;
+    private List<Integer> apl;
 
-    public void Az() {
-        v dU = dU(3);
-        if (dU != null && (dU.aoJ instanceof View)) {
-            View view = (View) dU.aoJ;
+    public void AE() {
+        w dU = dU(3);
+        if (dU != null && (dU.toolView instanceof View)) {
+            View view = (View) dU.toolView;
             view.requestFocus();
             com.baidu.adp.lib.util.k.d(getContext(), view);
         }
@@ -42,25 +47,26 @@ public class j extends LinearLayout {
 
     public j(Context context) {
         super(context);
-        this.aoX = 1;
-        this.aoY = 0;
-        this.aoZ = false;
-        this.apa = i.c.editor_background;
-        this.apb = 0;
-        this.apc = true;
-        this.ape = new k(this);
-        this.apf = new l(this);
+        this.apc = 1;
+        this.apd = 0;
+        this.ape = false;
+        this.apf = i.c.editor_background;
+        this.apg = 0;
+        this.aph = true;
+        this.apj = new k(this);
+        this.apk = new l(this);
+        this.apl = new ArrayList();
         init(context);
     }
 
     private void init(Context context) {
-        this.aoT = new LinkedList();
-        this.aoU = new SparseArray<>();
-        this.aoV = new SparseArray<>();
-        this.aoW = new SparseArray<>();
-        this.aoR = new g(context, this);
-        this.aoS = new h(context, this);
-        this.apd = new LinkedList<>();
+        this.aoY = new LinkedList();
+        this.aoZ = new SparseArray<>();
+        this.apa = new SparseArray<>();
+        this.apb = new SparseArray<>();
+        this.aoW = new g(context, this);
+        this.aoX = new h(context, this);
+        this.api = new LinkedList<>();
         setOrientation(1);
     }
 
@@ -72,27 +78,27 @@ public class j extends LinearLayout {
         int i2 = 0;
         if (i == 0) {
             if (iArr != null && iArr.length != 0) {
-                HashSet<b> hashSet = this.aoV.get(iArr[0]);
+                HashSet<b> hashSet = this.apa.get(iArr[0]);
                 if (hashSet == null) {
                     hashSet = new HashSet<>();
                     int length = iArr.length;
                     while (i2 < length) {
-                        this.aoV.put(iArr[i2], hashSet);
+                        this.apa.put(iArr[i2], hashSet);
                         i2++;
                     }
                 }
                 hashSet.add(bVar);
             }
         } else if (i > 0) {
-            this.aoU.put(i, bVar);
+            this.aoZ.put(i, bVar);
             if (iArr != null && iArr.length > 0) {
                 int length2 = iArr.length;
                 while (i2 < length2) {
                     int i3 = iArr[i2];
-                    HashSet<Integer> hashSet2 = this.aoW.get(i3);
+                    HashSet<Integer> hashSet2 = this.apb.get(i3);
                     if (hashSet2 == null) {
                         hashSet2 = new HashSet<>();
-                        this.aoW.put(i3, hashSet2);
+                        this.apb.put(i3, hashSet2);
                     }
                     hashSet2.add(Integer.valueOf(i));
                     i2++;
@@ -105,18 +111,18 @@ public class j extends LinearLayout {
         HashSet<Integer> hashSet;
         boolean z;
         p pVar;
-        v dU;
+        w dU;
         if (aVar != null) {
             if (aVar.code == 2) {
-                p dS = this.aoR.dS(aVar.id);
+                p dS = this.aoW.dS(aVar.id);
                 if (dS != null) {
                     z = false;
                 } else {
-                    dS = this.aoS.dS(aVar.id);
+                    dS = this.aoX.dS(aVar.id);
                     z = true;
                 }
                 if (dS == null) {
-                    Iterator<p> it = this.apd.iterator();
+                    Iterator<p> it = this.api.iterator();
                     while (it.hasNext()) {
                         pVar = it.next();
                         if (pVar.getToolId() == aVar.id) {
@@ -127,37 +133,37 @@ public class j extends LinearLayout {
                 pVar = dS;
                 if (pVar != null) {
                     pVar.a(aVar);
-                    if (z && (dU = dU(2)) != null && dU.aoJ != null) {
-                        dU.aoJ.a(aVar);
+                    if (z && (dU = dU(2)) != null && dU.toolView != null) {
+                        dU.toolView.a(aVar);
                     }
                 }
             } else if (aVar.code == 5) {
-                this.aoR.a((v) null);
-                this.aoS.hide();
+                this.aoW.a((w) null);
+                this.aoX.hide();
             } else if (aVar.id > 0) {
-                b bVar = this.aoU.get(aVar.id);
+                b bVar = this.aoZ.get(aVar.id);
                 if (bVar != null) {
-                    this.aoR.dQ(aVar.id);
-                    v dU2 = dU(aVar.id);
-                    if (dU2 != null && dU2.apv == 5) {
-                        this.aoS.hide();
-                        AA();
+                    this.aoW.dQ(aVar.id);
+                    w dU2 = dU(aVar.id);
+                    if (dU2 != null && dU2.toolPosition == 5) {
+                        this.aoX.hide();
+                        AF();
                     } else {
-                        this.aoS.dQ(aVar.id);
+                        this.aoX.dQ(aVar.id);
                     }
                     bVar.a(aVar);
                 }
             } else if (aVar.id <= 0) {
-                if (aVar.id < 0 && (hashSet = this.aoW.get(aVar.code)) != null && !hashSet.isEmpty()) {
+                if (aVar.id < 0 && (hashSet = this.apb.get(aVar.code)) != null && !hashSet.isEmpty()) {
                     Iterator<Integer> it2 = hashSet.iterator();
                     while (it2.hasNext()) {
-                        b bVar2 = this.aoU.get(it2.next().intValue());
+                        b bVar2 = this.aoZ.get(it2.next().intValue());
                         if (bVar2 != null) {
                             bVar2.a(aVar);
                         }
                     }
                 }
-                HashSet<b> hashSet2 = this.aoV.get(aVar.code);
+                HashSet<b> hashSet2 = this.apa.get(aVar.code);
                 if (hashSet2 != null && !hashSet2.isEmpty()) {
                     Iterator<b> it3 = hashSet2.iterator();
                     while (it3.hasNext()) {
@@ -168,10 +174,10 @@ public class j extends LinearLayout {
         }
     }
 
-    private void AA() {
+    public void AF() {
         boolean z;
-        v dU;
-        com.baidu.adp.lib.g.h.hg().removeCallbacks(this.apf);
+        w dU;
+        com.baidu.adp.lib.g.h.hh().removeCallbacks(this.apk);
         if (getContext() instanceof Activity) {
             View currentFocus = ((Activity) getContext()).getCurrentFocus();
             if (currentFocus != null) {
@@ -183,95 +189,105 @@ public class j extends LinearLayout {
         } else {
             z = false;
         }
-        if (!z && (dU = dU(3)) != null && (dU.aoJ instanceof View)) {
-            com.baidu.adp.lib.util.k.c(getContext(), (View) dU.aoJ);
+        if (!z && (dU = dU(3)) != null && (dU.toolView instanceof View)) {
+            com.baidu.adp.lib.util.k.c(getContext(), (View) dU.toolView);
         }
     }
 
-    public void b(v vVar) {
-        if (vVar != null) {
-            this.aoT.add(vVar);
+    public void b(w wVar) {
+        if (wVar != null) {
+            this.aoY.add(wVar);
         }
     }
 
     private void clear() {
-        this.aoR.clear();
-        this.aoS.clear();
+        this.aoW.clear();
+        this.aoX.clear();
     }
 
     public void setBarMaxLauCount(int i) {
         if (i < 0) {
             i = 0;
         }
-        this.aoX = i;
+        this.apc = i;
     }
 
     public void setBarBackgroundColorId(int i) {
-        this.aoR.setBackgroundColorId(i);
+        this.aoW.setBackgroundColorId(i);
     }
 
     public void setDeskBackgroundColorId(int i) {
-        this.aoS.setBackgroundColorId(i);
+        this.aoX.setBackgroundColorId(i);
     }
 
     public void onChangeSkinType(int i) {
-        an.d(this, this.apa, i);
-        this.aoR.onChangeSkinType(i);
-        this.aoS.onChangeSkinType(i);
+        an.d(this, this.apf, i);
+        this.aoW.onChangeSkinType(i);
+        this.aoX.onChangeSkinType(i);
     }
 
-    public void Av() {
-        if (this.aoT != null && this.aoT.size() != 0) {
+    public List<Integer> getCollectTools() {
+        return this.apl;
+    }
+
+    public void q(List<Integer> list) {
+        this.apl.clear();
+        this.apl.addAll(list);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.EDITOR_COLLECT_TOOL, this));
+    }
+
+    public void AA() {
+        if (this.aoY != null && this.aoY.size() != 0) {
             clear();
             LinkedList linkedList = new LinkedList();
             boolean z = false;
-            for (v vVar : this.aoT) {
-                if (vVar.aps > 0) {
-                    linkedList.add(vVar);
+            for (w wVar : this.aoY) {
+                if (wVar.launcherIcon > 0) {
+                    linkedList.add(wVar);
                 }
-                if (vVar.aoJ != null) {
-                    vVar.aoJ.setToolId(vVar.id);
-                    vVar.aoJ.setEditorTools(this);
-                    if (vVar.apv == 6) {
-                        this.aoS.a(vVar.aoJ);
-                    } else if (vVar.apv == 1 || vVar.apv == 2 || vVar.apv == 3 || vVar.apv == 4 || vVar.apv == 5) {
-                        this.aoR.a(vVar.aoJ, vVar.apv, !vVar.apw);
-                        if (vVar.apv == 5 && dU(1) == null) {
+                if (wVar.toolView != null) {
+                    wVar.toolView.setToolId(wVar.id);
+                    wVar.toolView.setEditorTools(this);
+                    if (wVar.toolPosition == 6) {
+                        this.aoX.a(wVar.toolView);
+                    } else if (wVar.toolPosition == 1 || wVar.toolPosition == 2 || wVar.toolPosition == 3 || wVar.toolPosition == 4 || wVar.toolPosition == 5) {
+                        this.aoW.a(wVar.toolView, wVar.toolPosition, !wVar.toolNeedAction);
+                        if (wVar.toolPosition == 5 && dU(1) == null) {
                             z = true;
                         }
                     }
-                    a(vVar.apx, vVar.id, vVar.aoJ);
+                    a(wVar.toolLaunchAction, wVar.id, wVar.toolView);
                 }
             }
             Collections.sort(linkedList, new m(this));
-            if (linkedList.size() > this.aoX) {
+            if (linkedList.size() > this.apc) {
                 t tVar = new t(getContext());
-                if (this.apb > 0 && tVar.aoJ != null && (tVar.aoJ instanceof com.baidu.tbadk.editortools.view.b)) {
-                    ((com.baidu.tbadk.editortools.view.b) tVar.aoJ).setBackgroundColorId(this.apb);
+                if (this.apg > 0 && tVar.toolView != null && (tVar.toolView instanceof com.baidu.tbadk.editortools.view.b)) {
+                    ((com.baidu.tbadk.editortools.view.b) tVar.toolView).setBackgroundColorId(this.apg);
                 }
-                if (this.aoY > 0) {
-                    tVar.aps = this.aoY;
+                if (this.apd > 0) {
+                    tVar.launcherIcon = this.apd;
                 }
                 b(tVar);
-                tVar.aoJ.setToolId(tVar.id);
-                tVar.aoJ.setEditorTools(this);
-                a(tVar.apx, tVar.id, tVar.aoJ);
-                this.aoS.a(tVar.aoJ);
-                if (this.aoZ) {
-                    linkedList.add(this.aoX, tVar);
+                tVar.toolView.setToolId(tVar.id);
+                tVar.toolView.setEditorTools(this);
+                a(tVar.toolLaunchAction, tVar.id, tVar.toolView);
+                this.aoX.a(tVar.toolView);
+                if (this.ape) {
+                    linkedList.add(this.apc, tVar);
                 } else {
                     linkedList.add(0, tVar);
                 }
             }
-            int i = this.aoX + 1;
+            int i = this.apc + 1;
             Iterator it = linkedList.iterator();
             int i2 = 0;
             while (it.hasNext()) {
-                v vVar2 = (v) it.next();
+                w wVar2 = (w) it.next();
                 if (i2 < i) {
-                    this.aoR.a(a(vVar2, 1));
+                    this.aoW.a(a(wVar2, 1));
                 } else {
-                    this.aoS.a(a(vVar2, 2));
+                    this.aoX.a(a(wVar2, 2));
                 }
                 i2++;
             }
@@ -280,120 +296,143 @@ public class j extends LinearLayout {
                 b(nVar);
                 p a = a(nVar, 1);
                 a.hide();
-                this.aoR.a(0, a);
+                this.aoW.a(0, a);
             }
-            this.aoR.Av();
-            this.aoS.Av();
+            this.aoW.AA();
+            this.aoX.AA();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            this.aoR.setLayoutParams(layoutParams);
-            this.aoS.setLayoutParams(layoutParams);
-            this.aoS.hide();
+            this.aoW.setLayoutParams(layoutParams);
+            this.aoX.setLayoutParams(layoutParams);
+            this.aoX.hide();
             removeAllViews();
-            addView(this.aoR);
-            addView(this.aoS);
+            addView(this.aoW);
+            addView(this.aoX);
             invalidate();
         }
     }
 
-    public v dU(int i) {
-        for (v vVar : this.aoT) {
-            if (vVar.id == i) {
-                return vVar;
+    public void c(w wVar) {
+        if (wVar != null) {
+            b(wVar);
+            p a = a(wVar, 1);
+            a.hide();
+            if (this.aoW != null) {
+                this.aoW.a(0, a);
+                this.aoW.removeAllViews();
+                this.aoW.AA();
+            }
+            invalidate();
+        }
+    }
+
+    public w dU(int i) {
+        for (w wVar : this.aoY) {
+            if (wVar.id == i) {
+                return wVar;
             }
         }
         return null;
     }
 
-    public List<v> getAllTools() {
-        return this.aoT;
+    public List<w> getAllTools() {
+        return this.aoY;
     }
 
     public p dS(int i) {
-        p dS = this.aoR.dS(i);
+        p dS = this.aoW.dS(i);
         if (dS == null) {
-            return this.aoS.dS(i);
+            return this.aoX.dS(i);
         }
         return dS;
     }
 
-    public void AB() {
-        this.aoR.e(this.ape);
+    public void AG() {
+        this.aoW.e(this.apj);
     }
 
-    private p a(v vVar, int i) {
-        p a = o.a(getContext(), vVar, i);
+    private p a(w wVar, int i) {
+        p a = o.a(getContext(), wVar, i);
         if (a instanceof View) {
-            ((View) a).setOnClickListener(this.ape);
+            ((View) a).setOnClickListener(this.apj);
         }
         return a;
     }
 
     public void bf(boolean z) {
-        for (v vVar : this.aoT) {
-            if (vVar != null && (vVar.aoJ instanceof View) && ((View) vVar.aoJ).getVisibility() == 0 && !vVar.apw) {
-                vVar.aoJ.ow();
+        for (w wVar : this.aoY) {
+            if (wVar != null && (wVar.toolView instanceof View) && ((View) wVar.toolView).getVisibility() == 0 && !wVar.toolNeedAction) {
+                wVar.toolView.ox();
             }
         }
-        if (this.apc) {
-            this.apc = false;
-            yX();
+        if (this.aph) {
+            this.aph = false;
+            zc();
         }
-        if (!Ax() && z) {
-            com.baidu.adp.lib.g.h.hg().postDelayed(this.apf, 200L);
+        if (!AC() && z) {
+            com.baidu.adp.lib.g.h.hh().postDelayed(this.apk, 200L);
         }
         setVisibility(0);
     }
 
-    public void ow() {
+    public void ox() {
         bf(true);
     }
 
-    public void hide() {
-        this.aoS.hide();
-        setVisibility(8);
-        AA();
+    public void AH() {
+        for (w wVar : this.aoY) {
+            if (wVar != null && (wVar.toolView instanceof View) && ((View) wVar.toolView).getVisibility() == 0 && !wVar.toolNeedAction) {
+                wVar.toolView.ox();
+            }
+        }
+        setVisibility(0);
     }
 
-    public void yX() {
-        this.aoS.hide();
+    public void hide() {
+        this.aoX.hide();
+        setVisibility(8);
+        AF();
+    }
+
+    public void zc() {
+        this.aoX.hide();
     }
 
     public void setBarLauncherEnabled(boolean z) {
-        this.aoR.setBarLauncherEnabled(z);
+        this.aoW.setBarLauncherEnabled(z);
     }
 
-    public boolean Ax() {
-        return this.aoS.Ax();
+    public boolean AC() {
+        return this.aoX.AC();
     }
 
     public void setFrom(int i) {
     }
 
     public void setMoreLauncherIcon(int i) {
-        this.aoY = i;
+        this.apd = i;
     }
 
     public void setBarLauncherType(int i) {
-        this.aoR.setBarLauncherType(i);
+        this.aoW.setBarLauncherType(i);
     }
 
     public void setBarLinePostion(int i) {
-        this.aoR.setLinePosition(i);
+        this.aoW.setLinePosition(i);
     }
 
     public void setMoreButtonAtEnd(boolean z) {
-        this.aoZ = z;
+        this.ape = z;
     }
 
     public void setBackgroundColorId(int i) {
-        this.apa = i;
+        this.apf = i;
         if (i != 0) {
             setBackgroundColor(getContext().getResources().getColor(i));
         }
     }
 
     public void setMoreDeskBgColorId(int i) {
-        this.apb = i;
+        this.apg = i;
     }
 
     @Override // android.view.View

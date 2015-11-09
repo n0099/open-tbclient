@@ -84,7 +84,7 @@ public class LiveBroadcastCard extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        boolean yU();
+        boolean yZ();
     }
 
     /* loaded from: classes.dex */
@@ -214,7 +214,7 @@ public class LiveBroadcastCard extends FrameLayout {
 
     public void setData(LiveCardData liveCardData) {
         if (liveCardData != null) {
-            c.yV().b(this);
+            c.za().b(this);
             unRegisterTimeUpdateListener();
             this.hasLivingTip = false;
             this.mGroupId = liveCardData.getGroupId();
@@ -233,8 +233,8 @@ public class LiveBroadcastCard extends FrameLayout {
             }
             if (!StringUtils.isNull(liveCardData.getName())) {
                 String name = liveCardData.getName();
-                int fO = com.baidu.tbadk.util.n.fO(name);
-                if (this.hasLabel && fO > MAX_NAME_LENGTH) {
+                int fQ = com.baidu.tbadk.util.n.fQ(name);
+                if (this.hasLabel && fQ > MAX_NAME_LENGTH) {
                     name = com.baidu.tbadk.util.n.f(name, 0, MAX_NAME_LENGTH) ? String.valueOf(com.baidu.tbadk.util.n.e(name, 0, MAX_NAME_LENGTH)) + "..." : String.valueOf(com.baidu.tbadk.util.n.e(name, 0, MAX_NAME_LENGTH - 2)) + "...";
                 }
                 this.mCardName.setText(name);
@@ -430,7 +430,7 @@ public class LiveBroadcastCard extends FrameLayout {
             this.mCardLivingImage.setVisibility(8);
         }
         this.mCardStatus = 3;
-        c.yV().b(this);
+        c.za().b(this);
         unRegisterTimeUpdateListener();
     }
 
@@ -459,7 +459,7 @@ public class LiveBroadcastCard extends FrameLayout {
         this.mCardStatus = 0;
         dealStatusWillStart();
         registerTimeUpdateListener();
-        c.yV().a(this);
+        c.za().a(this);
     }
 
     private void updateStatusClose() {
@@ -531,7 +531,7 @@ public class LiveBroadcastCard extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        c.yV().b(this);
+        c.za().b(this);
         unRegisterTimeUpdateListener();
     }
 
@@ -575,15 +575,15 @@ public class LiveBroadcastCard extends FrameLayout {
 
     /* loaded from: classes.dex */
     public static class c {
-        private static c akK;
+        private static c akP;
         private static Handler mHandler = new s();
         private LinkedList<WeakReference<LiveBroadcastCard>> cards = new LinkedList<>();
 
-        public static c yV() {
-            if (akK == null) {
-                akK = new c();
+        public static c za() {
+            if (akP == null) {
+                akP = new c();
             }
-            return akK;
+            return akP;
         }
 
         private c() {

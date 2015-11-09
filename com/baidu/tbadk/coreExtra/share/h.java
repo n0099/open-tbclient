@@ -9,24 +9,24 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class h {
-    private static c aiV = null;
-    private static boolean aiW = false;
-    private a aiX;
-    private b aiY;
-    private String aiZ = TbadkCoreApplication.m411getInst().getContext().getString(i.h.share_tail);
-    private String aja = String.valueOf(TbadkCoreApplication.m411getInst().getContext().getString(i.h.weibo_share_tail)) + this.aiZ;
+    private static c aja = null;
+    private static boolean ajb = false;
+    private a ajc;
+    private b ajd;
+    private String aje = TbadkCoreApplication.m411getInst().getContext().getString(i.h.share_tail);
+    private String ajf = String.valueOf(TbadkCoreApplication.m411getInst().getContext().getString(i.h.weibo_share_tail)) + this.aje;
     private final Context mContext;
 
     public h(Context context, a aVar) {
-        this.aiX = null;
-        this.aiY = null;
+        this.ajc = null;
+        this.ajd = null;
         this.mContext = context;
         if (aVar != null) {
-            this.aiX = aVar;
+            this.ajc = aVar;
         }
         aj(this.mContext);
-        if (aiV != null) {
-            this.aiY = aiV.createWorker(this.mContext, this.aiX);
+        if (aja != null) {
+            this.ajd = aja.createWorker(this.mContext, this.ajc);
         }
     }
 
@@ -34,64 +34,64 @@ public class h {
         if (context == null) {
             return false;
         }
-        if (!aiW) {
+        if (!ajb) {
             try {
-                aiV = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
+                aja = (c) context.getClassLoader().loadClass("com.baidu.tbadk.coreExtra.share.implementation.ShareWorkerCreator").newInstance();
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            aiW = true;
+            ajb = true;
         }
-        return aiV != null;
+        return aja != null;
     }
 
     public void c(f fVar) {
-        if (this.aiY != null && fVar != null) {
-            if (!StringUtils.isNull(fVar.aiR)) {
-                fVar.content = fVar.aiR;
+        if (this.ajd != null && fVar != null) {
+            if (!StringUtils.isNull(fVar.aiW)) {
+                fVar.content = fVar.aiW;
             }
-            fVar.content = b(fVar.content, 80, 20, this.aiZ);
-            this.aiY.a(a(fVar, "weixin"), 3, false);
+            fVar.content = b(fVar.content, 80, 20, this.aje);
+            this.ajd.a(a(fVar, "weixin"), 3, false);
         }
     }
 
     public void d(f fVar) {
-        if (this.aiY != null && fVar != null) {
-            fVar.content = b(fVar.content, 80, 20, this.aiZ);
-            if (StringUtils.isNull(fVar.aiS)) {
+        if (this.ajd != null && fVar != null) {
+            fVar.content = b(fVar.content, 80, 20, this.aje);
+            if (StringUtils.isNull(fVar.aiX)) {
                 fVar.title = fVar.content;
             } else {
-                fVar.title = fVar.aiS;
+                fVar.title = fVar.aiX;
             }
-            this.aiY.a(a(fVar, "weixin_timeline"), 2, false);
+            this.ajd.a(a(fVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void e(f fVar) {
-        if (this.aiY != null) {
-            fVar.content = b(fVar.content, 80, 32, this.aiZ);
-            this.aiY.a(a(fVar, "qzone"), 4, true);
+        if (this.ajd != null) {
+            fVar.content = b(fVar.content, 80, 32, this.aje);
+            this.ajd.a(a(fVar, "qzone"), 4, true);
         }
     }
 
     public void f(f fVar) {
-        if (this.aiY != null) {
-            fVar.content = b(fVar.content, 140, 20, this.aiZ);
-            this.aiY.a(a(fVar, "tencent_weibo"), 5, true);
+        if (this.ajd != null) {
+            fVar.content = b(fVar.content, 140, 20, this.aje);
+            this.ajd.a(a(fVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void g(f fVar) {
-        if (this.aiY != null) {
-            fVar.content = b(fVar.content, 140, 20, this.aja);
-            this.aiY.a(a(fVar, "sina_weibo"), 6, true);
+        if (this.ajd != null) {
+            fVar.content = b(fVar.content, 140, 20, this.ajf);
+            this.ajd.a(a(fVar, "sina_weibo"), 6, true);
         }
     }
 
     public void h(f fVar) {
-        if (this.aiY != null) {
-            fVar.content = b(fVar.content, 140, 20, this.aiZ);
-            this.aiY.a(a(fVar, "renren"), 7, true);
+        if (this.ajd != null) {
+            fVar.content = b(fVar.content, 140, 20, this.aje);
+            this.ajd.a(a(fVar, "renren"), 7, true);
         }
     }
 

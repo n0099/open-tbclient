@@ -24,9 +24,9 @@ public class e extends DiskFileOperate {
         super.l(z);
         if (z) {
             this.xr.g(0L);
-            com.baidu.adp.lib.stats.upload.b.ik().a(this.xr, this.xt, this.xu, this.xv);
-        } else if (this.xr.hQ() >= 307200 && this.xr.hU() != "stat") {
-            c.a(com.baidu.adp.lib.stats.a.hi().hm(), this.xr.hP(), this.xr);
+            com.baidu.adp.lib.stats.upload.b.il().a(this.xr, this.xt, this.xu, this.xv);
+        } else if (this.xr.hR() >= 307200 && this.xr.hV() != "stat") {
+            c.a(com.baidu.adp.lib.stats.a.hj().hn(), this.xr.hQ(), this.xr);
         }
     }
 }

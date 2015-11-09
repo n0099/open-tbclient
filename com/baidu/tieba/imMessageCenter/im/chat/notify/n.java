@@ -4,17 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements View.OnClickListener {
-    final /* synthetic */ e bKl;
+    final /* synthetic */ e bKG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(e eVar) {
-        this.bKl = eVar;
+        this.bKG = eVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("is_shut_down_validate", true);
-        this.bKl.dw(false);
-        this.bKl.du(false);
+        com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("is_shut_down_validate", true);
+        this.bKG.dy(false);
+        this.bKG.dw(false);
     }
 }

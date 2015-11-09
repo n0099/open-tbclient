@@ -1,66 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
+import android.util.SparseArray;
 import android.view.View;
 import com.baidu.tbadk.core.dialog.c;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.i;
+import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements c.b {
-    final /* synthetic */ PbActivity ciK;
+    final /* synthetic */ PbActivity cjN;
+    private final /* synthetic */ SparseArray cjO;
+    private final /* synthetic */ boolean cjP;
+    private final /* synthetic */ String cjQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(PbActivity pbActivity) {
-        this.ciK = pbActivity;
+    public y(PbActivity pbActivity, SparseArray sparseArray, boolean z, String str) {
+        this.cjN = pbActivity;
+        this.cjO = sparseArray;
+        this.cjP = z;
+        this.cjQ = str;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
     public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        bl blVar;
-        String str5;
-        String str6;
-        String str7;
-        bl blVar2;
-        String str8;
-        if (i == 0) {
-            TiebaStatic.eventStat(this.ciK.getPageContext().getPageActivity(), "pb_phone_call", "call");
-            PbActivity pbActivity = this.ciK;
-            str6 = this.ciK.chT;
-            pbActivity.chT = str6.trim();
-            Activity pageActivity = this.ciK.getPageContext().getPageActivity();
-            str7 = this.ciK.chT;
-            UtilHelper.callPhone(pageActivity, str7);
-            blVar2 = this.ciK.cih;
-            String threadID = blVar2.getThreadID();
-            str8 = this.ciK.chT;
-            new a(threadID, str8, "1").start();
-            cVar.dismiss();
-        } else if (i == 1) {
-            TiebaStatic.eventStat(this.ciK.getPageContext().getPageActivity(), "pb_phone_sms", "sms");
-            PbActivity pbActivity2 = this.ciK;
-            str3 = this.ciK.chT;
-            pbActivity2.chT = str3.trim();
-            Activity pageActivity2 = this.ciK.getPageContext().getPageActivity();
-            str4 = this.ciK.chT;
-            UtilHelper.smsPhone(pageActivity2, str4);
-            blVar = this.ciK.cih;
-            String threadID2 = blVar.getThreadID();
-            str5 = this.ciK.chT;
-            new a(threadID2, str5, "2").start();
-            cVar.dismiss();
-        } else if (i == 2) {
-            PbActivity pbActivity3 = this.ciK;
-            str = this.ciK.chT;
-            pbActivity3.chT = str.trim();
-            Activity pageActivity3 = this.ciK.getPageContext().getPageActivity();
-            str2 = this.ciK.chT;
-            UtilHelper.startBaiDuBar(pageActivity3, str2);
-            cVar.dismiss();
+        UserMuteAddAndDelModel userMuteAddAndDelModel;
+        ct ctVar;
+        switch (i) {
+            case 0:
+                ctVar = this.cjN.cjo;
+                ctVar.a(((Integer) this.cjO.get(i.f.tag_del_post_type)).intValue(), (String) this.cjO.get(i.f.tag_del_post_id), ((Integer) this.cjO.get(i.f.tag_manage_user_identity)).intValue(), ((Boolean) this.cjO.get(i.f.tag_del_post_is_self)).booleanValue());
+                break;
+            case 1:
+                userMuteAddAndDelModel = this.cjN.cjm;
+                userMuteAddAndDelModel.a(this.cjP, this.cjQ, (String) this.cjO.get(i.f.tag_disable_reply_mute_username), (String) this.cjO.get(i.f.tag_disable_reply_thread_id), (String) this.cjO.get(i.f.tag_disable_reply_post_id), UserMuteAddAndDelModel.From.PB);
+                break;
         }
+        cVar.dismiss();
     }
 }

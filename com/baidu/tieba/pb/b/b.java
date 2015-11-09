@@ -6,11 +6,11 @@ import com.baidu.tieba.pb.b.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends Handler {
-    final /* synthetic */ a cgG;
+    final /* synthetic */ a chl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.cgG = aVar;
+        this.chl = aVar;
     }
 
     @Override // android.os.Handler
@@ -19,20 +19,20 @@ public class b extends Handler {
         a.InterfaceC0070a interfaceC0070a;
         a.InterfaceC0070a interfaceC0070a2;
         if (message.what == 2) {
-            this.cgG.count = 0;
-            this.cgG.cgC = 0L;
-            this.cgG.cgD = 0L;
+            this.chl.count = 0;
+            this.chl.chh = 0L;
+            this.chl.chi = 0L;
         } else if (message.what == 1) {
-            i = this.cgG.count;
+            i = this.chl.count;
             if (i == 1) {
-                interfaceC0070a = this.cgG.cgE;
+                interfaceC0070a = this.chl.chj;
                 if (interfaceC0070a != null) {
-                    interfaceC0070a2 = this.cgG.cgE;
-                    interfaceC0070a2.Me();
+                    interfaceC0070a2 = this.chl.chj;
+                    interfaceC0070a2.Mu();
                 }
-                this.cgG.count = 0;
-                this.cgG.cgC = 0L;
-                this.cgG.cgD = 0L;
+                this.chl.count = 0;
+                this.chl.chh = 0L;
+                this.chl.chi = 0L;
             }
         }
     }

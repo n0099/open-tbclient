@@ -10,29 +10,29 @@ import com.baidu.tieba.recommendfrs.a.m;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommendfrs.data.a> {
-    final /* synthetic */ d cIu;
+    final /* synthetic */ d cJQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.cIu = dVar;
+        this.cJQ = dVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.d
     public void o(int i, String str) {
         m mVar;
         TbPageContext<?> tbPageContext;
-        mVar = this.cIu.cIi;
-        com.baidu.tieba.recommendfrs.data.a ks = mVar.ks(i);
-        if (ks != null) {
-            TiebaStatic.eventStat(this.cIu.getContext(), "kantie_banner", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
-            String apQ = ks.apQ();
-            if (!StringUtils.isNull(apQ)) {
-                az uT = az.uT();
-                tbPageContext = this.cIu.pageContext;
-                uT.b(tbPageContext, new String[]{apQ});
+        mVar = this.cJQ.cJE;
+        com.baidu.tieba.recommendfrs.data.a kG = mVar.kG(i);
+        if (kG != null) {
+            TiebaStatic.eventStat(this.cJQ.getContext(), "kantie_banner", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
+            String aqw = kG.aqw();
+            if (!StringUtils.isNull(aqw)) {
+                az uX = az.uX();
+                tbPageContext = this.cJQ.pageContext;
+                uX.b(tbPageContext, new String[]{aqw});
                 return;
             }
-            this.cIu.bb(str, ks.apS());
+            this.cJQ.ba(str, kG.aqy());
         }
     }
 
@@ -42,10 +42,10 @@ public class e implements com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommen
         m mVar;
         m mVar2;
         if (aVar != null) {
-            mVar = this.cIu.cIi;
+            mVar = this.cJQ.cJE;
             if (mVar != null) {
-                mVar2 = this.cIu.cIi;
-                mVar2.setTitle(UtilHelper.getFixedText(aVar.apR(), 14, true));
+                mVar2 = this.cJQ.cJE;
+                mVar2.setTitle(UtilHelper.getFixedText(aVar.aqx(), 14, true));
             }
         }
     }

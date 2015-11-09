@@ -35,26 +35,26 @@ public class dh extends bn<com.baidu.tbadk.core.data.t, di> implements View.OnCl
     @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.t tVar, di diVar) {
         super.a(i, view, viewGroup, (ViewGroup) tVar, (com.baidu.tbadk.core.data.t) diVar);
-        com.baidu.tbadk.h.a.a(this.aSe.getPageContext(), view);
-        PhotoLiveCardData rZ = tVar.rZ();
-        if (2 == b(rZ)) {
-            diVar.aYs.setShowContent(true);
-            diVar.aYs.setShowCover(false);
-            diVar.aYs.setShowExpression(false);
+        com.baidu.tbadk.h.a.a(this.aSm.getPageContext(), view);
+        PhotoLiveCardData sb = tVar.sb();
+        if (2 == b(sb)) {
+            diVar.aYB.setShowContent(true);
+            diVar.aYB.setShowCover(false);
+            diVar.aYB.setShowExpression(false);
         } else {
-            diVar.aYs.setShowContent(false);
-            diVar.aYs.setShowCover(true);
-            diVar.aYs.setShowExpression(true);
+            diVar.aYB.setShowContent(false);
+            diVar.aYB.setShowCover(true);
+            diVar.aYB.setShowExpression(true);
         }
-        diVar.aYs.setContentPaddingBottom(i.d.ds36);
-        diVar.aYs.setShowBottom(false);
-        diVar.aYs.setChooseStyle(rZ.getShowStyle());
-        diVar.aYs.setShowRefreshTimeInHead(true);
-        diVar.aYs.setShowLiveIcon(true);
-        diVar.aYs.setHeadPaddingTop(i.d.ds24);
-        diVar.aYs.setPortraitClicklistener(this);
-        diVar.aYs.setShowImage(com.baidu.tbadk.core.m.qU().qY());
-        diVar.aYs.setData(rZ);
+        diVar.aYB.setContentPaddingBottom(i.d.ds36);
+        diVar.aYB.setShowBottom(false);
+        diVar.aYB.setChooseStyle(sb.getShowStyle());
+        diVar.aYB.setShowRefreshTimeInHead(true);
+        diVar.aYB.setShowLiveIcon(true);
+        diVar.aYB.setHeadPaddingTop(i.d.ds24);
+        diVar.aYB.setPortraitClicklistener(this);
+        diVar.aYB.setShowImage(com.baidu.tbadk.core.m.qV().qZ());
+        diVar.aYB.setData(sb);
         return view;
     }
 
@@ -64,7 +64,7 @@ public class dh extends bn<com.baidu.tbadk.core.data.t, di> implements View.OnCl
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() != i.f.live_card_layout || !this.aSe.checkUpIsLogin()) {
+        if (view.getId() != i.f.live_card_layout || !this.aSm.checkUpIsLogin()) {
         }
     }
 

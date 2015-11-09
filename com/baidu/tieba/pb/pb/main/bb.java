@@ -1,20 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.widget.richText.g;
 /* loaded from: classes.dex */
-class bb implements CustomMessageTask.CustomRunnable<PbActivityConfig> {
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<PbActivityConfig> customMessage) {
-        if (customMessage != null && customMessage.getData() != null) {
-            if ("1".equals(customMessage.getData().getIntent().getStringExtra(PbActivityConfig.KYE_IS_START_FOR_RESULT))) {
-                customMessage.getData().startActivityForResult(customMessage.getData().getIntent().getIntExtra("request_code", 0), PbActivity.class);
-            } else {
-                customMessage.getData().startActivity(PbActivity.class);
-            }
+class bb extends CustomMessageListener {
+    final /* synthetic */ PbActivity cjN;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bb(PbActivity pbActivity, int i) {
+        super(i);
+        this.cjN = pbActivity;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof g.a)) {
+            g.a aVar = (g.a) customResponsedMessage.getData();
+            com.baidu.tbadk.widget.richText.g.a(this.cjN.getPageContext(), aVar.type, aVar.url, aVar.subType);
         }
-        return null;
     }
 }

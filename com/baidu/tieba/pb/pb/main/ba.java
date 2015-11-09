@@ -1,48 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.MessageManager;
+import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.tbadkCore.ae;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
-class ba implements ae.a {
-    final /* synthetic */ PbActivity ciK;
+class ba extends CustomMessageListener {
+    final /* synthetic */ PbActivity cjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(PbActivity pbActivity) {
-        this.ciK = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ba(PbActivity pbActivity, int i) {
+        super(i);
+        this.cjN = pbActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ae.a
-    public void ge(String str) {
-        com.baidu.tieba.tbadkCore.ae aeVar;
-        bl blVar;
-        this.ciK.aSx = false;
-        aeVar = this.ciK.aSJ;
-        if (aeVar != null) {
-            blVar = this.ciK.cih;
-            com.baidu.tieba.pb.a.b pbData = blVar.getPbData();
-            if (pbData.aeK().getPraise().getIsLike() == 1) {
-                this.ciK.fp(0);
-            } else {
-                this.ciK.fp(1);
-            }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.aeK()));
-        }
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.ae.a
-    public void y(int i, String str) {
-        com.baidu.tieba.tbadkCore.ae aeVar;
-        this.ciK.aSx = false;
-        aeVar = this.ciK.aSJ;
-        if (aeVar != null && str != null) {
-            if (AntiHelper.lc(i)) {
-                AntiHelper.P(this.ciK.getPageContext().getPageActivity(), str);
-            } else {
-                this.ciK.showToast(str);
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ListAdapter adapter = this.cjN.getListView().getAdapter();
+        if (adapter != null && (adapter instanceof BaseAdapter)) {
+            ((BaseAdapter) adapter).notifyDataSetChanged();
         }
     }
 }

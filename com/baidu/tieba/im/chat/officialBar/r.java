@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.text.TextUtils;
-import com.baidu.tieba.mention.FeedData;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
@@ -12,11 +11,7 @@ public class r {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String btc;
-        public String btn;
-        public long bto;
-        public String btp;
-        public long btq;
+        public String btG;
         public String fid;
         public long picId;
         public String src;
@@ -25,7 +20,7 @@ public class r {
         public String url;
     }
 
-    public static List<a> aD(String str, String str2) {
+    public static List<a> aC(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -40,11 +35,7 @@ public class r {
                 String optString3 = optJSONObject.optString("src");
                 String optString4 = optJSONObject.optString("text");
                 long optLong = optJSONObject.optLong("picId");
-                String optString5 = optJSONObject.optString("pv_pre");
-                long optLong2 = optJSONObject.optLong("pv");
-                String optString6 = optJSONObject.optString("pv_suf");
-                long optLong3 = optJSONObject.optLong(FeedData.TYPE_ZAN);
-                String optString7 = optJSONObject.optString("msg_src");
+                String optString5 = optJSONObject.optString("msg_src");
                 a aVar = new a();
                 aVar.url = optString2;
                 aVar.title = optString;
@@ -52,11 +43,7 @@ public class r {
                 aVar.src = optString3;
                 aVar.fid = str2;
                 aVar.picId = optLong;
-                aVar.bto = optLong2;
-                aVar.btn = optString5;
-                aVar.btp = optString6;
-                aVar.btq = optLong3;
-                aVar.btc = optString7;
+                aVar.btG = optString5;
                 linkedList.add(aVar);
             }
             return linkedList;

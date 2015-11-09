@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
-    private ArrayList<TbImageView> Xp = new ArrayList<>();
-    private ArrayList<T> Xq = new ArrayList<>();
-    private View.OnClickListener Xr;
+    private ArrayList<TbImageView> Xs = new ArrayList<>();
+    private ArrayList<T> Xt = new ArrayList<>();
+    private View.OnClickListener Xu;
     private Context context;
 
     public a(Context context) {
@@ -21,35 +21,35 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.Xr = onClickListener;
+        this.Xu = onClickListener;
     }
 
     public T bW(int i) {
-        if (this.Xq == null || this.Xq.isEmpty() || i < 0 || i >= this.Xq.size()) {
+        if (this.Xt == null || this.Xt.isEmpty() || i < 0 || i >= this.Xt.size()) {
             return null;
         }
-        return this.Xq.get(i);
+        return this.Xt.get(i);
     }
 
     public void a(List<T> list, b bVar) {
         TbImageView tbImageView;
         if (list != null && !list.isEmpty()) {
-            this.Xq.clear();
-            this.Xq.addAll(list);
-            k(this.Xq);
-            int size = this.Xp.size();
-            int size2 = this.Xq.size();
+            this.Xt.clear();
+            this.Xt.addAll(list);
+            k(this.Xt);
+            int size = this.Xs.size();
+            int size2 = this.Xt.size();
             for (int i = 0; i < size2; i++) {
                 if (i >= size) {
                     TbImageView X = bVar.X(this.context);
-                    this.Xp.add(X);
+                    this.Xs.add(X);
                     tbImageView = X;
                 } else {
-                    tbImageView = this.Xp.get(i);
+                    tbImageView = this.Xs.get(i);
                 }
-                if (this.Xq.get(i) != null && tbImageView != null) {
-                    tbImageView.d(this.Xq.get(i).getPicUrl(), 10, false);
-                    tbImageView.setOnClickListener(this.Xr);
+                if (this.Xt.get(i) != null && tbImageView != null) {
+                    tbImageView.d(this.Xt.get(i).getPicUrl(), 10, false);
+                    tbImageView.setOnClickListener(this.Xu);
                 }
             }
             notifyDataSetChanged();
@@ -66,18 +66,18 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.Xp != null && this.Xp.size() > 0) {
-            return this.Xp.size();
+        if (this.Xs != null && this.Xs.size() > 0) {
+            return this.Xs.size();
         }
         return 0;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        if (this.Xp == null) {
+        if (this.Xs == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        TbImageView tbImageView = this.Xp.get(i);
+        TbImageView tbImageView = this.Xs.get(i);
         if (tbImageView == null) {
             return super.instantiateItem(viewGroup, i);
         }
@@ -97,9 +97,9 @@ public class a<T extends com.baidu.tbadk.core.flow.a.a> extends PagerAdapter {
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
     }
 
-    public void sZ() {
-        if (this.Xp != null && this.Xp.size() > 0) {
-            Iterator<TbImageView> it = this.Xp.iterator();
+    public void tc() {
+        if (this.Xs != null && this.Xs.size() > 0) {
+            Iterator<TbImageView> it = this.Xs.iterator();
             while (it.hasNext()) {
                 it.next().invalidate();
             }

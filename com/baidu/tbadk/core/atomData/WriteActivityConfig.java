@@ -12,6 +12,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class WriteActivityConfig extends IntentConfig {
     public static final String ADDITION_DATA = "addition_data";
     public static final String BAOBAO_IMAGES = "baobao_images";
+    public static final String CATEGORY_ID = "category_id";
     public static final String DISABLE_AUDIO_MESSAGE = "disable_audio_message";
     public static final String ENABLE_AUDIO = "enable_audio";
     public static final String FEED_BACK = "feed_back";
@@ -109,5 +110,9 @@ public class WriteActivityConfig extends IntentConfig {
         if (str5 != null) {
             getIntent().putExtra(LIVE_GROUP_INTRO, str5);
         }
+    }
+
+    public void setCategroyId(int i) {
+        getIntent().putExtra("category_id", i);
     }
 }

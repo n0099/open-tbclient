@@ -1,54 +1,56 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.view.MotionEvent;
+import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tbadk.core.view.MorePopupWindow;
+import android.widget.AdapterView;
+import com.baidu.tbadk.core.util.bd;
+import com.baidu.tieba.i;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ad implements View.OnTouchListener {
-    final /* synthetic */ t cmX;
+public class ad implements AdapterView.OnItemClickListener {
+    final /* synthetic */ v coo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(t tVar) {
-        this.cmX = tVar;
+    public ad(v vVar) {
+        this.coo = vVar;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        MorePopupWindow morePopupWindow;
-        MorePopupWindow morePopupWindow2;
-        MorePopupWindow morePopupWindow3;
-        MorePopupWindow morePopupWindow4;
-        MorePopupWindow morePopupWindow5;
-        MorePopupWindow morePopupWindow6;
-        MorePopupWindow morePopupWindow7;
+    @Override // android.widget.AdapterView.OnItemClickListener
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         NewSubPbActivity newSubPbActivity;
-        MorePopupWindow morePopupWindow8;
-        int x = (int) motionEvent.getX();
-        int y = (int) motionEvent.getY();
-        morePopupWindow = this.cmX.ciq;
-        if (morePopupWindow.getContentView() == null) {
-            return false;
-        }
-        morePopupWindow2 = this.cmX.ciq;
-        int top = morePopupWindow2.getContentView().getTop();
-        morePopupWindow3 = this.cmX.ciq;
-        int right = morePopupWindow3.getContentView().getRight();
-        morePopupWindow4 = this.cmX.ciq;
-        int bottom = morePopupWindow4.getContentView().getBottom();
-        if (motionEvent.getAction() == 4 && x > right && y > top && y < bottom) {
-            morePopupWindow6 = this.cmX.ciq;
-            if (morePopupWindow6.isShowing()) {
-                morePopupWindow7 = this.cmX.ciq;
-                newSubPbActivity = this.cmX.cmG;
-                com.baidu.adp.lib.g.j.a(morePopupWindow7, newSubPbActivity.getPageContext().getPageActivity());
-                morePopupWindow8 = this.cmX.ciq;
-                morePopupWindow8.setIsIntercepted(true);
-                return true;
+        ArrayList arrayList;
+        SparseArray sparseArray;
+        String str;
+        com.baidu.tbadk.editortools.c.p pVar;
+        ArrayList arrayList2;
+        ArrayList arrayList3;
+        ArrayList arrayList4;
+        newSubPbActivity = this.coo.cnX;
+        if (bd.ah(newSubPbActivity.getPageContext().getPageActivity())) {
+            arrayList = this.coo.cok;
+            if (arrayList != null) {
+                arrayList2 = this.coo.cok;
+                if (i < arrayList2.size()) {
+                    arrayList3 = this.coo.cok;
+                    if (arrayList3.get(i) != null) {
+                        v vVar = this.coo;
+                        arrayList4 = this.coo.cok;
+                        vVar.col = ((com.baidu.tieba.tbadkCore.data.o) arrayList4.get(i)).getId();
+                        sparseArray = (SparseArray) view.getTag();
+                        if (sparseArray == null && (str = (String) sparseArray.get(i.f.tag_photo_username)) != null) {
+                            pVar = this.coo.cbv;
+                            pVar.fj(str);
+                            this.coo.f(i, view);
+                            return;
+                        }
+                    }
+                }
+            }
+            this.coo.col = null;
+            sparseArray = (SparseArray) view.getTag();
+            if (sparseArray == null) {
             }
         }
-        morePopupWindow5 = this.cmX.ciq;
-        morePopupWindow5.setIsIntercepted(false);
-        return false;
     }
 }

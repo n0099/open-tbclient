@@ -6,7 +6,7 @@ public abstract class c implements p {
 
     protected abstract byte[] em();
 
-    public byte[] ju() {
+    public byte[] jv() {
         synchronized (this) {
             if (!this.zn) {
                 this.zn = true;

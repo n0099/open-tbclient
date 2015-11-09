@@ -30,7 +30,7 @@ public class q {
         }
     }
 
-    private static Bitmap eG(int i) {
+    private static Bitmap eE(int i) {
         Exception e;
         try {
             int cC = cC(com.baidu.tbadk.core.util.n.cI("camera.jpg"));
@@ -70,7 +70,7 @@ public class q {
 
     public static Bitmap a(int i, Context context, Uri uri, String str, int i2) {
         if (i == 12001) {
-            return eG(i2);
+            return eE(i2);
         }
         if (!TextUtils.isEmpty(str)) {
             return b(context, str, i2);

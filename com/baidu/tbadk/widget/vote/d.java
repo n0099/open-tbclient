@@ -3,11 +3,11 @@ package com.baidu.tbadk.widget.vote;
 import com.baidu.tbadk.widget.vote.e;
 /* loaded from: classes.dex */
 class d implements e.a {
-    final /* synthetic */ VotePhotoGroupView aCT;
+    final /* synthetic */ VotePhotoGroupView aBN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(VotePhotoGroupView votePhotoGroupView) {
-        this.aCT = votePhotoGroupView;
+        this.aBN = votePhotoGroupView;
     }
 
     @Override // com.baidu.tbadk.widget.vote.e.a
@@ -20,27 +20,27 @@ class d implements e.a {
         b bVar4;
         a aVar2;
         int i4;
-        i2 = this.aCT.mode;
+        i2 = this.aBN.mode;
         if (i2 == 3) {
             if (z) {
-                this.aCT.h(i, false);
+                this.aBN.g(i, false);
             }
-            i3 = this.aCT.aCQ;
+            i3 = this.aBN.aBK;
             if (i3 != i) {
-                bVar3 = this.aCT.aCP;
+                bVar3 = this.aBN.aBJ;
                 if (bVar3 != null) {
-                    bVar4 = this.aCT.aCP;
-                    aVar2 = this.aCT.aCR;
-                    i4 = this.aCT.aCQ;
+                    bVar4 = this.aBN.aBJ;
+                    aVar2 = this.aBN.aBL;
+                    i4 = this.aBN.aBK;
                     bVar4.a(aVar2, i4, false);
                 }
-                this.aCT.aCR = aVar;
-                this.aCT.aCQ = i;
+                this.aBN.aBL = aVar;
+                this.aBN.aBK = i;
             }
         }
-        bVar = this.aCT.aCP;
+        bVar = this.aBN.aBJ;
         if (bVar != null) {
-            bVar2 = this.aCT.aCP;
+            bVar2 = this.aBN.aBJ;
             bVar2.a(aVar, i, z);
         }
     }

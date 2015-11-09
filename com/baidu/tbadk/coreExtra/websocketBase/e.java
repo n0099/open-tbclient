@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class e {
-    private c amF;
-    private b amG;
-    private a amH;
+    private c amK;
+    private b amL;
+    private a amM;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -19,37 +19,37 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class c extends Handler {
-        private final WeakReference<e> amK;
+        private final WeakReference<e> amP;
 
         c(e eVar) {
-            this.amK = new WeakReference<>(eVar);
+            this.amP = new WeakReference<>(eVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             e eVar;
             super.handleMessage(message);
-            if (message.what != 0 || (eVar = this.amK.get()) == null) {
+            if (message.what != 0 || (eVar = this.amP.get()) == null) {
                 return;
             }
-            eVar.zA();
+            eVar.zF();
         }
     }
 
     public e(String str, b bVar) {
-        this.amF = null;
-        this.amG = null;
-        this.amH = null;
-        this.amF = new c(this);
-        this.amG = bVar;
-        this.amF.sendEmptyMessageDelayed(0, 50000L);
-        this.amH = new a(this, null);
-        this.amH.setSelfExecute(true);
-        this.amH.execute(String.valueOf(zz()) + str);
+        this.amK = null;
+        this.amL = null;
+        this.amM = null;
+        this.amK = new c(this);
+        this.amL = bVar;
+        this.amK.sendEmptyMessageDelayed(0, 50000L);
+        this.amM = new a(this, null);
+        this.amM.setSelfExecute(true);
+        this.amM.execute(String.valueOf(zE()) + str);
     }
 
-    private String zz() {
-        switch (com.baidu.adp.lib.util.i.iS()) {
+    private String zE() {
+        switch (com.baidu.adp.lib.util.i.iT()) {
             case 1:
                 return "ping -c 3 -w 3000 ";
             case 2:
@@ -62,22 +62,22 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void zA() {
-        if (this.amH != null) {
-            this.amH.cancel(true);
+    public void zF() {
+        if (this.amM != null) {
+            this.amM.cancel(true);
         }
-        if (this.amF != null) {
-            this.amF.removeMessages(0);
+        if (this.amK != null) {
+            this.amK.removeMessages(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Void, Boolean> {
-        Process amI;
+        Process amN;
 
         private a() {
-            this.amI = null;
+            this.amN = null;
         }
 
         /* synthetic */ a(e eVar, a aVar) {
@@ -94,19 +94,19 @@ public class e {
             if (strArr != null && strArr.length >= 1) {
                 try {
                     try {
-                        this.amI = Runtime.getRuntime().exec(strArr[0]);
-                        boolean z2 = this.amI.waitFor() == 0;
-                        this.amI.destroy();
+                        this.amN = Runtime.getRuntime().exec(strArr[0]);
+                        boolean z2 = this.amN.waitFor() == 0;
+                        this.amN.destroy();
                         z = z2;
                     } catch (IOException e) {
                         e.printStackTrace();
-                        this.amI.destroy();
+                        this.amN.destroy();
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
-                        this.amI.destroy();
+                        this.amN.destroy();
                     }
                 } catch (Throwable th) {
-                    this.amI.destroy();
+                    this.amN.destroy();
                     throw th;
                 }
             }
@@ -117,18 +117,18 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.amI != null) {
+            if (this.amN != null) {
                 try {
-                    this.amI.destroy();
+                    this.amN.destroy();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
             }
-            if (e.this.amG != null) {
-                e.this.amG.aW(false);
+            if (e.this.amL != null) {
+                e.this.amL.aW(false);
             }
-            if (e.this.amF != null) {
-                e.this.amF.removeMessages(0);
+            if (e.this.amK != null) {
+                e.this.amK.removeMessages(0);
             }
         }
 
@@ -137,11 +137,11 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
-            if (e.this.amG != null) {
-                e.this.amG.aW(bool == null ? false : bool.booleanValue());
+            if (e.this.amL != null) {
+                e.this.amL.aW(bool == null ? false : bool.booleanValue());
             }
-            if (e.this.amF != null) {
-                e.this.amF.removeMessages(0);
+            if (e.this.amK != null) {
+                e.this.amK.removeMessages(0);
             }
         }
     }

@@ -38,8 +38,8 @@ public class t extends com.baidu.adp.framework.listener.e {
                 chatMessage.setRecordId(recordId);
             }
             com.baidu.tbadk.core.log.b.a("im", chatMessage.getClientLogID(), chatMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
-            b.VS().a(chatMessage.getCustomGroupType(), chatMessage, chatMessage.getGroupId(), 3);
-            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new u(this, b.VS().J(chatMessage.getGroupId(), chatMessage.getCustomGroupType()), chatMessage, socketResponsedMessage));
+            b.Wn().a(chatMessage.getCustomGroupType(), chatMessage, chatMessage.getGroupId(), 3);
+            CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new u(this, b.Wn().J(chatMessage.getGroupId(), chatMessage.getCustomGroupType()), chatMessage, socketResponsedMessage));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
             customMessageTask.setPriority(4);

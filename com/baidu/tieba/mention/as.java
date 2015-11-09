@@ -14,9 +14,9 @@ class as extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (TbadkCoreApplication.isLogin()) {
-            v.acV().acX();
+            v.adq().ads();
         } else {
-            v.acV().destroy();
+            v.adq().destroy();
         }
     }
 }

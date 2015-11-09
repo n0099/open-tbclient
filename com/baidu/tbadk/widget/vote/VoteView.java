@@ -11,9 +11,9 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class VoteView extends LinearLayout {
-    private List<c> aCM;
-    private LinkedList<c> aDn;
-    private int aDo;
+    private List<c> aBG;
+    private LinkedList<c> aCh;
+    private int aCi;
     private int mSkinType;
 
     public VoteView(Context context) {
@@ -30,14 +30,14 @@ public class VoteView extends LinearLayout {
 
     private void init() {
         setOrientation(1);
-        this.aCM = new ArrayList();
-        this.aDn = new LinkedList<>();
-        this.aDo = getResources().getDimensionPixelSize(i.d.ds456);
+        this.aBG = new ArrayList();
+        this.aCh = new LinkedList<>();
+        this.aCi = getResources().getDimensionPixelSize(i.d.ds456);
     }
 
     public void setWidth(int i) {
         if (i >= 0) {
-            this.aDo = i;
+            this.aCi = i;
         }
     }
 
@@ -56,12 +56,12 @@ public class VoteView extends LinearLayout {
                     if (a2 <= i) {
                         a2 = i;
                     }
-                    this.aCM.add(voteItemView);
+                    this.aBG.add(voteItemView);
                     i = a2;
                 }
             }
-            int i2 = this.aDo - i;
-            for (c cVar : this.aCM) {
+            int i2 = this.aCi - i;
+            for (c cVar : this.aBG) {
                 if (cVar != null) {
                     cVar.eL(i2);
                     addView(cVar.getView());
@@ -79,24 +79,24 @@ public class VoteView extends LinearLayout {
 
     private void eM(int i) {
         int size;
-        this.aDn.addAll(this.aCM);
-        this.aCM.clear();
-        if (i > 0 && (size = this.aDn.size()) < i) {
+        this.aCh.addAll(this.aBG);
+        this.aBG.clear();
+        if (i > 0 && (size = this.aCh.size()) < i) {
             int i2 = i - size;
             for (int i3 = 0; i3 < i2; i3++) {
-                this.aDn.add(new c(getContext()));
+                this.aCh.add(new c(getContext()));
             }
         }
     }
 
     private c getVoteItemView() {
-        return this.aDn.poll();
+        return this.aCh.poll();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setProgress(float f) {
-        if (f >= 0.0f && this.aCM != null) {
-            for (c cVar : this.aCM) {
+        if (f >= 0.0f && this.aBG != null) {
+            for (c cVar : this.aBG) {
                 if (cVar != null) {
                     cVar.setProgress(f);
                 }
@@ -121,9 +121,9 @@ public class VoteView extends LinearLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.mSkinType != i && this.aCM != null) {
+        if (this.mSkinType != i && this.aBG != null) {
             this.mSkinType = i;
-            for (c cVar : this.aCM) {
+            for (c cVar : this.aBG) {
                 if (cVar != null) {
                     cVar.onChangeSkinType(i);
                 }

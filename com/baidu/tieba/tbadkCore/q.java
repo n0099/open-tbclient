@@ -7,5 +7,5 @@ public interface q {
 
     String getPkgName();
 
-    void hS(int i);
+    void ig(int i);
 }

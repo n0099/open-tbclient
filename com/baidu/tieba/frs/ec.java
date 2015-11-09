@@ -1,9 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-public class ec {
-    public Object aYY;
-    public String forumId;
-    public String forumName;
-    public int pn;
-    public String stType;
+public interface ec {
+    void KG();
+
+    void a(int i, int i2, ee eeVar);
+
+    void a(ed edVar);
+
+    void init();
 }

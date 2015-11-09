@@ -7,12 +7,12 @@ import com.baidu.tieba.i;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class q extends com.baidu.tbadk.editortools.view.b {
-    LinkedList<p> aoK;
-    private SparseIntArray aph;
+    LinkedList<p> aoP;
+    private SparseIntArray apn;
 
     public q(Context context) {
         super(context);
-        this.aph = new SparseIntArray();
+        this.apn = new SparseIntArray();
         setPadding(context.getResources().getDimensionPixelSize(i.d.ds34), 0, context.getResources().getDimensionPixelSize(i.d.ds34), 0);
         setBackgroundColorId(i.c.pb_editor_tool_view_bg);
         setToolId(2);
@@ -20,14 +20,14 @@ public class q extends com.baidu.tbadk.editortools.view.b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void i(LinkedList<p> linkedList) {
-        this.aoK = linkedList;
+        this.aoP = linkedList;
     }
 
-    @Override // com.baidu.tbadk.editortools.view.b, com.baidu.tbadk.editortools.w
+    @Override // com.baidu.tbadk.editortools.view.b, com.baidu.tbadk.editortools.x
     public void init() {
         setShowDelete(false);
         r rVar = new r();
-        rVar.i(this.aoK);
+        rVar.i(this.aoP);
         b(rVar);
     }
 
@@ -36,13 +36,13 @@ public class q extends com.baidu.tbadk.editortools.view.b {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            AC();
+            AI();
         }
     }
 
     private void c(a aVar) {
         int i;
-        Integer valueOf = Integer.valueOf(this.aph.get(aVar.id));
+        Integer valueOf = Integer.valueOf(this.apn.get(aVar.id));
         int intValue = valueOf != null ? valueOf.intValue() : 0;
         if (aVar.data == null) {
             i = intValue - 1;
@@ -56,13 +56,13 @@ public class q extends com.baidu.tbadk.editortools.view.b {
         } else {
             i = intValue;
         }
-        this.aph.put(aVar.id, i >= 0 ? i : 0);
+        this.apn.put(aVar.id, i >= 0 ? i : 0);
     }
 
-    private void AC() {
+    private void AI() {
         int i = 0;
-        for (int i2 = 0; i2 < this.aph.size(); i2++) {
-            i += this.aph.valueAt(i2);
+        for (int i2 = 0; i2 < this.apn.size(); i2++) {
+            i += this.apn.valueAt(i2);
         }
         if (i > 0) {
             b(new a(2, 2, " "));

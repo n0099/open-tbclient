@@ -3,11 +3,11 @@ package com.baidu.tbadk.core.view;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class n implements Animation.AnimationListener {
-    final /* synthetic */ NoNetworkView aen;
+    final /* synthetic */ NoNetworkView aes;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(NoNetworkView noNetworkView) {
-        this.aen = noNetworkView;
+        this.aes = noNetworkView;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -20,6 +20,6 @@ class n implements Animation.AnimationListener {
 
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
-        this.aen.setVisibility(8);
+        this.aes.setVisibility(8);
     }
 }

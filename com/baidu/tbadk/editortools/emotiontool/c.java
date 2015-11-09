@@ -1,42 +1,72 @@
 package com.baidu.tbadk.editortools.emotiontool;
 
-import android.widget.GridView;
-import android.widget.ListAdapter;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
-class c implements com.baidu.adp.lib.e.c<GridView> {
-    final /* synthetic */ EmotionTabContentView apU;
+public abstract class c {
+    private com.baidu.adp.widget.a.a apC;
+    private com.baidu.adp.widget.a.a apD;
+    private int apE;
+    private int apF;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public c(EmotionTabContentView emotionTabContentView) {
-        this.apU = emotionTabContentView;
+    public abstract boolean AO();
+
+    public abstract EmotionGroupType AP();
+
+    public abstract String dX(int i);
+
+    public abstract boolean eP(String str);
+
+    public abstract com.baidu.adp.widget.a.a eQ(String str);
+
+    public abstract com.baidu.adp.widget.a.a eR(String str);
+
+    public abstract int getEmotionsCount();
+
+    public abstract String getGroupId();
+
+    public abstract String getGroupName();
+
+    public abstract int getHeight();
+
+    public abstract int getWidth();
+
+    public com.baidu.adp.widget.a.a AQ() {
+        return this.apC;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: AI */
-    public GridView gZ() {
-        return new GridView(this.apU.getContext());
+    public void c(com.baidu.adp.widget.a.a aVar) {
+        if (aVar != null) {
+            aVar.nb();
+        }
+        this.apC = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: a */
-    public void l(GridView gridView) {
-        gridView.setAdapter((ListAdapter) null);
+    public com.baidu.adp.widget.a.a AR() {
+        return this.apD;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: b */
-    public GridView m(GridView gridView) {
-        return gridView;
+    public void d(com.baidu.adp.widget.a.a aVar) {
+        if (aVar != null) {
+            aVar.nb();
+        }
+        this.apD = aVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: c */
-    public GridView n(GridView gridView) {
-        gridView.setAdapter((ListAdapter) null);
-        return gridView;
+    public int AS() {
+        return this.apF;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void dY(int i) {
+        this.apF = i;
+    }
+
+    public int AT() {
+        return this.apE;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void dZ(int i) {
+        this.apE = i;
     }
 }

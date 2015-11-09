@@ -28,9 +28,9 @@ public interface o<T> {
 
     void a(String str, T t, long j);
 
-    b<T> ac(String str);
+    b<T> aa(String str);
 
-    void ad(String str);
+    void ab(String str);
 
     void b(String str, T t, long j);
 

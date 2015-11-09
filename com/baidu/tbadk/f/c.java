@@ -21,9 +21,9 @@ import java.io.IOException;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class c implements com.baidu.adp.plugin.packageManager.pluginServerConfig.b {
-    private static final String ayJ = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PLUGIN_NET_CONFIGS_MIS;
-    private com.baidu.adp.plugin.packageManager.pluginServerConfig.a ayK;
-    private boolean ayL;
+    private static final String axy = String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.PLUGIN_NET_CONFIGS_MIS;
+    private boolean axA;
+    private com.baidu.adp.plugin.packageManager.pluginServerConfig.a axz;
 
     @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.b
     public void a(com.baidu.adp.plugin.packageManager.pluginServerConfig.c cVar, com.baidu.adp.plugin.packageManager.pluginServerConfig.a aVar) {
@@ -34,9 +34,9 @@ public class c implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             }
             return;
         }
-        this.ayK = aVar;
-        if (!this.ayL) {
-            this.ayL = true;
+        this.axz = aVar;
+        if (!this.axA) {
+            this.axA = true;
             new b(cVar).execute(new Void[0]);
         }
         try {
@@ -62,11 +62,11 @@ public class c implements com.baidu.adp.plugin.packageManager.pluginServerConfig
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<Void, PluginNetConfigInfos, Void> {
-        private w Ti;
-        private com.baidu.adp.plugin.packageManager.pluginServerConfig.c ayN;
+        private w Tj;
+        private com.baidu.adp.plugin.packageManager.pluginServerConfig.c axC;
 
         public b(com.baidu.adp.plugin.packageManager.pluginServerConfig.c cVar) {
-            this.ayN = cVar;
+            this.axC = cVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,19 +84,19 @@ public class c implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             String a;
             PluginNetConfigInfos parse;
             SystemClock.sleep(1500L);
-            if (this.ayN == null) {
+            if (this.axC == null) {
                 publishProgress(new PluginNetConfigInfos[1]);
             } else {
-                if (this.ayN.mg() == null || this.ayN.mg().size() <= 0) {
+                if (this.axC.mh() == null || this.axC.mh().size() <= 0) {
                     str = "";
                 } else {
                     StringBuilder sb = new StringBuilder(50);
-                    int size = this.ayN.mg().size();
+                    int size = this.axC.mh().size();
                     for (int i = 0; i < size; i++) {
                         if (i != 0) {
                             sb.append(",");
                         }
-                        BasicNameValuePair basicNameValuePair = this.ayN.mg().get(i);
+                        BasicNameValuePair basicNameValuePair = this.axC.mh().get(i);
                         if (basicNameValuePair != null && !TextUtils.isEmpty(basicNameValuePair.getName()) && !TextUtils.isEmpty(basicNameValuePair.getValue())) {
                             sb.append(basicNameValuePair.getName());
                             sb.append(":");
@@ -148,9 +148,9 @@ public class c implements com.baidu.adp.plugin.packageManager.pluginServerConfig
         }
 
         private String b(o<String> oVar, String str) {
-            this.Ti = new w(c.ayJ);
-            this.Ti.o("plugin_upload_config", str);
-            return this.Ti.tD();
+            this.Tj = new w(c.axy);
+            this.Tj.o("plugin_upload_config", str);
+            return this.Tj.tG();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -159,17 +159,17 @@ public class c implements com.baidu.adp.plugin.packageManager.pluginServerConfig
         /* renamed from: a */
         public void onProgressUpdate(PluginNetConfigInfos... pluginNetConfigInfosArr) {
             super.onProgressUpdate(pluginNetConfigInfosArr);
-            c.this.ayL = false;
-            c.this.ayK.a(pluginNetConfigInfosArr[0] != null, pluginNetConfigInfosArr[0]);
+            c.this.axA = false;
+            c.this.axz.a(pluginNetConfigInfosArr[0] != null, pluginNetConfigInfosArr[0]);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_PLUGIN_NETCONFIG_GET));
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            c.this.ayL = false;
-            this.Ti.gJ();
-            this.Ti = null;
+            c.this.axA = false;
+            this.Tj.gJ();
+            this.Tj = null;
         }
     }
 

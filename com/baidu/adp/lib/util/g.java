@@ -18,7 +18,7 @@ import java.util.zip.ZipInputStream;
 public class g {
     private static g xW = null;
 
-    public static g iz() {
+    public static g iA() {
         g gVar;
         if (xW == null) {
             synchronized (g.class) {
@@ -48,11 +48,11 @@ public class g {
             if (z2) {
                 z = z2;
             } else {
-                String aN = aN(str);
-                File file = new File(aN);
+                String aL = aL(str);
+                File file = new File(aL);
                 if (file.exists()) {
                     if (file.length() > 0) {
-                        boolean b = b(aN, sb);
+                        boolean b = b(aL, sb);
                         if (b) {
                             sb.append("-Succ2-");
                             z = b;
@@ -65,21 +65,21 @@ public class g {
                         z = z2;
                     }
                 } else {
-                    a aVar = new a(str, aN, sb, hVar);
+                    a aVar = new a(str, aL, sb, hVar);
                     aVar.setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen()));
                     aVar.execute(new Object[0]);
                     return false;
                 }
             }
             if (sb.length() > 0) {
-                com.baidu.adp.lib.stats.a.hi().a("so", "load_" + str + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, sb.toString(), new Object[0]);
+                com.baidu.adp.lib.stats.a.hj().a("so", "load_" + str + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, sb.toString(), new Object[0]);
             }
         }
         return z;
     }
 
     private boolean a(String str, StringBuilder sb) {
-        boolean b = b(aM(str), sb);
+        boolean b = b(aK(str), sb);
         if (!b) {
             try {
                 System.loadLibrary(str);
@@ -113,11 +113,11 @@ public class g {
         }
     }
 
-    private String aM(String str) {
+    private String aK(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "lib" + File.separator + "lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
-    private String aN(String str) {
+    private String aL(String str) {
         return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + "lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
@@ -169,9 +169,9 @@ public class g {
                                     }
                                 }
                                 byteArrayOutputStream.flush();
-                                String aN = aN(str2);
-                                a(aN, byteArrayOutputStream.toByteArray(), sb);
-                                if (b(aN, sb)) {
+                                String aL = aL(str2);
+                                a(aL, byteArrayOutputStream.toByteArray(), sb);
+                                if (b(aL, sb)) {
                                     sb.append("-Succ5-");
                                     z = true;
                                     com.baidu.adp.lib.g.a.b((OutputStream) byteArrayOutputStream);
@@ -271,7 +271,7 @@ public class g {
         public void onPostExecute(Object obj) {
             super.onPostExecute(obj);
             if (this.xZ.length() > 0) {
-                com.baidu.adp.lib.stats.a.hi().a("so", "load_" + this.xX + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.xZ.toString(), new Object[0]);
+                com.baidu.adp.lib.stats.a.hj().a("so", "load_" + this.xX + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.xZ.toString(), new Object[0]);
             }
             if (this.ya != null) {
                 this.ya.l(this.yb);

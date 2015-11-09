@@ -57,7 +57,7 @@ public class ResponsedFrsHotHttpMessage extends TbHttpResponsedMessage {
                         wVar.a(list2.get(i3));
                         wVar.bA(0);
                         wVar.parser_title();
-                        if (wVar.sn() == 33) {
+                        if (wVar.sq() == 33) {
                             if (TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
                                 this.mThreadList.add(wVar);
                             }
@@ -75,7 +75,7 @@ public class ResponsedFrsHotHttpMessage extends TbHttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         RequestFrsHotThreadMessage requestFrsHotThreadMessage;
-        if (this.mThreadList.size() > 0 && this.mPage.rG() == 1 && getOrginalMessage() != null && getOrginalMessage().getExtra() != null && (requestFrsHotThreadMessage = (RequestFrsHotThreadMessage) getOrginalMessage().getExtra()) != null) {
+        if (this.mThreadList.size() > 0 && this.mPage.rI() == 1 && getOrginalMessage() != null && getOrginalMessage().getExtra() != null && (requestFrsHotThreadMessage = (RequestFrsHotThreadMessage) getOrginalMessage().getExtra()) != null) {
             this.mCache.k(String.valueOf(requestFrsHotThreadMessage.getForumId()), bArr);
         }
     }

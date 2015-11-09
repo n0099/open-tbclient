@@ -14,10 +14,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class az {
-    private static az abv = new ba();
-    private static final Pattern aby = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private List<a> abw;
-    private b abx;
+    private static az abA = new ba();
+    private static final Pattern abD = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private List<a> abB;
+    private b abC;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -34,8 +34,8 @@ public class az {
     }
 
     private az() {
-        this.abw = new LinkedList();
-        this.abx = null;
+        this.abB = new LinkedList();
+        this.abC = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -45,7 +45,7 @@ public class az {
 
     public static SpannableString E(Context context, String str) {
         int start;
-        Matcher matcher = aby.matcher(str);
+        Matcher matcher = abD.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -59,42 +59,47 @@ public class az {
         return spannableString;
     }
 
-    public static az uT() {
-        return abv;
+    public static az uX() {
+        return abA;
     }
 
     public void a(a aVar) {
-        if (!this.abw.contains(aVar)) {
-            this.abw.add(aVar);
+        if (!this.abB.contains(aVar)) {
+            this.abB.add(aVar);
         }
     }
 
     public void a(b bVar) {
-        this.abx = bVar;
+        this.abC = bVar;
     }
 
-    public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, c cVar, boolean z2) {
+    public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, c cVar, boolean z2) {
         boolean z3;
-        if (strArr != null && strArr.length != 0) {
-            if (this.abw == null) {
-                this.abw = new LinkedList();
+        if (strArr == null || strArr.length == 0) {
+            return false;
+        }
+        if (this.abB == null) {
+            this.abB = new LinkedList();
+        }
+        Iterator<a> it = this.abB.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                z3 = false;
+                break;
             }
-            Iterator<a> it = this.abw.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z3 = false;
-                    break;
-                }
-                a next = it.next();
-                if (next != null && next.a(tbPageContext, strArr)) {
-                    z3 = true;
-                    break;
-                }
-            }
-            if (!z3 && this.abx != null && tbPageContext != null) {
-                b(tbPageContext, "", strArr[0], z, cVar, z2);
+            a next = it.next();
+            if (next != null && next.a(tbPageContext, strArr)) {
+                z3 = true;
+                break;
             }
         }
+        if (!z3 && this.abC != null) {
+            if (tbPageContext == null) {
+                return false;
+            }
+            b(tbPageContext, "", strArr[0], z, cVar, z2);
+        }
+        return z3;
     }
 
     public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, c cVar) {
@@ -104,10 +109,10 @@ public class az {
     public void a(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z, c cVar, boolean z2) {
         boolean z3;
         if (strArr != null && strArr.length != 0 && !TextUtils.isEmpty(strArr[0])) {
-            if (this.abw == null) {
-                this.abw = new LinkedList();
+            if (this.abB == null) {
+                this.abB = new LinkedList();
             }
-            Iterator<a> it = this.abw.iterator();
+            Iterator<a> it = this.abB.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z3 = false;
@@ -119,7 +124,7 @@ public class az {
                     break;
                 }
             }
-            if (!z3 && this.abx != null) {
+            if (!z3 && this.abC != null) {
                 b(tbPageContext, str, strArr[0], z, cVar, z2);
             }
         }
@@ -151,8 +156,8 @@ public class az {
         return split[1];
     }
 
-    public void b(TbPageContext<?> tbPageContext, String[] strArr) {
-        a(tbPageContext, strArr, false, null, false);
+    public boolean b(TbPageContext<?> tbPageContext, String[] strArr) {
+        return a(tbPageContext, strArr, false, null, false);
     }
 
     public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z) {
@@ -168,8 +173,8 @@ public class az {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, c cVar, boolean z2) {
-        if (aby.matcher(str2).find()) {
-            this.abx.a(tbPageContext, str, str2, z, cVar, z2);
+        if (abD.matcher(str2).find()) {
+            this.abC.a(tbPageContext, str, str2, z, cVar, z2);
         }
     }
 }

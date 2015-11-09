@@ -21,14 +21,14 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.base.e {
-    private com.baidu.tieba.enterForum.b.b aMi;
-    private boolean aMj;
-    private b aMk;
-    private com.baidu.tieba.tbadkCore.e.a aMl;
-    private long aMm;
-    private long aMn;
-    private long aMo;
-    private long aMp;
+    private com.baidu.tieba.enterForum.b.b aMq;
+    private boolean aMr;
+    private b aMs;
+    private com.baidu.tieba.tbadkCore.e.a aMt;
+    private long aMu;
+    private long aMv;
+    private long aMw;
+    private long aMx;
     private TbPageContext mContext;
     private Handler mUIHandler;
 
@@ -39,10 +39,10 @@ public class c extends com.baidu.adp.base.e {
 
     /* loaded from: classes.dex */
     public class a {
-        public String aMt = "";
-        public boolean aMu = false;
+        public String aMB = "";
+        public boolean aMC = false;
         public int type = -1;
-        public com.baidu.tieba.enterForum.b.b aMv = null;
+        public com.baidu.tieba.enterForum.b.b aMD = null;
 
         public a() {
         }
@@ -50,14 +50,14 @@ public class c extends com.baidu.adp.base.e {
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.aMi = null;
-        this.aMj = true;
-        this.aMk = null;
-        this.aMl = null;
-        this.aMm = 0L;
-        this.aMn = 0L;
-        this.aMo = 0L;
-        this.aMp = 0L;
+        this.aMq = null;
+        this.aMr = true;
+        this.aMs = null;
+        this.aMt = null;
+        this.aMu = 0L;
+        this.aMv = 0L;
+        this.aMw = 0L;
+        this.aMx = 0L;
         this.mUIHandler = null;
         this.mContext = tbPageContext;
         setUniqueId(BdUniqueId.gen());
@@ -69,32 +69,32 @@ public class c extends com.baidu.adp.base.e {
         return this.unique_id;
     }
 
-    public long It() {
-        return this.aMp;
+    public long IJ() {
+        return this.aMx;
     }
 
-    public long Iu() {
-        return this.aMn;
+    public long IK() {
+        return this.aMv;
     }
 
-    public long Iv() {
-        return this.aMo;
+    public long IL() {
+        return this.aMw;
     }
 
-    public long Iw() {
-        return this.aMm;
+    public long IM() {
+        return this.aMu;
     }
 
-    public com.baidu.tieba.enterForum.b.b Ix() {
-        return this.aMi;
+    public com.baidu.tieba.enterForum.b.b IN() {
+        return this.aMq;
     }
 
     public void b(com.baidu.tieba.enterForum.b.b bVar) {
-        this.aMi = bVar;
+        this.aMq = bVar;
     }
 
     public void a(b bVar) {
-        this.aMk = bVar;
+        this.aMs = bVar;
     }
 
     @Override // com.baidu.adp.base.e
@@ -105,61 +105,61 @@ public class c extends com.baidu.adp.base.e {
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
         cancelMessage();
-        Iy();
+        IO();
         return true;
     }
 
-    private void Iy() {
-        if (this.aMl != null) {
-            this.aMl.destory();
-            this.aMl = null;
+    private void IO() {
+        if (this.aMt != null) {
+            this.aMt.destory();
+            this.aMt = null;
         }
     }
 
-    public boolean bN(boolean z) {
+    public boolean bP(boolean z) {
         cancelLoadData();
-        this.aMj = z;
+        this.aMr = z;
         forumRecommendRequestMessage forumrecommendrequestmessage = new forumRecommendRequestMessage();
         forumrecommendrequestmessage.set_like_forum(1);
         forumrecommendrequestmessage.set_topic(0);
         forumrecommendrequestmessage.set_recommend(0);
-        this.aMm = System.currentTimeMillis();
-        if (this.aMl == null) {
-            this.aMl = new com.baidu.tieba.tbadkCore.e.a("forumrecommendStat");
+        this.aMu = System.currentTimeMillis();
+        if (this.aMt == null) {
+            this.aMt = new com.baidu.tieba.tbadkCore.e.a("forumrecommendStat");
         }
         sendMessage(forumrecommendrequestmessage);
         return true;
     }
 
-    public boolean bO(boolean z) {
-        this.aMj = z;
-        Iz();
+    public boolean bQ(boolean z) {
+        this.aMr = z;
+        IP();
         return true;
     }
 
     public void a(boolean z, int i, String str, boolean z2, int i2, long j, long j2) {
         a aVar = new a();
         boolean z3 = !z;
-        if (this.aMl != null) {
-            this.aMl.a(z2, z3, i, str, i2, j, j2);
-            this.aMl = null;
+        if (this.aMt != null) {
+            this.aMt.a(z2, z3, i, str, i2, j, j2);
+            this.aMt = null;
         }
-        this.aMi.bK(false);
-        if (z || !this.aMi.isSuccess()) {
+        this.aMq.bM(false);
+        if (z || !this.aMq.isSuccess()) {
             if (str != null && str.length() > 0) {
                 setErrorString(str);
-                aVar.aMt = str;
+                aVar.aMB = str;
             }
             aVar.type = 1;
-            aVar.aMu = false;
-            aVar.aMv = this.aMi;
-            this.aMk.a(aVar);
+            aVar.aMC = false;
+            aVar.aMD = this.aMq;
+            this.aMs.a(aVar);
             return;
         }
         aVar.type = 1;
-        aVar.aMu = true;
-        aVar.aMv = this.aMi;
-        this.aMk.a(aVar);
+        aVar.aMC = true;
+        aVar.aMD = this.aMq;
+        this.aMs.a(aVar);
     }
 
     public void a(forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage) {
@@ -172,7 +172,7 @@ public class c extends com.baidu.adp.base.e {
 
     public void a(ResponsedMessage<?> responsedMessage, boolean z, int i, String str, boolean z2, int i2, long j, long j2) {
         if (z) {
-            this.aMi = null;
+            this.aMq = null;
         }
         if (responsedMessage != null) {
             if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
@@ -187,28 +187,28 @@ public class c extends com.baidu.adp.base.e {
     public void b(forumRecommendHttpResponseMessage forumrecommendhttpresponsemessage) {
         if (forumrecommendhttpresponsemessage != null) {
             try {
-                this.aMi = new com.baidu.tieba.enterForum.b.b();
-                this.aMi.setTime(forumrecommendhttpresponsemessage.GetIsLogin().intValue());
-                this.aMi.eW(forumrecommendhttpresponsemessage.GetMsignValid().intValue());
-                this.aMi.gt(forumrecommendhttpresponsemessage.GetMsignText());
-                this.aMi.eX(forumrecommendhttpresponsemessage.GetMsignLevel().intValue());
-                this.aMi.setIsMem(forumrecommendhttpresponsemessage.GetIsMem().intValue());
-                this.aMi.eV(forumrecommendhttpresponsemessage.GetIsLogin().intValue());
-                this.aMi.bK(false);
+                this.aMq = new com.baidu.tieba.enterForum.b.b();
+                this.aMq.setTime(forumrecommendhttpresponsemessage.GetIsLogin().intValue());
+                this.aMq.fe(forumrecommendhttpresponsemessage.GetMsignValid().intValue());
+                this.aMq.gv(forumrecommendhttpresponsemessage.GetMsignText());
+                this.aMq.ff(forumrecommendhttpresponsemessage.GetMsignLevel().intValue());
+                this.aMq.setIsMem(forumrecommendhttpresponsemessage.GetIsMem().intValue());
+                this.aMq.fd(forumrecommendhttpresponsemessage.GetIsLogin().intValue());
+                this.aMq.bM(false);
                 com.baidu.tieba.enterForum.b.d dVar = new com.baidu.tieba.enterForum.b.d();
                 dVar.setLevel(forumrecommendhttpresponsemessage.GetMsignLevel().intValue());
-                dVar.I(forumrecommendhttpresponsemessage.GetLikeForum());
-                this.aMi.a(dVar);
+                dVar.K(forumrecommendhttpresponsemessage.GetLikeForum());
+                this.aMq.a(dVar);
                 com.baidu.tieba.enterForum.b.g gVar = new com.baidu.tieba.enterForum.b.g();
-                gVar.J(forumrecommendhttpresponsemessage.GetRecommendForumInfoList());
-                this.aMi.a(gVar);
+                gVar.L(forumrecommendhttpresponsemessage.GetRecommendForumInfoList());
+                this.aMq.a(gVar);
                 h hVar = new h();
-                hVar.I(forumrecommendhttpresponsemessage.GetBanner());
-                this.aMi.a(hVar);
-                this.aMi.ap(true);
-                this.aMi.a(forumrecommendhttpresponsemessage.getHotSearchInfoData());
+                hVar.K(forumrecommendhttpresponsemessage.GetBanner());
+                this.aMq.a(hVar);
+                this.aMq.ap(true);
+                this.aMq.a(forumrecommendhttpresponsemessage.getHotSearchInfoData());
             } catch (Exception e) {
-                this.aMi.ap(false);
+                this.aMq.ap(false);
                 BdLog.e(e.getMessage());
             }
         }
@@ -217,54 +217,54 @@ public class c extends com.baidu.adp.base.e {
     public void b(forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage) {
         if (forumrecommendsocketresponsemessage != null) {
             try {
-                this.aMi = new com.baidu.tieba.enterForum.b.b();
-                this.aMi.setTime(forumrecommendsocketresponsemessage.GetIsLogin().intValue());
-                this.aMi.eW(forumrecommendsocketresponsemessage.GetMsignValid().intValue());
-                this.aMi.gt(forumrecommendsocketresponsemessage.GetMsignText());
-                this.aMi.eX(forumrecommendsocketresponsemessage.GetMsignLevel().intValue());
-                this.aMi.setIsMem(forumrecommendsocketresponsemessage.GetIsMem().intValue());
-                this.aMi.eV(forumrecommendsocketresponsemessage.GetIsLogin().intValue());
-                this.aMi.bK(false);
+                this.aMq = new com.baidu.tieba.enterForum.b.b();
+                this.aMq.setTime(forumrecommendsocketresponsemessage.GetIsLogin().intValue());
+                this.aMq.fe(forumrecommendsocketresponsemessage.GetMsignValid().intValue());
+                this.aMq.gv(forumrecommendsocketresponsemessage.GetMsignText());
+                this.aMq.ff(forumrecommendsocketresponsemessage.GetMsignLevel().intValue());
+                this.aMq.setIsMem(forumrecommendsocketresponsemessage.GetIsMem().intValue());
+                this.aMq.fd(forumrecommendsocketresponsemessage.GetIsLogin().intValue());
+                this.aMq.bM(false);
                 com.baidu.tieba.enterForum.b.d dVar = new com.baidu.tieba.enterForum.b.d();
                 dVar.setLevel(forumrecommendsocketresponsemessage.GetMsignLevel().intValue());
-                dVar.I(forumrecommendsocketresponsemessage.GetLikeForum());
-                this.aMi.a(dVar);
+                dVar.K(forumrecommendsocketresponsemessage.GetLikeForum());
+                this.aMq.a(dVar);
                 com.baidu.tieba.enterForum.b.g gVar = new com.baidu.tieba.enterForum.b.g();
-                gVar.J(forumrecommendsocketresponsemessage.GetRecommendForumInfoList());
-                this.aMi.a(gVar);
+                gVar.L(forumrecommendsocketresponsemessage.GetRecommendForumInfoList());
+                this.aMq.a(gVar);
                 h hVar = new h();
-                hVar.I(forumrecommendsocketresponsemessage.GetBanner());
-                this.aMi.a(hVar);
-                this.aMi.ap(true);
-                this.aMi.a(forumrecommendsocketresponsemessage.getHotSearchInfoData());
+                hVar.K(forumrecommendsocketresponsemessage.GetBanner());
+                this.aMq.a(hVar);
+                this.aMq.ap(true);
+                this.aMq.a(forumrecommendsocketresponsemessage.getHotSearchInfoData());
             } catch (Exception e) {
-                this.aMi.ap(false);
+                this.aMq.ap(false);
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private void Iz() {
-        IA().a("forumRecommend_cache_key", new d(this, new com.baidu.tieba.enterForum.b.b()));
+    private void IP() {
+        IQ().a("forumRecommend_cache_key", new d(this, new com.baidu.tieba.enterForum.b.b()));
     }
 
-    private o<byte[]> IA() {
-        return com.baidu.tbadk.core.b.a.sL().T("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
+    private o<byte[]> IQ() {
+        return com.baidu.tbadk.core.b.a.sO().T("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName());
     }
 
-    public void eY(int i) {
-        com.baidu.tbadk.core.sharedPref.b.tr().putInt("shared_key_forum_column_type_" + TbadkCoreApplication.getCurrentAccount(), i);
+    public void fg(int i) {
+        com.baidu.tbadk.core.sharedPref.b.tu().putInt("shared_key_forum_column_type_" + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public int eZ(int i) {
-        return com.baidu.tbadk.core.sharedPref.b.tr().getInt("shared_key_forum_column_type_" + TbadkCoreApplication.getCurrentAccount(), i);
+    public int fh(int i) {
+        return com.baidu.tbadk.core.sharedPref.b.tu().getInt("shared_key_forum_column_type_" + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
     public boolean hasShowForumEditGuide() {
-        return com.baidu.tbadk.core.sharedPref.b.tr().getString(new StringBuilder("shared_key_forum_edit_guide_").append(TbadkCoreApplication.getCurrentAccount()).toString(), "").equals(TbConfig.getVersion());
+        return com.baidu.tbadk.core.sharedPref.b.tu().getString(new StringBuilder("shared_key_forum_edit_guide_").append(TbadkCoreApplication.getCurrentAccount()).toString(), "").equals(TbConfig.getVersion());
     }
 
-    public void L(List<v> list) {
+    public void N(List<v> list) {
         if (list != null) {
             StringBuilder sb = new StringBuilder();
             for (v vVar : list) {
@@ -272,12 +272,12 @@ public class c extends com.baidu.adp.base.e {
                     sb.append(vVar.getId()).append("#");
                 }
             }
-            com.baidu.tbadk.core.sharedPref.b.tr().putString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), sb.toString());
+            com.baidu.tbadk.core.sharedPref.b.tu().putString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), sb.toString());
         }
     }
 
-    public String[] IB() {
-        return com.baidu.tbadk.core.sharedPref.b.tr().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "").split("#");
+    public String[] IR() {
+        return com.baidu.tbadk.core.sharedPref.b.tu().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "").split("#");
     }
 
     public List<v> a(List<v> list, String[] strArr) {
@@ -305,7 +305,7 @@ public class c extends com.baidu.adp.base.e {
         return arrayList;
     }
 
-    public List<v> M(List<v> list) {
+    public List<v> O(List<v> list) {
         if (list != null && !list.isEmpty()) {
             Collections.sort(list, new f(this));
         }
@@ -313,11 +313,11 @@ public class c extends com.baidu.adp.base.e {
     }
 
     public void ai(long j) {
-        com.baidu.tbadk.core.sharedPref.b.tr().putLong("last_close_recommend_time@" + TbadkCoreApplication.getCurrentAccount(), j);
+        com.baidu.tbadk.core.sharedPref.b.tu().putLong("last_close_recommend_time@" + TbadkCoreApplication.getCurrentAccount(), j);
     }
 
-    public long IC() {
-        return com.baidu.tbadk.core.sharedPref.b.tr().getLong("last_close_recommend_time@" + TbadkCoreApplication.getCurrentAccount(), 0L);
+    public long IS() {
+        return com.baidu.tbadk.core.sharedPref.b.tu().getLong("last_close_recommend_time@" + TbadkCoreApplication.getCurrentAccount(), 0L);
     }
 
     public boolean aj(long j) {

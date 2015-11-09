@@ -57,7 +57,7 @@ public class PaymentConfirmInfoData extends i implements Serializable {
         private long tdou_num;
 
         public String getGoods_name() {
-            if (n.fO(this.goods_name) > 14) {
+            if (n.fQ(this.goods_name) > 14) {
                 this.goods_name = String.valueOf(n.e(this.goods_name, 0, 14)) + "...";
             }
             return this.goods_name;

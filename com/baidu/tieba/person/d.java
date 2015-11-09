@@ -7,45 +7,45 @@ import com.baidu.tbadk.core.BaseFragment;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public abstract class d extends FragmentPagerAdapter {
-    private int[] bFV;
-    private ArrayList<BaseFragment> cnY;
+    private int[] bGq;
+    private ArrayList<BaseFragment> cpu;
 
-    protected abstract BaseFragment aib();
+    protected abstract BaseFragment aiH();
 
     public d(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
         super(basePersonInfoActivity.getSupportFragmentManager());
-        this.cnY = new ArrayList<>();
+        this.cpu = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
-        BaseFragment aib = aib();
-        aib.setArguments(bundle);
-        this.cnY.add(aib);
+        BaseFragment aiH = aiH();
+        aiH.setArguments(bundle);
+        this.cpu.add(aiH);
         if (z) {
-            this.bFV = new int[1];
+            this.bGq = new int[1];
             return;
         }
         Bundle bundle2 = new Bundle();
         bundle2.putInt("page_type", 1);
-        BaseFragment aib2 = aib();
-        aib2.setArguments(bundle2);
-        this.cnY.add(aib2);
-        this.bFV = new int[]{0, 1};
+        BaseFragment aiH2 = aiH();
+        aiH2.setArguments(bundle2);
+        this.cpu.add(aiH2);
+        this.bGq = new int[]{0, 1};
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
-        if (i >= this.bFV.length || i < 0) {
+        if (i >= this.bGq.length || i < 0) {
             return null;
         }
-        return this.cnY.get(i);
+        return this.cpu.get(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return this.bFV.length;
+        return this.bGq.length;
     }
 
-    public int hv(int i) {
-        return this.bFV[i];
+    public int hI(int i) {
+        return this.bGq[i];
     }
 }

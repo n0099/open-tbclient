@@ -2,39 +2,39 @@ package com.baidu.tieba.write.shareSDK;
 
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tieba.write.write.cd;
+import com.baidu.tieba.write.write.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements View.OnClickListener {
-    final /* synthetic */ o dmR;
+    final /* synthetic */ o doz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(o oVar) {
-        this.dmR = oVar;
+        this.doz = oVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TextView textView;
         View view2;
-        cd cdVar;
+        cf cfVar;
         WriteShareActivity writeShareActivity;
         WriteShareActivity writeShareActivity2;
         WriteShareActivity writeShareActivity3;
         WriteShareActivity writeShareActivity4;
-        textView = this.dmR.dmF;
+        textView = this.doz.don;
         textView.setVisibility(0);
-        view2 = this.dmR.dmI;
+        view2 = this.doz.doq;
         view2.setSelected(true);
-        cdVar = this.dmR.dmG;
-        writeShareActivity = this.dmR.dmO;
+        cfVar = this.doz.doo;
+        writeShareActivity = this.doz.dow;
         int dip2px = com.baidu.adp.lib.util.k.dip2px(writeShareActivity.getPageContext().getContext(), 15.0f);
-        writeShareActivity2 = this.dmR.dmO;
-        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(cdVar, view, dip2px, com.baidu.adp.lib.util.k.dip2px(writeShareActivity2.getPageContext().getContext(), 1.0f));
-        writeShareActivity3 = this.dmR.dmO;
+        writeShareActivity2 = this.doz.dow;
+        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(cfVar, view, dip2px, com.baidu.adp.lib.util.k.dip2px(writeShareActivity2.getPageContext().getContext(), 1.0f));
+        writeShareActivity3 = this.doz.dow;
         if (writeShareActivity3 != null) {
-            writeShareActivity4 = this.dmR.dmO;
-            writeShareActivity4.aCb();
+            writeShareActivity4 = this.doz.dow;
+            writeShareActivity4.aCR();
         }
     }
 }

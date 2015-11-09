@@ -12,13 +12,13 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ r cpq;
+    final /* synthetic */ r cqM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(r rVar, int i) {
         super(i);
-        this.cpq = rVar;
+        this.cqM = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,7 +29,7 @@ public class s extends com.baidu.adp.framework.listener.e {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        PersonBarActivity aio;
+        PersonBarActivity aiU;
         boolean z;
         View view;
         View view2;
@@ -41,66 +41,66 @@ public class s extends com.baidu.adp.framework.listener.e {
         ac acVar2;
         ArrayList<ForumData> arrayList2;
         ac acVar3;
-        PersonBarActivity aio2;
+        PersonBarActivity aiU2;
         View view3;
         String str;
-        this.cpq.mListView.completePullRefresh();
+        this.cqM.mListView.completePullRefresh();
         if (socketResponsedMessage == null) {
-            this.cpq.showToast(this.cpq.getPageContext().getString(i.h.neterror));
+            this.cqM.showToast(this.cqM.getPageContext().getString(i.h.neterror));
         } else if (socketResponsedMessage.getCmd() == 107129 && (socketResponsedMessage instanceof ResponseGetLivableForumList)) {
             ResponseGetLivableForumList responseGetLivableForumList = (ResponseGetLivableForumList) socketResponsedMessage;
             if (responseGetLivableForumList.getError() == 0) {
-                aio = this.cpq.aio();
-                if (aio != null) {
-                    aio2 = this.cpq.aio();
-                    if (aio2.getRequestCode() != 23011) {
-                        view3 = this.cpq.cph;
+                aiU = this.cqM.aiU();
+                if (aiU != null) {
+                    aiU2 = this.cqM.aiU();
+                    if (aiU2.getRequestCode() != 23011) {
+                        view3 = this.cqM.cqD;
                         view3.setVisibility(8);
-                        acVar = this.cpq.cpa;
+                        acVar = this.cqM.cqw;
                         if (acVar == null) {
-                            arrayList = this.cpq.rK;
+                            arrayList = this.cqM.rK;
                             arrayList.addAll(responseGetLivableForumList.getData());
-                            this.cpq.removalDuplicate();
-                            acVar2 = this.cpq.cpa;
-                            arrayList2 = this.cpq.rK;
+                            this.cqM.removalDuplicate();
+                            acVar2 = this.cqM.cqw;
+                            arrayList2 = this.cqM.rK;
                             acVar2.S(arrayList2);
-                            this.cpq.hasMore = responseGetLivableForumList.hasMore();
-                            this.cpq.eV(true);
-                            acVar3 = this.cpq.cpa;
+                            this.cqM.hasMore = responseGetLivableForumList.hasMore();
+                            this.cqM.eY(true);
+                            acVar3 = this.cqM.cqw;
                             acVar3.notifyDataSetChanged();
-                            this.cpq.cpd++;
+                            this.cqM.cqz++;
                             return;
                         }
                         return;
                     }
                 }
-                z = this.cpq.cpl;
+                z = this.cqM.cqH;
                 if (!z) {
-                    this.cpq.cpl = true;
-                    BdListView bdListView = this.cpq.mListView;
-                    view2 = this.cpq.cph;
+                    this.cqM.cqH = true;
+                    BdListView bdListView = this.cqM.mListView;
+                    view2 = this.cqM.cqD;
                     bdListView.addHeaderView(view2);
                     int miniLevel = responseGetLivableForumList.getMiniLevel();
                     if (miniLevel <= 0) {
                         miniLevel = 0;
                     }
-                    textView = this.cpq.cpi;
-                    textView.setText(this.cpq.getResources().getString(i.h.level_above_six_tip, Integer.valueOf(miniLevel)));
-                    textView2 = this.cpq.cpi;
+                    textView = this.cqM.cqE;
+                    textView.setText(this.cqM.getResources().getString(i.h.level_above_six_tip, Integer.valueOf(miniLevel)));
+                    textView2 = this.cqM.cqE;
                     com.baidu.tbadk.core.util.an.b(textView2, i.c.cp_cont_c, 1);
-                    textView3 = this.cpq.cpi;
+                    textView3 = this.cqM.cqE;
                     com.baidu.tbadk.core.util.an.j((View) textView3, i.c.bg_page_setting);
                 }
-                view = this.cpq.cph;
+                view = this.cqM.cqD;
                 view.setVisibility(0);
-                acVar = this.cpq.cpa;
+                acVar = this.cqM.cqw;
                 if (acVar == null) {
                 }
             } else {
-                this.cpq.showToast(responseGetLivableForumList.getErrorString());
-                u.a aVar = this.cpq.coZ;
-                str = this.cpq.cpg;
-                aVar.kb(str);
+                this.cqM.showToast(responseGetLivableForumList.getErrorString());
+                u.a aVar = this.cqM.cqv;
+                str = this.cqM.cqC;
+                aVar.ke(str);
             }
         }
     }

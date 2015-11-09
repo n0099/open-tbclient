@@ -15,7 +15,7 @@ public class d implements com.baidu.tbadk.mvc.b.b, j {
     private Error error;
     private List<tinfo> list;
 
-    public List<tinfo> Ho() {
+    public List<tinfo> Hl() {
         if (this.list == null || this.list.size() <= 0) {
             return null;
         }
@@ -72,7 +72,7 @@ public class d implements com.baidu.tbadk.mvc.b.b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Cw() {
+    public byte[] Cp() {
         return null;
     }
 }

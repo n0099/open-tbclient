@@ -54,7 +54,7 @@ public class d {
         return true;
     }
 
-    public boolean ag(String str) {
+    public boolean ae(String str) {
         if (str == null || this.tJ.getMaxCrashTimes() <= 0 || this.tJ.gs() == null) {
             return false;
         }

@@ -12,64 +12,64 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class db extends com.baidu.adp.widget.ListView.c {
-    private final int aSR;
-    private a aXf;
-    private boolean aYf;
-    private View.OnClickListener adY;
+    private final int aSZ;
+    private a aXo;
+    private boolean aYo;
+    private View.OnClickListener aed;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        FrameLayout aYg;
-        LinearLayout aYh;
-        TextView aYi;
-        ProgressBar aYj;
+        FrameLayout aYp;
+        LinearLayout aYq;
+        TextView aYr;
+        ProgressBar aYs;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
-    public View no() {
+    public View np() {
         View inflate = LayoutInflater.from(this.mContext).inflate(i.g.frs_item_control, (ViewGroup) null);
-        this.aXf = new a();
-        this.aXf.aYg = (FrameLayout) inflate.findViewById(i.f.frs_list_control);
-        this.aXf.aYh = (LinearLayout) inflate.findViewById(i.f.frs_list_control_in);
-        this.aXf.aYj = (ProgressBar) inflate.findViewById(i.f.frs_list_control_progress);
-        this.aXf.aYi = (TextView) inflate.findViewById(i.f.frs_list_control_tv);
-        inflate.setTag(this.aXf);
+        this.aXo = new a();
+        this.aXo.aYp = (FrameLayout) inflate.findViewById(i.f.frs_list_control);
+        this.aXo.aYq = (LinearLayout) inflate.findViewById(i.f.frs_list_control_in);
+        this.aXo.aYs = (ProgressBar) inflate.findViewById(i.f.frs_list_control_progress);
+        this.aXo.aYr = (TextView) inflate.findViewById(i.f.frs_list_control_tv);
+        inflate.setTag(this.aXo);
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
         return inflate;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.aXf != null) {
-            com.baidu.tbadk.core.util.an.i(this.aXf.aYh, i.e.frs_item_control_bg);
-            com.baidu.tbadk.core.util.an.c(this.aXf.aYi, i);
+        if (this.aXo != null) {
+            com.baidu.tbadk.core.util.an.i(this.aXo.aYq, i.e.frs_item_control_bg);
+            com.baidu.tbadk.core.util.an.c(this.aXo.aYr, i);
         }
     }
 
-    public void cb(boolean z) {
-        this.aYf = z;
-        if (this.aXf != null) {
-            this.aXf.aYg.setVisibility(0);
-            this.aXf.aYg.setPadding(0, this.aSR, 0, 0);
+    public void cd(boolean z) {
+        this.aYo = z;
+        if (this.aXo != null) {
+            this.aXo.aYp.setVisibility(0);
+            this.aXo.aYp.setPadding(0, this.aSZ, 0, 0);
             if (z) {
-                this.aXf.aYi.setText(i.h.loading);
-                this.aXf.aYj.setVisibility(0);
+                this.aXo.aYr.setText(i.h.loading);
+                this.aXo.aYs.setVisibility(0);
                 return;
             }
-            this.aXf.aYi.setText(i.h.frs_pre);
-            this.aXf.aYj.setVisibility(8);
+            this.aXo.aYr.setText(i.h.frs_pre);
+            this.aXo.aYs.setVisibility(8);
         }
     }
 
     public void j(View.OnClickListener onClickListener) {
-        this.adY = onClickListener;
+        this.aed = onClickListener;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void onClick() {
-        if (this.adY != null) {
-            this.adY.onClick(getView());
+        if (this.aed != null) {
+            this.aed.onClick(getView());
         }
     }
 }

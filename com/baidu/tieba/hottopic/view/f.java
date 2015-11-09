@@ -16,11 +16,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements AdapterView.OnItemClickListener {
-    final /* synthetic */ e bqw;
+    final /* synthetic */ e bra;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.bqw = eVar;
+        this.bra = eVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -28,14 +28,14 @@ public class f implements AdapterView.OnItemClickListener {
         List list;
         RelateTopicForumActivity relateTopicForumActivity;
         if (i >= 0) {
-            list = this.bqw.bqu;
+            list = this.bra.bqY;
             RelateForumItemData relateForumItemData = (RelateForumItemData) list.get(i);
-            if (relateForumItemData != null && as.aP(relateForumItemData.forumName)) {
+            if (relateForumItemData != null && as.aN(relateForumItemData.forumName)) {
                 if (relateForumItemData.forumId != 0) {
-                    TiebaStatic.log(new aq("c10371").ae(ImageViewerConfig.FORUM_ID, String.valueOf(relateForumItemData.forumId)).r("obj_type", com.baidu.tieba.hottopic.data.d.boZ));
+                    TiebaStatic.log(new aq("c10371").ae(ImageViewerConfig.FORUM_ID, String.valueOf(relateForumItemData.forumId)).r("obj_type", com.baidu.tieba.hottopic.data.d.bpD));
                 }
                 MessageManager messageManager = MessageManager.getInstance();
-                relateTopicForumActivity = this.bqw.bqs;
+                relateTopicForumActivity = this.bra.bqW;
                 messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(relateTopicForumActivity.getActivity()).createNormalCfg(relateForumItemData.forumName, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
             }
         }

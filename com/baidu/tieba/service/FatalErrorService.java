@@ -52,7 +52,7 @@ public class FatalErrorService extends BdBaseService {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<String, Integer, String> {
-        private w afh = null;
+        private w afm = null;
         Intent intent;
 
         public a(Intent intent) {
@@ -130,12 +130,12 @@ public class FatalErrorService extends BdBaseService {
                                         }
                                         return;
                                     }
-                                    this.afh = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
-                                    this.afh.d("logfile", byteArray);
+                                    this.afm = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + str);
+                                    this.afm.d("logfile", byteArray);
                                     if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
-                                        this.afh.o(FatalErrorService.ERROR_TYPE_KEY, str2);
+                                        this.afm.o(FatalErrorService.ERROR_TYPE_KEY, str2);
                                     }
-                                    this.afh.tG();
+                                    this.afm.tJ();
                                     if (byteArrayOutputStream2 != null) {
                                         byteArrayOutputStream2.close();
                                         byteArrayOutputStream3 = null;
@@ -204,7 +204,7 @@ public class FatalErrorService extends BdBaseService {
                                         fileInputStream2 = fileInputStream;
                                     }
                                     try {
-                                        if (this.afh.ue().uW().qS()) {
+                                        if (this.afm.uh().va().qT()) {
                                             if (z2) {
                                                 x(file);
                                             }
@@ -376,8 +376,8 @@ public class FatalErrorService extends BdBaseService {
             try {
                 a(n.cJ(TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                 a(n.cJ(TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                if (!TbConfig.getVersion().equals(com.baidu.tbadk.core.sharedPref.b.tr().getString("native_crash_dump_version", ""))) {
-                    com.baidu.tbadk.core.sharedPref.b.tr().putString("native_crash_dump_version", TbConfig.getVersion());
+                if (!TbConfig.getVersion().equals(com.baidu.tbadk.core.sharedPref.b.tu().getString("native_crash_dump_version", ""))) {
+                    com.baidu.tbadk.core.sharedPref.b.tu().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
                 }
                 File cJ = n.cJ(TbConfig.FATAL_ERROR_NATIVE_DIR);
@@ -408,7 +408,7 @@ public class FatalErrorService extends BdBaseService {
                             fileWriter = new FileWriter(file, true);
                             try {
                                 fileWriter.append("\n##TIEBA_NATIVE##\n");
-                                a(fileWriter, as.uD(), null);
+                                a(fileWriter, as.uH(), null);
                                 a(fileWriter, "version", TbConfig.getVersion());
                                 a(fileWriter, "model", Build.MODEL);
                                 a(fileWriter, "android_version", Build.VERSION.RELEASE);
@@ -455,8 +455,8 @@ public class FatalErrorService extends BdBaseService {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.afh != null) {
-                this.afh.gJ();
+            if (this.afm != null) {
+                this.afm.gJ();
             }
             FatalErrorService.this.mTask = null;
             super.cancel(true);

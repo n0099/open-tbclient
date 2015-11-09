@@ -9,14 +9,14 @@ import com.baidu.tieba.i;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.e {
-    private a awr;
-    private final com.baidu.adp.framework.listener.a aws;
+    private a avf;
+    private final com.baidu.adp.framework.listener.a avg;
 
     public b(BaseActivity<?> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.aws = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.awr = aVar;
-        registerListener(this.aws);
+        this.avg = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
+        this.avf = aVar;
+        registerListener(this.avg);
     }
 
     @Override // com.baidu.adp.base.e
@@ -29,10 +29,10 @@ public class b extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void Dw() {
-        if (!e.Dx().Dy()) {
-            if (this.awr != null) {
-                this.awr.Du();
+    public void Dp() {
+        if (!e.Dq().Dr()) {
+            if (this.avf != null) {
+                this.avf.Dn();
                 return;
             }
             return;
@@ -50,19 +50,19 @@ public class b extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         if (dataRes == null || dataRes.payType == null) {
-            if (this.awr != null) {
-                this.awr.onError(TbadkCoreApplication.m411getInst().getString(i.h.data_load_error));
+            if (this.avf != null) {
+                this.avf.onError(TbadkCoreApplication.m411getInst().getString(i.h.data_load_error));
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
-            if (this.awr != null) {
-                this.awr.Dv();
+            if (this.avf != null) {
+                this.avf.Do();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
-            if (this.awr != null) {
-                this.awr.Du();
+            if (this.avf != null) {
+                this.avf.Dn();
             }
-        } else if (this.awr != null) {
-            this.awr.onError("");
+        } else if (this.avf != null) {
+            this.avf.onError("");
         }
     }
 }

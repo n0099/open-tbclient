@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class a extends RelativeLayout {
-    private TextView clR;
-    private RadioButton clS;
+    private TextView cng;
+    private RadioButton cnh;
     private Context mContext;
 
     public a(Context context) {
@@ -23,51 +23,51 @@ public class a extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(this.mContext).inflate(i.g.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
-        this.clR = (TextView) findViewById(i.f.custom_check_radio_button_tv);
-        this.clS = (RadioButton) findViewById(i.f.custom_check_radio_button_rb);
-        agP();
+        this.cng = (TextView) findViewById(i.f.custom_check_radio_button_tv);
+        this.cnh = (RadioButton) findViewById(i.f.custom_check_radio_button_rb);
+        ahv();
         setOnClickListener(new b(this));
     }
 
-    public void agP() {
-        if (this.clR != null) {
-            an.a(this.clR, "cp_link_tip_a");
+    public void ahv() {
+        if (this.cng != null) {
+            an.a(this.cng, "cp_link_tip_a");
         }
     }
 
     public TextView getTv() {
-        return this.clR;
+        return this.cng;
     }
 
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        if (this.clS != null) {
-            this.clS.setOnCheckedChangeListener(onCheckedChangeListener);
+        if (this.cnh != null) {
+            this.cnh.setOnCheckedChangeListener(onCheckedChangeListener);
         }
     }
 
     public RadioButton getRb() {
-        return this.clS;
+        return this.cnh;
     }
 
     public void setText(String str) {
-        if (this.clR != null) {
-            this.clR.setText(str);
+        if (this.cng != null) {
+            this.cng.setText(str);
         }
     }
 
     @Override // android.view.View
     public void setTag(Object obj) {
-        if (this.clS != null) {
-            this.clS.setTag(obj);
+        if (this.cnh != null) {
+            this.cnh.setTag(obj);
         }
     }
 
     @Override // android.view.View
     public Object getTag() {
-        return this.clS.getTag();
+        return this.cnh.getTag();
     }
 
     public void setChecked(boolean z) {
-        this.clS.setChecked(z);
+        this.cnh.setChecked(z);
     }
 }

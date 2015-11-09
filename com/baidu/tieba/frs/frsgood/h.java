@@ -6,11 +6,11 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class h implements com.baidu.adp.widget.ListView.w {
-    final /* synthetic */ FrsGoodActivity aZM;
+    final /* synthetic */ FrsGoodActivity baf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(FrsGoodActivity frsGoodActivity) {
-        this.aZM = frsGoodActivity;
+        this.baf = frsGoodActivity;
     }
 
     @Override // com.baidu.adp.widget.ListView.w
@@ -23,43 +23,43 @@ class h implements com.baidu.adp.widget.ListView.w {
         if (bdUniqueId == null) {
             return false;
         }
-        if (bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TO.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TP.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TQ.getId()) {
-            this.aZM.aTY = (com.baidu.tbadk.core.data.w) uVar;
-            wVar = this.aZM.aTY;
+        if (bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TP.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TQ.getId() || bdUniqueId.getId() == com.baidu.tbadk.core.data.b.TR.getId()) {
+            this.baf.aUg = (com.baidu.tbadk.core.data.w) uVar;
+            wVar = this.baf.aUg;
             if (wVar instanceof com.baidu.tbadk.core.data.b) {
-                wVar2 = this.aZM.aTY;
+                wVar2 = this.baf.aUg;
                 com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) wVar2;
-                if (bVar.ro()) {
+                if (bVar.rp()) {
                     return false;
                 }
-                if (bVar.TU == 0) {
-                    this.aZM.a(bVar, i);
+                if (bVar.TV == 0) {
+                    this.baf.a(bVar, i);
                 }
-                TiebaStatic.eventStat(this.aZM.getPageContext().getPageActivity(), "frs_tb_arc", "");
+                TiebaStatic.eventStat(this.baf.getPageContext().getPageActivity(), "frs_tb_arc", "");
             }
-        } else if (bdUniqueId.getId() != com.baidu.tbadk.core.data.b.TR.getId() && bdUniqueId.getId() != com.baidu.tbadk.core.data.b.TS.getId() && bdUniqueId.getId() != com.baidu.tbadk.core.data.b.TT.getId()) {
-            this.aZM.aTY = (com.baidu.tbadk.core.data.w) uVar;
-            FrsGoodActivity frsGoodActivity = this.aZM;
-            wVar3 = this.aZM.aTY;
+        } else if (bdUniqueId.getId() != com.baidu.tbadk.core.data.b.TS.getId() && bdUniqueId.getId() != com.baidu.tbadk.core.data.b.TT.getId() && bdUniqueId.getId() != com.baidu.tbadk.core.data.b.TU.getId()) {
+            this.baf.aUg = (com.baidu.tbadk.core.data.w) uVar;
+            FrsGoodActivity frsGoodActivity = this.baf;
+            wVar3 = this.baf.aUg;
             frsGoodActivity.mThreadId = wVar3.getId();
-            wVar4 = this.aZM.aTY;
-            String si = wVar4.si();
-            if (si == null || si.equals("")) {
-                this.aZM.aTS = false;
+            wVar4 = this.baf.aUg;
+            String sl = wVar4.sl();
+            if (sl == null || sl.equals("")) {
+                this.baf.aUa = false;
             } else {
-                this.aZM.aTS = true;
+                this.baf.aUa = true;
             }
-            FrsGoodActivity frsGoodActivity2 = this.aZM;
-            wVar5 = this.aZM.aTY;
+            FrsGoodActivity frsGoodActivity2 = this.baf;
+            wVar5 = this.baf.aUg;
             frsGoodActivity2.a(wVar5);
-            this.aZM.aZG.LJ();
+            this.baf.aZZ.LZ();
         } else if (uVar instanceof com.baidu.tbadk.core.data.b) {
             com.baidu.tbadk.core.data.b bVar2 = (com.baidu.tbadk.core.data.b) uVar;
-            if (bVar2.rn()) {
-                if (bVar2.TU == 0) {
-                    this.aZM.a(bVar2, i);
+            if (bVar2.ro()) {
+                if (bVar2.TV == 0) {
+                    this.baf.a(bVar2, i);
                 }
-                TiebaStatic.eventStat(this.aZM.getPageContext().getPageActivity(), "frs_tb_arc", "");
+                TiebaStatic.eventStat(this.baf.getPageContext().getPageActivity(), "frs_tb_arc", "");
             }
         }
         return true;

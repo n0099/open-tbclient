@@ -65,15 +65,15 @@ public class a {
         this.wM = System.currentTimeMillis();
     }
 
-    public int hJ() {
+    public int hK() {
         return this.wK;
     }
 
-    public int hK() {
+    public int hL() {
         return this.wL;
     }
 
-    public long hL() {
+    public long hM() {
         return this.wN;
     }
 
@@ -81,19 +81,19 @@ public class a {
         this.wN = j;
     }
 
-    public long hM() {
+    public long hN() {
         return this.wz;
     }
 
-    public long hN() {
+    public long hO() {
         return this.wM;
     }
 
-    public String hO() {
+    public String hP() {
         if (TextUtils.isEmpty(this.wT)) {
             StringBuilder sb = new StringBuilder(30);
             sb.append(this.wR);
-            sb.append(com.baidu.adp.lib.stats.a.hi().ho());
+            sb.append(com.baidu.adp.lib.stats.a.hj().hp());
             sb.append("Writing");
             sb.append(".log");
             this.wT = sb.toString();
@@ -101,21 +101,21 @@ public class a {
         return this.wT;
     }
 
-    public String hP() {
+    public String hQ() {
         StringBuilder sb = new StringBuilder(40);
         sb.append(this.wR);
         sb.append(System.currentTimeMillis());
-        sb.append(com.baidu.adp.lib.stats.a.hi().ho());
+        sb.append(com.baidu.adp.lib.stats.a.hj().hp());
         sb.append("Uploading");
         sb.append(".log");
         return sb.toString();
     }
 
-    public long hQ() {
+    public long hR() {
         return this.wO;
     }
 
-    public long hR() {
+    public long hS() {
         return this.wP;
     }
 
@@ -127,29 +127,29 @@ public class a {
         this.wP = j;
     }
 
-    public synchronized void hS() {
+    public synchronized void hT() {
         this.wI = new StringBuffer();
         this.wK = 0;
         this.wO = 0L;
     }
 
-    public synchronized void hT() {
+    public synchronized void hU() {
         this.wJ = new StringBuffer();
         this.wL = 0;
         this.wP = 0L;
     }
 
-    public void at(String str) {
+    public void ar(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.wH = str;
         }
     }
 
-    public String hU() {
+    public String hV() {
         return this.wH;
     }
 
-    public boolean hV() {
+    public boolean hW() {
         return this.isUploading;
     }
 
@@ -157,31 +157,31 @@ public class a {
         this.isUploading = z;
     }
 
-    public String hW() {
+    public String hX() {
         return "omp";
     }
 
-    public StringBuffer hX() {
+    public StringBuffer hY() {
         return this.wI;
     }
 
-    public StringBuffer hY() {
+    public StringBuffer hZ() {
         return this.wJ;
     }
 
-    public boolean hZ() {
+    public boolean ia() {
         return this.mUseSdCard;
     }
 
-    public boolean ia() {
+    public boolean ib() {
         return this.mMustSuccess;
     }
 
-    public String ib() {
+    public String ic() {
         return this.wR;
     }
 
-    public static String au(String str) {
+    public static String as(String str) {
         if ("net".equals(str) || "op".equals(str) || "crash".equals(str) || AddFriendActivityConfig.MSG.equals(str)) {
             return "error";
         }

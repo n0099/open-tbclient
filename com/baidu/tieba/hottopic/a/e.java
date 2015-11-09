@@ -10,20 +10,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements View.OnClickListener {
-    private final /* synthetic */ w aXr;
-    final /* synthetic */ a bog;
+    private final /* synthetic */ w aXA;
+    final /* synthetic */ a boK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar, w wVar) {
-        this.bog = aVar;
-        this.aXr = wVar;
+        this.boK = aVar;
+        this.aXA = wVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.bog.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXr.getAuthor().getUserId(), this.aXr.getAuthor().getName_show())));
+        context = this.boK.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXA.getAuthor().getUserId(), this.aXA.getAuthor().getName_show())));
     }
 }

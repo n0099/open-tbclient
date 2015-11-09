@@ -12,34 +12,34 @@ import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class r extends BaseAdapter {
-    private List<GiftCommonList.NumInfo> bmK;
+    private List<GiftCommonList.NumInfo> bno;
     private Context mContext;
 
     public r(Context context) {
         this.mContext = context;
     }
 
-    public void az(List<GiftCommonList.NumInfo> list) {
-        this.bmK = list;
+    public void aD(List<GiftCommonList.NumInfo> list) {
+        this.bno = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bmK == null) {
+        if (this.bno == null) {
             return 1;
         }
-        return this.bmK.size() + 1;
+        return this.bno.size() + 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: gC */
+    /* renamed from: gP */
     public GiftCommonList.NumInfo getItem(int i) {
-        if (this.bmK == null || i < 0 || i >= getCount() - 1) {
+        if (this.bno == null || i < 0 || i >= getCount() - 1) {
             return null;
         }
-        return this.bmK.get(i);
+        return this.bno.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -63,34 +63,34 @@ public class r extends BaseAdapter {
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(i.g.gift_num_item, (ViewGroup) null);
             a aVar2 = new a(this, null);
-            aVar2.bmL = (TextView) view.findViewById(i.f.text);
-            aVar2.Xl = view.findViewById(i.f.divider);
+            aVar2.bnp = (TextView) view.findViewById(i.f.text);
+            aVar2.Xo = view.findViewById(i.f.divider);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         an.i(view, i.e.list_item_selector);
-        an.b(aVar.bmL, i.c.cp_cont_b, 1);
-        an.j(aVar.Xl, i.c.cp_bg_line_b);
+        an.b(aVar.bnp, i.c.cp_cont_b, 1);
+        an.j(aVar.Xo, i.c.cp_bg_line_b);
         GiftCommonList.NumInfo item = getItem(i);
         if (getItemViewType(i) == 1) {
-            aVar.bmL.setText(i.h.custom_num);
-            aVar.Xl.setVisibility(4);
+            aVar.bnp.setText(i.h.custom_num);
+            aVar.Xo.setVisibility(4);
         } else if (item != null) {
-            aVar.bmL.setText(String.valueOf(item.getNum() <= 0 ? 1 : item.getNum()) + (item.getName() == null ? "" : item.getName()));
-            aVar.Xl.setVisibility(0);
+            aVar.bnp.setText(String.valueOf(item.getNum() <= 0 ? 1 : item.getNum()) + (item.getName() == null ? "" : item.getName()));
+            aVar.Xo.setVisibility(0);
         } else {
-            aVar.bmL.setText("");
-            aVar.Xl.setVisibility(0);
+            aVar.bnp.setText("");
+            aVar.Xo.setVisibility(0);
         }
         return view;
     }
 
     /* loaded from: classes.dex */
     private class a {
-        public View Xl;
-        public TextView bmL;
+        public View Xo;
+        public TextView bnp;
 
         private a() {
         }

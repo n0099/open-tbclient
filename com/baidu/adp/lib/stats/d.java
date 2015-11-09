@@ -58,10 +58,10 @@ public class d {
                     this.wj.append(next.getName());
                     this.wj.append('=');
                     try {
-                        this.wj.append(URLEncoder.encode(aq(next.getValue()), "utf-8"));
+                        this.wj.append(URLEncoder.encode(ao(next.getValue()), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        this.wj.append(aq(next.getValue()));
+                        this.wj.append(ao(next.getValue()));
                     }
                 }
             }
@@ -90,10 +90,10 @@ public class d {
             this.wj.append(str);
             this.wj.append("=");
             try {
-                this.wj.append(URLEncoder.encode(aq(str2), "utf-8"));
+                this.wj.append(URLEncoder.encode(ao(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.wj.append(aq(str2));
+                this.wj.append(ao(str2));
             }
         }
     }
@@ -112,15 +112,15 @@ public class d {
         return null;
     }
 
-    public void hy() {
+    public void hz() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long hz() {
+    public long hA() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    public static String aq(String str) {
+    public static String ao(String str) {
         return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
     }
 }

@@ -1,157 +1,273 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.cloudsdk.social.core.SocialConstants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
+import android.graphics.drawable.BitmapDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.SignData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import org.json.JSONObject;
+import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.LiveRoomEntranceActivityConfig;
+import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class eh extends com.baidu.adp.base.e {
-    private a aZB;
-    private String mForumId;
-    private String mForumName;
-
-    public eh(BaseActivity baseActivity) {
-        super(baseActivity.getPageContext());
-        this.mForumName = null;
-        this.mForumId = null;
-        this.aZB = null;
-    }
-
-    @Override // com.baidu.adp.base.e
-    protected boolean LoadData() {
-        return false;
-    }
-
-    @Override // com.baidu.adp.base.e
-    public boolean cancelLoadData() {
-        return false;
-    }
-
-    public void MA() {
-        if (this.aZB != null) {
-            this.aZB.cancel();
-            this.aZB = null;
-        }
-    }
-
-    public void au(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.aZB == null) {
-            this.mForumName = str;
-            this.mForumId = str2;
-            this.aZB = new a(this, null);
-            this.aZB.setPriority(2);
-            this.aZB.execute(new Object[0]);
-            TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_start_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-        }
-    }
+public class eh extends com.baidu.adp.base.f<FrsActivity> {
+    private View LT;
+    private LinearLayout aZA;
+    public TextView aZB;
+    private TextView aZC;
+    private View aZD;
+    private View aZE;
+    private TextView aZF;
+    private TextView aZG;
+    private TextView aZH;
+    private View.OnClickListener aZI;
+    private boolean aZJ;
+    private final BdSwitchView.a aZK;
+    private RelativeLayout aZo;
+    private BdSwitchView aZp;
+    private BdSwitchView aZq;
+    private TextView aZr;
+    private TextView aZs;
+    private LinearLayout aZt;
+    private LinearLayout aZu;
+    private LinearLayout aZv;
+    private LinearLayout aZw;
+    private TextView aZx;
+    private TextView aZy;
+    private TextView aZz;
+    private View mRootView;
 
     /* loaded from: classes.dex */
-    private class a extends BdAsyncTask<Object, Integer, SignData> {
-        private volatile com.baidu.tbadk.core.util.w afh;
+    public class a {
+        public String aZM;
+        public String name;
+    }
 
-        private a() {
-            this.afh = null;
+    public eh(TbPageContext<FrsActivity> tbPageContext) {
+        super(tbPageContext);
+        this.aZo = null;
+        this.aZp = null;
+        this.aZq = null;
+        this.LT = null;
+        this.aZr = null;
+        this.aZs = null;
+        this.aZt = null;
+        this.aZu = null;
+        this.aZv = null;
+        this.aZw = null;
+        this.aZx = null;
+        this.aZy = null;
+        this.aZz = null;
+        this.aZA = null;
+        this.aZB = null;
+        this.aZC = null;
+        this.aZD = null;
+        this.aZI = null;
+        this.aZK = new ei(this);
+        initUI();
+    }
+
+    public View getView() {
+        return this.LT;
+    }
+
+    public void init() {
+        MO();
+        MP();
+    }
+
+    private void MK() {
+        this.mRootView = this.LT.findViewById(i.f.scroll_view);
+        this.mRootView.setBackgroundDrawable(new BitmapDrawable(com.baidu.tbadk.core.util.an.cz(i.e.s_leftbar_bg)));
+    }
+
+    private void initUI() {
+        this.LT = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.frs_sidebar, (ViewGroup) null);
+        MK();
+        this.LT.setBackgroundDrawable(new BitmapDrawable(com.baidu.tbadk.core.util.an.cz(i.e.s_rightbar_bg)));
+        this.aZt = (LinearLayout) this.LT.findViewById(i.f.post_search_ll);
+        this.aZu = (LinearLayout) this.LT.findViewById(i.f.show_content);
+        this.aZC = (TextView) this.LT.findViewById(i.f.add_recommend);
+        this.aZD = this.LT.findViewById(i.f.recommend_forum_layout_line);
+        this.aZB = (TextView) this.LT.findViewById(i.f.forum_manager_center);
+        this.aZB.setVisibility(8);
+        this.aZq = (BdSwitchView) this.LT.findViewById(i.f.thrift_mode_switch);
+        com.baidu.adp.lib.util.k.a(this.mContext.getPageActivity(), this.aZq, 10, 10, 10, 10);
+        this.aZo = (RelativeLayout) this.LT.findViewById(i.f.eyeshield_mode);
+        this.aZp = (BdSwitchView) this.LT.findViewById(i.f.eyeshield_mode_switch);
+        com.baidu.adp.lib.util.k.a(this.mContext.getPageActivity(), this.aZp, 10, 10, 10, 10);
+        this.aZp.a(com.baidu.tbadk.core.util.an.cw(i.e.s_switch_open_bg), com.baidu.tbadk.core.util.an.cw(i.e.s_switch_close_bg), com.baidu.tbadk.core.util.an.cw(i.e.btn_game_handle_2));
+        this.aZq.a(com.baidu.tbadk.core.util.an.cw(i.e.s_switch_open_bg), com.baidu.tbadk.core.util.an.cw(i.e.s_switch_close_bg), com.baidu.tbadk.core.util.an.cw(i.e.btn_game_handle_2));
+        this.aZr = (TextView) this.LT.findViewById(i.f.message_btn);
+        this.aZs = (TextView) this.LT.findViewById(i.f.mention_btn);
+        this.aZv = (LinearLayout) this.LT.findViewById(i.f.message_layout);
+        this.aZw = (LinearLayout) this.LT.findViewById(i.f.mention_layout);
+        this.aZx = (TextView) this.LT.findViewById(i.f.history_tv);
+        this.aZy = (TextView) this.LT.findViewById(i.f.bar_info_tv);
+        this.aZz = (TextView) this.LT.findViewById(i.f.bar_live_tv);
+        this.aZA = (LinearLayout) this.LT.findViewById(i.f.recommend_forum_layout);
+        this.aZF = (TextView) this.LT.findViewById(i.f.frs_sidebar_good_tv);
+        this.aZH = (TextView) this.LT.findViewById(i.f.bar_share_tv);
+        this.aZG = (TextView) this.LT.findViewById(i.f.frs_sidebar_add_to_desktop);
+        this.aZE = this.LT.findViewById(i.f.unfollow_layout);
+        if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(PbHistoryActivityConfig.class)) {
+            this.aZx.setVisibility(8);
         }
-
-        /* synthetic */ a(eh ehVar, a aVar) {
-            this();
+        if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(ForumDetailActivityConfig.class)) {
+            this.aZy.setVisibility(8);
         }
-
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
+        if (!ML()) {
+            this.aZo.setVisibility(8);
+            this.aZp.setVisibility(8);
         }
+        if (UtilHelper.canUseStyleImmersiveSticky()) {
+            this.aZu.addView(createStateBarFillView(), 0);
+        }
+        if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(LiveRoomEntranceActivityConfig.class)) {
+            this.aZz.setVisibility(8);
+        }
+    }
 
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x00d7 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x00a6 */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:? */
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Type inference failed for: r0v17 */
-        /* JADX WARN: Type inference failed for: r0v18 */
-        /* JADX WARN: Type inference failed for: r0v19 */
-        /* JADX WARN: Type inference failed for: r0v23, types: [boolean] */
-        /* JADX WARN: Type inference failed for: r0v30 */
-        /* JADX WARN: Type inference failed for: r0v31 */
-        /* JADX WARN: Type inference failed for: r0v4 */
-        /* JADX WARN: Type inference failed for: r0v5, types: [com.baidu.tbadk.core.data.SignData] */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: s */
-        public SignData doInBackground(Object... objArr) {
-            Object obj;
-            Exception e;
-            String tD;
-            JSONObject jSONObject;
-            TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-            Object obj2 = null;
-            try {
-                TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_do_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-                this.afh = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.SIGN_ADDRESS);
-                this.afh.o("kw", eh.this.mForumName);
-                this.afh.o(ImageViewerConfig.FORUM_ID, eh.this.mForumId);
-                this.afh.ue().uV().mIsNeedTbs = true;
-                tD = this.afh.tD();
-            } catch (Exception e2) {
-                obj = obj2;
-                e = e2;
+    @Override // com.baidu.adp.base.f
+    public void destroy() {
+        if (this.mRootView != null) {
+            this.mRootView.setBackgroundDrawable(null);
+        }
+    }
+
+    private View createStateBarFillView() {
+        View view = new View(this.mContext.getPageActivity());
+        view.setLayoutParams(new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
+        return view;
+    }
+
+    public boolean ML() {
+        return MessageManager.getInstance().runTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, Boolean.class) != null;
+    }
+
+    public void ci(boolean z) {
+        this.aZE.setVisibility(z ? 0 : 8);
+    }
+
+    public void setIsManager(boolean z) {
+        if (z) {
+            this.aZB.setVisibility(0);
+        } else {
+            this.aZB.setVisibility(8);
+        }
+    }
+
+    public BdSwitchView MM() {
+        return this.aZp;
+    }
+
+    public boolean MN() {
+        return this.aZJ;
+    }
+
+    public void cj(boolean z) {
+        this.aZJ = z;
+    }
+
+    public void MO() {
+        if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
+            this.aZp.mC();
+        } else {
+            this.aZp.mD();
+        }
+    }
+
+    public void MP() {
+        this.aZq.setOnSwitchStateChangeListener(null);
+        if (com.baidu.tbadk.core.m.qV().qZ()) {
+            this.aZq.mC();
+        } else {
+            this.aZq.mD();
+        }
+        this.aZq.setOnSwitchStateChangeListener(this.aZK);
+    }
+
+    public void a(dg dgVar, boolean z, boolean z2) {
+        if (!z && !z2) {
+            this.aZr.setVisibility(4);
+            this.aZs.setVisibility(4);
+            return;
+        }
+        long j = 0;
+        if (z) {
+            if (dgVar != null) {
+                j = dgVar.MG();
             }
-            if (this.afh.uh()) {
-                obj = this.afh.ue().uW().qS();
-                try {
-                    if (obj != 0) {
-                        SignData signData = new SignData();
-                        signData.parserJson(tD);
-                        obj = signData;
-                    } else if (!com.baidu.tbadk.core.util.as.isEmpty(tD) && (jSONObject = new JSONObject(tD)) != null && "199901".equals(jSONObject.optString(SocialConstants.PARAM_ERROR_CODE))) {
-                        SignData signData2 = new SignData();
-                        signData2.parserJson(tD);
-                        signData2.setIsSigned(1);
-                        signData2.setCountSignNum(1);
-                        obj2 = null;
-                        signData2.setBonusPoint(0);
-                        obj = signData2;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    BdLog.e(e.getMessage());
-                    return obj;
+            c(this.aZr, j);
+        } else {
+            this.aZr.setVisibility(4);
+        }
+        if (z2) {
+            if (dgVar != null) {
+                j = dgVar.MF();
+            }
+            c(this.aZs, j);
+            return;
+        }
+        this.aZs.setVisibility(4);
+    }
+
+    private void c(TextView textView, long j) {
+        if (textView != null) {
+            if (j > 0) {
+                textView.setVisibility(0);
+                if (j < 10) {
+                    textView.setText(String.valueOf(j));
+                    com.baidu.tbadk.core.util.an.i((View) textView, i.e.icon_news_head_prompt_one);
+                    return;
+                } else if (j < 100) {
+                    textView.setText(String.valueOf(j));
+                    com.baidu.tbadk.core.util.an.i((View) textView, i.e.icon_news_head_prompt_two);
+                    return;
+                } else {
+                    textView.setText("   ");
+                    com.baidu.tbadk.core.util.an.i((View) textView, i.e.icon_news_head_prompt_more);
+                    return;
                 }
-                return obj;
             }
-            obj = 0;
-            return obj;
+            textView.setVisibility(4);
         }
+    }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            if (this.afh != null) {
-                this.afh.gJ();
-            }
-            eh.this.aZB = null;
-            super.cancel(true);
-            eh.this.mLoadDataCallBack.d(null);
-        }
+    public void setCommonClickListener(View.OnClickListener onClickListener) {
+        this.aZI = onClickListener;
+        this.aZv.setOnClickListener(this.aZI);
+        this.aZw.setOnClickListener(this.aZI);
+        this.aZx.setOnClickListener(this.aZI);
+        this.aZy.setOnClickListener(this.aZI);
+        this.aZB.setOnClickListener(this.aZI);
+        this.aZE.setOnClickListener(this.aZI);
+        this.aZt.setOnClickListener(this.aZI);
+        this.aZF.setOnClickListener(this.aZI);
+        this.aZG.setOnClickListener(this.aZI);
+        this.aZH.setOnClickListener(this.aZI);
+        this.aZz.setOnClickListener(this.aZI);
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: a */
-        public void onPostExecute(SignData signData) {
-            TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-            eh.this.aZB = null;
-            TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getContext(), "sign_end_time", new StringBuilder(String.valueOf(System.currentTimeMillis())).toString());
-            if (signData == null && this.afh != null) {
-                eh.this.mErrorCode = this.afh.ui();
-                eh.this.mErrorString = this.afh.getErrorString();
-            }
-            eh.this.mLoadDataCallBack.d(signData);
+    public void changeSkinType(int i) {
+        com.baidu.tbadk.core.c layoutMode = ((TbPageContext) this.mContext).getLayoutMode();
+        layoutMode.ad(i == 1);
+        layoutMode.k(this.LT);
+        if (i == 1) {
+            this.aZp.mC();
+        } else {
+            this.aZp.mD();
         }
+        this.LT.setBackgroundDrawable(new BitmapDrawable(com.baidu.tbadk.core.util.an.cz(i.e.s_rightbar_bg)));
+        this.aZp.a(com.baidu.tbadk.core.util.an.cw(i.e.s_switch_open_bg), com.baidu.tbadk.core.util.an.cw(i.e.s_switch_close_bg), com.baidu.tbadk.core.util.an.cw(i.e.btn_game_handle_2));
+        this.aZq.a(com.baidu.tbadk.core.util.an.cw(i.e.s_switch_open_bg), com.baidu.tbadk.core.util.an.cw(i.e.s_switch_close_bg), com.baidu.tbadk.core.util.an.cw(i.e.btn_game_handle_2));
     }
 }

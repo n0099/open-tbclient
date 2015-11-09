@@ -1,76 +1,48 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import java.util.LinkedList;
-import java.util.Queue;
+import android.graphics.Bitmap;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
-public class i {
-    private static i acH = null;
-    private Queue<a> acI = new LinkedList();
-    private BdAsyncTaskParallel acJ = null;
-    private BdAsyncTaskParallel acK = null;
-    private float acL = 0.0f;
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public class a {
-        public long acM;
-        public int uL;
-
-        private a() {
-            this.uL = 0;
-            this.acM = 0L;
-        }
-
-        /* synthetic */ a(i iVar, a aVar) {
-            this();
-        }
+public class i extends a {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public int getWidth() {
+        return 0;
     }
 
-    public static i vk() {
-        if (acH == null) {
-            acH = new i();
-        }
-        return acH;
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public int getHeight() {
+        return 0;
     }
 
-    public void b(int i, long j) {
-        a aVar = new a(this, null);
-        aVar.uL = i;
-        aVar.acM = j;
-        this.acI.offer(aVar);
-        if (this.acI.size() > 5) {
-            this.acI.poll();
-        }
-        if (vl()) {
-            int i2 = 0;
-            for (a aVar2 : this.acI) {
-                if (j > 0) {
-                    i2 = (int) ((aVar2.uL / aVar2.acM) + i2);
-                }
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public boolean isFromCDN() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public boolean vm() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public boolean vn() {
+        return false;
+    }
+
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
+    public com.baidu.adp.widget.a.a f(String str, String str2, Object... objArr) {
+        String str3 = String.valueOf(str) + (TbadkCoreApplication.m411getInst().getSkinType() == 1 ? "_1" : "");
+        com.baidu.adp.widget.a.a fq = com.baidu.tbadk.imageManager.c.BV().fq(str3);
+        if (fq == null) {
+            Bitmap cw = an.cw(com.baidu.adp.lib.g.b.g(str2, 0));
+            if (cw == null) {
+                return null;
             }
-            this.acL = i2 / 5;
+            com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(cw, false, str2);
+            com.baidu.tbadk.imageManager.c.BV().c(str3, aVar);
+            return aVar;
         }
-    }
-
-    public boolean vl() {
-        return this.acI.size() == 5;
-    }
-
-    public BdAsyncTaskParallel he() {
-        if (!com.baidu.adp.lib.util.i.iP()) {
-            return null;
-        }
-        if (vl() && this.acL < 20.0f) {
-            if (this.acJ == null) {
-                this.acJ = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-            }
-            return this.acJ;
-        }
-        if (this.acK == null) {
-            this.acK = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.THREE_PARALLEL, BdUniqueId.gen());
-        }
-        return this.acK;
+        return fq;
     }
 }

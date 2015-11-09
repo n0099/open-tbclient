@@ -26,7 +26,7 @@ public class v {
         return cipher.doFinal(bArr);
     }
 
-    public static SecretKey aW(String str) {
+    public static SecretKey aU(String str) {
         SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         char[] cArr = new char[str.length()];
         for (int i = 0; i < cArr.length; i++) {

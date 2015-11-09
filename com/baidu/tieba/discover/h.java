@@ -7,28 +7,28 @@ import com.baidu.tbadk.coreExtra.view.BannerView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements BannerView.a {
-    final /* synthetic */ a aKG;
-    private final /* synthetic */ String aKI;
+    final /* synthetic */ a aJA;
+    private final /* synthetic */ String aJC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar, String str) {
-        this.aKG = aVar;
-        this.aKI = str;
+        this.aJA = aVar;
+        this.aJC = str;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void yI() {
+    public void yN() {
         BdListView bdListView;
         BannerView bannerView;
-        bdListView = this.aKG.aKp;
-        bannerView = this.aKG.aKs;
+        bdListView = this.aJA.aJj;
+        bannerView = this.aJA.aJm;
         bdListView.removeHeaderView(bannerView);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
-    public void yH() {
-        if (!StringUtils.isNull(this.aKI)) {
-            az.uT().b(this.aKG.getPageContext(), new String[]{this.aKI});
+    public void yM() {
+        if (!StringUtils.isNull(this.aJC)) {
+            az.uX().b(this.aJA.getPageContext(), new String[]{this.aJC});
         }
     }
 }

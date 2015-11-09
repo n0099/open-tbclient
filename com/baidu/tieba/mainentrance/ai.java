@@ -8,18 +8,18 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements a.b {
-    final /* synthetic */ SquareSearchActivity bVC;
+    final /* synthetic */ SquareSearchActivity bWd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(SquareSearchActivity squareSearchActivity) {
-        this.bVC = squareSearchActivity;
+        this.bWd = squareSearchActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x0042, code lost:
         if (r0.size() >= 2) goto L7;
      */
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0044, code lost:
-        r6.bVC.a(4, (java.util.ArrayList<java.lang.String>) null);
+        r6.bWd.a(4, (java.util.ArrayList<java.lang.String>) null);
      */
     /* JADX WARN: Code restructure failed: missing block: B:13:0x004b, code lost:
         return;
@@ -42,50 +42,50 @@ public class ai implements a.b {
         List list3;
         List list4;
         aVar.dismiss();
-        if (this.bVC.mMode != 0) {
-            if (this.bVC.mMode == 3) {
-                this.bVC.bUz.setVisibility(8);
-                SquareSearchActivity squareSearchActivity = this.bVC;
-                scrollView2 = this.bVC.bVh;
-                squareSearchActivity.R(scrollView2);
-                this.bVC.mNoDataView.setVisibility(0);
-                this.bVC.mNoDataView.setTextOption(NoDataViewFactory.d.cK(i.h.text_no_search_record));
-                z = this.bVC.avr;
+        if (this.bWd.mMode != 0) {
+            if (this.bWd.mMode == 3) {
+                this.bWd.bVa.setVisibility(8);
+                SquareSearchActivity squareSearchActivity = this.bWd;
+                scrollView2 = this.bWd.bVI;
+                squareSearchActivity.Q(scrollView2);
+                this.bWd.mNoDataView.setVisibility(0);
+                this.bWd.mNoDataView.setTextOption(NoDataViewFactory.d.cK(i.h.text_no_search_record));
+                z = this.bWd.auf;
                 if (!z) {
                     RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = new RequestSearchPersonHistoryWriteMessage();
                     requestSearchPersonHistoryWriteMessage.setClear(true);
-                    this.bVC.sendMessage(requestSearchPersonHistoryWriteMessage);
-                    this.bVC.avr = true;
+                    this.bWd.sendMessage(requestSearchPersonHistoryWriteMessage);
+                    this.bWd.auf = true;
                     return;
                 }
                 return;
             }
-            SquareSearchActivity squareSearchActivity2 = this.bVC;
-            scrollView = this.bVC.bVh;
-            squareSearchActivity2.R(scrollView);
-            this.bVC.bUz.setVisibility(8);
-            this.bVC.mNoDataView.setVisibility(0);
-            this.bVC.mNoDataView.setTextOption(NoDataViewFactory.d.cK(i.h.text_no_search_record));
-            com.baidu.tieba.tbadkCore.util.m.axB();
+            SquareSearchActivity squareSearchActivity2 = this.bWd;
+            scrollView = this.bWd.bVI;
+            squareSearchActivity2.Q(scrollView);
+            this.bWd.bVa.setVisibility(8);
+            this.bWd.mNoDataView.setVisibility(0);
+            this.bWd.mNoDataView.setTextOption(NoDataViewFactory.d.cK(i.h.text_no_search_record));
+            com.baidu.tieba.tbadkCore.util.m.ayK();
             return;
         }
-        com.baidu.adp.lib.g.k.hh().c(new aj(this));
-        list = this.bVC.bUi;
+        com.baidu.adp.lib.g.k.hi().c(new aj(this));
+        list = this.bWd.bUJ;
         if (list != null) {
-            list4 = this.bVC.bUi;
+            list4 = this.bWd.bUJ;
         }
-        list2 = this.bVC.bUI;
+        list2 = this.bWd.bVj;
         if (list2 != null) {
-            list3 = this.bVC.bUI;
+            list3 = this.bWd.bVj;
         }
-        SquareSearchActivity squareSearchActivity3 = this.bVC;
-        scrollView3 = this.bVC.bVh;
-        squareSearchActivity3.R(scrollView3);
-        SquareSearchActivity squareSearchActivity4 = this.bVC;
-        searchPageFocusBar = this.bVC.bVi;
-        squareSearchActivity4.R(searchPageFocusBar);
-        this.bVC.bUz.setVisibility(8);
-        this.bVC.mNoDataView.setVisibility(0);
-        this.bVC.mNoDataView.setTextOption(NoDataViewFactory.d.cK(i.h.text_no_search_record));
+        SquareSearchActivity squareSearchActivity3 = this.bWd;
+        scrollView3 = this.bWd.bVI;
+        squareSearchActivity3.Q(scrollView3);
+        SquareSearchActivity squareSearchActivity4 = this.bWd;
+        searchPageFocusBar = this.bWd.bVJ;
+        squareSearchActivity4.Q(searchPageFocusBar);
+        this.bWd.bVa.setVisibility(8);
+        this.bWd.mNoDataView.setVisibility(0);
+        this.bWd.mNoDataView.setTextOption(NoDataViewFactory.d.cK(i.h.text_no_search_record));
     }
 }

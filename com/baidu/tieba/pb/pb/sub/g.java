@@ -1,23 +1,19 @@
 package com.baidu.tieba.pb.pb.sub;
+
+import android.view.View;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements Runnable {
-    final /* synthetic */ NewSubPbActivity cmC;
+public class g implements TbRichTextView.e {
+    final /* synthetic */ NewSubPbActivity cnS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(NewSubPbActivity newSubPbActivity) {
-        this.cmC = newSubPbActivity;
+        this.cnS = newSubPbActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        t tVar;
-        ak akVar;
-        ak akVar2;
-        tVar = this.cmC.cmv;
-        akVar = this.cmC.cmt;
-        String ahF = akVar.ahF();
-        akVar2 = this.cmC.cmt;
-        tVar.aY(ahF, akVar2.ahJ());
+    @Override // com.baidu.tbadk.widget.richText.TbRichTextView.e
+    public void b(View view, String str) {
+        this.cnS.g(null, str, "LINK_IMAGE");
     }
 }

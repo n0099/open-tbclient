@@ -30,7 +30,7 @@ public class PhotoLiveCoverData implements Serializable {
         photoLiveCoverData.threadID = wVar.getId();
         photoLiveCoverData.threadTitle = wVar.getTitle();
         photoLiveCoverData.isMarked = wVar.getIsMarked();
-        photoLiveCoverData.forumName = wVar.sg();
+        photoLiveCoverData.forumName = wVar.sj();
         String name = forumData != null ? forumData.getName() : null;
         if (StringUtils.isNull(photoLiveCoverData.forumName) && !StringUtils.isNull(name)) {
             photoLiveCoverData.forumName = name;

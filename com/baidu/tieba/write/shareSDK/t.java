@@ -2,35 +2,35 @@ package com.baidu.tieba.write.shareSDK;
 
 import android.widget.TextView;
 import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tieba.write.write.cd;
+import com.baidu.tieba.write.write.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t implements cd.a {
-    final /* synthetic */ o dmR;
+public class t implements cf.a {
+    final /* synthetic */ o doz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public t(o oVar) {
-        this.dmR = oVar;
+        this.doz = oVar;
     }
 
-    @Override // com.baidu.tieba.write.write.cd.a
-    public void lS(int i) {
+    @Override // com.baidu.tieba.write.write.cf.a
+    public void mg(int i) {
         WriteShareActivity writeShareActivity;
         TextView textView;
         PostPrefixData postPrefixData;
-        cd cdVar;
-        cd cdVar2;
+        cf cfVar;
+        cf cfVar2;
         WriteShareActivity writeShareActivity2;
-        writeShareActivity = this.dmR.dmO;
-        writeShareActivity.lR(i);
-        textView = this.dmR.dmF;
-        postPrefixData = this.dmR.mPrefixData;
+        writeShareActivity = this.doz.dow;
+        writeShareActivity.mf(i);
+        textView = this.doz.don;
+        postPrefixData = this.doz.mPrefixData;
         textView.setText(postPrefixData.getPrefixs().get(i));
-        cdVar = this.dmR.dmG;
-        cdVar.lL(i);
-        this.dmR.aCf();
-        cdVar2 = this.dmR.dmG;
-        writeShareActivity2 = this.dmR.dmO;
-        com.baidu.adp.lib.g.j.a(cdVar2, writeShareActivity2.getPageContext().getPageActivity());
+        cfVar = this.doz.doo;
+        cfVar.lZ(i);
+        this.doz.aCV();
+        cfVar2 = this.doz.doo;
+        writeShareActivity2 = this.doz.dow;
+        com.baidu.adp.lib.g.j.a(cfVar2, writeShareActivity2.getPageContext().getPageActivity());
     }
 }

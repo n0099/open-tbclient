@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.view.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements p.a {
-    final /* synthetic */ MyGiftListActivity bmY;
+    final /* synthetic */ MyGiftListActivity bnC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(MyGiftListActivity myGiftListActivity) {
-        this.bmY = myGiftListActivity;
+        this.bnC = myGiftListActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.p.a
@@ -17,17 +17,17 @@ public class h implements p.a {
         m mVar;
         l lVar;
         l lVar2;
-        if (!com.baidu.adp.lib.util.k.jd()) {
-            mVar = this.bmY.bmT;
-            mVar.Qw();
+        if (!com.baidu.adp.lib.util.k.je()) {
+            mVar = this.bnC.bnx;
+            mVar.QS();
             return;
         }
-        com.baidu.tbadk.coreExtra.messageCenter.a.wH().wY();
-        lVar = this.bmY.bmS;
-        lVar.cA(false);
-        lVar2 = this.bmY.bmS;
+        com.baidu.tbadk.coreExtra.messageCenter.a.wM().xd();
+        lVar = this.bnC.bnw;
+        lVar.cC(false);
+        lVar2 = this.bnC.bnw;
         lVar2.LoadData();
-        com.baidu.tbadk.coreExtra.messageCenter.a.wH().setMsgGiftNum(0);
-        MessageManager.getInstance().dispatchResponsedMessage(this.bmY.bmV);
+        com.baidu.tbadk.coreExtra.messageCenter.a.wM().setMsgGiftNum(0);
+        MessageManager.getInstance().dispatchResponsedMessage(this.bnC.bnz);
     }
 }

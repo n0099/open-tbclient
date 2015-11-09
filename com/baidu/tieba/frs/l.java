@@ -1,19 +1,19 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-class l implements ea {
-    final /* synthetic */ FrsActivity aUK;
+class l implements ec {
+    final /* synthetic */ FrsActivity aUS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(FrsActivity frsActivity) {
-        this.aUK = frsActivity;
+        this.aUS = frsActivity;
     }
 
-    @Override // com.baidu.tieba.frs.ea
-    public void a(eb ebVar) {
+    @Override // com.baidu.tieba.frs.ec
+    public void a(ed edVar) {
     }
 
-    @Override // com.baidu.tieba.frs.ea
-    public void a(int i, int i2, ec ecVar) {
+    @Override // com.baidu.tieba.frs.ec
+    public void a(int i, int i2, ee eeVar) {
         com.baidu.tieba.frs.b.o oVar;
         bs bsVar;
         com.baidu.tieba.frs.mc.a aVar;
@@ -25,41 +25,41 @@ class l implements ea {
         com.baidu.tieba.frs.b.a aVar5;
         com.baidu.tieba.frs.b.o oVar3;
         com.baidu.tieba.frs.mc.a aVar6;
-        oVar = this.aUK.aUj;
-        if (oVar.NL() != null) {
-            oVar2 = this.aUK.aUj;
-            ea NL = oVar2.NL();
-            aVar2 = this.aUK.aUi;
-            int Nc = aVar2.Nc();
-            aVar3 = this.aUK.aUi;
-            int Nd = aVar3.Nd();
-            aVar4 = this.aUK.aUi;
-            NL.a(Nc, Nd, aVar4.Ne());
-            aVar5 = this.aUK.aUk;
-            if (!aVar5.NF()) {
-                oVar3 = this.aUK.aUj;
-                ea NL2 = oVar3.NL();
-                aVar6 = this.aUK.aUi;
-                NL2.a(i, i2, aVar6.Ne());
+        oVar = this.aUS.aUr;
+        if (oVar.Oh() != null) {
+            oVar2 = this.aUS.aUr;
+            ec Oh = oVar2.Oh();
+            aVar2 = this.aUS.aUq;
+            int Nv = aVar2.Nv();
+            aVar3 = this.aUS.aUq;
+            int Nw = aVar3.Nw();
+            aVar4 = this.aUS.aUq;
+            Oh.a(Nv, Nw, aVar4.Nx());
+            aVar5 = this.aUS.aUs;
+            if (!aVar5.Ob()) {
+                oVar3 = this.aUS.aUr;
+                ec Oh2 = oVar3.Oh();
+                aVar6 = this.aUS.aUq;
+                Oh2.a(i, i2, aVar6.Nx());
             }
         }
         if (i == 1) {
-            bsVar2 = this.aUK.aTU;
-            bsVar2.LT();
+            bsVar2 = this.aUS.aUc;
+            bsVar2.Mj();
         } else {
-            bsVar = this.aUK.aTU;
-            bsVar.LU();
+            bsVar = this.aUS.aUc;
+            bsVar.Mk();
         }
-        this.aUK.stopVoice();
-        aVar = this.aUK.aUi;
-        aVar.a(i, i2, ecVar);
+        this.aUS.stopVoice();
+        aVar = this.aUS.aUq;
+        aVar.a(i, i2, eeVar);
     }
 
-    @Override // com.baidu.tieba.frs.ea
+    @Override // com.baidu.tieba.frs.ec
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.ea
-    public void Kq() {
+    @Override // com.baidu.tieba.frs.ec
+    public void KG() {
     }
 }

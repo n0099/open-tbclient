@@ -4,11 +4,11 @@ import com.baidu.adp.widget.ListView.BdExpandImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ w dfY;
+    final /* synthetic */ w dhE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.dfY = wVar;
+        this.dhE = wVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -17,7 +17,7 @@ public class x extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
     public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
         BdExpandImageView bdExpandImageView;
         if (aVar != null) {
-            bdExpandImageView = this.dfY.dfT;
+            bdExpandImageView = this.dhE.dhz;
             aVar.a(bdExpandImageView);
         }
     }
@@ -30,7 +30,7 @@ public class x extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.b
-    public void al(String str) {
-        super.al(str);
+    public void aj(String str) {
+        super.aj(str);
     }
 }

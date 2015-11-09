@@ -36,13 +36,16 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (first(this)) {
             loadDraft();
             regReceiver();
-            bq.bsD = com.baidu.tbadk.util.e.Ev();
+            bq.bth = com.baidu.tbadk.util.e.Eo();
         }
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+        if (this.mListModel != null) {
+            this.mListModel.onDestroy();
+        }
         setIntent(intent);
         if (!initData(null)) {
             finish();

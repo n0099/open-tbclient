@@ -3,15 +3,15 @@ package com.baidu.tieba.imMessageCenter.im.selectfriend;
 import android.view.View;
 /* loaded from: classes.dex */
 class e implements View.OnClickListener {
-    final /* synthetic */ SelectFriendActivity bNZ;
+    final /* synthetic */ SelectFriendActivity bOu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(SelectFriendActivity selectFriendActivity) {
-        this.bNZ = selectFriendActivity;
+        this.bOu = selectFriendActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bNZ.onBackPressed();
+        this.bOu.onBackPressed();
     }
 }

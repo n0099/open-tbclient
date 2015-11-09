@@ -9,11 +9,11 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements GiftGifView.a {
-    final /* synthetic */ a bmR;
+    final /* synthetic */ a bnv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bmR = aVar;
+        this.bnv = aVar;
     }
 
     @Override // com.baidu.tbadk.gif.GiftGifView.a
@@ -22,12 +22,12 @@ public class b implements GiftGifView.a {
         LinearLayout linearLayout;
         Dialog dialog;
         Activity activity;
-        giftGifView = this.bmR.bmQ;
+        giftGifView = this.bnv.bnu;
         giftGifView.setIsHide(true);
-        linearLayout = this.bmR.bmP;
+        linearLayout = this.bnv.bnt;
         linearLayout.setVisibility(8);
-        dialog = this.bmR.bmO;
-        activity = this.bmR.mActivity;
+        dialog = this.bnv.bns;
+        activity = this.bnv.mActivity;
         com.baidu.adp.lib.g.j.b(dialog, activity);
     }
 
@@ -38,35 +38,35 @@ public class b implements GiftGifView.a {
         Activity activity;
         GiftGifView giftGifView;
         LinearLayout linearLayout;
-        progressDialog = this.bmR.mWaitingDialog;
+        progressDialog = this.bnv.mWaitingDialog;
         com.baidu.adp.lib.util.k.a(progressDialog);
-        dialog = this.bmR.bmO;
-        activity = this.bmR.mActivity;
+        dialog = this.bnv.bns;
+        activity = this.bnv.mActivity;
         com.baidu.adp.lib.g.j.a(dialog, activity);
-        giftGifView = this.bmR.bmQ;
+        giftGifView = this.bnv.bnu;
         giftGifView.setVisibility(0);
-        linearLayout = this.bmR.bmP;
+        linearLayout = this.bnv.bnt;
         linearLayout.setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.gif.GiftGifView.a
-    public void Ca() {
+    public void BT() {
         ProgressDialog progressDialog;
         Dialog dialog;
         Activity activity;
         Activity activity2;
         Activity activity3;
-        progressDialog = this.bmR.mWaitingDialog;
+        progressDialog = this.bnv.mWaitingDialog;
         com.baidu.adp.lib.util.k.a(progressDialog);
-        dialog = this.bmR.bmO;
-        activity = this.bmR.mActivity;
+        dialog = this.bnv.bns;
+        activity = this.bnv.mActivity;
         com.baidu.adp.lib.g.j.b(dialog, activity);
-        if (com.baidu.adp.lib.util.k.jd()) {
-            activity3 = this.bmR.mActivity;
+        if (com.baidu.adp.lib.util.k.je()) {
+            activity3 = this.bnv.mActivity;
             com.baidu.adp.lib.util.k.showToast(activity3, i.h.gif_play_failed_tip);
             return;
         }
-        activity2 = this.bmR.mActivity;
+        activity2 = this.bnv.mActivity;
         com.baidu.adp.lib.util.k.showToast(activity2, i.h.neterror);
     }
 }

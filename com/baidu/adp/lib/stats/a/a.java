@@ -4,7 +4,7 @@ public class a {
     private static a wX = null;
     private long clientLogID = 0;
 
-    public static a ic() {
+    public static a id() {
         if (wX == null) {
             synchronized (a.class) {
                 if (wX == null) {
@@ -15,7 +15,7 @@ public class a {
         return wX;
     }
 
-    public synchronized long hk() {
+    public synchronized long hl() {
         if (this.clientLogID > 0) {
             this.clientLogID++;
         } else {

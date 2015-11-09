@@ -40,7 +40,7 @@ public class f extends BroadcastReceiver {
             }
             String str4 = "";
             if (PluginCenter.getInstance().getPlugin(str) != null) {
-                str4 = PluginCenter.getInstance().getPlugin(str).ko();
+                str4 = PluginCenter.getInstance().getPlugin(str).kp();
             }
             if (!TextUtils.isEmpty(str4)) {
                 if (TextUtils.isEmpty(str2)) {
@@ -69,7 +69,7 @@ public class f extends BroadcastReceiver {
             bundle.putString("package_name", str);
             bundle.putString("current_path", str2);
             setResultExtras(bundle);
-            z = this.this$0.Dv;
+            z = this.this$0.Dw;
             if (!z) {
                 return;
             }

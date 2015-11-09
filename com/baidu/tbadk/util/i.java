@@ -8,29 +8,29 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class i {
-    private static final byte[] azG = new byte[1];
-    private static i azH = null;
+    private static final byte[] ayu = new byte[1];
+    private static i ayv = null;
     private CustomMessageListener xl;
 
-    public static i Ex() {
-        if (azH == null) {
-            synchronized (azG) {
-                if (azH == null) {
-                    azH = new i();
+    public static i Eq() {
+        if (ayv == null) {
+            synchronized (ayu) {
+                if (ayv == null) {
+                    ayv = new i();
                 }
             }
         }
-        return azH;
+        return ayv;
     }
 
     private i() {
         com.baidu.adp.lib.util.i.init();
     }
 
-    public void Ey() {
+    public void Er() {
         try {
             if (this.xl == null) {
-                this.xl = Ez();
+                this.xl = Es();
                 MessageManager.getInstance().registerListener(this.xl);
             }
         } catch (Exception e) {
@@ -39,22 +39,22 @@ public class i {
         }
     }
 
-    private CustomMessageListener Ez() {
+    private CustomMessageListener Es() {
         return new j(this, 2000994);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void EA() {
+    public void Et() {
         try {
-            boolean iM = com.baidu.adp.lib.util.i.iM();
-            if (iM) {
-                if (com.baidu.adp.lib.util.i.iN()) {
-                    at.uG().as(true);
-                } else if (com.baidu.adp.lib.util.i.iO()) {
-                    at.uG().as(false);
+            boolean iN = com.baidu.adp.lib.util.i.iN();
+            if (iN) {
+                if (com.baidu.adp.lib.util.i.iO()) {
+                    at.uK().as(true);
+                } else if (com.baidu.adp.lib.util.i.iP()) {
+                    at.uK().as(false);
                 }
             }
-            NoNetworkView.setIsHasNetwork(iM);
+            NoNetworkView.setIsHasNetwork(iN);
             CompatibleUtile.dealWebView(null);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());

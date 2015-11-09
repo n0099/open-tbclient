@@ -4,15 +4,15 @@ import android.content.DialogInterface;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements DialogInterface.OnCancelListener {
-    final /* synthetic */ UserMuteAddAndDelModel djb;
+    final /* synthetic */ UserMuteAddAndDelModel dkH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(UserMuteAddAndDelModel userMuteAddAndDelModel) {
-        this.djb = userMuteAddAndDelModel;
+        this.dkH = userMuteAddAndDelModel;
     }
 
     @Override // android.content.DialogInterface.OnCancelListener
     public void onCancel(DialogInterface dialogInterface) {
-        this.djb.cancelLoadData();
+        this.dkH.cancelLoadData();
     }
 }

@@ -47,6 +47,10 @@ public class ImageViewerConfig extends IntentConfig {
     }
 
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, HashMap<String, ImageUrlData> hashMap, boolean z3) {
+        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, hashMap, z3, false);
+    }
+
+    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, HashMap<String, ImageUrlData> hashMap, boolean z3, boolean z4) {
         Intent intent = getIntent();
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
         if (arrayList != null && arrayList.size() > 0) {
@@ -64,6 +68,7 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(REVERSE_MODE, z2);
             intent.putExtra(ASSIST_URLS, hashMap);
             intent.putExtra(IS_SHOW_AD, z3);
+            intent.putExtra(NEED_BROADCAST, z4);
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
                 intent.putExtra("user_id", currentAccountObj.getID());

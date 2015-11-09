@@ -21,14 +21,14 @@ public class t {
         String str = null;
         try {
             String versionName = TbadkCoreApplication.m411getInst().getVersionName();
-            String string = com.baidu.tbadk.core.sharedPref.b.tr().getString("version_name", "");
+            String string = com.baidu.tbadk.core.sharedPref.b.tu().getString("version_name", "");
             if (!TextUtils.isEmpty(versionName)) {
                 if (versionName.equals(string)) {
-                    str = com.baidu.tbadk.core.sharedPref.b.tr().getString("apk_md5", "");
+                    str = com.baidu.tbadk.core.sharedPref.b.tu().getString("apk_md5", "");
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.tr().putString("version_name", versionName);
+                    com.baidu.tbadk.core.sharedPref.b.tu().putString("version_name", versionName);
                     String d = au.d(TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.m411getInst().getContext().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.tr().putString("apk_md5", d);
+                    com.baidu.tbadk.core.sharedPref.b.tu().putString("apk_md5", d);
                     str = d;
                 }
             }

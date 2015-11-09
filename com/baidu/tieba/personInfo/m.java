@@ -6,13 +6,13 @@ import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class m extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity csI;
+    final /* synthetic */ PersonInfoActivity cue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.csI = personInfoActivity;
+        this.cue = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,12 +24,12 @@ class m extends com.baidu.adp.framework.listener.e {
             int error = responseDeleteFriendMessage.getError();
             String errorString = responseDeleteFriendMessage.getErrorString();
             if (error == 0) {
-                ajVar = this.csI.csw;
+                ajVar = this.cue.ctS;
                 ajVar.startLoad();
             } else {
-                errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.csI.getResources().getString(i.h.neterror) : responseDeleteFriendMessage.getErrorString();
+                errorString = StringUtils.isNull(responseDeleteFriendMessage.getErrorString()) ? this.cue.getResources().getString(i.h.neterror) : responseDeleteFriendMessage.getErrorString();
             }
-            this.csI.showToast(errorString);
+            this.cue.showToast(errorString);
         }
     }
 }

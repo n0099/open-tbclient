@@ -8,13 +8,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends CustomMessageListener {
-    final /* synthetic */ d dhp;
+    final /* synthetic */ d diV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar, int i) {
         super(i);
-        this.dhp = dVar;
+        this.diV = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,28 +33,28 @@ public class f extends CustomMessageListener {
         List list2;
         ArrayList arrayList5;
         if (customResponsedMessage != null) {
-            arrayList = this.dhp.dhm;
+            arrayList = this.diV.diS;
             if (arrayList == null) {
-                this.dhp.dhm = new ArrayList();
+                this.diV.diS = new ArrayList();
             }
-            arrayList2 = this.dhp.dhm;
+            arrayList2 = this.diV.diS;
             arrayList2.clear();
-            arrayList3 = this.dhp.dhm;
-            bVar = this.dhp.dhl;
+            arrayList3 = this.diV.diS;
+            bVar = this.diV.diR;
             arrayList3.add(bVar);
-            arrayList4 = this.dhp.dhm;
-            bVar2 = this.dhp.dgD;
+            arrayList4 = this.diV.diS;
+            bVar2 = this.diV.dij;
             arrayList4.add(bVar2);
             if (customResponsedMessage.getData() != null && (list2 = (List) customResponsedMessage.getData()) != null) {
-                arrayList5 = this.dhp.dhm;
+                arrayList5 = this.diV.diS;
                 arrayList5.addAll(list2);
             }
-            this.dhp.azy();
-            aVar = this.dhp.dhn;
+            this.diV.aAo();
+            aVar = this.diV.diT;
             if (aVar != null) {
-                aVar2 = this.dhp.dhn;
-                z = this.dhp.dho;
-                list = this.dhp.mThemeList;
+                aVar2 = this.diV.diT;
+                z = this.diV.diU;
+                list = this.diV.mThemeList;
                 aVar2.a(z, list);
             }
         }

@@ -10,27 +10,27 @@ public class a extends com.baidu.tbadk.mvc.model.a<d, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public Class<d> CL() {
+    public Class<d> CE() {
         return d.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public String Cx() {
+    public String Cq() {
         return "tb.pb_normal";
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int CM() {
+    public int CF() {
         return CmdConfigCustom.CMD_CHOSEN_POST_READ_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    public int CN() {
+    public int CG() {
         return CmdConfigCustom.CMD_CHOSEN_POST_WRITE_CACHE;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a
-    protected boolean CE() {
+    protected boolean Cx() {
         return false;
     }
 }

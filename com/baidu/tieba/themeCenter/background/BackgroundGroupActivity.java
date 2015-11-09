@@ -6,10 +6,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.themeCenter.background.d;
 /* loaded from: classes.dex */
 public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivity> {
-    private d deU;
-    private g deV;
-    private i deW;
-    private d.a deX = new a(this);
+    private d dgA;
+    private g dgB;
+    private i dgC;
+    private d.a dgD = new a(this);
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -17,20 +17,20 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mPageContext = getPageContext();
-        this.deU = new d(this);
-        this.deU.a(this.deX);
-        this.deW = new i(this.mPageContext);
-        this.deV = new g(this, this.deW);
-        showLoadingView(this.deV.getRootView());
-        this.deU.LoadData();
+        this.dgA = new d(this);
+        this.dgA.a(this.dgD);
+        this.dgC = new i(this.mPageContext);
+        this.dgB = new g(this, this.dgC);
+        showLoadingView(this.dgB.getRootView());
+        this.dgA.LoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.deV != null) {
-            this.deV.oO();
+        if (this.dgB != null) {
+            this.dgB.oP();
         }
     }
 
@@ -42,13 +42,13 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
-        if (this.deU != null && this.deV != null) {
-            showLoadingView(this.deV.getRootView());
-            this.deU.LoadData();
+        if (this.dgA != null && this.dgB != null) {
+            showLoadingView(this.dgB.getRootView());
+            this.dgA.LoadData();
         }
     }
 
     public int getPropId() {
-        return this.deW.getPropId();
+        return this.dgC.getPropId();
     }
 }

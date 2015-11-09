@@ -3,11 +3,11 @@ package com.baidu.tieba.postsearch;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class p implements a.b {
-    final /* synthetic */ k cEi;
+    final /* synthetic */ k cFE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(k kVar) {
-        this.cEi = kVar;
+        this.cFE = kVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b

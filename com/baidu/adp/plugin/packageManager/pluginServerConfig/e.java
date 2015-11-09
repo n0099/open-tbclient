@@ -2,24 +2,24 @@ package com.baidu.adp.plugin.packageManager.pluginServerConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a {
-    final /* synthetic */ d DU;
-    private final /* synthetic */ a DV;
+    final /* synthetic */ d DV;
+    private final /* synthetic */ a DW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, a aVar) {
-        this.DU = dVar;
-        this.DV = aVar;
+        this.DV = dVar;
+        this.DW = aVar;
     }
 
     @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
     public void a(boolean z, PluginNetConfigInfos pluginNetConfigInfos) {
         PluginNetConfigInfos pluginNetConfigInfos2;
         if (z) {
-            this.DU.DR = pluginNetConfigInfos;
+            this.DV.DS = pluginNetConfigInfos;
         }
-        if (this.DV != null) {
-            a aVar = this.DV;
-            pluginNetConfigInfos2 = this.DU.DR;
+        if (this.DW != null) {
+            a aVar = this.DW;
+            pluginNetConfigInfos2 = this.DV.DS;
             aVar.a(z, pluginNetConfigInfos2);
         }
     }

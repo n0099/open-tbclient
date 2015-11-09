@@ -16,12 +16,12 @@ import com.baidu.tieba.i;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bd {
-    public static ap abG;
-    public static ap abH;
-    private static int abC = -1;
-    private static int abD = -1;
-    private static boolean abE = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> abF = new com.baidu.adp.lib.e.a<>(500);
+    public static ap abL;
+    public static ap abM;
+    private static int abH = -1;
+    private static int abI = -1;
+    private static boolean abJ = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> abK = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -31,13 +31,13 @@ public class bd {
 
     public static void ae(Context context) {
         mAppContext = context;
-        abE = true;
+        abJ = true;
     }
 
-    private static void uU() {
+    private static void uY() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            abD = mAppContext.getResources().getColor(i.c.more_color);
-            abC = mAppContext.getResources().getColor(i.c.skin_1_common_color);
+            abI = mAppContext.getResources().getColor(i.c.more_color);
+            abH = mAppContext.getResources().getColor(i.c.skin_1_common_color);
         }
     }
 
@@ -47,11 +47,11 @@ public class bd {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int at(boolean z) {
-        if (abE) {
-            abE = false;
-            uU();
+        if (abJ) {
+            abJ = false;
+            uY();
         }
-        return z ? abC : abD;
+        return z ? abH : abI;
     }
 
     public static void p(View view) {
@@ -62,16 +62,16 @@ public class bd {
 
     public static void q(View view) {
         if (view != null) {
-            abF.remove(Integer.valueOf(System.identityHashCode(view)));
+            abK.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void b(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = abF.get(Integer.valueOf(identityHashCode));
+        Integer num = abK.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             c(viewGroup, i);
-            abF.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            abK.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 
@@ -128,8 +128,8 @@ public class bd {
 
     public static void af(Context context) {
         if (context != null) {
-            if (abG != null) {
-                abG.ad(context);
+            if (abL != null) {
+                abL.ad(context);
                 return;
             }
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
@@ -139,8 +139,8 @@ public class bd {
 
     public static void ag(Context context) {
         if (context != null) {
-            if (abH != null) {
-                abH.ad(context);
+            if (abM != null) {
+                abM.ad(context);
                 return;
             }
             com.baidu.tbadk.core.log.b.a(LoginActivityConfig.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);

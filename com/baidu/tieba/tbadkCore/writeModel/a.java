@@ -26,18 +26,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e {
-    public static int dbu = 10;
-    private byte[] dbA;
-    private b dbB;
-    private c dbC;
-    private d dbD;
-    private boolean dbE;
-    private final h<?> dbF;
-    private e dbv;
-    private C0079a dbw;
-    private WriteData dbx;
-    private String dby;
-    private String dbz;
+    public static int ddF = 10;
+    private final h<?> ciS;
+    private e ddG;
+    private C0079a ddH;
+    private WriteData ddI;
+    private String ddJ;
+    private String ddK;
+    private byte[] ddL;
+    private b ddM;
+    private c ddN;
+    private d ddO;
+    private boolean ddP;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -56,72 +56,72 @@ public class a extends com.baidu.adp.base.e {
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.dbv = null;
-        this.dbw = null;
-        this.dbx = null;
-        this.dby = null;
-        this.dbz = null;
-        this.dbA = null;
-        this.dbC = null;
-        this.dbD = null;
-        this.dbE = false;
-        this.dbF = baseActivity.getPageContext();
+        this.ddG = null;
+        this.ddH = null;
+        this.ddI = null;
+        this.ddJ = null;
+        this.ddK = null;
+        this.ddL = null;
+        this.ddN = null;
+        this.ddO = null;
+        this.ddP = false;
+        this.ciS = baseActivity.getPageContext();
     }
 
-    public void gw(boolean z) {
-        this.dbE = z;
+    public void gC(boolean z) {
+        this.ddP = z;
     }
 
     public void b(d dVar) {
-        this.dbD = dVar;
+        this.ddO = dVar;
     }
 
     public void a(c cVar) {
-        this.dbC = cVar;
+        this.ddN = cVar;
     }
 
     public void c(WriteData writeData) {
-        this.dbx = writeData;
+        this.ddI = writeData;
     }
 
-    public WriteData axK() {
-        return this.dbx;
+    public WriteData ayT() {
+        return this.ddI;
     }
 
-    public boolean axL() {
-        if (this.dbx == null) {
+    public boolean ayU() {
+        if (this.ddI == null) {
             return false;
         }
-        if (!i.iM() || i.iN() || com.baidu.tbadk.core.sharedPref.b.tr().getBoolean("original_img_up_tip", false)) {
-            axM();
+        if (!i.iN() || i.iO() || com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("original_img_up_tip", false)) {
+            ayV();
         } else {
-            com.baidu.tbadk.core.sharedPref.b.tr().putBoolean("original_img_up_tip", true);
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.dbF.getPageActivity());
+            com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("original_img_up_tip", true);
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.ciS.getPageActivity());
             aVar.bF(i.h.original_img_up_no_wifi_tip);
             aVar.a(i.h.alert_yes_button, new com.baidu.tieba.tbadkCore.writeModel.b(this, aVar));
             aVar.b(i.h.alert_no_button, new com.baidu.tieba.tbadkCore.writeModel.c(this, aVar));
-            aVar.b(this.dbF);
-            aVar.sO();
+            aVar.b(this.ciS);
+            aVar.sR();
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axM() {
-        if (this.dbv == null) {
-            this.dbv = new e();
-            this.dbv.execute(new Integer[0]);
+    public void ayV() {
+        if (this.ddG == null) {
+            this.ddG = new e();
+            this.ddG.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cancel() {
-        if (this.dbv != null && !this.dbv.isCancelled()) {
-            this.dbv.cancel();
-        } else if (this.dbD != null) {
-            this.dbD.a(false, null, null, null, null);
-        } else if (this.dbC != null) {
-            this.dbC.a(false, null, null, null, null);
+        if (this.ddG != null && !this.ddG.isCancelled()) {
+            this.ddG.cancel();
+        } else if (this.ddO != null) {
+            this.ddO.a(false, null, null, null, null);
+        } else if (this.ddN != null) {
+            this.ddN.a(false, null, null, null, null);
         }
     }
 
@@ -132,36 +132,36 @@ public class a extends com.baidu.adp.base.e {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.dbv != null && !this.dbv.isCancelled()) {
-            this.dbv.cancel();
+        if (this.ddG != null && !this.ddG.isCancelled()) {
+            this.ddG.cancel();
             return false;
         }
         return false;
     }
 
-    public void axN() {
-        if (this.dbw != null && !this.dbw.isCancelled()) {
-            this.dbw.cancel();
+    public void ayW() {
+        if (this.ddH != null && !this.ddH.isCancelled()) {
+            this.ddH.cancel();
         }
     }
 
-    public boolean axO() {
-        if (this.dbx == null) {
+    public boolean ayX() {
+        if (this.ddI == null) {
             return true;
         }
-        int size = (!this.dbx.getIsBaobao() || this.dbx.getBaobaoImagesInfo() == null) ? 0 : this.dbx.getBaobaoImagesInfo().size() + 0;
-        if (this.dbx.getWriteImagesInfo() != null) {
-            size += this.dbx.getWriteImagesInfo().size();
+        int size = (!this.ddI.getIsBaobao() || this.ddI.getBaobaoImagesInfo() == null) ? 0 : this.ddI.getBaobaoImagesInfo().size() + 0;
+        if (this.ddI.getWriteImagesInfo() != null) {
+            size += this.ddI.getWriteImagesInfo().size();
         }
-        return size <= dbu;
+        return size <= ddF;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class e extends BdAsyncTask<Integer, Integer, com.baidu.tieba.tbadkCore.writeModel.d> {
-        private com.baidu.tieba.tbadkCore.d.a dbI = null;
-        private String dbJ = null;
-        private boolean dbH = false;
+        private com.baidu.tieba.tbadkCore.d.a ddS = null;
+        private String ddT = null;
+        private boolean ddR = false;
 
         public e() {
             setPriority(3);
@@ -185,39 +185,39 @@ public class a extends com.baidu.adp.base.e {
             String str5;
             String str6;
             String optString;
-            if (this.dbH) {
+            if (this.ddR) {
                 return null;
             }
-            this.dbI = new com.baidu.tieba.tbadkCore.d.a();
-            this.dbJ = this.dbI.a(a.this.dbx, a.this.dbE);
-            ErrorData awT = this.dbI.awT();
-            if (this.dbI.qS() && this.dbJ != null) {
-                AntiData awS = this.dbI.awS();
-                String error_msg = awT.getError_msg();
+            this.ddS = new com.baidu.tieba.tbadkCore.d.a();
+            this.ddT = this.ddS.a(a.this.ddI, a.this.ddP);
+            ErrorData axJ = this.ddS.axJ();
+            if (this.ddS.qT() && this.ddT != null) {
+                AntiData axI = this.ddS.axI();
+                String error_msg = axJ.getError_msg();
                 if (j.isEmpty(error_msg)) {
                     error_msg = TbadkCoreApplication.m411getInst().getApp().getString(i.h.send_success);
                 }
-                com.baidu.tieba.tbadkCore.writeModel.d dVar2 = new com.baidu.tieba.tbadkCore.writeModel.d(awT.getError_code(), error_msg, awS);
-                if (a.this.dbx == null || (!(a.this.dbx.isHasImages() || a.this.dbx.getIsBaobao()) || dVar2.hasError())) {
+                com.baidu.tieba.tbadkCore.writeModel.d dVar2 = new com.baidu.tieba.tbadkCore.writeModel.d(axJ.getError_code(), error_msg, axI);
+                if (a.this.ddI == null || (!(a.this.ddI.isHasImages() || a.this.ddI.getIsBaobao()) || dVar2.hasError())) {
                     dVar = dVar2;
                 } else {
-                    a.this.dbx.deleteUploadedTempImages();
+                    a.this.ddI.deleteUploadedTempImages();
                     dVar = dVar2;
                 }
-            } else if (awT != null && !StringUtils.isNull(awT.getError_msg())) {
-                dVar = new com.baidu.tieba.tbadkCore.writeModel.d(awT.getError_code(), awT.getError_msg(), null);
+            } else if (axJ != null && !StringUtils.isNull(axJ.getError_msg())) {
+                dVar = new com.baidu.tieba.tbadkCore.writeModel.d(axJ.getError_code(), axJ.getError_msg(), null);
             } else {
                 dVar = new com.baidu.tieba.tbadkCore.writeModel.d(-17, TbadkCoreApplication.m411getInst().getApp().getString(i.h.neterror), null);
             }
             if (!dVar.hasError()) {
                 try {
-                    String optString2 = new JSONObject(this.dbJ).optString(AddFriendActivityConfig.MSG);
+                    String optString2 = new JSONObject(this.ddT).optString(AddFriendActivityConfig.MSG);
                     try {
-                        String optString3 = new JSONObject(this.dbJ).optString("pre_msg");
+                        String optString3 = new JSONObject(this.ddT).optString("pre_msg");
                         try {
-                            String optString4 = new JSONObject(this.dbJ).optString("color_msg");
+                            String optString4 = new JSONObject(this.ddT).optString("color_msg");
                             try {
-                                optString = new JSONObject(this.dbJ).optString("tid");
+                                optString = new JSONObject(this.ddT).optString("tid");
                             } catch (JSONException e) {
                                 str = optString4;
                                 str2 = optString3;
@@ -226,7 +226,7 @@ public class a extends com.baidu.adp.base.e {
                                 str4 = null;
                             }
                             try {
-                                str6 = new JSONObject(this.dbJ).optString(Info.kBaiduPIDKey);
+                                str6 = new JSONObject(this.ddT).optString(Info.kBaiduPIDKey);
                                 str5 = optString;
                                 str = optString4;
                                 str2 = optString3;
@@ -288,15 +288,15 @@ public class a extends com.baidu.adp.base.e {
         /* renamed from: a */
         public void onPostExecute(com.baidu.tieba.tbadkCore.writeModel.d dVar) {
             super.onPostExecute(dVar);
-            a.this.dbv = null;
-            if (!this.dbH && dVar != null) {
+            a.this.ddG = null;
+            if (!this.ddR && dVar != null) {
                 if (!dVar.hasError()) {
-                    if (a.this.dbx != null && a.this.dbx.isBabaoPosted()) {
-                        com.baidu.tieba.tbadkCore.PbEditor.a.awf();
+                    if (a.this.ddI != null && a.this.ddI.isBabaoPosted()) {
+                        com.baidu.tieba.tbadkCore.PbEditor.a.awN();
                     }
-                    if (a.this.dbD == null) {
-                        if (a.this.dbC != null) {
-                            a.this.dbC.a(true, dVar.getErrorString(), null, null, dVar.afd());
+                    if (a.this.ddO == null) {
+                        if (a.this.ddN != null) {
+                            a.this.ddN.a(true, dVar.getErrorString(), null, null, dVar.afA());
                             return;
                         }
                         return;
@@ -304,7 +304,7 @@ public class a extends com.baidu.adp.base.e {
                     PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(dVar.getErrorCode(), dVar.getErrorString(), dVar.getPreMsg(), dVar.getColorMsg());
                     postWriteCallBackData.setThreadId(dVar.getThreadId());
                     postWriteCallBackData.setPostId(dVar.getPostId());
-                    a.this.dbD.a(true, postWriteCallBackData, null, null, dVar.afd());
+                    a.this.ddO.a(true, postWriteCallBackData, null, null, dVar.afA());
                     return;
                 }
                 b(dVar);
@@ -313,47 +313,47 @@ public class a extends com.baidu.adp.base.e {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            this.dbH = true;
-            if (this.dbI != null) {
-                this.dbI.cancel();
+            this.ddR = true;
+            if (this.ddS != null) {
+                this.ddS.cancel();
             }
-            if (a.this.dbD == null) {
-                if (a.this.dbC != null) {
-                    a.this.dbC.a(false, null, null, null, null);
+            if (a.this.ddO == null) {
+                if (a.this.ddN != null) {
+                    a.this.ddN.a(false, null, null, null, null);
                 }
             } else {
-                a.this.dbD.a(false, null, null, null, null);
+                a.this.ddO.a(false, null, null, null, null);
             }
             super.cancel(true);
-            a.this.dbv = null;
+            a.this.ddG = null;
         }
 
         private void b(com.baidu.tieba.tbadkCore.writeModel.d dVar) {
-            AntiData afd = dVar.afd();
-            if (!dVar.axP()) {
-                if (a.this.dbD == null) {
-                    if (a.this.dbC != null) {
-                        a.this.dbC.a(false, dVar.getErrorString(), null, null, dVar.afd());
+            AntiData afA = dVar.afA();
+            if (!dVar.ayY()) {
+                if (a.this.ddO == null) {
+                    if (a.this.ddN != null) {
+                        a.this.ddN.a(false, dVar.getErrorString(), null, null, dVar.afA());
                         return;
                     }
                     return;
                 }
-                a.this.dbD.a(false, new PostWriteCallBackData(dVar.getErrorCode(), dVar.getErrorString(), null, null), null, null, dVar.afd());
+                a.this.ddO.a(false, new PostWriteCallBackData(dVar.getErrorCode(), dVar.getErrorString(), null, null), null, null, dVar.afA());
                 return;
             }
             l lVar = new l();
-            lVar.parserJson(this.dbJ);
-            if (lVar.getVcode_pic_url() != null && a.this.dbx != null) {
-                a.this.dbx.setVcodeMD5(lVar.getVcode_md5());
-                a.this.dbx.setVcodeUrl(lVar.getVcode_pic_url());
-                if (a.this.dbD == null) {
-                    if (a.this.dbC != null) {
-                        a.this.dbC.a(false, dVar.getErrorString(), lVar, a.this.dbx, afd);
+            lVar.parserJson(this.ddT);
+            if (lVar.getVcode_pic_url() != null && a.this.ddI != null) {
+                a.this.ddI.setVcodeMD5(lVar.getVcode_md5());
+                a.this.ddI.setVcodeUrl(lVar.getVcode_pic_url());
+                if (a.this.ddO == null) {
+                    if (a.this.ddN != null) {
+                        a.this.ddN.a(false, dVar.getErrorString(), lVar, a.this.ddI, afA);
                         return;
                     }
                     return;
                 }
-                a.this.dbD.a(false, new PostWriteCallBackData(dVar.getErrorCode(), dVar.getErrorString(), null, null), lVar, a.this.dbx, afd);
+                a.this.ddO.a(false, new PostWriteCallBackData(dVar.getErrorCode(), dVar.getErrorString(), null, null), lVar, a.this.ddI, afA);
             }
         }
     }
@@ -362,9 +362,9 @@ public class a extends com.baidu.adp.base.e {
     /* renamed from: com.baidu.tieba.tbadkCore.writeModel.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0079a extends BdAsyncTask<Void, Void, ImageUploadResult> {
-        private boolean dbH = false;
-        com.baidu.tieba.tbadkCore.d.a dbI = new com.baidu.tieba.tbadkCore.d.a();
-        Bitmap aAK = null;
+        private boolean ddR = false;
+        com.baidu.tieba.tbadkCore.d.a ddS = new com.baidu.tieba.tbadkCore.d.a();
+        Bitmap azy = null;
 
         public C0079a() {
             setPriority(3);
@@ -375,50 +375,50 @@ public class a extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: j */
         public ImageUploadResult doInBackground(Void... voidArr) {
-            boolean cU = n.cU(a.this.dbz);
-            if (this.dbH) {
+            boolean cU = n.cU(a.this.ddK);
+            if (this.ddR) {
                 return null;
             }
-            if (a.this.dbA == null || a.this.dbA.length <= 0) {
-                if (TextUtils.isEmpty(a.this.dbz) || !cU) {
+            if (a.this.ddL == null || a.this.ddL.length <= 0) {
+                if (TextUtils.isEmpty(a.this.ddK) || !cU) {
                     return null;
                 }
-                Uri parse = Uri.parse(a.this.dbz);
-                a.this.dby = n.a(TbadkCoreApplication.m411getInst().getApp(), parse);
-                if (TextUtils.isEmpty(a.this.dby)) {
+                Uri parse = Uri.parse(a.this.ddK);
+                a.this.ddJ = n.a(TbadkCoreApplication.m411getInst().getApp(), parse);
+                if (TextUtils.isEmpty(a.this.ddJ)) {
                     return null;
                 }
-                return a.this.a(a.this.dby, this.dbI);
+                return a.this.a(a.this.ddJ, this.ddS);
             }
-            this.aAK = com.baidu.tbadk.core.util.c.N(a.this.dbA);
-            if (this.aAK != null) {
-                a.this.dby = n.a(TbConfig.IMAGE_RESIZED_FILE, this.aAK, 80);
-                if (TextUtils.isEmpty(a.this.dby)) {
-                    if (this.aAK == null || this.aAK.isRecycled()) {
+            this.azy = com.baidu.tbadk.core.util.c.N(a.this.ddL);
+            if (this.azy != null) {
+                a.this.ddJ = n.a(TbConfig.IMAGE_RESIZED_FILE, this.azy, 80);
+                if (TextUtils.isEmpty(a.this.ddJ)) {
+                    if (this.azy == null || this.azy.isRecycled()) {
                         return null;
                     }
-                    this.aAK.recycle();
+                    this.azy.recycle();
                     return null;
                 }
-                return a.this.a(a.this.dby, this.dbI);
+                return a.this.a(a.this.ddJ, this.ddS);
             }
             return null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            this.dbH = true;
-            if (this.dbI != null) {
-                this.dbI.cancel();
+            this.ddR = true;
+            if (this.ddS != null) {
+                this.ddS.cancel();
             }
-            if (a.this.dbB != null) {
-                a.this.dbB.a(null, true);
+            if (a.this.ddM != null) {
+                a.this.ddM.a(null, true);
             }
-            if (this.aAK != null && !this.aAK.isRecycled()) {
-                this.aAK.recycle();
+            if (this.azy != null && !this.azy.isRecycled()) {
+                this.azy.recycle();
             }
             super.cancel();
-            a.this.dbw = null;
+            a.this.ddH = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -427,31 +427,31 @@ public class a extends com.baidu.adp.base.e {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (!this.dbH) {
-                if (a.this.dbB != null) {
-                    a.this.dbB.a(imageUploadResult, false);
+            if (!this.ddR) {
+                if (a.this.ddM != null) {
+                    a.this.ddM.a(imageUploadResult, false);
                 }
-                if (this.aAK != null && !this.aAK.isRecycled()) {
-                    this.aAK.recycle();
+                if (this.azy != null && !this.azy.isRecycled()) {
+                    this.azy.recycle();
                 }
             }
         }
     }
 
-    public void JE() {
-        if (this.dbw == null) {
-            this.dbw = new C0079a();
-            this.dbw.execute(new Void[0]);
+    public void JU() {
+        if (this.ddH == null) {
+            this.ddH = new C0079a();
+            this.ddH.execute(new Void[0]);
         }
     }
 
     public void c(byte[] bArr, String str) {
-        this.dbA = bArr;
-        this.dbz = str;
+        this.ddL = bArr;
+        this.ddK = str;
     }
 
     public void a(b bVar) {
-        this.dbB = bVar;
+        this.ddM = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -462,7 +462,7 @@ public class a extends com.baidu.adp.base.e {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(str);
         imageFileInfo.clearAllActions();
-        imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.J(at.uG().uM(), at.uG().uM()));
+        imageFileInfo.addPersistAction(com.baidu.tbadk.img.effect.d.J(at.uK().uQ(), at.uK().uQ()));
         return aVar.b(imageFileInfo);
     }
 }

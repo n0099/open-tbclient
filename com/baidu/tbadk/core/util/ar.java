@@ -6,15 +6,15 @@ import com.baidu.tbadk.TbConfig;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ar {
-    private static ar abb;
+    private static ar abg;
 
-    public static synchronized ar uA() {
+    public static synchronized ar uE() {
         ar arVar;
         synchronized (ar.class) {
-            if (abb == null) {
-                abb = new ar();
+            if (abg == null) {
+                abg = new ar();
             }
-            arVar = abb;
+            arVar = abg;
         }
         return arVar;
     }
@@ -84,12 +84,12 @@ public class ar {
         }
     }
 
-    public void uB() {
+    public void uF() {
         u(new File(n.xU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_PIC_DIR_NAME));
         u(new File(n.xU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.IMAGE_CACHE_DIR_NAME));
     }
 
-    public void uC() {
+    public void uG() {
         v(new File(n.xU + "/" + TbConfig.getTempDirName() + "/" + n.cj(3)));
     }
 

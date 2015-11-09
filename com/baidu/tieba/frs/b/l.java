@@ -1,188 +1,136 @@
 package com.baidu.tieba.frs.b;
 
-import android.app.Activity;
 import android.view.View;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ChatMessageActivityConfig;
-import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.FrsLiveListActivityConfig;
-import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
-import com.baidu.tbadk.core.atomData.PostSearchActivityConfig;
-import com.baidu.tbadk.core.atomData.SingleMentionActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.ef;
-import com.baidu.tieba.frs.mc.FrsGoodActivityConfig;
-import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.frs.FrsActivityStatic;
+import com.baidu.tieba.frs.dg;
+import com.baidu.tieba.frs.eh;
+import com.slidingmenu.lib.SlidingMenu;
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
-    final /* synthetic */ k bcc;
+public class l extends com.baidu.adp.base.f<FrsActivity> implements BdSwitchView.a {
+    private final View.OnClickListener aUF;
+    private FrsActivity bbk;
+    private SlidingMenu bcE;
+    private eh bcF;
+    private final SlidingMenu.OnClosedListener bcG;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l(k kVar) {
-        this.bcc = kVar;
+    public l(FrsActivity frsActivity) {
+        super(frsActivity.getPageContext());
+        this.bcE = null;
+        this.bcF = null;
+        this.aUF = new m(this);
+        this.bcG = new n(this);
+        this.bbk = frsActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        FrsActivity frsActivity3;
-        FrsActivity frsActivity4;
-        FrsActivity frsActivity5;
-        FrsActivity frsActivity6;
-        FrsActivity frsActivity7;
-        FrsActivity frsActivity8;
-        FrsActivity frsActivity9;
-        FrsActivity frsActivity10;
-        FrsActivity frsActivity11;
-        FrsActivity frsActivity12;
-        FrsActivity frsActivity13;
-        FrsActivity frsActivity14;
-        FrsActivity frsActivity15;
-        FrsActivity frsActivity16;
-        FrsActivity frsActivity17;
-        FrsActivity frsActivity18;
-        FrsActivity frsActivity19;
-        FrsActivity frsActivity20;
-        FrsActivity frsActivity21;
-        FrsActivity frsActivity22;
-        FrsActivity frsActivity23;
-        FrsActivity frsActivity24;
-        FrsActivity frsActivity25;
-        FrsActivity frsActivity26;
-        FrsActivity frsActivity27;
-        FrsActivity frsActivity28;
-        FrsActivity frsActivity29;
-        FrsActivity frsActivity30;
-        FrsActivity frsActivity31;
-        FrsActivity frsActivity32;
-        FrsActivity frsActivity33;
-        FrsActivity frsActivity34;
-        FrsActivity frsActivity35;
-        int id = view.getId();
-        if (id == i.f.message_layout) {
-            frsActivity33 = this.bcc.baR;
-            frsActivity33.Lg();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                frsActivity34 = this.bcc.baR;
-                ChatMessageActivityConfig chatMessageActivityConfig = new ChatMessageActivityConfig(frsActivity34.getPageContext().getPageActivity());
-                frsActivity35 = this.bcc.baR;
-                frsActivity35.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, chatMessageActivityConfig));
+    public boolean a(TbPageContext<?> tbPageContext, int i) {
+        if (this.bcF != null) {
+            this.bcF.changeSkinType(i);
+            return true;
+        }
+        return true;
+    }
+
+    @Override // com.baidu.adp.base.f
+    public void destroy() {
+        if (this.bcF != null) {
+            this.bcF.destroy();
+        }
+    }
+
+    public boolean onBackPressed() {
+        if (Og().isMenuShowing()) {
+            Og().toggle(true);
+            if (Of().MN()) {
+                Of().cj(false);
+                this.bbk.refresh();
+                return true;
             }
-        } else if (id == i.f.mention_layout) {
-            frsActivity31 = this.bcc.baR;
-            frsActivity31.Lf();
-            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount2 != null && currentAccount2.length() > 0) {
-                TiebaStatic.eventStat(this.bcc.getPageContext().getPageActivity(), "frs_message", "frsclick", 1, new Object[0]);
-                SingleMentionActivityConfig singleMentionActivityConfig = new SingleMentionActivityConfig(this.bcc.getPageContext().getPageActivity());
-                frsActivity32 = this.bcc.baR;
-                frsActivity32.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, singleMentionActivityConfig));
-            }
-        } else if (id == i.f.history_tv) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PbHistoryActivityConfig(this.bcc.getPageContext().getPageActivity())));
-        } else if (id == i.f.bar_info_tv) {
-            frsActivity28 = this.bcc.baR;
-            if (frsActivity28.Ld() != null) {
-                frsActivity29 = this.bcc.baR;
-                if (frsActivity29.Ld().aeJ() != null) {
-                    MessageManager messageManager = MessageManager.getInstance();
-                    Activity pageActivity = this.bcc.getPageContext().getPageActivity();
-                    frsActivity30 = this.bcc.baR;
-                    messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumDetailActivityConfig(pageActivity, frsActivity30.Ld().aeJ().getId(), ForumDetailActivityConfig.FromType.FRS_SIDE)));
+            return true;
+        }
+        return false;
+    }
+
+    public void Oe() {
+        if (Og().isMenuShowing()) {
+            Og().toggle(true);
+        }
+    }
+
+    public eh Of() {
+        if (this.bcF == null) {
+            this.bcF = new eh(this.bbk.getPageContext());
+            Og().setMenu(this.bcF.getView());
+            this.bcF.setCommonClickListener(this.aUF);
+            this.bcF.init();
+            this.bcF.MM().setOnSwitchStateChangeListener(this);
+        }
+        this.bcF.changeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+        return this.bcF;
+    }
+
+    public SlidingMenu Og() {
+        if (this.bcE == null) {
+            this.bcE = new SlidingMenu(getPageContext().getPageActivity());
+            this.bcE.setBackgroundColor(getPageContext().getResources().getColor(17170444));
+            this.bcE.setMode(1);
+            this.bcE.setTouchModeAbove(1);
+            this.bcE.setBehindOffset((int) (com.baidu.adp.lib.util.k.K(getPageContext().getPageActivity()) * 0.3d));
+            this.bcE.setBehindScrollScale(0.5f);
+            this.bcE.setFadeDegree(0.35f);
+            this.bcE.attachToActivity(getPageContext().getPageActivity(), 1, true);
+            this.bcE.setOnClosedListener(this.bcG);
+        }
+        return this.bcE;
+    }
+
+    public void showMenu(boolean z) {
+        Og().showMenu(z);
+    }
+
+    public void cn(boolean z) {
+        Of().ci(z);
+    }
+
+    public void setIsManager(boolean z) {
+        Of().setIsManager(z);
+    }
+
+    public void a(dg dgVar) {
+        if (this.bcF != null) {
+            Of().a(dgVar, FrsActivityStatic.aVj, FrsActivityStatic.aVk);
+        }
+    }
+
+    @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
+    public void a(View view, BdSwitchView.SwitchState switchState) {
+        int i = 1;
+        if (view == Of().MM()) {
+            if (switchState == BdSwitchView.SwitchState.ON) {
+                if (TbadkCoreApplication.m411getInst().getSkinType() != 1) {
+                    TiebaStatic.eventStat(getPageContext().getPageActivity(), "frs_night_mode", "frsclick", 1, new Object[0]);
+                    TbadkCoreApplication.m411getInst().setSkinType(1);
+                    TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getApp(), TbConfig.ST_TYPE_EYESHIELD_MODE, null, 1, new Object[0]);
+                } else {
+                    return;
                 }
-            }
-        } else if (id == i.f.forum_manager_center) {
-            frsActivity24 = this.bcc.baR;
-            if (frsActivity24.Ld() != null) {
-                frsActivity25 = this.bcc.baR;
-                if (frsActivity25.Ld().aeJ() != null) {
-                    frsActivity26 = this.bcc.baR;
-                    String id2 = frsActivity26.Ld().aeJ().getId();
-                    frsActivity27 = this.bcc.baR;
-                    com.baidu.tbadk.browser.g.B(this.bcc.getPageContext().getPageActivity(), "http://tieba.baidu.com/mo/q/bawuindex?fn=" + frsActivity27.Ld().aeJ().getName() + "&fid=" + id2);
-                }
-            }
-        } else if (id == i.f.recommend_forum_item_layout) {
-            ef.a aVar = (ef.a) view.getTag();
-            if (aVar != null) {
-                frsActivity19 = this.bcc.baR;
-                if (frsActivity19.Ld() != null) {
-                    frsActivity20 = this.bcc.baR;
-                    if (frsActivity20.Ld().aeJ() != null) {
-                        frsActivity21 = this.bcc.baR;
-                        String name = frsActivity21.Ld().aeJ().getName();
-                        String str = aVar.name;
-                        if (!str.equals(name)) {
-                            frsActivity22 = this.bcc.baR;
-                            frsActivity22.resetData();
-                            frsActivity23 = this.bcc.baR;
-                            frsActivity23.a(aVar, str);
-                        } else if (this.bcc.NK().isMenuShowing()) {
-                            this.bcc.NK().toggle(true);
-                        }
-                    }
-                }
-            }
-        } else if (id == i.f.unfollow_layout) {
-            if (com.baidu.adp.lib.util.i.iM()) {
-                frsActivity18 = this.bcc.baR;
-                frsActivity18.Lh();
+            } else if (TbadkCoreApplication.m411getInst().getSkinType() != 0) {
+                TbadkCoreApplication.m411getInst().setSkinType(0);
+                i = 0;
+            } else {
                 return;
             }
-            frsActivity17 = this.bcc.baR;
-            frsActivity17.showToast(i.h.neterror);
-        } else if (id == i.f.post_search_ll) {
-            frsActivity12 = this.bcc.baR;
-            if (frsActivity12.Ld() != null) {
-                frsActivity13 = this.bcc.baR;
-                if (frsActivity13.Ld().aeJ() != null) {
-                    frsActivity14 = this.bcc.baR;
-                    String name2 = frsActivity14.Ld().aeJ().getName();
-                    if (!StringUtils.isNull(name2)) {
-                        frsActivity15 = this.bcc.baR;
-                        frsActivity16 = this.bcc.baR;
-                        frsActivity15.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PostSearchActivityConfig(frsActivity16.getPageContext().getPageActivity(), name2)));
-                    }
-                }
-            }
-        } else if (id == i.f.frs_sidebar_good_tv) {
-            frsActivity9 = this.bcc.baR;
-            frsActivity10 = this.bcc.baR;
-            FrsGoodActivityConfig frsGoodActivityConfig = new FrsGoodActivityConfig(frsActivity10.getPageContext().getPageActivity());
-            frsActivity11 = this.bcc.baR;
-            frsActivity9.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_START_FRS_GOOD_ACTIVITY, frsGoodActivityConfig.createNormalCfg(frsActivity11.aTM, FrsActivityConfig.FRS_FROM_LIKE)));
-        } else if (id == i.f.frs_sidebar_add_to_desktop) {
-            frsActivity8 = this.bcc.baR;
-            frsActivity8.KX();
-        } else if (id == i.f.bar_live_tv) {
-            frsActivity2 = this.bcc.baR;
-            if (frsActivity2.Ld() != null) {
-                frsActivity3 = this.bcc.baR;
-                if (frsActivity3.Ld().aeJ() != null) {
-                    frsActivity4 = this.bcc.baR;
-                    if (frsActivity4.Ld().getUserData() != null) {
-                        MessageManager messageManager2 = MessageManager.getInstance();
-                        frsActivity5 = this.bcc.baR;
-                        Activity pageActivity2 = frsActivity5.getPageContext().getPageActivity();
-                        frsActivity6 = this.bcc.baR;
-                        String id3 = frsActivity6.Ld().aeJ().getId();
-                        frsActivity7 = this.bcc.baR;
-                        messageManager2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new FrsLiveListActivityConfig(pageActivity2, id3, frsActivity7.Ld().getUserData().getIsManager())));
-                    }
-                }
-            }
-        } else if (id == i.f.bar_share_tv) {
-            frsActivity = this.bcc.baR;
-            frsActivity.showShareDialog();
+            this.bbk.onChangeSkinType(i);
+            com.baidu.tbadk.core.util.c.iw();
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
         }
     }
 }

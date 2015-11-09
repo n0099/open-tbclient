@@ -12,7 +12,7 @@ public class h {
     private HashMap<String, b> ww = new HashMap<>();
     private Handler mHandler = new i(this, Looper.getMainLooper());
 
-    public static h hA() {
+    public static h hB() {
         if (wx == null) {
             synchronized (h.class) {
                 if (wx == null) {
@@ -49,7 +49,7 @@ public class h {
         this.ww.put("dbg", bVar3);
     }
 
-    public boolean as(String str) {
+    public boolean aq(String str) {
         a aVar;
         b bVar = this.ww.get(str);
         if (bVar == null) {
@@ -67,15 +67,15 @@ public class h {
         } else {
             aVar = aVar2;
         }
-        if (aVar.hB()) {
+        if (aVar.hC()) {
             return true;
         }
-        if (aVar.hF()) {
-            aVar.X(aVar.hD() + 1);
-            if (currentTimeMillis - aVar.hC() < bVar.hH()) {
-                if (aVar.hD() >= bVar.hI()) {
+        if (aVar.hG()) {
+            aVar.X(aVar.hE() + 1);
+            if (currentTimeMillis - aVar.hD() < bVar.hI()) {
+                if (aVar.hE() >= bVar.hJ()) {
                     aVar.B(true);
-                    com.baidu.adp.lib.stats.a.hi().a(false, "d", "logfast", (String) null, 0L, 99999, str, new Object[0]);
+                    com.baidu.adp.lib.stats.a.hj().a(false, "d", "logfast", (String) null, 0L, 99999, str, new Object[0]);
                     a(aVar);
                     return true;
                 }
@@ -85,7 +85,7 @@ public class h {
             aVar.X(0);
             aVar.e(currentTimeMillis);
             return false;
-        } else if (currentTimeMillis - aVar.hE() < bVar.hG()) {
+        } else if (currentTimeMillis - aVar.hF() < bVar.hH()) {
             aVar.C(true);
             aVar.d(currentTimeMillis);
             return false;
@@ -122,7 +122,7 @@ public class h {
             this();
         }
 
-        public boolean hB() {
+        public boolean hC() {
             return this.wD;
         }
 
@@ -130,7 +130,7 @@ public class h {
             this.wD = z;
         }
 
-        public long hC() {
+        public long hD() {
             return this.wC;
         }
 
@@ -138,7 +138,7 @@ public class h {
             this.wC = j;
         }
 
-        public int hD() {
+        public int hE() {
             return this.wB;
         }
 
@@ -146,7 +146,7 @@ public class h {
             this.wB = i;
         }
 
-        public long hE() {
+        public long hF() {
             return this.wz;
         }
 
@@ -154,7 +154,7 @@ public class h {
             this.wz = j;
         }
 
-        public boolean hF() {
+        public boolean hG() {
             return this.wA;
         }
 
@@ -177,7 +177,7 @@ public class h {
             this();
         }
 
-        public int hG() {
+        public int hH() {
             return this.wE;
         }
 
@@ -185,7 +185,7 @@ public class h {
             this.wE = i;
         }
 
-        public int hH() {
+        public int hI() {
             return this.wF;
         }
 
@@ -193,7 +193,7 @@ public class h {
             this.wF = i;
         }
 
-        public int hI() {
+        public int hJ() {
             return this.wG;
         }
 

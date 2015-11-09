@@ -10,56 +10,56 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends e<FrsActivity> {
-    private FrsActivity aVf;
-    public boolean aZP;
-    public int aZQ;
-    private ArrayList<u> aZR;
-    private ArrayList<u> aZS;
-    private final com.baidu.adp.framework.listener.a aZT;
-    public boolean avC;
+    private FrsActivity aVn;
+    public boolean auq;
+    public boolean bai;
+    public int baj;
+    private ArrayList<u> bak;
+    private ArrayList<u> bal;
+    private final com.baidu.adp.framework.listener.a bam;
 
     public a(FrsActivity frsActivity) {
         super(frsActivity.getPageContext());
-        this.avC = false;
-        this.aZP = false;
-        this.aZQ = 0;
-        this.aZR = new ArrayList<>();
-        this.aZS = new ArrayList<>();
-        this.aZT = new b(this, CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
-        this.aVf = frsActivity;
+        this.auq = false;
+        this.bai = false;
+        this.baj = 0;
+        this.bak = new ArrayList<>();
+        this.bal = new ArrayList<>();
+        this.bam = new b(this, CmdConfigHttp.FRS_LOAD_MORE_CMD, 301002);
+        this.aVn = frsActivity;
     }
 
     public void registerListener() {
-        registerListener(this.aZT);
+        registerListener(this.bam);
     }
 
     public void a(long j, List<Long> list) {
         if (j == 0 || list == null || list.size() == 0) {
-            this.aZP = true;
+            this.bai = true;
             return;
         }
-        String Y = Y(list);
-        if (!TextUtils.isEmpty(Y)) {
+        String ab = ab(list);
+        if (!TextUtils.isEmpty(ab)) {
             LoadMoreRequestMessage loadMoreRequestMessage = new LoadMoreRequestMessage();
             loadMoreRequestMessage.setForumId(j);
-            loadMoreRequestMessage.setThreadIds(Y);
+            loadMoreRequestMessage.setThreadIds(ab);
             loadMoreRequestMessage.setNeedAbstract(0);
             sendMessage(loadMoreRequestMessage);
-            this.avC = true;
+            this.auq = true;
         }
     }
 
-    private String Y(List<Long> list) {
+    private String ab(List<Long> list) {
         int i = 30;
         if (list == null || list.size() == 0) {
-            this.aZP = true;
+            this.bai = true;
             return "";
         }
         StringBuilder sb = new StringBuilder();
         int size = list.size();
         int i2 = 0;
-        if (this.aZQ != 0) {
-            if (this.aZQ != 1) {
+        if (this.baj != 0) {
+            if (this.baj != 1) {
                 return "";
             }
             i2 = 30;
@@ -69,12 +69,12 @@ public class a extends e<FrsActivity> {
             i = list.size();
         }
         if (i2 >= list.size()) {
-            this.aZP = true;
+            this.bai = true;
             return "";
         }
         for (int i3 = i2; i3 < i; i3++) {
             if (i3 == list.size() - 1) {
-                this.aZP = true;
+                this.bai = true;
             }
             Long l = list.get(i3);
             if (l != null) {
@@ -99,17 +99,17 @@ public class a extends e<FrsActivity> {
     }
 
     public void resetData() {
-        this.aZQ = 0;
-        this.aZP = false;
-        this.aZR.clear();
-        this.aZS.clear();
+        this.baj = 0;
+        this.bai = false;
+        this.bak.clear();
+        this.bal.clear();
     }
 
-    public boolean Z(List<Long> list) {
+    public boolean ac(List<Long> list) {
         if (list != null && list.size() != 0) {
-            return (this.aZQ == 2 || this.aZP) ? false : true;
+            return (this.baj == 2 || this.bai) ? false : true;
         }
-        this.aZP = true;
+        this.bai = true;
         return false;
     }
 
@@ -118,36 +118,36 @@ public class a extends e<FrsActivity> {
             return null;
         }
         if (z) {
-            this.aZR.clear();
-            this.aZS.clear();
+            this.bak.clear();
+            this.bal.clear();
         }
-        int wl = TbadkCoreApplication.m411getInst().getListItemRule().wl() - this.aZR.size();
+        int wq = TbadkCoreApplication.m411getInst().getListItemRule().wq() - this.bak.size();
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
-            if (i < wl) {
-                this.aZR.add(arrayList.get(i));
+            if (i < wq) {
+                this.bak.add(arrayList.get(i));
             } else {
-                this.aZS.add(arrayList.get(i));
+                this.bal.add(arrayList.get(i));
             }
         }
         ArrayList<u> arrayList2 = new ArrayList<>();
-        arrayList2.addAll(this.aZR);
-        arrayList2.addAll(this.aZS);
+        arrayList2.addAll(this.bak);
+        arrayList2.addAll(this.bal);
         return arrayList2;
     }
 
-    public ArrayList<u> MI() {
+    public ArrayList<u> MZ() {
         int i;
-        int size = this.aZS.size() + 30;
-        int wk = TbadkCoreApplication.m411getInst().getListItemRule().wk();
-        if (size > wk && this.aZS.size() > (i = size - wk)) {
+        int size = this.bal.size() + 30;
+        int wp = TbadkCoreApplication.m411getInst().getListItemRule().wp();
+        if (size > wp && this.bal.size() > (i = size - wp)) {
             for (int i2 = 0; i2 < i; i2++) {
-                this.aZS.remove(0);
+                this.bal.remove(0);
             }
         }
         ArrayList<u> arrayList = new ArrayList<>();
-        arrayList.addAll(this.aZR);
-        arrayList.addAll(this.aZS);
+        arrayList.addAll(this.bak);
+        arrayList.addAll(this.bal);
         return arrayList;
     }
 }

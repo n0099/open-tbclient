@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.base.j;
 import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 /* loaded from: classes.dex */
 public class i extends ContextWrapper {
     private String mPackageName;
@@ -35,7 +36,7 @@ public class i extends ContextWrapper {
         if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.getInstance().getPlugin(this.mPackageName).kq();
+        return PluginCenter.getInstance().getPlugin(this.mPackageName).kr();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -48,17 +49,22 @@ public class i extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
-            Resources resources = j.dK().getResources();
-            if (resources == null) {
-                return super.getResources();
+        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mo().findPluginSetting(this.mPackageName);
+        if (findPluginSetting != null && findPluginSetting.isThird) {
+            if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
+                throw new RuntimeException("plugin is not loaded");
             }
-            return resources;
-        } else if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
-            throw new RuntimeException("plugin is not loaded");
+            com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
+            if (plugin2 != null) {
+                return plugin2.ks();
+            }
         } else {
-            return PluginCenter.getInstance().getPlugin(this.mPackageName).kr();
+            Resources resources = j.dK().getResources();
+            if (resources != null) {
+                return resources;
+            }
         }
+        return super.getResources();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -68,22 +74,15 @@ public class i extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources.Theme getTheme() {
-        if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
-            if (this.mTheme == null) {
-                this.mTheme = getResources().newTheme();
-                this.mTheme.setTo(BdBaseApplication.getInst().getTheme());
-            }
-            return this.mTheme;
+        if (this.mTheme == null) {
+            this.mTheme = getResources().newTheme();
+            this.mTheme.setTo(BdBaseApplication.getInst().getTheme());
         }
-        return super.getTheme();
+        return this.mTheme;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public void setTheme(int i) {
-        if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
-            getTheme().applyStyle(i, true);
-        } else {
-            super.setTheme(i);
-        }
+        getTheme().applyStyle(i, true);
     }
 }

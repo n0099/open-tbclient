@@ -7,13 +7,13 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ PbChosenActivity cfl;
+    final /* synthetic */ PbChosenActivity cfM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(PbChosenActivity pbChosenActivity, int i, int i2) {
         super(i, i2);
-        this.cfl = pbChosenActivity;
+        this.cfM = pbChosenActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -21,16 +21,16 @@ class e extends com.baidu.adp.framework.listener.a {
         com.baidu.tieba.pb.chosen.a.i iVar;
         com.baidu.tieba.pb.chosen.a.i iVar2;
         if (responsedMessage != null) {
-            iVar = this.cfl.ceQ;
-            iVar.aeF();
+            iVar = this.cfM.cfr;
+            iVar.afa();
             if (responsedMessage.hasError()) {
-                BdToast.b(this.cfl.getPageContext().getPageActivity(), StringUtils.isNull(responsedMessage.getErrorString()) ? this.cfl.getResources().getString(i.h.neterror) : responsedMessage.getErrorString()).sW();
+                BdToast.b(this.cfM.getPageContext().getPageActivity(), StringUtils.isNull(responsedMessage.getErrorString()) ? this.cfM.getResources().getString(i.h.neterror) : responsedMessage.getErrorString()).sZ();
                 return;
             }
             Object extra = responsedMessage.getOrginalMessage().getExtra();
             if (extra instanceof ChosenZanNetMessage) {
-                iVar2 = this.cfl.ceQ;
-                iVar2.em(((ChosenZanNetMessage) extra).isPraise());
+                iVar2 = this.cfM.cfr;
+                iVar2.eo(((ChosenZanNetMessage) extra).isPraise());
             }
         }
     }

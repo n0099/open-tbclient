@@ -1,19 +1,46 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.pb.pb.main.ca;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cb {
-    public static Intent L(Context context, String str) {
-        if (TextUtils.isEmpty(str) || context == null) {
-            return null;
+public class cb extends CustomMessageListener {
+    final /* synthetic */ ca ckZ;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cb(ca caVar, int i) {
+        super(i);
+        this.ckZ = caVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        BdUniqueId bdUniqueId;
+        int i;
+        ca.a aVar;
+        this.ckZ.ckU = true;
+        if (customResponsedMessage != null && (customResponsedMessage instanceof PbPageReadLocalResponseMessage)) {
+            BdUniqueId tag = customResponsedMessage.getOrginalMessage().getTag();
+            bdUniqueId = this.ckZ.unique_id;
+            if (tag == bdUniqueId) {
+                PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = (PbPageReadLocalResponseMessage) customResponsedMessage;
+                com.baidu.tieba.pb.a.c pbData = pbPageReadLocalResponseMessage.getPbData();
+                if (pbData != null) {
+                    this.ckZ.g(pbData);
+                    this.ckZ.c(pbData);
+                    aVar = this.ckZ.ckP;
+                    if (aVar != null && pbData != null) {
+                        com.baidu.adp.lib.g.h.hh().post(new cc(this, pbPageReadLocalResponseMessage, pbData));
+                    }
+                }
+                ca caVar = this.ckZ;
+                i = this.ckZ.mRequestType;
+                caVar.jf(i);
+            }
         }
-        Intent intent = new Intent(context, DealIntentService.class);
-        intent.putExtra("class", 1);
-        intent.putExtra("id", str);
-        intent.putExtra("from", "nas");
-        return intent;
     }
 }

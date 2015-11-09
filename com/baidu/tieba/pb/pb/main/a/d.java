@@ -9,11 +9,11 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ a clQ;
+    final /* synthetic */ a cnf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(a aVar) {
-        this.clQ = aVar;
+        this.cnf = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,12 +22,12 @@ public class d implements View.OnClickListener {
         PbActivity pbActivity2;
         PbActivity pbActivity3;
         PbActivity pbActivity4;
-        pbActivity = this.clQ.ciU;
+        pbActivity = this.cnf.cjZ;
         if (pbActivity.checkUpIsLogin()) {
-            pbActivity2 = this.clQ.ciU;
-            pbActivity3 = this.clQ.ciU;
+            pbActivity2 = this.cnf.cjZ;
+            pbActivity3 = this.cnf.cjZ;
             pbActivity2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPrivilegeActivityConfig(pbActivity3.getPageContext().getPageActivity())));
-            pbActivity4 = this.clQ.ciU;
+            pbActivity4 = this.cnf.cjZ;
             TiebaStatic.eventStat(pbActivity4.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
         }
     }

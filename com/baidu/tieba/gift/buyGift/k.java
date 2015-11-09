@@ -5,11 +5,11 @@ import android.view.animation.Animation;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements Animation.AnimationListener {
-    final /* synthetic */ BuyGiftActivity bmC;
+    final /* synthetic */ BuyGiftActivity bng;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(BuyGiftActivity buyGiftActivity) {
-        this.bmC = buyGiftActivity;
+        this.bng = buyGiftActivity;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -23,8 +23,8 @@ public class k implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         View view;
-        view = this.bmC.blY;
+        view = this.bng.bmC;
         view.setVisibility(0);
-        this.bmC.Qk();
+        this.bng.QG();
     }
 }

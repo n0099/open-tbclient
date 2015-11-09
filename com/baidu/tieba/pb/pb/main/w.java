@@ -1,52 +1,58 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.MotionEvent;
+import android.util.SparseArray;
 import android.view.View;
-import com.baidu.tbadk.core.view.MorePopupWindow;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.core.dialog.c;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class w implements View.OnTouchListener {
-    final /* synthetic */ PbActivity ciK;
+class w implements View.OnLongClickListener {
+    final /* synthetic */ PbActivity cjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(PbActivity pbActivity) {
-        this.ciK = pbActivity;
+        this.cjN = pbActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        MorePopupWindow morePopupWindow;
-        MorePopupWindow morePopupWindow2;
-        MorePopupWindow morePopupWindow3;
-        MorePopupWindow morePopupWindow4;
-        MorePopupWindow morePopupWindow5;
-        MorePopupWindow morePopupWindow6;
-        MorePopupWindow morePopupWindow7;
-        MorePopupWindow morePopupWindow8;
-        int x = (int) motionEvent.getX();
-        int y = (int) motionEvent.getY();
-        morePopupWindow = this.ciK.ciq;
-        if (morePopupWindow.getContentView() == null) {
-            return false;
+    @Override // android.view.View.OnLongClickListener
+    public boolean onLongClick(View view) {
+        SparseArray sparseArray;
+        com.baidu.tbadk.baseEditMark.a aVar;
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        boolean z;
+        ct ctVar;
+        c.b bVar;
+        ca caVar;
+        try {
+            sparseArray = (SparseArray) view.getTag();
+        } catch (ClassCastException e) {
+            e.printStackTrace();
+            sparseArray = null;
         }
-        morePopupWindow2 = this.ciK.ciq;
-        int top = morePopupWindow2.getContentView().getTop();
-        morePopupWindow3 = this.ciK.ciq;
-        int right = morePopupWindow3.getContentView().getRight();
-        morePopupWindow4 = this.ciK.ciq;
-        int bottom = morePopupWindow4.getContentView().getBottom();
-        if (motionEvent.getAction() == 4 && x > right && y > top && y < bottom) {
-            morePopupWindow6 = this.ciK.ciq;
-            if (morePopupWindow6.isShowing()) {
-                morePopupWindow7 = this.ciK.ciq;
-                com.baidu.adp.lib.g.j.a(morePopupWindow7, this.ciK.getPageContext().getPageActivity());
-                morePopupWindow8 = this.ciK.ciq;
-                morePopupWindow8.setIsIntercepted(true);
-                return true;
+        if (sparseArray != null) {
+            this.cjN.cjL = (com.baidu.tieba.tbadkCore.data.o) sparseArray.get(i.f.tag_clip_board);
+            if (this.cjN.cjL != null) {
+                aVar = this.cjN.cjk;
+                if (aVar != null) {
+                    aVar2 = this.cjN.cjk;
+                    if (aVar2.qi() && this.cjN.cjL.getId() != null) {
+                        String id = this.cjN.cjL.getId();
+                        caVar = this.cjN.cjj;
+                        if (id.equals(caVar.sn())) {
+                            z = true;
+                            boolean booleanValue = ((Boolean) sparseArray.get(i.f.tag_is_subpb)).booleanValue();
+                            ctVar = this.cjN.cjo;
+                            bVar = this.cjN.cjM;
+                            ctVar.a(bVar, z, booleanValue);
+                        }
+                    }
+                    z = false;
+                    boolean booleanValue2 = ((Boolean) sparseArray.get(i.f.tag_is_subpb)).booleanValue();
+                    ctVar = this.cjN.cjo;
+                    bVar = this.cjN.cjM;
+                    ctVar.a(bVar, z, booleanValue2);
+                }
             }
         }
-        morePopupWindow5 = this.ciK.ciq;
-        morePopupWindow5.setIsIntercepted(false);
-        return false;
+        return true;
     }
 }

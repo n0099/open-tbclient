@@ -19,7 +19,7 @@ public class b {
         }
     }
 
-    public void N(String str) {
+    public void L(String str) {
         if (str != null) {
             this.qZ = String.valueOf(this.qY) + "/" + str + "/";
         }

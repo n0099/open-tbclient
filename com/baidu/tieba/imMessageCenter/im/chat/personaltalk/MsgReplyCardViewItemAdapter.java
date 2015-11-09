@@ -27,10 +27,10 @@ public class MsgReplyCardViewItemAdapter extends ap<MsgReplyCardView> {
     @Override // com.baidu.tieba.im.chat.ap
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, ap.a<MsgReplyCardView> aVar) {
         super.a(i, view, viewGroup, chatMessage, (ap.a) aVar);
-        MsgReplyCardView RL = aVar.RL();
-        RL.a(this.mPageContext, chatMessage, viewGroup);
-        RL.a(this.brD);
-        RL.setPosition(i);
+        MsgReplyCardView Sh = aVar.Sh();
+        Sh.a(this.mPageContext, chatMessage, viewGroup);
+        Sh.a(this.bsh);
+        Sh.setPosition(i);
         this.mPageContext.getLayoutMode().ad(false);
         this.mPageContext.getLayoutMode().k(view);
         return view;

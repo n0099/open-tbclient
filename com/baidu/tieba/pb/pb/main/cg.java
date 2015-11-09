@@ -1,37 +1,45 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cg implements View.OnClickListener {
-    final /* synthetic */ cc clJ;
+public class cg extends bz<com.baidu.tbadk.core.data.aa, cf> {
+    private View.OnClickListener bNr;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cg(cc ccVar) {
-        this.clJ = ccVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public cg(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity;
-        dialog = this.clJ.ckQ;
-        if (dialog != null) {
-            dialog2 = this.clJ.ckQ;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.clJ.ckQ;
-                pbActivity = this.clJ.ciU;
-                com.baidu.adp.lib.g.j.b(dialog3, pbActivity.getPageContext());
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: L */
+    public cf a(ViewGroup viewGroup) {
+        return new cf(LayoutInflater.from(this.mContext).inflate(i.g.pb_u9_news_layout, viewGroup, false));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.bz, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.aa aaVar, cf cfVar) {
+        super.a(i, view, viewGroup, (ViewGroup) aaVar, (com.baidu.tbadk.core.data.aa) cfVar);
+        if (aaVar != null) {
+            cfVar.cll.setOnClickListener(this.bNr);
+            cfVar.cll.setText(aaVar.getSummary());
+            cfVar.cll.setTag(aaVar);
+            com.baidu.tbadk.core.util.an.j(cfVar.clm, i.c.cp_bg_line_b);
+            com.baidu.tbadk.core.util.an.b(cfVar.cll, i.c.cp_cont_b, 1);
+            cfVar.cll.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.an.getDrawable(i.e.icon_frs_news), (Drawable) null, (Drawable) null, (Drawable) null);
         }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.clJ.a(((Integer) sparseArray.get(i.f.tag_del_post_type)).intValue(), (String) sparseArray.get(i.f.tag_del_post_id), ((Integer) sparseArray.get(i.f.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(i.f.tag_del_post_is_self)).booleanValue());
-        }
+        return view;
+    }
+
+    public void r(View.OnClickListener onClickListener) {
+        this.bNr = onClickListener;
     }
 }

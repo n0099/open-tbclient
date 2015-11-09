@@ -18,7 +18,7 @@ public class a {
             }
             mFileName = str;
             yW = fVar;
-            yV.aX(str);
+            yV.aV(str);
             mPlayingState = 2;
             new Thread(yV).start();
             return true;

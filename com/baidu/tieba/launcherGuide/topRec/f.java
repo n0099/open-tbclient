@@ -6,11 +6,11 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Animation.AnimationListener {
-    final /* synthetic */ e bTs;
+    final /* synthetic */ e bTN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.bTs = eVar;
+        this.bTN = eVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -26,26 +26,26 @@ public class f implements Animation.AnimationListener {
         TextView textView5;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.bTs.bTo;
+        i = this.bTN.bTJ;
         if (i < 100) {
-            textView5 = this.bTs.bTp;
-            topRecActivity2 = this.bTs.bSY;
+            textView5 = this.bTN.bTK;
+            topRecActivity2 = this.bTN.bTt;
             StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getPageContext().getString(i.h.done))).append("(");
-            i2 = this.bTs.bTo;
+            i2 = this.bTN.bTJ;
             textView5.setText(append.append(i2).append(")").toString());
         } else {
-            textView = this.bTs.bTp;
-            topRecActivity = this.bTs.bSY;
+            textView = this.bTN.bTK;
+            topRecActivity = this.bTN.bTt;
             textView.setText(String.valueOf(topRecActivity.getPageContext().getString(i.h.done)) + "(99+)");
         }
-        textView2 = this.bTs.bTp;
+        textView2 = this.bTN.bTK;
         textView2.invalidate();
-        textView3 = this.bTs.bTp;
-        animation2 = this.bTs.bTr;
+        textView3 = this.bTN.bTK;
+        animation2 = this.bTN.bTM;
         textView3.setAnimation(animation2);
-        animation3 = this.bTs.bTr;
+        animation3 = this.bTN.bTM;
         animation3.start();
-        textView4 = this.bTs.bTp;
+        textView4 = this.bTN.bTK;
         textView4.setVisibility(4);
     }
 

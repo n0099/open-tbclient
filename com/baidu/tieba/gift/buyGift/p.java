@@ -5,11 +5,11 @@ import android.view.inputmethod.InputMethodManager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnFocusChangeListener {
-    final /* synthetic */ BuyGiftActivity bmC;
+    final /* synthetic */ BuyGiftActivity bng;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(BuyGiftActivity buyGiftActivity) {
-        this.bmC = buyGiftActivity;
+        this.bng = buyGiftActivity;
     }
 
     @Override // android.view.View.OnFocusChangeListener
@@ -17,13 +17,13 @@ public class p implements View.OnFocusChangeListener {
         InputMethodManager inputMethodManager;
         InputMethodManager inputMethodManager2;
         if (z) {
-            BuyGiftActivity buyGiftActivity = this.bmC;
-            inputMethodManager2 = this.bmC.bmx;
-            buyGiftActivity.ShowSoftKeyPad(inputMethodManager2, this.bmC.blZ);
+            BuyGiftActivity buyGiftActivity = this.bng;
+            inputMethodManager2 = this.bng.bnb;
+            buyGiftActivity.ShowSoftKeyPad(inputMethodManager2, this.bng.bmD);
             return;
         }
-        BuyGiftActivity buyGiftActivity2 = this.bmC;
-        inputMethodManager = this.bmC.bmx;
-        buyGiftActivity2.HidenSoftKeyPad(inputMethodManager, this.bmC.blZ);
+        BuyGiftActivity buyGiftActivity2 = this.bng;
+        inputMethodManager = this.bng.bnb;
+        buyGiftActivity2.HidenSoftKeyPad(inputMethodManager, this.bng.bmD);
     }
 }

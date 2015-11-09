@@ -74,7 +74,7 @@ public class k extends Handler {
             aVar15 = this.zX.zQ;
             if (aVar15 != null) {
                 aVar16 = this.zX.zQ;
-                aVar16.jy();
+                aVar16.jz();
             }
         } else if (message.obj instanceof m.c) {
             this.zX.close(1, null);

@@ -13,11 +13,11 @@ class n implements z.b {
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.z.b
-    public void zm() {
+    public void zr() {
         String str;
         String str2;
         aq aqVar = new aq("c10351");
-        str = this.this$0.bOS;
+        str = this.this$0.bPn;
         aq ae = aqVar.ae("tid", str);
         str2 = this.this$0.mFrom;
         TiebaStatic.log(ae.ae("obj_type", str2));

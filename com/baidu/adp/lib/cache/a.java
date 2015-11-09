@@ -13,7 +13,7 @@ public class a extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    public String P(String str) {
+    public String N(String str) {
         this.sN.E("CREATE TABLE IF NOT EXISTS " + this.sM + "(m_key VARCHAR(64) PRIMARY KEY, m_ns varchar(128), saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value blob)");
         this.sN.E("CREATE INDEX if not exists idx_mi_ns ON " + this.sM + "(m_ns)");
         return this.sM;
@@ -79,7 +79,7 @@ public class a extends c<byte[]> {
     }
 
     @Override // com.baidu.adp.lib.cache.c
-    protected boolean Q(String str) {
+    protected boolean O(String str) {
         try {
             this.sN.dL().delete(this.sO, "m_ns = ?", new String[]{str});
             return true;

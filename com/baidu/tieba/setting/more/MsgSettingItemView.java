@@ -13,10 +13,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class MsgSettingItemView extends LinearLayout {
-    private View Mn;
-    private TextView cOB;
-    private TextView cOC;
-    private BdSwitchView cOD;
+    private View Mo;
+    private TextView cPX;
+    private TextView cPY;
+    private BdSwitchView cPZ;
 
     public MsgSettingItemView(Context context) {
         super(context);
@@ -31,23 +31,23 @@ public class MsgSettingItemView extends LinearLayout {
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(i.g.msg_setting_item_view, (ViewGroup) this, true);
-        this.cOB = (TextView) findViewById(i.f.setting_text);
-        this.cOC = (TextView) findViewById(i.f.setting_tip);
-        this.cOD = (BdSwitchView) findViewById(i.f.setting_switch);
-        com.baidu.adp.lib.util.k.a(context, this.cOD, 10, 10, 10, 10);
-        this.Mn = findViewById(i.f.bottom_line_ll);
+        this.cPX = (TextView) findViewById(i.f.setting_text);
+        this.cPY = (TextView) findViewById(i.f.setting_tip);
+        this.cPZ = (BdSwitchView) findViewById(i.f.setting_switch);
+        com.baidu.adp.lib.util.k.a(context, this.cPZ, 10, 10, 10, 10);
+        this.Mo = findViewById(i.f.bottom_line_ll);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.cOB.setText(str);
+        this.cPX.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.cOB.setText(i);
+            this.cPX.setText(i);
         }
     }
 
@@ -55,57 +55,57 @@ public class MsgSettingItemView extends LinearLayout {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.cOC.setVisibility(0);
-        this.cOC.setText(str);
+        this.cPY.setVisibility(0);
+        this.cPY.setText(str);
     }
 
     public void setTipText(int i) {
         if (i != 0) {
-            this.cOC.setVisibility(0);
-            this.cOC.setText(i);
+            this.cPY.setVisibility(0);
+            this.cPY.setText(i);
         }
     }
 
+    public void mD() {
+        this.cPZ.mD();
+    }
+
     public void mC() {
-        this.cOD.mC();
+        this.cPZ.mC();
     }
 
     public void mB() {
-        this.cOD.mB();
+        this.cPZ.mB();
     }
 
     public void mA() {
-        this.cOD.mA();
+        this.cPZ.mA();
     }
 
-    public void mz() {
-        this.cOD.mz();
-    }
-
-    public boolean hx() {
-        return this.cOD.hx();
+    public boolean hy() {
+        return this.cPZ.hy();
     }
 
     public void setLineVisibility(boolean z) {
         if (z) {
-            this.Mn.setVisibility(0);
+            this.Mo.setVisibility(0);
         } else {
-            this.Mn.setVisibility(8);
+            this.Mo.setVisibility(8);
         }
     }
 
     public BdSwitchView getSwitchView() {
-        return this.cOD;
+        return this.cPZ;
     }
 
     public void setOnSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.cOD.setOnSwitchStateChangeListener(aVar);
+        this.cPZ.setOnSwitchStateChangeListener(aVar);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         tbPageContext.getLayoutMode().ad(i == 1);
         tbPageContext.getLayoutMode().k(this);
-        this.cOD.a(com.baidu.tbadk.core.util.an.cw(i.e.bg_switch_open), com.baidu.tbadk.core.util.an.cw(i.e.bg_switch_close), com.baidu.tbadk.core.util.an.cw(i.e.btn_handle));
+        this.cPZ.a(com.baidu.tbadk.core.util.an.cw(i.e.bg_switch_open), com.baidu.tbadk.core.util.an.cw(i.e.bg_switch_close), com.baidu.tbadk.core.util.an.cw(i.e.btn_handle));
         com.baidu.tbadk.core.util.an.j(this, i.c.cp_bg_line_d);
     }
 }

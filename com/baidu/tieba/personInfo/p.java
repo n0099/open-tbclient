@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* loaded from: classes.dex */
 class p extends CustomMessageListener {
-    final /* synthetic */ PersonInfoActivity csI;
+    final /* synthetic */ PersonInfoActivity cue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.csI = personInfoActivity;
+        this.cue = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,18 +35,18 @@ class p extends CustomMessageListener {
                     replyInfo.setUserId(c);
                     replyInfo.setFriendId(friendId);
                     replyInfo.setMessage(content);
-                    yVar3 = this.csI.csv;
-                    yVar3.ajJ().getReplyInfo().add(replyInfo);
-                    yVar4 = this.csI.csv;
-                    yVar4.ajQ();
+                    yVar3 = this.cue.ctR;
+                    yVar3.akp().getReplyInfo().add(replyInfo);
+                    yVar4 = this.cue.ctR;
+                    yVar4.akw();
                 }
             } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                yVar = this.csI.csv;
-                if (yVar.ajJ() != null) {
-                    yVar2 = this.csI.csv;
-                    yVar2.ajJ().setIsFriend(1);
-                    ajVar = this.csI.csw;
-                    ajVar.ajW();
+                yVar = this.cue.ctR;
+                if (yVar.akp() != null) {
+                    yVar2 = this.cue.ctR;
+                    yVar2.akp().setIsFriend(1);
+                    ajVar = this.cue.ctS;
+                    ajVar.akC();
                 }
             }
         }

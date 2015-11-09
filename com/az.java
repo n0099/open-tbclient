@@ -4,16 +4,16 @@ import android.content.DialogInterface;
 import com.baidu.cloudsdk.social.share.handler.CloudBatchShareHandler;
 /* loaded from: classes.dex */
 public class az implements DialogInterface.OnDismissListener {
-    final /* synthetic */ CloudBatchShareHandler dvY;
+    final /* synthetic */ CloudBatchShareHandler dxQ;
 
     public az(CloudBatchShareHandler cloudBatchShareHandler) {
-        this.dvY = cloudBatchShareHandler;
+        this.dxQ = cloudBatchShareHandler;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        if (this.dvY.mShareDialog != null) {
-            this.dvY.mShareDialog = null;
+        if (this.dxQ.mShareDialog != null) {
+            this.dxQ.mShareDialog = null;
         }
     }
 }

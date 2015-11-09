@@ -8,11 +8,11 @@ import com.baidu.tieba.im.chat.AbsMsgImageActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements c.b {
-    final /* synthetic */ AbsMsgImageActivity bqP;
+    final /* synthetic */ AbsMsgImageActivity brt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(AbsMsgImageActivity absMsgImageActivity) {
-        this.bqP = absMsgImageActivity;
+        this.brt = absMsgImageActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.c.b
@@ -21,22 +21,22 @@ public class e implements c.b {
         MultiImageView multiImageView;
         MultiImageView multiImageView2;
         AbsMsgImageActivity.a aVar;
-        listMenu = this.bqP.getListMenu();
+        listMenu = this.brt.getListMenu();
         if (cVar == listMenu) {
             switch (i) {
                 case 0:
                     try {
-                        multiImageView = this.bqP.bqD;
+                        multiImageView = this.brt.brh;
                         byte[] currentImageData = multiImageView.getCurrentImageData();
                         if (currentImageData != null) {
-                            multiImageView2 = this.bqP.bqD;
+                            multiImageView2 = this.brt.brh;
                             String currentImageUrl = multiImageView2.getCurrentImageUrl();
-                            this.bqP.bqA = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
-                            aVar = this.bqP.bqA;
+                            this.brt.bre = new AbsMsgImageActivity.a(currentImageUrl, currentImageData);
+                            aVar = this.brt.bre;
                             aVar.execute(new String[0]);
-                            this.bqP.bqB.setClickable(false);
+                            this.brt.brf.setClickable(false);
                         } else {
-                            this.bqP.showToast(this.bqP.getPageContext().getString(i.h.no_data));
+                            this.brt.showToast(this.brt.getPageContext().getString(i.h.no_data));
                         }
                         break;
                     } catch (Exception e) {

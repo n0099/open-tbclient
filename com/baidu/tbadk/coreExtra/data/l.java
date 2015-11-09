@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class l {
     private String vcode_md5 = null;
     private String vcode_pic_url = null;
-    private String ags = null;
+    private String agy = null;
 
     public String getVcode_md5() {
         return this.vcode_md5;
@@ -17,8 +17,8 @@ public class l {
         return this.vcode_pic_url;
     }
 
-    public String wp() {
-        return this.ags;
+    public String wu() {
+        return this.agy;
     }
 
     public void parserJson(String str) {
@@ -39,7 +39,7 @@ public class l {
             try {
                 this.vcode_md5 = jSONObject.optString("vcode_md5");
                 this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
-                this.ags = jSONObject.optString("vcode_type");
+                this.agy = jSONObject.optString("vcode_type");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

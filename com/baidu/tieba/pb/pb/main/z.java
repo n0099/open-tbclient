@@ -1,44 +1,36 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.ForbidActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class z implements PbActivity.a {
-    final /* synthetic */ PbActivity ciK;
+class z extends CustomMessageListener {
+    final /* synthetic */ PbActivity cjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(PbActivity pbActivity) {
-        this.ciK = pbActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z(PbActivity pbActivity, int i) {
+        super(i);
+        this.cjN = pbActivity;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.PbActivity.a
-    public void d(Object obj) {
-        bl blVar;
-        bl blVar2;
-        bl blVar3;
-        bl blVar4;
-        Object[] objArr = (Object[]) obj;
-        blVar = this.ciK.cih;
-        String valueOf = String.valueOf(blVar.getPbData().getUserData().getUserId());
-        String str = "";
-        if (objArr.length > 1) {
-            str = String.valueOf(objArr[1]);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ct ctVar;
+        ct ctVar2;
+        ct ctVar3;
+        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+            ctVar = this.cjN.cjo;
+            if (ctVar != null) {
+                if (booleanValue) {
+                    ctVar3 = this.cjN.cjo;
+                    ctVar3.VN();
+                    return;
+                }
+                ctVar2 = this.cjN.cjo;
+                ctVar2.VM();
+            }
         }
-        String str2 = "";
-        if (objArr.length > 2) {
-            str2 = String.valueOf(objArr[2]);
-        }
-        PbActivity pbActivity = this.ciK;
-        Activity pageActivity = this.ciK.getPageContext().getPageActivity();
-        blVar2 = this.ciK.cih;
-        String id = blVar2.getPbData().aeJ().getId();
-        blVar3 = this.ciK.cih;
-        String name = blVar3.getPbData().aeJ().getName();
-        blVar4 = this.ciK.cih;
-        pbActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(pageActivity, id, name, blVar4.getPbData().aeK().getId(), valueOf, str, str2)));
     }
 }

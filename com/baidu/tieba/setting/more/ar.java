@@ -4,19 +4,19 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class ar implements a.b {
-    final /* synthetic */ SystemHelpSettingActivity cOP;
+    final /* synthetic */ SystemHelpSettingActivity cQl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.cOP = systemHelpSettingActivity;
+        this.cQl = systemHelpSettingActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tieba.setting.model.j jVar;
-        this.cOP.showLoadingDialog(this.cOP.getPageContext().getString(i.h.deleting));
-        jVar = this.cOP.cON;
-        jVar.arn();
+        this.cQl.showLoadingDialog(this.cQl.getPageContext().getString(i.h.deleting));
+        jVar = this.cQl.cQj;
+        jVar.arT();
         aVar.dismiss();
     }
 }

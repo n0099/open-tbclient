@@ -3,19 +3,19 @@ package com.baidu.tieba.im.c;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 class aa extends com.baidu.tbadk.util.l<LinkedHashMap<String, String>> {
-    final /* synthetic */ a bHf;
-    private final /* synthetic */ String bHq;
+    final /* synthetic */ a bHA;
+    private final /* synthetic */ String bHL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(a aVar, String str) {
-        this.bHf = aVar;
-        this.bHq = str;
+        this.bHA = aVar;
+        this.bHL = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.l
-    /* renamed from: Xa */
+    /* renamed from: Xv */
     public LinkedHashMap<String, String> doInBackground() {
-        return com.baidu.tieba.im.db.k.TP().b(this.bHq, 2, null, 1000);
+        return com.baidu.tieba.im.db.k.Uk().b(this.bHL, 2, null, 1000);
     }
 }

@@ -11,115 +11,115 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s {
-    public String bUV;
-    private PostSearchActivity cDW;
-    private String cEn;
-    public ArrayList<String> cEw;
-    public int cEo = 0;
-    public int cEp = 0;
-    public int cEq = 1;
-    public int cEr = 1;
-    public int cEs = 1;
-    public boolean cEt = false;
-    public boolean cEu = false;
-    public boolean cEv = false;
-    private int cEx = 0;
-    private final HttpMessageListener cEy = new t(this, CmdConfigHttp.CMD_POST_SEARCH);
-    private CustomMessageListener bVz = new u(this, CmdConfigCustom.GET_ALL_SEARCH_POST_DATA);
+    public String bVw;
+    private String cFJ;
+    public ArrayList<String> cFS;
+    private PostSearchActivity cFs;
+    public int cFK = 0;
+    public int cFL = 0;
+    public int cFM = 1;
+    public int cFN = 1;
+    public int cFO = 1;
+    public boolean cFP = false;
+    public boolean cFQ = false;
+    public boolean cFR = false;
+    private int cFT = 0;
+    private final HttpMessageListener cFU = new t(this, CmdConfigHttp.CMD_POST_SEARCH);
+    private CustomMessageListener bWa = new u(this, CmdConfigCustom.GET_ALL_SEARCH_POST_DATA);
 
     public s(PostSearchActivity postSearchActivity) {
-        this.cDW = postSearchActivity;
-        this.cDW.registerListener(this.bVz);
-        this.cDW.registerListener(this.cEy);
+        this.cFs = postSearchActivity;
+        this.cFs.registerListener(this.bWa);
+        this.cFs.registerListener(this.cFU);
     }
 
     public boolean X(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.bUV)) {
-            aos();
+        if (!str.equals(this.bVw)) {
+            aoY();
         }
         switch (i) {
             case 1:
-                return kJ(str);
+                return kN(str);
             case 2:
-                return kK(str);
+                return kO(str);
             case 3:
-                return kL(str);
+                return kP(str);
             default:
                 return false;
         }
     }
 
-    public boolean kJ(String str) {
-        if (this.cEt) {
+    public boolean kN(String str) {
+        if (this.cFP) {
             return false;
         }
-        this.bUV = str;
-        this.cEx = 1;
-        this.cDW.sendMessage(jW(this.cEx));
-        this.cEt = true;
+        this.bVw = str;
+        this.cFT = 1;
+        this.cFs.sendMessage(kk(this.cFT));
+        this.cFP = true;
         return true;
     }
 
-    public boolean kK(String str) {
-        if (this.cEu) {
+    public boolean kO(String str) {
+        if (this.cFQ) {
             return false;
         }
-        this.bUV = str;
-        this.cEx = 2;
-        this.cDW.sendMessage(jW(this.cEx));
-        this.cEu = true;
+        this.bVw = str;
+        this.cFT = 2;
+        this.cFs.sendMessage(kk(this.cFT));
+        this.cFQ = true;
         return true;
     }
 
-    public boolean kL(String str) {
-        if (this.cEv) {
+    public boolean kP(String str) {
+        if (this.cFR) {
             return false;
         }
-        this.bUV = str;
-        this.cEx = 3;
-        this.cDW.sendMessage(jW(this.cEx));
-        this.cEv = true;
+        this.bVw = str;
+        this.cFT = 3;
+        this.cFs.sendMessage(kk(this.cFT));
+        this.cFR = true;
         return true;
     }
 
-    public void aop() {
-        this.cDW.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
+    public void aoV() {
+        this.cFs.sendMessage(new CustomMessage(CmdConfigCustom.GET_ALL_SEARCH_POST_DATA));
     }
 
-    public void aoq() {
-        if (!StringUtils.isNull(this.bUV) && !this.bUV.equals(this.cEn)) {
-            this.cDW.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.bUV));
-            this.cEn = this.bUV;
+    public void aoW() {
+        if (!StringUtils.isNull(this.bVw) && !this.bVw.equals(this.cFJ)) {
+            this.cFs.sendMessage(new CustomMessage((int) CmdConfigCustom.SAVE_SEARCH_POST_DATA, this.bVw));
+            this.cFJ = this.bVw;
         }
     }
 
-    public void aor() {
-        if (this.cEw != null) {
-            this.cEw.clear();
+    public void aoX() {
+        if (this.cFS != null) {
+            this.cFS.clear();
         }
-        this.cDW.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
+        this.cFs.sendMessage(new CustomMessage(CmdConfigCustom.CLEAR_ALL_SEARCH_POST_DATA));
     }
 
-    public void aos() {
-        this.cEq = 1;
-        this.cEr = 1;
-        this.cEs = 1;
+    public void aoY() {
+        this.cFM = 1;
+        this.cFN = 1;
+        this.cFO = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aot() {
-        if (this.cEw == null) {
-            this.cEw = new ArrayList<>();
+    public void aoZ() {
+        if (this.cFS == null) {
+            this.cFS = new ArrayList<>();
         }
-        this.cEw.remove(this.bUV);
-        this.cEw.add(0, this.bUV);
-        bi(this.cEw);
+        this.cFS.remove(this.bVw);
+        this.cFS.add(0, this.bVw);
+        bm(this.cFS);
     }
 
-    private void bi(List<String> list) {
+    private void bm(List<String> list) {
         int size;
         if (list != null && list.size() - 5 > 0) {
             int size2 = list.size();
@@ -129,43 +129,43 @@ public class s {
         }
     }
 
-    private HttpMessage jW(int i) {
+    private HttpMessage kk(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-        httpMessage.addParam("word", this.bUV);
+        httpMessage.addParam("word", this.bVw);
         httpMessage.addParam("rn", (Object) 30);
-        httpMessage.addParam("kw", this.cDW.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.cEx));
+        httpMessage.addParam("kw", this.cFs.mForumName);
+        httpMessage.setExtra(Integer.valueOf(this.cFT));
         switch (i) {
             case 1:
                 httpMessage.addParam("sm", (Object) 1);
                 httpMessage.addParam("only_thread", (Object) 0);
-                httpMessage.addParam("pn", Integer.valueOf(this.cEq));
+                httpMessage.addParam("pn", Integer.valueOf(this.cFM));
                 break;
             case 2:
                 httpMessage.addParam("sm", (Object) 2);
                 httpMessage.addParam("only_thread", (Object) 0);
-                httpMessage.addParam("pn", Integer.valueOf(this.cEr));
+                httpMessage.addParam("pn", Integer.valueOf(this.cFN));
                 break;
             case 3:
                 httpMessage.addParam("sm", (Object) 2);
                 httpMessage.addParam("only_thread", (Object) 1);
-                httpMessage.addParam("pn", Integer.valueOf(this.cEs));
+                httpMessage.addParam("pn", Integer.valueOf(this.cFO));
                 break;
         }
         return httpMessage;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jX(int i) {
+    public void kl(int i) {
         switch (i) {
             case 1:
-                this.cEq++;
+                this.cFM++;
                 return;
             case 2:
-                this.cEr++;
+                this.cFN++;
                 return;
             case 3:
-                this.cEs++;
+                this.cFO++;
                 return;
             default:
                 return;
@@ -173,30 +173,30 @@ public class s {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int jY(int i) {
+    public int km(int i) {
         switch (i) {
             case 1:
-                return this.cEq;
+                return this.cFM;
             case 2:
-                return this.cEr;
+                return this.cFN;
             case 3:
-                return this.cEs;
+                return this.cFO;
             default:
                 return 0;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jZ(int i) {
+    public void kn(int i) {
         switch (i) {
             case 1:
-                this.cEt = false;
+                this.cFP = false;
                 return;
             case 2:
-                this.cEu = false;
+                this.cFQ = false;
                 return;
             case 3:
-                this.cEv = false;
+                this.cFR = false;
                 return;
             default:
                 return;

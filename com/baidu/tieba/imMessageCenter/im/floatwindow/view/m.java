@@ -4,11 +4,11 @@ import android.os.Handler;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
 class m implements Runnable {
-    final /* synthetic */ FloatingPersonalChatActivity bMx;
+    final /* synthetic */ FloatingPersonalChatActivity bMS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(FloatingPersonalChatActivity floatingPersonalChatActivity) {
-        this.bMx = floatingPersonalChatActivity;
+        this.bMS = floatingPersonalChatActivity;
     }
 
     @Override // java.lang.Runnable
@@ -21,20 +21,20 @@ class m implements Runnable {
         Handler handler;
         Runnable runnable;
         long j2;
-        userData = this.bMx.mUser;
+        userData = this.bMS.mUser;
         if (userData == null) {
             return;
         }
-        floatingPersonalChatView = this.bMx.bMv;
-        userData2 = this.bMx.mUser;
+        floatingPersonalChatView = this.bMS.bMQ;
+        userData2 = this.bMS.mUser;
         String userName = userData2.getUserName();
-        bVar = this.bMx.bJx;
+        bVar = this.bMS.bJS;
         floatingPersonalChatView.a(userName, bVar);
-        j = this.bMx.bJw;
+        j = this.bMS.bJR;
         if (j != 0) {
-            handler = this.bMx.mHandler;
-            runnable = this.bMx.bJB;
-            j2 = this.bMx.bJw;
+            handler = this.bMS.mHandler;
+            runnable = this.bMS.bJW;
+            j2 = this.bMS.bJR;
             handler.postDelayed(runnable, j2);
         }
     }

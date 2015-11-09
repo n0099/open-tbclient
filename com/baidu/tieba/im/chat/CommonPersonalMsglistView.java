@@ -1,6 +1,4 @@
 package com.baidu.tieba.im.chat;
-
-import com.baidu.tbadk.editortools.v;
 /* loaded from: classes.dex */
 public abstract class CommonPersonalMsglistView extends AbsMsglistView {
     public CommonPersonalMsglistView(MsglistActivity msglistActivity, boolean z) {
@@ -11,10 +9,7 @@ public abstract class CommonPersonalMsglistView extends AbsMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void initExpression(TalkableActivity talkableActivity) {
         super.initExpression(talkableActivity);
-        v dU = this.mTool.dU(5);
-        if (dU != null && (dU.aoJ instanceof com.baidu.tbadk.editortools.emotiontool.j)) {
-            ((com.baidu.tbadk.editortools.emotiontool.j) dU.aoJ).setFrom(2);
-        }
+        this.mTool.b(new com.baidu.tbadk.editortools.a(34, 5, 2));
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView

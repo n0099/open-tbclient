@@ -4,16 +4,16 @@ import android.text.Editable;
 import android.text.TextWatcher;
 /* loaded from: classes.dex */
 class x implements TextWatcher {
-    final /* synthetic */ o dmR;
+    final /* synthetic */ o doz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(o oVar) {
-        this.dmR = oVar;
+        this.doz = oVar;
     }
 
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {
-        this.dmR.aCf();
+        this.doz.aCV();
     }
 
     @Override // android.text.TextWatcher

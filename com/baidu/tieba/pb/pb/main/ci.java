@@ -1,41 +1,39 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
+import android.content.Context;
 import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ci implements View.OnClickListener {
-    private final /* synthetic */ boolean ciM;
-    final /* synthetic */ cc clJ;
+    private final /* synthetic */ String cib;
+    private final /* synthetic */ String cic;
+    private final /* synthetic */ String cie;
+    final /* synthetic */ ch cln;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ci(cc ccVar, boolean z) {
-        this.clJ = ccVar;
-        this.ciM = z;
+    public ci(ch chVar, String str, String str2, String str3) {
+        this.cln = chVar;
+        this.cib = str;
+        this.cic = str2;
+        this.cie = str3;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        Dialog dialog;
-        PbActivity pbActivity;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity2;
-        dialog = this.clJ.ckQ;
-        if (dialog != null) {
-            dialog2 = this.clJ.ckQ;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.clJ.ckQ;
-                pbActivity2 = this.clJ.ciU;
-                com.baidu.adp.lib.g.j.b(dialog3, pbActivity2.getPageContext());
+        Context context;
+        Context context2;
+        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.cib) && !StringUtils.isNull(this.cic)) {
+            if (com.baidu.adp.lib.util.i.iN()) {
+                context = this.cln.mContext;
+                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.cib) + "," + this.cic, this.cie, this.cie, context.getString(i.h.app_info_for_map));
+                context2 = this.cln.mContext;
+                com.baidu.tbadk.browser.g.B(context2, format);
+                return;
             }
-        }
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            pbActivity = this.clJ.ciU;
-            pbActivity.a(this.ciM, (String) sparseArray.get(i.f.tag_disable_reply_mute_userid), sparseArray);
+            this.cln.cjZ.showToast(i.h.neterror);
         }
     }
 }

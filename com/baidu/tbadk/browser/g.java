@@ -43,7 +43,7 @@ public class g {
 
     public static void b(Context context, boolean z, String str) {
         String appendVersionCode;
-        ql();
+        qm();
         if (z) {
             try {
                 appendVersionCode = appendVersionCode(appendCuidParam(str));
@@ -63,7 +63,7 @@ public class g {
 
     public static void a(Context context, boolean z, String str, String str2) {
         String appendVersionCode;
-        ql();
+        qm();
         if (z) {
             try {
                 appendVersionCode = appendVersionCode(appendCuidParam(str));
@@ -82,7 +82,7 @@ public class g {
     }
 
     public static void f(Context context, String str, String str2) {
-        ql();
+        qm();
         try {
             String appendVersionCode = appendVersionCode(appendCuidParam(str2));
             if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
@@ -96,7 +96,7 @@ public class g {
     }
 
     public static void c(Context context, String str, String str2, boolean z) {
-        ql();
+        qm();
         try {
             String appendVersionCode = appendVersionCode(appendCuidParam(str2));
             if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null) {
@@ -114,7 +114,7 @@ public class g {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        ql();
+        qm();
         try {
             String appendVersionCode = appendVersionCode(appendCuidParam(str2));
             if (((LightAppPlugin) PluginCenter.getInstance().getLightAppClassInstance()) != null && z4) {
@@ -168,13 +168,13 @@ public class g {
     }
 
     public static void W(Context context) {
-        a.b cc = com.baidu.tbadk.core.a.a.ra().cc(TbadkCoreApplication.getCurrentBduss());
+        a.b ca = com.baidu.tbadk.core.a.a.rb().ca(TbadkCoreApplication.getCurrentBduss());
         CookieSyncManager.createInstance(TbadkCoreApplication.m411getInst());
         CookieManager cookieManager = CookieManager.getInstance();
-        if (cc != null) {
+        if (ca != null) {
             cookieManager.setAcceptCookie(true);
-            cookieManager.setCookie("baidu.com", "BDUSS=" + cc.ws + "; domain=.baidu.com;");
-            cookieManager.setCookie("baidu.com", "PTOKEN=" + cc.TD + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "BDUSS=" + ca.ws + "; domain=.baidu.com;");
+            cookieManager.setCookie("baidu.com", "PTOKEN=" + ca.TE + "; domain=.baidu.com;");
             cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.m411getInst().getCuid() + "; domain=.baidu.com;");
         } else {
             try {
@@ -194,7 +194,7 @@ public class g {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void ql() {
+    private static void qm() {
         new ak("open_webview", true).start();
     }
 }

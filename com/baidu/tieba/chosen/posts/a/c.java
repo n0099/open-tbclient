@@ -11,21 +11,21 @@ import com.baidu.tieba.i;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tbadk.mvc.g.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TextView aJY;
-    private TextView aJZ;
-    private TextView aKd;
-    private TextView aKe;
-    private LinearLayout aKf;
-    private TextView auJ;
+    private TextView aIS;
+    private TextView aIT;
+    private TextView aIX;
+    private TextView aIY;
+    private LinearLayout aIZ;
+    private TextView atx;
 
     public c(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aKd = (TextView) view.findViewById(i.f.chosen_no_picture_title);
-        this.aJY = (TextView) view.findViewById(i.f.chosen_no_picture_praise);
-        this.aJZ = (TextView) view.findViewById(i.f.chosen_no_picture_comment);
-        this.aKe = (TextView) view.findViewById(i.f.chosen_no_picture_head);
-        this.auJ = (TextView) view.findViewById(i.f.chosen_no_picture_sub);
-        this.aKf = (LinearLayout) view.findViewById(i.f.chosen_no_picture_comment_line);
+        this.aIX = (TextView) view.findViewById(i.f.chosen_no_picture_title);
+        this.aIS = (TextView) view.findViewById(i.f.chosen_no_picture_praise);
+        this.aIT = (TextView) view.findViewById(i.f.chosen_no_picture_comment);
+        this.aIY = (TextView) view.findViewById(i.f.chosen_no_picture_head);
+        this.atx = (TextView) view.findViewById(i.f.chosen_no_picture_sub);
+        this.aIZ = (LinearLayout) view.findViewById(i.f.chosen_no_picture_comment_line);
     }
 
     @Override // com.baidu.tieba.tbadkCore.s
@@ -44,36 +44,36 @@ public class c extends com.baidu.tbadk.mvc.g.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     public void B(tinfo tinfoVar) {
         super.B(tinfoVar);
         if (StringUtils.isNull(tinfoVar.title)) {
-            this.aKe.setVisibility(8);
+            this.aIY.setVisibility(8);
         } else {
-            this.aKe.setVisibility(0);
-            this.aKe.setText(tinfoVar.title);
+            this.aIY.setVisibility(0);
+            this.aIY.setText(tinfoVar.title);
         }
         if (StringUtils.isNull(tinfoVar.forum_name)) {
-            this.aKf.setVisibility(8);
+            this.aIZ.setVisibility(8);
         } else {
-            this.aKf.setVisibility(0);
-            this.aKd.setVisibility(0);
-            this.aKd.setText(UtilHelper.getFixedText(getContext().getString(i.h.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.aKd.setOnClickListener(new d(this, tinfoVar));
+            this.aIZ.setVisibility(0);
+            this.aIX.setVisibility(0);
+            this.aIX.setText(UtilHelper.getFixedText(getContext().getString(i.h.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+            this.aIX.setOnClickListener(new d(this, tinfoVar));
             if (tinfoVar.zan_num == null) {
-                this.aJY.setVisibility(8);
+                this.aIS.setVisibility(8);
             } else {
-                this.aJY.setVisibility(0);
-                this.aJY.setText(new StringBuilder().append(tinfoVar.zan_num).toString());
+                this.aIS.setVisibility(0);
+                this.aIS.setText(new StringBuilder().append(tinfoVar.zan_num).toString());
             }
             if (tinfoVar.reply_num == null) {
-                this.aJZ.setVisibility(8);
+                this.aIT.setVisibility(8);
             } else {
-                this.aJZ.setVisibility(0);
-                this.aJZ.setText(new StringBuilder().append(tinfoVar.reply_num).toString());
+                this.aIT.setVisibility(0);
+                this.aIT.setText(new StringBuilder().append(tinfoVar.reply_num).toString());
             }
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {
-            this.auJ.setVisibility(8);
+            this.atx.setVisibility(8);
             return;
         }
-        this.auJ.setVisibility(0);
-        this.auJ.setText(tinfoVar._abstract);
+        this.atx.setVisibility(0);
+        this.atx.setText(tinfoVar._abstract);
     }
 }

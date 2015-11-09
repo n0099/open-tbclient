@@ -10,64 +10,64 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public final class n extends LinearLayout {
-    private TextView aCJ;
-    private TextView alu;
-    private TbImageView bIH;
-    private EditText bdH;
+    private TextView aBD;
+    private TextView alz;
+    private TbImageView bJc;
+    private EditText bem;
     private LinearLayout mRootView;
 
     public EditText getChatMsgView() {
-        return this.bdH;
+        return this.bem;
     }
 
     public void w(String str, boolean z) {
-        if (this.bIH != null) {
-            this.bIH.d(str, z ? 17 : 18, false);
+        if (this.bJc != null) {
+            this.bJc.d(str, z ? 17 : 18, false);
         }
     }
 
     public n(Context context) {
         super(context);
-        at(context);
+        as(context);
     }
 
-    private void at(Context context) {
+    private void as(Context context) {
         LayoutInflater.from(context).inflate(i.g.thread_to_group_share_view, this);
         setOrientation(1);
         this.mRootView = (LinearLayout) findViewById(i.f.share_content);
-        this.alu = (TextView) findViewById(i.f.share_title_view);
-        an.b(this.alu, i.c.cp_cont_b, 1);
-        this.bdH = (EditText) findViewById(i.f.chat_msg);
-        this.bIH = (TbImageView) findViewById(i.f.chat_group_img);
-        this.aCJ = (TextView) findViewById(i.f.chat_group_desc);
-        an.b(this.bdH, i.c.cp_cont_b, 2);
-        an.b(this.aCJ, i.c.cp_cont_f, 1);
-        this.bdH.setHintTextColor(an.getColor(i.c.cp_cont_e));
-        this.bdH.setPadding(context.getResources().getDimensionPixelSize(i.d.ds20), 0, 0, 0);
-        NZ();
+        this.alz = (TextView) findViewById(i.f.share_title_view);
+        an.b(this.alz, i.c.cp_cont_b, 1);
+        this.bem = (EditText) findViewById(i.f.chat_msg);
+        this.bJc = (TbImageView) findViewById(i.f.chat_group_img);
+        this.aBD = (TextView) findViewById(i.f.chat_group_desc);
+        an.b(this.bem, i.c.cp_cont_b, 2);
+        an.b(this.aBD, i.c.cp_cont_f, 1);
+        this.bem.setHintTextColor(an.getColor(i.c.cp_cont_e));
+        this.bem.setPadding(context.getResources().getDimensionPixelSize(i.d.ds20), 0, 0, 0);
+        Ov();
     }
 
-    public void NZ() {
+    public void Ov() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
     public void setDesc(String str) {
-        if (this.aCJ != null) {
-            this.aCJ.setText(str);
+        if (this.aBD != null) {
+            this.aBD.setText(str);
         }
     }
 
     public void setTitle(String str) {
-        if (this.alu != null) {
-            this.alu.setText(str);
+        if (this.alz != null) {
+            this.alz.setText(str);
         }
     }
 
     public String getLeaveMsg() {
-        if (this.bdH != null) {
-            return com.baidu.adp.lib.util.j.a(this.bdH.getText(), null);
+        if (this.bem != null) {
+            return com.baidu.adp.lib.util.j.a(this.bem.getText(), null);
         }
         return null;
     }

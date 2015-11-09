@@ -18,15 +18,15 @@ public class e {
 
         boolean isConnected();
 
-        String je();
-
         String jf();
 
-        String jv();
+        String jg();
 
-        long jw();
+        String jw();
 
-        int jx();
+        long jx();
+
+        int jy();
 
         int read(ByteBuffer byteBuffer);
 
@@ -71,14 +71,14 @@ public class e {
                 this.zr = inetSocketAddress.getAddress().getHostAddress();
                 this.zq = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.zu.connect(inetSocketAddress, nVar.jS());
-            this.zu.setSoTimeout(nVar.jR());
+            this.zu.connect(inetSocketAddress, nVar.jT());
+            this.zu.setSoTimeout(nVar.jS());
             this.zu.setTcpNoDelay(nVar.getTcpNoDelay());
             this.zv = this.zu.getInputStream();
             this.mOutputStream = this.zu.getOutputStream();
             this.mData = new byte[1024];
-            this.zs = com.baidu.adp.lib.util.k.je();
-            this.zt = com.baidu.adp.lib.util.k.jf();
+            this.zs = com.baidu.adp.lib.util.k.jf();
+            this.zt = com.baidu.adp.lib.util.k.jg();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
@@ -132,27 +132,27 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String jv() {
+        public String jw() {
             return this.zr;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long jw() {
+        public long jx() {
             return this.zq;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String je() {
+        public String jf() {
             return this.zs;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String jf() {
+        public String jg() {
             return this.zt;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int jx() {
+        public int jy() {
             return 0;
         }
     }
@@ -178,11 +178,11 @@ public class e {
                 this.zr = inetSocketAddress.getAddress().getHostAddress();
                 this.zq = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.zp.socket().connect(inetSocketAddress, nVar.jS());
-            this.zp.socket().setSoTimeout(nVar.jR());
+            this.zp.socket().connect(inetSocketAddress, nVar.jT());
+            this.zp.socket().setSoTimeout(nVar.jS());
             this.zp.socket().setTcpNoDelay(nVar.getTcpNoDelay());
-            this.zs = com.baidu.adp.lib.util.k.je();
-            this.zt = com.baidu.adp.lib.util.k.jf();
+            this.zs = com.baidu.adp.lib.util.k.jf();
+            this.zt = com.baidu.adp.lib.util.k.jg();
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
@@ -211,27 +211,27 @@ public class e {
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String jv() {
+        public String jw() {
             return this.zr;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public long jw() {
+        public long jx() {
             return this.zq;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String je() {
+        public String jf() {
             return this.zs;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public String jf() {
+        public String jg() {
             return this.zt;
         }
 
         @Override // com.baidu.adp.lib.webSocket.e.a
-        public int jx() {
+        public int jy() {
             return 0;
         }
     }

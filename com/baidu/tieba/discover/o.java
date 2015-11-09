@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ a aKG;
+    final /* synthetic */ a aJA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(a aVar) {
-        this.aKG = aVar;
+        this.aJA = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.aKG.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginCenterActivityConfig(this.aKG.getPageContext().getPageActivity(), 1)));
+        this.aJA.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginCenterActivityConfig(this.aJA.getPageContext().getPageActivity(), 1)));
     }
 }

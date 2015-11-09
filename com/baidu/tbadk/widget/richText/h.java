@@ -1,6 +1,7 @@
 package com.baidu.tbadk.widget.richText;
 
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import com.baidu.adp.lib.util.BdLog;
@@ -15,72 +16,90 @@ import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.lib.a.b.a.a.i {
     private int mType = 0;
-    private b aBQ = null;
-    private f aBw = null;
-    private r aBy = null;
-    private d aBA = null;
-    private j aBB = null;
+    private b aAH = null;
+    private f aAl = null;
+    private v aAn = null;
+    private d aAp = null;
+    private m aAq = null;
+    private j aAs = null;
+    private k aAr = null;
 
     public int getType() {
         return this.mType;
     }
 
-    public void a(int i, b bVar, f fVar, r rVar, d dVar) {
+    public void a(int i, b bVar, f fVar, v vVar, d dVar, j jVar, k kVar) {
         this.mType = i;
-        this.aBQ = bVar;
-        this.aBw = fVar;
-        this.aBy = rVar;
-        this.aBA = dVar;
+        this.aAH = bVar;
+        this.aAl = fVar;
+        this.aAn = vVar;
+        this.aAp = dVar;
+        this.aAs = jVar;
+        this.aAr = kVar;
     }
 
-    public f EU() {
-        if (this.mType == 8) {
-            return this.aBw;
+    public k EU() {
+        if (this.mType == 1280) {
+            return this.aAr;
         }
         return null;
     }
 
-    public j EY() {
+    public j EV() {
+        if (this.mType == 1024) {
+            return this.aAs;
+        }
+        return null;
+    }
+
+    public f EN() {
+        if (this.mType == 8) {
+            return this.aAl;
+        }
+        return null;
+    }
+
+    public m ER() {
         if (this.mType != 32) {
             return null;
         }
-        return this.aBB;
+        return this.aAq;
     }
 
-    public r EW() {
+    public v EP() {
         if (this.mType == 512 || this.mType == 768) {
-            return this.aBy;
+            return this.aAn;
         }
         return null;
     }
 
-    public d EZ() {
+    public d ES() {
         if (this.mType == 17) {
-            return this.aBA;
+            return this.aAp;
         }
         return null;
     }
 
-    public SpannableString Fg() {
-        if (this.mType != 1 || this.aBQ == null) {
+    public SpannableString Fb() {
+        if (this.mType != 1 || this.aAH == null) {
             return null;
         }
-        return new SpannableString(this.aBQ.getText());
+        return new SpannableString(this.aAH.getText());
     }
 
     public CharSequence t(ArrayList<e> arrayList) {
         SpannableString c;
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.mType == 32 && this.aBQ != null) {
+        if (this.mType == 32 && this.aAH != null) {
             spannableStringBuilder.append((CharSequence) TbadkCoreApplication.m411getInst().getString(i.h.video_text));
             CharSequence v = v(arrayList);
             if (v != null) {
                 spannableStringBuilder.append(v);
             }
-            if (this.aBQ.EQ() == 1) {
-                c = c(this.mType, this.aBQ.getText(), this.aBQ.ER());
+            if (this.aAH.EJ() == 1) {
+                c = c(this.mType, this.aAH.getText(), this.aAH.EK());
             } else {
-                c = c(this.mType, this.aBQ.getText(), this.aBQ.getText());
+                c = c(this.mType, this.aAH.getText(), this.aAH.getText());
             }
             if (c != null) {
                 spannableStringBuilder.append((CharSequence) c);
@@ -91,12 +110,12 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
 
     public CharSequence u(ArrayList<e> arrayList) {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-        if (this.mType == 128 && this.aBQ != null) {
+        if (this.mType == 128 && this.aAH != null) {
             CharSequence v = v(arrayList);
             if (v != null) {
                 spannableStringBuilder.append(v);
             }
-            SpannableString c = c(this.mType, this.aBQ.getLink(), this.aBQ.getLink());
+            SpannableString c = c(this.mType, this.aAH.getLink(), this.aAH.getLink());
             if (c != null) {
                 spannableStringBuilder.append((CharSequence) c);
             }
@@ -106,35 +125,35 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
 
     private CharSequence v(ArrayList<e> arrayList) {
         h hVar = new h();
-        hVar.a(4, new b("video_icon", " "), null, null, null);
+        hVar.a(4, new b("video_icon", " "), null, null, null, null, null);
         return hVar.x(arrayList);
     }
 
     public String getVideoUrl() {
-        if (this.mType != 32 || this.aBQ == null) {
+        if (this.mType != 32 || this.aAH == null) {
             return null;
         }
-        if (this.aBQ.EQ() == 1) {
-            return this.aBQ.ER();
+        if (this.aAH.EJ() == 1) {
+            return this.aAH.EK();
         }
-        return this.aBQ.getText();
+        return this.aAH.getText();
     }
 
-    public SpannableString Fh() {
-        if (this.mType != 2 || this.aBQ == null) {
+    public SpannableString Fc() {
+        if (this.mType != 2 || this.aAH == null) {
             return null;
         }
-        if (this.aBQ.EQ() == 1) {
-            return c(this.mType, this.aBQ.getText(), this.aBQ.ER());
+        if (this.aAH.EJ() == 1) {
+            return c(this.mType, this.aAH.getText(), this.aAH.EK());
         }
-        return c(this.mType, this.aBQ.getText(), this.aBQ.getLink());
+        return c(this.mType, this.aAH.getText(), this.aAH.getLink());
     }
 
-    public SpannableString Fi() {
-        if (this.mType != 256 || this.aBQ == null) {
+    public SpannableString Fd() {
+        if (this.mType != 256 || this.aAH == null) {
             return null;
         }
-        String text = this.aBQ.getText();
+        String text = this.aAH.getText();
         if (text == null) {
             return null;
         }
@@ -143,32 +162,32 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
         }
         SpannableString spannableString = new SpannableString(text);
         g gVar = new g(this.mType, text);
-        gVar.fQ(this.aBQ.getLink());
+        gVar.fS(this.aAH.getLink());
         spannableString.setSpan(gVar, 0, text.length() - 1, 33);
         return spannableString;
     }
 
-    public SpannableString Fj() {
-        if (this.mType != 16 || this.aBQ == null) {
+    public SpannableString Fe() {
+        if (this.mType != 16 || this.aAH == null) {
             return null;
         }
-        return c(this.mType, this.aBQ.getText(), this.aBQ.getLink());
+        return c(this.mType, this.aAH.getText(), this.aAH.getLink());
     }
 
     private SpannableString w(ArrayList<e> arrayList) {
         String text;
         int eM;
-        a.C0049a fk;
+        a.C0049a fm;
         SpannableString spannableString = null;
-        if (this.mType == 4 && this.aBQ != null && this.aBQ.getText() != null && this.aBQ.getLink() != null && (eM = TbFaceManager.Cb().eM((text = this.aBQ.getText()))) != 0) {
-            String str = "#(" + TbFaceManager.Cb().eO(text) + ")";
+        if (this.mType == 4 && this.aAH != null && this.aAH.getText() != null && this.aAH.getLink() != null && (eM = TbFaceManager.BU().eM((text = this.aAH.getText()))) != 0) {
+            String str = "#(" + TbFaceManager.BU().eO(text) + ")";
             spannableString = new SpannableString(String.valueOf(str) + " ");
             e eVar = new e(TbadkCoreApplication.m411getInst().getContext(), eM);
             if (arrayList != null) {
                 arrayList.add(eVar);
             }
-            if (TbFaceManager.Cb().fk(text) != null) {
-                int width = (int) (fk.getWidth() * 0.5d);
+            if (TbFaceManager.BU().fm(text) != null) {
+                int width = (int) (fm.getWidth() * 0.5d);
                 eVar.setBounds(new Rect(0, 0, width, width));
             } else {
                 eVar.setBounds(new Rect(0, 0, 0, 0));
@@ -190,12 +209,26 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
         return spannableString;
     }
 
+    public SpannableString Ff() {
+        if (this.mType != 1024 || this.aAs == null) {
+            return null;
+        }
+        SpannableString spannableString = new SpannableString("a");
+        Drawable eK = i.eK(this.aAs.aAI);
+        eK.setBounds(0, 0, eK.getIntrinsicWidth(), eK.getIntrinsicHeight());
+        com.baidu.tbadk.widget.g gVar = new com.baidu.tbadk.widget.g(eK);
+        gVar.eH(com.baidu.adp.lib.util.k.d(TbadkCoreApplication.m411getInst().getContext(), i.d.ds4));
+        spannableString.setSpan(gVar, 0, 1, 33);
+        spannableString.setSpan(new g(1024, this.aAs.link), spannableString.length() - 1, "a".length(), 33);
+        return spannableString;
+    }
+
     public CharSequence x(ArrayList<e> arrayList) {
         switch (this.mType) {
             case 1:
-                return Fg();
+                return Fb();
             case 2:
-                return Fh();
+                return Fc();
             case 4:
                 return w(arrayList);
             case 8:
@@ -203,19 +236,21 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
             default:
                 return null;
             case 16:
-                return Fj();
+                return Fe();
             case 32:
                 return t(arrayList);
             case 128:
                 return u(arrayList);
             case 256:
-                return Fi();
+                return Fd();
+            case 1024:
+                return Ff();
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x016b A[Catch: Exception -> 0x0076, TryCatch #0 {Exception -> 0x0076, blocks: (B:3:0x0002, B:4:0x0010, B:5:0x0013, B:7:0x001f, B:9:0x002f, B:11:0x003c, B:12:0x005b, B:13:0x0060, B:15:0x0064, B:17:0x0068, B:34:0x0134, B:35:0x014d, B:36:0x016b, B:38:0x0171, B:19:0x006e, B:23:0x007b, B:24:0x0083, B:25:0x0093, B:27:0x00fc, B:28:0x010f, B:30:0x011b, B:31:0x011e), top: B:40:0x0002 }] */
-    /* JADX WARN: Removed duplicated region for block: B:7:0x001f A[Catch: Exception -> 0x0076, TryCatch #0 {Exception -> 0x0076, blocks: (B:3:0x0002, B:4:0x0010, B:5:0x0013, B:7:0x001f, B:9:0x002f, B:11:0x003c, B:12:0x005b, B:13:0x0060, B:15:0x0064, B:17:0x0068, B:34:0x0134, B:35:0x014d, B:36:0x016b, B:38:0x0171, B:19:0x006e, B:23:0x007b, B:24:0x0083, B:25:0x0093, B:27:0x00fc, B:28:0x010f, B:30:0x011b, B:31:0x011e), top: B:40:0x0002 }] */
+    /* JADX WARN: Code restructure failed: missing block: B:8:0x002b, code lost:
+        if (r7.aAq.Fh() != false) goto L9;
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -223,70 +258,71 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
         String str;
         int i = 0;
         try {
-            this.mType = eK(pbContent.type.intValue());
+            this.mType = eJ(pbContent.type.intValue());
             switch (this.mType) {
                 case 8:
-                    this.aBw = new f(pbContent);
+                    this.aAl = new f(pbContent);
                     break;
                 case 16:
-                    this.aBQ = new b(pbContent.text, String.valueOf(pbContent.uid));
+                    this.aAH = new b(pbContent.text, String.valueOf(pbContent.uid));
                     break;
                 case 17:
-                    this.aBA = new d();
-                    this.aBA.atF.atg = String.format("#(%s)", pbContent.c);
-                    this.aBA.atF.ati = pbContent.dynamic;
-                    this.aBA.atF.ath = pbContent._static;
-                    this.aBA.mType = this.mType;
-                    this.aBA.atF.atj = pbContent.width.intValue();
-                    this.aBA.atF.atk = pbContent.height.intValue();
-                    this.aBA.atF.mPackageName = pbContent.packet_name;
-                    this.aBA.atF.atl = pbContent._static;
-                    String[] split = this.aBA.atF.ati.split("/");
+                    this.aAp = new d();
+                    this.aAp.ast.arU = String.format("#(%s)", pbContent.c);
+                    this.aAp.ast.arW = pbContent.dynamic;
+                    this.aAp.ast.arV = pbContent._static;
+                    this.aAp.mType = this.mType;
+                    this.aAp.ast.arX = pbContent.width.intValue();
+                    this.aAp.ast.arY = pbContent.height.intValue();
+                    this.aAp.ast.mPackageName = pbContent.packet_name;
+                    this.aAp.ast.arZ = pbContent._static;
+                    String[] split = this.aAp.ast.arW.split("/");
                     for (String str2 : split) {
                         i++;
                         if (str2.equals("faceshop")) {
-                            this.aBA.atF.mGid = split[i].split("_")[0];
+                            this.aAp.ast.mGid = split[i].split("_")[0];
                             break;
                         }
                     }
-                    this.aBA.atF.mGid = split[i].split("_")[0];
-                case 32:
-                    this.aBB = new j();
-                    this.aBB.b(pbContent);
-                    if (this.aBB.Fk()) {
+                    this.aAp.ast.mGid = split[i].split("_")[0];
+                case 512:
+                    this.aAn = new v(pbContent);
+                    break;
+                case 1024:
+                    this.aAs = new j(pbContent);
+                    break;
+                case 1280:
+                    this.aAr = new k(pbContent);
+                    break;
+                default:
+                    if (this.mType == 32) {
+                        this.aAq = new m();
+                        this.aAq.b(pbContent);
                         break;
                     }
-                    this.aBQ = new b(pbContent);
-                    if (this.mType != 4) {
-                        if (TbFaceManager.Cb().eM(this.aBQ.getText()) <= 0) {
+                    this.aAH = new b(pbContent);
+                    if (this.mType == 4) {
+                        if (TbFaceManager.BU().eM(this.aAH.getText()) <= 0) {
                             this.mType = 1;
                             if (StringUtils.isNull(pbContent.c)) {
                                 str = "[" + TbadkCoreApplication.m411getInst().getString(i.h.editor_express) + "]";
                             } else {
                                 str = "[" + pbContent.c + "]";
                             }
-                            this.aBQ.setText(str);
+                            this.aAH.setText(str);
                             break;
                         } else {
-                            this.aBQ.setLink("[" + pbContent.c + "]");
+                            this.aAH.setLink("[" + pbContent.c + "]");
                             break;
                         }
                     } else if (this.mType == 256) {
-                        this.aBQ.setLink(pbContent.phonetype);
+                        this.aAH.setLink(pbContent.phonetype);
                         break;
                     }
                     break;
-                case 512:
-                    this.aBy = new r(pbContent);
-                    break;
-                default:
-                    this.aBQ = new b(pbContent);
-                    if (this.mType != 4) {
-                    }
-                    break;
             }
-            if (this.mType != 1 && this.aBQ != null) {
-                this.aBQ.ES();
+            if (this.mType != 1 && this.aAH != null) {
+                this.aAH.EL();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -297,35 +333,35 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
         String str;
         int i = 0;
         try {
-            this.mType = eK(jSONObject.optInt("type", 0));
+            this.mType = eJ(jSONObject.optInt("type", 0));
             if (this.mType == 8) {
-                this.aBw = new f(jSONObject);
+                this.aAl = new f(jSONObject);
             } else if (this.mType == 512) {
-                this.aBy = new r(jSONObject);
+                this.aAn = new v(jSONObject);
             } else if (this.mType == 16) {
-                this.aBQ = new b(jSONObject.optString("text"), jSONObject.optString("uid"));
+                this.aAH = new b(jSONObject.optString("text"), jSONObject.optString("uid"));
             } else if (this.mType == 17) {
-                this.aBA = new d();
-                this.aBA.atF.atg = String.format("#(%s)", jSONObject.optString("c"));
-                this.aBA.atF.ati = jSONObject.optString("dynamic");
-                this.aBA.atF.ath = jSONObject.optString("static");
-                this.aBA.mType = this.mType;
-                this.aBA.atF.atj = jSONObject.optInt("width", 200);
-                this.aBA.atF.atk = jSONObject.optInt("height", 200);
-                this.aBA.atF.mPackageName = jSONObject.optString("packet_name", "");
-                this.aBA.atF.atl = jSONObject.optString("icon");
-                String[] split = this.aBA.atF.ati.split("/");
+                this.aAp = new d();
+                this.aAp.ast.arU = String.format("#(%s)", jSONObject.optString("c"));
+                this.aAp.ast.arW = jSONObject.optString("dynamic");
+                this.aAp.ast.arV = jSONObject.optString("static");
+                this.aAp.mType = this.mType;
+                this.aAp.ast.arX = jSONObject.optInt("width", 200);
+                this.aAp.ast.arY = jSONObject.optInt("height", 200);
+                this.aAp.ast.mPackageName = jSONObject.optString("packet_name", "");
+                this.aAp.ast.arZ = jSONObject.optString("icon");
+                String[] split = this.aAp.ast.arW.split("/");
                 for (String str2 : split) {
                     i++;
                     if (str2.equals("faceshop")) {
                         break;
                     }
                 }
-                this.aBA.atF.mGid = split[i].split("_")[0];
+                this.aAp.ast.mGid = split[i].split("_")[0];
             } else {
-                this.aBQ = new b(jSONObject);
+                this.aAH = new b(jSONObject);
                 if (this.mType == 4) {
-                    int eM = TbFaceManager.Cb().eM(this.aBQ.getText());
+                    int eM = TbFaceManager.BU().eM(this.aAH.getText());
                     String optString = jSONObject.optString("c");
                     if (eM <= 0) {
                         this.mType = 1;
@@ -334,23 +370,23 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
                         } else {
                             str = "[" + optString + "]";
                         }
-                        this.aBQ.setText(str);
+                        this.aAH.setText(str);
                     } else {
-                        this.aBQ.setLink("[" + optString + "]");
+                        this.aAH.setLink("[" + optString + "]");
                     }
                 } else if (this.mType == 256) {
-                    this.aBQ.setLink(jSONObject.optString("phonetype"));
+                    this.aAH.setLink(jSONObject.optString("phonetype"));
                 }
             }
-            if (this.mType != 1 && this.aBQ != null) {
-                this.aBQ.ES();
+            if (this.mType != 1 && this.aAH != null) {
+                this.aAH.EL();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    private int eK(int i) {
+    private int eJ(int i) {
         switch (i) {
             case 0:
                 return 1;
@@ -367,6 +403,7 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
             case 6:
                 return 64;
             case 7:
+            case 12:
             default:
                 return 0;
             case 8:
@@ -377,6 +414,10 @@ public class h extends com.baidu.adp.lib.a.b.a.a.i {
                 return 512;
             case 11:
                 return 17;
+            case 13:
+                return 1024;
+            case 14:
+                return 1280;
         }
     }
 }

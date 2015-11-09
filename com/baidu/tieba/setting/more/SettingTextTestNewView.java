@@ -25,13 +25,13 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             z = true;
         }
         if (z) {
-            this.alR.setText("new");
-            this.alR.setTextAppearance(this.mContext, z2 ? i.C0057i.setting_version_prompt_text_1 : i.C0057i.setting_version_prompt_text);
-            com.baidu.tbadk.core.util.an.i((View) this.alR, i.e.icon_news_text_prompt);
+            this.alW.setText("new");
+            this.alW.setTextAppearance(this.mContext, z2 ? i.C0057i.setting_version_prompt_text_1 : i.C0057i.setting_version_prompt_text);
+            com.baidu.tbadk.core.util.an.i((View) this.alW, i.e.icon_news_text_prompt);
             return;
         }
-        this.alR.setText((TbConfig.getVersionType() != 1 || com.baidu.tbadk.core.util.as.isEmpty(TbConfig.getSubVersion())) ? TbConfig.getVersion() : String.valueOf(version) + "." + TbConfig.getSubVersion());
-        this.alR.setBackgroundDrawable(null);
-        this.alR.setTextAppearance(this.mContext, z2 ? i.C0057i.setting_version_text_1 : i.C0057i.setting_version_text);
+        this.alW.setText((TbConfig.getVersionType() != 1 || com.baidu.tbadk.core.util.as.isEmpty(TbConfig.getSubVersion())) ? TbConfig.getVersion() : String.valueOf(version) + "." + TbConfig.getSubVersion());
+        this.alW.setBackgroundDrawable(null);
+        this.alW.setTextAppearance(this.mContext, z2 ? i.C0057i.setting_version_text_1 : i.C0057i.setting_version_text);
     }
 }

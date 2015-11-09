@@ -1,52 +1,21 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Intent;
-import android.view.View;
-import java.util.Date;
+import com.baidu.tieba.tbadkCore.c.a;
 /* loaded from: classes.dex */
-class bl implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity this$0;
+class bl implements a.InterfaceC0075a {
+    final /* synthetic */ WriteActivity dsa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bl(WriteImageActivity writeImageActivity) {
-        this.this$0 = writeImageActivity;
+    public bl(WriteActivity writeActivity) {
+        this.dsa = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        boolean z;
-        int i;
-        boolean z2;
-        boolean my;
-        z = this.this$0.cjx;
-        if (!z) {
-            i = this.this$0.requestCode;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                if (this.this$0.mProgress.getVisibility() != 0) {
-                    z2 = this.this$0.cox;
-                    if (z2 && this.this$0.coq != null && !this.this$0.coq.isRecycled()) {
-                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        my = this.this$0.my(str);
-                        if (my) {
-                            intent.putExtra("change", true);
-                            intent.putExtra("file_name", str);
-                        } else {
-                            intent.putExtra("change", false);
-                        }
-                    } else {
-                        intent.putExtra("change", false);
-                    }
-                    this.this$0.setResult(-1, intent);
-                } else {
-                    return;
-                }
-            } else {
-                this.this$0.setResult(0, new Intent());
-            }
-        } else {
-            this.this$0.setResult(0, new Intent());
-        }
-        this.this$0.finish();
+    @Override // com.baidu.tieba.tbadkCore.c.a.InterfaceC0075a
+    public void no() {
+        com.baidu.tbadk.editortools.j jVar;
+        this.dsa.bWX = null;
+        this.dsa.he(false);
+        jVar = this.dsa.drr;
+        jVar.b(new com.baidu.tbadk.editortools.a(2, 12, null));
     }
 }

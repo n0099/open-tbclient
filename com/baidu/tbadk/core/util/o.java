@@ -26,12 +26,12 @@ public class o {
 
     public static void a(com.baidu.adp.base.h<?> hVar, String str) {
         if (hVar != null && hVar.getPageActivity() != null && !StringUtils.isNull(str)) {
-            boolean bm = PluginPackageManager.lR().bm("com.baidu.tieba.pluginCookeryGod");
-            boolean bs = PluginPackageManager.lR().bs("com.baidu.tieba.pluginCookeryGod");
-            if (bm && bs) {
+            boolean bk = PluginPackageManager.lS().bk("com.baidu.tieba.pluginCookeryGod");
+            boolean bq = PluginPackageManager.lS().bq("com.baidu.tieba.pluginCookeryGod");
+            if (bk && bq) {
                 hVar.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(hVar.getPageActivity(), "com.baidu.tieba.pluginCookeryGod")));
             } else if (hVar instanceof TbPageContext) {
-                az.uT().a((TbPageContext) hVar, new String[]{str}, true);
+                az.uX().a((TbPageContext) hVar, new String[]{str}, true);
             }
         }
     }

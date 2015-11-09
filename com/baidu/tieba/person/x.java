@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class x implements View.OnClickListener {
-    final /* synthetic */ r cpq;
+    final /* synthetic */ r cqM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(r rVar) {
-        this.cpq = rVar;
+        this.cqM = rVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,32 +26,32 @@ class x implements View.OnClickListener {
         TextView textView4;
         ac acVar6;
         TextView textView5;
-        acVar = this.cpq.cpa;
+        acVar = this.cqM.cqw;
         if (acVar != null) {
-            acVar2 = this.cpq.cpa;
-            if (!acVar2.FR()) {
-                acVar5 = this.cpq.cpa;
+            acVar2 = this.cqM.cqw;
+            if (!acVar2.FO()) {
+                acVar5 = this.cqM.cqw;
                 acVar5.setEditState(true);
-                textView3 = this.cpq.aEs;
+                textView3 = this.cqM.aDm;
                 textView3.setText(i.h.done);
                 if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-                    textView5 = this.cpq.aEs;
+                    textView5 = this.cqM.aDm;
                     com.baidu.tbadk.core.util.an.b(textView5, i.c.navi_op_text, 1);
                 } else {
-                    textView4 = this.cpq.aEs;
+                    textView4 = this.cqM.aDm;
                     com.baidu.tbadk.core.util.an.b(textView4, i.c.cp_link_tip_a, 1);
                 }
-                acVar6 = this.cpq.cpa;
+                acVar6 = this.cqM.cqw;
                 acVar6.notifyDataSetChanged();
                 return;
             }
-            acVar3 = this.cpq.cpa;
+            acVar3 = this.cqM.cqw;
             acVar3.setEditState(false);
-            textView = this.cpq.aEs;
+            textView = this.cqM.aDm;
             textView.setText(i.h.edit);
-            textView2 = this.cpq.aEs;
+            textView2 = this.cqM.aDm;
             com.baidu.tbadk.core.util.an.b(textView2, i.c.navi_op_text, 1);
-            acVar4 = this.cpq.cpa;
+            acVar4 = this.cqM.cqw;
             acVar4.notifyDataSetChanged();
         }
     }

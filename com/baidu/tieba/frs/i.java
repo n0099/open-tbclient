@@ -8,42 +8,42 @@ import com.baidu.tieba.tbadkCore.ae;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 class i implements ae.a {
-    final /* synthetic */ FrsActivity aUK;
+    final /* synthetic */ FrsActivity aUS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(FrsActivity frsActivity) {
-        this.aUK = frsActivity;
+        this.aUS = frsActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.ae.a
-    public void ge(String str) {
+    public void gg(String str) {
         boolean z;
         com.baidu.tbadk.core.data.w wVar;
         com.baidu.tbadk.core.data.w wVar2;
         int i = 1;
-        z = this.aUK.aSz;
+        z = this.aUS.aSH;
         if (z) {
-            wVar = this.aUK.aTG;
+            wVar = this.aUS.aTO;
             if (wVar != null) {
-                wVar2 = this.aUK.aTG;
+                wVar2 = this.aUS.aTO;
                 if (wVar2.getPraise().getIsLike() == 1) {
                     i = 0;
                 }
             }
-            this.aUK.fp(i);
+            this.aUS.fx(i);
         }
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_RECORDER_RESET_CMD));
     }
 
     @Override // com.baidu.tieba.tbadkCore.ae.a
-    public void y(int i, String str) {
+    public void x(int i, String str) {
         boolean z;
-        z = this.aUK.aSz;
+        z = this.aUS.aSH;
         if (z && !TextUtils.isEmpty(str)) {
-            if (AntiHelper.lc(i)) {
-                AntiHelper.P(this.aUK.getPageContext().getPageActivity(), str);
+            if (AntiHelper.lr(i)) {
+                AntiHelper.Q(this.aUS.getPageContext().getPageActivity(), str);
             } else {
-                this.aUK.showToast(str);
+                this.aUS.showToast(str);
             }
         }
     }

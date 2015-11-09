@@ -8,11 +8,11 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class c implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SelectFriendActivity bNZ;
+    final /* synthetic */ SelectFriendActivity bOu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(SelectFriendActivity selectFriendActivity) {
-        this.bNZ = selectFriendActivity;
+        this.bOu = selectFriendActivity;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -20,29 +20,29 @@ class c implements AdapterView.OnItemClickListener {
         int i2;
         CustomMessageListener customMessageListener;
         CustomMessageListener customMessageListener2;
-        com.baidu.tbadk.coreExtra.relationship.a item = this.bNZ.bNW.getItem(i);
+        com.baidu.tbadk.coreExtra.relationship.a item = this.bOu.bOr.getItem(i);
         if (item != null) {
             long userId = item.getUserId();
             String userName = item.getUserName();
             String userPortrait = item.getUserPortrait();
-            i2 = this.bNZ.bNV;
+            i2 = this.bOu.bOq;
             if (i2 == 0) {
-                customMessageListener = this.bNZ.bNX;
+                customMessageListener = this.bOu.bOs;
                 if (customMessageListener == null) {
-                    this.bNZ.bNX = new d(this, CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, userId, userName, userPortrait);
-                    SelectFriendActivity selectFriendActivity = this.bNZ;
-                    customMessageListener2 = this.bNZ.bNX;
+                    this.bOu.bOs = new d(this, CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA, userId, userName, userPortrait);
+                    SelectFriendActivity selectFriendActivity = this.bOu;
+                    customMessageListener2 = this.bOu.bOs;
                     selectFriendActivity.registerListener(customMessageListener2);
                 }
-                this.bNZ.sendMessage(new CustomMessage(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA));
+                this.bOu.sendMessage(new CustomMessage(CmdConfigCustom.CMD_GET_SHARE_FROM_GAME_CENTER_DATA));
                 return;
             }
             Intent intent = new Intent();
             intent.putExtra("key_user_id", userId);
             intent.putExtra("key_user_name", userName);
             intent.putExtra("key_user_portait", userPortrait);
-            this.bNZ.setResult(-1, intent);
-            this.bNZ.finish();
+            this.bOu.setResult(-1, intent);
+            this.bOu.finish();
         }
     }
 }

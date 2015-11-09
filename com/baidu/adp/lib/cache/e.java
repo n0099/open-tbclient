@@ -7,11 +7,11 @@ public abstract class e<T> implements n<T> {
     protected final boolean sV;
     protected final f sW;
 
-    public abstract h<T> W(String str);
+    public abstract h<T> U(String str);
 
-    public abstract void X(String str);
+    public abstract void V(String str);
 
-    protected abstract void Y(String str);
+    protected abstract void W(String str);
 
     public abstract void c(h<T> hVar);
 
@@ -29,21 +29,21 @@ public abstract class e<T> implements n<T> {
 
     protected h<T> k(String str, String str2) {
         String j = j(str, str2);
-        h<T> W = W(j);
-        if (W == null) {
+        h<T> U = U(j);
+        if (U == null) {
             BdLog.isDebugMode();
             return null;
-        } else if (W.te < System.currentTimeMillis()) {
-            Y(j);
+        } else if (U.te < System.currentTimeMillis()) {
+            W(j);
             BdLog.isDebugMode();
             return null;
         } else {
             if (this.sW.ge()) {
-                W.td = System.currentTimeMillis();
-                c(W);
+                U.td = System.currentTimeMillis();
+                c(U);
             }
             BdLog.isDebugMode();
-            return W;
+            return U;
         }
     }
 
@@ -84,7 +84,7 @@ public abstract class e<T> implements n<T> {
 
     @Override // com.baidu.adp.lib.cache.n
     public void n(String str, String str2) {
-        X(j(str, str2));
+        V(j(str, str2));
     }
 
     @Override // com.baidu.adp.lib.cache.n

@@ -10,20 +10,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ck implements View.OnClickListener {
-    final /* synthetic */ cf aXq;
-    private final /* synthetic */ com.baidu.tbadk.core.data.w aXr;
+    private final /* synthetic */ com.baidu.tbadk.core.data.w aXA;
+    final /* synthetic */ cf aXz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ck(cf cfVar, com.baidu.tbadk.core.data.w wVar) {
-        this.aXq = cfVar;
-        this.aXr = wVar;
+        this.aXz = cfVar;
+        this.aXA = wVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.aXq.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXr.getAuthor().getUserId(), this.aXr.getAuthor().getName_show(), this.aXq.aTW.aeJ().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        context = this.aXz.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXA.getAuthor().getUserId(), this.aXA.getAuthor().getName_show(), this.aXz.aUe.afg().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

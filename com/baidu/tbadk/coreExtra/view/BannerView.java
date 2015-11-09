@@ -13,24 +13,24 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class BannerView extends RelativeLayout {
-    private a ajA;
-    View.OnClickListener ajB;
-    private String ajt;
-    private String aju;
-    private Button ajv;
-    private TbImageView ajw;
-    private boolean ajx;
-    private float ajy;
-    private boolean ajz;
+    private Button ajA;
+    private TbImageView ajB;
+    private boolean ajC;
+    private float ajD;
+    private boolean ajE;
+    private a ajF;
+    View.OnClickListener ajG;
+    private String ajy;
+    private String ajz;
     private String link;
     private TbPageContext<?> mContext;
     private String type;
 
     /* loaded from: classes.dex */
     public interface a {
-        void yH();
+        void yM();
 
-        void yI();
+        void yN();
     }
 
     public void setBannerType(String str) {
@@ -39,12 +39,12 @@ public class BannerView extends RelativeLayout {
 
     public BannerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ajt = "";
-        this.aju = "";
-        this.ajx = false;
-        this.ajy = 0.1388889f;
-        this.ajz = false;
-        this.ajB = new com.baidu.tbadk.coreExtra.view.a(this);
+        this.ajy = "";
+        this.ajz = "";
+        this.ajC = false;
+        this.ajD = 0.1388889f;
+        this.ajE = false;
+        this.ajG = new com.baidu.tbadk.coreExtra.view.a(this);
         init(context);
     }
 
@@ -54,29 +54,29 @@ public class BannerView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(i.g.bannerview, this);
-        this.ajv = (Button) findViewById(i.f.btn_close);
-        this.ajv.setOnClickListener(this.ajB);
-        this.ajw = (TbImageView) findViewById(i.f.banner_image);
-        this.ajw.setAutoChangeStyle(true);
-        this.ajw.setOnClickListener(this.ajB);
+        this.ajA = (Button) findViewById(i.f.btn_close);
+        this.ajA.setOnClickListener(this.ajG);
+        this.ajB = (TbImageView) findViewById(i.f.banner_image);
+        this.ajB.setAutoChangeStyle(true);
+        this.ajB.setOnClickListener(this.ajG);
     }
 
     public void setBannerViewEvent(TbImageView.a aVar) {
-        if (this.ajw != null && aVar != null) {
-            this.ajw.setEvent(aVar);
+        if (this.ajB != null && aVar != null) {
+            this.ajB.setEvent(aVar);
         }
     }
 
     public void a(TbPageContext<?> tbPageContext, String str, String str2) {
         this.mContext = tbPageContext;
         this.link = str2;
-        this.ajz = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
+        this.ajE = (TextUtils.isEmpty(str) || TextUtils.isEmpty(str.trim())) ? false : true;
         setVisibility(8);
-        if (!this.ajx && this.ajz) {
-            ViewGroup.LayoutParams layoutParams = this.ajw.getLayoutParams();
-            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.K(getContext()) * this.ajy) + 0.5d);
-            this.ajw.setLayoutParams(layoutParams);
-            this.ajw.a(str, 10, 720, 100, false);
+        if (!this.ajC && this.ajE) {
+            ViewGroup.LayoutParams layoutParams = this.ajB.getLayoutParams();
+            layoutParams.height = (int) ((com.baidu.adp.lib.util.k.K(getContext()) * this.ajD) + 0.5d);
+            this.ajB.setLayoutParams(layoutParams);
+            this.ajB.a(str, 10, 720, 100, false);
             setVisibility(0);
         }
     }
@@ -86,19 +86,19 @@ public class BannerView extends RelativeLayout {
     }
 
     public void setBannerViewClickListener(a aVar) {
-        this.ajA = aVar;
+        this.ajF = aVar;
     }
 
-    public boolean yG() {
-        return this.ajz;
+    public boolean yL() {
+        return this.ajE;
     }
 
     public void reset() {
-        this.ajx = false;
-        this.ajz = false;
+        this.ajC = false;
+        this.ajE = false;
     }
 
-    public void oO() {
-        this.ajw.postInvalidate();
+    public void oP() {
+        this.ajB.postInvalidate();
     }
 }

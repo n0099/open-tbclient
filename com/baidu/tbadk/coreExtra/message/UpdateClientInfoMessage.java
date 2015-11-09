@@ -18,7 +18,7 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
     private int height;
     private double lat;
     private double lng;
-    private int pub_env;
+    private Integer pub_env;
     private byte[] secretKey;
     private int width;
 
@@ -35,12 +35,12 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         }
     }
 
-    public int getPub_env() {
+    public Integer getPub_env() {
         return this.pub_env;
     }
 
-    public void setPub_env(int i) {
-        this.pub_env = i;
+    public void setPub_env(Integer num) {
+        this.pub_env = num;
     }
 
     public double getLat() {
@@ -114,6 +114,7 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         builder.width = Integer.valueOf(getWidth());
         builder.lat = Double.valueOf(getLat());
         builder.lng = Double.valueOf(getLng());
+        builder.pub_env = getPub_env();
         UpdateClientInfoReqIdl.Builder builder2 = new UpdateClientInfoReqIdl.Builder();
         builder2.cuid = TbadkCoreApplication.getUniqueIdentifier();
         builder2.data = builder.build(false);

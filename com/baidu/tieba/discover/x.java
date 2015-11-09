@@ -15,22 +15,22 @@ public class x extends com.baidu.tbadk.mvc.model.d<com.baidu.tieba.discover.data
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> oW() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> oX() {
         return FoundNewHttpResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> oV() {
+    protected Class<? extends MvcSocketResponsedMessage> oW() {
         return FoundNewSocketResponsedMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oS() {
+    protected int oT() {
         return CmdConfigHttp.CMD_FOUND_NEW;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String oT() {
+    protected String oU() {
         return TbConfig.FOUND_NEW_ADDRESS;
     }
 
@@ -40,7 +40,7 @@ public class x extends com.baidu.tbadk.mvc.model.d<com.baidu.tieba.discover.data
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oU() {
+    protected int oV() {
         return 303023;
     }
 }

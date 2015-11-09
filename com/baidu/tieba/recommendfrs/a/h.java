@@ -17,25 +17,25 @@ import com.baidu.tieba.tbadkCore.util.p;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data.b, com.baidu.tbadk.mvc.d.b> {
-    private View aKa;
-    private TbImageView alA;
-    private TextView cED;
-    private TextView cJN;
-    private TextView cJO;
-    private TextView cJP;
-    private TextView cJQ;
+    private View aIU;
+    private TbImageView alF;
+    private TextView cFZ;
+    private TextView cLj;
+    private TextView cLk;
+    private TextView cLl;
+    private TextView cLm;
 
     public h(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.cED = (TextView) view.findViewById(i.f.title_text);
-        this.cJN = (TextView) view.findViewById(i.f.refresh_time);
-        this.alA = (TbImageView) view.findViewById(i.f.live_cover);
+        this.cFZ = (TextView) view.findViewById(i.f.title_text);
+        this.cLj = (TextView) view.findViewById(i.f.refresh_time);
+        this.alF = (TbImageView) view.findViewById(i.f.live_cover);
         View findViewById = view.findViewById(i.f.hot_thread_comment);
-        this.cJO = (TextView) findViewById.findViewById(i.f.hot_thread_line_tag);
-        this.cJP = (TextView) findViewById.findViewById(i.f.hot_thread_line_praise);
-        this.cJP.setVisibility(8);
-        this.cJQ = (TextView) findViewById.findViewById(i.f.hot_thread_line_comment);
-        this.aKa = view.findViewById(i.f.divider_line);
+        this.cLk = (TextView) findViewById.findViewById(i.f.hot_thread_line_tag);
+        this.cLl = (TextView) findViewById.findViewById(i.f.hot_thread_line_praise);
+        this.cLl.setVisibility(8);
+        this.cLm = (TextView) findViewById.findViewById(i.f.hot_thread_line_comment);
+        this.aIU = view.findViewById(i.f.divider_line);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -43,24 +43,24 @@ public class h extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
     /* renamed from: a */
     public void B(com.baidu.tieba.recommendfrs.data.b bVar) {
         super.B(bVar);
-        if (bVar != null && bVar.aqc() != null) {
-            ZhiBoInfoTW aqc = bVar.aqc();
-            this.cED.setText(d(aqc.title));
-            this.cJN.setText(b(aqc));
-            this.alA.d(aqc.livecover_src, 10, false);
-            if (StringUtils.isNull(aqc.forum_name)) {
-                this.cJO.setVisibility(8);
+        if (bVar != null && bVar.aqI() != null) {
+            ZhiBoInfoTW aqI = bVar.aqI();
+            this.cFZ.setText(d(aqI.title));
+            this.cLj.setText(b(aqI));
+            this.alF.d(aqI.livecover_src, 10, false);
+            if (StringUtils.isNull(aqI.forum_name)) {
+                this.cLk.setVisibility(8);
             } else {
-                this.cJO.setVisibility(0);
-                this.cJO.setText(getContext().getString(i.h.chosen_pb_original_bar, aqc.forum_name));
+                this.cLk.setVisibility(0);
+                this.cLk.setText(getContext().getString(i.h.chosen_pb_original_bar, aqI.forum_name));
             }
-            this.cJQ.setText(as.q(aqc.reply_num.intValue()));
-            this.aKa.setVisibility(bVar.aqa() ? 0 : 4);
+            this.cLm.setText(as.q(aqI.reply_num.intValue()));
+            this.aIU.setVisibility(bVar.aqG() ? 0 : 4);
             p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.lL(String.valueOf(bVar.apX()))) {
-                an.b(this.cED, i.c.cp_cont_c, 1);
+            if (readThreadHistory != null && readThreadHistory.lR(String.valueOf(bVar.aqD()))) {
+                an.b(this.cFZ, i.c.cp_cont_c, 1);
             } else {
-                an.b(this.cED, i.c.cp_cont_b, 1);
+                an.b(this.cFZ, i.c.cp_cont_b, 1);
             }
         }
     }

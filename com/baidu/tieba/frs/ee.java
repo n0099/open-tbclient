@@ -1,10 +1,9 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-public class ee extends ec {
-    public int errCode;
-    public String errMsg;
-    public boolean isLocal = true;
-    public boolean hasMore = true;
-    public boolean aZa = true;
-    public boolean aZb = true;
+public class ee {
+    public Object aZk;
+    public String forumId;
+    public String forumName;
+    public int pn;
+    public String stType;
 }

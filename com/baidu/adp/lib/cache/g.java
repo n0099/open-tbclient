@@ -118,7 +118,7 @@ public class g {
             return true;
         }
 
-        public String Z(String str) {
+        public String X(String str) {
             String str2;
             if (!this.sY.containsKey(str) && this.sY.size() >= this.maxSize) {
                 synchronized (this) {
@@ -142,11 +142,11 @@ public class g {
 
         @Override // com.baidu.adp.lib.cache.f.b
         public String e(h<?> hVar) {
-            String Z = Z(hVar.sZ);
+            String X = X(hVar.sZ);
             synchronized (this) {
                 this.sY.put(hVar.sZ, Long.valueOf(hVar.td));
             }
-            return Z;
+            return X;
         }
 
         @Override // com.baidu.adp.lib.cache.f.b

@@ -4,11 +4,11 @@ import com.baidu.tieba.person.PersonPostModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements PersonPostModel.a {
-    final /* synthetic */ g crB;
+    final /* synthetic */ g csX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.crB = gVar;
+        this.csX = gVar;
     }
 
     @Override // com.baidu.tieba.person.PersonPostModel.a
@@ -18,19 +18,19 @@ public class h implements PersonPostModel.a {
         PersonPostModel.a aVar;
         PersonPostModel.a aVar2;
         if (z) {
-            this.crB.cry = personPostModel;
+            this.csX.csU = personPostModel;
         } else {
-            personPostModel2 = this.crB.cry;
+            personPostModel2 = this.csX.csU;
             if (personPostModel2 != null) {
-                personPostModel3 = this.crB.cry;
+                personPostModel3 = this.csX.csU;
                 personPostModel3.post_list.addAll(personPostModel.post_list);
             }
         }
-        aVar = this.crB.crx;
+        aVar = this.csX.csT;
         if (aVar != null) {
-            aVar2 = this.crB.crx;
+            aVar2 = this.csX.csT;
             aVar2.a(personPostModel, z);
         }
-        this.crB.notifyDataSetChanged();
+        this.csX.notifyDataSetChanged();
     }
 }

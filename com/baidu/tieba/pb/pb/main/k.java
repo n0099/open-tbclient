@@ -1,144 +1,103 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.AbsListView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.location.BDLocationStatusCodes;
-import java.util.ArrayList;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
-class k implements AbsListView.OnScrollListener {
-    final /* synthetic */ PbActivity ciK;
+class k implements a.d {
+    final /* synthetic */ PbActivity cjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(PbActivity pbActivity) {
-        this.ciK = pbActivity;
+        this.cjN = pbActivity;
     }
 
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-        cc ccVar;
-        com.baidu.tbadk.editortools.c.d dVar;
-        cc ccVar2;
-        com.baidu.tbadk.editortools.c.d dVar2;
-        boolean z;
-        cc ccVar3;
-        cc ccVar4;
-        com.baidu.tbadk.editortools.c.d dVar3;
-        com.baidu.tbadk.performanceLog.e eVar;
-        com.baidu.tbadk.performanceLog.e eVar2;
-        com.baidu.tbadk.performanceLog.e eVar3;
-        cc ccVar5;
-        com.baidu.tbadk.performanceLog.e eVar4;
-        cc ccVar6;
-        com.baidu.tbadk.performanceLog.e eVar5;
-        if (i == 2 || i == 1) {
-            ccVar = this.ciK.cim;
-            ccVar.agI();
-            dVar = this.ciK.ciu;
-            if (dVar != null) {
-                ccVar4 = this.ciK.cim;
-                dVar3 = this.ciK.ciu;
-                ccVar4.eN(dVar3.Bo());
-            }
-            ccVar2 = this.ciK.cim;
-            ccVar2.agk();
-            dVar2 = this.ciK.ciu;
-            dVar2.Br();
-            z = this.ciK.cif;
-            if (!z) {
-                this.ciK.cif = true;
-                ccVar3 = this.ciK.cim;
-                ccVar3.agL();
-            }
+    @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
+    public void a(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.l lVar, WriteData writeData, AntiData antiData) {
+        ct ctVar;
+        ct ctVar2;
+        com.baidu.tbadk.editortools.c.e eVar;
+        ct ctVar3;
+        ct ctVar4;
+        ca caVar;
+        ca caVar2;
+        ca caVar3;
+        ct ctVar5;
+        ca caVar4;
+        String userId;
+        ca caVar5;
+        ct ctVar6;
+        ca caVar6;
+        ca caVar7;
+        ca caVar8;
+        ct ctVar7;
+        ct ctVar8;
+        com.baidu.tbadk.editortools.c.e eVar2;
+        this.cjN.stopVoice();
+        ctVar = this.cjN.cjo;
+        ctVar.eN(z);
+        String str = "";
+        int i = -1;
+        if (postWriteCallBackData != null) {
+            i = postWriteCallBackData.getErrorCode();
+            str = postWriteCallBackData.getErrorString();
         }
-        eVar = this.ciK.cig;
-        if (eVar == null) {
-            this.ciK.cig = new com.baidu.tbadk.performanceLog.e();
-            eVar5 = this.ciK.cig;
-            eVar5.ez(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-        }
-        if (i == 0) {
-            ccVar5 = this.ciK.cim;
-            if (ccVar5.ago() != null) {
-                ccVar6 = this.ciK.cim;
-                ccVar6.ago().notifyDataSetChanged();
+        if (z) {
+            ctVar2 = this.cjN.cjo;
+            ctVar2.aho();
+            eVar = this.cjN.cjw;
+            if (eVar != null) {
+                ctVar8 = this.cjN.cjo;
+                eVar2 = this.cjN.cjw;
+                ctVar8.eQ(eVar2.Bf());
             }
-            eVar4 = this.ciK.cig;
-            eVar4.DB();
-        } else if (i == 1) {
-            eVar3 = this.ciK.cig;
-            eVar3.DB();
-        } else {
-            eVar2 = this.ciK.cig;
-            eVar2.DB();
-        }
-    }
-
-    @Override // android.widget.AbsListView.OnScrollListener
-    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-        bl blVar;
-        bl blVar2;
-        cc ccVar;
-        cc ccVar2;
-        bl blVar3;
-        cc ccVar3;
-        com.baidu.tieba.tbadkCore.data.b bVar;
-        com.baidu.tieba.tbadkCore.data.b bVar2;
-        com.baidu.tieba.tbadkCore.data.b bVar3;
-        bl blVar4;
-        bl blVar5;
-        bl blVar6;
-        bl blVar7;
-        com.baidu.tieba.tbadkCore.data.b bVar4;
-        bl blVar8;
-        blVar = this.ciK.cih;
-        if (blVar != null) {
-            blVar2 = this.ciK.cih;
-            if (blVar2.getPbData() != null) {
-                ccVar = this.ciK.cim;
-                if (ccVar != null) {
-                    ccVar2 = this.ciK.cim;
-                    if (ccVar2.ago() != null) {
-                        blVar3 = this.ciK.cih;
-                        com.baidu.tieba.pb.a.b pbData = blVar3.getPbData();
-                        ArrayList<com.baidu.tieba.tbadkCore.data.k> aeL = pbData.aeL();
-                        if (aeL != null && !aeL.isEmpty()) {
-                            ccVar3 = this.ciK.cim;
-                            int Lp = ((i + i2) - ccVar3.ago().Lp()) - 1;
-                            int i4 = (pbData.aeM() == null || StringUtils.isNull(pbData.aeM().getSummary())) ? Lp : Lp - 1;
-                            int size = aeL.size();
-                            if (i4 >= 0 && i4 < size) {
-                                com.baidu.tieba.tbadkCore.data.k kVar = aeL.get(i4);
-                                bVar = this.ciK.cit;
-                                if (bVar != null) {
-                                    bVar2 = this.ciK.cit;
-                                    if (bVar2.kU(i4)) {
-                                        if (kVar instanceof com.baidu.tieba.tbadkCore.data.j) {
-                                            bVar4 = this.ciK.cit;
-                                            blVar8 = this.ciK.cih;
-                                            bVar4.d(i4, 1, blVar8.getThreadID());
-                                            com.baidu.tieba.recapp.report.b.apC().a(com.baidu.tieba.recapp.report.e.a((com.baidu.tieba.tbadkCore.data.j) kVar, "show"));
-                                            return;
-                                        }
-                                        bVar3 = this.ciK.cit;
-                                        blVar4 = this.ciK.cih;
-                                        bVar3.d(i4, 2, blVar4.getThreadID());
-                                        int i5 = 0;
-                                        blVar5 = this.ciK.cih;
-                                        if (blVar5 != null) {
-                                            blVar6 = this.ciK.cih;
-                                            if (blVar6.QR() != null) {
-                                                blVar7 = this.ciK.cih;
-                                                i5 = blVar7.QR().rG();
-                                            }
-                                        }
-                                        com.baidu.tieba.recapp.report.b.apC().a(com.baidu.tieba.recapp.report.e.g("store", i4, i5));
-                                    }
-                                }
+            ctVar3 = this.cjN.cjo;
+            ctVar3.agO();
+            ctVar4 = this.cjN.cjo;
+            ctVar4.eS(true);
+            caVar = this.cjN.cjj;
+            caVar.agx();
+            this.cjN.a(antiData, postWriteCallBackData);
+            if (writeData != null) {
+                String floor = writeData.getFloor();
+                if (writeData == null || writeData.getType() != 2) {
+                    caVar2 = this.cjN.cjj;
+                    if (caVar2.getHostMode()) {
+                        caVar4 = this.cjN.cjj;
+                        com.baidu.tieba.pb.a.c pbData = caVar4.getPbData();
+                        if (pbData != null && pbData.afh() != null && pbData.afh().getAuthor() != null && (userId = pbData.afh().getAuthor().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount())) {
+                            caVar5 = this.cjN.cjj;
+                            if (caVar5.ags()) {
+                                ctVar6 = this.cjN.cjo;
+                                ctVar6.agZ();
                             }
                         }
+                    } else {
+                        caVar3 = this.cjN.cjj;
+                        if (caVar3.ags()) {
+                            ctVar5 = this.cjN.cjo;
+                            ctVar5.agZ();
+                        }
                     }
+                } else if (floor != null) {
+                    caVar8 = this.cjN.cjj;
+                    com.baidu.tieba.pb.a.c pbData2 = caVar8.getPbData();
+                    ctVar7 = this.cjN.cjo;
+                    ctVar7.h(pbData2);
+                }
+                caVar6 = this.cjN.cjj;
+                if (caVar6.ago()) {
+                    com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c10369");
+                    caVar7 = this.cjN.cjj;
+                    TiebaStatic.log(aqVar.ae("tid", caVar7.getThreadID()));
                 }
             }
+        } else if (lVar != null) {
+        } else {
+            this.cjN.a(i, antiData, str);
         }
     }
 }

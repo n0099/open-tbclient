@@ -15,9 +15,9 @@ public abstract class c<T> {
     protected LinkedList<String> sS = new LinkedList<>();
     private Object sT = new Object();
 
-    public abstract String P(String str);
+    public abstract String N(String str);
 
-    protected abstract boolean Q(String str);
+    protected abstract boolean O(String str);
 
     protected abstract ContentValues a(h<T> hVar);
 
@@ -43,7 +43,7 @@ public abstract class c<T> {
         }
     }
 
-    public h<T> R(String str) {
+    public h<T> P(String str) {
         try {
             return c(this.sN.dL(), str);
         } catch (Throwable th) {
@@ -67,7 +67,7 @@ public abstract class c<T> {
                 }
             }
             if (this.sP != null && (e = this.sP.e(hVar)) != null) {
-                S(e);
+                Q(e);
             }
         } catch (Throwable th) {
             this.sN.a(th, "addOrUpdateTextCacheItem");
@@ -79,12 +79,12 @@ public abstract class c<T> {
             this.sR++;
             if (this.sR >= ((int) Math.min(this.sQ.gd() * 0.2d, 5.0d))) {
                 this.sR = 0;
-                com.baidu.adp.lib.g.k.hh().c(new d(this));
+                com.baidu.adp.lib.g.k.hi().c(new d(this));
             }
         }
     }
 
-    public int S(String str) {
+    public int Q(String str) {
         try {
             return this.sN.dL().delete(this.sO, "m_key = ?", new String[]{str});
         } catch (Throwable th) {
@@ -93,13 +93,13 @@ public abstract class c<T> {
         }
     }
 
-    public void T(String str) {
+    public void R(String str) {
         this.sR = 0;
         synchronized (this.sT) {
             this.sS.clear();
         }
-        if (Q(str)) {
-            BdCacheService.gl().gm().af(str);
+        if (O(str)) {
+            BdCacheService.gl().gm().ad(str);
         }
     }
 
@@ -114,7 +114,7 @@ public abstract class c<T> {
         }
     }
 
-    public void U(String str) {
+    public void S(String str) {
         if (this.sQ != null) {
             Cursor cursor = null;
             try {
@@ -143,7 +143,7 @@ public abstract class c<T> {
         }
     }
 
-    public void V(String str) {
+    public void T(String str) {
         if (this.sP != null) {
             Cursor cursor = null;
             try {

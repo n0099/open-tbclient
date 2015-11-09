@@ -57,8 +57,8 @@ public class o extends Thread {
         this.Ax = handler;
         this.zJ = aVar;
         this.zR = nVar;
-        this.Ay = ByteBuffer.allocateDirect(nVar.jP() + 14);
-        this.Az = new d(nVar.jQ());
+        this.Ay = ByteBuffer.allocateDirect(nVar.jQ() + 14);
+        this.Az = new d(nVar.jR());
         this.AD = null;
         this.mState = 1;
     }
@@ -70,7 +70,7 @@ public class o extends Thread {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [219=8] */
-    private boolean jW() {
+    private boolean jX() {
         int i;
         long j;
         int i2 = 2;
@@ -100,19 +100,19 @@ public class o extends Thread {
                 if (!this.AB) {
                     this.AB = true;
                     this.AC = this.AD.AH;
-                    if (this.AC == 1 && this.zR.jT()) {
+                    if (this.AC == 1 && this.zR.jU()) {
                         this.AF.reset();
                     }
                 }
-                if (this.AC == 1 && this.zR.jT() && !this.AF.E(this.Az.toByteArray())) {
+                if (this.AC == 1 && this.zR.jU() && !this.AF.E(this.Az.toByteArray())) {
                     throw new WebSocketException("invalid UTF-8 in text message payload");
                 }
                 if (this.AD.AI) {
                     if (this.AC == 1) {
-                        if (this.zR.jT() && !this.AF.isValid()) {
+                        if (this.zR.jU() && !this.AF.isValid()) {
                             throw new WebSocketException("UTF-8 text message payload ended within Unicode code point");
                         }
-                        if (this.zR.jO()) {
+                        if (this.zR.jP()) {
                             F(this.Az.toByteArray());
                         } else {
                             I(new String(this.Az.toByteArray(), "UTF-8"));
@@ -279,7 +279,7 @@ public class o extends Thread {
         q(new m.a(bArr));
     }
 
-    private boolean jX() {
+    private boolean jY() {
         boolean z;
         boolean z2;
         int position = this.Ay.position() - 4;
@@ -292,9 +292,9 @@ public class o extends Thread {
                 int position2 = this.Ay.position();
                 Map<String, String> map = null;
                 if (this.Ay.get(0) == 72 && this.Ay.get(1) == 84 && this.Ay.get(2) == 84 && this.Ay.get(3) == 80) {
-                    Pair<Integer, String> jY = jY();
-                    if (((Integer) jY.first).intValue() >= 300) {
-                        q(new m.p(((Integer) jY.first).intValue(), (String) jY.second));
+                    Pair<Integer, String> jZ = jZ();
+                    if (((Integer) jZ.first).intValue() >= 300) {
+                        q(new m.p(((Integer) jZ.first).intValue(), (String) jZ.second));
                         z = true;
                     } else {
                         z = false;
@@ -311,7 +311,7 @@ public class o extends Thread {
                 this.Ay.position(position + 4);
                 this.Ay.limit(position2);
                 this.Ay.compact();
-                if (this.AG < this.zJ.jx() && map.size() == 0) {
+                if (this.AG < this.zJ.jy() && map.size() == 0) {
                     this.AG++;
                     return true;
                 }
@@ -346,7 +346,7 @@ public class o extends Thread {
         return hashMap;
     }
 
-    private Pair<Integer, String> jY() {
+    private Pair<Integer, String> jZ() {
         int i = 4;
         while (i < this.Ay.position() && this.Ay.get(i) != 32) {
             i++;
@@ -372,12 +372,12 @@ public class o extends Thread {
         return new Pair<>(Integer.valueOf(i4), new String(bArr, "UTF-8"));
     }
 
-    private boolean jZ() {
+    private boolean ka() {
         if (this.mState == 3 || this.mState == 2) {
-            return jW();
+            return jX();
         }
         if (this.mState == 1) {
-            return jX();
+            return jY();
         }
         if (this.mState == 0) {
         }
@@ -408,13 +408,13 @@ public class o extends Thread {
                     }
                     if (read > 0) {
                         do {
-                        } while (jZ());
+                        } while (ka());
                     } else if (read < 0) {
                         q(new m.d(new SocketException("len < 0")));
                         this.mStopped = true;
                     }
                 } catch (SocketTimeoutException e) {
-                    if (!com.baidu.adp.lib.util.i.iM()) {
+                    if (!com.baidu.adp.lib.util.i.iN()) {
                         this.mStopped = true;
                         q(new m.d(new SocketException("not net")));
                         return;
@@ -432,7 +432,7 @@ public class o extends Thread {
         }
     }
 
-    public void jF() {
+    public void jG() {
         synchronized (o.class) {
             AA = 0L;
         }

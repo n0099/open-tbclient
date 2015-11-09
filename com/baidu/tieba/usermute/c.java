@@ -6,15 +6,15 @@ import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements a.b {
-    private final /* synthetic */ String bop;
-    private final /* synthetic */ String bxN;
-    final /* synthetic */ UserMuteAddAndDelModel djb;
+    private final /* synthetic */ String boT;
+    private final /* synthetic */ String byk;
+    final /* synthetic */ UserMuteAddAndDelModel dkH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(UserMuteAddAndDelModel userMuteAddAndDelModel, String str, String str2) {
-        this.djb = userMuteAddAndDelModel;
-        this.bxN = str;
-        this.bop = str2;
+        this.dkH = userMuteAddAndDelModel;
+        this.byk = str;
+        this.boT = str2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -22,19 +22,19 @@ public class c implements a.b {
         UserMuteAddAndDelModel.From from;
         UserMuteAddAndDelModel.From from2;
         String str;
-        from = this.djb.diU;
+        from = this.dkH.dkA;
         if (from != UserMuteAddAndDelModel.From.PB) {
-            from2 = this.djb.diU;
+            from2 = this.dkH.dkA;
             if (from2 == UserMuteAddAndDelModel.From.PersonInfo) {
                 TiebaStatic.log("c10041");
             }
         } else {
             TiebaStatic.log("c10033");
         }
-        this.djb.Zb();
-        UserMuteAddAndDelModel userMuteAddAndDelModel = this.djb;
-        str = this.djb.dja;
-        userMuteAddAndDelModel.s(str, this.bxN, this.bop);
+        this.dkH.Zw();
+        UserMuteAddAndDelModel userMuteAddAndDelModel = this.dkH;
+        str = this.dkH.dkG;
+        userMuteAddAndDelModel.s(str, this.byk, this.boT);
         aVar.dismiss();
     }
 }

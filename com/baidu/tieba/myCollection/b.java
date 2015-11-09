@@ -5,13 +5,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class b extends CustomMessageListener {
-    final /* synthetic */ CollectTabActivity cbq;
+    final /* synthetic */ CollectTabActivity cbR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(CollectTabActivity collectTabActivity, int i) {
         super(i);
-        this.cbq = collectTabActivity;
+        this.cbR = collectTabActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,10 +24,10 @@ class b extends CustomMessageListener {
             boolean z = bundle.getBoolean(com.baidu.tbadk.b.b.EDITOR_ENABLE_EXTRA, true);
             int i = bundle.getInt(com.baidu.tbadk.b.b.FRAGMENT_TYPE, -1);
             if (i != -1) {
-                cVar = this.cbq.cbn;
-                if (i == cVar.adk()) {
-                    cVar2 = this.cbq.cbn;
-                    cVar2.dX(z);
+                cVar = this.cbR.cbO;
+                if (i == cVar.adF()) {
+                    cVar2 = this.cbR.cbO;
+                    cVar2.dZ(z);
                 }
             }
         }

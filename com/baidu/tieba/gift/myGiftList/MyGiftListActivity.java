@@ -13,68 +13,68 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class MyGiftListActivity extends BaseActivity<MyGiftListActivity> {
-    private l bmS;
-    private m bmT;
+    private l bnw;
+    private m bnx;
     private boolean mIsHost;
     private String st_type;
-    private String bmU = null;
+    private String bny = null;
     private int sex = 0;
     private long mUserId = 0;
-    MyGiftNotifyMessage bmV = new MyGiftNotifyMessage();
-    private NoNetworkView.a aOY = new d(this);
-    private final CustomMessageListener bmW = new e(this, CmdConfigCustom.CMD_GET_GIFT_SUCCEED);
+    MyGiftNotifyMessage bnz = new MyGiftNotifyMessage();
+    private NoNetworkView.a aPg = new d(this);
+    private final CustomMessageListener bnA = new e(this, CmdConfigCustom.CMD_GET_GIFT_SUCCEED);
     private final com.baidu.adp.framework.listener.e mListener = new f(this, 308002);
-    private BdListView.e bmX = new g(this);
+    private BdListView.e bnB = new g(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        com.baidu.tbadk.coreExtra.messageCenter.a.wH().wY();
+        com.baidu.tbadk.coreExtra.messageCenter.a.wM().xd();
         Intent intent = getIntent();
         if (intent != null) {
-            this.bmU = intent.getStringExtra("id");
+            this.bny = intent.getStringExtra("id");
             this.st_type = intent.getStringExtra("st_type");
             this.sex = intent.getIntExtra(MyGiftListActivityConfig.USER_SEX, 0);
         }
-        if (this.bmU != null) {
-            this.mUserId = com.baidu.adp.lib.g.b.c(this.bmU, 0L);
+        if (this.bny != null) {
+            this.mUserId = com.baidu.adp.lib.g.b.c(this.bny, 0L);
         }
-        this.bmS = new l(this, this.st_type);
-        this.bmS.setUid(this.mUserId);
-        this.mIsHost = this.bmS.getIsSelf();
+        this.bnw = new l(this, this.st_type);
+        this.bnw.setUid(this.mUserId);
+        this.mIsHost = this.bnw.getIsSelf();
         initUI();
         this.mListener.setSelfListener(true);
         registerListener(this.mListener);
-        registerListener(this.bmW);
-        this.bmS.cA(false);
-        this.bmT.nw();
-        com.baidu.tbadk.coreExtra.messageCenter.a.wH().setMsgGiftNum(0);
-        MessageManager.getInstance().dispatchResponsedMessage(this.bmV);
+        registerListener(this.bnA);
+        this.bnw.cC(false);
+        this.bnx.nx();
+        com.baidu.tbadk.coreExtra.messageCenter.a.wM().setMsgGiftNum(0);
+        MessageManager.getInstance().dispatchResponsedMessage(this.bnz);
     }
 
     private void initUI() {
-        this.bmT = new m(this, this.bmX, this.mIsHost);
-        this.bmT.b(new h(this));
-        Qs();
+        this.bnx = new m(this, this.bnB, this.mIsHost);
+        this.bnx.b(new h(this));
+        QO();
     }
 
-    public View.OnClickListener Qr() {
+    public View.OnClickListener QN() {
         return new i(this);
     }
 
-    private void Qs() {
-        this.bmT.h(this.aOY);
+    private void QO() {
+        this.bnx.h(this.aPg);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bmT.onChangeSkinType(i);
+        this.bnx.onChangeSkinType(i);
     }
 
-    public String Qt() {
+    public String QP() {
         String string = getPageContext().getString(i.h.he);
         if (this.sex == 2) {
             return getPageContext().getString(i.h.she);

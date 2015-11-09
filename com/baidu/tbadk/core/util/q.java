@@ -13,17 +13,19 @@ public interface q {
 
     void gJ();
 
+    void gM();
+
     void l(ArrayList<BasicNameValuePair> arrayList);
 
     void o(String str, String str2);
 
-    ArrayList<BasicNameValuePair> tC();
-
-    String tD();
-
-    byte[] tE();
-
-    String tF();
+    ArrayList<BasicNameValuePair> tF();
 
     String tG();
+
+    byte[] tH();
+
+    String tI();
+
+    String tJ();
 }

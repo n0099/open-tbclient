@@ -12,17 +12,17 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements View.OnClickListener {
-    final /* synthetic */ i bom;
-    private final /* synthetic */ String bon;
-    private final /* synthetic */ String boo;
-    private final /* synthetic */ String bop;
+    final /* synthetic */ i boQ;
+    private final /* synthetic */ String boR;
+    private final /* synthetic */ String boS;
+    private final /* synthetic */ String boT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar, String str, String str2, String str3) {
-        this.bom = iVar;
-        this.bon = str;
-        this.boo = str2;
-        this.bop = str3;
+        this.boQ = iVar;
+        this.boR = str;
+        this.boS = str2;
+        this.boT = str3;
     }
 
     @Override // android.view.View.OnClickListener
@@ -30,10 +30,10 @@ public class k implements View.OnClickListener {
         Context context;
         HotTopicActivity hotTopicActivity;
         MessageManager messageManager = MessageManager.getInstance();
-        context = this.bom.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, String.valueOf(this.bon), this.boo)));
-        aq ae = new aq("c10366").ae("post_id", this.bop).ae("obj_type", "1");
-        hotTopicActivity = this.bom.bod;
-        TiebaStatic.log(ae.ae("obj_id", hotTopicActivity.QL()));
+        context = this.boQ.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, String.valueOf(this.boR), this.boS)));
+        aq ae = new aq("c10366").ae("post_id", this.boT).ae("obj_type", "1");
+        hotTopicActivity = this.boQ.boH;
+        TiebaStatic.log(ae.ae("obj_id", hotTopicActivity.Rh()));
     }
 }

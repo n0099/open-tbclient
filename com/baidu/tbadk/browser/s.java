@@ -6,13 +6,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s extends CustomMessageListener {
-    final /* synthetic */ XiubaTbJsBridge So;
+    final /* synthetic */ XiubaTbJsBridge Sp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(XiubaTbJsBridge xiubaTbJsBridge, int i) {
         super(i);
-        this.So = xiubaTbJsBridge;
+        this.Sp = xiubaTbJsBridge;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,7 +25,7 @@ public class s extends CustomMessageListener {
         }
         packageName = XiubaTbJsBridge.getPackageName((Intent) data);
         if ("com.xiu8.baidu.activity".equals(packageName)) {
-            this.So.callInstallListener();
+            this.Sp.callInstallListener();
         }
     }
 }

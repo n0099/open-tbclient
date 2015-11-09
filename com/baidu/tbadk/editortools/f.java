@@ -1,13 +1,13 @@
 package com.baidu.tbadk.editortools;
 /* loaded from: classes.dex */
 public abstract class f {
-    private j aox;
+    private j aoD;
 
     public f(j jVar) {
-        this.aox = jVar;
+        this.aoD = jVar;
     }
 
-    public j Au() {
-        return this.aox;
+    public j Az() {
+        return this.aoD;
     }
 }

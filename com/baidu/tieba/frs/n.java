@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
 class n implements NoNetworkView.a {
-    final /* synthetic */ FrsActivity aUK;
+    final /* synthetic */ FrsActivity aUS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(FrsActivity frsActivity) {
-        this.aUK = frsActivity;
+        this.aUS = frsActivity;
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
@@ -20,27 +20,27 @@ class n implements NoNetworkView.a {
         bs bsVar4;
         com.baidu.tieba.tbadkCore.o oVar2;
         if (z) {
-            bsVar = this.aUK.aTU;
-            if (!bsVar.Le()) {
-                oVar = this.aUK.aTW;
+            bsVar = this.aUS.aUc;
+            if (!bsVar.Lu()) {
+                oVar = this.aUS.aUe;
                 if (oVar != null) {
-                    oVar2 = this.aUK.aTW;
+                    oVar2 = this.aUS.aUe;
                     if (oVar2.getThreadList().size() != 0) {
                         return;
                     }
                 }
-                FrsActivity frsActivity = this.aUK;
-                bsVar2 = this.aUK.aTU;
+                FrsActivity frsActivity = this.aUS;
+                bsVar2 = this.aUS.aUc;
                 frsActivity.hideNetRefreshView(bsVar2.getRootView());
-                z2 = this.aUK.aTH;
+                z2 = this.aUS.aTP;
                 if (!z2) {
-                    FrsActivity frsActivity2 = this.aUK;
-                    bsVar3 = this.aUK.aTU;
+                    FrsActivity frsActivity2 = this.aUS;
+                    bsVar3 = this.aUS.aUc;
                     frsActivity2.showLoadingView(bsVar3.getRootView(), true);
-                    bsVar4 = this.aUK.aTU;
-                    bsVar4.LU();
+                    bsVar4 = this.aUS.aUc;
+                    bsVar4.Mk();
                 }
-                this.aUK.refresh();
+                this.aUS.refresh();
             }
         }
     }

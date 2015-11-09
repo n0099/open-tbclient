@@ -12,12 +12,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    public List<a> ctN = new ArrayList();
-    public com.baidu.tbadk.core.data.o cEb = new com.baidu.tbadk.core.data.o();
+    public List<a> cvj = new ArrayList();
+    public com.baidu.tbadk.core.data.o cFx = new com.baidu.tbadk.core.data.o();
 
     /* loaded from: classes.dex */
     public static class a {
-        public int cEc;
+        public int cFy;
         public String content;
         public String fname;
         public int is_floor;
@@ -30,17 +30,17 @@ public class j {
         public String title;
     }
 
-    public boolean WS() {
-        return (this.ctN == null || this.ctN.size() == 0) ? false : true;
+    public boolean Xn() {
+        return (this.cvj == null || this.cvj.size() == 0) ? false : true;
     }
 
     public boolean isHasMore() {
-        return this.cEb != null && this.cEb.rI() == 1;
+        return this.cFx != null && this.cFx.rK() == 1;
     }
 
     public int getCurrentPage() {
-        if (this.cEb != null) {
-            return this.cEb.rG();
+        if (this.cFx != null) {
+            return this.cFx.rI();
         }
         return 0;
     }
@@ -57,10 +57,10 @@ public class j {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.cEb.parserJson(jSONObject.getJSONObject("page"));
+                this.cFx.parserJson(jSONObject.getJSONObject("page"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
                 if (optJSONArray != null && optJSONArray.length() != 0) {
-                    this.ctN.clear();
+                    this.cvj.clear();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
@@ -83,11 +83,11 @@ public class j {
                             aVar.fname = optString5;
                             aVar.tid = optLong2;
                             aVar.is_floor = optInt;
-                            aVar.cEc = optInt2;
+                            aVar.cFy = optInt2;
                             aVar.name = optString2;
                             aVar.name_show = optString;
                             aVar.thread_type = optInt3;
-                            this.ctN.add(aVar);
+                            this.cvj.add(aVar);
                         }
                     }
                 }

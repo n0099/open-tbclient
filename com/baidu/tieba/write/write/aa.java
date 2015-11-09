@@ -3,19 +3,19 @@ package com.baidu.tieba.write.write;
 import java.util.Date;
 /* loaded from: classes.dex */
 class aa implements Runnable {
-    final /* synthetic */ WriteActivity dqi;
-    private final /* synthetic */ Date dqj;
+    final /* synthetic */ WriteActivity dsa;
+    private final /* synthetic */ Date dsb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(WriteActivity writeActivity, Date date) {
-        this.dqi = writeActivity;
-        this.dqj = date;
+        this.dsa = writeActivity;
+        this.dsb = date;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         com.baidu.tieba.view.a aVar;
-        aVar = this.dqi.dqh;
-        aVar.updateTime(this.dqj.getHours(), this.dqj.getMinutes());
+        aVar = this.dsa.drZ;
+        aVar.updateTime(this.dsb.getHours(), this.dsb.getMinutes());
     }
 }

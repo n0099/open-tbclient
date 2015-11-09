@@ -1,17 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.recapp.PbRecBaseViewHolder;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bh extends bi {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bh(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+public class bh implements a.b {
+    final /* synthetic */ bc cjW;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bh(bc bcVar) {
+        this.cjW = bcVar;
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.bi
-    protected PbRecBaseViewHolder J(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.apw().l(this.mContext, 3);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

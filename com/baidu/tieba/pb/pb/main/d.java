@@ -1,27 +1,32 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
-import com.baidu.tieba.usermute.data.MuteUser;
-import com.baidu.tieba.usermute.response.UserMuteAddResponseMessage;
+import android.os.Handler;
+import android.os.Message;
 /* loaded from: classes.dex */
-class d implements UserMuteAddAndDelModel.a {
-    final /* synthetic */ PbActivity ciK;
+class d implements Handler.Callback {
+    final /* synthetic */ PbActivity cjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(PbActivity pbActivity) {
-        this.ciK = pbActivity;
+        this.cjN = pbActivity;
     }
 
-    @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.a
-    public void a(UserMuteAddResponseMessage userMuteAddResponseMessage) {
-        bl blVar;
-        String str = (String) userMuteAddResponseMessage.getOrginalMessage().getExtra();
-        blVar = this.ciK.cih;
-        com.baidu.tieba.pb.a.b pbData = blVar.getPbData();
-        if (pbData != null) {
-            MuteUser muteUser = new MuteUser();
-            muteUser.setUserId(str);
-            pbData.aeQ().add(muteUser);
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        ca caVar;
+        ca caVar2;
+        switch (message.what) {
+            case 2:
+                caVar = this.cjN.cjj;
+                if (caVar != null) {
+                    caVar2 = this.cjN.cjj;
+                    if (caVar2.qi()) {
+                        this.cjN.afS();
+                        break;
+                    }
+                }
+                break;
         }
+        return false;
     }
 }

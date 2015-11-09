@@ -35,8 +35,8 @@ public class d {
         this.rb = new b();
     }
 
-    public void O(String str) {
-        this.rb.N(str);
+    public void M(String str) {
+        this.rb.L(str);
     }
 
     public boolean b(DiskFileOperate diskFileOperate) {

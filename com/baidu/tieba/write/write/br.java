@@ -1,27 +1,51 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.TextView;
+import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class br implements View.OnClickListener {
-    private final /* synthetic */ String coC;
+public class br implements CompoundButton.OnCheckedChangeListener {
     final /* synthetic */ WriteImageActivity this$0;
-    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public br(WriteImageActivity writeImageActivity, String str, int i) {
+    public br(WriteImageActivity writeImageActivity) {
         this.this$0 = writeImageActivity;
-        this.coC = str;
-        this.val$id = i;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (this.this$0.mProgress.getVisibility() != 0) {
-            this.this$0.aDq.setImageBitmap(this.this$0.mBitmap);
-            this.this$0.cox = false;
-            this.this$0.jY(this.coC);
-            this.this$0.cot = this.val$id;
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        RadioButton radioButton;
+        RadioButton radioButton2;
+        HorizontalScrollView horizontalScrollView;
+        LinearLayout linearLayout;
+        TextView textView;
+        HorizontalScrollView horizontalScrollView2;
+        LinearLayout linearLayout2;
+        TextView textView2;
+        if (z) {
+            radioButton = this.this$0.cpH;
+            if (compoundButton == radioButton) {
+                horizontalScrollView2 = this.this$0.cpE;
+                horizontalScrollView2.setVisibility(0);
+                linearLayout2 = this.this$0.cpJ;
+                linearLayout2.setVisibility(8);
+                textView2 = this.this$0.LO;
+                textView2.setText(this.this$0.getPageContext().getString(i.h.beautify));
+                return;
+            }
+            radioButton2 = this.this$0.cpI;
+            if (compoundButton == radioButton2) {
+                horizontalScrollView = this.this$0.cpE;
+                horizontalScrollView.setVisibility(8);
+                linearLayout = this.this$0.cpJ;
+                linearLayout.setVisibility(0);
+                textView = this.this$0.LO;
+                textView.setText(this.this$0.getPageContext().getString(i.h.rotate));
+            }
         }
     }
 }

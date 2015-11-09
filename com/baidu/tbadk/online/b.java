@@ -19,13 +19,13 @@ public class b extends e {
         Runnable runnable;
         Runnable runnable2;
         if (!(socketResponsedMessage instanceof ResponseOnlineMessage) || socketResponsedMessage.hasError()) {
-            h hg = h.hg();
+            h hh = h.hh();
             runnable = GetOnLineInfoStatic.mRunnable;
-            hg.removeCallbacks(runnable);
+            hh.removeCallbacks(runnable);
             return;
         }
-        h hg2 = h.hg();
+        h hh2 = h.hh();
         runnable2 = GetOnLineInfoStatic.mRunnable;
-        hg2.postDelayed(runnable2, TbConfig.NOTIFY_SOUND_INTERVAL);
+        hh2.postDelayed(runnable2, TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 }

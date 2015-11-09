@@ -7,13 +7,13 @@ import com.baidu.tieba.person.post.u;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x extends CustomMessageListener {
-    final /* synthetic */ u csi;
+    final /* synthetic */ u ctE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(u uVar, int i) {
         super(i);
-        this.csi = uVar;
+        this.ctE = uVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,13 +22,13 @@ public class x extends CustomMessageListener {
         boolean z;
         p pVar;
         u.a aVar;
-        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && com.baidu.adp.lib.util.i.iM()) {
-            z = this.csi.avO;
+        if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && com.baidu.adp.lib.util.i.iN()) {
+            z = this.ctE.auC;
             if (z) {
-                pVar = this.csi.csf;
-                pVar.eX(false);
-                aVar = this.csi.csh;
-                aVar.Kf();
+                pVar = this.ctE.ctB;
+                pVar.fa(false);
+                aVar = this.ctE.ctD;
+                aVar.Kv();
             }
         }
     }

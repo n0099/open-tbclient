@@ -11,29 +11,29 @@ import com.baidu.tieba.themeCenter.SkinItemView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
-    private int bci;
-    private SkinItemView.a dgu;
-    private int dgv;
-    private int dgw;
+    private int bcN;
+    private SkinItemView.a dia;
+    private int dib;
+    private int dic;
     private TbPageContext<?> mContext;
     private List<com.baidu.tieba.themeCenter.theme.top.a> mThemeList;
 
     /* loaded from: classes.dex */
     public static class a {
-        public SkinItemView dgx;
-        public SkinItemView dgy;
-        public SkinItemView dgz;
+        public SkinItemView did;
+        public SkinItemView die;
+        public SkinItemView dif;
     }
 
     public c(TbPageContext<?> tbPageContext, SkinItemView.a aVar) {
-        this.bci = 0;
-        this.dgv = 0;
-        this.dgw = 0;
+        this.bcN = 0;
+        this.dib = 0;
+        this.dic = 0;
         this.mContext = tbPageContext;
-        this.dgu = aVar;
-        this.bci = k.d(this.mContext.getPageActivity(), i.d.ds20);
-        this.dgv = k.d(this.mContext.getPageActivity(), i.d.ds32);
-        this.dgw = k.d(this.mContext.getPageActivity(), i.d.ds22);
+        this.dia = aVar;
+        this.bcN = k.d(this.mContext.getPageActivity(), i.d.ds20);
+        this.dib = k.d(this.mContext.getPageActivity(), i.d.ds32);
+        this.dic = k.d(this.mContext.getPageActivity(), i.d.ds22);
     }
 
     @Override // android.widget.Adapter
@@ -46,7 +46,7 @@ public class c extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lz */
+    /* renamed from: lN */
     public com.baidu.tieba.themeCenter.theme.top.a getItem(int i) {
         if (this.mThemeList == null || this.mThemeList.size() <= 0 || i < 0 || i >= getCount()) {
             return null;
@@ -68,42 +68,42 @@ public class c extends BaseAdapter {
         } else {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.all_theme_list_item, viewGroup, false);
             aVar = new a();
-            aVar.dgx = (SkinItemView) view.findViewById(i.f.theme_view1);
-            aVar.dgy = (SkinItemView) view.findViewById(i.f.theme_view2);
-            aVar.dgz = (SkinItemView) view.findViewById(i.f.theme_view3);
-            aVar.dgx.setOnItemClickCallback(this.dgu);
-            aVar.dgy.setOnItemClickCallback(this.dgu);
-            aVar.dgz.setOnItemClickCallback(this.dgu);
-            aVar.dgx.setListenerTag(this.mContext.getUniqueId());
-            aVar.dgy.setListenerTag(this.mContext.getUniqueId());
-            aVar.dgz.setListenerTag(this.mContext.getUniqueId());
+            aVar.did = (SkinItemView) view.findViewById(i.f.theme_view1);
+            aVar.die = (SkinItemView) view.findViewById(i.f.theme_view2);
+            aVar.dif = (SkinItemView) view.findViewById(i.f.theme_view3);
+            aVar.did.setOnItemClickCallback(this.dia);
+            aVar.die.setOnItemClickCallback(this.dia);
+            aVar.dif.setOnItemClickCallback(this.dia);
+            aVar.did.setListenerTag(this.mContext.getUniqueId());
+            aVar.die.setListenerTag(this.mContext.getUniqueId());
+            aVar.dif.setListenerTag(this.mContext.getUniqueId());
             view.setTag(aVar);
         }
-        if (item != null && item.azF() != null && item.azF().size() > 0) {
-            if (item.azF().size() == 1) {
-                aVar.dgx.a(item.azF().get(0));
-                aVar.dgx.setVisibility(0);
-                aVar.dgy.setVisibility(8);
-                aVar.dgz.setVisibility(8);
-            } else if (item.azF().size() == 2) {
-                aVar.dgx.a(item.azF().get(0));
-                aVar.dgy.a(item.azF().get(1));
-                aVar.dgx.setVisibility(0);
-                aVar.dgy.setVisibility(0);
-                aVar.dgz.setVisibility(8);
-            } else if (item.azF().size() >= 3) {
-                aVar.dgx.a(item.azF().get(0));
-                aVar.dgy.a(item.azF().get(1));
-                aVar.dgz.a(item.azF().get(2));
-                aVar.dgx.setVisibility(0);
-                aVar.dgy.setVisibility(0);
-                aVar.dgz.setVisibility(0);
+        if (item != null && item.aAv() != null && item.aAv().size() > 0) {
+            if (item.aAv().size() == 1) {
+                aVar.did.a(item.aAv().get(0));
+                aVar.did.setVisibility(0);
+                aVar.die.setVisibility(8);
+                aVar.dif.setVisibility(8);
+            } else if (item.aAv().size() == 2) {
+                aVar.did.a(item.aAv().get(0));
+                aVar.die.a(item.aAv().get(1));
+                aVar.did.setVisibility(0);
+                aVar.die.setVisibility(0);
+                aVar.dif.setVisibility(8);
+            } else if (item.aAv().size() >= 3) {
+                aVar.did.a(item.aAv().get(0));
+                aVar.die.a(item.aAv().get(1));
+                aVar.dif.a(item.aAv().get(2));
+                aVar.did.setVisibility(0);
+                aVar.die.setVisibility(0);
+                aVar.dif.setVisibility(0);
             }
         }
         if (i == 0) {
-            view.setPadding(this.dgv, this.bci, this.dgw, 0);
+            view.setPadding(this.dib, this.bcN, this.dic, 0);
         } else {
-            view.setPadding(this.dgv, 0, this.dgw, 0);
+            view.setPadding(this.dib, 0, this.dic, 0);
         }
         this.mContext.getLayoutMode().k(view);
         return view;

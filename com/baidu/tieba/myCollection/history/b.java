@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 class b implements a.InterfaceC0052a<com.baidu.tieba.myCollection.baseHistory.b> {
-    final /* synthetic */ PbHistoryActivity ccp;
+    final /* synthetic */ PbHistoryActivity ccQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(PbHistoryActivity pbHistoryActivity) {
-        this.ccp = pbHistoryActivity;
+        this.ccQ = pbHistoryActivity;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a
@@ -21,16 +21,16 @@ class b implements a.InterfaceC0052a<com.baidu.tieba.myCollection.baseHistory.b>
         if (readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
             return;
         }
-        this.ccp.aX(readCacheRespMsg.getData());
+        this.ccQ.bb(readCacheRespMsg.getData());
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a
     public void a(WriteCacheRespMsg<List<com.baidu.tieba.myCollection.baseHistory.b>> writeCacheRespMsg, WriteCacheMessage<com.baidu.tieba.myCollection.baseHistory.b> writeCacheMessage) {
         if (writeCacheRespMsg != null && writeCacheRespMsg.isSuccess()) {
             if (!writeCacheMessage.isClear()) {
-                this.ccp.Kk();
+                this.ccQ.KA();
             } else {
-                this.ccp.aX(new ArrayList());
+                this.ccQ.bb(new ArrayList());
             }
         }
     }

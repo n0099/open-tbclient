@@ -16,9 +16,9 @@ import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
-    private RelativeLayout bUn;
-    private TextView bUo;
-    private TextView bUp;
+    private RelativeLayout bUO;
+    private TextView bUP;
+    private TextView bUQ;
     private Context mContext;
     private TbPageContext<?> mTbPageContext;
 
@@ -40,27 +40,27 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     private void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
         LayoutInflater.from(context).inflate(i.g.home_search_focusbar, this);
-        this.bUn = (RelativeLayout) findViewById(i.f.focusbar_container);
-        this.bUp = (TextView) findViewById(i.f.focusbar_hint);
-        com.baidu.tbadk.core.util.an.b(this.bUp, i.c.cp_cont_c, 1);
-        this.bUp.setVisibility(8);
-        this.bUo = (TextView) findViewById(i.f.focusbar_show);
-        com.baidu.tbadk.core.util.an.b(this.bUo, i.c.cp_link_tip_a, 1);
-        this.bUo.setVisibility(8);
+        this.bUO = (RelativeLayout) findViewById(i.f.focusbar_container);
+        this.bUQ = (TextView) findViewById(i.f.focusbar_hint);
+        com.baidu.tbadk.core.util.an.b(this.bUQ, i.c.cp_cont_c, 1);
+        this.bUQ.setVisibility(8);
+        this.bUP = (TextView) findViewById(i.f.focusbar_show);
+        com.baidu.tbadk.core.util.an.b(this.bUP, i.c.cp_link_tip_a, 1);
+        this.bUP.setVisibility(8);
     }
 
     public void b(List<String> list, TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
-        this.bUn.removeAllViews();
+        this.bUO.removeAllViews();
         if (list != null && list.size() > 0) {
-            this.bUp.setVisibility(0);
+            this.bUQ.setVisibility(0);
             for (int i = 0; i < list.size() && i <= 5; i++) {
                 U(list.get(i), i);
             }
         }
         if (list != null && list.size() >= 7) {
-            this.bUo.setVisibility(0);
-            this.bUo.setOnClickListener(new j(this, tbPageContext));
+            this.bUP.setVisibility(0);
+            this.bUP.setOnClickListener(new j(this, tbPageContext));
         }
     }
 
@@ -81,7 +81,7 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
         textView.setOnClickListener(this);
         com.baidu.tbadk.core.util.an.i((View) textView, i.e.home_like_item_bg);
         com.baidu.tbadk.core.util.an.b(textView, i.c.cp_cont_b, 1);
-        this.bUn.addView(textView);
+        this.bUO.addView(textView);
     }
 
     @Override // android.view.View.OnClickListener

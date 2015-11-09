@@ -21,24 +21,24 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d aoq = new d();
-    private static DownloadData aor = null;
-    private static List<DownloadData> aok = new LinkedList();
-    private a aos = null;
+    private static d aov = new d();
+    private static DownloadData aow = null;
+    private static List<DownloadData> aop = new LinkedList();
+    private a aox = null;
     private int max = 20;
-    private Handler aot = new e(this, Looper.getMainLooper());
+    private Handler aoy = new e(this, Looper.getMainLooper());
 
     private d() {
     }
 
-    public static d Ap() {
-        return aoq;
+    public static d Au() {
+        return aov;
     }
 
     public void a(DownloadData downloadData, int i) {
         int type = downloadData.getType();
         int i2 = 0;
-        for (DownloadData downloadData2 : aok) {
+        for (DownloadData downloadData2 : aop) {
             if (downloadData2.getType() == type) {
                 i2++;
             }
@@ -71,8 +71,8 @@ public class d {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < aok.size()) {
-                    DownloadData downloadData2 = aok.get(i2);
+                if (i2 < aop.size()) {
+                    DownloadData downloadData2 = aop.get(i2);
                     if (downloadData2 == null || !downloadData2.getUrl().equals(downloadData.getUrl()) || !downloadData2.getId().equals(downloadData.getId())) {
                         i = i2 + 1;
                     } else {
@@ -80,8 +80,8 @@ public class d {
                     }
                 } else {
                     downloadData.setStatus(5);
-                    aok.add(downloadData);
-                    Aq();
+                    aop.add(downloadData);
+                    Av();
                     return;
                 }
             }
@@ -89,23 +89,23 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Aq() {
-        if (aor == null && !aok.isEmpty()) {
-            aor = aok.get(0);
-            if (aor != null) {
-                this.aos = new a();
-                this.aos.execute(aor);
+    public void Av() {
+        if (aow == null && !aop.isEmpty()) {
+            aow = aop.get(0);
+            if (aow != null) {
+                this.aox = new a();
+                this.aox.execute(aow);
             }
         }
     }
 
     public void eJ(String str) {
-        if (aor != null && aor.getUrl().equals(str)) {
-            this.aos.cancel(true);
+        if (aow != null && aow.getUrl().equals(str)) {
+            this.aox.cancel(true);
             return;
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        Iterator<DownloadData> it = aok.iterator();
+        Iterator<DownloadData> it = aop.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -120,17 +120,17 @@ public class d {
             }
         }
         for (DownloadData downloadData : linkedList) {
-            aok.remove(downloadData);
+            aop.remove(downloadData);
         }
     }
 
     public void t(String str, int i) {
-        if (aor != null && aor.getId().equals(str) && aor.getType() == i) {
-            this.aos.cancel(true);
+        if (aow != null && aow.getId().equals(str) && aow.getType() == i) {
+            this.aox.cancel(true);
             return;
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        Iterator<DownloadData> it = aok.iterator();
+        Iterator<DownloadData> it = aop.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -146,16 +146,16 @@ public class d {
             }
         }
         for (DownloadData downloadData : linkedList) {
-            aok.remove(downloadData);
+            aop.remove(downloadData);
         }
     }
 
     public void dP(int i) {
-        if (aor != null && aor.getType() == i) {
-            this.aos.cancel(true);
+        if (aow != null && aow.getType() == i) {
+            this.aox.cancel(true);
         }
         LinkedList<DownloadData> linkedList = new LinkedList();
-        for (DownloadData downloadData : aok) {
+        for (DownloadData downloadData : aop) {
             if (downloadData.getType() == i) {
                 downloadData.setStatus(4);
                 downloadData.setStatusMsg(null);
@@ -166,18 +166,18 @@ public class d {
             }
         }
         for (DownloadData downloadData2 : linkedList) {
-            aok.remove(downloadData2);
+            aop.remove(downloadData2);
         }
     }
 
-    public List<DownloadData> me() {
-        return aok;
+    public List<DownloadData> mf() {
+        return aop;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
-        private w Ti = new w();
+        private w Tj = new w();
 
         a() {
         }
@@ -186,20 +186,20 @@ public class d {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            this.Ti.gJ();
-            d.aor.setStatus(4);
-            d.aor.setStatusMsg(null);
-            if (d.aor.getCallback() != null) {
-                d.aor.getCallback().b(d.aor);
+            this.Tj.gM();
+            d.aow.setStatus(4);
+            d.aow.setStatusMsg(null);
+            if (d.aow.getCallback() != null) {
+                d.aow.getCallback().b(d.aow);
             }
-            if (!d.aok.isEmpty()) {
-                d.aok.remove(0);
+            if (!d.aop.isEmpty()) {
+                d.aop.remove(0);
             }
-            d.aor = null;
-            d.this.Aq();
+            d.aow = null;
+            d.this.Av();
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [367=4, 369=4, 370=4, 371=4] */
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [368=4, 370=4, 371=4, 372=4] */
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         /* JADX WARN: Removed duplicated region for block: B:75:0x016d A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -221,8 +221,8 @@ public class d {
                     file.delete();
                 }
                 if (!file.exists()) {
-                    this.Ti.setUrl(downloadDataArr[0].getUrl());
-                    if (!Boolean.valueOf(this.Ti.a(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp", d.this.aot, TbConfig.NET_MSG_GETLENTH, 3, LocationClientOption.MIN_SCAN_SPAN_NETWORK)).booleanValue()) {
+                    this.Tj.setUrl(downloadDataArr[0].getUrl());
+                    if (!Boolean.valueOf(this.Tj.a(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp", d.this.aoy, TbConfig.NET_MSG_GETLENTH, 3, LocationClientOption.MIN_SCAN_SPAN_NETWORK)).booleanValue()) {
                         return 3;
                     }
                     File cJ = n.cJ(String.valueOf(downloadDataArr[0].getId()) + "_" + downloadDataArr[0].getName() + ".tmp");
@@ -322,12 +322,12 @@ public class d {
             String string;
             super.onPostExecute((a) num);
             if (num.intValue() == 0) {
-                d.aor.setStatus(0);
-                if (d.aor.getCallback() != null) {
-                    d.aor.getCallback().b(d.aor);
+                d.aow.setStatus(0);
+                if (d.aow.getCallback() != null) {
+                    d.aow.getCallback().b(d.aow);
                 }
-                if (d.aor.getCallback() != null) {
-                    d.aor.getCallback().d(d.aor);
+                if (d.aow.getCallback() != null) {
+                    d.aow.getCallback().d(d.aow);
                 }
             } else {
                 switch (num.intValue()) {
@@ -354,20 +354,20 @@ public class d {
                         string = TbadkCoreApplication.m411getInst().getApp().getString(i.h.download_fail);
                         break;
                 }
-                d.aor.setStatusMsg(string);
-                d.aor.setErrorCode(num.intValue());
-                d.aor.setStatus(2);
-                if (d.aor.getCallback() != null) {
-                    d.aor.getCallback().b(d.aor);
+                d.aow.setStatusMsg(string);
+                d.aow.setErrorCode(num.intValue());
+                d.aow.setStatus(2);
+                if (d.aow.getCallback() != null) {
+                    d.aow.getCallback().b(d.aow);
                 }
-                if (d.aor.getCallback() != null) {
-                    d.aor.getCallback().a(d.aor, num.intValue(), string);
+                if (d.aow.getCallback() != null) {
+                    d.aow.getCallback().a(d.aow, num.intValue(), string);
                 }
             }
-            d.aor = null;
-            if (!d.aok.isEmpty()) {
-                d.aok.remove(0);
-                d.this.Aq();
+            d.aow = null;
+            if (!d.aop.isEmpty()) {
+                d.aop.remove(0);
+                d.this.Av();
             }
         }
     }

@@ -1,28 +1,30 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.app.Activity;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aq implements View.OnClickListener {
-    final /* synthetic */ PbActivity ciK;
+public class aq implements a.b {
+    final /* synthetic */ PbActivity cjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(PbActivity pbActivity) {
-        this.ciK = pbActivity;
+        this.cjN = pbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bl blVar;
-        this.ciK.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonGroupActivityConfig(this.ciK.getPageContext().getPageActivity(), 23003)));
-        com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c10125");
-        blVar = this.ciK.cih;
-        TiebaStatic.log(aqVar.ae("tid", blVar.getThreadID()).r("obj_type", 2));
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        com.baidu.tbadk.core.dialog.a aVar2;
+        String str;
+        String str2;
+        aVar2 = this.cjN.ciZ;
+        aVar2.dismiss();
+        str = this.cjN.cja;
+        if (!TextUtils.isEmpty(str)) {
+            Activity pageActivity = this.cjN.getPageContext().getPageActivity();
+            str2 = this.cjN.cja;
+            com.baidu.tbadk.browser.g.b(pageActivity, false, str2);
+        }
     }
 }

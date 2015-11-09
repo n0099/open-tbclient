@@ -153,7 +153,7 @@ public class b {
 
     protected void a(String str, int i, String str2, Object... objArr) {
         try {
-            com.baidu.adp.lib.stats.a.hi().b(str, "", i, str2, objArr);
+            com.baidu.adp.lib.stats.a.hj().b(str, "", i, str2, objArr);
         } catch (Exception e) {
             BdLog.detailException(e);
         }

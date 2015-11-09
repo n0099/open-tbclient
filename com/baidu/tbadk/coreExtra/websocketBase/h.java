@@ -7,8 +7,8 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class h {
-    private boolean amS = false;
-    private int amT = 0;
+    private boolean amX = false;
+    private int amY = 0;
 
     public void eC(String str) {
         int lastIndexOf;
@@ -18,8 +18,8 @@ public class h {
         int i2;
         String str3 = null;
         int i3 = 0;
-        this.amS = false;
-        this.amT = 0;
+        this.amX = false;
+        this.amY = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -44,11 +44,11 @@ public class h {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.b.g(String.valueOf(str3), 8000)), zF());
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.b.g(String.valueOf(str3), 8000)), zK());
                             if (socket.isConnected()) {
                                 int i6 = i3 + 1;
                                 int currentTimeMillis2 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i5);
-                                this.amS = true;
+                                this.amX = true;
                                 i = i6;
                                 i2 = currentTimeMillis2;
                             } else {
@@ -82,23 +82,23 @@ public class h {
                         throw th;
                     }
                 }
-                if (this.amS && i3 > 0) {
-                    this.amT = i5 / i3;
+                if (this.amX && i3 > 0) {
+                    this.amY = i5 / i3;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.amS;
+        return this.amX;
     }
 
-    public int zE() {
-        return this.amT;
+    public int zJ() {
+        return this.amY;
     }
 
-    private int zF() {
-        switch (com.baidu.adp.lib.util.i.iS()) {
+    private int zK() {
+        switch (com.baidu.adp.lib.util.i.iT()) {
             case 1:
                 return LocationClientOption.MIN_SCAN_SPAN_NETWORK;
             case 2:

@@ -7,13 +7,13 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ a baL;
+    final /* synthetic */ a bbe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(a aVar, int i, int i2) {
         super(i, i2);
-        this.baL = aVar;
+        this.bbe = aVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -25,29 +25,29 @@ public class b extends com.baidu.adp.framework.listener.a {
         FrsActivity frsActivity5;
         FrsActivity frsActivity6;
         FrsActivity frsActivity7;
-        this.baL.avC = false;
+        this.bbe.auq = false;
         if (responsedMessage == null) {
-            frsActivity6 = this.baL.aVf;
-            frsActivity7 = this.baL.aVf;
-            frsActivity6.gO(frsActivity7.getPageContext().getString(i.h.neterror));
+            frsActivity6 = this.bbe.aVn;
+            frsActivity7 = this.bbe.aVn;
+            frsActivity6.gQ(frsActivity7.getPageContext().getString(i.h.neterror));
         } else if (responsedMessage.getError() != 0) {
             if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                frsActivity5 = this.baL.aVf;
-                frsActivity5.gO(responsedMessage.getErrorString());
+                frsActivity5 = this.bbe.aVn;
+                frsActivity5.gQ(responsedMessage.getErrorString());
                 return;
             }
-            frsActivity3 = this.baL.aVf;
-            frsActivity4 = this.baL.aVf;
-            frsActivity3.gO(frsActivity4.getPageContext().getString(i.h.neterror));
+            frsActivity3 = this.bbe.aVn;
+            frsActivity4 = this.bbe.aVn;
+            frsActivity3.gQ(frsActivity4.getPageContext().getString(i.h.neterror));
         } else {
             if (responsedMessage instanceof LoadMoreHttpResponseMessage) {
-                frsActivity2 = this.baL.aVf;
+                frsActivity2 = this.bbe.aVn;
                 frsActivity2.B(((LoadMoreHttpResponseMessage) responsedMessage).getThreadList());
             } else if (responsedMessage instanceof LoadMoreResponseSocketMessage) {
-                frsActivity = this.baL.aVf;
+                frsActivity = this.bbe.aVn;
                 frsActivity.B(((LoadMoreResponseSocketMessage) responsedMessage).getThreadList());
             }
-            this.baL.aZQ++;
+            this.bbe.baj++;
         }
     }
 }

@@ -17,7 +17,7 @@ class l extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null) {
-            this.this$0.ln(1);
+            this.this$0.lC(1);
         }
     }
 }

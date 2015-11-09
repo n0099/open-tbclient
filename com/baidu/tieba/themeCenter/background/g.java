@@ -17,13 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private NoNetworkView aRa;
-    private BackgroundGroupActivity dfh;
-    private View dfn;
-    private MemberRecommendView dfo;
-    private TextView dfp;
-    private TextView dfq;
-    private b dfr;
+    private NoNetworkView aRi;
+    private BackgroundGroupActivity dgN;
+    private View dgT;
+    private MemberRecommendView dgU;
+    private TextView dgV;
+    private TextView dgW;
+    private b dgX;
     private BdListView mListView;
     private NavigationBar mNavigationBar;
     private View mRoot;
@@ -31,43 +31,43 @@ public class g {
 
     public g(BackgroundGroupActivity backgroundGroupActivity, i iVar) {
         this.topMargin = 0;
-        this.dfh = backgroundGroupActivity;
+        this.dgN = backgroundGroupActivity;
         this.topMargin = com.baidu.adp.lib.util.k.d(backgroundGroupActivity.getPageContext().getPageActivity(), i.d.ds120);
-        this.mRoot = LayoutInflater.from(this.dfh.getPageContext().getPageActivity()).inflate(i.g.background_group, (ViewGroup) null);
-        this.dfh.setContentView(this.mRoot);
-        this.dfn = this.mRoot.findViewById(i.f.body_view);
+        this.mRoot = LayoutInflater.from(this.dgN.getPageContext().getPageActivity()).inflate(i.g.background_group, (ViewGroup) null);
+        this.dgN.setContentView(this.mRoot);
+        this.dgT = this.mRoot.findViewById(i.f.body_view);
         this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(i.h.personal_background);
-        this.dfo = (MemberRecommendView) this.mRoot.findViewById(i.f.view_member_recommend);
-        this.dfo.setFromType(4);
+        this.dgU = (MemberRecommendView) this.mRoot.findViewById(i.f.view_member_recommend);
+        this.dgU.setFromType(4);
         this.mListView = (BdListView) this.mRoot.findViewById(i.f.listview_bg_group);
-        this.dfp = new TextView(this.dfh.getActivity());
-        this.dfp.setHeight(com.baidu.adp.lib.util.k.d(this.dfh.getActivity(), i.d.ds104));
-        this.dfq = (TextView) LayoutInflater.from(this.dfh.getPageContext().getPageActivity()).inflate(i.g.look_more_view, (ViewGroup) null);
-        this.dfq.setText(i.h.more_backgrounds);
-        this.dfq.setOnClickListener(new h(this));
-        this.dfr = new b(this.dfh.getPageContext(), iVar);
-        this.mListView.addFooterView(this.dfq);
-        this.mListView.setAdapter((ListAdapter) this.dfr);
+        this.dgV = new TextView(this.dgN.getActivity());
+        this.dgV.setHeight(com.baidu.adp.lib.util.k.d(this.dgN.getActivity(), i.d.ds104));
+        this.dgW = (TextView) LayoutInflater.from(this.dgN.getPageContext().getPageActivity()).inflate(i.g.look_more_view, (ViewGroup) null);
+        this.dgW.setText(i.h.more_backgrounds);
+        this.dgW.setOnClickListener(new h(this));
+        this.dgX = new b(this.dgN.getPageContext(), iVar);
+        this.mListView.addFooterView(this.dgW);
+        this.mListView.setAdapter((ListAdapter) this.dgX);
     }
 
     public void a(com.baidu.tieba.themeCenter.dressCenter.k kVar, List<c> list) {
         if (list == null || list.size() <= 0) {
-            Kn();
+            KD();
             return;
         }
-        Ko();
+        KE();
         if (b(kVar)) {
-            this.mListView.removeHeaderView(this.dfp);
-            this.mListView.addHeaderView(this.dfp);
+            this.mListView.removeHeaderView(this.dgV);
+            this.mListView.addHeaderView(this.dgV);
         } else {
-            this.mListView.removeHeaderView(this.dfp);
+            this.mListView.removeHeaderView(this.dgV);
         }
-        F(bA(list));
+        G(bE(list));
     }
 
-    private List<Object> bA(List<c> list) {
+    private List<Object> bE(List<c> list) {
         ArrayList arrayList = new ArrayList();
         for (c cVar : list) {
             arrayList.add(cVar.getGroupName());
@@ -87,53 +87,53 @@ public class g {
         return arrayList;
     }
 
-    private void F(List<Object> list) {
+    private void G(List<Object> list) {
         if (list == null || list.size() <= 0) {
             this.mListView.setVisibility(8);
             return;
         }
         this.mListView.setVisibility(0);
-        this.dfr.setData(list);
-        this.dfr.notifyDataSetChanged();
+        this.dgX.setData(list);
+        this.dgX.notifyDataSetChanged();
     }
 
     private boolean b(com.baidu.tieba.themeCenter.dressCenter.k kVar) {
-        if (kVar == null || StringUtils.isNull(kVar.azw())) {
-            this.dfo.setVisibility(8);
+        if (kVar == null || StringUtils.isNull(kVar.aAm())) {
+            this.dgU.setVisibility(8);
             return false;
         }
-        this.dfo.setVisibility(0);
-        this.dfo.a(kVar);
+        this.dgU.setVisibility(0);
+        this.dgU.a(kVar);
         return true;
     }
 
-    public void Kn() {
-        this.dfn.setVisibility(8);
+    public void KD() {
+        this.dgT.setVisibility(8);
         an.j(this.mRoot, i.c.cp_bg_line_d);
-        String string = this.dfh.getPageContext().getResources().getString(i.h.no_data_text);
-        this.dfh.setNetRefreshViewTopMargin(this.topMargin);
-        this.dfh.showNetRefreshView(this.mRoot, string, false);
+        String string = this.dgN.getPageContext().getResources().getString(i.h.no_data_text);
+        this.dgN.setNetRefreshViewTopMargin(this.topMargin);
+        this.dgN.showNetRefreshView(this.mRoot, string, false);
     }
 
-    public void Ko() {
+    public void KE() {
         an.j(this.mRoot, i.c.cp_bg_line_c);
-        this.dfh.hideNetRefreshView(this.mRoot);
-        this.dfn.setVisibility(0);
+        this.dgN.hideNetRefreshView(this.mRoot);
+        this.dgT.setVisibility(0);
     }
 
-    public void oO() {
-        com.baidu.tbadk.h.a.a(this.dfh.getPageContext(), this.mRoot);
-        this.dfh.getLayoutMode().k(this.dfq);
+    public void oP() {
+        com.baidu.tbadk.h.a.a(this.dgN.getPageContext(), this.mRoot);
+        this.dgN.getLayoutMode().k(this.dgW);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.dfh.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNavigationBar.onChangeSkinType(this.dgN.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.aRa != null && this.aRa.getVisibility() == 0) {
-            this.aRa.onChangeSkinType(this.dfh.getPageContext(), TbadkApplication.getInst().getSkinType());
+        if (this.aRi != null && this.aRi.getVisibility() == 0) {
+            this.aRi.onChangeSkinType(this.dgN.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.mListView != null && this.mListView.getVisibility() == 0 && this.dfr != null) {
-            this.dfr.notifyDataSetChanged();
+        if (this.mListView != null && this.mListView.getVisibility() == 0 && this.dgX != null) {
+            this.dgX.notifyDataSetChanged();
         }
-        an.j((View) this.dfp, i.c.cp_bg_line_c);
+        an.j((View) this.dgV, i.c.cp_bg_line_c);
     }
 
     public View getRootView() {

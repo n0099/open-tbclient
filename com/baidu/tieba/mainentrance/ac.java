@@ -16,11 +16,11 @@ import com.baidu.tieba.postsearch.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ac implements AdapterView.OnItemClickListener {
-    final /* synthetic */ SquareSearchActivity bVC;
+    final /* synthetic */ SquareSearchActivity bWd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ac(SquareSearchActivity squareSearchActivity) {
-        this.bVC = squareSearchActivity;
+        this.bWd = squareSearchActivity;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x009b: IGET  (r4v12 long A[REMOVE]) = (r0v5 com.baidu.tieba.postsearch.j$a) com.baidu.tieba.postsearch.j.a.tid long)] */
@@ -33,22 +33,22 @@ public class ac implements AdapterView.OnItemClickListener {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         j.a aVar;
         ListAdapter adapter;
-        if (this.bVC.mMode != 0) {
-            Object item = this.bVC.bUP.getItem(i);
+        if (this.bWd.mMode != 0) {
+            Object item = this.bWd.bVq.getItem(i);
             if ((item instanceof j.a) && (aVar = (j.a) item) != null) {
                 if (aVar.is_floor != 1) {
                     if (aVar.thread_type == 33) {
                         TiebaStatic.log("c10257");
-                        this.bVC.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.bVC.getPageContext().getPageActivity(), new StringBuilder().append(aVar.tid).toString()).rh()));
+                        this.bWd.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(this.bWd.getPageContext().getPageActivity(), new StringBuilder().append(aVar.tid).toString()).ri()));
                         return;
                     }
-                    this.bVC.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.bVC.getPageContext().getPageActivity()).createNormalCfg(new StringBuilder().append(aVar.tid).toString(), null, "search_post")));
+                    this.bWd.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.bWd.getPageContext().getPageActivity()).createNormalCfg(new StringBuilder().append(aVar.tid).toString(), null, "search_post")));
                     return;
                 } else if (aVar.thread_type == 33) {
-                    this.bVC.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(this.bVC.getPageContext().getPageActivity()).createPhotoLiveCommentActivityConfig(new StringBuilder().append(aVar.tid).toString(), new StringBuilder().append(aVar.pid).toString(), false)));
+                    this.bWd.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PhotoLiveCommentActivityConfig(this.bWd.getPageContext().getPageActivity()).createPhotoLiveCommentActivityConfig(new StringBuilder().append(aVar.tid).toString(), new StringBuilder().append(aVar.pid).toString(), false)));
                     return;
                 } else {
-                    this.bVC.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.bVC.getPageContext().getPageActivity()).createNormalCfg(new StringBuilder().append(aVar.tid).toString(), new StringBuilder().append(aVar.pid).toString(), "search_post")));
+                    this.bWd.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.bWd.getPageContext().getPageActivity()).createNormalCfg(new StringBuilder().append(aVar.tid).toString(), new StringBuilder().append(aVar.pid).toString(), "search_post")));
                     return;
                 }
             }
@@ -59,8 +59,8 @@ public class ac implements AdapterView.OnItemClickListener {
             Object item2 = adapter.getItem(i);
             if (item2 instanceof ForumSuggestModel.Forum) {
                 String str = ((ForumSuggestModel.Forum) item2).forum_name;
-                TiebaStatic.eventStat(this.bVC.getPageContext().getPageActivity(), "search_bar_result_click", "click", 1, new Object[0]);
-                this.bVC.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bVC.getPageContext().getPageActivity()).createFlagCfg(str, FrsActivityConfig.FRS_FROM_SEARCH, 1)));
+                TiebaStatic.eventStat(this.bWd.getPageContext().getPageActivity(), "search_bar_result_click", "click", 1, new Object[0]);
+                this.bWd.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bWd.getPageContext().getPageActivity()).createFlagCfg(str, FrsActivityConfig.FRS_FROM_SEARCH, 1)));
             }
         }
     }

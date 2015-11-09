@@ -23,7 +23,7 @@ public final class Util {
         LESS,
         GREATER;
 
-        /* JADX DEBUG: Replace access to removed values field (EO) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (EP) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static VersionCompare[] valuesCustom() {
             VersionCompare[] valuesCustom = values();
@@ -57,16 +57,16 @@ public final class Util {
     }
 
     public static final boolean j(long j) {
-        long mx = mx();
+        long my = my();
         if (j <= 0) {
-            return mx <= 0 || mx >= 31457280;
+            return my <= 0 || my >= 31457280;
         }
         int i = 10;
         if (Build.VERSION.SDK_INT < 19) {
             i = 6;
         }
         long j2 = i * j;
-        return (j2 <= 31457280 ? j2 : 31457280L) < mx;
+        return (j2 <= 31457280 ? j2 : 31457280L) < my;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, CONST_STR, RETURN] complete} */
@@ -182,15 +182,15 @@ public final class Util {
         }
     }
 
-    public static File bK(String str) {
-        PluginSetting bn = PluginPackageManager.lR().bn(str);
-        if (bn == null || bn.apkPath == null || bn.apkPath.length() <= ".apk".length()) {
+    public static File bI(String str) {
+        PluginSetting bl = PluginPackageManager.lS().bl(str);
+        if (bl == null || bl.apkPath == null || bl.apkPath.length() <= ".apk".length()) {
             return null;
         }
-        return new File(bn.apkPath.substring(0, bn.apkPath.length() - ".apk".length()));
+        return new File(bl.apkPath.substring(0, bl.apkPath.length() - ".apk".length()));
     }
 
-    public static File mw() {
+    public static File mx() {
         try {
             File dir = BdBaseApplication.getInst().getDir("plugins", 0);
             if (!dir.exists()) {
@@ -251,6 +251,13 @@ public final class Util {
         return applicationInfo.metaData.getBoolean("has_res", false);
     }
 
+    public static boolean e(ApplicationInfo applicationInfo) {
+        if (applicationInfo == null || applicationInfo.metaData == null) {
+            return false;
+        }
+        return applicationInfo.metaData.getBoolean("is_third", false);
+    }
+
     public static VersionCompare P(String str, String str2) {
         if (TextUtils.isEmpty(str)) {
             return VersionCompare.LESS;
@@ -292,7 +299,7 @@ public final class Util {
         return String.valueOf(pluginSetting.packageName) + ".apk_" + pluginSetting.tempVersionCode;
     }
 
-    public static String bL(String str) {
+    public static String bJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -303,10 +310,10 @@ public final class Util {
         if (pluginSetting == null) {
             return null;
         }
-        return mw() + File.separator + e(pluginSetting);
+        return mx() + File.separator + e(pluginSetting);
     }
 
-    public static long mx() {
+    public static long my() {
         try {
             StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
             return statFs.getAvailableBlocks() * statFs.getBlockSize();

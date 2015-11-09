@@ -4,32 +4,32 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import tbclient.GetAddressList.friendList;
 /* loaded from: classes.dex */
 public class a implements TbCheckBox.b {
-    private b Vj;
-    private String air;
-    private String ais;
-    private String ait;
-    private String aiu;
+    private b Vl;
+    private String aix;
+    private String aiy;
+    private String aiz;
     private boolean mIsChecked = false;
     private long mUserId;
+    private String mUserName;
     private int mUserType;
 
-    public String yt() {
+    public String yy() {
         StringBuilder sb = new StringBuilder(64);
-        if (this.air != null) {
-            sb.append(this.air);
+        if (this.mUserName != null) {
+            sb.append(this.mUserName);
         }
-        if (this.ait != null) {
-            sb.append(this.ait);
+        if (this.aiy != null) {
+            sb.append(this.aiy);
         }
         return sb.toString();
     }
 
     public void setUserName(String str) {
-        this.air = str;
+        this.mUserName = str;
     }
 
     public String getUserName() {
-        return this.air;
+        return this.mUserName;
     }
 
     public void setUserId(long j) {
@@ -41,39 +41,39 @@ public class a implements TbCheckBox.b {
     }
 
     public void em(String str) {
-        this.ais = str;
+        this.aix = str;
     }
 
     public String getUserPortrait() {
-        return this.ais;
+        return this.aix;
     }
 
     public void setQuanpin(String str) {
-        this.ait = str;
+        this.aiy = str;
     }
 
     public String getQuanpin() {
-        return this.ait;
+        return this.aiy;
     }
 
     public void en(String str) {
-        this.aiu = str;
+        this.aiz = str;
     }
 
-    public String yu() {
-        return this.aiu;
+    public String yz() {
+        return this.aiz;
     }
 
     public void a(friendList friendlist) {
         int i = -1;
         long j = 0;
         if (friendlist != null) {
-            this.air = friendlist.user_name;
+            this.mUserName = friendlist.user_name;
             this.mUserId = friendlist.user_id.longValue();
-            this.ais = friendlist.portrait;
-            this.ait = friendlist.quanpin;
+            this.aix = friendlist.portrait;
+            this.aiy = friendlist.quanpin;
             if (friendlist.location == null) {
-                this.Vj = new b("", 0L, -1);
+                this.Vl = new b("", 0L, -1);
                 return;
             }
             if (friendlist.location.time != null && friendlist.location.time.longValue() > 0) {
@@ -82,7 +82,7 @@ public class a implements TbCheckBox.b {
             if (friendlist.location.is_hide != null && friendlist.location.is_hide.intValue() >= 0) {
                 i = friendlist.location.is_hide.intValue();
             }
-            this.Vj = new b(friendlist.location.distance, j, i);
+            this.Vl = new b(friendlist.location.distance, j, i);
         }
     }
 
@@ -97,11 +97,11 @@ public class a implements TbCheckBox.b {
     }
 
     public b getLbsInfo() {
-        return this.Vj;
+        return this.Vl;
     }
 
     public void setLbsInfo(b bVar) {
-        this.Vj = bVar;
+        this.Vl = bVar;
     }
 
     public int getUserType() {

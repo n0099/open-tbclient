@@ -51,15 +51,15 @@ public class p {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SQUARE_DAILY_CLASSICLA, new DailyClassicalActivityConfig(tbPageContext.getPageActivity())));
                     return true;
                 } else if (lowerCase.contains("jump_personalCenter=1") && lowerCase.contains("userid=") && lowerCase.contains("un=")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), ap(lowerCase, "userid="), ap(lowerCase, "un="))));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), am(lowerCase, "userid="), am(lowerCase, "un="))));
                     return true;
                 } else if (lowerCase.contains("jump_chat=1")) {
-                    String ap = ap(lowerCase, "userid=");
-                    String ap2 = ap(lowerCase, "username=");
-                    String ap3 = ap(lowerCase, "portrait=");
-                    if (ap != null && ap.length() > 0) {
+                    String am = am(lowerCase, "userid=");
+                    String am2 = am(lowerCase, "username=");
+                    String am3 = am(lowerCase, "portrait=");
+                    if (am != null && am.length() > 0) {
                         try {
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(ap), ap2, ap3, 0)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(tbPageContext.getPageActivity(), Long.parseLong(am), am2, am3, 0)));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
@@ -68,23 +68,23 @@ public class p {
                     }
                     return true;
                 } else if (lowerCase.contains("jump_official_chat=1")) {
-                    String ap4 = ap(lowerCase, "barid=");
-                    String ap5 = ap(lowerCase, "barname=");
-                    String ap6 = ap(lowerCase, "portrait=");
-                    if (ap4 != null && ap4.length() > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.c(ap4, 0L), ap5, ap6, 0)));
+                    String am4 = am(lowerCase, "barid=");
+                    String am5 = am(lowerCase, "barname=");
+                    String am6 = am(lowerCase, "portrait=");
+                    if (am4 != null && am4.length() > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_OFFICIAL_BAR_CHAT, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.c(am4, 0L), am5, am6, 0)));
                     }
                     return true;
                 } else if (lowerCase.contains("kz=")) {
-                    String ap7 = ap(lowerCase, "kz=");
-                    if (ap7 != null && ap7.length() >= 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(ap7, null, "allthread")));
+                    String am7 = am(lowerCase, "kz=");
+                    if (am7 != null && am7.length() >= 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(am7, null, "allthread")));
                     }
                     return true;
                 } else if (lowerCase.contains("kw=")) {
-                    String ap8 = ap(lowerCase, "kw=");
-                    if (ap8 != null && ap8.length() >= 0 && tbPageContext != null) {
-                        tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(ap8, "allthread")));
+                    String am8 = am(lowerCase, "kw=");
+                    if (am8 != null && am8.length() >= 0 && tbPageContext != null) {
+                        tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(am8, "allthread")));
                     }
                     return true;
                 } else if (lowerCase.contains("jumptologin=1") && (tbPageContext instanceof Activity)) {
@@ -102,15 +102,15 @@ public class p {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TailManagementActivityConfig(tbPageContext.getPageActivity())));
                         return true;
                     } else if (lowerCase.contains("jumpstartgame=1")) {
-                        String ap9 = ap(lowerCase, "gameId=");
-                        String ap10 = ap(lowerCase, "packageName=");
-                        String ap11 = ap(lowerCase, "launcherActivity=");
-                        if (!TextUtils.isEmpty(ap9) && !TextUtils.isEmpty(ap10) && !TextUtils.isEmpty(ap11)) {
-                            if (UtilHelper.isInstallApk(tbPageContext.getPageActivity(), ap10) && UtilHelper.startApk(tbPageContext.getPageActivity(), ap10, ap11)) {
+                        String am9 = am(lowerCase, "gameId=");
+                        String am10 = am(lowerCase, "packageName=");
+                        String am11 = am(lowerCase, "launcherActivity=");
+                        if (!TextUtils.isEmpty(am9) && !TextUtils.isEmpty(am10) && !TextUtils.isEmpty(am11)) {
+                            if (UtilHelper.isInstallApk(tbPageContext.getPageActivity(), am10) && UtilHelper.startApk(tbPageContext.getPageActivity(), am10, am11)) {
                                 ((Activity) tbPageContext).finish();
                                 return true;
                             }
-                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(tbPageContext.getPageActivity(), ap9)));
+                            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new GameDetailActivityConfig(tbPageContext.getPageActivity(), am9)));
                         }
                         ((Activity) tbPageContext).finish();
                         return true;
@@ -121,7 +121,7 @@ public class p {
                         com.baidu.tbadk.core.c.b.a(tbPageContext.getPageActivity(), 2, true);
                         return true;
                     } else if (lowerCase.contains("bunding_phone=1")) {
-                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, ap(lowerCase, "bindid=")));
+                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_TDOU_PAY_BUNDING_PHONE, am(lowerCase, "bindid=")));
                         tbPageContext.getPageActivity().finish();
                         return true;
                     }
@@ -143,7 +143,7 @@ public class p {
         return c(tbPageContextSupport == null ? null : tbPageContextSupport.getPageContext(), str);
     }
 
-    public static String ap(String str, String str2) {
+    public static String am(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -159,17 +159,17 @@ public class p {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String azS;
+        public String ayG;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.azS = "";
+            this.ayG = "";
             this.BDUSS = str;
-            this.azS = str2;
+            this.ayG = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.azS != null ? this.azS.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.ayG != null ? this.ayG.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -185,7 +185,7 @@ public class p {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.azS == null ? aVar.azS == null : this.azS.equals(aVar.azS);
+                return this.ayG == null ? aVar.ayG == null : this.ayG.equals(aVar.ayG);
             }
             return false;
         }

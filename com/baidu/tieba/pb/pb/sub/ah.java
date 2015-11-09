@@ -1,30 +1,44 @@
 package com.baidu.tieba.pb.pb.sub;
 
+import android.app.Dialog;
 import android.util.SparseArray;
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
 import com.baidu.tieba.i;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ah implements a.b {
-    final /* synthetic */ t cmX;
-    private final /* synthetic */ SparseArray cna;
+public class ah implements View.OnClickListener {
+    final /* synthetic */ v coo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(t tVar, SparseArray sparseArray) {
-        this.cmX = tVar;
-        this.cna = sparseArray;
+    public ah(v vVar) {
+        this.coo = vVar;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        NewSubPbActivity.a aVar;
         NewSubPbActivity.a aVar2;
-        NewSubPbActivity.a aVar3;
-        aVar2 = this.cmX.cmQ;
-        if (aVar2 != null) {
-            aVar3 = this.cmX.cmQ;
-            aVar3.d(new Object[]{this.cna.get(i.f.tag_del_post_id), this.cna.get(i.f.tag_manage_user_identity), this.cna.get(i.f.tag_del_post_is_self), this.cna.get(i.f.tag_del_post_type)});
+        Dialog dialog2;
+        Dialog dialog3;
+        NewSubPbActivity newSubPbActivity;
+        dialog = this.coo.cme;
+        if (dialog != null) {
+            dialog2 = this.coo.cme;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.coo.cme;
+                newSubPbActivity = this.coo.cnX;
+                com.baidu.adp.lib.g.j.b(dialog3, newSubPbActivity.getPageContext());
+            }
         }
-        aVar.dismiss();
+        SparseArray sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            aVar = this.coo.cog;
+            if (aVar != null) {
+                aVar2 = this.coo.cog;
+                aVar2.d(new Object[]{sparseArray.get(i.f.tag_manage_user_identity), sparseArray.get(i.f.tag_forbid_user_name), sparseArray.get(i.f.tag_forbid_user_post_id)});
+            }
+        }
     }
 }

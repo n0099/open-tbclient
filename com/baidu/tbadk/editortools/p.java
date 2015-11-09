@@ -7,5 +7,5 @@ public interface p extends b {
 
     void onChangeSkinType(int i);
 
-    void ow();
+    void ox();
 }

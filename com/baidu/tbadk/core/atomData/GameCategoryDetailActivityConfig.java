@@ -9,7 +9,7 @@ public class GameCategoryDetailActivityConfig extends IntentConfig {
 
     public GameCategoryDetailActivityConfig(Context context, int i, String str) {
         super(context);
-        getIntent().putExtra(CATEGORY_ID, i);
+        getIntent().putExtra("category_id", i);
         getIntent().putExtra(CATEGORY_TITLE, str);
     }
 }

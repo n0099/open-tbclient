@@ -12,7 +12,7 @@ class al extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        SettingStatic.cOH = true;
-        SettingStatic.asW();
+        SettingStatic.cQd = true;
+        SettingStatic.atC();
     }
 }

@@ -8,11 +8,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<UserData> crd = new ArrayList<>();
-    private ArrayList<UserData> cre = new ArrayList<>();
+    private ArrayList<UserData> csz = new ArrayList<>();
+    private ArrayList<UserData> csA = new ArrayList<>();
     private o mPage = new o();
     private int friendNum = 0;
-    private int crf = 0;
+    private int csB = 0;
 
     public void b(o oVar) {
         this.mPage = oVar;
@@ -22,20 +22,20 @@ public class a {
         return this.mPage;
     }
 
-    public ArrayList<UserData> aiO() {
-        return this.crd;
+    public ArrayList<UserData> aju() {
+        return this.csz;
     }
 
-    public ArrayList<UserData> aiP() {
-        return this.cre;
+    public ArrayList<UserData> ajv() {
+        return this.csA;
     }
 
     public int getFriendNum() {
         return this.friendNum;
     }
 
-    public int aiQ() {
-        return this.crf;
+    public int ajw() {
+        return this.csB;
     }
 
     public void parserJson(String str) {
@@ -55,19 +55,19 @@ public class a {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.crd.add(userData);
+                        this.csz.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.cre.add(userData2);
+                        this.csA.add(userData2);
                     }
                 }
                 this.mPage.parserJson(jSONObject.optJSONObject("page"));
                 this.friendNum = jSONObject.optInt("tafriendnum", 0);
-                this.crf = jSONObject.optInt("commonfriendnum", 0);
+                this.csB = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

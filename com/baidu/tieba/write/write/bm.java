@@ -1,36 +1,29 @@
 package com.baidu.tieba.write.write;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.dialog.a;
+import com.baidu.tieba.tbadkCore.location.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bm implements View.OnClickListener {
-    final /* synthetic */ WriteImageActivity this$0;
+public class bm implements a.b {
+    final /* synthetic */ WriteActivity dsa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bm(WriteImageActivity writeImageActivity) {
-        this.this$0 = writeImageActivity;
+    public bm(WriteActivity writeActivity) {
+        this.dsa = writeActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        NavigationBar navigationBar;
-        NavigationBar navigationBar2;
-        LinearLayout linearLayout;
-        NavigationBar navigationBar3;
-        LinearLayout linearLayout2;
-        navigationBar = this.this$0.mNavigationBar;
-        if (navigationBar.getVisibility() == 0) {
-            navigationBar3 = this.this$0.mNavigationBar;
-            navigationBar3.setVisibility(8);
-            linearLayout2 = this.this$0.coo;
-            linearLayout2.setVisibility(8);
-            return;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        d.a aVar2;
+        com.baidu.tieba.tbadkCore.location.d dVar;
+        if (!com.baidu.adp.lib.util.i.iN()) {
+            aVar2 = this.dsa.aqK;
+            aVar2.Bv();
+        } else {
+            this.dsa.a(1, true, (String) null);
+            dVar = this.dsa.aqu;
+            dVar.ayz();
         }
-        navigationBar2 = this.this$0.mNavigationBar;
-        navigationBar2.setVisibility(0);
-        linearLayout = this.this$0.coo;
-        linearLayout.setVisibility(0);
+        aVar.dismiss();
     }
 }

@@ -6,11 +6,11 @@ import com.baidu.tieba.write.shareSDK.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a.InterfaceC0080a {
-    final /* synthetic */ WriteShareActivity dmy;
+    final /* synthetic */ WriteShareActivity dog;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(WriteShareActivity writeShareActivity) {
-        this.dmy = writeShareActivity;
+        this.dog = writeShareActivity;
     }
 
     @Override // com.baidu.tieba.write.shareSDK.a.InterfaceC0080a
@@ -23,17 +23,17 @@ public class e implements a.InterfaceC0080a {
         o oVar3;
         PostPrefixData postPrefixData5;
         if (z) {
-            this.dmy.mPrefixData = postPrefixData;
-            postPrefixData2 = this.dmy.mPrefixData;
+            this.dog.mPrefixData = postPrefixData;
+            postPrefixData2 = this.dog.mPrefixData;
             if (postPrefixData2 != null) {
-                postPrefixData3 = this.dmy.mPrefixData;
+                postPrefixData3 = this.dog.mPrefixData;
                 if (postPrefixData3.getPrefixs().size() > 0) {
-                    postPrefixData4 = this.dmy.mPrefixData;
-                    postPrefixData4.getPrefixs().add(this.dmy.getPageContext().getString(i.h.write_no_prefix));
-                    oVar2 = this.dmy.dmi;
+                    postPrefixData4 = this.dog.mPrefixData;
+                    postPrefixData4.getPrefixs().add(this.dog.getPageContext().getString(i.h.write_no_prefix));
+                    oVar2 = this.dog.dnQ;
                     if (oVar2 != null) {
-                        oVar3 = this.dmy.dmi;
-                        postPrefixData5 = this.dmy.mPrefixData;
+                        oVar3 = this.dog.dnQ;
+                        postPrefixData5 = this.dog.mPrefixData;
                         oVar3.a(postPrefixData5);
                         return;
                     }
@@ -43,16 +43,16 @@ public class e implements a.InterfaceC0080a {
             }
             return;
         }
-        this.dmy.mPrefixData = null;
-        oVar = this.dmy.dmi;
+        this.dog.mPrefixData = null;
+        oVar = this.dog.dnQ;
         oVar.a((PostPrefixData) null);
     }
 
     @Override // com.baidu.tieba.write.shareSDK.a.InterfaceC0080a
-    public void aBP() {
+    public void aCF() {
         o oVar;
-        this.dmy.mPrefixData = null;
-        oVar = this.dmy.dmi;
+        this.dog.mPrefixData = null;
+        oVar = this.dog.dnQ;
         oVar.a((PostPrefixData) null);
     }
 }

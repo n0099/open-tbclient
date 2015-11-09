@@ -27,7 +27,7 @@ public class h extends j {
         if (this.AW != null) {
             canvas.concat(this.AW);
         }
-        if (dVar.kh()) {
+        if (dVar.ki()) {
             Bitmap bitmap = dVar.Bv.getBitmap();
             if (this.BR) {
                 a(canvas, bitmap);
@@ -35,9 +35,9 @@ public class h extends j {
             }
             this.BN.set(0, 0, dVar.getWidth(), dVar.getHeight());
             dVar.Bw.a(canvas, this.BN, this.AX, this.mPaint);
-        } else if (dVar.ki()) {
+        } else if (dVar.kj()) {
             if (this.BR) {
-                a(canvas, dVar.Bw.na());
+                a(canvas, dVar.Bw.nb());
                 return;
             }
             this.BN.set(0, 0, dVar.getWidth(), dVar.getHeight());

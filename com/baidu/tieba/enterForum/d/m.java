@@ -9,20 +9,20 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class m extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.tbadkCore.v, com.baidu.tbadk.mvc.d.b> {
-    private ViewEventCenter aLM;
-    private View aNa;
-    private TextView aNb;
-    private TextView aNc;
-    private ImageView aNd;
+    private ViewEventCenter aLU;
+    private View aNi;
+    private TextView aNj;
+    private TextView aNk;
+    private ImageView aNl;
 
     public m(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aNa = view.findViewById(i.f.container);
-        this.aLM = viewEventCenter;
-        this.aNb = (TextView) view.findViewById(i.f.home_lv_like_forum);
-        this.aNc = (TextView) view.findViewById(i.f.forum_lv_like_grade);
-        this.aNd = (ImageView) view.findViewById(i.f.home_lv_like_forum_delete);
-        this.aNd.setOnClickListener(new n(this));
+        this.aNi = view.findViewById(i.f.container);
+        this.aLU = viewEventCenter;
+        this.aNj = (TextView) view.findViewById(i.f.home_lv_like_forum);
+        this.aNk = (TextView) view.findViewById(i.f.forum_lv_like_grade);
+        this.aNl = (ImageView) view.findViewById(i.f.home_lv_like_forum_delete);
+        this.aNl.setOnClickListener(new n(this));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,22 +32,22 @@ public class m extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.tbadkCore.v, com.
         super.B(vVar);
         if (vVar != null) {
             int level = vVar.getLevel();
-            this.aNb.setText(vVar.getName());
+            this.aNj.setText(vVar.getName());
             if (level == 0) {
-                this.aNc.setVisibility(4);
+                this.aNk.setVisibility(4);
                 return;
             }
-            this.aNc.setVisibility(0);
-            an.i((View) this.aNc, com.baidu.tbadk.core.util.c.ch(level));
+            this.aNk.setVisibility(0);
+            an.i((View) this.aNk, com.baidu.tbadk.core.util.c.ch(level));
         }
     }
 
     @Override // com.baidu.tieba.tbadkCore.s
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.h.a.a(tbPageContext, getRootView());
-        an.i(this.aNa, i.e.home_like_bg_with_margin);
-        if (this.aNc.getVisibility() == 0 && getData() != null) {
-            an.i((View) this.aNc, com.baidu.tbadk.core.util.c.ch(getData().getLevel()));
+        an.i(this.aNi, i.e.home_like_bg_with_margin);
+        if (this.aNk.getVisibility() == 0 && getData() != null) {
+            an.i((View) this.aNk, com.baidu.tbadk.core.util.c.ch(getData().getLevel()));
             return true;
         }
         return true;

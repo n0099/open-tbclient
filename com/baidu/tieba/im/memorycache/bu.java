@@ -29,10 +29,10 @@ public class bu extends CustomMessageListener {
         if (customResponsedMessage != null && (customResponsedMessage instanceof MemoryClearStrangerItemsMessage) && (data = (memoryClearStrangerItemsMessage = (MemoryClearStrangerItemsMessage) customResponsedMessage).getData()) != null && data.datas != null) {
             ArrayList arrayList = new ArrayList();
             for (MemoryModifyVisibilityMessage.a aVar : data.datas) {
-                b.VS().e(aVar.id, aVar.customGroupType, aVar.visible);
+                b.Wn().e(aVar.id, aVar.customGroupType, aVar.visible);
             }
             if (memoryClearStrangerItemsMessage.isAllClear()) {
-                b.VS().f("-1001", -7, false);
+                b.Wn().f("-1001", -7, false);
             }
             CustomMessageTask customMessageTask = new CustomMessageTask(2001000, new bv(this, arrayList, data, memoryClearStrangerItemsMessage));
             customMessageTask.setParallel(TiebaIMConfig.getParallel());

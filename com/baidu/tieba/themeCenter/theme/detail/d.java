@@ -5,8 +5,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<d> {
-    private com.baidu.adp.framework.listener.a aQV = new e(this, CmdConfigHttp.CMD_SKIN_DETAIL, 309012);
-    private a dgU;
+    private com.baidu.adp.framework.listener.a aRd = new e(this, CmdConfigHttp.CMD_SKIN_DETAIL, 309012);
+    private a diA;
     private com.baidu.tieba.themeCenter.b mSkinData;
 
     /* loaded from: classes.dex */
@@ -17,17 +17,17 @@ public class d extends com.baidu.adp.base.e<d> {
     public d() {
         com.baidu.tieba.tbadkCore.a.a.a(309012, SkinDetailSocketResponsedMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309012, CmdConfigHttp.CMD_SKIN_DETAIL, TbConfig.SKIN_DETAIL_PAGE, SkinDetailHttpResponsedMessage.class, false, false, false, false);
-        registerListener(this.aQV);
+        registerListener(this.aRd);
     }
 
-    public void lA(int i) {
+    public void lO(int i) {
         SkinDetailReauestMessage skinDetailReauestMessage = new SkinDetailReauestMessage();
         skinDetailReauestMessage.setThemeId(i);
         sendMessage(skinDetailReauestMessage);
     }
 
     public void a(a aVar) {
-        this.dgU = aVar;
+        this.diA = aVar;
     }
 
     @Override // com.baidu.adp.base.e
@@ -41,6 +41,6 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.aQV);
+        MessageManager.getInstance().unRegisterListener(this.aRd);
     }
 }

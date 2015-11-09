@@ -14,44 +14,44 @@ import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private boolean arH = false;
-    private Animation cJn;
-    private Animation cJo;
-    private ViewGroup cJr;
-    private a cJs;
-    private g cJt;
+    private boolean aqm = false;
+    private Animation cKJ;
+    private Animation cKK;
+    private ViewGroup cKN;
+    private a cKO;
+    private g cKP;
     private View rootView;
 
     /* loaded from: classes.dex */
     public interface a {
-        void aqw();
+        void arc();
     }
 
     public h(ViewGroup viewGroup) {
-        this.cJr = viewGroup;
+        this.cKN = viewGroup;
     }
 
     public void a(a aVar) {
-        this.cJs = aVar;
+        this.cKO = aVar;
     }
 
     public boolean isShowing() {
-        return this.arH;
+        return this.aqm;
     }
 
     public void a(Context context, List<String> list, int i) {
-        if (!this.arH) {
-            this.arH = true;
+        if (!this.aqm) {
+            this.aqm = true;
             this.rootView = b(context, list, i);
-            this.cJr.addView(this.rootView);
+            this.cKN.addView(this.rootView);
             an.j(this.rootView, i.c.recommend_frs_more_background);
-            this.rootView.startAnimation(aL(context));
+            this.rootView.startAnimation(aK(context));
         }
     }
 
-    public void aK(Context context) {
+    public void aJ(Context context) {
         if (this.rootView != null) {
-            this.rootView.startAnimation(aM(context));
+            this.rootView.startAnimation(aL(context));
         }
     }
 
@@ -59,32 +59,32 @@ public class h {
         View inflate = LayoutInflater.from(context).inflate(i.g.scroll_fragment_more, (ViewGroup) null);
         GridView gridView = (GridView) inflate.findViewById(i.f.scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(17170445));
-        this.cJt = new g(context, i);
-        this.cJt.bq(list);
-        gridView.setAdapter((ListAdapter) this.cJt);
+        this.cKP = new g(context, i);
+        this.cKP.bu(list);
+        gridView.setAdapter((ListAdapter) this.cKP);
         gridView.setOnItemClickListener(new i(this, context));
         return inflate;
     }
 
-    private Animation aL(Context context) {
-        if (this.cJn == null) {
-            this.cJn = AnimationUtils.loadAnimation(context, i.a.dialog_ani_t2b_enter);
+    private Animation aK(Context context) {
+        if (this.cKJ == null) {
+            this.cKJ = AnimationUtils.loadAnimation(context, i.a.dialog_ani_t2b_enter);
         }
-        return this.cJn;
+        return this.cKJ;
     }
 
-    private Animation aM(Context context) {
-        if (this.cJo == null) {
-            this.cJo = AnimationUtils.loadAnimation(context, i.a.dialog_ani_t2b_exit);
+    private Animation aL(Context context) {
+        if (this.cKK == null) {
+            this.cKK = AnimationUtils.loadAnimation(context, i.a.dialog_ani_t2b_exit);
         }
-        this.cJo.setAnimationListener(new j(this));
-        return this.cJo;
+        this.cKK.setAnimationListener(new j(this));
+        return this.cKK;
     }
 
     public void cP(int i) {
         an.j(this.rootView, i.c.recommend_frs_more_background);
-        if (this.cJt != null) {
-            this.cJt.notifyDataSetChanged();
+        if (this.cKP != null) {
+            this.cKP.notifyDataSetChanged();
         }
     }
 }

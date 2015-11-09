@@ -8,29 +8,31 @@ import android.text.style.ImageSpan;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class g extends ImageSpan {
-    private WeakReference<Drawable> Ff;
+    private WeakReference<Drawable> Fg;
+    private int azX;
     private int paddingLeft;
     private int paddingRight;
 
     public g(Drawable drawable) {
         super(drawable);
+        this.azX = 0;
     }
 
-    public void eH(int i) {
+    public void eF(int i) {
         this.paddingLeft = i;
     }
 
-    public void eI(int i) {
+    public void eG(int i) {
         this.paddingRight = i;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        Drawable mE = mE();
-        if (mE == null) {
+        Drawable mF = mF();
+        if (mF == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
-        Rect bounds = mE.getBounds();
+        Rect bounds = mF.getBounds();
         if (fontMetricsInt != null) {
             Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
             int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
@@ -47,26 +49,30 @@ public class g extends ImageSpan {
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable mE = mE();
-        if (mE != null) {
+        Drawable mF = mF();
+        if (mF != null) {
             canvas.save();
-            canvas.translate(this.paddingLeft + f, (((i5 - i3) - mE.getBounds().bottom) / 2) + i3);
-            mE.draw(canvas);
+            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - mF.getBounds().bottom) / 2) + i3) - this.azX);
+            mF.draw(canvas);
             canvas.restore();
         }
     }
 
-    private Drawable mE() {
-        WeakReference<Drawable> weakReference = this.Ff;
+    private Drawable mF() {
+        WeakReference<Drawable> weakReference = this.Fg;
         Drawable drawable = null;
         if (weakReference != null) {
             drawable = weakReference.get();
         }
         if (drawable == null) {
             Drawable drawable2 = getDrawable();
-            this.Ff = new WeakReference<>(drawable2);
+            this.Fg = new WeakReference<>(drawable2);
             return drawable2;
         }
         return drawable;
+    }
+
+    public void eH(int i) {
+        this.azX = i;
     }
 }

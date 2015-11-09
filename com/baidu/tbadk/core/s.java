@@ -4,11 +4,11 @@ import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.util.c;
 /* loaded from: classes.dex */
 class s implements c.a {
-    final /* synthetic */ r Tz;
+    final /* synthetic */ r TA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(r rVar) {
-        this.Tz = rVar;
+        this.TA = rVar;
     }
 
     @Override // com.baidu.tbadk.util.c.a

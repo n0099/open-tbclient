@@ -10,11 +10,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements a.InterfaceC0052a<com.baidu.tieba.chosen.posts.request.d> {
-    final /* synthetic */ b aJM;
+    final /* synthetic */ b aIG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.aJM = bVar;
+        this.aIG = bVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a
@@ -26,14 +26,14 @@ public class c implements a.InterfaceC0052a<com.baidu.tieba.chosen.posts.request
         List<com.baidu.tieba.chosen.posts.request.d> data = readCacheRespMsg.getData();
         if (data != null && !data.isEmpty() && (dVar = data.get(0)) != null) {
             com.baidu.tbadk.mvc.c.b bVar2 = new com.baidu.tbadk.mvc.c.b(FragmentTransaction.TRANSIT_FRAGMENT_FADE, dVar, null, null);
-            bVar2.setUniqueId(this.aJM.getUniqueId());
-            chosenPostActivity = this.aJM.aJF;
-            chosenPostActivity.oF().dispatchMvcEvent(bVar2);
+            bVar2.setUniqueId(this.aIG.getUniqueId());
+            chosenPostActivity = this.aIG.aIz;
+            chosenPostActivity.oG().dispatchMvcEvent(bVar2);
         }
-        cVar = this.aJM.aJJ;
-        cVar.Hn();
-        bVar = this.aJM.aJG;
-        bVar.CP();
+        cVar = this.aIG.aID;
+        cVar.Hk();
+        bVar = this.aIG.aIA;
+        bVar.CI();
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a

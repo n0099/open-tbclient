@@ -3,11 +3,11 @@ package com.baidu.tieba.frs;
 import android.widget.AbsListView;
 /* loaded from: classes.dex */
 class g implements AbsListView.OnScrollListener {
-    final /* synthetic */ FrsActivity aUK;
+    final /* synthetic */ FrsActivity aUS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(FrsActivity frsActivity) {
-        this.aUK = frsActivity;
+        this.aUS = frsActivity;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
@@ -20,53 +20,53 @@ class g implements AbsListView.OnScrollListener {
         int i4;
         bs bsVar3;
         int i5;
-        com.baidu.tieba.tbadkCore.data.b bVar;
-        com.baidu.tieba.tbadkCore.data.b bVar2;
+        com.baidu.tieba.tbadkCore.data.e eVar;
+        com.baidu.tieba.tbadkCore.data.e eVar2;
         com.baidu.tieba.tbadkCore.o oVar3;
         com.baidu.tieba.tbadkCore.o oVar4;
-        com.baidu.tieba.tbadkCore.data.b bVar3;
+        com.baidu.tieba.tbadkCore.data.e eVar3;
         String str;
         int i6;
-        com.baidu.tieba.tbadkCore.data.b bVar4;
+        com.baidu.tieba.tbadkCore.data.e eVar4;
         String str2;
         int i7;
-        aVar = this.aUK.aUk;
+        aVar = this.aUS.aUs;
         aVar.onScroll(absListView, i, i2, i3);
-        oVar = this.aUK.aTW;
+        oVar = this.aUS.aUe;
         if (oVar != null) {
-            bsVar = this.aUK.aTU;
+            bsVar = this.aUS.aUc;
             if (bsVar != null) {
-                bsVar2 = this.aUK.aTU;
-                if (bsVar2.LV() != null) {
-                    oVar2 = this.aUK.aTW;
-                    int avN = oVar2.avN();
-                    i4 = this.aUK.aTQ;
+                bsVar2 = this.aUS.aUc;
+                if (bsVar2.Ml() != null) {
+                    oVar2 = this.aUS.aUe;
+                    int awv = oVar2.awv();
+                    i4 = this.aUS.aTY;
                     int i8 = (i + i2) - i4;
-                    bsVar3 = this.aUK.aTU;
-                    int Lp = (i8 - bsVar3.LV().Lp()) - avN;
-                    i5 = this.aUK.aTQ;
-                    int i9 = ((i5 + Lp) - 1) + avN;
-                    bVar = this.aUK.aTR;
-                    if (bVar != null) {
-                        bVar2 = this.aUK.aTR;
-                        if (bVar2.kU(Lp) && i9 >= 0) {
-                            oVar3 = this.aUK.aTW;
+                    bsVar3 = this.aUS.aUc;
+                    int LF = (i8 - bsVar3.Ml().LF()) - awv;
+                    i5 = this.aUS.aTY;
+                    int i9 = ((i5 + LF) - 1) + awv;
+                    eVar = this.aUS.aTZ;
+                    if (eVar != null) {
+                        eVar2 = this.aUS.aTZ;
+                        if (eVar2.li(LF) && i9 >= 0) {
+                            oVar3 = this.aUS.aUe;
                             if (i9 < oVar3.getThreadList().size()) {
-                                oVar4 = this.aUK.aTW;
+                                oVar4 = this.aUS.aUe;
                                 com.baidu.adp.widget.ListView.u uVar = oVar4.getThreadList().get(i9);
                                 if (uVar instanceof com.baidu.tbadk.core.data.b) {
-                                    bVar4 = this.aUK.aTR;
-                                    str2 = this.aUK.forumId;
-                                    bVar4.d(Lp, 1, str2);
-                                    i7 = this.aUK.mPn;
-                                    com.baidu.tieba.recapp.report.b.apC().a(com.baidu.tieba.recapp.report.e.a((com.baidu.tbadk.core.data.b) uVar, "show", i7));
+                                    eVar4 = this.aUS.aTZ;
+                                    str2 = this.aUS.forumId;
+                                    eVar4.d(LF, 1, str2);
+                                    i7 = this.aUS.mPn;
+                                    com.baidu.tieba.recapp.report.b.aqi().a(com.baidu.tieba.recapp.report.e.a((com.baidu.tbadk.core.data.b) uVar, "show", i7));
                                     return;
                                 }
-                                bVar3 = this.aUK.aTR;
-                                str = this.aUK.forumId;
-                                bVar3.d(Lp, 2, str);
-                                i6 = this.aUK.mPn;
-                                com.baidu.tieba.recapp.report.b.apC().a(com.baidu.tieba.recapp.report.e.g("store", Lp, i6));
+                                eVar3 = this.aUS.aTZ;
+                                str = this.aUS.forumId;
+                                eVar3.d(LF, 2, str);
+                                i6 = this.aUS.mPn;
+                                com.baidu.tieba.recapp.report.b.aqi().a(com.baidu.tieba.recapp.report.e.g("store", LF, i6));
                             }
                         }
                     }
@@ -86,37 +86,37 @@ class g implements AbsListView.OnScrollListener {
         com.baidu.adp.widget.ListView.w wVar;
         bs bsVar5;
         com.baidu.tieba.frs.b.a aVar2;
-        aVar = this.aUK.aUk;
+        aVar = this.aUS.aUs;
         if (aVar != null) {
-            aVar2 = this.aUK.aUk;
+            aVar2 = this.aUS.aUs;
             aVar2.setScrollState(i);
         }
         if (i == 2 || i == 1) {
-            z = this.aUK.aUe;
+            z = this.aUS.aUm;
             if (!z) {
-                this.aUK.aUe = true;
-                bsVar = this.aUK.aTU;
-                bsVar.LZ();
+                this.aUS.aUm = true;
+                bsVar = this.aUS.aUc;
+                bsVar.Mp();
             }
         }
-        if (this.aUK.aUf == null) {
-            this.aUK.aUf = new com.baidu.tbadk.performanceLog.e();
-            this.aUK.aUf.ez(1000);
+        if (this.aUS.aUn == null) {
+            this.aUS.aUn = new com.baidu.tbadk.performanceLog.e();
+            this.aUS.aUn.ex(1000);
         }
         if (i == 0) {
-            bsVar4 = this.aUK.aTU;
-            wVar = this.aUK.aUG;
+            bsVar4 = this.aUS.aUc;
+            wVar = this.aUS.aUO;
             bsVar4.a(wVar);
-            bsVar5 = this.aUK.aTU;
-            bsVar5.cf(false);
-            this.aUK.Jj = false;
+            bsVar5 = this.aUS.aUc;
+            bsVar5.ch(false);
+            this.aUS.Jk = false;
         } else {
-            bsVar2 = this.aUK.aTU;
+            bsVar2 = this.aUS.aUc;
             bsVar2.a((com.baidu.adp.widget.ListView.w) null);
-            bsVar3 = this.aUK.aTU;
-            bsVar3.cf(true);
-            this.aUK.Jj = true;
+            bsVar3 = this.aUS.aUc;
+            bsVar3.ch(true);
+            this.aUS.Jk = true;
         }
-        this.aUK.aUf.DB();
+        this.aUS.aUn.Du();
     }
 }

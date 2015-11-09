@@ -16,31 +16,31 @@ import com.baidu.adp.lib.util.BdLog;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class BdListView extends ListView {
-    private b HA;
-    private a HB;
-    private AbsListView.OnScrollListener HC;
-    private d HD;
-    private g HE;
-    private long HF;
-    private h HG;
-    private int HH;
-    private e HI;
-    private f HJ;
-    private com.baidu.adp.widget.ListView.c HK;
+    private AdapterView.OnItemSelectedListener HA;
+    private b HB;
+    private a HC;
+    private AbsListView.OnScrollListener HD;
+    private d HE;
+    private g HF;
+    private long HG;
+    private h HH;
+    private int HI;
+    private e HJ;
+    private f HK;
     private com.baidu.adp.widget.ListView.c HL;
-    private View HM;
-    private int HN;
-    private Runnable HO;
+    private com.baidu.adp.widget.ListView.c HM;
+    private View HN;
+    private int HO;
     private Runnable HP;
-    private boolean HQ;
+    private Runnable HQ;
     private boolean HR;
-    private c HS;
-    private Runnable HT;
-    private i HU;
-    private com.baidu.adp.widget.ListView.e Hw;
-    private AdapterView.OnItemClickListener Hx;
-    private AdapterView.OnItemLongClickListener Hy;
-    private AdapterView.OnItemSelectedListener Hz;
+    private boolean HS;
+    private c HT;
+    private Runnable HU;
+    private i HV;
+    private com.baidu.adp.widget.ListView.e Hx;
+    private AdapterView.OnItemClickListener Hy;
+    private AdapterView.OnItemLongClickListener Hz;
     private boolean mLayoutHasInit;
     private int mMaxHeight;
     private int mPreHeight;
@@ -88,7 +88,6 @@ public class BdListView extends ListView {
 
     public BdListView(Context context) {
         super(context);
-        this.Hw = null;
         this.Hx = null;
         this.Hy = null;
         this.Hz = null;
@@ -97,32 +96,32 @@ public class BdListView extends ListView {
         this.HC = null;
         this.HD = null;
         this.HE = null;
-        this.HF = 100L;
-        this.HG = null;
-        this.HH = 0;
-        this.HI = null;
+        this.HF = null;
+        this.HG = 100L;
+        this.HH = null;
+        this.HI = 0;
         this.HJ = null;
         this.HK = null;
         this.HL = null;
         this.HM = null;
-        this.HN = 0;
-        this.HO = new com.baidu.adp.widget.ListView.g(this);
-        this.HP = new com.baidu.adp.widget.ListView.h(this);
+        this.HN = null;
+        this.HO = 0;
+        this.HP = new com.baidu.adp.widget.ListView.g(this);
+        this.HQ = new com.baidu.adp.widget.ListView.h(this);
         this.preLoadRunnable = new com.baidu.adp.widget.ListView.i(this);
         this.mLayoutHasInit = false;
-        this.HQ = false;
         this.HR = false;
+        this.HS = false;
         this.mMaxHeight = 0;
         this.mPreHeight = 0;
-        this.HS = null;
-        this.HT = new j(this);
-        this.HU = null;
+        this.HT = null;
+        this.HU = new j(this);
+        this.HV = null;
         initial();
     }
 
     public BdListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Hw = null;
         this.Hx = null;
         this.Hy = null;
         this.Hz = null;
@@ -131,32 +130,32 @@ public class BdListView extends ListView {
         this.HC = null;
         this.HD = null;
         this.HE = null;
-        this.HF = 100L;
-        this.HG = null;
-        this.HH = 0;
-        this.HI = null;
+        this.HF = null;
+        this.HG = 100L;
+        this.HH = null;
+        this.HI = 0;
         this.HJ = null;
         this.HK = null;
         this.HL = null;
         this.HM = null;
-        this.HN = 0;
-        this.HO = new com.baidu.adp.widget.ListView.g(this);
-        this.HP = new com.baidu.adp.widget.ListView.h(this);
+        this.HN = null;
+        this.HO = 0;
+        this.HP = new com.baidu.adp.widget.ListView.g(this);
+        this.HQ = new com.baidu.adp.widget.ListView.h(this);
         this.preLoadRunnable = new com.baidu.adp.widget.ListView.i(this);
         this.mLayoutHasInit = false;
-        this.HQ = false;
         this.HR = false;
+        this.HS = false;
         this.mMaxHeight = 0;
         this.mPreHeight = 0;
-        this.HS = null;
-        this.HT = new j(this);
-        this.HU = null;
+        this.HT = null;
+        this.HU = new j(this);
+        this.HV = null;
         initial();
     }
 
     public BdListView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.Hw = null;
         this.Hx = null;
         this.Hy = null;
         this.Hz = null;
@@ -165,26 +164,27 @@ public class BdListView extends ListView {
         this.HC = null;
         this.HD = null;
         this.HE = null;
-        this.HF = 100L;
-        this.HG = null;
-        this.HH = 0;
-        this.HI = null;
+        this.HF = null;
+        this.HG = 100L;
+        this.HH = null;
+        this.HI = 0;
         this.HJ = null;
         this.HK = null;
         this.HL = null;
         this.HM = null;
-        this.HN = 0;
-        this.HO = new com.baidu.adp.widget.ListView.g(this);
-        this.HP = new com.baidu.adp.widget.ListView.h(this);
+        this.HN = null;
+        this.HO = 0;
+        this.HP = new com.baidu.adp.widget.ListView.g(this);
+        this.HQ = new com.baidu.adp.widget.ListView.h(this);
         this.preLoadRunnable = new com.baidu.adp.widget.ListView.i(this);
         this.mLayoutHasInit = false;
-        this.HQ = false;
         this.HR = false;
+        this.HS = false;
         this.mMaxHeight = 0;
         this.mPreHeight = 0;
-        this.HS = null;
-        this.HT = new j(this);
-        this.HU = null;
+        this.HT = null;
+        this.HU = new j(this);
+        this.HV = null;
         initial();
     }
 
@@ -217,32 +217,32 @@ public class BdListView extends ListView {
         }
     }
 
-    public void nv() {
-        removeCallbacks(this.HP);
+    public void nw() {
+        removeCallbacks(this.HQ);
     }
 
     private void initial() {
         setFadingEdgeLength(0);
-        this.Hw = new com.baidu.adp.widget.ListView.e(getContext());
-        this.Hw.a(new k(this));
+        this.Hx = new com.baidu.adp.widget.ListView.e(getContext());
+        this.Hx.a(new k(this));
         super.setOnItemClickListener(new l(this));
         super.setOnScrollListener(new m(this));
     }
 
     public void setOnScrollToPullListener(g gVar) {
-        this.HE = gVar;
+        this.HF = gVar;
     }
 
     public void setOnSrollToTopListener(h hVar) {
-        this.HG = hVar;
+        this.HH = hVar;
     }
 
     public void setOnSrollToBottomListener(e eVar) {
-        this.HI = eVar;
+        this.HJ = eVar;
     }
 
     public void setExOnSrollToBottomListener(f fVar) {
-        this.HJ = fVar;
+        this.HK = fVar;
     }
 
     @Override // android.widget.AdapterView
@@ -251,7 +251,7 @@ public class BdListView extends ListView {
             super.setOnItemLongClickListener(null);
             return;
         }
-        this.Hy = onItemLongClickListener;
+        this.Hz = onItemLongClickListener;
         super.setOnItemLongClickListener(new n(this));
     }
 
@@ -261,28 +261,28 @@ public class BdListView extends ListView {
             super.setOnItemSelectedListener(null);
             return;
         }
-        this.Hz = onItemSelectedListener;
+        this.HA = onItemSelectedListener;
         super.setOnItemSelectedListener(new o(this));
     }
 
     @Override // android.widget.AbsListView
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.HC = onScrollListener;
+        this.HD = onScrollListener;
     }
 
     @Override // android.widget.AdapterView
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
-        this.Hx = onItemClickListener;
+        this.Hy = onItemClickListener;
     }
 
     @Override // android.widget.ListView, android.widget.AdapterView
     public ListAdapter getAdapter() {
-        return this.Hw;
+        return this.Hx;
     }
 
     public ListAdapter getWrappedAdapter() {
-        if (this.Hw instanceof com.baidu.adp.widget.ListView.e) {
-            return this.Hw.getWrappedAdapter();
+        if (this.Hx instanceof com.baidu.adp.widget.ListView.e) {
+            return this.Hx.getWrappedAdapter();
         }
         return null;
     }
@@ -290,64 +290,64 @@ public class BdListView extends ListView {
     @Override // android.widget.ListView, android.widget.AbsListView
     public void setAdapter(ListAdapter listAdapter) {
         super.setAdapter((ListAdapter) null);
-        this.Hw.a(listAdapter);
-        super.setAdapter((ListAdapter) this.Hw);
+        this.Hx.a(listAdapter);
+        super.setAdapter((ListAdapter) this.Hx);
     }
 
     public void setOnHeaderClickListener(b bVar) {
-        this.HA = bVar;
+        this.HB = bVar;
     }
 
     public void setOnFooterClickListener(a aVar) {
-        this.HB = aVar;
+        this.HC = aVar;
     }
 
     @Override // android.widget.ListView
     public void addHeaderView(View view, Object obj, boolean z) {
-        this.Hw.a(view, obj, z, getHeaderIndex());
+        this.Hx.a(view, obj, z, getHeaderIndex());
     }
 
     @Override // android.widget.ListView
     public void addHeaderView(View view) {
-        this.Hw.d(view, getHeaderIndex());
+        this.Hx.d(view, getHeaderIndex());
     }
 
     public void d(View view, int i2) {
-        this.Hw.d(view, i2);
+        this.Hx.d(view, i2);
     }
 
     @Override // android.widget.ListView
     public int getHeaderViewsCount() {
-        return this.Hw.getHeaderViewsCount();
+        return this.Hx.getHeaderViewsCount();
     }
 
     @Override // android.widget.ListView
     public int getFooterViewsCount() {
-        return this.Hw.getFooterViewsCount();
+        return this.Hx.getFooterViewsCount();
     }
 
     public void g(View view) {
-        this.Hw.a(view, null, false, 0);
+        this.Hx.a(view, null, false, 0);
     }
 
     @Override // android.widget.ListView
     public void addFooterView(View view, Object obj, boolean z) {
-        this.Hw.b(view, obj, z, -1);
+        this.Hx.b(view, obj, z, -1);
     }
 
     @Override // android.widget.ListView
     public void addFooterView(View view) {
-        this.Hw.addFooterView(view);
+        this.Hx.addFooterView(view);
     }
 
     @Override // android.widget.ListView
     public boolean removeHeaderView(View view) {
-        return this.Hw.removeHeader(view);
+        return this.Hx.removeHeader(view);
     }
 
     @Override // android.widget.ListView
     public boolean removeFooterView(View view) {
-        return this.Hw.removeFooter(view);
+        return this.Hx.removeFooter(view);
     }
 
     public void setNoData(String str) {
@@ -361,24 +361,24 @@ public class BdListView extends ListView {
     }
 
     public void setNoData(View view) {
-        if (this.HM != null) {
-            removeHeaderView(this.HM);
-            this.HM = null;
+        if (this.HN != null) {
+            removeHeaderView(this.HN);
+            this.HN = null;
         }
         if (view != null) {
             addHeaderView(view, null, false);
-            this.HM = view;
+            this.HN = view;
         }
     }
 
     public void setPrePage(com.baidu.adp.widget.ListView.c cVar) {
-        if (this.HK != null) {
-            removeHeaderView(this.HK.getView());
-            this.HK = null;
+        if (this.HL != null) {
+            removeHeaderView(this.HL.getView());
+            this.HL = null;
         }
         if (cVar != null) {
             addHeaderView(cVar.getView());
-            this.HK = cVar;
+            this.HL = cVar;
         }
     }
 
@@ -388,19 +388,19 @@ public class BdListView extends ListView {
     }
 
     public void setNextPage(com.baidu.adp.widget.ListView.c cVar) {
-        if (this.HL != null) {
-            removeFooterView(this.HL.getView());
-            this.HL = null;
+        if (this.HM != null) {
+            removeFooterView(this.HM.getView());
+            this.HM = null;
         }
         if (cVar != null) {
-            this.Hw.b(cVar.getView(), null, true, 0);
-            this.HL = cVar;
+            this.Hx.b(cVar.getView(), null, true, 0);
+            this.HM = cVar;
         }
     }
 
     private int getHeaderIndex() {
-        if (this.HK != null) {
-            return this.Hw.getHeadersCount() - 1;
+        if (this.HL != null) {
+            return this.Hx.getHeadersCount() - 1;
         }
         return -1;
     }
@@ -409,19 +409,19 @@ public class BdListView extends ListView {
     protected void onDetachedFromWindow() {
         try {
             super.onDetachedFromWindow();
-            getHandler().removeCallbacks(this.HO);
-            getHandler().removeCallbacks(this.HT);
+            getHandler().removeCallbacks(this.HP);
+            getHandler().removeCallbacks(this.HU);
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
     }
 
     public void setKybdsScrollBottom(boolean z) {
-        this.HR = z;
+        this.HS = z;
     }
 
     public void setOnkbdStateListener(c cVar) {
-        this.HS = cVar;
+        this.HT = cVar;
     }
 
     @Override // android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
@@ -432,25 +432,25 @@ public class BdListView extends ListView {
             if (!this.mLayoutHasInit) {
                 this.mLayoutHasInit = true;
                 this.mMaxHeight = i5;
-                if (this.HS != null) {
-                    this.HS.onKeyBoardStateChange(-1);
+                if (this.HT != null) {
+                    this.HT.onKeyBoardStateChange(-1);
                 }
             } else {
                 this.mMaxHeight = this.mMaxHeight < i5 ? i5 : this.mMaxHeight;
             }
             if (this.mLayoutHasInit && this.mMaxHeight > i5 && i5 != this.mPreHeight) {
-                this.HQ = true;
-                if (this.HS != null) {
-                    this.HS.onKeyBoardStateChange(-3);
+                this.HR = true;
+                if (this.HT != null) {
+                    this.HT.onKeyBoardStateChange(-3);
                 }
-                if (this.HR && lastVisiblePosition >= getCount() - 1) {
-                    getHandler().postDelayed(this.HT, 1L);
+                if (this.HS && lastVisiblePosition >= getCount() - 1) {
+                    getHandler().postDelayed(this.HU, 1L);
                 }
             }
-            if (this.mLayoutHasInit && this.HQ && this.mMaxHeight == i5) {
-                this.HQ = false;
-                if (this.HS != null) {
-                    this.HS.onKeyBoardStateChange(-2);
+            if (this.mLayoutHasInit && this.HR && this.mMaxHeight == i5) {
+                this.HR = false;
+                if (this.HT != null) {
+                    this.HT.onKeyBoardStateChange(-2);
                 }
             }
             this.mPreHeight = i5;
@@ -463,42 +463,42 @@ public class BdListView extends ListView {
     }
 
     public void setPullRefresh(com.baidu.adp.widget.ListView.d dVar) {
-        if (this.HU != null) {
-            removeHeaderView(this.HU.ny().getView());
+        if (this.HV != null) {
+            removeHeaderView(this.HV.nz().getView());
         }
-        this.HU = null;
+        this.HV = null;
         if (dVar != null) {
-            this.HU = new i(this, dVar);
-            this.HU.setOnScrollToPullListener(this.HE);
+            this.HV = new i(this, dVar);
+            this.HV.setOnScrollToPullListener(this.HF);
         }
     }
 
     public void completePullRefresh() {
-        if (this.HU == null) {
+        if (this.HV == null) {
             return;
         }
-        this.HU.nz();
+        this.HV.nA();
     }
 
-    public void nw() {
-        if (this.HU != null) {
+    public void nx() {
+        if (this.HV != null) {
             setSelection(0);
-            this.HU.W(true);
+            this.HV.W(true);
         }
     }
 
     @Override // android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.HU != null) {
-            this.HU.a(motionEvent, this.HN);
+        if (this.HV != null) {
+            this.HV.a(motionEvent, this.HO);
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     @Override // android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.HU != null) {
-            this.HU.b(motionEvent, this.HN);
+        if (this.HV != null) {
+            this.HV.b(motionEvent, this.HO);
         }
         try {
             return super.onTouchEvent(motionEvent);
@@ -508,25 +508,25 @@ public class BdListView extends ListView {
         }
     }
 
-    public boolean nx() {
-        return this.HU == null || this.HU.mState == 3;
+    public boolean ny() {
+        return this.HV == null || this.HV.mState == 3;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class i {
-        private static float HW = 3.0f;
-        private com.baidu.adp.widget.ListView.d HX;
+        private static float HX = 3.0f;
+        private com.baidu.adp.widget.ListView.d HY;
         private BdListView mListView;
-        private boolean HY = false;
-        private int HZ = 0;
+        private boolean HZ = false;
+        private int Ia = 0;
         protected int mState = 3;
-        private Boolean Ia = false;
-        private g HE = null;
-        private int Ib = 800;
+        private Boolean Ib = false;
+        private g HF = null;
+        private int Ic = 800;
 
         public i(BdListView bdListView, com.baidu.adp.widget.ListView.d dVar) {
-            this.HX = null;
+            this.HY = null;
             this.mListView = null;
             if (dVar == null) {
                 throw new InvalidParameterException("PullRefresh view is null");
@@ -534,73 +534,73 @@ public class BdListView extends ListView {
             if (bdListView == null) {
                 throw new InvalidParameterException("PullRefresh listView is null");
             }
-            this.HX = dVar;
+            this.HY = dVar;
             this.mListView = bdListView;
-            View view = this.HX.getView();
-            view.setPadding(0, -this.HX.nr(), 0, 0);
+            View view = this.HY.getView();
+            view.setPadding(0, -this.HY.ns(), 0, 0);
             view.invalidate();
             this.mListView.g(view);
         }
 
-        public com.baidu.adp.widget.ListView.d ny() {
-            return this.HX;
+        public com.baidu.adp.widget.ListView.d nz() {
+            return this.HY;
         }
 
         public void done() {
             this.mState = 3;
-            this.HX.setPadding(0, -this.HX.nr(), 0, 0);
-            this.HX.S(true);
-            if (this.HE != null) {
-                this.HE.V(false);
+            this.HY.setPadding(0, -this.HY.ns(), 0, 0);
+            this.HY.S(true);
+            if (this.HF != null) {
+                this.HF.V(false);
             }
         }
 
         public void W(boolean z) {
             this.mState = 2;
-            this.HX.setPadding(0, 0, 0, 0);
-            this.HX.nq();
-            this.HX.T(z);
+            this.HY.setPadding(0, 0, 0, 0);
+            this.HY.nr();
+            this.HY.T(z);
         }
 
         public void setOnScrollToPullListener(g gVar) {
-            this.HE = gVar;
+            this.HF = gVar;
         }
 
         public void a(MotionEvent motionEvent, int i) {
-            if (motionEvent.getAction() == 0 && ny().isEnable()) {
-                this.HY = false;
-                this.Ia = false;
-                if (i == 0 && !this.HY) {
-                    this.HY = true;
-                    this.HZ = (int) motionEvent.getY();
+            if (motionEvent.getAction() == 0 && nz().isEnable()) {
+                this.HZ = false;
+                this.Ib = false;
+                if (i == 0 && !this.HZ) {
+                    this.HZ = true;
+                    this.Ia = (int) motionEvent.getY();
                 }
             }
         }
 
         public void b(MotionEvent motionEvent, int i) {
-            if (ny().isEnable()) {
+            if (nz().isEnable()) {
                 switch (motionEvent.getAction()) {
                     case 1:
                     case 3:
                         if (this.mState != 2) {
                             if (this.mState == 1) {
                                 this.mState = 3;
-                                this.HX.setPadding(0, -this.HX.nr(), 0, 0);
-                                this.HX.S(false);
-                                if (this.HE != null) {
-                                    this.HE.V(true);
+                                this.HY.setPadding(0, -this.HY.ns(), 0, 0);
+                                this.HY.S(false);
+                                if (this.HF != null) {
+                                    this.HF.V(true);
                                     return;
                                 }
                                 return;
                             } else if (this.mState == 0) {
                                 W(false);
-                                if (this.HE != null) {
-                                    this.HE.V(true);
+                                if (this.HF != null) {
+                                    this.HF.V(true);
                                     return;
                                 }
                                 return;
-                            } else if (this.mState == 3 && this.HE != null) {
-                                this.HE.V(false);
+                            } else if (this.mState == 3 && this.HF != null) {
+                                this.HF.V(false);
                                 return;
                             } else {
                                 return;
@@ -609,59 +609,59 @@ public class BdListView extends ListView {
                         return;
                     case 2:
                         int y = (int) motionEvent.getY();
-                        if (!this.HY && i == 0) {
-                            this.HY = true;
-                            this.HZ = y;
+                        if (!this.HZ && i == 0) {
+                            this.HZ = true;
+                            this.Ia = y;
                         }
-                        if (this.mState != 2 && this.HY) {
+                        if (this.mState != 2 && this.HZ) {
                             if (this.mState == 0) {
                                 this.mListView.setSelection(0);
-                                if (((int) ((y - this.HZ) / HW)) < this.HX.nr() && y - this.HZ > 0) {
+                                if (((int) ((y - this.Ia) / HX)) < this.HY.ns() && y - this.Ia > 0) {
                                     this.mState = 1;
-                                    this.HX.R(this.Ia.booleanValue());
-                                    this.Ia = false;
-                                    if (this.HE != null) {
-                                        this.HE.V(true);
+                                    this.HY.R(this.Ib.booleanValue());
+                                    this.Ib = false;
+                                    if (this.HF != null) {
+                                        this.HF.V(true);
                                     }
-                                } else if (y - this.HZ <= 0) {
+                                } else if (y - this.Ia <= 0) {
                                     this.mState = 3;
-                                    this.HX.setPadding(0, -this.HX.nr(), 0, 0);
-                                    this.HX.S(false);
-                                    if (this.HE != null) {
-                                        this.HE.V(true);
+                                    this.HY.setPadding(0, -this.HY.ns(), 0, 0);
+                                    this.HY.S(false);
+                                    if (this.HF != null) {
+                                        this.HF.V(true);
                                     }
                                 }
                             } else if (this.mState == 1) {
                                 this.mListView.setSelection(0);
-                                if (((int) ((y - this.HZ) / HW)) >= this.HX.nr()) {
+                                if (((int) ((y - this.Ia) / HX)) >= this.HY.ns()) {
                                     this.mState = 0;
-                                    this.Ia = true;
-                                    this.HX.np();
-                                    if (this.HE != null) {
-                                        this.HE.V(true);
+                                    this.Ib = true;
+                                    this.HY.nq();
+                                    if (this.HF != null) {
+                                        this.HF.V(true);
                                     }
-                                } else if (y - this.HZ <= 0) {
+                                } else if (y - this.Ia <= 0) {
                                     this.mState = 3;
-                                    this.HX.setPadding(0, -this.HX.nr(), 0, 0);
-                                    this.HX.S(false);
-                                    if (this.HE != null) {
-                                        this.HE.V(true);
+                                    this.HY.setPadding(0, -this.HY.ns(), 0, 0);
+                                    this.HY.S(false);
+                                    if (this.HF != null) {
+                                        this.HF.V(true);
                                     }
                                 }
                             } else if (this.mState == 3) {
-                                if (y - this.HZ > 0) {
+                                if (y - this.Ia > 0) {
                                     this.mState = 1;
-                                    this.HX.R(this.Ia.booleanValue());
-                                    this.Ia = false;
-                                    if (this.HE != null) {
-                                        this.HE.V(true);
+                                    this.HY.R(this.Ib.booleanValue());
+                                    this.Ib = false;
+                                    if (this.HF != null) {
+                                        this.HF.V(true);
                                     }
-                                } else if (this.HE != null) {
-                                    this.HE.V(false);
+                                } else if (this.HF != null) {
+                                    this.HF.V(false);
                                 }
                             }
                             if (this.mState == 1 || this.mState == 0) {
-                                this.HX.setPadding(0, ((int) ((y - this.HZ) / HW)) - this.HX.nr(), 0, 0);
+                                this.HY.setPadding(0, ((int) ((y - this.Ia) / HX)) - this.HY.ns(), 0, 0);
                                 return;
                             }
                             return;
@@ -674,11 +674,11 @@ public class BdListView extends ListView {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void nz() {
+        public void nA() {
             View view;
-            com.baidu.adp.widget.ListView.d ny = ny();
-            if (ny != null && (view = ny.getView()) != null) {
-                q qVar = new q(view.getContext(), 0, -ny.nr(), this.Ib);
+            com.baidu.adp.widget.ListView.d nz = nz();
+            if (nz != null && (view = nz.getView()) != null) {
+                q qVar = new q(view.getContext(), 0, -nz.ns(), this.Ic);
                 qVar.a(new p(this));
                 qVar.h(view);
             }

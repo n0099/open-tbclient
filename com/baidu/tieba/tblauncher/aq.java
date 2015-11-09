@@ -1,18 +1,18 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.tieba.tblauncher.a.e;
+import com.baidu.tieba.tbadkCore.f.e;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements e.a {
-    final /* synthetic */ ao ddy;
+    final /* synthetic */ ao dfH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(ao aoVar) {
-        this.ddy = aoVar;
+        this.dfH = aoVar;
     }
 
-    @Override // com.baidu.tieba.tblauncher.a.e.a
-    public void fo(int i) {
-        this.ddy.onChangeSkinType(i);
+    @Override // com.baidu.tieba.tbadkCore.f.e.a
+    public void fw(int i) {
+        this.dfH.onChangeSkinType(i);
     }
 }

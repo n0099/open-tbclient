@@ -1,9 +1,8 @@
 package com.baidu.tieba.write.write;
 
-import android.content.Intent;
 import android.view.View;
-import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
-import java.util.Date;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.core.view.NavigationBar;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bo implements View.OnClickListener {
@@ -16,54 +15,22 @@ public class bo implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        boolean z;
-        int i;
-        boolean z2;
-        boolean my;
-        boolean z3;
-        boolean my2;
-        z = this.this$0.cjx;
-        if (!z) {
-            i = this.this$0.requestCode;
-            if (i == 12003) {
-                Intent intent = new Intent();
-                intent.putExtra(WriteImageActivityConfig.DELET_FLAG, true);
-                this.this$0.setResult(-1, intent);
-            } else {
-                Intent intent2 = new Intent();
-                z2 = this.this$0.cox;
-                if (z2) {
-                    if (this.this$0.coq != null && !this.this$0.coq.isRecycled()) {
-                        String str = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-                        my = this.this$0.my(str);
-                        if (my) {
-                            intent2.putExtra("change", true);
-                            intent2.putExtra("file_name", str);
-                        } else {
-                            intent2.putExtra("change", false);
-                        }
-                    } else {
-                        intent2.putExtra("change", false);
-                    }
-                } else {
-                    intent2.setData(this.this$0.getIntent().getData());
-                    this.this$0.setResult(-1, intent2);
-                }
-                this.this$0.setResult(-1, intent2);
-            }
-            this.this$0.finish();
+        NavigationBar navigationBar;
+        NavigationBar navigationBar2;
+        LinearLayout linearLayout;
+        NavigationBar navigationBar3;
+        LinearLayout linearLayout2;
+        navigationBar = this.this$0.mNavigationBar;
+        if (navigationBar.getVisibility() == 0) {
+            navigationBar3 = this.this$0.mNavigationBar;
+            navigationBar3.setVisibility(8);
+            linearLayout2 = this.this$0.cpK;
+            linearLayout2.setVisibility(8);
             return;
         }
-        Intent intent3 = new Intent();
-        z3 = this.this$0.cox;
-        if (z3 && this.this$0.coq != null && !this.this$0.coq.isRecycled()) {
-            String str2 = "tieba" + String.valueOf(new Date().getTime()) + ".jpg";
-            my2 = this.this$0.my(str2);
-            if (my2) {
-                intent3.putExtra("filename", str2);
-            }
-        }
-        this.this$0.setResult(-1, intent3);
-        this.this$0.finish();
+        navigationBar2 = this.this$0.mNavigationBar;
+        navigationBar2.setVisibility(0);
+        linearLayout = this.this$0.cpK;
+        linearLayout.setVisibility(0);
     }
 }

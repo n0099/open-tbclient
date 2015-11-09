@@ -9,38 +9,38 @@ import java.util.LinkedList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class l implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ b bDI;
+    final /* synthetic */ b bEd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(b bVar) {
-        this.bDI = bVar;
+        this.bEd = bVar;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         String data = customMessage.getData();
-        LinkedList<ImMessageCenterPojo> TM = com.baidu.tieba.im.db.i.TK().TM();
-        long gN = com.baidu.tieba.im.chat.receiveChatMsgHandler.p.RX().gN(11);
-        long gN2 = com.baidu.tieba.im.chat.receiveChatMsgHandler.p.RX().gN(12);
-        if (TM == null) {
-            TM = new LinkedList<>();
+        LinkedList<ImMessageCenterPojo> Uh = com.baidu.tieba.im.db.i.Uf().Uh();
+        long ha = com.baidu.tieba.im.chat.receiveChatMsgHandler.p.St().ha(11);
+        long ha2 = com.baidu.tieba.im.chat.receiveChatMsgHandler.p.St().ha(12);
+        if (Uh == null) {
+            Uh = new LinkedList<>();
         }
-        if (gN != -1) {
+        if (ha != -1) {
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-            TM.add(imMessageCenterPojo);
+            Uh.add(imMessageCenterPojo);
             imMessageCenterPojo.setCustomGroupType(7);
             imMessageCenterPojo.setGid(String.valueOf(11));
-            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.g.aJ(gN));
+            imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.g.aJ(ha));
             imMessageCenterPojo.setIs_hidden(1);
         }
-        if (gN2 != -1) {
+        if (ha2 != -1) {
             ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-            TM.add(imMessageCenterPojo2);
+            Uh.add(imMessageCenterPojo2);
             imMessageCenterPojo2.setCustomGroupType(8);
             imMessageCenterPojo2.setGid(String.valueOf(12));
-            imMessageCenterPojo2.setPulled_msgId(com.baidu.tieba.im.util.g.aJ(gN2));
+            imMessageCenterPojo2.setPulled_msgId(com.baidu.tieba.im.util.g.aJ(ha2));
             imMessageCenterPojo2.setIs_hidden(1);
         }
-        return new MemoryGetFromDBMessage(TM, data);
+        return new MemoryGetFromDBMessage(Uh, data);
     }
 }

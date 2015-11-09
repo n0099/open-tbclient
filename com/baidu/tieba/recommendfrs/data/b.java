@@ -6,11 +6,11 @@ import tbclient.FineFrsPage.FineThreadInfo;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class b extends i {
-    private long btq;
-    private int cIK;
-    private boolean cIL;
-    private long cIM;
-    private int cIN;
+    private int cKg;
+    private boolean cKh;
+    private long cKi;
+    private int cKj;
+    private long cgv;
     private String desc;
     private String forumName;
     private long ftid;
@@ -23,7 +23,7 @@ public class b extends i {
     public b a(FineThreadInfo fineThreadInfo) {
         if (fineThreadInfo != null) {
             if (fineThreadInfo.forder != null) {
-                this.cIN = fineThreadInfo.forder.intValue();
+                this.cKj = fineThreadInfo.forder.intValue();
             }
             if (fineThreadInfo.ftid != null) {
                 this.ftid = fineThreadInfo.ftid.longValue();
@@ -38,14 +38,14 @@ public class b extends i {
                 this.thumbnail.addAll(fineThreadInfo.thumbnail);
             }
             if (fineThreadInfo.publish_time != null) {
-                this.cIK = fineThreadInfo.publish_time.intValue();
+                this.cKg = fineThreadInfo.publish_time.intValue();
             }
             this.forumName = fineThreadInfo.fromfname;
             if (fineThreadInfo.threadsnum != null) {
-                this.cIM = fineThreadInfo.threadsnum.longValue();
+                this.cKi = fineThreadInfo.threadsnum.longValue();
             }
             if (fineThreadInfo.zansum != null) {
-                this.btq = fineThreadInfo.zansum.longValue();
+                this.cgv = fineThreadInfo.zansum.longValue();
             }
             if (fineThreadInfo.thread_type != null) {
                 this.thread_type = fineThreadInfo.thread_type.intValue();
@@ -55,19 +55,19 @@ public class b extends i {
         return this;
     }
 
-    public int apU() {
-        return this.cIN;
+    public int aqA() {
+        return this.cKj;
     }
 
-    public long apV() {
-        return this.btq;
+    public long aqB() {
+        return this.cgv;
     }
 
-    public long apW() {
-        return this.cIM;
+    public long aqC() {
+        return this.cKi;
     }
 
-    public long apX() {
+    public long aqD() {
         return this.ftid;
     }
 
@@ -83,31 +83,31 @@ public class b extends i {
         return this.desc;
     }
 
-    public List<String> apY() {
+    public List<String> aqE() {
         return this.thumbnail;
     }
 
-    public int apZ() {
-        return this.cIK;
+    public int aqF() {
+        return this.cKg;
     }
 
     public String getForumName() {
         return this.forumName;
     }
 
-    public boolean aqa() {
-        return this.cIL;
+    public boolean aqG() {
+        return this.cKh;
     }
 
-    public void fO(boolean z) {
-        this.cIL = z;
+    public void fR(boolean z) {
+        this.cKh = z;
     }
 
-    public int aqb() {
+    public int aqH() {
         return this.thread_type;
     }
 
-    public ZhiBoInfoTW aqc() {
+    public ZhiBoInfoTW aqI() {
         return this.twzhibo_info;
     }
 }

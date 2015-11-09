@@ -1,30 +1,20 @@
 package com.baidu.tieba.write.album;
 
-import android.database.ContentObserver;
-import android.os.Handler;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p extends ContentObserver {
-    final /* synthetic */ m this$0;
+public class p extends BroadcastReceiver {
+    final /* synthetic */ n this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(m mVar, Handler handler) {
-        super(handler);
-        this.this$0 = mVar;
+    public p(n nVar) {
+        this.this$0 = nVar;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        Handler handler;
-        Runnable runnable;
-        Handler handler2;
-        Runnable runnable2;
-        handler = this.this$0.handler;
-        runnable = this.this$0.dkC;
-        handler.removeCallbacks(runnable);
-        handler2 = this.this$0.handler;
-        runnable2 = this.this$0.dkC;
-        handler2.postDelayed(runnable2, 2000L);
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        this.this$0.X(intent);
     }
 }

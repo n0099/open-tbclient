@@ -9,9 +9,9 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class v {
-    private TbImageView dex;
-    private TextView dfQ;
-    private TextView dfR;
+    private TbImageView dgd;
+    private TextView dhw;
+    private TextView dhx;
     private TbPageContext<?> mContext;
     private View mRootView;
 
@@ -22,17 +22,17 @@ public class v {
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.background_preview_bottom, (ViewGroup) null);
-        this.dfQ = (TextView) this.mRootView.findViewById(i.f.text_bg_name);
-        this.dex = (TbImageView) this.mRootView.findViewById(i.f.bg_permission_icon);
-        this.dfR = (TextView) this.mRootView.findViewById(i.f.text_bg_description);
-        sZ();
+        this.dhw = (TextView) this.mRootView.findViewById(i.f.text_bg_name);
+        this.dgd = (TbImageView) this.mRootView.findViewById(i.f.bg_permission_icon);
+        this.dhx = (TextView) this.mRootView.findViewById(i.f.text_bg_description);
+        tc();
     }
 
     public void c(DressItemData dressItemData) {
         if (dressItemData != null) {
-            this.dfQ.setText(dressItemData.getTitle());
-            this.dex.d(dressItemData.getPermissionImgUrl(), 10, false);
-            this.dfR.setText(dressItemData.getDescription());
+            this.dhw.setText(dressItemData.getTitle());
+            this.dgd.d(dressItemData.getPermissionImgUrl(), 10, false);
+            this.dhx.setText(dressItemData.getDescription());
         }
     }
 
@@ -40,7 +40,7 @@ public class v {
         return this.mRootView;
     }
 
-    public void sZ() {
+    public void tc() {
         com.baidu.tbadk.h.a.a(this.mContext, this.mRootView);
     }
 }

@@ -125,7 +125,7 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
                     if (this.ot != null && this.ot.ek() != null) {
                         j4 = this.ot.ek().getClientLogID();
                     }
-                    com.baidu.adp.lib.stats.a.hi().b("im", j4, String.valueOf(this.ou), IntentConfig.CMD, Integer.valueOf(i), "seqid", Integer.valueOf(this.ou));
+                    com.baidu.adp.lib.stats.a.hj().b("im", j4, String.valueOf(this.ou), IntentConfig.CMD, Integer.valueOf(i), "seqid", Integer.valueOf(this.ou));
                     k.a("unpacker", i, j4, this.ou, "unpacktask", j.ph, "onBinaryMesssage decodebody error");
                     i2 = i;
                     cVar2 = cVar;

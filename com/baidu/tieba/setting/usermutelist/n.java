@@ -8,13 +8,13 @@ import tbclient.UserMuteQuery.MuteUser;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ m cPp;
+    final /* synthetic */ m cQL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(m mVar, int i, int i2) {
         super(i, i2);
-        this.cPp = mVar;
+        this.cQL = mVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -29,7 +29,7 @@ public class n extends com.baidu.adp.framework.listener.a {
                 if (list != null) {
                     arrayList.addAll(list);
                 }
-                aVar2 = this.cPp.cPb;
+                aVar2 = this.cQL.cQx;
                 aVar2.a(arrayList, userMuteQuerySocketResponsedMessage.getError(), userMuteQuerySocketResponsedMessage.getErrorString());
             } else {
                 return;
@@ -45,7 +45,7 @@ public class n extends com.baidu.adp.framework.listener.a {
                         arrayList2.add(muteUser);
                     }
                 }
-                aVar = this.cPp.cPb;
+                aVar = this.cQL.cQx;
                 aVar.a(arrayList2, userMuteQueryHttpResponsedMessage.getError(), userMuteQueryHttpResponsedMessage.getErrorString());
             }
         }

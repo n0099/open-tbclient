@@ -14,7 +14,7 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class MessageUtils {
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3) {
-        createPersonalChatMessage(b.VS().O(String.valueOf(j), 2), i, str, j, str2, str3);
+        createPersonalChatMessage(b.Wn().O(String.valueOf(j), 2), i, str, j, str2, str3);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3) {
@@ -52,12 +52,12 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             personalChatMessage.setLocalData(msgLocalData);
-            a.WZ().n(personalChatMessage);
+            a.Xu().n(personalChatMessage);
         }
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(b.VS().O(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(b.Wn().O(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createGroupChatMessage(long j, int i, String str, long j2) {
@@ -89,13 +89,13 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             groupChatMessage.setLocalData(msgLocalData);
-            a.WZ().n(groupChatMessage);
+            a.Xu().n(groupChatMessage);
         }
     }
 
     public static void sendHasReadMessage(String str, int i) {
         ImMessageCenterPojo J;
-        if (!StringUtils.isNull(str) && i == 2 && (J = b.VS().J(str, 2)) != null) {
+        if (!StringUtils.isNull(str) && i == 2 && (J = b.Wn().J(str, 2)) != null) {
             long pulled_msgId = J.getPulled_msgId();
             if (pulled_msgId > J.getSent_msgId()) {
                 RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(g.aK(pulled_msgId), Long.parseLong(str));

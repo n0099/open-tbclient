@@ -9,15 +9,15 @@ public interface h {
 
     boolean isPlaying();
 
-    int jp();
+    int jq();
 
-    void vJ();
+    void vN();
 
-    void vP();
+    void vT();
 
-    void vQ();
+    void vU();
 
-    void vR();
+    void vV();
 
-    boolean vS();
+    boolean vW();
 }

@@ -5,7 +5,7 @@ import android.os.Build;
 public class e {
     public static final String[] qX = {"ZTE-T U880", "U880"};
 
-    public static boolean M(String str) {
+    public static boolean K(String str) {
         for (String str2 : qX) {
             if (str2.equals(str)) {
                 return false;
@@ -19,6 +19,6 @@ public class e {
     }
 
     public static boolean fh() {
-        return M(Build.MODEL) && fg() && NSGif.qS;
+        return K(Build.MODEL) && fg() && NSGif.qS;
     }
 }

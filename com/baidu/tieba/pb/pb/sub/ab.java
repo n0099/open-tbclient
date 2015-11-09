@@ -1,55 +1,45 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.util.SparseArray;
+import android.graphics.drawable.NinePatchDrawable;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
-import com.baidu.tbadk.core.util.bd;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.i;
-import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ab implements AdapterView.OnItemClickListener {
-    final /* synthetic */ t cmX;
+public class ab extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
+    final /* synthetic */ v coo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(t tVar) {
-        this.cmX = tVar;
+    public ab(v vVar) {
+        this.coo = vVar;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.lib.f.b
+    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
+        View view;
         NewSubPbActivity newSubPbActivity;
-        ArrayList arrayList;
-        SparseArray sparseArray;
-        String str;
-        com.baidu.tbadk.editortools.c.n nVar;
-        ArrayList arrayList2;
-        ArrayList arrayList3;
-        ArrayList arrayList4;
-        newSubPbActivity = this.cmX.cmG;
-        if (bd.ah(newSubPbActivity.getPageContext().getPageActivity())) {
-            arrayList = this.cmX.cmT;
-            if (arrayList != null) {
-                arrayList2 = this.cmX.cmT;
-                if (i < arrayList2.size()) {
-                    arrayList3 = this.cmX.cmT;
-                    if (arrayList3.get(i) != null) {
-                        t tVar = this.cmX;
-                        arrayList4 = this.cmX.cmT;
-                        tVar.cmU = ((com.baidu.tieba.tbadkCore.data.k) arrayList4.get(i)).getId();
-                        sparseArray = (SparseArray) view.getTag();
-                        if (sparseArray == null && (str = (String) sparseArray.get(i.f.tag_photo_username)) != null) {
-                            nVar = this.cmX.caU;
-                            nVar.fh(str);
-                            this.cmX.f(i, view);
-                            return;
-                        }
-                    }
+        NewSubPbActivity newSubPbActivity2;
+        if (aVar != null && !TextUtils.isEmpty(str)) {
+            view = this.coo.cnV;
+            TbRichTextView tbRichTextView = (TbRichTextView) view.findViewWithTag(str);
+            if (tbRichTextView != null) {
+                newSubPbActivity = this.coo.cnX;
+                NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(newSubPbActivity.getResources(), aVar.nb(), aVar.nb().getNinePatchChunk(), aVar.nf(), null);
+                if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
+                    ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.ac.mAlpha);
                 }
-            }
-            this.cmX.cmU = null;
-            sparseArray = (SparseArray) view.getTag();
-            if (sparseArray == null) {
+                if (tbRichTextView instanceof TbRichTextView) {
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbRichTextView.getLayoutParams();
+                    newSubPbActivity2 = this.coo.cnX;
+                    layoutParams.bottomMargin = (int) newSubPbActivity2.getResources().getDimension(i.d.ds20);
+                    tbRichTextView.setLayoutParams(layoutParams);
+                    tbRichTextView.setBackgroundDrawable(ninePatchDrawable);
+                }
             }
         }
     }

@@ -1,27 +1,32 @@
 package com.baidu.tieba.write.write;
 
-import android.os.Environment;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
-import java.io.File;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.drawable.BitmapDrawable;
+import android.text.style.ImageSpan;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
+import com.baidu.tbadk.editortools.emotiontool.RequestStaticEmotionMessage;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 /* loaded from: classes.dex */
-public class be extends BdAsyncTask<Void, Integer, Void> {
-    final /* synthetic */ WriteActivity dqi;
+class be implements TbFaceManager.a {
+    final /* synthetic */ WriteActivity dsa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public be(WriteActivity writeActivity) {
-        this.dqi = writeActivity;
+        this.dsa = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public Void doInBackground(Void... voidArr) {
-        String str;
-        StringBuilder append = new StringBuilder().append(Environment.getExternalStorageDirectory()).append("/").append(TbConfig.getTempDirName()).append("/");
-        str = this.dqi.arU;
-        com.baidu.tbadk.core.util.n.q(new File(append.append(str).toString()));
-        return null;
+    @Override // com.baidu.tbadk.imageManager.TbFaceManager.a
+    public ImageSpan fn(String str) {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new RequestStaticEmotionMessage(null, str), com.baidu.adp.widget.a.a.class);
+        com.baidu.adp.widget.a.a aVar = runTask != null ? (com.baidu.adp.widget.a.a) runTask.getData() : null;
+        if (aVar == null) {
+            return null;
+        }
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(aVar.nb());
+        int width = aVar.getWidth();
+        bitmapDrawable.setBounds(0, 0, width, width);
+        bitmapDrawable.setGravity(SocialAPIErrorCodes.ERROR_INVALID_SECRET_KEY);
+        return new ImageSpan(bitmapDrawable, 0);
     }
 }

@@ -4,25 +4,25 @@ import com.baidu.tbadk.performanceLog.j;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements j.a {
-    final /* synthetic */ e awT;
+    final /* synthetic */ e avI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.awT = eVar;
+        this.avI = eVar;
     }
 
     @Override // com.baidu.tbadk.performanceLog.j.a
-    public void ew(int i) {
+    public void eu(int i) {
         j jVar;
         j jVar2;
-        jVar = this.awT.awO;
+        jVar = this.avI.avC;
         jVar.a((j.a) null);
-        jVar2 = this.awT.awO;
+        jVar2 = this.avI.avC;
         jVar2.stop();
-        this.awT.awQ = i;
-        aa aaVar = (aa) y.DY().eB(this.awT.mSubType);
+        this.avI.avE = i;
+        aa aaVar = (aa) y.DR().ez(this.avI.mSubType);
         if (aaVar != null) {
-            aaVar.h(this.awT);
+            aaVar.h(this.avI);
         }
     }
 }

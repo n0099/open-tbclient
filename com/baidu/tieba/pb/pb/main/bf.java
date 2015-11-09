@@ -1,19 +1,18 @@
 package com.baidu.tieba.pb.pb.main;
 
-import java.util.Comparator;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class bf implements Comparator<Integer> {
-    final /* synthetic */ bd cje;
+public class bf implements a.b {
+    final /* synthetic */ bc cjW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bf(bd bdVar) {
-        this.cje = bdVar;
+    public bf(bc bcVar) {
+        this.cjW = bcVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(Integer num, Integer num2) {
-        return (num != null ? num.intValue() : 0) - (num != null ? num2.intValue() : 0);
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

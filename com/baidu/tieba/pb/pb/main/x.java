@@ -1,36 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.view.NoNetworkView;
 /* loaded from: classes.dex */
-class x extends CustomMessageListener {
-    final /* synthetic */ PbActivity ciK;
+class x implements NoNetworkView.a {
+    final /* synthetic */ PbActivity cjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x(PbActivity pbActivity, int i) {
-        super(i);
-        this.ciK = pbActivity;
+    public x(PbActivity pbActivity) {
+        this.cjN = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        cc ccVar;
-        cc ccVar2;
-        cc ccVar3;
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            ccVar = this.ciK.cim;
-            if (ccVar != null) {
-                if (booleanValue) {
-                    ccVar3 = this.ciK.cim;
-                    ccVar3.Vs();
-                    return;
-                }
-                ccVar2 = this.ciK.cim;
-                ccVar2.Vr();
+    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
+    public void ax(boolean z) {
+        boolean z2;
+        ca caVar;
+        z2 = this.cjN.ciY;
+        if (!z2 && z) {
+            caVar = this.cjN.cjj;
+            if (caVar.agr()) {
+                return;
             }
+            this.cjN.afX();
         }
     }
 }

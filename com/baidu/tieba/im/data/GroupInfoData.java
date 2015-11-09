@@ -163,8 +163,8 @@ public class GroupInfoData extends com.baidu.tbadk.core.util.a implements u, ae,
     public ArrayList<ad> getImages() {
         ArrayList<ad> arrayList = new ArrayList<>();
         ad adVar = new ad();
-        adVar.Wa = this.portrait;
-        adVar.aaz = 10;
+        adVar.Wd = this.portrait;
+        adVar.aaD = 10;
         arrayList.add(adVar);
         return arrayList;
     }

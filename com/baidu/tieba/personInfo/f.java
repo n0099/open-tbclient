@@ -4,15 +4,15 @@ import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
 import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
 /* loaded from: classes.dex */
 class f implements UserMuteAddAndDelModel.b {
-    final /* synthetic */ PersonInfoActivity csI;
+    final /* synthetic */ PersonInfoActivity cue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(PersonInfoActivity personInfoActivity) {
-        this.csI = personInfoActivity;
+        this.cue = personInfoActivity;
     }
 
     @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.b
     public void a(UserMuteDelResponseMessage userMuteDelResponseMessage) {
-        this.csI.css = 0;
+        this.cue.ctO = 0;
     }
 }

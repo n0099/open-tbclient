@@ -9,16 +9,16 @@ import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class TabItemView extends TextView {
-    public static int bbt = 0;
-    public static int bbu = 1;
-    public static int bbv = 2;
-    private g bbw;
+    public static int bbP = 0;
+    public static int bbQ = 1;
+    public static int bbR = 2;
+    private h bbS;
     private int mState;
 
-    public TabItemView(Context context, g gVar, int i) {
+    public TabItemView(Context context, h hVar, int i) {
         super(context);
-        this.mState = bbt;
-        this.bbw = gVar;
+        this.mState = bbP;
+        this.bbS = hVar;
         j(context, i);
     }
 
@@ -26,15 +26,15 @@ public class TabItemView extends TextView {
         setGravity(17);
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.bbw != null) {
-            setText(this.bbw.name);
+        if (this.bbS != null) {
+            setText(this.bbS.name);
         }
-        vx();
+        vB();
     }
 
     public void setState(int i) {
-        if (this.bbw != null && this.bbw.bbs != null && this.bbw.bbs.size() > 0) {
-            if (i == bbv) {
+        if (this.bbS != null && this.bbS.bbO != null && this.bbS.bbO.aYK != null && this.bbS.bbO.aYK.size() > 0) {
+            if (i == bbR) {
                 Drawable drawable = an.getDrawable(i.e.icon_toolbar_arrow_up);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 setCompoundDrawables(null, null, drawable, null);
@@ -45,7 +45,7 @@ public class TabItemView extends TextView {
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(i.d.ds16));
         }
-        if (i == bbu || i == bbv) {
+        if (i == bbQ || i == bbR) {
             an.b(this, i.c.s_actionbar_text_line_color_s, 1);
         } else {
             an.b(this, i.c.cp_cont_f, 1);
@@ -56,17 +56,17 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.bbw == null) {
+        if (this.bbS == null) {
             return -1;
         }
-        return this.bbw.bbr;
+        return this.bbS.bbN;
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void vx() {
+    public void vB() {
         setState(this.mState);
     }
 
@@ -81,9 +81,12 @@ public class TabItemView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
-        int spaceWidth = getSpaceWidth();
-        if (spaceWidth >= 0) {
-            canvas.translate(spaceWidth / 2, 0.0f);
+        Drawable drawable;
+        Drawable[] compoundDrawables = getCompoundDrawables();
+        if (compoundDrawables != null && (drawable = compoundDrawables[2]) != null) {
+            float intrinsicWidth = drawable.getIntrinsicWidth() + getPaint().measureText(getText().toString()) + getCompoundDrawablePadding();
+            setPadding(0, 0, (int) (getWidth() - intrinsicWidth), 0);
+            canvas.translate((getWidth() - intrinsicWidth) / 2.0f, 0.0f);
         }
         super.onDraw(canvas);
     }

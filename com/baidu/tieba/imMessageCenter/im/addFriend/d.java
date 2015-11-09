@@ -6,11 +6,11 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ AddFriendActivity bJu;
+    final /* synthetic */ AddFriendActivity bJP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(AddFriendActivity addFriendActivity) {
-        this.bJu = addFriendActivity;
+        this.bJP = addFriendActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -18,11 +18,11 @@ public class d implements View.OnClickListener {
         InputMethodManager inputMethodManager;
         EditText editText;
         EditText editText2;
-        AddFriendActivity addFriendActivity = this.bJu;
-        inputMethodManager = this.bJu.bmx;
-        editText = this.bJu.bJp;
+        AddFriendActivity addFriendActivity = this.bJP;
+        inputMethodManager = this.bJP.bnb;
+        editText = this.bJP.bJK;
         addFriendActivity.HidenSoftKeyPad(inputMethodManager, editText);
-        editText2 = this.bJu.bJp;
-        this.bJu.gh(editText2.getText().toString());
+        editText2 = this.bJP.bJK;
+        this.bJP.gj(editText2.getText().toString());
     }
 }
