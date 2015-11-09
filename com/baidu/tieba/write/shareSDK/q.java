@@ -5,17 +5,17 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements com.baidu.tbadk.imageManager.b {
-    final /* synthetic */ o dmR;
+    final /* synthetic */ o doz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(o oVar) {
-        this.dmR = oVar;
+        this.doz = oVar;
     }
 
     @Override // com.baidu.tbadk.imageManager.b
     public void a(com.baidu.adp.widget.a.a aVar, String str, boolean z) {
         LinearLayout linearLayout;
-        linearLayout = this.dmR.dmJ;
+        linearLayout = this.doz.dor;
         TbImageView tbImageView = (TbImageView) linearLayout.findViewWithTag(str);
         if (tbImageView != null && aVar != null) {
             tbImageView.invalidate();

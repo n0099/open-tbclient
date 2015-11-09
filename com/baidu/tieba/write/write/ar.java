@@ -1,54 +1,46 @@
 package com.baidu.tieba.write.write;
 
-import android.os.Handler;
-import android.widget.EditText;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import android.view.View;
 import com.baidu.tieba.i;
+import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ar implements a.b {
-    final /* synthetic */ WriteActivity dqi;
+public class ar extends com.baidu.adp.base.g {
+    final /* synthetic */ WriteActivity dsa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ar(WriteActivity writeActivity) {
-        this.dqi = writeActivity;
+        this.dsa = writeActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        WriteData writeData;
-        EditText aDt;
-        WriteData writeData2;
-        EditText aDs;
-        WriteData writeData3;
-        WriteData writeData4;
-        WriteData writeData5;
-        Handler handler;
-        WriteData writeData6;
-        WriteData writeData7;
-        aVar.dismiss();
-        writeData = this.dqi.dbx;
-        aDt = this.dqi.aDt();
-        writeData.setTitle(aDt.getText().toString());
-        writeData2 = this.dqi.dbx;
-        aDs = this.dqi.aDs();
-        writeData2.setContent(aDs.getText().toString());
-        writeData3 = this.dqi.dbx;
-        int type = writeData3.getType();
-        if (type == 0) {
-            writeData6 = this.dqi.dbx;
-            String forumId = writeData6.getForumId();
-            writeData7 = this.dqi.dbx;
-            com.baidu.tieba.tbadkCore.ad.b(forumId, writeData7);
-        } else if (type == 1) {
-            writeData4 = this.dqi.dbx;
-            String threadId = writeData4.getThreadId();
-            writeData5 = this.dqi.dbx;
-            com.baidu.tieba.tbadkCore.ad.c(threadId, writeData5);
+    /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tieba.write.write.WriteActivity */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        FeedBackTopListView feedBackTopListView;
+        View view;
+        FeedBackTopListView feedBackTopListView2;
+        View view2;
+        FeedBackTopListView feedBackTopListView3;
+        this.dsa.hideProgressBar();
+        if (obj == null || !(obj instanceof o)) {
+            feedBackTopListView = this.dsa.dri;
+            feedBackTopListView.setVisibility(8);
+            view = this.dsa.drj;
+            view.setVisibility(8);
+            this.dsa.showToast(i.h.neterror);
+            return;
         }
-        this.dqi.showToast(i.h.draft_save_success);
-        handler = this.dqi.mHandler;
-        handler.postDelayed(new as(this), 1000L);
+        o oVar = (o) obj;
+        if (oVar.getErrCode() != 0) {
+            feedBackTopListView2 = this.dsa.dri;
+            feedBackTopListView2.setVisibility(8);
+            view2 = this.dsa.drj;
+            view2.setVisibility(8);
+            return;
+        }
+        ArrayList<com.baidu.tbadk.core.data.w> aDL = oVar.aDL();
+        feedBackTopListView3 = this.dsa.dri;
+        feedBackTopListView3.a(aDL, this.dsa.getPageContext());
     }
 }

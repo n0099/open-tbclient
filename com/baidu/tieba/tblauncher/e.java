@@ -26,17 +26,17 @@ class e extends CustomMessageListener {
         ao aoVar;
         ao aoVar2;
         int i2;
-        this.this$0.dcL = false;
-        i = this.this$0.dcD;
+        this.this$0.deU = false;
+        i = this.this$0.deM;
         if (i <= 0) {
-            i2 = this.this$0.dcG;
+            i2 = this.this$0.deP;
             if (i2 <= 0) {
                 z = false;
                 if (z) {
-                    aoVar = this.this$0.dcB;
-                    aoVar.gB(false);
-                    aoVar2 = this.this$0.dcB;
-                    aoVar2.ayG().gH(false);
+                    aoVar = this.this$0.deK;
+                    aoVar.gH(false);
+                    aoVar2 = this.this$0.deK;
+                    aoVar2.azN().gy(false);
                     return;
                 }
                 return;

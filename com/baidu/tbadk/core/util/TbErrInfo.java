@@ -49,6 +49,8 @@ public class TbErrInfo {
     public static final int ERR_LOCAL_ACTION_EXP = -31;
     public static final int ERR_LOCAL_DATA_EXP = -30;
     public static final int ERR_LOCATION_FAILED = -85;
+    public static final int ERR_LOTTERY_UNLIKE_FORUM = 3110004;
+    public static final int ERR_NO_LOTTERY_CHANCE = 2390003;
     public static final int ERR_SEND_FAIL = -53;
     public static final int ERR_SERVER_UNKNOW = -51;
     public static final int ERR_SQLITE_ABORT = -11;
@@ -163,7 +165,7 @@ public class TbErrInfo {
     }
 
     public static int getFileHelperSDErr() {
-        switch (com.baidu.adp.lib.util.e.iw()) {
+        switch (com.baidu.adp.lib.util.e.ix()) {
             case 1:
                 return -23;
             case 2:

@@ -45,7 +45,7 @@ public class LocationInfoView extends EditorInfoView {
             }
             setText(str);
         }
-        AF();
+        AL();
     }
 
     public int getState() {
@@ -53,25 +53,25 @@ public class LocationInfoView extends EditorInfoView {
     }
 
     @Override // com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView
-    protected void sZ() {
-        super.sZ();
-        AF();
+    protected void tc() {
+        super.tc();
+        AL();
     }
 
-    private void AF() {
+    private void AL() {
         if (this.mState == 1) {
             Animatable animatable = (Animatable) an.getDrawable(i.e.icon_posts_pin_loading_anim);
             setCompoundDrawablesWithIntrinsicBounds((Drawable) animatable, (Drawable) null, (Drawable) null, (Drawable) null);
             a.a((TbPageContextSupport) l.B(getContext()), animatable);
-            setPadding(this.cYj + k.dip2px(getContext(), 3.0f), this.cYk, this.cYj, this.cYk);
+            setPadding(this.cZG + k.dip2px(getContext(), 3.0f), this.cZH, this.cZG, this.cZH);
             setCompoundDrawablePadding(k.dip2px(getContext(), 3.0f));
         } else if (this.mState == 2) {
             setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_posts_pin_blue), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.cYj, this.cYk, this.cYj, this.cYk);
+            setPadding(this.cZG, this.cZH, this.cZG, this.cZH);
             setCompoundDrawablePadding(0);
         } else {
             setCompoundDrawablesWithIntrinsicBounds(an.getDrawable(i.e.icon_posts_pin_gray), (Drawable) null, (Drawable) null, (Drawable) null);
-            setPadding(this.cYj, this.cYk, this.cYj, this.cYk);
+            setPadding(this.cZG, this.cZH, this.cZG, this.cZH);
             setCompoundDrawablePadding(0);
         }
     }

@@ -9,88 +9,88 @@ import com.baidu.tbadk.core.view.p;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public abstract class k extends com.baidu.adp.base.f<SingleMentionActivity> implements p.b, com.baidu.tbadk.mvc.f.a.a {
-    protected BdListView aJO;
-    private com.baidu.tbadk.mvc.h.a aJQ;
-    protected SingleMentionActivity caj;
-    private boolean car;
-    private boolean cas;
+    protected BdListView aII;
+    private com.baidu.tbadk.mvc.h.a aIK;
+    protected SingleMentionActivity caK;
+    private boolean caS;
+    private boolean caT;
     private com.baidu.tbadk.core.view.r mPullView;
     protected View rootView;
 
     public k(SingleMentionActivity singleMentionActivity) {
         super(singleMentionActivity.getPageContext());
-        this.car = true;
-        this.cas = false;
-        this.caj = singleMentionActivity;
+        this.caS = true;
+        this.caT = false;
+        this.caK = singleMentionActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void d(com.baidu.tbadk.mvc.d.b bVar) {
         if (bVar instanceof com.baidu.tbadk.mvc.d.a) {
             com.baidu.tbadk.mvc.d.a aVar = (com.baidu.tbadk.mvc.d.a) bVar;
-            if (aVar.Da()) {
-                this.aJQ.ow();
-                if (aVar.CY()) {
-                    this.aJQ.et(i.h.loading);
-                } else if (aVar.CZ()) {
-                    this.aJQ.et(i.h.loading);
+            if (aVar.CT()) {
+                this.aIK.ox();
+                if (aVar.CR()) {
+                    this.aIK.er(i.h.loading);
+                } else if (aVar.CS()) {
+                    this.aIK.er(i.h.loading);
                 } else {
-                    this.aJQ.eu(i.h.no_more_msg);
+                    this.aIK.es(i.h.no_more_msg);
                 }
             } else {
-                this.aJQ.hide();
+                this.aIK.hide();
             }
             if (aVar.isPullRefreshing()) {
-                acK();
+                adf();
             } else {
-                acL();
+                adg();
             }
         }
     }
 
-    public void acK() {
+    public void adf() {
         this.mPullView.a((p.b) null);
-        this.aJO.nw();
+        this.aII.nx();
         this.mPullView.a(this);
     }
 
-    public void acL() {
-        this.aJO.completePullRefresh();
+    public void adg() {
+        this.aII.completePullRefresh();
     }
 
     @Override // com.baidu.tbadk.core.view.p.b
     public void a(View view, boolean z) {
         if (this instanceof j) {
-            this.caj.add().bB(z);
+            this.caK.ady().bD(z);
         } else {
-            this.caj.adc().bB(z);
+            this.caK.adx().bD(z);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(ErrorData errorData) {
-        acL();
-        if (this.aJQ != null) {
-            this.aJQ.eu(i.h.no_more_msg);
+        adg();
+        if (this.aIK != null) {
+            this.aIK.es(i.h.no_more_msg);
         }
     }
 
-    protected View oZ() {
-        this.rootView = this.caj.getLayoutInflater().inflate(i.g.mvc_template_list, (ViewGroup) null);
-        this.aJO = (BdListView) this.caj.findViewById(i.f.view_list);
+    protected View pa() {
+        this.rootView = this.caK.getLayoutInflater().inflate(i.g.mvc_template_list, (ViewGroup) null);
+        this.aII = (BdListView) this.caK.findViewById(i.f.view_list);
         return this.rootView;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void oQ() {
-        this.mPullView = new com.baidu.tbadk.core.view.r(this.caj.getPageContext());
+    public void oR() {
+        this.mPullView = new com.baidu.tbadk.core.view.r(this.caK.getPageContext());
         this.mPullView.a(this);
-        this.aJO.setDividerHeight(0);
-        this.aJO.setExOnSrollToBottomListener(new l(this));
-        this.aJO.setPullRefresh(this.mPullView);
-        this.aJQ = new com.baidu.tbadk.mvc.h.a(this.caj);
-        this.aJQ.no();
-        this.aJO.setNextPage(this.aJQ);
+        this.aII.setDividerHeight(0);
+        this.aII.setExOnSrollToBottomListener(new l(this));
+        this.aII.setPullRefresh(this.mPullView);
+        this.aIK = new com.baidu.tbadk.mvc.h.a(this.caK);
+        this.aIK.np();
+        this.aII.setNextPage(this.aIK);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -99,33 +99,33 @@ public abstract class k extends com.baidu.adp.base.f<SingleMentionActivity> impl
 
     @Override // com.baidu.tbadk.mvc.f.a.a
     public void onPrimary() {
-        if (this.car || this.cas) {
-            this.car = false;
-            this.cas = false;
+        if (this.caS || this.caT) {
+            this.caS = false;
+            this.caT = false;
             if (this instanceof j) {
-                this.caj.add().oR();
+                this.caK.ady().oS();
             } else {
-                this.caj.adc().oR();
+                this.caK.adx().oS();
             }
         }
     }
 
     @Override // com.baidu.tbadk.mvc.f.a.a
-    public void bn(boolean z) {
-        if (z && this.aJO != null && this.aJO.getWrappedAdapter() != null && this.aJO.getWrappedAdapter().getCount() <= 0) {
-            com.baidu.adp.lib.g.h.hg().post(new m(this));
+    public void bq(boolean z) {
+        if (z && this.aII != null && this.aII.getWrappedAdapter() != null && this.aII.getWrappedAdapter().getCount() <= 0) {
+            com.baidu.adp.lib.g.h.hh().post(new m(this));
         }
     }
 
-    public void Dd() {
+    public void CW() {
     }
 
     @Override // com.baidu.tbadk.mvc.f.a.a
-    public void De() {
+    public void CX() {
     }
 
-    public void dV(boolean z) {
-        this.cas = z;
+    public void dX(boolean z) {
+        this.caT = z;
     }
 
     public View getView() {

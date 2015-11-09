@@ -25,10 +25,10 @@ public class j extends Handler {
                 concurrentHashMap = this.this$0.xy;
                 for (Map.Entry entry : concurrentHashMap.entrySet()) {
                     com.baidu.adp.lib.stats.base.a aVar = (com.baidu.adp.lib.stats.base.a) entry.getValue();
-                    if (aVar.hR() > 0) {
+                    if (aVar.hS() > 0) {
                         this.this$0.a(aVar, true, true);
                     }
-                    if (aVar.hQ() > 0) {
+                    if (aVar.hR() > 0) {
                         c.c(aVar, true, true, true);
                     }
                 }

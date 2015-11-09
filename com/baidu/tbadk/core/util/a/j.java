@@ -12,39 +12,39 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class j implements a.InterfaceC0004a {
-    private static int acs = 5;
-    private com.baidu.adp.lib.network.http.e acp;
-    private f acu;
+    private static int acy = 5;
+    private com.baidu.adp.lib.network.http.e acv;
+    private f acz;
     private volatile com.baidu.adp.lib.network.http.c ol = null;
-    private HashMap<String, String> acq = null;
-    private com.baidu.adp.lib.network.http.g acr = new com.baidu.adp.lib.network.http.g();
-    public List<Integer> acv = new ArrayList();
-    public boolean acw = false;
-    public boolean Ge = false;
+    private HashMap<String, String> acw = null;
+    private com.baidu.adp.lib.network.http.g acx = new com.baidu.adp.lib.network.http.g();
+    public List<Integer> acA = new ArrayList();
+    public boolean acB = false;
+    public boolean Gf = false;
     public String uR = "";
-    public com.baidu.adp.lib.network.http.d acx = null;
+    public com.baidu.adp.lib.network.http.d acC = null;
     public int dataSize = -1;
     public int responseCode = -1;
-    private boolean acy = false;
-    public boolean acz = false;
+    private boolean acD = false;
+    public boolean acE = false;
 
-    public boolean vf() {
-        return this.acy;
+    public boolean vj() {
+        return this.acD;
     }
 
-    public com.baidu.adp.lib.network.http.g gQ() {
-        return this.acr;
+    public com.baidu.adp.lib.network.http.g gR() {
+        return this.acx;
     }
 
-    public void vg() {
-        this.acx = null;
+    public void vk() {
+        this.acC = null;
         this.uR = "";
-        this.acy = false;
+        this.acD = false;
         this.responseCode = -1;
         this.dataSize = -1;
-        this.Ge = false;
-        this.acw = false;
-        this.acv.clear();
+        this.Gf = false;
+        this.acB = false;
+        this.acA.clear();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [167=6] */
@@ -57,68 +57,68 @@ public class j implements a.InterfaceC0004a {
         int i = 0;
         try {
             try {
-                vg();
-                if (this.acp != null) {
+                vk();
+                if (this.acv != null) {
                     cancel();
                     this.ol = null;
                 }
-                this.acp = new com.baidu.adp.lib.network.http.e();
-                this.acp.gP().setUrl(str);
-                if (this.acq != null) {
-                    for (Map.Entry<String, String> entry : this.acq.entrySet()) {
-                        this.acp.gP().o(entry.getKey(), entry.getValue());
+                this.acv = new com.baidu.adp.lib.network.http.e();
+                this.acv.gQ().setUrl(str);
+                if (this.acw != null) {
+                    for (Map.Entry<String, String> entry : this.acw.entrySet()) {
+                        this.acv.gQ().o(entry.getKey(), entry.getValue());
                     }
                 }
-                this.ol = new com.baidu.adp.lib.network.http.c(this.acp);
-                this.ol.e(acs, 0, 0);
-                this.acr = this.acp.gQ();
-                byte[] bArr = this.acp.gQ().vf;
-                this.responseCode = this.acp.gQ().responseCode;
-                this.acy = this.acp.gQ().gW();
+                this.ol = new com.baidu.adp.lib.network.http.c(this.acv);
+                this.ol.e(acy, 0, 0);
+                this.acx = this.acv.gR();
+                byte[] bArr = this.acv.gR().vf;
+                this.responseCode = this.acv.gR().responseCode;
+                this.acD = this.acv.gR().gX();
                 if (bArr != null) {
                     this.dataSize = bArr.length;
                 } else {
                     this.dataSize = 0;
                 }
-                if (this.acp.gQ().contentEncoding != null && this.acp.gQ().contentEncoding.toLowerCase().contains("gzip")) {
-                    this.acw = true;
+                if (this.acv.gR().contentEncoding != null && this.acv.gR().contentEncoding.toLowerCase().contains("gzip")) {
+                    this.acB = true;
                     bArr = Q(bArr);
                 }
-                if (!this.acy) {
+                if (!this.acD) {
                     a(str, null);
                 }
-                TiebaStatic.netImg(this.acp);
-                while (i < this.acp.gR().size()) {
-                    this.acx = this.acp.gR().get(i);
+                TiebaStatic.netImg(this.acv);
+                while (i < this.acv.gS().size()) {
+                    this.acC = this.acv.gS().get(i);
                     i++;
                 }
-                if (this.acx.uR == null) {
-                    this.acx.uR = "";
+                if (this.acC.uR == null) {
+                    this.acC.uR = "";
                 }
-                this.acx.uR = String.valueOf(dVar3.uR) + "responseCode:" + this.responseCode;
+                this.acC.uR = String.valueOf(dVar3.uR) + "responseCode:" + this.responseCode;
                 return bArr;
             } catch (Exception e) {
                 a(str, e);
-                TiebaStatic.netImg(this.acp);
-                for (int i2 = 0; i2 < this.acp.gR().size(); i2++) {
-                    this.acx = this.acp.gR().get(i2);
+                TiebaStatic.netImg(this.acv);
+                for (int i2 = 0; i2 < this.acv.gS().size(); i2++) {
+                    this.acC = this.acv.gS().get(i2);
                 }
-                if (this.acx.uR == null) {
-                    this.acx.uR = "";
+                if (this.acC.uR == null) {
+                    this.acC.uR = "";
                 }
-                this.acx.uR = String.valueOf(dVar.uR) + "responseCode:" + this.responseCode;
+                this.acC.uR = String.valueOf(dVar.uR) + "responseCode:" + this.responseCode;
                 return null;
             }
         } catch (Throwable th) {
-            TiebaStatic.netImg(this.acp);
-            while (i < this.acp.gR().size()) {
-                this.acx = this.acp.gR().get(i);
+            TiebaStatic.netImg(this.acv);
+            while (i < this.acv.gS().size()) {
+                this.acC = this.acv.gS().get(i);
                 i++;
             }
-            if (this.acx.uR == null) {
-                this.acx.uR = "";
+            if (this.acC.uR == null) {
+                this.acC.uR = "";
             }
-            this.acx.uR = String.valueOf(dVar2.uR) + "responseCode:" + this.responseCode;
+            this.acC.uR = String.valueOf(dVar2.uR) + "responseCode:" + this.responseCode;
             throw th;
         }
     }
@@ -153,31 +153,31 @@ public class j implements a.InterfaceC0004a {
         try {
             if (TbadkCoreApplication.m411getInst().isHttpClientOpen()) {
                 try {
-                    vg();
-                    if (this.acu != null) {
+                    vk();
+                    if (this.acz != null) {
                         cancel();
                     }
-                    this.acp = new com.baidu.adp.lib.network.http.e();
-                    this.acu = new f(this.acp);
-                    this.acp.gP().setUrl(str);
-                    if (this.acq != null) {
-                        for (Map.Entry<String, String> entry : this.acq.entrySet()) {
-                            this.acp.gP().o(entry.getKey(), entry.getValue());
+                    this.acv = new com.baidu.adp.lib.network.http.e();
+                    this.acz = new f(this.acv);
+                    this.acv.gQ().setUrl(str);
+                    if (this.acw != null) {
+                        for (Map.Entry<String, String> entry : this.acw.entrySet()) {
+                            this.acv.gQ().o(entry.getKey(), entry.getValue());
                         }
                     }
-                    this.acu.vd();
-                    this.acr = this.acp.gQ();
-                    bArr = this.acp.gQ().vf;
-                    this.responseCode = this.acp.gQ().responseCode;
-                    this.acy = this.acp.gQ().gW();
+                    this.acz.vh();
+                    this.acx = this.acv.gR();
+                    bArr = this.acv.gR().vf;
+                    this.responseCode = this.acv.gR().responseCode;
+                    this.acD = this.acv.gR().gX();
                     if (bArr != null) {
                         this.dataSize = bArr.length;
                     } else {
                         this.dataSize = 0;
                     }
-                    this.Ge = this.acu.fF();
-                    this.acz = this.acu.ve();
-                    if (!this.acy) {
+                    this.Gf = this.acz.fF();
+                    this.acE = this.acz.vi();
+                    if (!this.acD) {
                         a(str, null);
                     }
                     while (true) {
@@ -187,23 +187,23 @@ public class j implements a.InterfaceC0004a {
                     }
                 } catch (Exception e) {
                     a(str, e);
-                    TiebaStatic.netImg(this.acp);
+                    TiebaStatic.netImg(this.acv);
                     StringBuilder sb = new StringBuilder(20);
-                    int size2 = this.acp.gR().size();
+                    int size2 = this.acv.gS().size();
                     sb.append(";ipsize:");
                     sb.append(size2);
                     sb.append(";ips:");
-                    for (int i2 = 0; i2 < this.acp.gR().size(); i2++) {
-                        this.acx = this.acp.gR().get(i2);
-                        sb.append(this.acx.uU);
+                    for (int i2 = 0; i2 < this.acv.gS().size(); i2++) {
+                        this.acC = this.acv.gS().get(i2);
+                        sb.append(this.acC.uU);
                         sb.append(",");
                     }
-                    if (this.acx.uR == null) {
-                        this.acx.uR = "";
+                    if (this.acC.uR == null) {
+                        this.acC.uR = "";
                     }
-                    this.acx.uR = String.valueOf(dVar4.uR) + sb.toString();
-                    this.acx.uR = String.valueOf(dVar5.uR) + "responseCode:" + this.responseCode;
-                    this.acx.uR = String.valueOf(dVar6.uR) + " size:" + Integer.toString(this.dataSize);
+                    this.acC.uR = String.valueOf(dVar4.uR) + sb.toString();
+                    this.acC.uR = String.valueOf(dVar5.uR) + "responseCode:" + this.responseCode;
+                    this.acC.uR = String.valueOf(dVar6.uR) + " size:" + Integer.toString(this.dataSize);
                     return null;
                 }
             } else {
@@ -212,30 +212,30 @@ public class j implements a.InterfaceC0004a {
                     if (bArr == null) {
                         return null;
                     }
-                    if (this.acp != null && this.acp.gQ().ve != null) {
-                        List<String> list = this.acp.gQ().ve.get("imgsrc");
+                    if (this.acv != null && this.acv.gR().ve != null) {
+                        List<String> list = this.acv.gR().ve.get("imgsrc");
                         if (list != null && list.size() > 0 && (str2 = list.get(0)) != null && str2.length() > 0) {
                             i = 1;
                         }
-                        List<String> list2 = this.acp.gQ().ve.get("Src-Content-Type");
+                        List<String> list2 = this.acv.gR().ve.get("Src-Content-Type");
                         if (list2 != null && list2.size() > 0) {
                             if ("image/gif".equalsIgnoreCase(list2.get(0))) {
-                                this.Ge = true;
+                                this.Gf = true;
                             } else {
-                                this.Ge = false;
+                                this.Gf = false;
                             }
                         }
-                        List<String> list3 = this.acp.gQ().ve.get("Error-Message");
+                        List<String> list3 = this.acv.gR().ve.get("Error-Message");
                         if (list3 != null && list3.size() > 0) {
                             String str3 = list3.get(0);
                             if (TextUtils.isEmpty(str3) || str3.equalsIgnoreCase("OK")) {
-                                this.acz = false;
+                                this.acE = false;
                             } else {
-                                this.acz = true;
+                                this.acE = true;
                             }
                         }
                     }
-                    if (this.acy && ((z || i != 0) && new String(bArr, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;"))) {
+                    if (this.acD && ((z || i != 0) && new String(bArr, 0, 23).equalsIgnoreCase("app:tiebaclient;type:0;"))) {
                         return j(bArr, 23, bArr.length);
                     }
                 } catch (Exception e2) {
@@ -245,24 +245,24 @@ public class j implements a.InterfaceC0004a {
             }
             return bArr;
         } finally {
-            TiebaStatic.netImg(this.acp);
+            TiebaStatic.netImg(this.acv);
             StringBuilder sb2 = new StringBuilder(20);
-            int size3 = this.acp.gR().size();
+            int size3 = this.acv.gS().size();
             sb2.append(";ipsize:");
             sb2.append(size3);
             sb2.append(";ips:");
-            while (i < this.acp.gR().size()) {
-                this.acx = this.acp.gR().get(i);
-                sb2.append(this.acx.uU);
+            while (i < this.acv.gS().size()) {
+                this.acC = this.acv.gS().get(i);
+                sb2.append(this.acC.uU);
                 sb2.append(",");
                 i++;
             }
-            if (this.acx.uR == null) {
-                this.acx.uR = "";
+            if (this.acC.uR == null) {
+                this.acC.uR = "";
             }
-            this.acx.uR = String.valueOf(dVar.uR) + sb2.toString();
-            this.acx.uR = String.valueOf(dVar2.uR) + "responseCode:" + this.responseCode;
-            this.acx.uR = String.valueOf(dVar3.uR) + " size:" + Integer.toString(this.dataSize);
+            this.acC.uR = String.valueOf(dVar.uR) + sb2.toString();
+            this.acC.uR = String.valueOf(dVar2.uR) + "responseCode:" + this.responseCode;
+            this.acC.uR = String.valueOf(dVar3.uR) + " size:" + Integer.toString(this.dataSize);
         }
     }
 
@@ -283,8 +283,8 @@ public class j implements a.InterfaceC0004a {
             stringBuffer.append(str);
             stringBuffer.append("thread_id:");
             stringBuffer.append(Thread.currentThread().getId());
-            for (int i = 0; i < this.acp.gR().size(); i++) {
-                com.baidu.adp.lib.network.http.d dVar = this.acp.gR().get(i);
+            for (int i = 0; i < this.acv.gS().size(); i++) {
+                com.baidu.adp.lib.network.http.d dVar = this.acv.gS().get(i);
                 stringBuffer.append(" index: ");
                 stringBuffer.append(i);
                 stringBuffer.append("exception:");
@@ -305,7 +305,7 @@ public class j implements a.InterfaceC0004a {
                 stringBuffer.append(dVar.uP);
                 stringBuffer.append("executeStatus:");
                 stringBuffer.append(dVar.uT);
-                this.acv.add(Integer.valueOf(dVar.uT));
+                this.acA.add(Integer.valueOf(dVar.uT));
             }
             if (exc != null) {
                 stringBuffer.append("webclient exception");
@@ -319,7 +319,7 @@ public class j implements a.InterfaceC0004a {
             this.uR = stringBuffer.toString();
         } catch (Exception e) {
         } finally {
-            this.acy = false;
+            this.acD = false;
         }
     }
 
@@ -328,16 +328,16 @@ public class j implements a.InterfaceC0004a {
         if (this.ol != null) {
             this.ol.cancel();
         }
-        if (this.acu != null) {
-            this.acu.cancel();
-            this.acu = null;
+        if (this.acz != null) {
+            this.acz.cancel();
+            this.acz = null;
         }
     }
 
-    public boolean vh() {
-        if (this.acu == null) {
+    public boolean vl() {
+        if (this.acz == null) {
             return false;
         }
-        return this.acu.ach;
+        return this.acz.acm;
     }
 }

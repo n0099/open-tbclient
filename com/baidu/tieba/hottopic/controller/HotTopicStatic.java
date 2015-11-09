@@ -14,16 +14,16 @@ public class HotTopicStatic {
     static {
         TbadkCoreApplication.m411getInst().RegisterIntent(HotTopicActivityConfig.class, HotTopicActivity.class);
         TbadkCoreApplication.m411getInst().RegisterIntent(RelateTopicForumActivityConfig.class, RelateTopicForumActivity.class);
-        QM();
-        QN();
+        Ri();
+        Rj();
     }
 
-    private static void QM() {
+    private static void Ri() {
         com.baidu.tieba.tbadkCore.a.a.a(303050, ResponseSocketHotTopicMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
     }
 
-    private static void QN() {
+    private static void Rj() {
         com.baidu.tieba.tbadkCore.a.a.a(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
     }

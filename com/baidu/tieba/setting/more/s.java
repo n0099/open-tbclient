@@ -20,7 +20,7 @@ public class s implements r {
     }
 
     @Override // com.baidu.tieba.setting.more.r
-    public void kz(int i) {
+    public void kN(int i) {
         if (i != 0) {
             if (i != 1) {
                 if (i != 2) {
@@ -34,14 +34,14 @@ public class s implements r {
                                             return;
                                         } else if (i != 9) {
                                             if (i == 10) {
-                                                this.this$0.cNt.asd();
+                                                this.this$0.cOP.asJ();
                                                 return;
                                             } else if (i == 12) {
                                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                                                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
                                                 TbadkCoreApplication.m411getInst().deleteAccountAllInfo(currentAccount);
                                                 TbadkCoreApplication.setCurrentAccount(null, this.this$0.getPageContext().getPageActivity());
-                                                com.baidu.tbadk.coreExtra.a.a.vU().vW();
+                                                com.baidu.tbadk.coreExtra.a.a.vY().wa();
                                                 TbadkCoreApplication.m411getInst().onUserChanged();
                                                 com.baidu.tbadk.core.c.b.b(this.this$0.getPageContext().getPageActivity(), 11, false);
                                                 return;
@@ -53,36 +53,36 @@ public class s implements r {
                                             } else if (i != 13) {
                                                 return;
                                             } else {
-                                                this.this$0.arT();
+                                                this.this$0.asz();
                                                 TiebaStatic.log("c10017");
                                                 return;
                                             }
                                         } else {
-                                            this.this$0.asa();
+                                            this.this$0.asG();
                                             return;
                                         }
                                     }
-                                    this.this$0.arS();
+                                    this.this$0.asy();
                                     return;
                                 }
                                 this.this$0.goToFeedBack();
                                 return;
                             }
-                            this.this$0.arU();
+                            this.this$0.asA();
                             return;
                         }
-                        this.this$0.arZ();
+                        this.this$0.asF();
                         return;
                     }
-                    this.this$0.arV();
+                    this.this$0.asB();
                     return;
                 }
-                this.this$0.arW();
+                this.this$0.asC();
                 return;
             }
-            this.this$0.arX();
+            this.this$0.asD();
             return;
         }
-        this.this$0.arY();
+        this.this$0.asE();
     }
 }

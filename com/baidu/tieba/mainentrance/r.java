@@ -4,15 +4,15 @@ import com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements LinearLayoutDetectsSoftKeyboard.a {
-    final /* synthetic */ SquareSearchActivity bVC;
+    final /* synthetic */ SquareSearchActivity bWd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(SquareSearchActivity squareSearchActivity) {
-        this.bVC = squareSearchActivity;
+        this.bWd = squareSearchActivity;
     }
 
     @Override // com.baidu.tieba.view.LinearLayoutDetectsSoftKeyboard.a
-    public void dN(boolean z) {
-        this.bVC.bVc = z;
+    public void dP(boolean z) {
+        this.bWd.bVD = z;
     }
 }

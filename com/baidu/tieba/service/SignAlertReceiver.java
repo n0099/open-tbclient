@@ -33,7 +33,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                         BdLog.e(th.getMessage());
                     }
                 } finally {
-                    com.baidu.tbadk.coreExtra.messageCenter.c.xe().updateSignAlarm();
+                    com.baidu.tbadk.coreExtra.messageCenter.c.xj().updateSignAlarm();
                 }
             }
         }

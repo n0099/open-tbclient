@@ -7,56 +7,56 @@ import android.content.Intent;
 import com.baidu.tbadk.coreExtra.service.LocationReportService;
 /* loaded from: classes.dex */
 public class a {
-    public static int RT = 0;
-    public static int RU = 1;
-    public static int RV = 2;
-    private AlarmManager RQ;
-    private PendingIntent RR;
-    private long RS;
+    public static int RU = 0;
+    public static int RV = 1;
+    public static int RW = 2;
+    private AlarmManager RR;
+    private PendingIntent RS;
+    private long RT;
     private Context mContext;
 
     public a(Context context) {
         if (context != null) {
             this.mContext = context;
-            this.RR = PendingIntent.getService(this.mContext, 0, new Intent(this.mContext, LocationReportService.class), 0);
-            this.RQ = (AlarmManager) this.mContext.getSystemService("alarm");
+            this.RS = PendingIntent.getService(this.mContext, 0, new Intent(this.mContext, LocationReportService.class), 0);
+            this.RR = (AlarmManager) this.mContext.getSystemService("alarm");
         }
     }
 
     public void a(int i, int i2, long j, long j2) {
-        if (this.RQ != null) {
-            this.RS = j2;
-            if (i == RT) {
-                this.RQ.set(i2, j, this.RR);
-            } else if (i == RU) {
-                this.RQ.setRepeating(i2, j, j2, this.RR);
+        if (this.RR != null) {
+            this.RT = j2;
+            if (i == RU) {
+                this.RR.set(i2, j, this.RS);
             } else if (i == RV) {
-                this.RQ.setInexactRepeating(i2, j, j2, this.RR);
+                this.RR.setRepeating(i2, j, j2, this.RS);
+            } else if (i == RW) {
+                this.RR.setInexactRepeating(i2, j, j2, this.RS);
             } else {
-                this.RQ.set(i2, j, this.RR);
+                this.RR.set(i2, j, this.RS);
             }
         }
     }
 
     public void cancel() {
-        if (this.RQ != null && this.RR != null) {
-            this.RQ.cancel(this.RR);
+        if (this.RR != null && this.RS != null) {
+            this.RR.cancel(this.RS);
         }
     }
 
-    public void qe() {
-        if (this.RQ != null && this.RR != null) {
-            if (this.RS <= 0) {
-                this.RS = 3600000L;
+    public void qf() {
+        if (this.RR != null && this.RS != null) {
+            if (this.RT <= 0) {
+                this.RT = 3600000L;
             }
-            a(RU, 1, System.currentTimeMillis() + this.RS, this.RS);
+            a(RV, 1, System.currentTimeMillis() + this.RT, this.RT);
         }
     }
 
-    public long qf() {
-        if (this.RS <= 0) {
-            this.RS = 3600000L;
+    public long qg() {
+        if (this.RT <= 0) {
+            this.RT = 3600000L;
         }
-        return this.RS;
+        return this.RT;
     }
 }

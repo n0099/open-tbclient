@@ -7,21 +7,21 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.write.view.e;
 /* loaded from: classes.dex */
 class c implements e.b {
-    final /* synthetic */ WriteShareActivity dmy;
+    final /* synthetic */ WriteShareActivity dog;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(WriteShareActivity writeShareActivity) {
-        this.dmy = writeShareActivity;
+        this.dog = writeShareActivity;
     }
 
     @Override // com.baidu.tieba.write.view.e.b
     public void a(com.baidu.tieba.write.view.e eVar) {
         WriteData writeData;
-        WriteShareActivity writeShareActivity = this.dmy;
-        FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.dmy.getPageContext().getPageActivity());
-        writeData = this.dmy.dbx;
+        WriteShareActivity writeShareActivity = this.dog;
+        FrsActivityConfig frsActivityConfig = new FrsActivityConfig(this.dog.getPageContext().getPageActivity());
+        writeData = this.dog.ddI;
         writeShareActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, frsActivityConfig.createBackSpecialCfg(writeData.getForumName(), FrsActivityConfig.FRS_FROM_WRITESHARE, true, false)));
         eVar.dismiss();
-        this.dmy.finish();
+        this.dog.finish();
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.screenlocknotify;
 /* loaded from: classes.dex */
 public class p {
-    public long cIR;
-    public int cKQ;
-    public String cKR;
-    public long cKS;
-    public boolean cKT;
+    public long cKn;
+    public int cMm;
+    public String cMn;
+    public long cMo;
+    public boolean cMp;
     public String content;
     public int customGroupType;
     public String groupId;

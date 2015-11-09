@@ -8,24 +8,24 @@ import com.baidu.tieba.tbadkCore.writeModel.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements a.d {
-    final /* synthetic */ al caZ;
+    final /* synthetic */ al cbA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(al alVar) {
-        this.caZ = alVar;
+        this.cbA = alVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
     public void a(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.l lVar, WriteData writeData, AntiData antiData) {
         SingleMentionActivity singleMentionActivity;
-        com.baidu.tbadk.editortools.c.n nVar;
+        com.baidu.tbadk.editortools.c.p pVar;
         SingleMentionActivity singleMentionActivity2;
-        singleMentionActivity = this.caZ.caL;
+        singleMentionActivity = this.cbA.cbm;
         singleMentionActivity.hideProgressBar();
-        nVar = this.caZ.caU;
-        nVar.Au().hide();
-        if (postWriteCallBackData != null && lVar == null && !AntiHelper.lc(postWriteCallBackData.getErrorCode())) {
-            singleMentionActivity2 = this.caZ.caL;
+        pVar = this.cbA.cbv;
+        pVar.Az().hide();
+        if (postWriteCallBackData != null && lVar == null && !AntiHelper.lr(postWriteCallBackData.getErrorCode())) {
+            singleMentionActivity2 = this.cbA.cbm;
             singleMentionActivity2.showToast(postWriteCallBackData.getErrorString());
         }
     }

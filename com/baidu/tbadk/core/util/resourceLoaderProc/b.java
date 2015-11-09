@@ -3,20 +3,20 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class b extends a {
-    private boolean acB;
-    private boolean acC;
-    private boolean acD;
+    private boolean acG;
+    private boolean acH;
+    private boolean acI;
     private float scale = 0.43f;
     private int width;
 
     public b(boolean z, boolean z2, boolean z3) {
         this.width = 0;
-        this.acB = true;
-        this.acC = false;
-        this.acD = false;
-        this.acB = z;
-        this.acC = z2;
-        this.acD = z3;
+        this.acG = true;
+        this.acH = false;
+        this.acI = false;
+        this.acG = z;
+        this.acH = z2;
+        this.acI = z3;
         this.width = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp());
         if (this.width <= 0 || this.width > 644) {
             this.width = 644;
@@ -38,16 +38,16 @@ public class b extends a {
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
     public boolean isFromCDN() {
-        return this.acB;
+        return this.acG;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vi() {
-        return this.acD;
+    public boolean vm() {
+        return this.acI;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vj() {
-        return this.acC;
+    public boolean vn() {
+        return this.acH;
     }
 }

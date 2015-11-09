@@ -1,27 +1,18 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.plugins.XiaoyingUtil;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class dx implements View.OnClickListener {
-    final /* synthetic */ dw aYP;
-    private final /* synthetic */ MediaData aYQ;
+public class dx extends x.a {
+    TextView aPy;
+    LinearLayout aWh;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public dx(dw dwVar, MediaData mediaData) {
-        this.aYP = dwVar;
-        this.aYQ = mediaData;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        TiebaStatic.log("c10067");
-        context = this.aYP.mContext;
-        XiaoyingUtil.startPlayXiaoyingVideo(context, this.aYQ.getVideoUrl());
+    public dx(View view) {
+        super(view);
+        this.aWh = (LinearLayout) view.findViewById(i.f.frs_top_item);
+        this.aPy = (TextView) view.findViewById(i.f.frs_top_title);
     }
 }

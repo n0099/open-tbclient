@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public abstract class bn<T, V extends x.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected int aSR;
-    protected int aSS;
-    protected ListView aSV;
-    protected BaseActivity<?> aSe;
-    protected int aTQ;
-    protected com.baidu.tieba.tbadkCore.o aTW;
-    protected bd aWg;
+    protected int aSZ;
+    protected BaseActivity<?> aSm;
+    protected int aTY;
+    protected int aTa;
+    protected ListView aTd;
+    protected com.baidu.tieba.tbadkCore.o aUe;
+    protected bd aWo;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
@@ -31,25 +31,25 @@ public abstract class bn<T, V extends x.a> extends com.baidu.adp.widget.ListView
     public void d(BaseActivity<?> baseActivity) {
         if (baseActivity != null) {
             this.mContext = baseActivity.getActivity();
-            this.aSe = baseActivity;
-            this.aSR = this.mContext.getResources().getDimensionPixelSize(i.d.ds8);
-            this.aSS = this.mContext.getResources().getDimensionPixelSize(i.d.ds16);
+            this.aSm = baseActivity;
+            this.aSZ = this.mContext.getResources().getDimensionPixelSize(i.d.ds8);
+            this.aTa = this.mContext.getResources().getDimensionPixelSize(i.d.ds16);
         }
     }
 
     public void release() {
         this.mContext = null;
-        this.aSe = null;
-        this.aWg = null;
-        this.GI = null;
+        this.aSm = null;
+        this.aWo = null;
         this.GJ = null;
+        this.GK = null;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
-        this.aSV = (ListView) viewGroup;
+        this.aTd = (ListView) viewGroup;
         return null;
     }
 
@@ -58,14 +58,14 @@ public abstract class bn<T, V extends x.a> extends com.baidu.adp.widget.ListView
     }
 
     public void a(com.baidu.tieba.tbadkCore.o oVar) {
-        this.aTW = oVar;
+        this.aUe = oVar;
     }
 
     public void a(bd bdVar) {
-        this.aWg = bdVar;
+        this.aWo = bdVar;
     }
 
-    public void fu(int i) {
-        this.aTQ = i;
+    public void fC(int i) {
+        this.aTY = i;
     }
 }

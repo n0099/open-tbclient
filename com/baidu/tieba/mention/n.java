@@ -24,14 +24,14 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class n extends com.baidu.adp.base.f<SingleMentionActivity> implements ViewPager.OnPageChangeListener {
-    protected NavigationBar aHt;
-    private final CustomMessageListener aUC;
-    private SingleMentionActivity caj;
-    private int cau;
-    private FragmentTabWidget cav;
-    private ViewPager caw;
-    private s cax;
-    private int cay;
+    protected NavigationBar aGn;
+    private final CustomMessageListener aUK;
+    private SingleMentionActivity caK;
+    private int caV;
+    private FragmentTabWidget caW;
+    private ViewPager caX;
+    private s caY;
+    private int caZ;
     private View mBack;
     private NoNetworkView mNoNetworkView;
     private View rootView;
@@ -39,19 +39,19 @@ public class n extends com.baidu.adp.base.f<SingleMentionActivity> implements Vi
     public n(SingleMentionActivity singleMentionActivity) {
         super(singleMentionActivity.getPageContext());
         this.mBack = null;
-        this.cau = 16;
-        this.cay = -1;
-        this.aUC = new o(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
-        this.caj = singleMentionActivity;
+        this.caV = 16;
+        this.caZ = -1;
+        this.aUK = new o(this, CmdConfigCustom.CMD_MESSAGE_NOTIFY_LOCAL);
+        this.caK = singleMentionActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void h(Bundle bundle) {
         if (MentionActivityConfig.jumpInTab != -1) {
-            this.cau = MentionActivityConfig.jumpInTab;
+            this.caV = MentionActivityConfig.jumpInTab;
             MentionActivityConfig.jumpInTab = -1;
         } else if (bundle != null) {
-            this.cau = bundle.getInt(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.cau);
+            this.caV = bundle.getInt(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.caV);
         }
     }
 
@@ -59,68 +59,68 @@ public class n extends com.baidu.adp.base.f<SingleMentionActivity> implements Vi
     public void onNewIntent(Intent intent) {
         int i;
         if (intent != null) {
-            this.cau = intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.cau);
-            if (this.cau == 24) {
+            this.caV = intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, this.caV);
+            if (this.caV == 24) {
                 i = 1;
             } else {
-                i = this.cau == 25 ? 2 : 1;
+                i = this.caV == 25 ? 2 : 1;
             }
             if (getCurrentTabType() == i) {
-                iq(i);
+                iD(i);
                 if (i == 1) {
-                    this.caj.ada().dV(true);
-                    this.caj.ada().onPrimary();
+                    this.caK.adv().dX(true);
+                    this.caK.adv().onPrimary();
                     return;
                 }
-                this.caj.adb().dV(true);
-                this.caj.adb().onPrimary();
+                this.caK.adw().dX(true);
+                this.caK.adw().onPrimary();
                 return;
             }
-            iq(i);
+            iD(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void acM() {
+    public void adh() {
         int i = 1;
         if (getView() != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.MSG_READ, 0));
             if (MentionActivityConfig.newJumpIn) {
                 MentionActivityConfig.newJumpIn = false;
-                if (this.cau != 24) {
-                    if (this.cau == 25) {
+                if (this.caV != 24) {
+                    if (this.caV == 25) {
                         i = 2;
-                    } else if (com.baidu.tbadk.coreExtra.messageCenter.a.wH().getMsgReplyme() <= 0 && com.baidu.tbadk.coreExtra.messageCenter.a.wH().getMsgAtme() > 0) {
+                    } else if (com.baidu.tbadk.coreExtra.messageCenter.a.wM().getMsgReplyme() <= 0 && com.baidu.tbadk.coreExtra.messageCenter.a.wM().getMsgAtme() > 0) {
                         i = 2;
                     }
                 }
-                iq(i);
+                iD(i);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View oZ() {
-        this.rootView = this.caj.getLayoutInflater().inflate(i.g.mention_activity, (ViewGroup) null);
+    public View pa() {
+        this.rootView = this.caK.getLayoutInflater().inflate(i.g.mention_activity, (ViewGroup) null);
         return this.rootView;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void oQ() {
-        this.aHt = (NavigationBar) getView().findViewById(i.f.view_navigation_bar);
-        this.aHt.setTitleText(i.h.my_mention);
-        this.mBack = this.aHt.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+    public void oR() {
+        this.aGn = (NavigationBar) getView().findViewById(i.f.view_navigation_bar);
+        this.aGn.setTitleText(i.h.my_mention);
+        this.mBack = this.aGn.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mBack.setOnClickListener(new p(this));
-        this.caj.ada().a(this.aHt);
+        this.caK.adv().a(this.aGn);
         this.mNoNetworkView = (NoNetworkView) getView().findViewById(i.f.view_no_network);
         this.mNoNetworkView.onChangeSkinType(getPageContext(), TbadkCoreApplication.m411getInst().getSkinType());
         this.mNoNetworkView.a(new q(this));
-        acQ();
-        getPageContext().registerListener(this.aUC);
+        adl();
+        getPageContext().registerListener(this.aUK);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void acN() {
+    public void adi() {
     }
 
     public boolean a(TbPageContext<?> tbPageContext, int i) {
@@ -128,55 +128,55 @@ public class n extends com.baidu.adp.base.f<SingleMentionActivity> implements Vi
         if (i == 1) {
             getView().setBackgroundColor(-14538444);
         } else {
-            getView().setBackgroundColor(this.caj.getResources().getColor(i.c.backgroundcolor));
+            getView().setBackgroundColor(this.caK.getResources().getColor(i.c.backgroundcolor));
         }
-        if (this.aHt != null) {
-            this.aHt.onChangeSkinType(tbPageContext, i);
+        if (this.aGn != null) {
+            this.aGn.onChangeSkinType(tbPageContext, i);
         }
         if (this.mNoNetworkView != null) {
             this.mNoNetworkView.onChangeSkinType(getPageContext(), i);
         }
-        acP().onChangeSkinType(i);
+        adk().onChangeSkinType(i);
         return true;
     }
 
-    public void iq(int i) {
+    public void iD(int i) {
         int i2 = 0;
         while (true) {
             if (i2 >= 2) {
                 i2 = -1;
                 break;
             }
-            com.baidu.tbadk.mvc.f.a.a iu = iu(i2);
-            if (iu != null && (iu instanceof com.baidu.tbadk.mvc.f.a.a) && iu.Dc().Di() == i) {
+            com.baidu.tbadk.mvc.f.a.a iH = iH(i2);
+            if (iH != null && (iH instanceof com.baidu.tbadk.mvc.f.a.a) && iH.CV().Db() == i) {
                 break;
             }
             i2++;
         }
         if (i2 != -1) {
             if (getView() != null) {
-                this.caw.setCurrentItem(i2);
-                this.cav.d(i2, true);
+                this.caX.setCurrentItem(i2);
+                this.caW.d(i2, true);
             } else {
-                this.cay = i2;
+                this.caZ = i2;
             }
         }
-        acO();
+        adj();
     }
 
-    private void acO() {
+    private void adj() {
         String str = null;
         if (getCurrentTabType() == 0) {
             str = "msg_chat_tab_click";
         } else if (getCurrentTabType() == 1) {
             str = "msg_reply_tab_click";
-            com.baidu.tbadk.coreExtra.messageCenter.a.wH().wW();
+            com.baidu.tbadk.coreExtra.messageCenter.a.wM().xb();
         } else if (getCurrentTabType() == 2) {
             str = "msg_atme_tab_click";
-            com.baidu.tbadk.coreExtra.messageCenter.a.wH().wX();
+            com.baidu.tbadk.coreExtra.messageCenter.a.wM().xc();
         }
         if (str != null) {
-            TiebaStatic.eventStat(this.caj.getActivity(), str, "click", 1, new Object[0]);
+            TiebaStatic.eventStat(this.caK.getActivity(), str, "click", 1, new Object[0]);
         }
         o(getCurrentTabType(), true);
     }
@@ -204,12 +204,12 @@ public class n extends com.baidu.adp.base.f<SingleMentionActivity> implements Vi
                     kVar = null;
                     break;
                 }
-                com.baidu.tbadk.mvc.f.a.a iu = iu(i2);
-                if (iu instanceof k) {
-                    com.baidu.tbadk.mvc.f.a.b Dc = iu.Dc();
-                    if (Dc.Di() == i) {
-                        kVar = (k) iu;
-                        textView = (TextView) Dc.Dg().view;
+                com.baidu.tbadk.mvc.f.a.a iH = iH(i2);
+                if (iH instanceof k) {
+                    com.baidu.tbadk.mvc.f.a.b CV = iH.CV();
+                    if (CV.Db() == i) {
+                        kVar = (k) iH;
+                        textView = (TextView) CV.CZ().view;
                         break;
                     }
                 }
@@ -217,13 +217,13 @@ public class n extends com.baidu.adp.base.f<SingleMentionActivity> implements Vi
             }
             if (textView != null) {
                 int i3 = iArr[i];
-                if (!ir(i)) {
+                if (!iE(i)) {
                     textView.setVisibility(8);
                 } else {
                     if (i3 > 0) {
-                        kVar.dV(true);
+                        kVar.dX(true);
                     } else {
-                        kVar.dV(false);
+                        kVar.dX(false);
                     }
                     m(textView, i3);
                 }
@@ -256,20 +256,20 @@ public class n extends com.baidu.adp.base.f<SingleMentionActivity> implements Vi
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean ir(int i) {
+    private boolean iE(int i) {
         switch (i) {
             case 0:
-                return com.baidu.tbadk.coreExtra.messageCenter.c.xe().xm() || com.baidu.tbadk.coreExtra.messageCenter.c.xe().xt();
+                return com.baidu.tbadk.coreExtra.messageCenter.c.xj().xr() || com.baidu.tbadk.coreExtra.messageCenter.c.xj().xy();
             case 1:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xl()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.xj().xq()) {
                     return false;
                 }
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xj()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.xj().xo()) {
                     return false;
                 }
                 return true;
             case 2:
-                if (!com.baidu.tbadk.coreExtra.messageCenter.c.xe().xj()) {
+                if (!com.baidu.tbadk.coreExtra.messageCenter.c.xj().xo()) {
                 }
                 return true;
             default:
@@ -278,13 +278,13 @@ public class n extends com.baidu.adp.base.f<SingleMentionActivity> implements Vi
     }
 
     public void o(int i, boolean z) {
-        int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.wH().getMsgReplyme();
-        int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.wH().getMsgAtme();
-        int xa = com.baidu.tbadk.coreExtra.messageCenter.a.wH().xa();
-        int msgFans = com.baidu.tbadk.coreExtra.messageCenter.a.wH().getMsgFans();
-        int msgGiftNum = com.baidu.tbadk.coreExtra.messageCenter.a.wH().getMsgGiftNum();
+        int msgReplyme = com.baidu.tbadk.coreExtra.messageCenter.a.wM().getMsgReplyme();
+        int msgAtme = com.baidu.tbadk.coreExtra.messageCenter.a.wM().getMsgAtme();
+        int xf = com.baidu.tbadk.coreExtra.messageCenter.a.wM().xf();
+        int msgFans = com.baidu.tbadk.coreExtra.messageCenter.a.wM().getMsgFans();
+        int msgGiftNum = com.baidu.tbadk.coreExtra.messageCenter.a.wM().getMsgGiftNum();
         int[] iArr = new int[5];
-        iArr[0] = xa;
+        iArr[0] = xf;
         iArr[1] = msgReplyme;
         iArr[2] = msgAtme;
         iArr[3] = msgFans;
@@ -294,7 +294,7 @@ public class n extends com.baidu.adp.base.f<SingleMentionActivity> implements Vi
         }
         f(iArr);
         if (i != 0 && z) {
-            com.baidu.tbadk.coreExtra.messageCenter.a.wH().a(iArr[1], iArr[2], iArr[0], iArr[3], iArr[4]);
+            com.baidu.tbadk.coreExtra.messageCenter.a.wM().a(iArr[1], iArr[2], iArr[0], iArr[3], iArr[4]);
         }
     }
 
@@ -303,85 +303,85 @@ public class n extends com.baidu.adp.base.f<SingleMentionActivity> implements Vi
     }
 
     protected ViewPager getViewPager() {
-        if (this.caw != null) {
-            return this.caw;
+        if (this.caX != null) {
+            return this.caX;
         }
         if (getView() != null) {
-            this.caw = (ViewPager) getView().findViewById(i.f.fragment_pager);
-            return this.caw;
+            this.caX = (ViewPager) getView().findViewById(i.f.fragment_pager);
+            return this.caX;
         }
         return null;
     }
 
-    protected FragmentTabWidget acP() {
-        if (this.cav != null) {
-            return this.cav;
+    protected FragmentTabWidget adk() {
+        if (this.caW != null) {
+            return this.caW;
         }
         if (getView() != null) {
-            this.cav = (FragmentTabWidget) getView().findViewById(i.f.tab_widget);
-            return this.cav;
+            this.caW = (FragmentTabWidget) getView().findViewById(i.f.tab_widget);
+            return this.caW;
         }
         return null;
     }
 
-    protected void acQ() {
+    protected void adl() {
         initViewPager();
-        Oh();
-        this.cax.notifyDataSetChanged();
-        if (this.cay == -1) {
-            this.cay = 0;
+        OD();
+        this.caY.notifyDataSetChanged();
+        if (this.caZ == -1) {
+            this.caZ = 0;
         }
-        this.cav.d(this.cay, true);
-        this.caw.setCurrentItem(this.cay);
-        it(this.cay);
+        this.caW.d(this.caZ, true);
+        this.caX.setCurrentItem(this.caZ);
+        iG(this.caZ);
     }
 
     private void initViewPager() {
-        this.caw = getViewPager();
-        this.cax = new s(this.caj);
-        this.caw.setAdapter(this.cax);
-        this.caw.setOnPageChangeListener(this);
+        this.caX = getViewPager();
+        this.caY = new s(this.caK);
+        this.caX.setAdapter(this.caY);
+        this.caX.setOnPageChangeListener(this);
     }
 
-    private void Oh() {
-        this.cav = acP();
+    private void OD() {
+        this.caW = adk();
         for (int i = 0; i < 2; i++) {
-            is(i);
+            iF(i);
         }
-        this.cav.setTabSelectionListener(new r(this));
+        this.caW.setTabSelectionListener(new r(this));
     }
 
     protected void a(int i, FragmentTabIndicator fragmentTabIndicator) {
-        com.baidu.tbadk.mvc.f.a.a iu = iu(i);
-        if (iu instanceof com.baidu.tbadk.mvc.f.a.a) {
-            com.baidu.tbadk.mvc.f.a.b Dc = iu.Dc();
-            fragmentTabIndicator.setText(Dc.getTitle());
-            FragmentTabIndicator.a Dg = Dc.Dg();
-            if (Dg != null) {
-                if (fragmentTabIndicator.fw(Dc.Dh()) == null) {
-                    Dg.cP(TbadkCoreApplication.m411getInst().getSkinType());
-                    fragmentTabIndicator.a(Dc.Dh(), Dg);
+        com.baidu.tbadk.mvc.f.a.a iH = iH(i);
+        if (iH instanceof com.baidu.tbadk.mvc.f.a.a) {
+            com.baidu.tbadk.mvc.f.a.b CV = iH.CV();
+            fragmentTabIndicator.setText(CV.getTitle());
+            FragmentTabIndicator.a CZ = CV.CZ();
+            if (CZ != null) {
+                if (fragmentTabIndicator.fy(CV.Da()) == null) {
+                    CZ.cP(TbadkCoreApplication.m411getInst().getSkinType());
+                    fragmentTabIndicator.a(CV.Da(), CZ);
                 }
-                Dg.auY = fragmentTabIndicator;
-                if (Dc.Df() > 0) {
-                    if (Dg.view instanceof TextView) {
-                        ((TextView) Dg.view).setText(new StringBuilder(String.valueOf(Dc.Df())).toString());
+                CZ.atM = fragmentTabIndicator;
+                if (CV.CY() > 0) {
+                    if (CZ.view instanceof TextView) {
+                        ((TextView) CZ.view).setText(new StringBuilder(String.valueOf(CV.CY())).toString());
                     }
-                    Dg.view.setVisibility(0);
+                    CZ.view.setVisibility(0);
                     return;
                 }
-                Dg.view.setVisibility(8);
+                CZ.view.setVisibility(8);
             }
         }
     }
 
-    private void is(int i) {
+    private void iF(int i) {
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getPageActivity());
-        fragmentTabIndicator.auO = i.c.s_actionbar_text_color;
-        fragmentTabIndicator.setTextSize(0, this.caj.getResources().getDimension(i.d.ds32));
+        fragmentTabIndicator.atC = i.c.s_actionbar_text_color;
+        fragmentTabIndicator.setTextSize(0, this.caK.getResources().getDimension(i.d.ds32));
         fragmentTabIndicator.setGravity(17);
         a(i, fragmentTabIndicator);
-        this.cav.addView(fragmentTabIndicator);
+        this.caW.addView(fragmentTabIndicator);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -390,42 +390,42 @@ public class n extends com.baidu.adp.base.f<SingleMentionActivity> implements Vi
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrolled(int i, float f, int i2) {
-        acP().b(i, f);
+        adk().b(i, f);
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        it(i);
-        acO();
+        iG(i);
+        adj();
     }
 
-    private void it(int i) {
-        com.baidu.tbadk.mvc.f.a.a iu = iu(this.cay);
-        if (iu != null) {
-            iu.Dd();
+    private void iG(int i) {
+        com.baidu.tbadk.mvc.f.a.a iH = iH(this.caZ);
+        if (iH != null) {
+            iH.CW();
         }
-        acP().d(i, true);
-        this.cay = i;
-        com.baidu.tbadk.mvc.f.a.a iu2 = iu(this.cay);
-        if (iu2 instanceof com.baidu.tbadk.mvc.f.a.a) {
-            iu2.onPrimary();
-            iu2.De();
+        adk().d(i, true);
+        this.caZ = i;
+        com.baidu.tbadk.mvc.f.a.a iH2 = iH(this.caZ);
+        if (iH2 instanceof com.baidu.tbadk.mvc.f.a.a) {
+            iH2.onPrimary();
+            iH2.CX();
         }
     }
 
     public int getCurrentTabIndex() {
-        return this.cay;
+        return this.caZ;
     }
 
     public int getCurrentTabType() {
-        com.baidu.tbadk.mvc.f.a.a iu = iu(this.cay);
-        if (iu != null) {
-            return iu.Dc().Di();
+        com.baidu.tbadk.mvc.f.a.a iH = iH(this.caZ);
+        if (iH != null) {
+            return iH.CV().Db();
         }
         return -1;
     }
 
-    public com.baidu.tbadk.mvc.f.a.a iu(int i) {
-        return i == 0 ? this.caj.ada() : this.caj.adb();
+    public com.baidu.tbadk.mvc.f.a.a iH(int i) {
+        return i == 0 ? this.caK.adv() : this.caK.adw();
     }
 }

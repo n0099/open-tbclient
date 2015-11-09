@@ -22,26 +22,26 @@ import tbclient.GetGiftMyList.DataRes;
 import tbclient.GetGiftMyList.GiftList;
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.base.f<MyGiftListActivity> {
-    View.OnClickListener adY;
-    private NavigationBar bdY;
-    AdapterView.OnItemClickListener bfK;
-    private a bnA;
-    private MyGiftListActivity bnb;
-    private NoNetworkView bnl;
-    private BdListView bnm;
-    private View bnn;
-    private View bno;
-    private View bnp;
-    private BdListView.e bnq;
-    private TextView bnr;
-    private TextView bns;
-    private TextView bnt;
-    private String bnu;
-    private String bnv;
-    private j bnw;
-    private RelativeLayout bnx;
-    private TextView bny;
-    private View bnz;
+    View.OnClickListener aed;
+    private NavigationBar beE;
+    AdapterView.OnItemClickListener bgp;
+    private MyGiftListActivity bnF;
+    private NoNetworkView bnP;
+    private BdListView bnQ;
+    private View bnR;
+    private View bnS;
+    private View bnT;
+    private BdListView.e bnU;
+    private TextView bnV;
+    private TextView bnW;
+    private TextView bnX;
+    private String bnY;
+    private String bnZ;
+    private j boa;
+    private RelativeLayout bob;
+    private TextView boc;
+    private View bod;
+    private a boe;
     private View mFooterView;
     private boolean mIsHost;
     private List<GiftList> mList;
@@ -50,115 +50,115 @@ public class m extends com.baidu.adp.base.f<MyGiftListActivity> {
     public m(MyGiftListActivity myGiftListActivity, BdListView.e eVar, boolean z) {
         super(myGiftListActivity.getPageContext());
         this.mPullView = null;
-        this.bfK = new n(this);
-        this.adY = new o(this);
-        this.bnb = myGiftListActivity;
+        this.bgp = new n(this);
+        this.aed = new o(this);
+        this.bnF = myGiftListActivity;
         this.mIsHost = z;
         this.mList = new ArrayList();
-        this.bnq = eVar;
+        this.bnU = eVar;
         initView();
-        Qv();
+        QR();
         if (this.mIsHost || !TbadkApplication.getInst().isGiftSwitchOn()) {
-            this.bnx.setVisibility(8);
+            this.bob.setVisibility(8);
         } else {
-            this.bnx.setVisibility(0);
+            this.bob.setVisibility(0);
         }
-        this.bnA = new a(this.bnb.getPageContext().getPageActivity());
+        this.boe = new a(this.bnF.getPageContext().getPageActivity());
     }
 
     private void initView() {
-        this.bnb.setContentView(i.g.my_gift_list_activity);
-        this.bnu = null;
-        this.bnn = this.bnb.findViewById(i.f.root);
-        this.bnm = (BdListView) this.bnn.findViewById(i.f.list_view);
-        this.bdY = (NavigationBar) this.bnn.findViewById(i.f.navigation_bar);
-        String format = String.format(this.bnb.getPageContext().getString(i.h.he_gift_title), this.bnb.Qt());
+        this.bnF.setContentView(i.g.my_gift_list_activity);
+        this.bnY = null;
+        this.bnR = this.bnF.findViewById(i.f.root);
+        this.bnQ = (BdListView) this.bnR.findViewById(i.f.list_view);
+        this.beE = (NavigationBar) this.bnR.findViewById(i.f.navigation_bar);
+        String format = String.format(this.bnF.getPageContext().getString(i.h.he_gift_title), this.bnF.QP());
         if (this.mIsHost) {
-            this.bdY.setTitleText(i.h.my_gift_list);
+            this.beE.setTitleText(i.h.my_gift_list);
         } else {
-            this.bdY.setTitleText(format);
+            this.beE.setTitleText(format);
         }
-        this.bdY.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bnl = (NoNetworkView) this.bnn.findViewById(i.f.no_networkview);
-        this.bno = LayoutInflater.from(this.bnb.getPageContext().getPageActivity()).inflate(i.g.my_gift_list_head, (ViewGroup) null, false);
-        this.bno.setVisibility(8);
-        this.bnr = (TextView) this.bno.findViewById(i.f.gift_total);
-        this.bns = (TextView) this.bno.findViewById(i.f.dou_num);
-        this.bnt = (TextView) this.bno.findViewById(i.f.t_use);
-        this.bnt.setOnClickListener(this.adY);
-        this.mFooterView = LayoutInflater.from(this.bnb.getPageContext().getPageActivity()).inflate(i.g.my_gift_list_footer, (ViewGroup) null, false);
-        this.bnp = this.mFooterView.findViewById(i.f.gift_footer_lay);
+        this.beE.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bnP = (NoNetworkView) this.bnR.findViewById(i.f.no_networkview);
+        this.bnS = LayoutInflater.from(this.bnF.getPageContext().getPageActivity()).inflate(i.g.my_gift_list_head, (ViewGroup) null, false);
+        this.bnS.setVisibility(8);
+        this.bnV = (TextView) this.bnS.findViewById(i.f.gift_total);
+        this.bnW = (TextView) this.bnS.findViewById(i.f.dou_num);
+        this.bnX = (TextView) this.bnS.findViewById(i.f.t_use);
+        this.bnX.setOnClickListener(this.aed);
+        this.mFooterView = LayoutInflater.from(this.bnF.getPageContext().getPageActivity()).inflate(i.g.my_gift_list_footer, (ViewGroup) null, false);
+        this.bnT = this.mFooterView.findViewById(i.f.gift_footer_lay);
         if (this.mIsHost) {
-            this.bnm.addHeaderView(this.bno);
+            this.bnQ.addHeaderView(this.bnS);
         } else if (TbadkApplication.getInst().isGiftSwitchOn()) {
-            this.mFooterView.setPadding(0, 0, 0, com.baidu.adp.lib.util.k.d(this.bnb.getPageContext().getPageActivity(), i.d.ds156));
+            this.mFooterView.setPadding(0, 0, 0, com.baidu.adp.lib.util.k.d(this.bnF.getPageContext().getPageActivity(), i.d.ds156));
         }
-        this.bnm.addFooterView(this.mFooterView);
-        this.bnw = new j(this.bnb, this.mIsHost);
-        this.bnm.setAdapter((ListAdapter) this.bnw);
-        this.mPullView = new r(this.bnb.getPageContext());
-        this.bnm.setPullRefresh(this.mPullView);
-        this.bnm.setOnSrollToBottomListener(this.bnq);
-        this.bnm.setOnItemClickListener(this.bfK);
+        this.bnQ.addFooterView(this.mFooterView);
+        this.boa = new j(this.bnF, this.mIsHost);
+        this.bnQ.setAdapter((ListAdapter) this.boa);
+        this.mPullView = new r(this.bnF.getPageContext());
+        this.bnQ.setPullRefresh(this.mPullView);
+        this.bnQ.setOnSrollToBottomListener(this.bnU);
+        this.bnQ.setOnItemClickListener(this.bgp);
     }
 
-    private void Qv() {
-        this.bnx = (RelativeLayout) this.bnb.findViewById(i.f.gift_relation_ll);
-        this.bny = (TextView) this.bnb.findViewById(i.f.gift_relation_text);
-        this.bny.setOnClickListener(this.bnb.Qr());
-        this.bnz = this.bnb.findViewById(i.f.his_gift_line);
+    private void QR() {
+        this.bob = (RelativeLayout) this.bnF.findViewById(i.f.gift_relation_ll);
+        this.boc = (TextView) this.bnF.findViewById(i.f.gift_relation_text);
+        this.boc.setOnClickListener(this.bnF.QN());
+        this.bod = this.bnF.findViewById(i.f.his_gift_line);
         if (!this.mIsHost && TbadkApplication.getInst().isGiftSwitchOn()) {
-            this.bnm.setOnScrollListener(new p(this));
+            this.bnQ.setOnScrollListener(new p(this));
         }
     }
 
     public View getFooterView() {
-        return this.bnp;
+        return this.bnT;
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0100: IGET  (r2v0 java.lang.Integer A[REMOVE]) = (r6v0 tbclient.GetGiftMyList.DataRes) tbclient.GetGiftMyList.DataRes.total_num java.lang.Integer)] */
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Integer : 0x0115: IGET  (r2v1 java.lang.Integer A[REMOVE]) = (r6v0 tbclient.GetGiftMyList.DataRes) tbclient.GetGiftMyList.DataRes.money java.lang.Integer)] */
     public void a(DataRes dataRes, boolean z) {
-        this.bno.setVisibility(0);
+        this.bnS.setVisibility(0);
         if (dataRes == null || dataRes.gift_list == null || dataRes.gift_list.size() == 0) {
             if (this.mList.size() == 0) {
-                this.bnr.setText("0");
-                this.bns.setText("0");
-                this.bnw.setData(null);
+                this.bnV.setText("0");
+                this.bnW.setText("0");
+                this.boa.setData(null);
                 this.mFooterView.setVisibility(8);
-                this.bnx.setVisibility(8);
+                this.bob.setVisibility(8);
                 return;
             }
             return;
         }
         if (this.mIsHost || !TbadkApplication.getInst().isGiftSwitchOn()) {
-            this.bnx.setVisibility(8);
+            this.bob.setVisibility(8);
         } else {
-            this.bnx.setVisibility(0);
+            this.bob.setVisibility(0);
         }
         if (dataRes.money_txt != null) {
             String str = "";
             if (!as.isEmpty(dataRes.money_txt.txt)) {
                 str = String.valueOf(dataRes.money_txt.txt) + ">";
             }
-            this.bnt.setText(str);
-            this.bnu = dataRes.money_txt.url;
-            this.bnv = dataRes.money_txt.txt;
-            if (TextUtils.isEmpty(dataRes.money_txt.txt) || TextUtils.isEmpty(this.bnu)) {
-                this.bnt.setVisibility(8);
+            this.bnX.setText(str);
+            this.bnY = dataRes.money_txt.url;
+            this.bnZ = dataRes.money_txt.txt;
+            if (TextUtils.isEmpty(dataRes.money_txt.txt) || TextUtils.isEmpty(this.bnY)) {
+                this.bnX.setVisibility(8);
             }
         } else {
-            this.bnt.setVisibility(8);
+            this.bnX.setVisibility(8);
         }
         if (dataRes.total_num.intValue() < 0) {
-            this.bnr.setText("0");
+            this.bnV.setText("0");
         } else {
-            this.bnr.setText(new StringBuilder().append(dataRes.total_num).toString());
+            this.bnV.setText(new StringBuilder().append(dataRes.total_num).toString());
         }
         if (dataRes.money.intValue() < 0) {
-            this.bnr.setText("0");
+            this.bnV.setText("0");
         } else {
-            this.bns.setText(new StringBuilder().append(dataRes.money).toString());
+            this.bnW.setText(new StringBuilder().append(dataRes.money).toString());
         }
         if (dataRes.page != null) {
             if (dataRes.page.has_more.intValue() == 1) {
@@ -175,24 +175,24 @@ public class m extends com.baidu.adp.base.f<MyGiftListActivity> {
                 this.mList.addAll(dataRes.gift_list);
             }
         }
-        this.bnw.setData(this.mList);
+        this.boa.setData(this.mList);
     }
 
     public void onChangeSkinType(int i) {
-        this.bnb.getLayoutMode().ad(i == 1);
-        this.bnb.getLayoutMode().k(this.bnn);
-        this.bnb.getLayoutMode().k(this.bno);
-        this.bnb.getLayoutMode().k(this.mFooterView);
-        this.bdY.onChangeSkinType(getPageContext(), i);
-        this.bnl.onChangeSkinType(this.bnb.getPageContext(), i);
+        this.bnF.getLayoutMode().ad(i == 1);
+        this.bnF.getLayoutMode().k(this.bnR);
+        this.bnF.getLayoutMode().k(this.bnS);
+        this.bnF.getLayoutMode().k(this.mFooterView);
+        this.beE.onChangeSkinType(getPageContext(), i);
+        this.bnP.onChangeSkinType(this.bnF.getPageContext(), i);
         this.mPullView.cN(i);
-        if (this.bnw != null) {
-            this.bnw.notifyDataSetChanged();
+        if (this.boa != null) {
+            this.boa.notifyDataSetChanged();
         }
     }
 
-    public void Qw() {
-        this.bnm.completePullRefresh();
+    public void QS() {
+        this.bnQ.completePullRefresh();
     }
 
     public void b(p.a aVar) {
@@ -200,11 +200,11 @@ public class m extends com.baidu.adp.base.f<MyGiftListActivity> {
     }
 
     public void h(NoNetworkView.a aVar) {
-        this.bnl.a(aVar);
+        this.bnP.a(aVar);
     }
 
-    public void nw() {
-        this.bnm.setVisibility(0);
-        this.bnm.nw();
+    public void nx() {
+        this.bnQ.setVisibility(0);
+        this.bnQ.nx();
     }
 }

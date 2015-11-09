@@ -1,29 +1,23 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.tbadkCore.location.d;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class bk implements a.b {
-    final /* synthetic */ WriteActivity dqi;
+class bk extends CustomMessageListener {
+    final /* synthetic */ WriteActivity dsa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bk(WriteActivity writeActivity) {
-        this.dqi = writeActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bk(WriteActivity writeActivity, int i) {
+        super(i);
+        this.dsa = writeActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        d.a aVar2;
-        com.baidu.tieba.tbadkCore.location.d dVar;
-        if (!com.baidu.adp.lib.util.i.iM()) {
-            aVar2 = this.dqi.asi;
-            aVar2.BC();
-        } else {
-            this.dqi.a(1, true, (String) null);
-            dVar = this.dqi.arV;
-            dVar.axq();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001310) {
+            this.dsa.axZ();
         }
-        aVar.dismiss();
     }
 }

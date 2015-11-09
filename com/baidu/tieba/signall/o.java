@@ -8,35 +8,35 @@ import java.util.HashMap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ n cQA;
-    private final /* synthetic */ e cQB;
-    private final /* synthetic */ n.b cQC;
+    final /* synthetic */ n cRW;
+    private final /* synthetic */ e cRX;
+    private final /* synthetic */ n.b cRY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar, e eVar, n.b bVar) {
-        this.cQA = nVar;
-        this.cQB = eVar;
-        this.cQC = bVar;
+        this.cRW = nVar;
+        this.cRX = eVar;
+        this.cRY = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         SignAllForumActivity signAllForumActivity;
         HashMap hashMap;
-        if (!this.cQB.atE()) {
-            this.cQC.cQN.setVisibility(4);
-            this.cQC.cQO.setVisibility(0);
-            this.cQC.cQP.setText(i.h.signallforum_resigning);
-            this.cQB.gi(true);
-            signAllForumActivity = this.cQA.cQy;
+        if (!this.cRX.auk()) {
+            this.cRY.cSj.setVisibility(4);
+            this.cRY.cSk.setVisibility(0);
+            this.cRY.cSl.setText(i.h.signallforum_resigning);
+            this.cRX.gl(true);
+            signAllForumActivity = this.cRW.cRU;
             ab abVar = new ab(signAllForumActivity);
-            abVar.a(this.cQA);
-            String sb = new StringBuilder(String.valueOf(this.cQB.getForumId())).toString();
-            synchronized (this.cQA) {
-                hashMap = this.cQA.cQz;
+            abVar.a(this.cRW);
+            String sb = new StringBuilder(String.valueOf(this.cRX.getForumId())).toString();
+            synchronized (this.cRW) {
+                hashMap = this.cRW.cRV;
                 hashMap.put(sb, abVar);
             }
-            abVar.au(this.cQB.getForumName(), sb);
+            abVar.at(this.cRX.getForumName(), sb);
             TiebaStatic.log("signall_resign_click");
         }
     }

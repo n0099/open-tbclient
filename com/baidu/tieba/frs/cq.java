@@ -26,10 +26,10 @@ public class cq extends bn<com.baidu.tbadk.core.data.p, cv> implements View.OnCl
     @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.p pVar, cv cvVar) {
         super.a(i, view, viewGroup, (ViewGroup) pVar, (com.baidu.tbadk.core.data.p) cvVar);
-        cvVar.aXW.a(pVar);
-        cvVar.aXV.setTag(pVar);
-        cvVar.aXV.setOnClickListener(this);
-        com.baidu.tbadk.h.a.a(this.aSe.getPageContext(), view);
+        cvVar.aYf.a(pVar);
+        cvVar.aYe.setTag(pVar);
+        cvVar.aYe.setOnClickListener(this);
+        com.baidu.tbadk.h.a.a(this.aSm.getPageContext(), view);
         return view;
     }
 
@@ -37,11 +37,11 @@ public class cq extends bn<com.baidu.tbadk.core.data.p, cv> implements View.OnCl
     public void onClick(View view) {
         int id;
         if ((view.getTag() instanceof com.baidu.tbadk.core.data.p) && (id = view.getId()) == i.f.all_live_list) {
-            this.aWg.a(id, 0, view, null, (com.baidu.tbadk.core.data.p) view.getTag());
+            this.aWo.a(id, 0, view, null, (com.baidu.tbadk.core.data.p) view.getTag());
         }
     }
 
-    public int Mi() {
+    public int My() {
         return i.f.all_live_list;
     }
 }

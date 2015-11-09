@@ -16,16 +16,16 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class l extends BaseAdapter {
     private ArrayList<Object> data;
-    private SelectLocationActivity dlX;
+    private SelectLocationActivity dnF;
     private boolean isShowLocation;
 
     public l(SelectLocationActivity selectLocationActivity) {
         this.isShowLocation = true;
-        this.dlX = selectLocationActivity;
-        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.axi().getLocationData();
-        this.isShowLocation = com.baidu.tieba.tbadkCore.location.c.axi().axj() ? false : true;
+        this.dnF = selectLocationActivity;
+        com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.ayr().getLocationData();
+        this.isShowLocation = com.baidu.tieba.tbadkCore.location.c.ayr().ays() ? false : true;
         if (locationData != null) {
-            this.data = d(locationData.axf(), locationData.axe());
+            this.data = d(locationData.ayo(), locationData.ayn());
         }
     }
 
@@ -51,8 +51,8 @@ public class l extends BaseAdapter {
             c0078a3.setName(str);
             arrayList.add(0, c0078a3);
         }
-        if (this.dlX != null) {
-            arrayList.add(0, this.dlX.getPageContext().getString(i.h.select_position_no_location));
+        if (this.dnF != null) {
+            arrayList.add(0, this.dnF.getPageContext().getString(i.h.select_position_no_location));
         }
         return arrayList;
     }
@@ -112,8 +112,8 @@ public class l extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        TextView alu;
-        ImageView dlY;
+        TextView alz;
+        ImageView dnG;
         View line;
 
         private b() {
@@ -131,10 +131,10 @@ public class l extends BaseAdapter {
         if (item instanceof String) {
             String str = (String) item;
             if (view == null || !(view.getTag() instanceof b)) {
-                View inflate = LayoutInflater.from(this.dlX.getPageContext().getPageActivity()).inflate(i.g.select_location_nolocation_item, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.dnF.getPageContext().getPageActivity()).inflate(i.g.select_location_nolocation_item, (ViewGroup) null);
                 bVar = new b(null);
-                bVar.alu = (TextView) inflate.findViewById(i.f.select_location_title);
-                bVar.dlY = (ImageView) inflate.findViewById(i.f.select_location_tick);
+                bVar.alz = (TextView) inflate.findViewById(i.f.select_location_title);
+                bVar.dnG = (ImageView) inflate.findViewById(i.f.select_location_tick);
                 bVar.line = inflate.findViewById(i.f.select_location_line);
                 inflate.setTag(bVar);
                 view2 = inflate;
@@ -143,14 +143,14 @@ public class l extends BaseAdapter {
                 view2 = view;
             }
             if (i == 0 && !this.isShowLocation) {
-                bVar.dlY.setVisibility(0);
-                an.c(bVar.dlY, i.e.icon_site_ok);
+                bVar.dnG.setVisibility(0);
+                an.c(bVar.dnG, i.e.icon_site_ok);
             } else {
-                bVar.dlY.setVisibility(4);
+                bVar.dnG.setVisibility(4);
             }
-            bVar.alu.setText(str);
+            bVar.alz.setText(str);
             an.j(bVar.line, i.c.cp_bg_line_b);
-            an.b(bVar.alu, i.c.cp_link_tip_a, 1);
+            an.b(bVar.alz, i.c.cp_link_tip_a, 1);
             an.i(view2, i.e.home_recommend_item_bg);
             return view2;
         }
@@ -160,9 +160,9 @@ public class l extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        TextView aDl;
-        TextView dlR;
-        ImageView dlY;
+        TextView aCf;
+        ImageView dnG;
+        TextView dnz;
 
         private a() {
         }
@@ -178,28 +178,28 @@ public class l extends BaseAdapter {
         if (item instanceof a.C0078a) {
             a.C0078a c0078a = (a.C0078a) item;
             if (view == null || !(view.getTag() instanceof b)) {
-                view = LayoutInflater.from(this.dlX.getPageContext().getPageActivity()).inflate(i.g.select_location_address_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.dnF.getPageContext().getPageActivity()).inflate(i.g.select_location_address_item, (ViewGroup) null);
                 a aVar2 = new a(null);
-                aVar2.aDl = (TextView) view.findViewById(i.f.select_location_name);
-                aVar2.dlR = (TextView) view.findViewById(i.f.select_location_address);
-                aVar2.dlY = (ImageView) view.findViewById(i.f.select_location_tick);
+                aVar2.aCf = (TextView) view.findViewById(i.f.select_location_name);
+                aVar2.dnz = (TextView) view.findViewById(i.f.select_location_address);
+                aVar2.dnG = (ImageView) view.findViewById(i.f.select_location_tick);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.dlR.setText(c0078a.axh());
+            aVar.dnz.setText(c0078a.ayq());
             if (this.isShowLocation && i == 1) {
-                aVar.dlY.setVisibility(0);
-                if (TextUtils.isEmpty(c0078a.axh())) {
-                    aVar.dlR.setText(i.h.select_location_current);
+                aVar.dnG.setVisibility(0);
+                if (TextUtils.isEmpty(c0078a.ayq())) {
+                    aVar.dnz.setText(i.h.select_location_current);
                 }
             } else {
-                aVar.dlY.setVisibility(4);
+                aVar.dnG.setVisibility(4);
             }
-            aVar.aDl.setText(c0078a.getName());
-            this.dlX.getLayoutMode().ad(z);
-            this.dlX.getLayoutMode().k(view);
+            aVar.aCf.setText(c0078a.getName());
+            this.dnF.getLayoutMode().ad(z);
+            this.dnF.getLayoutMode().k(view);
             an.i(view, i.e.home_recommend_item_bg);
             return view;
         }

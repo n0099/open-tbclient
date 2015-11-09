@@ -7,7 +7,7 @@ import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
 /* loaded from: classes.dex */
 public class SubPbSocketResponseMessage extends SocketResponsedMessage {
-    public com.baidu.tieba.pb.a.c pbFloorData;
+    public com.baidu.tieba.pb.a.d pbFloorData;
     private boolean treatDelPage;
 
     public boolean isTreatDelPage() {
@@ -24,7 +24,7 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
     @Override // com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) {
         Context context;
-        com.baidu.tieba.pb.a.c cVar = null;
+        com.baidu.tieba.pb.a.d dVar = null;
         Object extra = getOrginalMessage().getExtra();
         if (extra == null || !(extra instanceof SubPbRequestMessage)) {
             context = null;
@@ -36,9 +36,9 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
         try {
             PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                cVar = com.baidu.tieba.pb.a.c.a(pbFloorResIdl.data, context);
-                if (cVar != null) {
-                    cVar.cgB = pbFloorResIdl.error;
+                dVar = com.baidu.tieba.pb.a.d.a(pbFloorResIdl.data, context);
+                if (dVar != null) {
+                    dVar.chg = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());
@@ -49,6 +49,6 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
         } catch (Exception e) {
             BdLog.detailException(e);
         }
-        this.pbFloorData = cVar;
+        this.pbFloorData = dVar;
     }
 }

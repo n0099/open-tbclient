@@ -37,15 +37,15 @@ public class n {
         this.zB = nVar.zB;
     }
 
-    public boolean jO() {
+    public boolean jP() {
         return this.Ar;
     }
 
-    public int jP() {
+    public int jQ() {
         return this.Ap;
     }
 
-    public int jQ() {
+    public int jR() {
         return this.Aq;
     }
 
@@ -53,27 +53,27 @@ public class n {
         return this.As;
     }
 
-    public int jR() {
+    public int jS() {
         return this.At;
     }
 
-    public int jS() {
+    public int jT() {
         return this.Au;
     }
 
-    public boolean jT() {
+    public boolean jU() {
         return this.Av;
     }
 
-    public boolean jU() {
+    public boolean jV() {
         return this.Aw;
     }
 
-    public String jV() {
+    public String jW() {
         return this.zB;
     }
 
-    public void aY(String str) {
+    public void aW(String str) {
         this.zB = str;
     }
 }

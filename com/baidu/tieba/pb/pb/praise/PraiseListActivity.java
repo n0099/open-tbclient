@@ -17,89 +17,89 @@ import com.baidu.tieba.pb.pb.praise.d;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener, d.a {
-    private f cmc = null;
-    private d cme = null;
+    private f cnr = null;
+    private d cns = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (bundle != null) {
-            this.cme = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
-            this.cme.iU(bundle.getInt("KeyIntentPraiseId"));
+            this.cns = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
+            this.cns.jj(bundle.getInt("KeyIntentPraiseId"));
         } else if (getIntent() != null) {
-            this.cme = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
+            this.cns = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
         }
-        if (this.cme == null) {
-            this.cme = new d();
+        if (this.cns == null) {
+            this.cns = new d();
         }
-        this.cmc = new f(this, this.cme.agZ());
-        this.cmc.eR(false);
-        this.cme.Gt();
+        this.cnr = new f(this, this.cns.ahF());
+        this.cnr.eU(false);
+        this.cns.Gq();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.cme.a(bundle, IntentConfig.IS_FROM_PB);
-        this.cme.b(bundle, IntentConfig.POST_DESC);
-        this.cme.c(bundle, "post_id");
-        this.cme.d(bundle, "thread_id");
-        this.cme.e(bundle, "KeyIntentPraiseId");
+        this.cns.a(bundle, IntentConfig.IS_FROM_PB);
+        this.cns.b(bundle, IntentConfig.POST_DESC);
+        this.cns.c(bundle, "post_id");
+        this.cns.d(bundle, "thread_id");
+        this.cns.e(bundle, "KeyIntentPraiseId");
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cmc.getPageHeadView()) {
-            agW();
-            if (!this.cme.agX()) {
-                String threadId = this.cme.getThreadId();
+        if (view == this.cnr.getPageHeadView()) {
+            ahC();
+            if (!this.cns.ahD()) {
+                String threadId = this.cns.getThreadId();
                 if (threadId != null && threadId.startsWith("twzb:")) {
-                    g.a(CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), threadId.substring(5)).ch("praise_list").rh());
+                    g.a(CmdConfigCustom.START_GO_ACTION, new PhotoLiveActivityConfig.a(getPageContext().getPageActivity(), threadId.substring(5)).cf("praise_list").ri());
                 } else {
                     g.a(CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(threadId, null, "praise_list"));
                 }
             }
             finish();
-        } else if (view == this.cmc.getPageFootContinue() && !this.cmc.isLoading()) {
-            this.cmc.eR(true);
-            this.cme.Gt();
+        } else if (view == this.cnr.getPageFootContinue() && !this.cnr.isLoading()) {
+            this.cnr.eU(true);
+            this.cns.Gq();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        a iV = this.cme.iV(i);
-        if (iV != null) {
-            g.a(CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), iV.getUserId(), iV.agU(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+        a jk = this.cns.jk(i);
+        if (jk != null) {
+            g.a(CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), jk.getUserId(), jk.ahA(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 
-    private void agW() {
-        if (this.cme != null) {
-            this.cme.agY();
+    private void ahC() {
+        if (this.cns != null) {
+            this.cns.ahE();
         }
     }
 
     @Override // com.baidu.tieba.pb.pb.praise.d.a
-    public void bH(String str) {
+    public void bF(String str) {
         if (!j.isEmpty(str)) {
             showToast(str, true);
         }
-        this.cmc.stopLoadData();
+        this.cnr.stopLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.cmc.refreshList();
+        this.cnr.refreshList();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.cmc.changeSkinType(getLayoutMode(), i);
+        this.cnr.changeSkinType(getLayoutMode(), i);
     }
 
     public void changSkinType(View view) {
@@ -109,6 +109,6 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
 
     @Override // com.baidu.tieba.pb.pb.praise.d.a
     public void a(int i, List<a> list, int i2, int i3) {
-        this.cmc.updateData(i, list, i2, i3);
+        this.cnr.updateData(i, list, i2, i3);
     }
 }

@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class s extends l {
-    final /* synthetic */ p cbV;
+    final /* synthetic */ p ccw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(p pVar) {
-        this.cbV = pVar;
+        this.ccw = pVar;
     }
 
     @Override // com.baidu.tieba.myCollection.l
@@ -33,61 +33,61 @@ class s extends l {
         ArrayList arrayList4;
         try {
             if (((Integer) objArr[0]).intValue() == 0) {
-                uVar6 = this.cbV.cbU;
+                uVar6 = this.ccw.ccv;
                 uVar6.completePullRefresh();
                 if (objArr[1] != null && (objArr[1] instanceof String)) {
                     r3 = (String) objArr[1];
                 }
-                uVar7 = this.cbV.cbU;
-                aVar5 = this.cbV.cby;
+                uVar7 = this.ccw.ccv;
+                aVar5 = this.ccw.cbZ;
                 uVar7.a(r3, aVar5, ((Boolean) objArr[2]).booleanValue());
-                p pVar = this.cbV;
-                aVar6 = this.cbV.cby;
-                pVar.cbB = aVar6.ady();
-                p pVar2 = this.cbV;
-                arrayList3 = this.cbV.cbB;
+                p pVar = this.ccw;
+                aVar6 = this.ccw.cbZ;
+                pVar.ccc = aVar6.adT();
+                p pVar2 = this.ccw;
+                arrayList3 = this.ccw.ccc;
                 if (arrayList3 != null) {
-                    arrayList4 = this.cbV.cbB;
+                    arrayList4 = this.ccw.ccc;
                     if (!arrayList4.isEmpty()) {
                         r2 = true;
                     }
                 }
                 pVar2.mIsEnableEdit = r2;
             } else if (((Integer) objArr[0]).intValue() == 3) {
-                uVar4 = this.cbV.cbU;
+                uVar4 = this.ccw.ccv;
                 uVar4.completePullRefresh();
                 if (objArr[1] != null && (objArr[1] instanceof String)) {
                     r3 = (String) objArr[1];
                 }
-                uVar5 = this.cbV.cbU;
+                uVar5 = this.ccw.ccv;
                 uVar5.a(r3, (com.baidu.tieba.myCollection.baseEditMark.a) null, false);
-                this.cbV.mIsEnableEdit = false;
+                this.ccw.mIsEnableEdit = false;
             } else if (((Integer) objArr[0]).intValue() == 1) {
                 boolean booleanValue = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
                 r3 = objArr[2] != null ? (String) objArr[2] : null;
                 r2 = objArr[3] != null ? ((Boolean) objArr[3]).booleanValue() : false;
-                uVar2 = this.cbV.cbU;
+                uVar2 = this.ccw.ccv;
                 uVar2.a(booleanValue, r3, r2);
                 if (booleanValue) {
-                    uVar3 = this.cbV.cbU;
-                    aVar3 = this.cbV.cby;
-                    uVar3.iy(aVar3.getOffset());
-                    aVar4 = this.cbV.cby;
+                    uVar3 = this.ccw.ccv;
+                    aVar3 = this.ccw.cbZ;
+                    uVar3.iL(aVar3.getOffset());
+                    aVar4 = this.ccw.cbZ;
                     aVar4.f(true);
                 }
             } else if (((Integer) objArr[0]).intValue() == 2) {
                 boolean booleanValue2 = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
                 String str = objArr[2] != null ? (String) objArr[2] : null;
-                uVar = this.cbV.cbU;
-                aVar = this.cbV.cby;
+                uVar = this.ccw.ccv;
+                aVar = this.ccw.cbZ;
                 uVar.a(booleanValue2, str, aVar);
-                p pVar3 = this.cbV;
-                aVar2 = this.cbV.cby;
-                pVar3.cbB = aVar2.ady();
-                p pVar4 = this.cbV;
-                arrayList = this.cbV.cbB;
+                p pVar3 = this.ccw;
+                aVar2 = this.ccw.cbZ;
+                pVar3.ccc = aVar2.adT();
+                p pVar4 = this.ccw;
+                arrayList = this.ccw.ccc;
                 if (arrayList != null) {
-                    arrayList2 = this.cbV.cbB;
+                    arrayList2 = this.ccw.ccc;
                     if (!arrayList2.isEmpty()) {
                         z = true;
                         pVar4.mIsEnableEdit = z;
@@ -100,6 +100,6 @@ class s extends l {
             e.printStackTrace();
             BdLog.d(e.getMessage());
         }
-        this.cbV.sendEditEnableMessage(1);
+        this.ccw.sendEditEnableMessage(1);
     }
 }

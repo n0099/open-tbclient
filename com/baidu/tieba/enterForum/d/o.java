@@ -9,31 +9,31 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, com.baidu.tbadk.mvc.d.b> {
-    private ViewEventCenter aLM;
-    private View aNf;
-    private TextView aNg;
-    private TextView aNh;
-    private TextView aNi;
-    private ImageView aNj;
-    private View aNk;
-    private TextView aNl;
-    private TextView aNm;
-    private TextView aNn;
-    private ImageView aNo;
+    private ViewEventCenter aLU;
+    private View aNn;
+    private TextView aNo;
+    private TextView aNp;
+    private TextView aNq;
+    private ImageView aNr;
+    private View aNs;
+    private TextView aNt;
+    private TextView aNu;
+    private TextView aNv;
+    private ImageView aNw;
 
     public o(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aLM = viewEventCenter;
-        this.aNf = view.findViewById(i.f.left_container);
-        this.aNg = (TextView) this.aNf.findViewById(i.f.sign);
-        this.aNh = (TextView) this.aNf.findViewById(i.f.name);
-        this.aNi = (TextView) this.aNf.findViewById(i.f.grade);
-        this.aNj = (ImageView) this.aNf.findViewById(i.f.add);
-        this.aNk = view.findViewById(i.f.right_container);
-        this.aNl = (TextView) this.aNk.findViewById(i.f.sign);
-        this.aNm = (TextView) this.aNk.findViewById(i.f.name);
-        this.aNn = (TextView) this.aNk.findViewById(i.f.grade);
-        this.aNo = (ImageView) this.aNk.findViewById(i.f.add);
+        this.aLU = viewEventCenter;
+        this.aNn = view.findViewById(i.f.left_container);
+        this.aNo = (TextView) this.aNn.findViewById(i.f.sign);
+        this.aNp = (TextView) this.aNn.findViewById(i.f.name);
+        this.aNq = (TextView) this.aNn.findViewById(i.f.grade);
+        this.aNr = (ImageView) this.aNn.findViewById(i.f.add);
+        this.aNs = view.findViewById(i.f.right_container);
+        this.aNt = (TextView) this.aNs.findViewById(i.f.sign);
+        this.aNu = (TextView) this.aNs.findViewById(i.f.name);
+        this.aNv = (TextView) this.aNs.findViewById(i.f.grade);
+        this.aNw = (ImageView) this.aNs.findViewById(i.f.add);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,20 +42,20 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
     public void B(com.baidu.tieba.enterForum.b.a aVar) {
         super.B(aVar);
         if (aVar != null) {
-            a(aVar.HQ(), true);
-            a(aVar.HR(), false);
-            b(aVar.HQ(), true);
-            b(aVar.HR(), false);
+            a(aVar.Ig(), true);
+            a(aVar.Ih(), false);
+            b(aVar.Ig(), true);
+            b(aVar.Ih(), false);
         }
     }
 
     private void a(com.baidu.tieba.tbadkCore.v vVar, boolean z) {
         if (vVar != null) {
-            View view = z ? this.aNf : this.aNk;
-            TextView textView = z ? this.aNg : this.aNl;
-            TextView textView2 = z ? this.aNh : this.aNm;
-            TextView textView3 = z ? this.aNi : this.aNn;
-            ImageView imageView = z ? this.aNj : this.aNo;
+            View view = z ? this.aNn : this.aNs;
+            TextView textView = z ? this.aNo : this.aNt;
+            TextView textView2 = z ? this.aNp : this.aNu;
+            TextView textView3 = z ? this.aNq : this.aNv;
+            ImageView imageView = z ? this.aNr : this.aNw;
             switch (vVar.getType()) {
                 case 1:
                     view.setVisibility(0);
@@ -72,7 +72,7 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
                     imageView.setVisibility(8);
                     textView2.setVisibility(0);
                     textView2.setText(vVar.getName());
-                    if (vVar.avW() == 0) {
+                    if (vVar.awE() == 0) {
                         textView.setVisibility(8);
                     } else {
                         textView.setVisibility(0);
@@ -91,9 +91,9 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
     private void b(com.baidu.tieba.tbadkCore.v vVar, boolean z) {
         View view;
         if (z) {
-            view = this.aNf;
+            view = this.aNn;
         } else {
-            view = this.aNk;
+            view = this.aNs;
         }
         view.setOnClickListener(new p(this, vVar));
         view.setOnLongClickListener(new q(this));
@@ -102,13 +102,13 @@ public class o extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.enterForum.b.a, c
     @Override // com.baidu.tieba.tbadkCore.s
     public boolean a(TbPageContext<?> tbPageContext, int i) {
         com.baidu.tbadk.h.a.a(tbPageContext, getRootView());
-        this.aNf.setBackgroundDrawable(an.getDrawable(i.e.home_like_item_bg));
-        this.aNk.setBackgroundDrawable(an.getDrawable(i.e.home_like_item_bg));
-        if (this.aNi.getVisibility() == 0 && getData() != null && getData().HQ() != null) {
-            an.i((View) this.aNi, com.baidu.tbadk.core.util.c.ch(getData().HQ().getLevel()));
+        this.aNn.setBackgroundDrawable(an.getDrawable(i.e.home_like_item_bg));
+        this.aNs.setBackgroundDrawable(an.getDrawable(i.e.home_like_item_bg));
+        if (this.aNq.getVisibility() == 0 && getData() != null && getData().Ig() != null) {
+            an.i((View) this.aNq, com.baidu.tbadk.core.util.c.ch(getData().Ig().getLevel()));
         }
-        if (this.aNn.getVisibility() == 0 && getData() != null && getData().HR() != null) {
-            an.i((View) this.aNn, com.baidu.tbadk.core.util.c.ch(getData().HR().getLevel()));
+        if (this.aNv.getVisibility() == 0 && getData() != null && getData().Ih() != null) {
+            an.i((View) this.aNv, com.baidu.tbadk.core.util.c.ch(getData().Ih().getLevel()));
             return true;
         }
         return true;

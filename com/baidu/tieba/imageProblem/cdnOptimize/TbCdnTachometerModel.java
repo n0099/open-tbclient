@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.r;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class TbCdnTachometerModel<T> extends e<T> {
-    public static final String bQl = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/checkcdn";
-    private TbCdnTachometerModelCallBack bQk;
-    private HttpMessageListener bQm;
+    public static final String bQG = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/s/checkcdn";
+    private TbCdnTachometerModelCallBack bQF;
+    private HttpMessageListener bQH;
 
     /* loaded from: classes.dex */
     public interface TbCdnTachometerModelCallBack {
@@ -25,8 +25,8 @@ public class TbCdnTachometerModel<T> extends e<T> {
 
     public TbCdnTachometerModel(TbPageContext<T> tbPageContext) {
         super(tbPageContext);
-        this.bQk = null;
-        this.bQm = new HttpMessageListener(CmdConfigHttp.CDN_IPLIST_CMD) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.1
+        this.bQF = null;
+        this.bQH = new HttpMessageListener(CmdConfigHttp.CDN_IPLIST_CMD) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnTachometerModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -37,7 +37,7 @@ public class TbCdnTachometerModel<T> extends e<T> {
                 if (httpResponsedMessage != null && TbCdnTachometerModel.this.unique_id == httpResponsedMessage.getOrginalMessage().getTag() && (httpResponsedMessage instanceof TbCdnGetIPListHttpResponseMsg)) {
                     TbCdnIpListData tbCdnIpListData = ((TbCdnGetIPListHttpResponseMsg) httpResponsedMessage).ipListData;
                     if (httpResponsedMessage.getError() != 0 || tbCdnIpListData == null || tbCdnIpListData.errorNum != 0) {
-                        if (TbCdnTachometerModel.this.bQk != null) {
+                        if (TbCdnTachometerModel.this.bQF != null) {
                             int error = httpResponsedMessage.getError();
                             String errorString = httpResponsedMessage.getErrorString();
                             if (httpResponsedMessage.getError() == 0) {
@@ -57,10 +57,10 @@ public class TbCdnTachometerModel<T> extends e<T> {
                         z = true;
                         i = -1;
                     } else {
-                        if (TbCdnTachometerModel.this.bQk != null) {
-                            TbCdnTachometerModel.this.bQk.callBack(tbCdnIpListData);
+                        if (TbCdnTachometerModel.this.bQF != null) {
+                            TbCdnTachometerModel.this.bQF.callBack(tbCdnIpListData);
                         }
-                        if (tbCdnIpListData.bQb.size() == 0) {
+                        if (tbCdnIpListData.bQw.size() == 0) {
                             str = "noList";
                             z2 = false;
                             z = true;
@@ -75,16 +75,16 @@ public class TbCdnTachometerModel<T> extends e<T> {
                 }
             }
         };
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CDN_IPLIST_CMD, bQl);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CDN_IPLIST_CMD, bQG);
         tbHttpMessageTask.setResponsedClass(TbCdnGetIPListHttpResponseMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().unRegisterListener(this.bQm);
-        MessageManager.getInstance().registerListener(this.bQm);
+        MessageManager.getInstance().unRegisterListener(this.bQH);
+        MessageManager.getInstance().registerListener(this.bQH);
     }
 
     public void destroy() {
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CDN_IPLIST_CMD);
-        MessageManager.getInstance().unRegisterListener(this.bQm);
+        MessageManager.getInstance().unRegisterListener(this.bQH);
     }
 
     @Override // com.baidu.adp.base.e
@@ -98,7 +98,7 @@ public class TbCdnTachometerModel<T> extends e<T> {
     }
 
     public void setCndTachometerModelCallBack(TbCdnTachometerModelCallBack tbCdnTachometerModelCallBack) {
-        this.bQk = tbCdnTachometerModelCallBack;
+        this.bQF = tbCdnTachometerModelCallBack;
     }
 
     public void getCDNIPList() {
@@ -107,18 +107,18 @@ public class TbCdnTachometerModel<T> extends e<T> {
 
     public boolean getTestImageData(String str, String str2, String str3, String str4, boolean z) {
         boolean z2;
-        if (str == null || str2 == null || str3 == null || str4 == null || !com.baidu.tbadk.util.e.fK(str)) {
+        if (str == null || str2 == null || str3 == null || str4 == null || !com.baidu.tbadk.util.e.fM(str)) {
             return false;
         }
         try {
             long currentTimeMillis = System.currentTimeMillis();
             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
             f fVar = new f(eVar);
-            eVar.gP().setUrl(str);
+            eVar.gQ().setUrl(str);
             fVar.e(str2, str3, 1);
-            byte[] bArr = eVar.gQ().vf;
+            byte[] bArr = eVar.gR().vf;
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            boolean z3 = eVar.gQ().responseCode == 200 || eVar.gQ().responseCode / 100 == 3;
+            boolean z3 = eVar.gR().responseCode == 200 || eVar.gR().responseCode / 100 == 3;
             int i = 0;
             String str5 = "";
             if (z3) {
@@ -130,8 +130,8 @@ public class TbCdnTachometerModel<T> extends e<T> {
                         z2 = z3;
                     } else {
                         String str6 = "MD5Error_" + B + "_" + str4;
-                        if (eVar.gS() != null && eVar.gS().uR != null && eVar.gS().uR.length() != 0) {
-                            str6 = String.valueOf(str6) + ":" + eVar.gQ().responseCode + "-" + eVar.gS().uR;
+                        if (eVar.gT() != null && eVar.gT().uR != null && eVar.gT().uR.length() != 0) {
+                            str6 = String.valueOf(str6) + ":" + eVar.gR().responseCode + "-" + eVar.gT().uR;
                             eVar.b(null);
                         }
                         z2 = false;
@@ -140,20 +140,20 @@ public class TbCdnTachometerModel<T> extends e<T> {
                     }
                 } else {
                     str5 = "downSizeZero";
-                    if (eVar.gS() == null || eVar.gS().uR == null || eVar.gS().uR.length() == 0) {
+                    if (eVar.gT() == null || eVar.gT().uR == null || eVar.gT().uR.length() == 0) {
                         z2 = z3;
                     } else {
-                        str5 = String.valueOf("downSizeZero") + ":" + eVar.gQ().responseCode + "-" + eVar.gS().uR;
+                        str5 = String.valueOf("downSizeZero") + ":" + eVar.gR().responseCode + "-" + eVar.gT().uR;
                         eVar.b(null);
                         z2 = z3;
                     }
                 }
             } else {
                 String str7 = null;
-                if (eVar.gS() != null) {
-                    str7 = eVar.gS().uR;
+                if (eVar.gT() != null) {
+                    str7 = eVar.gT().uR;
                 }
-                str5 = "NETError_" + eVar.gQ().responseCode + "-" + str7;
+                str5 = "NETError_" + eVar.gR().responseCode + "-" + str7;
                 z2 = z3;
             }
             r.a(z3, str, str2, "0", str5, String.valueOf(i), currentTimeMillis2, z);

@@ -1,21 +1,20 @@
 package com.baidu.tieba.frs.tab;
 
-import android.view.View;
-import com.baidu.tbadk.core.view.MorePopupWindow;
+import android.widget.PopupWindow;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class l implements View.OnClickListener {
-    final /* synthetic */ i bbB;
+public class l implements PopupWindow.OnDismissListener {
+    final /* synthetic */ i bbX;
+    private final /* synthetic */ TabItemView bbY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(i iVar) {
-        this.bbB = iVar;
+    public l(i iVar, TabItemView tabItemView) {
+        this.bbX = iVar;
+        this.bbY = tabItemView;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        MorePopupWindow morePopupWindow;
-        morePopupWindow = this.bbB.mPopWindow;
-        com.baidu.adp.lib.g.j.a(morePopupWindow);
+    @Override // android.widget.PopupWindow.OnDismissListener
+    public void onDismiss() {
+        this.bbY.setState(TabItemView.bbQ);
     }
 }

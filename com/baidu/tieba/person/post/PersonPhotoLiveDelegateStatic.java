@@ -17,7 +17,7 @@ public class PersonPhotoLiveDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.auZ = new u();
+        cVar.atN = new u();
         cVar.type = 2;
         return cVar;
     }

@@ -3,9 +3,9 @@ package com.baidu.tieba.frs;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class dg {
-    private long aYo;
-    private long aYp;
-    private long aYq;
+    private long aYx;
+    private long aYy;
+    private long aYz;
 
     public dg(Context context) {
         am(0L);
@@ -13,22 +13,22 @@ public class dg {
     }
 
     public void am(long j) {
-        this.aYo = j;
+        this.aYx = j;
     }
 
-    public long Mp() {
-        return this.aYo + this.aYp;
+    public long MF() {
+        return this.aYx + this.aYy;
     }
 
     public void an(long j) {
-        this.aYp = j;
+        this.aYy = j;
     }
 
-    public long Mq() {
-        return this.aYq;
+    public long MG() {
+        return this.aYz;
     }
 
     public void ao(long j) {
-        this.aYq = j;
+        this.aYz = j;
     }
 }

@@ -5,18 +5,18 @@ import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class am implements a.b {
-    final /* synthetic */ FrsActivity aUK;
-    private final /* synthetic */ com.baidu.tieba.frs.view.p aUT;
+    final /* synthetic */ FrsActivity aUS;
+    private final /* synthetic */ com.baidu.tieba.frs.view.p aVb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public am(FrsActivity frsActivity, com.baidu.tieba.frs.view.p pVar) {
-        this.aUK = frsActivity;
-        this.aUT = pVar;
+        this.aUS = frsActivity;
+        this.aVb = pVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.aUK.HidenSoftKeyPad((InputMethodManager) this.aUK.getSystemService("input_method"), this.aUT.getChatMsgView());
+        this.aUS.HidenSoftKeyPad((InputMethodManager) this.aUS.getSystemService("input_method"), this.aVb.getChatMsgView());
         aVar.dismiss();
     }
 }

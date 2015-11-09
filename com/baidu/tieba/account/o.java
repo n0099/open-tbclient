@@ -3,11 +3,11 @@ package com.baidu.tieba.account;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 class o implements Runnable {
-    final /* synthetic */ ActivationActivity aFc;
+    final /* synthetic */ ActivationActivity aDW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(ActivationActivity activationActivity) {
-        this.aFc = activationActivity;
+        this.aDW = activationActivity;
     }
 
     @Override // java.lang.Runnable

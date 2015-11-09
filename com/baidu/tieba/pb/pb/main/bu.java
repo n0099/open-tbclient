@@ -1,39 +1,35 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
 import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tieba.recapp.PbRecBaseViewHolder;
 /* loaded from: classes.dex */
-public class bu implements View.OnClickListener {
-    private final /* synthetic */ String cgZ;
-    private final /* synthetic */ String cha;
-    private final /* synthetic */ String chb;
-    final /* synthetic */ bs cka;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bu(bs bsVar, String str, String str2, String str3) {
-        this.cka = bsVar;
-        this.cgZ = str;
-        this.cha = str2;
-        this.chb = str3;
+public class bu extends bz<com.baidu.tieba.tbadkCore.data.n, PbRecBaseViewHolder> {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public bu(PbActivity pbActivity, BdUniqueId bdUniqueId) {
+        super(pbActivity, bdUniqueId);
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        Context context2;
-        if (TbadkCoreApplication.m411getInst().isLbsWebViewSwitchOn() && !StringUtils.isNull(this.cgZ) && !StringUtils.isNull(this.cha)) {
-            if (com.baidu.adp.lib.util.i.iM()) {
-                context = this.cka.mContext;
-                String format = String.format("http://api.map.baidu.com/marker?location=%1$s&title=%2$s&content=%3$s&output=html&src=%4$s", String.valueOf(this.cgZ) + "," + this.cha, this.chb, this.chb, context.getString(i.h.app_info_for_map));
-                context2 = this.cka.mContext;
-                com.baidu.tbadk.browser.g.B(context2, format);
-                return;
-            }
-            this.cka.ciU.showToast(i.h.neterror);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: J */
+    public PbRecBaseViewHolder a(ViewGroup viewGroup) {
+        return com.baidu.tieba.recapp.a.aqc().l(this.mContext, 2);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.pb.pb.main.bz, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.n nVar, PbRecBaseViewHolder pbRecBaseViewHolder) {
+        super.a(i, view, viewGroup, (ViewGroup) nVar, (com.baidu.tieba.tbadkCore.data.n) pbRecBaseViewHolder);
+        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
+        com.baidu.tieba.tbadkCore.data.n nVar2 = (com.baidu.tieba.tbadkCore.data.n) aA(i);
+        this.cjZ.getLayoutMode().ad(this.mSkinType == 1);
+        this.cjZ.getLayoutMode().k(view);
+        pbRecBaseViewHolder.update(nVar2, i, this.mIsFromCDN);
+        return view;
     }
 }

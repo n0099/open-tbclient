@@ -16,63 +16,63 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class w {
-    private final com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> azq = new x(this);
-    private TextView deB;
-    private BackgroundPreviewActivity dfS;
-    private BdExpandImageView dfT;
-    private TbImageView dfU;
-    private TbImageView dfV;
-    private ImageView dfW;
-    private TextView dfX;
+    private final com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> aye = new x(this);
+    private TextView dgh;
+    private TbImageView dhA;
+    private TbImageView dhB;
+    private ImageView dhC;
+    private TextView dhD;
+    private BackgroundPreviewActivity dhy;
+    private BdExpandImageView dhz;
     private View mRootView;
 
     public w(BackgroundPreviewActivity backgroundPreviewActivity) {
-        this.dfS = backgroundPreviewActivity;
-        this.mRootView = LayoutInflater.from(this.dfS.getPageContext().getPageActivity()).inflate(i.g.background_preview_header, (ViewGroup) null);
-        this.mRootView.setLayoutParams(new AbsListView.LayoutParams(-1, this.dfS.getResources().getDimensionPixelSize(i.d.ds400)));
+        this.dhy = backgroundPreviewActivity;
+        this.mRootView = LayoutInflater.from(this.dhy.getPageContext().getPageActivity()).inflate(i.g.background_preview_header, (ViewGroup) null);
+        this.mRootView.setLayoutParams(new AbsListView.LayoutParams(-1, this.dhy.getResources().getDimensionPixelSize(i.d.ds400)));
         initView();
     }
 
     private void initView() {
-        this.dfT = (BdExpandImageView) this.mRootView.findViewById(i.f.expand_image);
-        this.dfU = (TbImageView) this.mRootView.findViewById(i.f.user_head);
-        this.dfV = (TbImageView) this.mRootView.findViewById(i.f.vip_icon);
-        this.deB = (TextView) this.mRootView.findViewById(i.f.user_name);
-        this.dfW = (ImageView) this.mRootView.findViewById(i.f.user_sex);
-        this.dfX = (TextView) this.mRootView.findViewById(i.f.user_bar_age_num);
+        this.dhz = (BdExpandImageView) this.mRootView.findViewById(i.f.expand_image);
+        this.dhA = (TbImageView) this.mRootView.findViewById(i.f.user_head);
+        this.dhB = (TbImageView) this.mRootView.findViewById(i.f.vip_icon);
+        this.dgh = (TextView) this.mRootView.findViewById(i.f.user_name);
+        this.dhC = (ImageView) this.mRootView.findViewById(i.f.user_sex);
+        this.dhD = (TextView) this.mRootView.findViewById(i.f.user_bar_age_num);
     }
 
     public void c(DressItemData dressItemData) {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-        com.baidu.adp.lib.f.c.ha().a(dressItemData.getExampleImgUrl(), 10, this.azq, 0, 0, null, new Object[0]);
+        com.baidu.adp.lib.f.c.hb().a(dressItemData.getExampleImgUrl(), 10, this.aye, 0, 0, null, new Object[0]);
         String portrait = currentAccountInfo.getPortrait();
         if (!TextUtils.isEmpty(portrait)) {
-            this.dfU.d(portrait, 25, false);
+            this.dhA.d(portrait, 25, false);
         }
         String memberIconUrl = currentAccountInfo.getMemberIconUrl();
         if (!StringUtils.isNull(memberIconUrl)) {
-            this.dfV.d(memberIconUrl, 10, false);
-            this.dfV.setVisibility(0);
+            this.dhB.d(memberIconUrl, 10, false);
+            this.dhB.setVisibility(0);
         }
-        this.deB.setText(currentAccountInfo.getAccount());
+        this.dgh.setText(currentAccountInfo.getAccount());
         int sex = currentAccountInfo.getSex();
         if (sex == 1) {
-            an.i(this.dfW, i.e.icon_pop_boy);
+            an.i(this.dhC, i.e.icon_pop_boy);
         } else if (sex == 2) {
-            an.i(this.dfW, i.e.icon_pop_girl);
+            an.i(this.dhC, i.e.icon_pop_girl);
         } else {
-            this.dfW.setVisibility(8);
+            this.dhC.setVisibility(8);
         }
-        this.dfX.setText(dressItemData.getPropsStateImg());
+        this.dhD.setText(dressItemData.getPropsStateImg());
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public void oO() {
-        if (this.dfS.getPageContext() != null) {
-            com.baidu.tbadk.h.a.a(this.dfS.getPageContext(), this.mRootView);
+    public void oP() {
+        if (this.dhy.getPageContext() != null) {
+            com.baidu.tbadk.h.a.a(this.dhy.getPageContext(), this.mRootView);
         }
     }
 }

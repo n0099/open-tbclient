@@ -24,33 +24,33 @@ import com.baidu.tieba.i;
 import java.io.File;
 /* loaded from: classes.dex */
 public class an {
-    private static String Tf;
-    private static int Tg;
-    private static String aaV;
-    private static Resources aaW;
-    private static Resources aaX;
-    private static String aaY;
-    private static AssetManager aaZ;
+    private static String Tg;
+    private static int Th;
+    private static String aba;
+    private static Resources abb;
+    private static Resources abc;
+    private static String abd;
+    private static AssetManager abe;
 
     static {
         MessageManager.getInstance().registerListener(new ao(CmdConfigCustom.METHOD_NIGHTRES_PLUGIN_CHANGE));
-        aaV = "skinType not support";
-        Tf = null;
-        Tg = 0;
+        aba = "skinType not support";
+        Tg = null;
+        Th = 0;
     }
 
     public static void dh(String str) {
         Resources resources;
         if (!StringUtils.isNull(str) && (resources = TbadkCoreApplication.m411getInst().getResources()) != null) {
-            aaZ = (AssetManager) AssetManager.class.newInstance();
+            abe = (AssetManager) AssetManager.class.newInstance();
             File cJ = n.cJ(str);
             if (cJ == null || !cJ.exists()) {
                 com.baidu.adp.lib.util.k.showToast(BdBaseApplication.getInst().getApp(), i.h.theme_skin_apk_error);
                 return;
             }
-            aaZ.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(aaZ, cJ.getAbsolutePath());
-            aaX = new Resources(aaZ, resources.getDisplayMetrics(), resources.getConfiguration());
-            aaY = n.cK(str);
+            abe.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(abe, cJ.getAbsolutePath());
+            abc = new Resources(abe, resources.getDisplayMetrics(), resources.getConfiguration());
+            abd = n.cK(str);
         }
     }
 
@@ -166,7 +166,7 @@ public class an {
         if (i == 1) {
             return BdBaseApplication.getInst().getApp().getResources().getColor(i.c.skin_1_common_color);
         }
-        throw new IllegalArgumentException(aaV);
+        throw new IllegalArgumentException(aba);
     }
 
     public static int cu(int i) {
@@ -181,21 +181,21 @@ public class an {
     }
 
     private static int a(Resources resources, int i) {
-        if (aaW == null) {
-            aaW = resources;
+        if (abb == null) {
+            abb = resources;
         }
         String resourceName = resources.getResourceName(i);
-        if (TextUtils.isEmpty(resourceName) || resourceName.indexOf(":") <= 0 || aaW == null) {
+        if (TextUtils.isEmpty(resourceName) || resourceName.indexOf(":") <= 0 || abb == null) {
             return 0;
         }
-        if (Tg == 0) {
-            Tf = BdBaseApplication.getInst().getPackageName();
-            Tg = Tf.length();
+        if (Th == 0) {
+            Tg = BdBaseApplication.getInst().getPackageName();
+            Th = Tg.length();
         }
-        if (resourceName.length() > Tg && resourceName.charAt(Tg) != ':' && resourceName.startsWith(Tf)) {
-            resourceName = String.valueOf(Tf) + resourceName.substring(resourceName.indexOf(":"));
+        if (resourceName.length() > Th && resourceName.charAt(Th) != ':' && resourceName.startsWith(Tg)) {
+            resourceName = String.valueOf(Tg) + resourceName.substring(resourceName.indexOf(":"));
         }
-        return aaW.getIdentifier(String.valueOf(resourceName) + "_1", null, null);
+        return abb.getIdentifier(String.valueOf(resourceName) + "_1", null, null);
     }
 
     public static void a(ImageView imageView, int i, int i2) {
@@ -219,10 +219,10 @@ public class an {
     }
 
     private static int b(Resources resources, int i) {
-        if (aaX == null) {
-            aaX = resources;
+        if (abc == null) {
+            abc = resources;
         }
-        if (aaX == null) {
+        if (abc == null) {
             return 0;
         }
         String resourceName = resources.getResourceName(i);
@@ -233,7 +233,7 @@ public class an {
         if (StringUtils.isNull(substring) || !substring.startsWith("/s_")) {
             return 0;
         }
-        return aaX.getIdentifier(String.valueOf(aaY) + resourceName.substring(resourceName.indexOf(":")), null, null);
+        return abc.getIdentifier(String.valueOf(abd) + resourceName.substring(resourceName.indexOf(":")), null, null);
     }
 
     public static void h(View view, int i) {
@@ -255,8 +255,8 @@ public class an {
         if (b == 0) {
             resources2 = resources;
             b = i;
-        } else if (aaX != null) {
-            resources2 = aaX;
+        } else if (abc != null) {
+            resources2 = abc;
         } else {
             resources2 = resources;
             b = i;
@@ -283,8 +283,8 @@ public class an {
         if (b == 0) {
             resources2 = resources;
             b = i;
-        } else if (aaX != null) {
-            resources2 = aaX;
+        } else if (abc != null) {
+            resources2 = abc;
         } else {
             resources2 = resources;
             b = i;
@@ -311,8 +311,8 @@ public class an {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (aaX != null) {
-                resources2 = aaX;
+            } else if (abc != null) {
+                resources2 = abc;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -322,8 +322,8 @@ public class an {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (aaW != null) {
-                resources2 = aaW;
+            } else if (abb != null) {
+                resources2 = abb;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -357,8 +357,8 @@ public class an {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (aaX != null) {
-                resources2 = aaX;
+            } else if (abc != null) {
+                resources2 = abc;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -368,8 +368,8 @@ public class an {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (aaW != null) {
-                resources2 = aaW;
+            } else if (abb != null) {
+                resources2 = abb;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -403,8 +403,8 @@ public class an {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (aaX != null) {
-                resources2 = aaX;
+            } else if (abc != null) {
+                resources2 = abc;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -414,8 +414,8 @@ public class an {
             if (i2 == 0) {
                 resources2 = resources;
                 i2 = i;
-            } else if (aaW != null) {
-                resources2 = aaW;
+            } else if (abb != null) {
+                resources2 = abb;
             } else {
                 resources2 = resources;
                 i2 = i;
@@ -462,13 +462,13 @@ public class an {
             int a = a(resources, i);
             if (a == 0) {
                 a = i;
-            } else if (aaW != null) {
-                Resources resources2 = aaW;
+            } else if (abb != null) {
+                Resources resources2 = abb;
             } else {
                 a = i;
             }
             try {
-                Bitmap a2 = c.a(aaW, a, i, options);
+                Bitmap a2 = c.a(abb, a, i, options);
                 if (a2 == null) {
                     return c.a(i, options);
                 }
@@ -482,7 +482,7 @@ public class an {
                 return c.a(i, options);
             }
             try {
-                Bitmap b2 = c.b(aaX, b, i, options);
+                Bitmap b2 = c.b(abc, b, i, options);
                 if (b2 == null) {
                     return c.a(i, options);
                 }

@@ -40,26 +40,26 @@ public class co extends bn<com.baidu.tbadk.core.data.q, cp> implements View.OnCl
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.q qVar, cp cpVar) {
         super.a(i, view, viewGroup, (ViewGroup) qVar, (com.baidu.tbadk.core.data.q) cpVar);
         com.baidu.tbadk.h.a.a(this.mPageContext, view);
-        cpVar.aXD.setOnClickListener(this);
-        cpVar.aXD.setTag(qVar);
-        cpVar.aXE.setShowBottom(false);
-        cpVar.aXE.setShowContent(false);
-        cpVar.aXE.setShowRefreshTimeInHead(true);
-        cpVar.aXE.setShowLiveIcon(true);
-        cpVar.aXE.setHeadPaddingTop(0);
-        cpVar.aXE.setChooseStyle(qVar.rL().getShowStyle());
-        cpVar.aXE.setShowImage(com.baidu.tbadk.core.m.qU().qY());
-        cpVar.aXE.setData(qVar.rL());
-        cpVar.aXE.setPortraitClicklistener(this);
-        cpVar.aXF.setOnClickListener(this);
-        cpVar.aXF.setTag(qVar);
+        cpVar.aXM.setOnClickListener(this);
+        cpVar.aXM.setTag(qVar);
+        cpVar.aXN.setShowBottom(false);
+        cpVar.aXN.setShowContent(false);
+        cpVar.aXN.setShowRefreshTimeInHead(true);
+        cpVar.aXN.setShowLiveIcon(true);
+        cpVar.aXN.setHeadPaddingTop(0);
+        cpVar.aXN.setChooseStyle(qVar.rN().getShowStyle());
+        cpVar.aXN.setShowImage(com.baidu.tbadk.core.m.qV().qZ());
+        cpVar.aXN.setData(qVar.rN());
+        cpVar.aXN.setPortraitClicklistener(this);
+        cpVar.aXO.setOnClickListener(this);
+        cpVar.aXO.setTag(qVar);
         return view;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof com.baidu.tbadk.core.data.q) {
-            this.aWg.a(view.getId(), 0, view, null, (com.baidu.tbadk.core.data.q) view.getTag());
+            this.aWo.a(view.getId(), 0, view, null, (com.baidu.tbadk.core.data.q) view.getTag());
         }
     }
 
@@ -75,11 +75,11 @@ public class co extends bn<com.baidu.tbadk.core.data.q, cp> implements View.OnCl
         }
     }
 
-    public int Mh() {
+    public int Mx() {
         return i.f.more_live_list;
     }
 
-    public int Ly() {
+    public int LO() {
         return i.f.make_headlines;
     }
 }

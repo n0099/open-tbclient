@@ -3,15 +3,15 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow;
 import android.view.View;
 /* loaded from: classes.dex */
 public class e {
-    private int bLi;
-    private int bLj;
+    private int bLD;
+    private int bLE;
     private int radius;
 
     public boolean a(e eVar) {
-        return ((this.bLi - eVar.bLi) * (this.bLi - eVar.bLi)) + ((this.bLj - eVar.bLj) * (this.bLj - eVar.bLj)) < (this.radius + eVar.radius) * (this.radius + eVar.radius);
+        return ((this.bLD - eVar.bLD) * (this.bLD - eVar.bLD)) + ((this.bLE - eVar.bLE) * (this.bLE - eVar.bLE)) < (this.radius + eVar.radius) * (this.radius + eVar.radius);
     }
 
-    public void Q(View view) {
+    public void P(View view) {
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);
         int measuredHeight = view.getMeasuredHeight() / 2;
@@ -19,12 +19,12 @@ public class e {
     }
 
     public void t(int i, int i2, int i3) {
-        this.bLi = i;
-        this.bLj = i2;
+        this.bLD = i;
+        this.bLE = i2;
         this.radius = i3;
     }
 
     public boolean isEmpty() {
-        return this.bLi == 0 && this.bLj == 0 && this.radius == 0;
+        return this.bLD == 0 && this.bLE == 0 && this.radius == 0;
     }
 }

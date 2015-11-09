@@ -10,13 +10,13 @@ import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.ResponsePersonalLbsI
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
 /* loaded from: classes.dex */
 class q extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ FloatingPersonalChatActivity bMx;
+    final /* synthetic */ FloatingPersonalChatActivity bMS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(FloatingPersonalChatActivity floatingPersonalChatActivity, int i, boolean z) {
         super(i, z);
-        this.bMx = floatingPersonalChatActivity;
+        this.bMS = floatingPersonalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -27,7 +27,7 @@ class q extends com.baidu.adp.framework.listener.e {
         FloatingPersonalChatView floatingPersonalChatView;
         com.baidu.tbadk.coreExtra.relationship.b bVar2;
         com.baidu.tbadk.coreExtra.relationship.b bVar3;
-        long it;
+        long iv;
         long j;
         String str;
         com.baidu.tbadk.coreExtra.relationship.b bVar4;
@@ -36,41 +36,41 @@ class q extends com.baidu.adp.framework.listener.e {
         long j2;
         MsglistModel msglistModel2;
         if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 205101 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponsePersonalLbsInfoMessage)) {
-            this.bMx.bJx = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
-            bVar = this.bMx.bJx;
+            this.bMS.bJS = ((ResponsePersonalLbsInfoMessage) socketResponsedMessage).getLbsInfo();
+            bVar = this.bMS.bJS;
             if (bVar != null) {
                 UserData userData = null;
-                msglistModel = this.bMx.mListModel;
+                msglistModel = this.bMS.mListModel;
                 if (msglistModel instanceof PersonalMsglistModel) {
-                    msglistModel2 = this.bMx.mListModel;
+                    msglistModel2 = this.bMS.mListModel;
                     userData = ((PersonalMsglistModel) msglistModel2).getUser();
                 }
                 if (userData == null) {
                     return;
                 }
-                floatingPersonalChatView = this.bMx.bMv;
+                floatingPersonalChatView = this.bMS.bMQ;
                 String userName = userData.getUserName();
-                bVar2 = this.bMx.bJx;
+                bVar2 = this.bMS.bJS;
                 floatingPersonalChatView.a(userName, bVar2);
-                FloatingPersonalChatActivity floatingPersonalChatActivity = this.bMx;
-                FloatingPersonalChatActivity floatingPersonalChatActivity2 = this.bMx;
-                bVar3 = this.bMx.bJx;
-                it = floatingPersonalChatActivity2.it(as.l(bVar3.getTime()));
-                floatingPersonalChatActivity.bJw = it;
-                j = this.bMx.bJw;
+                FloatingPersonalChatActivity floatingPersonalChatActivity = this.bMS;
+                FloatingPersonalChatActivity floatingPersonalChatActivity2 = this.bMS;
+                bVar3 = this.bMS.bJS;
+                iv = floatingPersonalChatActivity2.iv(as.l(bVar3.getTime()));
+                floatingPersonalChatActivity.bJR = iv;
+                j = this.bMS.bJR;
                 if (j != 0) {
-                    handler = this.bMx.mHandler;
-                    runnable = this.bMx.bJB;
-                    j2 = this.bMx.bJw;
+                    handler = this.bMS.mHandler;
+                    runnable = this.bMS.bJW;
+                    j2 = this.bMS.bJR;
                     handler.postDelayed(runnable, j2);
                 }
-                com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e YR = FloatingPersonalChatActivityStatic.YR();
-                str = this.bMx.bJy;
+                com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e Zm = FloatingPersonalChatActivityStatic.Zm();
+                str = this.bMS.bJT;
                 String str2 = String.valueOf(str) + "&" + userData.getUserId();
-                bVar4 = this.bMx.bJx;
-                YR.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
+                bVar4 = this.bMS.bJS;
+                Zm.a(str2, new com.baidu.tieba.imMessageCenter.im.chat.personaltalk.a(bVar4, System.currentTimeMillis()));
             }
-            TbadkCoreApplication.m411getInst().getAlarmManager().qe();
+            TbadkCoreApplication.m411getInst().getAlarmManager().qf();
         }
     }
 }

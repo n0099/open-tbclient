@@ -10,21 +10,21 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class az implements a.b {
-    private final /* synthetic */ PluginNetConfigInfos.PluginConfig aKH;
-    private final /* synthetic */ TbPageContext ayV;
+    private final /* synthetic */ PluginNetConfigInfos.PluginConfig aJB;
+    private final /* synthetic */ TbPageContext axK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(TbPageContext tbPageContext, PluginNetConfigInfos.PluginConfig pluginConfig) {
-        this.ayV = tbPageContext;
-        this.aKH = pluginConfig;
+        this.axK = tbPageContext;
+        this.aJB = pluginConfig;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        if (com.baidu.adp.lib.util.i.iM()) {
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDownloadActivityConfig(this.ayV.getPageActivity(), this.aKH)));
+        if (com.baidu.adp.lib.util.i.iN()) {
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDownloadActivityConfig(this.axK.getPageActivity(), this.aJB)));
         } else {
-            com.baidu.adp.lib.util.k.showToast(this.ayV.getPageActivity(), i.h.neterror);
+            com.baidu.adp.lib.util.k.showToast(this.axK.getPageActivity(), i.h.neterror);
         }
         aVar.dismiss();
     }

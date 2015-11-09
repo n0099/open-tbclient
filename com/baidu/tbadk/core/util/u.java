@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u {
-    public static <T> int l(List<T> list) {
+    public static <T> int m(List<T> list) {
         if (list == null || list.isEmpty()) {
             return 0;
         }

@@ -6,13 +6,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ c bDz;
+    final /* synthetic */ c bDU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(c cVar, int i) {
         super(i);
-        this.bDz = cVar;
+        this.bDU = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,9 +20,9 @@ public class f extends com.baidu.adp.framework.listener.e {
     public void onMessage(SocketResponsedMessage socketResponsedMessage) {
         List list;
         if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseUploadClientLogMessage)) {
-            this.bDz.bDt = false;
+            this.bDU.bDO = false;
             if (socketResponsedMessage.getError() == 0) {
-                list = this.bDz.bDq;
+                list = this.bDU.bDL;
                 list.clear();
             }
         }

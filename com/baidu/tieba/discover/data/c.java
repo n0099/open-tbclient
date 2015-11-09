@@ -4,10 +4,10 @@ import com.baidu.tbadk.TbadkApplication;
 import tbclient.FoundNew.Menu;
 /* loaded from: classes.dex */
 public class c {
-    private boolean aKW;
-    private boolean aKX;
-    private int aKY;
-    private boolean aKZ;
+    private boolean aJQ;
+    private boolean aJR;
+    private int aJS;
+    private boolean aJT;
     private String describe;
     private String icon_url;
     private String link_url;
@@ -32,11 +32,11 @@ public class c {
         this.link_url = menu.link_url;
         this.describe = menu.describe;
         this.statistics = menu.statistics;
-        this.aKW = menu.is_new != null && menu.is_new.intValue() == 1;
+        this.aJQ = menu.is_new != null && menu.is_new.intValue() == 1;
         if (menu.is_red_point == null || menu.is_red_point.intValue() != 1) {
             z = false;
         }
-        this.aKX = z;
+        this.aJR = z;
         return this;
     }
 
@@ -44,7 +44,7 @@ public class c {
         return this.icon_url;
     }
 
-    public void gr(String str) {
+    public void gt(String str) {
         this.icon_url = str;
     }
 
@@ -56,51 +56,51 @@ public class c {
         this.title = str;
     }
 
-    public String HH() {
+    public String HE() {
         return this.link_url;
     }
 
-    public String HI() {
+    public String HF() {
         return this.describe;
     }
 
-    public String HJ() {
+    public String HG() {
         return this.statistics;
     }
 
-    public void gs(String str) {
+    public void gu(String str) {
         this.statistics = str;
     }
 
-    public boolean HK() {
-        return this.aKW;
-    }
-
-    public void bG(boolean z) {
-        this.aKW = z;
-    }
-
-    public boolean HL() {
-        return this.aKX;
-    }
-
-    public void bH(boolean z) {
-        this.aKX = z;
-    }
-
-    public int HM() {
-        return this.aKY;
-    }
-
-    public void eT(int i) {
-        this.aKY = i;
-    }
-
-    public boolean HN() {
-        return this.aKZ;
+    public boolean HH() {
+        return this.aJQ;
     }
 
     public void bI(boolean z) {
-        this.aKZ = z;
+        this.aJQ = z;
+    }
+
+    public boolean HI() {
+        return this.aJR;
+    }
+
+    public void bJ(boolean z) {
+        this.aJR = z;
+    }
+
+    public int HJ() {
+        return this.aJS;
+    }
+
+    public void eT(int i) {
+        this.aJS = i;
+    }
+
+    public boolean HK() {
+        return this.aJT;
+    }
+
+    public void bK(boolean z) {
+        this.aJT = z;
     }
 }

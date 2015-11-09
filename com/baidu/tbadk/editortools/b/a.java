@@ -1,21 +1,14 @@
 package com.baidu.tbadk.editortools.b;
-
-import android.content.Context;
-import com.baidu.tbadk.editortools.imagetool.MultiImgToolView;
-import com.baidu.tbadk.editortools.imagetool.c;
-import com.baidu.tbadk.editortools.v;
-import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class a extends v {
-    public a(Context context) {
-        super(context, (String) null, 14);
-        this.apw = true;
-        this.apv = 6;
-        MultiImgToolView multiImgToolView = (MultiImgToolView) c.h(context, 1);
-        multiImgToolView.setDefaultTip(context.getString(i.h.baobao_remind));
-        multiImgToolView.setDeleteAction(23);
-        multiImgToolView.setTargetToolId(13);
-        this.aoJ = multiImgToolView;
-        this.apx = new int[]{12, 13, 9};
+public class a {
+    public String addr;
+    public boolean aqm;
+    public int state;
+
+    public a(int i, boolean z, String str) {
+        this.aqm = true;
+        this.state = i;
+        this.aqm = z;
+        this.addr = str;
     }
 }

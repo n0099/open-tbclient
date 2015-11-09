@@ -110,15 +110,15 @@ public class a extends com.baidu.adp.framework.a.d {
         }
         String netType = i.getNetType();
         if (netType != null) {
-            String wa = com.baidu.tbadk.coreExtra.b.a.vY().wa();
+            String wf = com.baidu.tbadk.coreExtra.b.a.wc().wf();
             if (TbConfig.ST_PARAM_PERSON_INFO_SEND_MESSAGE.equalsIgnoreCase(netType)) {
                 if (TbadkCoreApplication.m411getInst().getKeepaliveWifi() == 1) {
-                    wa = String.valueOf(wa) + "ka=open";
+                    wf = String.valueOf(wf) + "ka=open";
                 }
             } else if (TbadkCoreApplication.m411getInst().getKeepaliveNonWifi() == 1) {
-                wa = String.valueOf(wa) + "ka=open";
+                wf = String.valueOf(wf) + "ka=open";
             }
-            httpMessage.addHeader("Cookie", wa);
+            httpMessage.addHeader("Cookie", wf);
         }
         if (tbHttpMessageTask.isNeedTbs()) {
             httpMessage.addParam("tbs", TbadkCoreApplication.m411getInst().getTbs());
@@ -154,17 +154,17 @@ public class a extends com.baidu.adp.framework.a.d {
     }
 
     private void e(HttpMessage httpMessage) {
-        aa.a un = aa.un();
-        if (un != null) {
-            httpMessage.addParam("stTime", String.valueOf(un.mTime));
-            httpMessage.addParam("stSize", String.valueOf(un.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(un.aao));
-            httpMessage.addParam("stMode", String.valueOf(un.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(un.aan));
+        aa.a uq = aa.uq();
+        if (uq != null) {
+            httpMessage.addParam("stTime", String.valueOf(uq.mTime));
+            httpMessage.addParam("stSize", String.valueOf(uq.mSize));
+            httpMessage.addParam("stTimesNum", String.valueOf(uq.aas));
+            httpMessage.addParam("stMode", String.valueOf(uq.mMode));
+            httpMessage.addParam("stMethod", String.valueOf(uq.aar));
         }
         int cn = aa.cn(0);
-        if (cn == 0 && un != null) {
-            cn = un.aao;
+        if (cn == 0 && uq != null) {
+            cn = uq.aas;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(cn));
     }

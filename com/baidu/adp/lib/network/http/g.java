@@ -25,7 +25,7 @@ public class g {
         }
     }
 
-    public boolean gW() {
+    public boolean gX() {
         return this.responseCode == 200;
     }
 }

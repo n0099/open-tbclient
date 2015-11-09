@@ -5,12 +5,12 @@ import android.widget.TimePicker;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class ad implements TimePickerDialog.OnTimeSetListener {
-    final /* synthetic */ MsgRemindActivity cNU;
+    final /* synthetic */ MsgRemindActivity cPq;
     private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ad(MsgRemindActivity msgRemindActivity, int i) {
-        this.cNU = msgRemindActivity;
+        this.cPq = msgRemindActivity;
         this.val$id = i;
     }
 
@@ -19,18 +19,18 @@ class ad implements TimePickerDialog.OnTimeSetListener {
         ae aeVar;
         ae aeVar2;
         if (this.val$id == i.f.sign_remind) {
-            com.baidu.tbadk.coreExtra.messageCenter.c.xe().setSignAlertTime(i, i2);
-            aeVar2 = this.cNU.cNS;
-            aeVar2.ass();
+            com.baidu.tbadk.coreExtra.messageCenter.c.xj().setSignAlertTime(i, i2);
+            aeVar2 = this.cPq.cPo;
+            aeVar2.asY();
         } else if (this.val$id == i.f.no_disturb_end_time || this.val$id == i.f.no_disturb_start_time) {
             String str = String.valueOf(String.valueOf(i < 10 ? "0" : "") + i) + ":" + (String.valueOf(i2 < 10 ? "0" : "") + i2);
             if (this.val$id == i.f.no_disturb_start_time) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xe().dY(str);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xj().dY(str);
             } else {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xe().dZ(str);
+                com.baidu.tbadk.coreExtra.messageCenter.c.xj().dZ(str);
             }
-            aeVar = this.cNU.cNS;
-            aeVar.ast();
+            aeVar = this.cPq.cPo;
+            aeVar.asZ();
         }
     }
 }

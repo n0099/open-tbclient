@@ -12,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams csk;
-    private List<TextView> csj;
-    private View.OnClickListener csl;
+    private static ViewGroup.LayoutParams ctG;
+    private List<TextView> ctF;
+    private View.OnClickListener ctH;
 
     public ReplyLinearLayout(Context context) {
         this(context, null);
@@ -22,25 +22,25 @@ public class ReplyLinearLayout extends LinearLayout {
 
     public ReplyLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.csl = new ac(this);
-        this.csj = new ArrayList();
+        this.ctH = new ac(this);
+        this.ctF = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (csk == null) {
-            csk = new LinearLayout.LayoutParams(-1, -2);
+        if (ctG == null) {
+            ctG = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.csj.size();
+        int size2 = size - this.ctF.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.csj.add(textView);
+            this.ctF.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.csj.size(); i3++) {
-            TextView textView2 = this.csj.get(i3);
+        for (int i3 = 0; i3 < this.ctF.size(); i3++) {
+            TextView textView2 = this.ctF.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -56,12 +56,12 @@ public class ReplyLinearLayout extends LinearLayout {
                     textView2.setText(charSequenceArr[4]);
                 }
                 textView2.setTag(charSequenceArr);
-                textView2.setOnClickListener(this.csl);
+                textView2.setOnClickListener(this.ctH);
                 o(textView2, i3);
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(csk);
+                    textView2.setLayoutParams(ctG);
                     an.b(textView2, i.c.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
@@ -69,11 +69,11 @@ public class ReplyLinearLayout extends LinearLayout {
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(csk);
+                    textView2.setLayoutParams(ctG);
                     an.b(textView2, i.c.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(csk);
+                    textView2.setLayoutParams(ctG);
                     an.b(textView2, i.c.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);

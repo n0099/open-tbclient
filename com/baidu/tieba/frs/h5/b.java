@@ -10,23 +10,23 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements BaseWebView.b {
-    final /* synthetic */ a bao;
-    private final /* synthetic */ g bap;
+    final /* synthetic */ a baI;
+    private final /* synthetic */ g baJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, g gVar) {
-        this.bao = aVar;
-        this.bap = gVar;
+        this.baI = aVar;
+        this.baJ = gVar;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         BaseActivity baseActivity;
-        az uT = az.uT();
-        baseActivity = this.bao.aSe;
-        uT.a(baseActivity.getPageContext(), new String[]{str}, true);
-        if (this.bap != null && !TextUtils.isEmpty(this.bap.stType)) {
-            TiebaStatic.log(new aq("c10335").ae("obj_name", this.bap.stType));
+        az uX = az.uX();
+        baseActivity = this.baI.aSm;
+        uX.a(baseActivity.getPageContext(), new String[]{str}, true);
+        if (this.baJ != null && !TextUtils.isEmpty(this.baJ.stType)) {
+            TiebaStatic.log(new aq("c10335").ae("obj_name", this.baJ.stType));
         }
         return true;
     }

@@ -4,13 +4,13 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ao extends com.baidu.tbadk.editortools.c.a<SingleMentionActivity> {
-    final /* synthetic */ al caZ;
+    final /* synthetic */ al cbA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ao(al alVar, com.baidu.adp.base.h hVar) {
         super(hVar);
-        this.caZ = alVar;
+        this.cbA = alVar;
     }
 
     @Override // com.baidu.adp.base.e
@@ -24,12 +24,12 @@ public class ao extends com.baidu.tbadk.editortools.c.a<SingleMentionActivity> {
     }
 
     @Override // com.baidu.tbadk.editortools.c.a
-    public boolean Bh() {
+    public boolean AU() {
         return false;
     }
 
     @Override // com.baidu.tbadk.editortools.c.a
-    public WriteData eV(String str) {
+    public WriteData eW(String str) {
         String str2;
         FeedData feedData;
         FeedData feedData2;
@@ -42,32 +42,32 @@ public class ao extends com.baidu.tbadk.editortools.c.a<SingleMentionActivity> {
         String quote_pid;
         long j4;
         WriteData writeData = new WriteData();
-        str2 = this.caZ.mForumId;
+        str2 = this.cbA.mForumId;
         writeData.setForumId(str2);
-        feedData = this.caZ.caV;
+        feedData = this.cbA.cbw;
         writeData.setForumName(feedData.getFname());
-        feedData2 = this.caZ.caV;
+        feedData2 = this.cbA.cbw;
         writeData.setThreadId(feedData2.getThread_id());
         writeData.setIsAd(false);
         writeData.setFloorNum(0);
-        feedData3 = this.caZ.caV;
+        feedData3 = this.cbA.cbw;
         if (!feedData3.getIsFloor()) {
-            feedData4 = this.caZ.caV;
+            feedData4 = this.cbA.cbw;
             writeData.setFloor(feedData4.getPost_id());
         } else {
-            j3 = this.caZ.caW;
+            j3 = this.cbA.cbx;
             if (j3 <= 0) {
-                feedData5 = this.caZ.caV;
+                feedData5 = this.cbA.cbw;
                 quote_pid = feedData5.getQuote_pid();
             } else {
-                j4 = this.caZ.caW;
+                j4 = this.cbA.cbx;
                 quote_pid = String.valueOf(j4);
             }
             writeData.setFloor(quote_pid);
         }
-        j = this.caZ.caX;
+        j = this.cbA.cby;
         if (j > 0) {
-            j2 = this.caZ.caX;
+            j2 = this.cbA.cby;
             writeData.setRepostId(String.valueOf(j2));
         }
         writeData.setType(2);
@@ -75,7 +75,7 @@ public class ao extends com.baidu.tbadk.editortools.c.a<SingleMentionActivity> {
     }
 
     @Override // com.baidu.tbadk.editortools.c.a
-    public String Bi() {
+    public String AV() {
         return null;
     }
 }

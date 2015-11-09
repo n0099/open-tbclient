@@ -16,9 +16,9 @@ class ar extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
             if (TbadkCoreApplication.isLogin()) {
-                v.acV().start();
+                v.adq().start();
             } else {
-                v.acV().destroy();
+                v.adq().destroy();
             }
         }
     }

@@ -5,9 +5,9 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static c azC = new c();
-    private b azD;
-    private a azE;
+    private static c ayq = new c();
+    private b ayr;
+    private a ays;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -17,28 +17,28 @@ public class c {
     private c() {
     }
 
-    public static c Et() {
-        return azC;
+    public static c Em() {
+        return ayq;
     }
 
     public void a(a aVar) {
-        this.azE = aVar;
-        if (this.azD != null) {
-            this.azD.cancel();
+        this.ays = aVar;
+        if (this.ayr != null) {
+            this.ayr.cancel();
         }
-        this.azD = new b(this, null);
-        this.azD.setPriority(4);
-        this.azD.execute(new String[0]);
+        this.ayr = new b(this, null);
+        this.ayr.setPriority(4);
+        this.ayr.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Eu() {
+    public boolean En() {
         int i;
         long j = 0;
-        byte[] aH = com.baidu.adp.lib.util.e.aH("crash_hour_record.log");
+        byte[] aF = com.baidu.adp.lib.util.e.aF("crash_hour_record.log");
         String str = null;
-        if (aH != null) {
-            str = new String(aH);
+        if (aF != null) {
+            str = new String(aF);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str)) {
@@ -73,7 +73,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(c.this.Eu());
+            return Boolean.valueOf(c.this.En());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,8 +81,8 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
-            if (c.this.azE != null && bool != null) {
-                c.this.azE.ag(bool.booleanValue());
+            if (c.this.ays != null && bool != null) {
+                c.this.ays.ag(bool.booleanValue());
             }
         }
     }

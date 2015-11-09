@@ -5,18 +5,18 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bf implements com.baidu.adp.lib.guide.b {
-    final /* synthetic */ be aVI;
-    private final /* synthetic */ View aVJ;
+    final /* synthetic */ be aVQ;
+    private final /* synthetic */ View aVR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bf(be beVar, View view) {
-        this.aVI = beVar;
-        this.aVJ = view;
+        this.aVQ = beVar;
+        this.aVR = view;
     }
 
     @Override // com.baidu.adp.lib.guide.b
     public View a(LayoutInflater layoutInflater) {
-        return this.aVJ;
+        return this.aVR;
     }
 
     @Override // com.baidu.adp.lib.guide.b

@@ -1,17 +1,72 @@
 package com.baidu.tieba.pb.pb.main;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class cr implements View.OnLongClickListener {
-    final /* synthetic */ cc clJ;
+public class cr {
+    private TbPageContext<?> aPu;
+    private View.OnClickListener mClickListener;
+    private View mView = null;
+    private TextView cld = null;
+    private TextView clt = null;
+    private ImageView clu = null;
+    private ImageView clv = null;
+    private boolean clw = true;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cr(cc ccVar) {
-        this.clJ = ccVar;
+    public boolean agJ() {
+        return this.clw;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        return false;
+    public void eF(boolean z) {
+        this.clw = z;
+    }
+
+    public cr(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
+        this.aPu = null;
+        this.mClickListener = null;
+        this.aPu = tbPageContext;
+        this.mClickListener = onClickListener;
+        initUI();
+    }
+
+    public View getView() {
+        return this.mView;
+    }
+
+    public void eG(boolean z) {
+        this.clv.setVisibility(z ? 0 : 8);
+    }
+
+    public TextView agz() {
+        return this.cld;
+    }
+
+    public TextView agK() {
+        return this.clt;
+    }
+
+    public ImageView agL() {
+        return this.clu;
+    }
+
+    public ImageView agM() {
+        return this.clv;
+    }
+
+    private void initUI() {
+        this.mView = LayoutInflater.from(this.aPu.getPageActivity()).inflate(i.g.pb_reply_view, (ViewGroup) null);
+        this.cld = (TextView) this.mView.findViewById(i.f.pb_reply_view_item_mark);
+        this.cld.setOnClickListener(this.mClickListener);
+        this.clt = (TextView) this.mView.findViewById(i.f.pb_reply_view_item_reply);
+        this.clt.setOnClickListener(this.mClickListener);
+        this.clu = (ImageView) this.mView.findViewById(i.f.pb_reply_view_item_manage);
+        this.clu.setOnClickListener(this.mClickListener);
+        this.clv = (ImageView) this.mView.findViewById(i.f.pb_reply_view_item_report);
+        this.clv.setOnClickListener(this.mClickListener);
     }
 }

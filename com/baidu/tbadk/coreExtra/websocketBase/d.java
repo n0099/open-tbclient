@@ -10,31 +10,31 @@ import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.framework.listener.e {
-    private static d amB = new d();
-    private final HashSet<Integer> amA;
-    private boolean amw;
-    private int amx;
-    private long amy;
-    private final SparseArray<a> amz;
+    private static d amG = new d();
+    private boolean amB;
+    private int amC;
+    private long amD;
+    private final SparseArray<a> amE;
+    private final HashSet<Integer> amF;
 
-    public static d zy() {
-        return amB;
+    public static d zD() {
+        return amG;
     }
 
     private d() {
         super(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES);
-        this.amx = 3;
-        this.amy = 300000L;
-        this.amz = new SparseArray<>();
-        this.amA = new HashSet<>();
+        this.amC = 3;
+        this.amD = 300000L;
+        this.amE = new SparseArray<>();
+        this.amF = new HashSet<>();
         MessageManager.getInstance().registerListener(0, this);
     }
 
     public boolean dH(int i) {
-        if (this.amw || this.amA.contains(Integer.valueOf(i)) || !MessageManager.getInstance().getSocketClient().isValid()) {
+        if (this.amB || this.amF.contains(Integer.valueOf(i)) || !MessageManager.getInstance().getSocketClient().isValid()) {
             return false;
         }
-        if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().ex() > PingManager.zB().zD() + 20000) {
+        if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().ex() > PingManager.zG().zI() + 20000) {
             com.baidu.adp.framework.client.socket.k.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
             return false;
         } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
@@ -44,9 +44,9 @@ public class d extends com.baidu.adp.framework.listener.e {
                 com.baidu.adp.framework.client.socket.k.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "retryiplist");
                 return false;
             }
-            a aVar = this.amz.get(i);
-            if (aVar != null && aVar.amD) {
-                if (Math.abs(System.currentTimeMillis() - aVar.amE) <= this.amy) {
+            a aVar = this.amE.get(i);
+            if (aVar != null && aVar.amI) {
+                if (Math.abs(System.currentTimeMillis() - aVar.amJ) <= this.amD) {
                     return false;
                 }
                 aVar.reset();
@@ -59,8 +59,8 @@ public class d extends com.baidu.adp.framework.listener.e {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.amz.size()) {
-                this.amz.valueAt(i2).reset();
+            if (i2 < this.amE.size()) {
+                this.amE.valueAt(i2).reset();
                 i = i2 + 1;
             } else {
                 return;
@@ -69,39 +69,39 @@ public class d extends com.baidu.adp.framework.listener.e {
     }
 
     public void dI(int i) {
-        a aVar = this.amz.get(i);
+        a aVar = this.amE.get(i);
         if (aVar == null) {
             aVar = new a(null);
-            this.amz.append(i, aVar);
+            this.amE.append(i, aVar);
         }
         if (aVar != null) {
-            aVar.onError(this.amx);
+            aVar.onError(this.amC);
         }
     }
 
     public void dJ(int i) {
-        this.amz.remove(i);
+        this.amE.remove(i);
     }
 
     public void aV(boolean z) {
-        this.amw = z;
+        this.amB = z;
     }
 
     public void d(int[] iArr) {
         if (iArr != null && iArr.length > 0) {
-            this.amA.clear();
+            this.amF.clear();
             for (int i : iArr) {
-                this.amA.add(Integer.valueOf(i));
+                this.amF.add(Integer.valueOf(i));
             }
         }
     }
 
     public void dK(int i) {
-        this.amx = i;
+        this.amC = i;
     }
 
     public void z(long j) {
-        this.amy = j;
+        this.amD = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -115,9 +115,9 @@ public class d extends com.baidu.adp.framework.listener.e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public int amC;
-        public boolean amD;
-        public long amE;
+        public int amH;
+        public boolean amI;
+        public long amJ;
 
         private a() {
         }
@@ -127,18 +127,18 @@ public class d extends com.baidu.adp.framework.listener.e {
         }
 
         public void reset() {
-            this.amC = 0;
-            if (this.amD) {
-                this.amD = false;
-                this.amE = 0L;
+            this.amH = 0;
+            if (this.amI) {
+                this.amI = false;
+                this.amJ = 0L;
             }
         }
 
         public void onError(int i) {
-            this.amC++;
-            if (!this.amD && this.amC >= i) {
-                this.amD = true;
-                this.amE = System.currentTimeMillis();
+            this.amH++;
+            if (!this.amI && this.amH >= i) {
+                this.amI = true;
+                this.amJ = System.currentTimeMillis();
             }
         }
     }

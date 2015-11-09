@@ -1,45 +1,42 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tbadkCore.writeModel.a;
+import android.view.View;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-class m implements a.d {
-    final /* synthetic */ NewSubPbActivity cmC;
+class m implements com.baidu.adp.lib.e.c<View> {
+    final /* synthetic */ NewSubPbActivity cnS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(NewSubPbActivity newSubPbActivity) {
-        this.cmC = newSubPbActivity;
+        this.cnS = newSubPbActivity;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
-    public void a(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.l lVar, WriteData writeData, AntiData antiData) {
-        t tVar;
-        com.baidu.tbadk.editortools.c.n nVar;
-        com.baidu.tbadk.editortools.c.n nVar2;
-        com.baidu.tbadk.editortools.c.n nVar3;
-        ak akVar;
-        ak akVar2;
-        if (z) {
-            nVar = this.cmC.caU;
-            if (nVar != null) {
-                nVar2 = this.cmC.caU;
-                if (nVar2.Au() != null) {
-                    nVar3 = this.cmC.caU;
-                    nVar3.Au().hide();
-                    akVar = this.cmC.cmt;
-                    if (akVar.ahG()) {
-                        aq aqVar = new aq("c10367");
-                        akVar2 = this.cmC.cmt;
-                        TiebaStatic.log(aqVar.ae("post_id", akVar2.Bi()));
-                    }
-                }
-            }
-        }
-        tVar = this.cmC.cmv;
-        tVar.ahj();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: agc */
+    public View ha() {
+        return new PlayVoiceBnt(this.cnS.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: X */
+    public void l(View view) {
+        ((PlayVoiceBnt) view).reset();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: Y */
+    public View m(View view) {
+        return view;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: Z */
+    public View n(View view) {
+        ((PlayVoiceBnt) view).reset();
+        return view;
     }
 }

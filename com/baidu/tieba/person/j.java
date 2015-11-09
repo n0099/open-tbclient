@@ -23,19 +23,19 @@ public class j implements CompoundButton.OnCheckedChangeListener {
         HorizontalScrollView horizontalScrollView2;
         LinearLayout linearLayout2;
         if (z) {
-            radioButton = this.this$0.col;
+            radioButton = this.this$0.cpH;
             if (compoundButton == radioButton) {
-                horizontalScrollView2 = this.this$0.coi;
+                horizontalScrollView2 = this.this$0.cpE;
                 horizontalScrollView2.setVisibility(0);
-                linearLayout2 = this.this$0.con;
+                linearLayout2 = this.this$0.cpJ;
                 linearLayout2.setVisibility(8);
                 return;
             }
-            radioButton2 = this.this$0.f127com;
+            radioButton2 = this.this$0.cpI;
             if (compoundButton == radioButton2) {
-                horizontalScrollView = this.this$0.coi;
+                horizontalScrollView = this.this$0.cpE;
                 horizontalScrollView.setVisibility(8);
-                linearLayout = this.this$0.con;
+                linearLayout = this.this$0.cpJ;
                 linearLayout.setVisibility(0);
             }
         }

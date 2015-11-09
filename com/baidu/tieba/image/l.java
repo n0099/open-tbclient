@@ -8,30 +8,30 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class l {
-    private y bPj;
-    private ArrayList<com.baidu.tieba.tbadkCore.data.d> bPk;
+    private y bPE;
+    private ArrayList<com.baidu.tieba.tbadkCore.data.h> bPF;
     private Context mContext;
-    private String bPi = null;
+    private String bPD = null;
     private String imageUrl = null;
-    private String aBJ = null;
-    private String aBK = null;
+    private String aAA = null;
+    private String aAB = null;
     private int width = 0;
     private int height = 0;
-    private String bPl = null;
-    private String bPm = null;
+    private String bPG = null;
+    private String bPH = null;
     private String userName = null;
     private String userID = null;
     private int index = -1;
-    private String bPn = null;
+    private String bPI = null;
     private long originalSize = 0;
 
     public l(Context context) {
-        this.bPj = null;
-        this.bPk = null;
+        this.bPE = null;
+        this.bPF = null;
         this.mContext = null;
         this.mContext = context;
-        this.bPj = new y();
-        this.bPk = new ArrayList<>();
+        this.bPE = new y();
+        this.bPF = new ArrayList<>();
     }
 
     public String getImageUrl() {
@@ -39,7 +39,7 @@ public class l {
     }
 
     public String getImageID() {
-        return this.bPi;
+        return this.bPD;
     }
 
     public int getWidth() {
@@ -54,12 +54,12 @@ public class l {
         return this.index;
     }
 
-    public String Fb() {
-        return this.aBK;
+    public String EW() {
+        return this.aAB;
     }
 
-    public String Ff() {
-        return this.bPn;
+    public String Fa() {
+        return this.bPI;
     }
 
     public long getOriginalSize() {
@@ -69,36 +69,36 @@ public class l {
     public void paserJson(JSONObject jSONObject) {
         JSONObject optJSONObject;
         try {
-            this.bPl = jSONObject.optString("post_id");
+            this.bPG = jSONObject.optString("post_id");
             this.userName = jSONObject.optString("user_name");
             this.userID = jSONObject.optString("user_id");
-            this.bPm = jSONObject.optString("comment_amount");
+            this.bPH = jSONObject.optString("comment_amount");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
             this.index = jSONObject.optInt(ImageViewerConfig.INDEX, -1);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.bPi = optJSONObject.optString("id");
+                this.bPD = optJSONObject.optString("id");
                 this.imageUrl = optJSONObject.optString("url");
                 this.width = optJSONObject.optInt("width", 0);
                 this.height = optJSONObject.optInt("height", 0);
-                this.aBJ = optJSONObject.optString("cdn_src", "");
-                if (this.aBJ == null || this.aBJ.length() == 0) {
-                    this.aBJ = this.imageUrl;
+                this.aAA = optJSONObject.optString("cdn_src", "");
+                if (this.aAA == null || this.aAA.length() == 0) {
+                    this.aAA = this.imageUrl;
                 }
-                this.aBK = optJSONObject.optString("big_cdn_src", null);
-                this.bPn = optJSONObject.optString("original_src");
+                this.aAB = optJSONObject.optString("big_cdn_src", null);
+                this.bPI = optJSONObject.optString("original_src");
                 this.originalSize = optJSONObject.optInt("size");
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("descr");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    com.baidu.tieba.tbadkCore.data.d dVar = new com.baidu.tieba.tbadkCore.data.d();
-                    dVar.parserJson(optJSONArray.optJSONObject(i));
-                    this.bPk.add(dVar);
+                    com.baidu.tieba.tbadkCore.data.h hVar = new com.baidu.tieba.tbadkCore.data.h();
+                    hVar.parserJson(optJSONArray.optJSONObject(i));
+                    this.bPF.add(hVar);
                 }
             }
-            this.bPj.setContent(this.bPk);
+            this.bPE.setContent(this.bPF);
             if (this.mContext != null) {
-                this.bPj.aA(this.mContext);
+                this.bPE.az(this.mContext);
             }
         } catch (Exception e) {
             BdLog.detailException(e);

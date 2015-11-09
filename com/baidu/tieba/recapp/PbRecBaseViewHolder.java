@@ -2,10 +2,10 @@ package com.baidu.tieba.recapp;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.x;
-import com.baidu.tieba.tbadkCore.data.j;
+import com.baidu.tieba.tbadkCore.data.n;
 /* loaded from: classes.dex */
 public abstract class PbRecBaseViewHolder extends x.a {
-    protected j cHC;
+    protected n cIY;
     protected boolean mIsFromCDN;
     private int position;
     protected View rootView;
@@ -18,16 +18,16 @@ public abstract class PbRecBaseViewHolder extends x.a {
         return this.rootView;
     }
 
-    public void update(j jVar, int i, boolean z) {
-        if (!jVar.cZd) {
-            com.baidu.tbadk.distribute.a.Ad().a(this.rootView.getContext(), jVar.awz(), "show", "pb", jVar.cZe, jVar.threadId);
-            com.baidu.tbadk.distribute.a.Ad().a(jVar.awz(), jVar.cZe, jVar.threadId, "PB", "show", jVar.cHN);
-            jVar.cZd = true;
+    public void update(n nVar, int i, boolean z) {
+        if (!nVar.daK) {
+            com.baidu.tbadk.distribute.a.Ai().a(this.rootView.getContext(), nVar.axn(), "show", "pb", nVar.daL, nVar.threadId);
+            com.baidu.tbadk.distribute.a.Ai().a(nVar.axn(), nVar.daL, nVar.threadId, "PB", "show", nVar.cJj);
+            nVar.daK = true;
         }
-        if (jVar != null) {
-            com.baidu.tbadk.distribute.a.anU = jVar.bac;
+        if (nVar != null) {
+            com.baidu.tbadk.distribute.a.anZ = nVar.baw;
         }
-        this.cHC = jVar;
+        this.cIY = nVar;
         this.position = i;
         this.mIsFromCDN = z;
         this.rootView.setTag(this);
@@ -38,6 +38,6 @@ public abstract class PbRecBaseViewHolder extends x.a {
     }
 
     public void refresh() {
-        update(this.cHC, this.position, this.mIsFromCDN);
+        update(this.cIY, this.position, this.mIsFromCDN);
     }
 }

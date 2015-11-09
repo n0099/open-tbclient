@@ -1,17 +1,78 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tieba.i;
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bq extends x.a {
-    public TextView cjY;
-    public View cjZ;
+public class bq extends CustomMessageListener {
+    final /* synthetic */ bp ckk;
 
-    public bq(View view) {
-        super(view);
-        this.cjY = (TextView) view.findViewById(i.f.pb_u9_text_view);
-        this.cjZ = view.findViewById(i.f.divide_line_up_pb_u9);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bq(bp bpVar, int i) {
+        super(i);
+        this.ckk = bpVar;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        onMessage2((CustomResponsedMessage) customResponsedMessage);
+    }
+
+    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
+    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
+        com.baidu.tieba.pb.a.c cVar;
+        List<DownloadData> data;
+        com.baidu.tieba.pb.a.c cVar2;
+        PbActivity pbActivity;
+        if (customResponsedMessage != null) {
+            cVar = this.ckk.chP;
+            if (cVar != null && customResponsedMessage.getCmd() == 2001122 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
+                cVar2 = this.ckk.chP;
+                ArrayList<com.baidu.tieba.tbadkCore.data.n> afp = cVar2.afp();
+                if (afp != null && afp.size() != 0) {
+                    Iterator<com.baidu.tieba.tbadkCore.data.n> it = afp.iterator();
+                    boolean z = false;
+                    while (it.hasNext()) {
+                        com.baidu.tieba.tbadkCore.data.n next = it.next();
+                        if (next != null && next.axg() != null && !TextUtils.isEmpty(next.axg().apk_name)) {
+                            com.baidu.tieba.tbadkCore.data.d axg = next.axg();
+                            Iterator<DownloadData> it2 = data.iterator();
+                            while (true) {
+                                if (!it2.hasNext()) {
+                                    break;
+                                }
+                                DownloadData next2 = it2.next();
+                                if (next2 != null && axg.apk_name.equals(next2.getId())) {
+                                    int status = next2.getStatus();
+                                    if (status == 3 || status == 0) {
+                                        next.ig(2);
+                                    } else if (status == 2 || status == 4) {
+                                        if (!com.baidu.tbadk.core.util.as.isEmpty(next2.getStatusMsg())) {
+                                            pbActivity = this.ckk.cjZ;
+                                            com.baidu.adp.lib.util.k.showToast(pbActivity.getPageContext().getContext(), next2.getStatusMsg());
+                                        }
+                                        next.ig(0);
+                                    } else if (status == 1) {
+                                        next.ig(1);
+                                    }
+                                    z = true;
+                                }
+                            }
+                        }
+                    }
+                    if (z) {
+                        this.ckk.notifyDataSetChanged();
+                    }
+                }
+            }
+        }
     }
 }

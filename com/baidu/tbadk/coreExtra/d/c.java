@@ -5,10 +5,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private int ahr;
-    private int ahs;
-    private int aht;
-    private int[] ahu;
+    private int[] ahA;
+    private int ahx;
+    private int ahy;
+    private int ahz;
     private int lcsTimeout2G;
     private int lcsTimeout3G;
     private int lcsTimeoutwifi;
@@ -23,38 +23,38 @@ public class c {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null && jSONObject != null) {
-            this.ahr = jSONObject.optInt("conn_conf");
-            this.ahs = jSONObject.optInt("continuous_fail_count");
-            this.aht = jSONObject.optInt("restart_time_interval");
+            this.ahx = jSONObject.optInt("conn_conf");
+            this.ahy = jSONObject.optInt("continuous_fail_count");
+            this.ahz = jSONObject.optInt("restart_time_interval");
             this.lcsTimeout2G = jSONObject.optInt("lcs_timeout_2G");
             this.lcsTimeout3G = jSONObject.optInt("lcs_timeout_3G");
             this.lcsTimeoutwifi = jSONObject.optInt("lcs_timeout_wifi");
             JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
             if (optJSONArray != null) {
-                this.ahu = new int[optJSONArray.length()];
+                this.ahA = new int[optJSONArray.length()];
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.ahu[i] = optJSONArray.optInt(i);
+                    this.ahA[i] = optJSONArray.optInt(i);
                 }
                 return;
             }
-            this.ahu = new int[0];
+            this.ahA = new int[0];
         }
     }
 
-    public int xC() {
-        return this.ahr;
+    public int xH() {
+        return this.ahx;
     }
 
-    public int xD() {
-        return this.ahs;
+    public int xI() {
+        return this.ahy;
     }
 
-    public int xE() {
-        return this.aht;
+    public int xJ() {
+        return this.ahz;
     }
 
-    public int[] xF() {
-        return this.ahu;
+    public int[] xK() {
+        return this.ahA;
     }
 
     public int getLcsTimeout2G() {

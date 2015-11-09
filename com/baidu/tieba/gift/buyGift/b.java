@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements View.OnClickListener {
-    final /* synthetic */ BuyGiftActivity bmC;
+    final /* synthetic */ BuyGiftActivity bng;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(BuyGiftActivity buyGiftActivity) {
-        this.bmC = buyGiftActivity;
+        this.bng = buyGiftActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bmC.Ql();
+        this.bng.QH();
     }
 }

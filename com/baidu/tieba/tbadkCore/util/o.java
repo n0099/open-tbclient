@@ -6,32 +6,32 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class o extends p {
-    private volatile HashMap<String, Long> dbl;
+    private volatile HashMap<String, Long> ddw;
 
     public o(int i) {
         super(i);
-        this.dbl = new HashMap<>();
+        this.ddw = new HashMap<>();
     }
 
-    public void bh(String str, String str2) {
+    public void bg(String str, String str2) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
-                if (this.dbl.size() >= this.cGg) {
-                    axE();
+                if (this.ddw.size() >= this.cHC) {
+                    ayN();
                 }
-                this.dbl.put(str, valueOf);
+                this.ddw.put(str, valueOf);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public long lJ(String str) {
+    public long lP(String str) {
         long longValue;
         try {
             synchronized (this) {
-                longValue = this.dbl.get(str) != null ? this.dbl.get(str).longValue() : 0L;
+                longValue = this.ddw.get(str) != null ? this.ddw.get(str).longValue() : 0L;
             }
             return longValue;
         } catch (Exception e) {
@@ -40,16 +40,16 @@ public class o extends p {
         }
     }
 
-    public void bi(String str, String str2) {
+    public void bh(String str, String str2) {
         String key;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str2));
             synchronized (this) {
-                Iterator<Map.Entry<String, Long>> it = this.dbl.entrySet().iterator();
+                Iterator<Map.Entry<String, Long>> it = this.ddw.entrySet().iterator();
                 if (it.hasNext() && (key = it.next().getKey()) != null && key.equals(str)) {
-                    this.dbl.remove(key);
+                    this.ddw.remove(key);
                 }
-                this.dbl.put(str, valueOf);
+                this.ddw.put(str, valueOf);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

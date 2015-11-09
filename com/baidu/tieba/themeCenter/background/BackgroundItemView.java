@@ -14,73 +14,73 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.themeCenter.SkinProgressView;
 /* loaded from: classes.dex */
 public class BackgroundItemView extends LinearLayout {
-    private View.OnClickListener aUx;
-    private TextView deB;
-    private TbImageView dex;
-    private TbImageView dey;
-    private ImageView dez;
-    private i dfa;
-    private TbImageView dfu;
-    private SkinProgressView dfv;
-    private DressItemData dfw;
+    private View.OnClickListener aUF;
+    private i dgG;
+    private TbImageView dgd;
+    private TbImageView dge;
+    private ImageView dgf;
+    private TextView dgh;
+    private TbImageView dha;
+    private SkinProgressView dhb;
+    private DressItemData dhc;
     private Context mContext;
     private View mRootView;
 
     public BackgroundItemView(Context context) {
         super(context);
-        this.aUx = new j(this);
+        this.aUF = new j(this);
         this.mContext = context;
         initView();
     }
 
     public BackgroundItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aUx = new j(this);
+        this.aUF = new j(this);
         this.mContext = context;
         initView();
     }
 
     public BackgroundItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
-        this.aUx = new j(this);
+        this.aUF = new j(this);
         this.mContext = context;
         initView();
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(i.g.background_item, this);
-        this.dfu = (TbImageView) this.mRootView.findViewById(i.f.bg_image);
-        this.dex = (TbImageView) this.mRootView.findViewById(i.f.permission_icon);
-        this.dex.setDefaultResource(i.e.transparent_bg);
-        this.dex.setDefaultBgResource(i.e.transparent_bg);
-        this.dey = (TbImageView) this.mRootView.findViewById(i.f.state_icon);
-        this.dey.setDefaultResource(i.e.transparent_bg);
-        this.dey.setDefaultBgResource(i.e.transparent_bg);
-        this.dez = (ImageView) this.mRootView.findViewById(i.f.choosed_icon);
-        this.deB = (TextView) this.mRootView.findViewById(i.f.text_bg_name);
-        this.dfv = (SkinProgressView) this.mRootView.findViewById(i.f.view_bg_use);
-        this.dfv.setOnClickListener(this.aUx);
-        this.dfu.setOnClickListener(this.aUx);
+        this.dha = (TbImageView) this.mRootView.findViewById(i.f.bg_image);
+        this.dgd = (TbImageView) this.mRootView.findViewById(i.f.permission_icon);
+        this.dgd.setDefaultResource(i.e.transparent_bg);
+        this.dgd.setDefaultBgResource(i.e.transparent_bg);
+        this.dge = (TbImageView) this.mRootView.findViewById(i.f.state_icon);
+        this.dge.setDefaultResource(i.e.transparent_bg);
+        this.dge.setDefaultBgResource(i.e.transparent_bg);
+        this.dgf = (ImageView) this.mRootView.findViewById(i.f.choosed_icon);
+        this.dgh = (TextView) this.mRootView.findViewById(i.f.text_bg_name);
+        this.dhb = (SkinProgressView) this.mRootView.findViewById(i.f.view_bg_use);
+        this.dhb.setOnClickListener(this.aUF);
+        this.dha.setOnClickListener(this.aUF);
     }
 
     public void b(DressItemData dressItemData) {
         if (dressItemData != null) {
-            this.dfw = dressItemData;
+            this.dhc = dressItemData;
             Boolean valueOf = Boolean.valueOf(dressItemData.getInUse());
-            this.dfu.d(dressItemData.getExampleImgUrl(), 10, false);
-            this.deB.setText(dressItemData.getTitle());
+            this.dha.d(dressItemData.getExampleImgUrl(), 10, false);
+            this.dgh.setText(dressItemData.getTitle());
             if (valueOf.booleanValue()) {
-                this.dez.setVisibility(0);
-                an.c(this.dez, i.e.icon_choose_photo);
+                this.dgf.setVisibility(0);
+                an.c(this.dgf, i.e.icon_choose_photo);
             } else {
-                this.dez.setVisibility(8);
+                this.dgf.setVisibility(8);
             }
-            this.dex.d(dressItemData.getPermissionImgUrl(), 10, false);
-            this.dey.d(dressItemData.getPropsStateImg(), 10, false);
+            this.dgd.d(dressItemData.getPermissionImgUrl(), 10, false);
+            this.dge.d(dressItemData.getPropsStateImg(), 10, false);
             if (valueOf.booleanValue()) {
-                this.dfv.e(0, 0.0f);
+                this.dhb.e(0, 0.0f);
             } else {
-                this.dfv.e(4, 0.0f);
+                this.dhb.e(4, 0.0f);
             }
             setVisibility(0);
         }
@@ -91,12 +91,12 @@ public class BackgroundItemView extends LinearLayout {
     }
 
     public void setController(i iVar) {
-        this.dfa = iVar;
+        this.dgG = iVar;
     }
 
     public void setListenerTag(BdUniqueId bdUniqueId) {
-        if (this.dfv != null) {
-            this.dfv.setListenerTag(bdUniqueId);
+        if (this.dhb != null) {
+            this.dhb.setListenerTag(bdUniqueId);
         }
     }
 }

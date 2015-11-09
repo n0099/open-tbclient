@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.c;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a XL = null;
+    private static a XO = null;
 
     public static void e(Context context, int i) {
-        if (XL != null) {
-            XL.e(context, i);
+        if (XO != null) {
+            XO.e(context, i);
         }
     }
 
     public static void a(Context context, int i, boolean z) {
-        if (XL != null) {
-            XL.a(context, i, z);
+        if (XO != null) {
+            XO.a(context, i, z);
         }
     }
 
     public static void aa(Context context) {
-        if (XL != null) {
-            XL.aa(context);
+        if (XO != null) {
+            XO.aa(context);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (XL != null) {
-            XL.b(context, i, z);
+        if (XO != null) {
+            XO.b(context, i, z);
         }
     }
 
-    public static Class<?> tk() {
-        if (XL == null) {
+    public static Class<?> tn() {
+        if (XO == null) {
             return null;
         }
-        return XL.tk();
+        return XO.tn();
     }
 
-    public static String tl() {
-        if (XL == null) {
+    public static String to() {
+        if (XO == null) {
             return null;
         }
-        return XL.tl();
+        return XO.to();
     }
 
     public static void a(a aVar) {
-        XL = aVar;
+        XO = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (XL == null) {
+        if (XO == null) {
             return -1;
         }
-        return XL.getCurrentTabType();
+        return XO.getCurrentTabType();
     }
 }

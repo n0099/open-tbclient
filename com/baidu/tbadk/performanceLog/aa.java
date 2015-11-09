@@ -4,84 +4,84 @@ import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 /* loaded from: classes.dex */
 public class aa extends x {
     public void a(t tVar) {
-        if (y.DY().DZ()) {
-            com.baidu.adp.lib.stats.d hb = hb();
-            hb.q("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-            hb.q("ishttp", tVar.axE ? "1" : "0");
-            hb.q("issuccess", tVar.isSuccess ? "1" : "0");
-            hb.q("nettype", y.DY().getNetType());
-            hb.q("ct", String.valueOf(tVar.axs));
-            hb.q("wt", String.valueOf(tVar.axz));
-            hb.q("qt", String.valueOf(tVar.axt));
-            hb.q("connt", String.valueOf(tVar.axu));
-            hb.q("rwt", String.valueOf(tVar.axv));
-            hb.q("dect", String.valueOf(tVar.axw));
-            hb.q("parset", String.valueOf(tVar.axx));
-            hb.q("rendert", String.valueOf(tVar.axy));
-            hb.q("ss", String.valueOf(tVar.axC));
-            hb.q("hs", String.valueOf(tVar.axD));
-            com.baidu.adp.lib.stats.a.hi().a(this.subType, hb);
+        if (y.DR().DS()) {
+            com.baidu.adp.lib.stats.d hc = hc();
+            hc.q("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
+            hc.q("ishttp", tVar.awt ? "1" : "0");
+            hc.q("issuccess", tVar.isSuccess ? "1" : "0");
+            hc.q("nettype", y.DR().getNetType());
+            hc.q("ct", String.valueOf(tVar.awh));
+            hc.q("wt", String.valueOf(tVar.awo));
+            hc.q("qt", String.valueOf(tVar.awi));
+            hc.q("connt", String.valueOf(tVar.awj));
+            hc.q("rwt", String.valueOf(tVar.awk));
+            hc.q("dect", String.valueOf(tVar.awl));
+            hc.q("parset", String.valueOf(tVar.awm));
+            hc.q("rendert", String.valueOf(tVar.awn));
+            hc.q("ss", String.valueOf(tVar.awr));
+            hc.q("hs", String.valueOf(tVar.aws));
+            com.baidu.adp.lib.stats.a.hj().a(this.subType, hc);
         }
     }
 
     public void b(t tVar) {
-        if (y.DY().DZ() && tVar.axz > 0) {
-            com.baidu.adp.lib.stats.d hb = hb();
-            hb.q("action", "white");
-            hb.q("ct", String.valueOf(tVar.axs));
-            hb.q("wt", String.valueOf(tVar.axz));
-            com.baidu.adp.lib.stats.a.hi().a(this.subType, hb);
+        if (y.DR().DS() && tVar.awo > 0) {
+            com.baidu.adp.lib.stats.d hc = hc();
+            hc.q("action", "white");
+            hc.q("ct", String.valueOf(tVar.awh));
+            hc.q("wt", String.valueOf(tVar.awo));
+            com.baidu.adp.lib.stats.a.hj().a(this.subType, hc);
         }
     }
 
     public void c(t tVar) {
-        if (y.DY().DZ() && tVar.axA > 0) {
-            com.baidu.adp.lib.stats.d hb = hb();
-            hb.q("action", "readCache");
-            hb.q("rct", String.valueOf(tVar.axA));
-            com.baidu.adp.lib.stats.a.hi().a(this.subType, hb);
+        if (y.DR().DS() && tVar.awp > 0) {
+            com.baidu.adp.lib.stats.d hc = hc();
+            hc.q("action", "readCache");
+            hc.q("rct", String.valueOf(tVar.awp));
+            com.baidu.adp.lib.stats.a.hj().a(this.subType, hc);
         }
     }
 
     public void d(t tVar) {
-        if (y.DY().DZ() && tVar.axB > 0) {
-            com.baidu.adp.lib.stats.d hb = hb();
-            hb.q("action", "writeCache");
-            hb.q("wct", String.valueOf(tVar.axB));
-            com.baidu.adp.lib.stats.a.hi().a(this.subType, hb);
+        if (y.DR().DS() && tVar.awq > 0) {
+            com.baidu.adp.lib.stats.d hc = hc();
+            hc.q("action", "writeCache");
+            hc.q("wct", String.valueOf(tVar.awq));
+            com.baidu.adp.lib.stats.a.hj().a(this.subType, hc);
         }
     }
 
     public void a(s sVar, String str) {
-        if (sVar != null && str != null && y.DY().DZ()) {
-            com.baidu.adp.lib.stats.d hb = hb();
-            hb.q("action", "resource");
-            hb.q("actype", str);
-            hb.q("issuccess", sVar.isSuccess ? "1" : "0");
-            hb.q("isfs", sVar.axr ? "1" : "0");
-            hb.q("ct", String.valueOf(sVar.Gr));
-            hb.q("from", String.valueOf(sVar.Gq));
-            com.baidu.adp.lib.stats.a.hi().a(this.subType, hb);
+        if (sVar != null && str != null && y.DR().DS()) {
+            com.baidu.adp.lib.stats.d hc = hc();
+            hc.q("action", "resource");
+            hc.q("actype", str);
+            hc.q("issuccess", sVar.isSuccess ? "1" : "0");
+            hc.q("isfs", sVar.awg ? "1" : "0");
+            hc.q("ct", String.valueOf(sVar.Gs));
+            hc.q("from", String.valueOf(sVar.Gr));
+            com.baidu.adp.lib.stats.a.hj().a(this.subType, hc);
         }
     }
 
     public void g(e eVar) {
-        if (eVar != null && y.DY().DZ()) {
-            com.baidu.adp.lib.stats.d hb = hb();
-            hb.q("action", "fluency");
-            hb.q("fps", String.valueOf(eVar.DE()));
-            hb.q("memp", String.valueOf(eVar.DG()));
-            hb.q("cpu", String.valueOf(eVar.getCpuString()));
-            com.baidu.adp.lib.stats.a.hi().a(this.subType, hb);
+        if (eVar != null && y.DR().DS()) {
+            com.baidu.adp.lib.stats.d hc = hc();
+            hc.q("action", "fluency");
+            hc.q("fps", String.valueOf(eVar.Dx()));
+            hc.q("memp", String.valueOf(eVar.Dz()));
+            hc.q("cpu", String.valueOf(eVar.getCpuString()));
+            com.baidu.adp.lib.stats.a.hj().a(this.subType, hc);
         }
     }
 
     public void h(e eVar) {
-        if (y.DY().DZ()) {
-            com.baidu.adp.lib.stats.d hb = hb();
-            hb.q("action", "gc");
-            hb.q("gc", String.valueOf(eVar.DF()));
-            com.baidu.adp.lib.stats.a.hi().a(this.subType, hb);
+        if (y.DR().DS()) {
+            com.baidu.adp.lib.stats.d hc = hc();
+            hc.q("action", "gc");
+            hc.q("gc", String.valueOf(eVar.Dy()));
+            com.baidu.adp.lib.stats.a.hj().a(this.subType, hc);
         }
     }
 }

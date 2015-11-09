@@ -22,16 +22,16 @@ import java.net.URLEncoder;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static boolean RW = true;
+    public static boolean RX = true;
 
     static {
         MessageManager.getInstance().registerListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE, new h(0));
-        az.uT().a(new i());
-        az.uT().a(new j());
+        az.uX().a(new i());
+        az.uX().a(new j());
         com.baidu.adp.lib.b.e.gv().a(new com.baidu.adp.lib.b.c("switch_mbaidu_startup", 1, null));
     }
 
-    private static String bR(String str) {
+    private static String bP(String str) {
         String str2;
         if (TextUtils.isEmpty(str)) {
             return "";
@@ -60,7 +60,7 @@ public class Static {
         return str;
     }
 
-    private static String bS(String str) {
+    private static String bQ(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -71,12 +71,12 @@ public class Static {
             return str;
         }
         if (!str.startsWith(checkUrl)) {
-            return String.valueOf(checkUrl) + bT(str);
+            return String.valueOf(checkUrl) + bR(str);
         }
         return str;
     }
 
-    public static String bT(String str) {
+    public static String bR(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
@@ -95,8 +95,8 @@ public class Static {
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
-        String bR = bR(str);
-        if (!bU(bR) && qm() && bW("com.baidu.searchbox") && bV(bR) && RW) {
+        String bP = bP(str);
+        if (!bS(bP) && qn() && bU("com.baidu.searchbox") && bT(bP) && RX) {
             TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_2", null);
             b(tbPageContext, str, str2, z, z2, z3, z4);
             return;
@@ -104,19 +104,19 @@ public class Static {
         c(tbPageContext, str, str2, z, z2, z3, z4);
     }
 
-    private static boolean bU(String str) {
+    private static boolean bS(String str) {
         return WhiteListData.createBySP().checkUrl(str);
     }
 
-    private static boolean qm() {
-        return com.baidu.adp.lib.b.e.gv().ah("switch_mbaidu_startup") == 1;
+    private static boolean qn() {
+        return com.baidu.adp.lib.b.e.gv().af("switch_mbaidu_startup") == 1;
     }
 
-    private static boolean bV(String str) {
+    private static boolean bT(String str) {
         return str.startsWith("http://") || str.startsWith("https://") || !str.contains("://");
     }
 
-    private static boolean bW(String str) {
+    private static boolean bU(String str) {
         try {
             PackageInfo packageInfo = TbadkCoreApplication.m411getInst().getPackageManager().getPackageInfo(str, 1);
             if (packageInfo == null) {
@@ -152,7 +152,7 @@ public class Static {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean qn() {
+    public static boolean qo() {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) TbadkCoreApplication.m411getInst().getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses != null && runningAppProcesses.size() > 0) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
@@ -166,11 +166,11 @@ public class Static {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void c(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        String bS = bS(str);
+        String bQ = bQ(str);
         if (z) {
-            com.baidu.tbadk.coreExtra.e.a.a(tbPageContext, new l(tbPageContext, str2, bS), new m(), bS);
+            com.baidu.tbadk.coreExtra.e.a.a(tbPageContext, new l(tbPageContext, str2, bQ), new m(), bQ);
         } else {
-            g.f(tbPageContext.getPageActivity(), str2, bS);
+            g.f(tbPageContext.getPageActivity(), str2, bQ);
         }
     }
 }

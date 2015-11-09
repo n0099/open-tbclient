@@ -6,11 +6,11 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ TbImageView aBc;
+    final /* synthetic */ TbImageView azQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(TbImageView tbImageView) {
-        this.aBc = tbImageView;
+        this.azQ = tbImageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,32 +20,32 @@ public class e extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
         TbImageView.a aVar2;
         long j;
         TbImageView.a aVar3;
-        this.aBc.stopLoading();
+        this.azQ.stopLoading();
         BdLog.i("imagecallback. resourceFrom-" + i);
-        aVar2 = this.aBc.aAP;
+        aVar2 = this.azQ.azD;
         if (aVar2 != null) {
             if (aVar != null) {
-                this.aBc.aBa = aVar.getWidth();
-                this.aBc.aBb = aVar.getHeight();
+                this.azQ.azO = aVar.getWidth();
+                this.azQ.azP = aVar.getHeight();
             }
-            aVar3 = this.aBc.aAP;
+            aVar3 = this.azQ.azD;
             aVar3.onComplete(str, aVar != null);
         }
         if (aVar != null) {
-            if (aVar.Go != null) {
-                this.aBc.aAY.Gq = aVar.Go.Gq;
-                this.aBc.aAY.isSuccess = aVar.Go.Gs;
-                this.aBc.aAY.Gr = aVar.Go.Gr;
+            if (aVar.Gp != null) {
+                this.azQ.azM.Gr = aVar.Gp.Gr;
+                this.azQ.azM.isSuccess = aVar.Gp.Gt;
+                this.azQ.azM.Gs = aVar.Gp.Gs;
             }
         } else {
-            this.aBc.aAY.Gq = "net";
-            this.aBc.aAY.isSuccess = false;
-            s sVar = this.aBc.aAY;
+            this.azQ.azM.Gr = "net";
+            this.azQ.azM.isSuccess = false;
+            s sVar = this.azQ.azM;
             long currentTimeMillis = System.currentTimeMillis();
-            j = this.aBc.aAZ;
-            sVar.Gr = currentTimeMillis - j;
+            j = this.azQ.azN;
+            sVar.Gs = currentTimeMillis - j;
         }
-        this.aBc.vo();
+        this.azQ.vs();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -56,14 +56,14 @@ public class e extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.f.b
-    public void al(String str) {
+    public void aj(String str) {
         TbImageView.a aVar;
         TbImageView.a aVar2;
-        super.al(str);
-        this.aBc.stopLoading();
-        aVar = this.aBc.aAP;
+        super.aj(str);
+        this.azQ.stopLoading();
+        aVar = this.azQ.azD;
         if (aVar != null) {
-            aVar2 = this.aBc.aAP;
+            aVar2 = this.azQ.azD;
             aVar2.onCancel();
         }
     }

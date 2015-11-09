@@ -6,13 +6,13 @@ import com.baidu.tbadk.performanceLog.o;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class q extends CustomMessageListener {
-    final /* synthetic */ o axp;
+    final /* synthetic */ o awe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(o oVar, int i) {
         super(i);
-        this.axp = oVar;
+        this.awe = oVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,15 +21,15 @@ class q extends CustomMessageListener {
         o.a aVar;
         ArrayList arrayList;
         ArrayList arrayList2;
-        if (customResponsedMessage != null && (aVar = (o.a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.axp.mId) {
-            this.axp.fB(aVar.awU);
-            this.axp.ey(aVar.awV);
-            this.axp.fC(aVar.axq);
-            arrayList = this.axp.awK;
+        if (customResponsedMessage != null && (aVar = (o.a) customResponsedMessage.getData()) != null && customResponsedMessage.getOrginalMessage().getTag() == this.awe.mId) {
+            this.awe.fD(aVar.avJ);
+            this.awe.ew(aVar.avK);
+            this.awe.fE(aVar.awf);
+            arrayList = this.awe.avy;
             if (arrayList != null) {
-                arrayList2 = this.axp.awK;
+                arrayList2 = this.awe.avy;
                 if (arrayList2.size() >= 20) {
-                    this.axp.DN();
+                    this.awe.DG();
                 }
             }
         }

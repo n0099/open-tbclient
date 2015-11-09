@@ -10,13 +10,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 class r extends CustomMessageListener {
-    final /* synthetic */ FloatingPersonalChatActivity bMx;
+    final /* synthetic */ FloatingPersonalChatActivity bMS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r(FloatingPersonalChatActivity floatingPersonalChatActivity, int i) {
         super(i);
-        this.bMx = floatingPersonalChatActivity;
+        this.bMS = floatingPersonalChatActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,21 +44,21 @@ class r extends CustomMessageListener {
                                                 if (!cmd.equals("apply_pass_friend")) {
                                                     return;
                                                 }
-                                                floatingPersonalChatView = this.bMx.bMv;
+                                                floatingPersonalChatView = this.bMS.bMQ;
                                                 floatingPersonalChatView.c(optLong, 3);
                                                 return;
                                             }
-                                            floatingPersonalChatView2 = this.bMx.bMv;
+                                            floatingPersonalChatView2 = this.bMS.bMQ;
                                             floatingPersonalChatView2.c(optLong, 2);
                                             return;
                                         }
                                         return;
                                     }
-                                    floatingPersonalChatView3 = this.bMx.bMv;
+                                    floatingPersonalChatView3 = this.bMS.bMQ;
                                     floatingPersonalChatView3.c(optLong, 3);
                                     return;
                                 }
-                                floatingPersonalChatView4 = this.bMx.bMv;
+                                floatingPersonalChatView4 = this.bMS.bMQ;
                                 floatingPersonalChatView4.c(optLong, 4);
                             }
                         }

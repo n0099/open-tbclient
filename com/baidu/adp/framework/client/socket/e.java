@@ -91,7 +91,7 @@ public class e extends com.baidu.adp.lib.webSocket.c {
         if (this.oG == 0) {
             this.oG = System.currentTimeMillis();
         }
-        k.a("SenderData", this.oA.getCmd(), this.oA.getClientLogID(), this.ou, "StartSend", 0, "SenderData: start send size = " + (ju() != null ? ju().length : 0));
+        k.a("SenderData", this.oA.getCmd(), this.oA.getClientLogID(), this.ou, "StartSend", 0, "SenderData: start send size = " + (jv() != null ? jv().length : 0));
         oy.removeCallbacks(ed());
         if (this.ov.getTimeOut() != null) {
             oy.postDelayed(ed(), this.ov.getTimeOut().eX());
@@ -109,8 +109,8 @@ public class e extends com.baidu.adp.lib.webSocket.c {
     public void eh() {
         int i;
         int cmd = this.oA.getCmd();
-        if (ju() != null) {
-            int length = ju().length;
+        if (jv() != null) {
+            int length = jv().length;
             this.oA.setEncodedBinarySize(length);
             i = length;
         } else {
@@ -151,13 +151,13 @@ public class e extends com.baidu.adp.lib.webSocket.c {
         this.oz = null;
         com.baidu.adp.framework.client.socket.coder.b eK = com.baidu.adp.framework.client.socket.coder.b.eK();
         this.ou = g.et().en();
-        com.baidu.adp.lib.stats.a hi = com.baidu.adp.lib.stats.a.hi();
+        com.baidu.adp.lib.stats.a hj = com.baidu.adp.lib.stats.a.hj();
         long clientLogID = this.oA == null ? -1L : this.oA.getClientLogID();
         String valueOf = String.valueOf(this.ou & 4294967295L);
         Object[] objArr = new Object[2];
         objArr[0] = IntentConfig.CMD;
         objArr[1] = Integer.valueOf(this.oA == null ? -1 : this.oA.getCmd());
-        hi.a("seqid", clientLogID, valueOf, objArr);
+        hj.a("seqid", clientLogID, valueOf, objArr);
         try {
             return eK.a(this.oA, this.ou, this.ov.fb(), this.ov.getNeedEncrypt());
         } catch (CoderException e) {

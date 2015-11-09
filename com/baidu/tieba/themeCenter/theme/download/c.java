@@ -5,11 +5,11 @@ import com.baidu.tieba.themeCenter.SkinItemView;
 import com.baidu.tieba.themeCenter.SkinProgressView;
 /* loaded from: classes.dex */
 class c implements SkinItemView.a {
-    final /* synthetic */ DownloadedThemeListActivity dhk;
+    final /* synthetic */ DownloadedThemeListActivity diQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(DownloadedThemeListActivity downloadedThemeListActivity) {
-        this.dhk = downloadedThemeListActivity;
+        this.diQ = downloadedThemeListActivity;
     }
 
     @Override // com.baidu.tieba.themeCenter.SkinItemView.a
@@ -18,14 +18,14 @@ class c implements SkinItemView.a {
         com.baidu.tieba.themeCenter.d dVar;
         boolean z;
         com.baidu.tieba.themeCenter.d dVar2;
-        DownloadedThemeListActivity downloadedThemeListActivity = this.dhk;
-        hVar = this.dhk.dhe;
-        downloadedThemeListActivity.dhg = hVar.isInEditMode();
-        dVar = this.dhk.dgr;
+        DownloadedThemeListActivity downloadedThemeListActivity = this.diQ;
+        hVar = this.diQ.diK;
+        downloadedThemeListActivity.diM = hVar.isInEditMode();
+        dVar = this.diQ.dhX;
         if (dVar != null) {
-            z = this.dhk.dhg;
+            z = this.diQ.diM;
             if (!z && skinItemView != null && bVar != null && bVar.getId() > 0) {
-                dVar2 = this.dhk.dgr;
+                dVar2 = this.diQ.dhX;
                 dVar2.b(bVar);
             }
         }
@@ -37,14 +37,14 @@ class c implements SkinItemView.a {
         com.baidu.tieba.themeCenter.d dVar;
         boolean z;
         com.baidu.tieba.themeCenter.d dVar2;
-        DownloadedThemeListActivity downloadedThemeListActivity = this.dhk;
-        hVar = this.dhk.dhe;
-        downloadedThemeListActivity.dhg = hVar.isInEditMode();
-        dVar = this.dhk.dgr;
+        DownloadedThemeListActivity downloadedThemeListActivity = this.diQ;
+        hVar = this.diQ.diK;
+        downloadedThemeListActivity.diM = hVar.isInEditMode();
+        dVar = this.diQ.dhX;
         if (dVar != null) {
-            z = this.dhk.dhg;
+            z = this.diQ.diM;
             if (!z && skinProgressView != null && bVar != null) {
-                dVar2 = this.dhk.dgr;
+                dVar2 = this.diQ.dhX;
                 dVar2.b(skinProgressView, bVar);
             }
         }
@@ -54,9 +54,9 @@ class c implements SkinItemView.a {
     public void a(View view, com.baidu.tieba.themeCenter.b bVar) {
         com.baidu.tieba.themeCenter.d dVar;
         com.baidu.tieba.themeCenter.d dVar2;
-        dVar = this.dhk.dgr;
+        dVar = this.diQ.dhX;
         if (dVar != null && bVar != null && bVar.getId() > 0) {
-            dVar2 = this.dhk.dgr;
+            dVar2 = this.diQ.dhX;
             dVar2.c(bVar);
         }
     }

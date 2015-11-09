@@ -12,11 +12,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class bk extends bn<com.baidu.tbadk.core.data.b, bm> {
-    private View.OnClickListener aUA;
-    private View.OnClickListener aUz;
-    private int aVW;
-    private int aVX;
-    private int aVY;
+    private View.OnClickListener aUH;
+    private View.OnClickListener aUI;
+    private int aWe;
+    private int aWf;
+    private int aWg;
     private int maxWidth;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -25,31 +25,31 @@ public class bk extends bn<com.baidu.tbadk.core.data.b, bm> {
         Activity pageActivity;
         if (baseActivity != null && baseActivity.getPageContext() != null && (pageActivity = baseActivity.getPageContext().getPageActivity()) != null && pageActivity.getResources() != null) {
             this.maxWidth = com.baidu.adp.lib.util.k.K(pageActivity) - (pageActivity.getResources().getDimensionPixelSize(i.d.ds30) * 2);
-            this.aVW = pageActivity.getResources().getDimensionPixelSize(i.d.frs_item_app_big_img_heght);
-            this.aVX = pageActivity.getResources().getDimensionPixelSize(i.d.frs_item_app_big_img_with);
-            this.aVY = pageActivity.getResources().getDimensionPixelSize(i.d.ds374);
+            this.aWe = pageActivity.getResources().getDimensionPixelSize(i.d.frs_item_app_big_img_heght);
+            this.aWf = pageActivity.getResources().getDimensionPixelSize(i.d.frs_item_app_big_img_with);
+            this.aWg = pageActivity.getResources().getDimensionPixelSize(i.d.ds374);
         }
     }
 
     public void i(View.OnClickListener onClickListener) {
-        this.aUA = onClickListener;
+        this.aUI = onClickListener;
     }
 
     public void h(View.OnClickListener onClickListener) {
-        this.aUz = onClickListener;
+        this.aUH = onClickListener;
     }
 
     private void a(boolean z, bm bmVar) {
         if (z) {
-            com.baidu.tbadk.core.util.an.i((View) bmVar.aWf, i.e.btn_appdownload);
-            com.baidu.tbadk.core.util.an.b(bmVar.aWf, i.c.cp_cont_i, 1);
+            com.baidu.tbadk.core.util.an.i((View) bmVar.aWn, i.e.btn_appdownload);
+            com.baidu.tbadk.core.util.an.b(bmVar.aWn, i.c.cp_cont_i, 1);
             return;
         }
-        com.baidu.tbadk.core.util.an.i((View) bmVar.aWf, i.e.btn_content_download_d);
-        com.baidu.tbadk.core.util.an.b(bmVar.aWf, i.c.faceshop_downloaded_text, 1);
+        com.baidu.tbadk.core.util.an.i((View) bmVar.aWn, i.e.btn_content_download_d);
+        com.baidu.tbadk.core.util.an.b(bmVar.aWn, i.c.faceshop_downloaded_text, 1);
     }
 
-    private String gP(String str) {
+    private String gR(String str) {
         if (!TextUtils.isEmpty(str) && str.length() > 14) {
             return str.substring(0, 14);
         }
@@ -69,79 +69,79 @@ public class bk extends bn<com.baidu.tbadk.core.data.b, bm> {
     @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.b bVar, bm bmVar) {
         super.a(i, view, viewGroup, (ViewGroup) bVar, (com.baidu.tbadk.core.data.b) bmVar);
-        if (this.aSe == null) {
+        if (this.aSm == null) {
             return null;
         }
-        if (this.aSe != null && (this.aSe instanceof FrsActivity)) {
-            ((FrsActivity) this.aSe).Li().MX();
+        if (this.aSm != null && (this.aSm instanceof FrsActivity)) {
+            ((FrsActivity) this.aSm).Ly().Np();
         }
-        bmVar.aVL.setPadding(0, i - this.aTQ == 0 ? this.aSR : this.aSS, 0, 0);
-        this.aSe.getLayoutMode().ad(this.mSkinType == 1);
-        this.aSe.getLayoutMode().k(view);
+        bmVar.aVT.setPadding(0, i - this.aTY == 0 ? this.aSZ : this.aTa, 0, 0);
+        this.aSm.getLayoutMode().ad(this.mSkinType == 1);
+        this.aSm.getLayoutMode().k(view);
         if (bVar instanceof com.baidu.tbadk.core.data.b) {
-            if (!bVar.Uk && this.aSe != null && (this.aSe instanceof FrsActivity)) {
-                bVar.Uk = true;
-                ((FrsActivity) this.aSe).a(bVar, "show");
-                ((FrsActivity) this.aSe).b(bVar, "show");
+            if (!bVar.Ul && this.aSm != null && (this.aSm instanceof FrsActivity)) {
+                bVar.Ul = true;
+                ((FrsActivity) this.aSm).a(bVar, "show");
+                ((FrsActivity) this.aSm).b(bVar, "show");
             }
-            bmVar.aVO.setText(gP(bVar.Uj.userName));
-            if (bVar.Uj == null) {
+            bmVar.aVW.setText(gR(bVar.Uk.userName));
+            if (bVar.Uk == null) {
                 return null;
             }
-            if (TextUtils.isEmpty(bVar.Uj.Um) || TextUtils.isEmpty(bVar.Uj.Um.trim())) {
-                bmVar.aVR.setVisibility(8);
+            if (TextUtils.isEmpty(bVar.Uk.Un) || TextUtils.isEmpty(bVar.Uk.Un.trim())) {
+                bmVar.aVZ.setVisibility(8);
             } else {
-                bmVar.aVR.setVisibility(0);
-                bmVar.aVR.setText(bVar.Uj.Um);
+                bmVar.aVZ.setVisibility(0);
+                bmVar.aVZ.setText(bVar.Uk.Un);
             }
-            bmVar.aVP.setText(com.baidu.tbadk.core.util.as.m(bVar.Ui));
-            if (com.baidu.tbadk.core.m.qU().qW()) {
-                bmVar.aVN.setVisibility(0);
-                bmVar.aVN.d(bVar.Uj.userPortrait, this.mIsFromCDN ? 13 : 14, false);
+            bmVar.aVX.setText(com.baidu.tbadk.core.util.as.m(bVar.Uj));
+            if (com.baidu.tbadk.core.m.qV().qX()) {
+                bmVar.aVV.setVisibility(0);
+                bmVar.aVV.d(bVar.Uk.userPortrait, this.mIsFromCDN ? 13 : 14, false);
             } else {
-                bmVar.aVN.setVisibility(8);
+                bmVar.aVV.setVisibility(8);
             }
-            bmVar.aVN.setTag(bVar.Uj.userPortrait);
-            boolean a = a(bmVar.aWe, bVar);
-            if (com.baidu.tbadk.core.m.qU().qY() && !TextUtils.isEmpty(bVar.Uj.Uo) && a) {
-                bmVar.aWe.setVisibility(0);
-                bmVar.aWe.d(bVar.Uj.Uo, this.mIsFromCDN ? 30 : 31, false);
-                bmVar.aVR.setPadding(0, 0, 0, 0);
+            bmVar.aVV.setTag(bVar.Uk.userPortrait);
+            boolean a = a(bmVar.aWm, bVar);
+            if (com.baidu.tbadk.core.m.qV().qZ() && !TextUtils.isEmpty(bVar.Uk.Up) && a) {
+                bmVar.aWm.setVisibility(0);
+                bmVar.aWm.d(bVar.Uk.Up, this.mIsFromCDN ? 30 : 31, false);
+                bmVar.aVZ.setPadding(0, 0, 0, 0);
             } else {
-                bmVar.aWe.setVisibility(8);
-                bmVar.aVR.setPadding(0, 0, 0, this.mContext.getResources().getDimensionPixelSize(i.d.ds30));
+                bmVar.aWm.setVisibility(8);
+                bmVar.aVZ.setPadding(0, 0, 0, this.mContext.getResources().getDimensionPixelSize(i.d.ds30));
             }
-            bmVar.aWf.setTag(Integer.valueOf(i));
-            if (bVar.ro()) {
-                if (!TextUtils.isEmpty(bVar.Uj.Ut) && !TextUtils.isEmpty(bVar.Uj.Ut.trim())) {
+            bmVar.aWn.setTag(Integer.valueOf(i));
+            if (bVar.rp()) {
+                if (!TextUtils.isEmpty(bVar.Uk.Uu) && !TextUtils.isEmpty(bVar.Uk.Uu.trim())) {
                     a(true, bmVar);
-                    bmVar.aWf.setText(bVar.Uj.Ut);
-                    bmVar.aWf.setOnClickListener(this.aUz);
+                    bmVar.aWn.setText(bVar.Uk.Uu);
+                    bmVar.aWn.setOnClickListener(this.aUH);
                     return view;
                 }
-                bmVar.aWf.setVisibility(8);
+                bmVar.aWn.setVisibility(8);
                 return view;
-            } else if (bVar.rn()) {
-                bmVar.aWf.setVisibility(0);
-                switch (bVar.TU) {
+            } else if (bVar.ro()) {
+                bmVar.aWn.setVisibility(0);
+                switch (bVar.TV) {
                     case 0:
-                        if (TextUtils.isEmpty(bVar.Uj.Ut) || TextUtils.isEmpty(bVar.Uj.Ut.trim())) {
-                            bmVar.aWf.setText(i.h.pb_app_download);
+                        if (TextUtils.isEmpty(bVar.Uk.Uu) || TextUtils.isEmpty(bVar.Uk.Uu.trim())) {
+                            bmVar.aWn.setText(i.h.pb_app_download);
                         } else {
-                            bmVar.aWf.setText(bVar.Uj.Ut);
+                            bmVar.aWn.setText(bVar.Uk.Uu);
                         }
                         a(true, bmVar);
-                        bmVar.aWf.setOnClickListener(this.aUA);
+                        bmVar.aWn.setOnClickListener(this.aUI);
                         return view;
                     case 1:
                         a(false, bmVar);
-                        bmVar.aWf.setText(i.h.downloading2);
-                        bmVar.aWf.setOnClickListener(null);
+                        bmVar.aWn.setText(i.h.downloading2);
+                        bmVar.aWn.setOnClickListener(null);
                         return view;
                     case 2:
                         a(true, bmVar);
-                        bmVar.aWf.setText(i.h.frs_new_style_download_text);
-                        bmVar.aWf.setOnClickListener(this.aUA);
+                        bmVar.aWn.setText(i.h.frs_new_style_download_text);
+                        bmVar.aWn.setOnClickListener(this.aUI);
                         return view;
                     default:
                         return view;
@@ -154,22 +154,22 @@ public class bk extends bn<com.baidu.tbadk.core.data.b, bm> {
     }
 
     private boolean a(TbImageView tbImageView, com.baidu.tbadk.core.data.b bVar) {
-        if (bVar == null || bVar.Uj == null || tbImageView == null) {
-            a(tbImageView, this.aVW, this.aVX);
+        if (bVar == null || bVar.Uk == null || tbImageView == null) {
+            a(tbImageView, this.aWe, this.aWf);
             return true;
-        } else if (!bVar.Uj.Uv) {
-            a(tbImageView, this.aVW, this.aVX);
+        } else if (!bVar.Uk.Uw) {
+            a(tbImageView, this.aWe, this.aWf);
             return true;
         } else {
-            int i = bVar.Uj.height;
-            int i2 = bVar.Uj.width;
+            int i = bVar.Uk.height;
+            int i2 = bVar.Uk.width;
             if (this.maxWidth <= 0 || i <= 0 || i2 <= 0) {
-                a(tbImageView, this.aVW, this.aVX);
+                a(tbImageView, this.aWe, this.aWf);
                 return true;
             }
             int i3 = this.maxWidth;
             int i4 = (i * i3) / i2;
-            if (i4 > this.aVY) {
+            if (i4 > this.aWg) {
                 return false;
             }
             a(tbImageView, i4, i3);

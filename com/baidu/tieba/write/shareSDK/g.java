@@ -4,11 +4,11 @@ import android.view.inputmethod.InputMethodManager;
 import com.baidu.tieba.write.view.e;
 /* loaded from: classes.dex */
 class g implements e.b {
-    final /* synthetic */ WriteShareActivity dmy;
+    final /* synthetic */ WriteShareActivity dog;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(WriteShareActivity writeShareActivity) {
-        this.dmy = writeShareActivity;
+        this.dog = writeShareActivity;
     }
 
     @Override // com.baidu.tieba.write.view.e.b
@@ -17,15 +17,15 @@ class g implements e.b {
         o oVar;
         InputMethodManager inputMethodManager2;
         o oVar2;
-        WriteShareActivity writeShareActivity = this.dmy;
-        inputMethodManager = this.dmy.mInputManager;
-        oVar = this.dmy.dmi;
-        writeShareActivity.HidenSoftKeyPad(inputMethodManager, oVar.aCh());
-        WriteShareActivity writeShareActivity2 = this.dmy;
-        inputMethodManager2 = this.dmy.mInputManager;
-        oVar2 = this.dmy.dmi;
-        writeShareActivity2.HidenSoftKeyPad(inputMethodManager2, oVar2.amO());
-        this.dmy.aCa();
+        WriteShareActivity writeShareActivity = this.dog;
+        inputMethodManager = this.dog.mInputManager;
+        oVar = this.dog.dnQ;
+        writeShareActivity.HidenSoftKeyPad(inputMethodManager, oVar.aCX());
+        WriteShareActivity writeShareActivity2 = this.dog;
+        inputMethodManager2 = this.dog.mInputManager;
+        oVar2 = this.dog.dnQ;
+        writeShareActivity2.HidenSoftKeyPad(inputMethodManager2, oVar2.anu());
+        this.dog.aCQ();
         eVar.dismiss();
     }
 }

@@ -14,41 +14,41 @@ import com.baidu.tieba.i;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class c {
-    private WriteVoteActivity dnC;
-    private a dnE;
-    private ArrayList<com.baidu.tbadk.core.dialog.g> dnz;
-    private int dnw = 7;
-    private boolean dnx = false;
-    private com.baidu.tbadk.core.dialog.e dny = null;
-    private com.baidu.tbadk.core.dialog.a dnA = null;
-    private EditText dnB = null;
-    private final AdapterView.OnItemClickListener bgg = new d(this);
-    private LayoutInflater dnD = LayoutInflater.from(getActivity());
+    private ArrayList<com.baidu.tbadk.core.dialog.g> dpo;
+    private WriteVoteActivity dpr;
+    private a dpt;
+    private int dpl = 7;
+    private boolean dpm = false;
+    private com.baidu.tbadk.core.dialog.e dpn = null;
+    private com.baidu.tbadk.core.dialog.a dpp = null;
+    private EditText dpq = null;
+    private final AdapterView.OnItemClickListener bgM = new d(this);
+    private LayoutInflater dps = LayoutInflater.from(getActivity());
 
     /* loaded from: classes.dex */
     public interface a {
-        void O(int i, String str);
+        void P(int i, String str);
     }
 
     public void a(a aVar) {
-        this.dnE = aVar;
+        this.dpt = aVar;
     }
 
     public c(WriteVoteActivity writeVoteActivity) {
-        this.dnC = writeVoteActivity;
+        this.dpr = writeVoteActivity;
     }
 
     public void showDialog() {
-        this.dny = new com.baidu.tbadk.core.dialog.e(this.dnC.getPageContext());
-        this.dnz = new ArrayList<>();
-        this.dnz.add(new com.baidu.tbadk.core.dialog.g(getString(i.h.one_day), null, this.dnw == 1));
-        this.dnz.add(new com.baidu.tbadk.core.dialog.g(getString(i.h.one_week), null, this.dnw == 7));
-        this.dnz.add(new com.baidu.tbadk.core.dialog.g(getString(i.h.one_month), null, this.dnw == 30));
-        this.dnz.add(new com.baidu.tbadk.core.dialog.g(getString(i.h.custom_time), null, this.dnx));
-        this.dny.bN(i.h.endtime_dialog_title);
-        this.dny.a(this.dnz, this.bgg);
-        this.dny.sS();
-        this.dny.sT();
+        this.dpn = new com.baidu.tbadk.core.dialog.e(this.dpr.getPageContext());
+        this.dpo = new ArrayList<>();
+        this.dpo.add(new com.baidu.tbadk.core.dialog.g(getString(i.h.one_day), null, this.dpl == 1));
+        this.dpo.add(new com.baidu.tbadk.core.dialog.g(getString(i.h.one_week), null, this.dpl == 7));
+        this.dpo.add(new com.baidu.tbadk.core.dialog.g(getString(i.h.one_month), null, this.dpl == 30));
+        this.dpo.add(new com.baidu.tbadk.core.dialog.g(getString(i.h.custom_time), null, this.dpm));
+        this.dpn.bN(i.h.endtime_dialog_title);
+        this.dpn.a(this.dpo, this.bgM);
+        this.dpn.sV();
+        this.dpn.sW();
     }
 
     private String getString(int i) {
@@ -56,13 +56,13 @@ public class c {
     }
 
     private Activity getActivity() {
-        return this.dnC.getPageContext().getPageActivity();
+        return this.dpr.getPageContext().getPageActivity();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mb(int i) {
+    public void mp(int i) {
         String string;
-        if (this.dnE != null) {
+        if (this.dpt != null) {
             if (i == 1) {
                 string = getString(i.h.one_day);
             } else if (i == 7) {
@@ -72,26 +72,26 @@ public class c {
             } else {
                 string = getActivity().getString(i.h.num_day, new Object[]{Integer.valueOf(i)});
             }
-            this.dnE.O(i, string);
-            com.baidu.adp.lib.util.k.c(this.dnC.getPageContext().getPageActivity(), this.dnB);
+            this.dpt.P(i, string);
+            com.baidu.adp.lib.util.k.c(this.dpr.getPageContext().getPageActivity(), this.dpq);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCv() {
-        this.dnA = new com.baidu.tbadk.core.dialog.a(getActivity());
-        View inflate = this.dnD.inflate(i.g.select_day_item, (ViewGroup) null);
-        this.dnB = (EditText) inflate.findViewById(i.f.select_date_edittext);
-        this.dnA.m(inflate);
-        this.dnA.b(i.h.alert_no_button, new e(this));
-        this.dnA.a(i.h.alert_yes_button, new f(this));
-        this.dnA.b(this.dnC.getPageContext());
-        this.dnB.setText(new StringBuilder(String.valueOf(this.dnw)).toString());
-        Editable text = this.dnB.getText();
+    public void aDn() {
+        this.dpp = new com.baidu.tbadk.core.dialog.a(getActivity());
+        View inflate = this.dps.inflate(i.g.select_day_item, (ViewGroup) null);
+        this.dpq = (EditText) inflate.findViewById(i.f.select_date_edittext);
+        this.dpp.m(inflate);
+        this.dpp.b(i.h.alert_no_button, new e(this));
+        this.dpp.a(i.h.alert_yes_button, new f(this));
+        this.dpp.b(this.dpr.getPageContext());
+        this.dpq.setText(new StringBuilder(String.valueOf(this.dpl)).toString());
+        Editable text = this.dpq.getText();
         if (text != null) {
             Selection.setSelection(text, text.length());
         }
-        this.dnA.sO();
-        this.dnC.ShowSoftKeyPadDelay(this.dnB, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
+        this.dpp.sR();
+        this.dpr.ShowSoftKeyPadDelay(this.dpq, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
     }
 }

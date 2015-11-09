@@ -7,13 +7,13 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d dhp;
+    final /* synthetic */ d diV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i, int i2) {
         super(i, i2);
-        this.dhp = dVar;
+        this.diV = dVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -27,22 +27,22 @@ public class e extends com.baidu.adp.framework.listener.a {
         if (responsedMessage != null) {
             if ((responsedMessage instanceof SkinUpdateHttpResponsedMessage) || (responsedMessage instanceof SkinUpdateSocketResponsedMessage)) {
                 if (responsedMessage instanceof SkinUpdateSocketResponsedMessage) {
-                    this.dhp.mUpdateList = ((SkinUpdateSocketResponsedMessage) responsedMessage).getUpdateList();
+                    this.diV.mUpdateList = ((SkinUpdateSocketResponsedMessage) responsedMessage).getUpdateList();
                 } else if (responsedMessage instanceof SkinUpdateHttpResponsedMessage) {
-                    this.dhp.mUpdateList = ((SkinUpdateHttpResponsedMessage) responsedMessage).getUpdateList();
+                    this.diV.mUpdateList = ((SkinUpdateHttpResponsedMessage) responsedMessage).getUpdateList();
                 }
-                arrayList = this.dhp.dhm;
+                arrayList = this.diV.diS;
                 if (arrayList != null) {
-                    arrayList2 = this.dhp.dhm;
+                    arrayList2 = this.diV.diS;
                     if (arrayList2.size() <= 2) {
                         return;
                     }
-                    this.dhp.azy();
-                    aVar = this.dhp.dhn;
+                    this.diV.aAo();
+                    aVar = this.diV.diT;
                     if (aVar != null) {
-                        aVar2 = this.dhp.dhn;
-                        z = this.dhp.dho;
-                        list = this.dhp.mThemeList;
+                        aVar2 = this.diV.diT;
+                        z = this.diV.diU;
+                        list = this.diV.mThemeList;
                         aVar2.a(z, list);
                     }
                 }

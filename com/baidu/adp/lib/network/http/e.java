@@ -10,15 +10,15 @@ public class e {
     private LinkedList<d> uX = new LinkedList<>();
     private d uY = null;
 
-    public f gP() {
+    public f gQ() {
         return this.uV;
     }
 
-    public g gQ() {
+    public g gR() {
         return this.uW;
     }
 
-    public List<d> gR() {
+    public List<d> gS() {
         return Collections.unmodifiableList(this.uX);
     }
 
@@ -28,7 +28,7 @@ public class e {
         }
     }
 
-    public d gS() {
+    public d gT() {
         return this.uY;
     }
 

@@ -6,11 +6,11 @@ import android.widget.ImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class a extends Handler {
-    final /* synthetic */ GoOnAnimView bTw;
+    final /* synthetic */ GoOnAnimView bTR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(GoOnAnimView goOnAnimView) {
-        this.bTw = goOnAnimView;
+        this.bTR = goOnAnimView;
     }
 
     @Override // android.os.Handler
@@ -33,50 +33,50 @@ class a extends Handler {
         Handler handler;
         Handler handler2;
         super.handleMessage(message);
-        GoOnAnimView goOnAnimView = this.bTw;
+        GoOnAnimView goOnAnimView = this.bTR;
         i = goOnAnimView.tag;
         goOnAnimView.tag = i % 4;
-        i2 = this.bTw.tag;
+        i2 = this.bTR.tag;
         switch (i2) {
             case 0:
-                imageView10 = this.bTw.bRP;
+                imageView10 = this.bTR.bSk;
                 imageView10.setImageResource(i.e.pic_startpage1_next_3);
-                imageView11 = this.bTw.bRQ;
+                imageView11 = this.bTR.bSl;
                 imageView11.setImageResource(i.e.pic_startpage1_next_2);
-                imageView12 = this.bTw.bRR;
+                imageView12 = this.bTR.bSm;
                 imageView12.setImageResource(i.e.pic_startpage1_next_1);
                 break;
             case 1:
-                imageView7 = this.bTw.bRP;
+                imageView7 = this.bTR.bSk;
                 imageView7.setImageResource(i.e.pic_startpage1_next_2);
-                imageView8 = this.bTw.bRQ;
+                imageView8 = this.bTR.bSl;
                 imageView8.setImageResource(i.e.pic_startpage1_next_1);
-                imageView9 = this.bTw.bRR;
+                imageView9 = this.bTR.bSm;
                 imageView9.setImageResource(i.e.pic_startpage1_next_3);
                 break;
             case 2:
-                imageView4 = this.bTw.bRP;
+                imageView4 = this.bTR.bSk;
                 imageView4.setImageResource(i.e.pic_startpage1_next_1);
-                imageView5 = this.bTw.bRQ;
+                imageView5 = this.bTR.bSl;
                 imageView5.setImageResource(i.e.pic_startpage1_next_3);
-                imageView6 = this.bTw.bRR;
+                imageView6 = this.bTR.bSm;
                 imageView6.setImageResource(i.e.pic_startpage1_next_2);
                 break;
             case 3:
-                imageView = this.bTw.bRP;
+                imageView = this.bTR.bSk;
                 imageView.setImageResource(i.e.pic_startpage1_next_2);
-                imageView2 = this.bTw.bRQ;
+                imageView2 = this.bTR.bSl;
                 imageView2.setImageResource(i.e.pic_startpage1_next_2);
-                imageView3 = this.bTw.bRR;
+                imageView3 = this.bTR.bSm;
                 imageView3.setImageResource(i.e.pic_startpage1_next_2);
                 break;
         }
-        GoOnAnimView goOnAnimView2 = this.bTw;
+        GoOnAnimView goOnAnimView2 = this.bTR;
         i3 = goOnAnimView2.tag;
         goOnAnimView2.tag = i3 + 1;
-        handler = this.bTw.mHandler;
+        handler = this.bTR.mHandler;
         handler.removeMessages(0);
-        handler2 = this.bTw.mHandler;
+        handler2 = this.bTR.mHandler;
         handler2.sendEmptyMessageDelayed(0, 300L);
     }
 }

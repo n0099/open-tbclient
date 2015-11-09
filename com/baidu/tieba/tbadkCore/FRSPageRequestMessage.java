@@ -7,6 +7,7 @@ import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes.dex */
 public class FRSPageRequestMessage extends NetMessage {
+    private int categoryId;
     private int cid;
     private int ctime;
     private int dataSize;
@@ -174,6 +175,14 @@ public class FRSPageRequestMessage extends NetMessage {
         this.netError = i;
     }
 
+    public int getCategoryId() {
+        return this.categoryId;
+    }
+
+    public void setCategoryId(int i) {
+        this.categoryId = i;
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.NetMessage
     public Message encode(boolean z) {
@@ -194,6 +203,7 @@ public class FRSPageRequestMessage extends NetMessage {
         builder.data_size = Integer.valueOf(this.dataSize);
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
+        builder.category_id = Integer.valueOf(this.categoryId);
         if (z) {
             com.baidu.tbadk.util.h.a(builder, true);
         }

@@ -3,11 +3,11 @@ package com.baidu.tieba.myCollection;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class r implements a.b {
-    final /* synthetic */ p cbV;
+    final /* synthetic */ p ccw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(p pVar) {
-        this.cbV = pVar;
+        this.ccw = pVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -16,10 +16,10 @@ class r implements a.b {
         com.baidu.tieba.myCollection.baseEditMark.a aVar2;
         com.baidu.tieba.myCollection.baseEditMark.a aVar3;
         aVar.dismiss();
-        uVar = this.cbV.cbU;
-        aVar2 = this.cbV.cby;
-        uVar.iy(aVar2.getOffset());
-        aVar3 = this.cbV.cby;
+        uVar = this.ccw.ccv;
+        aVar2 = this.ccw.cbZ;
+        uVar.iL(aVar2.getOffset());
+        aVar3 = this.ccw.cbZ;
         aVar3.f(true);
     }
 }

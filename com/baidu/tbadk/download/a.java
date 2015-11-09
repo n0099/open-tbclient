@@ -9,9 +9,9 @@ public class a implements c {
     public void b(DownloadData downloadData) {
         if (downloadData != null) {
             if (downloadData.getStatus() == 1) {
-                b.Ak().f(downloadData);
+                b.Ap().f(downloadData);
             }
-            b.Ak().e(downloadData);
+            b.Ap().e(downloadData);
         }
     }
 
@@ -43,6 +43,6 @@ public class a implements c {
 
     @Override // com.baidu.tbadk.download.c
     public void a(DownloadData downloadData, int i, String str) {
-        b.Ak().g(downloadData);
+        b.Ap().g(downloadData);
     }
 }

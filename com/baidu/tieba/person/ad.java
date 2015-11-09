@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class ad extends com.baidu.adp.base.e {
-    private static final String aHl = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
-    private static TbHttpMessageTask aHm = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, aHl);
-    private int cpd;
+    private static final String aGf = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/like";
+    private static TbHttpMessageTask aGg = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, aGf);
+    private int cqz;
     private q mData;
     private String mId;
     private boolean mIsHost;
     private int mSex;
 
     static {
-        aHm.setResponsedClass(PersonBarResponseMessage.class);
-        MessageManager.getInstance().registerTask(aHm);
+        aGg.setResponsedClass(PersonBarResponseMessage.class);
+        MessageManager.getInstance().registerTask(aGg);
     }
 
     public ad(TbPageContext tbPageContext, boolean z) {
@@ -40,26 +40,26 @@ public class ad extends com.baidu.adp.base.e {
         this.mSex = i;
     }
 
-    public boolean WG() {
+    public boolean Xb() {
         return this.mIsHost;
     }
 
-    public void je(int i) {
-        this.cpd = i;
+    public void js(int i) {
+        this.cqz = i;
     }
 
-    public q air() {
+    public q aiX() {
         return this.mData;
     }
 
-    public void HB() {
+    public void Hy() {
         super.sendMessage(new PersonBarByUidLocalMessage());
     }
 
     public void a(boolean z, String str, int i, int i2) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_LIKE_BAR_CMD);
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-        if (!WG()) {
+        if (!Xb()) {
             httpMessage.addParam("friend_uid", str);
             httpMessage.addParam("is_guest", String.valueOf(1));
             httpMessage.setExtra(str);
@@ -79,15 +79,15 @@ public class ad extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void ka(String str) {
-        if (this.cpd == 1 && this.mIsHost) {
+    public void kd(String str) {
+        if (this.cqz == 1 && this.mIsHost) {
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str2 = TbadkCoreApplication.getCurrentAccountObj().getID();
             }
             if (str != null) {
                 try {
-                    com.baidu.adp.lib.cache.o<String> cr = com.baidu.tbadk.core.b.a.sL().cr("tb.my_pages");
+                    com.baidu.adp.lib.cache.o<String> cr = com.baidu.tbadk.core.b.a.sO().cr("tb.my_pages");
                     if (cr != null) {
                         cr.a(str2, str, TbConfig.APP_OVERDUR_DRAFT_BOX);
                     }

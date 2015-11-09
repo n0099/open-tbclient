@@ -1,28 +1,28 @@
 package com.baidu.tieba.tbadkCore.location;
 /* loaded from: classes.dex */
 public class c {
-    private static c daM;
-    private long aKT;
-    private boolean daN = com.baidu.tbadk.core.sharedPref.b.tr().getBoolean("no_longer_show_address", false);
+    private static c dcX;
+    private long aJN;
+    private boolean dcY = com.baidu.tbadk.core.sharedPref.b.tu().getBoolean("no_longer_show_address", false);
     private a mLocationData;
 
-    public static c axi() {
-        if (daM == null) {
+    public static c ayr() {
+        if (dcX == null) {
             synchronized (c.class) {
-                if (daM == null) {
-                    daM = new c();
+                if (dcX == null) {
+                    dcX = new c();
                 }
             }
         }
-        return daM;
+        return dcX;
     }
 
-    public long HE() {
-        return this.aKT;
+    public long HB() {
+        return this.aJN;
     }
 
     public void ah(long j) {
-        this.aKT = j;
+        this.aJN = j;
     }
 
     public a getLocationData() {
@@ -33,11 +33,11 @@ public class c {
         this.mLocationData = aVar;
     }
 
-    public boolean axj() {
-        return this.daN;
+    public boolean ays() {
+        return this.dcY;
     }
 
-    public void gu(boolean z) {
-        this.daN = z;
+    public void gA(boolean z) {
+        this.dcY = z;
     }
 }

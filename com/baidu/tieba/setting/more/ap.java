@@ -5,13 +5,13 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.setting.model.MoreModel;
 /* loaded from: classes.dex */
 class ap extends BaseActivity<SystemHelpSettingActivity>.LoadDataCallBack {
-    final /* synthetic */ SystemHelpSettingActivity cOP;
+    final /* synthetic */ SystemHelpSettingActivity cQl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ap(SystemHelpSettingActivity systemHelpSettingActivity, BaseActivity baseActivity) {
         super();
-        this.cOP = systemHelpSettingActivity;
+        this.cQl = systemHelpSettingActivity;
     }
 
     @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
@@ -21,13 +21,13 @@ class ap extends BaseActivity<SystemHelpSettingActivity>.LoadDataCallBack {
         Object obj = objArr[0];
         if (objArr != null && (obj instanceof MoreModel.TaskType)) {
             if (obj == MoreModel.TaskType.DO_CACHE_CLEAR) {
-                this.cOP.closeLoadingDialog();
-                avVar2 = this.cOP.cOM;
-                avVar2.atc().setTip("");
-                this.cOP.showToast(i.h.systemhelpsetting_clear_cache_success);
+                this.cQl.closeLoadingDialog();
+                avVar2 = this.cQl.cQi;
+                avVar2.atI().setTip("");
+                this.cQl.showToast(i.h.systemhelpsetting_clear_cache_success);
             } else if (obj == MoreModel.TaskType.GET_SIZE) {
-                avVar = this.cOP.cOM;
-                avVar.atc().setTip((String) objArr[1]);
+                avVar = this.cQl.cQi;
+                avVar.atI().setTip((String) objArr[1]);
             }
         }
     }

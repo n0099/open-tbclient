@@ -1,45 +1,18 @@
 package com.baidu.tieba.frs.b;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.tbadkCore.ai;
-import com.baidu.tieba.tbadkCore.x;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements ai.a {
-    final /* synthetic */ a bbY;
+public class h implements a.b {
+    final /* synthetic */ a bcD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.bbY = aVar;
+        this.bcD = aVar;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.ai.a
-    public void g(String str, long j) {
-        FrsActivity frsActivity;
-        FrsActivity frsActivity2;
-        frsActivity = this.bbY.baR;
-        com.baidu.tieba.tbadkCore.o Ld = frsActivity.Ld();
-        if (Ld != null && Ld.aeJ() != null) {
-            com.baidu.tieba.tbadkCore.d.avp().H(Ld.aeJ().getName(), false);
-            Ld.aeJ().setLike(0);
-            this.bbY.fV(0);
-            frsActivity2 = this.bbY.baR;
-            frsActivity2.aUI.d(true);
-            TbadkCoreApplication.m411getInst().delLikeForum(str);
-            this.bbY.e(false, new StringBuilder(String.valueOf(j)).toString());
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_CANCLE_LIKE_FRS, new StringBuilder(String.valueOf(j)).toString()));
-            x xVar = new x();
-            xVar.setLike(0);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, xVar));
-        }
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.ai.a
-    public void h(String str, long j) {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

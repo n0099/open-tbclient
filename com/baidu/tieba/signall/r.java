@@ -5,62 +5,62 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
-    private b cQZ;
-    private p cRa;
-    private a cRb;
-    private c cRc;
+    private b cSv;
+    private p cSw;
+    private a cSx;
+    private c cSy;
     public boolean pY;
 
     /* loaded from: classes.dex */
     public interface a {
         void b(p pVar);
 
-        void hQ(String str);
+        void hS(String str);
     }
 
     public r(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.cQZ = null;
-        this.cRa = null;
-        this.cRb = null;
-        this.cRa = new p();
+        this.cSv = null;
+        this.cSw = null;
+        this.cSx = null;
+        this.cSw = new p();
     }
 
     public void a(a aVar) {
-        this.cRb = aVar;
+        this.cSx = aVar;
     }
 
     public void c(c cVar) {
-        this.cRc = cVar;
+        this.cSy = cVar;
     }
 
-    public c atP() {
-        return this.cRc;
+    public c auv() {
+        return this.cSy;
     }
 
-    private String atQ() {
-        ArrayList<e> atp = this.cRc.atp();
-        if (atp == null) {
+    private String auw() {
+        ArrayList<e> atV = this.cSy.atV();
+        if (atV == null) {
             return "";
         }
-        if (!this.cRc.atq()) {
+        if (!this.cSy.atW()) {
             ArrayList arrayList = new ArrayList();
-            Iterator<e> it = atp.iterator();
+            Iterator<e> it = atV.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next.atz() < this.cRc.getLevel()) {
+                if (next.auf() < this.cSy.getLevel()) {
                     arrayList.add(next);
                 }
             }
-            atp.removeAll(arrayList);
+            atV.removeAll(arrayList);
         }
-        int size = atp.size();
+        int size = atV.size();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
-            e eVar = atp.get(i);
-            if (eVar.atD()) {
-                if (!eVar.atE()) {
-                    eVar.gi(true);
+            e eVar = atV.get(i);
+            if (eVar.auj()) {
+                if (!eVar.auk()) {
+                    eVar.gl(true);
                 }
             }
             if (i > 0) {
@@ -74,19 +74,19 @@ public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.e
     public boolean LoadData() {
-        if (this.cQZ != null) {
+        if (this.cSv != null) {
             return false;
         }
-        String atQ = atQ();
-        this.cQZ = new b();
-        this.cQZ.execute(atQ);
+        String auw = auw();
+        this.cSv = new b();
+        this.cSv.execute(auw);
         return true;
     }
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.cQZ != null) {
-            this.cQZ.cancel();
+        if (this.cSv != null) {
+            this.cSv.cancel();
             return true;
         }
         return false;
@@ -94,7 +94,7 @@ public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<String, Integer, p> {
-        private h cRd = null;
+        private h cSz = null;
 
         public b() {
             setPriority(3);
@@ -127,30 +127,30 @@ public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
                         sb.append(String.valueOf(split[i2 + i3]) + ",");
                     }
                 }
-                this.cRd = new h();
-                if (com.baidu.adp.lib.util.i.iM()) {
-                    lk(sb.toString());
+                this.cSz = new h();
+                if (com.baidu.adp.lib.util.i.iN()) {
+                    lo(sb.toString());
                 }
             }
-            return r.this.cRa;
+            return r.this.cSw;
         }
 
-        private p lk(String str) {
-            String lh = this.cRd.lh(str);
-            if (this.cRd.qS()) {
-                r.this.cRa.parserJson(lh);
-                return r.this.cRa;
+        private p lo(String str) {
+            String ll = this.cSz.ll(str);
+            if (this.cSz.qT()) {
+                r.this.cSw.parserJson(ll);
+                return r.this.cSw;
             }
-            r.this.cRa = null;
+            r.this.cSw = null;
             return null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            this.cRd.cancel();
-            this.cRd = null;
-            r.this.cQZ = null;
+            this.cSz.cancel();
+            this.cSz = null;
+            r.this.cSv = null;
             r.this.pY = false;
         }
 
@@ -160,12 +160,12 @@ public class r extends com.baidu.adp.base.e<SignAllForumActivity> {
         /* renamed from: c */
         public void onPostExecute(p pVar) {
             r.this.pY = false;
-            r.this.cQZ = null;
-            if (r.this.cRb != null) {
-                if (r.this.cRa != null) {
-                    r.this.cRb.b(r.this.cRa);
+            r.this.cSv = null;
+            if (r.this.cSx != null) {
+                if (r.this.cSw != null) {
+                    r.this.cSx.b(r.this.cSw);
                 } else {
-                    r.this.cRb.hQ(this.cRd != null ? this.cRd.qT() : null);
+                    r.this.cSx.hS(this.cSz != null ? this.cSz.qU() : null);
                 }
             }
         }

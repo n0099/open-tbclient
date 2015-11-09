@@ -17,7 +17,7 @@ public class ab implements View.OnTouchListener {
     public boolean onTouch(View view, MotionEvent motionEvent) {
         PopupWindow popupWindow;
         if (motionEvent.getAction() == 4) {
-            popupWindow = this.this$0.dct;
+            popupWindow = this.this$0.deC;
             com.baidu.adp.lib.g.j.a(popupWindow);
             return false;
         }

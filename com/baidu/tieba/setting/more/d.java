@@ -6,13 +6,13 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ c cMt;
-    private final /* synthetic */ r cMu;
+    final /* synthetic */ c cNP;
+    private final /* synthetic */ r cNQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, r rVar) {
-        this.cMt = cVar;
-        this.cMu = rVar;
+        this.cNP = cVar;
+        this.cNQ = rVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,33 +22,33 @@ public class d implements View.OnClickListener {
         TextView textView;
         long j;
         int i;
-        settingTextTestNewView = this.cMt.cMp;
+        settingTextTestNewView = this.cNP.cNL;
         if (view == settingTextTestNewView) {
-            this.cMu.kz(1);
+            this.cNQ.kN(1);
             return;
         }
-        tbSettingTextTipView = this.cMt.cMq;
+        tbSettingTextTipView = this.cNP.cNM;
         if (view == tbSettingTextTipView) {
-            this.cMu.kz(2);
+            this.cNQ.kN(2);
             return;
         }
-        textView = this.cMt.cMo;
+        textView = this.cNP.cNK;
         if (view == textView) {
             long currentTimeMillis = System.currentTimeMillis();
-            j = this.cMt.lastClickTime;
+            j = this.cNP.lastClickTime;
             if (currentTimeMillis - j >= 2000) {
-                this.cMt.cMl = 0;
+                this.cNP.cNH = 0;
             } else {
-                c cVar = this.cMt;
-                i = cVar.cMl;
+                c cVar = this.cNP;
+                i = cVar.cNH;
                 int i2 = i + 1;
-                cVar.cMl = i2;
+                cVar.cNH = i2;
                 if (i2 >= 14) {
-                    this.cMu.kz(4);
-                    this.cMt.cMl = 0;
+                    this.cNQ.kN(4);
+                    this.cNP.cNH = 0;
                 }
             }
-            this.cMt.lastClickTime = System.currentTimeMillis();
+            this.cNP.lastClickTime = System.currentTimeMillis();
         }
     }
 }

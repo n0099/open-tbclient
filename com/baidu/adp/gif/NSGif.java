@@ -6,13 +6,11 @@ import com.baidu.adp.lib.g.k;
 import com.baidu.adp.lib.util.g;
 /* loaded from: classes.dex */
 public class NSGif implements b {
-    public static boolean qS = g.iz().a("nsgif_jni", 2, new c());
+    public static boolean qS = g.iA().a("nsgif_jni", 2, new c());
     private final int mHeight;
     private final int mWidth;
     private int qT;
     private final int qU;
-
-    private static native int nativeCreate(String str);
 
     private static native int nativeCreate(byte[] bArr, int i, int i2);
 
@@ -38,14 +36,6 @@ public class NSGif implements b {
         this.qU = nativeGetFrameCount(i);
     }
 
-    public static NSGif L(String str) {
-        int nativeCreate = nativeCreate(str);
-        if (nativeCreate != 0) {
-            return new NSGif(nativeCreate);
-        }
-        return null;
-    }
-
     public static NSGif f(byte[] bArr, int i, int i2) {
         int nativeCreate = nativeCreate(bArr, i, i2);
         if (nativeCreate != 0) {
@@ -59,7 +49,7 @@ public class NSGif implements b {
         if (this.qT != 0) {
             int i = this.qT;
             this.qT = 0;
-            k.hh().b(new d(this, i));
+            k.hi().b(new d(this, i));
         }
     }
 

@@ -5,6 +5,7 @@ import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes.dex */
 public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
+    private int categoryId;
     private int cid;
     private int ctime;
     private int dataSize;
@@ -46,6 +47,14 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
 
     public void setStType(String str) {
         this.stType = str;
+    }
+
+    public int getCategoryId() {
+        return this.categoryId;
+    }
+
+    public void setCategoryId(int i) {
+        this.categoryId = i;
     }
 
     public String getKw() {
@@ -109,7 +118,7 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> oX() {
+    public HashMap<String, Object> oY() {
         return null;
     }
 
@@ -133,6 +142,7 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
         builder.data_size = Integer.valueOf(this.dataSize);
         builder.net_error = Integer.valueOf(this.netError);
         builder.lastids = this.lastId;
+        builder.category_id = Integer.valueOf(this.categoryId);
         if (z) {
             com.baidu.tbadk.util.h.a(builder, true);
         }
@@ -142,12 +152,12 @@ public class l extends com.baidu.adp.lib.a.b.a.a.i implements com.baidu.tbadk.mv
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Cx() {
+    public String Cq() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Cy() {
+    public boolean Cr() {
         return false;
     }
 

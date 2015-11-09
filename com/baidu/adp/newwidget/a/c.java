@@ -30,7 +30,7 @@ public class c extends a {
         if (this.AW != null) {
             canvas.concat(this.AW);
         }
-        if (dVar.kh()) {
+        if (dVar.ki()) {
             Bitmap bitmap = dVar.Bv.getBitmap();
             this.Bu.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
             canvas.drawBitmap(bitmap, this.Bu, this.AX, this.mPaint);

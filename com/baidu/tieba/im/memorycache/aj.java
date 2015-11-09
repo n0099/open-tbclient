@@ -7,31 +7,31 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 /* loaded from: classes.dex */
 class aj implements CustomMessageTask.CustomRunnable<String> {
-    final /* synthetic */ ai bEF;
-    private final /* synthetic */ ImMessageCenterPojo bEx;
+    private final /* synthetic */ ImMessageCenterPojo bES;
+    final /* synthetic */ ai bFa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aj(ai aiVar, ImMessageCenterPojo imMessageCenterPojo) {
-        this.bEF = aiVar;
-        this.bEx = imMessageCenterPojo;
+        this.bFa = aiVar;
+        this.bES = imMessageCenterPojo;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         try {
             try {
-                com.baidu.tieba.im.db.g.TF().TG();
-                com.baidu.tieba.im.db.i.TK().c(this.bEx);
-                com.baidu.tieba.im.db.c.TB().hJ(this.bEx.getGid());
-                com.baidu.tieba.im.db.g.TF().endTransaction();
+                com.baidu.tieba.im.db.g.Ua().Ub();
+                com.baidu.tieba.im.db.i.Uf().c(this.bES);
+                com.baidu.tieba.im.db.c.TW().hL(this.bES.getGid());
+                com.baidu.tieba.im.db.g.Ua().endTransaction();
                 return null;
             } catch (Exception e) {
                 BdLog.detailException(e);
-                com.baidu.tieba.im.db.g.TF().endTransaction();
+                com.baidu.tieba.im.db.g.Ua().endTransaction();
                 return null;
             }
         } catch (Throwable th) {
-            com.baidu.tieba.im.db.g.TF().endTransaction();
+            com.baidu.tieba.im.db.g.Ua().endTransaction();
             throw th;
         }
     }

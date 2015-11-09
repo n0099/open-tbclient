@@ -28,13 +28,13 @@ import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class n {
     public static final File xU = Environment.getExternalStorageDirectory();
-    private static final File Ze = TbadkCoreApplication.m411getInst().getApp().getCacheDir();
+    private static final File Zi = TbadkCoreApplication.m411getInst().getApp().getCacheDir();
 
     public static boolean fi() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static String ty() {
+    public static String tB() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("removed")) {
             return TbadkCoreApplication.m411getInst().getApp().getString(i.h.error_no_sdcard);
@@ -64,7 +64,7 @@ public class n {
         return false;
     }
 
-    public static boolean tz() {
+    public static boolean tC() {
         return cG(xU + "/" + TbConfig.getTempDirName() + "/");
     }
 
@@ -105,7 +105,7 @@ public class n {
     }
 
     public static File cJ(String str) {
-        if (tz()) {
+        if (tC()) {
             File file = new File(xU + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -147,14 +147,14 @@ public class n {
     }
 
     public static File cM(String str) {
-        if (!tz()) {
+        if (!tC()) {
             return null;
         }
         return new File(xU + "/" + TbConfig.getTempDirName() + "/" + str);
     }
 
     public static File cN(String str) {
-        if (tz()) {
+        if (tC()) {
             File file = new File(xU + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (!file.exists() || file.delete()) {
@@ -174,7 +174,7 @@ public class n {
     }
 
     public static File cO(String str) {
-        if (tz()) {
+        if (tC()) {
             File file = new File(xU + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -575,7 +575,7 @@ public class n {
 
     public static byte[] ab(String str, String str2) {
         String str3;
-        if (!tz() || str2 == null) {
+        if (!tC() || str2 == null) {
             return null;
         }
         if (str != null) {
@@ -893,7 +893,7 @@ public class n {
     }
 
     public static boolean cR(String str) {
-        if (tz()) {
+        if (tC()) {
             File file = new File(xU + "/" + TbConfig.getTempDirName() + "/" + str);
             try {
                 if (file.exists()) {
@@ -909,7 +909,7 @@ public class n {
         return false;
     }
 
-    public static String tA() {
+    public static String tD() {
         return xU + "/" + TbConfig.getTempDirName() + "/";
     }
 
@@ -929,7 +929,7 @@ public class n {
         return false;
     }
 
-    public static long tB() {
+    public static long tE() {
         String absolutePath;
         if (fi()) {
             absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -948,10 +948,10 @@ public class n {
     }
 
     private static String b(int i, String str, boolean z) {
-        if (Ze == null) {
+        if (Zi == null) {
             return null;
         }
-        File[] listFiles = Ze.listFiles();
+        File[] listFiles = Zi.listFiles();
         String cj = cj(i);
         for (int i2 = 0; i2 < listFiles.length; i2++) {
             if (listFiles[i2] != null && listFiles[i2].getName().startsWith(cj)) {
@@ -998,7 +998,7 @@ public class n {
         }
         StringBuilder sb = new StringBuilder();
         if (z) {
-            sb.append(tA());
+            sb.append(tD());
         }
         sb.append(cj(i));
         sb.append(File.separator);
@@ -1115,11 +1115,11 @@ public class n {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static final String Zf = TbadkCoreApplication.m411getInst().getApp().getFileStreamPath("").getAbsolutePath();
+        public static final String Zj = TbadkCoreApplication.m411getInst().getApp().getFileStreamPath("").getAbsolutePath();
 
         public static boolean cW(String str) {
             try {
-                return new File(new StringBuilder(String.valueOf(Zf)).append("/").append(str).toString()).exists();
+                return new File(new StringBuilder(String.valueOf(Zj)).append("/").append(str).toString()).exists();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 TiebaStatic.file(e, "FileHelper.checkFile " + str);
@@ -1129,7 +1129,7 @@ public class n {
 
         public static boolean cX(String str) {
             try {
-                File file = new File(String.valueOf(Zf) + "/" + str);
+                File file = new File(String.valueOf(Zj) + "/" + str);
                 if (file.exists()) {
                     return false;
                 }
@@ -1165,7 +1165,7 @@ public class n {
 
         public static boolean cY(String str) {
             try {
-                File file = new File(String.valueOf(Zf) + "/" + str);
+                File file = new File(String.valueOf(Zj) + "/" + str);
                 if (file.exists()) {
                     if (!file.isDirectory()) {
                         return false;
@@ -1183,7 +1183,7 @@ public class n {
         public static String cZ(String str) {
             String str2 = null;
             try {
-                File file = new File(String.valueOf(Zf) + "/" + str);
+                File file = new File(String.valueOf(Zj) + "/" + str);
                 if (file.exists() && file.isDirectory()) {
                     File[] listFiles = file.listFiles();
                     int length = listFiles.length;
@@ -1218,7 +1218,7 @@ public class n {
                 str2 = ".gif";
             }
             if (com.baidu.adp.lib.util.k.A(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
-                bArr = com.baidu.adp.lib.util.d.iu().e(decodeByteArray, 100);
+                bArr = com.baidu.adp.lib.util.d.iv().e(decodeByteArray, 100);
                 decodeByteArray.recycle();
             }
             if (au.dn(str) != null) {

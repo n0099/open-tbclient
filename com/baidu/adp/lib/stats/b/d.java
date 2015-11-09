@@ -20,7 +20,7 @@ public class d extends com.baidu.adp.lib.Disk.ops.d {
         super.l(z);
         if (z) {
             this.xr.g(fy().length());
-            if (this.xs || this.xr.hQ() > 102400) {
+            if (this.xs || this.xr.hR() > 102400) {
                 c.c(this.xr, false, false, false);
             }
         }

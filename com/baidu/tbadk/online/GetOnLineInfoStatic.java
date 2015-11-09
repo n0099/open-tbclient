@@ -9,17 +9,17 @@ public class GetOnLineInfoStatic {
     private static Runnable mRunnable = new a();
 
     static {
-        Dp();
-        Dq();
-        Dr();
-        Ds();
+        Di();
+        Dj();
+        Dk();
+        Dl();
     }
 
-    private static void Dp() {
+    private static void Di() {
         MessageManager.getInstance().registerListener(new b(BDLocationStatusCodes.GEOFENCE_TOO_MANY_GEOFENCES));
     }
 
-    private static void Dq() {
+    private static void Dj() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(205005);
         bVar.setResponsedClass(GetOnLineInfoSocketResMessage.class);
         bVar.j(false);
@@ -27,13 +27,13 @@ public class GetOnLineInfoStatic {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private static void Dr() {
+    private static void Dk() {
         c cVar = new c(205005);
         cVar.setSelfListener(true);
         MessageManager.getInstance().registerListener(cVar);
     }
 
-    private static void Ds() {
+    private static void Dl() {
         MessageManager.getInstance().registerListener(new d(CmdConfigCustom.METHOD_ACCOUNT_CHANGE));
     }
 }

@@ -4,17 +4,17 @@ import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tieba.LogoActivity;
 /* loaded from: classes.dex */
 class d implements a.b {
-    private final /* synthetic */ String aDA;
-    final /* synthetic */ c aDy;
-    private final /* synthetic */ String aDz;
+    final /* synthetic */ c aCs;
+    private final /* synthetic */ String aCt;
+    private final /* synthetic */ String aCu;
     private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, String str, String str2, String str3) {
-        this.aDy = cVar;
-        this.aDz = str;
+        this.aCs = cVar;
+        this.aCt = str;
         this.val$url = str2;
-        this.aDA = str3;
+        this.aCu = str3;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -23,11 +23,11 @@ class d implements a.b {
         LogoActivity logoActivity;
         LogoActivity.a aVar2;
         aVar.dismiss();
-        com.baidu.adp.lib.g.h hg = com.baidu.adp.lib.g.h.hg();
-        bVar = this.aDy.aDx;
-        logoActivity = bVar.aDw;
-        aVar2 = logoActivity.aDu;
-        hg.post(aVar2);
-        com.baidu.tbadk.download.b.Ak().a(this.aDz, this.val$url, this.aDA, 0, 1111);
+        com.baidu.adp.lib.g.h hh = com.baidu.adp.lib.g.h.hh();
+        bVar = this.aCs.aCr;
+        logoActivity = bVar.aCq;
+        aVar2 = logoActivity.aCo;
+        hh.post(aVar2);
+        com.baidu.tbadk.download.b.Ap().a(this.aCt, this.val$url, this.aCu, 0, 1111);
     }
 }

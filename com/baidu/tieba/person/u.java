@@ -7,48 +7,48 @@ import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class u extends CustomMessageListener {
-    final /* synthetic */ r cpq;
+    final /* synthetic */ r cqM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u(r rVar, int i) {
         super(i);
-        this.cpq = rVar;
+        this.cqM = rVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        PersonBarActivity aio;
-        PersonBarActivity aio2;
+        PersonBarActivity aiU;
+        PersonBarActivity aiU2;
         boolean z2;
         View view;
         View view2;
         View view3;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001187) {
-            this.cpq.cpk = true;
-            z = this.cpq.mIsHost;
+            this.cqM.cqG = true;
+            z = this.cqM.mIsHost;
             if (z) {
                 q personBarData = ((ResponsePersonBarByUidLocalMessage) customResponsedMessage).getPersonBarData();
-                aio = this.cpq.aio();
-                if (aio != null) {
-                    aio2 = this.cpq.aio();
-                    if (aio2.getRequestCode() != 23011) {
-                        view3 = this.cpq.cph;
+                aiU = this.cqM.aiU();
+                if (aiU != null) {
+                    aiU2 = this.cqM.aiU();
+                    if (aiU2.getRequestCode() != 23011) {
+                        view3 = this.cqM.cqD;
                         view3.setVisibility(8);
                     } else {
-                        z2 = this.cpq.cpl;
+                        z2 = this.cqM.cqH;
                         if (!z2) {
-                            this.cpq.cpl = true;
-                            BdListView bdListView = this.cpq.mListView;
-                            view2 = this.cpq.cph;
+                            this.cqM.cqH = true;
+                            BdListView bdListView = this.cqM.mListView;
+                            view2 = this.cqM.cqD;
                             bdListView.addHeaderView(view2);
                         }
-                        view = this.cpq.cph;
+                        view = this.cqM.cqD;
                         view.setVisibility(0);
                     }
-                    this.cpq.a(personBarData, true);
+                    this.cqM.a(personBarData, true);
                 }
             }
         }

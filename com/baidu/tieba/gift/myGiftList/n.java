@@ -11,11 +11,11 @@ import tbclient.GetGiftMyList.GiftList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class n implements AdapterView.OnItemClickListener {
-    final /* synthetic */ m bnB;
+    final /* synthetic */ m bof;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(m mVar) {
-        this.bnB = mVar;
+        this.bof = mVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -25,23 +25,23 @@ public class n implements AdapterView.OnItemClickListener {
         MyGiftListActivity myGiftListActivity;
         MyGiftListActivity myGiftListActivity2;
         a aVar;
-        z = this.bnB.mIsHost;
+        z = this.bof.mIsHost;
         if (!z) {
-            jVar = this.bnB.bnw;
+            jVar = this.bof.boa;
             GiftList item = jVar.getItem(i);
             if (item != null && item.sender != null && item.sender.id.longValue() > 0) {
-                if (com.baidu.adp.lib.util.i.iM()) {
-                    myGiftListActivity2 = this.bnB.bnb;
+                if (com.baidu.adp.lib.util.i.iN()) {
+                    myGiftListActivity2 = this.bof.bnF;
                     myGiftListActivity2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(TbadkApplication.getInst().getContext(), String.valueOf(item.sender.id), item.sender.name_show)));
                     return;
                 }
-                myGiftListActivity = this.bnB.bnb;
+                myGiftListActivity = this.bof.bnF;
                 myGiftListActivity.showToast(i.h.neterror);
                 return;
             }
             return;
         }
-        aVar = this.bnB.bnA;
-        aVar.ho((String) view.getTag(i.f.tag_second));
+        aVar = this.bof.boe;
+        aVar.hq((String) view.getTag(i.f.tag_second));
     }
 }

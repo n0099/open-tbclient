@@ -17,130 +17,130 @@ import tbclient.FinePbPage.ForumInfo;
 import tbclient.FinePbPage.User_Info;
 /* loaded from: classes.dex */
 public class e {
-    private TextView aDl;
-    private LinearLayout aHU;
-    private HeadImageView aHW;
-    private TextView alu;
-    private View cfE;
-    private b cfF;
-    private TextView cfG;
-    private BarImageView cfH;
-    private TextView cfI;
-    private TextView cfJ;
-    private TextView cfK;
+    private TextView aCf;
+    private LinearLayout aGO;
+    private HeadImageView aGQ;
+    private TextView alz;
+    private View cgf;
+    private b cgg;
+    private TextView cgh;
+    private BarImageView cgi;
+    private TextView cgj;
+    private TextView cgk;
+    private TextView cgl;
 
     /* loaded from: classes.dex */
     public interface b {
-        void aV(String str, String str2);
+        void aU(String str, String str2);
 
-        void aeA();
+        void aeV();
 
-        void jB(String str);
+        void jD(String str);
     }
 
     public e(Context context) {
-        this.cfE = LayoutInflater.from(context).inflate(i.g.chosen_pb_person_info, (ViewGroup) null);
-        this.alu = (TextView) this.cfE.findViewById(i.f.chosen_pb_title);
-        this.aHW = (HeadImageView) this.cfE.findViewById(i.f.chosen_pb_person_info_head);
-        this.aDl = (TextView) this.cfE.findViewById(i.f.chosen_pb_person_info_name);
-        this.cfG = (TextView) this.cfE.findViewById(i.f.chosen_pb_bar_forum_name);
-        this.aHW.setRadius(com.baidu.adp.lib.util.k.dip2px(context, 2.0f));
-        this.cfH = (BarImageView) this.cfE.findViewById(i.f.chosen_pb_bar_pic);
-        this.cfJ = (TextView) this.cfE.findViewById(i.f.chosen_pb_bar_attention_number);
-        this.cfK = (TextView) this.cfE.findViewById(i.f.chosen_pb_bar_attention_button);
-        this.cfK.setOnClickListener(new f(this));
-        this.aHU = (LinearLayout) this.cfE.findViewById(i.f.chosen_pb_bar_container);
-        this.cfI = (TextView) this.cfE.findViewById(i.f.chosen_pb_person_info_remark);
+        this.cgf = LayoutInflater.from(context).inflate(i.g.chosen_pb_person_info, (ViewGroup) null);
+        this.alz = (TextView) this.cgf.findViewById(i.f.chosen_pb_title);
+        this.aGQ = (HeadImageView) this.cgf.findViewById(i.f.chosen_pb_person_info_head);
+        this.aCf = (TextView) this.cgf.findViewById(i.f.chosen_pb_person_info_name);
+        this.cgh = (TextView) this.cgf.findViewById(i.f.chosen_pb_bar_forum_name);
+        this.aGQ.setRadius(com.baidu.adp.lib.util.k.dip2px(context, 2.0f));
+        this.cgi = (BarImageView) this.cgf.findViewById(i.f.chosen_pb_bar_pic);
+        this.cgk = (TextView) this.cgf.findViewById(i.f.chosen_pb_bar_attention_number);
+        this.cgl = (TextView) this.cgf.findViewById(i.f.chosen_pb_bar_attention_button);
+        this.cgl.setOnClickListener(new f(this));
+        this.aGO = (LinearLayout) this.cgf.findViewById(i.f.chosen_pb_bar_container);
+        this.cgj = (TextView) this.cgf.findViewById(i.f.chosen_pb_person_info_remark);
     }
 
-    public View aeD() {
-        return this.cfE;
+    public View aeY() {
+        return this.cgf;
     }
 
     public void a(b bVar) {
-        this.cfF = bVar;
+        this.cgg = bVar;
     }
 
-    public void jE(String str) {
-        if (!StringUtils.isNull(str) && this.aHW != null) {
-            this.aHW.d(str, 12, false);
+    public void jG(String str) {
+        if (!StringUtils.isNull(str) && this.aGQ != null) {
+            this.aGQ.d(str, 12, false);
         }
     }
 
     public void a(Context context, ForumInfo forumInfo) {
-        if (forumInfo != null && this.alu != null) {
-            this.alu.setText(forumInfo.title);
+        if (forumInfo != null && this.alz != null) {
+            this.alz.setText(forumInfo.title);
             if (StringUtils.isNull(forumInfo.fromfname) || forumInfo.fromfid == null || forumInfo.fromfid.longValue() <= 0) {
-                this.aHU.setVisibility(8);
+                this.aGO.setVisibility(8);
                 return;
             }
-            this.aHU.setVisibility(0);
+            this.aGO.setVisibility(0);
             O(context, forumInfo.fromfname);
-            if (this.cfH != null) {
-                this.cfH.d(forumInfo.avatar, 16, false);
-                this.cfH.setOnClickListener(new a(forumInfo.fromfname));
+            if (this.cgi != null) {
+                this.cgi.d(forumInfo.avatar, 16, false);
+                this.cgi.setOnClickListener(new a(forumInfo.fromfname));
             }
             if (StringUtils.isNull(forumInfo.authorremark)) {
-                this.cfI.setVisibility(8);
+                this.cgj.setVisibility(8);
             } else {
-                this.cfI.setVisibility(0);
-                this.cfI.setText(forumInfo.authorremark);
+                this.cgj.setVisibility(0);
+                this.cgj.setText(forumInfo.authorremark);
             }
-            if (this.cfJ != null && forumInfo.member_num != null) {
-                this.cfJ.setText(as.q(forumInfo.member_num.longValue()));
+            if (this.cgk != null && forumInfo.member_num != null) {
+                this.cgk.setText(as.q(forumInfo.member_num.longValue()));
             }
             if (forumInfo.is_like != null && forumInfo.is_like.intValue() == 1) {
-                el(true);
+                en(true);
             } else {
-                el(false);
+                en(false);
             }
         }
     }
 
     public void setName(String str) {
-        if (this.aDl != null) {
-            this.aDl.setText(str);
+        if (this.aCf != null) {
+            this.aCf.setText(str);
         }
     }
 
     private void O(Context context, String str) {
-        if (this.cfG != null) {
+        if (this.cgh != null) {
             if (StringUtils.isNull(str)) {
-                this.cfG.setVisibility(4);
+                this.cgh.setVisibility(4);
                 return;
             }
-            this.cfG.setText(context.getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(str, 7, false)));
-            this.cfG.setOnClickListener(new a(str));
-            this.cfG.setVisibility(0);
+            this.cgh.setText(context.getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(str, 7, false)));
+            this.cgh.setOnClickListener(new a(str));
+            this.cgh.setVisibility(0);
         }
     }
 
     public void a(User_Info user_Info) {
         if (user_Info != null) {
             setName(user_Info.name);
-            jE(user_Info.portrait);
-            this.aHW.setOnClickListener(new g(this, user_Info));
-            this.aDl.setOnClickListener(new h(this, user_Info));
+            jG(user_Info.portrait);
+            this.aGQ.setOnClickListener(new g(this, user_Info));
+            this.aCf.setOnClickListener(new h(this, user_Info));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(long j, String str) {
-        if (this.cfF != null) {
-            this.cfF.aV(String.valueOf(j), str);
+        if (this.cgg != null) {
+            this.cgg.aU(String.valueOf(j), str);
         }
     }
 
-    public void el(boolean z) {
+    public void en(boolean z) {
         if (z) {
-            this.cfK.setText(i.h.chosen_pb_attentioned);
-            an.b(this.cfK, i.c.cp_cont_d, 1);
-            this.cfK.setEnabled(false);
+            this.cgl.setText(i.h.chosen_pb_attentioned);
+            an.b(this.cgl, i.c.cp_cont_d, 1);
+            this.cgl.setEnabled(false);
             return;
         }
-        this.cfK.setText(i.h.chosen_pb_attention);
-        this.cfK.setEnabled(true);
-        an.b(this.cfK, i.c.cp_cont_g, 1);
+        this.cgl.setText(i.h.chosen_pb_attention);
+        this.cgl.setEnabled(true);
+        an.b(this.cgl, i.c.cp_cont_g, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -154,8 +154,8 @@ public class e {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (e.this.cfF != null) {
-                e.this.cfF.jB(this.forumName);
+            if (e.this.cgg != null) {
+                e.this.cgg.jD(this.forumName);
             }
         }
     }

@@ -20,7 +20,7 @@ public class a extends OutputStream {
         this.zm.clear();
     }
 
-    public ByteBuffer js() {
+    public ByteBuffer jt() {
         return this.zm;
     }
 
@@ -73,7 +73,7 @@ public class a extends OutputStream {
         write(str.getBytes("UTF-8"));
     }
 
-    public synchronized void jt() {
+    public synchronized void ju() {
         write(13);
         write(10);
     }

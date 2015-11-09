@@ -13,17 +13,17 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class SkinItemView extends LinearLayout {
-    private View.OnClickListener aUx;
-    private ImageView deA;
-    private TextView deB;
-    private TextView deC;
-    private SkinProgressView deD;
-    private a deE;
-    private final int dev;
-    private TbImageView dew;
-    private TbImageView dex;
-    private TbImageView dey;
-    private ImageView dez;
+    private View.OnClickListener aUF;
+    private final int dgb;
+    private TbImageView dgc;
+    private TbImageView dgd;
+    private TbImageView dge;
+    private ImageView dgf;
+    private ImageView dgg;
+    private TextView dgh;
+    private TextView dgi;
+    private SkinProgressView dgj;
+    private a dgk;
     private Context mContext;
     private View mRootView;
     private b mSkinData;
@@ -39,90 +39,90 @@ public class SkinItemView extends LinearLayout {
 
     public SkinItemView(Context context) {
         super(context);
-        this.dev = 10;
-        this.aUx = new c(this);
+        this.dgb = 10;
+        this.aUF = new c(this);
         this.mContext = context;
         initView();
     }
 
     public SkinItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dev = 10;
-        this.aUx = new c(this);
+        this.dgb = 10;
+        this.aUF = new c(this);
         this.mContext = context;
         initView();
     }
 
     public SkinItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
-        this.dev = 10;
-        this.aUx = new c(this);
+        this.dgb = 10;
+        this.aUF = new c(this);
         this.mContext = context;
         initView();
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(i.g.skin_item_view, this);
-        this.dew = (TbImageView) this.mRootView.findViewById(i.f.skin_image);
-        this.dex = (TbImageView) this.mRootView.findViewById(i.f.skin_permission_icon);
-        this.dex.setDefaultResource(i.e.transparent_bg);
-        this.dex.setDefaultBgResource(i.e.transparent_bg);
-        this.dex.setGifIconSupport(false);
-        this.dey = (TbImageView) this.mRootView.findViewById(i.f.skin_state_icon);
-        this.dey.setDefaultResource(i.e.transparent_bg);
-        this.dey.setDefaultBgResource(i.e.transparent_bg);
-        this.dey.setGifIconSupport(false);
-        this.dez = (ImageView) this.mRootView.findViewById(i.f.skin_choosed_icon);
-        this.deA = (ImageView) this.mRootView.findViewById(i.f.skin_delete_icon);
-        this.deB = (TextView) this.mRootView.findViewById(i.f.text_view_skin_name);
-        this.deC = (TextView) this.mRootView.findViewById(i.f.text_view_skin_size);
-        this.deD = (SkinProgressView) this.mRootView.findViewById(i.f.text_view_skin_use);
-        this.deD.setOnClickListener(this.aUx);
-        this.dew.setOnClickListener(this.aUx);
-        this.deA.setOnClickListener(this.aUx);
+        this.dgc = (TbImageView) this.mRootView.findViewById(i.f.skin_image);
+        this.dgd = (TbImageView) this.mRootView.findViewById(i.f.skin_permission_icon);
+        this.dgd.setDefaultResource(i.e.transparent_bg);
+        this.dgd.setDefaultBgResource(i.e.transparent_bg);
+        this.dgd.setGifIconSupport(false);
+        this.dge = (TbImageView) this.mRootView.findViewById(i.f.skin_state_icon);
+        this.dge.setDefaultResource(i.e.transparent_bg);
+        this.dge.setDefaultBgResource(i.e.transparent_bg);
+        this.dge.setGifIconSupport(false);
+        this.dgf = (ImageView) this.mRootView.findViewById(i.f.skin_choosed_icon);
+        this.dgg = (ImageView) this.mRootView.findViewById(i.f.skin_delete_icon);
+        this.dgh = (TextView) this.mRootView.findViewById(i.f.text_view_skin_name);
+        this.dgi = (TextView) this.mRootView.findViewById(i.f.text_view_skin_size);
+        this.dgj = (SkinProgressView) this.mRootView.findViewById(i.f.text_view_skin_use);
+        this.dgj.setOnClickListener(this.aUF);
+        this.dgc.setOnClickListener(this.aUF);
+        this.dgg.setOnClickListener(this.aUF);
     }
 
     public void a(b bVar) {
         if (bVar != null) {
             if (bVar.getId() == -1) {
-                this.dew.setDefaultResource(i.e.pic_theme_moren);
-                this.dew.setDefaultBgResource(i.e.transparent_bg);
+                this.dgc.setDefaultResource(i.e.pic_theme_moren);
+                this.dgc.setDefaultBgResource(i.e.transparent_bg);
             } else if (bVar.getId() == -2) {
-                this.dew.setDefaultResource(i.e.pic_theme_night);
-                this.dew.setDefaultBgResource(i.e.transparent_bg);
+                this.dgc.setDefaultResource(i.e.pic_theme_night);
+                this.dgc.setDefaultBgResource(i.e.transparent_bg);
             } else {
-                this.dew.setDefaultResource(i.e.img_default_100);
+                this.dgc.setDefaultResource(i.e.img_default_100);
             }
             this.mSkinData = bVar;
-            this.dew.d(bVar.getPicUrl(), 10, false);
-            this.dex.d(bVar.azf(), 10, false);
-            this.dey.d(bVar.azg(), 10, false);
-            this.deB.setText(com.baidu.tbadk.util.n.v(bVar.getTitle(), 10));
-            this.deC.setText(bVar.getPackageSize());
-            this.deD.setSkinData(this.mSkinData);
-            if (bVar.azk() && (bVar.getId() < 0 || bVar.Uf() != 7)) {
-                this.dez.setVisibility(0);
-                an.c(this.dez, i.e.icon_choose_photo);
+            this.dgc.d(bVar.getPicUrl(), 10, false);
+            this.dgd.d(bVar.azV(), 10, false);
+            this.dge.d(bVar.azW(), 10, false);
+            this.dgh.setText(com.baidu.tbadk.util.n.v(bVar.getTitle(), 10));
+            this.dgi.setText(bVar.getPackageSize());
+            this.dgj.setSkinData(this.mSkinData);
+            if (bVar.aAa() && (bVar.getId() < 0 || bVar.UA() != 7)) {
+                this.dgf.setVisibility(0);
+                an.c(this.dgf, i.e.icon_choose_photo);
             } else {
-                this.dez.setVisibility(8);
+                this.dgf.setVisibility(8);
             }
-            if (bVar.Uf() == 7 && bVar.getId() > 0) {
-                this.deA.setVisibility(0);
-                an.c(this.deA, i.e.account_active_account_check);
+            if (bVar.UA() == 7 && bVar.getId() > 0) {
+                this.dgg.setVisibility(0);
+                an.c(this.dgg, i.e.account_active_account_check);
             } else {
-                this.deA.setVisibility(4);
+                this.dgg.setVisibility(4);
             }
-            this.deD.e(bVar.azi(), 0.0f);
+            this.dgj.e(bVar.azY(), 0.0f);
         }
     }
 
     public void setListenerTag(BdUniqueId bdUniqueId) {
-        if (this.deD != null) {
-            this.deD.setListenerTag(bdUniqueId);
+        if (this.dgj != null) {
+            this.dgj.setListenerTag(bdUniqueId);
         }
     }
 
     public void setOnItemClickCallback(a aVar) {
-        this.deE = aVar;
+        this.dgk = aVar;
     }
 }

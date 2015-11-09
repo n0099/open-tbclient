@@ -10,9 +10,9 @@ import com.baidu.tieba.hottopic.message.ResponseHttpGetTopicRelateThreadMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketGetTopicRelateThreadMessage;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.base.e<BaseActivity<?>> {
-    private BaseActivity<?> aSe;
-    private InterfaceC0056a bow;
-    private com.baidu.adp.framework.listener.a box;
+    private BaseActivity<?> aSm;
+    private InterfaceC0056a bpa;
+    private com.baidu.adp.framework.listener.a bpb;
 
     /* renamed from: com.baidu.tieba.hottopic.controller.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -22,23 +22,23 @@ public class a extends com.baidu.adp.base.e<BaseActivity<?>> {
 
     public a(BaseActivity<?> baseActivity) {
         super(baseActivity.getPageContext());
-        this.box = new b(this, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, 309005);
-        this.aSe = baseActivity;
-        registerListener(this.box);
+        this.bpb = new b(this, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, 309005);
+        this.aSm = baseActivity;
+        registerListener(this.bpb);
     }
 
     private void a(com.baidu.tieba.hottopic.data.f fVar) {
         RequestGetTopicRelateThreadMessage requestGetTopicRelateThreadMessage = new RequestGetTopicRelateThreadMessage();
         int K = com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp());
         int L = com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp());
-        requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(com.baidu.adp.lib.g.b.c(fVar.boE, 0L)));
-        requestGetTopicRelateThreadMessage.setTopicName(fVar.boF);
+        requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(com.baidu.adp.lib.g.b.c(fVar.bpi, 0L)));
+        requestGetTopicRelateThreadMessage.setTopicName(fVar.bpj);
         requestGetTopicRelateThreadMessage.setScrH(Integer.valueOf(L));
         requestGetTopicRelateThreadMessage.setScrW(Integer.valueOf(K));
         requestGetTopicRelateThreadMessage.setScrDip(Double.valueOf(TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density));
-        requestGetTopicRelateThreadMessage.setRn(Integer.valueOf(fVar.bpo));
-        requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(fVar.bpm));
-        requestGetTopicRelateThreadMessage.setQType(Integer.valueOf(m.qU().getViewImageQuality()));
+        requestGetTopicRelateThreadMessage.setRn(Integer.valueOf(fVar.bpS));
+        requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(fVar.bpQ));
+        requestGetTopicRelateThreadMessage.setQType(Integer.valueOf(m.qV().getViewImageQuality()));
         sendMessage(requestGetTopicRelateThreadMessage);
     }
 
@@ -52,7 +52,7 @@ public class a extends com.baidu.adp.base.e<BaseActivity<?>> {
             if ((responsedMessage instanceof ResponseSocketGetTopicRelateThreadMessage) && ((ResponseSocketGetTopicRelateThreadMessage) responsedMessage).getHotThreadItemListData() != null) {
                 aVar = ((ResponseSocketGetTopicRelateThreadMessage) responsedMessage).getHotThreadItemListData();
             }
-            this.bow.a(!responsedMessage.hasError(), aVar);
+            this.bpa.a(!responsedMessage.hasError(), aVar);
         }
     }
 
@@ -63,7 +63,7 @@ public class a extends com.baidu.adp.base.e<BaseActivity<?>> {
     }
 
     public void a(InterfaceC0056a interfaceC0056a) {
-        this.bow = interfaceC0056a;
+        this.bpa = interfaceC0056a;
     }
 
     @Override // com.baidu.adp.base.e

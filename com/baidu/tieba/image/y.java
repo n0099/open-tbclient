@@ -5,23 +5,23 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class y {
-    private ArrayList<com.baidu.tieba.tbadkCore.data.d> bPk = new ArrayList<>();
-    private ArrayList<com.baidu.tieba.tbadkCore.data.d> bPX = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.tbadkCore.data.h> bPF = new ArrayList<>();
+    private ArrayList<com.baidu.tieba.tbadkCore.data.h> bQs = new ArrayList<>();
 
-    public void setContent(ArrayList<com.baidu.tieba.tbadkCore.data.d> arrayList) {
-        this.bPk = arrayList;
+    public void setContent(ArrayList<com.baidu.tieba.tbadkCore.data.h> arrayList) {
+        this.bPF = arrayList;
     }
 
-    public void aA(Context context) {
+    public void az(Context context) {
         int i;
         int i2;
         int i3;
-        if (this.bPk != null) {
+        if (this.bPF != null) {
             int i4 = -1;
-            int size = this.bPX.size();
+            int size = this.bQs.size();
             if (size > 0) {
                 try {
-                    i4 = this.bPX.get(size - 1).getType();
+                    i4 = this.bQs.get(size - 1).getType();
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     return;
@@ -29,24 +29,24 @@ public class y {
             }
             int i5 = 0;
             int i6 = i4;
-            while (i5 < this.bPk.size()) {
-                com.baidu.tieba.tbadkCore.data.d dVar = this.bPk.get(i5);
-                if (com.baidu.tieba.tbadkCore.data.d.aE(i6, dVar.getType())) {
-                    this.bPX.get(size - 1).b(dVar.aQ(context));
+            while (i5 < this.bPF.size()) {
+                com.baidu.tieba.tbadkCore.data.h hVar = this.bPF.get(i5);
+                if (com.baidu.tieba.tbadkCore.data.h.aG(i6, hVar.getType())) {
+                    this.bQs.get(size - 1).b(hVar.aP(context));
                     i3 = size;
                     i2 = i6;
                 } else {
-                    if (dVar.getType() == 3) {
-                        this.bPX.add(dVar);
+                    if (hVar.getType() == 3) {
+                        this.bQs.add(hVar);
                         i = 3;
-                    } else if (dVar.getType() == 11) {
-                        this.bPX.add(dVar);
+                    } else if (hVar.getType() == 11) {
+                        this.bQs.add(hVar);
                         i = 11;
                     } else {
-                        com.baidu.tieba.tbadkCore.data.d dVar2 = new com.baidu.tieba.tbadkCore.data.d();
-                        dVar2.setType(0);
-                        dVar2.b(dVar.aQ(context));
-                        this.bPX.add(dVar2);
+                        com.baidu.tieba.tbadkCore.data.h hVar2 = new com.baidu.tieba.tbadkCore.data.h();
+                        hVar2.setType(0);
+                        hVar2.b(hVar.aP(context));
+                        this.bQs.add(hVar2);
                         i = 0;
                     }
                     i2 = i;

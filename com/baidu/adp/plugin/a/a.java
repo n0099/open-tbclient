@@ -125,7 +125,7 @@ public interface a {
 
     boolean b(MotionEvent motionEvent);
 
-    Object bc(String str);
+    Object ba(String str);
 
     void c(int i, Menu menu);
 
@@ -155,33 +155,31 @@ public interface a {
 
     Activity getActivity();
 
-    c kE();
-
-    void kF();
+    c kF();
 
     void kG();
 
     void kH();
 
-    Context kI();
+    void kI();
 
-    ComponentName kJ();
+    Context kJ();
 
-    String kK();
+    ComponentName kK();
 
-    int kL();
+    String kL();
 
-    View kM();
+    int kM();
 
-    Intent kN();
+    View kN();
 
-    LayoutInflater kO();
+    Intent kO();
 
-    String kP();
+    LayoutInflater kP();
 
-    MenuInflater kQ();
+    String kQ();
 
-    int kR();
+    MenuInflater kR();
 
     int kS();
 
@@ -189,17 +187,17 @@ public interface a {
 
     int kU();
 
-    Window kV();
+    int kV();
 
-    WindowManager kW();
+    Window kW();
 
-    boolean kX();
+    WindowManager kX();
 
     boolean kY();
 
     boolean kZ();
 
-    void la();
+    boolean la();
 
     void lb();
 
@@ -215,17 +213,19 @@ public interface a {
 
     void lh();
 
-    Object li();
+    void li();
 
-    boolean lj();
+    Object lj();
 
-    void lk();
+    boolean lk();
 
     void ll();
 
     void lm();
 
     void ln();
+
+    void lo();
 
     void m(Activity activity);
 

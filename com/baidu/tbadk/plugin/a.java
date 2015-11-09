@@ -8,11 +8,11 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 class a implements Runnable {
-    final /* synthetic */ PluginErrorTipActivity ayz;
+    final /* synthetic */ PluginErrorTipActivity axo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(PluginErrorTipActivity pluginErrorTipActivity) {
-        this.ayz = pluginErrorTipActivity;
+        this.axo = pluginErrorTipActivity;
     }
 
     @Override // java.lang.Runnable
@@ -22,7 +22,7 @@ class a implements Runnable {
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) BdBaseApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses();
         if (runningAppProcesses != null) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo != null && runningAppProcessInfo.processName != null && runningAppProcessInfo.processName.startsWith(this.ayz.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
+                if (runningAppProcessInfo != null && runningAppProcessInfo.processName != null && runningAppProcessInfo.processName.startsWith(this.axo.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
                     hashSet2.add(Integer.valueOf(runningAppProcessInfo.pid));
                 }
             }

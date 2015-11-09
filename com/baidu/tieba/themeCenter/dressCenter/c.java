@@ -17,10 +17,10 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes.dex */
     public static class a {
-        public TextView WO;
-        public View aDY;
-        public View cBG;
-        public HeadImageView dgj;
+        public TextView WR;
+        public View aCS;
+        public View cDc;
+        public HeadImageView dhP;
     }
 
     public c(TbPageContext<?> tbPageContext) {
@@ -37,7 +37,7 @@ public class c extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ly */
+    /* renamed from: lM */
     public j getItem(int i) {
         if (this.mThemeList == null || this.mThemeList.size() <= 0 || i < 0 || i >= this.mThemeList.size()) {
             return null;
@@ -59,27 +59,27 @@ public class c extends BaseAdapter {
         } else {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.dressup_item_view, viewGroup, false);
             a aVar2 = new a();
-            aVar2.dgj = (HeadImageView) view.findViewById(i.f.dress_icon);
-            aVar2.dgj.setDefaultResource(i.e.img_default_100);
-            aVar2.dgj.setDefaultBgResource(i.c.cp_bg_line_c);
-            aVar2.WO = (TextView) view.findViewById(i.f.dress_desc_view);
-            aVar2.cBG = view.findViewById(i.f.tip_view);
-            aVar2.aDY = view.findViewById(i.f.divider_line);
+            aVar2.dhP = (HeadImageView) view.findViewById(i.f.dress_icon);
+            aVar2.dhP.setDefaultResource(i.e.img_default_100);
+            aVar2.dhP.setDefaultBgResource(i.c.cp_bg_line_c);
+            aVar2.WR = (TextView) view.findViewById(i.f.dress_desc_view);
+            aVar2.cDc = view.findViewById(i.f.tip_view);
+            aVar2.aCS = view.findViewById(i.f.divider_line);
             view.setTag(aVar2);
             aVar = aVar2;
         }
         if (item != null) {
-            aVar.dgj.d(item.getIconUrl(), 10, false);
-            aVar.WO.setText(item.getName());
-            if (item.getUpdateTime() - com.baidu.tbadk.core.sharedPref.b.tr().getLong("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
-                aVar.cBG.setVisibility(0);
+            aVar.dhP.d(item.getIconUrl(), 10, false);
+            aVar.WR.setText(item.getName());
+            if (item.getUpdateTime() - com.baidu.tbadk.core.sharedPref.b.tu().getLong("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
+                aVar.cDc.setVisibility(0);
             } else {
-                aVar.cBG.setVisibility(4);
+                aVar.cDc.setVisibility(4);
             }
             if (i == getCount() - 1) {
-                aVar.aDY.setVisibility(8);
+                aVar.aCS.setVisibility(8);
             } else {
-                aVar.aDY.setVisibility(0);
+                aVar.aCS.setVisibility(0);
             }
         }
         this.mContext.getLayoutMode().k(view);

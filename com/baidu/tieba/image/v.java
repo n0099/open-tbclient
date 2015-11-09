@@ -18,7 +18,7 @@ public class v implements View.OnClickListener {
     public void onClick(View view) {
         NavigationBar navigationBar;
         int i;
-        navigationBar = this.this$0.bdY;
+        navigationBar = this.this$0.beE;
         if (navigationBar.getVisibility() != 8) {
             Intent intent = new Intent();
             i = this.this$0.mIndex;

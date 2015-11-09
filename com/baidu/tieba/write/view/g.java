@@ -1,65 +1,17 @@
 package com.baidu.tieba.write.view;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public class g extends LinearLayout {
-    private TextView dnr;
-    private ImageView dns;
-    private View dnt;
-    private Context mContext;
+class g implements View.OnClickListener {
+    final /* synthetic */ PostCategoryView dpd;
 
-    public g(Context context) {
-        this(context, null);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(PostCategoryView postCategoryView) {
+        this.dpd = postCategoryView;
     }
 
-    public g(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-        this.mContext = context;
-        init();
-    }
-
-    private void init() {
-        LayoutInflater.from(this.mContext).inflate(i.g.prefix_item, this);
-        setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        setOrientation(1);
-        this.dnr = (TextView) findViewById(i.f.prefix_text);
-        this.dns = (ImageView) findViewById(i.f.prefix_checked);
-        this.dnt = findViewById(i.f.prefix_item_divider);
-        this.dnr.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        an.i((View) this.dnr, i.c.cp_bg_line_d);
-        this.dns.setBackgroundDrawable(an.getDrawable(i.e.icon_set_list_ok_s));
-        an.i(this.dnt, i.c.cp_bg_line_c);
-    }
-
-    public void setPrefixText(String str) {
-        this.dnr.setText(str);
-    }
-
-    public void setPrefixTextColor(int i) {
-        this.dnr.setTextColor(i);
-    }
-
-    public void gX(boolean z) {
-        if (z) {
-            this.dns.setVisibility(0);
-        } else {
-            this.dns.setVisibility(8);
-        }
-    }
-
-    public void setDividerStyle(boolean z) {
-        if (!z) {
-            ((LinearLayout.LayoutParams) this.dnt.getLayoutParams()).setMargins(k.d(this.mContext, i.d.ds30), 0, k.d(this.mContext, i.d.ds30), 0);
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.dpd.aDm();
     }
 }

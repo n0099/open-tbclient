@@ -3,37 +3,37 @@ package com.baidu.tieba.tbadkCore;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class z extends com.baidu.tbadk.core.data.w {
-    public static final BdUniqueId cYd = BdUniqueId.gen();
-    private boolean cYe;
-    private p cYf;
+    public static final BdUniqueId cZA = BdUniqueId.gen();
+    private boolean cZB;
+    private p cZC;
     private String fortune_desc;
 
-    public boolean avY() {
-        return this.cYe;
+    public boolean awG() {
+        return this.cZB;
     }
 
-    public void gs(boolean z) {
-        this.cYe = z;
+    public void gv(boolean z) {
+        this.cZB = z;
     }
 
-    public String avZ() {
+    public String awH() {
         return this.fortune_desc;
     }
 
-    public void ly(String str) {
+    public void lC(String str) {
         this.fortune_desc = str;
     }
 
-    public p awa() {
-        return this.cYf;
+    public p awI() {
+        return this.cZC;
     }
 
     public void b(p pVar) {
-        this.cYf = pVar;
+        this.cZC = pVar;
     }
 
     @Override // com.baidu.tbadk.core.data.w, com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return cYd;
+        return cZA;
     }
 }

@@ -19,7 +19,7 @@ public class d {
     private Context mContext = null;
     private Bitmap.Config xS = Bitmap.Config.RGB_565;
 
-    public static synchronized d iu() {
+    public static synchronized d iv() {
         d dVar;
         synchronized (d.class) {
             if (xQ == null) {
@@ -37,11 +37,11 @@ public class d {
     private d() {
     }
 
-    public synchronized void iv() {
+    public synchronized void iw() {
         this.xR.clear();
     }
 
-    public Bitmap aB(String str) {
+    public Bitmap az(String str) {
         return BitmapFactory.decodeFile(str);
     }
 

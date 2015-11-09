@@ -44,7 +44,7 @@ public abstract class NetMessage {
         this.httpCmd = i;
         this.socketCmd = i2;
         this.tag = bdUniqueId;
-        this.clientLogID = com.baidu.adp.lib.stats.a.hi().hk();
+        this.clientLogID = com.baidu.adp.lib.stats.a.hj().hl();
     }
 
     public void resetData() {

@@ -1,43 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tieba.tbadkCore.g.a;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class at extends CustomMessageListener {
-    final /* synthetic */ PbActivity ciK;
+public class at implements View.OnClickListener {
+    final /* synthetic */ PbActivity cjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public at(PbActivity pbActivity, int i) {
-        super(i);
-        this.ciK = pbActivity;
+    public at(PbActivity pbActivity) {
+        this.cjN = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
-            com.baidu.tieba.pb.pb.sub.am amVar = (com.baidu.tieba.pb.pb.sub.am) customResponsedMessage.getData();
-            switch (amVar.getType()) {
-                case 0:
-                    this.ciK.b((com.baidu.tieba.pb.a.c) amVar.getData());
-                    return;
-                case 1:
-                    this.ciK.a((a.b) amVar.getData());
-                    return;
-                case 2:
-                    if (amVar.getData() == null) {
-                        this.ciK.a(false, (MarkData) null);
-                        return;
-                    } else {
-                        this.ciK.a(true, (MarkData) amVar.getData());
-                        return;
-                    }
-                default:
-                    return;
-            }
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        ca caVar;
+        this.cjN.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonGroupActivityConfig(this.cjN.getPageContext().getPageActivity(), 23003)));
+        com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c10125");
+        caVar = this.cjN.cjj;
+        TiebaStatic.log(aqVar.ae("tid", caVar.getThreadID()).r("obj_type", 2));
     }
 }

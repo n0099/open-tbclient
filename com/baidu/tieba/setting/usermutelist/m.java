@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import tbclient.UserMuteQuery.MuteUser;
 /* loaded from: classes.dex */
 public class m extends com.baidu.adp.base.e {
-    public static int cPn = 0;
-    private a cPb;
-    private com.baidu.adp.framework.listener.a cPo = new n(this, CmdConfigHttp.CMD_USER_MUTE_QUERY, 303028);
+    public static int cQJ = 0;
+    private com.baidu.adp.framework.listener.a cQK = new n(this, CmdConfigHttp.CMD_USER_MUTE_QUERY, 303028);
+    private a cQx;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -17,8 +17,8 @@ public class m extends com.baidu.adp.base.e {
     }
 
     public m(a aVar) {
-        this.cPb = aVar;
-        registerListener(this.cPo);
+        this.cQx = aVar;
+        registerListener(this.cQK);
         com.baidu.tieba.tbadkCore.a.a.c(303028, UserMuteQuerySocketResponsedMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(303028, CmdConfigHttp.CMD_USER_MUTE_QUERY, TbConfig.USER_MUTE_QUERY, UserMuteQueryHttpResponsedMessage.class, false, false, true, false);
     }
@@ -47,6 +47,6 @@ public class m extends com.baidu.adp.base.e {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cPo);
+        MessageManager.getInstance().unRegisterListener(this.cQK);
     }
 }

@@ -1,46 +1,46 @@
 package com.baidu.tieba.frs.mc;
 
 import com.baidu.adp.widget.ListView.u;
-import com.baidu.tieba.frs.eb;
-import com.baidu.tieba.frs.ee;
+import com.baidu.tieba.frs.ed;
+import com.baidu.tieba.frs.eg;
 import com.baidu.tieba.tbadkCore.o;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class b implements eb {
-    final /* synthetic */ a bbd;
+public class b implements ed {
+    final /* synthetic */ a bby;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.bbd = aVar;
+        this.bby = aVar;
     }
 
-    @Override // com.baidu.tieba.frs.eb
-    public void a(int i, int i2, ee eeVar, ArrayList<u> arrayList) {
+    @Override // com.baidu.tieba.frs.ed
+    public void a(int i, int i2, eg egVar, ArrayList<u> arrayList) {
         int i3;
-        eb ebVar;
+        ed edVar;
         o oVar;
         o oVar2;
-        eb ebVar2;
-        this.bbd.baX = false;
-        i3 = this.bbd.bad;
+        ed edVar2;
+        this.bby.bbs = false;
+        i3 = this.bby.bbo;
         if (i != i3) {
             return;
         }
-        ebVar = this.bbd.bbb;
-        if (ebVar != null) {
-            this.bbd.baW = eeVar;
-            this.bbd.b(i, i2, eeVar);
+        edVar = this.bby.bbw;
+        if (edVar != null) {
+            this.bby.bbr = egVar;
+            this.bby.b(i, i2, egVar);
             ArrayList<u> arrayList2 = new ArrayList<>();
             if (arrayList != null) {
                 arrayList2.addAll(arrayList);
             }
-            oVar = this.bbd.aTW;
+            oVar = this.bby.aUe;
             oVar.af(arrayList2);
-            oVar2 = this.bbd.aTW;
-            oVar2.avQ();
-            ebVar2 = this.bbd.bbb;
-            ebVar2.a(i, i2, eeVar, arrayList);
+            oVar2 = this.bby.aUe;
+            oVar2.awy();
+            edVar2 = this.bby.bbw;
+            edVar2.a(i, i2, egVar, arrayList);
         }
     }
 }

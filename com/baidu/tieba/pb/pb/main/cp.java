@@ -1,32 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tieba.pb.b.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class cp implements a.InterfaceC0070a {
-    final /* synthetic */ cc clJ;
-
+class cp extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cp(cc ccVar) {
-        this.clJ = ccVar;
+    public cp(int i) {
+        super(i);
     }
 
-    @Override // com.baidu.tieba.pb.b.a.InterfaceC0070a
-    public void Mf() {
-        BdTypeListView bdTypeListView;
-        BdTypeListView bdTypeListView2;
-        bdTypeListView = this.clJ.aVg;
-        if (bdTypeListView != null) {
-            bdTypeListView2 = this.clJ.aVg;
-            bdTypeListView2.setSelection(0);
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.b.a.InterfaceC0070a
-    public void Me() {
-        PbActivity pbActivity;
-        pbActivity = this.clJ.ciU;
-        pbActivity.Lc();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        cm.agF().a(1, customResponsedMessage);
     }
 }

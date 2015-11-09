@@ -4,11 +4,11 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 class w implements View.OnTouchListener {
-    final /* synthetic */ o dmR;
+    final /* synthetic */ o doz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public w(o oVar) {
-        this.dmR = oVar;
+        this.doz = oVar;
     }
 
     @Override // android.view.View.OnTouchListener

@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class o {
-    private ViewTreeObserver.OnGlobalLayoutListener akI;
+    private ViewTreeObserver.OnGlobalLayoutListener akN;
     private String labelName = "";
-    private int akE = 0;
-    private boolean akF = false;
+    private int akJ = 0;
+    private boolean akK = false;
     private String labelId = "";
-    private int akG = 0;
-    private boolean akH = false;
+    private int akL = 0;
+    private boolean akM = false;
 
     public void setLabelName(String str) {
         this.labelName = str;
@@ -25,43 +25,43 @@ public class o {
     }
 
     public void dD(int i) {
-        this.akE = i;
+        this.akJ = i;
     }
 
-    public int yP() {
-        return this.akE;
+    public int yU() {
+        return this.akJ;
     }
 
     public void aQ(boolean z) {
-        this.akF = z;
+        this.akK = z;
     }
 
-    public boolean yQ() {
-        return this.akF;
+    public boolean yV() {
+        return this.akK;
     }
 
     public void setLabelId(String str) {
         this.labelId = str;
     }
 
-    public String yR() {
+    public String yW() {
         return this.labelId;
     }
 
     public void aR(boolean z) {
-        this.akH = z;
+        this.akM = z;
     }
 
-    public boolean yS() {
-        return this.akH;
+    public boolean yX() {
+        return this.akM;
     }
 
     public void a(ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener) {
-        this.akI = onGlobalLayoutListener;
+        this.akN = onGlobalLayoutListener;
     }
 
-    public ViewTreeObserver.OnGlobalLayoutListener yT() {
-        return this.akI;
+    public ViewTreeObserver.OnGlobalLayoutListener yY() {
+        return this.akN;
     }
 
     public SpannableStringBuilder ak(String str, String str2) {

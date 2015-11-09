@@ -15,54 +15,54 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.base.e<SignAllForumActivity> {
-    private static final String cQk = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/getforumlist";
-    private c cQh;
-    private a cQi;
-    private HttpMessage cQj;
-    private final BdUniqueId cQl;
-    private final HttpMessageListener cQm;
+    private static final String cRG = String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/forum/getforumlist";
+    private c cRD;
+    private a cRE;
+    private HttpMessage cRF;
+    private final BdUniqueId cRH;
+    private final HttpMessageListener cRI;
 
     /* loaded from: classes.dex */
     public interface a {
         void a(c cVar);
 
-        void hQ(String str);
+        void hS(String str);
     }
 
     public f(SignAllForumActivity signAllForumActivity) {
         super(signAllForumActivity.getPageContext());
-        this.cQh = null;
-        this.cQi = null;
-        this.cQl = BdUniqueId.gen();
-        this.cQm = new g(this, CmdConfigHttp.SIGNALL_GET_FOURMS);
+        this.cRD = null;
+        this.cRE = null;
+        this.cRH = BdUniqueId.gen();
+        this.cRI = new g(this, CmdConfigHttp.SIGNALL_GET_FOURMS);
         MessageManager messageManager = MessageManager.getInstance();
-        this.cQh = new c();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SIGNALL_GET_FOURMS, cQk);
+        this.cRD = new c();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.SIGNALL_GET_FOURMS, cRG);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(GetForumResponsed.class);
         messageManager.registerTask(tbHttpMessageTask);
-        registerListener(this.cQm);
+        registerListener(this.cRI);
     }
 
     public void a(a aVar) {
-        this.cQi = aVar;
+        this.cRE = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.e
     public boolean LoadData() {
-        if (this.cQj != null) {
+        if (this.cRF != null) {
             return false;
         }
-        this.cQj = new HttpMessage(CmdConfigHttp.SIGNALL_GET_FOURMS);
+        this.cRF = new HttpMessage(CmdConfigHttp.SIGNALL_GET_FOURMS);
         AccountData currentAccountObj = TbadkApplication.getCurrentAccountObj();
         String str = null;
         if (currentAccountObj != null) {
             str = currentAccountObj.getID();
         }
-        this.cQj.addParam("user_id", str);
-        this.cQj.setTag(this.cQl);
-        MessageManager.getInstance().sendMessage(this.cQj);
+        this.cRF.addParam("user_id", str);
+        this.cRF.setTag(this.cRH);
+        MessageManager.getInstance().sendMessage(this.cRF);
         return true;
     }
 
@@ -91,9 +91,9 @@ public class f extends com.baidu.adp.base.e<SignAllForumActivity> {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.cQj != null) {
-            MessageManager.getInstance().removeHttpMessage(this.cQl);
-            this.cQj = null;
+        if (this.cRF != null) {
+            MessageManager.getInstance().removeHttpMessage(this.cRH);
+            this.cRF = null;
         }
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.SIGNALL_GET_FOURMS);
         return true;

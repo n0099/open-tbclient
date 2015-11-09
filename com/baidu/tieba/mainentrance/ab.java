@@ -9,20 +9,20 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity bVC;
+    final /* synthetic */ SquareSearchActivity bWd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(SquareSearchActivity squareSearchActivity) {
-        this.bVC = squareSearchActivity;
+        this.bWd = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b bVar;
-        com.baidu.adp.lib.util.k.c(this.bVC.getPageContext().getPageActivity(), this.bVC.bUA);
-        if (this.bVC.mMode == 0 && (view.getTag() instanceof Integer)) {
+        com.baidu.adp.lib.util.k.c(this.bWd.getPageContext().getPageActivity(), this.bWd.bVb);
+        if (this.bWd.mMode == 0 && (view.getTag() instanceof Integer)) {
             int intValue = ((Integer) view.getTag()).intValue();
-            bVar = this.bVC.bUH;
+            bVar = this.bWd.bVi;
             c item = bVar.getItem(intValue);
             long j = 0;
             if (item != null) {
@@ -31,8 +31,8 @@ public class ab implements View.OnClickListener {
             TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10364").ae(ImageViewerConfig.FORUM_ID, new StringBuilder(String.valueOf(j)).toString()));
             if (item != null) {
                 String forumName = item.getForumName();
-                TiebaStatic.eventStat(this.bVC.getPageContext().getPageActivity(), "search_hot_word", "click", 1, "loc", Integer.valueOf(intValue));
-                this.bVC.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bVC.getPageContext().getPageActivity()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_SEARCH)));
+                TiebaStatic.eventStat(this.bWd.getPageContext().getPageActivity(), "search_hot_word", "click", 1, "loc", Integer.valueOf(intValue));
+                this.bWd.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.bWd.getPageContext().getPageActivity()).createNormalCfg(forumName, FrsActivityConfig.FRS_FROM_SEARCH)));
             }
         }
     }

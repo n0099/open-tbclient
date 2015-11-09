@@ -1,43 +1,15 @@
 package com.baidu.tieba.pb;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
+import android.os.Build;
+import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
-class a extends Handler {
-    final /* synthetic */ FileDownloader cey;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public a(FileDownloader fileDownloader) {
-        this.cey = fileDownloader;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        String str;
-        String str2;
-        super.handleMessage(message);
-        if (message.what == 900002) {
-            if (message.arg2 > 0) {
-                this.cey.progress = (int) ((message.arg1 * 100) / message.arg2);
-                StringBuffer stringBuffer = new StringBuffer(20);
-                stringBuffer.append(String.valueOf(message.arg1 / 1000));
-                stringBuffer.append("K/");
-                stringBuffer.append(String.valueOf(message.arg2 / 1000));
-                stringBuffer.append("K");
-                this.cey.schedule = stringBuffer.toString();
-                Context baseContext = this.cey.getBaseContext();
-                int i = this.cey.progress;
-                str = this.cey.schedule;
-                str2 = this.cey.mInfo;
-                NotificationHelper.showProgressNotification(baseContext, 10, null, i, str, str2, true);
-            }
-        } else if (message.what == 1) {
-            UtilHelper.install_apk(TbadkCoreApplication.m411getInst().getApp(), (String) message.obj);
-            this.cey.stopSelf();
+public class a {
+    public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
+        if (j != 0) {
+            TiebaStatic.eventStat(TbadkCoreApplication.m411getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", str2, "locate", "c0114", "loc_param", str3, "action_type", str4, "task", str5, "obj_id", String.valueOf(j), "obj_name", String.valueOf(j), "obj_cpid", 0, "obj_url", str, "obj_good_id", 0, "obj_throw_type", "BY_POST", SocialConstants.PARAM_CLIENT_TYPE, "MOBILE_APP", ImageViewerConfig.FORUM_ID, str6, ImageViewerConfig.FORUM_NAME, str7, "tid", str8, "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", SocialConstants.ANDROID_CLIENT_TYPE, "os_version", Build.VERSION.RELEASE, "log_ver", "1.1");
         }
     }
 }

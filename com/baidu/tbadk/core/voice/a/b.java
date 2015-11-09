@@ -10,7 +10,7 @@ public class b {
         if (str == null) {
             aVar.error_code = 6;
             aVar.error_msg = a.cQ(aVar.error_code);
-        } else if (!n.cG(String.valueOf(n.tA()) + "voice")) {
+        } else if (!n.cG(String.valueOf(n.tD()) + "voice")) {
             aVar.error_code = 7;
             aVar.error_msg = a.cQ(aVar.error_code);
         } else {
@@ -36,9 +36,9 @@ public class b {
         return n.ad(str, n.c(str2, 1, true));
     }
 
-    public static synchronized void vG() {
+    public static synchronized void vK() {
         synchronized (b.class) {
-            File file = new File(String.valueOf(n.tA()) + "voice");
+            File file = new File(String.valueOf(n.tD()) + "voice");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {

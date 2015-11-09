@@ -8,7 +8,7 @@ import android.view.ViewParent;
 import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class d extends TbImageView {
-    private Drawable aAL;
+    private Drawable azz;
 
     public d(Context context) {
         super(context);
@@ -19,9 +19,9 @@ public class d extends TbImageView {
     }
 
     public void setForegroundDrawable(Drawable drawable) {
-        this.aAL = drawable;
-        if (this.aAL != null) {
-            this.aAL.setBounds(0, 0, this.aAL.getIntrinsicHeight(), this.aAL.getMinimumWidth());
+        this.azz = drawable;
+        if (this.azz != null) {
+            this.azz.setBounds(0, 0, this.azz.getIntrinsicHeight(), this.azz.getMinimumWidth());
         }
         invalidate();
     }
@@ -31,7 +31,7 @@ public class d extends TbImageView {
     public void onDraw(Canvas canvas) {
         int i;
         super.onDraw(canvas);
-        if (this.aAL != null) {
+        if (this.azz != null) {
             canvas.save();
             ViewParent parent = getParent();
             if (!(parent instanceof View)) {
@@ -43,8 +43,8 @@ public class d extends TbImageView {
             if (width <= i) {
                 i = width;
             }
-            canvas.translate((i / 2) - (this.aAL.getIntrinsicWidth() / 2), (getHeight() / 2) - (this.aAL.getIntrinsicHeight() / 2));
-            this.aAL.draw(canvas);
+            canvas.translate((i / 2) - (this.azz.getIntrinsicWidth() / 2), (getHeight() / 2) - (this.azz.getIntrinsicHeight() / 2));
+            this.azz.draw(canvas);
             canvas.restore();
         }
     }

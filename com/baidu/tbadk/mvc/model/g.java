@@ -17,6 +17,6 @@ public class g implements Runnable {
         TbPageContext tbPageContext;
         NetModel netModel = this.this$0;
         tbPageContext = this.this$0.mPageContext;
-        netModel.v(-1, tbPageContext.getString(i.h.neterror));
+        netModel.u(-1, tbPageContext.getString(i.h.neterror));
     }
 }

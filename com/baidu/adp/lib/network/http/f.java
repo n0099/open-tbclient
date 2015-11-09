@@ -39,7 +39,7 @@ public class f {
         }
     }
 
-    public boolean gT() {
+    public boolean gU() {
         return this.vc != null && this.vc.size() > 0;
     }
 
@@ -68,7 +68,7 @@ public class f {
             }
             sb.append(this.vb.get(i2).getName());
             sb.append("=");
-            sb.append(j.aR(this.vb.get(i2).getValue()));
+            sb.append(j.aP(this.vb.get(i2).getValue()));
             i = i2 + 1;
         }
         if (dVar != null) {
@@ -88,7 +88,7 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(HttpURLConnection httpURLConnection, String str, d dVar) {
-        gV();
+        gW();
         int i = 0;
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
@@ -139,7 +139,7 @@ public class f {
     public void a(HttpURLConnection httpURLConnection, d dVar) {
         int i = 0;
         if (httpURLConnection != null) {
-            String sb = gU().toString();
+            String sb = gV().toString();
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
                 dataOutputStream.writeBytes(sb);
@@ -156,7 +156,7 @@ public class f {
         }
     }
 
-    private StringBuilder gU() {
+    private StringBuilder gV() {
         StringBuilder sb = new StringBuilder(1024);
         if (this.vb != null) {
             Iterator<BasicNameValuePair> it = this.vb.iterator();
@@ -170,7 +170,7 @@ public class f {
                         sb.append("&");
                     }
                     sb.append(String.valueOf(name) + "=");
-                    sb.append(j.aR(value));
+                    sb.append(j.aP(value));
                     i++;
                 }
             }
@@ -178,14 +178,14 @@ public class f {
         return sb;
     }
 
-    protected void gV() {
+    protected void gW() {
     }
 
     public void d(HashMap<String, String> hashMap) {
         this.va = hashMap;
     }
 
-    public String ai(String str) {
+    public String ag(String str) {
         if (this.va != null) {
             return this.va.get(str);
         }

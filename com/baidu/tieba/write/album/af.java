@@ -1,47 +1,33 @@
 package com.baidu.tieba.write.album;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class af implements u {
-    final /* synthetic */ ac dlo;
+class af implements y {
+    final /* synthetic */ ae dmW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public af(ac acVar) {
-        this.dlo = acVar;
+    public af(ae aeVar) {
+        this.dmW = aeVar;
     }
 
-    @Override // com.baidu.tieba.write.album.u
-    public void a(int i, ImageFileInfo imageFileInfo) {
-        l lVar;
-        l lVar2;
-        l lVar3;
-        l lVar4;
+    @Override // com.baidu.tieba.write.album.y
+    public boolean a(int i, ImageFileInfo imageFileInfo, boolean z) {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
-        l lVar5;
-        lVar = this.dlo.djP;
-        int maxImagesAllowed = lVar.getMaxImagesAllowed();
-        lVar2 = this.dlo.djP;
-        if (lVar2.size() < maxImagesAllowed) {
-            lVar3 = this.dlo.djP;
-            if (lVar3.aBu()) {
-                lVar5 = this.dlo.djP;
-                lVar5.mn(String.valueOf(System.currentTimeMillis()));
+        m mVar;
+        AlbumActivity albumActivity3;
+        if (z) {
+            albumActivity2 = this.dmW.dlE;
+            boolean c = albumActivity2.c(imageFileInfo);
+            mVar = this.dmW.dlv;
+            if (mVar.isOriginalImg()) {
+                albumActivity3 = this.dmW.dlE;
+                albumActivity3.aBV();
+                return c;
             }
-            lVar4 = this.dlo.djP;
-            String aBt = lVar4.aBt();
-            if (!StringUtils.isNull(aBt, true)) {
-                albumActivity2 = this.dlo.djW;
-                am.a(albumActivity2.getPageContext(), aBt);
-                return;
-            }
-            albumActivity = this.dlo.djW;
-            am.c(albumActivity.getPageContext());
-            return;
+            return c;
         }
-        this.dlo.showToast(String.format(this.dlo.getPageContext().getString(i.h.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+        albumActivity = this.dmW.dlE;
+        return albumActivity.d(imageFileInfo);
     }
 }

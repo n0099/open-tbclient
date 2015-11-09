@@ -3,16 +3,16 @@ package com.baidu.tbadk.system.portrait;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class g implements a.b {
-    final /* synthetic */ ChangeSystemPhotoActivity azr;
+    final /* synthetic */ ChangeSystemPhotoActivity ayf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(ChangeSystemPhotoActivity changeSystemPhotoActivity) {
-        this.azr = changeSystemPhotoActivity;
+        this.ayf = changeSystemPhotoActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.azr.setResult(0);
-        this.azr.finish();
+        this.ayf.setResult(0);
+        this.ayf.finish();
     }
 }

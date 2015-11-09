@@ -1,20 +1,16 @@
 package com.baidu.tieba.pb.pb.main;
-
-import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class az implements View.OnClickListener {
-    final /* synthetic */ PbActivity ciK;
+public class az implements Runnable {
+    final /* synthetic */ PbActivity cjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(PbActivity pbActivity) {
-        this.ciK = pbActivity;
+        this.cjN = pbActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        String str;
-        PbActivity pbActivity = this.ciK;
-        str = this.ciK.asc;
-        pbActivity.showToast(str);
+    @Override // java.lang.Runnable
+    public void run() {
+        this.cjN.aTb = System.currentTimeMillis();
     }
 }

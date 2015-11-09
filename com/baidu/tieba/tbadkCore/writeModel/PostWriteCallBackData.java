@@ -6,6 +6,7 @@ public class PostWriteCallBackData implements Serializable {
     public static final int ERROR_ANTI_USER = 340016;
     public static final int ERROR_DISABLE_AT = 230278;
     public static final int ERROR_DISABLE_REPLY = 230277;
+    public static final int ERROR_LEVEL_UNDER_THREE = 1990032;
     private static final long serialVersionUID = 3542955843976043534L;
     private String colorMsg;
     private int errorCode;

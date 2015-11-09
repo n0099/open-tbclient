@@ -1,19 +1,39 @@
 package com.baidu.tbadk.editortools;
+
+import android.content.Context;
 /* loaded from: classes.dex */
-public interface w extends b {
-    void b(a aVar);
+public class w {
+    private Context context;
+    public int id;
+    public int launcherIcon;
+    public int launcherPriority;
+    public String name;
+    public int[] toolLaunchAction;
+    public int toolPosition;
+    public x toolView;
+    public boolean isLauncherCanSelect = true;
+    public boolean toolNeedAction = false;
 
-    int getToolId();
+    public w(String str, int i, int i2) {
+        this.name = str;
+        this.id = i;
+        this.launcherPriority = i2;
+    }
 
-    void hide();
+    public w(Context context, String str, int i) {
+        this.name = str;
+        this.id = i;
+        this.context = context;
+    }
 
-    void init();
+    public w(Context context, String str, int i, int i2) {
+        this.name = str;
+        this.id = i;
+        this.context = context;
+        this.launcherPriority = i2;
+    }
 
-    void onChangeSkinType(int i);
-
-    void ow();
-
-    void setEditorTools(j jVar);
-
-    void setToolId(int i);
+    protected Context getContext() {
+        return this.context;
+    }
 }

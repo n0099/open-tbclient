@@ -8,11 +8,11 @@ import com.baidu.tieba.hottopic.view.RelateForumViewPager;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements ViewPager.OnPageChangeListener {
-    final /* synthetic */ e bqb;
+    final /* synthetic */ e bqF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.bqb = eVar;
+        this.bqF = eVar;
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -23,27 +23,27 @@ public class g implements ViewPager.OnPageChangeListener {
         RelateForumViewPager relateForumViewPager3;
         if (i != 1) {
             if (i == 0) {
-                mVar = this.bqb.bpW;
+                mVar = this.bqF.bqA;
                 int count = mVar.getCount();
                 if (count >= 2) {
-                    relateForumViewPager = this.bqb.bpT;
+                    relateForumViewPager = this.bqF.bqx;
                     int currentItem = relateForumViewPager.getCurrentItem();
                     int i2 = count - 2;
                     if (currentItem < 1) {
-                        relateForumViewPager3 = this.bqb.bpT;
+                        relateForumViewPager3 = this.bqF.bqx;
                         relateForumViewPager3.setCurrentItem(i2, false);
                     } else if (currentItem > i2) {
-                        relateForumViewPager2 = this.bqb.bpT;
+                        relateForumViewPager2 = this.bqF.bqx;
                         relateForumViewPager2.setCurrentItem(1, false);
                     }
-                    this.bqb.Mk();
+                    this.bqF.MA();
                     return;
                 }
                 return;
             }
             return;
         }
-        this.bqb.Ml();
+        this.bqF.MB();
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -54,22 +54,22 @@ public class g implements ViewPager.OnPageChangeListener {
     public void onPageSelected(int i) {
         e.a aVar;
         e.a aVar2;
-        int gE;
+        int gR;
         IndicatorView indicatorView;
         IndicatorView indicatorView2;
         e.a aVar3;
-        int fE;
-        aVar = this.bqb.bpX;
+        int fM;
+        aVar = this.bqF.bqB;
         if (aVar != null) {
-            aVar2 = this.bqb.bpX;
-            gE = aVar2.gE(i);
-            if (gE == i) {
-                indicatorView = this.bqb.apA;
+            aVar2 = this.bqF.bqB;
+            gR = aVar2.gR(i);
+            if (gR == i) {
+                indicatorView = this.bqF.ari;
                 if (indicatorView != null) {
-                    indicatorView2 = this.bqb.apA;
-                    aVar3 = this.bqb.bpX;
-                    fE = aVar3.fE(i);
-                    indicatorView2.setPosition(fE);
+                    indicatorView2 = this.bqF.ari;
+                    aVar3 = this.bqF.bqB;
+                    fM = aVar3.fM(i);
+                    indicatorView2.setPosition(fM);
                 }
             }
         }

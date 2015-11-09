@@ -68,26 +68,26 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xz() {
+    public void xE() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String xA() {
+    public String xF() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
     public void ea(String str) {
-        String xA = xA();
-        if (!TextUtils.equals(xA, str) || !eb(xA)) {
-            ai(str, xA);
+        String xF = xF();
+        if (!TextUtils.equals(xF, str) || !eb(xF)) {
+            ai(str, xF);
         }
     }
 
-    public void xB() {
-        if (i.iN()) {
+    public void xG() {
+        if (i.iO()) {
             TbadkSettings inst = TbadkSettings.getInst();
             ai(inst.loadString("launch_config_remote_url", ""), inst.loadString("launch_config_local_url", ""));
         }
@@ -99,7 +99,7 @@ public class b {
     }
 
     private void ai(String str, String str2) {
-        if (i.iN()) {
+        if (i.iO()) {
             new a(str, au.dn(str), str2).execute(new String[0]);
         }
     }
@@ -107,15 +107,15 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private w Ti = null;
-        private final String Yl;
-        private final String ahp;
-        private final String ahq;
+        private w Tj = null;
+        private final String Yp;
+        private final String ahv;
+        private final String ahw;
 
         public a(String str, String str2, String str3) {
-            this.ahp = str;
-            this.Yl = str2;
-            this.ahq = str3;
+            this.ahv = str;
+            this.Yp = str2;
+            this.ahw = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -125,14 +125,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.Ti = new w(this.ahp);
-                bool = Boolean.valueOf(this.Ti.a(String.valueOf(this.Yl) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                this.Tj = new w(this.ahv);
+                bool = Boolean.valueOf(this.Tj.a(String.valueOf(this.Yp) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(n.g(null, String.valueOf(this.Yl) + ".tmp", null, this.Yl)) && !TextUtils.isEmpty(this.ahp) && !this.ahp.equals(this.ahq)) {
-                        n.cR(au.dn(this.ahq));
+                    if (!StringUtils.isNull(n.g(null, String.valueOf(this.Yp) + ".tmp", null, this.Yp)) && !TextUtils.isEmpty(this.ahv) && !this.ahv.equals(this.ahw)) {
+                        n.cR(au.dn(this.ahw));
                     }
                 } else {
-                    n.cR(String.valueOf(this.Yl) + ".tmp");
+                    n.cR(String.valueOf(this.Yp) + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -146,7 +146,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
             if (bool != null && bool.booleanValue()) {
-                new b().xz();
+                new b().xE();
             }
         }
     }

@@ -36,7 +36,13 @@ public class BdSocketDaemonService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         if (Build.VERSION.SDK_INT < 18) {
-            startForeground(2147483646, new Notification());
+            try {
+                startForeground(2147483646, new Notification());
+            } catch (Exception e) {
+                com.baidu.adp.lib.stats.d an = com.baidu.adp.lib.stats.a.hj().an("dbg");
+                an.q("loc", String.valueOf(getClass().getName()) + "-onCreate-startForeground");
+                com.baidu.adp.lib.stats.a.hj().b("PARCEL_NULLPOINT", an);
+            }
         }
         bindServiceInternal();
     }
@@ -53,7 +59,13 @@ public class BdSocketDaemonService extends BdBaseService {
         unbindService(this.conn);
         Intent intent = new Intent();
         intent.setClass(this, BdSocketDaemonService.class);
-        startService(intent);
+        try {
+            startService(intent);
+        } catch (Exception e) {
+            com.baidu.adp.lib.stats.d an = com.baidu.adp.lib.stats.a.hj().an("dbg");
+            an.q("loc", String.valueOf(getClass().getName()) + "-onDestroy-startService");
+            com.baidu.adp.lib.stats.a.hj().b("PARCEL_NULLPOINT", an);
+        }
     }
 
     public static void startService() {

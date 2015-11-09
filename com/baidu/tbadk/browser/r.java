@@ -4,19 +4,19 @@ import com.baidu.tbadk.core.view.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class r implements h.a {
-    final /* synthetic */ o Sn;
+    final /* synthetic */ o So;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public r(o oVar) {
-        this.Sn = oVar;
-    }
-
-    @Override // com.baidu.tbadk.core.view.h.a
-    public void qt() {
-        this.Sn.qq();
+        this.So = oVar;
     }
 
     @Override // com.baidu.tbadk.core.view.h.a
     public void qu() {
+        this.So.qr();
+    }
+
+    @Override // com.baidu.tbadk.core.view.h.a
+    public void qv() {
     }
 }

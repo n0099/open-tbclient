@@ -156,7 +156,7 @@ public class c extends Resources {
         } catch (Exception e) {
         }
         try {
-            com.baidu.adp.lib.stats.a.hi().a("resources", str, (String) null, -9115, (String) null, "resid", Integer.valueOf(i), "resname", str2 == null ? "" : str2);
+            com.baidu.adp.lib.stats.a.hj().a("resources", str, (String) null, -9115, (String) null, "resid", Integer.valueOf(i), "resname", str2 == null ? "" : str2);
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }

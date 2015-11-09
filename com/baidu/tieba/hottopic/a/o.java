@@ -12,11 +12,11 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ n bov;
+    final /* synthetic */ n boZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(n nVar) {
-        this.bov = nVar;
+        this.boZ = nVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -26,18 +26,18 @@ public class o implements View.OnClickListener {
         int intValue;
         ArrayList arrayList;
         RelateTopicForumActivity relateTopicForumActivity3;
-        relateTopicForumActivity = this.bov.bos;
+        relateTopicForumActivity = this.boZ.boW;
         if (relateTopicForumActivity != null) {
-            relateTopicForumActivity2 = this.bov.bos;
+            relateTopicForumActivity2 = this.boZ.boW;
             if (relateTopicForumActivity2.checkUpIsLogin() && view.getId() == i.f.forum_add_love && (intValue = ((Integer) view.getTag()).intValue()) >= 0) {
-                arrayList = this.bov.Xq;
+                arrayList = this.boZ.Xt;
                 RelateForumItemData relateForumItemData = (RelateForumItemData) arrayList.get(intValue);
                 if (relateForumItemData.forumId != 0) {
-                    TiebaStatic.log(new aq("c10371").ae(ImageViewerConfig.FORUM_ID, String.valueOf(relateForumItemData.forumId)).r("obj_type", com.baidu.tieba.hottopic.data.d.bpa));
+                    TiebaStatic.log(new aq("c10371").ae(ImageViewerConfig.FORUM_ID, String.valueOf(relateForumItemData.forumId)).r("obj_type", com.baidu.tieba.hottopic.data.d.bpE));
                 }
-                if (as.aP(relateForumItemData.forumName)) {
-                    relateTopicForumActivity3 = this.bov.bos;
-                    relateTopicForumActivity3.boI.be(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
+                if (as.aN(relateForumItemData.forumName)) {
+                    relateTopicForumActivity3 = this.boZ.boW;
+                    relateTopicForumActivity3.bpm.bd(relateForumItemData.forumName, String.valueOf(relateForumItemData.forumId));
                 }
             }
         }

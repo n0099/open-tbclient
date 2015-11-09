@@ -9,19 +9,19 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private float aBh;
-    private boolean aBi;
+    private float azV;
+    private boolean azW;
     private int mTouchSlop;
 
     public TbViewPager(Context context) {
         super(context);
-        this.aBi = false;
+        this.azW = false;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aBi = false;
+        this.azW = false;
         init();
     }
 
@@ -31,7 +31,7 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.aBi = z;
+        this.azW = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -40,7 +40,7 @@ public class TbViewPager extends ViewPager {
         if (i(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.aBi) {
+        if (motionEvent.getPointerCount() > 1 && this.azW) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -68,15 +68,15 @@ public class TbViewPager extends ViewPager {
             case 5:
             case 6:
                 be(true);
-                this.aBh = motionEvent.getX();
+                this.azV = motionEvent.getX();
                 break;
             case 1:
             case 3:
                 be(false);
-                this.aBh = 0.0f;
+                this.azV = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.aBh;
+                float x = motionEvent.getX() - this.azV;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
                         be(false);

@@ -3,19 +3,19 @@ package com.baidu.tieba.person;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
 public class au extends com.baidu.adp.base.e {
-    PersonChangeData cqf;
+    PersonChangeData crB;
 
     public au(PersonChangeData personChangeData) {
         super(null);
-        this.cqf = null;
-        this.cqf = personChangeData;
-        if (this.cqf == null) {
-            this.cqf = new PersonChangeData();
+        this.crB = null;
+        this.crB = personChangeData;
+        if (this.crB == null) {
+            this.crB = new PersonChangeData();
         }
     }
 
-    public PersonChangeData aiA() {
-        return this.cqf;
+    public PersonChangeData ajg() {
+        return this.crB;
     }
 
     @Override // com.baidu.adp.base.e

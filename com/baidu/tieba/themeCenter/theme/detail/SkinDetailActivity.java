@@ -8,12 +8,12 @@ import com.baidu.tbadk.core.atomData.SkinDetailActivityConfig;
 import com.baidu.tieba.themeCenter.theme.detail.d;
 /* loaded from: classes.dex */
 public class SkinDetailActivity extends BaseActivity<SkinDetailActivity> {
-    private d dgM;
-    private f dgN;
-    private int dgO;
-    private String dgP;
-    private String dgQ;
-    private d.a dgR = new a(this);
+    private d dis;
+    private f dit;
+    private int diu;
+    private String div;
+    private String diw;
+    private d.a dix = new a(this);
     private View.OnClickListener mClickListener = new b(this);
     private com.baidu.tieba.themeCenter.b mSkinData;
     private int mSkinType;
@@ -25,33 +25,33 @@ public class SkinDetailActivity extends BaseActivity<SkinDetailActivity> {
         this.mSkinData = new com.baidu.tieba.themeCenter.b();
         Intent intent = getIntent();
         if (intent != null) {
-            this.dgO = intent.getIntExtra(SkinDetailActivityConfig.THEME_ID, 0);
+            this.diu = intent.getIntExtra(SkinDetailActivityConfig.THEME_ID, 0);
             this.mSkinType = intent.getIntExtra(SkinDetailActivityConfig.THEME_CURRENT_TYPE, 1);
-            this.dgP = intent.getStringExtra(SkinDetailActivityConfig.THEME_ALBUM_PICTURE);
-            this.dgQ = intent.getStringExtra(SkinDetailActivityConfig.THEME_PERMISSION_ICON_URL);
+            this.div = intent.getStringExtra(SkinDetailActivityConfig.THEME_ALBUM_PICTURE);
+            this.diw = intent.getStringExtra(SkinDetailActivityConfig.THEME_PERMISSION_ICON_URL);
         }
-        this.dgN = new f(this);
-        this.dgN.setOnClickListener(this.mClickListener);
-        this.dgM = new d();
-        this.dgM.a(this.dgR);
-        showLoadingView(this.dgN.getRootView());
-        this.dgM.lA(this.dgO);
+        this.dit = new f(this);
+        this.dit.setOnClickListener(this.mClickListener);
+        this.dis = new d();
+        this.dis.a(this.dix);
+        showLoadingView(this.dit.getRootView());
+        this.dis.lO(this.diu);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.dgM != null) {
-            this.dgM.destroy();
+        if (this.dis != null) {
+            this.dis.destroy();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
-        if (this.dgM != null && this.dgN != null) {
-            showLoadingView(this.dgN.getRootView());
-            this.dgM.lA(this.dgO);
+        if (this.dis != null && this.dit != null) {
+            showLoadingView(this.dit.getRootView());
+            this.dis.lO(this.diu);
         }
     }
 
@@ -59,8 +59,8 @@ public class SkinDetailActivity extends BaseActivity<SkinDetailActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dgN != null) {
-            this.dgN.vx();
+        if (this.dit != null) {
+            this.dit.vB();
         }
     }
 }

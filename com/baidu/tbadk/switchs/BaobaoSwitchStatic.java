@@ -4,11 +4,11 @@ import com.baidu.adp.lib.b.a;
 import com.baidu.adp.lib.b.e;
 /* loaded from: classes.dex */
 public class BaobaoSwitchStatic extends a {
-    public static final String[] azc;
+    public static final String[] axR;
 
     static {
         e.gv().e(BaobaoSwitchStatic.class);
-        azc = new String[]{"cn.myhug.baobao.sdk"};
+        axR = new String[]{"cn.myhug.baobao.sdk"};
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -23,7 +23,7 @@ public class BaobaoSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] getCrashKeys() {
-        return azc;
+        return axR;
     }
 
     @Override // com.baidu.adp.lib.b.a

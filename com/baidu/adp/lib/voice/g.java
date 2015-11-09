@@ -12,7 +12,7 @@ class g extends com.baidu.adp.lib.util.h {
             Amrnb.bLoadLibrary = true;
         } catch (Throwable th) {
             Amrnb.bLoadLibrary = false;
-            com.baidu.adp.lib.stats.a.hi().a("so", "initAmrnb", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
+            com.baidu.adp.lib.stats.a.hj().a("so", "initAmrnb", "", -9104, String.valueOf(th.getClass().getName()) + " " + th.getMessage(), new Object[0]);
         }
     }
 }

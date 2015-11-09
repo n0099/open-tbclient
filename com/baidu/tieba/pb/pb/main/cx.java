@@ -1,82 +1,50 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.i;
+import android.view.View;
+import android.view.animation.Animation;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public final class cx extends LinearLayout {
-    private TextView aCJ;
-    private TextView alu;
-    private TbImageView bIH;
-    private ShareFromPBMsgData bIW;
-    private EditText bdH;
-    private LinearLayout mRootView;
+public class cx implements Animation.AnimationListener {
+    final /* synthetic */ ct cmY;
 
-    public EditText getChatMsgView() {
-        return this.bdH;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cx(ct ctVar) {
+        this.cmY = ctVar;
     }
 
-    public void w(String str, boolean z) {
-        if (this.bIH != null) {
-            this.bIH.d(str, z ? 17 : 18, false);
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationEnd(Animation animation) {
+        boolean z;
+        com.baidu.tbadk.editortools.j jVar;
+        com.baidu.tbadk.editortools.j jVar2;
+        View view;
+        boolean z2;
+        z = this.cmY.cmG;
+        if (!z) {
+            jVar = this.cmY.KB;
+            if (jVar != null) {
+                jVar2 = this.cmY.KB;
+                jVar2.ox();
+                return;
+            }
+            return;
+        }
+        view = this.cmY.cmC;
+        if (view != null) {
+            z2 = this.cmY.cmA;
+            if (z2) {
+                this.cmY.eH(false);
+            } else {
+                this.cmY.eI(false);
+            }
         }
     }
 
-    public cx(Context context) {
-        super(context);
-        at(context);
-    }
-
-    private void at(Context context) {
-        LayoutInflater.from(context).inflate(i.g.thread_to_group_share_view, this);
-        setOrientation(1);
-        this.mRootView = (LinearLayout) findViewById(i.f.share_content);
-        this.alu = (TextView) findViewById(i.f.share_title_view);
-        this.bdH = (EditText) findViewById(i.f.chat_msg);
-        this.bIH = (TbImageView) findViewById(i.f.chat_group_img);
-        this.aCJ = (TextView) findViewById(i.f.chat_group_desc);
-        com.baidu.tbadk.core.util.an.b(this.alu, i.c.cp_cont_b, 1);
-        com.baidu.tbadk.core.util.an.b(this.bdH, i.c.cp_cont_b, 2);
-        com.baidu.tbadk.core.util.an.b(this.aCJ, i.c.cp_cont_f, 1);
-        this.bdH.setHintTextColor(com.baidu.tbadk.core.util.an.getColor(i.c.cp_cont_e));
-        this.bdH.setPadding(context.getResources().getDimensionPixelSize(i.d.ds20), 0, 0, 0);
-        NZ();
-    }
-
-    public void NZ() {
-        this.mRootView.setFocusable(true);
-        this.mRootView.setFocusableInTouchMode(true);
-        this.mRootView.requestFocus();
-    }
-
-    public String getLeaveMsg() {
-        if (this.bdH != null) {
-            return com.baidu.adp.lib.util.j.a(this.bdH.getText(), null);
-        }
-        return null;
-    }
-
-    @Override // android.widget.LinearLayout, android.view.ViewGroup
-    protected LinearLayout.LayoutParams generateDefaultLayoutParams() {
-        return new LinearLayout.LayoutParams(-1, -2);
-    }
-
-    public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.bIW = shareFromPBMsgData;
-        vt();
-    }
-
-    private void vt() {
-        this.alu.setText(this.bIW.getTitle());
-        BdLog.e("mData.getImageUrl()的图片URL" + this.bIW.getImageUrl());
-        this.bIH.setTag(this.bIW.getImageUrl());
-        BdLog.e("mData.getContent()的Content" + this.bIW.getContent());
-        this.aCJ.setText(this.bIW.getContent());
+    @Override // android.view.animation.Animation.AnimationListener
+    public void onAnimationRepeat(Animation animation) {
     }
 }

@@ -5,46 +5,46 @@ import org.json.JSONObject;
 import tbclient.FrsPage.TopCode;
 /* loaded from: classes.dex */
 public class x {
-    private String Wa;
-    private String Wb;
-    private String Wc;
-    private int Wd;
+    private String Wd;
     private String We;
-    private long Wf;
+    private String Wf;
+    private int Wg;
+    private String Wh;
+    private long Wi;
     private String summary;
 
-    public String sc() {
-        return this.Wa;
+    public String se() {
+        return this.Wd;
     }
 
     public String getSummary() {
         return this.summary;
     }
 
-    public String sE() {
-        return this.Wc;
+    public String sH() {
+        return this.Wf;
     }
 
-    public int sF() {
-        return this.Wd;
+    public int sI() {
+        return this.Wg;
     }
 
-    public String sG() {
-        return this.We;
+    public String sJ() {
+        return this.Wh;
     }
 
     public void a(TopCode topCode) {
         if (topCode != null) {
-            this.Wa = topCode.img_url;
-            this.Wb = topCode.game_link;
+            this.Wd = topCode.img_url;
+            this.We = topCode.game_link;
             this.summary = topCode.summary;
-            this.Wc = topCode.code_link;
-            this.Wd = topCode.get_type.intValue();
-            this.We = topCode.surplusgift;
+            this.Wf = topCode.code_link;
+            this.Wg = topCode.get_type.intValue();
+            this.Wh = topCode.surplusgift;
             if (topCode.giftworth.longValue() < 0) {
-                this.Wf = 0L;
+                this.Wi = 0L;
             } else {
-                this.Wf = topCode.giftworth.longValue();
+                this.Wi = topCode.giftworth.longValue();
             }
         }
     }
@@ -52,13 +52,13 @@ public class x {
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.Wa = jSONObject.optString("img_url");
-                this.Wb = jSONObject.optString("game_link");
+                this.Wd = jSONObject.optString("img_url");
+                this.We = jSONObject.optString("game_link");
                 this.summary = jSONObject.optString("summary");
-                this.Wc = jSONObject.optString("code_link");
-                this.Wd = jSONObject.optInt("get_type", 1);
-                this.We = jSONObject.optString("surplusgift");
-                this.Wf = jSONObject.optLong("giftworth", 0L);
+                this.Wf = jSONObject.optString("code_link");
+                this.Wg = jSONObject.optInt("get_type", 1);
+                this.Wh = jSONObject.optString("surplusgift");
+                this.Wi = jSONObject.optLong("giftworth", 0L);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

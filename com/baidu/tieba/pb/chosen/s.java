@@ -11,10 +11,10 @@ import com.baidu.tieba.i;
 import java.text.MessageFormat;
 /* loaded from: classes.dex */
 public class s {
-    private PbChosenActivity cfn;
+    private PbChosenActivity cfO;
 
     public s(PbChosenActivity pbChosenActivity) {
-        this.cfn = pbChosenActivity;
+        this.cfO = pbChosenActivity;
     }
 
     public void a(com.baidu.tieba.pb.chosen.net.a aVar, String str) {
@@ -22,26 +22,26 @@ public class s {
             String str2 = aVar.getForumInfo().fromfname;
             String str3 = aVar.getForumInfo().title;
             String str4 = aVar.getForumInfo()._abstract;
-            Resources resources = this.cfn.getPageContext().getPageActivity().getResources();
+            Resources resources = this.cfO.getPageContext().getPageActivity().getResources();
             String format = MessageFormat.format(resources.getString(i.h.share_content_tpl), str3, str2, str4);
             String string = resources.getString(i.h.chosen_pb_share_content, str3);
             com.baidu.tbadk.coreExtra.share.f fVar = new com.baidu.tbadk.coreExtra.share.f();
             fVar.title = str3;
             fVar.content = format;
             fVar.linkUrl = "http://tieba.baidu.com/mo/q/recommendpb?ftid=" + aVar.getForumInfo().ftid;
-            fVar.aiS = string;
-            fVar.aiR = str4;
-            fVar.aiQ = Long.toString(aVar.getForumInfo().ftid.longValue());
-            fVar.aiN = true;
+            fVar.aiX = string;
+            fVar.aiW = str4;
+            fVar.aiV = Long.toString(aVar.getForumInfo().ftid.longValue());
+            fVar.aiS = true;
             if (!StringUtils.isNull(str)) {
                 fVar.imageUri = Uri.parse(str);
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.cfn.getPageContext().getPageActivity(), fVar, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.cfO.getPageContext().getPageActivity(), fVar, true);
             shareDialogConfig.setIsCopyLink(true);
             shareDialogConfig.addOutsideTextView(i.h.share_tieba_qunzu, i.e.icon_unite_share_qunzu, new t(this));
             shareDialogConfig.addOutsideTextView(i.h.forum_friend, i.e.icon_unite_share_baf, new u(this));
             shareDialogConfig.setCopyLinkListener(new v(this, fVar));
-            this.cfn.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
+            this.cfO.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
         }
     }
 
@@ -72,7 +72,7 @@ public class s {
             aVar2.a(i.h.share, new w(aVar, pbChosenActivity, nVar, j, str, str2, str3));
             aVar2.b(i.h.alert_no_button, new x(pbChosenActivity, nVar));
             aVar2.ak(false);
-            aVar2.b(pbChosenActivity.getPageContext()).sO();
+            aVar2.b(pbChosenActivity.getPageContext()).sR();
         }
     }
 
@@ -87,7 +87,7 @@ public class s {
             aVar2.a(i.h.share, new y(aVar, pbChosenActivity, nVar, i, str, j, str2));
             aVar2.b(i.h.alert_no_button, new z(pbChosenActivity, nVar));
             aVar2.ak(false);
-            aVar2.b(pbChosenActivity.getPageContext()).sO();
+            aVar2.b(pbChosenActivity.getPageContext()).sR();
         }
     }
 }

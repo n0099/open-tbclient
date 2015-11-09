@@ -20,15 +20,15 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.data.e, com.baidu.tieba.hottopic.b.c> {
-    private HotTopicActivity bod;
-    private v bol;
+    private HotTopicActivity boH;
+    private v boP;
     public int mSkinType;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public i(HotTopicActivity hotTopicActivity, BdUniqueId bdUniqueId) {
         super(hotTopicActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.bol = new j(this);
-        this.bod = hotTopicActivity;
+        this.boP = new j(this);
+        this.boH = hotTopicActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,90 +53,90 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
     private void a(com.baidu.tieba.hottopic.b.c cVar, View view) {
         if (cVar != null) {
             an.i(cVar.getView(), i.e.list_item_selector);
-            an.b(cVar.bpH, i.c.cp_cont_c, 1);
-            an.b(cVar.bpK, i.c.cp_cont_f, 1);
-            an.b(cVar.bpL, i.c.cp_cont_d, 1);
-            an.b(cVar.bpM, i.c.cp_cont_e, 1);
-            an.b(cVar.bpN, i.c.cp_cont_b, 1);
-            an.j(cVar.bpO, i.c.cp_bg_line_b);
-            an.j(cVar.bpG, i.c.cp_bg_line_c);
-            cVar.bpJ.setImageDrawable(null);
-            c(cVar.apS, view);
+            an.b(cVar.bql, i.c.cp_cont_c, 1);
+            an.b(cVar.bqo, i.c.cp_cont_f, 1);
+            an.b(cVar.bqp, i.c.cp_cont_d, 1);
+            an.b(cVar.bqq, i.c.cp_cont_e, 1);
+            an.b(cVar.bqr, i.c.cp_cont_b, 1);
+            an.j(cVar.bqs, i.c.cp_bg_line_b);
+            an.j(cVar.bqk, i.c.cp_bg_line_c);
+            cVar.bqn.setImageDrawable(null);
+            c(cVar.arf, view);
         }
     }
 
     private void c(int i, View view) {
         this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
-        if (this.bod != null && i != this.mSkinType) {
-            this.bod.getLayoutMode().ad(this.mSkinType == 1);
-            this.bod.getLayoutMode().k(view);
+        if (this.boH != null && i != this.mSkinType) {
+            this.boH.getLayoutMode().ad(this.mSkinType == 1);
+            this.boH.getLayoutMode().k(view);
         }
     }
 
     private void a(com.baidu.tieba.hottopic.b.c cVar, com.baidu.tieba.hottopic.data.e eVar) {
         if (cVar != null && eVar != null) {
-            if (eVar.QT()) {
-                cVar.bpG.setVisibility(0);
-                cVar.bpH.setVisibility(0);
-                cVar.bpO.setVisibility(8);
-                cVar.bpI.setVisibility(8);
-                cVar.bpM.setVisibility(8);
-                cVar.bpN.setVisibility(8);
-                eVar.bpd = eVar.bpd.trim();
+            if (eVar.Rp()) {
+                cVar.bqk.setVisibility(0);
+                cVar.bql.setVisibility(0);
+                cVar.bqs.setVisibility(8);
+                cVar.bqm.setVisibility(8);
+                cVar.bqq.setVisibility(8);
+                cVar.bqr.setVisibility(8);
+                eVar.bpH = eVar.bpH.trim();
                 StringBuilder sb = new StringBuilder();
-                if (eVar.bpd.length() > 23) {
-                    String substring = eVar.bpd.substring(1, 19);
-                    sb.append(eVar.bpd.charAt(0));
+                if (eVar.bpH.length() > 23) {
+                    String substring = eVar.bpH.substring(1, 19);
+                    sb.append(eVar.bpH.charAt(0));
                     sb.append(substring);
                     sb.append("...");
-                    sb.append(eVar.bpd.charAt(eVar.bpd.length() - 1));
-                    cVar.bpH.setText(sb);
+                    sb.append(eVar.bpH.charAt(eVar.bpH.length() - 1));
+                    cVar.bql.setText(sb);
                 } else {
-                    cVar.bpH.setText(eVar.bpd);
+                    cVar.bql.setText(eVar.bpH);
                 }
                 an.j(cVar.getView(), i.c.cp_bg_line_d);
                 return;
             }
-            cVar.bpG.setVisibility(8);
-            cVar.bpH.setVisibility(8);
-            cVar.bpI.setVisibility(0);
-            cVar.bpM.setVisibility(0);
-            cVar.bpN.setVisibility(0);
-            cVar.bpO.setVisibility(0);
-            cVar.bpK.setText(as.d(eVar.bpf.trim(), 14, "..."));
-            cVar.bpL.setText(as.m(eVar.bph * 1000));
-            cVar.bpM.setText(TbadkCoreApplication.m411getInst().getString(i.h.magic_post_comment));
-            cVar.bpN.setMaxLines(2);
-            cVar.bpN.setEllipsize(TextUtils.TruncateAt.END);
-            cVar.bpN.setText(eVar.bpi);
-            cVar.bpJ.setUserId(String.valueOf(eVar.bpg));
-            cVar.bpJ.d(eVar.bpe, 12, false);
+            cVar.bqk.setVisibility(8);
+            cVar.bql.setVisibility(8);
+            cVar.bqm.setVisibility(0);
+            cVar.bqq.setVisibility(0);
+            cVar.bqr.setVisibility(0);
+            cVar.bqs.setVisibility(0);
+            cVar.bqo.setText(as.d(eVar.bpJ.trim(), 14, "..."));
+            cVar.bqp.setText(as.m(eVar.bpL * 1000));
+            cVar.bqq.setText(TbadkCoreApplication.m411getInst().getString(i.h.magic_post_comment));
+            cVar.bqr.setMaxLines(2);
+            cVar.bqr.setEllipsize(TextUtils.TruncateAt.END);
+            cVar.bqr.setText(eVar.bpM);
+            cVar.bqn.setUserId(String.valueOf(eVar.bpK));
+            cVar.bqn.d(eVar.bpI, 12, false);
             b(cVar, eVar);
         }
     }
 
     private void b(com.baidu.tieba.hottopic.b.c cVar, com.baidu.tieba.hottopic.data.e eVar) {
-        if (cVar != null && eVar != null && this.bod != null) {
-            String valueOf = String.valueOf(eVar.bpg);
-            String str = eVar.bpf;
+        if (cVar != null && eVar != null && this.boH != null) {
+            String valueOf = String.valueOf(eVar.bpK);
+            String str = eVar.bpJ;
             String valueOf2 = String.valueOf(eVar.postId);
-            a(this.bol);
-            cVar.bpI.setOnClickListener(new k(this, valueOf, str, valueOf2));
+            a(this.boP);
+            cVar.bqm.setOnClickListener(new k(this, valueOf, str, valueOf2));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(com.baidu.tieba.hottopic.data.e eVar) {
-        if (eVar == null || eVar.QT()) {
+        if (eVar == null || eVar.Rp()) {
             return false;
         }
         String valueOf = String.valueOf(eVar.threadId);
         String valueOf2 = String.valueOf(eVar.postId);
-        TiebaStatic.log(new aq("c10366").ae("post_id", valueOf2).ae("obj_type", "2").ae("obj_id", this.bod.QL()));
-        if (!eVar.bpk) {
-            return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(this.bod.getActivity()).createSubPbActivityConfig(valueOf, valueOf2, HotTopicActivityConfig.ST_TYPE, true, true)));
+        TiebaStatic.log(new aq("c10366").ae("post_id", valueOf2).ae("obj_type", "2").ae("obj_id", this.boH.Rh()));
+        if (!eVar.bpO) {
+            return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(this.boH.getActivity()).createSubPbActivityConfig(valueOf, valueOf2, HotTopicActivityConfig.ST_TYPE, true, true)));
         }
-        String valueOf3 = String.valueOf(eVar.bpl);
-        return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(this.bod.getActivity()).createSubPbActivityConfig(valueOf, valueOf2, HotTopicActivityConfig.ST_TYPE, false, eVar.bpf, true, valueOf3, 0)));
+        String valueOf3 = String.valueOf(eVar.bpP);
+        return MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(this.boH.getActivity()).createSubPbActivityConfig(valueOf, valueOf2, HotTopicActivityConfig.ST_TYPE, false, eVar.bpJ, true, valueOf3, 0)));
     }
 }

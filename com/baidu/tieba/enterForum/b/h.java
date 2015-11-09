@@ -8,13 +8,13 @@ import java.util.List;
 import tbclient.ForumRecommend.Banner;
 /* loaded from: classes.dex */
 public class h {
-    private ArrayList<u> aLD = new ArrayList<>();
+    private ArrayList<u> aLL = new ArrayList<>();
 
-    public ArrayList<u> Ic() {
-        return this.aLD;
+    public ArrayList<u> Is() {
+        return this.aLL;
     }
 
-    public void I(List<?> list) {
+    public void K(List<?> list) {
         if (list != null && !list.isEmpty()) {
             a(list, null);
         }
@@ -28,7 +28,7 @@ public class h {
                     if (list.get(i) instanceof Banner) {
                         u uVar = new u();
                         uVar.a((Banner) list.get(i));
-                        this.aLD.add(uVar);
+                        this.aLL.add(uVar);
                     } else {
                         return;
                     }

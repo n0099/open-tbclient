@@ -8,24 +8,24 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i implements View.OnClickListener {
-    final /* synthetic */ MyGiftListActivity bmY;
+    final /* synthetic */ MyGiftListActivity bnC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(MyGiftListActivity myGiftListActivity) {
-        this.bmY = myGiftListActivity;
+        this.bnC = myGiftListActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
         l lVar;
-        z = this.bmY.mIsHost;
+        z = this.bnC.mIsHost;
         if (!z) {
-            lVar = this.bmY.bmS;
+            lVar = this.bnC.bnw;
             long uid = lVar.getUid();
             if (uid != 0) {
                 TiebaStatic.log("gift_list_btn");
-                this.bmY.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyGiftActivityConfig(this.bmY.getPageContext().getPageActivity(), uid)));
+                this.bnC.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new BuyGiftActivityConfig(this.bnC.getPageContext().getPageActivity(), uid)));
             }
         }
     }

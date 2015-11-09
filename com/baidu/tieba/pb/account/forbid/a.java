@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.util.as;
 import com.baidu.tieba.pb.account.forbid.ForbidActivity;
 /* loaded from: classes.dex */
 class a implements View.OnClickListener {
-    final /* synthetic */ ForbidActivity ceE;
+    final /* synthetic */ ForbidActivity cff;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(ForbidActivity forbidActivity) {
-        this.ceE = forbidActivity;
+        this.cff = forbidActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,19 +24,19 @@ class a implements View.OnClickListener {
         String str4;
         String str5;
         ForbidActivity.a aVar3;
-        aVar = this.ceE.ceC;
+        aVar = this.cff.cfd;
         if (aVar != null) {
-            aVar2 = this.ceE.ceC;
-            if (!as.isEmpty(aVar2.aex())) {
-                ForbidActivity forbidActivity = this.ceE;
-                radioGroup = this.ceE.cez;
-                str = this.ceE.mForumId;
-                str2 = this.ceE.mForumName;
-                str3 = this.ceE.mThreadId;
-                str4 = this.ceE.air;
-                str5 = this.ceE.mPostId;
-                aVar3 = this.ceE.ceC;
-                f.a(str, str2, str3, str4, str5, (String) forbidActivity.findViewById(radioGroup.getCheckedRadioButtonId()).getTag(), aVar3.aex(), new b(this));
+            aVar2 = this.cff.cfd;
+            if (!as.isEmpty(aVar2.aeS())) {
+                ForbidActivity forbidActivity = this.cff;
+                radioGroup = this.cff.cfa;
+                str = this.cff.mForumId;
+                str2 = this.cff.mForumName;
+                str3 = this.cff.mThreadId;
+                str4 = this.cff.mUserName;
+                str5 = this.cff.mPostId;
+                aVar3 = this.cff.cfd;
+                f.a(str, str2, str3, str4, str5, (String) forbidActivity.findViewById(radioGroup.getCheckedRadioButtonId()).getTag(), aVar3.aeS(), new b(this));
             }
         }
     }

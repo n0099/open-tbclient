@@ -7,11 +7,11 @@ import com.baidu.tieba.setting.more.MsgSettingItemView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements BdSwitchView.a {
-    final /* synthetic */ i cLQ;
+    final /* synthetic */ i cNm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(i iVar) {
-        this.cLQ = iVar;
+        this.cNm = iVar;
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
@@ -22,25 +22,25 @@ public class k implements BdSwitchView.a {
         i.a aVar2;
         i.a aVar3;
         i.a aVar4;
-        msgSettingItemView = this.cLQ.cLG;
+        msgSettingItemView = this.cNm.cNc;
         if (view != msgSettingItemView.getSwitchView()) {
-            msgSettingItemView2 = this.cLQ.cLI;
+            msgSettingItemView2 = this.cNm.cNe;
             if (view != msgSettingItemView2.getSwitchView()) {
                 return;
             }
-            aVar = this.cLQ.cLP;
+            aVar = this.cNm.cNl;
             if (aVar == null) {
                 return;
             }
-            aVar2 = this.cLQ.cLP;
+            aVar2 = this.cNm.cNl;
             aVar2.b(switchState);
             return;
         }
-        aVar3 = this.cLQ.cLP;
+        aVar3 = this.cNm.cNl;
         if (aVar3 == null) {
             return;
         }
-        aVar4 = this.cLQ.cLP;
+        aVar4 = this.cNm.cNl;
         aVar4.a(switchState);
     }
 }

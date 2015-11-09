@@ -4,13 +4,13 @@ import android.widget.TextView;
 import com.baidu.adp.framework.message.ResponsedMessage;
 /* loaded from: classes.dex */
 class i extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ BuyGiftActivity bmC;
+    final /* synthetic */ BuyGiftActivity bng;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(BuyGiftActivity buyGiftActivity, int i, int i2) {
         super(i, i2);
-        this.bmC = buyGiftActivity;
+        this.bng = buyGiftActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -18,15 +18,15 @@ class i extends com.baidu.adp.framework.listener.a {
         TextView textView;
         TextView textView2;
         if (responsedMessage instanceof SendGiftSocketResponseMessage) {
-            textView2 = this.bmC.bmb;
+            textView2 = this.bng.bmF;
             textView2.setEnabled(true);
             SendGiftSocketResponseMessage sendGiftSocketResponseMessage = (SendGiftSocketResponseMessage) responsedMessage;
-            this.bmC.a(sendGiftSocketResponseMessage.getError(), sendGiftSocketResponseMessage.getErrorString(), sendGiftSocketResponseMessage.getResponseData());
+            this.bng.a(sendGiftSocketResponseMessage.getError(), sendGiftSocketResponseMessage.getErrorString(), sendGiftSocketResponseMessage.getResponseData());
         } else if (responsedMessage instanceof SendGiftHttpResponseMessage) {
-            textView = this.bmC.bmb;
+            textView = this.bng.bmF;
             textView.setEnabled(true);
             SendGiftHttpResponseMessage sendGiftHttpResponseMessage = (SendGiftHttpResponseMessage) responsedMessage;
-            this.bmC.a(sendGiftHttpResponseMessage.getError(), sendGiftHttpResponseMessage.getErrorString(), sendGiftHttpResponseMessage.getResponseData());
+            this.bng.a(sendGiftHttpResponseMessage.getError(), sendGiftHttpResponseMessage.getErrorString(), sendGiftHttpResponseMessage.getResponseData());
         }
     }
 }

@@ -1,46 +1,34 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.graphics.drawable.NinePatchDrawable;
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.i;
+import com.baidu.adp.widget.ListView.BdListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class z extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ t cmX;
+public class z implements Runnable {
+    final /* synthetic */ v coo;
+    private final /* synthetic */ int val$position;
+    private final /* synthetic */ View yG;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public z(t tVar) {
-        this.cmX = tVar;
+    public z(v vVar, View view, int i) {
+        this.coo = vVar;
+        this.yG = view;
+        this.val$position = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        View view;
-        NewSubPbActivity newSubPbActivity;
-        NewSubPbActivity newSubPbActivity2;
-        if (aVar != null && !TextUtils.isEmpty(str)) {
-            view = this.cmX.cmE;
-            TbRichTextView tbRichTextView = (TbRichTextView) view.findViewWithTag(str);
-            if (tbRichTextView != null) {
-                newSubPbActivity = this.cmX.cmG;
-                NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(newSubPbActivity.getResources(), aVar.na(), aVar.na().getNinePatchChunk(), aVar.ne(), null);
-                if (TbadkCoreApplication.m411getInst().getSkinType() == 1) {
-                    ninePatchDrawable.getPaint().setAlpha(com.baidu.tieba.tbadkCore.ac.mAlpha);
-                }
-                if (tbRichTextView instanceof TbRichTextView) {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) tbRichTextView.getLayoutParams();
-                    newSubPbActivity2 = this.cmX.cmG;
-                    layoutParams.bottomMargin = (int) newSubPbActivity2.getResources().getDimension(i.d.ds20);
-                    tbRichTextView.setLayoutParams(layoutParams);
-                    tbRichTextView.setBackgroundDrawable(ninePatchDrawable);
-                }
-            }
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.editortools.c.p pVar;
+        BdListView bdListView;
+        BdListView bdListView2;
+        if (this.yG != null) {
+            int[] iArr = new int[2];
+            pVar = this.coo.cbv;
+            pVar.Az().getLocationInWindow(iArr);
+            bdListView = this.coo.mListView;
+            bdListView.setSelectionFromTop(this.val$position + 1, iArr[1] - this.yG.getHeight());
+            bdListView2 = this.coo.mListView;
+            bdListView2.invalidate();
         }
     }
 }

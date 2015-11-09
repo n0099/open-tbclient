@@ -1,20 +1,20 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
 class q implements Runnable {
-    final /* synthetic */ p aUL;
-    private final /* synthetic */ String aUM;
+    final /* synthetic */ p aUT;
+    private final /* synthetic */ String aUU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar, String str) {
-        this.aUL = pVar;
-        this.aUM = str;
+        this.aUT = pVar;
+        this.aUU = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tbadk.core.util.w wVar = new com.baidu.tbadk.core.util.w(this.aUM);
-        wVar.ue().uV().mIsNeedAddCommenParam = false;
-        wVar.ue().uV().mIsUseCurrentBDUSS = false;
-        wVar.tE();
+        com.baidu.tbadk.core.util.w wVar = new com.baidu.tbadk.core.util.w(this.aUU);
+        wVar.uh().uZ().mIsNeedAddCommenParam = false;
+        wVar.uh().uZ().mIsUseCurrentBDUSS = false;
+        wVar.tH();
     }
 }

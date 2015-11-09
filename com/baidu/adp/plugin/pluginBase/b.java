@@ -1,15 +1,15 @@
 package com.baidu.adp.plugin.pluginBase;
 /* loaded from: classes.dex */
 class b implements Runnable {
-    final /* synthetic */ a Ew;
+    final /* synthetic */ a Ex;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.Ew = aVar;
+        this.Ex = aVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.Ew.onPreLoad(this.Ew.onGetPreLoadListView());
+        this.Ex.onPreLoad(this.Ex.onGetPreLoadListView());
     }
 }

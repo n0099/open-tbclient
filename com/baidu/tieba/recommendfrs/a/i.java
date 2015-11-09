@@ -14,25 +14,25 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.tbadkCore.util.p;
 /* loaded from: classes.dex */
 public class i extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data.b, com.baidu.tbadk.mvc.d.b> {
-    private TextView aCJ;
-    private TbImageView aJW;
-    private TextView aJX;
-    private TextView aJY;
-    private TextView aJZ;
-    private View aKa;
-    private TextView alu;
+    private TextView aBD;
+    private TbImageView aIQ;
+    private TextView aIR;
+    private TextView aIS;
+    private TextView aIT;
+    private View aIU;
+    private TextView alz;
 
     public i(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aJW = (TbImageView) view.findViewById(i.f.img);
-        this.alu = (TextView) view.findViewById(i.f.title);
-        this.aCJ = (TextView) view.findViewById(i.f.desc);
+        this.aIQ = (TbImageView) view.findViewById(i.f.img);
+        this.alz = (TextView) view.findViewById(i.f.title);
+        this.aBD = (TextView) view.findViewById(i.f.desc);
         View findViewById = view.findViewById(i.f.hot_thread_comment);
-        this.aJX = (TextView) findViewById.findViewById(i.f.hot_thread_line_tag);
-        this.aJY = (TextView) findViewById.findViewById(i.f.hot_thread_line_praise);
-        this.aJZ = (TextView) findViewById.findViewById(i.f.hot_thread_line_comment);
-        this.aKa = view.findViewById(i.f.divider_line);
-        this.aKa = view.findViewById(i.f.divider_line);
+        this.aIR = (TextView) findViewById.findViewById(i.f.hot_thread_line_tag);
+        this.aIS = (TextView) findViewById.findViewById(i.f.hot_thread_line_praise);
+        this.aIT = (TextView) findViewById.findViewById(i.f.hot_thread_line_comment);
+        this.aIU = view.findViewById(i.f.divider_line);
+        this.aIU = view.findViewById(i.f.divider_line);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,29 +41,29 @@ public class i extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
     public void B(com.baidu.tieba.recommendfrs.data.b bVar) {
         super.B(bVar);
         if (bVar != null) {
-            String str = (bVar.apY() == null || bVar.apY().size() <= 0) ? null : bVar.apY().get(0);
-            TbImageView tbImageView = this.aJW;
-            if (!bVar.aqp()) {
+            String str = (bVar.aqE() == null || bVar.aqE().size() <= 0) ? null : bVar.aqE().get(0);
+            TbImageView tbImageView = this.aIQ;
+            if (!bVar.aqV()) {
                 str = null;
             }
             tbImageView.d(str, 10, false);
-            this.alu.setText(UtilHelper.getFixedText(bVar.getTitle(), 14, true));
-            this.aCJ.setText(UtilHelper.getFixedText(bVar.getDesc(), 24, true));
+            this.alz.setText(UtilHelper.getFixedText(bVar.getTitle(), 14, true));
+            this.aBD.setText(UtilHelper.getFixedText(bVar.getDesc(), 24, true));
             if (StringUtils.isNull(bVar.getForumName())) {
-                this.aJX.setVisibility(8);
+                this.aIR.setVisibility(8);
             } else {
-                this.aJX.setVisibility(0);
-                this.aJX.setText(getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(bVar.getForumName(), 7, false)));
-                this.aJX.setOnClickListener(new j(this, bVar));
+                this.aIR.setVisibility(0);
+                this.aIR.setText(getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(bVar.getForumName(), 7, false)));
+                this.aIR.setOnClickListener(new j(this, bVar));
             }
-            this.aJY.setText(as.q(bVar.apV()));
-            this.aJZ.setText(as.q(bVar.apW()));
-            this.aKa.setVisibility(bVar.aqa() ? 0 : 4);
+            this.aIS.setText(as.q(bVar.aqB()));
+            this.aIT.setText(as.q(bVar.aqC()));
+            this.aIU.setVisibility(bVar.aqG() ? 0 : 4);
             p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.lL(String.valueOf(bVar.apX()))) {
-                an.b(this.alu, i.c.cp_cont_d, 1);
+            if (readThreadHistory != null && readThreadHistory.lR(String.valueOf(bVar.aqD()))) {
+                an.b(this.alz, i.c.cp_cont_d, 1);
             } else {
-                an.b(this.alu, i.c.cp_cont_b, 1);
+                an.b(this.alz, i.c.cp_cont_b, 1);
             }
         }
     }

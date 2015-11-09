@@ -5,24 +5,24 @@ import com.baidu.tieba.themeCenter.theme.top.d;
 import java.util.List;
 /* loaded from: classes.dex */
 class a implements d.a {
-    final /* synthetic */ AllThemeListActivity dgt;
+    final /* synthetic */ AllThemeListActivity dhZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(AllThemeListActivity allThemeListActivity) {
-        this.dgt = allThemeListActivity;
+        this.dhZ = allThemeListActivity;
     }
 
     @Override // com.baidu.tieba.themeCenter.theme.top.d.a
     public void a(int i, String str, k kVar, List<com.baidu.tieba.themeCenter.theme.top.a> list) {
         h hVar;
         h hVar2;
-        AllThemeListActivity allThemeListActivity = this.dgt;
-        hVar = this.dgt.dgq;
+        AllThemeListActivity allThemeListActivity = this.dhZ;
+        hVar = this.dhZ.dhW;
         allThemeListActivity.hideLoadingView(hVar.getRootView());
-        hVar2 = this.dgt.dgq;
+        hVar2 = this.dhZ.dhW;
         hVar2.a(kVar, list);
         if (i != 0) {
-            this.dgt.showToast(str);
+            this.dhZ.showToast(str);
         }
     }
 }

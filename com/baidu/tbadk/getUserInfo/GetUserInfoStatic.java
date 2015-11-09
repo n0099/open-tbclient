@@ -2,6 +2,6 @@ package com.baidu.tbadk.getUserInfo;
 /* loaded from: classes.dex */
 public class GetUserInfoStatic {
     static {
-        b.BV().BW();
+        b.BO().BP();
     }
 }

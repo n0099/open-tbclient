@@ -6,26 +6,26 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.FinePbPage.Content;
 /* loaded from: classes.dex */
 public class g implements c {
-    private SpannableStringBuilder cnL;
-    private int cnM;
     private String color;
+    private SpannableStringBuilder cpc;
+    private int cpd;
     private int textSize;
 
     public g() {
-        this.cnM = 0;
+        this.cpd = 0;
         this.textSize = -1;
-        this.cnL = new SpannableStringBuilder();
+        this.cpc = new SpannableStringBuilder();
     }
 
     public g(Context context, Content content) {
-        this.cnM = 0;
+        this.cpd = 0;
         this.textSize = -1;
-        this.cnL = new SpannableStringBuilder();
+        this.cpc = new SpannableStringBuilder();
         if (content != null) {
-            this.cnL.append((CharSequence) content.text);
+            this.cpc.append((CharSequence) content.text);
         }
         if (content.align != null) {
-            this.cnM = content.align.intValue();
+            this.cpd = content.align.intValue();
         }
         if (!StringUtils.isNull(content.color)) {
             this.color = content.color;
@@ -40,7 +40,7 @@ public class g implements c {
 
     public void e(CharSequence charSequence) {
         if (charSequence != null) {
-            this.cnL.append(charSequence);
+            this.cpc.append(charSequence);
         }
     }
 
@@ -50,21 +50,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public CharSequence ahM() {
-        return this.cnL;
+    public CharSequence ais() {
+        return this.cpc;
     }
 
-    public int ahO() {
-        return this.cnM;
+    public int aiu() {
+        return this.cpd;
     }
 
-    public String ahP() {
+    public String aiv() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public boolean ahN() {
-        return (this.cnM > 0 && this.cnM < 3) || !StringUtils.isNull(this.color);
+    public boolean ait() {
+        return (this.cpd > 0 && this.cpd < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

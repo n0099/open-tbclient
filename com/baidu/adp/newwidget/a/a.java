@@ -95,7 +95,7 @@ public abstract class a {
     }
 
     public void a(Canvas canvas, d dVar, ImageView imageView) {
-        kd();
+        ke();
         int save = canvas.save();
         int scrollX = imageView.getScrollX();
         int scrollY = imageView.getScrollY();
@@ -151,7 +151,7 @@ public abstract class a {
         this.Bb = eVar;
     }
 
-    public Matrix kb() {
+    public Matrix kc() {
         return this.AW;
     }
 
@@ -159,11 +159,11 @@ public abstract class a {
         this.AW = matrix;
     }
 
-    public RectF kc() {
+    public RectF kd() {
         return this.AX;
     }
 
-    private void kd() {
+    private void ke() {
         this.mPaint.setAlpha((int) (255.0f * this.Bb.mAlpha));
         if (this.Bb.BB) {
             this.mPaint.setColorFilter(AT);

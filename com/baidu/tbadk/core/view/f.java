@@ -12,32 +12,32 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class f {
-    private View adw;
-    private TextView adx;
-    private ImageView ady;
+    private View adB;
+    private TextView adC;
+    private ImageView adD;
     private TbPageContext<?> mContext;
     private Toast yD;
-    private int adu = -1;
-    private int adv = -1;
-    private Runnable adA = new g(this);
-    private Handler adz = new Handler();
+    private int adz = -1;
+    private int adA = -1;
+    private Runnable adF = new g(this);
+    private Handler adE = new Handler();
 
     public f(TbPageContext<?> tbPageContext) {
         this.mContext = null;
-        this.adw = null;
-        this.adx = null;
-        this.ady = null;
+        this.adB = null;
+        this.adC = null;
+        this.adD = null;
         this.mContext = tbPageContext;
-        this.adw = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(i.g.image_toast_view, (ViewGroup) null);
-        this.adx = (TextView) this.adw.findViewById(i.f.tip_text);
-        this.ady = (ImageView) this.adw.findViewById(i.f.tip_iamge);
+        this.adB = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(i.g.image_toast_view, (ViewGroup) null);
+        this.adC = (TextView) this.adB.findViewById(i.f.tip_text);
+        this.adD = (ImageView) this.adB.findViewById(i.f.tip_iamge);
     }
 
     public void e(Context context, View view) {
-        this.adz.removeCallbacks(this.adA);
+        this.adE.removeCallbacks(this.adF);
         if (this.yD == null) {
             this.yD = new Toast(context);
-            this.adz.postDelayed(this.adA, 3000L);
+            this.adE.postDelayed(this.adF, 3000L);
         }
         this.yD.setView(view);
         this.yD.setGravity(17, 0, 0);
@@ -45,14 +45,14 @@ public class f {
     }
 
     public void dA(String str) {
-        this.adx.setText(str);
-        this.ady.setImageResource(i.e.icon_toast_game_ok);
-        e(this.mContext.getPageActivity(), this.adw);
+        this.adC.setText(str);
+        this.adD.setImageResource(i.e.icon_toast_game_ok);
+        e(this.mContext.getPageActivity(), this.adB);
     }
 
     public void dB(String str) {
-        this.adx.setText(str);
-        this.ady.setImageResource(i.e.icon_toast_game_error);
-        e(this.mContext.getPageActivity(), this.adw);
+        this.adC.setText(str);
+        this.adD.setImageResource(i.e.icon_toast_game_error);
+        e(this.mContext.getPageActivity(), this.adB);
     }
 }

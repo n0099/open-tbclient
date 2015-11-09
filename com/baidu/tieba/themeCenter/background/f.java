@@ -8,17 +8,17 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d dfm;
+    final /* synthetic */ d dgS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(d dVar, int i, int i2) {
         super(i, i2);
-        this.dfm = dVar;
+        this.dgS = dVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:13:0x0039, code lost:
-        r1 = r5.dfm.lw(r0);
+        r1 = r5.dgS.lK(r0);
      */
     @Override // com.baidu.adp.framework.listener.a
     /*
@@ -29,26 +29,26 @@ public class f extends com.baidu.adp.framework.listener.a {
         d.a aVar;
         com.baidu.tieba.themeCenter.dressCenter.k kVar;
         List<c> list;
-        DressItemData lw;
+        DressItemData lK;
         BackgroundGroupActivity backgroundGroupActivity2;
         if (responsedMessage != null) {
             if ((responsedMessage instanceof BackgroundSetHttpResponseMessage) || (responsedMessage instanceof BackgroundSetSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    backgroundGroupActivity2 = this.dfm.dfh;
+                    backgroundGroupActivity2 = this.dgS.dgN;
                     backgroundGroupActivity2.showToast(responsedMessage.getErrorString());
                     return;
                 }
                 int propId = ((BackgroundSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra()).getPropId();
-                backgroundGroupActivity = this.dfm.dfh;
-                if (propId == backgroundGroupActivity.getPropId() && lw != null) {
-                    TiebaStatic.log(new aq("c10286").r("obj_id", propId).r("obj_type", lw.getFreeUserLevel()));
+                backgroundGroupActivity = this.dgS.dgN;
+                if (propId == backgroundGroupActivity.getPropId() && lK != null) {
+                    TiebaStatic.log(new aq("c10286").r("obj_id", propId).r("obj_type", lK.getFreeUserLevel()));
                 }
-                this.dfm.lv(propId);
-                aVar = this.dfm.dfj;
+                this.dgS.lJ(propId);
+                aVar = this.dgS.dgP;
                 int error = responsedMessage.getError();
                 String errorString = responsedMessage.getErrorString();
-                kVar = this.dfm.mRecommand;
-                list = this.dfm.dfi;
+                kVar = this.dgS.mRecommand;
+                list = this.dgS.dgO;
                 aVar.a(error, errorString, kVar, list);
             }
         }

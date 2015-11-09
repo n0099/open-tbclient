@@ -5,10 +5,10 @@ public abstract class a implements Comparable<a> {
     /* renamed from: com.baidu.tbadk.editortools.emotiontool.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0046a {
-        void a(t tVar);
+        void a(c cVar);
     }
 
-    protected abstract void AG();
+    protected abstract void AM();
 
     public abstract void a(InterfaceC0046a interfaceC0046a);
 
@@ -16,7 +16,7 @@ public abstract class a implements Comparable<a> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a() {
-        AG();
+        AM();
     }
 
     /* JADX DEBUG: Method merged with bridge method */

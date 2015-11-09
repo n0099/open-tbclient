@@ -11,19 +11,19 @@ public class e implements ae, d {
     private String big_cdn_src;
     private String big_src;
     private String cdn_src;
-    private long cnJ;
-    private ArrayList<ad> cnK;
+    private long cpa;
+    private ArrayList<ad> cpb;
     private int height;
     private String src;
     private int width;
 
     public e(Content content) {
         if (content != null && content.type.longValue() == 3) {
-            this.cnK = new ArrayList<>(1);
+            this.cpb = new ArrayList<>(1);
             this.src = content.src;
             this.big_src = content.big_src;
             this.big_cdn_src = content.big_cdn_src;
-            this.cnJ = content.type.longValue();
+            this.cpa = content.type.longValue();
             String str = content.bsize;
             if (str != null) {
                 try {
@@ -42,15 +42,15 @@ public class e implements ae, d {
             }
             this.cdn_src = content.cdn_src;
             ad adVar = new ad();
-            adVar.aaz = 17;
+            adVar.aaD = 17;
             adVar.height = this.height;
             adVar.width = this.width;
             if (StringUtils.isNull(this.cdn_src)) {
-                adVar.Wa = this.src;
+                adVar.Wd = this.src;
             } else {
-                adVar.Wa = this.cdn_src;
+                adVar.Wd = this.cdn_src;
             }
-            this.cnK.add(adVar);
+            this.cpb.add(adVar);
         }
     }
 
@@ -58,7 +58,7 @@ public class e implements ae, d {
         return this.src;
     }
 
-    public int iZ(int i) {
+    public int jn(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -72,6 +72,6 @@ public class e implements ae, d {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<ad> getImages() {
-        return this.cnK;
+        return this.cpb;
     }
 }

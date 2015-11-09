@@ -7,34 +7,34 @@ import tbclient.GetSkinByCategory.ThemeSkinInMain;
 import tbclient.ThemeSkinPropMain;
 /* loaded from: classes.dex */
 public class a {
-    private String dhs;
-    private List<com.baidu.tieba.themeCenter.b> dht;
+    private String diY;
+    private List<com.baidu.tieba.themeCenter.b> diZ;
 
     public void a(ThemeSkinInMain themeSkinInMain) {
         if (themeSkinInMain != null) {
-            this.dhs = themeSkinInMain.skin_category;
+            this.diY = themeSkinInMain.skin_category;
             if (themeSkinInMain.props != null && themeSkinInMain.props.size() > 0) {
-                this.dht = new ArrayList();
+                this.diZ = new ArrayList();
                 for (ThemeSkinPropMain themeSkinPropMain : themeSkinInMain.props) {
                     if (themeSkinPropMain != null && !StringUtils.isNull(themeSkinPropMain.title)) {
                         com.baidu.tieba.themeCenter.b bVar = new com.baidu.tieba.themeCenter.b();
                         bVar.a(themeSkinPropMain);
-                        this.dht.add(bVar);
+                        this.diZ.add(bVar);
                     }
                 }
             }
         }
     }
 
-    public String azE() {
-        return this.dhs;
+    public String aAu() {
+        return this.diY;
     }
 
-    public List<com.baidu.tieba.themeCenter.b> azF() {
-        return this.dht;
+    public List<com.baidu.tieba.themeCenter.b> aAv() {
+        return this.diZ;
     }
 
-    public void bD(List<com.baidu.tieba.themeCenter.b> list) {
-        this.dht = list;
+    public void bH(List<com.baidu.tieba.themeCenter.b> list) {
+        this.diZ = list;
     }
 }

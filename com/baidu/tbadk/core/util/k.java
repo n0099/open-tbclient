@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.BdLog;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class k extends DiskFileOperate {
-    protected a Zc;
+    protected a Zg;
     protected Bitmap mBitmap;
     protected BitmapFactory.Options rC;
 
@@ -15,16 +15,16 @@ public class k extends DiskFileOperate {
         super(str, str2, action);
         this.mBitmap = null;
         this.rC = null;
-        this.Zc = null;
-        this.Zc = new a();
+        this.Zg = null;
+        this.Zg = new a();
     }
 
     public boolean fF() {
-        return this.Zc.rG;
+        return this.Zg.rG;
     }
 
     public void r(boolean z) {
-        this.Zc.rG = z;
+        this.Zg.rG = z;
     }
 
     public Bitmap getBitmap() {
@@ -44,7 +44,7 @@ public class k extends DiskFileOperate {
         if (this.mData == null) {
             return null;
         }
-        return this.Zc.toByteArray();
+        return this.Zg.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
@@ -56,8 +56,8 @@ public class k extends DiskFileOperate {
             this.rC = new BitmapFactory.Options();
             this.rC.inPreferredConfig = Bitmap.Config.RGB_565;
         }
-        boolean y = this.Zc.y(bArr);
-        if (this.Zc.rH == 0 || this.Zc.rH >= System.currentTimeMillis()) {
+        boolean y = this.Zg.y(bArr);
+        if (this.Zg.rH == 0 || this.Zg.rH >= System.currentTimeMillis()) {
             int fI = a.fI();
             if (!y) {
                 fI = 0;

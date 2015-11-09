@@ -9,24 +9,24 @@ import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class e implements View.OnClickListener {
-    private final /* synthetic */ BaseActivity bxE;
-    final /* synthetic */ d cYH;
+    private final /* synthetic */ BaseActivity byb;
+    final /* synthetic */ d dae;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar, BaseActivity baseActivity) {
-        this.cYH = dVar;
-        this.bxE = baseActivity;
+        this.dae = dVar;
+        this.byb = baseActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.baidu.adp.lib.guide.d dVar;
         com.baidu.adp.lib.guide.d dVar2;
-        dVar = a.cYD;
+        dVar = a.daa;
         if (dVar != null) {
-            dVar2 = a.cYD;
+            dVar2 = a.daa;
             dVar2.dismiss();
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig((Context) this.bxE.getPageContext().getPageActivity(), true, 23004, "expiring")));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig((Context) this.byb.getPageContext().getPageActivity(), true, 23004, "expiring")));
     }
 }

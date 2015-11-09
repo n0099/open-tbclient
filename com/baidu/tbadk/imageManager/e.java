@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> {
-    final /* synthetic */ c atU;
+    final /* synthetic */ c asI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(c cVar, int i) {
         super(i);
-        this.atU = cVar;
+        this.asI = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +33,7 @@ class e extends com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.a.a> {
     public void entryRemoved(boolean z, String str, com.baidu.adp.widget.a.a aVar, com.baidu.adp.widget.a.a aVar2) {
         if (aVar != null) {
             BdLog.isDebugMode();
-            aVar.mZ();
+            aVar.na();
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_GC_VIEW_DRAW_CACHE, str));
         }
     }

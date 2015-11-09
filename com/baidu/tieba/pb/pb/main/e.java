@@ -1,40 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.util.SparseArray;
-import com.baidu.tieba.i;
-import com.baidu.tieba.usermute.i;
-import tbclient.UserMuteCheck.DataRes;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.tbadkCore.ae;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
-class e implements i.a {
-    final /* synthetic */ PbActivity ciK;
+class e implements ae.a {
+    final /* synthetic */ PbActivity cjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(PbActivity pbActivity) {
-        this.ciK = pbActivity;
+        this.cjN = pbActivity;
     }
 
-    @Override // com.baidu.tieba.usermute.i.a
-    public void a(DataRes dataRes, int i, String str, Object obj) {
-        cc ccVar;
-        boolean z;
-        cc ccVar2;
-        ccVar = this.ciK.cim;
-        ccVar.agO();
-        SparseArray<Object> sparseArray = (SparseArray) obj;
-        if (i == 0 && dataRes != null) {
-            boolean z2 = com.baidu.adp.lib.g.b.g(dataRes.is_mute, 0) == 1;
-            sparseArray.put(i.f.tag_display_reply_visible, true);
-            z = z2;
-        } else {
-            sparseArray.put(i.f.tag_display_reply_visible, false);
-            z = false;
+    @Override // com.baidu.tieba.tbadkCore.ae.a
+    public void gg(String str) {
+        com.baidu.tieba.tbadkCore.ae aeVar;
+        ca caVar;
+        this.cjN.aSF = false;
+        aeVar = this.cjN.aSR;
+        if (aeVar != null) {
+            caVar = this.cjN.cjj;
+            com.baidu.tieba.pb.a.c pbData = caVar.getPbData();
+            if (pbData.afh().getPraise().getIsLike() == 1) {
+                this.cjN.fx(0);
+            } else {
+                this.cjN.fx(1);
+            }
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.PB_ACTION_PRAISE, pbData.afh()));
         }
-        int intValue = ((Integer) sparseArray.get(i.f.tag_from)).intValue();
-        if (intValue == 0) {
-            this.ciK.a(z, sparseArray);
-        } else if (intValue == 1) {
-            ccVar2 = this.ciK.cim;
-            ccVar2.a(sparseArray, z);
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.ae.a
+    public void x(int i, String str) {
+        com.baidu.tieba.tbadkCore.ae aeVar;
+        this.cjN.aSF = false;
+        aeVar = this.cjN.aSR;
+        if (aeVar != null && str != null) {
+            if (AntiHelper.lr(i)) {
+                AntiHelper.Q(this.cjN.getPageContext().getPageActivity(), str);
+            } else {
+                this.cjN.showToast(str);
+            }
         }
     }
 }

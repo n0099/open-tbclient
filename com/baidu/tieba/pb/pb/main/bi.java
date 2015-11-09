@@ -1,35 +1,23 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.recapp.PbRecBaseViewHolder;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class bi extends bk<com.baidu.tieba.tbadkCore.data.j, PbRecBaseViewHolder> {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bi(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+public class bi implements a.b {
+    final /* synthetic */ bc cjW;
+    private final /* synthetic */ PbLotteryHttpResponseMessage cjX;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public bi(bc bcVar, PbLotteryHttpResponseMessage pbLotteryHttpResponseMessage) {
+        this.cjW = bcVar;
+        this.cjX = pbLotteryHttpResponseMessage;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: J */
-    public PbRecBaseViewHolder a(ViewGroup viewGroup) {
-        return com.baidu.tieba.recapp.a.apw().l(this.mContext, 2);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.bk, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.data.j jVar, PbRecBaseViewHolder pbRecBaseViewHolder) {
-        super.a(i, view, viewGroup, (ViewGroup) jVar, (com.baidu.tieba.tbadkCore.data.j) pbRecBaseViewHolder);
-        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
-        com.baidu.tieba.tbadkCore.data.j jVar2 = (com.baidu.tieba.tbadkCore.data.j) aA(i);
-        this.ciU.getLayoutMode().ad(this.mSkinType == 1);
-        this.ciU.getLayoutMode().k(view);
-        pbRecBaseViewHolder.update(jVar2, i, this.mIsFromCDN);
-        return view;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        PbActivity pbActivity;
+        aVar.dismiss();
+        pbActivity = this.cjW.cjN;
+        com.baidu.tbadk.browser.g.B(pbActivity.getActivity(), this.cjX.getLotteryInfo().getLink());
     }
 }

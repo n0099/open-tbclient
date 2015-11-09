@@ -6,7 +6,7 @@ public enum IntentAction {
     StartService,
     StopService;
 
-    /* JADX DEBUG: Replace access to removed values field (XI) with 'values()' method */
+    /* JADX DEBUG: Replace access to removed values field (XL) with 'values()' method */
     /* renamed from: values  reason: to resolve conflict with enum method */
     public static IntentAction[] valuesCustom() {
         IntentAction[] valuesCustom = values();

@@ -4,13 +4,13 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 class p extends CustomMessageListener {
-    final /* synthetic */ LiveBroadcastCard akJ;
+    final /* synthetic */ LiveBroadcastCard akO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(LiveBroadcastCard liveBroadcastCard, int i) {
         super(i);
-        this.akJ = liveBroadcastCard;
+        this.akO = liveBroadcastCard;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,11 +18,11 @@ class p extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         long j;
         if (customResponsedMessage != null) {
-            j = this.akJ.mStartTime;
+            j = this.akO.mStartTime;
             if (j <= 0) {
                 return;
             }
-            this.akJ.dealStatusWillStart();
+            this.akO.dealStatusWillStart();
         }
     }
 }

@@ -9,15 +9,15 @@ import com.baidu.tieba.hottopic.data.RelateForumItemData;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    private final /* synthetic */ String aLY;
-    private final /* synthetic */ String ayZ;
-    final /* synthetic */ b bqr;
+    private final /* synthetic */ String aMg;
+    private final /* synthetic */ String axO;
+    final /* synthetic */ b bqV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar, String str, String str2) {
-        this.bqr = bVar;
-        this.ayZ = str;
-        this.aLY = str2;
+        this.bqV = bVar;
+        this.axO = str;
+        this.aMg = str2;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,19 +27,19 @@ public class d implements View.OnClickListener {
         HotTopicActivity hotTopicActivity2;
         HotTopicActivity hotTopicActivity3;
         HotTopicActivity hotTopicActivity4;
-        relateForumItemData = this.bqr.bqk;
+        relateForumItemData = this.bqV.bqO;
         if (relateForumItemData != null) {
-            hotTopicActivity = this.bqr.bod;
+            hotTopicActivity = this.bqV.boH;
             if (hotTopicActivity != null) {
-                hotTopicActivity2 = this.bqr.bod;
+                hotTopicActivity2 = this.bqV.boH;
                 if (hotTopicActivity2.checkUpIsLogin()) {
-                    if (as.aP(this.ayZ)) {
-                        hotTopicActivity4 = this.bqr.bod;
-                        hotTopicActivity4.boI.be(this.ayZ, this.aLY);
+                    if (as.aN(this.axO)) {
+                        hotTopicActivity4 = this.bqV.boH;
+                        hotTopicActivity4.bpm.bd(this.axO, this.aMg);
                     }
                     aq ae = new aq("c10365").ae("obj_type", "2");
-                    hotTopicActivity3 = this.bqr.bod;
-                    TiebaStatic.log(ae.ae("obj_id", hotTopicActivity3.QL()));
+                    hotTopicActivity3 = this.bqV.boH;
+                    TiebaStatic.log(ae.ae("obj_id", hotTopicActivity3.Rh()));
                 }
             }
         }

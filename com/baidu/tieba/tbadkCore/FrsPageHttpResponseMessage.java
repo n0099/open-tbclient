@@ -8,6 +8,7 @@ import tbclient.FrsPage.FrsPageResIdl;
 /* loaded from: classes.dex */
 public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<m, FrsPageResIdl> {
     private boolean hasNetworkError;
+    private int mCategoryId;
     private boolean needCache;
     private m responseData;
     private int updateType;
@@ -27,6 +28,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
             FRSPageRequestMessage fRSPageRequestMessage = (FRSPageRequestMessage) message.getExtra();
             this.updateType = fRSPageRequestMessage.getUpdateType();
             this.needCache = fRSPageRequestMessage.isNeedCache();
+            this.mCategoryId = fRSPageRequestMessage.getCategoryId();
             this.hasNetworkError = hasError();
         } else if (message.getExtra() instanceof MvcNetMessage) {
             MvcNetMessage mvcNetMessage = (MvcNetMessage) message.getExtra();
@@ -34,6 +36,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
                 l lVar = (l) mvcNetMessage.getRequestData();
                 this.updateType = lVar.getUpdateType();
                 this.needCache = lVar.isNeedCache();
+                this.mCategoryId = lVar.getCategoryId();
                 this.hasNetworkError = hasError();
             }
         }
@@ -54,8 +57,8 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
 
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.needCache && this.responseData != null && this.responseData.aeJ() != null) {
-            d.avp().a(this.responseData.aeJ().getName(), bArr, true);
+        if (!hasError() && this.needCache && this.responseData != null && this.responseData.afg() != null) {
+            d.avW().a(d.avW().ad(this.responseData.afg().getName(), this.mCategoryId), bArr, true);
         }
     }
 

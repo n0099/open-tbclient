@@ -41,7 +41,7 @@ public class XiaoyingUtil {
     private static int showTime;
 
     public static boolean isXiaoyingForbidden() {
-        return PluginPackageManager.lR().bs(PKG_NAME_XIAOYING);
+        return PluginPackageManager.lS().bq(PKG_NAME_XIAOYING);
     }
 
     public static int getShowTime() {
@@ -53,13 +53,13 @@ public class XiaoyingUtil {
     }
 
     public static boolean isXiaoyingInstalled() {
-        return PluginPackageManager.lR().bm(PKG_NAME_XIAOYING) && TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_START_XIAOYING);
+        return PluginPackageManager.lS().bk(PKG_NAME_XIAOYING) && TbadkCoreApplication.m411getInst().appResponseToCmd(CmdConfigCustom.CMD_START_XIAOYING);
     }
 
     public static void startXiaoying(Context context) {
         if (context != null) {
-            if (!i.iM()) {
-                BdToast.b(context, context.getString(i.h.neterror)).sW();
+            if (!i.iN()) {
+                BdToast.b(context, context.getString(i.h.neterror)).sZ();
                 return;
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
@@ -77,9 +77,9 @@ public class XiaoyingUtil {
     public static void startPlayXiaoyingVideo(Context context, String str) {
         if (context != null && !StringUtils.isNull(str)) {
             if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(XiaoyingPlayerConfig.class)) {
-                BdToast.b(context, context.getString(i.h.plugin_xiaoying_install_fail)).sW();
-            } else if (!com.baidu.adp.lib.util.i.iM()) {
-                BdToast.b(context, context.getString(i.h.neterror)).sW();
+                BdToast.b(context, context.getString(i.h.plugin_xiaoying_install_fail)).sZ();
+            } else if (!com.baidu.adp.lib.util.i.iN()) {
+                BdToast.b(context, context.getString(i.h.neterror)).sZ();
             } else {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new XiaoyingPlayerConfig(context, str)));
             }
@@ -89,7 +89,7 @@ public class XiaoyingUtil {
     public static boolean showXiaoyingTool() {
         PluginNetConfigInfos.PluginConfig pluginConfig;
         PluginSetting findPluginSetting;
-        if (!TbadkCoreApplication.m411getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (pluginConfig = PluginPackageManager.lR().getPluginConfig(PKG_NAME_XIAOYING)) == null || TextUtils.isEmpty(pluginConfig.display_name) || pluginConfig.forbidden == 1 || (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().findPluginSetting(PKG_NAME_XIAOYING)) == null) {
+        if (!TbadkCoreApplication.m411getInst().isXiaoyingAvaliable() || Build.VERSION.SDK_INT < 14 || (pluginConfig = PluginPackageManager.lS().getPluginConfig(PKG_NAME_XIAOYING)) == null || TextUtils.isEmpty(pluginConfig.display_name) || pluginConfig.forbidden == 1 || (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mo().findPluginSetting(PKG_NAME_XIAOYING)) == null) {
             return false;
         }
         return pluginConfig.newest == null || findPluginSetting.versionCode <= pluginConfig.newest.version_code;
@@ -102,7 +102,7 @@ public class XiaoyingUtil {
             aVar.cu(str);
             aVar.a(str2, new c(pageActivity, tbPageContext));
             aVar.b(i.h.cancel, new d());
-            aVar.b(tbPageContext).sO();
+            aVar.b(tbPageContext).sR();
         }
     }
 
@@ -161,12 +161,12 @@ public class XiaoyingUtil {
             wVar.o("uid", currentAccount);
             wVar.o("_client_version", TbConfig.getVersion());
             wVar.o("method", "uidEncode");
-            String tD = wVar.tD();
-            if (!wVar.uh() || StringUtils.isNull(tD)) {
+            String tG = wVar.tG();
+            if (!wVar.uk() || StringUtils.isNull(tG)) {
                 return null;
             }
             try {
-                JSONObject jSONObject = new JSONObject(tD);
+                JSONObject jSONObject = new JSONObject(tG);
                 if (jSONObject.optInt(SocialConstants.PARAM_ERROR_CODE) == 0) {
                     String optString = jSONObject.optString("uid");
                     if (!StringUtils.isNull(optString)) {

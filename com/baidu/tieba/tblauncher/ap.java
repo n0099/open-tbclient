@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ap implements View.OnClickListener {
-    final /* synthetic */ ao ddy;
+    final /* synthetic */ ao dfH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(ao aoVar) {
-        this.ddy = aoVar;
+        this.dfH = aoVar;
     }
 
     @Override // android.view.View.OnClickListener

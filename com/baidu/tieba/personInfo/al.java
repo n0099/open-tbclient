@@ -5,28 +5,28 @@ import com.baidu.tbadk.core.view.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class al implements h.a {
-    final /* synthetic */ aj cuW;
+    final /* synthetic */ aj cws;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(aj ajVar) {
-        this.cuW = ajVar;
-    }
-
-    @Override // com.baidu.tbadk.core.view.h.a
-    public void qt() {
-        MorePopupWindow morePopupWindow;
-        PersonInfoActivity personInfoActivity;
-        morePopupWindow = this.cuW.cuU;
-        personInfoActivity = this.cuW.cqE;
-        com.baidu.adp.lib.g.j.a(morePopupWindow, personInfoActivity.getPageContext().getPageActivity());
+        this.cws = ajVar;
     }
 
     @Override // com.baidu.tbadk.core.view.h.a
     public void qu() {
         MorePopupWindow morePopupWindow;
         PersonInfoActivity personInfoActivity;
-        morePopupWindow = this.cuW.cuU;
-        personInfoActivity = this.cuW.cqE;
+        morePopupWindow = this.cws.cwq;
+        personInfoActivity = this.cws.csa;
+        com.baidu.adp.lib.g.j.a(morePopupWindow, personInfoActivity.getPageContext().getPageActivity());
+    }
+
+    @Override // com.baidu.tbadk.core.view.h.a
+    public void qv() {
+        MorePopupWindow morePopupWindow;
+        PersonInfoActivity personInfoActivity;
+        morePopupWindow = this.cws.cwq;
+        personInfoActivity = this.cws.csa;
         com.baidu.adp.lib.g.j.a(morePopupWindow, personInfoActivity.getPageContext().getPageActivity());
     }
 }

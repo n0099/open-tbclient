@@ -1,68 +1,56 @@
 package com.baidu.tbadk.widget.richText;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.widget.TextView;
-import com.baidu.tbadk.widget.TbListTextView;
+import android.text.SpannableString;
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.PbContent;
 /* loaded from: classes.dex */
-class m implements com.baidu.adp.lib.e.c<TextView> {
-    private final /* synthetic */ Context val$context;
+public class m {
+    private int aAJ;
+    private int height;
+    private String thumbUrl;
+    private String videoUrl;
+    private int width;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public m(Context context) {
-        this.val$context = context;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Fp */
-    public TextView gZ() {
-        return new TbListTextView(this.val$context);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: d */
-    public void l(TextView textView) {
-        textView.setText((CharSequence) null);
-        textView.setTag(null);
-        textView.setSingleLine(false);
-        textView.setEllipsize(null);
-        textView.setBackgroundResource(0);
-        textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-        textView.setTextColor(0);
-        textView.setGravity(3);
-        textView.setOnClickListener(null);
-        textView.setOnTouchListener(null);
-        if (textView instanceof TbListTextView) {
-            ((TbListTextView) textView).setCheckSelection(true);
+    public void b(PbContent pbContent) {
+        if (pbContent != null) {
+            this.videoUrl = pbContent.link;
+            this.thumbUrl = pbContent.src;
+            this.width = pbContent.width.intValue();
+            this.height = pbContent.height.intValue();
+            this.aAJ = pbContent.e_type.intValue();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: e */
-    public TextView m(TextView textView) {
-        return textView;
+    public String getVideoUrl() {
+        return this.videoUrl;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: f */
-    public TextView n(TextView textView) {
-        textView.setText((CharSequence) null);
-        textView.setTag(null);
-        textView.setSingleLine(false);
-        textView.setEllipsize(null);
-        textView.setBackgroundResource(0);
-        textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-        textView.setTextColor(0);
-        textView.setGravity(3);
-        textView.setOnClickListener(null);
-        textView.setOnTouchListener(null);
-        if (textView instanceof TbListTextView) {
-            ((TbListTextView) textView).setCheckSelection(true);
+    public String getThumbUrl() {
+        return this.thumbUrl;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
+
+    public SpannableString fT(String str) {
+        if (StringUtils.isNull(str)) {
+            return null;
         }
-        return textView;
+        SpannableString spannableString = new SpannableString(str);
+        spannableString.setSpan(new g(2, this.videoUrl), 0, str.length() - 1, 33);
+        return spannableString;
+    }
+
+    public boolean Fh() {
+        return this.aAJ == 12;
+    }
+
+    public boolean isAvaliable() {
+        return !StringUtils.isNull(this.videoUrl) && !StringUtils.isNull(this.thumbUrl) && this.width > 0 && this.height > 0;
     }
 }

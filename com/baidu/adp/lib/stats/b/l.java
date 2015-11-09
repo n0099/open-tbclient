@@ -24,7 +24,7 @@ public class l extends DiskFileOperate {
         super.l(z);
         if (z) {
             this.xr.h(0L);
-            com.baidu.adp.lib.stats.upload.b.ik().a(this.xr, this.xt, true, this.xv);
+            com.baidu.adp.lib.stats.upload.b.il().a(this.xr, this.xt, true, this.xv);
         }
     }
 }

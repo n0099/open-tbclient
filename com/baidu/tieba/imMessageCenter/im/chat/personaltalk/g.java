@@ -4,13 +4,13 @@ import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements Runnable {
-    final /* synthetic */ PersonalTalkSettingActivity bKu;
-    private final /* synthetic */ boolean bKv;
+    final /* synthetic */ PersonalTalkSettingActivity bKP;
+    private final /* synthetic */ boolean bKQ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PersonalTalkSettingActivity personalTalkSettingActivity, boolean z) {
-        this.bKu = personalTalkSettingActivity;
-        this.bKv = z;
+        this.bKP = personalTalkSettingActivity;
+        this.bKQ = z;
     }
 
     @Override // java.lang.Runnable
@@ -18,11 +18,11 @@ public class g implements Runnable {
         w wVar;
         w wVar2;
         w wVar3;
-        wVar = this.bKu.bKr;
+        wVar = this.bKP.bKM;
         wVar.a((BdSwitchView.a) null);
-        wVar2 = this.bKu.bKr;
-        wVar2.dA(!this.bKv);
-        wVar3 = this.bKu.bKr;
-        wVar3.a(this.bKu);
+        wVar2 = this.bKP.bKM;
+        wVar2.dC(!this.bKQ);
+        wVar3 = this.bKP.bKM;
+        wVar3.a(this.bKP);
     }
 }

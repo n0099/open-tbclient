@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.util.n;
 import java.io.File;
 /* loaded from: classes.dex */
 public class h {
-    public static String vF() {
-        return r.jm();
+    public static String vJ() {
+        return r.jn();
     }
 
     public static String dD(String str) {
@@ -25,10 +25,10 @@ public class h {
     }
 
     public static String dF(String str) {
-        return com.baidu.adp.lib.util.e.aD(dD(str));
+        return com.baidu.adp.lib.util.e.aB(dD(str));
     }
 
-    public static boolean aI(String str) {
+    public static boolean aG(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

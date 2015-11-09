@@ -14,7 +14,7 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class e {
-    public static void Q(Context context, String str) {
+    public static void R(Context context, String str) {
         if (!StringUtils.isNull(str)) {
             Toast makeText = Toast.makeText(context, str, 0);
             if (makeText.getView() != null) {
@@ -61,10 +61,10 @@ public class e {
                 wVar.o("lat", String.valueOf(y.getLatitude()));
                 wVar.o("lng", String.valueOf(y.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.axi().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.ayr().getLocationData();
             if (locationData != null) {
-                wVar.o("name", locationData.axe());
-                wVar.o("sn", locationData.axg());
+                wVar.o("name", locationData.ayn());
+                wVar.o("sn", locationData.ayp());
             }
         }
     }

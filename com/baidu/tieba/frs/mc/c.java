@@ -17,12 +17,12 @@ public class c<T> extends d<l, m, T> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> oW() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> oX() {
         return FrsPageHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> oV() {
+    protected Class<? extends MvcSocketResponsedMessage> oW() {
         return FRSPageSocketResponsedMessage.class;
     }
 
@@ -32,22 +32,22 @@ public class c<T> extends d<l, m, T> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oS() {
+    protected int oT() {
         return CmdConfigHttp.FRS_HTTP_CMD;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int oU() {
+    protected int oV() {
         return 301001;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String oT() {
+    protected String oU() {
         return TbConfig.FRS_ADDRESS;
     }
 
     public void a(l lVar) {
-        this.avv = lVar;
+        this.auj = lVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel

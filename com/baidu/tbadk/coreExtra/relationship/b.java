@@ -30,7 +30,7 @@ public class b {
         this.time = j;
     }
 
-    public int yv() {
+    public int yA() {
         return this.hide;
     }
 

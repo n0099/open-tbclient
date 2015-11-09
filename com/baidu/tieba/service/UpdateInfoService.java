@@ -6,15 +6,10 @@ import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.d.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.UpdateInfoServiceConfig;
 /* loaded from: classes.dex */
 public class UpdateInfoService extends BdBaseService {
     private a.InterfaceC0003a locationCallBack = new h(this);
     private com.baidu.tieba.model.c mModel;
-
-    static {
-        TbadkCoreApplication.m411getInst().RegisterIntent(UpdateInfoServiceConfig.class, UpdateInfoService.class);
-    }
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -25,7 +20,7 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new com.baidu.tieba.model.c(null);
-        this.mModel.adh();
+        this.mModel.adC();
         this.mModel.aO(540000L);
         this.mModel.a(new i(this));
     }
@@ -33,7 +28,7 @@ public class UpdateInfoService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.m411getInst().getLocationShared() && this.mModel.adf()) {
+        if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.m411getInst().getLocationShared() && this.mModel.adA()) {
             findLocationFromLocal();
         }
     }

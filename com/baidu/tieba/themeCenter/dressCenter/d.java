@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<d> {
-    private com.baidu.adp.framework.listener.a aQV = new e(this, CmdConfigHttp.CMD_DRESSUP_CENTER, 309001);
-    private a dgk;
+    private com.baidu.adp.framework.listener.a aRd = new e(this, CmdConfigHttp.CMD_DRESSUP_CENTER, 309001);
+    private a dhQ;
     private k mRecommand;
     private List<b> mThemeCarouselList;
     private List<j> mThemeList;
@@ -18,11 +18,11 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     public d() {
-        BW();
-        registerListener(this.aQV);
+        BP();
+        registerListener(this.aRd);
     }
 
-    private void BW() {
+    private void BP() {
         com.baidu.tieba.tbadkCore.a.a.a(309001, DressupCenterSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
     }
@@ -39,10 +39,10 @@ public class d extends com.baidu.adp.base.e<d> {
     }
 
     public void a(a aVar) {
-        this.dgk = aVar;
+        this.dhQ = aVar;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.aQV);
+        MessageManager.getInstance().unRegisterListener(this.aRd);
     }
 }

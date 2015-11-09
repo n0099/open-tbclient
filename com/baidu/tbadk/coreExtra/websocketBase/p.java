@@ -6,13 +6,13 @@ import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.framework.a.j {
-    final /* synthetic */ n anh;
+    final /* synthetic */ n anm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(n nVar, int i) {
         super(i);
-        this.anh = nVar;
+        this.anm = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,21 +32,21 @@ public class p extends com.baidu.adp.framework.a.j {
                 j = ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getClientLogID();
             }
             if (responseOnlineMessage.getError() == 0) {
-                this.anh.zO();
+                this.anm.zT();
                 int cmd = socketResponsedMessage.getCmd();
                 StringBuilder sb = new StringBuilder("online succ. retry count-");
-                i2 = this.anh.and;
+                i2 = this.anm.ani;
                 com.baidu.adp.framework.client.socket.k.a("TbOnline", cmd, j, i, "online_succ", 0, sb.append(i2).toString());
                 return socketResponsedMessage;
             }
-            this.anh.b(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
+            this.anm.b(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
             int cmd2 = socketResponsedMessage.getCmd();
             StringBuilder sb2 = new StringBuilder("online failed. count-");
-            i3 = this.anh.and;
+            i3 = this.anm.ani;
             com.baidu.adp.framework.client.socket.k.a("TbOnline", cmd2, j, 0, "online_failed", 0, sb2.append(i3).toString());
             return null;
         }
-        this.anh.b(socketResponsedMessage.getCmd(), -1, null);
+        this.anm.b(socketResponsedMessage.getCmd(), -1, null);
         return null;
     }
 }

@@ -12,26 +12,26 @@ import com.baidu.tieba.hottopic.controller.HotTopicActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    private final /* synthetic */ String ayZ;
-    final /* synthetic */ b bqr;
+    private final /* synthetic */ String axO;
+    final /* synthetic */ b bqV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar, String str) {
-        this.bqr = bVar;
-        this.ayZ = str;
+        this.bqV = bVar;
+        this.axO = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         HotTopicActivity hotTopicActivity;
         HotTopicActivity hotTopicActivity2;
-        if (as.aP(this.ayZ)) {
+        if (as.aN(this.axO)) {
             MessageManager messageManager = MessageManager.getInstance();
-            hotTopicActivity = this.bqr.bod;
-            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(hotTopicActivity.getPageContext().getPageActivity()).createNormalCfg(this.ayZ, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
+            hotTopicActivity = this.bqV.boH;
+            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(hotTopicActivity.getPageContext().getPageActivity()).createNormalCfg(this.axO, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
             aq ae = new aq("c10365").ae("obj_type", "1");
-            hotTopicActivity2 = this.bqr.bod;
-            TiebaStatic.log(ae.ae("obj_id", hotTopicActivity2.QL()));
+            hotTopicActivity2 = this.bqV.boH;
+            TiebaStatic.log(ae.ae("obj_id", hotTopicActivity2.Rh()));
         }
     }
 }

@@ -3,6 +3,6 @@ package com.baidu.tieba.setting.more;
 class an implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
-        com.baidu.tbadk.coreExtra.messageCenter.c.xe().xf();
+        com.baidu.tbadk.coreExtra.messageCenter.c.xj().xk();
     }
 }

@@ -1,30 +1,19 @@
 package com.baidu.tieba.write.write;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class cb implements a.b {
-    final /* synthetic */ ca dqN;
+public class cb implements View.OnClickListener {
+    final /* synthetic */ WriteMultiImgsActivity dsE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cb(ca caVar) {
-        this.dqN = caVar;
+    public cb(WriteMultiImgsActivity writeMultiImgsActivity) {
+        this.dsE = writeMultiImgsActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        WriteMultiImgsActivity writeMultiImgsActivity;
-        com.baidu.tbadk.core.dialog.a aVar2;
-        WriteMultiImgsActivity writeMultiImgsActivity2;
-        WriteMultiImgsActivity writeMultiImgsActivity3;
-        com.baidu.tbadk.core.dialog.a aVar3;
-        writeMultiImgsActivity = this.dqN.dqM;
-        aVar2 = writeMultiImgsActivity.dqI;
-        if (aVar2 != null) {
-            writeMultiImgsActivity3 = this.dqN.dqM;
-            aVar3 = writeMultiImgsActivity3.dqI;
-            aVar3.dismiss();
-        }
-        writeMultiImgsActivity2 = this.dqN.dqM;
-        writeMultiImgsActivity2.aDI();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.dsE.setResult(0);
+        this.dsE.finish();
     }
 }

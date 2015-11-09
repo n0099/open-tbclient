@@ -24,6 +24,8 @@ public class WriteData implements Serializable {
     private boolean isBabaoPosted;
     private LiveCardData liveCardData;
     private String mBaobaoContent;
+    private int mCategoryFrom;
+    private int mCategoryTo;
     private String mContent;
     private int mDuringTime;
     private String mFloor;
@@ -73,6 +75,8 @@ public class WriteData implements Serializable {
 
     public WriteData() {
         this.mShareImageType = SHARE_SDK_NET_IMAGE;
+        this.mCategoryFrom = -1;
+        this.mCategoryTo = -1;
         this.mType = 0;
         this.mForumId = null;
         this.mForumName = null;
@@ -105,6 +109,8 @@ public class WriteData implements Serializable {
 
     public WriteData(int i) {
         this.mShareImageType = SHARE_SDK_NET_IMAGE;
+        this.mCategoryFrom = -1;
+        this.mCategoryTo = -1;
         this.mType = i;
         this.mTitle = null;
         this.mContent = null;
@@ -115,7 +121,7 @@ public class WriteData implements Serializable {
             if (this.writeImagesInfo == null || this.writeImagesInfo.size() <= 0) {
                 if (this.baobaoImagesInfo == null || this.baobaoImagesInfo.size() <= 0) {
                     if (this.liveCardData == null || !this.liveCardData.isModifyTime()) {
-                        return this.videoInfo != null && this.videoInfo.isAvaliable();
+                        return (this.videoInfo != null && this.videoInfo.isAvaliable()) || this.mCategoryTo >= 0;
                     }
                     return true;
                 }
@@ -134,6 +140,7 @@ public class WriteData implements Serializable {
             jSONObject.put("mContent", this.mContent);
             jSONObject.put("mThreadId", this.mThreadId);
             jSONObject.put("mIsBaobao", this.mIsBaobao);
+            jSONObject.put("mCategoryTo", this.mCategoryTo);
             if (this.liveCardData != null) {
                 jSONObject.put("livePostInfo", this.liveCardData.toDraftJson());
             }
@@ -163,6 +170,7 @@ public class WriteData implements Serializable {
             writeData.mContent = jSONObject.optString("mContent", null);
             writeData.mThreadId = jSONObject.optString("mThreadId", null);
             writeData.mIsBaobao = jSONObject.optBoolean("mIsBaobao");
+            writeData.mCategoryTo = jSONObject.optInt("mCategoryTo", -1);
             JSONObject optJSONObject = jSONObject.optJSONObject("livePostInfo");
             if (optJSONObject != null) {
                 writeData.liveCardData = new LiveCardData();
@@ -637,5 +645,21 @@ public class WriteData implements Serializable {
 
     public VoteInfo getVoteInfo() {
         return this.mVoteInfo;
+    }
+
+    public int getCategoryFrom() {
+        return this.mCategoryFrom;
+    }
+
+    public void setCategoryFrom(int i) {
+        this.mCategoryFrom = i;
+    }
+
+    public int getCategoryTo() {
+        return this.mCategoryTo;
+    }
+
+    public void setCategoryTo(int i) {
+        this.mCategoryTo = i;
     }
 }

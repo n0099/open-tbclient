@@ -6,11 +6,11 @@ import com.baidu.tieba.tbadkCore.aa;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab extends Handler {
-    final /* synthetic */ aa cYh;
+    final /* synthetic */ aa cZE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.cYh = aaVar;
+        this.cZE = aaVar;
     }
 
     @Override // android.os.Handler
@@ -19,20 +19,20 @@ public class ab extends Handler {
         aa.a aVar;
         aa.a aVar2;
         if (message.what == 2) {
-            this.cYh.count = 0;
-            this.cYh.cgC = 0L;
-            this.cYh.cgD = 0L;
+            this.cZE.count = 0;
+            this.cZE.chh = 0L;
+            this.cZE.chi = 0L;
         } else if (message.what == 1) {
-            i = this.cYh.count;
+            i = this.cZE.count;
             if (i == 1) {
-                aVar = this.cYh.cYg;
+                aVar = this.cZE.cZD;
                 if (aVar != null) {
-                    aVar2 = this.cYh.cYg;
-                    aVar2.Me();
+                    aVar2 = this.cZE.cZD;
+                    aVar2.Mu();
                 }
-                this.cYh.count = 0;
-                this.cYh.cgC = 0L;
-                this.cYh.cgD = 0L;
+                this.cZE.count = 0;
+                this.cZE.chh = 0L;
+                this.cZE.chi = 0L;
             }
         }
     }

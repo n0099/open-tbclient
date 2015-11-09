@@ -12,16 +12,16 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes.dex */
 public class y implements com.baidu.tbadk.mvc.b.j {
     protected boolean Cj;
-    protected ArrayList<FeedData> caG = new ArrayList<>();
-    protected com.baidu.tbadk.core.data.o caH = new com.baidu.tbadk.core.data.o();
-    protected u caI = new u();
+    protected ArrayList<FeedData> cbh = new ArrayList<>();
+    protected com.baidu.tbadk.core.data.o cbi = new com.baidu.tbadk.core.data.o();
+    protected u cbj = new u();
 
-    public ArrayList<FeedData> acY() {
-        return this.caG;
+    public ArrayList<FeedData> adt() {
+        return this.cbh;
     }
 
     public com.baidu.tbadk.core.data.o getPage() {
-        return this.caH;
+        return this.cbi;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -33,11 +33,11 @@ public class y implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.caG.add(feedData);
+                    this.cbh.add(feedData);
                 }
             }
-            this.caI.parserJson(jSONObject.optJSONObject("message"));
-            this.caH.parserJson(jSONObject.optJSONObject("page"));
+            this.cbj.parserJson(jSONObject.optJSONObject("message"));
+            this.cbi.parserJson(jSONObject.optJSONObject("page"));
             this.Cj = true;
         } catch (Exception e) {
             this.Cj = false;
@@ -55,10 +55,10 @@ public class y implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.caG.add(feedData);
+                        this.cbh.add(feedData);
                     }
                 }
-                this.caH.a(dataRes.page);
+                this.cbi.a(dataRes.page);
                 this.Cj = true;
             } catch (Exception e) {
                 this.Cj = false;

@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.core.util.an;
-import com.baidu.tbadk.editortools.w;
+import com.baidu.tbadk.editortools.x;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class c {
-    public static w h(Context context, int i) {
+    public static x h(Context context, int i) {
         com.baidu.tbadk.img.b bVar = new com.baidu.tbadk.img.b();
         MultiImgToolView multiImgToolView = (MultiImgToolView) LayoutInflater.from(context).inflate(i.g.editor_tool_container_image, (ViewGroup) null);
         multiImgToolView.initView();
@@ -34,14 +34,14 @@ public class c {
         return multiImgToolView;
     }
 
-    private static View a(Context context, w wVar) {
+    private static View a(Context context, x xVar) {
         ImageView imageView = new ImageView(context);
         an.c(imageView, i.e.btn_add_photo_selector);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         imageView.setClickable(true);
         int dip2px = k.dip2px(context, 3.0f);
         imageView.setPadding(dip2px, k.dip2px(context, 1.0f) + context.getResources().getDimensionPixelSize(i.d.default_gap_20) + dip2px, context.getResources().getDimensionPixelSize(i.d.default_gap_24) + dip2px, dip2px);
-        imageView.setOnClickListener(new d(wVar));
+        imageView.setOnClickListener(new d(xVar));
         return imageView;
     }
 }

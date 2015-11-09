@@ -21,11 +21,11 @@ import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 /* loaded from: classes.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
-    private SapiWebView cdf;
-    private FrameLayout cdh;
-    private IWXAPI dqQ;
-    private boolean dqR;
-    private Intent dqS;
+    private SapiWebView cdG;
+    private FrameLayout cdI;
+    private IWXAPI dsI;
+    private boolean dsJ;
+    private Intent dsK;
     private NavigationBar mNavigationBar;
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -35,22 +35,22 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         this.mNavigationBar = (NavigationBar) findViewById(i.f.sapi_login_navi);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getResources().getString(i.h.login));
-        this.cdh = (FrameLayout) findViewById(i.f.webview_container);
-        this.cdf = new SapiWebView(getPageContext().getPageActivity());
-        this.cdh.removeAllViews();
-        this.cdh.addView(this.cdf);
-        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.cdf);
-        this.cdf.setOnBackCallback(new a(this));
-        this.cdf.setOnFinishCallback(new b(this));
-        this.cdf.setWeixinHandler(new c(this));
-        this.cdf.setAuthorizationListener(new d(this));
-        this.dqQ = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
-        this.dqS = getIntent();
-        if (this.dqS != null) {
-            this.dqQ.handleIntent(getIntent(), this);
+        this.cdI = (FrameLayout) findViewById(i.f.webview_container);
+        this.cdG = new SapiWebView(getPageContext().getPageActivity());
+        this.cdI.removeAllViews();
+        this.cdI.addView(this.cdG);
+        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.cdG);
+        this.cdG.setOnBackCallback(new a(this));
+        this.cdG.setOnFinishCallback(new b(this));
+        this.cdG.setWeixinHandler(new c(this));
+        this.cdG.setAuthorizationListener(new d(this));
+        this.dsI = WXAPIFactory.createWXAPI(getPageContext().getPageActivity(), SapiAccountManager.getInstance().getSapiConfiguration().wxAppID, false);
+        this.dsK = getIntent();
+        if (this.dsK != null) {
+            this.dsI.handleIntent(getIntent(), this);
         }
-        if (!this.dqR) {
-            this.cdf.loadWeixinSSOLogin();
+        if (!this.dsJ) {
+            this.cdG.loadWeixinSSOLogin();
         }
     }
 
@@ -58,9 +58,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        this.dqS = intent;
-        if (this.dqS != null) {
-            this.dqQ.handleIntent(intent, this);
+        this.dsK = intent;
+        if (this.dsK != null) {
+            this.dsI.handleIntent(intent, this);
         }
     }
 
@@ -80,8 +80,8 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
 
     @Override // com.tencent.mm.sdk.openapi.IWXAPIEventHandler
     public void onReq(BaseReq baseReq) {
-        if (this.dqS != null) {
-            f.aDJ().ad(this.dqS);
+        if (this.dsK != null) {
+            f.aED().ad(this.dsK);
         }
         closeActivity();
     }
@@ -91,13 +91,13 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         String str;
         if (baseResp != null) {
             if (1 == baseResp.getType()) {
-                this.dqR = true;
+                this.dsJ = true;
                 if (baseResp.errCode == 0) {
                     if (baseResp instanceof SendAuth.Resp) {
                         String str2 = ((SendAuth.Resp) baseResp).state;
                         String str3 = ((SendAuth.Resp) baseResp).code;
-                        if (this.cdf != null) {
-                            this.cdf.weixinSSOLogin(str3, str2);
+                        if (this.cdG != null) {
+                            this.cdG.weixinSSOLogin(str3, str2);
                             return;
                         }
                         return;
@@ -120,7 +120,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                     com.baidu.tbadk.core.log.b.a("socail_share", -1L, 0, "wx_share_fail", i, "", "share_fail_exception", str);
                     k.showToast(getActivity(), i.h.share_alert_fail);
                 }
-                this.dqR = true;
+                this.dsJ = true;
                 closeActivity();
             }
         }
@@ -129,18 +129,18 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.cdh != null) {
-            this.cdh.removeAllViews();
+        if (this.cdI != null) {
+            this.cdI.removeAllViews();
         }
-        if (this.cdf != null) {
-            this.cdf.setAuthorizationListener(null);
-            this.cdf.setSocialLoginHandler(null);
-            this.cdf.setWeixinHandler(null);
-            this.cdf.setOnBackCallback(null);
-            this.cdf.setOnFinishCallback(null);
-            this.cdf.getSettings().setBuiltInZoomControls(true);
-            this.cdf.setVisibility(8);
-            h.hg().postDelayed(new e(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
+        if (this.cdG != null) {
+            this.cdG.setAuthorizationListener(null);
+            this.cdG.setSocialLoginHandler(null);
+            this.cdG.setWeixinHandler(null);
+            this.cdG.setOnBackCallback(null);
+            this.cdG.setOnFinishCallback(null);
+            this.cdG.getSettings().setBuiltInZoomControls(true);
+            this.cdG.setVisibility(8);
+            h.hh().postDelayed(new e(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
         }
         super.onDestroy();
     }

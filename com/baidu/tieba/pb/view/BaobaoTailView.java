@@ -11,29 +11,29 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class BaobaoTailView extends LinearLayout {
-    private TextView aEE;
-    private TbImageView aOb;
-    private View.OnClickListener adY;
-    private com.baidu.tbadk.data.a cnN;
+    private TextView aDy;
+    private TbImageView aOj;
+    private View.OnClickListener aed;
+    private com.baidu.tbadk.data.a cpe;
 
     public BaobaoTailView(Context context) {
         super(context);
-        this.adY = new a(this);
+        this.aed = new a(this);
         init();
     }
 
     public BaobaoTailView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.adY = new a(this);
+        this.aed = new a(this);
         init();
     }
 
     private void init() {
         setOrientation(0);
         LayoutInflater.from(getContext()).inflate(i.g.baobao_tail_layout, this);
-        this.aOb = (TbImageView) findViewById(i.f.baobao_icon);
-        this.aEE = (TextView) findViewById(i.f.baobao_tail_text);
-        setOnClickListener(this.adY);
+        this.aOj = (TbImageView) findViewById(i.f.baobao_icon);
+        this.aDy = (TextView) findViewById(i.f.baobao_tail_text);
+        setOnClickListener(this.aed);
     }
 
     public void setData(com.baidu.tbadk.data.a aVar) {
@@ -41,12 +41,12 @@ public class BaobaoTailView extends LinearLayout {
             setVisibility(8);
             return;
         }
-        this.cnN = aVar;
-        this.aEE.setText(aVar.getContent());
-        this.aOb.d(aVar.getIconUrl(), 10, false);
+        this.cpe = aVar;
+        this.aDy.setText(aVar.getContent());
+        this.aOj.d(aVar.getIconUrl(), 10, false);
     }
 
     public void changeSkinType(int i) {
-        an.b(this.aEE, i.c.cp_link_tip_c, 1);
+        an.b(this.aDy, i.c.cp_link_tip_c, 1);
     }
 }

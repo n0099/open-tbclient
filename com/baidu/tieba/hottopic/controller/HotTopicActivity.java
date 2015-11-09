@@ -22,55 +22,55 @@ import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 import com.baidu.tieba.tbadkCore.w;
 /* loaded from: classes.dex */
 public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements BdListView.e, UserIconBox.b, a.InterfaceC0056a, h.a, FrsCommonImageLayout.c {
-    private com.baidu.adp.lib.e.b<TbImageView> aeI;
-    private com.baidu.adp.lib.e.b<TbImageView> boC;
-    private RelateForumViewPager.a boH;
-    public w boI;
-    private com.baidu.tieba.hottopic.view.a boz = null;
-    private h boA = null;
-    private a boB = null;
-    private com.baidu.tieba.hottopic.data.b boD = null;
-    private String boE = null;
-    private String boF = null;
-    private com.baidu.tieba.hottopic.data.f boG = null;
-    private CustomMessageListener boJ = new c(this, CmdConfigCustom.CMD_LIKE_FORUM);
-    private CustomMessageListener boK = new d(this, CmdConfigCustom.CMD_UNLIKE_FORUM);
-    private com.baidu.adp.base.g aLU = new e(this);
+    private com.baidu.adp.lib.e.b<TbImageView> aeN;
+    private com.baidu.adp.lib.e.b<TbImageView> bpg;
+    private RelateForumViewPager.a bpl;
+    public w bpm;
+    private com.baidu.tieba.hottopic.view.a bpd = null;
+    private h bpe = null;
+    private a bpf = null;
+    private com.baidu.tieba.hottopic.data.b bph = null;
+    private String bpi = null;
+    private String bpj = null;
+    private com.baidu.tieba.hottopic.data.f bpk = null;
+    private CustomMessageListener bpn = new c(this, CmdConfigCustom.CMD_LIKE_FORUM);
+    private CustomMessageListener bpo = new d(this, CmdConfigCustom.CMD_UNLIKE_FORUM);
+    private com.baidu.adp.base.g aMc = new e(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         i(bundle);
-        this.boz = new com.baidu.tieba.hottopic.view.a(getPageContext());
-        this.boA = new h(this);
-        this.boA.a(this);
-        this.boI = new w(getPageContext());
-        this.boI.setLoadDataCallBack(this.aLU);
-        this.boB = new a(this);
-        this.boB.a(this);
-        QJ();
-        QH();
+        this.bpd = new com.baidu.tieba.hottopic.view.a(getPageContext());
+        this.bpe = new h(this);
+        this.bpe.a(this);
+        this.bpm = new w(getPageContext());
+        this.bpm.setLoadDataCallBack(this.aMc);
+        this.bpf = new a(this);
+        this.bpf.a(this);
+        Rf();
+        Rd();
     }
 
-    private void QH() {
-        showLoadingView(this.boz.QW(), true);
-        if (!com.baidu.adp.lib.util.i.iM()) {
-            hideLoadingView(this.boz.QW());
-            showNetRefreshView(this.boz.QW(), null);
+    private void Rd() {
+        showLoadingView(this.bpd.Rs(), true);
+        if (!com.baidu.adp.lib.util.i.iN()) {
+            hideLoadingView(this.bpd.Rs());
+            showNetRefreshView(this.bpd.Rs(), null);
             return;
         }
-        QI();
+        Re();
     }
 
     private void i(Bundle bundle) {
         Intent intent = getIntent();
         if (intent != null) {
-            this.boE = intent.getStringExtra(IntentConfig.TOPIC_ID);
-            this.boF = intent.getStringExtra(IntentConfig.TOPIC_NAME);
+            this.bpi = intent.getStringExtra(IntentConfig.TOPIC_ID);
+            this.bpj = intent.getStringExtra(IntentConfig.TOPIC_NAME);
         } else if (bundle != null) {
-            this.boE = bundle.getString(IntentConfig.TOPIC_ID);
-            this.boF = bundle.getString(IntentConfig.TOPIC_NAME);
+            this.bpi = bundle.getString(IntentConfig.TOPIC_ID);
+            this.bpj = bundle.getString(IntentConfig.TOPIC_NAME);
         }
     }
 
@@ -78,13 +78,13 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        QK();
+        Rg();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        hideNetRefreshView(this.boz.QW());
+        hideNetRefreshView(this.bpd.Rs());
         onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
         super.onResume();
     }
@@ -98,121 +98,121 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.boz.onChangeSkinType(i);
+        this.bpd.onChangeSkinType(i);
         changeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity
     public BdListView onGetPreLoadListView() {
-        return this.boz.QZ();
+        return this.bpd.Rv();
     }
 
     @Override // com.baidu.tieba.hottopic.controller.h.a
     public void a(boolean z, com.baidu.tieba.hottopic.data.b bVar) {
-        this.boz.Ra();
-        if (!z || bVar == null || this.boz == null) {
-            hideLoadingView(this.boz.QW());
-            showNetRefreshView(this.boz.QW(), null);
+        this.bpd.Rw();
+        if (!z || bVar == null || this.bpd == null) {
+            hideLoadingView(this.bpd.Rs());
+            showNetRefreshView(this.bpd.Rs(), null);
             return;
         }
-        this.boD = bVar;
-        a(bVar.QR());
-        this.boz.b(bVar);
-        this.boz.QY();
+        this.bph = bVar;
+        a(bVar.Rn());
+        this.bpd.b(bVar);
+        this.bpd.Ru();
     }
 
     private void a(o oVar) {
         if (oVar != null) {
-            if (this.boG == null) {
-                this.boG = new com.baidu.tieba.hottopic.data.f();
+            if (this.bpk == null) {
+                this.bpk = new com.baidu.tieba.hottopic.data.f();
             }
-            this.boG.boE = this.boE;
-            this.boG.boF = this.boF;
-            this.boG.bpn = oVar.rI() != 0;
-            this.boG.bpo = 10;
-            if (this.boG.bpn) {
-                this.boG.bpm++;
-                this.boz.Ma();
+            this.bpk.bpi = this.bpi;
+            this.bpk.bpj = this.bpj;
+            this.bpk.bpR = oVar.rK() != 0;
+            this.bpk.bpS = 10;
+            if (this.bpk.bpR) {
+                this.bpk.bpQ++;
+                this.bpd.Mq();
                 return;
             }
-            this.boz.Mc();
-            this.boz.Mb();
+            this.bpd.Ms();
+            this.bpd.Mr();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void QI() {
-        if (!com.baidu.adp.lib.util.i.iM()) {
-            this.boz.Ra();
-        } else if (this.boA != null) {
-            this.boA.aC(this.boE, this.boF);
+    public void Re() {
+        if (!com.baidu.adp.lib.util.i.iN()) {
+            this.bpd.Rw();
+        } else if (this.bpe != null) {
+            this.bpe.aB(this.bpi, this.bpj);
         }
     }
 
-    private void QJ() {
-        this.boz.a(new f(this));
-        this.boz.g(new g(this));
-        registerListener(this.boJ);
-        registerListener(this.boK);
+    private void Rf() {
+        this.bpd.a(new f(this));
+        this.bpd.g(new g(this));
+        registerListener(this.bpn);
+        registerListener(this.bpo);
     }
 
-    private void QK() {
-        if (this.boz != null) {
-            this.boz.Rc();
-            this.boz.Rd();
+    private void Rg() {
+        if (this.bpd != null) {
+            this.bpd.Ry();
+            this.bpd.Rz();
         }
-        if (this.boH != null) {
-            this.boH.destory();
+        if (this.bpl != null) {
+            this.bpl.destory();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
-        hideNetRefreshView(this.boz.QW());
-        QH();
+        hideNetRefreshView(this.bpd.Rs());
+        Rd();
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.e.b<TbImageView> Kz() {
-        if (this.boC == null) {
-            this.boC = FrsCommonImageLayout.n(getPageContext().getPageActivity(), 12);
+    public com.baidu.adp.lib.e.b<TbImageView> KP() {
+        if (this.bpg == null) {
+            this.bpg = FrsCommonImageLayout.n(getPageContext().getPageActivity(), 12);
         }
-        return this.boC;
+        return this.bpg;
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public com.baidu.adp.lib.e.b<TbImageView> vB() {
-        if (this.aeI == null) {
-            this.aeI = UserIconBox.g(getPageContext().getPageActivity(), 8);
+    public com.baidu.adp.lib.e.b<TbImageView> vF() {
+        if (this.aeN == null) {
+            this.aeN = UserIconBox.g(getPageContext().getPageActivity(), 8);
         }
-        return this.aeI;
+        return this.aeN;
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
-    public int vA() {
-        return com.baidu.tieba.hottopic.b.a.QU();
+    public int vE() {
+        return com.baidu.tieba.hottopic.b.a.Rq();
     }
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
     public ListView getListView() {
-        if (this.boz != null) {
-            return this.boz.QZ();
+        if (this.bpd != null) {
+            return this.bpd.Rv();
         }
         return null;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!com.baidu.adp.lib.util.i.iM()) {
-            this.boz.Mc();
-        } else if (this.boz == null || this.boD == null || this.boD.QP() == null || this.boG == null) {
-            this.boz.Mb();
+        if (!com.baidu.adp.lib.util.i.iN()) {
+            this.bpd.Ms();
+        } else if (this.bpd == null || this.bph == null || this.bph.Rl() == null || this.bpk == null) {
+            this.bpd.Mr();
         } else {
-            this.boz.Ma();
-            if (this.boG.bpn) {
-                this.boB.b(this.boG);
+            this.bpd.Mq();
+            if (this.bpk.bpR) {
+                this.bpf.b(this.bpk);
             } else {
-                this.boz.Mb();
+                this.bpd.Mr();
             }
         }
     }
@@ -220,36 +220,36 @@ public class HotTopicActivity extends BaseActivity<HotTopicActivity> implements 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (!StringUtils.isNull(this.boF) || !StringUtils.isNull(this.boE)) {
-            bundle.putString(IntentConfig.TOPIC_ID, this.boE);
-            bundle.putString(IntentConfig.TOPIC_NAME, this.boF);
+        if (!StringUtils.isNull(this.bpj) || !StringUtils.isNull(this.bpi)) {
+            bundle.putString(IntentConfig.TOPIC_ID, this.bpi);
+            bundle.putString(IntentConfig.TOPIC_NAME, this.bpj);
         }
     }
 
     @Override // com.baidu.tieba.hottopic.controller.a.InterfaceC0056a
     public void a(boolean z, com.baidu.tieba.hottopic.data.a aVar) {
-        this.boz.Mc();
-        if (!z || aVar == null || this.boD == null) {
-            this.boz.Mb();
+        this.bpd.Ms();
+        if (!z || aVar == null || this.bph == null) {
+            this.bpd.Mr();
             return;
         }
-        this.boD.a(aVar);
-        this.boz.QY();
-        a(aVar.boR);
+        this.bph.a(aVar);
+        this.bpd.Ru();
+        a(aVar.bpv);
     }
 
-    public String QL() {
-        return this.boE;
+    public String Rh() {
+        return this.bpi;
     }
 
     public void a(RelateForumViewPager.a aVar) {
-        this.boH = aVar;
+        this.bpl = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public RelateForumItemData aw(long j) {
-        if (this.boD != null && this.boD.QP() != null && this.boD.QP().bpq != null) {
-            for (RelateForumItemData relateForumItemData : this.boD.QP().bpq) {
+        if (this.bph != null && this.bph.Rl() != null && this.bph.Rl().bpU != null) {
+            for (RelateForumItemData relateForumItemData : this.bph.Rl().bpU) {
                 if (relateForumItemData != null && relateForumItemData.forumId == j) {
                     return relateForumItemData;
                 }

@@ -138,7 +138,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getPageContext().getPageActivity());
-        this.customToast = g.tx();
+        this.customToast = g.tA();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new a();
@@ -289,7 +289,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.vn();
+            this.mGuidPage.vr();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -432,19 +432,19 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showToastWithIcon(String str, int i) {
-        BdToast.b(getPageContext().getContext(), str, i).sW();
+        BdToast.b(getPageContext().getContext(), str, i).sZ();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getPageContext().getContext(), str, i, i2).sW();
+        BdToast.a(getPageContext().getContext(), str, i, i2).sZ();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon).sW();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon).sZ();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).sW();
+        BdToast.a(getPageContext().getContext(), str, defaultIcon, i).sZ();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity
@@ -541,7 +541,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     /* JADX INFO: Access modifiers changed from: protected */
     public void showListMenu() {
         if (this.mListMenu != null) {
-            this.mListMenu.sR();
+            this.mListMenu.sU();
         }
     }
 
@@ -616,10 +616,10 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
         if (this.loadingView != null) {
-            this.loadingView.sZ();
+            this.loadingView.tc();
         }
         if (this.refreshView != null) {
-            this.refreshView.sZ();
+            this.refreshView.tc();
         }
         if (this.mSwipeBackLayout != null) {
             this.mSwipeBackLayout.onChangeSkinType(i);
@@ -876,7 +876,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
             } else {
                 this.loadingView = new f(getPageContext().getContext(), i);
             }
-            this.loadingView.sZ();
+            this.loadingView.tc();
         }
         this.loadingView.b(view, z);
     }
@@ -889,7 +889,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Cn();
+        return this.loadingView.Cg();
     }
 
     public void hideLoadingView(View view) {
@@ -902,18 +902,18 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.refreshView == null) {
             this.refreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.refreshView.fv(str);
+        this.refreshView.fx(str);
         this.refreshView.b(view, z);
-        this.refreshView.Ct();
+        this.refreshView.Cm();
     }
 
     public void showNetRefreshViewNoClick(View view, String str, boolean z) {
         if (this.refreshView == null) {
             this.refreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.refreshView.fv(str);
+        this.refreshView.fx(str);
         this.refreshView.b(view, z);
-        this.refreshView.Cu();
+        this.refreshView.Cn();
     }
 
     public void showNetRefreshView(View view, String str) {
@@ -934,7 +934,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
         if (this.refreshView == null) {
             this.refreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.refreshView.ep(i);
+        this.refreshView.en(i);
     }
 
     public View.OnClickListener getNetRefreshListener() {
@@ -989,7 +989,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements TbPageContextS
     }
 
     public void setActivityBgTransparent() {
-        this.mSwipeBackLayout.oa();
+        this.mSwipeBackLayout.ob();
     }
 
     public void changeSwipeSkinType(int i) {

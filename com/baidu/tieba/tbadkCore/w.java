@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class w extends com.baidu.adp.base.e {
-    private String cXU;
-    private a cXV;
-    private String cXW;
+    private String cZr;
+    private a cZs;
+    private String cZt;
     private String from;
     private String mForumId;
     private String mForumName;
@@ -24,8 +24,8 @@ public class w extends com.baidu.adp.base.e {
         super(tbPageContext);
         this.mForumName = null;
         this.mForumId = null;
-        this.cXU = null;
-        this.cXV = null;
+        this.cZr = null;
+        this.cZs = null;
     }
 
     public void setFrom(String str) {
@@ -42,43 +42,43 @@ public class w extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void MA() {
-        if (this.cXV != null) {
-            this.cXV.cancel();
-            this.cXV = null;
+    public void MQ() {
+        if (this.cZs != null) {
+            this.cZs.cancel();
+            this.cZs = null;
         }
     }
 
     public void r(String str, String str2, String str3) {
-        be(str, str2);
-        this.cXU = str3;
+        bd(str, str2);
+        this.cZr = str3;
     }
 
-    public void be(String str, String str2) {
-        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.cXV == null) {
+    public void bd(String str, String str2) {
+        if (str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.cZs == null) {
             this.mForumName = str;
             this.mForumId = str2;
-            this.cXV = new a(this, null);
-            this.cXV.setPriority(2);
-            this.cXV.execute(new Object[0]);
+            this.cZs = new a(this, null);
+            this.cZs.setPriority(2);
+            this.cZs.execute(new Object[0]);
         }
     }
 
-    public boolean avX() {
-        return this.cXV != null;
+    public boolean awF() {
+        return this.cZs != null;
     }
 
-    public void lw(String str) {
-        this.cXW = str;
+    public void lA(String str) {
+        this.cZt = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, x> {
-        private volatile com.baidu.tbadk.core.util.w afh;
+        private volatile com.baidu.tbadk.core.util.w afm;
 
         private a() {
-            this.afh = null;
+            this.afm = null;
         }
 
         /* synthetic */ a(w wVar, a aVar) {
@@ -91,22 +91,22 @@ public class w extends com.baidu.adp.base.e {
         /* renamed from: D */
         public x doInBackground(Object... objArr) {
             try {
-                this.afh = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
-                this.afh.o("kw", w.this.mForumName);
-                this.afh.o(ImageViewerConfig.FORUM_ID, w.this.mForumId);
-                this.afh.o("st_type", w.this.from);
-                if (!StringUtils.isNull(w.this.cXW)) {
-                    this.afh.o("dev_id", w.this.cXW);
+                this.afm = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LIKE_ADDRESS);
+                this.afm.o("kw", w.this.mForumName);
+                this.afm.o(ImageViewerConfig.FORUM_ID, w.this.mForumId);
+                this.afm.o("st_type", w.this.from);
+                if (!StringUtils.isNull(w.this.cZt)) {
+                    this.afm.o("dev_id", w.this.cZt);
                 }
-                if (!TextUtils.isEmpty(w.this.cXU)) {
-                    this.afh.o("pagefrom", w.this.cXU);
+                if (!TextUtils.isEmpty(w.this.cZr)) {
+                    this.afm.o("pagefrom", w.this.cZr);
                 }
-                this.afh.ue().uV().mIsNeedTbs = true;
-                String tD = this.afh.tD();
-                if (this.afh.ue().uW().qS() && tD != null) {
+                this.afm.uh().uZ().mIsNeedTbs = true;
+                String tG = this.afm.tG();
+                if (this.afm.uh().va().qT() && tG != null) {
                     x xVar = new x();
-                    xVar.parserJson(tD);
-                    xVar.lx(w.this.mForumId);
+                    xVar.parserJson(tG);
+                    xVar.lB(w.this.mForumId);
                     return xVar;
                 }
             } catch (Exception e) {
@@ -118,16 +118,16 @@ public class w extends com.baidu.adp.base.e {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
+        /* renamed from: d */
         public void onPostExecute(x xVar) {
-            w.this.cXV = null;
+            w.this.cZs = null;
             if (xVar != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_LIKE_FORUM, Long.valueOf(com.baidu.adp.lib.g.b.c(xVar.getFid(), 0L))));
                 TbadkCoreApplication.m411getInst().addLikeForum(w.this.mForumName);
             }
-            if (xVar == null && this.afh != null) {
-                w.this.mErrorCode = this.afh.ui();
-                w.this.mErrorString = this.afh.getErrorString();
+            if (xVar == null && this.afm != null) {
+                w.this.mErrorCode = this.afm.ul();
+                w.this.mErrorString = this.afm.getErrorString();
             }
             if (w.this.mLoadDataCallBack != null) {
                 w.this.mLoadDataCallBack.d(xVar);
@@ -136,11 +136,11 @@ public class w extends com.baidu.adp.base.e {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.afh != null) {
-                this.afh.gJ();
-                this.afh = null;
+            if (this.afm != null) {
+                this.afm.gJ();
+                this.afm = null;
             }
-            w.this.cXV = null;
+            w.this.cZs = null;
             super.cancel(true);
             w.this.mLoadDataCallBack.d(null);
         }

@@ -6,11 +6,11 @@ import com.baidu.tieba.account.ActivationActivity;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class k implements Runnable {
-    final /* synthetic */ ActivationActivity aFc;
+    final /* synthetic */ ActivationActivity aDW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(ActivationActivity activationActivity) {
-        this.aFc = activationActivity;
+        this.aDW = activationActivity;
     }
 
     @Override // java.lang.Runnable
@@ -23,28 +23,28 @@ class k implements Runnable {
         Runnable runnable;
         TextView textView2;
         ActivationActivity.a aVar;
-        ActivationActivity activationActivity = this.aFc;
-        i = activationActivity.EN;
-        activationActivity.EN = i - 1;
-        i2 = this.aFc.EN;
+        ActivationActivity activationActivity = this.aDW;
+        i = activationActivity.EO;
+        activationActivity.EO = i - 1;
+        i2 = this.aDW.EO;
         if (i2 <= 0) {
-            this.aFc.aET = true;
-            textView2 = this.aFc.aEN;
-            textView2.setText(this.aFc.getPageContext().getString(i.h.resend_code));
-            aVar = this.aFc.aES;
+            this.aDW.aDN = true;
+            textView2 = this.aDW.aDH;
+            textView2.setText(this.aDW.getPageContext().getString(i.h.resend_code));
+            aVar = this.aDW.aDM;
             if (aVar == null) {
-                this.aFc.aEQ.setEnabled(true);
+                this.aDW.aDK.setEnabled(true);
                 return;
             }
             return;
         }
-        String string = this.aFc.getPageContext().getString(i.h.resend_code_second);
-        i3 = this.aFc.EN;
+        String string = this.aDW.getPageContext().getString(i.h.resend_code_second);
+        i3 = this.aDW.EO;
         String format = String.format(string, Integer.valueOf(i3));
-        textView = this.aFc.aEN;
+        textView = this.aDW.aDH;
         textView.setText(format);
-        handler = this.aFc.mHandler;
-        runnable = this.aFc.mRunnable;
+        handler = this.aDW.mHandler;
+        runnable = this.aDW.mRunnable;
         handler.postDelayed(runnable, 1000L);
     }
 }

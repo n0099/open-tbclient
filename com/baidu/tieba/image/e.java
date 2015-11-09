@@ -4,11 +4,11 @@ import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements TbImageView.a {
-    final /* synthetic */ a bOO;
+    final /* synthetic */ a bPj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar) {
-        this.bOO = aVar;
+        this.bPj = aVar;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
@@ -16,17 +16,17 @@ public class e implements TbImageView.a {
         h hVar;
         h hVar2;
         if (z) {
-            hVar2 = this.bOO.bOK;
-            hVar2.ZR();
+            hVar2 = this.bPj.bPf;
+            hVar2.aam();
         }
-        hVar = this.bOO.bOK;
-        hVar.ZT();
+        hVar = this.bPj.bPf;
+        hVar.aao();
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView.a
     public void onCancel() {
         h hVar;
-        hVar = this.bOO.bOK;
-        hVar.ZT();
+        hVar = this.bPj.bPf;
+        hVar.aao();
     }
 }

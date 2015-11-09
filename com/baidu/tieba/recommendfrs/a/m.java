@@ -13,19 +13,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class m {
-    private boolean alN = true;
-    private CoverFlowView<com.baidu.tieba.recommendfrs.data.a> cJU;
-    private TextView cJV;
+    private boolean alS = true;
+    private CoverFlowView<com.baidu.tieba.recommendfrs.data.a> cLq;
+    private TextView cLr;
 
     public m(Context context) {
-        this.cJU = new CoverFlowView<>(context);
-        this.cJU.setDisableParentEvent(true);
-        this.cJU.setCoverFlowFactory(new n(this));
-        this.cJV = aN(context);
-        this.cJU.addView(this.cJV, 1, new FrameLayout.LayoutParams(-1, -2, 80));
+        this.cLq = new CoverFlowView<>(context);
+        this.cLq.setDisableParentEvent(true);
+        this.cLq.setCoverFlowFactory(new n(this));
+        this.cLr = aM(context);
+        this.cLq.addView(this.cLr, 1, new FrameLayout.LayoutParams(-1, -2, 80));
     }
 
-    private TextView aN(Context context) {
+    private TextView aM(Context context) {
         TextView textView = new TextView(context);
         textView.setLayoutParams(new ViewGroup.LayoutParams(-1, context.getResources().getDimensionPixelSize(i.d.ds76)));
         textView.setGravity(16);
@@ -38,31 +38,31 @@ public class m {
     }
 
     public void a(com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.recommendfrs.data.a> dVar) {
-        if (this.cJU != null) {
-            this.cJU.setCallback(dVar);
+        if (this.cLq != null) {
+            this.cLq.setCallback(dVar);
         }
     }
 
     public void setTitle(String str) {
-        if (this.cJV != null) {
-            this.cJV.setText(str);
+        if (this.cLr != null) {
+            this.cLr.setText(str);
         }
     }
 
-    public com.baidu.tieba.recommendfrs.data.a ks(int i) {
+    public com.baidu.tieba.recommendfrs.data.a kG(int i) {
         if (i < 0) {
             return null;
         }
-        return this.cJU.bW(i);
+        return this.cLq.bW(i);
     }
 
     public void setData(List<com.baidu.tieba.recommendfrs.data.a> list) {
         if (list != null && list.size() > 0) {
-            if (!this.alN) {
+            if (!this.alS) {
                 ArrayList arrayList = new ArrayList();
                 for (com.baidu.tieba.recommendfrs.data.a aVar : list) {
                     com.baidu.tieba.recommendfrs.data.a clone = aVar.clone();
-                    clone.la(null);
+                    clone.le(null);
                     arrayList.add(clone);
                 }
                 list = arrayList;
@@ -70,21 +70,21 @@ public class m {
             if (list.size() > 5) {
                 list = list.subList(0, 4);
             }
-            if (this.cJU != null) {
-                this.cJU.setData(list);
+            if (this.cLq != null) {
+                this.cLq.setData(list);
             }
         }
     }
 
     public View getView() {
-        return this.cJU;
+        return this.cLq;
     }
 
     public void e(TbPageContext<?> tbPageContext) {
-        an.i((View) this.cJV, i.e.recommend_frs_header_title_bg);
-        an.b(this.cJV, i.c.cp_cont_g, 1);
-        if (this.cJU != null) {
-            this.cJU.sZ();
+        an.i((View) this.cLr, i.e.recommend_frs_header_title_bg);
+        an.b(this.cLr, i.c.cp_cont_g, 1);
+        if (this.cLq != null) {
+            this.cLq.tc();
         }
     }
 }

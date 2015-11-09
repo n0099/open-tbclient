@@ -9,28 +9,28 @@ import tbclient.Hottopic.HotThread;
 import tbclient.ThreadInfo;
 /* loaded from: classes.dex */
 public class a extends w {
-    public List<w> aTA;
-    public String boQ;
-    public o boR;
+    public List<w> aTI;
+    public String bpu;
+    public o bpv;
 
     public void a(HotThread hotThread) {
         if (hotThread != null) {
-            this.boQ = hotThread.hot_title;
+            this.bpu = hotThread.hot_title;
             if (hotThread.thread_list != null) {
-                this.aTA = new ArrayList();
+                this.aTI = new ArrayList();
                 for (ThreadInfo threadInfo : hotThread.thread_list) {
                     if (threadInfo != null) {
                         w wVar = new w();
                         wVar.a(threadInfo);
-                        if (wVar.getType() == w.Vu && !d(wVar)) {
-                            this.aTA.add(wVar);
+                        if (wVar.getType() == w.Vx && !d(wVar)) {
+                            this.aTI.add(wVar);
                         }
                     }
                 }
             }
             if (hotThread.page != null) {
-                this.boR = new o();
-                this.boR.a(hotThread.page);
+                this.bpv = new o();
+                this.bpv.a(hotThread.page);
             }
         }
     }
@@ -38,20 +38,20 @@ public class a extends w {
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (dataRes.thread_list != null) {
-                this.aTA = new ArrayList();
+                this.aTI = new ArrayList();
                 for (ThreadInfo threadInfo : dataRes.thread_list) {
                     if (threadInfo != null) {
                         w wVar = new w();
                         wVar.a(threadInfo);
-                        if (wVar.getType() == w.Vu && !d(wVar)) {
-                            this.aTA.add(wVar);
+                        if (wVar.getType() == w.Vx && !d(wVar)) {
+                            this.aTI.add(wVar);
                         }
                     }
                 }
             }
             if (dataRes.page != null) {
-                this.boR = new o();
-                this.boR.a(dataRes.page);
+                this.bpv = new o();
+                this.bpv.a(dataRes.page);
             }
         }
     }

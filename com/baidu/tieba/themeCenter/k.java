@@ -11,22 +11,22 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements a.b {
-    private final /* synthetic */ TbPageContext RX;
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a deQ;
-    private final /* synthetic */ int deR;
+    private final /* synthetic */ TbPageContext RY;
+    private final /* synthetic */ com.baidu.tbadk.core.dialog.a dgw;
+    private final /* synthetic */ int dgx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(com.baidu.tbadk.core.dialog.a aVar, int i, TbPageContext tbPageContext) {
-        this.deQ = aVar;
-        this.deR = i;
-        this.RX = tbPageContext;
+        this.dgw = aVar;
+        this.dgx = i;
+        this.RY = tbPageContext;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.deQ.dismiss();
+        this.dgw.dismiss();
         int i = 0;
-        switch (this.deR) {
+        switch (this.dgx) {
             case 1:
                 i = 10;
                 TiebaStatic.log("c10271");
@@ -44,6 +44,6 @@ public class k implements a.b {
                 TiebaStatic.log("c10285");
                 break;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig(this.RX.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig(this.RY.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i)));
     }
 }

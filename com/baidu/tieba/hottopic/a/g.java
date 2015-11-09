@@ -8,45 +8,45 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g {
-    private List<com.baidu.adp.widget.ListView.a> aVC = new ArrayList();
-    private BdTypeListView aVg;
-    private h boh;
-    private i boi;
-    private l boj;
-    private a bok;
+    private List<com.baidu.adp.widget.ListView.a> aVK = new ArrayList();
+    private BdTypeListView aVo;
+    private h boL;
+    private i boM;
+    private l boN;
+    private a boO;
 
     public g(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
         a(hotTopicActivity, bdTypeListView);
     }
 
     private void a(HotTopicActivity hotTopicActivity, BdTypeListView bdTypeListView) {
-        this.boh = new h(hotTopicActivity, com.baidu.tieba.hottopic.data.c.boX);
-        this.boi = new i(hotTopicActivity, com.baidu.tieba.hottopic.data.e.bpb);
-        this.boj = new l(hotTopicActivity, com.baidu.tieba.hottopic.data.g.bpp);
-        this.bok = new a(hotTopicActivity, w.Vu);
-        this.aVC.add(this.boh);
-        this.aVC.add(this.boi);
-        this.aVC.add(this.boj);
-        this.aVC.add(this.bok);
-        this.aVg = bdTypeListView;
-        this.aVg.h(this.aVC);
+        this.boL = new h(hotTopicActivity, com.baidu.tieba.hottopic.data.c.bpB);
+        this.boM = new i(hotTopicActivity, com.baidu.tieba.hottopic.data.e.bpF);
+        this.boN = new l(hotTopicActivity, com.baidu.tieba.hottopic.data.g.bpT);
+        this.boO = new a(hotTopicActivity, w.Vx);
+        this.aVK.add(this.boL);
+        this.aVK.add(this.boM);
+        this.aVK.add(this.boN);
+        this.aVK.add(this.boO);
+        this.aVo = bdTypeListView;
+        this.aVo.h(this.aVK);
     }
 
     public void a(com.baidu.tieba.hottopic.data.b bVar) {
         ArrayList<u> arrayList;
-        if (bVar.QQ() != null) {
-            arrayList = bVar.QQ();
+        if (bVar.Rm() != null) {
+            arrayList = bVar.Rm();
         } else {
             arrayList = new ArrayList<>();
         }
-        if (this.aVg != null) {
-            this.aVg.setData(arrayList);
+        if (this.aVo != null) {
+            this.aVo.setData(arrayList);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.aVg.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            ((com.baidu.adp.widget.ListView.e) this.aVg.getAdapter()).notifyDataSetChanged();
+        if (this.aVo.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            ((com.baidu.adp.widget.ListView.e) this.aVo.getAdapter()).notifyDataSetChanged();
         }
     }
 }

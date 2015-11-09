@@ -27,32 +27,32 @@ import com.baidu.tieba.payment.data.PayVcodeInfoData;
 import com.baidu.tieba.payment.message.ResponsePayNewVcodeInfoMessage;
 /* loaded from: classes.dex */
 public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
-    private a cdE;
-    private b cdF;
-    private String cdG;
-    private String cdH;
-    private String cdI;
-    private String cdJ;
-    private String cdK;
-    private boolean cdL;
+    private a cef;
+    private b ceg;
+    private String ceh;
+    private String cei;
+    private String cej;
+    private String cek;
+    private String cel;
+    private boolean cem;
     private Handler mHandler;
     private String mUrl;
     private String mVcodeUrl;
-    private boolean bmw = false;
-    private HttpMessageListener cdM = new HttpMessageListener(CmdConfigHttp.CMD_PAY_NEW_VCODE) { // from class: com.baidu.tieba.payment.PayVcodeActivity.1
+    private boolean bna = false;
+    private HttpMessageListener cen = new HttpMessageListener(CmdConfigHttp.CMD_PAY_NEW_VCODE) { // from class: com.baidu.tieba.payment.PayVcodeActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            PayVcodeActivity.this.cdF.da(false);
+            PayVcodeActivity.this.ceg.dc(false);
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ResponsePayNewVcodeInfoMessage)) {
                 ResponsePayNewVcodeInfoMessage responsePayNewVcodeInfoMessage = (ResponsePayNewVcodeInfoMessage) httpResponsedMessage;
                 if (!responsePayNewVcodeInfoMessage.hasError()) {
                     PayVcodeInfoData payNewVcodeInfoData = responsePayNewVcodeInfoMessage.getPayNewVcodeInfoData();
                     if (responsePayNewVcodeInfoMessage.getError() == 0 && payNewVcodeInfoData != null) {
-                        PayVcodeActivity.this.cdG = payNewVcodeInfoData.getCaptcha_vcode_str();
+                        PayVcodeActivity.this.ceh = payNewVcodeInfoData.getCaptcha_vcode_str();
                         PayVcodeActivity.this.mVcodeUrl = payNewVcodeInfoData.getVcode_pic_url();
-                        PayVcodeActivity.this.cdH = payNewVcodeInfoData.getCaptcha_code_type();
-                        PayVcodeActivity.this.aec();
+                        PayVcodeActivity.this.cei = payNewVcodeInfoData.getCaptcha_code_type();
+                        PayVcodeActivity.this.aex();
                         return;
                     }
                     String errorString = responsePayNewVcodeInfoMessage.getErrorString();
@@ -76,29 +76,29 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         setActivityBgTransparent();
         initData(bundle);
         initUI();
-        AG();
+        AM();
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
-        if (z && !this.bmw) {
-            Qi();
+        if (z && !this.bna) {
+            QE();
         }
     }
 
     private void initData(Bundle bundle) {
         this.mUrl = UtilHelper.appendCuidParam(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/gridcaptcha?version=" + TbConfig.getVersion());
-        this.cdG = getIntent().getStringExtra(PayVcodeActivityConfig.VCODE_MD5);
+        this.ceh = getIntent().getStringExtra(PayVcodeActivityConfig.VCODE_MD5);
         this.mVcodeUrl = getIntent().getStringExtra(PayVcodeActivityConfig.VCODE_URL);
-        this.cdE = new a(getPageContext());
+        this.cef = new a(getPageContext());
         this.mHandler = new Handler() { // from class: com.baidu.tieba.payment.PayVcodeActivity.2
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 super.handleMessage(message);
                 switch (message.what) {
                     case 1:
-                        PayVcodeActivity.this.aee();
+                        PayVcodeActivity.this.aez();
                         return;
                     case 2:
                         PayVcodeActivity.this.showToast(i.h.payment_vcode_error);
@@ -113,28 +113,28 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         };
     }
 
-    private void AG() {
-        this.cdE.aeg();
-        registerListener(this.cdM);
+    private void AM() {
+        this.cef.aeB();
+        registerListener(this.cen);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aeb() {
-        this.cdF.da(true);
-        this.cdF.getWebView().loadUrl(this.mUrl);
+    public void aew() {
+        this.ceg.dc(true);
+        this.ceg.getWebView().loadUrl(this.mUrl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aec() {
-        if (!StringUtils.isNull(this.cdJ)) {
-            this.cdF.getWebView().loadUrl("javascript:" + this.cdJ + "()");
+    public void aex() {
+        if (!StringUtils.isNull(this.cek)) {
+            this.ceg.getWebView().loadUrl("javascript:" + this.cek + "()");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aed() {
-        if (!StringUtils.isNull(this.cdK) && this.cdL) {
-            this.cdF.getWebView().loadUrl("javascript:" + this.cdK + "()");
+    public void aey() {
+        if (!StringUtils.isNull(this.cel) && this.cem) {
+            this.ceg.getWebView().loadUrl("javascript:" + this.cel + "()");
         }
     }
 
@@ -151,60 +151,60 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.cdF.onChangeSkinType(i);
+        this.ceg.onChangeSkinType(i);
     }
 
     private void initUI() {
-        this.cdF = new b(this);
-        this.cdF.aeh().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.3
+        this.ceg = new b(this);
+        this.ceg.aeC().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PayVcodeActivity.this.aed();
+                PayVcodeActivity.this.aey();
             }
         });
-        this.cdF.aei().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.4
+        this.ceg.aeD().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!PayVcodeActivity.this.cdL) {
-                    PayVcodeActivity.this.cdF.da(true);
-                    PayVcodeActivity.this.cdF.getWebView().stopLoading();
-                    PayVcodeActivity.this.cdF.getWebView().loadUrl(PayVcodeActivity.this.mUrl);
+                if (!PayVcodeActivity.this.cem) {
+                    PayVcodeActivity.this.ceg.dc(true);
+                    PayVcodeActivity.this.ceg.getWebView().stopLoading();
+                    PayVcodeActivity.this.ceg.getWebView().loadUrl(PayVcodeActivity.this.mUrl);
                 }
             }
         });
-        this.cdF.getWebView().addJavascriptInterface(new VcodeJsInterface(this, null), "VcodeJsInterface");
-        this.cdF.getWebView().setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.payment.PayVcodeActivity.5
+        this.ceg.getWebView().addJavascriptInterface(new VcodeJsInterface(this, null), "VcodeJsInterface");
+        this.ceg.getWebView().setWebViewClient(new WebViewClient() { // from class: com.baidu.tieba.payment.PayVcodeActivity.5
             @Override // android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
                 super.onPageFinished(webView, str);
-                PayVcodeActivity.this.cdF.da(false);
-                PayVcodeActivity.this.cdF.eg(PayVcodeActivity.this.cdL ? false : true);
+                PayVcodeActivity.this.ceg.dc(false);
+                PayVcodeActivity.this.ceg.ei(PayVcodeActivity.this.cem ? false : true);
             }
         });
-        this.cdF.aej().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
+        this.ceg.aeE().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PayVcodeActivity.this.ef(false);
+                PayVcodeActivity.this.eh(false);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aee() {
-        this.cdF.da(true);
-        this.cdE.aef();
+    public void aez() {
+        this.ceg.dc(true);
+        this.cef.aeA();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void doNext() {
-        ef(true);
+        eh(true);
     }
 
-    public void Qi() {
-        this.cdF.aej().setBackgroundColor(an.getColor(i.c.album_list_window_bg));
+    public void QE() {
+        this.ceg.aeE().setBackgroundColor(an.getColor(i.c.album_list_window_bg));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
         alphaAnimation.setDuration(300L);
-        this.cdF.aej().startAnimation(alphaAnimation);
+        this.ceg.aeE().startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), i.a.bottom_fold_up);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
@@ -219,19 +219,19 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                PayVcodeActivity.this.aeb();
+                PayVcodeActivity.this.aew();
             }
         });
-        this.cdF.aek().startAnimation(loadAnimation);
-        this.bmw = true;
+        this.ceg.aeF().startAnimation(loadAnimation);
+        this.bna = true;
     }
 
-    public void ef(final boolean z) {
-        this.cdF.aej().setBackgroundColor(an.getColor(i.c.album_list_window_bg));
+    public void eh(final boolean z) {
+        this.ceg.aeE().setBackgroundColor(an.getColor(i.c.album_list_window_bg));
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
         alphaAnimation.setDuration(300L);
         alphaAnimation.setFillAfter(true);
-        this.cdF.aej().startAnimation(alphaAnimation);
+        this.ceg.aeE().startAnimation(alphaAnimation);
         Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), i.a.bottom_fold_down);
         loadAnimation.setDuration(300L);
         loadAnimation.setFillAfter(true);
@@ -246,22 +246,22 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (z && !StringUtils.isNull(PayVcodeActivity.this.cdI)) {
+                if (z && !StringUtils.isNull(PayVcodeActivity.this.cej)) {
                     Intent intent = new Intent();
-                    intent.putExtra(PayVcodeActivityConfig.VCODE_RESULT, PayVcodeActivity.this.cdI);
-                    intent.putExtra(PayVcodeActivityConfig.VCODE_MD5, PayVcodeActivity.this.cdG);
+                    intent.putExtra(PayVcodeActivityConfig.VCODE_RESULT, PayVcodeActivity.this.cej);
+                    intent.putExtra(PayVcodeActivityConfig.VCODE_MD5, PayVcodeActivity.this.ceh);
                     PayVcodeActivity.this.setResult(-1, intent);
                 }
                 PayVcodeActivity.this.closeActivity();
             }
         });
-        this.cdF.aek().startAnimation(loadAnimation);
+        this.ceg.aeF().startAnimation(loadAnimation);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            ef(false);
+            eh(false);
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -283,8 +283,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
 
         @JavascriptInterface
         public void jsSetLoadVcodeFinished(boolean z, String str) {
-            PayVcodeActivity.this.cdL = z;
-            PayVcodeActivity.this.cdK = str;
+            PayVcodeActivity.this.cem = z;
+            PayVcodeActivity.this.cel = str;
         }
 
         @JavascriptInterface
@@ -293,8 +293,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                 PayVcodeActivity.this.mHandler.removeMessages(2);
                 PayVcodeActivity.this.mHandler.sendMessage(PayVcodeActivity.this.mHandler.obtainMessage(2));
             } else if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                PayVcodeActivity.this.cdI = str;
-                PayVcodeActivity.this.cdJ = str2;
+                PayVcodeActivity.this.cej = str;
+                PayVcodeActivity.this.cek = str2;
                 PayVcodeActivity.this.mHandler.removeMessages(3);
                 PayVcodeActivity.this.mHandler.sendMessage(PayVcodeActivity.this.mHandler.obtainMessage(3));
             }
@@ -308,7 +308,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         @JavascriptInterface
         public void jsChangeVcode(String str) {
             if (!StringUtils.isNull(str)) {
-                PayVcodeActivity.this.cdJ = str;
+                PayVcodeActivity.this.cek = str;
                 PayVcodeActivity.this.mHandler.removeMessages(1);
                 PayVcodeActivity.this.mHandler.sendMessage(PayVcodeActivity.this.mHandler.obtainMessage(1));
             }

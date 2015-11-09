@@ -12,58 +12,58 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class EditHeadsImageView extends com.baidu.tbadk.widget.a {
-    private Paint coH;
-    private Paint coI;
-    private int coJ;
-    private int coK;
-    private float coL;
-    private int coM;
-    private float coN;
+    private Paint cqd;
+    private Paint cqe;
+    private int cqf;
+    private int cqg;
+    private float cqh;
+    private int cqi;
+    private float cqj;
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.coH = null;
-        this.coI = null;
-        this.coJ = 0;
-        this.coK = 0;
-        this.coL = 0.42857143f;
-        this.coM = 0;
-        this.coN = 1.0f;
+        this.cqd = null;
+        this.cqe = null;
+        this.cqf = 0;
+        this.cqg = 0;
+        this.cqh = 0.42857143f;
+        this.cqi = 0;
+        this.cqj = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.coH = null;
-        this.coI = null;
-        this.coJ = 0;
-        this.coK = 0;
-        this.coL = 0.42857143f;
-        this.coM = 0;
-        this.coN = 1.0f;
+        this.cqd = null;
+        this.cqe = null;
+        this.cqf = 0;
+        this.cqg = 0;
+        this.cqh = 0.42857143f;
+        this.cqi = 0;
+        this.cqj = 1.0f;
         init();
     }
 
     public EditHeadsImageView(Context context) {
         super(context);
-        this.coH = null;
-        this.coI = null;
-        this.coJ = 0;
-        this.coK = 0;
-        this.coL = 0.42857143f;
-        this.coM = 0;
-        this.coN = 1.0f;
+        this.cqd = null;
+        this.cqe = null;
+        this.cqf = 0;
+        this.cqg = 0;
+        this.cqh = 0.42857143f;
+        this.cqi = 0;
+        this.cqj = 1.0f;
         init();
     }
 
     private void init() {
-        this.coH = new Paint();
-        this.coH.setColor(ViewCompat.MEASURED_STATE_MASK);
-        this.coH.setAlpha(153);
-        this.coI = new Paint();
-        this.coI.setStyle(Paint.Style.STROKE);
-        this.coI.setColor(-1);
-        this.coM = getResources().getColor(i.c.editimage_bg);
+        this.cqd = new Paint();
+        this.cqd.setColor(ViewCompat.MEASURED_STATE_MASK);
+        this.cqd.setAlpha(153);
+        this.cqe = new Paint();
+        this.cqe.setStyle(Paint.Style.STROKE);
+        this.cqe.setColor(-1);
+        this.cqi = getResources().getColor(i.c.editimage_bg);
         setDrawingCacheEnabled(true);
         setImageMode(1);
         CompatibleUtile.getInstance().noneViewGpu(this);
@@ -78,32 +78,32 @@ public class EditHeadsImageView extends com.baidu.tbadk.widget.a {
     @Override // com.baidu.tbadk.widget.a, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.coN * getWidth();
+        float width = this.cqj * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.coJ = (int) (((i4 - i2) - width) * this.coL);
-        this.coK = (int) (((i4 - i2) - width) * (1.0f - this.coL));
-        setOffset(0, this.coJ, 0, this.coK);
+        this.cqf = (int) (((i4 - i2) - width) * this.cqh);
+        this.cqg = (int) (((i4 - i2) - width) * (1.0f - this.cqh));
+        setOffset(0, this.cqf, 0, this.cqg);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.a, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        canvas.drawColor(this.coM);
+        canvas.drawColor(this.cqi);
         super.onDraw(canvas);
         canvas.restore();
-        canvas.drawRect(0.0f, 0.0f, getWidth(), this.coJ, this.coH);
-        canvas.drawRect(0.0f, getHeight() - this.coK, getWidth(), getHeight(), this.coH);
-        canvas.drawRect(0.0f, this.coJ, getWidth() - 1, getHeight() - this.coK, this.coI);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), this.cqf, this.cqd);
+        canvas.drawRect(0.0f, getHeight() - this.cqg, getWidth(), getHeight(), this.cqd);
+        canvas.drawRect(0.0f, this.cqf, getWidth() - 1, getHeight() - this.cqg, this.cqe);
     }
 
-    public Bitmap eU(boolean z) {
+    public Bitmap eX(boolean z) {
         Bitmap bitmap = null;
         try {
             Bitmap visableBitmap = getVisableBitmap();
             if (visableBitmap != null) {
-                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.coJ, getWidth(), (getHeight() - this.coK) - this.coJ);
+                Bitmap createBitmap = Bitmap.createBitmap(visableBitmap, 0, this.cqf, getWidth(), (getHeight() - this.cqg) - this.cqf);
                 bitmap = z ? Bitmap.createScaledBitmap(createBitmap, TbConfig.HEAD_IMG_SIZE, TbConfig.HEAD_IMG_SIZE, false) : createBitmap;
                 if (bitmap != createBitmap) {
                     createBitmap.recycle();
@@ -116,7 +116,7 @@ public class EditHeadsImageView extends com.baidu.tbadk.widget.a {
     }
 
     public void setCutImageHeightScale(float f) {
-        this.coN = f;
+        this.cqj = f;
         invalidate();
     }
 }

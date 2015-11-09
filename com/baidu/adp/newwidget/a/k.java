@@ -26,10 +26,10 @@ public class k extends a {
         this.BS.reset();
         this.BS.postScale((i3 - i) / width, (i4 - i2) / height);
         this.BS.postTranslate(i, i2);
-        if (dVar.kh()) {
+        if (dVar.ki()) {
             this.BT = new BitmapShader(dVar.Bv.getBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         } else {
-            this.BT = dVar.Bw.ng();
+            this.BT = dVar.Bw.nh();
         }
         if (this.BT != null) {
             this.BT.setLocalMatrix(this.BS);
@@ -49,8 +49,8 @@ public class k extends a {
 
     @Override // com.baidu.adp.newwidget.a.a
     public void b(Canvas canvas, d dVar, ImageView imageView) {
-        boolean ki = dVar.ki();
-        if (ki) {
+        boolean kj = dVar.kj();
+        if (kj) {
             dVar.Bw.Q(true);
         }
         if (!this.Bb.Bx) {
@@ -58,7 +58,7 @@ public class k extends a {
         } else {
             canvas.drawCircle((this.BU.right + this.BU.left) / 2.0f, (this.BU.top + this.BU.bottom) / 2.0f, Math.min(this.BU.width(), this.BU.height()) / 2.0f, this.mPaint);
         }
-        if (ki) {
+        if (kj) {
             dVar.Bw.Q(false);
         }
     }

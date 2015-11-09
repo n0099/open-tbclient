@@ -6,11 +6,11 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class y implements View.OnClickListener {
-    final /* synthetic */ v cNR;
+    final /* synthetic */ v cPn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public y(v vVar) {
-        this.cNR = vVar;
+        this.cPn = vVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -39,76 +39,76 @@ public class y implements View.OnClickListener {
         r rVar10;
         r rVar11;
         r rVar12;
-        view2 = this.cNR.cNQ;
+        view2 = this.cPn.cPm;
         if (view == view2) {
-            rVar12 = this.cNR.cNA;
-            rVar12.kz(0);
+            rVar12 = this.cPn.cOW;
+            rVar12.kN(0);
             return;
         }
-        settingTextImageView = this.cNR.cNE;
+        settingTextImageView = this.cPn.cPa;
         if (view == settingTextImageView) {
-            rVar11 = this.cNR.cNA;
-            rVar11.kz(1);
+            rVar11 = this.cPn.cOW;
+            rVar11.kN(1);
             return;
         }
-        tbSettingTextTipView = this.cNR.cNF;
+        tbSettingTextTipView = this.cPn.cPb;
         if (view == tbSettingTextTipView) {
-            rVar10 = this.cNR.cNA;
-            rVar10.kz(2);
+            rVar10 = this.cPn.cOW;
+            rVar10.kN(2);
             return;
         }
-        tbSettingTextTipView2 = this.cNR.cNG;
+        tbSettingTextTipView2 = this.cPn.cPc;
         if (view == tbSettingTextTipView2) {
-            rVar9 = this.cNR.cNA;
-            rVar9.kz(3);
+            rVar9 = this.cPn.cOW;
+            rVar9.kN(3);
             return;
         }
-        tbSettingTextTipView3 = this.cNR.cNH;
+        tbSettingTextTipView3 = this.cPn.cPd;
         if (view == tbSettingTextTipView3) {
-            rVar8 = this.cNR.cNA;
-            rVar8.kz(4);
+            rVar8 = this.cPn.cOW;
+            rVar8.kN(4);
             return;
         }
-        tbSettingTextTipView4 = this.cNR.cNI;
+        tbSettingTextTipView4 = this.cPn.cPe;
         if (view == tbSettingTextTipView4) {
-            rVar7 = this.cNR.cNA;
-            rVar7.kz(9);
+            rVar7 = this.cPn.cOW;
+            rVar7.kN(9);
             return;
         }
-        settingTextVersionView = this.cNR.cNJ;
+        settingTextVersionView = this.cPn.cPf;
         if (view == settingTextVersionView) {
-            rVar6 = this.cNR.cNA;
-            rVar6.kz(6);
+            rVar6 = this.cPn.cOW;
+            rVar6.kN(6);
             return;
         }
-        tbSettingTextTipView5 = this.cNR.cNK;
+        tbSettingTextTipView5 = this.cPn.cPg;
         if (view == tbSettingTextTipView5) {
-            rVar5 = this.cNR.cNA;
-            rVar5.kz(7);
+            rVar5 = this.cPn.cOW;
+            rVar5.kN(7);
             return;
         }
-        tbSettingTextTipView6 = this.cNR.cNL;
+        tbSettingTextTipView6 = this.cPn.cPh;
         if (view == tbSettingTextTipView6) {
-            rVar4 = this.cNR.cNA;
-            rVar4.kz(8);
+            rVar4 = this.cPn.cOW;
+            rVar4.kN(8);
             return;
         }
-        tbSettingTextNewDotView = this.cNR.cNN;
+        tbSettingTextNewDotView = this.cPn.cPj;
         if (view == tbSettingTextNewDotView) {
-            rVar3 = this.cNR.cNA;
-            rVar3.kz(5);
+            rVar3 = this.cPn.cOW;
+            rVar3.kN(5);
             return;
         }
-        textView = this.cNR.cNO;
+        textView = this.cPn.cPk;
         if (view == textView) {
-            rVar2 = this.cNR.cNA;
-            rVar2.kz(10);
+            rVar2 = this.cPn.cOW;
+            rVar2.kN(10);
             return;
         }
-        tbSettingTextTipView7 = this.cNR.cND;
+        tbSettingTextTipView7 = this.cPn.cOZ;
         if (view == tbSettingTextTipView7) {
-            rVar = this.cNR.cNA;
-            rVar.kz(13);
+            rVar = this.cPn.cOW;
+            rVar.kN(13);
         }
     }
 }

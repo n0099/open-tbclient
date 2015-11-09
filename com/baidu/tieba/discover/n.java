@@ -10,7 +10,7 @@ public class n implements CustomMessageTask.CustomRunnable<Void> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<Void> customMessage) {
         if (customMessage != null) {
-            a.aKn = true;
+            a.aJh = true;
             return new CustomResponsedMessage<>(CmdConfigCustom.DISCOVER_FRIEND_FEED_NEW);
         }
         return null;

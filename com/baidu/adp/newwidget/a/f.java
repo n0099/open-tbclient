@@ -6,7 +6,7 @@ public class f {
     private f() {
     }
 
-    public static f kj() {
+    public static f kk() {
         return BI;
     }
 

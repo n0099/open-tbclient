@@ -34,7 +34,7 @@ public class e {
 
     public void crash(String str) {
         Iterator<d> it = this.tL.values().iterator();
-        while (it.hasNext() && !it.next().ag(str)) {
+        while (it.hasNext() && !it.next().ae(str)) {
         }
     }
 
@@ -46,7 +46,7 @@ public class e {
         return false;
     }
 
-    public int ah(String str) {
+    public int af(String str) {
         d dVar = this.tL.get(str);
         if (dVar != null) {
             return dVar.getType();

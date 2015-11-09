@@ -1,51 +1,55 @@
 package com.baidu.tbadk.coreExtra.b;
 
-import com.baidu.adp.lib.util.o;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.Disk.ops.d;
+import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class a {
-    private static a afR;
-    private boolean afQ;
+    private static volatile a afW = null;
+    private boolean afV;
+    private int afX;
 
     private a() {
-        this.afQ = false;
+        this.afV = false;
+        this.afX = 0;
         try {
-            InputStream open = TbadkCoreApplication.m411getInst().getApp().getAssets().open("apk_ab_test.txt");
-            if (!as.isEmpty(new BufferedReader(new InputStreamReader(open)).readLine())) {
-                this.afQ = true;
+            d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
+            dVar.q(true);
+            dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
+            if (dVar.fk()) {
+                String content = dVar.getContent();
+                if (content != null) {
+                    this.afX = Integer.parseInt(content);
+                }
+                if (this.afX == 1 || this.afX == 2) {
+                    this.afV = true;
+                }
             }
-            o.d(open);
         } catch (Throwable th) {
-            try {
-                this.afQ = false;
-                o.d(null);
-            } catch (Throwable th2) {
-                o.d(null);
-                throw th2;
-            }
+            BdLog.e(th.getMessage());
         }
     }
 
-    public static synchronized a vY() {
-        a aVar;
-        synchronized (a.class) {
-            if (afR == null) {
-                afR = new a();
+    public static a wc() {
+        if (afW == null) {
+            synchronized (a.class) {
+                if (afW == null) {
+                    afW = new a();
+                }
             }
-            aVar = afR;
         }
-        return aVar;
+        return afW;
     }
 
-    public boolean vZ() {
-        return this.afQ;
+    public boolean wd() {
+        return this.afV;
     }
 
-    public String wa() {
-        return this.afQ ? "pub_env=3;" : "";
+    public int we() {
+        return this.afX;
+    }
+
+    public String wf() {
+        return this.afV ? "pub_env=" + this.afX + ";" : "";
     }
 }

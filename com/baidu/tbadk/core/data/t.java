@@ -7,52 +7,52 @@ import tbclient.LabelInfo;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes.dex */
 public class t extends w {
-    public static final BdUniqueId Vq = BdUniqueId.gen();
-    private PhotoLiveCardData Vr;
+    public static final BdUniqueId Vs = BdUniqueId.gen();
+    private PhotoLiveCardData Vt;
 
     public PhotoLiveCardData a(w wVar, int i) {
-        if (this.Vr == null) {
+        if (this.Vt == null) {
             if (wVar == null) {
                 return null;
             }
-            this.Vr = new PhotoLiveCardData();
+            this.Vt = new PhotoLiveCardData();
             MetaData author = wVar.getAuthor();
             if (author != null) {
-                this.Vr.setAuthorName(author.getUserName());
-                this.Vr.setAuthorPortrait(author.getPortrait());
-                this.Vr.setFansNum(author.getFansNum());
-                this.Vr.setNickName(author.getFansNickName());
-                this.Vr.setAuthorId(author.getUserId());
+                this.Vt.setAuthorName(author.getUserName());
+                this.Vt.setAuthorPortrait(author.getPortrait());
+                this.Vt.setFansNum(author.getFansNum());
+                this.Vt.setNickName(author.getFansNickName());
+                this.Vt.setAuthorId(author.getUserId());
             }
             PraiseData praise = wVar.getPraise();
             if (praise != null) {
-                this.Vr.setPraiseNum((int) praise.getNum());
+                this.Vt.setPraiseNum((int) praise.getNum());
             }
-            this.Vr.setDiscussNum(wVar.getReply_num());
-            this.Vr.setPostNum(wVar.getPost_num());
-            this.Vr.setTitle(wVar.getTitle());
-            this.Vr.setLastModifiedTime(wVar.getLast_time_int());
-            this.Vr.setPhotoLiveCover(wVar.getPhotoLiveCover());
-            this.Vr.setContent(wVar.sj());
-            this.Vr.setThreadId(com.baidu.adp.lib.g.b.c(wVar.getTid(), 0L));
-            this.Vr.setHeadlive(wVar.isHeadLive());
-            this.Vr.setExpressionDatas(wVar.sr());
-            if (this.Vr.getShowStyle() < 0) {
-                this.Vr.setShowStyle(this.Vr.getRandom(3, i));
+            this.Vt.setDiscussNum(wVar.getReply_num());
+            this.Vt.setPostNum(wVar.getPost_num());
+            this.Vt.setTitle(wVar.getTitle());
+            this.Vt.setLastModifiedTime(wVar.getLast_time_int());
+            this.Vt.setPhotoLiveCover(wVar.getPhotoLiveCover());
+            this.Vt.setContent(wVar.sm());
+            this.Vt.setThreadId(com.baidu.adp.lib.g.b.c(wVar.getTid(), 0L));
+            this.Vt.setHeadlive(wVar.isHeadLive());
+            this.Vt.setExpressionDatas(wVar.su());
+            if (this.Vt.getShowStyle() < 0) {
+                this.Vt.setShowStyle(this.Vt.getRandom(3, i));
             }
-            this.Vr.setShowExpressionViewIndexList(this.Vr.getExpressionDatas());
+            this.Vt.setShowExpressionViewIndexList(this.Vt.getExpressionDatas());
         }
-        cn(wVar.getTid());
+        cm(wVar.getTid());
         setId(wVar.getId());
-        bC(wVar.sn());
-        co(wVar.sg());
-        return this.Vr;
+        bC(wVar.sq());
+        cn(wVar.sj());
+        return this.Vt;
     }
 
     public void a(ZhiBoInfoTW zhiBoInfoTW, int i) {
         if (zhiBoInfoTW != null) {
-            this.Vr = new PhotoLiveCardData();
-            PhotoLiveCardData photoLiveCardData = this.Vr;
+            this.Vt = new PhotoLiveCardData();
+            PhotoLiveCardData photoLiveCardData = this.Vt;
             if (zhiBoInfoTW.user != null) {
                 photoLiveCardData.setAuthorId(String.valueOf(zhiBoInfoTW.user.id));
                 photoLiveCardData.setAuthorName(zhiBoInfoTW.user.name);
@@ -73,10 +73,10 @@ public class t extends w {
             photoLiveCardData.setHeadlive(zhiBoInfoTW.is_headline.intValue() == 1);
             photoLiveCardData.setShowStyle(photoLiveCardData.getRandom(3, i));
             photoLiveCardData.setShowExpressionViewIndexList(photoLiveCardData.getExpressionDatas());
-            cn(String.valueOf(zhiBoInfoTW.thread_id));
+            cm(String.valueOf(zhiBoInfoTW.thread_id));
             setId(String.valueOf(zhiBoInfoTW.thread_id));
             bC(33);
-            co(zhiBoInfoTW.forum_name);
+            cn(zhiBoInfoTW.forum_name);
         }
     }
 
@@ -99,12 +99,12 @@ public class t extends w {
         return arrayList;
     }
 
-    public PhotoLiveCardData rZ() {
-        return this.Vr;
+    public PhotoLiveCardData sb() {
+        return this.Vt;
     }
 
     @Override // com.baidu.tbadk.core.data.w, com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return Vq;
+        return Vs;
     }
 }

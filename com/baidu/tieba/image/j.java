@@ -15,25 +15,25 @@ import java.util.HashMap;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class j {
-    private String aTM;
-    HashMap<String, ImageUrlData> ajT;
-    private ArrayList<String> bOQ;
-    private String bOS;
-    private String bOT;
-    private boolean bOZ;
+    private String aTU;
+    HashMap<String, ImageUrlData> ajY;
+    private ArrayList<String> bPl;
+    private String bPn;
+    private String bPo;
+    private boolean bPu;
     private String mForumId;
     private String mFrom;
     private String mUserId;
-    private String bOR = null;
-    private String ajZ = null;
-    private boolean bOU = false;
-    private boolean bOV = true;
-    private a bOW = null;
-    private int bOX = 0;
-    private boolean bOY = false;
-    private b bPa = null;
-    private HashMap<String, String> bPb = new HashMap<>();
-    private com.baidu.tbadk.core.data.b bPc = null;
+    private String bPm = null;
+    private String ake = null;
+    private boolean bPp = false;
+    private boolean bPq = true;
+    private a bPr = null;
+    private int bPs = 0;
+    private boolean bPt = false;
+    private b bPv = null;
+    private HashMap<String, String> bPw = new HashMap<>();
+    private com.baidu.tbadk.core.data.b bPx = null;
 
     /* loaded from: classes.dex */
     public interface b {
@@ -43,94 +43,94 @@ public class j {
     }
 
     public j(ArrayList<String> arrayList, HashMap<String, ImageUrlData> hashMap, String str, String str2, String str3, String str4, String str5, String str6) {
-        this.bOQ = null;
-        this.bOS = null;
+        this.bPl = null;
+        this.bPn = null;
         this.mForumId = null;
-        this.aTM = null;
-        this.bOT = null;
-        this.bOZ = false;
+        this.aTU = null;
+        this.bPo = null;
+        this.bPu = false;
         this.mUserId = null;
-        this.bOQ = arrayList;
-        this.ajT = hashMap;
-        if (this.bOQ == null) {
-            this.bOQ = new ArrayList<>();
+        this.bPl = arrayList;
+        this.ajY = hashMap;
+        if (this.bPl == null) {
+            this.bPl = new ArrayList<>();
         }
-        int size = this.bOQ.size();
+        int size = this.bPl.size();
         for (int i = 0; i < size; i++) {
-            String str7 = this.bOQ.get(i);
-            this.bPb.put(iQ(str7), str7);
+            String str7 = this.bPl.get(i);
+            this.bPw.put(iS(str7), str7);
         }
-        this.bOS = str3;
-        this.aTM = str2;
+        this.bPn = str3;
+        this.aTU = str2;
         this.mForumId = str;
-        this.bOT = str4;
-        if (this.bOT == null) {
-            this.bOZ = true;
+        this.bPo = str4;
+        if (this.bPo == null) {
+            this.bPu = true;
         }
         this.mUserId = str5;
         this.mFrom = str6;
     }
 
-    public void dE(boolean z) {
-        this.bOV = z;
+    public void dG(boolean z) {
+        this.bPq = z;
     }
 
-    public void ZZ() {
-        if (!this.bOU && !this.bOZ) {
-            c(this.bOS, this.bOT, 10, 0);
+    public void aau() {
+        if (!this.bPp && !this.bPu) {
+            c(this.bPn, this.bPo, 10, 0);
         }
     }
 
-    public void aaa() {
-        if (!this.bOZ) {
-            if (!this.bOU) {
-                ZZ();
-            } else if (this.bOR != null && this.bOR.length() > 0) {
-                this.bOV = true;
-                c(this.bOR, null, 0, 10);
+    public void aav() {
+        if (!this.bPu) {
+            if (!this.bPp) {
+                aau();
+            } else if (this.bPm != null && this.bPm.length() > 0) {
+                this.bPq = true;
+                c(this.bPm, null, 0, 10);
             }
         }
     }
 
     private void c(String str, String str2, int i, int i2) {
-        if (this.bOW != null) {
-            if (str2 == null || !str2.equals(this.bOW.getPicId())) {
-                this.bOW.cancel();
+        if (this.bPr != null) {
+            if (str2 == null || !str2.equals(this.bPr.getPicId())) {
+                this.bPr.cancel();
             } else {
                 return;
             }
         }
-        this.bOW = new a(str, str2, i, i2);
-        this.bOW.setPriority(3);
-        this.bOW.execute(new Object[0]);
+        this.bPr = new a(str, str2, i, i2);
+        this.bPr.setPriority(3);
+        this.bPr.execute(new Object[0]);
     }
 
     public void a(b bVar) {
-        this.bPa = bVar;
+        this.bPv = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, m> {
-        private com.baidu.tbadk.core.util.w Ti = null;
-        private String bOS;
-        private String bPd;
-        private int bPe;
-        private int bPf;
+        private com.baidu.tbadk.core.util.w Tj = null;
+        private int bPA;
+        private String bPn;
+        private String bPy;
+        private int bPz;
 
         public a(String str, String str2, int i, int i2) {
-            this.bOS = null;
-            this.bPd = null;
-            this.bPe = 0;
-            this.bPf = 0;
-            this.bPd = str2;
-            this.bOS = str;
-            this.bPe = i;
-            this.bPf = i2;
+            this.bPn = null;
+            this.bPy = null;
+            this.bPz = 0;
+            this.bPA = 0;
+            this.bPy = str2;
+            this.bPn = str;
+            this.bPz = i;
+            this.bPA = i2;
         }
 
         public String getPicId() {
-            return this.bPd;
+            return this.bPy;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -138,53 +138,53 @@ public class j {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: u */
         public m doInBackground(Object... objArr) {
-            this.Ti = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IMAGE_PB_ADDRESS);
-            this.Ti.o("kw", j.this.aTM);
-            this.Ti.o("tid", this.bOS);
-            if (this.bPd != null) {
-                this.Ti.o("pic_id", this.bPd);
+            this.Tj = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.IMAGE_PB_ADDRESS);
+            this.Tj.o("kw", j.this.aTU);
+            this.Tj.o("tid", this.bPn);
+            if (this.bPy != null) {
+                this.Tj.o("pic_id", this.bPy);
             }
-            this.Ti.o("next", String.valueOf(this.bPe));
-            this.Ti.o("prev", String.valueOf(this.bPf));
-            if (!j.this.bOY) {
-                this.Ti.o("not_see_lz", String.valueOf(1));
+            this.Tj.o("next", String.valueOf(this.bPz));
+            this.Tj.o("prev", String.valueOf(this.bPA));
+            if (!j.this.bPt) {
+                this.Tj.o("not_see_lz", String.valueOf(1));
             }
-            BdLog.d("mIsReserver=" + j.this.bOV);
-            if (!j.this.bOV) {
-                this.Ti.o("r", String.valueOf(1));
+            BdLog.d("mIsReserver=" + j.this.bPq);
+            if (!j.this.bPq) {
+                this.Tj.o("r", String.valueOf(1));
             }
             if (!StringUtils.isNull(j.this.mFrom, true)) {
-                this.Ti.o("obj_type", j.this.mFrom);
+                this.Tj.o("obj_type", j.this.mFrom);
             }
-            aab();
-            this.Ti.ue().uV().abO = false;
-            String tD = this.Ti.tD();
-            if (!this.Ti.ue().uW().qS()) {
+            aaw();
+            this.Tj.uh().uZ().abT = false;
+            String tG = this.Tj.tG();
+            if (!this.Tj.uh().va().qT()) {
                 return null;
             }
             m mVar = new m();
-            mVar.y(tD, true);
+            mVar.y(tG, true);
             return mVar;
         }
 
-        private void aab() {
-            this.Ti.o("forum_id", j.this.mForumId);
-            this.Ti.o("user_id", j.this.mUserId == null ? "0" : j.this.mUserId);
-            this.Ti.o("scr_w", String.valueOf(com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp())));
-            this.Ti.o("scr_h", String.valueOf(com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp())));
-            this.Ti.o("q_type", String.valueOf(at.uG().uI() ? 2 : 1));
-            this.Ti.o("_os_version", Build.VERSION.RELEASE);
-            this.Ti.o("net_type", com.baidu.tbadk.core.util.a.i.getNetType());
-            this.Ti.o("page_name", "PB");
-            this.Ti.o("pic_index", String.valueOf(j.this.bOQ.size()));
+        private void aaw() {
+            this.Tj.o("forum_id", j.this.mForumId);
+            this.Tj.o("user_id", j.this.mUserId == null ? "0" : j.this.mUserId);
+            this.Tj.o("scr_w", String.valueOf(com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst().getApp())));
+            this.Tj.o("scr_h", String.valueOf(com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst().getApp())));
+            this.Tj.o("q_type", String.valueOf(at.uK().uM() ? 2 : 1));
+            this.Tj.o("_os_version", Build.VERSION.RELEASE);
+            this.Tj.o("net_type", com.baidu.tbadk.core.util.a.i.getNetType());
+            this.Tj.o("page_name", "PB");
+            this.Tj.o("pic_index", String.valueOf(j.this.bPl.size()));
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            if (this.Ti != null) {
-                this.Ti.gJ();
+            if (this.Tj != null) {
+                this.Tj.gJ();
             }
-            j.this.bOW = null;
+            j.this.bPr = null;
             super.cancel(true);
         }
 
@@ -198,71 +198,71 @@ public class j {
             int i2;
             String str;
             super.onPostExecute(mVar);
-            j.this.bOW = null;
+            j.this.bPr = null;
             if (mVar != null) {
-                j.this.bOX = mVar.getImageNum();
-                j.this.bPc = mVar.aad();
-                if (this.bPd == null) {
-                    j.this.bOQ.clear();
-                    j.this.bPb.clear();
+                j.this.bPs = mVar.getImageNum();
+                j.this.bPx = mVar.aay();
+                if (this.bPy == null) {
+                    j.this.bPl.clear();
+                    j.this.bPw.clear();
                 }
-                LinkedList<l> aac = mVar.aac();
-                int size = aac.size();
+                LinkedList<l> aax = mVar.aax();
+                int size = aax.size();
                 if (size <= 0) {
-                    j.this.bOU = true;
+                    j.this.bPp = true;
                 } else {
                     for (int i3 = 0; i3 < size; i3++) {
-                        l lVar = aac.get(i3);
+                        l lVar = aax.get(i3);
                         String a = j.this.a(lVar);
-                        String iQ = j.this.iQ(a);
-                        if (!j.this.bPb.containsKey(iQ)) {
+                        String iS = j.this.iS(a);
+                        if (!j.this.bPw.containsKey(iS)) {
                             ImageUrlData imageUrlData = new ImageUrlData();
                             imageUrlData.imageUrl = a;
                             imageUrlData.urlType = 10;
-                            imageUrlData.originalUrl = lVar.Ff();
+                            imageUrlData.originalUrl = lVar.Fa();
                             imageUrlData.originalSize = lVar.getOriginalSize();
-                            j.this.bOQ.add(a);
-                            j.this.ajT.put(a, imageUrlData);
-                            j.this.bPb.put(iQ, a);
+                            j.this.bPl.add(a);
+                            j.this.ajY.put(a, imageUrlData);
+                            j.this.bPw.put(iS, a);
                         }
                     }
-                    l lVar2 = aac.get(size - 1);
-                    j.this.bOT = lVar2.getImageID();
-                    if (j.this.bOX == lVar2.getIndex()) {
-                        j.this.bOU = true;
+                    l lVar2 = aax.get(size - 1);
+                    j.this.bPo = lVar2.getImageID();
+                    if (j.this.bPs == lVar2.getIndex()) {
+                        j.this.bPp = true;
                     } else {
-                        j.this.bOU = false;
+                        j.this.bPp = false;
                     }
                 }
-                boolean z2 = j.this.bOU && j.this.bOR != null && j.this.bOR.length() > 0;
-                if (this.bPd == null) {
-                    j.this.bOS = this.bOS;
+                boolean z2 = j.this.bPp && j.this.bPm != null && j.this.bPm.length() > 0;
+                if (this.bPy == null) {
+                    j.this.bPn = this.bPn;
                     z = true;
                     i = 0;
                 } else {
                     z = false;
                     i = -1;
                 }
-                if (j.this.bPa != null) {
-                    j.this.bPa.a(j.this.bOQ, i, j.this.bOX, z2, j.this.ajZ, z, j.this.bPc);
+                if (j.this.bPv != null) {
+                    j.this.bPv.a(j.this.bPl, i, j.this.bPs, z2, j.this.ake, z, j.this.bPx);
                 }
-            } else if (j.this.bPa != null) {
-                if (this.Ti != null) {
-                    i2 = this.Ti.ui();
-                    str = this.bPd == null ? this.Ti.getErrorString() : null;
+            } else if (j.this.bPv != null) {
+                if (this.Tj != null) {
+                    i2 = this.Tj.ul();
+                    str = this.bPy == null ? this.Tj.getErrorString() : null;
                 } else {
                     i2 = -1;
                     str = null;
                 }
-                j.this.bPa.F(i2, str);
+                j.this.bPv.F(i2, str);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(l lVar) {
-        if (lVar.Fb() != null && lVar.Fb().length() > 0) {
-            return lVar.Fb();
+        if (lVar.EW() != null && lVar.EW().length() > 0) {
+            return lVar.EW();
         }
         StringBuilder sb = new StringBuilder((int) SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
         if (lVar.getHeight() * lVar.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
@@ -278,21 +278,21 @@ public class j {
             sb.append(String.valueOf(lVar.getHeight()));
         }
         sb.append("&src=");
-        sb.append(as.aR(lVar.getImageUrl()));
+        sb.append(as.aP(lVar.getImageUrl()));
         return sb.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String iQ(String str) {
+    public String iS(String str) {
         int lastIndexOf;
         int indexOf;
-        String aS = as.aS(str);
-        if (aS != null) {
-            if (aS.indexOf(".baidu.com") != -1 && (lastIndexOf = aS.lastIndexOf("/")) != -1 && (indexOf = aS.indexOf(".", lastIndexOf)) != -1) {
-                return aS.substring(lastIndexOf + 1, indexOf);
+        String aQ = as.aQ(str);
+        if (aQ != null) {
+            if (aQ.indexOf(".baidu.com") != -1 && (lastIndexOf = aQ.lastIndexOf("/")) != -1 && (indexOf = aQ.indexOf(".", lastIndexOf)) != -1) {
+                return aQ.substring(lastIndexOf + 1, indexOf);
             }
             return null;
         }
-        return aS;
+        return aQ;
     }
 }

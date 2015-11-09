@@ -13,37 +13,37 @@ import android.widget.TextView;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected TextView alQ;
-    protected TextView alR;
-    private boolean alT;
-    protected ImageView alU;
+    protected TextView alV;
+    protected TextView alW;
+    private boolean alY;
+    protected ImageView alZ;
     protected LinearLayout container;
     protected Context mContext;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.alT = true;
+        this.alY = true;
         this.mContext = context;
-        zi();
+        zn();
         c(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.alT = true;
+        this.alY = true;
         this.mContext = context;
-        zi();
+        zn();
     }
 
     public void displayTip() {
-        if (this.alR != null) {
-            this.alR.setVisibility(0);
+        if (this.alW != null) {
+            this.alW.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.alR != null) {
-            this.alR.setTextColor(i);
+        if (this.alW != null) {
+            this.alW.setTextColor(i);
         }
     }
 
@@ -51,10 +51,10 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void h(int i, int i2, int i3, int i4) {
-        if (this.alR != null) {
+        if (this.alW != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(i, i2, i3, i4);
-            this.alR.setLayoutParams(layoutParams);
+            this.alW.setLayoutParams(layoutParams);
         }
     }
 
@@ -62,35 +62,35 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.alU.setVisibility(8);
+        this.alZ.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.alQ.setText(str);
+        this.alV.setText(str);
     }
 
     public void setText(int i) {
-        this.alQ.setText(i);
+        this.alV.setText(i);
     }
 
     public void setTip(String str) {
-        this.alR.setText(str);
+        this.alW.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.alR.getText();
+        return this.alW.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.alR.setBackgroundDrawable(drawable);
+        this.alW.setBackgroundDrawable(drawable);
     }
 
-    protected void zi() {
+    protected void zn() {
         LayoutInflater.from(this.mContext).inflate(i.g.tb_setting_text_tip_view, (ViewGroup) this, true);
         this.container = (LinearLayout) findViewById(i.f.container);
-        this.alQ = (TextView) findViewById(i.f.text);
-        this.alR = (TextView) findViewById(i.f.tip);
-        this.alU = (ImageView) findViewById(i.f.arrow2);
+        this.alV = (TextView) findViewById(i.f.text);
+        this.alW = (TextView) findViewById(i.f.tip);
+        this.alZ = (ImageView) findViewById(i.f.arrow2);
     }
 
     protected void c(AttributeSet attributeSet) {
@@ -99,18 +99,18 @@ public class TbSettingTextTipView extends FrameLayout {
             String string = obtainStyledAttributes.getString(0);
             String string2 = obtainStyledAttributes.getString(3);
             if (string != null) {
-                this.alQ.setText(string);
+                this.alV.setText(string);
             }
             if (string2 != null) {
-                this.alR.setText(string2);
+                this.alW.setText(string2);
             }
-            this.alT = obtainStyledAttributes.getBoolean(5, true);
+            this.alY = obtainStyledAttributes.getBoolean(5, true);
             obtainStyledAttributes.recycle();
         }
         this.container.setClickable(false);
         this.container.setFocusable(false);
-        if (!this.alT) {
-            this.alU.setVisibility(4);
+        if (!this.alY) {
+            this.alZ.setVisibility(4);
         }
     }
 }

@@ -18,33 +18,33 @@ public class h implements com.baidu.adp.plugin.install.a {
         long j;
         String str3;
         if (z) {
-            if (PluginPackageManager.lR().hp()) {
-                PluginSettings mk = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().mk();
-                com.baidu.adp.plugin.b.a lF = com.baidu.adp.plugin.b.a.lF();
-                str3 = this.this$0.Dw;
-                lF.d("plugin_setting", "version_update_suc", null, String.valueOf(str3) + "-" + (mk == null ? "" : mk.getContainerVersion()));
+            if (PluginPackageManager.lS().hq()) {
+                PluginSettings ml = com.baidu.adp.plugin.packageManager.pluginSettings.c.mo().ml();
+                com.baidu.adp.plugin.b.a lG = com.baidu.adp.plugin.b.a.lG();
+                str3 = this.this$0.Dx;
+                lG.d("plugin_setting", "version_update_suc", null, String.valueOf(str3) + "-" + (ml == null ? "" : ml.getContainerVersion()));
             }
-            com.baidu.adp.plugin.packageManager.pluginSettings.c mn = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn();
-            str2 = this.this$0.Dw;
-            mn.bB(str2);
-            if (PluginPackageManager.lR().hp()) {
-                com.baidu.adp.plugin.b.a lF2 = com.baidu.adp.plugin.b.a.lF();
+            com.baidu.adp.plugin.packageManager.pluginSettings.c mo = com.baidu.adp.plugin.packageManager.pluginSettings.c.mo();
+            str2 = this.this$0.Dx;
+            mo.bz(str2);
+            if (PluginPackageManager.lS().hq()) {
+                com.baidu.adp.plugin.b.a lG2 = com.baidu.adp.plugin.b.a.lG();
                 long currentTimeMillis = System.currentTimeMillis();
-                j = this.this$0.Dy;
-                lF2.e("plugin_install", currentTimeMillis - j);
+                j = this.this$0.Dz;
+                lG2.e("plugin_install", currentTimeMillis - j);
             }
-        } else if (PluginPackageManager.lR().hp()) {
-            PluginSettings mk2 = com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().mk();
-            com.baidu.adp.plugin.b.a lF3 = com.baidu.adp.plugin.b.a.lF();
-            str = this.this$0.Dw;
-            lF3.d("plugin_setting", "version_update_fail", null, String.valueOf(str) + "-" + (mk2 == null ? "" : mk2.getContainerVersion()));
+        } else if (PluginPackageManager.lS().hq()) {
+            PluginSettings ml2 = com.baidu.adp.plugin.packageManager.pluginSettings.c.mo().ml();
+            com.baidu.adp.plugin.b.a lG3 = com.baidu.adp.plugin.b.a.lG();
+            str = this.this$0.Dx;
+            lG3.d("plugin_setting", "version_update_fail", null, String.valueOf(str) + "-" + (ml2 == null ? "" : ml2.getContainerVersion()));
         }
-        this.this$0.lV();
-        this.this$0.lX();
+        this.this$0.lW();
+        this.this$0.lY();
     }
 
     @Override // com.baidu.adp.plugin.install.a
-    public void bd(String str) {
-        com.baidu.adp.plugin.packageManager.pluginSettings.c.mn().f(str, true);
+    public void bb(String str) {
+        com.baidu.adp.plugin.packageManager.pluginSettings.c.mo().f(str, true);
     }
 }

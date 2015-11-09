@@ -5,10 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class s extends PagerAdapter {
-    private SingleMentionActivity caj;
+    private SingleMentionActivity caK;
 
     public s(SingleMentionActivity singleMentionActivity) {
-        this.caj = singleMentionActivity;
+        this.caK = singleMentionActivity;
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -19,23 +19,23 @@ public class s extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         if (i == 0) {
-            al ada = this.caj.ada();
-            if (ada.getView() == null) {
-                View oZ = ada.oZ();
-                viewGroup.addView(oZ);
-                ada.acK();
-                return oZ;
+            al adv = this.caK.adv();
+            if (adv.getView() == null) {
+                View pa = adv.pa();
+                viewGroup.addView(pa);
+                adv.adf();
+                return pa;
             }
-            return ada.getView();
+            return adv.getView();
         }
-        j adb = this.caj.adb();
-        if (adb.getView() == null) {
-            View oZ2 = adb.oZ();
-            viewGroup.addView(oZ2);
-            adb.acK();
-            return oZ2;
+        j adw = this.caK.adw();
+        if (adw.getView() == null) {
+            View pa2 = adw.pa();
+            viewGroup.addView(pa2);
+            adw.adf();
+            return pa2;
         }
-        return adb.getView();
+        return adw.getView();
     }
 
     @Override // android.support.v4.view.PagerAdapter

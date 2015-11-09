@@ -6,6 +6,7 @@ import com.squareup.wire.ProtoField;
 public final class PusherMsgInfo extends Message {
     public static final String DEFAULT_CONTENT = "";
     public static final String DEFAULT_ET = "";
+    public static final String DEFAULT_TASK_ID = "";
     @ProtoField(tag = 5, type = Message.Datatype.STRING)
     public final String content;
     @ProtoField(tag = 6, type = Message.Datatype.STRING)
@@ -18,6 +19,8 @@ public final class PusherMsgInfo extends Message {
     public final Long msgId;
     @ProtoField(tag = 3, type = Message.Datatype.INT64)
     public final Long pushTime;
+    @ProtoField(tag = 8, type = Message.Datatype.STRING)
+    public final String task_id;
     @ProtoField(tag = 4, type = Message.Datatype.INT32)
     public final Integer type;
     public static final Integer DEFAULT_GROUPID = 0;
@@ -65,9 +68,14 @@ public final class PusherMsgInfo extends Message {
             }
             if (builder.groupType == null) {
                 this.groupType = DEFAULT_GROUPTYPE;
-                return;
             } else {
                 this.groupType = builder.groupType;
+            }
+            if (builder.task_id == null) {
+                this.task_id = "";
+                return;
+            } else {
+                this.task_id = builder.task_id;
                 return;
             }
         }
@@ -78,6 +86,7 @@ public final class PusherMsgInfo extends Message {
         this.content = builder.content;
         this.et = builder.et;
         this.groupType = builder.groupType;
+        this.task_id = builder.task_id;
     }
 
     /* loaded from: classes.dex */
@@ -88,6 +97,7 @@ public final class PusherMsgInfo extends Message {
         public Integer groupType;
         public Long msgId;
         public Long pushTime;
+        public String task_id;
         public Integer type;
 
         public Builder() {
@@ -103,6 +113,7 @@ public final class PusherMsgInfo extends Message {
                 this.content = pusherMsgInfo.content;
                 this.et = pusherMsgInfo.et;
                 this.groupType = pusherMsgInfo.groupType;
+                this.task_id = pusherMsgInfo.task_id;
             }
         }
 

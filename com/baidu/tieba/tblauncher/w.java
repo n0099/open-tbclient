@@ -13,7 +13,7 @@ class w implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         PopupWindow popupWindow;
-        popupWindow = this.this$0.dct;
+        popupWindow = this.this$0.deC;
         com.baidu.adp.lib.g.j.a(popupWindow);
     }
 }

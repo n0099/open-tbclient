@@ -16,10 +16,10 @@ public class ag {
         if (!(!TextUtils.isEmpty(qVar.getPkgName()))) {
             com.baidu.adp.lib.util.k.showToast(context, i.h.pb_app_error);
             return false;
-        } else if (com.baidu.adp.lib.util.i.iM()) {
-            qVar.hS(1);
+        } else if (com.baidu.adp.lib.util.i.iN()) {
+            qVar.ig(1);
             TiebaStatic.eventStat(context, "pb_dl_app", null, 1, "app_name", qVar.getPkgName());
-            com.baidu.tbadk.download.b.Ak().a(qVar.getPkgName(), qVar.getDownloadUrl(), qVar.getAppName(), i, 0);
+            com.baidu.tbadk.download.b.Ap().a(qVar.getPkgName(), qVar.getDownloadUrl(), qVar.getAppName(), i, 0);
             return true;
         } else {
             com.baidu.adp.lib.util.k.showToast(context, i.h.neterror);

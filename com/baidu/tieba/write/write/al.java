@@ -1,33 +1,35 @@
 package com.baidu.tieba.write.write;
 
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import com.baidu.tieba.write.view.PostCategoryView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements View.OnTouchListener {
-    final /* synthetic */ WriteActivity dqi;
+public class al implements View.OnClickListener {
+    final /* synthetic */ WriteActivity dsa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public al(WriteActivity writeActivity) {
-        this.dqi = writeActivity;
+        this.dsa = writeActivity;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        PostCategoryView postCategoryView;
         InputMethodManager inputMethodManager;
-        EditText aDt;
+        EditText aEn;
         InputMethodManager inputMethodManager2;
-        EditText aDs;
-        WriteActivity writeActivity = this.dqi;
-        inputMethodManager = this.dqi.mInputManager;
-        aDt = this.dqi.aDt();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, aDt);
-        WriteActivity writeActivity2 = this.dqi;
-        inputMethodManager2 = this.dqi.mInputManager;
-        aDs = this.dqi.aDs();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, aDs);
-        return false;
+        EditText aEm;
+        postCategoryView = this.dsa.drF;
+        postCategoryView.aDl();
+        WriteActivity writeActivity = this.dsa;
+        inputMethodManager = this.dsa.mInputManager;
+        aEn = this.dsa.aEn();
+        writeActivity.HidenSoftKeyPad(inputMethodManager, aEn);
+        WriteActivity writeActivity2 = this.dsa;
+        inputMethodManager2 = this.dsa.mInputManager;
+        aEm = this.dsa.aEm();
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, aEm);
     }
 }

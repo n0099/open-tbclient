@@ -12,38 +12,38 @@ import tbclient.FrsPage.PostInfo;
 import tbclient.FrsPage.RecomUserInfo;
 /* loaded from: classes.dex */
 public class r extends w {
-    public static final BdUniqueId Ve = BdUniqueId.gen();
-    private String Vf;
-    private String Vg;
-    private int Vh;
-    private String Vl;
-    private s Vi = new s();
-    private com.baidu.tbadk.coreExtra.relationship.b Vj = new com.baidu.tbadk.coreExtra.relationship.b();
-    private ArrayList<String> Vk = new ArrayList<>();
+    public static final BdUniqueId Vg = BdUniqueId.gen();
+    private String Vh;
+    private String Vi;
+    private int Vj;
+    private String Vn;
+    private s Vk = new s();
+    private com.baidu.tbadk.coreExtra.relationship.b Vl = new com.baidu.tbadk.coreExtra.relationship.b();
     private ArrayList<String> Vm = new ArrayList<>();
+    private ArrayList<String> Vo = new ArrayList<>();
 
-    public int rM() {
-        return this.Vh;
+    public int rO() {
+        return this.Vj;
     }
 
     public com.baidu.tbadk.coreExtra.relationship.b getLbsInfo() {
-        return this.Vj;
+        return this.Vl;
     }
 
     public void a(CommonDistance commonDistance) {
         if (commonDistance != null && commonDistance.distance != null) {
-            if (this.Vj == null) {
-                this.Vj = new com.baidu.tbadk.coreExtra.relationship.b();
+            if (this.Vl == null) {
+                this.Vl = new com.baidu.tbadk.coreExtra.relationship.b();
             }
-            this.Vj.dx(commonDistance.is_hide.intValue());
-            this.Vj.setTime(commonDistance.time.intValue());
+            this.Vl.dx(commonDistance.is_hide.intValue());
+            this.Vl.setTime(commonDistance.time.intValue());
             int intValue = commonDistance.distance.intValue();
             if (intValue > 0 && intValue <= 100) {
-                this.Vj.eo("100米以内");
+                this.Vl.eo("100米以内");
             } else if (intValue > 100 && intValue <= 1000) {
-                this.Vj.eo(String.valueOf(intValue) + "米");
+                this.Vl.eo(String.valueOf(intValue) + "米");
             } else if (intValue > 1000) {
-                this.Vj.eo(String.valueOf(new BigDecimal(intValue / 1000.0f).setScale(1, 4).floatValue()) + "公里");
+                this.Vl.eo(String.valueOf(new BigDecimal(intValue / 1000.0f).setScale(1, 4).floatValue()) + "公里");
             }
         }
     }
@@ -51,15 +51,15 @@ public class r extends w {
     public void a(RecomUserInfo recomUserInfo) {
         if (recomUserInfo != null) {
             a(recomUserInfo.distanceinfo);
-            ck(recomUserInfo.message);
-            if (recomUserInfo.user_info != null && this.Vi != null) {
-                this.Vi.a(recomUserInfo.user_info);
+            ci(recomUserInfo.message);
+            if (recomUserInfo.user_info != null && this.Vk != null) {
+                this.Vk.a(recomUserInfo.user_info);
             }
             if (recomUserInfo.common_forum != null) {
                 StringBuffer stringBuffer = new StringBuffer();
-                this.Vh = recomUserInfo.common_forum.size();
-                int i = this.Vh;
-                if (this.Vh > 2) {
+                this.Vj = recomUserInfo.common_forum.size();
+                int i = this.Vj;
+                if (this.Vj > 2) {
                     i = 2;
                 }
                 for (int i2 = 0; i2 < i; i2++) {
@@ -67,74 +67,74 @@ public class r extends w {
                         stringBuffer.append(recomUserInfo.common_forum.get(i2).common_forum);
                         if (i - 1 > i2) {
                             stringBuffer.append("、");
-                        } else if (this.Vh > i) {
+                        } else if (this.Vj > i) {
                             stringBuffer.append("...");
                         }
                     }
                 }
-                this.Vf = stringBuffer.toString();
+                this.Vh = stringBuffer.toString();
             }
             if (recomUserInfo.post_info != null) {
                 for (PostInfo postInfo : recomUserInfo.post_info) {
-                    this.Vk.add(postInfo.common_post_pic);
-                    this.Vm.add(postInfo.large_post_pic);
+                    this.Vm.add(postInfo.common_post_pic);
+                    this.Vo.add(postInfo.large_post_pic);
                 }
             }
             if (recomUserInfo.pos_name != null) {
-                this.Vg = recomUserInfo.pos_name;
+                this.Vi = recomUserInfo.pos_name;
             }
         }
     }
 
-    public String rN() {
-        return this.Vf;
+    public String rP() {
+        return this.Vh;
     }
 
-    public String rO() {
-        return this.Vg;
-    }
-
-    public s rP() {
+    public String rQ() {
         return this.Vi;
     }
 
-    public ArrayList<String> rQ() {
+    public s rR() {
         return this.Vk;
     }
 
-    public ArrayList<String> rR() {
+    public ArrayList<String> rS() {
         return this.Vm;
+    }
+
+    public ArrayList<String> rT() {
+        return this.Vo;
     }
 
     public void h(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.Vi == null) {
-                this.Vi = new s();
+            if (this.Vk == null) {
+                this.Vk = new s();
             }
-            this.Vi.h(jSONObject.optJSONObject("user_info"));
-            this.Vf = jSONObject.optString("common_forum");
-            this.Vf = jSONObject.optString("pos_name");
-            this.Vh = jSONObject.optInt("common_forum_count");
-            this.Vl = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);
+            this.Vk.h(jSONObject.optJSONObject("user_info"));
+            this.Vh = jSONObject.optString("common_forum");
+            this.Vh = jSONObject.optString("pos_name");
+            this.Vj = jSONObject.optInt("common_forum_count");
+            this.Vn = jSONObject.optString(AddFriendActivityConfig.DEFAULT_MESSAGE);
             JSONArray optJSONArray = jSONObject.optJSONArray("common_pic_urls");
             if (optJSONArray != null && optJSONArray.length() > 0) {
-                if (this.Vk == null) {
-                    this.Vk = new ArrayList<>();
+                if (this.Vm == null) {
+                    this.Vm = new ArrayList<>();
                 }
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
-                        this.Vk.add(optJSONArray.optString(i));
+                        this.Vm.add(optJSONArray.optString(i));
                     }
                 }
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("large_post_pic");
             if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                if (this.Vm == null) {
-                    this.Vm = new ArrayList<>();
+                if (this.Vo == null) {
+                    this.Vo = new ArrayList<>();
                 }
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                     if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
-                        this.Vm.add(optJSONArray2.optString(i2));
+                        this.Vo.add(optJSONArray2.optString(i2));
                     }
                 }
             }
@@ -143,14 +143,14 @@ public class r extends w {
 
     @Override // com.baidu.tbadk.core.data.w, com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return Ve;
+        return Vg;
     }
 
-    public String rS() {
-        return this.Vl;
+    public String rU() {
+        return this.Vn;
     }
 
-    public void ck(String str) {
-        this.Vl = str;
+    public void ci(String str) {
+        this.Vn = str;
     }
 }

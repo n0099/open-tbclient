@@ -1,94 +1,148 @@
 package com.baidu.tieba.write.album;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.database.ContentObserver;
-import android.os.Handler;
-import android.os.Looper;
-import android.provider.MediaStore;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import java.util.List;
 /* loaded from: classes.dex */
 public class m {
-    private static m dkz;
-    private BroadcastReceiver dkA;
-    private ContentObserver dkB;
-    private Handler mHandler = new Handler(Looper.getMainLooper());
-    private ArrayList<a> mListeners = new ArrayList<>();
-    private Handler handler = new Handler();
-    private Runnable dkC = new n(this);
+    private int aru;
+    private final AlbumActivity dlE;
+    private List<b> dlQ;
+    private String dlX;
+    private List<ImageFileInfo> dmd;
+    private List<ImageFileInfo> dme;
+    private String dmf;
+    private boolean dmg = false;
+    private WriteImagesInfo mWriteImagesInfo;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void gS(boolean z);
+    public m(AlbumActivity albumActivity) {
+        this.dlE = albumActivity;
     }
 
-    public static m aBv() {
-        if (dkz == null) {
-            dkz = new m();
-            dkz.init(TbadkCoreApplication.m411getInst());
+    public void addChooseFile(ImageFileInfo imageFileInfo) {
+        if (this.mWriteImagesInfo == null) {
+            this.mWriteImagesInfo = new WriteImagesInfo();
         }
-        return dkz;
+        this.mWriteImagesInfo.addChooseFile(imageFileInfo);
     }
 
-    private m() {
-    }
-
-    private void init(Context context) {
-        this.dkA = new o(this);
-        this.dkB = new p(this, this.mHandler);
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
-        intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
-        intentFilter.addAction("android.intent.action.MEDIA_SCANNER_STARTED");
-        intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
-        intentFilter.addAction("android.intent.action.MEDIA_EJECT");
-        intentFilter.addDataScheme("file");
-        context.registerReceiver(this.dkA, intentFilter);
-        context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.dkB);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void X(Intent intent) {
-        if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
-            gR(true);
-            return;
-        }
-        this.handler.removeCallbacks(this.dkC);
-        this.handler.postDelayed(this.dkC, 2000L);
-    }
-
-    public void gR(boolean z) {
-        Iterator<a> it = this.mListeners.iterator();
-        while (it.hasNext()) {
-            it.next().gS(z);
+    public void delChooseFile(ImageFileInfo imageFileInfo) {
+        if (this.mWriteImagesInfo != null) {
+            this.mWriteImagesInfo.delChooseFile(imageFileInfo);
         }
     }
 
-    public void a(a aVar) {
-        if (aVar != null && !this.mListeners.contains(aVar)) {
-            this.mListeners.add(aVar);
+    public boolean isAdded(ImageFileInfo imageFileInfo) {
+        if (this.mWriteImagesInfo == null) {
+            return false;
         }
+        return this.mWriteImagesInfo.isAdded(imageFileInfo);
     }
 
-    public void b(a aVar) {
-        if (this.mListeners.contains(aVar)) {
-            this.mListeners.remove(aVar);
+    public List<ImageFileInfo> aCe() {
+        if (this.mWriteImagesInfo != null) {
+            return this.mWriteImagesInfo.getChosedFiles();
         }
+        return null;
     }
 
-    public void removeAllListeners() {
-        this.mListeners.clear();
+    public WriteImagesInfo getWriteImagesInfo() {
+        return this.mWriteImagesInfo;
     }
 
-    public void destory() {
-        removeAllListeners();
-        TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-        m411getInst.unregisterReceiver(this.dkA);
-        m411getInst.getContentResolver().unregisterContentObserver(this.dkB);
-        dkz = null;
+    public void setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
+        this.mWriteImagesInfo = writeImagesInfo;
+    }
+
+    public String getLastAlbumId() {
+        if (this.mWriteImagesInfo != null) {
+            return this.mWriteImagesInfo.getLastAlbumId();
+        }
+        return null;
+    }
+
+    public void setLastAlbumId(String str) {
+        if (this.mWriteImagesInfo == null) {
+            this.mWriteImagesInfo = new WriteImagesInfo();
+        }
+        this.mWriteImagesInfo.setLastAlbumId(str);
+    }
+
+    public int getMaxImagesAllowed() {
+        if (this.mWriteImagesInfo != null) {
+            return this.mWriteImagesInfo.getMaxImagesAllowed();
+        }
+        return 0;
+    }
+
+    public String aCf() {
+        return this.dlX;
+    }
+
+    public void mq(String str) {
+        this.dlX = str;
+    }
+
+    public List<ImageFileInfo> aCg() {
+        return this.dmd;
+    }
+
+    public void bK(List<ImageFileInfo> list) {
+        this.dmd = list;
+    }
+
+    public int getCurrentIndex() {
+        return this.aru;
+    }
+
+    public void lZ(int i) {
+        this.aru = i;
+    }
+
+    public List<b> aCh() {
+        return this.dlQ;
+    }
+
+    public void bL(List<b> list) {
+        this.dlQ = list;
+    }
+
+    public List<ImageFileInfo> aCi() {
+        return this.dme;
+    }
+
+    public void bM(List<ImageFileInfo> list) {
+        this.dme = list;
+    }
+
+    public int size() {
+        if (this.mWriteImagesInfo == null) {
+            return 0;
+        }
+        return this.mWriteImagesInfo.size();
+    }
+
+    public String aCj() {
+        return this.dmf;
+    }
+
+    public void mr(String str) {
+        this.dmf = str;
+    }
+
+    public void setOriginalImg(boolean z) {
+        this.mWriteImagesInfo.setOriginalImg(z);
+    }
+
+    public boolean isOriginalImg() {
+        return this.mWriteImagesInfo.isOriginalImg();
+    }
+
+    public boolean aCk() {
+        return this.dmg;
+    }
+
+    public void gT(boolean z) {
+        this.dmg = z;
     }
 }

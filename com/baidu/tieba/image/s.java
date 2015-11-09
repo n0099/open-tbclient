@@ -18,15 +18,15 @@ class s implements BaseViewPager.a {
     public void cC(int i) {
         boolean z;
         j jVar;
-        z = this.this$0.bPM;
+        z = this.this$0.bQh;
         if (z) {
             Intent intent = new Intent(TbConfig.getBroadcastActionPageChanged());
             intent.putExtra(ImageViewerConfig.INDEX, -1);
             intent.putExtra(SocialConstants.PARAM_STATE, i);
             this.this$0.getPageContext().getPageActivity().sendBroadcast(intent);
         } else if (i == 0) {
-            jVar = this.this$0.bPG;
-            jVar.aaa();
+            jVar = this.this$0.bQb;
+            jVar.aav();
         }
     }
 }

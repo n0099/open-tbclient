@@ -724,13 +724,13 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements n<E>, Se
 
         abstract d<E> c(d<E> dVar);
 
-        abstract d<E> jl();
+        abstract d<E> jm();
 
         a() {
             ReentrantLock reentrantLock = BlockingLinkedDeque.this.lock;
             reentrantLock.lock();
             try {
-                this.yM = jl();
+                this.yM = jm();
                 this.nextItem = this.yM == null ? null : this.yM.item;
             } finally {
                 reentrantLock.unlock();
@@ -745,7 +745,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements n<E>, Se
                 }
                 if (c.item == null) {
                     if (c == dVar) {
-                        return jl();
+                        return jm();
                     }
                     dVar = c;
                 } else {
@@ -811,7 +811,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements n<E>, Se
         }
 
         @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.a
-        d<E> jl() {
+        d<E> jm() {
             return BlockingLinkedDeque.this.first;
         }
 
@@ -832,7 +832,7 @@ public class BlockingLinkedDeque<E> extends AbstractQueue<E> implements n<E>, Se
         }
 
         @Override // com.baidu.adp.lib.util.BlockingLinkedDeque.a
-        d<E> jl() {
+        d<E> jm() {
             return BlockingLinkedDeque.this.last;
         }
 

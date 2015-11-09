@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.util.af;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class p extends com.baidu.adp.widget.ListView.d {
-    private b aeA;
-    protected AnimationDrawable aeB;
-    private View aew;
-    protected LinearLayout aex;
-    protected ImageView aey;
-    private a aez;
+    private View aeB;
+    protected LinearLayout aeC;
+    protected ImageView aeD;
+    private a aeE;
+    private b aeF;
+    protected AnimationDrawable aeG;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -31,62 +31,62 @@ public class p extends com.baidu.adp.widget.ListView.d {
 
     public p(Context context) {
         super(context);
-        this.aew = null;
-        this.aex = null;
-        this.aey = null;
-        this.aez = null;
-        this.aeA = null;
+        this.aeB = null;
+        this.aeC = null;
+        this.aeD = null;
+        this.aeE = null;
+        this.aeF = null;
     }
 
     @Override // com.baidu.adp.widget.ListView.d
-    public View no() {
-        this.aew = LayoutInflater.from(getContext()).inflate(i.g.tb_pull_view, (ViewGroup) null);
-        this.aex = (LinearLayout) this.aew.findViewById(i.f.pull_root);
-        this.aey = (ImageView) this.aew.findViewById(i.f.pull_image);
-        this.aeB = af.uq().cq(TbadkCoreApplication.m411getInst().getSkinType());
-        this.aey.setBackgroundDrawable(this.aeB);
-        return this.aew;
-    }
-
-    @Override // com.baidu.adp.widget.ListView.d
-    public void np() {
-        this.aeB.stop();
-        this.aey.setBackgroundDrawable(this.aeB.getFrame(0));
-    }
-
-    @Override // com.baidu.adp.widget.ListView.d
-    public void R(boolean z) {
-        this.aeB.stop();
-        this.aey.setBackgroundDrawable(this.aeB.getFrame(0));
+    public View np() {
+        this.aeB = LayoutInflater.from(getContext()).inflate(i.g.tb_pull_view, (ViewGroup) null);
+        this.aeC = (LinearLayout) this.aeB.findViewById(i.f.pull_root);
+        this.aeD = (ImageView) this.aeB.findViewById(i.f.pull_image);
+        this.aeG = af.ut().cq(TbadkCoreApplication.m411getInst().getSkinType());
+        this.aeD.setBackgroundDrawable(this.aeG);
+        return this.aeB;
     }
 
     @Override // com.baidu.adp.widget.ListView.d
     public void nq() {
-        this.aeB.stop();
-        this.aey.setBackgroundDrawable(this.aeB);
-        this.aey.post(new q(this));
+        this.aeG.stop();
+        this.aeD.setBackgroundDrawable(this.aeG.getFrame(0));
+    }
+
+    @Override // com.baidu.adp.widget.ListView.d
+    public void R(boolean z) {
+        this.aeG.stop();
+        this.aeD.setBackgroundDrawable(this.aeG.getFrame(0));
+    }
+
+    @Override // com.baidu.adp.widget.ListView.d
+    public void nr() {
+        this.aeG.stop();
+        this.aeD.setBackgroundDrawable(this.aeG);
+        this.aeD.post(new q(this));
     }
 
     @Override // com.baidu.adp.widget.ListView.d
     public void S(boolean z) {
-        this.aeB.stop();
+        this.aeG.stop();
     }
 
     @Override // com.baidu.adp.widget.ListView.d
     public void T(boolean z) {
-        if (this.aez != null) {
-            this.aez.onListPullRefresh(z);
+        if (this.aeE != null) {
+            this.aeE.onListPullRefresh(z);
         }
-        if (this.aeA != null) {
-            this.aeA.a(this.aew, z);
+        if (this.aeF != null) {
+            this.aeF.a(this.aeB, z);
         }
     }
 
     public void a(a aVar) {
-        this.aez = aVar;
+        this.aeE = aVar;
     }
 
     public void a(b bVar) {
-        this.aeA = bVar;
+        this.aeF = bVar;
     }
 }

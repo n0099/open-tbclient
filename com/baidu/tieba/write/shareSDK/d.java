@@ -5,15 +5,15 @@ import android.view.inputmethod.InputMethodManager;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class d implements View.OnFocusChangeListener {
-    final /* synthetic */ WriteShareActivity dmy;
+    final /* synthetic */ WriteShareActivity dog;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(WriteShareActivity writeShareActivity) {
-        this.dmy = writeShareActivity;
+        this.dog = writeShareActivity;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x002b, code lost:
-        if (r4 == r0.aCk()) goto L19;
+        if (r4 == r0.aDa()) goto L19;
      */
     @Override // android.view.View.OnFocusChangeListener
     /*
@@ -34,43 +34,43 @@ class d implements View.OnFocusChangeListener {
         o oVar10;
         o oVar11;
         o oVar12;
-        oVar = this.dmy.dmi;
+        oVar = this.dog.dnQ;
         if (oVar != null) {
-            oVar2 = this.dmy.dmi;
-            if (view != oVar2.aCh()) {
-                oVar11 = this.dmy.dmi;
-                if (view != oVar11.aCj()) {
-                    oVar12 = this.dmy.dmi;
+            oVar2 = this.dog.dnQ;
+            if (view != oVar2.aCX()) {
+                oVar11 = this.dog.dnQ;
+                if (view != oVar11.aCZ()) {
+                    oVar12 = this.dog.dnQ;
                 }
             }
             if (!z) {
-                oVar3 = this.dmy.dmi;
-                if (view == oVar3.aCh()) {
-                    oVar4 = this.dmy.dmi;
-                    if (oVar4.aCl() != null) {
-                        oVar5 = this.dmy.dmi;
-                        oVar5.aCl().setVisibility(0);
+                oVar3 = this.dog.dnQ;
+                if (view == oVar3.aCX()) {
+                    oVar4 = this.dog.dnQ;
+                    if (oVar4.aDb() != null) {
+                        oVar5 = this.dog.dnQ;
+                        oVar5.aDb().setVisibility(0);
                     }
                 }
             } else {
-                WriteShareActivity writeShareActivity = this.dmy;
-                inputMethodManager = this.dmy.mInputManager;
-                oVar6 = this.dmy.dmi;
-                writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar6.aCh());
+                WriteShareActivity writeShareActivity = this.dog;
+                inputMethodManager = this.dog.mInputManager;
+                oVar6 = this.dog.dnQ;
+                writeShareActivity.ShowSoftKeyPad(inputMethodManager, oVar6.aCX());
             }
-            oVar7 = this.dmy.dmi;
-            if (view == oVar7.amO()) {
+            oVar7 = this.dog.dnQ;
+            if (view == oVar7.anu()) {
                 if (z) {
-                    oVar10 = this.dmy.dmi;
-                    oVar10.amO().setHint((CharSequence) null);
+                    oVar10 = this.dog.dnQ;
+                    oVar10.anu().setHint((CharSequence) null);
                 } else {
-                    oVar8 = this.dmy.dmi;
-                    oVar8.amO().setHint(i.h.content);
+                    oVar8 = this.dog.dnQ;
+                    oVar8.anu().setHint(i.h.content);
                 }
-                WriteShareActivity writeShareActivity2 = this.dmy;
-                inputMethodManager2 = this.dmy.mInputManager;
-                oVar9 = this.dmy.dmi;
-                writeShareActivity2.ShowSoftKeyPad(inputMethodManager2, oVar9.aCh());
+                WriteShareActivity writeShareActivity2 = this.dog;
+                inputMethodManager2 = this.dog.mInputManager;
+                oVar9 = this.dog.dnQ;
+                writeShareActivity2.ShowSoftKeyPad(inputMethodManager2, oVar9.aCX());
             }
         }
     }

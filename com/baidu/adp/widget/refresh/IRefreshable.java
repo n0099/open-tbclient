@@ -9,7 +9,7 @@ public interface IRefreshable {
         animating,
         pulling_refresh;
 
-        /* JADX DEBUG: Replace access to removed values field (JM) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (JN) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static State[] valuesCustom() {
             State[] valuesCustom = values();

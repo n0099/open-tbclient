@@ -20,14 +20,14 @@ public class n extends HttpMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        this.this$0.avC = false;
-        if (this.this$0.avF != null) {
-            com.baidu.adp.lib.g.h.hg().removeCallbacks(this.this$0.avF);
+        this.this$0.auq = false;
+        if (this.this$0.aut != null) {
+            com.baidu.adp.lib.g.h.hh().removeCallbacks(this.this$0.aut);
         }
         if (httpResponsedMessage instanceof MvcJsonHttpResponsedMessage) {
             if (httpResponsedMessage.getOrginalMessage() instanceof MvcHttpMessage) {
-                if (this.this$0.avt != null) {
-                    this.this$0.avt.a((MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
+                if (this.this$0.auh != null) {
+                    this.this$0.auh.a((MvcJsonHttpResponsedMessage) httpResponsedMessage, (MvcHttpMessage) httpResponsedMessage.getOrginalMessage(), null);
                 }
             } else if (TbadkCoreApplication.m411getInst().isDebugMode()) {
                 throw new RuntimeException("mvc netmodel HttpListener jsonHttpResponsedMessage originaMessage error");

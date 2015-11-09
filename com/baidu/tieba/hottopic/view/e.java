@@ -14,12 +14,12 @@ import com.baidu.tieba.i;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.base.f<RelateTopicForumActivity> {
-    private NoNetworkView aMQ;
-    private PbListView aWW;
-    private RelateTopicForumActivity bqs;
-    private n bqt;
-    private List<RelateForumItemData> bqu;
-    private AdapterView.OnItemClickListener bqv;
+    private NoNetworkView aMY;
+    private PbListView aXe;
+    private RelateTopicForumActivity bqW;
+    private n bqX;
+    private List<RelateForumItemData> bqY;
+    private AdapterView.OnItemClickListener bqZ;
     private BdListView mListView;
     private NavigationBar mNavigationBar;
     private View mRootView;
@@ -29,62 +29,62 @@ public class e extends com.baidu.adp.base.f<RelateTopicForumActivity> {
         this.mNavigationBar = null;
         this.mRootView = null;
         this.mListView = null;
-        this.bqu = null;
-        this.bqv = new f(this);
-        this.bqs = relateTopicForumActivity;
+        this.bqY = null;
+        this.bqZ = new f(this);
+        this.bqW = relateTopicForumActivity;
         if (list != null) {
             if (list.size() > 20) {
-                this.bqu = list.subList(0, 20);
+                this.bqY = list.subList(0, 20);
             } else {
-                this.bqu = list;
+                this.bqY = list;
             }
         }
         initView();
     }
 
     public void onChangeSkinType(int i) {
-        this.bqs.getLayoutMode().ad(i == 1);
-        this.bqs.getLayoutMode().k(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.bqs.getPageContext(), i);
-        this.aMQ.onChangeSkinType(this.bqs.getPageContext(), i);
-        this.aWW.cN(i);
+        this.bqW.getLayoutMode().ad(i == 1);
+        this.bqW.getLayoutMode().k(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.bqW.getPageContext(), i);
+        this.aMY.onChangeSkinType(this.bqW.getPageContext(), i);
+        this.aXe.cN(i);
     }
 
     private void initView() {
-        if (this.bqs != null) {
-            this.bqs.setContentView(i.g.hot_topic_more_activity);
+        if (this.bqW != null) {
+            this.bqW.setContentView(i.g.hot_topic_more_activity);
         }
-        this.mRootView = this.bqs.findViewById(i.f.topic_list_root_view);
+        this.mRootView = this.bqW.findViewById(i.f.topic_list_root_view);
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(i.h.hot_topic_list_navigationbar_title);
-        this.aMQ = (NoNetworkView) this.mRootView.findViewById(i.f.view_no_network);
+        this.aMY = (NoNetworkView) this.mRootView.findViewById(i.f.view_no_network);
         this.mListView = (BdListView) this.mRootView.findViewById(i.f.hot_topic_more_list);
-        this.bqt = new n(this.bqs);
-        this.aWW = new PbListView(this.bqs.getPageContext().getPageActivity());
-        this.aWW.no();
-        this.aWW.cM(i.c.cp_bg_line_d);
-        this.mListView.setAdapter((ListAdapter) this.bqt);
-        this.bqt.setData(this.bqu);
-        this.mListView.setOnItemClickListener(this.bqv);
+        this.bqX = new n(this.bqW);
+        this.aXe = new PbListView(this.bqW.getPageContext().getPageActivity());
+        this.aXe.np();
+        this.aXe.cM(i.c.cp_bg_line_d);
+        this.mListView.setAdapter((ListAdapter) this.bqX);
+        this.bqX.setData(this.bqY);
+        this.mListView.setOnItemClickListener(this.bqZ);
     }
 
-    public void Mb() {
-        if (this.mListView != null && this.aWW != null) {
-            this.mListView.setNextPage(this.aWW);
-            this.aWW.vv();
-            this.aWW.setText(this.bqs.getResources().getString(i.h.list_no_more));
+    public void Mr() {
+        if (this.mListView != null && this.aXe != null) {
+            this.mListView.setNextPage(this.aXe);
+            this.aXe.vz();
+            this.aXe.setText(this.bqW.getResources().getString(i.h.list_no_more));
         }
     }
 
-    public void Mc() {
-        if (this.mListView != null && this.aWW != null) {
+    public void Ms() {
+        if (this.mListView != null && this.aXe != null) {
             this.mListView.setNextPage(null);
-            this.aWW.vw();
+            this.aXe.vA();
         }
     }
 
-    public n Rf() {
-        return this.bqt;
+    public n RB() {
+        return this.bqX;
     }
 }

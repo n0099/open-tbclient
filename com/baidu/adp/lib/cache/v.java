@@ -14,7 +14,7 @@ public class v {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [50=4] */
-    public i ae(String str) {
+    public i ac(String str) {
         Cursor cursor;
         try {
             cursor = this.sN.dL().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
@@ -64,9 +64,9 @@ public class v {
         }
     }
 
-    public int af(String str) {
+    public int ad(String str) {
         try {
-            if (ae(str) == null) {
+            if (ac(str) == null) {
                 return 0;
             }
             return this.sN.dL().delete("cache_meta_info", "nameSpace = ?", new String[]{str});

@@ -4,36 +4,36 @@ import com.baidu.adp.widget.ListView.BdExpandListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements BdExpandListView.a {
-    final /* synthetic */ PersonInfoActivity csI;
+    final /* synthetic */ PersonInfoActivity cue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(PersonInfoActivity personInfoActivity) {
-        this.csI = personInfoActivity;
+        this.cue = personInfoActivity;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
+    public void no() {
+        y yVar;
+        aj ajVar;
+        aj ajVar2;
+        yVar = this.cue.ctR;
+        yVar.akw();
+        ajVar = this.cue.ctS;
+        if (ajVar.akA() != null) {
+            ajVar2 = this.cue.ctS;
+            ajVar2.akA().nm();
+        }
+        this.cue.ajK();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
     public void nn() {
-        y yVar;
         aj ajVar;
         aj ajVar2;
-        yVar = this.csI.csv;
-        yVar.ajQ();
-        ajVar = this.csI.csw;
-        if (ajVar.ajU() != null) {
-            ajVar2 = this.csI.csw;
-            ajVar2.ajU().nl();
-        }
-        this.csI.aje();
-    }
-
-    @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
-    public void nm() {
-        aj ajVar;
-        aj ajVar2;
-        ajVar = this.csI.csw;
-        if (ajVar.ajU() != null) {
-            ajVar2 = this.csI.csw;
-            ajVar2.ajU().hideProgress();
+        ajVar = this.cue.ctS;
+        if (ajVar.akA() != null) {
+            ajVar2 = this.cue.ctS;
+            ajVar2.akA().hideProgress();
         }
     }
 
@@ -41,10 +41,10 @@ public class g implements BdExpandListView.a {
     public void k(float f) {
         aj ajVar;
         aj ajVar2;
-        ajVar = this.csI.csw;
-        if (ajVar.ajU() != null) {
-            ajVar2 = this.csI.csw;
-            ajVar2.ajU().j(f);
+        ajVar = this.cue.ctS;
+        if (ajVar.akA() != null) {
+            ajVar2 = this.cue.ctS;
+            ajVar2.akA().j(f);
         }
     }
 }

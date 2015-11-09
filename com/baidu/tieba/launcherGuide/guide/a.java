@@ -8,11 +8,11 @@ public interface a {
 
     View getRootView();
 
-    void hU(int i);
-
-    void hV(int i);
-
     void hide();
+
+    void ii(int i);
+
+    void ij(int i);
 
     void setOnClickListener(View.OnClickListener onClickListener);
 

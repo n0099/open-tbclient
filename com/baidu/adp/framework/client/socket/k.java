@@ -39,7 +39,7 @@ public class k {
                 linkedList.add("comment");
                 linkedList.add(str3);
             }
-            com.baidu.adp.lib.stats.a.hi().a("socket", j, i2 == 0 ? null : String.valueOf(i2 & 4294967295L), linkedList.toArray());
+            com.baidu.adp.lib.stats.a.hj().a("socket", j, i2 == 0 ? null : String.valueOf(i2 & 4294967295L), linkedList.toArray());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -51,7 +51,7 @@ public class k {
 
     public static void eE() {
         try {
-            com.baidu.adp.lib.stats.a.hi().b("socket", "url", com.baidu.adp.lib.webSocket.h.jz().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.jz().jw()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.jz().jG()), "remote_ip", com.baidu.adp.lib.webSocket.h.jz().jv(), "local_dns", com.baidu.adp.lib.webSocket.h.jz().je(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.jz().jf(), "net", com.baidu.adp.lib.stats.a.hi().hu());
+            com.baidu.adp.lib.stats.a.hj().b("socket", "url", com.baidu.adp.lib.webSocket.h.jA().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.jA().jx()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.jA().jH()), "remote_ip", com.baidu.adp.lib.webSocket.h.jA().jw(), "local_dns", com.baidu.adp.lib.webSocket.h.jA().jf(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.jA().jg(), "net", com.baidu.adp.lib.stats.a.hj().hv());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

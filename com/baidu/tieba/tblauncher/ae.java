@@ -21,16 +21,16 @@ class ae extends CustomMessageListener {
         ao aoVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
             boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
-            aoVar = this.this$0.dcB;
+            aoVar = this.this$0.deK;
             if (booleanValue) {
-                aoVar2 = this.this$0.dcB;
-                if (aoVar2.ayw()) {
+                aoVar2 = this.this$0.deK;
+                if (aoVar2.azD()) {
                     z = true;
-                    aoVar.gD(z);
+                    aoVar.gJ(z);
                 }
             }
             z = false;
-            aoVar.gD(z);
+            aoVar.gJ(z);
         }
     }
 }

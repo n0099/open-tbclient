@@ -1,11 +1,11 @@
 package com.baidu.tbadk.coreExtra.share;
 /* loaded from: classes.dex */
 public interface a {
-    void yw();
+    void yB();
 
-    void yx();
+    void yC();
 
-    void yy();
+    void yD();
 
-    void yz();
+    void yE();
 }

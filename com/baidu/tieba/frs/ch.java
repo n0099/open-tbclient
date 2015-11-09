@@ -12,30 +12,30 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ch implements com.baidu.adp.lib.e.c<cf.a> {
-    final /* synthetic */ cf aXq;
+    final /* synthetic */ cf aXz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ch(cf cfVar) {
-        this.aXq = cfVar;
+        this.aXz = cfVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Mg */
-    public cf.a gZ() {
+    /* renamed from: Mw */
+    public cf.a ha() {
         Context context;
         BaseActivity baseActivity;
         BaseActivity baseActivity2;
-        context = this.aXq.mContext;
+        context = this.aXz.mContext;
         View inflate = LayoutInflater.from(context).inflate(i.g.frs_item_livecard, (ViewGroup) null);
         cf.a aVar = new cf.a();
-        aVar.aTt = (LinearLayout) inflate.findViewById(i.f.live_card_layout);
-        aVar.aTu = (LiveBroadcastCard) inflate.findViewById(i.f.item_card);
-        baseActivity = this.aXq.aSe;
-        baseActivity.getLayoutMode().ad(this.aXq.mSkinType == 1);
-        baseActivity2 = this.aXq.aSe;
+        aVar.aTB = (LinearLayout) inflate.findViewById(i.f.live_card_layout);
+        aVar.aTC = (LiveBroadcastCard) inflate.findViewById(i.f.item_card);
+        baseActivity = this.aXz.aSm;
+        baseActivity.getLayoutMode().ad(this.aXz.mSkinType == 1);
+        baseActivity2 = this.aXz.aSm;
         baseActivity2.getLayoutMode().k(inflate);
-        aVar.apS = this.aXq.mSkinType;
+        aVar.arf = this.aXz.mSkinType;
         return aVar;
     }
 

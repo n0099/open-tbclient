@@ -7,33 +7,33 @@ public class d {
     public com.baidu.adp.widget.a.a Bw;
     public volatile boolean isDefault = true;
 
-    public boolean kh() {
+    public boolean ki() {
         return (this.Bv == null || this.Bv.getBitmap() == null) ? false : true;
     }
 
-    public boolean ki() {
-        return this.Bw != null && this.Bw.nb();
+    public boolean kj() {
+        return this.Bw != null && this.Bw.nc();
     }
 
     public boolean isAvailable() {
-        return kh() || ki();
+        return ki() || kj();
     }
 
     public int getWidth() {
-        if (kh()) {
+        if (ki()) {
             return this.Bv.getIntrinsicWidth();
         }
-        if (ki()) {
+        if (kj()) {
             return this.Bw.getWidth();
         }
         return 0;
     }
 
     public int getHeight() {
-        if (kh()) {
+        if (ki()) {
             return this.Bv.getIntrinsicHeight();
         }
-        if (ki()) {
+        if (kj()) {
             return this.Bw.getHeight();
         }
         return 0;
@@ -45,7 +45,7 @@ public class d {
     }
 
     public boolean fF() {
-        if (ki()) {
+        if (kj()) {
             return this.Bw.fF();
         }
         return false;

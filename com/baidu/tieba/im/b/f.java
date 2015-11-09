@@ -6,13 +6,13 @@ import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ b bFD;
+    final /* synthetic */ b bFY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(b bVar, int i) {
         super(i);
-        this.bFD = bVar;
+        this.bFY = bVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -23,13 +23,13 @@ public class f extends com.baidu.adp.framework.listener.e {
                 if (!(socketResponsedMessage instanceof ResponsedMessage) || socketResponsedMessage.getError() != 0) {
                     return;
                 }
-                this.bFD.Wx();
+                this.bFY.WS();
             } else if (socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
                 ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
                 if (responseOnlineMessage.getError() == 0) {
-                    this.bFD.bFv = responseOnlineMessage.getGroupInfos();
-                    if (com.baidu.tieba.im.memorycache.b.VS().isInit()) {
-                        this.bFD.Wq();
+                    this.bFY.bFQ = responseOnlineMessage.getGroupInfos();
+                    if (com.baidu.tieba.im.memorycache.b.Wn().isInit()) {
+                        this.bFY.WL();
                     }
                 }
             }

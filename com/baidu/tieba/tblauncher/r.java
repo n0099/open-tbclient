@@ -18,11 +18,11 @@ class r extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         ao aoVar;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016305) {
-            aoVar = this.this$0.dcB;
+            aoVar = this.this$0.deK;
             if (aoVar.isMenuShowing()) {
                 return;
             }
-            this.this$0.ayt();
+            this.this$0.azA();
         }
     }
 }

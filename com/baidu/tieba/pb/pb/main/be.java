@@ -1,78 +1,57 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import android.app.Activity;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class be extends CustomMessageListener {
-    final /* synthetic */ bd cje;
+public class be implements a.b {
+    final /* synthetic */ bc cjW;
+    private final /* synthetic */ PbLotteryHttpResponseMessage cjX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public be(bd bdVar, int i) {
-        super(i);
-        this.cje = bdVar;
+    public be(bc bcVar, PbLotteryHttpResponseMessage pbLotteryHttpResponseMessage) {
+        this.cjW = bcVar;
+        this.cjX = pbLotteryHttpResponseMessage;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public /* bridge */ /* synthetic */ void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        onMessage2((CustomResponsedMessage) customResponsedMessage);
-    }
-
-    /* renamed from: onMessage  reason: avoid collision after fix types in other method */
-    public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-        com.baidu.tieba.pb.a.b bVar;
-        List<DownloadData> data;
-        com.baidu.tieba.pb.a.b bVar2;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         PbActivity pbActivity;
-        if (customResponsedMessage != null) {
-            bVar = this.cje.cgN;
-            if (bVar != null && customResponsedMessage.getCmd() == 2001122 && (customResponsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) customResponsedMessage).getData()) != null && data.size() != 0) {
-                bVar2 = this.cje.cgN;
-                ArrayList<com.baidu.tieba.tbadkCore.data.j> aeS = bVar2.aeS();
-                if (aeS != null && aeS.size() != 0) {
-                    Iterator<com.baidu.tieba.tbadkCore.data.j> it = aeS.iterator();
-                    boolean z = false;
-                    while (it.hasNext()) {
-                        com.baidu.tieba.tbadkCore.data.j next = it.next();
-                        if (next != null && next.aws() != null && !TextUtils.isEmpty(next.aws().apk_name)) {
-                            com.baidu.tieba.tbadkCore.data.a aws = next.aws();
-                            Iterator<DownloadData> it2 = data.iterator();
-                            while (true) {
-                                if (!it2.hasNext()) {
-                                    break;
-                                }
-                                DownloadData next2 = it2.next();
-                                if (next2 != null && aws.apk_name.equals(next2.getId())) {
-                                    int status = next2.getStatus();
-                                    if (status == 3 || status == 0) {
-                                        next.hS(2);
-                                    } else if (status == 2 || status == 4) {
-                                        if (!com.baidu.tbadk.core.util.as.isEmpty(next2.getStatusMsg())) {
-                                            pbActivity = this.cje.ciU;
-                                            com.baidu.adp.lib.util.k.showToast(pbActivity.getPageContext().getContext(), next2.getStatusMsg());
-                                        }
-                                        next.hS(0);
-                                    } else if (status == 1) {
-                                        next.hS(1);
-                                    }
-                                    z = true;
-                                }
-                            }
-                        }
-                    }
-                    if (z) {
-                        this.cje.notifyDataSetChanged();
-                    }
+        ca caVar;
+        PbActivity pbActivity2;
+        ca caVar2;
+        PbActivity pbActivity3;
+        PbActivity pbActivity4;
+        ca caVar3;
+        PbActivity pbActivity5;
+        ca caVar4;
+        PbActivity pbActivity6;
+        PbActivity pbActivity7;
+        ca caVar5;
+        aVar.dismiss();
+        pbActivity = this.cjW.cjN;
+        caVar = pbActivity.cjj;
+        boolean z = caVar != null;
+        pbActivity2 = this.cjW.cjN;
+        caVar2 = pbActivity2.cjj;
+        if (z & (caVar2.getPbData() != null)) {
+            pbActivity4 = this.cjW.cjN;
+            caVar3 = pbActivity4.cjj;
+            if (caVar3.getPbData().afh() != null) {
+                pbActivity5 = this.cjW.cjN;
+                caVar4 = pbActivity5.cjj;
+                if (!StringUtils.isNull(caVar4.getPbData().afh().getTitle())) {
+                    pbActivity6 = this.cjW.cjN;
+                    Activity activity = pbActivity6.getActivity();
+                    pbActivity7 = this.cjW.cjN;
+                    caVar5 = pbActivity7.cjj;
+                    com.baidu.tbadk.browser.g.f(activity, caVar5.getPbData().afh().getTitle(), this.cjX.getLotteryInfo().getLink());
+                    return;
                 }
             }
         }
+        pbActivity3 = this.cjW.cjN;
+        com.baidu.tbadk.browser.g.B(pbActivity3.getActivity(), this.cjX.getLotteryInfo().getLink());
     }
 }

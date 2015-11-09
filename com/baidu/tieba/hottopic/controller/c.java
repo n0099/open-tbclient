@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.hottopic.data.RelateForumItemData;
 /* loaded from: classes.dex */
 class c extends CustomMessageListener {
-    final /* synthetic */ HotTopicActivity boL;
+    final /* synthetic */ HotTopicActivity bpp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c(HotTopicActivity hotTopicActivity, int i) {
         super(i);
-        this.boL = hotTopicActivity;
+        this.bpp = hotTopicActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,25 +26,25 @@ class c extends CustomMessageListener {
         com.baidu.tieba.hottopic.data.b bVar5;
         com.baidu.tieba.hottopic.view.a aVar2;
         if (customResponsedMessage != null) {
-            bVar = this.boL.boD;
+            bVar = this.bpp.bph;
             if (bVar != null) {
-                bVar2 = this.boL.boD;
-                if (bVar2.QP() != null) {
-                    bVar3 = this.boL.boD;
-                    if (bVar3.QP().bpq != null) {
+                bVar2 = this.bpp.bph;
+                if (bVar2.Rl() != null) {
+                    bVar3 = this.bpp.bph;
+                    if (bVar3.Rl().bpU != null) {
                         Object data = customResponsedMessage.getData();
                         if (data instanceof Long) {
-                            aw = this.boL.aw(((Long) data).longValue());
+                            aw = this.bpp.aw(((Long) data).longValue());
                             if (aw != null) {
                                 aw.followNum++;
                                 aw.setIsLiked(true);
-                                bVar4 = this.boL.boD;
-                                bVar4.QP().bps = true;
-                                aVar = this.boL.boz;
-                                bVar5 = this.boL.boD;
+                                bVar4 = this.bpp.bph;
+                                bVar4.Rl().bpW = true;
+                                aVar = this.bpp.bpd;
+                                bVar5 = this.bpp.bph;
                                 aVar.b(bVar5);
-                                aVar2 = this.boL.boz;
-                                aVar2.QY();
+                                aVar2 = this.bpp.bpd;
+                                aVar2.Ru();
                             }
                         }
                     }

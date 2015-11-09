@@ -7,34 +7,34 @@ import tbclient.ThemeSkinPropMain;
 /* loaded from: classes.dex */
 public class b {
     private String activityUrl;
-    private int byM;
-    private String den;
-    private String deo;
-    private String dep;
-    private String deq;
-    private int der;
-    private ArrayList<String> des;
+    private int bzj;
     private String description;
-    private String deu;
+    private String dfT;
+    private String dfU;
+    private String dfV;
+    private String dfW;
+    private int dfX;
+    private ArrayList<String> dfY;
+    private String dga;
     private int id;
     private String picUrl;
     private String title;
     private int versionCode;
     private int newVersionCode = 0;
-    private boolean det = false;
-    private int aak = 1;
+    private boolean dfZ = false;
+    private int aao = 1;
 
     public void a(ThemeSkinPropMain themeSkinPropMain) {
         if (themeSkinPropMain != null) {
             this.id = themeSkinPropMain.props_id.intValue();
             this.title = themeSkinPropMain.title;
             this.picUrl = themeSkinPropMain.example_url;
-            this.den = themeSkinPropMain.package_size;
-            this.deo = themeSkinPropMain.package_url;
+            this.dfT = themeSkinPropMain.package_size;
+            this.dfU = themeSkinPropMain.package_url;
             this.versionCode = themeSkinPropMain.props_version.intValue();
-            this.dep = themeSkinPropMain.permission;
-            this.deq = themeSkinPropMain.props_state_img;
-            this.der = themeSkinPropMain.free_user_level.intValue();
+            this.dfV = themeSkinPropMain.permission;
+            this.dfW = themeSkinPropMain.props_state_img;
+            this.dfX = themeSkinPropMain.free_user_level.intValue();
             this.activityUrl = themeSkinPropMain.activity_url;
         }
     }
@@ -42,16 +42,16 @@ public class b {
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             this.title = dataRes.title;
-            this.den = dataRes.package_size;
-            this.deo = dataRes.package_url;
+            this.dfT = dataRes.package_size;
+            this.dfU = dataRes.package_url;
             this.description = dataRes.description;
             this.versionCode = dataRes.props_version.intValue();
-            this.dep = dataRes.permission;
-            this.deu = dataRes.permission;
-            this.deq = dataRes.props_state_img;
-            this.der = dataRes.free_user_level.intValue();
+            this.dfV = dataRes.permission;
+            this.dga = dataRes.permission;
+            this.dfW = dataRes.props_state_img;
+            this.dfX = dataRes.free_user_level.intValue();
             this.activityUrl = dataRes.activity_url;
-            this.des = new ArrayList<>();
+            this.dfY = new ArrayList<>();
             ArrayList arrayList = new ArrayList();
             if (dataRes.pic_url != null && dataRes.pic_url.size() > 0) {
                 for (String str : dataRes.pic_url) {
@@ -60,9 +60,9 @@ public class b {
                     }
                 }
                 if (arrayList.size() > 5) {
-                    this.des.addAll(arrayList.subList(0, 5));
+                    this.dfY.addAll(arrayList.subList(0, 5));
                 } else {
-                    this.des.addAll(arrayList);
+                    this.dfY.addAll(arrayList);
                 }
             }
         }
@@ -88,24 +88,24 @@ public class b {
         return this.picUrl;
     }
 
-    public void lS(String str) {
+    public void lW(String str) {
         this.picUrl = str;
     }
 
     public String getPackageSize() {
-        return this.den;
+        return this.dfT;
     }
 
     public void setPackageSize(String str) {
-        this.den = str;
+        this.dfT = str;
     }
 
-    public String aze() {
-        return this.deo;
+    public String azU() {
+        return this.dfU;
     }
 
-    public void lT(String str) {
-        this.deo = str;
+    public void lX(String str) {
+        this.dfU = str;
     }
 
     public int getVersionCode() {
@@ -116,32 +116,32 @@ public class b {
         this.versionCode = i;
     }
 
-    public String azf() {
-        return this.dep;
+    public String azV() {
+        return this.dfV;
     }
 
-    public void lU(String str) {
-        this.dep = str;
+    public void lY(String str) {
+        this.dfV = str;
     }
 
-    public String azg() {
-        return this.deq;
+    public String azW() {
+        return this.dfW;
     }
 
-    public void lV(String str) {
-        this.deq = str;
+    public void lZ(String str) {
+        this.dfW = str;
     }
 
     public String getDescription() {
         return this.description;
     }
 
-    public int azh() {
-        return this.der;
+    public int azX() {
+        return this.dfX;
     }
 
-    public void lq(int i) {
-        this.der = i;
+    public void lE(int i) {
+        this.dfX = i;
     }
 
     public String getActivityUrl() {
@@ -152,43 +152,43 @@ public class b {
         this.activityUrl = str;
     }
 
-    public int azi() {
-        return this.aak;
+    public int azY() {
+        return this.aao;
     }
 
-    public void lr(int i) {
-        this.aak = i;
+    public void lF(int i) {
+        this.aao = i;
     }
 
-    public ArrayList<String> azj() {
-        return this.des;
+    public ArrayList<String> azZ() {
+        return this.dfY;
     }
 
-    public int Uf() {
-        return this.byM;
+    public int UA() {
+        return this.bzj;
     }
 
-    public void gZ(int i) {
-        this.byM = i;
+    public void hm(int i) {
+        this.bzj = i;
     }
 
-    public boolean azk() {
-        return this.det;
+    public boolean aAa() {
+        return this.dfZ;
     }
 
-    public void gJ(boolean z) {
-        this.det = z;
+    public void gM(boolean z) {
+        this.dfZ = z;
     }
 
     public int getNewVersionCode() {
         return this.newVersionCode;
     }
 
-    public void ls(int i) {
+    public void lG(int i) {
         this.newVersionCode = i;
     }
 
-    public String azl() {
-        return this.deu;
+    public String aAb() {
+        return this.dga;
     }
 }

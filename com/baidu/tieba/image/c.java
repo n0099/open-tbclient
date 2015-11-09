@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.util.az;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a bOO;
+    final /* synthetic */ a bPj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bOO = aVar;
+        this.bPj = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,14 +19,14 @@ public class c implements View.OnClickListener {
         i iVar;
         TbPageContext<?> tbPageContext;
         com.baidu.tbadk.core.data.b bVar2;
-        bVar = this.bOO.bOI;
+        bVar = this.bPj.bPd;
         if (bVar != null) {
-            iVar = this.bOO.bOL;
-            iVar.ZV();
-            az uT = az.uT();
-            tbPageContext = this.bOO.mContext;
-            bVar2 = this.bOO.bOI;
-            uT.b(tbPageContext, new String[]{bVar2.TY});
+            iVar = this.bPj.bPg;
+            iVar.aaq();
+            az uX = az.uX();
+            tbPageContext = this.bPj.mContext;
+            bVar2 = this.bPj.bPd;
+            uX.b(tbPageContext, new String[]{bVar2.TZ});
         }
     }
 }

@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d extends com.baidu.adp.base.e<BackgroundGroupActivity> {
-    private BackgroundGroupActivity dfh;
-    private List<c> dfi;
-    private a dfj;
-    private com.baidu.adp.framework.listener.a dfk;
-    private com.baidu.adp.framework.listener.a dfl;
+    private BackgroundGroupActivity dgN;
+    private List<c> dgO;
+    private a dgP;
+    private com.baidu.adp.framework.listener.a dgQ;
+    private com.baidu.adp.framework.listener.a dgR;
     private com.baidu.tieba.themeCenter.dressCenter.k mRecommand;
 
     /* loaded from: classes.dex */
@@ -19,21 +19,21 @@ public class d extends com.baidu.adp.base.e<BackgroundGroupActivity> {
 
     public d(BackgroundGroupActivity backgroundGroupActivity) {
         super(backgroundGroupActivity.getPageContext());
-        this.dfk = new e(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, 309020);
-        this.dfl = new f(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
-        this.dfh = backgroundGroupActivity;
-        azr();
-        registerListener(this.dfk);
-        azs();
-        registerListener(this.dfl);
+        this.dgQ = new e(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, 309020);
+        this.dgR = new f(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
+        this.dgN = backgroundGroupActivity;
+        aAh();
+        registerListener(this.dgQ);
+        aAi();
+        registerListener(this.dgR);
     }
 
-    private void azr() {
+    private void aAh() {
         com.baidu.tieba.tbadkCore.a.a.a(309020, BackgroundGroupSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
     }
 
-    private void azs() {
+    private void aAi() {
         com.baidu.tieba.tbadkCore.a.a.a(309022, BackgroundSetSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
@@ -50,13 +50,13 @@ public class d extends com.baidu.adp.base.e<BackgroundGroupActivity> {
     }
 
     public void a(a aVar) {
-        this.dfj = aVar;
+        this.dgP = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lv(int i) {
-        if (this.dfi != null && this.dfi.size() > 0) {
-            for (c cVar : this.dfi) {
+    public void lJ(int i) {
+        if (this.dgO != null && this.dgO.size() > 0) {
+            for (c cVar : this.dgO) {
                 if (cVar != null && cVar.getBackgroundList() != null) {
                     for (DressItemData dressItemData : cVar.getBackgroundList()) {
                         if (dressItemData != null) {
@@ -73,11 +73,11 @@ public class d extends com.baidu.adp.base.e<BackgroundGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public DressItemData lw(int i) {
-        if (this.dfi == null || this.dfi.size() <= 0) {
+    public DressItemData lK(int i) {
+        if (this.dgO == null || this.dgO.size() <= 0) {
             return null;
         }
-        for (c cVar : this.dfi) {
+        for (c cVar : this.dgO) {
             if (cVar != null && cVar.getBackgroundList() != null) {
                 for (DressItemData dressItemData : cVar.getBackgroundList()) {
                     if (dressItemData != null && dressItemData.getPropsId() == i) {

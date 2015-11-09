@@ -10,7 +10,7 @@ public class h extends Handler {
         super(Looper.getMainLooper());
     }
 
-    public static final h hg() {
+    public static final h hh() {
         return vS;
     }
 }

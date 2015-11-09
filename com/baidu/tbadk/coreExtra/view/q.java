@@ -7,11 +7,11 @@ import com.baidu.tbadk.coreExtra.view.LiveBroadcastCard;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements View.OnClickListener {
-    final /* synthetic */ LiveBroadcastCard akJ;
+    final /* synthetic */ LiveBroadcastCard akO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(LiveBroadcastCard liveBroadcastCard) {
-        this.akJ = liveBroadcastCard;
+        this.akO = liveBroadcastCard;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,24 +22,24 @@ public class q implements View.OnClickListener {
         String str;
         String str2;
         LiveBroadcastCard.a aVar2;
-        aVar = this.akJ.mCardOnClickDispatch;
+        aVar = this.akO.mCardOnClickDispatch;
         if (aVar != null) {
-            aVar2 = this.akJ.mCardOnClickDispatch;
-            if (!aVar2.yU()) {
+            aVar2 = this.akO.mCardOnClickDispatch;
+            if (!aVar2.yZ()) {
                 return;
             }
         }
-        bVar = this.akJ.mCardListener;
+        bVar = this.akO.mCardListener;
         if (bVar != null) {
-            bVar2 = this.akJ.mCardListener;
-            bVar2.onClick(this.akJ);
+            bVar2 = this.akO.mCardListener;
+            bVar2.onClick(this.akO);
             return;
         }
-        str = this.akJ.mStatisticsKey;
+        str = this.akO.mStatisticsKey;
         if (!TextUtils.isEmpty(str)) {
-            str2 = this.akJ.mStatisticsKey;
+            str2 = this.akO.mStatisticsKey;
             TiebaStatic.log(str2);
         }
-        this.akJ.goToLiveBroadcastAcvitity();
+        this.akO.goToLiveBroadcastAcvitity();
     }
 }

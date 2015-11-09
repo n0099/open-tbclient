@@ -3,19 +3,19 @@ package com.baidu.tieba.frs.hot;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.core.data.o;
-import com.baidu.tieba.frs.eb;
-import com.baidu.tieba.frs.ee;
+import com.baidu.tieba.frs.ed;
+import com.baidu.tieba.frs.eg;
 import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d baC;
+    final /* synthetic */ d baV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(d dVar, int i, int i2) {
         super(i, i2);
-        this.baC = dVar;
+        this.baV = dVar;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -23,18 +23,18 @@ public class e extends com.baidu.adp.framework.listener.a {
         int i;
         o oVar;
         ArrayList<u> arrayList;
-        eb ebVar;
+        ed edVar;
         ArrayList arrayList2;
-        ee eeVar;
-        eb ebVar2;
-        ee eeVar2;
+        eg egVar;
+        ed edVar2;
+        eg egVar2;
         ArrayList<u> arrayList3;
         ArrayList arrayList4;
-        ee eeVar3;
-        ee eeVar4;
-        ee eeVar5;
-        ee eeVar6;
-        ee eeVar7;
+        eg egVar3;
+        eg egVar4;
+        eg egVar5;
+        eg egVar6;
+        eg egVar7;
         int i2;
         ArrayList arrayList5;
         ArrayList arrayList6;
@@ -62,56 +62,56 @@ public class e extends com.baidu.adp.framework.listener.a {
             }
             if (oVar != null) {
                 if (arrayList != null && arrayList.size() != 0) {
-                    int rG = oVar.rG();
-                    i2 = this.baC.bax;
-                    if (rG > i2) {
-                        i3 = this.baC.bax;
+                    int rI = oVar.rI();
+                    i2 = this.baV.baQ;
+                    if (rI > i2) {
+                        i3 = this.baV.baQ;
                         if (i3 > 0) {
-                            z = this.baC.aRk;
+                            z = this.baV.aRs;
                             if (!z) {
-                                arrayList7 = this.baC.baA;
+                                arrayList7 = this.baV.baT;
                                 arrayList7.addAll(arrayList);
                             }
                         }
                     }
-                    if (oVar.rG() > 0) {
-                        arrayList5 = this.baC.baA;
+                    if (oVar.rI() > 0) {
+                        arrayList5 = this.baV.baT;
                         arrayList5.clear();
-                        arrayList6 = this.baC.baA;
+                        arrayList6 = this.baV.baT;
                         arrayList6.addAll(arrayList);
                     }
                 }
-                eeVar4 = this.baC.baz;
-                eeVar4.errCode = i;
-                eeVar5 = this.baC.baz;
-                eeVar5.errMsg = str;
-                eeVar6 = this.baC.baz;
-                eeVar6.pn = oVar.rG();
-                eeVar7 = this.baC.baz;
-                eeVar7.hasMore = oVar.rI() == 1;
-                this.baC.bax = oVar.rG();
+                egVar4 = this.baV.baS;
+                egVar4.errCode = i;
+                egVar5 = this.baV.baS;
+                egVar5.errMsg = str;
+                egVar6 = this.baV.baS;
+                egVar6.pn = oVar.rI();
+                egVar7 = this.baV.baS;
+                egVar7.hasMore = oVar.rK() == 1;
+                this.baV.baQ = oVar.rI();
             }
-            this.baC.aRk = false;
-            ebVar = this.baC.bay;
-            if (ebVar != null) {
-                arrayList2 = this.baC.baA;
+            this.baV.aRs = false;
+            edVar = this.baV.baR;
+            if (edVar != null) {
+                arrayList2 = this.baV.baT;
                 if (arrayList2 != null) {
-                    arrayList4 = this.baC.baA;
+                    arrayList4 = this.baV.baT;
                     if (arrayList4.size() != 0) {
-                        eeVar3 = this.baC.baz;
-                        eeVar3.aZb = true;
-                        ebVar2 = this.baC.bay;
-                        eeVar2 = this.baC.baz;
-                        arrayList3 = this.baC.baA;
-                        ebVar2.a(2, 0, eeVar2, arrayList3);
+                        egVar3 = this.baV.baS;
+                        egVar3.aZn = true;
+                        edVar2 = this.baV.baR;
+                        egVar2 = this.baV.baS;
+                        arrayList3 = this.baV.baT;
+                        edVar2.a(2, 0, egVar2, arrayList3);
                     }
                 }
-                eeVar = this.baC.baz;
-                eeVar.aZb = false;
-                ebVar2 = this.baC.bay;
-                eeVar2 = this.baC.baz;
-                arrayList3 = this.baC.baA;
-                ebVar2.a(2, 0, eeVar2, arrayList3);
+                egVar = this.baV.baS;
+                egVar.aZn = false;
+                edVar2 = this.baV.baR;
+                egVar2 = this.baV.baS;
+                arrayList3 = this.baV.baT;
+                edVar2.a(2, 0, egVar2, arrayList3);
             }
         }
     }

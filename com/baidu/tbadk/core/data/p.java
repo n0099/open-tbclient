@@ -4,19 +4,19 @@ import com.baidu.adp.BdUniqueId;
 import java.util.List;
 /* loaded from: classes.dex */
 public class p extends w {
-    public static final BdUniqueId Va = BdUniqueId.gen();
-    private List<PhotoLiveCardData> Vb;
+    public static final BdUniqueId Vc = BdUniqueId.gen();
+    private List<PhotoLiveCardData> Vd;
 
-    public List<PhotoLiveCardData> rK() {
-        return this.Vb;
+    public List<PhotoLiveCardData> rM() {
+        return this.Vd;
     }
 
     public void j(List<PhotoLiveCardData> list) {
-        this.Vb = list;
+        this.Vd = list;
     }
 
     @Override // com.baidu.tbadk.core.data.w, com.baidu.adp.widget.ListView.u
     public BdUniqueId getType() {
-        return Va;
+        return Vc;
     }
 }

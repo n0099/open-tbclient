@@ -1,126 +1,101 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.pb.pb.main.bl;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tieba.i;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class bo extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ bl cjM;
+class bo implements az.a {
+    Pattern cjY = Pattern.compile("http://tieba.baidu.com/p/([\\d]+)");
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bo(bl blVar, int i, int i2) {
-        super(i, i2);
-        this.cjM = blVar;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0046  */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x005d  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x00a1  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x00b3  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00ca  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0143  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0146  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0149  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x014d  */
-    /* JADX WARN: Removed duplicated region for block: B:40:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.adp.framework.listener.a
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
+    @Override // com.baidu.tbadk.core.util.az.a
+    public boolean a(TbPageContext<?> tbPageContext, String[] strArr) {
+        String substring;
         boolean z;
-        int i;
-        int i2;
+        String str;
         boolean z2;
-        boolean z3;
-        bl.a aVar;
-        bl.a aVar2;
-        BaseActivity baseActivity;
-        BaseActivity baseActivity2;
-        if (((responsedMessage instanceof pbPageSocketResponseMessage) || (responsedMessage instanceof pbPageHttpResponseMessage)) && responsedMessage.getOrginalMessage().getTag() == this.cjM.getUniqueId()) {
-            boolean z4 = true;
-            if (responsedMessage.hasError()) {
-                z4 = false;
-                if (responsedMessage.getError() == 4) {
-                    baseActivity2 = this.cjM.aSe;
-                    baseActivity2.showToast(responsedMessage.getErrorString());
-                    z = false;
-                    if (responsedMessage instanceof pbPageSocketResponseMessage) {
-                        i = 0;
-                    } else {
-                        pbPageSocketResponseMessage pbpagesocketresponsemessage = (pbPageSocketResponseMessage) responsedMessage;
-                        this.cjM.a(pbpagesocketresponsemessage);
-                        i = pbpagesocketresponsemessage.getDownSize();
-                    }
-                    if (responsedMessage instanceof pbPageHttpResponseMessage) {
-                        i2 = 0;
-                        z2 = false;
-                    } else {
-                        pbPageHttpResponseMessage pbpagehttpresponsemessage = (pbPageHttpResponseMessage) responsedMessage;
-                        this.cjM.a(pbpagehttpresponsemessage);
-                        i2 = pbpagehttpresponsemessage.getDownSize();
-                        z2 = true;
-                    }
-                    PbPageRequestMessage pbPageRequestMessage = (PbPageRequestMessage) responsedMessage.getOrginalMessage().getExtra();
-                    long clientLogID = responsedMessage.getOrginalMessage().getClientLogID();
-                    int cmd = responsedMessage.getOrginalMessage().getCmd();
-                    int error = responsedMessage.getError();
-                    String errorString = responsedMessage.getErrorString();
-                    Object[] objArr = new Object[4];
-                    objArr[0] = "updateType";
-                    objArr[1] = pbPageRequestMessage == null ? String.valueOf(pbPageRequestMessage.getUpdateType()) : null;
-                    objArr[2] = "ThreadId";
-                    objArr[3] = pbPageRequestMessage == null ? String.valueOf(pbPageRequestMessage.get_kz()) : null;
-                    com.baidu.tbadk.core.log.b.a("pb", clientLogID, cmd, "resp", error, errorString, objArr);
-                    z3 = this.cjM.cjG;
-                    if (z3) {
-                        this.cjM.cjG = true;
-                        com.baidu.tbadk.performanceLog.t tVar = new com.baidu.tbadk.performanceLog.t();
-                        tVar.ez(this.cjM.afE());
-                        tVar.axE = z2;
-                        tVar.isSuccess = z;
-                        tVar.axt = responsedMessage.performanceData.qw;
-                        tVar.axu = responsedMessage.performanceData.qx;
-                        tVar.axv = responsedMessage.performanceData.qy;
-                        tVar.axw = responsedMessage.performanceData.qz;
-                        tVar.axx = responsedMessage.performanceData.qA;
-                        tVar.axC = i;
-                        tVar.axD = i2;
-                        aVar = this.cjM.cjC;
-                        if (aVar != null) {
-                            aVar2 = this.cjM.cjC;
-                            aVar2.e(tVar);
-                            return;
+        if (strArr == null || strArr.length == 0 || strArr[0] == null) {
+            return false;
+        }
+        String lowerCase = strArr[0].toLowerCase();
+        Matcher matcher = this.cjY.matcher(lowerCase);
+        if (matcher.find()) {
+            substring = matcher.group(1);
+            str = "allthread";
+            z2 = false;
+            z = true;
+        } else if (lowerCase != null && lowerCase.startsWith("http://tieba.baidu.com/f?")) {
+            String substring2 = lowerCase.substring("http://tieba.baidu.com/f?".length());
+            if (substring2 != null) {
+                String[] split = substring2.split("&");
+                int i = 0;
+                while (true) {
+                    if (i < split.length) {
+                        if (split[i] == null || !split[i].startsWith("kz=")) {
+                            i++;
+                        } else {
+                            substring = split[i].substring(3);
+                            z = true;
+                            break;
                         }
-                        return;
+                    } else {
+                        substring = null;
+                        z = false;
+                        break;
                     }
-                    return;
-                } else if (com.baidu.adp.lib.util.i.iM()) {
-                    baseActivity = this.cjM.aSe;
-                    baseActivity.showToast(responsedMessage.getErrorString());
                 }
+                if (!TextUtils.isEmpty(substring) && substring.contains("&")) {
+                    substring = substring.split("&")[0];
+                }
+                if (TextUtils.isEmpty(substring)) {
+                    substring = null;
+                }
+            } else {
+                z = false;
+                substring = null;
             }
-            z = z4;
-            if (responsedMessage instanceof pbPageSocketResponseMessage) {
+            str = "allthread";
+            z2 = false;
+        } else if (!lowerCase.startsWith("pb:")) {
+            if (!lowerCase.startsWith("com.baidu.tieba://?kz=")) {
+                return false;
             }
-            if (responsedMessage instanceof pbPageHttpResponseMessage) {
+            substring = lowerCase.substring("com.baidu.tieba://?kz=".length());
+            z = false;
+            str = null;
+            z2 = true;
+        } else {
+            substring = lowerCase.substring(3);
+            if (strArr.length > 1) {
+                str = strArr[1];
+                z2 = false;
+                z = true;
+            } else {
+                z = true;
+                str = null;
+                z2 = false;
             }
-            PbPageRequestMessage pbPageRequestMessage2 = (PbPageRequestMessage) responsedMessage.getOrginalMessage().getExtra();
-            long clientLogID2 = responsedMessage.getOrginalMessage().getClientLogID();
-            int cmd2 = responsedMessage.getOrginalMessage().getCmd();
-            int error2 = responsedMessage.getError();
-            String errorString2 = responsedMessage.getErrorString();
-            Object[] objArr2 = new Object[4];
-            objArr2[0] = "updateType";
-            objArr2[1] = pbPageRequestMessage2 == null ? String.valueOf(pbPageRequestMessage2.getUpdateType()) : null;
-            objArr2[2] = "ThreadId";
-            objArr2[3] = pbPageRequestMessage2 == null ? String.valueOf(pbPageRequestMessage2.get_kz()) : null;
-            com.baidu.tbadk.core.log.b.a("pb", clientLogID2, cmd2, "resp", error2, errorString2, objArr2);
-            z3 = this.cjM.cjG;
-            if (z3) {
-            }
+        }
+        if (!StringUtils.isNull(substring, true) && tbPageContext != null) {
+            tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(substring, null, str)));
+            return true;
+        } else if (z2 && !TextUtils.isEmpty(substring)) {
+            com.baidu.adp.lib.g.i.f(TbadkCoreApplication.m411getInst(), cs.L(TbadkCoreApplication.m411getInst(), substring));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10320").r("obj_locate", 3).r("obj_type", 2));
+            return true;
+        } else if (z) {
+            tbPageContext.showToast(i.h.page_not_found);
+            return true;
+        } else {
+            return false;
         }
     }
 }

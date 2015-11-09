@@ -17,132 +17,132 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class u {
-    private int apS = -1;
-    private PersonInfoActivity cqE;
-    private View csP;
-    private RelativeLayout csQ;
-    private TextView csR;
-    private TextView csS;
-    private ImageView csT;
-    private View csU;
-    private RelativeLayout csV;
-    private TextView csW;
-    private TextView csX;
-    private ImageView csY;
-    private View csZ;
-    private RelativeLayout cta;
-    private TextView ctb;
-    private TextView ctc;
-    private ImageView ctd;
+    private int arf = -1;
+    private PersonInfoActivity csa;
+    private View cul;
+    private RelativeLayout cum;
+    private TextView cun;
+    private TextView cuo;
+    private ImageView cup;
+    private View cuq;
+    private RelativeLayout cur;
+    private TextView cus;
+    private TextView cut;
+    private ImageView cuu;
+    private View cuv;
+    private RelativeLayout cuw;
+    private TextView cux;
+    private TextView cuy;
+    private ImageView cuz;
     private boolean mIsHost;
     private View mRootView;
 
     public u(PersonInfoActivity personInfoActivity, boolean z) {
-        this.cqE = personInfoActivity;
+        this.csa = personInfoActivity;
         this.mIsHost = z;
-        this.mRootView = LayoutInflater.from(this.cqE.getPageContext().getPageActivity()).inflate(i.g.personinfo_common, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.csa.getPageContext().getPageActivity()).inflate(i.g.personinfo_common, (ViewGroup) null);
         initView();
     }
 
     private void initView() {
-        this.csP = this.mRootView.findViewById(i.f.root_next);
-        this.csQ = (RelativeLayout) this.mRootView.findViewById(i.f.common_like_rl);
-        this.csR = (TextView) this.mRootView.findViewById(i.f.common_like_text);
-        this.csS = (TextView) this.mRootView.findViewById(i.f.common_like_bar);
-        this.csT = (ImageView) this.mRootView.findViewById(i.f.arrow_top);
-        this.csQ.setOnClickListener(this.cqE);
-        this.csU = this.mRootView.findViewById(i.f.line1);
-        this.csV = (RelativeLayout) this.mRootView.findViewById(i.f.common_friend_rl);
-        this.csW = (TextView) this.mRootView.findViewById(i.f.common_friend_text);
-        this.csX = (TextView) this.mRootView.findViewById(i.f.common_friend);
-        this.csY = (ImageView) this.mRootView.findViewById(i.f.arrow_middle);
-        this.csV.setOnClickListener(this.cqE);
-        this.csZ = this.mRootView.findViewById(i.f.line2);
-        this.cta = (RelativeLayout) this.mRootView.findViewById(i.f.common_group_rl);
-        this.ctb = (TextView) this.mRootView.findViewById(i.f.common_group_text);
-        this.ctc = (TextView) this.mRootView.findViewById(i.f.common_group);
-        this.ctd = (ImageView) this.mRootView.findViewById(i.f.arrow_bottom);
-        this.cta.setOnClickListener(this.cqE);
-        oO();
+        this.cul = this.mRootView.findViewById(i.f.root_next);
+        this.cum = (RelativeLayout) this.mRootView.findViewById(i.f.common_like_rl);
+        this.cun = (TextView) this.mRootView.findViewById(i.f.common_like_text);
+        this.cuo = (TextView) this.mRootView.findViewById(i.f.common_like_bar);
+        this.cup = (ImageView) this.mRootView.findViewById(i.f.arrow_top);
+        this.cum.setOnClickListener(this.csa);
+        this.cuq = this.mRootView.findViewById(i.f.line1);
+        this.cur = (RelativeLayout) this.mRootView.findViewById(i.f.common_friend_rl);
+        this.cus = (TextView) this.mRootView.findViewById(i.f.common_friend_text);
+        this.cut = (TextView) this.mRootView.findViewById(i.f.common_friend);
+        this.cuu = (ImageView) this.mRootView.findViewById(i.f.arrow_middle);
+        this.cur.setOnClickListener(this.csa);
+        this.cuv = this.mRootView.findViewById(i.f.line2);
+        this.cuw = (RelativeLayout) this.mRootView.findViewById(i.f.common_group_rl);
+        this.cux = (TextView) this.mRootView.findViewById(i.f.common_group_text);
+        this.cuy = (TextView) this.mRootView.findViewById(i.f.common_group);
+        this.cuz = (ImageView) this.mRootView.findViewById(i.f.arrow_bottom);
+        this.cuw.setOnClickListener(this.csa);
+        oP();
     }
 
-    public RelativeLayout ajx() {
-        return this.cta;
+    public RelativeLayout akd() {
+        return this.cuw;
     }
 
-    public RelativeLayout ajn() {
-        return this.csQ;
+    public RelativeLayout ajT() {
+        return this.cum;
     }
 
-    public RelativeLayout ajq() {
-        return this.csV;
+    public RelativeLayout ajW() {
+        return this.cur;
     }
 
-    public void oO() {
-        if (this.apS != TbadkCoreApplication.m411getInst().getSkinType()) {
-            this.apS = TbadkCoreApplication.m411getInst().getSkinType();
-            an.j(this.csP, i.c.cp_bg_line_d);
-            an.i(this.csQ, i.e.personinfo_select_bg);
-            an.b(this.csR, i.c.cp_cont_d, 1);
-            an.b(this.csS, i.c.cp_cont_b, 1);
-            an.i(this.csT, i.e.icon_dredge_arrow_r_n);
-            an.j(this.csU, i.c.cp_bg_line_b);
-            an.i(this.csV, i.e.personinfo_select_bg);
-            an.b(this.csW, i.c.cp_cont_d, 1);
-            an.b(this.csX, i.c.cp_cont_b, 1);
-            an.i(this.csY, i.e.icon_dredge_arrow_r_n);
-            an.j(this.csZ, i.c.cp_bg_line_b);
-            an.i(this.cta, i.e.personinfo_select_bg);
-            an.b(this.ctb, i.c.cp_cont_d, 1);
-            an.b(this.ctc, i.c.cp_cont_b, 1);
-            an.i(this.ctd, i.e.icon_dredge_arrow_r_n);
+    public void oP() {
+        if (this.arf != TbadkCoreApplication.m411getInst().getSkinType()) {
+            this.arf = TbadkCoreApplication.m411getInst().getSkinType();
+            an.j(this.cul, i.c.cp_bg_line_d);
+            an.i(this.cum, i.e.personinfo_select_bg);
+            an.b(this.cun, i.c.cp_cont_d, 1);
+            an.b(this.cuo, i.c.cp_cont_b, 1);
+            an.i(this.cup, i.e.icon_dredge_arrow_r_n);
+            an.j(this.cuq, i.c.cp_bg_line_b);
+            an.i(this.cur, i.e.personinfo_select_bg);
+            an.b(this.cus, i.c.cp_cont_d, 1);
+            an.b(this.cut, i.c.cp_cont_b, 1);
+            an.i(this.cuu, i.e.icon_dredge_arrow_r_n);
+            an.j(this.cuv, i.c.cp_bg_line_b);
+            an.i(this.cuw, i.e.personinfo_select_bg);
+            an.b(this.cux, i.c.cp_cont_d, 1);
+            an.b(this.cuy, i.c.cp_cont_b, 1);
+            an.i(this.cuz, i.e.icon_dredge_arrow_r_n);
         }
     }
 
-    public void ajy() {
-        oO();
-        y ajb = this.cqE.ajb();
-        PersonTainInfo ajJ = ajb.ajJ();
-        if (ajJ == null) {
-            this.csP.setVisibility(8);
-        } else if (ajJ.getIsFriend() == 1) {
-            this.csP.setVisibility(8);
+    public void ake() {
+        oP();
+        y ajH = this.csa.ajH();
+        PersonTainInfo akp = ajH.akp();
+        if (akp == null) {
+            this.cul.setVisibility(8);
+        } else if (akp.getIsFriend() == 1) {
+            this.cul.setVisibility(8);
         } else {
-            UserData userData = ajb.getUserData();
+            UserData userData = ajH.getUserData();
             if (userData == null) {
-                this.csP.setVisibility(8);
+                this.cul.setVisibility(8);
                 return;
             }
             com.baidu.tbadk.data.f personPrivate = userData.getPersonPrivate();
             if (personPrivate == null) {
-                this.csP.setVisibility(8);
+                this.cul.setVisibility(8);
                 return;
             }
-            if (personPrivate.zW() == 1) {
-                this.csQ.setVisibility(0);
-                this.csU.setVisibility(0);
+            if (personPrivate.Ab() == 1) {
+                this.cum.setVisibility(0);
+                this.cuq.setVisibility(0);
             } else {
-                this.csQ.setVisibility(8);
-                this.csU.setVisibility(8);
+                this.cum.setVisibility(8);
+                this.cuq.setVisibility(8);
             }
-            if (personPrivate.zZ() == 1) {
-                this.csV.setVisibility(0);
-                this.csU.setVisibility(0);
+            if (personPrivate.Ae() == 1) {
+                this.cur.setVisibility(0);
+                this.cuq.setVisibility(0);
             } else {
-                this.csV.setVisibility(8);
-                this.csU.setVisibility(8);
+                this.cur.setVisibility(8);
+                this.cuq.setVisibility(8);
             }
-            int zX = personPrivate.zX();
+            int Ac = personPrivate.Ac();
             boolean appResponseToIntentClass = TbadkCoreApplication.m411getInst().appResponseToIntentClass(PersonGroupActivityConfig.class);
-            if (zX == 1 && appResponseToIntentClass) {
-                this.cta.setVisibility(0);
-                this.csZ.setVisibility(0);
+            if (Ac == 1 && appResponseToIntentClass) {
+                this.cuw.setVisibility(0);
+                this.cuv.setVisibility(0);
             } else {
-                this.cta.setVisibility(8);
-                this.csZ.setVisibility(8);
+                this.cuw.setVisibility(8);
+                this.cuv.setVisibility(8);
             }
-            this.csP.setVisibility(0);
-            List<CommonForum> commonForum = ajJ.getCommonForum();
+            this.cul.setVisibility(0);
+            List<CommonForum> commonForum = akp.getCommonForum();
             if (commonForum != null && commonForum.size() > 0) {
                 ArrayList<String> arrayList = new ArrayList<>();
                 for (int i = 0; i < commonForum.size(); i++) {
@@ -150,12 +150,12 @@ public class u {
                         arrayList.add(commonForum.get(i).getForumName());
                     }
                 }
-                this.csS.setText(U(arrayList));
+                this.cuo.setText(U(arrayList));
             } else {
-                this.csQ.setVisibility(8);
-                this.csU.setVisibility(8);
+                this.cum.setVisibility(8);
+                this.cuq.setVisibility(8);
             }
-            List<CommonFriend> commonFriend = ajJ.getCommonFriend();
+            List<CommonFriend> commonFriend = akp.getCommonFriend();
             if (commonFriend != null && commonFriend.size() > 0) {
                 ArrayList<String> arrayList2 = new ArrayList<>();
                 for (int i2 = 0; i2 < commonFriend.size(); i2++) {
@@ -163,12 +163,12 @@ public class u {
                         arrayList2.add(commonFriend.get(i2).getCommonFriend());
                     }
                 }
-                this.csX.setText(U(arrayList2));
+                this.cut.setText(U(arrayList2));
             } else {
-                this.csV.setVisibility(8);
-                this.csU.setVisibility(8);
+                this.cur.setVisibility(8);
+                this.cuq.setVisibility(8);
             }
-            List<CommonGroup> commonGroup = ajJ.getCommonGroup();
+            List<CommonGroup> commonGroup = akp.getCommonGroup();
             if (commonGroup != null && commonGroup.size() > 0) {
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 for (int i3 = 0; i3 < commonGroup.size(); i3++) {
@@ -176,15 +176,15 @@ public class u {
                         arrayList3.add(commonGroup.get(i3).getCommonGroup());
                     }
                 }
-                this.ctc.setText(U(arrayList3));
+                this.cuy.setText(U(arrayList3));
             } else {
-                this.cta.setVisibility(8);
-                this.csZ.setVisibility(8);
+                this.cuw.setVisibility(8);
+                this.cuv.setVisibility(8);
             }
-            if (this.csQ.getVisibility() == 8 && this.csV.getVisibility() == 8) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.csP.getLayoutParams();
+            if (this.cum.getVisibility() == 8 && this.cur.getVisibility() == 8) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cul.getLayoutParams();
                 layoutParams.topMargin = 0;
-                this.csP.setLayoutParams(layoutParams);
+                this.cul.setLayoutParams(layoutParams);
             }
         }
     }
@@ -194,10 +194,10 @@ public class u {
             return null;
         }
         if (arrayList.size() > 2) {
-            return String.valueOf(com.baidu.tbadk.util.n.e(arrayList.get(0), 0, 10)) + this.cqE.getPageContext().getString(i.h.comma) + com.baidu.tbadk.util.n.e(arrayList.get(1), 0, 10) + this.cqE.getPageContext().getString(i.h.etc);
+            return String.valueOf(com.baidu.tbadk.util.n.e(arrayList.get(0), 0, 10)) + this.csa.getPageContext().getString(i.h.comma) + com.baidu.tbadk.util.n.e(arrayList.get(1), 0, 10) + this.csa.getPageContext().getString(i.h.etc);
         }
         if (arrayList.size() == 2) {
-            return String.valueOf(com.baidu.tbadk.util.n.e(arrayList.get(0), 0, 15)) + this.cqE.getPageContext().getString(i.h.comma) + com.baidu.tbadk.util.n.e(arrayList.get(1), 0, 15);
+            return String.valueOf(com.baidu.tbadk.util.n.e(arrayList.get(0), 0, 15)) + this.csa.getPageContext().getString(i.h.comma) + com.baidu.tbadk.util.n.e(arrayList.get(1), 0, 15);
         }
         return arrayList.get(0);
     }

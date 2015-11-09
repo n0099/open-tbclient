@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class g extends BaseAdapter {
-    private final int bwk;
-    private List<String> cIx = new ArrayList();
+    private final int bwI;
+    private List<String> cJT = new ArrayList();
     private Context mContext;
     private int padding;
     private int textSize;
@@ -23,30 +23,30 @@ public class g extends BaseAdapter {
         this.mContext = context;
         this.textSize = context.getResources().getDimensionPixelSize(i.d.fontsize28);
         this.padding = context.getResources().getDimensionPixelSize(i.d.ds16);
-        this.bwk = i;
+        this.bwI = i;
     }
 
-    public void bq(List<String> list) {
-        this.cIx.clear();
+    public void bu(List<String> list) {
+        this.cJT.clear();
         if (list != null && list.size() > 0) {
-            this.cIx.addAll(list);
+            this.cJT.addAll(list);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.cIx.size();
+        return this.cJT.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: im */
+    /* renamed from: iz */
     public String getItem(int i) {
-        if (i < 0 || i >= this.cIx.size()) {
+        if (i < 0 || i >= this.cJT.size()) {
             return null;
         }
-        return this.cIx.get(i);
+        return this.cJT.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -67,7 +67,7 @@ public class g extends BaseAdapter {
         }
         textView.setText(getItem(i));
         an.b(textView, i.c.cp_cont_f, 1);
-        if (i == this.bwk) {
+        if (i == this.bwI) {
             an.i((View) textView, i.e.btn_label_white_s);
         } else {
             an.i((View) textView, i.e.rec_frs_btn_more_item);

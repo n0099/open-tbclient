@@ -38,47 +38,47 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
-    private boolean ajY;
-    private String ajZ;
     private boolean akd;
-    private HashMap<String, ImageUrlData> bBu;
-    private String bOS;
-    private b bPA;
-    private View bPB;
-    private View bPC;
-    private TextView bPD;
-    private MultiImageView bPE;
-    private a bPF;
-    private j bPG;
-    private HashMap<String, Boolean> bPI;
-    private String bPJ;
-    private String bPK;
-    private String bPL;
-    private boolean bPM;
-    private ArrayList<String> bPx;
-    private String bPy;
-    private NavigationBar bdY;
-    private AlphaAnimation bqF;
-    private boolean bqH;
+    private String ake;
+    private boolean aki;
+    private HashMap<String, ImageUrlData> bBP;
+    private ArrayList<String> bPS;
+    private String bPT;
+    private b bPV;
+    private View bPW;
+    private View bPX;
+    private TextView bPY;
+    private MultiImageView bPZ;
+    private String bPn;
+    private a bQa;
+    private j bQb;
+    private HashMap<String, Boolean> bQd;
+    private String bQe;
+    private String bQf;
+    private String bQg;
+    private boolean bQh;
+    private NavigationBar beE;
+    private AlphaAnimation brj;
+    private boolean brl;
     private String mFrom;
     private String mUserId;
-    private int bPw = 0;
+    private int bPR = 0;
     private int mIndex = -1;
     private int wB = -1;
-    private boolean bPz = true;
-    private boolean bqG = true;
-    private long bPH = 0;
-    private boolean bPN = true;
-    private com.baidu.tieba.image.a bPO = null;
-    private boolean bPP = false;
-    private boolean bPQ = false;
-    private boolean bPR = true;
-    private z.b akf = new n(this);
-    private c.b bPS = new p(this);
-    private View.OnClickListener bPT = new q(this);
-    private View.OnLongClickListener bPU = new r(this);
-    private BaseViewPager.a bPV = new s(this);
-    private ViewPager.OnPageChangeListener bPW = new t(this);
+    private boolean bPU = true;
+    private boolean brk = true;
+    private long bQc = 0;
+    private boolean bQi = true;
+    private com.baidu.tieba.image.a bQj = null;
+    private boolean bQk = false;
+    private boolean bQl = false;
+    private boolean bQm = true;
+    private z.b akk = new n(this);
+    private c.b bQn = new p(this);
+    private View.OnClickListener bQo = new q(this);
+    private View.OnLongClickListener bQp = new r(this);
+    private BaseViewPager.a bQq = new s(this);
+    private ViewPager.OnPageChangeListener bQr = new t(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -88,17 +88,17 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         TbadkCoreApplication.m411getInst().addRemoteActivity(this);
         setContentView(i.g.image_activity_2);
         initData(bundle);
-        QF();
-        KP();
-        if (!this.bPM) {
-            String iQ = iQ(this.bPy);
-            if (iQ == null) {
-                this.bdY.setVisibility(8);
+        Rb();
+        Lf();
+        if (!this.bQh) {
+            String iS = iS(this.bPT);
+            if (iS == null) {
+                this.beE.setVisibility(8);
             }
-            this.bPG = new j(this.bPx, this.bBu, this.bPJ, this.bPK, this.bOS, iQ, this.mUserId, this.mFrom);
-            this.bPG.dE(this.bPz);
-            this.bPG.a(new u(this));
-            this.bPG.ZZ();
+            this.bQb = new j(this.bPS, this.bBP, this.bQe, this.bQf, this.bPn, iS, this.mUserId, this.mFrom);
+            this.bQb.dG(this.bPU);
+            this.bQb.a(new u(this));
+            this.bQb.aau();
         }
     }
 
@@ -113,34 +113,34 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void UT() {
+    public void Vo() {
         byte[] bArr;
         String str;
         try {
-            byte[] currentImageData = this.bPE.getCurrentImageData();
+            byte[] currentImageData = this.bPZ.getCurrentImageData();
             if (currentImageData != null) {
-                String currentImageUrl = this.bPE.getCurrentImageUrl();
-                if (this.bBu != null) {
-                    ImageUrlData imageUrlData = this.bBu.get(currentImageUrl);
+                String currentImageUrl = this.bPZ.getCurrentImageUrl();
+                if (this.bBP != null) {
+                    ImageUrlData imageUrlData = this.bBP.get(currentImageUrl);
                     if (imageUrlData == null || StringUtils.isNull(imageUrlData.originalUrl, true) || imageUrlData.originalProcess != 100) {
                         bArr = currentImageData;
                         str = currentImageUrl;
                     } else {
                         String dn = au.dn(imageUrlData.originalUrl);
-                        String cV = com.baidu.tbadk.core.util.n.cV(String.valueOf(com.baidu.tbadk.core.util.n.tA()) + ar.uA().di(dn) + "/" + dn);
+                        String cV = com.baidu.tbadk.core.util.n.cV(String.valueOf(com.baidu.tbadk.core.util.n.tD()) + ar.uE().di(dn) + "/" + dn);
                         if (StringUtils.isNull(cV, true)) {
                             cV = "jpg";
                         }
-                        str = String.valueOf(com.baidu.tbadk.core.util.n.tA()) + dn + "." + cV;
+                        str = String.valueOf(com.baidu.tbadk.core.util.n.tD()) + dn + "." + cV;
                         bArr = null;
                     }
                 } else {
                     bArr = currentImageData;
                     str = currentImageUrl;
                 }
-                this.bPA = new b(str, bArr);
-                this.bPA.execute(new String[0]);
-                this.bPB.setClickable(false);
+                this.bPV = new b(str, bArr);
+                this.bPV.execute(new String[0]);
+                this.bPW.setClickable(false);
                 return;
             }
             showToast(getPageContext().getString(i.h.no_data));
@@ -152,24 +152,24 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.bPE.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
-        aae();
+        this.bPZ.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
+        aaz();
     }
 
-    private void aae() {
-        an.j(this.bdY, i.c.alpha80_black);
-        getLayoutMode().k(this.bPC);
-        getLayoutMode().k(this.bPD);
-        getLayoutMode().k(this.bPB);
-        this.bdY.onBackBtnOnChangeSkin();
+    private void aaz() {
+        an.j(this.beE, i.c.alpha80_black);
+        getLayoutMode().k(this.bPX);
+        getLayoutMode().k(this.bPY);
+        getLayoutMode().k(this.bPW);
+        this.beE.onBackBtnOnChangeSkin();
     }
 
-    private void KP() {
-        if (this.bPM) {
-            this.bPF = new a(this, null);
+    private void Lf() {
+        if (this.bQh) {
+            this.bQa = new a(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbConfig.getBroadcastActionPageAdded());
-            registerReceiver(this.bPF, intentFilter);
+            registerReceiver(this.bQa, intentFilter);
         }
     }
 
@@ -177,36 +177,36 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.bPE.onPause();
+        this.bPZ.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.bPE.onResume();
+        this.bPZ.onResume();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity
     public void releaseResouce() {
-        this.bPE.onDestroy();
+        this.bPZ.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         TbadkCoreApplication.m411getInst().delRemoteActivity(this);
-        ad(this.mIndex, this.mIndex);
-        aaj();
-        this.bPE.onDestroy();
-        if (this.bPA != null) {
-            this.bPA.cancel();
-            this.bPA = null;
+        af(this.mIndex, this.mIndex);
+        aaE();
+        this.bPZ.onDestroy();
+        if (this.bPV != null) {
+            this.bPV.cancel();
+            this.bPV = null;
         }
-        if (this.bPM) {
-            unregisterReceiver(this.bPF);
+        if (this.bQh) {
+            unregisterReceiver(this.bQa);
         }
-        com.baidu.tbadk.download.d.Ap().dP(13);
+        com.baidu.tbadk.download.d.Au().dP(13);
         super.onDestroy();
     }
 
@@ -222,103 +222,103 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         return super.onKeyDown(i, keyEvent);
     }
 
-    private void QF() {
-        Og();
+    private void Rb() {
+        OC();
         initViewPager();
-        aaf();
-        ad(this.mIndex, this.mIndex);
+        aaA();
+        af(this.mIndex, this.mIndex);
     }
 
-    private void Og() {
-        this.bdY = (NavigationBar) findViewById(i.f.navigation_bar);
-        this.bPD = this.bdY.setTitleText("");
-        this.bPC = this.bdY.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new v(this));
-        this.bPB = this.bdY.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.image_activity_save_button, (View.OnClickListener) null);
-        this.bPB.setOnClickListener(new w(this));
-        this.bdY.findViewById(i.f.navBottomLine).setVisibility(8);
+    private void OC() {
+        this.beE = (NavigationBar) findViewById(i.f.navigation_bar);
+        this.bPY = this.beE.setTitleText("");
+        this.bPX = this.beE.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new v(this));
+        this.bPW = this.beE.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.image_activity_save_button, (View.OnClickListener) null);
+        this.bPW.setOnClickListener(new w(this));
+        this.beE.findViewById(i.f.navBottomLine).setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aaf() {
+    public void aaA() {
         String str;
-        if (this.bPx != null) {
-            String str2 = String.valueOf(String.valueOf(this.mIndex + 1 + this.bPw)) + "/";
+        if (this.bPS != null) {
+            String str2 = String.valueOf(String.valueOf(this.mIndex + 1 + this.bPR)) + "/";
             if (this.wB > 0) {
                 str = String.valueOf(str2) + this.wB;
-            } else if (!this.bPM) {
+            } else if (!this.bQh) {
                 str = String.valueOf(str2) + "...";
             } else {
-                str = String.valueOf(str2) + this.bPx.size();
+                str = String.valueOf(str2) + this.bPS.size();
             }
-            if (aag()) {
-                aai();
+            if (aaB()) {
+                aaD();
             } else {
-                iR(str);
+                iT(str);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aag() {
-        return this.bPN && this.bPO != null && this.bPO.ZI() && this.mIndex == this.bPE.getItemNum() + (-1);
+    public boolean aaB() {
+        return this.bQi && this.bQj != null && this.bQj.aad() && this.mIndex == this.bPZ.getItemNum() + (-1);
     }
 
-    private void iR(String str) {
-        this.bPD.setText(str);
-        if (!this.bPR) {
-            this.bPB.setVisibility(8);
+    private void iT(String str) {
+        this.bPY.setText(str);
+        if (!this.bQm) {
+            this.bPW.setVisibility(8);
             return;
         }
-        this.bPB.setClickable(true);
-        this.bPB.setVisibility(0);
+        this.bPW.setClickable(true);
+        this.bPW.setVisibility(0);
     }
 
-    private boolean aah() {
-        if (this.bPx == null) {
+    private boolean aaC() {
+        if (this.bPS == null) {
             return false;
         }
-        Iterator<String> it = this.bPx.iterator();
+        Iterator<String> it = this.bPS.iterator();
         while (it.hasNext()) {
-            if (iS(it.next())) {
+            if (iU(it.next())) {
                 return false;
             }
         }
         return true;
     }
 
-    private boolean iS(String str) {
+    private boolean iU(String str) {
         return (TextUtils.isEmpty(str) || str.startsWith("http://") || str.startsWith("https://")) ? false : true;
     }
 
-    private void aai() {
-        this.bPD.setText(getPageContext().getString(i.h.navigation_title_ad));
-        this.bPB.setClickable(false);
-        this.bPB.setVisibility(8);
+    private void aaD() {
+        this.bPY.setText(getPageContext().getString(i.h.navigation_title_ad));
+        this.bPW.setClickable(false);
+        this.bPW.setVisibility(8);
     }
 
     private void initViewPager() {
-        this.bPE = (MultiImageView) findViewById(i.f.viewpager);
-        this.bPE.setIsFromCDN(this.akd);
-        this.bPE.setPageMargin(com.baidu.adp.lib.util.k.dip2px(getPageContext().getPageActivity(), 8.0f));
-        this.bPE.G(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
-        this.bPE.setOnPageChangeListener(this.bPW);
-        this.bPE.setUrlData(this.bPx);
-        this.bPE.setAssistUrls(this.bBu);
-        this.bPE.setItemOnclickListener(this.bPT);
-        this.bPE.setItemOnLongClickListener(this.bPU);
-        this.bPE.setCurrentItem(Rk(), false);
-        this.bPE.setOnScrollOutListener(this.bPV);
-        this.bPE.setHasNext(this.ajY);
-        this.bPE.setNextTitle(this.ajZ);
-        this.bPO = new com.baidu.tieba.image.a(this.akd, this.bPN, getPageContext(), this.bPJ, this.bOS);
-        this.bPE.a(this.bPO);
-        this.bPE.setOriImgSelectedCallback(this.akf);
+        this.bPZ = (MultiImageView) findViewById(i.f.viewpager);
+        this.bPZ.setIsFromCDN(this.aki);
+        this.bPZ.setPageMargin(com.baidu.adp.lib.util.k.dip2px(getPageContext().getPageActivity(), 8.0f));
+        this.bPZ.G(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
+        this.bPZ.setOnPageChangeListener(this.bQr);
+        this.bPZ.setUrlData(this.bPS);
+        this.bPZ.setAssistUrls(this.bBP);
+        this.bPZ.setItemOnclickListener(this.bQo);
+        this.bPZ.setItemOnLongClickListener(this.bQp);
+        this.bPZ.setCurrentItem(RG(), false);
+        this.bPZ.setOnScrollOutListener(this.bQq);
+        this.bPZ.setHasNext(this.akd);
+        this.bPZ.setNextTitle(this.ake);
+        this.bQj = new com.baidu.tieba.image.a(this.aki, this.bQi, getPageContext(), this.bQe, this.bPn);
+        this.bPZ.a(this.bQj);
+        this.bPZ.setOriImgSelectedCallback(this.akk);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int Rk() {
-        if (this.bPx != null && this.bPx.size() > 0) {
-            int size = this.bPx.size();
+    public int RG() {
+        if (this.bPS != null && this.bPS.size() > 0) {
+            int size = this.bPS.size();
             if (this.mIndex >= size) {
                 this.mIndex = size - 1;
             }
@@ -333,86 +333,86 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
 
     private void initData(Bundle bundle) {
         if (bundle != null) {
-            this.bPx = bundle.getStringArrayList("url");
+            this.bPS = bundle.getStringArrayList("url");
             this.mIndex = bundle.getInt(ImageViewerConfig.INDEX, -1);
             this.wB = bundle.getInt(ImageViewerConfig.COUNT, -1);
-            this.ajY = bundle.getBoolean(ImageViewerConfig.HAS_NEXT, false);
-            this.ajZ = bundle.getString(ImageViewerConfig.NEXT_TILE);
-            this.bPJ = bundle.getString(ImageViewerConfig.FORUM_ID);
-            this.bOS = bundle.getString("tid");
-            this.bPK = bundle.getString(ImageViewerConfig.FORUM_NAME);
-            this.bPL = bundle.getString(ImageViewerConfig.PV_TYPE);
-            this.akd = bundle.getBoolean(ImageViewerConfig.PARAM_IS_CDN, false);
-            this.bPy = bundle.getString(ImageViewerConfig.LAST_ID);
-            this.bPz = bundle.getBoolean(ImageViewerConfig.REVERSE_MODE, true);
-            this.bPN = bundle.getBoolean(ImageViewerConfig.IS_SHOW_AD, false);
+            this.akd = bundle.getBoolean(ImageViewerConfig.HAS_NEXT, false);
+            this.ake = bundle.getString(ImageViewerConfig.NEXT_TILE);
+            this.bQe = bundle.getString(ImageViewerConfig.FORUM_ID);
+            this.bPn = bundle.getString("tid");
+            this.bQf = bundle.getString(ImageViewerConfig.FORUM_NAME);
+            this.bQg = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.aki = bundle.getBoolean(ImageViewerConfig.PARAM_IS_CDN, false);
+            this.bPT = bundle.getString(ImageViewerConfig.LAST_ID);
+            this.bPU = bundle.getBoolean(ImageViewerConfig.REVERSE_MODE, true);
+            this.bQi = bundle.getBoolean(ImageViewerConfig.IS_SHOW_AD, false);
             this.mUserId = bundle.getString("user_id");
             this.mFrom = bundle.getString("from");
             Serializable serializable = bundle.getSerializable(ImageViewerConfig.ASSIST_URLS);
             if (serializable instanceof HashMap) {
-                this.bBu = (HashMap) serializable;
+                this.bBP = (HashMap) serializable;
             }
         } else {
             Intent intent = getIntent();
             if (intent != null) {
-                this.bPx = intent.getStringArrayListExtra("url");
+                this.bPS = intent.getStringArrayListExtra("url");
                 this.mIndex = intent.getIntExtra(ImageViewerConfig.INDEX, -1);
                 this.wB = intent.getIntExtra(ImageViewerConfig.COUNT, -1);
-                this.ajY = intent.getBooleanExtra(ImageViewerConfig.HAS_NEXT, false);
-                this.ajZ = intent.getStringExtra(ImageViewerConfig.NEXT_TILE);
-                this.bPJ = intent.getStringExtra(ImageViewerConfig.FORUM_ID);
-                this.bOS = intent.getStringExtra("tid");
-                this.bPK = intent.getStringExtra(ImageViewerConfig.FORUM_NAME);
-                this.bPL = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
-                this.akd = intent.getBooleanExtra(ImageViewerConfig.PARAM_IS_CDN, false);
-                this.bPy = intent.getStringExtra(ImageViewerConfig.LAST_ID);
-                this.bPz = intent.getBooleanExtra(ImageViewerConfig.REVERSE_MODE, true);
-                this.bPN = intent.getBooleanExtra(ImageViewerConfig.IS_SHOW_AD, false);
+                this.akd = intent.getBooleanExtra(ImageViewerConfig.HAS_NEXT, false);
+                this.ake = intent.getStringExtra(ImageViewerConfig.NEXT_TILE);
+                this.bQe = intent.getStringExtra(ImageViewerConfig.FORUM_ID);
+                this.bPn = intent.getStringExtra("tid");
+                this.bQf = intent.getStringExtra(ImageViewerConfig.FORUM_NAME);
+                this.bQg = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+                this.aki = intent.getBooleanExtra(ImageViewerConfig.PARAM_IS_CDN, false);
+                this.bPT = intent.getStringExtra(ImageViewerConfig.LAST_ID);
+                this.bPU = intent.getBooleanExtra(ImageViewerConfig.REVERSE_MODE, true);
+                this.bQi = intent.getBooleanExtra(ImageViewerConfig.IS_SHOW_AD, false);
                 this.mUserId = intent.getStringExtra("user_id");
                 this.mFrom = intent.getStringExtra("from");
                 Serializable serializableExtra = intent.getSerializableExtra(ImageViewerConfig.ASSIST_URLS);
                 if (serializableExtra instanceof HashMap) {
-                    this.bBu = (HashMap) serializableExtra;
+                    this.bBP = (HashMap) serializableExtra;
                 }
             }
         }
         if (getIntent() != null) {
-            this.bPM = getIntent().getBooleanExtra(ImageViewerConfig.NEED_BROADCAST, false);
+            this.bQh = getIntent().getBooleanExtra(ImageViewerConfig.NEED_BROADCAST, false);
         }
-        this.bPI = new HashMap<>();
-        if (this.bPx != null) {
-            this.wB = this.bPx.size();
+        this.bQd = new HashMap<>();
+        if (this.bPS != null) {
+            this.wB = this.bPS.size();
         }
-        if (this.bPy == null) {
-            this.bPy = this.wB > 0 ? this.bPx.get(this.wB - 1) : "";
+        if (this.bPT == null) {
+            this.bPT = this.wB > 0 ? this.bPS.get(this.wB - 1) : "";
         }
-        this.bPR = aah();
+        this.bQm = aaC();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putStringArrayList("url", this.bPx);
+        bundle.putStringArrayList("url", this.bPS);
         bundle.putInt(ImageViewerConfig.INDEX, this.mIndex);
         bundle.putInt(ImageViewerConfig.COUNT, this.wB);
-        bundle.putBoolean(ImageViewerConfig.HAS_NEXT, this.ajY);
-        bundle.putString(ImageViewerConfig.NEXT_TILE, this.ajZ);
-        bundle.putString(ImageViewerConfig.FORUM_ID, this.bPJ);
-        bundle.putString("tid", this.bOS);
-        bundle.putString(ImageViewerConfig.FORUM_NAME, this.bPK);
-        bundle.putString(ImageViewerConfig.PV_TYPE, this.bPL);
+        bundle.putBoolean(ImageViewerConfig.HAS_NEXT, this.akd);
+        bundle.putString(ImageViewerConfig.NEXT_TILE, this.ake);
+        bundle.putString(ImageViewerConfig.FORUM_ID, this.bQe);
+        bundle.putString("tid", this.bPn);
+        bundle.putString(ImageViewerConfig.FORUM_NAME, this.bQf);
+        bundle.putString(ImageViewerConfig.PV_TYPE, this.bQg);
         bundle.putBoolean(ImageViewerConfig.PARAM_IS_CDN, false);
-        bundle.putBoolean(ImageViewerConfig.REVERSE_MODE, this.bPz);
-        bundle.putBoolean(ImageViewerConfig.IS_SHOW_AD, this.bPN);
+        bundle.putBoolean(ImageViewerConfig.REVERSE_MODE, this.bPU);
+        bundle.putBoolean(ImageViewerConfig.IS_SHOW_AD, this.bQi);
         bundle.putString("user_id", this.mUserId);
-        bundle.putSerializable(ImageViewerConfig.ASSIST_URLS, this.bBu);
+        bundle.putSerializable(ImageViewerConfig.ASSIST_URLS, this.bBP);
         bundle.putString("from", this.mFrom);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        this.bPE.setCurrentItem(this.mIndex, false);
+        this.bPZ.setCurrentItem(this.mIndex, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -432,9 +432,9 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            if (this.mData == null && ImageViewerActivity.this.bBu != null) {
-                String dn = au.dn(((ImageUrlData) ImageViewerActivity.this.bBu.get(ImageViewerActivity.this.bPE.getCurrentImageUrl())).originalUrl);
-                if (com.baidu.tbadk.core.util.n.c(String.valueOf(com.baidu.tbadk.core.util.n.tA()) + ar.uA().di(dn) + "/" + dn, this.mUrl, true)) {
+            if (this.mData == null && ImageViewerActivity.this.bBP != null) {
+                String dn = au.dn(((ImageUrlData) ImageViewerActivity.this.bBP.get(ImageViewerActivity.this.bPZ.getCurrentImageUrl())).originalUrl);
+                if (com.baidu.tbadk.core.util.n.c(String.valueOf(com.baidu.tbadk.core.util.n.tD()) + ar.uE().di(dn) + "/" + dn, this.mUrl, true)) {
                     new com.baidu.tbadk.core.util.v(ImageViewerActivity.this.getActivity()).dd(this.mUrl);
                     return ImageViewerActivity.this.getPageContext().getString(i.h.save_image_to_album);
                 }
@@ -442,7 +442,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
             }
             switch (com.baidu.tbadk.core.util.n.a(this.mUrl, this.mData, ImageViewerActivity.this.getPageContext().getPageActivity())) {
                 case -2:
-                    return com.baidu.tbadk.core.util.n.ty();
+                    return com.baidu.tbadk.core.util.n.tB();
                 case -1:
                 default:
                     return ImageViewerActivity.this.getPageContext().getString(i.h.save_error);
@@ -457,14 +457,14 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
             ImageViewerActivity.this.showToast(str);
-            ImageViewerActivity.this.bPA = null;
-            ImageViewerActivity.this.bPB.setClickable(true);
+            ImageViewerActivity.this.bPV = null;
+            ImageViewerActivity.this.bPW.setClickable(true);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            ImageViewerActivity.this.bPA = null;
-            ImageViewerActivity.this.bPB.setClickable(true);
+            ImageViewerActivity.this.bPV = null;
+            ImageViewerActivity.this.bPW.setClickable(true);
             super.cancel(true);
         }
     }
@@ -481,98 +481,98 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            ImageViewerActivity.this.ajY = intent.getBooleanExtra(ImageViewerConfig.HAS_NEXT, false);
-            ImageViewerActivity.this.ajZ = intent.getStringExtra(ImageViewerConfig.NEXT_TILE);
-            ImageViewerActivity.this.bPx = intent.getStringArrayListExtra("url");
+            ImageViewerActivity.this.akd = intent.getBooleanExtra(ImageViewerConfig.HAS_NEXT, false);
+            ImageViewerActivity.this.ake = intent.getStringExtra(ImageViewerConfig.NEXT_TILE);
+            ImageViewerActivity.this.bPS = intent.getStringArrayListExtra("url");
             ImageViewerActivity.this.wB = intent.getIntExtra(ImageViewerConfig.COUNT, -1);
             int intExtra = intent.getIntExtra(ImageViewerConfig.INDEX, -1);
-            ImageViewerActivity.this.bPE.setUrlData(ImageViewerActivity.this.bPx);
-            ImageViewerActivity.this.bPE.setNextTitle(ImageViewerActivity.this.ajZ);
-            ImageViewerActivity.this.bPE.setHasNext(ImageViewerActivity.this.ajY);
+            ImageViewerActivity.this.bPZ.setUrlData(ImageViewerActivity.this.bPS);
+            ImageViewerActivity.this.bPZ.setNextTitle(ImageViewerActivity.this.ake);
+            ImageViewerActivity.this.bPZ.setHasNext(ImageViewerActivity.this.akd);
             if (intExtra >= 0) {
                 ImageViewerActivity.this.mIndex = intExtra;
-                ImageViewerActivity.this.bPE.setCurrentItem(ImageViewerActivity.this.Rk(), false);
+                ImageViewerActivity.this.bPZ.setCurrentItem(ImageViewerActivity.this.RG(), false);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ad(int i, int i2) {
-        synchronized (this.bPI) {
-            if (System.nanoTime() - this.bPH > 300000000 && this.bPx != null && i < this.bPx.size()) {
-                this.bPI.put(this.bPx.get(i), true);
+    public void af(int i, int i2) {
+        synchronized (this.bQd) {
+            if (System.nanoTime() - this.bQc > 300000000 && this.bPS != null && i < this.bPS.size()) {
+                this.bQd.put(this.bPS.get(i), true);
             }
-            this.bPH = System.nanoTime();
-            if (this.bPx != null && i2 < this.bPx.size() && this.bPI.get(this.bPx.get(i2)) == null) {
-                this.bPI.put(this.bPx.get(i2), false);
+            this.bQc = System.nanoTime();
+            if (this.bPS != null && i2 < this.bPS.size() && this.bQd.get(this.bPS.get(i2)) == null) {
+                this.bQd.put(this.bPS.get(i2), false);
             }
         }
-        if (this.bPI.size() >= 100) {
-            aaj();
+        if (this.bQd.size() >= 100) {
+            aaE();
         }
     }
 
-    private void aaj() {
-        if (this.bPI != null) {
-            synchronized (this.bPI) {
-                if (this.bPI.size() > 0) {
+    private void aaE() {
+        if (this.bQd != null) {
+            synchronized (this.bQd) {
+                if (this.bQd.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.bPI.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.bQd.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.m411getInst().sendImagePv(i, this.bPI.size(), this.bPL);
-                    this.bPI.clear();
+                    TbadkCoreApplication.m411getInst().sendImagePv(i, this.bQd.size(), this.bQg);
+                    this.bQd.clear();
                 }
             }
         }
     }
 
-    private String iQ(String str) {
+    private String iS(String str) {
         int lastIndexOf;
         int indexOf;
-        String aS = as.aS(str);
-        if (aS != null) {
-            if (aS.indexOf(".baidu.com") != -1 && (lastIndexOf = aS.lastIndexOf("/")) != -1 && (indexOf = aS.indexOf(".", lastIndexOf)) != -1) {
-                return aS.substring(lastIndexOf + 1, indexOf);
+        String aQ = as.aQ(str);
+        if (aQ != null) {
+            if (aQ.indexOf(".baidu.com") != -1 && (lastIndexOf = aQ.lastIndexOf("/")) != -1 && (indexOf = aQ.indexOf(".", lastIndexOf)) != -1) {
+                return aQ.substring(lastIndexOf + 1, indexOf);
             }
             return null;
         }
-        return aS;
+        return aQ;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aak() {
-        if (this.bqG) {
-            if (this.bdY.getVisibility() == 8) {
-                this.bdY.setVisibility(0);
-                this.bPE.yW();
-                this.bqF = new AlphaAnimation(0.0f, 1.0f);
+    public void aaF() {
+        if (this.brk) {
+            if (this.beE.getVisibility() == 8) {
+                this.beE.setVisibility(0);
+                this.bPZ.zb();
+                this.brj = new AlphaAnimation(0.0f, 1.0f);
             } else {
-                this.bqF = new AlphaAnimation(1.0f, 0.0f);
-                this.bqH = true;
-                this.bPE.yX();
+                this.brj = new AlphaAnimation(1.0f, 0.0f);
+                this.brl = true;
+                this.bPZ.zc();
             }
-            this.bqF.setDuration(300L);
-            this.bqF.setFillAfter(false);
-            this.bqF.setAnimationListener(new o(this));
-            this.bqG = false;
-            this.bdY.startAnimation(this.bqF);
+            this.brj.setDuration(300L);
+            this.brj.setFillAfter(false);
+            this.brj.setAnimationListener(new o(this));
+            this.brk = false;
+            this.beE.startAnimation(this.brj);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aal() {
-        if (aag()) {
-            this.bPQ = this.bdY.getVisibility() == 0;
-            this.bPP = true;
-            if (!this.bPQ) {
-                aak();
+    public void aaG() {
+        if (aaB()) {
+            this.bQl = this.beE.getVisibility() == 0;
+            this.bQk = true;
+            if (!this.bQl) {
+                aaF();
             }
-        } else if (this.bPP) {
-            this.bdY.setVisibility(this.bPQ ? 0 : 8);
-            this.bPP = false;
+        } else if (this.bQk) {
+            this.beE.setVisibility(this.bQl ? 0 : 8);
+            this.bQk = false;
         }
     }
 }

@@ -7,35 +7,31 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ag implements View.OnClickListener {
-    private final /* synthetic */ boolean ciM;
-    final /* synthetic */ t cmX;
+    final /* synthetic */ v coo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ag(t tVar, boolean z) {
-        this.cmX = tVar;
-        this.ciM = z;
+    public ag(v vVar) {
+        this.coo = vVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Dialog dialog;
-        NewSubPbActivity newSubPbActivity;
         Dialog dialog2;
         Dialog dialog3;
-        NewSubPbActivity newSubPbActivity2;
-        dialog = this.cmX.ckQ;
+        NewSubPbActivity newSubPbActivity;
+        dialog = this.coo.cme;
         if (dialog != null) {
-            dialog2 = this.cmX.ckQ;
+            dialog2 = this.coo.cme;
             if (dialog2 instanceof Dialog) {
-                dialog3 = this.cmX.ckQ;
-                newSubPbActivity2 = this.cmX.cmG;
-                com.baidu.adp.lib.g.j.b(dialog3, newSubPbActivity2.getPageContext());
+                dialog3 = this.coo.cme;
+                newSubPbActivity = this.coo.cnX;
+                com.baidu.adp.lib.g.j.b(dialog3, newSubPbActivity.getPageContext());
             }
         }
-        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
+        SparseArray sparseArray = (SparseArray) view.getTag();
         if (sparseArray != null) {
-            newSubPbActivity = this.cmX.cmG;
-            newSubPbActivity.a(this.ciM, (String) sparseArray.get(i.f.tag_disable_reply_mute_userid), sparseArray);
+            this.coo.a(((Integer) sparseArray.get(i.f.tag_del_post_type)).intValue(), (String) sparseArray.get(i.f.tag_del_post_id), ((Integer) sparseArray.get(i.f.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(i.f.tag_del_post_is_self)).booleanValue());
         }
     }
 }

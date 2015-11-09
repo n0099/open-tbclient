@@ -8,13 +8,13 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends HttpMessageListener {
-    final /* synthetic */ BasePersonInfoActivity cnX;
+    final /* synthetic */ BasePersonInfoActivity cpt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(BasePersonInfoActivity basePersonInfoActivity, int i) {
         super(i);
-        this.cnX = basePersonInfoActivity;
+        this.cpt = basePersonInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,24 +29,24 @@ public class a extends HttpMessageListener {
         int i3;
         if (httpResponsedMessage.isSuccess()) {
             if (httpResponsedMessage.getError() == 0) {
-                int ahZ = this.cnX.ahZ();
-                iArr = BasePersonInfoActivity.bFO;
-                i = this.cnX.bFG;
-                com.baidu.tbadk.core.a.h.w(ahZ, iArr[i]);
-                imageView = this.cnX.bFI;
-                iArr2 = BasePersonInfoActivity.bFM;
-                i2 = this.cnX.bFG;
+                int aiF = this.cpt.aiF();
+                iArr = BasePersonInfoActivity.bGj;
+                i = this.cpt.bGb;
+                com.baidu.tbadk.core.a.h.w(aiF, iArr[i]);
+                imageView = this.cpt.bGd;
+                iArr2 = BasePersonInfoActivity.bGh;
+                i2 = this.cpt.bGb;
                 com.baidu.tbadk.core.util.an.c(imageView, iArr2[i2]);
-                BasePersonInfoActivity basePersonInfoActivity = this.cnX;
-                TbPageContext pageContext = this.cnX.getPageContext();
-                iArr3 = BasePersonInfoActivity.bFN;
-                i3 = this.cnX.bFG;
+                BasePersonInfoActivity basePersonInfoActivity = this.cpt;
+                TbPageContext pageContext = this.cpt.getPageContext();
+                iArr3 = BasePersonInfoActivity.bGi;
+                i3 = this.cpt.bGb;
                 basePersonInfoActivity.showToastWithIcon(pageContext.getString(iArr3[i3]), i.e.icon_toast_info);
                 return;
             }
-            this.cnX.showToast(httpResponsedMessage.getErrorString());
+            this.cpt.showToast(httpResponsedMessage.getErrorString());
             return;
         }
-        this.cnX.showToast(this.cnX.getPageContext().getString(i.h.neterror));
+        this.cpt.showToast(this.cpt.getPageContext().getString(i.h.neterror));
     }
 }

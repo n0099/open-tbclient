@@ -8,13 +8,13 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bc extends CustomMessageListener {
-    final /* synthetic */ bb aVG;
+    final /* synthetic */ bb aVO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bc(bb bbVar, int i) {
         super(i);
-        this.aVG = bbVar;
+        this.aVO = bbVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,15 +29,15 @@ public class bc extends CustomMessageListener {
             while (it.hasNext()) {
                 com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
                 if (aVar instanceof bn) {
-                    frsActivity = this.aVG.aVf;
+                    frsActivity = this.aVO.aVn;
                     ((bn) aVar).d(frsActivity);
                 }
             }
             ArrayList arrayList = new ArrayList();
             arrayList.addAll(absDelegateAdapterList);
-            bdTypeListView = this.aVG.aVg;
+            bdTypeListView = this.aVO.aVo;
             if (bdTypeListView != null) {
-                bdTypeListView2 = this.aVG.aVg;
+                bdTypeListView2 = this.aVO.aVo;
                 bdTypeListView2.h(arrayList);
             }
         }

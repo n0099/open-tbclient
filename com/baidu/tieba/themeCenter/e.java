@@ -4,27 +4,27 @@ import android.view.View;
 import com.baidu.tieba.themeCenter.SkinItemView;
 /* loaded from: classes.dex */
 class e implements SkinItemView.a {
-    final /* synthetic */ d deG;
+    final /* synthetic */ d dgm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.deG = dVar;
+        this.dgm = dVar;
     }
 
     @Override // com.baidu.tieba.themeCenter.SkinItemView.a
     public void a(SkinItemView skinItemView, b bVar) {
         if (skinItemView != null && bVar != null && bVar.getId() > 0) {
-            this.deG.b(bVar);
+            this.dgm.b(bVar);
         }
     }
 
     @Override // com.baidu.tieba.themeCenter.SkinItemView.a
     public void a(SkinProgressView skinProgressView, b bVar) {
-        this.deG.b(skinProgressView, bVar);
+        this.dgm.b(skinProgressView, bVar);
     }
 
     @Override // com.baidu.tieba.themeCenter.SkinItemView.a
     public void a(View view, b bVar) {
-        this.deG.c(bVar);
+        this.dgm.c(bVar);
     }
 }

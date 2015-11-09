@@ -8,15 +8,15 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements b.a {
-    final /* synthetic */ a cIB;
+    final /* synthetic */ a cJX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(a aVar) {
-        this.cIB = aVar;
+        this.cJX = aVar;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0075, code lost:
-        if (r0.aqv() == false) goto L27;
+        if (r0.arb() == false) goto L27;
      */
     /* JADX WARN: Code restructure failed: missing block: B:27:0x00a0, code lost:
         if (r0.containsAll(r1) == false) goto L31;
@@ -41,43 +41,43 @@ public class e implements b.a {
         ScrollFragmentTabHost scrollFragmentTabHost8;
         if (!TextUtils.isEmpty(str)) {
             if (z) {
-                scrollFragmentTabHost8 = this.cIB.cIv;
-                if (!scrollFragmentTabHost8.aqv() && gVar != null && gVar.isEmpty()) {
-                    if (this.cIB.getPageContext() == null || this.cIB.getPageContext().getResources() == null) {
+                scrollFragmentTabHost8 = this.cJX.cJR;
+                if (!scrollFragmentTabHost8.arb() && gVar != null && gVar.isEmpty()) {
+                    if (this.cJX.getPageContext() == null || this.cJX.getPageContext().getResources() == null) {
                         return;
                     }
-                    this.cIB.ap(this.cIB.getView());
-                    this.cIB.showNetRefreshView(this.cIB.getView(), this.cIB.getPageContext().getResources().getString(i.h.neterror), false);
+                    this.cJX.ao(this.cJX.getView());
+                    this.cJX.showNetRefreshView(this.cJX.getView(), this.cJX.getPageContext().getResources().getString(i.h.neterror), false);
                     return;
                 }
             }
-            if (gVar != null && gVar.aqo() != null && "头条".equals(str)) {
+            if (gVar != null && gVar.aqU() != null && "头条".equals(str)) {
                 if (!z) {
-                    scrollFragmentTabHost7 = this.cIB.cIv;
+                    scrollFragmentTabHost7 = this.cJX.cJR;
                 }
-                this.cIB.ap(this.cIB.getView());
-                list = this.cIB.cIx;
-                if (list.containsAll(gVar.aqo())) {
-                    List<String> aqo = gVar.aqo();
-                    list4 = this.cIB.cIx;
+                this.cJX.ao(this.cJX.getView());
+                list = this.cJX.cJT;
+                if (list.containsAll(gVar.aqU())) {
+                    List<String> aqU = gVar.aqU();
+                    list4 = this.cJX.cJT;
                 }
-                list2 = this.cIB.cIx;
+                list2 = this.cJX.cJT;
                 list2.clear();
-                list3 = this.cIB.cIx;
-                list3.addAll(gVar.aqo());
-                scrollFragmentTabHost3 = this.cIB.cIv;
+                list3 = this.cJX.cJT;
+                list3.addAll(gVar.aqU());
+                scrollFragmentTabHost3 = this.cJX.cJR;
                 scrollFragmentTabHost3.reset();
-                scrollFragmentTabHost4 = this.cIB.cIv;
-                aVar = this.cIB.cIA;
+                scrollFragmentTabHost4 = this.cJX.cJR;
+                aVar = this.cJX.cJW;
                 scrollFragmentTabHost4.b(aVar);
-                scrollFragmentTabHost5 = this.cIB.cIv;
-                scrollFragmentTabHost5.bp(gVar.aqo());
-                scrollFragmentTabHost6 = this.cIB.cIv;
+                scrollFragmentTabHost5 = this.cJX.cJR;
+                scrollFragmentTabHost5.bt(gVar.aqU());
+                scrollFragmentTabHost6 = this.cJX.cJR;
                 scrollFragmentTabHost6.setCurrentTab(0);
             }
-            scrollFragmentTabHost = this.cIB.cIv;
-            if (scrollFragmentTabHost.aqv()) {
-                scrollFragmentTabHost2 = this.cIB.cIv;
+            scrollFragmentTabHost = this.cJX.cJR;
+            if (scrollFragmentTabHost.arb()) {
+                scrollFragmentTabHost2 = this.cJX.cJR;
                 scrollFragmentTabHost2.b(z, str, gVar, z2);
             }
         }
@@ -90,14 +90,14 @@ public class e implements b.a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.cIB.ap(this.cIB.getView());
-        scrollFragmentTabHost = this.cIB.cIv;
-        if (scrollFragmentTabHost.aqv()) {
-            scrollFragmentTabHost2 = this.cIB.cIv;
+        this.cJX.ao(this.cJX.getView());
+        scrollFragmentTabHost = this.cJX.cJR;
+        if (scrollFragmentTabHost.arb()) {
+            scrollFragmentTabHost2 = this.cJX.cJR;
             scrollFragmentTabHost2.j(str, str2, i);
-        } else if (this.cIB.getPageContext() == null || this.cIB.getPageContext().getResources() == null) {
+        } else if (this.cJX.getPageContext() == null || this.cJX.getPageContext().getResources() == null) {
         } else {
-            this.cIB.showNetRefreshView(this.cIB.getView(), this.cIB.getPageContext().getResources().getString(i.h.net_error_text, str2, Integer.valueOf(i)), false);
+            this.cJX.showNetRefreshView(this.cJX.getView(), this.cJX.getPageContext().getResources().getString(i.h.net_error_text, str2, Integer.valueOf(i)), false);
         }
     }
 }

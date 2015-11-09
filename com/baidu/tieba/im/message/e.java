@@ -9,36 +9,36 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
 /* loaded from: classes.dex */
 class e implements a.b {
-    final /* synthetic */ ResponsePullMessage bFk;
-    private final /* synthetic */ ImMessageCenterPojo bFm;
+    final /* synthetic */ ResponsePullMessage bFF;
+    private final /* synthetic */ ImMessageCenterPojo bFH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(ResponsePullMessage responsePullMessage, ImMessageCenterPojo imMessageCenterPojo) {
-        this.bFk = responsePullMessage;
-        this.bFm = imMessageCenterPojo;
+        this.bFF = responsePullMessage;
+        this.bFH = imMessageCenterPojo;
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
         int i2 = 2;
         if (imMessageCenterPojo != null) {
-            i.TK().a(imMessageCenterPojo, 2);
+            i.Uf().a(imMessageCenterPojo, 2);
             int userType = imMessageCenterPojo.getUserType();
-            if (this.bFm != null) {
+            if (this.bFH != null) {
                 if (userType == 1 || userType == 3) {
-                    this.bFm.setGid(String.valueOf("-1000"));
-                    this.bFm.setCustomGroupType(-8);
+                    this.bFH.setGid(String.valueOf("-1000"));
+                    this.bFH.setCustomGroupType(-8);
                     if (i == 0) {
-                        this.bFm.setUnread_count(0);
+                        this.bFH.setUnread_count(0);
                     } else if (i == 1) {
-                        this.bFm.setUnread_count(1);
+                        this.bFH.setUnread_count(1);
                     } else {
                         i2 = 1;
                     }
                     if (z) {
-                        this.bFm.setIs_hidden(0);
+                        this.bFH.setIs_hidden(0);
                     }
-                    i.TK().a(this.bFm, i2);
+                    i.Uf().a(this.bFH, i2);
                 }
             }
         }
@@ -46,6 +46,6 @@ class e implements a.b {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void e(String str, List<CommonMsgPojo> list) {
-        k.TP().a(b.c(str, 0L), list, true);
+        k.Uk().a(b.c(str, 0L), list, true);
     }
 }

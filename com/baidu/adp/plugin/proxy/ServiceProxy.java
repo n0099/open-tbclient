@@ -29,7 +29,7 @@ public class ServiceProxy extends MAService implements b {
                 return;
             }
             try {
-                this.mEntity = (g) PluginCenter.getInstance().getPlugin(stringExtra).kq().loadClass(intent.getStringExtra("intent_extra_service")).asSubclass(g.class).newInstance();
+                this.mEntity = (g) PluginCenter.getInstance().getPlugin(stringExtra).kr().loadClass(intent.getStringExtra("intent_extra_service")).asSubclass(g.class).newInstance();
                 this.mEntity.setServiceProxy(this);
                 this.mEntity.setPluginPackageName(stringExtra);
                 this.mEntity.onCreate();

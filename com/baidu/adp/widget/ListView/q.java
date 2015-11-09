@@ -6,43 +6,43 @@ import android.view.View;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class q {
-    private int Ie;
-    private com.baidu.adp.widget.ScrollView.g If;
-    private boolean Ig;
-    a Ih;
-    int Ii;
+    private int If;
+    private com.baidu.adp.widget.ScrollView.g Ig;
+    private boolean Ih;
+    a Ii;
+    int Ij;
     View mView;
-    private int Id = 1;
+    private int Ie = 1;
     Handler mHandler = new Handler();
-    Runnable Ij = new r(this);
+    Runnable Ik = new r(this);
 
     public q(Context context, int i, int i2, int i3) {
-        this.Ig = true;
+        this.Ih = true;
         int abs = Math.abs(i - i2);
-        this.Ie = i2;
-        if (abs < this.Id) {
-            this.Ig = false;
+        this.If = i2;
+        if (abs < this.Ie) {
+            this.Ih = false;
         }
-        this.Ih = new a(context);
-        this.Ii = i3;
+        this.Ii = new a(context);
+        this.Ij = i3;
     }
 
     public void a(com.baidu.adp.widget.ScrollView.g gVar) {
-        this.If = gVar;
+        this.Ig = gVar;
     }
 
     /* loaded from: classes.dex */
     class a implements Runnable {
-        private int Il;
+        private int Im;
         private Scroller mScroller;
 
         a(Context context) {
             this.mScroller = new Scroller(context);
         }
 
-        private void nB() {
+        private void nC() {
             if (q.this.mHandler != null) {
-                q.this.mHandler.removeCallbacks(q.this.Ij);
+                q.this.mHandler.removeCallbacks(q.this.Ik);
             }
             if (q.this.mView != null) {
                 q.this.mView.removeCallbacks(this);
@@ -54,15 +54,15 @@ public class q {
             boolean z = true;
             if (q.this.mView != null && this.mScroller != null) {
                 boolean computeScrollOffset = this.mScroller.computeScrollOffset();
-                if (this.mScroller.timePassed() >= q.this.Ii) {
+                if (this.mScroller.timePassed() >= q.this.Ij) {
                     computeScrollOffset = false;
                 }
                 int currY = this.mScroller.getCurrY();
-                int i = currY - this.Il;
+                int i = currY - this.Im;
                 if (computeScrollOffset) {
                     if (i != 0) {
                         r1 = q.this.move(i) ? false : true;
-                        this.Il = currY;
+                        this.Im = currY;
                     }
                     z = r1;
                     if (!z) {
@@ -70,8 +70,8 @@ public class q {
                     }
                 }
                 if (z) {
-                    q.this.mHandler.removeCallbacks(q.this.Ij);
-                    q.this.mHandler.post(q.this.Ij);
+                    q.this.mHandler.removeCallbacks(q.this.Ik);
+                    q.this.mHandler.post(q.this.Ik);
                 }
             }
         }
@@ -79,8 +79,8 @@ public class q {
         public void j(int i, int i2) {
             if (q.this.mView != null && this.mScroller != null) {
                 int i3 = i == 0 ? i - 1 : i;
-                nB();
-                this.Il = 0;
+                nC();
+                this.Im = 0;
                 this.mScroller.startScroll(0, 0, 0, i3, i2);
                 q.this.mView.post(this);
             }
@@ -88,7 +88,7 @@ public class q {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void endAnimation() {
-            q.this.mHandler.removeCallbacks(q.this.Ij);
+            q.this.mHandler.removeCallbacks(q.this.Ik);
             if (this.mScroller != null) {
                 this.mScroller.abortAnimation();
                 this.mScroller.forceFinished(true);
@@ -96,17 +96,17 @@ public class q {
             if (q.this.mView != null) {
                 q.this.mView.removeCallbacks(this);
             }
-            if (q.this.If != null) {
-                q.this.If.nA();
+            if (q.this.Ig != null) {
+                q.this.Ig.nB();
             }
         }
     }
 
     public void h(View view) {
-        if (this.Ig && this.Ih != null) {
+        if (this.Ih && this.Ii != null) {
             this.mView = view;
-            this.Ih.j(Math.abs(this.Ie), this.Ii);
-            this.mHandler.postDelayed(this.Ij, this.Ii);
+            this.Ii.j(Math.abs(this.If), this.Ij);
+            this.mHandler.postDelayed(this.Ik, this.Ij);
         }
     }
 
@@ -114,8 +114,8 @@ public class q {
     public boolean move(int i) {
         boolean z = true;
         int paddingTop = this.mView.getPaddingTop() - Math.abs(i);
-        if (paddingTop <= this.Ie) {
-            paddingTop = this.Ie;
+        if (paddingTop <= this.If) {
+            paddingTop = this.If;
             z = false;
         }
         this.mView.setPadding(this.mView.getPaddingLeft(), paddingTop, this.mView.getPaddingRight(), this.mView.getPaddingBottom());

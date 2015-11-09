@@ -7,13 +7,13 @@ import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class j extends CustomMessageListener {
-    final /* synthetic */ RelateTopicForumActivity boP;
+    final /* synthetic */ RelateTopicForumActivity bpt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(RelateTopicForumActivity relateTopicForumActivity, int i) {
         super(i);
-        this.boP = relateTopicForumActivity;
+        this.bpt = relateTopicForumActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,20 +24,20 @@ class j extends CustomMessageListener {
         com.baidu.tieba.hottopic.view.e eVar;
         ArrayList arrayList2;
         if (customResponsedMessage != null) {
-            arrayList = this.boP.Xq;
+            arrayList = this.bpt.Xt;
             if (!arrayList.isEmpty()) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Long) {
-                    ax = this.boP.ax(((Long) data).longValue());
+                    ax = this.bpt.ax(((Long) data).longValue());
                     if (ax != null) {
                         ax.followNum++;
                         ax.setIsLiked(true);
-                        eVar = this.boP.boO;
-                        n Rf = eVar.Rf();
-                        if (Rf != null) {
-                            arrayList2 = this.boP.Xq;
-                            Rf.setData(arrayList2);
-                            Rf.notifyDataSetChanged();
+                        eVar = this.bpt.bps;
+                        n RB = eVar.RB();
+                        if (RB != null) {
+                            arrayList2 = this.bpt.Xt;
+                            RB.setData(arrayList2);
+                            RB.notifyDataSetChanged();
                         }
                     }
                 }

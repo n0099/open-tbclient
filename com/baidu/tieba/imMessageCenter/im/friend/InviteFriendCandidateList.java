@@ -13,14 +13,14 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class InviteFriendCandidateList extends HorizontalCustomScrollView {
-    private int YR;
-    private View.OnClickListener aKj;
-    private LinearLayout bNb;
-    private int bNc;
-    private int bNd;
-    private int bNe;
-    private HeadImageView bNf;
-    private a bNg;
+    private int YV;
+    private View.OnClickListener aJd;
+    private HeadImageView bNA;
+    private a bNB;
+    private LinearLayout bNw;
+    private int bNx;
+    private int bNy;
+    private int bNz;
     private Context mContext;
 
     /* loaded from: classes.dex */
@@ -30,95 +30,95 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
 
     public InviteFriendCandidateList(Context context) {
         super(context);
-        this.YR = -1;
-        this.bNc = -1;
-        this.bNd = -1;
-        this.bNe = 4;
-        this.aKj = new i(this);
+        this.YV = -1;
+        this.bNx = -1;
+        this.bNy = -1;
+        this.bNz = 4;
+        this.aJd = new i(this);
         this.mContext = context;
         initialize();
     }
 
     public InviteFriendCandidateList(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.YR = -1;
-        this.bNc = -1;
-        this.bNd = -1;
-        this.bNe = 4;
-        this.aKj = new i(this);
+        this.YV = -1;
+        this.bNx = -1;
+        this.bNy = -1;
+        this.bNz = 4;
+        this.aJd = new i(this);
         this.mContext = context;
         initialize();
     }
 
     public void setMaxCount(int i) {
-        this.bNe = i;
+        this.bNz = i;
     }
 
     public void a(a aVar) {
-        this.bNg = aVar;
+        this.bNB = aVar;
     }
 
     private void initialize() {
-        this.YR = this.mContext.getResources().getDimensionPixelSize(i.d.invite_friend_candidate_item_width);
-        this.bNc = this.mContext.getResources().getDimensionPixelSize(i.d.invite_friend_candidate_item_height);
-        this.bNd = this.mContext.getResources().getDimensionPixelSize(i.d.invite_friend_candidate_item_margin);
-        this.bNb = new LinearLayout(this.mContext);
+        this.YV = this.mContext.getResources().getDimensionPixelSize(i.d.invite_friend_candidate_item_width);
+        this.bNx = this.mContext.getResources().getDimensionPixelSize(i.d.invite_friend_candidate_item_height);
+        this.bNy = this.mContext.getResources().getDimensionPixelSize(i.d.invite_friend_candidate_item_margin);
+        this.bNw = new LinearLayout(this.mContext);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.width = -2;
         layoutParams.height = -2;
-        this.bNb.setLayoutParams(layoutParams);
-        this.bNb.setHorizontalScrollBarEnabled(true);
-        this.bNb.setOrientation(0);
-        Ze();
-        addView(this.bNb);
+        this.bNw.setLayoutParams(layoutParams);
+        this.bNw.setHorizontalScrollBarEnabled(true);
+        this.bNw.setOrientation(0);
+        Zz();
+        addView(this.bNw);
         setSmoothScrollingEnabled(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ze() {
-        if (this.bNf == null) {
-            this.bNf = Zi();
-            this.bNf.setDrawBorder(false);
+    public void Zz() {
+        if (this.bNA == null) {
+            this.bNA = ZD();
+            this.bNA.setDrawBorder(false);
         }
-        this.bNf.setImageBitmap(an.cw(i.e.icon_add_pop));
-        this.bNb.addView(this.bNf);
+        this.bNA.setImageBitmap(an.cw(i.e.icon_add_pop));
+        this.bNw.addView(this.bNA);
     }
 
-    private void Zf() {
-        if (Zg()) {
-            this.bNb.removeView(this.bNf);
+    private void ZA() {
+        if (ZB()) {
+            this.bNw.removeView(this.bNA);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Zg() {
-        int childCount = this.bNb.getChildCount();
-        return childCount > 0 && this.bNb.getChildAt(childCount + (-1)) == this.bNf;
+    public boolean ZB() {
+        int childCount = this.bNw.getChildCount();
+        return childCount > 0 && this.bNw.getChildAt(childCount + (-1)) == this.bNA;
     }
 
     public void d(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        if (getItemLength() < this.bNe) {
-            HeadImageView Zi = Zi();
-            Zi.setIsRound(false);
-            Zi.d(aVar.getUserPortrait(), 12, false);
-            if (Zg()) {
-                Zi.setTag(aVar);
-                Zi.setOnClickListener(this.aKj);
-                this.bNb.addView(Zi, getItemLength());
-                scrollTo(getItemLength() * (this.YR + this.bNd), 0);
+        if (getItemLength() < this.bNz) {
+            HeadImageView ZD = ZD();
+            ZD.setIsRound(false);
+            ZD.d(aVar.getUserPortrait(), 12, false);
+            if (ZB()) {
+                ZD.setTag(aVar);
+                ZD.setOnClickListener(this.aJd);
+                this.bNw.addView(ZD, getItemLength());
+                scrollTo(getItemLength() * (this.YV + this.bNy), 0);
             }
-            if (getItemLength() >= this.bNe) {
-                Zf();
+            if (getItemLength() >= this.bNz) {
+                ZA();
             }
         }
     }
 
     public boolean e(com.baidu.tbadk.coreExtra.relationship.a aVar) {
         Object tag;
-        int childCount = this.bNb.getChildCount();
+        int childCount = this.bNw.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            View childAt = this.bNb.getChildAt(i);
-            if (childAt != this.bNf && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tbadk.coreExtra.relationship.a) && ((com.baidu.tbadk.coreExtra.relationship.a) tag).equals(aVar)) {
+            View childAt = this.bNw.getChildAt(i);
+            if (childAt != this.bNA && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tbadk.coreExtra.relationship.a) && ((com.baidu.tbadk.coreExtra.relationship.a) tag).equals(aVar)) {
                 aVar.setChecked(true);
                 childAt.setTag(aVar);
                 return true;
@@ -127,13 +127,13 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
         return false;
     }
 
-    public String Zh() {
+    public String ZC() {
         Object tag;
-        int childCount = this.bNb.getChildCount();
+        int childCount = this.bNw.getChildCount();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < childCount; i++) {
-            View childAt = this.bNb.getChildAt(i);
-            if (childAt != this.bNf && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
+            View childAt = this.bNw.getChildAt(i);
+            if (childAt != this.bNA && (tag = childAt.getTag()) != null && (tag instanceof com.baidu.tbadk.coreExtra.relationship.a)) {
                 if (i > 0) {
                     sb.append(",");
                 }
@@ -144,26 +144,26 @@ public class InviteFriendCandidateList extends HorizontalCustomScrollView {
     }
 
     public void f(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        View findViewWithTag = this.bNb.findViewWithTag(aVar);
+        View findViewWithTag = this.bNw.findViewWithTag(aVar);
         if (findViewWithTag != null) {
-            this.bNb.removeView(findViewWithTag);
-            if (!Zg()) {
-                Ze();
+            this.bNw.removeView(findViewWithTag);
+            if (!ZB()) {
+                Zz();
             }
         }
     }
 
-    private HeadImageView Zi() {
+    private HeadImageView ZD() {
         HeadImageView headImageView = new HeadImageView(this.mContext);
         headImageView.setIsRound(false);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.YR, this.bNc);
-        layoutParams.setMargins(this.bNd, 0, 0, 0);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.YV, this.bNx);
+        layoutParams.setMargins(this.bNy, 0, 0, 0);
         headImageView.setLayoutParams(layoutParams);
         headImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         return headImageView;
     }
 
     public int getItemLength() {
-        return Zg() ? this.bNb.getChildCount() - 1 : this.bNb.getChildCount();
+        return ZB() ? this.bNw.getChildCount() - 1 : this.bNw.getChildCount();
     }
 }

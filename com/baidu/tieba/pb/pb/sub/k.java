@@ -1,48 +1,78 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class k implements com.baidu.adp.lib.e.c<LinearLayout> {
-    final /* synthetic */ NewSubPbActivity cmC;
+class k implements com.baidu.adp.lib.e.c<ImageView> {
+    final /* synthetic */ NewSubPbActivity cnS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(NewSubPbActivity newSubPbActivity) {
-        this.cmC = newSubPbActivity;
+        this.cnS = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: afz */
-    public LinearLayout gZ() {
-        LinearLayout linearLayout = new LinearLayout(this.cmC.getPageContext().getPageActivity());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        linearLayout.setLayoutParams(layoutParams);
-        linearLayout.setGravity(16);
-        linearLayout.setBaselineAligned(true);
-        linearLayout.setOrientation(0);
-        linearLayout.setLayoutParams(layoutParams);
-        return linearLayout;
+    /* renamed from: aga */
+    public ImageView ha() {
+        com.baidu.tbadk.widget.d dVar = new com.baidu.tbadk.widget.d(this.cnS.getPageContext().getPageActivity());
+        boolean qZ = com.baidu.tbadk.core.m.qV().qZ();
+        dVar.setDefaultBg(com.baidu.tbadk.core.util.an.getDrawable(i.c.pb_default_image_bg));
+        if (qZ) {
+            dVar.setAdjustViewBounds(false);
+            dVar.setInterceptOnClick(false);
+        } else {
+            dVar.setDefaultResource(i.e.icon_click);
+            dVar.setAdjustViewBounds(true);
+            dVar.setInterceptOnClick(true);
+        }
+        return dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: g */
-    public void l(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
+    /* renamed from: b */
+    public void l(ImageView imageView) {
+        imageView.setBackgroundDrawable(null);
+        imageView.setImageDrawable(null);
+        imageView.setTag(null);
+        imageView.setOnClickListener(null);
+        if (imageView instanceof TbImageView) {
+            ((TbImageView) imageView).stopLoading();
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: h */
-    public LinearLayout m(LinearLayout linearLayout) {
-        return linearLayout;
+    /* renamed from: c */
+    public ImageView m(ImageView imageView) {
+        if (imageView instanceof TbImageView) {
+            TbImageView tbImageView = (TbImageView) imageView;
+            tbImageView.setTag(null);
+            if (com.baidu.tbadk.core.m.qV().qZ()) {
+                tbImageView.setAdjustViewBounds(false);
+                tbImageView.setInterceptOnClick(false);
+            } else {
+                tbImageView.setDefaultResource(i.e.icon_click);
+                tbImageView.setAdjustViewBounds(true);
+                tbImageView.setInterceptOnClick(true);
+            }
+        }
+        return imageView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: i */
-    public LinearLayout n(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-        return linearLayout;
+    /* renamed from: d */
+    public ImageView n(ImageView imageView) {
+        imageView.setBackgroundDrawable(null);
+        imageView.setImageDrawable(null);
+        imageView.setTag(null);
+        imageView.setOnClickListener(null);
+        if (imageView instanceof TbImageView) {
+            ((TbImageView) imageView).stopLoading();
+        }
+        return imageView;
     }
 }

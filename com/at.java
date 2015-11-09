@@ -11,11 +11,11 @@ import com.sina.sso.RemoteSSO;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class at implements ServiceConnection {
-    final /* synthetic */ as dvU;
+    final /* synthetic */ as dxM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public at(as asVar) {
-        this.dvU = asVar;
+        this.dxM = asVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -23,25 +23,25 @@ public class at implements ServiceConnection {
         ServiceConnection serviceConnection;
         RemoteSSO asInterface = RemoteSSO.Stub.asInterface(iBinder);
         try {
-            this.dvU.a = asInterface.getPackageName();
-            this.dvU.b = asInterface.getActivityName();
-            if (!this.dvU.startSingleSignOn()) {
-                this.dvU.startAuthDialog();
+            this.dxM.a = asInterface.getPackageName();
+            this.dxM.b = asInterface.getActivityName();
+            if (!this.dxM.startSingleSignOn()) {
+                this.dxM.startAuthDialog();
             }
         } catch (RemoteException e) {
-            this.dvU.startAuthDialog();
+            this.dxM.startAuthDialog();
         } finally {
-            Context applicationContext = this.dvU.mActivity.getApplicationContext();
-            serviceConnection = this.dvU.dvT;
+            Context applicationContext = this.dxM.mActivity.getApplicationContext();
+            serviceConnection = this.dxM.dxL;
             applicationContext.unbindService(serviceConnection);
         }
     }
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
-        SessionManager.Session session = SessionManager.getInstance(this.dvU.mActivity).get(MediaType.SINAWEIBO.toString());
+        SessionManager.Session session = SessionManager.getInstance(this.dxM.mActivity).get(MediaType.SINAWEIBO.toString());
         if (session == null || session.isExpired()) {
-            this.dvU.startAuthDialog();
+            this.dxM.startAuthDialog();
         }
     }
 }

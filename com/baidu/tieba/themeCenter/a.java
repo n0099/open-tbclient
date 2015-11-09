@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ MemberRecommendView dem;
+    final /* synthetic */ MemberRecommendView dfS;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(MemberRecommendView memberRecommendView) {
-        this.dem = memberRecommendView;
+        this.dfS = memberRecommendView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -25,7 +25,7 @@ public class a implements View.OnClickListener {
         int i2;
         com.baidu.tieba.themeCenter.dressCenter.k kVar;
         Context context;
-        i = this.dem.fromType;
+        i = this.dfS.fromType;
         switch (i) {
             case 1:
                 TiebaStatic.log("c10261");
@@ -45,9 +45,9 @@ public class a implements View.OnClickListener {
                 i2 = 0;
                 break;
         }
-        kVar = this.dem.del;
+        kVar = this.dfS.dfR;
         if (kVar != null) {
-            context = this.dem.mContext;
+            context = this.dfS.mContext;
             TbPageContext tbPageContext = (TbPageContext) com.baidu.adp.base.l.C(context);
             if (tbPageContext != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i2)));

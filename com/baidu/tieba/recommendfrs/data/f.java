@@ -1,28 +1,28 @@
 package com.baidu.tieba.recommendfrs.data;
 /* loaded from: classes.dex */
 public class f implements com.baidu.tbadk.mvc.b.e {
-    private String cIW;
+    private String cKs;
 
     public f(String str) {
-        this.cIW = str;
+        this.cKs = str;
     }
 
-    public String aqk() {
-        return this.cIW;
+    public String aqQ() {
+        return this.cKs;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d
     public String getCacheKey() {
-        return this.cIW;
+        return this.cKs;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Cx() {
+    public String Cq() {
         return "RecommendFrsCache";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Cy() {
+    public boolean Cr() {
         return true;
     }
 

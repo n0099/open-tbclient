@@ -1,30 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.dialog.a;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-public class an implements a.b {
-    final /* synthetic */ PbActivity ciK;
+class an implements com.baidu.adp.lib.e.c<GifView> {
+    final /* synthetic */ PbActivity cjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public an(PbActivity pbActivity) {
-        this.ciK = pbActivity;
+        this.cjN = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tbadk.core.dialog.a aVar2;
-        String str;
-        String str2;
-        aVar2 = this.ciK.chW;
-        aVar2.dismiss();
-        str = this.ciK.chX;
-        if (!TextUtils.isEmpty(str)) {
-            Activity pageActivity = this.ciK.getPageContext().getPageActivity();
-            str2 = this.ciK.chX;
-            com.baidu.tbadk.browser.g.b(pageActivity, false, str2);
-        }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: agb */
+    public GifView ha() {
+        return new GifView(this.cjN.getPageContext().getPageActivity());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: g */
+    public void l(GifView gifView) {
+        gifView.onDestroy();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: h */
+    public GifView m(GifView gifView) {
+        return gifView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: i */
+    public GifView n(GifView gifView) {
+        return gifView;
     }
 }

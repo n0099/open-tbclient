@@ -24,7 +24,7 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.pb.chosen.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0071a {
-        TbImageView aCV;
+        TbImageView aBP;
     }
 
     public a(Context context) {
@@ -43,7 +43,7 @@ public class a extends BaseAdapter {
         return this.list.size();
     }
 
-    public void aZ(List<com.baidu.tieba.pb.c.a.d> list) {
+    public void bd(List<com.baidu.tieba.pb.c.a.d> list) {
         this.list.clear();
         if (list != null && list.size() > 0) {
             this.list.addAll(list);
@@ -52,7 +52,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: iG */
+    /* renamed from: iT */
     public com.baidu.tieba.pb.c.a.d getItem(int i) {
         if (this.list == null || this.list.size() <= 0) {
             return null;
@@ -112,7 +112,7 @@ public class a extends BaseAdapter {
         if (view == null || !(view.getTag() instanceof C0071a)) {
             view = LayoutInflater.from(this.context).inflate(i.g.chosen_pb_image_item, (ViewGroup) null);
             c0071a = new C0071a();
-            c0071a.aCV = (TbImageView) view.findViewById(i.f.pb_chosen_list_image);
+            c0071a.aBP = (TbImageView) view.findViewById(i.f.pb_chosen_list_image);
             view.setTag(c0071a);
         } else {
             c0071a = (C0071a) view.getTag();
@@ -120,17 +120,17 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.c.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.c.a.e) {
             com.baidu.tieba.pb.c.a.e eVar = (com.baidu.tieba.pb.c.a.e) item;
-            ViewGroup.LayoutParams layoutParams = c0071a.aCV.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = c0071a.aBP.getLayoutParams();
             int i2 = this.maxWidth;
-            int iZ = eVar.iZ(i2);
+            int jn = eVar.jn(i2);
             if (layoutParams == null) {
-                layoutParams = new AbsListView.LayoutParams(i2, iZ);
+                layoutParams = new AbsListView.LayoutParams(i2, jn);
             } else {
-                layoutParams.height = iZ;
+                layoutParams.height = jn;
                 layoutParams.width = i2;
             }
-            c0071a.aCV.setLayoutParams(layoutParams);
-            c0071a.aCV.d(eVar.getSrc(), 17, false);
+            c0071a.aBP.setLayoutParams(layoutParams);
+            c0071a.aBP.d(eVar.getSrc(), 17, false);
         }
         return view;
     }
@@ -149,8 +149,8 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.c.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.c.a.g) {
             com.baidu.tieba.pb.c.a.g gVar = (com.baidu.tieba.pb.c.a.g) item;
-            textView.setText(gVar.ahM());
-            switch (gVar.ahO()) {
+            textView.setText(gVar.ais());
+            switch (gVar.aiu()) {
                 case 1:
                     textView.setGravity(17);
                     break;
@@ -161,8 +161,8 @@ public class a extends BaseAdapter {
                     textView.setGravity(3);
                     break;
             }
-            if (!StringUtils.isNull(gVar.ahP())) {
-                if (!an.a(textView, gVar.ahP())) {
+            if (!StringUtils.isNull(gVar.aiv())) {
+                if (!an.a(textView, gVar.aiv())) {
                     an.b(textView, i.c.cp_cont_b, 1);
                 }
             } else {

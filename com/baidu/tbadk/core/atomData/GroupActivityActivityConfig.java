@@ -14,7 +14,7 @@ public class GroupActivityActivityConfig extends IntentConfig {
 
     public GroupActivityActivityConfig(Context context, int i, long j, int i2) {
         super(context);
-        getIntent().putExtra(ACTIVITY_ID, i);
+        getIntent().putExtra("activity_id", i);
         getIntent().putExtra("group_id", j);
         getIntent().putExtra("from", i2);
         if (!(context instanceof Activity)) {

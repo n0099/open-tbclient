@@ -13,6 +13,7 @@ public class AlbumActivityConfig extends IntentConfig {
     public static final int FROM_DEFAULT = 0;
     public static final String FROM_FRS = "frs";
     public static final String FROM_PB = "pb";
+    public static final int FROM_PB_SHOW_PICTURE = 2;
     public static final int FROM_PHOTO_LIVE_COVER = 1;
     public static final String LAST_ALBUM_ID = "last_album_id";
     public static final String USE_ORIGINAL_IMG = "use_original_img";
@@ -63,5 +64,11 @@ public class AlbumActivityConfig extends IntentConfig {
     public AlbumActivityConfig(Context context, String str, String str2, int i) {
         this(context, str, str2);
         getIntent().putExtra(CAMERA_REQUEST_FROM, i);
+    }
+
+    public void setRequestFrom(int i) {
+        if (getIntent() != null) {
+            getIntent().putExtra(CAMERA_REQUEST_FROM, i);
+        }
     }
 }

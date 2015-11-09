@@ -5,19 +5,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 class aq extends CustomMessageListener {
-    final /* synthetic */ SystemHelpSettingActivity cOP;
+    final /* synthetic */ SystemHelpSettingActivity cQl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aq(SystemHelpSettingActivity systemHelpSettingActivity, int i) {
         super(i);
-        this.cOP = systemHelpSettingActivity;
+        this.cQl = systemHelpSettingActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        this.cOP.closeLoadingDialog();
-        this.cOP.showToast(i.h.systemhelpsetting_clear_im_success);
+        this.cQl.closeLoadingDialog();
+        this.cQl.showToast(i.h.systemhelpsetting_clear_im_success);
     }
 }

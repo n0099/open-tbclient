@@ -14,8 +14,8 @@ public class k implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.this$0.mProgress.getVisibility() != 0) {
-            if ((this.this$0.mBitmap != null || this.this$0.coq != null) && view.getTag() != null) {
-                this.this$0.cox = false;
+            if ((this.this$0.mBitmap != null || this.this$0.cpM != null) && view.getTag() != null) {
+                this.this$0.cpT = false;
                 this.this$0.D(view.getTag().toString(), false);
             }
         }

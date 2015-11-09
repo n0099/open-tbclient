@@ -12,11 +12,11 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements a.InterfaceC0052a<g> {
-    final /* synthetic */ b cIG;
+    final /* synthetic */ b cKc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.cIG = bVar;
+        this.cKc = bVar;
     }
 
     @Override // com.baidu.tbadk.mvc.model.a.InterfaceC0052a
@@ -25,23 +25,23 @@ public class c implements a.InterfaceC0052a<g> {
         b.a aVar2;
         b.a aVar3;
         b.a aVar4;
-        String aqk = (readCacheMessage == null || readCacheMessage.getRequestData() == null || !(readCacheMessage.getRequestData() instanceof f)) ? null : ((f) readCacheMessage.getRequestData()).aqk();
-        if (aqk != null) {
+        String aqQ = (readCacheMessage == null || readCacheMessage.getRequestData() == null || !(readCacheMessage.getRequestData() instanceof f)) ? null : ((f) readCacheMessage.getRequestData()).aqQ();
+        if (aqQ != null) {
             if (readCacheRespMsg == null || readCacheRespMsg.getData() == null || readCacheRespMsg.getData().size() <= 0 || readCacheRespMsg.getData().get(0) == null) {
-                aVar = this.cIG.cIF;
+                aVar = this.cKc.cKb;
                 if (aVar != null) {
-                    aVar2 = this.cIG.cIF;
-                    aVar2.a(false, null, false, aqk);
+                    aVar2 = this.cKc.cKb;
+                    aVar2.a(false, null, false, aqQ);
                 }
             } else {
                 g gVar = readCacheRespMsg.getData().get(0);
-                aVar3 = this.cIG.cIF;
+                aVar3 = this.cKc.cKb;
                 if (aVar3 != null) {
-                    aVar4 = this.cIG.cIF;
-                    aVar4.a(false, gVar, false, aqk);
+                    aVar4 = this.cKc.cKb;
+                    aVar4.a(false, gVar, false, aqQ);
                 }
             }
-            this.cIG.c(0, aqk, 0);
+            this.cKc.c(0, aqQ, 0);
         }
     }
 

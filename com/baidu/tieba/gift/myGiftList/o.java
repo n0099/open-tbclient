@@ -8,11 +8,11 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o implements View.OnClickListener {
-    final /* synthetic */ m bnB;
+    final /* synthetic */ m bof;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(m mVar) {
-        this.bnB = mVar;
+        this.bof = mVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -23,18 +23,18 @@ public class o implements View.OnClickListener {
         String str3;
         MyGiftListActivity myGiftListActivity2;
         MyGiftListActivity myGiftListActivity3;
-        str = this.bnB.bnu;
+        str = this.bof.bnY;
         if (as.isEmpty(str)) {
-            myGiftListActivity2 = this.bnB.bnb;
+            myGiftListActivity2 = this.bof.bnF;
             Activity pageActivity = myGiftListActivity2.getPageContext().getPageActivity();
-            myGiftListActivity3 = this.bnB.bnb;
+            myGiftListActivity3 = this.bof.bnF;
             UtilHelper.showToast(pageActivity, myGiftListActivity3.getResources().getString(i.h.error_unkown_try_again));
             return;
         }
-        myGiftListActivity = this.bnB.bnb;
+        myGiftListActivity = this.bof.bnF;
         Activity pageActivity2 = myGiftListActivity.getPageContext().getPageActivity();
-        str2 = this.bnB.bnv;
-        str3 = this.bnB.bnu;
+        str2 = this.bof.bnZ;
+        str3 = this.bof.bnY;
         com.baidu.tbadk.browser.g.a(pageActivity2, str2, str3, true, true, true);
     }
 }

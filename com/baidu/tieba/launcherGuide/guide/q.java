@@ -6,11 +6,11 @@ import com.baidu.tieba.tbadkCore.x;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q extends com.baidu.adp.base.g {
-    final /* synthetic */ p bSp;
+    final /* synthetic */ p bSK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar) {
-        this.bSp = pVar;
+        this.bSK = pVar;
     }
 
     @Override // com.baidu.adp.base.g
@@ -21,18 +21,18 @@ public class q extends com.baidu.adp.base.g {
         NewUserGuideActivity newUserGuideActivity3;
         NewUserGuideActivity newUserGuideActivity4;
         if (obj == null) {
-            newUserGuideActivity4 = this.bSp.bSm;
+            newUserGuideActivity4 = this.bSK.bSH;
             newUserGuideActivity4.showToast(i.h.neterror);
         } else if (obj instanceof x) {
             int g = com.baidu.adp.lib.g.b.g(((x) obj).getFid(), 0);
-            aVar = this.bSp.bSn;
-            aVar.hU(g);
-            this.bSp.m(g, true);
-            newUserGuideActivity = this.bSp.bSm;
-            newUserGuideActivity.dG(true);
-            newUserGuideActivity2 = this.bSp.bSm;
-            newUserGuideActivity2.dF(true);
-            newUserGuideActivity3 = this.bSp.bSm;
+            aVar = this.bSK.bSI;
+            aVar.ii(g);
+            this.bSK.m(g, true);
+            newUserGuideActivity = this.bSK.bSH;
+            newUserGuideActivity.dI(true);
+            newUserGuideActivity2 = this.bSK.bSH;
+            newUserGuideActivity2.dH(true);
+            newUserGuideActivity3 = this.bSK.bSH;
             TiebaStatic.eventStat(newUserGuideActivity3.getPageContext().getPageActivity(), "notlogin_12", "click", 1, new Object[0]);
         }
     }

@@ -7,11 +7,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.themeCenter.SkinProgressView;
 /* loaded from: classes.dex */
 class j implements View.OnClickListener {
-    final /* synthetic */ BackgroundItemView dfx;
+    final /* synthetic */ BackgroundItemView dhd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(BackgroundItemView backgroundItemView) {
-        this.dfx = backgroundItemView;
+        this.dhd = backgroundItemView;
     }
 
     @Override // android.view.View.OnClickListener
@@ -27,29 +27,29 @@ class j implements View.OnClickListener {
         i iVar3;
         DressItemData dressItemData5;
         if (view != null) {
-            dressItemData = this.dfx.dfw;
+            dressItemData = this.dhd.dhc;
             if (dressItemData != null) {
-                iVar = this.dfx.dfa;
+                iVar = this.dhd.dgG;
                 if (iVar != null) {
-                    skinProgressView = this.dfx.dfv;
+                    skinProgressView = this.dhd.dhb;
                     if (view != skinProgressView) {
-                        tbImageView = this.dfx.dfu;
+                        tbImageView = this.dhd.dha;
                         if (view == tbImageView) {
                             aq aqVar = new aq("c10279");
-                            dressItemData2 = this.dfx.dfw;
+                            dressItemData2 = this.dhd.dhc;
                             TiebaStatic.log(aqVar.r("obj_id", dressItemData2.getPropsId()));
-                            iVar2 = this.dfx.dfa;
-                            dressItemData3 = this.dfx.dfw;
+                            iVar2 = this.dhd.dgG;
+                            dressItemData3 = this.dhd.dhc;
                             iVar2.a(dressItemData3);
                             return;
                         }
                         return;
                     }
                     aq aqVar2 = new aq("c10280");
-                    dressItemData4 = this.dfx.dfw;
+                    dressItemData4 = this.dhd.dhc;
                     TiebaStatic.log(aqVar2.r("obj_id", dressItemData4.getPropsId()));
-                    iVar3 = this.dfx.dfa;
-                    dressItemData5 = this.dfx.dfw;
+                    iVar3 = this.dhd.dgG;
+                    dressItemData5 = this.dhd.dhc;
                     iVar3.a(dressItemData5, false);
                 }
             }

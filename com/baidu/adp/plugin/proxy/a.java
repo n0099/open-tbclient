@@ -22,17 +22,17 @@ import com.baidu.adp.plugin.PluginCenter;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends PackageManager {
-    private PackageManager EA;
+    private PackageManager EB;
     private String mPackageName = null;
-    private String EB = null;
+    private String EC = null;
 
     public a(PackageManager packageManager) {
-        this.EA = null;
-        this.EA = packageManager;
+        this.EB = null;
+        this.EB = packageManager;
     }
 
     public void setPluginPackageName(String str) {
-        this.EB = str;
+        this.EC = str;
     }
 
     public void setPackageName(String str) {
@@ -42,162 +42,162 @@ public class a extends PackageManager {
     @Override // android.content.pm.PackageManager
     public PackageInfo getPackageInfo(String str, int i) {
         com.baidu.adp.plugin.a plugin2;
-        return (!TextUtils.equals(this.mPackageName, str) || (plugin2 = PluginCenter.getInstance().getPlugin(this.EB)) == null) ? this.EA.getPackageInfo(str, i) : plugin2.ks();
+        return (!TextUtils.equals(this.mPackageName, str) || (plugin2 = PluginCenter.getInstance().getPlugin(this.EC)) == null) ? this.EB.getPackageInfo(str, i) : plugin2.kt();
     }
 
     @Override // android.content.pm.PackageManager
     public Intent getLaunchIntentForPackage(String str) {
-        return this.EA.getLaunchIntentForPackage(str);
+        return this.EB.getLaunchIntentForPackage(str);
     }
 
     @Override // android.content.pm.PackageManager
     public int[] getPackageGids(String str) {
-        return this.EA.getPackageGids(str);
+        return this.EB.getPackageGids(str);
     }
 
     @Override // android.content.pm.PackageManager
     public PermissionInfo getPermissionInfo(String str, int i) {
-        return this.EA.getPermissionInfo(str, i);
+        return this.EB.getPermissionInfo(str, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<PermissionInfo> queryPermissionsByGroup(String str, int i) {
-        return this.EA.queryPermissionsByGroup(str, i);
+        return this.EB.queryPermissionsByGroup(str, i);
     }
 
     @Override // android.content.pm.PackageManager
     public PermissionGroupInfo getPermissionGroupInfo(String str, int i) {
-        return this.EA.getPermissionGroupInfo(str, i);
+        return this.EB.getPermissionGroupInfo(str, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<PermissionGroupInfo> getAllPermissionGroups(int i) {
-        return this.EA.getAllPermissionGroups(i);
+        return this.EB.getAllPermissionGroups(i);
     }
 
     @Override // android.content.pm.PackageManager
     public ApplicationInfo getApplicationInfo(String str, int i) {
-        return this.EA.getApplicationInfo(str, i);
+        return this.EB.getApplicationInfo(str, i);
     }
 
     @Override // android.content.pm.PackageManager
     public ActivityInfo getActivityInfo(ComponentName componentName, int i) {
-        return this.EA.getActivityInfo(componentName, i);
+        return this.EB.getActivityInfo(componentName, i);
     }
 
     @Override // android.content.pm.PackageManager
     public ActivityInfo getReceiverInfo(ComponentName componentName, int i) {
-        return this.EA.getReceiverInfo(componentName, i);
+        return this.EB.getReceiverInfo(componentName, i);
     }
 
     @Override // android.content.pm.PackageManager
     public ServiceInfo getServiceInfo(ComponentName componentName, int i) {
-        return this.EA.getServiceInfo(componentName, i);
+        return this.EB.getServiceInfo(componentName, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<PackageInfo> getInstalledPackages(int i) {
-        return this.EA.getInstalledPackages(i);
+        return this.EB.getInstalledPackages(i);
     }
 
     @Override // android.content.pm.PackageManager
     public int checkPermission(String str, String str2) {
-        return this.EA.checkPermission(str, str2);
+        return this.EB.checkPermission(str, str2);
     }
 
     @Override // android.content.pm.PackageManager
     public boolean addPermission(PermissionInfo permissionInfo) {
-        return this.EA.addPermission(permissionInfo);
+        return this.EB.addPermission(permissionInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public void removePermission(String str) {
-        this.EA.removePermission(str);
+        this.EB.removePermission(str);
     }
 
     @Override // android.content.pm.PackageManager
     public int checkSignatures(String str, String str2) {
-        return this.EA.checkSignatures(str, str2);
+        return this.EB.checkSignatures(str, str2);
     }
 
     @Override // android.content.pm.PackageManager
     public int checkSignatures(int i, int i2) {
-        return this.EA.checkSignatures(i, i2);
+        return this.EB.checkSignatures(i, i2);
     }
 
     @Override // android.content.pm.PackageManager
     public String[] getPackagesForUid(int i) {
-        return this.EA.getPackagesForUid(i);
+        return this.EB.getPackagesForUid(i);
     }
 
     @Override // android.content.pm.PackageManager
     public String getNameForUid(int i) {
-        return this.EA.getNameForUid(i);
+        return this.EB.getNameForUid(i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<ApplicationInfo> getInstalledApplications(int i) {
-        return this.EA.getInstalledApplications(i);
+        return this.EB.getInstalledApplications(i);
     }
 
     @Override // android.content.pm.PackageManager
     public String[] getSystemSharedLibraryNames() {
-        return this.EA.getSystemSharedLibraryNames();
+        return this.EB.getSystemSharedLibraryNames();
     }
 
     @Override // android.content.pm.PackageManager
     public FeatureInfo[] getSystemAvailableFeatures() {
-        return this.EA.getSystemAvailableFeatures();
+        return this.EB.getSystemAvailableFeatures();
     }
 
     @Override // android.content.pm.PackageManager
     public boolean hasSystemFeature(String str) {
-        return this.EA.hasSystemFeature(str);
+        return this.EB.hasSystemFeature(str);
     }
 
     @Override // android.content.pm.PackageManager
     public ResolveInfo resolveActivity(Intent intent, int i) {
-        return this.EA.resolveActivity(intent, i);
+        return this.EB.resolveActivity(intent, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<ResolveInfo> queryIntentActivities(Intent intent, int i) {
-        return this.EA.queryIntentActivities(intent, i);
+        return this.EB.queryIntentActivities(intent, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<ResolveInfo> queryIntentActivityOptions(ComponentName componentName, Intent[] intentArr, Intent intent, int i) {
-        return this.EA.queryIntentActivityOptions(componentName, intentArr, intent, i);
+        return this.EB.queryIntentActivityOptions(componentName, intentArr, intent, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<ResolveInfo> queryBroadcastReceivers(Intent intent, int i) {
-        return this.EA.queryBroadcastReceivers(intent, i);
+        return this.EB.queryBroadcastReceivers(intent, i);
     }
 
     @Override // android.content.pm.PackageManager
     public ResolveInfo resolveService(Intent intent, int i) {
-        return this.EA.resolveService(intent, i);
+        return this.EB.resolveService(intent, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<ResolveInfo> queryIntentServices(Intent intent, int i) {
-        return this.EA.queryIntentServices(intent, i);
+        return this.EB.queryIntentServices(intent, i);
     }
 
     @Override // android.content.pm.PackageManager
     public ProviderInfo resolveContentProvider(String str, int i) {
-        return this.EA.resolveContentProvider(str, i);
+        return this.EB.resolveContentProvider(str, i);
     }
 
     @Override // android.content.pm.PackageManager
     public List<ProviderInfo> queryContentProviders(String str, int i, int i2) {
-        return this.EA.queryContentProviders(str, i, i2);
+        return this.EB.queryContentProviders(str, i, i2);
     }
 
     @Override // android.content.pm.PackageManager
     public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i) {
-        return this.EA.getInstrumentationInfo(componentName, i);
+        return this.EB.getInstrumentationInfo(componentName, i);
     }
 
     @Override // android.content.pm.PackageManager
@@ -207,129 +207,129 @@ public class a extends PackageManager {
 
     @Override // android.content.pm.PackageManager
     public Drawable getDrawable(String str, int i, ApplicationInfo applicationInfo) {
-        return this.EA.getDrawable(str, i, applicationInfo);
+        return this.EB.getDrawable(str, i, applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public Drawable getActivityIcon(Intent intent) {
-        return this.EA.getActivityIcon(intent);
+        return this.EB.getActivityIcon(intent);
     }
 
     @Override // android.content.pm.PackageManager
     public Drawable getDefaultActivityIcon() {
-        return this.EA.getDefaultActivityIcon();
+        return this.EB.getDefaultActivityIcon();
     }
 
     @Override // android.content.pm.PackageManager
     public Drawable getApplicationIcon(ApplicationInfo applicationInfo) {
-        return this.EA.getApplicationIcon(applicationInfo);
+        return this.EB.getApplicationIcon(applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public Drawable getApplicationIcon(String str) {
-        return this.EA.getApplicationIcon(str);
+        return this.EB.getApplicationIcon(str);
     }
 
     @Override // android.content.pm.PackageManager
     public CharSequence getText(String str, int i, ApplicationInfo applicationInfo) {
-        return this.EA.getText(str, i, applicationInfo);
+        return this.EB.getText(str, i, applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public XmlResourceParser getXml(String str, int i, ApplicationInfo applicationInfo) {
-        return this.EA.getXml(str, i, applicationInfo);
+        return this.EB.getXml(str, i, applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public CharSequence getApplicationLabel(ApplicationInfo applicationInfo) {
-        return this.EA.getApplicationLabel(applicationInfo);
+        return this.EB.getApplicationLabel(applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public Resources getResourcesForActivity(ComponentName componentName) {
-        return this.EA.getResourcesForActivity(componentName);
+        return this.EB.getResourcesForActivity(componentName);
     }
 
     @Override // android.content.pm.PackageManager
     public Resources getResourcesForApplication(ApplicationInfo applicationInfo) {
-        return this.EA.getResourcesForApplication(applicationInfo);
+        return this.EB.getResourcesForApplication(applicationInfo);
     }
 
     @Override // android.content.pm.PackageManager
     public Resources getResourcesForApplication(String str) {
-        return this.EA.getResourcesForApplication(str);
+        return this.EB.getResourcesForApplication(str);
     }
 
     @Override // android.content.pm.PackageManager
     public String getInstallerPackageName(String str) {
-        return this.EA.getInstallerPackageName(str);
+        return this.EB.getInstallerPackageName(str);
     }
 
     @Override // android.content.pm.PackageManager
     @Deprecated
     public void addPackageToPreferred(String str) {
-        this.EA.addPackageToPreferred(str);
+        this.EB.addPackageToPreferred(str);
     }
 
     @Override // android.content.pm.PackageManager
     @Deprecated
     public void removePackageFromPreferred(String str) {
-        this.EA.removePackageFromPreferred(str);
+        this.EB.removePackageFromPreferred(str);
     }
 
     @Override // android.content.pm.PackageManager
     public List<PackageInfo> getPreferredPackages(int i) {
-        return this.EA.getPreferredPackages(i);
+        return this.EB.getPreferredPackages(i);
     }
 
     @Override // android.content.pm.PackageManager
     @Deprecated
     public void addPreferredActivity(IntentFilter intentFilter, int i, ComponentName[] componentNameArr, ComponentName componentName) {
-        this.EA.addPreferredActivity(intentFilter, i, componentNameArr, componentName);
+        this.EB.addPreferredActivity(intentFilter, i, componentNameArr, componentName);
     }
 
     @Override // android.content.pm.PackageManager
     public void clearPackagePreferredActivities(String str) {
-        this.EA.clearPackagePreferredActivities(str);
+        this.EB.clearPackagePreferredActivities(str);
     }
 
     @Override // android.content.pm.PackageManager
     public Drawable getActivityIcon(ComponentName componentName) {
-        return this.EA.getActivityIcon(componentName);
+        return this.EB.getActivityIcon(componentName);
     }
 
     @Override // android.content.pm.PackageManager
     public int getPreferredActivities(List<IntentFilter> list, List<ComponentName> list2, String str) {
-        return this.EA.getPreferredActivities(list, list2, str);
+        return this.EB.getPreferredActivities(list, list2, str);
     }
 
     @Override // android.content.pm.PackageManager
     public void setComponentEnabledSetting(ComponentName componentName, int i, int i2) {
-        this.EA.setComponentEnabledSetting(componentName, i, i2);
+        this.EB.setComponentEnabledSetting(componentName, i, i2);
     }
 
     @Override // android.content.pm.PackageManager
     public int getComponentEnabledSetting(ComponentName componentName) {
-        return this.EA.getComponentEnabledSetting(componentName);
+        return this.EB.getComponentEnabledSetting(componentName);
     }
 
     @Override // android.content.pm.PackageManager
     public void setApplicationEnabledSetting(String str, int i, int i2) {
-        this.EA.setApplicationEnabledSetting(str, i, i2);
+        this.EB.setApplicationEnabledSetting(str, i, i2);
     }
 
     @Override // android.content.pm.PackageManager
     public int getApplicationEnabledSetting(String str) {
-        return this.EA.getApplicationEnabledSetting(str);
+        return this.EB.getApplicationEnabledSetting(str);
     }
 
     @Override // android.content.pm.PackageManager
     public boolean isSafeMode() {
-        return this.EA.isSafeMode();
+        return this.EB.isSafeMode();
     }
 
     @Override // android.content.pm.PackageManager
     public PackageInfo getPackageArchiveInfo(String str, int i) {
-        return this.EA.getPackageArchiveInfo(str, i);
+        return this.EB.getPackageArchiveInfo(str, i);
     }
 }

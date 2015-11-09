@@ -76,12 +76,12 @@ public class i implements g.a {
     }
 
     @Override // com.baidu.adp.lib.webSocket.g.a
-    public void jy() {
+    public void jz() {
         ArrayList arrayList;
         arrayList = this.zF.zD;
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
-            ((g.a) it.next()).jy();
+            ((g.a) it.next()).jz();
         }
     }
 

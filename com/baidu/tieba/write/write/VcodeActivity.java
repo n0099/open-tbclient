@@ -40,20 +40,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class VcodeActivity extends BaseActivity<VcodeActivity> {
-    private WriteData doW = null;
-    private TextView dmE = null;
-    private ImageView aDq = null;
+    private WriteData dqL = null;
+    private TextView dom = null;
+    private ImageView aCk = null;
     private EditText mEdit = null;
     private ProgressBar mProgressBar = null;
-    private b dpl = null;
-    private a dpm = null;
+    private b dqZ = null;
+    private a dra = null;
     private InputMethodManager mInputManager = null;
-    private DialogInterface.OnCancelListener cpX = null;
-    private RelativeLayout bro = null;
-    private TextView aPt = null;
+    private DialogInterface.OnCancelListener crt = null;
+    private RelativeLayout brS = null;
+    private TextView aPB = null;
     protected NavigationBar mNavigationBar = null;
-    private final View.OnClickListener dpg = new u(this);
-    private final View.OnClickListener dph = new v(this);
+    private final View.OnClickListener dqV = new u(this);
+    private final View.OnClickListener dqW = new v(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -62,15 +62,15 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         setContentView(i.g.vcode_activity);
         initUI();
         initData(bundle);
-        mw(this.doW.getVcodeUrl());
+        mA(this.dqL.getVcodeUrl());
     }
 
     private void initData(Bundle bundle) {
-        this.cpX = new w(this);
+        this.crt = new w(this);
         if (bundle != null) {
-            this.doW = (WriteData) bundle.getSerializable("model");
+            this.dqL = (WriteData) bundle.getSerializable("model");
         } else {
-            this.doW = (WriteData) getIntent().getSerializableExtra("model");
+            this.dqL = (WriteData) getIntent().getSerializableExtra("model");
         }
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
     }
@@ -79,12 +79,12 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onStop() {
         super.onStop();
-        if (this.doW != null && this.doW.getType() == 3) {
-            if (this.dpl != null) {
-                this.dpl.cancel();
+        if (this.dqL != null && this.dqL.getType() == 3) {
+            if (this.dqZ != null) {
+                this.dqZ.cancel();
             }
-            if (this.dpm != null) {
-                this.dpm.cancel();
+            if (this.dra != null) {
+                this.dra.cancel();
             }
             if (this.mProgressBar != null) {
                 this.mProgressBar.setVisibility(8);
@@ -98,11 +98,11 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.dpl != null) {
-            this.dpl.cancel();
+        if (this.dqZ != null) {
+            this.dqZ.cancel();
         }
-        if (this.dpm != null) {
-            this.dpm.cancel();
+        if (this.dra != null) {
+            this.dra.cancel();
         }
         if (this.mProgressBar != null) {
             this.mProgressBar.setVisibility(8);
@@ -111,7 +111,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        bundle.putSerializable("model", this.doW);
+        bundle.putSerializable("model", this.dqL);
         super.onSaveInstanceState(bundle);
     }
 
@@ -120,55 +120,55 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     public void onChangeSkinType(int i) {
         int i2;
         super.onChangeSkinType(i);
-        com.baidu.tbadk.core.util.an.e(this.bro, i);
+        com.baidu.tbadk.core.util.an.e(this.brS, i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        com.baidu.tbadk.core.util.an.i((View) this.dmE, i.e.s_navbar_button_bg);
+        com.baidu.tbadk.core.util.an.i((View) this.dom, i.e.s_navbar_button_bg);
         if (i == 1) {
             i2 = com.baidu.tbadk.core.util.an.ct(i);
         } else {
             i2 = -12895429;
         }
-        this.aPt.setTextColor(i2);
+        this.aPB.setTextColor(i2);
     }
 
     private void initUI() {
-        this.bro = (RelativeLayout) findViewById(i.f.parent);
+        this.brS = (RelativeLayout) findViewById(i.f.parent);
         this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
-        this.aPt = (TextView) findViewById(i.f.info);
-        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.dpg);
-        this.dmE = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(i.h.send), this.dph);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dmE.getLayoutParams();
+        this.aPB = (TextView) findViewById(i.f.info);
+        this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.dqV);
+        this.dom = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(i.h.send), this.dqW);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dom.getLayoutParams();
         layoutParams.rightMargin = com.baidu.adp.lib.util.k.d(getPageContext().getPageActivity(), i.d.ds16);
-        this.dmE.setLayoutParams(layoutParams);
+        this.dom.setLayoutParams(layoutParams);
         this.mEdit = (EditText) findViewById(i.f.input);
-        this.aDq = (ImageView) findViewById(i.f.vcode_image);
-        this.aDq.setImageDrawable(null);
-        this.aDq.setOnClickListener(new x(this));
+        this.aCk = (ImageView) findViewById(i.f.vcode_image);
+        this.aCk.setImageDrawable(null);
+        this.aCk.setOnClickListener(new x(this));
         this.mProgressBar = (ProgressBar) findViewById(i.f.progress);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mw(String str) {
-        if (this.dpm != null) {
-            this.dpm.cancel();
+    public void mA(String str) {
+        if (this.dra != null) {
+            this.dra.cancel();
         }
         this.mProgressBar.setVisibility(0);
-        this.aDq.setImageDrawable(null);
-        this.dpm = new a(this, null);
-        this.dpm.setPriority(3);
-        this.dpm.execute(str);
+        this.aCk.setImageDrawable(null);
+        this.dra = new a(this, null);
+        this.dra.setPriority(3);
+        this.dra.execute(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends BdAsyncTask<Integer, Integer, com.baidu.tbadk.coreExtra.data.l> {
-        private com.baidu.tbadk.core.util.w afh = null;
-        private String dbJ = null;
-        private WriteData dpp;
+        private com.baidu.tbadk.core.util.w afm = null;
+        private String ddT = null;
+        private WriteData drd;
 
         public b(WriteData writeData) {
-            this.dpp = null;
-            this.dpp = writeData;
+            this.drd = null;
+            this.drd = writeData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -179,116 +179,124 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             VideoInfo videoInfo;
             String str;
             Address y;
-            if (this.dpp != null) {
-                this.afh = new com.baidu.tbadk.core.util.w();
+            if (this.drd != null) {
+                this.afm = new com.baidu.tbadk.core.util.w();
                 String editable = VcodeActivity.this.mEdit.getText().toString();
-                String imagesCodeForPost = this.dpp.getImagesCodeForPost();
-                if (this.dpp.getType() == 3) {
-                    this.afh.o("newVcode", "1");
-                    this.afh.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(this.dpp.getContent()) + imagesCodeForPost);
-                    this.afh.o(PayVcodeActivityConfig.VCODE_MD5, this.dpp.getVcodeMD5());
+                String imagesCodeForPost = this.drd.getImagesCodeForPost();
+                if (this.drd.getType() == 3) {
+                    this.afm.o("newVcode", "1");
+                    this.afm.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(this.drd.getContent()) + imagesCodeForPost);
+                    this.afm.o(PayVcodeActivityConfig.VCODE_MD5, this.drd.getVcodeMD5());
                     if (editable.length() > 0) {
-                        this.afh.o("vcode", editable);
+                        this.afm.o("vcode", editable);
                     }
-                    this.afh.o("tag", "11");
-                    this.afh.ue().uV().mIsNeedTbs = true;
-                    this.afh.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(this.dpp.getContent()) + imagesCodeForPost);
-                    this.afh.setUrl(com.baidu.tieba.tbadkCore.d.a.cZG);
-                    this.afh.o(ImageViewerConfig.FORUM_NAME, this.dpp.getForumName());
-                    this.afh.o("title", this.dpp.getTitle());
-                    this.afh.o("apiKey", this.dpp.getShareApiKey());
-                    this.afh.o("appName", this.dpp.getShareAppName());
-                    this.afh.o("signKey", this.dpp.getShareSignKey());
-                    this.afh.o("summary_title", this.dpp.getShareSummaryTitle());
-                    this.afh.o("summary_content", this.dpp.getShareSummaryContent());
-                    this.afh.o("summary_img", this.dpp.getShareSummaryImg());
-                    this.afh.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(this.dpp.getShareSummaryImgWidth()));
-                    this.afh.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(this.dpp.getShareSummaryImgHeight()));
-                    this.afh.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, this.dpp.getShareSummaryImgType());
-                    this.afh.o("referUrl", this.dpp.getShareReferUrl());
+                    this.afm.o("tag", "11");
+                    this.afm.uh().uZ().mIsNeedTbs = true;
+                    this.afm.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, String.valueOf(this.drd.getContent()) + imagesCodeForPost);
+                    this.afm.setUrl(com.baidu.tieba.tbadkCore.d.a.dbq);
+                    this.afm.o(ImageViewerConfig.FORUM_NAME, this.drd.getForumName());
+                    this.afm.o("title", this.drd.getTitle());
+                    this.afm.o("apiKey", this.drd.getShareApiKey());
+                    this.afm.o("appName", this.drd.getShareAppName());
+                    this.afm.o("signKey", this.drd.getShareSignKey());
+                    this.afm.o("summary_title", this.drd.getShareSummaryTitle());
+                    this.afm.o("summary_content", this.drd.getShareSummaryContent());
+                    this.afm.o("summary_img", this.drd.getShareSummaryImg());
+                    this.afm.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_WIDTH, String.valueOf(this.drd.getShareSummaryImgWidth()));
+                    this.afm.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_HEIGHT, String.valueOf(this.drd.getShareSummaryImgHeight()));
+                    this.afm.o(WriteShareActivityConfig.SHARE_SUMMARY_IMG_TYPE, this.drd.getShareSummaryImgType());
+                    this.afm.o("referUrl", this.drd.getShareReferUrl());
                 } else {
-                    this.afh.o("anonymous", "0");
-                    this.afh.o(ImageViewerConfig.FORUM_ID, this.dpp.getForumId());
-                    this.afh.o("kw", this.dpp.getForumName());
-                    this.afh.o("new_vcode", "1");
-                    if (this.dpp.getVideoInfo() == null) {
-                        str = String.valueOf(this.dpp.getContent()) + imagesCodeForPost;
+                    this.afm.o("anonymous", "0");
+                    this.afm.o(ImageViewerConfig.FORUM_ID, this.drd.getForumId());
+                    this.afm.o("kw", this.drd.getForumName());
+                    this.afm.o("new_vcode", "1");
+                    if (this.drd.getVideoInfo() == null) {
+                        str = String.valueOf(this.drd.getContent()) + imagesCodeForPost;
                     } else {
-                        str = String.valueOf(this.dpp.getContent()) + videoInfo.buildWriteContent(this.dpp.getForumName()) + imagesCodeForPost;
+                        str = String.valueOf(this.drd.getContent()) + videoInfo.buildWriteContent(this.drd.getForumName()) + imagesCodeForPost;
                     }
-                    if (this.dpp.getType() == 6 && this.dpp.getVoteInfo() != null) {
-                        if (this.dpp.getWriteImagesInfo() != null) {
-                            this.dpp.getVoteInfo().setServerImageCode(this.dpp.getWriteImagesInfo().getChosedFiles());
+                    if (this.drd.getType() == 6 && this.drd.getVoteInfo() != null) {
+                        if (this.drd.getWriteImagesInfo() != null) {
+                            this.drd.getVoteInfo().setServerImageCode(this.drd.getWriteImagesInfo().getChosedFiles());
                         }
-                        str = this.dpp.getVoteInfo().buildWriteContent();
+                        str = this.drd.getVoteInfo().buildWriteContent();
                     }
-                    this.afh.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, str);
-                    if (this.dpp.getIsBaobaoImageUploaded()) {
-                        this.afh.o("tail_type", String.valueOf(a.C0075a.cZJ));
-                        this.afh.o("tail_content", this.dpp.getBaobaoContent());
-                        this.dpp.setBabaoPosted(true);
+                    this.afm.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, str);
+                    if (this.drd.getIsBaobaoImageUploaded()) {
+                        this.afm.o("tail_type", String.valueOf(a.C0076a.dbt));
+                        this.afm.o("tail_content", this.drd.getBaobaoContent());
+                        this.drd.setBabaoPosted(true);
                     } else {
-                        this.dpp.setBabaoPosted(false);
+                        this.drd.setBabaoPosted(false);
                     }
-                    com.baidu.tieba.tbadkCore.writeModel.e.a(this.afh, this.dpp);
-                    this.afh.o("vcode_md5", this.dpp.getVcodeMD5());
+                    com.baidu.tieba.tbadkCore.writeModel.e.a(this.afm, this.drd);
+                    this.afm.o("vcode_md5", this.drd.getVcodeMD5());
                     if (editable.length() > 0) {
-                        this.afh.o("vcode", editable);
+                        this.afm.o("vcode", editable);
                     }
-                    this.afh.ue().uV().mIsNeedTbs = true;
-                    if (this.dpp.getVoice() != null) {
-                        this.afh.o("voice_md5", this.dpp.getVoice());
-                        this.afh.o("during_time", String.valueOf(this.dpp.getVoiceDuringTime()));
+                    this.afm.uh().uZ().mIsNeedTbs = true;
+                    if (this.drd.getVoice() != null) {
+                        this.afm.o("voice_md5", this.drd.getVoice());
+                        this.afm.o("during_time", String.valueOf(this.drd.getVoiceDuringTime()));
                     }
-                    if (this.dpp.getType() == 0) {
-                        this.afh.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_ADDRESS);
-                        this.afh.o("title", this.dpp.getTitle());
-                        this.afh.o("is_ntitle", this.dpp.isNoTitle() ? "1" : "0");
-                        if (this.dpp.getLiveCardData() != null) {
-                            this.afh.o("group_id", String.valueOf(this.dpp.getLiveCardData().getGroupId()));
-                            this.afh.o("start_time", String.valueOf(this.dpp.getLiveCardData().getStartTime()));
+                    if (this.drd.getType() == 0) {
+                        this.afm.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_ADDRESS);
+                        this.afm.o("title", this.drd.getTitle());
+                        this.afm.o("is_ntitle", this.drd.isNoTitle() ? "1" : "0");
+                        if (this.drd.getCategoryFrom() >= 0) {
+                            this.afm.o("fromCategoryId", String.valueOf(this.drd.getCategoryFrom()));
+                        }
+                        if (this.drd.getCategoryTo() >= 0) {
+                            this.afm.o("toCategoryId", String.valueOf(this.drd.getCategoryTo()));
+                        }
+                        if (this.drd.getLiveCardData() != null) {
+                            this.afm.o("group_id", String.valueOf(this.drd.getLiveCardData().getGroupId()));
+                            this.afm.o("start_time", String.valueOf(this.drd.getLiveCardData().getStartTime()));
                         }
                         if (!TbConfig.getPositionPagerId().equals(VcodeActivity.this.getIntent().getStringExtra("forum_id")) && TbadkCoreApplication.m411getInst().getIsLocationOn() && (y = com.baidu.adp.lib.d.a.gC().y(false)) != null) {
-                            this.afh.o("lbs", String.valueOf(String.valueOf(y.getLatitude())) + "," + String.valueOf(y.getLongitude()));
+                            this.afm.o("lbs", String.valueOf(String.valueOf(y.getLatitude())) + "," + String.valueOf(y.getLongitude()));
                         }
-                    } else if (this.dpp.getType() == 6) {
-                        this.afh.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_ADDRESS);
-                        this.afh.o("title", this.dpp.getTitle());
-                        this.afh.o("is_ntitle", this.dpp.isNoTitle() ? "1" : "0");
-                        this.afh.o("thread_type", String.valueOf(36));
-                    } else if (this.dpp.getType() == 4) {
-                        this.afh.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_ADDRESS);
-                        this.afh.o("title", this.dpp.getTitle());
-                        this.afh.o("is_ntitle", "0");
-                        this.afh.o("thread_type", String.valueOf(33));
-                        this.afh.o("is_twzhibo_thread", String.valueOf(1));
+                    } else if (this.drd.getType() == 6) {
+                        this.afm.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_ADDRESS);
+                        this.afm.o("title", this.drd.getTitle());
+                        this.afm.o("is_ntitle", this.drd.isNoTitle() ? "1" : "0");
+                        this.afm.o("thread_type", String.valueOf(36));
+                    } else if (this.drd.getType() == 4) {
+                        this.afm.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.POST_THREAD_ADDRESS);
+                        this.afm.o("title", this.drd.getTitle());
+                        this.afm.o("is_ntitle", "0");
+                        this.afm.o("thread_type", String.valueOf(33));
+                        this.afm.o("is_twzhibo_thread", String.valueOf(1));
                     } else {
-                        this.afh.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.REPLY_THREAD_ADDRESS);
-                        this.afh.o("tid", this.dpp.getThreadId());
-                        this.afh.o("is_ad", VcodeActivity.this.getIntent().getBooleanExtra("is_ad", false) ? "1" : "0");
-                        if (this.dpp.getType() == 2) {
-                            this.afh.o("quote_id", String.valueOf(this.dpp.getFloor()));
-                            this.afh.o("floor_num", String.valueOf(this.dpp.getFloorNum()));
-                            this.afh.o(WriteActivityConfig.IS_ADDITION, this.dpp.isAddition() ? "1" : "0");
-                            if (this.dpp.getRepostId() != null) {
-                                this.afh.o("repostid", this.dpp.getRepostId());
+                        this.afm.setUrl(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.REPLY_THREAD_ADDRESS);
+                        this.afm.o("tid", this.drd.getThreadId());
+                        this.afm.o("is_ad", VcodeActivity.this.getIntent().getBooleanExtra("is_ad", false) ? "1" : "0");
+                        if (this.drd.getType() == 2) {
+                            this.afm.o("quote_id", String.valueOf(this.drd.getFloor()));
+                            this.afm.o("floor_num", String.valueOf(this.drd.getFloorNum()));
+                            this.afm.o(WriteActivityConfig.IS_ADDITION, this.drd.isAddition() ? "1" : "0");
+                            if (this.drd.getRepostId() != null) {
+                                this.afm.o("repostid", this.drd.getRepostId());
                             }
-                        } else if (this.dpp.getType() == 5) {
-                            this.afh.o("is_twzhibo_thread", String.valueOf(1));
+                        } else if (this.drd.getType() == 5) {
+                            this.afm.o("is_twzhibo_thread", String.valueOf(1));
+                        } else if (this.drd.getType() == 1 && com.baidu.tbadk.editortools.c.b.AW().getStatus() == 1) {
+                            this.afm.o("ptype", "4");
                         }
                     }
                 }
-                this.dbJ = this.afh.tD();
+                this.ddT = this.afm.tG();
             }
             return null;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            VcodeActivity.this.dpl = null;
+            VcodeActivity.this.dqZ = null;
             VcodeActivity.this.closeLoadingDialog();
-            if (this.afh != null) {
-                this.afh.gJ();
+            if (this.afm != null) {
+                this.afm.gJ();
             }
             super.cancel(true);
         }
@@ -306,14 +314,14 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             String str2;
             JSONException e;
             VcodeActivity.this.closeLoadingDialog();
-            VcodeActivity.this.dpl = null;
-            if (this.afh != null) {
-                if (this.afh.ue().uW().qS()) {
+            VcodeActivity.this.dqZ = null;
+            if (this.afm != null) {
+                if (this.afm.uh().va().qT()) {
                     ErrorData errorData = new ErrorData();
-                    errorData.parserJson(this.dbJ);
+                    errorData.parserJson(this.ddT);
                     if (errorData.error_code == 0) {
                         try {
-                            str = new JSONObject(this.dbJ).optString(AddFriendActivityConfig.MSG);
+                            str = new JSONObject(this.ddT).optString(AddFriendActivityConfig.MSG);
                         } catch (JSONException e2) {
                             e2.printStackTrace();
                             str = null;
@@ -321,74 +329,74 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                         if (StringUtils.isNull(str)) {
                             str = TbadkCoreApplication.m411getInst().getString(i.h.send_success);
                         }
-                        if (this.dpp.getType() != 3) {
-                            com.baidu.tieba.tbadkCore.writeModel.e.Q(VcodeActivity.this.getPageContext().getPageActivity(), str);
+                        if (this.drd.getType() != 3) {
+                            com.baidu.tieba.tbadkCore.writeModel.e.R(VcodeActivity.this.getPageContext().getPageActivity(), str);
                         }
-                        this.dpp.deleteUploadedTempImages();
-                        if (this.dpp != null && this.dpp.isBabaoPosted()) {
-                            com.baidu.tieba.tbadkCore.PbEditor.a.awf();
+                        this.drd.deleteUploadedTempImages();
+                        if (this.drd != null && this.drd.isBabaoPosted()) {
+                            com.baidu.tieba.tbadkCore.PbEditor.a.awN();
                         }
-                    } else if ((this.dpp.isHasImages() || this.dpp.getIsBaobao()) && com.baidu.adp.lib.util.j.isEmpty(String.valueOf(this.dpp.getContent()) + this.dpp.getImagesCodeForPost())) {
+                    } else if ((this.drd.isHasImages() || this.drd.getIsBaobao()) && com.baidu.adp.lib.util.j.isEmpty(String.valueOf(this.drd.getContent()) + this.drd.getImagesCodeForPost())) {
                         VcodeActivity.this.showToast(TbadkCoreApplication.m411getInst().getString(i.h.img_upload_error));
-                    } else if (this.dpp.getType() != 3) {
+                    } else if (this.drd.getType() != 3) {
                         VcodeActivity.this.showToast(errorData.getError_msg());
                     }
                     PostWriteCallBackData postWriteCallBackData = new PostWriteCallBackData(0, null, null, null);
                     String str3 = "";
                     try {
-                        str2 = new JSONObject(this.dbJ).optString("tid");
+                        str2 = new JSONObject(this.ddT).optString("tid");
                     } catch (JSONException e3) {
                         str2 = "";
                         e = e3;
                     }
                     try {
-                        str3 = new JSONObject(this.dbJ).optString(Info.kBaiduPIDKey);
+                        str3 = new JSONObject(this.ddT).optString(Info.kBaiduPIDKey);
                     } catch (JSONException e4) {
                         e = e4;
                         e.printStackTrace();
                         postWriteCallBackData.setThreadId(str2);
                         postWriteCallBackData.setPostId(str3);
                         if (postWriteCallBackData != null) {
-                            XiaoyingUtil.reportEvent(str2, postWriteCallBackData.getPostId(), this.dpp.getForumId(), this.dpp.getVideoInfo().getVideoUrl(), this.dpp.getForumName());
+                            XiaoyingUtil.reportEvent(str2, postWriteCallBackData.getPostId(), this.drd.getForumId(), this.drd.getVideoInfo().getVideoUrl(), this.drd.getForumName());
                         }
                         Intent intent = new Intent();
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
                         intent.putExtras(bundle);
                         VcodeActivity.this.setResult(-1, intent);
-                        if (this.dpp.getLiveCardData() != null) {
+                        if (this.drd.getLiveCardData() != null) {
                         }
                         VcodeActivity.this.finish();
                         super.onPostExecute(lVar);
                     }
                     postWriteCallBackData.setThreadId(str2);
                     postWriteCallBackData.setPostId(str3);
-                    if (postWriteCallBackData != null && this.dpp != null && this.dpp.getVideoInfo() != null) {
-                        XiaoyingUtil.reportEvent(str2, postWriteCallBackData.getPostId(), this.dpp.getForumId(), this.dpp.getVideoInfo().getVideoUrl(), this.dpp.getForumName());
+                    if (postWriteCallBackData != null && this.drd != null && this.drd.getVideoInfo() != null) {
+                        XiaoyingUtil.reportEvent(str2, postWriteCallBackData.getPostId(), this.drd.getForumId(), this.drd.getVideoInfo().getVideoUrl(), this.drd.getForumName());
                     }
                     Intent intent2 = new Intent();
                     Bundle bundle2 = new Bundle();
                     bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent2.putExtras(bundle2);
                     VcodeActivity.this.setResult(-1, intent2);
-                    if (this.dpp.getLiveCardData() != null) {
-                        VcodeActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_REFRESH, new FrsActivityConfig(VcodeActivity.this.getPageContext().getPageActivity()).createRefreshCfgShowContent(this.dpp.getForumName(), "post live's thread")));
+                    if (this.drd.getLiveCardData() != null) {
+                        VcodeActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_REFRESH, new FrsActivityConfig(VcodeActivity.this.getPageContext().getPageActivity()).createRefreshCfgShowContent(this.drd.getForumName(), "post live's thread")));
                     }
                     VcodeActivity.this.finish();
-                } else if (this.dpp.isHasImages() && com.baidu.adp.lib.util.j.isEmpty(String.valueOf(this.dpp.getContent()) + this.dpp.getImagesCodeForPost())) {
+                } else if (this.drd.isHasImages() && com.baidu.adp.lib.util.j.isEmpty(String.valueOf(this.drd.getContent()) + this.drd.getImagesCodeForPost())) {
                     VcodeActivity.this.showToast(TbadkCoreApplication.m411getInst().getString(i.h.img_upload_error));
                 } else {
-                    if (this.afh.ui() == 5 || this.afh.ui() == 6) {
+                    if (this.afm.ul() == 5 || this.afm.ul() == 6) {
                         com.baidu.tbadk.coreExtra.data.l lVar2 = new com.baidu.tbadk.coreExtra.data.l();
-                        lVar2.parserJson(this.dbJ);
+                        lVar2.parserJson(this.ddT);
                         if (lVar2.getVcode_pic_url() != null) {
-                            VcodeActivity.this.doW.setVcodeMD5(lVar2.getVcode_md5());
-                            VcodeActivity.this.doW.setVcodeUrl(lVar2.getVcode_pic_url());
-                            VcodeActivity.this.mw(VcodeActivity.this.doW.getVcodeUrl());
+                            VcodeActivity.this.dqL.setVcodeMD5(lVar2.getVcode_md5());
+                            VcodeActivity.this.dqL.setVcodeUrl(lVar2.getVcode_pic_url());
+                            VcodeActivity.this.mA(VcodeActivity.this.dqL.getVcodeUrl());
                         }
                         VcodeActivity.this.mEdit.setText((CharSequence) null);
                     }
-                    VcodeActivity.this.showToast(this.afh.getErrorString());
+                    VcodeActivity.this.showToast(this.afm.getErrorString());
                 }
             }
             super.onPostExecute(lVar);
@@ -398,14 +406,14 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, Integer, Bitmap> {
-        volatile com.baidu.tbadk.core.util.w Ti;
-        private volatile boolean aOK;
-        com.baidu.tbadk.coreExtra.data.l dpo;
+        volatile com.baidu.tbadk.core.util.w Tj;
+        private volatile boolean aOS;
+        com.baidu.tbadk.coreExtra.data.l drc;
 
         private a() {
-            this.Ti = null;
-            this.dpo = null;
-            this.aOK = false;
+            this.Tj = null;
+            this.drc = null;
+            this.aOS = false;
         }
 
         /* synthetic */ a(VcodeActivity vcodeActivity, a aVar) {
@@ -414,11 +422,11 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            VcodeActivity.this.dpm = null;
-            if (this.Ti != null) {
-                this.Ti.gJ();
+            VcodeActivity.this.dra = null;
+            if (this.Tj != null) {
+                this.Tj.gJ();
             }
-            this.aOK = true;
+            this.aOS = true;
             VcodeActivity.this.mProgressBar.setVisibility(8);
             super.cancel(true);
         }
@@ -430,45 +438,51 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         public Bitmap doInBackground(String... strArr) {
             String str = strArr[0];
             if (str == null || str.length() <= 0) {
-                this.Ti = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
-                this.Ti.o(ImageViewerConfig.FORUM_ID, VcodeActivity.this.doW.getForumId());
-                this.Ti.o("kw", VcodeActivity.this.doW.getForumName());
-                this.Ti.o("new_vcode", "1");
-                this.Ti.o("title", VcodeActivity.this.doW.getTitle());
-                this.Ti.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, VcodeActivity.this.doW.getContent());
-                if (VcodeActivity.this.doW.getType() == 0) {
-                    this.Ti.o("pub_type", "1");
+                this.Tj = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/anti/vcode");
+                this.Tj.o(ImageViewerConfig.FORUM_ID, VcodeActivity.this.dqL.getForumId());
+                this.Tj.o("kw", VcodeActivity.this.dqL.getForumName());
+                this.Tj.o("new_vcode", "1");
+                this.Tj.o("title", VcodeActivity.this.dqL.getTitle());
+                this.Tj.o(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_CONTENT, VcodeActivity.this.dqL.getContent());
+                if (VcodeActivity.this.dqL.getType() == 0) {
+                    this.Tj.o("pub_type", "1");
+                    if (VcodeActivity.this.dqL.getCategoryFrom() >= 0) {
+                        this.Tj.o("fromCategoryId", String.valueOf(VcodeActivity.this.dqL.getCategoryFrom()));
+                    }
+                    if (VcodeActivity.this.dqL.getCategoryTo() >= 0) {
+                        this.Tj.o("toCategoryId", String.valueOf(VcodeActivity.this.dqL.getCategoryTo()));
+                    }
                 } else {
-                    this.Ti.o("pub_type", "2");
-                    this.Ti.o("tid", VcodeActivity.this.doW.getThreadId());
+                    this.Tj.o("pub_type", "2");
+                    this.Tj.o("tid", VcodeActivity.this.dqL.getThreadId());
                 }
-                String tD = this.Ti.tD();
-                if (!this.Ti.ue().uW().qS()) {
+                String tG = this.Tj.tG();
+                if (!this.Tj.uh().va().qT()) {
                     return null;
                 }
-                this.dpo = new com.baidu.tbadk.coreExtra.data.l();
-                this.dpo.parserJson(tD);
-                str = this.dpo.getVcode_pic_url();
+                this.drc = new com.baidu.tbadk.coreExtra.data.l();
+                this.drc.parserJson(tG);
+                str = this.drc.getVcode_pic_url();
             }
-            if (this.aOK) {
+            if (this.aOS) {
                 return null;
             }
-            this.Ti = new com.baidu.tbadk.core.util.w(str);
-            return com.baidu.tbadk.core.util.c.N(this.Ti.tE());
+            this.Tj = new com.baidu.tbadk.core.util.w(str);
+            return com.baidu.tbadk.core.util.c.N(this.Tj.tH());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
-            VcodeActivity.this.dpm = null;
+            VcodeActivity.this.dra = null;
             if (bitmap != null) {
-                VcodeActivity.this.aDq.setImageBitmap(bitmap);
+                VcodeActivity.this.aCk.setImageBitmap(bitmap);
             }
             VcodeActivity.this.mProgressBar.setVisibility(8);
-            if (this.dpo != null) {
-                VcodeActivity.this.doW.setVcodeMD5(this.dpo.getVcode_md5());
-                VcodeActivity.this.doW.setVcodeUrl(this.dpo.getVcode_pic_url());
+            if (this.drc != null) {
+                VcodeActivity.this.dqL.setVcodeMD5(this.drc.getVcode_md5());
+                VcodeActivity.this.dqL.setVcodeUrl(this.drc.getVcode_pic_url());
             }
             super.onPostExecute((a) bitmap);
         }

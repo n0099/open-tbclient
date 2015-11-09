@@ -5,18 +5,18 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    final /* synthetic */ a cDY;
+    final /* synthetic */ a cFu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar) {
-        this.cDY = aVar;
+        this.cFu = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
-        editText = this.cDY.bUA;
+        editText = this.cFu.bVb;
         editText.setText("");
-        this.cDY.aod();
+        this.cFu.aoJ();
     }
 }

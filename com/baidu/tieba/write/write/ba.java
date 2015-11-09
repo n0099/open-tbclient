@@ -1,32 +1,27 @@
 package com.baidu.tieba.write.write;
 
-import android.text.SpannableStringBuilder;
-import android.widget.EditText;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import android.text.Editable;
+import android.text.TextWatcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class ba extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    private final /* synthetic */ SpannableStringBuilder cad;
-    private final /* synthetic */ EmotionGroupType caf;
-    final /* synthetic */ WriteActivity dqi;
+public class ba implements TextWatcher {
+    final /* synthetic */ WriteActivity dsa;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ba(WriteActivity writeActivity, SpannableStringBuilder spannableStringBuilder, EmotionGroupType emotionGroupType) {
-        this.dqi = writeActivity;
-        this.cad = spannableStringBuilder;
-        this.caf = emotionGroupType;
+    public ba(WriteActivity writeActivity) {
+        this.dsa = writeActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        EditText aDs;
-        super.a((ba) aVar, str, i);
-        if (aVar == null) {
-            return;
-        }
-        aDs = this.dqi.aDs();
-        this.dqi.a(this.cad, aDs.getSelectionStart(), aVar, this.caf);
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        this.dsa.aCV();
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

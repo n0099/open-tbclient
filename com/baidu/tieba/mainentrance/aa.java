@@ -8,11 +8,11 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements FragmentTabWidget.a {
-    final /* synthetic */ SquareSearchActivity bVC;
+    final /* synthetic */ SquareSearchActivity bWd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(SquareSearchActivity squareSearchActivity) {
-        this.bVC = squareSearchActivity;
+        this.bWd = squareSearchActivity;
     }
 
     @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
@@ -31,45 +31,45 @@ public class aa implements FragmentTabWidget.a {
         FragmentTabIndicator fragmentTabIndicator7;
         FragmentTabIndicator fragmentTabIndicator8;
         if (i == 0) {
-            this.bVC.ib(0);
-            fragmentTabWidget3 = this.bVC.bUv;
+            this.bWd.ip(0);
+            fragmentTabWidget3 = this.bWd.bUW;
             fragmentTabWidget3.d(i, true);
-            fragmentTabIndicator7 = this.bVC.bUw;
+            fragmentTabIndicator7 = this.bWd.bUX;
             fragmentTabIndicator7.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down);
-            fragmentTabIndicator8 = this.bVC.bUw;
+            fragmentTabIndicator8 = this.bWd.bUX;
             fragmentTabIndicator8.cP(TbadkCoreApplication.m411getInst().getSkinType());
         }
         if (i == 1) {
-            if (!z || this.bVC.mMode != 1) {
-                fragmentTabIndicator3 = this.bVC.bUw;
+            if (!z || this.bWd.mMode != 1) {
+                fragmentTabIndicator3 = this.bWd.bUX;
                 fragmentTabIndicator3.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down_s);
             } else {
-                view = this.bVC.bUF;
+                view = this.bWd.bVg;
                 if (view.getVisibility() == 0) {
-                    view2 = this.bVC.bUF;
+                    view2 = this.bWd.bVg;
                     view2.setVisibility(8);
-                    this.bVC.abh();
-                    fragmentTabIndicator6 = this.bVC.bUw;
+                    this.bWd.abC();
+                    fragmentTabIndicator6 = this.bWd.bUX;
                     fragmentTabIndicator6.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down_s);
                 } else {
-                    this.bVC.abv();
-                    fragmentTabIndicator5 = this.bVC.bUw;
+                    this.bWd.abQ();
+                    fragmentTabIndicator5 = this.bWd.bUX;
                     fragmentTabIndicator5.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_up_s);
                 }
             }
-            fragmentTabIndicator4 = this.bVC.bUw;
+            fragmentTabIndicator4 = this.bWd.bUX;
             fragmentTabIndicator4.cP(TbadkCoreApplication.m411getInst().getSkinType());
-            this.bVC.ib(1);
-            fragmentTabWidget2 = this.bVC.bUv;
+            this.bWd.ip(1);
+            fragmentTabWidget2 = this.bWd.bUW;
             fragmentTabWidget2.d(i, true);
         }
         if (i == 2) {
-            this.bVC.ib(3);
-            fragmentTabWidget = this.bVC.bUv;
+            this.bWd.ip(3);
+            fragmentTabWidget = this.bWd.bUW;
             fragmentTabWidget.d(i, true);
-            fragmentTabIndicator = this.bVC.bUw;
+            fragmentTabIndicator = this.bWd.bUX;
             fragmentTabIndicator.setCompoundDrawablesRightResId(i.e.icon_toolbar_arrow_down);
-            fragmentTabIndicator2 = this.bVC.bUw;
+            fragmentTabIndicator2 = this.bWd.bUX;
             fragmentTabIndicator2.cP(TbadkCoreApplication.m411getInst().getSkinType());
         }
     }

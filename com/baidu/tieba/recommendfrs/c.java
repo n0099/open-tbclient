@@ -12,19 +12,19 @@ import java.util.List;
 import tbclient.FineFrsPage.Pic;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, com.baidu.tbadk.mvc.g.a<Object, com.baidu.tbadk.mvc.d.b>> {
-    private static final Class<?>[] cIh = {i.class, k.class, o.class, g.class, com.baidu.tieba.recommendfrs.a.e.class, com.baidu.tieba.recommendfrs.a.b.class, com.baidu.tieba.recommendfrs.a.c.class, com.baidu.tieba.recommendfrs.a.a.class, h.class};
-    private static final int[] cwZ = {i.g.recommend_frs_item_pic, i.g.recommend_frs_item_pics, i.g.recommend_frs_item_time_divider, i.g.hot_thread_item_title, i.g.hot_thread_item_text, i.g.hot_thread_item_pic, i.g.hot_thread_item_multi_pic, i.g.hot_thread_item_more, i.g.recommend_frs_item_photo_live};
+    private static final Class<?>[] cJD = {i.class, k.class, o.class, g.class, com.baidu.tieba.recommendfrs.a.e.class, com.baidu.tieba.recommendfrs.a.b.class, com.baidu.tieba.recommendfrs.a.c.class, com.baidu.tieba.recommendfrs.a.a.class, h.class};
+    private static final int[] cyv = {i.g.recommend_frs_item_pic, i.g.recommend_frs_item_pics, i.g.recommend_frs_item_time_divider, i.g.hot_thread_item_title, i.g.hot_thread_item_text, i.g.hot_thread_item_pic, i.g.hot_thread_item_multi_pic, i.g.hot_thread_item_more, i.g.recommend_frs_item_photo_live};
 
     public c(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, cIh, cwZ, viewEventCenter);
+        super(tbPageContext, cJD, cyv, viewEventCenter);
     }
 
     @Override // com.baidu.tbadk.mvc.g.b
-    public int es(int i) {
+    public int eq(int i) {
         Object item = getItem(i);
         if (item instanceof com.baidu.tieba.recommendfrs.data.b) {
             com.baidu.tieba.recommendfrs.data.b bVar = (com.baidu.tieba.recommendfrs.data.b) item;
-            if (bVar.aqb() == 33) {
+            if (bVar.aqH() == 33) {
                 return 8;
             }
             return bVar.getType() == 2 ? 1 : 0;
@@ -38,7 +38,7 @@ public class c extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, 
                 return 7;
             }
         } else if (item instanceof com.baidu.tieba.recommendfrs.data.c) {
-            List<Pic> list = ((com.baidu.tieba.recommendfrs.data.c) item).aqd().pics;
+            List<Pic> list = ((com.baidu.tieba.recommendfrs.data.c) item).aqJ().pics;
             if (list != null) {
                 int size = list.size();
                 if (size >= 3) {
@@ -55,7 +55,7 @@ public class c extends com.baidu.tbadk.mvc.g.b<Object, com.baidu.tbadk.mvc.d.b, 
         return 0;
     }
 
-    public com.baidu.tieba.recommendfrs.data.b apL() {
+    public com.baidu.tieba.recommendfrs.data.b aqr() {
         com.baidu.tieba.recommendfrs.data.b bVar;
         for (int count = getCount() - 1; count >= 0; count--) {
             Object item = getItem(count);

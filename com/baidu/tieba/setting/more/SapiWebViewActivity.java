@@ -17,13 +17,13 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.setting.SapiWebViewActivityConfig;
 /* loaded from: classes.dex */
 public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
-    private LinearLayout Mg;
-    private NoNetworkView aMQ;
-    private SapiWebView cdf;
+    private LinearLayout Mh;
+    private NoNetworkView aMY;
+    private SapiWebView cdG;
     private NavigationBar mNavigationBar;
     private int mType = -1;
     private String ws = "";
-    private boolean cOF = true;
+    private boolean cQb = true;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -31,42 +31,42 @@ public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         setContentView(i.g.activity_sapi_webview);
-        asU();
-        Gc();
-        asV();
+        atA();
+        FZ();
+        atB();
         if (!checkUpIsLogin()) {
             finish();
         }
     }
 
-    private void asU() {
+    private void atA() {
         if (getIntent() != null) {
             this.mType = getIntent().getIntExtra(SapiWebViewActivityConfig.EXTRA_TYPE, -1);
             this.ws = getIntent().getStringExtra(SapiWebViewActivityConfig.EXTRA_BDUSS);
-            this.cOF = getIntent().getBooleanExtra(SapiWebViewActivityConfig.EXTRA_NAV, true);
+            this.cQb = getIntent().getBooleanExtra(SapiWebViewActivityConfig.EXTRA_NAV, true);
         }
     }
 
-    private void Gc() {
-        this.Mg = (LinearLayout) findViewById(i.f.layout_root);
+    private void FZ() {
+        this.Mh = (LinearLayout) findViewById(i.f.layout_root);
         this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new af(this));
-        this.aMQ = (NoNetworkView) findViewById(i.f.no_network_view);
-        this.cdf = (SapiWebView) findViewById(i.f.sapi_webview);
-        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.cdf);
-        this.cdf.setOnBackCallback(new ag(this));
-        this.cdf.setOnFinishCallback(new ah(this));
-        this.cdf.setChangePwdCallback(new ai(this));
+        this.aMY = (NoNetworkView) findViewById(i.f.no_network_view);
+        this.cdG = (SapiWebView) findViewById(i.f.sapi_webview);
+        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.cdG);
+        this.cdG.setOnBackCallback(new ag(this));
+        this.cdG.setOnFinishCallback(new ah(this));
+        this.cdG.setChangePwdCallback(new ai(this));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            bd.a((View) this.cdf, i.c.cp_link_tip_b, false);
+            bd.a((View) this.cdG, i.c.cp_link_tip_b, false);
         }
-        this.aMQ.a(new a());
+        this.aMY.a(new a());
     }
 
-    private void asV() {
-        if (!TextUtils.isEmpty(this.ws) && this.cdf != null && this.mNavigationBar != null) {
+    private void atB() {
+        if (!TextUtils.isEmpty(this.ws) && this.cdG != null && this.mNavigationBar != null) {
             if (this.mType == 0) {
-                this.cdf.loadModifyPwd(this.ws);
+                this.cdG.loadModifyPwd(this.ws);
                 this.mNavigationBar.setTitleText(getPageContext().getString(i.h.modify_pwd));
                 return;
             }
@@ -82,11 +82,11 @@ public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
             }
             if (bindWidgetAction != null && !TextUtils.isEmpty(bindWidgetAction.getName())) {
                 this.mNavigationBar.setTitleText(bindWidgetAction.getName());
-                this.cdf.loadBindWidget(bindWidgetAction, this.ws);
+                this.cdG.loadBindWidget(bindWidgetAction, this.ws);
             } else {
                 this.mNavigationBar.setTitleText(getPageContext().getString(i.h.account_safe));
             }
-            if (!this.cOF) {
+            if (!this.cQb) {
                 this.mNavigationBar.setVisibility(8);
             } else {
                 this.mNavigationBar.setVisibility(0);
@@ -126,8 +126,8 @@ public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goBack() {
-        if (this.cdf != null && this.cdf.canGoBack()) {
-            this.cdf.goBack();
+        if (this.cdG != null && this.cdG.canGoBack()) {
+            this.cdG.goBack();
         } else {
             finishActivity();
         }
@@ -146,11 +146,11 @@ public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void ax(boolean z) {
-            if (SapiWebViewActivity.this.aMQ != null) {
+            if (SapiWebViewActivity.this.aMY != null) {
                 if (z) {
-                    SapiWebViewActivity.this.aMQ.setVisibility(8);
+                    SapiWebViewActivity.this.aMY.setVisibility(8);
                 } else {
-                    SapiWebViewActivity.this.aMQ.setVisibility(0);
+                    SapiWebViewActivity.this.aMY.setVisibility(0);
                 }
             }
         }
@@ -163,8 +163,8 @@ public class SapiWebViewActivity extends BaseActivity<SapiWebViewActivity> {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.release();
         }
-        if (this.Mg != null) {
-            this.Mg.removeAllViews();
+        if (this.Mh != null) {
+            this.Mh.removeAllViews();
         }
     }
 }

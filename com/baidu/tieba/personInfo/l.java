@@ -9,13 +9,13 @@ import com.baidu.tieba.i;
 import com.baidu.tieba.im.model.BlackListModel;
 /* loaded from: classes.dex */
 class l extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ PersonInfoActivity csI;
+    final /* synthetic */ PersonInfoActivity cue;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l(PersonInfoActivity personInfoActivity, int i) {
         super(i);
-        this.csI = personInfoActivity;
+        this.cue = personInfoActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,23 +30,23 @@ class l extends com.baidu.adp.framework.listener.e {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
             if (requestUpdateMaskInfoMessage.getMaskType() == 10) {
                 if (requestUpdateMaskInfoMessage.getIsMask() == 1) {
-                    blackListModel3 = this.csI.csu;
+                    blackListModel3 = this.cue.ctQ;
                     blackListModel3.setMaskType(1);
                 } else {
-                    blackListModel = this.csI.csu;
+                    blackListModel = this.cue.ctQ;
                     blackListModel.setMaskType(0);
                 }
                 if (responseUpdateMaskInfoMessage.getError() == 0) {
-                    blackListModel2 = this.csI.csu;
+                    blackListModel2 = this.cue.ctQ;
                     if (blackListModel2.getMaskType() == 1) {
-                        this.csI.showToast(this.csI.getPageContext().getString(i.h.chat_message_blocked));
+                        this.cue.showToast(this.cue.getPageContext().getString(i.h.chat_message_blocked));
                         return;
                     } else {
-                        this.csI.showToast(this.csI.getPageContext().getString(i.h.block_chat_remove_success));
+                        this.cue.showToast(this.cue.getPageContext().getString(i.h.block_chat_remove_success));
                         return;
                     }
                 }
-                this.csI.showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.csI.getResources().getString(i.h.neterror) : responseUpdateMaskInfoMessage.getErrorString());
+                this.cue.showToast(StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString()) ? this.cue.getResources().getString(i.h.neterror) : responseUpdateMaskInfoMessage.getErrorString());
             }
         }
     }

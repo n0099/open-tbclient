@@ -13,15 +13,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class be {
-    private Animation aVH;
+    private Animation aVP;
     private TbPageContext<FrsActivity> mContext;
 
     public be(TbPageContext<FrsActivity> tbPageContext) {
         this.mContext = tbPageContext;
-        this.aVH = AnimationUtils.loadAnimation(this.mContext.getPageActivity(), i.a.frs_like);
+        this.aVP = AnimationUtils.loadAnimation(this.mContext.getPageActivity(), i.a.frs_like);
     }
 
-    public void z(View view) {
+    public void A(View view) {
         if (!this.mContext.getPageActivity().isFinishing()) {
             View inflate = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.frs_like_cover, (ViewGroup) null);
             Button button = (Button) inflate.findViewById(i.f.btn_love);
@@ -37,7 +37,7 @@ public class be {
             gVar.a(new bf(this, inflate));
             com.baidu.adp.lib.guide.d gy = gVar.gy();
             gy.i(this.mContext.getPageActivity());
-            com.baidu.tieba.tbadkCore.a.a(this.mContext.getOrignalPage(), inflate, this.aVH, new bg(this, gy));
+            com.baidu.tieba.tbadkCore.a.a(this.mContext.getOrignalPage(), inflate, this.aVP, new bg(this, gy));
         }
     }
 }

@@ -4,35 +4,35 @@ import java.io.File;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ah implements Runnable {
-    final /* synthetic */ af aaK;
-    private final /* synthetic */ String aaL;
-    private final /* synthetic */ int aaM;
-    private final /* synthetic */ String aaN;
+    final /* synthetic */ af aaO;
+    private final /* synthetic */ String aaP;
+    private final /* synthetic */ int aaQ;
+    private final /* synthetic */ String aaR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(af afVar, String str, int i, String str2) {
-        this.aaK = afVar;
-        this.aaL = str;
-        this.aaM = i;
-        this.aaN = str2;
+        this.aaO = afVar;
+        this.aaP = str;
+        this.aaQ = i;
+        this.aaR = str2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        File uu;
+        File ux;
         boolean c;
         boolean cs;
-        uu = this.aaK.uu();
-        c = this.aaK.c(uu, this.aaL);
+        ux = this.aaO.ux();
+        c = this.aaO.c(ux, this.aaP);
         if (c) {
-            this.aaK.s(uu);
-            cs = this.aaK.cs(this.aaM);
+            this.aaO.s(ux);
+            cs = this.aaO.cs(this.aaQ);
             if (cs) {
-                this.aaK.us();
+                this.aaO.uv();
                 return;
             }
         }
-        this.aaK.uw();
-        this.aaK.d(this.aaN, this.aaL, this.aaM);
+        this.aaO.uz();
+        this.aaO.d(this.aaR, this.aaP, this.aaQ);
     }
 }

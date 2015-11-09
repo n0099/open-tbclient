@@ -18,7 +18,7 @@ public class ChatStatusManager {
 
     /* loaded from: classes.dex */
     public static class a {
-        public String azB;
+        public String ayp;
         public boolean isOpen;
     }
 
@@ -46,7 +46,7 @@ public class ChatStatusManager {
         if (aVar == null) {
             return "";
         }
-        return aVar.azB;
+        return aVar.ayp;
     }
 
     public void setIsOpen(int i, boolean z) {
@@ -63,11 +63,11 @@ public class ChatStatusManager {
     public void setCurId(int i, String str) {
         a aVar = this.mStatus.get(i);
         if (aVar != null) {
-            aVar.azB = str;
+            aVar.ayp = str;
             return;
         }
         a aVar2 = new a();
-        aVar2.azB = str;
+        aVar2.ayp = str;
         this.mStatus.put(i, aVar2);
     }
 

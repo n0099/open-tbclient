@@ -19,36 +19,36 @@ import com.baidu.tieba.i;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class a extends BaseAdapter {
-    private BaseActivity dnk;
+    private BaseActivity doS;
     private Context mContext;
     private GridView mGridView;
-    private com.baidu.tbadk.img.b arl = new com.baidu.tbadk.img.b();
-    private j aox = null;
-    private int aro = 13;
-    private int dni = 6;
-    private boolean dnj = false;
+    private com.baidu.tbadk.img.b apO = new com.baidu.tbadk.img.b();
+    private j aoD = null;
+    private int apR = 13;
+    private int doQ = 6;
+    private boolean doR = false;
     private LinkedList<ImageFileInfo> chosedFiles = null;
-    public final String dnl = "android.resource://";
-    private InterfaceC0081a dnm = new b(this);
+    public final String doT = "android.resource://";
+    private InterfaceC0081a doU = new b(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.tieba.write.view.PhotoLiveView.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0081a {
-        void lY(int i);
+        void mm(int i);
     }
 
-    public void aCq() {
+    public void aDg() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
-            aCr();
-        } else if (this.chosedFiles.size() < this.dni) {
+            aDh();
+        } else if (this.chosedFiles.size() < this.doQ) {
             if (this.chosedFiles.size() <= 0 || !this.chosedFiles.get(this.chosedFiles.size() - 1).getFilePath().startsWith("android.resource://")) {
-                aCr();
+                aDh();
             }
         }
     }
 
-    private void aCr() {
+    private void aDh() {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath("android.resource://" + this.mContext.getPackageName() + "/" + i.e.btn_addpic_n);
         imageFileInfo.setTempFile(true);
@@ -59,14 +59,14 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public boolean aCs() {
+    public boolean aDi() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
             return false;
         }
         return this.chosedFiles.get(this.chosedFiles.size() + (-1)).getFilePath().startsWith("android.resource://");
     }
 
-    public void aCt() {
+    public void aDj() {
         if (this.chosedFiles != null && this.chosedFiles.size() > 0) {
             int size = this.chosedFiles.size() - 1;
             if (this.chosedFiles.get(size).getFilePath().startsWith("android.resource://")) {
@@ -77,10 +77,10 @@ public class a extends BaseAdapter {
 
     public a(BaseActivity baseActivity, WriteImagesInfo writeImagesInfo, GridView gridView) {
         this.mContext = null;
-        this.dnk = null;
+        this.doS = null;
         this.mGridView = null;
-        this.dnk = baseActivity;
-        this.mContext = this.dnk.getActivity();
+        this.doS = baseActivity;
+        this.mContext = this.doS.getActivity();
         this.mGridView = gridView;
     }
 
@@ -109,7 +109,7 @@ public class a extends BaseAdapter {
     }
 
     public void setEditorTools(j jVar) {
-        this.aox = jVar;
+        this.aoD = jVar;
     }
 
     public void d(WriteImagesInfo writeImagesInfo) {
@@ -123,12 +123,13 @@ public class a extends BaseAdapter {
         if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.size() > 0) {
             this.chosedFiles.addAll(writeImagesInfo.getChosedFiles());
         }
-        aCq();
+        aDg();
         notifyDataSetInvalidated();
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
+        boolean z;
         com.baidu.adp.widget.a.a aVar = null;
         View inflate = LayoutInflater.from(this.mContext).inflate(i.g.photo_live_grid_item, viewGroup, false);
         ImageFileInfo imageFileInfo = (this.chosedFiles == null || this.chosedFiles.size() + (-1) < i) ? null : this.chosedFiles.get(i);
@@ -136,14 +137,19 @@ public class a extends BaseAdapter {
         FrameLayout frameLayout = (FrameLayout) findViewById.findViewById(i.f.shadow_container_photo_live);
         TbImageView tbImageView = (TbImageView) findViewById.findViewById(i.f.iv_photo_live);
         ImageView imageView = (ImageView) findViewById.findViewById(i.f.delete_photo_live);
-        boolean z = i == this.chosedFiles.size() + (-1) && (imageFileInfo != null ? imageFileInfo.getFilePath() : "").startsWith("android.resource://");
+        String filePath = imageFileInfo != null ? imageFileInfo.getFilePath() : "";
+        if (this.chosedFiles != null) {
+            z = i == this.chosedFiles.size() + (-1) && filePath.startsWith("android.resource://");
+        } else {
+            z = false;
+        }
         if (z) {
             imageView.setVisibility(8);
         } else {
             an.c(imageView, i.e.icon_live_close_n);
         }
         an.i(frameLayout, i.e.btn_addpic_n);
-        com.baidu.tbadk.h.a.a(this.dnk.getPageContext(), frameLayout);
+        com.baidu.tbadk.h.a.a(this.doS.getPageContext(), frameLayout);
         frameLayout.setForeground(an.getDrawable(i.e.bg_add_photo_foregroundselector));
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(i.d.ds206);
         ImageOperation J = com.baidu.tbadk.img.effect.d.J(dimensionPixelSize, dimensionPixelSize);
@@ -153,8 +159,8 @@ public class a extends BaseAdapter {
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
         }
         c cVar = new c(this, viewGroup, frameLayout);
-        if (imageFileInfo != null && this.arl != null) {
-            aVar = this.arl.a(imageFileInfo, cVar, true);
+        if (imageFileInfo != null && this.apO != null) {
+            aVar = this.apO.a(imageFileInfo, cVar, true);
         }
         if (aVar != null) {
             tbImageView.invalidate();
@@ -168,7 +174,7 @@ public class a extends BaseAdapter {
         return inflate;
     }
 
-    public void lX(int i) {
-        this.dni = i;
+    public void ml(int i) {
+        this.doQ = i;
     }
 }

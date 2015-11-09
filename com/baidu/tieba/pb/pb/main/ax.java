@@ -1,26 +1,48 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.widget.LinearLayout;
 /* loaded from: classes.dex */
-class ax extends CustomMessageListener {
-    final /* synthetic */ PbActivity ciK;
+class ax implements com.baidu.adp.lib.e.c<LinearLayout> {
+    final /* synthetic */ PbActivity cjN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ax(PbActivity pbActivity, int i) {
-        super(i);
-        this.ciK = pbActivity;
+    public ax(PbActivity pbActivity) {
+        this.cjN = pbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ListAdapter adapter = this.ciK.getListView().getAdapter();
-        if (adapter != null && (adapter instanceof BaseAdapter)) {
-            ((BaseAdapter) adapter).notifyDataSetChanged();
-        }
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: agd */
+    public LinearLayout ha() {
+        LinearLayout linearLayout = new LinearLayout(this.cjN.getPageContext().getPageActivity());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        linearLayout.setLayoutParams(layoutParams);
+        linearLayout.setGravity(16);
+        linearLayout.setBaselineAligned(true);
+        linearLayout.setOrientation(0);
+        linearLayout.setLayoutParams(layoutParams);
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: g */
+    public void l(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: h */
+    public LinearLayout m(LinearLayout linearLayout) {
+        return linearLayout;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.e.c
+    /* renamed from: i */
+    public LinearLayout n(LinearLayout linearLayout) {
+        linearLayout.removeAllViews();
+        return linearLayout;
     }
 }

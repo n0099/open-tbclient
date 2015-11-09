@@ -5,68 +5,74 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.bs;
-import com.baidu.tieba.frs.ea;
-import com.baidu.tieba.frs.eb;
+import com.baidu.tieba.frs.ec;
+import com.baidu.tieba.frs.ed;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.base.f<FrsActivity> {
-    private bs aTU;
-    private FrsActivity baR;
-    private SparseArray<a> bah;
-    private eb bak;
-    private Runnable bcd;
-    private ea bce;
+    private bs aUc;
+    private SparseArray<a> baB;
+    private ed baE;
+    private FrsActivity bbk;
+    private Runnable bcI;
+    private ec bcJ;
 
     /* loaded from: classes.dex */
     public static class a {
-        public int bch;
+        public int bcM;
         public int top;
     }
 
     public o(FrsActivity frsActivity) {
         super(frsActivity.getPageContext());
-        this.bah = new SparseArray<>();
-        this.bce = new p(this);
-        this.bak = new q(this);
-        this.baR = frsActivity;
+        this.baB = new SparseArray<>();
+        this.bcJ = new p(this);
+        this.baE = new q(this);
+        this.bbk = frsActivity;
     }
 
-    public void oQ() {
-        this.aTU = new bs(this.baR, this.baR.aUx);
-        this.baR.a(this.aTU);
+    public void oR() {
+        this.aUc = new bs(this.bbk, this.bbk.aUF);
+        this.bbk.a(this.aUc);
     }
 
     public void onActivityDestroy() {
-        if (this.bcd != null) {
-            com.baidu.adp.lib.g.h.hg().removeCallbacks(this.bcd);
+        if (this.bcI != null) {
+            com.baidu.adp.lib.g.h.hh().removeCallbacks(this.bcI);
         }
     }
 
-    public void D(View view) {
-        View LW = this.aTU.LW();
-        if (LW != null && (LW instanceof FrameLayout)) {
-            ((FrameLayout) LW).addView(view);
+    public void E(View view) {
+        View Mm = this.aUc.Mm();
+        if (Mm != null && (Mm instanceof FrameLayout)) {
+            ((FrameLayout) Mm).addView(view);
         }
     }
 
-    public ea NL() {
-        return this.bce;
+    public ec Oh() {
+        return this.bcJ;
     }
 
-    public eb NM() {
-        return this.bak;
+    public ed Oi() {
+        return this.baE;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int Y(int i, int i2) {
+    public int aa(int i, int i2) {
         return (i * 100) + i2;
     }
 
-    public boolean Z(int i, int i2) {
-        a aVar = this.bah.get(Y(i, i2));
-        return aVar != null && aVar.bch >= this.aTU.getListView().getHeaderViewsCount() + (-1);
+    public boolean ab(int i, int i2) {
+        a aVar = this.baB.get(aa(i, i2));
+        return aVar != null && aVar.bcM >= this.aUc.getListView().getHeaderViewsCount() + (-1);
     }
 
     public void a(int i, int i2, a aVar) {
-        this.bah.put(Y(i, i2), aVar);
+        this.baB.put(aa(i, i2), aVar);
+    }
+
+    public void gn(int i) {
+        if (this.aUc.getListView() != null && this.aUc.getListView().getChildAt(0) != null) {
+            this.aUc.getListView().setSelectionFromTop(this.aUc.getListView().getFirstVisiblePosition(), this.aUc.getListView().getChildAt(0).getTop() - i);
+        }
     }
 }

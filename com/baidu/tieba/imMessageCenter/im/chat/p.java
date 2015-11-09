@@ -5,17 +5,17 @@ import com.baidu.tieba.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class p implements View.OnClickListener {
-    final /* synthetic */ PersonalChatView bJT;
+    final /* synthetic */ PersonalChatView bKo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(PersonalChatView personalChatView) {
-        this.bJT = personalChatView;
+        this.bKo = personalChatView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PersonalChatActivity personalChatActivity;
-        personalChatActivity = this.bJT.bJK;
+        personalChatActivity = this.bKo.bKf;
         personalChatActivity.showToast(i.h.add_friend_cannot_send);
     }
 }

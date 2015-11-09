@@ -103,7 +103,7 @@ public class ProxyAdkBaseActivity<T> extends a {
             BdSocketLinkService.startService(false, "app start");
         }
         MenuKeyUtils.hideSmartBarMenu(getActivity());
-        this.customToast = g.tx();
+        this.customToast = g.tA();
         super.onCreate(bundle);
         this.mLayoutMode = new c();
         this.mLayoutInflateFactory = new com.baidu.tbadk.core.a();
@@ -229,7 +229,7 @@ public class ProxyAdkBaseActivity<T> extends a {
     public void onDestroy() {
         closeLoadingDialog();
         if (this.mGuidPage != null) {
-            this.mGuidPage.vn();
+            this.mGuidPage.vr();
         }
         if (this.mLayoutMode != null) {
             this.mLayoutMode.destroy();
@@ -344,19 +344,19 @@ public class ProxyAdkBaseActivity<T> extends a {
     }
 
     protected void showToastWithIcon(String str, int i) {
-        BdToast.b(getActivity(), str, i).sW();
+        BdToast.b(getActivity(), str, i).sZ();
     }
 
     protected void showToastWithIconDuration(String str, int i, int i2) {
-        BdToast.a(getActivity(), str, i, i2).sW();
+        BdToast.a(getActivity(), str, i, i2).sZ();
     }
 
     protected void showToastWithDefaultIcon(String str, BdToast.DefaultIcon defaultIcon) {
-        BdToast.a(getActivity(), str, defaultIcon).sW();
+        BdToast.a(getActivity(), str, defaultIcon).sZ();
     }
 
     protected void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
-        BdToast.a(getActivity(), str, defaultIcon, i).sW();
+        BdToast.a(getActivity(), str, defaultIcon, i).sZ();
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.a
@@ -768,7 +768,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.loadingView == null) {
             return false;
         }
-        return this.loadingView.Cn();
+        return this.loadingView.Cg();
     }
 
     public void hideLoadingView(View view) {
@@ -781,7 +781,7 @@ public class ProxyAdkBaseActivity<T> extends a {
         if (this.refreshView == null) {
             this.refreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.refreshView.fv(str);
+        this.refreshView.fx(str);
         this.refreshView.b(view, z);
     }
 

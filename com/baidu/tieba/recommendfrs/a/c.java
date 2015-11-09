@@ -15,24 +15,24 @@ import com.baidu.tieba.tbadkCore.util.p;
 import tbclient.FineFrsPage.Hot_Thread;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data.c, com.baidu.tbadk.mvc.d.b> {
-    private TextView aJX;
-    private TextView aJY;
-    private TextView aJZ;
-    private TextView alu;
-    private TbImageView cJH;
-    private TbImageView cJI;
-    private TbImageView cJJ;
+    private TextView aIR;
+    private TextView aIS;
+    private TextView aIT;
+    private TextView alz;
+    private TbImageView cLd;
+    private TbImageView cLe;
+    private TbImageView cLf;
 
     public c(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.cJH = (TbImageView) view.findViewById(i.f.img1);
-        this.cJI = (TbImageView) view.findViewById(i.f.img2);
-        this.cJJ = (TbImageView) view.findViewById(i.f.img3);
-        this.alu = (TextView) view.findViewById(i.f.title);
+        this.cLd = (TbImageView) view.findViewById(i.f.img1);
+        this.cLe = (TbImageView) view.findViewById(i.f.img2);
+        this.cLf = (TbImageView) view.findViewById(i.f.img3);
+        this.alz = (TextView) view.findViewById(i.f.title);
         View findViewById = view.findViewById(i.f.hot_thread_comment);
-        this.aJX = (TextView) findViewById.findViewById(i.f.hot_thread_line_tag);
-        this.aJY = (TextView) findViewById.findViewById(i.f.hot_thread_line_praise);
-        this.aJZ = (TextView) findViewById.findViewById(i.f.hot_thread_line_comment);
+        this.aIR = (TextView) findViewById.findViewById(i.f.hot_thread_line_tag);
+        this.aIS = (TextView) findViewById.findViewById(i.f.hot_thread_line_praise);
+        this.aIT = (TextView) findViewById.findViewById(i.f.hot_thread_line_comment);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,39 +40,39 @@ public class c extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.recommendfrs.data
     /* renamed from: a */
     public void B(com.baidu.tieba.recommendfrs.data.c cVar) {
         super.B(cVar);
-        if (cVar != null && cVar.aqd() != null) {
-            Hot_Thread aqd = cVar.aqd();
-            if (aqd.pics != null && aqd.pics.size() > 0) {
-                int size = aqd.pics.size();
-                if (size > 0 && aqd.pics.get(0) != null) {
-                    this.cJH.d(cVar.aqp() ? aqd.pics.get(0).small_pic : null, 10, false);
+        if (cVar != null && cVar.aqJ() != null) {
+            Hot_Thread aqJ = cVar.aqJ();
+            if (aqJ.pics != null && aqJ.pics.size() > 0) {
+                int size = aqJ.pics.size();
+                if (size > 0 && aqJ.pics.get(0) != null) {
+                    this.cLd.d(cVar.aqV() ? aqJ.pics.get(0).small_pic : null, 10, false);
                 }
-                if (size > 1 && aqd.pics.get(1) != null) {
-                    this.cJI.d(cVar.aqp() ? aqd.pics.get(1).small_pic : null, 10, false);
+                if (size > 1 && aqJ.pics.get(1) != null) {
+                    this.cLe.d(cVar.aqV() ? aqJ.pics.get(1).small_pic : null, 10, false);
                 }
-                if (size > 2 && aqd.pics.get(2) != null) {
-                    this.cJJ.d(cVar.aqp() ? aqd.pics.get(2).small_pic : null, 10, false);
+                if (size > 2 && aqJ.pics.get(2) != null) {
+                    this.cLf.d(cVar.aqV() ? aqJ.pics.get(2).small_pic : null, 10, false);
                 }
             }
-            this.alu.setText(UtilHelper.getFixedText(aqd.title, 14, true));
-            if (StringUtils.isNull(aqd.forum_name)) {
-                this.aJX.setVisibility(8);
+            this.alz.setText(UtilHelper.getFixedText(aqJ.title, 14, true));
+            if (StringUtils.isNull(aqJ.forum_name)) {
+                this.aIR.setVisibility(8);
             } else {
-                this.aJX.setVisibility(0);
-                this.aJX.setText(getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(aqd.forum_name, 7, false)));
-                this.aJX.setOnClickListener(new d(this, aqd));
+                this.aIR.setVisibility(0);
+                this.aIR.setText(getContext().getString(i.h.chosen_pb_original_bar, UtilHelper.getFixedText(aqJ.forum_name, 7, false)));
+                this.aIR.setOnClickListener(new d(this, aqJ));
             }
-            if (aqd.zan_num != null) {
-                this.aJY.setText(as.q(aqd.zan_num.intValue()));
+            if (aqJ.zan_num != null) {
+                this.aIS.setText(as.q(aqJ.zan_num.intValue()));
             }
-            if (aqd.reply_num != null) {
-                this.aJZ.setText(as.q(aqd.reply_num.intValue()));
+            if (aqJ.reply_num != null) {
+                this.aIT.setText(as.q(aqJ.reply_num.intValue()));
             }
             p readThreadHistory = TbadkCoreApplication.m411getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.lL(String.valueOf(aqd.forum_id))) {
-                an.b(this.alu, i.c.cp_cont_c, 1);
+            if (readThreadHistory != null && readThreadHistory.lR(String.valueOf(aqJ.forum_id))) {
+                an.b(this.alz, i.c.cp_cont_c, 1);
             } else {
-                an.b(this.alu, i.c.cp_cont_b, 1);
+                an.b(this.alz, i.c.cp_cont_b, 1);
             }
         }
     }

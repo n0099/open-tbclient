@@ -4,30 +4,30 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class a {
-    protected View auB;
-    private boolean auC;
+    protected View atp;
+    private boolean atq;
 
     public a(View view) {
-        this.auB = view;
+        this.atp = view;
     }
 
-    public boolean Cn() {
-        return this.auC;
+    public boolean Cg() {
+        return this.atq;
     }
 
     public void b(View view, boolean z) {
-        if (view != null && this.auB != null && this.auB.getParent() == null) {
-            this.auC = true;
-            d.w(view).a(view, this.auB, z);
-            Co();
+        if (view != null && this.atp != null && this.atp.getParent() == null) {
+            this.atq = true;
+            d.w(view).a(view, this.atp, z);
+            Ch();
         }
     }
 
     public void u(View view) {
-        if (view != null && this.auB != null && this.auB.getParent() != null && (view instanceof ViewGroup)) {
-            Cp();
-            ((ViewGroup) view).removeView(this.auB);
-            this.auC = false;
+        if (view != null && this.atp != null && this.atp.getParent() != null && (view instanceof ViewGroup)) {
+            Ci();
+            ((ViewGroup) view).removeView(this.atp);
+            this.atq = false;
         }
     }
 
@@ -35,9 +35,9 @@ public class a {
         b(view, false);
     }
 
-    protected void Co() {
+    protected void Ch() {
     }
 
-    protected void Cp() {
+    protected void Ci() {
     }
 }

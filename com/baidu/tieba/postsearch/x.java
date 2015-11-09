@@ -10,117 +10,117 @@ import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.i;
 /* loaded from: classes.dex */
 public class x {
-    private FragmentTabHost bee;
-    private PostSearchActivity cDW;
-    private r cEH;
-    private r cEI;
-    private r cEJ;
+    private FragmentTabHost beK;
+    private PostSearchActivity cFs;
+    private r cGd;
+    private r cGe;
+    private r cGf;
     private View mRootView;
 
     public x(PostSearchActivity postSearchActivity, View view) {
-        this.cDW = postSearchActivity;
+        this.cFs = postSearchActivity;
         this.mRootView = view;
     }
 
-    public void kb(int i) {
-        if (this.bee == null) {
-            kc(1);
+    public void kp(int i) {
+        if (this.beK == null) {
+            kq(1);
             return;
         }
-        aov();
-        if (this.bee.getCurrentTabType() == i) {
-            r ke = ke(i);
-            if (ke != null) {
-                ke.fK(true);
+        apb();
+        if (this.beK.getCurrentTabType() == i) {
+            r ks = ks(i);
+            if (ks != null) {
+                ks.fN(true);
                 return;
             }
             return;
         }
-        this.bee.setCurrentTabByType(i);
+        this.beK.setCurrentTabByType(i);
     }
 
-    public void fL(boolean z) {
-        if (this.bee != null) {
+    public void fO(boolean z) {
+        if (this.beK != null) {
             if (z) {
-                this.bee.setVisibility(0);
+                this.beK.setVisibility(0);
             } else {
-                this.bee.setVisibility(8);
+                this.beK.setVisibility(8);
             }
         }
     }
 
     public void a(int i, j jVar, boolean z) {
-        fL(true);
-        r ke = ke(i);
-        if (ke != null) {
-            ke.a(jVar, z);
+        fO(true);
+        r ks = ks(i);
+        if (ks != null) {
+            ks.a(jVar, z);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.bee != null) {
-            this.bee.onChangeSkinType(i);
+        if (this.beK != null) {
+            this.beK.onChangeSkinType(i);
         }
     }
 
-    private void kc(int i) {
+    private void kq(int i) {
         View inflate = ((ViewStub) this.mRootView.findViewById(i.f.search_tab_host_viewstub)).inflate();
         inflate.setVisibility(0);
-        this.bee = (FragmentTabHost) inflate.findViewById(i.f.post_search_tab_host);
-        this.bee.setup(this.cDW.getSupportFragmentManager());
-        this.bee.setShouldDrawIndicatorLine(true);
-        aou();
-        this.bee.initViewPager();
-        this.bee.setCurrentTabByType(i);
-        this.bee.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
+        this.beK = (FragmentTabHost) inflate.findViewById(i.f.post_search_tab_host);
+        this.beK.setup(this.cFs.getSupportFragmentManager());
+        this.beK.setShouldDrawIndicatorLine(true);
+        apa();
+        this.beK.initViewPager();
+        this.beK.setCurrentTabByType(i);
+        this.beK.onChangeSkinType(TbadkCoreApplication.m411getInst().getSkinType());
     }
 
-    private void aou() {
+    private void apa() {
         FragmentTabHost.b bVar = new FragmentTabHost.b();
-        this.cEH = new r(1);
-        bVar.YG = this.cEH;
-        bVar.YF = kd(i.h.searching_time_tab);
+        this.cGd = new r(1);
+        bVar.YK = this.cGd;
+        bVar.YJ = kr(i.h.searching_time_tab);
         bVar.mType = 1;
-        this.bee.a(bVar);
+        this.beK.a(bVar);
         FragmentTabHost.b bVar2 = new FragmentTabHost.b();
-        this.cEI = new r(2);
-        bVar2.YG = this.cEI;
-        bVar2.YF = kd(i.h.searching_relative_tab);
+        this.cGe = new r(2);
+        bVar2.YK = this.cGe;
+        bVar2.YJ = kr(i.h.searching_relative_tab);
         bVar2.mType = 2;
-        this.bee.a(bVar2);
+        this.beK.a(bVar2);
         FragmentTabHost.b bVar3 = new FragmentTabHost.b();
-        this.cEJ = new r(3);
-        bVar3.YG = this.cEJ;
-        bVar3.YF = kd(i.h.searching_only_thread_tab);
+        this.cGf = new r(3);
+        bVar3.YK = this.cGf;
+        bVar3.YJ = kr(i.h.searching_only_thread_tab);
         bVar3.mType = 3;
-        this.bee.a(bVar3);
+        this.beK.a(bVar3);
     }
 
-    private FragmentTabIndicator kd(int i) {
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.cDW.getPageContext().getPageActivity()).inflate(i.g.fragmenttabindicator, (ViewGroup) null);
+    private FragmentTabIndicator kr(int i) {
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.cFs.getPageContext().getPageActivity()).inflate(i.g.fragmenttabindicator, (ViewGroup) null);
         fragmentTabIndicator.setText(i);
-        fragmentTabIndicator.setTextSize(0, this.cDW.getResources().getDimensionPixelSize(i.d.ds32));
-        fragmentTabIndicator.auO = i.c.s_actionbar_text_color;
-        fragmentTabIndicator.setContentTvTopMargin(this.cDW.getResources().getDimensionPixelSize(i.d.ds4));
+        fragmentTabIndicator.setTextSize(0, this.cFs.getResources().getDimensionPixelSize(i.d.ds32));
+        fragmentTabIndicator.atC = i.c.s_actionbar_text_color;
+        fragmentTabIndicator.setContentTvTopMargin(this.cFs.getResources().getDimensionPixelSize(i.d.ds4));
         return fragmentTabIndicator;
     }
 
-    private r ke(int i) {
+    private r ks(int i) {
         switch (i) {
             case 1:
-                return this.cEH;
+                return this.cGd;
             case 2:
-                return this.cEI;
+                return this.cGe;
             case 3:
-                return this.cEJ;
+                return this.cGf;
             default:
                 return null;
         }
     }
 
-    private void aov() {
-        this.cEH.aon();
-        this.cEI.aon();
-        this.cEJ.aon();
+    private void apb() {
+        this.cGd.aoT();
+        this.cGe.aoT();
+        this.cGf.aoT();
     }
 }

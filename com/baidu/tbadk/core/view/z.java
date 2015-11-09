@@ -12,8 +12,8 @@ class z implements com.baidu.adp.lib.e.c<HeadImageView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.lib.e.c
-    /* renamed from: vC */
-    public HeadImageView gZ() {
+    /* renamed from: vG */
+    public HeadImageView ha() {
         return new HeadImageView(this.val$context);
     }
 

@@ -5,28 +5,28 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ax extends CustomMessageListener {
-    final /* synthetic */ aw cqq;
+    final /* synthetic */ aw crM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ax(aw awVar, int i) {
         super(i);
-        this.cqq = awVar;
+        this.crM = awVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         boolean z;
-        PersonFriendActivity aiC;
+        PersonFriendActivity aji;
         if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001186) {
-            z = this.cqq.mIsHost;
+            z = this.crM.mIsHost;
             if (z) {
                 com.baidu.tieba.person.data.a personListData = ((ResponsePersonFriendByUidLocalMessage) customResponsedMessage).getPersonListData();
-                aiC = this.cqq.aiC();
-                if (aiC != null) {
-                    this.cqq.cqk = personListData;
-                    this.cqq.a(personListData, true);
+                aji = this.crM.aji();
+                if (aji != null) {
+                    this.crM.crG = personListData;
+                    this.crM.a(personListData, true);
                 }
             }
         }

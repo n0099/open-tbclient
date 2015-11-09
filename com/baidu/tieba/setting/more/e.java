@@ -7,24 +7,24 @@ import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
 import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ AccountSafeActivity cMA;
+    final /* synthetic */ AccountSafeActivity cNW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(AccountSafeActivity accountSafeActivity, int i, int i2) {
         super(i, i2);
-        this.cMA = accountSafeActivity;
+        this.cNW = accountSafeActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
     public void onMessage(ResponsedMessage<?> responsedMessage) {
-        if (this.cMA.cMw != null) {
-            this.cMA.cMw.setLoading(false);
+        if (this.cNW.cNS != null) {
+            this.cNW.cNS.setLoading(false);
         }
-        this.cMA.closeLoadingDialog();
+        this.cNW.closeLoadingDialog();
         if (responsedMessage != null) {
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                this.cMA.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.cMA.getResources().getString(i.h.neterror) : responsedMessage.getErrorString());
+                this.cNW.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.cNW.getResources().getString(i.h.neterror) : responsedMessage.getErrorString());
                 return;
             }
             com.baidu.tieba.setting.im.more.a aVar = null;
@@ -34,15 +34,15 @@ class e extends com.baidu.adp.framework.listener.a {
             if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                 aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
             }
-            if (aVar != null && aVar.aqU() != null) {
-                this.cMA.cMx = aVar.aqU().secureemail;
-                this.cMA.cMy = aVar.aqU().securemobil;
-                if (this.cMA.cMw != null) {
-                    this.cMA.cMw.fW(true);
+            if (aVar != null && aVar.arA() != null) {
+                this.cNW.cNT = aVar.arA().secureemail;
+                this.cNW.cNU = aVar.arA().securemobil;
+                if (this.cNW.cNS != null) {
+                    this.cNW.cNS.fZ(true);
                 }
             }
-            if (this.cMA.cMv != null) {
-                this.cMA.cMv.d(aVar);
+            if (this.cNW.cNR != null) {
+                this.cNW.cNR.d(aVar);
             }
         }
     }
