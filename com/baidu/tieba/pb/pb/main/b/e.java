@@ -1,25 +1,25 @@
 package com.baidu.tieba.pb.pb.main.b;
 
-import com.baidu.tbadk.core.view.h;
+import com.baidu.tbadk.core.view.i;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class e implements h.a {
-    final /* synthetic */ c cno;
+public class e implements i.a {
+    final /* synthetic */ c cGz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(c cVar) {
-        this.cno = cVar;
+        this.cGz = cVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.h.a
-    public void qu() {
+    @Override // com.baidu.tbadk.core.view.i.a
+    public void qG() {
         PbActivity pbActivity;
-        pbActivity = this.cno.cjZ;
-        pbActivity.afN();
+        pbActivity = this.cGz.cCy;
+        pbActivity.akf();
     }
 
-    @Override // com.baidu.tbadk.core.view.h.a
-    public void qv() {
+    @Override // com.baidu.tbadk.core.view.i.a
+    public void qH() {
     }
 }

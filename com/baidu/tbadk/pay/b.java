@@ -5,18 +5,18 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.clientConfig.ClientConfigNetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class b extends com.baidu.adp.base.e {
-    private a avf;
-    private final com.baidu.adp.framework.listener.a avg;
+    private a axk;
+    private final com.baidu.adp.framework.listener.a axl;
 
     public b(BaseActivity<?> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.avg = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
-        this.avf = aVar;
-        registerListener(this.avg);
+        this.axl = new c(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
+        this.axk = aVar;
+        registerListener(this.axl);
     }
 
     @Override // com.baidu.adp.base.e
@@ -29,10 +29,10 @@ public class b extends com.baidu.adp.base.e {
         return false;
     }
 
-    public void Dp() {
-        if (!e.Dq().Dr()) {
-            if (this.avf != null) {
-                this.avf.Dn();
+    public void Eq() {
+        if (!e.Er().Es()) {
+            if (this.axk != null) {
+                this.axk.Eo();
                 return;
             }
             return;
@@ -50,19 +50,19 @@ public class b extends com.baidu.adp.base.e {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         if (dataRes == null || dataRes.payType == null) {
-            if (this.avf != null) {
-                this.avf.onError(TbadkCoreApplication.m411getInst().getString(i.h.data_load_error));
+            if (this.axk != null) {
+                this.axk.onError(TbadkCoreApplication.m411getInst().getString(n.i.data_load_error));
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
-            if (this.avf != null) {
-                this.avf.Do();
+            if (this.axk != null) {
+                this.axk.Ep();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
-            if (this.avf != null) {
-                this.avf.Dn();
+            if (this.axk != null) {
+                this.axk.Eo();
             }
-        } else if (this.avf != null) {
-            this.avf.onError("");
+        } else if (this.axk != null) {
+            this.axk.onError("");
         }
     }
 }

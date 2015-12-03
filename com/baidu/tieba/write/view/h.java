@@ -1,28 +1,28 @@
 package com.baidu.tieba.write.view;
 
 import com.baidu.tbadk.core.view.MorePopupWindow;
-import com.baidu.tbadk.core.view.h;
+import com.baidu.tbadk.core.view.i;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class h implements h.a {
-    final /* synthetic */ PostCategoryView dpd;
+public class h implements i.a {
+    final /* synthetic */ PostCategoryView dOh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PostCategoryView postCategoryView) {
-        this.dpd = postCategoryView;
+        this.dOh = postCategoryView;
     }
 
-    @Override // com.baidu.tbadk.core.view.h.a
-    public void qu() {
+    @Override // com.baidu.tbadk.core.view.i.a
+    public void qG() {
     }
 
-    @Override // com.baidu.tbadk.core.view.h.a
-    public void qv() {
+    @Override // com.baidu.tbadk.core.view.i.a
+    public void qH() {
         MorePopupWindow morePopupWindow;
         MorePopupWindow morePopupWindow2;
-        morePopupWindow = this.dpd.mPopWindow;
+        morePopupWindow = this.dOh.mPopWindow;
         if (morePopupWindow != null) {
-            morePopupWindow2 = this.dpd.mPopWindow;
+            morePopupWindow2 = this.dOh.mPopWindow;
             morePopupWindow2.dismiss();
         }
     }

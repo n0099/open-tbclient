@@ -1,14 +1,20 @@
 package com.baidu.tbadk.editortools;
 
-import android.content.Context;
+import java.util.Comparator;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o {
-    public static p a(Context context, w wVar, int i) {
-        switch (i) {
-            case 1:
-                return new c(context, wVar.launcherIcon, wVar.id);
-            default:
-                return new e(context, wVar.launcherIcon, wVar.name, wVar.id);
-        }
+public class o implements Comparator<y> {
+    final /* synthetic */ k ark;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public o(k kVar) {
+        this.ark = kVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(y yVar, y yVar2) {
+        return yVar.launcherPriority - yVar2.launcherPriority;
     }
 }

@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private a cnA;
-    private final HttpMessageListener cnB;
-    private String cnu;
-    private boolean cnv;
-    private int cnw;
-    private int cnx;
-    private int cny;
-    private final List<com.baidu.tieba.pb.pb.praise.a> cnz;
+    private String cGF;
+    private boolean cGG;
+    private int cGH;
+    private int cGI;
+    private int cGJ;
+    private final List<com.baidu.tieba.pb.pb.praise.a> cGK;
+    private a cGL;
+    private final HttpMessageListener cGM;
     private String mPostId;
     private String mThreadId;
 
@@ -26,20 +26,20 @@ public class d {
     public interface a {
         void a(int i, List<com.baidu.tieba.pb.pb.praise.a> list, int i2, int i3);
 
-        void bF(String str);
+        void bK(String str);
     }
 
     public d() {
         this.mThreadId = "";
         this.mPostId = "";
-        this.cnu = "";
-        this.cnv = true;
-        this.cnw = 1;
-        this.cnx = 0;
-        this.cny = 0;
-        this.cnz = new ArrayList(100);
-        this.cnA = null;
-        this.cnB = new e(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
+        this.cGF = "";
+        this.cGG = true;
+        this.cGH = 1;
+        this.cGI = 0;
+        this.cGJ = 0;
+        this.cGK = new ArrayList(100);
+        this.cGL = null;
+        this.cGM = new e(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
         this.mThreadId = "";
         this.mPostId = "";
     }
@@ -47,36 +47,36 @@ public class d {
     public d(String str, String str2, String str3, boolean z, a aVar) {
         this.mThreadId = "";
         this.mPostId = "";
-        this.cnu = "";
-        this.cnv = true;
-        this.cnw = 1;
-        this.cnx = 0;
-        this.cny = 0;
-        this.cnz = new ArrayList(100);
-        this.cnA = null;
-        this.cnB = new e(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
+        this.cGF = "";
+        this.cGG = true;
+        this.cGH = 1;
+        this.cGI = 0;
+        this.cGJ = 0;
+        this.cGK = new ArrayList(100);
+        this.cGL = null;
+        this.cGM = new e(this, CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
         this.mThreadId = str;
         this.mPostId = str2;
-        this.cnu = str3;
-        this.cnA = aVar;
-        this.cnv = z;
+        this.cGF = str3;
+        this.cGL = aVar;
+        this.cGG = z;
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PRAISE_LIST_HTTP_CMD, String.valueOf(TbConfig.SERVER_ADDRESS) + "c/u/zan/getuserlist");
         tbHttpMessageTask.setResponsedClass(PraiseListResponsedMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.cnB);
+        messageManager.registerListener(this.cGM);
     }
 
     public String getThreadId() {
         return this.mThreadId;
     }
 
-    public boolean ahD() {
-        return this.cnv;
+    public boolean amg() {
+        return this.cGG;
     }
 
     public void a(Bundle bundle, String str) {
-        bundle.putBoolean(str, this.cnv);
+        bundle.putBoolean(str, this.cGG);
     }
 
     public void b(Bundle bundle, String str) {
@@ -88,38 +88,38 @@ public class d {
     }
 
     public void d(Bundle bundle, String str) {
-        bundle.putString(str, this.cnu);
+        bundle.putString(str, this.cGF);
     }
 
     public void e(Bundle bundle, String str) {
-        bundle.putInt(str, this.cnx);
+        bundle.putInt(str, this.cGI);
     }
 
-    public void ahE() {
+    public void amh() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.unRegisterListener(this.cnB);
+        messageManager.unRegisterListener(this.cGM);
         messageManager.unRegisterTask(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
     }
 
-    public String ahF() {
-        return this.cnu;
+    public String ami() {
+        return this.cGF;
     }
 
-    public void jj(int i) {
-        this.cnx = i;
+    public void kd(int i) {
+        this.cGI = i;
     }
 
-    public com.baidu.tieba.pb.pb.praise.a jk(int i) {
-        if (i <= -1 || i >= this.cnz.size()) {
+    public com.baidu.tieba.pb.pb.praise.a ke(int i) {
+        if (i <= -1 || i >= this.cGK.size()) {
             return null;
         }
-        return this.cnz.get(i);
+        return this.cGK.get(i);
     }
 
-    public void Gq() {
+    public void Hx() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PRAISE_LIST_HTTP_CMD);
         httpMessage.addParam("post_id", new StringBuilder(String.valueOf(this.mPostId)).toString());
-        httpMessage.addParam("page_num", new StringBuilder(String.valueOf(this.cnw)).toString());
+        httpMessage.addParam("page_num", new StringBuilder(String.valueOf(this.cGH)).toString());
         httpMessage.addParam("res_num", "20");
         MessageManager.getInstance().sendMessage(httpMessage);
     }

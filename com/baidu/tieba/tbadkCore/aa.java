@@ -1,50 +1,39 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.os.Handler;
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class aa implements View.OnTouchListener {
-    private a cZD;
-    private int count = 0;
-    private long chh = 0;
-    private long chi = 0;
-    private long chk = 500;
-    private Handler mHandler = new ab(this);
+public class aa extends com.baidu.tbadk.core.data.z {
+    public static final BdUniqueId dyo = BdUniqueId.gen();
+    private boolean dyp;
+    private q dyq;
+    private String fortune_desc;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void Mu();
-
-        void Mv();
+    public boolean aCs() {
+        return this.dyp;
     }
 
-    public aa(a aVar) {
-        this.cZD = aVar;
+    public void hj(boolean z) {
+        this.dyp = z;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        if (motionEvent.getAction() == 0) {
-            if (this.cZD == null) {
-                return false;
-            }
-            this.count++;
-            if (this.count == 1) {
-                this.chh = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.chk);
-                return true;
-            } else if (this.count == 2) {
-                this.chi = System.currentTimeMillis();
-                if (this.chi - this.chh < this.chk) {
-                    this.cZD.Mv();
-                }
-                this.mHandler.sendEmptyMessage(2);
-                return true;
-            } else {
-                return true;
-            }
-        }
-        return true;
+    public String aCt() {
+        return this.fortune_desc;
+    }
+
+    public void ms(String str) {
+        this.fortune_desc = str;
+    }
+
+    public q aCu() {
+        return this.dyq;
+    }
+
+    public void b(q qVar) {
+        this.dyq = qVar;
+    }
+
+    @Override // com.baidu.tbadk.core.data.z, com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return dyo;
     }
 }

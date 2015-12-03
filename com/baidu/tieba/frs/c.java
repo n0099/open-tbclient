@@ -1,27 +1,25 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.i;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes.dex */
-class c extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ FrsActivity aUS;
+class c extends CustomMessageListener {
+    final /* synthetic */ FrsActivity bag;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(FrsActivity frsActivity, int i, int i2) {
-        super(i, i2);
-        this.aUS = frsActivity;
+    public c(FrsActivity frsActivity, int i) {
+        super(i);
+        this.bag = frsActivity;
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
-            GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
-            this.aUS.a(getMyPostHttpResponseMessage.getError(), StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString()) ? this.aUS.getResources().getString(i.h.neterror) : getMyPostHttpResponseMessage.getErrorString(), getMyPostHttpResponseMessage.getResponseData());
-        } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
-            GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
-            this.aUS.a(getMyPostSocketResponseMessage.getError(), StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString()) ? this.aUS.getResources().getString(i.h.neterror) : getMyPostSocketResponseMessage.getErrorString(), getMyPostSocketResponseMessage.getResponseData());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof PostWriteCallBackData)) {
+            return;
         }
+        this.bag.a((PostWriteCallBackData) customResponsedMessage.getData());
     }
 }

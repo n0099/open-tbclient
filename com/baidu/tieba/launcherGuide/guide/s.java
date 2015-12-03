@@ -5,17 +5,17 @@ import com.baidu.tieba.launcherGuide.guide.k;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements DialogInterface.OnDismissListener {
-    final /* synthetic */ p bSK;
-    private final /* synthetic */ k.a bSL;
+    final /* synthetic */ p ciY;
+    private final /* synthetic */ k.a ciZ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(p pVar, k.a aVar) {
-        this.bSK = pVar;
-        this.bSL = aVar;
+        this.ciY = pVar;
+        this.ciZ = aVar;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        this.bSL.aaV();
+        this.ciZ.aeB();
     }
 }

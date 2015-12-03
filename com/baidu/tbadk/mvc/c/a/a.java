@@ -43,13 +43,13 @@ public abstract class a {
             while (i < size) {
                 try {
                     com.baidu.tbadk.mvc.c.a aVar = this.eventDelegates.get(i);
-                    if (aVar == null || (aVar.oJ() && !(aVar.oJ() && bVar.getUniqueId() == aVar.getUniqueId()))) {
+                    if (aVar == null || (aVar.oP() && !(aVar.oP() && bVar.getUniqueId() == aVar.getUniqueId()))) {
                         z2 = z;
                     } else {
                         z2 = aVar.a(bVar);
                         if (z2) {
                             try {
-                                if (bVar.Cw()) {
+                                if (bVar.Dx()) {
                                     return true;
                                 }
                             } catch (Throwable th) {

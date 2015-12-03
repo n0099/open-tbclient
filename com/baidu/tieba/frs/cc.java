@@ -1,40 +1,63 @@
 package com.baidu.tieba.frs;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class cc extends bn<cd, ce> {
-    private final int aXp;
+public class cc extends x.a {
+    public TextView aJG;
+    public TextView aJH;
+    public TextView aJI;
+    public TextView aJJ;
+    public TbImageView aJK;
+    public TbImageView aJL;
+    public TbImageView aJM;
+    public LinearLayout aJN;
+    public LinearLayout aJO;
+    public LinearLayout bcu;
+    public LinearLayout bcv;
+    public a bcw;
+    public View bcx;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public cc(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
-        this.aXp = (com.baidu.adp.lib.util.k.L(TbadkCoreApplication.m411getInst()) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds100)) - TbadkCoreApplication.m411getInst().getResources().getDimensionPixelSize(i.d.ds90);
+    /* loaded from: classes.dex */
+    public static class a {
+        public TextView aIi;
+        public HeadImageView aJP;
+        public UserIconBox aJQ;
+        public TextView aJR;
+        public TextView aJS;
+        public TextView aJV;
+        public ImageView aJW;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: i */
-    public ce a(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(i.g.frs_no_list_item_view, viewGroup, false);
-        inflate.setLayoutParams(new AbsListView.LayoutParams(-1, this.aXp));
-        return new ce(inflate);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, cd cdVar, ce ceVar) {
-        super.a(i, view, viewGroup, (ViewGroup) cdVar, (cd) ceVar);
-        this.aSm.getLayoutMode().ad(this.mSkinType == 1);
-        this.aSm.getLayoutMode().k(view);
-        return view;
+    public cc(View view) {
+        super(view);
+        this.bcu = (LinearLayout) view.findViewById(n.f.frs_recommend_friend_item_root);
+        this.bcv = (LinearLayout) view.findViewById(n.f.frs_recommend_friend_item_top);
+        this.bcx = view.findViewById(n.f.line_3);
+        this.bcw = new a();
+        View findViewById = view.findViewById(n.f.recommend_similar_top);
+        this.bcw.aJP = (HeadImageView) findViewById.findViewById(n.f.recommend_new_head);
+        this.bcw.aJQ = (UserIconBox) findViewById.findViewById(n.f.recommend_new_crown);
+        this.bcw.aJR = (TextView) findViewById.findViewById(n.f.recommend_new_user_name);
+        this.bcw.aJS = (TextView) findViewById.findViewById(n.f.recommend_new_introduce);
+        this.bcw.aIi = (TextView) findViewById.findViewById(n.f.recommond_detail_info_distance);
+        this.bcw.aJV = (TextView) findViewById.findViewById(n.f.recommend_new_add_friend);
+        this.bcw.aJW = (ImageView) view.findViewById(n.f.recommend_new_user_sex);
+        this.aJG = (TextView) view.findViewById(n.f.recommend_similar_bar_names);
+        this.aJH = (TextView) view.findViewById(n.f.recommend_similar_bar_desc);
+        this.aJK = (TbImageView) view.findViewById(n.f.recommend_similar_pic_one);
+        this.aJL = (TbImageView) view.findViewById(n.f.recommend_similar_pic_two);
+        this.aJM = (TbImageView) view.findViewById(n.f.recommend_similar_pic_thr);
+        this.aJI = (TextView) view.findViewById(n.f.recommend_similar_forum);
+        this.aJJ = (TextView) view.findViewById(n.f.recommend_similar_common_conern);
+        this.aJN = (LinearLayout) view.findViewById(n.f.recommend_similar_forum_container);
+        this.aJO = (LinearLayout) view.findViewById(n.f.recommend_similar_commom_conern_container);
     }
 }

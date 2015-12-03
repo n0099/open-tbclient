@@ -12,6 +12,8 @@ public abstract class c extends SQLiteOpenHelper implements a {
 
     public abstract void c(SQLiteDatabase sQLiteDatabase);
 
+    public abstract void d(SQLiteDatabase sQLiteDatabase);
+
     @Override // com.baidu.adp.base.a.a
     public void a(a.InterfaceC0001a interfaceC0001a) {
         this.nC = interfaceC0001a;
@@ -40,10 +42,16 @@ public abstract class c extends SQLiteOpenHelper implements a {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         c(sQLiteDatabase);
-        d(sQLiteDatabase);
+        e(sQLiteDatabase);
     }
 
-    private void d(SQLiteDatabase sQLiteDatabase) {
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        d(sQLiteDatabase);
+        c(sQLiteDatabase);
+    }
+
+    private void e(SQLiteDatabase sQLiteDatabase) {
         if (this.nC != null) {
             this.nC.b(sQLiteDatabase);
         }

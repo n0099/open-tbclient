@@ -3,15 +3,15 @@ package com.baidu.tieba.write.vote;
 import android.text.TextUtils;
 import android.widget.EditText;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.b {
-    final /* synthetic */ c dpu;
+    final /* synthetic */ c dOx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar) {
-        this.dpu = cVar;
+        this.dOx = cVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -19,23 +19,23 @@ public class f implements a.b {
         EditText editText;
         WriteVoteActivity writeVoteActivity;
         int i;
-        editText = this.dpu.dpq;
+        editText = this.dOx.dOt;
         String trim = editText.getText().toString().trim();
-        int g = !TextUtils.isEmpty(trim) ? com.baidu.adp.lib.g.b.g(trim, 7) : 0;
+        int g = !TextUtils.isEmpty(trim) ? com.baidu.adp.lib.h.b.g(trim, 7) : 0;
         if (g > 0 && g <= 99) {
-            this.dpu.dpl = g;
+            this.dOx.dOo = g;
             if (g == 1 || g == 7 || g == 30) {
-                this.dpu.dpm = false;
+                this.dOx.dOp = false;
             } else {
-                this.dpu.dpm = true;
+                this.dOx.dOp = true;
             }
-            c cVar = this.dpu;
-            i = this.dpu.dpl;
-            cVar.mp(i);
+            c cVar = this.dOx;
+            i = this.dOx.dOo;
+            cVar.nB(i);
             aVar.dismiss();
         } else if (g == 0) {
-            writeVoteActivity = this.dpu.dpr;
-            writeVoteActivity.showToast(i.h.endtime_input_error);
+            writeVoteActivity = this.dOx.dOu;
+            writeVoteActivity.showToast(n.i.endtime_input_error);
         }
     }
 }

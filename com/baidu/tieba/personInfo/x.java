@@ -1,36 +1,61 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.widget.ListView.BdExpandImageView;
+import com.baidu.tieba.person.listview.BdPersonListView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class x extends com.baidu.adp.lib.f.b<com.baidu.adp.widget.a.a> {
-    final /* synthetic */ w cvf;
+public class x implements BdPersonListView.a {
+    final /* synthetic */ d cSn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(w wVar) {
-        this.cvf = wVar;
+    public x(d dVar) {
+        this.cSn = dVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void a(com.baidu.adp.widget.a.a aVar, String str, int i) {
-        BdExpandImageView bdExpandImageView;
-        if (aVar != null) {
-            bdExpandImageView = this.cvf.cuO;
-            aVar.a(bdExpandImageView);
+    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
+    public void nu() {
+        az azVar;
+        aw awVar;
+        az azVar2;
+        boolean z;
+        az azVar3;
+        if (!com.baidu.adp.lib.util.i.iP()) {
+            azVar = this.cSn.cRH;
+            azVar.hideProgress();
+            return;
+        }
+        awVar = this.cSn.cMT;
+        awVar.aph();
+        azVar2 = this.cSn.cRH;
+        if (azVar2.apz() != null) {
+            azVar3 = this.cSn.cRH;
+            azVar3.apz().ns();
+        }
+        z = this.cSn.mIsHost;
+        if (z) {
+            return;
+        }
+        this.cSn.aoF();
+    }
+
+    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
+    public void nt() {
+        az azVar;
+        az azVar2;
+        azVar = this.cSn.cRH;
+        if (azVar.apz() != null) {
+            azVar2 = this.cSn.cRH;
+            azVar2.apz().hideProgress();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void onProgressUpdate(Object... objArr) {
-        super.onProgressUpdate(objArr);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.f.b
-    public void aj(String str) {
-        super.aj(str);
+    @Override // com.baidu.tieba.person.listview.BdPersonListView.a
+    public void k(float f) {
+        az azVar;
+        az azVar2;
+        azVar = this.cSn.cRH;
+        if (azVar.apz() != null) {
+            azVar2 = this.cSn.cRH;
+            azVar2.apz().j(f);
+        }
     }
 }

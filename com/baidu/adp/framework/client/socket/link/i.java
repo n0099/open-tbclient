@@ -7,13 +7,13 @@ import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class i extends Handler {
-    final /* synthetic */ h qa;
+    final /* synthetic */ h qb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(h hVar, Looper looper) {
         super(looper);
-        this.qa = hVar;
+        this.qb = hVar;
     }
 
     @Override // android.os.Handler
@@ -29,31 +29,31 @@ public class i extends Handler {
         super.handleMessage(message);
         switch (message.what) {
             case 1:
-                handler = this.qa.myHandler;
+                handler = this.qb.myHandler;
                 handler.removeMessages(1);
                 StringBuilder sb = new StringBuilder("this is reconn time:");
-                i = this.qa.pZ;
+                i = this.qb.qa;
                 BdLog.i(sb.append(i).toString());
                 BdSocketLinkService.startService(true, "time to reconnStragety");
-                h hVar = this.qa;
-                i2 = hVar.pZ;
-                hVar.pZ = i2 + 1;
+                h hVar = this.qb;
+                i2 = hVar.qa;
+                hVar.qa = i2 + 1;
                 int[] eB = com.baidu.adp.framework.client.socket.j.eB();
                 if (eB != null) {
-                    i3 = this.qa.pZ;
+                    i3 = this.qb.qa;
                     if (i3 < eB.length) {
                         StringBuilder sb2 = new StringBuilder("Next will be delay:");
-                        i4 = this.qa.pZ;
+                        i4 = this.qb.qa;
                         BdLog.i(sb2.append(eB[i4]).toString());
-                        handler2 = this.qa.myHandler;
-                        handler3 = this.qa.myHandler;
+                        handler2 = this.qb.myHandler;
+                        handler3 = this.qb.myHandler;
                         Message obtainMessage = handler3.obtainMessage(1);
-                        i5 = this.qa.pZ;
+                        i5 = this.qb.qa;
                         handler2.sendMessageDelayed(obtainMessage, eB[i5] * 1000);
                         return;
                     }
                 }
-                this.qa.stop("reconnStragety to the end");
+                this.qb.stop("reconnStragety to the end");
                 return;
             default:
                 return;

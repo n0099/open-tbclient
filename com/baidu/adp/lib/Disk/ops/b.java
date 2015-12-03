@@ -7,6 +7,7 @@ import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.Disk.ops.c;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 /* loaded from: classes.dex */
 public class b extends c {
     private Rect mRect;
@@ -41,15 +42,15 @@ public class b extends c {
     public boolean x(byte[] bArr) {
         ?? r2;
         ByteArrayInputStream byteArrayInputStream;
-        if (bArr != null && this.rD.y(bArr)) {
-            if (this.rD.rH == 0 || this.rD.rH >= System.currentTimeMillis()) {
-                if (this.rC == null) {
-                    this.rC = new BitmapFactory.Options();
-                    this.rC.inDither = false;
+        if (bArr != null && this.rF.y(bArr)) {
+            if (this.rF.rJ == 0 || this.rF.rJ >= System.currentTimeMillis()) {
+                if (this.rE == null) {
+                    this.rE = new BitmapFactory.Options();
+                    this.rE.inDither = false;
                     int i = BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi;
-                    this.rC.inScreenDensity = i;
-                    this.rC.inTargetDensity = i;
-                    r2 = this.rC;
+                    this.rE.inScreenDensity = i;
+                    this.rE.inTargetDensity = i;
+                    r2 = this.rE;
                     ((BitmapFactory.Options) r2).inDensity = i;
                 }
                 int fI = c.a.fI();
@@ -57,20 +58,20 @@ public class b extends c {
                     try {
                         byteArrayInputStream = new ByteArrayInputStream(bArr, fI, bArr.length - fI);
                         try {
-                            this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.rC);
-                            com.baidu.adp.lib.g.a.d(byteArrayInputStream);
+                            this.mBitmap = BitmapFactory.decodeStream(byteArrayInputStream, this.mRect, this.rE);
+                            com.baidu.adp.lib.h.a.e(byteArrayInputStream);
                             r2 = byteArrayInputStream;
                         } catch (Error e) {
                             e = e;
                             BdLog.e(e.getMessage());
-                            com.baidu.adp.lib.g.a.d(byteArrayInputStream);
+                            com.baidu.adp.lib.h.a.e(byteArrayInputStream);
                             r2 = byteArrayInputStream;
                             if (this.mBitmap == null) {
                             }
                         }
                     } catch (Throwable th) {
                         th = th;
-                        com.baidu.adp.lib.g.a.d(r2);
+                        com.baidu.adp.lib.h.a.e((InputStream) r2);
                         throw th;
                     }
                 } catch (Error e2) {
@@ -79,7 +80,7 @@ public class b extends c {
                 } catch (Throwable th2) {
                     th = th2;
                     r2 = 0;
-                    com.baidu.adp.lib.g.a.d(r2);
+                    com.baidu.adp.lib.h.a.e((InputStream) r2);
                     throw th;
                 }
                 return this.mBitmap == null;

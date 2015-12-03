@@ -2,8 +2,9 @@ package com.baidu.tieba.tblauncher;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class e extends CustomMessageListener {
+public class e extends CustomMessageListener {
     final /* synthetic */ MainTabActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,36 +15,32 @@ class e extends CustomMessageListener {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Removed duplicated region for block: B:11:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:8:0x0019  */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        int i;
-        boolean z;
-        ao aoVar;
-        ao aoVar2;
-        int i2;
-        this.this$0.deU = false;
-        i = this.this$0.deM;
-        if (i <= 0) {
-            i2 = this.this$0.deP;
-            if (i2 <= 0) {
-                z = false;
-                if (z) {
-                    aoVar = this.this$0.deK;
-                    aoVar.gH(false);
-                    aoVar2 = this.this$0.deK;
-                    aoVar2.azN().gy(false);
-                    return;
-                }
-                return;
+        w wVar;
+        w wVar2;
+        w wVar3;
+        w wVar4;
+        w wVar5;
+        w wVar6;
+        if (customResponsedMessage.getData() instanceof Integer) {
+            Integer num = (Integer) customResponsedMessage.getData();
+            if (num.intValue() == 2) {
+                wVar5 = this.this$0.dCW;
+                wVar5.hr(true);
+                wVar6 = this.this$0.dCW;
+                wVar6.ex(true);
+            } else if (num.intValue() == 1) {
+                wVar3 = this.this$0.dCW;
+                wVar3.hr(true);
+                wVar4 = this.this$0.dCW;
+                wVar4.ex(false);
+            } else {
+                wVar = this.this$0.dCW;
+                wVar.hr(false);
+                wVar2 = this.this$0.dCW;
+                wVar2.ex(false);
             }
-        }
-        z = true;
-        if (z) {
         }
     }
 }

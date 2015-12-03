@@ -1,11 +1,11 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public interface m {
-    String axc();
+    String aCO();
 
-    String axd();
+    String aCP();
 
-    String axe();
+    String aCQ();
 
-    long axf();
+    long aCR();
 }

@@ -1,29 +1,43 @@
 package com.baidu.tieba.frs;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.coreExtra.view.BannerView;
+import com.baidu.tbadk.widget.TbImageView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cj implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.core.data.w aXA;
-    final /* synthetic */ cf aXz;
+public class cj implements TbImageView.a {
+    final /* synthetic */ cd bdg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cj(cf cfVar, com.baidu.tbadk.core.data.w wVar) {
-        this.aXz = cfVar;
-        this.aXA = wVar;
+    public cj(cd cdVar) {
+        this.bdg = cdVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Context context;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.aXz.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXA.getAuthor().getUserId(), this.aXA.getAuthor().getName_show(), this.aXz.aUe.afg().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onComplete(String str, boolean z) {
+        BannerView bannerView;
+        boolean z2;
+        BdTypeListView bdTypeListView;
+        BdTypeListView bdTypeListView2;
+        BannerView bannerView2;
+        if (z) {
+            bannerView = this.bdg.aNN;
+            if (bannerView.zH()) {
+                z2 = this.bdg.bcW;
+                if (!z2) {
+                    bdTypeListView = this.bdg.bcG;
+                    if (bdTypeListView != null) {
+                        this.bdg.bcW = true;
+                        bdTypeListView2 = this.bdg.bcG;
+                        bannerView2 = this.bdg.aNN;
+                        bdTypeListView2.d(bannerView2, 1);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.TbImageView.a
+    public void onCancel() {
     }
 }

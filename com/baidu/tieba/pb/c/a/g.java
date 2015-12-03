@@ -3,44 +3,44 @@ package com.baidu.tieba.pb.c.a;
 import android.content.Context;
 import android.text.SpannableStringBuilder;
 import com.baidu.adp.lib.util.StringUtils;
-import tbclient.FinePbPage.Content;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes.dex */
 public class g implements c {
+    private SpannableStringBuilder cIo;
+    private int cIp;
     private String color;
-    private SpannableStringBuilder cpc;
-    private int cpd;
     private int textSize;
 
     public g() {
-        this.cpd = 0;
+        this.cIp = 0;
         this.textSize = -1;
-        this.cpc = new SpannableStringBuilder();
+        this.cIo = new SpannableStringBuilder();
     }
 
-    public g(Context context, Content content) {
-        this.cpd = 0;
+    public g(Context context, ExcContent excContent) {
+        this.cIp = 0;
         this.textSize = -1;
-        this.cpc = new SpannableStringBuilder();
-        if (content != null) {
-            this.cpc.append((CharSequence) content.text);
+        this.cIo = new SpannableStringBuilder();
+        if (excContent != null) {
+            this.cIo.append((CharSequence) excContent.text);
         }
-        if (content.align != null) {
-            this.cpd = content.align.intValue();
+        if (excContent.align != null) {
+            this.cIp = excContent.align.intValue();
         }
-        if (!StringUtils.isNull(content.color)) {
-            this.color = content.color;
+        if (!StringUtils.isNull(excContent.color)) {
+            this.color = excContent.color;
         }
-        if (content.size != null && content.size.intValue() > 0 && context != null && context.getResources() != null) {
-            int identifier = context.getResources().getIdentifier("fontsize" + content.size, "dimen", context.getPackageName());
+        if (excContent.size != null && excContent.size.intValue() > 0 && context != null && context.getResources() != null) {
+            int identifier = context.getResources().getIdentifier("fontsize" + excContent.size, "dimen", context.getPackageName());
             if (identifier > 0) {
                 this.textSize = context.getResources().getDimensionPixelSize(identifier);
             }
         }
     }
 
-    public void e(CharSequence charSequence) {
+    public void g(CharSequence charSequence) {
         if (charSequence != null) {
-            this.cpc.append(charSequence);
+            this.cIo.append(charSequence);
         }
     }
 
@@ -50,21 +50,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public CharSequence ais() {
-        return this.cpc;
+    public CharSequence amV() {
+        return this.cIo;
     }
 
-    public int aiu() {
-        return this.cpd;
+    public int amX() {
+        return this.cIp;
     }
 
-    public String aiv() {
+    public String amY() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.c.a.c
-    public boolean ait() {
-        return (this.cpd > 0 && this.cpd < 3) || !StringUtils.isNull(this.color);
+    public boolean amW() {
+        return (this.cIp > 0 && this.cIp < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

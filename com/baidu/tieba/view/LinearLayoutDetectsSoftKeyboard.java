@@ -10,21 +10,21 @@ import com.baidu.adp.lib.util.k;
 import com.compatible.menukey.MenuKeyUtils;
 /* loaded from: classes.dex */
 public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
-    Rect aKf;
-    private a dkS;
+    private a dJD;
+    Rect rect;
 
     /* loaded from: classes.dex */
     public interface a {
-        void dP(boolean z);
+        void eo(boolean z);
     }
 
     public LinearLayoutDetectsSoftKeyboard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aKf = new Rect();
+        this.rect = new Rect();
     }
 
     public void setOnSoftKeyBoardShownListener(a aVar) {
-        this.dkS = aVar;
+        this.dJD = aVar;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -32,23 +32,23 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
         boolean z;
         int size = View.MeasureSpec.getSize(i2);
         Activity activity = (Activity) getContext();
-        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.aKf);
-        int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.aKf.top) - size;
-        if (this.dkS != null) {
+        activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.rect);
+        int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.rect.top) - size;
+        if (this.dJD != null) {
             if (MenuKeyUtils.hasSmartBar()) {
                 if (height > k.dip2px(activity, 48.0f) + 128) {
                     z = true;
-                    this.dkS.dP(z);
+                    this.dJD.eo(z);
                 }
                 z = false;
-                this.dkS.dP(z);
+                this.dJD.eo(z);
             } else {
                 if (height > 128) {
                     z = true;
-                    this.dkS.dP(z);
+                    this.dJD.eo(z);
                 }
                 z = false;
-                this.dkS.dP(z);
+                this.dJD.eo(z);
             }
         }
         super.onMeasure(i, i2);

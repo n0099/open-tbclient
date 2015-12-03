@@ -1,31 +1,10 @@
 package com.baidu.tbadk.core.util;
 
-import android.os.Handler;
-import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public interface q {
-    void a(BasicNameValuePair basicNameValuePair);
-
-    boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
-
-    void d(String str, byte[] bArr);
-
-    void gJ();
-
-    void gM();
-
-    void l(ArrayList<BasicNameValuePair> arrayList);
-
-    void o(String str, String str2);
-
-    ArrayList<BasicNameValuePair> tF();
-
-    String tG();
-
-    byte[] tH();
-
-    String tI();
-
-    String tJ();
+class q implements a.b {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
+    }
 }

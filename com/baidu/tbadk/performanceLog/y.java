@@ -8,51 +8,51 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class y {
-    private static String awI = "tb_perfor_samllflow_time";
-    private static volatile y awL;
-    private long awK;
-    private boolean awG = false;
-    private long awJ = 86400;
-    private long awH = com.baidu.tbadk.core.sharedPref.b.tu().getLong(awI, 0);
+    private static String ayN = "tb_perfor_samllflow_time";
+    private static volatile y ayQ;
+    private long ayP;
+    private boolean ayL = false;
+    private long ayO = 86400;
+    private long ayM = com.baidu.tbadk.core.sharedPref.b.tZ().getLong(ayN, 0);
 
-    public static y DR() {
-        if (awL == null) {
+    public static y ES() {
+        if (ayQ == null) {
             synchronized (y.class) {
-                if (awL == null) {
-                    awL = new y();
+                if (ayQ == null) {
+                    ayQ = new y();
                 }
             }
         }
-        return awL;
+        return ayQ;
     }
 
     private y() {
-        this.awK = 0L;
-        this.awK = this.awJ;
+        this.ayP = 0L;
+        this.ayP = this.ayO;
     }
 
-    public boolean DS() {
-        if (!this.awG || (System.currentTimeMillis() - this.awH) / 1000 <= this.awK) {
-            return this.awG;
+    public boolean ET() {
+        if (!this.ayL || (System.currentTimeMillis() - this.ayM) / 1000 <= this.ayP) {
+            return this.ayL;
         }
         return false;
     }
 
-    public void bt(boolean z) {
+    public void bC(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.awH || currentTimeMillis - this.awH >= this.awK) {
-                this.awH = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.tu().putLong(awI, this.awH);
+            if (0 == this.ayM || currentTimeMillis - this.ayM >= this.ayP) {
+                this.ayM = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.tZ().putLong(ayN, this.ayM);
             }
         } else {
-            this.awH = 0L;
-            com.baidu.tbadk.core.sharedPref.b.tu().putLong(awI, this.awH);
+            this.ayM = 0L;
+            com.baidu.tbadk.core.sharedPref.b.tZ().putLong(ayN, this.ayM);
         }
-        this.awG = z;
+        this.ayL = z;
     }
 
-    public String DT() {
+    public String EU() {
         try {
             Runtime runtime = Runtime.getRuntime();
             StringBuffer stringBuffer = new StringBuffer();
@@ -66,7 +66,7 @@ public class y {
         }
     }
 
-    public final String DU() {
+    public final String EV() {
         try {
             String valueOf = String.valueOf(Debug.getNativeHeapSize() / 1024);
             String valueOf2 = String.valueOf(Debug.getNativeHeapAllocatedSize() / 1024);
@@ -82,25 +82,25 @@ public class y {
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.i.iN()) {
+        if (!com.baidu.adp.lib.util.i.iP()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.i.iO()) {
+        if (com.baidu.adp.lib.util.i.iQ()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.i.iQ()) {
+        if (com.baidu.adp.lib.util.i.iS()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.i.iR()) {
+        if (com.baidu.adp.lib.util.i.iT()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.i.iS()) {
+        if (!com.baidu.adp.lib.util.i.iU()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String ey(int i) {
+    public static String eM(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -113,8 +113,8 @@ public class y {
         return "WIFI";
     }
 
-    public x ez(int i) {
-        if (DS()) {
+    public x eN(int i) {
+        if (ET()) {
             switch (i) {
                 case 1000:
                     aa aaVar = new aa();
@@ -143,9 +143,9 @@ public class y {
         return null;
     }
 
-    public void B(long j) {
+    public void I(long j) {
         if (j > 0) {
-            this.awK = j;
+            this.ayP = j;
         }
     }
 
@@ -164,7 +164,7 @@ public class y {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int DV() {
+    public int EW() {
         BufferedReader bufferedReader;
         Process process;
         String str;
@@ -219,7 +219,7 @@ public class y {
                             }
                             if (str2 != null) {
                             }
-                            return com.baidu.adp.lib.g.b.g(str2, -1);
+                            return com.baidu.adp.lib.h.b.g(str2, -1);
                         } catch (Throwable th) {
                             th = th;
                             process = process2;
@@ -277,6 +277,6 @@ public class y {
                 str2 = split2[0];
             }
         }
-        return com.baidu.adp.lib.g.b.g(str2, -1);
+        return com.baidu.adp.lib.h.b.g(str2, -1);
     }
 }

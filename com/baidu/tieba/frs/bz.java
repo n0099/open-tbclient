@@ -1,21 +1,25 @@
 package com.baidu.tieba.frs;
 
-import android.graphics.drawable.Drawable;
-import android.text.Html;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class bz implements Html.ImageGetter {
-    final /* synthetic */ bs aXm;
+public class bz extends x.a {
+    public TextView aYC;
+    public TextView aYI;
+    public TextView aYK;
+    public int afY;
+    public TextView bck;
+    public View bcl;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bz(bs bsVar) {
-        this.aXm = bsVar;
-    }
-
-    @Override // android.text.Html.ImageGetter
-    public Drawable getDrawable(String str) {
-        Drawable drawable = this.aXm.aVn.getResources().getDrawable(Integer.parseInt(str));
-        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        return drawable;
+    public bz(View view) {
+        super(view);
+        this.afY = 3;
+        this.aYC = (TextView) getView().findViewById(n.f.frs_god_lv_reply_time);
+        this.aYI = (TextView) getView().findViewById(n.f.frs_god_praise_num);
+        this.aYK = (TextView) getView().findViewById(n.f.frs_god_reply_num);
+        this.bck = (TextView) getView().findViewById(n.f.frs_god_item_location_address);
+        this.bcl = getView().findViewById(n.f.frs_god_item_location_sep);
     }
 }

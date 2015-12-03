@@ -1,10 +1,17 @@
 package com.baidu.tieba.myCollection;
 
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-public class n implements com.baidu.tieba.tbadkCore.i.a {
-    @Override // com.baidu.tieba.tbadkCore.i.a
-    public int adP() {
-        return i.e.icon_home_collect;
+class n implements a.b {
+    final /* synthetic */ m cuj;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(m mVar) {
+        this.cuj = mVar;
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

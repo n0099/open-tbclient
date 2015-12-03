@@ -1,43 +1,21 @@
 package com.baidu.tbadk.core.util;
-
-import com.baidu.adp.lib.util.BdLog;
-import java.util.HashMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al {
-    private static final al aaY = new al();
-    private final HashMap<Class<?>, Class<?>> aaZ = new HashMap<>();
+public class al implements Runnable {
+    final /* synthetic */ ak abB;
 
-    public static final al uB() {
-        return aaY;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public al(ak akVar) {
+        this.abB = akVar;
     }
 
-    private al() {
-    }
-
-    public void RegisterOrUpdateIntent(Class<?> cls, Class<?> cls2) {
-        this.aaZ.put(cls, cls2);
-    }
-
-    public void RegisterIntent(Class<?> cls, Class<?> cls2) {
-        if (!this.aaZ.containsKey(cls)) {
-            this.aaZ.put(cls, cls2);
-        } else {
-            BdLog.e("register Intent failed, " + cls.getName() + " exist");
-        }
-    }
-
-    public boolean appResponseToIntentClass(Class<?> cls) {
-        return getIntentClass(cls) != null;
-    }
-
-    public int uC() {
-        return this.aaZ.size();
-    }
-
-    public Class<?> getIntentClass(Class<?> cls) {
-        if (this.aaZ != null) {
-            return this.aaZ.get(cls);
-        }
-        return null;
+    @Override // java.lang.Runnable
+    public void run() {
+        com.baidu.tbadk.core.sharedPref.b.tZ().remove("pull_image_url");
+        com.baidu.tbadk.core.sharedPref.b.tZ().remove("pull_image_num");
+        com.baidu.tbadk.core.sharedPref.b.tZ().remove("pullview_background_color_day");
+        com.baidu.tbadk.core.sharedPref.b.tZ().remove("pullview_background_color_night");
+        this.abB.vg();
+        this.abB.vb();
     }
 }

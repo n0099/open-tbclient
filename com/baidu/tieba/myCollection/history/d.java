@@ -3,19 +3,19 @@ package com.baidu.tieba.myCollection.history;
 import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
 class d implements a.b {
-    final /* synthetic */ c ccR;
+    final /* synthetic */ c cuT;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.ccR = cVar;
+        this.cuT = cVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         PbHistoryActivity pbHistoryActivity;
         com.baidu.tieba.myCollection.baseHistory.a aVar2;
-        pbHistoryActivity = this.ccR.ccQ;
-        aVar2 = pbHistoryActivity.ccP;
+        pbHistoryActivity = this.cuT.cuS;
+        aVar2 = pbHistoryActivity.cuR;
         aVar2.clearCache();
         aVar.dismiss();
     }

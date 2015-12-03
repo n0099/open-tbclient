@@ -4,18 +4,18 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ab implements View.OnClickListener {
-    final /* synthetic */ WriteActivity dsa;
+    final /* synthetic */ WriteActivity dRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(WriteActivity writeActivity) {
-        this.dsa = writeActivity;
+        this.dRf = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String str;
-        WriteActivity writeActivity = this.dsa;
-        str = this.dsa.aqB;
+        WriteActivity writeActivity = this.dRf;
+        str = this.dRf.asF;
         writeActivity.showToast(str);
     }
 }

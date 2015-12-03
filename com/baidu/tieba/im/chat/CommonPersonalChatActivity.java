@@ -70,7 +70,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0038  */
     /* JADX WARN: Removed duplicated region for block: B:36:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.c.a
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.lib.d.a
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

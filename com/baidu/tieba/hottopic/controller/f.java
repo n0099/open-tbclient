@@ -1,25 +1,23 @@
 package com.baidu.tieba.hottopic.controller;
 
-import com.baidu.tbadk.core.view.p;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
-public class f implements p.a {
-    final /* synthetic */ HotTopicActivity bpp;
+class f extends com.baidu.adp.base.g {
+    final /* synthetic */ HotTopicActivity bDn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(HotTopicActivity hotTopicActivity) {
-        this.bpp = hotTopicActivity;
+        this.bDn = hotTopicActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.p.a
-    public void onListPullRefresh(boolean z) {
-        com.baidu.tieba.hottopic.view.a aVar;
-        if (com.baidu.adp.lib.util.i.iN()) {
-            this.bpp.Re();
-            return;
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        if (AntiHelper.mC(this.bDn.bDm.getErrorCode())) {
+            AntiHelper.Q(this.bDn.getActivity(), this.bDn.bDm.getErrorString());
+        } else if (!StringUtils.isNull(this.bDn.bDm.getErrorString())) {
+            com.baidu.adp.lib.util.k.showToast(TbadkCoreApplication.m411getInst(), this.bDn.bDm.getErrorString());
         }
-        HotTopicActivity hotTopicActivity = this.bpp;
-        aVar = this.bpp.bpd;
-        hotTopicActivity.showNetRefreshView(aVar.Rs(), null);
     }
 }

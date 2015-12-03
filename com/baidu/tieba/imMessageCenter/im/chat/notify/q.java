@@ -6,6 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tieba.imMessageCenter.InvokeNewImMessageCenterFragmentConfig;
+import com.baidu.tieba.imMessageCenter.mention.bc;
 /* loaded from: classes.dex */
 class q implements CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFragmentConfig> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -13,6 +14,8 @@ class q implements CustomMessageTask.CustomRunnable<InvokeNewImMessageCenterFrag
         if (customMessage == null) {
             return null;
         }
-        return new CustomResponsedMessage<>(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT, new e());
+        bc bcVar = new bc();
+        bcVar.iY(InvokeNewImMessageCenterFragmentConfig.currentPageType);
+        return new CustomResponsedMessage<>(CmdConfigCustom.IM_NEW_MESSAGE_CENTER_FRAGMENT, bcVar);
     }
 }

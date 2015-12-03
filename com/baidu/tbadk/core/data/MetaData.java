@@ -1,20 +1,20 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.tbadk.core.util.ImageInfo;
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.IconData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class MetaData extends com.baidu.tbadk.data.MetaData implements ae, com.baidu.tbadk.core.util.t, TbCheckBox.b {
+public class MetaData extends com.baidu.tbadk.data.MetaData implements aj, com.baidu.tbadk.core.util.x, TbCheckBox.b {
     private static final long serialVersionUID = -5772546803814127750L;
     private boolean mIsChecked = false;
 
     public ArrayList<String> getImageUrl() {
         ArrayList<IconData> iconInfo = getIconInfo();
-        ArrayList<IconData> tShowInfo = getTShowInfo();
-        if (iconInfo == null || tShowInfo == null) {
+        ArrayList<IconData> tShowInfoNew = getTShowInfoNew();
+        if (iconInfo == null || tShowInfoNew == null) {
             return null;
         }
         ArrayList<String> arrayList = new ArrayList<>();
@@ -22,7 +22,7 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements ae, com.b
             arrayList.add(iconInfo.get(i).getIcon());
         }
         for (int i2 = 0; i2 < iconInfo.size(); i2++) {
-            arrayList.add(tShowInfo.get(i2).getIcon());
+            arrayList.add(tShowInfoNew.get(i2).getIcon());
         }
         return arrayList;
     }
@@ -55,13 +55,13 @@ public class MetaData extends com.baidu.tbadk.data.MetaData implements ae, com.b
         return null;
     }
 
-    @Override // com.baidu.tbadk.core.util.ae
-    public ArrayList<ad> getImages() {
-        ArrayList<ad> arrayList = new ArrayList<>();
-        ad adVar = new ad();
-        adVar.Wd = getPortrait();
-        adVar.aaD = 12;
-        arrayList.add(adVar);
+    @Override // com.baidu.tbadk.core.util.aj
+    public ArrayList<ai> getImages() {
+        ArrayList<ai> arrayList = new ArrayList<>();
+        ai aiVar = new ai();
+        aiVar.WN = getPortrait();
+        aiVar.abp = 12;
+        arrayList.add(aiVar);
         return arrayList;
     }
 }

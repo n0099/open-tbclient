@@ -7,129 +7,108 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.i;
-import tbclient.FinePbPage.ForumInfo;
+import com.baidu.tbadk.core.util.ax;
+import com.baidu.tieba.n;
+import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes.dex */
 public class i {
-    private LinearLayout cgA;
-    private View cgo;
-    private TextView cgp;
-    private ImageView cgq;
-    private TextView cgr;
-    private TextView cgs;
-    private a cgt;
-    private boolean cgu;
-    private Animation cgw;
-    private TextView cgy;
-    private TextView cgz;
     private Context context;
-    private long cgv = 0;
-    private boolean cgx = false;
+    private View cyP;
+    private TextView cyQ;
+    private ImageView cyR;
+    private TextView cyS;
+    private TextView cyT;
+    private a cyU;
+    public boolean cyV;
+    private Animation cyX;
+    private long cyW = 0;
+    private boolean cyY = false;
 
     /* loaded from: classes.dex */
     public interface a {
-        void e(long j, String str);
+        void eN(boolean z);
 
-        void el(boolean z);
-
-        void jF(String str);
+        void g(long j, String str);
     }
 
     public i(Context context) {
         this.context = context;
-        this.cgo = LayoutInflater.from(context).inflate(i.g.chosen_pb_post_info, (ViewGroup) null);
-        this.cgp = (TextView) this.cgo.findViewById(i.f.chosen_post_info_copyright);
-        this.cgq = (ImageView) this.cgo.findViewById(i.f.chosen_post_info_praise_icon);
-        this.cgr = (TextView) this.cgo.findViewById(i.f.chosen_post_info_praise_num);
-        this.cgs = (TextView) this.cgo.findViewById(i.f.chosen_post_info_original_post);
-        this.cgA = (LinearLayout) this.cgo.findViewById(i.f.chosen_post_info_tag_container);
-        this.cgy = (TextView) this.cgo.findViewById(i.f.chosen_post_info_tag);
-        this.cgz = (TextView) this.cgo.findViewById(i.f.chosen_post_info_mark);
+        this.cyP = LayoutInflater.from(context).inflate(n.g.chosen_pb_post_info, (ViewGroup) null);
+        this.cyQ = (TextView) this.cyP.findViewById(n.f.chosen_post_info_copyright);
+        this.cyR = (ImageView) this.cyP.findViewById(n.f.chosen_post_info_praise_icon);
+        this.cyS = (TextView) this.cyP.findViewById(n.f.chosen_post_info_praise_num);
+        this.cyT = (TextView) this.cyP.findViewById(n.f.chosen_post_info_original_post);
     }
 
-    public View aeZ() {
-        return this.cgo;
+    public View ajr() {
+        return this.cyP;
     }
 
     public void a(a aVar) {
-        this.cgt = aVar;
+        this.cyU = aVar;
     }
 
-    public void iU(int i) {
-        if (this.cgp != null) {
-            this.cgp.setText(i);
+    public void jM(int i) {
+        if (this.cyQ != null) {
+            this.cyQ.setText(i);
         }
     }
 
     public void y(View.OnClickListener onClickListener) {
-        if (this.cgs != null) {
-            this.cgs.setOnClickListener(onClickListener);
+        if (this.cyT != null) {
+            this.cyT.setOnClickListener(onClickListener);
         }
     }
 
-    public void aQ(long j) {
+    public void bf(long j) {
         if (j >= 0) {
-            this.cgv = j;
-            if (this.cgr != null) {
-                this.cgr.setText(this.context.getString(i.h.chosen_pb_praise_num, as.q(j)));
+            this.cyW = j;
+            if (this.cyS != null) {
+                this.cyS.setText(this.context.getString(n.i.chosen_pb_praise_num, ax.w(j)));
             }
         }
     }
 
-    public void aV(String str, String str2) {
-        if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
-            this.cgA.setVisibility(8);
-            return;
-        }
-        this.cgA.setVisibility(0);
-        this.cgy.setText(this.context.getString(i.h.chosen_pb_tag_abstract, str));
-        this.cgA.setOnClickListener(new j(this, str));
-        this.cgz.setText(str2);
-    }
-
-    public void a(ForumInfo forumInfo) {
-        if (forumInfo != null) {
-            iU(i.h.chosen_pb_copyright);
-            aQ(forumInfo.zan.zansum.longValue());
-            ep(forumInfo.zan.is_zan.booleanValue());
-            y(new k(this, forumInfo));
-            this.cgq.setOnClickListener(new l(this));
+    public void a(ExcellentPbThreadInfo excellentPbThreadInfo) {
+        if (excellentPbThreadInfo != null) {
+            jM(n.i.chosen_pb_copyright);
+            bf(excellentPbThreadInfo.zan.zansum.longValue());
+            eR(excellentPbThreadInfo.zan.is_zan.booleanValue());
+            y(new j(this, excellentPbThreadInfo));
+            this.cyR.setOnClickListener(new k(this));
         }
     }
 
-    public void afa() {
-        this.cgx = false;
+    public void ajs() {
+        this.cyY = false;
     }
 
-    public void eo(boolean z) {
-        ep(z);
+    public void eQ(boolean z) {
+        eR(z);
         if (z) {
-            this.cgv++;
+            this.cyW++;
         } else {
-            this.cgv--;
+            this.cyW--;
         }
-        aQ(this.cgv);
+        bf(this.cyW);
     }
 
-    private void ep(boolean z) {
-        this.cgu = z;
+    private void eR(boolean z) {
+        this.cyV = z;
         if (z) {
-            an.c(this.cgq, i.e.btn_zambia_big_s);
+            as.c(this.cyR, n.e.btn_zambia_big_s);
         } else {
-            an.c(this.cgq, i.e.btn_zambia_big_n);
+            as.c(this.cyR, n.e.btn_zambia_big_n);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation afb() {
-        if (this.cgw == null) {
-            this.cgw = AnimationUtils.loadAnimation(this.context, i.a.praise_animation_scale3);
+    public Animation ajt() {
+        if (this.cyX == null) {
+            this.cyX = AnimationUtils.loadAnimation(this.context, n.a.praise_animation_scale3);
         }
-        return this.cgw;
+        return this.cyX;
     }
 }

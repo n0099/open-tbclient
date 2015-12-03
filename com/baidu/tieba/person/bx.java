@@ -3,25 +3,22 @@ package com.baidu.tieba.person;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
-public class bx implements CustomMessageTask.CustomRunnable<String> {
+public class bx implements CustomMessageTask.CustomRunnable<Object> {
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        if (customMessage == null || !(customMessage instanceof PersonBarByUidLocalMessage)) {
-            return null;
-        }
-        String str = com.baidu.tbadk.core.b.a.sO().cr("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
-        ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
-        if (str != null) {
-            try {
-                responsePersonBarByUidLocalMessage.decodeInBackGround(CmdConfigCustom.CMD_QUERY_PERSON_BAR_LOCAL_HISTORY, str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        if (customMessage != null && (customMessage instanceof RequestLocalPersonListMessage)) {
+            RequestLocalPersonListMessage requestLocalPersonListMessage = (RequestLocalPersonListMessage) customMessage;
+            boolean isFollow = requestLocalPersonListMessage.isFollow();
+            String str = com.baidu.tbadk.core.b.a.ts().cz("tb.my_pages").get(String.valueOf(isFollow ? "personal_followme" : "personal_myfollow") + "_" + requestLocalPersonListMessage.getUid());
+            com.baidu.tieba.person.data.n nVar = new com.baidu.tieba.person.data.n();
+            if (str != null) {
+                nVar.parserJson(str);
             }
+            ResponseLocalPersonListMessage responseLocalPersonListMessage = new ResponseLocalPersonListMessage();
+            responseLocalPersonListMessage.setData(nVar);
+            return responseLocalPersonListMessage;
         }
-        return responsePersonBarByUidLocalMessage;
+        return null;
     }
 }

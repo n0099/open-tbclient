@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.AnchorInfo;
 /* loaded from: classes.dex */
-public class LiveCardData implements ae, Serializable {
+public class LiveCardData implements aj, Serializable {
     public static final int LIVETYPE_PHOTOLIVE = 33;
     private static final long serialVersionUID = 1;
     private long authorId;
@@ -344,13 +344,13 @@ public class LiveCardData implements ae, Serializable {
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.ae
-    public ArrayList<ad> getImages() {
-        ArrayList<ad> arrayList = new ArrayList<>();
-        ad adVar = new ad();
-        adVar.Wd = this.portrait;
-        adVar.aaD = 10;
-        arrayList.add(adVar);
+    @Override // com.baidu.tbadk.core.util.aj
+    public ArrayList<ai> getImages() {
+        ArrayList<ai> arrayList = new ArrayList<>();
+        ai aiVar = new ai();
+        aiVar.WN = this.portrait;
+        aiVar.abp = 10;
+        arrayList.add(aiVar);
         return arrayList;
     }
 

@@ -1,30 +1,41 @@
 package com.baidu.tieba.pb.pb.sub;
 
+import android.app.Dialog;
 import android.util.SparseArray;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.i;
-import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import android.view.View;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aj implements a.b {
-    final /* synthetic */ v coo;
-    private final /* synthetic */ SparseArray cor;
+public class aj implements View.OnClickListener {
+    private final /* synthetic */ boolean cCo;
+    final /* synthetic */ w cHA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public aj(v vVar, SparseArray sparseArray) {
-        this.coo = vVar;
-        this.cor = sparseArray;
+    public aj(w wVar, boolean z) {
+        this.cHA = wVar;
+        this.cCo = z;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        NewSubPbActivity.a aVar2;
-        NewSubPbActivity.a aVar3;
-        aVar2 = this.coo.coh;
-        if (aVar2 != null) {
-            aVar3 = this.coo.coh;
-            aVar3.d(new Object[]{this.cor.get(i.f.tag_del_post_id), this.cor.get(i.f.tag_manage_user_identity), this.cor.get(i.f.tag_del_post_is_self), this.cor.get(i.f.tag_del_post_type)});
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Dialog dialog;
+        NewSubPbActivity newSubPbActivity;
+        Dialog dialog2;
+        Dialog dialog3;
+        NewSubPbActivity newSubPbActivity2;
+        dialog = this.cHA.cEV;
+        if (dialog != null) {
+            dialog2 = this.cHA.cEV;
+            if (dialog2 instanceof Dialog) {
+                dialog3 = this.cHA.cEV;
+                newSubPbActivity2 = this.cHA.cHi;
+                com.baidu.adp.lib.h.j.b(dialog3, newSubPbActivity2.getPageContext());
+            }
         }
-        aVar.dismiss();
+        SparseArray<Object> sparseArray = (SparseArray) view.getTag();
+        if (sparseArray != null) {
+            newSubPbActivity = this.cHA.cHi;
+            newSubPbActivity.a(this.cCo, (String) sparseArray.get(n.f.tag_user_mute_mute_userid), sparseArray);
+        }
     }
 }

@@ -1,52 +1,33 @@
 package com.baidu.tieba.gift.myGiftList;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.i;
-import tbclient.GetGiftMyList.DataRes;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.core.view.q;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class f extends com.baidu.adp.framework.listener.e {
-    final /* synthetic */ MyGiftListActivity bnC;
+public class f implements q.a {
+    final /* synthetic */ MyGiftListActivity bwy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(MyGiftListActivity myGiftListActivity, int i) {
-        super(i);
-        this.bnC = myGiftListActivity;
+    public f(MyGiftListActivity myGiftListActivity) {
+        this.bwy = myGiftListActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-        m mVar;
-        m mVar2;
+    @Override // com.baidu.tbadk.core.view.q.a
+    public void onListPullRefresh(boolean z) {
         l lVar;
-        l lVar2;
-        l lVar3;
-        m mVar3;
-        l lVar4;
-        if (socketResponsedMessage instanceof ResponseMyGiftListMessage) {
-            this.bnC.closeLoadingDialog();
-            mVar = this.bnC.bnx;
-            mVar.getFooterView().setVisibility(8);
-            ResponseMyGiftListMessage responseMyGiftListMessage = (ResponseMyGiftListMessage) socketResponsedMessage;
-            mVar2 = this.bnC.bnx;
-            mVar2.QS();
-            if (responseMyGiftListMessage.hasError()) {
-                this.bnC.showToast(StringUtils.isNull(responseMyGiftListMessage.getErrorString()) ? this.bnC.getResources().getString(i.h.neterror) : responseMyGiftListMessage.getErrorString());
-                return;
-            }
-            DataRes giftPageInfo = responseMyGiftListMessage.getGiftPageInfo();
-            if (giftPageInfo != null) {
-                lVar = this.bnC.bnw;
-                lVar2 = this.bnC.bnw;
-                lVar.setPageNum(lVar2.getPageNum() + 1);
-                lVar3 = this.bnC.bnw;
-                lVar3.setHasMore(giftPageInfo.page.has_more.intValue() == 1);
-                mVar3 = this.bnC.bnx;
-                lVar4 = this.bnC.bnw;
-                mVar3.a(giftPageInfo, lVar4.QQ());
-            }
+        j jVar;
+        j jVar2;
+        if (!com.baidu.adp.lib.util.k.jg()) {
+            lVar = this.bwy.bws;
+            lVar.Tx();
+            return;
         }
+        com.baidu.tbadk.coreExtra.messageCenter.a.xJ().ya();
+        jVar = this.bwy.bwr;
+        jVar.cV(false);
+        jVar2 = this.bwy.bwr;
+        jVar2.LoadData();
+        com.baidu.tbadk.coreExtra.messageCenter.a.xJ().setMsgGiftNum(0);
+        MessageManager.getInstance().dispatchResponsedMessage(this.bwy.bwu);
     }
 }

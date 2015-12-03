@@ -12,6 +12,7 @@ public abstract class NetMessage {
     private HttpMessage mHttpMessage = null;
     private SocketMessage mSocketMessage = null;
     private NetType mNetType = NetType.AUTO;
+    private int socketErrNo = 0;
 
     /* loaded from: classes.dex */
     public enum NetType {
@@ -19,7 +20,7 @@ public abstract class NetMessage {
         HTTP,
         AUTO;
 
-        /* JADX DEBUG: Replace access to removed values field (qv) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qw) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static NetType[] valuesCustom() {
             NetType[] valuesCustom = values();
@@ -44,7 +45,7 @@ public abstract class NetMessage {
         this.httpCmd = i;
         this.socketCmd = i2;
         this.tag = bdUniqueId;
-        this.clientLogID = com.baidu.adp.lib.stats.a.hj().hl();
+        this.clientLogID = com.baidu.adp.lib.stats.a.hl().hn();
     }
 
     public void resetData() {
@@ -95,5 +96,13 @@ public abstract class NetMessage {
 
     public void setLogID(long j) {
         this.clientLogID = j;
+    }
+
+    public void setSocketErrNo(int i) {
+        this.socketErrNo = i;
+    }
+
+    public int getSocketErrNo() {
+        return this.socketErrNo;
     }
 }

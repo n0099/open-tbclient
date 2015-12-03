@@ -3,18 +3,18 @@ package com.baidu.tieba.im.c;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
 /* loaded from: classes.dex */
 class d implements com.baidu.tbadk.util.d<Boolean> {
-    final /* synthetic */ b bHB;
-    private final /* synthetic */ CommonGroupChatMessage bHC;
+    final /* synthetic */ b bWH;
+    private final /* synthetic */ CommonGroupChatMessage bWI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar, CommonGroupChatMessage commonGroupChatMessage) {
-        this.bHB = bVar;
-        this.bHC = commonGroupChatMessage;
+        this.bWH = bVar;
+        this.bWI = commonGroupChatMessage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.util.d
     public void onReturnDataInUI(Boolean bool) {
-        a.i(this.bHC);
+        a.i(this.bWI);
     }
 }

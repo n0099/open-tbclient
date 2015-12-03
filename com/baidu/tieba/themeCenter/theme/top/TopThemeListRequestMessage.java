@@ -14,7 +14,7 @@ public class TopThemeListRequestMessage extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            com.baidu.tbadk.util.h.a(builder, true);
+            com.baidu.tbadk.util.i.a(builder, true);
         }
         GetSkinByCategoryReqIdl.Builder builder2 = new GetSkinByCategoryReqIdl.Builder();
         builder2.data = builder.build(false);

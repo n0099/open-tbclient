@@ -7,26 +7,26 @@ import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bl implements CustomMessageTask.CustomRunnable<String> {
-    private final /* synthetic */ String bFl;
+    private final /* synthetic */ String bUs;
     final /* synthetic */ ImMemoryCacheRegisterStatic this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bl(ImMemoryCacheRegisterStatic imMemoryCacheRegisterStatic, String str) {
         this.this$0 = imMemoryCacheRegisterStatic;
-        this.bFl = str;
+        this.bUs = str;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
     public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         if (customMessage != null && (customMessage instanceof CustomMessage)) {
             try {
-                com.baidu.tieba.im.db.g.Ua().Ub();
-                com.baidu.tieba.im.db.i.Uf().E(this.bFl, 1);
-                com.baidu.tieba.im.db.c.TW().hI(this.bFl);
+                com.baidu.tieba.im.db.g.Xg().Xh();
+                com.baidu.tieba.im.db.i.Xl().J(this.bUs, 1);
+                com.baidu.tieba.im.db.c.Xc().ic(this.bUs);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             } finally {
-                com.baidu.tieba.im.db.g.Ua().endTransaction();
+                com.baidu.tieba.im.db.g.Xg().endTransaction();
             }
         }
         return null;

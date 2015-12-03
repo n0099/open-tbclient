@@ -20,7 +20,7 @@ public interface g {
 
         void c(Map<String, String> map);
 
-        void jz();
+        void jA();
 
         void l(int i, String str);
 

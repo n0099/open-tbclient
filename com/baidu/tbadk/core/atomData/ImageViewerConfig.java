@@ -32,6 +32,7 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String PARAM_IS_CDN = "isCdn";
     public static final String PV_TYPE = "pv_type";
     public static final String REVERSE_MODE = "reverse_mode";
+    public static final String SEE_HOST = "see_host";
     public static final String START_ACTIVITY_NORMAL = "start_activity_normal";
     public static final String START_ACTIVITY_TYPE = "start_activity_type";
     public static final String THREAD_ID = "tid";
@@ -47,10 +48,10 @@ public class ImageViewerConfig extends IntentConfig {
     }
 
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, HashMap<String, ImageUrlData> hashMap, boolean z3) {
-        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, hashMap, z3, false);
+        return createConfig(arrayList, i, str, str2, str3, z, str4, z2, hashMap, z3, false, false);
     }
 
-    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, HashMap<String, ImageUrlData> hashMap, boolean z3, boolean z4) {
+    public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, HashMap<String, ImageUrlData> hashMap, boolean z3, boolean z4, boolean z5) {
         Intent intent = getIntent();
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
         if (arrayList != null && arrayList.size() > 0) {
@@ -69,6 +70,7 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(ASSIST_URLS, hashMap);
             intent.putExtra(IS_SHOW_AD, z3);
             intent.putExtra(NEED_BROADCAST, z4);
+            intent.putExtra(SEE_HOST, z5);
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
                 intent.putExtra("user_id", currentAccountObj.getID());

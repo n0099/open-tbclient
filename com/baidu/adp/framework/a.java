@@ -59,7 +59,7 @@ public class a {
         }
     }
 
-    public String s(int i) {
+    public String t(int i) {
         String str = this.ob.get(i);
         if (str != null) {
             return str;

@@ -1,180 +1,82 @@
 package com.baidu.tbadk.core.util;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import android.content.pm.PackageInfo;
+import com.baidu.adp.lib.util.BdLog;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.security.MessageDigest;
 /* loaded from: classes.dex */
 public class az {
-    private static az abA = new ba();
-    private static final Pattern abD = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private List<a> abB;
-    private b abC;
+    private static final char[] yY = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    /* loaded from: classes.dex */
-    public interface a {
-        boolean a(TbPageContext<?> tbPageContext, String[] strArr);
-    }
-
-    /* loaded from: classes.dex */
-    public interface b {
-        void a(TbPageContext<?> tbPageContext, String str, String str2, boolean z, c cVar, boolean z2);
-    }
-
-    /* loaded from: classes.dex */
-    public interface c {
-    }
-
-    private az() {
-        this.abB = new LinkedList();
-        this.abC = null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public /* synthetic */ az(az azVar) {
-        this();
-    }
-
-    public static SpannableString E(Context context, String str) {
-        int start;
-        Matcher matcher = abD.matcher(str);
-        SpannableString spannableString = new SpannableString(str);
-        while (matcher.find()) {
-            String group = matcher.group();
-            String group2 = matcher.group();
-            if (!group2.endsWith(" ")) {
-                group2 = String.valueOf(group2) + " ";
-            }
-            int length = group2.length();
-            spannableString.setSpan(new com.baidu.tbadk.widget.richText.g(2, group), matcher.start(), (length + start) - 1, 33);
+    public static String b(PackageInfo packageInfo) {
+        long j = 0;
+        String c = c(packageInfo);
+        if (c == null || c.length() < 32) {
+            return "-1";
         }
-        return spannableString;
-    }
-
-    public static az uX() {
-        return abA;
-    }
-
-    public void a(a aVar) {
-        if (!this.abB.contains(aVar)) {
-            this.abB.add(aVar);
+        String substring = c.substring(8, 24);
+        long j2 = 0;
+        for (int i = 0; i < 8; i++) {
+            j2 = (j2 * 16) + Integer.parseInt(substring.substring(i, i + 1), 16);
         }
+        for (int i2 = 8; i2 < substring.length(); i2++) {
+            j = (j * 16) + Integer.parseInt(substring.substring(i2, i2 + 1), 16);
+        }
+        return String.valueOf((j + j2) & 4294967295L);
     }
 
-    public void a(b bVar) {
-        this.abC = bVar;
-    }
-
-    public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, c cVar, boolean z2) {
-        boolean z3;
-        if (strArr == null || strArr.length == 0) {
-            return false;
-        }
-        if (this.abB == null) {
-            this.abB = new LinkedList();
-        }
-        Iterator<a> it = this.abB.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                z3 = false;
-                break;
-            }
-            a next = it.next();
-            if (next != null && next.a(tbPageContext, strArr)) {
-                z3 = true;
-                break;
-            }
-        }
-        if (!z3 && this.abC != null) {
-            if (tbPageContext == null) {
-                return false;
-            }
-            b(tbPageContext, "", strArr[0], z, cVar, z2);
-        }
-        return z3;
-    }
-
-    public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, c cVar) {
-        a(tbPageContext, strArr, z, cVar, false);
-    }
-
-    public void a(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z, c cVar, boolean z2) {
-        boolean z3;
-        if (strArr != null && strArr.length != 0 && !TextUtils.isEmpty(strArr[0])) {
-            if (this.abB == null) {
-                this.abB = new LinkedList();
-            }
-            Iterator<a> it = this.abB.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z3 = false;
-                    break;
-                }
-                a next = it.next();
-                if (next != null && next.a(tbPageContext, strArr)) {
-                    z3 = true;
-                    break;
-                }
-            }
-            if (!z3 && this.abC != null) {
-                b(tbPageContext, str, strArr[0], z, cVar, z2);
-            }
-        }
-    }
-
-    public static Map<String, String> dr(String str) {
-        if (TextUtils.isEmpty(str)) {
+    private static String c(PackageInfo packageInfo) {
+        if (packageInfo == null || packageInfo.signatures == null || packageInfo.signatures.length == 0 || packageInfo.signatures[0] == null) {
             return null;
         }
-        HashMap hashMap = new HashMap();
-        String[] split = str.split("[&]");
-        if (split != null) {
-            for (String str2 : split) {
-                String[] split2 = str2.split("[=]");
-                if (split2.length > 1) {
-                    hashMap.put(split2[0], split2[1]);
-                }
+        try {
+            return com.baidu.adp.lib.util.t.B(packageInfo.signatures[0].toCharsString().getBytes());
+        } catch (Exception e) {
+            BdLog.detailException(e);
+            return null;
+        }
+    }
+
+    public static String P(byte[] bArr) {
+        int i = 0;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.update(bArr);
+            byte[] digest = messageDigest.digest();
+            char[] cArr = new char[32];
+            for (int i2 = 0; i2 < 16; i2++) {
+                byte b = digest[i2];
+                int i3 = i + 1;
+                cArr[i] = yY[(b >>> 4) & 15];
+                i = i3 + 1;
+                cArr[i3] = yY[b & 15];
             }
-            return hashMap;
+            return new String(cArr);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static String d(PackageInfo packageInfo) {
+        if (packageInfo == null) {
+            return null;
+        }
+        File file = new File(packageInfo.applicationInfo.publicSourceDir);
+        if (file.exists()) {
+            try {
+                return com.baidu.adp.lib.util.t.f(new FileInputStream(file));
+            } catch (FileNotFoundException e) {
+                BdLog.detailException(e);
+                return null;
+            }
         }
         return null;
     }
 
-    public static String ds(String str) {
-        String[] split;
-        if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
-            return null;
-        }
-        return split[1];
-    }
-
-    public boolean b(TbPageContext<?> tbPageContext, String[] strArr) {
-        return a(tbPageContext, strArr, false, null, false);
-    }
-
-    public void a(TbPageContext<?> tbPageContext, String[] strArr, boolean z) {
-        a(tbPageContext, strArr, false, null, z);
-    }
-
-    public void a(TbPageContext<?> tbPageContext, String str, String[] strArr) {
-        a(tbPageContext, str, strArr, false, null, false);
-    }
-
-    public void a(TbPageContext<?> tbPageContext, String str, String[] strArr, boolean z) {
-        a(tbPageContext, str, strArr, false, null, z);
-    }
-
-    private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, c cVar, boolean z2) {
-        if (abD.matcher(str2).find()) {
-            this.abC.a(tbPageContext, str, str2, z, cVar, z2);
-        }
+    public static String dy(String str) {
+        return com.baidu.adp.lib.util.t.toMd5(str);
     }
 }

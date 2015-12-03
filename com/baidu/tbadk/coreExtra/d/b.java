@@ -8,9 +8,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.i;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.util.au;
+import com.baidu.tbadk.core.util.ab;
+import com.baidu.tbadk.core.util.az;
 import com.baidu.tbadk.core.util.n;
-import com.baidu.tbadk.core.util.w;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        ea(str2);
+                        ej(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        ea(str2);
+                        ej(str2);
                     }
                 }
             }
@@ -68,54 +68,47 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void xE() {
+    public void yB() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String xF() {
+    public String yC() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void ea(String str) {
-        String xF = xF();
-        if (!TextUtils.equals(xF, str) || !eb(xF)) {
-            ai(str, xF);
+    public void ej(String str) {
+        String yC = yC();
+        if (!TextUtils.equals(yC, str) || !ek(yC)) {
+            af(str, yC);
         }
     }
 
-    public void xG() {
-        if (i.iO()) {
-            TbadkSettings inst = TbadkSettings.getInst();
-            ai(inst.loadString("launch_config_remote_url", ""), inst.loadString("launch_config_local_url", ""));
-        }
+    private boolean ek(String str) {
+        File cR = n.cR(az.dy(str));
+        return cR != null && cR.exists() && cR.isFile();
     }
 
-    private boolean eb(String str) {
-        File cJ = n.cJ(au.dn(str));
-        return cJ != null && cJ.exists() && cJ.isFile();
-    }
-
-    private void ai(String str, String str2) {
-        if (i.iO()) {
-            new a(str, au.dn(str), str2).execute(new String[0]);
+    private void af(String str, String str2) {
+        if (i.iQ()) {
+            new a(str, az.dy(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private w Tj = null;
-        private final String Yp;
-        private final String ahv;
-        private final String ahw;
+        private ab Ty = null;
+        private final String Zb;
+        private final String ajh;
+        private final String aji;
 
         public a(String str, String str2, String str3) {
-            this.ahv = str;
-            this.Yp = str2;
-            this.ahw = str3;
+            this.ajh = str;
+            this.Zb = str2;
+            this.aji = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -125,14 +118,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.Tj = new w(this.ahv);
-                bool = Boolean.valueOf(this.Tj.a(String.valueOf(this.Yp) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                this.Ty = new ab(this.ajh);
+                bool = Boolean.valueOf(this.Ty.a(String.valueOf(this.Zb) + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(n.g(null, String.valueOf(this.Yp) + ".tmp", null, this.Yp)) && !TextUtils.isEmpty(this.ahv) && !this.ahv.equals(this.ahw)) {
-                        n.cR(au.dn(this.ahw));
+                    if (!StringUtils.isNull(n.g(null, String.valueOf(this.Zb) + ".tmp", null, this.Zb)) && !TextUtils.isEmpty(this.ajh) && !this.ajh.equals(this.aji)) {
+                        n.cZ(az.dy(this.aji));
                     }
                 } else {
-                    n.cR(String.valueOf(this.Yp) + ".tmp");
+                    n.cZ(String.valueOf(this.Zb) + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -146,7 +139,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute(bool);
             if (bool != null && bool.booleanValue()) {
-                new b().xE();
+                new b().yB();
             }
         }
     }

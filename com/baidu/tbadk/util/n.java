@@ -1,93 +1,74 @@
 package com.baidu.tbadk.util;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TiebaIMConfig;
 /* loaded from: classes.dex */
 public class n {
-    public static boolean e(char c) {
-        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
+    private static final BdUniqueId aAG = BdUniqueId.gen();
+    private static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, aAG);
+
+    public static <T> void a(m<T> mVar, d<T> dVar) {
+        if (mVar != null) {
+            a aVar = new a(mVar, dVar);
+            aVar.setParallel(sBdAsyncTaskParallel);
+            aVar.setTag(aAG);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
+        }
     }
 
-    public static int fQ(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return 0;
+    public static <T> void b(m<T> mVar, d<T> dVar) {
+        if (mVar != null) {
+            a aVar = new a(mVar, dVar);
+            aVar.setParallel(TiebaIMConfig.getParallel());
+            aVar.setTag(aAG);
+            aVar.setPriority(4);
+            aVar.execute(new String[0]);
         }
-        int i = 0;
-        for (int i2 = 0; i2 < str.length(); i2++) {
-            if (e(str.charAt(i2))) {
-                i++;
-            } else {
-                i += 2;
-            }
-        }
-        return i;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r2v0 int)] */
-    public static String eD(int i) {
-        if (i >= 100000000) {
-            return String.valueOf(i / 100000000) + "亿+";
-        }
-        if (i >= 10000) {
-            return String.valueOf(i / 10000) + "万+";
-        }
-        return new StringBuilder().append(i).toString();
-    }
+    /* JADX INFO: Access modifiers changed from: private */
+    /* loaded from: classes.dex */
+    public static class a<T> extends BdAsyncTask<String, Object, T> {
+        private m<T> aAH;
+        private d<T> aAI;
 
-    public static String v(String str, int i) {
-        if (StringUtils.isNull(str)) {
-            return "";
+        public a(m<T> mVar, d<T> dVar) {
+            this.aAH = null;
+            this.aAI = null;
+            this.aAH = mVar;
+            this.aAI = dVar;
         }
-        if (fQ(str) > i) {
-            return String.valueOf(e(str, 0, i - 2)) + "...";
-        }
-        return str;
-    }
 
-    public static String e(String str, int i, int i2) {
-        StringBuilder sb = new StringBuilder();
-        if (TextUtils.isEmpty(str) || i > i2) {
-            return sb.toString();
-        }
-        if (i >= 0 && i2 >= 0) {
-            int i3 = 0;
-            for (int i4 = 0; i4 < str.length(); i4++) {
-                char charAt = str.charAt(i4);
-                if (i3 >= i2) {
-                    return sb.toString();
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public T doInBackground(String... strArr) {
+            try {
+                if (this.aAH == null) {
+                    return null;
                 }
-                if (i3 >= i) {
-                    sb.append(charAt);
-                }
-                if (e(charAt)) {
-                    i3++;
-                } else {
-                    i3 += 2;
-                }
+                return this.aAH.doInBackground();
+            } catch (Throwable th) {
+                BdLog.detailException(th);
+                return null;
             }
         }
-        return sb.toString();
+
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(T t) {
+            if (this.aAI != null) {
+                this.aAI.onReturnDataInUI(t);
+            }
+        }
     }
 
-    public static boolean f(String str, int i, int i2) {
-        if (TextUtils.isEmpty(str) || i > i2 || i < 0 || i2 < 0) {
-            return false;
-        }
-        int i3 = 0;
-        boolean z = false;
-        for (int i4 = 0; i4 < str.length(); i4++) {
-            char charAt = str.charAt(i4);
-            if (i3 >= i2) {
-                return z;
-            }
-            if (e(charAt)) {
-                i3++;
-                z = true;
-            } else {
-                i3 += 2;
-                z = false;
-            }
-        }
-        return false;
+    public static void Fx() {
+        BdAsyncTask.removeAllTask(aAG);
     }
 }

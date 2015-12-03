@@ -8,15 +8,15 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.TbCheckBox;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class o extends BaseAdapter {
-    private final TbPageContextSupport avc;
-    private b bNM = null;
-    private ViewGroup bNN = null;
-    private boolean bNO;
+    private final TbPageContextSupport axg;
+    private b ccQ = null;
+    private ViewGroup ccR = null;
+    private boolean ccS;
     private TbCheckBox.a mCheckBoxStateChangedListener;
     private List<com.baidu.tbadk.coreExtra.relationship.a> mData;
 
@@ -26,12 +26,12 @@ public class o extends BaseAdapter {
     }
 
     public o(TbPageContextSupport tbPageContextSupport, boolean z) {
-        this.avc = tbPageContextSupport;
-        this.bNO = z;
+        this.axg = tbPageContextSupport;
+        this.ccS = z;
     }
 
     public void a(b bVar) {
-        this.bNM = bVar;
+        this.ccQ = bVar;
     }
 
     public void setData(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
@@ -66,8 +66,8 @@ public class o extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
-        if (this.bNN == null) {
-            this.bNN = viewGroup;
+        if (this.ccR == null) {
+            this.ccR = viewGroup;
         }
         com.baidu.tbadk.coreExtra.relationship.a aVar2 = (com.baidu.tbadk.coreExtra.relationship.a) getItem(i);
         if (aVar2 != null) {
@@ -84,42 +84,42 @@ public class o extends BaseAdapter {
     private a a(Object obj, com.baidu.tbadk.coreExtra.relationship.a aVar) {
         a aVar2;
         if (obj == null) {
-            aVar2 = ZG();
+            aVar2 = acM();
         } else {
             aVar2 = (a) obj;
         }
-        if (this.bNM != null) {
-            this.bNM.a(aVar2.rootView, aVar);
+        if (this.ccQ != null) {
+            this.ccQ.a(aVar2.rootView, aVar);
         }
         a(aVar, aVar2, aVar.getUserPortrait());
-        aVar2.aGS.setText(aVar.getUserName());
-        if (this.bNO) {
-            aVar2.bNP.setVisibility(8);
+        aVar2.aJR.setText(aVar.getUserName());
+        if (this.ccS) {
+            aVar2.ccT.setVisibility(8);
         } else {
-            aVar2.bNP.setTagData(aVar);
+            aVar2.ccT.setTagData(aVar);
         }
-        if (this.avc instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.avc).getLayoutMode().k(aVar2.rootView);
+        if (this.axg instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.axg).getLayoutMode().k(aVar2.rootView);
         }
         return aVar2;
     }
 
     private void a(com.baidu.tbadk.coreExtra.relationship.a aVar, a aVar2, String str) {
         if (aVar != null) {
-            aVar2.bNt.setTag(str);
-            aVar2.bNt.d(str, 12, false);
+            aVar2.ccx.setTag(str);
+            aVar2.ccx.d(str, 12, false);
         }
     }
 
-    private a ZG() {
+    private a acM() {
         a aVar = new a();
-        aVar.rootView = LayoutInflater.from(this.avc.getPageContext().getContext()).inflate(i.g.invite_friend_list_item, (ViewGroup) null);
-        aVar.bNt = (HeadImageView) aVar.rootView.findViewById(i.f.photo);
-        aVar.bNt.setIsRound(false);
-        aVar.aGS = (TextView) aVar.rootView.findViewById(i.f.txt_user_name);
-        aVar.bNP = (TbCheckBox) aVar.rootView.findViewById(i.f.ckb_select);
+        aVar.rootView = LayoutInflater.from(this.axg.getPageContext().getContext()).inflate(n.g.invite_friend_list_item, (ViewGroup) null);
+        aVar.ccx = (HeadImageView) aVar.rootView.findViewById(n.f.photo);
+        aVar.ccx.setIsRound(false);
+        aVar.aJR = (TextView) aVar.rootView.findViewById(n.f.txt_user_name);
+        aVar.ccT = (TbCheckBox) aVar.rootView.findViewById(n.f.ckb_select);
         if (this.mCheckBoxStateChangedListener != null) {
-            aVar.bNP.setStatedChangedListener(this.mCheckBoxStateChangedListener);
+            aVar.ccT.setStatedChangedListener(this.mCheckBoxStateChangedListener);
         }
         aVar.rootView.setTag(aVar);
         return aVar;
@@ -127,9 +127,9 @@ public class o extends BaseAdapter {
 
     /* loaded from: classes.dex */
     public class a {
-        public TextView aGS;
-        public TbCheckBox bNP;
-        public HeadImageView bNt;
+        public TextView aJR;
+        public TbCheckBox ccT;
+        public HeadImageView ccx;
         public View rootView;
 
         public a() {

@@ -6,25 +6,25 @@ import com.baidu.adp.framework.message.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g extends HttpMessageListener {
-    final /* synthetic */ f cJu;
+    final /* synthetic */ f dic;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(f fVar, int i) {
         super(i);
-        this.cJu = fVar;
+        this.dic = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003044) {
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003062) {
             if (!(httpResponsedMessage.getError() == 0)) {
                 Message<?> orginalMessage = httpResponsedMessage.getOrginalMessage();
                 if (!(orginalMessage instanceof AdUploadHttpRequest)) {
                     return;
                 }
-                this.cJu.br(((AdUploadHttpRequest) orginalMessage).getDataArray());
+                this.dic.bD(((AdUploadHttpRequest) orginalMessage).getDataArray());
             }
         }
     }

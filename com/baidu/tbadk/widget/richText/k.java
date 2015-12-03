@@ -4,8 +4,8 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class k extends com.baidu.adp.lib.a.b.a.a.i {
-    private boolean aAC;
-    private boolean aAD;
+    private boolean aDm;
+    private boolean aDn;
     private String cdn_src;
     private String link;
     private int mHeight;
@@ -16,8 +16,8 @@ public class k extends com.baidu.adp.lib.a.b.a.a.i {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.aAC = false;
-        this.aAD = true;
+        this.aDm = false;
+        this.aDn = true;
     }
 
     public k(PbContent pbContent) {
@@ -25,8 +25,8 @@ public class k extends com.baidu.adp.lib.a.b.a.a.i {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.aAC = false;
-        this.aAD = true;
+        this.aDm = false;
+        this.aDn = true;
         this.cdn_src = pbContent.cdn_src;
         this.link = pbContent.link;
         String str = pbContent.bsize;
@@ -46,7 +46,7 @@ public class k extends com.baidu.adp.lib.a.b.a.a.i {
             this.mHeight = 1;
         }
         if (this.cdn_src != null && this.cdn_src.indexOf(".baidu.com") != -1) {
-            this.aAC = true;
+            this.aDm = true;
         }
     }
 
@@ -58,7 +58,7 @@ public class k extends com.baidu.adp.lib.a.b.a.a.i {
         return this.mHeight;
     }
 
-    public String Fg() {
+    public String Gj() {
         return this.cdn_src;
     }
 
@@ -66,7 +66,7 @@ public class k extends com.baidu.adp.lib.a.b.a.a.i {
         return this.link;
     }
 
-    public boolean EZ() {
-        return this.aAD;
+    public boolean Gc() {
+        return this.aDn;
     }
 }

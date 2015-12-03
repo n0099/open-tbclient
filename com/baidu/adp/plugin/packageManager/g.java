@@ -1,11 +1,14 @@
 package com.baidu.adp.plugin.packageManager;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.adp.plugin.packageManager.a;
-import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
+import com.baidu.adp.plugin.PluginCenter;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements a.c {
+public class g extends BroadcastReceiver {
     final /* synthetic */ PluginPackageManager this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -13,29 +16,64 @@ public class g implements a.c {
         this.this$0 = pluginPackageManager;
     }
 
-    @Override // com.baidu.adp.plugin.packageManager.a.c
-    public void J(String str, String str2) {
-        PluginSetting findPluginSetting;
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        String str;
+        String str2;
         boolean z;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mo().findPluginSetting(str)) != null) {
-            if (!TextUtils.isEmpty(findPluginSetting.apkPath) && findPluginSetting.apkPath.equals(str2)) {
-                com.baidu.adp.plugin.b.a.lG().d("plugin_setting", "del_unuse_plugin_setting", findPluginSetting.packageName, "apkpath-" + findPluginSetting.apkPath + "-forbidden-" + findPluginSetting.forbidden + "-enable-" + findPluginSetting.enable + "-abandonapkpath-" + findPluginSetting.getAbandon_apk_path() + "-versioncode-" + findPluginSetting.versionCode);
-                com.baidu.adp.plugin.packageManager.pluginSettings.c.mo().bA(str);
-            } else if (!TextUtils.isEmpty(findPluginSetting.getAbandon_apk_path())) {
-                String[] split = findPluginSetting.getAbandon_apk_path().split(",");
-                String str3 = "";
-                for (String str4 : split) {
-                    if (!str2.equals(str4)) {
-                        if (!TextUtils.isEmpty(str3)) {
-                            str3 = String.valueOf(str3) + ",";
+        boolean z2 = true;
+        if (intent != null && "com.baidu.adp.plugin.currentpath".equals(intent.getAction())) {
+            Bundle resultExtras = getResultExtras(true);
+            String str3 = "";
+            if (resultExtras != null) {
+                str3 = resultExtras.getString("package_name");
+            }
+            if (!TextUtils.isEmpty(str3) && resultExtras != null) {
+                str = str3;
+                str2 = resultExtras.getString("current_path");
+            } else if (intent.getExtras() == null) {
+                str = str3;
+                str2 = "";
+            } else {
+                str = intent.getExtras().getString("package_name");
+                str2 = intent.getExtras().getString("current_path");
+            }
+            String str4 = "";
+            if (PluginCenter.getInstance().getPlugin(str) != null) {
+                str4 = PluginCenter.getInstance().getPlugin(str).kq();
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = str4;
+                } else {
+                    String[] split = str2.split(",");
+                    int length = split.length;
+                    int i = 0;
+                    while (true) {
+                        if (i < length) {
+                            if (split[i].equals(str4)) {
+                                break;
+                            }
+                            i++;
+                        } else {
+                            z2 = false;
+                            break;
                         }
-                        str3 = String.valueOf(str3) + str4;
+                    }
+                    if (!z2) {
+                        str2 = String.valueOf(str2) + "," + str4;
                     }
                 }
-                com.baidu.adp.plugin.packageManager.pluginSettings.c mo = com.baidu.adp.plugin.packageManager.pluginSettings.c.mo();
-                z = this.this$0.Dw;
-                mo.b(str, str3, z);
             }
+            Bundle bundle = new Bundle();
+            bundle.putString("package_name", str);
+            bundle.putString("current_path", str2);
+            setResultExtras(bundle);
+            z = this.this$0.DH;
+            if (!z) {
+                return;
+            }
+            this.this$0.I(str, str2);
         }
     }
 }

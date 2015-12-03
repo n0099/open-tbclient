@@ -13,7 +13,6 @@ import com.baidu.cloudsdk.common.imgloader.AsyncImageLoader;
 import com.baidu.cloudsdk.common.imgloader.ImageManager;
 import com.baidu.cloudsdk.common.util.Utils;
 import com.baidu.cloudsdk.social.core.MediaType;
-import com.baidu.cloudsdk.social.core.util.SocialAPIErrorCodes;
 import com.baidu.cloudsdk.social.core.util.Weixin;
 import com.baidu.cloudsdk.social.share.ShareContent;
 import com.baidu.cloudsdk.social.share.SocialShareConfig;
@@ -236,12 +235,12 @@ public class n implements ISocialShareHandler {
     /* JADX INFO: Access modifiers changed from: private */
     public byte[] c(Bitmap bitmap) {
         int i;
-        int i2 = SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED;
+        int i2 = 150;
         if (bitmap != null) {
             if (bitmap.getWidth() >= bitmap.getHeight()) {
-                i = b(bitmap, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
+                i = b(bitmap, 150);
             } else {
-                i2 = c(bitmap, SocialAPIErrorCodes.ERROR_AUTHORIZATION_CANCELED);
+                i2 = c(bitmap, 150);
                 i = 150;
             }
             if (bitmap.getWidth() == i2 && bitmap.getHeight() == i) {

@@ -10,50 +10,50 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class j implements a.c {
-    final /* synthetic */ WriteShareActivity dog;
+    final /* synthetic */ WriteShareActivity dNm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(WriteShareActivity writeShareActivity) {
-        this.dog = writeShareActivity;
+        this.dNm = writeShareActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.c
-    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.l lVar, WriteData writeData, AntiData antiData) {
+    public void a(boolean z, String str, com.baidu.tbadk.coreExtra.data.n nVar, WriteData writeData, AntiData antiData) {
         com.baidu.tieba.write.view.e eVar;
         com.baidu.tieba.write.view.e eVar2;
         com.baidu.tieba.write.view.e eVar3;
         com.baidu.tieba.write.view.e eVar4;
-        this.dog.closeLoadingDialog();
+        this.dNm.closeLoadingDialog();
         if (!z) {
-            if (lVar != null && writeData != null && lVar.getVcode_pic_url() != null) {
-                writeData.setVcodeMD5(lVar.getVcode_md5());
-                writeData.setVcodeUrl(lVar.getVcode_pic_url());
-                this.dog.dnS = true;
-                if (lVar.wu().equals("4")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.dog.getPageContext().getPageActivity(), 12006, writeData, false)));
+            if (nVar != null && writeData != null && nVar.getVcode_pic_url() != null) {
+                writeData.setVcodeMD5(nVar.getVcode_md5());
+                writeData.setVcodeUrl(nVar.getVcode_pic_url());
+                this.dNm.dMY = true;
+                if (nVar.xp().equals("4")) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.dNm.getPageContext().getPageActivity(), 12006, writeData, false)));
                     return;
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.dog.getPageContext().getPageActivity(), writeData, 12006)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.dNm.getPageContext().getPageActivity(), writeData, 12006)));
                     return;
                 }
             }
-            this.dog.aCM();
-            eVar = this.dog.dnV;
+            this.dNm.aIj();
+            eVar = this.dNm.dNb;
             if (eVar != null) {
-                this.dog.dnT = false;
-                eVar2 = this.dog.dnV;
-                eVar2.aDf();
+                this.dNm.dMZ = false;
+                eVar2 = this.dNm.dNb;
+                eVar2.aIC();
                 return;
             }
             return;
         }
-        this.dog.aCL();
-        eVar3 = this.dog.dnU;
+        this.dNm.aIi();
+        eVar3 = this.dNm.dNa;
         if (eVar3 != null) {
-            this.dog.dnT = true;
-            this.dog.setResult(-1);
-            eVar4 = this.dog.dnU;
-            eVar4.aDf();
+            this.dNm.dMZ = true;
+            this.dNm.setResult(-1);
+            eVar4 = this.dNm.dNa;
+            eVar4.aIC();
         }
     }
 }

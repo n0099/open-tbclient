@@ -1,5 +1,6 @@
 package com.baidu.adp.plugin.pluginBase;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.AssetManager;
@@ -20,11 +21,17 @@ public class i extends ContextWrapper {
     }
 
     public void setPluginPackageName(String str) {
+        Application application;
         this.mPackageName = str;
         if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        attachBaseContext(PluginCenter.getInstance().getPlugin(this.mPackageName).getApplication().getBaseContext());
+        com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
+        if (plugin2 != null && (application = plugin2.getApplication()) != null) {
+            attachBaseContext(application.getBaseContext());
+        } else {
+            com.baidu.adp.plugin.b.a.lI().bl("PLUGIN_PCW_SPPN_NULL");
+        }
     }
 
     public String getPluginPackageName() {
@@ -36,7 +43,7 @@ public class i extends ContextWrapper {
         if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
             throw new RuntimeException("plugin is not loaded");
         }
-        return PluginCenter.getInstance().getPlugin(this.mPackageName).kr();
+        return PluginCenter.getInstance().getPlugin(this.mPackageName).ks();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -49,14 +56,14 @@ public class i extends ContextWrapper {
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mo().findPluginSetting(this.mPackageName);
+        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.mr().findPluginSetting(this.mPackageName);
         if (findPluginSetting != null && findPluginSetting.isThird) {
             if (!PluginCenter.getInstance().isLoaded(this.mPackageName)) {
                 throw new RuntimeException("plugin is not loaded");
             }
             com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(this.mPackageName);
             if (plugin2 != null) {
-                return plugin2.ks();
+                return plugin2.kt();
             }
         } else {
             Resources resources = j.dK().getResources();

@@ -1,48 +1,42 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.widget.LinearLayout;
+import android.view.View;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes.dex */
-class n implements com.baidu.adp.lib.e.c<LinearLayout> {
-    final /* synthetic */ NewSubPbActivity cnS;
+class n implements com.baidu.adp.lib.f.c<View> {
+    final /* synthetic */ NewSubPbActivity cHd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(NewSubPbActivity newSubPbActivity) {
-        this.cnS = newSubPbActivity;
+        this.cHd = newSubPbActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: agd */
-    public LinearLayout ha() {
-        LinearLayout linearLayout = new LinearLayout(this.cnS.getPageContext().getPageActivity());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        linearLayout.setLayoutParams(layoutParams);
-        linearLayout.setGravity(16);
-        linearLayout.setBaselineAligned(true);
-        linearLayout.setOrientation(0);
-        linearLayout.setLayoutParams(layoutParams);
-        return linearLayout;
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: aku */
+    public View hc() {
+        return new PlayVoiceBnt(this.cHd.getPageContext().getPageActivity(), PlayVoiceBnt.PLAY_TYPE.NORMAL);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: g */
-    public void l(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: ae */
+    public void l(View view) {
+        ((PlayVoiceBnt) view).reset();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: h */
-    public LinearLayout m(LinearLayout linearLayout) {
-        return linearLayout;
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: af */
+    public View m(View view) {
+        return view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: i */
-    public LinearLayout n(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-        return linearLayout;
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: ag */
+    public View n(View view) {
+        ((PlayVoiceBnt) view).reset();
+        return view;
     }
 }

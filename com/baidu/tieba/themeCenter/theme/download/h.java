@@ -8,108 +8,108 @@ import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import com.baidu.tieba.themeCenter.SkinItemView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private NoNetworkView aRi;
-    private DownloadedThemeListActivity diW;
-    private TextView diX;
-    private com.baidu.tieba.themeCenter.theme.all.c diq;
+    private NoNetworkView aWm;
+    private com.baidu.tieba.themeCenter.theme.all.c dGA;
+    private DownloadedThemeListActivity dHg;
+    private TextView dHh;
     private BdListView mListView;
     private NavigationBar mNavigationBar;
     private View mRoot;
-    private boolean diU = true;
-    private boolean diM = false;
+    private boolean dHe = true;
+    private boolean dGX = false;
 
     public h(DownloadedThemeListActivity downloadedThemeListActivity, SkinItemView.a aVar) {
-        this.diW = downloadedThemeListActivity;
-        this.mRoot = LayoutInflater.from(this.diW.getPageContext().getPageActivity()).inflate(i.g.downloaded_theme_list_activity_layout, (ViewGroup) null);
-        this.diW.setContentView(this.mRoot);
-        this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(i.f.view_navigation_bar);
+        this.dHg = downloadedThemeListActivity;
+        this.mRoot = LayoutInflater.from(this.dHg.getPageContext().getPageActivity()).inflate(n.g.downloaded_theme_list_activity_layout, (ViewGroup) null);
+        this.dHg.setContentView(this.mRoot);
+        this.mNavigationBar = (NavigationBar) this.mRoot.findViewById(n.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(i.h.themes_downloaded);
-        this.diX = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, i.g.navigation_right_button_layout, (View.OnClickListener) null).findViewById(i.f.right_textview);
-        this.diX.setText(i.h.theme_manager);
-        this.aRi = (NoNetworkView) this.mRoot.findViewById(i.f.view_no_network);
-        this.mListView = (BdListView) this.mRoot.findViewById(i.f.downloaded_theme_listview);
-        this.diq = new com.baidu.tieba.themeCenter.theme.all.c(this.diW.getPageContext(), aVar);
-        this.mListView.setAdapter((ListAdapter) this.diq);
+        this.mNavigationBar.setTitleText(n.i.themes_downloaded);
+        this.dHh = (TextView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, n.g.navigation_right_button_layout, (View.OnClickListener) null).findViewById(n.f.right_textview);
+        this.dHh.setText(n.i.theme_manager);
+        this.aWm = (NoNetworkView) this.mRoot.findViewById(n.f.view_no_network);
+        this.mListView = (BdListView) this.mRoot.findViewById(n.f.downloaded_theme_listview);
+        this.dGA = new com.baidu.tieba.themeCenter.theme.all.c(this.dHg.getPageContext(), aVar);
+        this.mListView.setAdapter((ListAdapter) this.dGA);
     }
 
-    public void bG(List<com.baidu.tieba.themeCenter.theme.top.a> list) {
+    public void bU(List<com.baidu.tieba.themeCenter.theme.top.a> list) {
         if (list == null || list.size() <= 0) {
-            KD();
+            LY();
             return;
         }
-        aAr();
-        KE();
-        this.diq.setData(list);
-        this.diq.notifyDataSetChanged();
+        aFC();
+        LZ();
+        this.dGA.setData(list);
+        this.dGA.notifyDataSetChanged();
     }
 
-    public void KD() {
+    public void LY() {
         this.mListView.setVisibility(8);
-        this.diW.showNetRefreshView(this.mRoot, this.diW.getPageContext().getResources().getString(i.h.no_data_text), false);
+        this.dHg.showNetRefreshView(this.mRoot, this.dHg.getPageContext().getResources().getString(n.i.no_data_text), false);
     }
 
-    public void KE() {
+    public void LZ() {
         this.mListView.setVisibility(0);
-        this.diW.hideNetRefreshView(this.mRoot);
+        this.dHg.hideNetRefreshView(this.mRoot);
     }
 
-    public void aAr() {
-        if (this.diU) {
-            this.diX.setVisibility(0);
+    public void aFC() {
+        if (this.dHe) {
+            this.dHh.setVisibility(0);
             return;
         }
-        this.diX.setVisibility(8);
-        this.diM = false;
+        this.dHh.setVisibility(8);
+        this.dGX = false;
     }
 
-    public void tc() {
-        this.diW.getLayoutMode().ad(TbadkApplication.getInst().getSkinType() == 1);
-        this.diW.getLayoutMode().k(this.mRoot);
+    public void tH() {
+        this.dHg.getLayoutMode().af(TbadkApplication.getInst().getSkinType() == 1);
+        this.dHg.getLayoutMode().k(this.mRoot);
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.diW.getPageContext(), TbadkApplication.getInst().getSkinType());
+            this.mNavigationBar.onChangeSkinType(this.dHg.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.aRi != null && this.aRi.getVisibility() == 0) {
-            this.aRi.onChangeSkinType(this.diW.getPageContext(), TbadkApplication.getInst().getSkinType());
+        if (this.aWm != null && this.aWm.getVisibility() == 0) {
+            this.aWm.onChangeSkinType(this.dHg.getPageContext(), TbadkApplication.getInst().getSkinType());
         }
-        if (this.mListView != null && this.mListView.getVisibility() == 0 && this.diq != null) {
-            this.diq.notifyDataSetChanged();
+        if (this.mListView != null && this.mListView.getVisibility() == 0 && this.dGA != null) {
+            this.dGA.notifyDataSetChanged();
         }
-        an.b(this.diX, i.c.navi_op_text, 1);
+        as.b(this.dHh, n.c.navi_op_text, 1);
     }
 
-    public boolean aAs() {
-        if (this.diM) {
-            this.diX.setText(i.h.theme_manager);
-            this.diM = false;
+    public boolean aFD() {
+        if (this.dGX) {
+            this.dHh.setText(n.i.theme_manager);
+            this.dGX = false;
         } else {
-            this.diX.setText(i.h.theme_edit_down);
-            this.diM = true;
+            this.dHh.setText(n.i.theme_edit_down);
+            this.dGX = true;
             TiebaStatic.log("c10274");
         }
-        return this.diM;
+        return this.dGX;
     }
 
     public boolean isInEditMode() {
-        return this.diM;
+        return this.dGX;
     }
 
-    public TextView aAt() {
-        return this.diX;
+    public TextView aFE() {
+        return this.dHh;
     }
 
-    public void gO(boolean z) {
-        this.diU = z;
+    public void hw(boolean z) {
+        this.dHe = z;
         if (!z) {
-            this.diM = false;
+            this.dGX = false;
         }
     }
 }

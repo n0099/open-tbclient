@@ -1,28 +1,31 @@
 package com.baidu.tieba.person;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.person.EditHeadActivity;
+import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class n implements a.b {
-    final /* synthetic */ EditHeadActivity.a cqc;
+public class n implements View.OnClickListener {
+    private final /* synthetic */ String cJt;
+    final /* synthetic */ EditHeadActivity this$0;
+    private final /* synthetic */ int val$id;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(EditHeadActivity.a aVar) {
-        this.cqc = aVar;
+    public n(EditHeadActivity editHeadActivity, String str, int i) {
+        this.this$0 = editHeadActivity;
+        this.cJt = str;
+        this.val$id = i;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        EditHeadActivity editHeadActivity;
-        MessageManager messageManager = MessageManager.getInstance();
-        editHeadActivity = EditHeadActivity.this;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(editHeadActivity.getPageContext().getPageActivity(), PluginCenter.NAME_MOTUSDK)));
-        aVar.dismiss();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        String str;
+        if (this.this$0.mProgress.getVisibility() != 0) {
+            String str2 = this.cJt;
+            str = this.this$0.cJm;
+            if (!str2.equals(str)) {
+                this.this$0.F(this.cJt, true);
+                this.this$0.kS(this.cJt);
+                this.this$0.cJk = this.val$id;
+            }
+        }
     }
 }

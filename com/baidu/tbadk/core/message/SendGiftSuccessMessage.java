@@ -24,14 +24,15 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
 
     /* loaded from: classes.dex */
     public static class a {
-        private int XQ;
-        private String XR;
+        private int YC;
+        private String YD;
         private int count;
         private String name;
+        private String threadId;
         private String url;
 
         public void setId(int i) {
-            this.XQ = i;
+            this.YC = i;
         }
 
         public String getName() {
@@ -58,8 +59,12 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
             this.url = str;
         }
 
-        public void cx(String str) {
-            this.XR = str;
+        public void cF(String str) {
+            this.YD = str;
+        }
+
+        public void setThreadId(String str) {
+            this.threadId = str;
         }
     }
 }

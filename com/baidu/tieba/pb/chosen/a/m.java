@@ -1,48 +1,79 @@
 package com.baidu.tieba.pb.chosen.a;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class m {
-    private TextView bqq;
-    private RelativeLayout cgE;
-    private TextView cgF;
-    private ImageView cgG;
-    private View rootView;
+public final class m extends LinearLayout {
+    private TextView aEp;
+    private TextView agd;
+    private TbImageView bGf;
+    private EditText bkR;
+    private LinearLayout mRootView;
 
-    public m(View view) {
-        this.rootView = view;
-        this.cgE = (RelativeLayout) view.findViewById(i.f.chosen_pb_reply_text);
-        this.bqq = (TextView) view.findViewById(i.f.chosen_pb_reply_comment);
-        this.cgF = (TextView) view.findViewById(i.f.chosen_pb_reply_number);
-        this.cgG = (ImageView) view.findViewById(i.f.chosen_pb_reply_share);
+    public EditText getChatMsgView() {
+        return this.bkR;
     }
 
-    public void z(View.OnClickListener onClickListener) {
-        this.cgE.setOnClickListener(onClickListener);
+    public void x(String str, boolean z) {
+        if (this.bGf != null) {
+            this.bGf.d(str, z ? 17 : 18, false);
+        }
     }
 
-    public void setVisible(boolean z) {
-        this.rootView.setVisibility(z ? 0 : 8);
+    public m(Context context) {
+        super(context);
+        as(context);
     }
 
-    public void A(View.OnClickListener onClickListener) {
-        this.cgG.setOnClickListener(onClickListener);
+    private void as(Context context) {
+        LayoutInflater.from(context).inflate(n.g.thread_to_group_share_view, this);
+        setOrientation(1);
+        this.mRootView = (LinearLayout) findViewById(n.f.share_content);
+        this.agd = (TextView) findViewById(n.f.share_title_view);
+        as.b(this.agd, n.c.cp_cont_b, 1);
+        this.bkR = (EditText) findViewById(n.f.chat_msg);
+        this.bGf = (TbImageView) findViewById(n.f.chat_group_img);
+        this.aEp = (TextView) findViewById(n.f.chat_group_desc);
+        as.b(this.bkR, n.c.cp_cont_b, 2);
+        as.b(this.aEp, n.c.cp_cont_f, 1);
+        this.bkR.setHintTextColor(as.getColor(n.c.cp_cont_e));
+        this.bkR.setPadding(context.getResources().getDimensionPixelSize(n.d.ds20), 0, 0, 0);
+        Qb();
     }
 
-    public void jH(String str) {
-        this.cgF.setText(str);
+    public void Qb() {
+        this.mRootView.setFocusable(true);
+        this.mRootView.setFocusableInTouchMode(true);
+        this.mRootView.requestFocus();
     }
 
-    public void tc() {
-        an.i(this.rootView, i.e.bg_rec_lick);
-        an.i(this.cgE, i.e.bg_rec_comment);
-        an.b(this.bqq, i.c.cp_cont_c, 1);
-        an.b(this.cgF, i.c.cp_cont_e, 1);
-        an.c(this.cgG, i.e.recommend_pb_share_selector);
+    public void setDesc(String str) {
+        if (this.aEp != null) {
+            this.aEp.setText(str);
+        }
+    }
+
+    public void setTitle(String str) {
+        if (this.agd != null) {
+            this.agd.setText(str);
+        }
+    }
+
+    public String getLeaveMsg() {
+        if (this.bkR != null) {
+            return com.baidu.adp.lib.util.j.a(this.bkR.getText(), null);
+        }
+        return null;
+    }
+
+    @Override // android.widget.LinearLayout, android.view.ViewGroup
+    protected LinearLayout.LayoutParams generateDefaultLayoutParams() {
+        return new LinearLayout.LayoutParams(-1, -2);
     }
 }

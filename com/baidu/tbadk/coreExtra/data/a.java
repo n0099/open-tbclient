@@ -1,49 +1,41 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.data.UserData;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import android.content.Context;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<String> UW;
-    private UserData mUser;
+    private final int ahD;
+    private final int ahE;
+    private final boolean ahF;
+    private final Context mContext;
 
-    public a() {
-        this.mUser = null;
-        this.UW = null;
-        this.mUser = new UserData();
-        this.UW = new ArrayList<>(3);
+    public a(Context context, int i, int i2, boolean z) {
+        this.mContext = context;
+        this.ahD = i;
+        this.ahE = i2;
+        this.ahF = z;
     }
 
-    public UserData getUser() {
-        return this.mUser;
+    public a(Context context, int i, int i2) {
+        this(context, i, i2, false);
     }
 
-    public ArrayList<String> wg() {
-        return this.UW;
+    public Context getContext() {
+        return this.mContext;
     }
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public int wX() {
+        return this.ahD;
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.mUser.parserJson(jSONObject.optJSONObject("user"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.UW.add(optJSONArray.optString(i, null));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+    public int wY() {
+        return this.ahE;
+    }
+
+    public boolean wZ() {
+        return this.ahF;
+    }
+
+    public boolean isAvailable() {
+        return this.mContext != null && this.ahD > 0 && this.ahE > 0;
     }
 }

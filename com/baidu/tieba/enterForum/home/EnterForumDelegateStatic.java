@@ -7,7 +7,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
@@ -18,22 +18,22 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.atN = new d();
+        cVar.avR = new e();
         cVar.type = 1;
-        cVar.atO = i.h.home;
-        cVar.atP = i.e.s_icon_tabbar_enterforum;
+        cVar.avS = n.i.home;
+        cVar.avT = n.e.s_icon_tabbar_enterforum;
         return cVar;
     }
 
     static {
-        w wVar = new w(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
-        wVar.setPriority(2);
-        MessageManager.getInstance().registerListener(wVar);
+        d dVar = new d(CmdConfigCustom.MAINTAB_ADD_FRAGMENT);
+        dVar.setPriority(3);
+        MessageManager.getInstance().registerListener(dVar);
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator getTabIndicator(Context context) {
-        this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(i.g.fragmenttabindicator, (ViewGroup) null);
+        this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(n.g.fragmenttabindicator, (ViewGroup) null);
         return this.mIndicator;
     }
 }

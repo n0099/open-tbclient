@@ -8,30 +8,31 @@ import com.baidu.tbadk.core.util.n;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class f {
-    public static final String aiZ = n.xU + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public String aiW;
-    public String aiX;
-    public boolean aiS = false;
-    public boolean aiT = false;
-    public boolean aiU = false;
+    public static final String akN = n.ya + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public String akK;
+    public String akL;
+    public boolean akG = false;
+    public boolean akH = false;
+    public boolean akI = false;
+    public boolean isFromPhotoLive = false;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
     public Uri imageUri = null;
     public Location location = null;
-    private WeakReference<Bitmap> aiY = null;
-    public String aiV = null;
+    private WeakReference<Bitmap> akM = null;
+    public String akJ = null;
     public String extData = null;
 
     public Bitmap getImageData() {
         Bitmap bitmap;
-        if (this.aiY == null || (bitmap = this.aiY.get()) == null || bitmap.isRecycled()) {
+        if (this.akM == null || (bitmap = this.akM.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void j(Bitmap bitmap) {
-        this.aiY = new WeakReference<>(bitmap);
+        this.akM = new WeakReference<>(bitmap);
     }
 }

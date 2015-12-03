@@ -1,22 +1,22 @@
 package com.baidu.tieba.signall;
 
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class e implements ae {
+public class e implements aj {
     private String avatar;
-    private boolean cRA;
-    private boolean cRB;
-    private int cRC;
-    private int cRt;
-    private int cRu;
-    private int cRv;
-    private int cRw;
-    private int cRx;
-    private boolean cRy;
-    private boolean cRz;
+    private int bqr;
+    private int dpQ;
+    private int dpR;
+    private int dpS;
+    private int dpT;
+    private boolean dpU;
+    private boolean dpV;
+    private boolean dpW;
+    private boolean dpX;
+    private int dpY;
     private String errorMsg;
     private int forumId;
     private String forumName;
@@ -33,70 +33,70 @@ public class e implements ae {
         return this.avatar;
     }
 
-    public int aud() {
-        return this.cRt;
+    public int azF() {
+        return this.dpQ;
     }
 
-    public int aue() {
-        return this.cRu;
+    public int azG() {
+        return this.dpR;
     }
 
-    public int auf() {
-        return this.cRv;
+    public int RI() {
+        return this.bqr;
     }
 
-    public int aug() {
-        return this.cRw;
+    public int azH() {
+        return this.dpS;
     }
 
-    public int auh() {
-        return this.cRx;
+    public int azI() {
+        return this.dpT;
     }
 
-    public void kR(int i) {
-        this.cRt = i;
+    public void ma(int i) {
+        this.dpQ = i;
     }
 
-    public void kS(int i) {
-        this.cRu = i;
+    public void mb(int i) {
+        this.dpR = i;
     }
 
-    public void kT(int i) {
-        this.cRv = i;
+    public void gV(int i) {
+        this.bqr = i;
     }
 
-    public boolean aui() {
-        return this.cRy;
+    public boolean azJ() {
+        return this.dpU;
     }
 
-    public void gj(boolean z) {
-        this.cRy = z;
-        this.cRt = 1;
+    public void gY(boolean z) {
+        this.dpU = z;
+        this.dpQ = 1;
     }
 
-    public boolean auj() {
-        return this.cRA;
+    public boolean azK() {
+        return this.dpW;
     }
 
-    public void gk(boolean z) {
-        this.cRA = z;
-        this.cRt = 0;
+    public void gZ(boolean z) {
+        this.dpW = z;
+        this.dpQ = 0;
     }
 
-    public boolean auk() {
-        return this.cRB;
+    public boolean azL() {
+        return this.dpX;
     }
 
-    public void gl(boolean z) {
-        this.cRB = z;
+    public void ha(boolean z) {
+        this.dpX = z;
     }
 
-    public int aul() {
-        return this.cRC;
+    public int azM() {
+        return this.dpY;
     }
 
-    public void kU(int i) {
-        this.cRC = i;
+    public void mc(int i) {
+        this.dpY = i;
     }
 
     public String getErrorMsg() {
@@ -107,12 +107,12 @@ public class e implements ae {
         this.errorMsg = str;
     }
 
-    public boolean aum() {
-        return this.cRz;
+    public boolean azN() {
+        return this.dpV;
     }
 
-    public void gm(boolean z) {
-        this.cRz = z;
+    public void hb(boolean z) {
+        this.dpV = z;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -120,25 +120,25 @@ public class e implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.cRt = jSONObject.optInt("is_sign_in");
-            this.cRu = jSONObject.optInt("cont_sign_num");
-            this.cRv = jSONObject.optInt("user_level");
-            this.cRw = jSONObject.optInt("user_exp");
-            this.cRx = jSONObject.optInt("need_exp");
-            if (this.cRt != 0) {
-                this.cRy = true;
-                this.cRA = false;
+            this.dpQ = jSONObject.optInt("is_sign_in");
+            this.dpR = jSONObject.optInt("cont_sign_num");
+            this.bqr = jSONObject.optInt("user_level");
+            this.dpS = jSONObject.optInt("user_exp");
+            this.dpT = jSONObject.optInt("need_exp");
+            if (this.dpQ != 0) {
+                this.dpU = true;
+                this.dpW = false;
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.util.ae
-    public ArrayList<ad> getImages() {
-        ArrayList<ad> arrayList = new ArrayList<>();
-        ad adVar = new ad();
-        adVar.Wd = this.avatar;
-        adVar.aaD = 10;
-        arrayList.add(adVar);
+    @Override // com.baidu.tbadk.core.util.aj
+    public ArrayList<ai> getImages() {
+        ArrayList<ai> arrayList = new ArrayList<>();
+        ai aiVar = new ai();
+        aiVar.WN = this.avatar;
+        aiVar.abp = 10;
+        arrayList.add(aiVar);
         return arrayList;
     }
 }

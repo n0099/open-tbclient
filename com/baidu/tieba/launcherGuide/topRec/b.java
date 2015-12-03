@@ -1,19 +1,19 @@
 package com.baidu.tieba.launcherGuide.topRec;
 
-import com.baidu.tbadk.core.view.p;
+import com.baidu.tbadk.core.view.q;
 /* loaded from: classes.dex */
-class b implements p.a {
-    final /* synthetic */ TopRecActivity bTq;
+class b implements q.a {
+    final /* synthetic */ TopRecActivity cjE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(TopRecActivity topRecActivity) {
-        this.bTq = topRecActivity;
+        this.cjE = topRecActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.p.a
+    @Override // com.baidu.tbadk.core.view.q.a
     public void onListPullRefresh(boolean z) {
         h hVar;
-        hVar = this.bTq.bTi;
+        hVar = this.cjE.cjw;
         hVar.LoadData();
     }
 }

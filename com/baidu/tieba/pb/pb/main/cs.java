@@ -1,19 +1,145 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.x;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.n;
+import com.baidu.tieba.pb.pb.sub.SubPbLayout;
+import com.baidu.tieba.pb.view.BaobaoTailView;
+import com.baidu.tieba.pb.view.PbGiftListView;
+import com.baidu.tieba.tbadkCore.FrsPraiseView;
 /* loaded from: classes.dex */
-public class cs {
-    public static Intent L(Context context, String str) {
-        if (TextUtils.isEmpty(str) || context == null) {
-            return null;
+public class cs extends x.a {
+    public TextView aJR;
+    UserIconBox aYE;
+    public TextView bEX;
+    public UserIconBox bjY;
+    public View cAD;
+    public View cAE;
+    public View cAF;
+    public View cAG;
+    public View cAH;
+    public HeadImageView cAI;
+    public ImageView cAJ;
+    public ImageView cAK;
+    public ImageView cAL;
+    public TextView cAM;
+    public ImageView cAN;
+    public ImageView cAO;
+    public RelativeLayout cAP;
+    public LinearLayout cAQ;
+    public ImageView cAR;
+    public SubPbLayout cAS;
+    public BaobaoTailView cAT;
+    public LinearLayout cAU;
+    public TextView cAV;
+    public LinearLayout cAW;
+    public Button cAX;
+    public LinearLayout cAY;
+    public TextView cAZ;
+    public FrsPraiseView cAa;
+    public ImageView cAb;
+    public PbGiftListView cAc;
+    public View cBa;
+    public View cBb;
+    public LinearLayout cBc;
+    public ImageView cBd;
+    public TextView cBe;
+    public LinearLayout cBf;
+    public ImageView cBg;
+    public TextView cBh;
+    public TextView cBi;
+    public ImageView cCS;
+    public RelativeLayout cDZ;
+    public TbRichTextView czX;
+    public View czZ;
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [135=5] */
+    public cs(View view, boolean z, boolean z2, int i, boolean z3) {
+        super(view);
+        this.cAH = view.findViewById(n.f.sub_pb_more);
+        this.cAI = (HeadImageView) view.findViewById(n.f.photo);
+        this.aJR = (TextView) view.findViewById(n.f.user_name);
+        this.cAJ = (ImageView) view.findViewById(n.f.user_rank);
+        this.cAK = (ImageView) view.findViewById(n.f.user_bawu);
+        this.cAL = (ImageView) view.findViewById(n.f.user_gender);
+        this.cAO = (ImageView) view.findViewById(n.f.reply);
+        this.czX = (TbRichTextView) view.findViewById(n.f.richText);
+        this.cAc = (PbGiftListView) view.findViewById(n.f.gift_list_view);
+        this.czZ = view.findViewById(n.f.pb_item_praise_topline);
+        this.cAa = (FrsPraiseView) view.findViewById(n.f.pb_item_praise_view);
+        this.cAb = (ImageView) view.findViewById(n.f.pb_item_praise_bottomline);
+        this.cBc = (LinearLayout) view.findViewById(n.f.pb_item_location_container);
+        this.cBe = (TextView) view.findViewById(n.f.pb_item_location_address);
+        this.cBd = (ImageView) view.findViewById(n.f.pb_item_location_img);
+        this.cBf = (LinearLayout) view.findViewById(n.f.pb_reply_location_container);
+        this.cBh = (TextView) view.findViewById(n.f.pb_reply_location_address);
+        this.cBg = (ImageView) view.findViewById(n.f.pb_reply_location_img);
+        this.cAN = (ImageView) view.findViewById(n.f.floor_owner);
+        this.cAM = (TextView) view.findViewById(n.f.floor);
+        this.bEX = (TextView) view.findViewById(n.f.time);
+        this.cAP = (RelativeLayout) view.findViewById(n.f.pb_post_header_layout);
+        this.cAS = (SubPbLayout) view.findViewById(n.f.pb_post_footer_layout);
+        this.cAQ = (LinearLayout) view.findViewById(n.f.pb_subpb_layout_root);
+        this.cAR = (ImageView) view.findViewById(n.f.pb_post_footer_layout_line_top);
+        this.cAD = view;
+        this.cAE = view.findViewById(n.f.new_pb_list_item_line_top);
+        this.cAF = view.findViewById(n.f.new_pb_list_item_line_top_full);
+        this.cAG = view.findViewById(n.f.new_pb_list_item_blank_top);
+        this.czX.Go();
+        this.czX.setImageViewStretch(true);
+        int min = Math.min(((((com.baidu.adp.lib.util.k.K(TbadkCoreApplication.m411getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.czX.getPaddingLeft()) - this.czX.getPaddingRight()) - ((int) TbadkCoreApplication.m411getInst().getResources().getDimension(n.d.ds60)), i);
+        this.czX.setMaxImageWidth(min);
+        this.czX.setMaxImageHeight((int) (min * 1.618f));
+        this.czX.setTextSize(TbConfig.getContentSize());
+        if (z) {
+            ViewGroup.LayoutParams layoutParams = this.cAI.getLayoutParams();
+            layoutParams.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(n.d.ds60);
+            this.cAI.setLayoutParams(layoutParams);
+            this.cAI.setVisibility(0);
+        } else {
+            ViewGroup.LayoutParams layoutParams2 = this.cAI.getLayoutParams();
+            layoutParams2.width = (int) TbadkCoreApplication.m411getInst().getResources().getDimension(n.d.ds30);
+            this.cAI.setLayoutParams(layoutParams2);
+            this.cAI.setVisibility(4);
         }
-        Intent intent = new Intent(context, DealIntentService.class);
-        intent.putExtra("class", 1);
-        intent.putExtra("id", str);
-        intent.putExtra("from", "nas");
-        return intent;
+        this.czX.f(z2, false);
+        this.czX.setVoiceViewRes(n.g.voice_play_btn);
+        this.bjY = (UserIconBox) view.findViewById(n.f.user_icon_box);
+        this.aYE = (UserIconBox) view.findViewById(n.f.user_tshow_icon_box);
+        this.cAU = (LinearLayout) view.findViewById(n.f.add_post_footer_layout);
+        if (z3) {
+            this.cAP.setVisibility(8);
+            this.cAO.setVisibility(8);
+            this.czX.setPadding(0, 0, 0, 0);
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.czX.getLayoutParams();
+            layoutParams3.leftMargin = 0;
+            layoutParams3.rightMargin = 0;
+            layoutParams3.topMargin = 0;
+            layoutParams3.bottomMargin = 0;
+            this.czX.setLayoutParams(layoutParams3);
+            view.findViewById(n.f.pb_list_item_layout).setPadding(0, 0, 0, 0);
+            this.cAW = (LinearLayout) view.findViewById(n.f.add_time_container);
+            this.cAV = (TextView) view.findViewById(n.f.add_time);
+            this.cAX = (Button) view.findViewById(n.f.manage_btn);
+            this.cAW.setVisibility(0);
+        }
+        this.cAY = (LinearLayout) view.findViewById(n.f.addition_more_container);
+        this.cAZ = (TextView) this.cAY.findViewById(n.f.addition_more);
+        this.cBa = this.cAY.findViewById(n.f.addition_divider1);
+        this.cBb = this.cAY.findViewById(n.f.addition_divider2);
+        this.cAT = (BaobaoTailView) view.findViewById(n.f.baobao_tail);
+        this.cBi = (TextView) view.findViewById(n.f.pb_item_tail_content);
+        this.cCS = (ImageView) view.findViewById(n.f.replybtn);
     }
 }

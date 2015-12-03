@@ -6,28 +6,28 @@ import android.view.animation.Animation;
 import com.baidu.tieba.recommendfrs.indicator.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class j extends com.baidu.adp.lib.g.d {
-    final /* synthetic */ h cKQ;
+public class j extends com.baidu.adp.lib.h.d {
+    final /* synthetic */ h djm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(h hVar) {
-        this.cKQ = hVar;
+        this.djm = hVar;
     }
 
-    @Override // com.baidu.adp.lib.g.d, android.view.animation.Animation.AnimationListener
+    @Override // com.baidu.adp.lib.h.d, android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         h.a aVar;
         ViewGroup viewGroup;
         View view;
         h.a aVar2;
-        this.cKQ.aqm = false;
-        aVar = this.cKQ.cKO;
+        this.djm.asq = false;
+        aVar = this.djm.djk;
         if (aVar != null) {
-            aVar2 = this.cKQ.cKO;
-            aVar2.arc();
+            aVar2 = this.djm.djk;
+            aVar2.awA();
         }
-        viewGroup = this.cKQ.cKN;
-        view = this.cKQ.rootView;
+        viewGroup = this.djm.djj;
+        view = this.djm.rootView;
         viewGroup.removeView(view);
     }
 }

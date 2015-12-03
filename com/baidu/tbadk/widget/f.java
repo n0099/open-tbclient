@@ -1,38 +1,78 @@
 package com.baidu.tbadk.widget;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class f extends CustomMessageListener {
-    final /* synthetic */ TbImageView azQ;
+public class f extends ImageSpan {
+    private WeakReference<Drawable> Fv;
+    private int aCg;
+    private int paddingLeft;
+    private int paddingRight;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f(TbImageView tbImageView, int i) {
-        super(i);
-        this.azQ = tbImageView;
+    public f(Drawable drawable) {
+        super(drawable);
+        this.aCg = 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        String str;
-        int i;
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            String str2 = (String) customResponsedMessage.getData();
-            com.baidu.adp.lib.f.c hb = com.baidu.adp.lib.f.c.hb();
-            str = this.azQ.mUrl;
-            i = this.azQ.mType;
-            String f = hb.f(str, i);
-            if (f != null && f.equals(str2)) {
-                this.azQ.destroyDrawingCache();
-                com.baidu.adp.lib.a.a.a.a("destroyLayer", this.azQ, TbImageView.class);
-                com.baidu.adp.lib.a.a.a.a("destroyLayer", this.azQ, TbImageView.class, false);
-                com.baidu.adp.lib.a.a.a.a("clearDisplayList", this.azQ, TbImageView.class);
-                com.baidu.adp.lib.a.a.a.a("resetDisplayList", this.azQ, TbImageView.class);
-                this.azQ.invalidate();
-            }
+    public void eT(int i) {
+        this.paddingLeft = i;
+    }
+
+    public void eU(int i) {
+        this.paddingRight = i;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        Drawable mJ = mJ();
+        if (mJ == null) {
+            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
+        Rect bounds = mJ.getBounds();
+        if (fontMetricsInt != null) {
+            Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+            int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+            int i4 = bounds.bottom - bounds.top;
+            int i5 = (i4 / 2) - (i3 / 4);
+            int i6 = (i3 / 4) + (i4 / 2);
+            fontMetricsInt.ascent = -i6;
+            fontMetricsInt.top = -i6;
+            fontMetricsInt.bottom = i5;
+            fontMetricsInt.descent = i5;
+        }
+        return bounds.right + this.paddingLeft + this.paddingRight;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable mJ = mJ();
+        if (mJ != null) {
+            canvas.save();
+            canvas.translate(this.paddingLeft + f, ((((i5 - i3) - mJ.getBounds().bottom) / 2) + i3) - this.aCg);
+            mJ.draw(canvas);
+            canvas.restore();
+        }
+    }
+
+    private Drawable mJ() {
+        WeakReference<Drawable> weakReference = this.Fv;
+        Drawable drawable = null;
+        if (weakReference != null) {
+            drawable = weakReference.get();
+        }
+        if (drawable == null) {
+            Drawable drawable2 = getDrawable();
+            this.Fv = new WeakReference<>(drawable2);
+            return drawable2;
+        }
+        return drawable;
+    }
+
+    public void setVerticalOffset(int i) {
+        this.aCg = i;
     }
 }

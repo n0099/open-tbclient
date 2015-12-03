@@ -8,6 +8,7 @@ import tbclient.Anti;
 import tbclient.PostInfoList;
 import tbclient.Profile.ProfileResIdl;
 import tbclient.Profile.TAInfo;
+import tbclient.Profile.UserGodInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
@@ -20,6 +21,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
     private List<PostInfoList> post_list;
     private TAInfo tainfo;
     private User user;
+    private UserGodInfo userGodInfo;
 
     public ProfileHttpResponseMessage(int i) {
         super(i);
@@ -35,6 +37,10 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
 
     public boolean isError_hint() {
         return this.error_hint;
+    }
+
+    public UserGodInfo getUserGodInfo() {
+        return this.userGodInfo;
     }
 
     public User GetUser() {
@@ -72,6 +78,7 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
             setErrorString(profileResIdl.error.usermsg);
         }
         if (getError() == 0) {
+            this.userGodInfo = profileResIdl.data.user_god_info;
             this.user = profileResIdl.data.user;
             this.anti_stat = profileResIdl.data.anti_stat;
             this.tainfo = profileResIdl.data.tainfo;
@@ -82,9 +89,9 @@ public class ProfileHttpResponseMessage extends TbHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        com.baidu.adp.lib.cache.o<byte[]> T = com.baidu.tbadk.core.b.a.sO().T("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+        com.baidu.adp.lib.cache.o<byte[]> Q = com.baidu.tbadk.core.b.a.ts().Q("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         if (bArr != null && this.isSelf) {
-            T.f(PROFILE_CACHE_KEY, bArr);
+            Q.f(PROFILE_CACHE_KEY, bArr);
         }
     }
 }

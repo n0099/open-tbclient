@@ -8,10 +8,15 @@ class AccessibilityManagerCompatIcs {
 
     /* loaded from: classes.dex */
     interface AccessibilityStateChangeListenerBridge {
+        void onAccessibilityStateChanged(boolean z);
     }
 
     public static Object newAccessibilityStateChangeListener(final AccessibilityStateChangeListenerBridge accessibilityStateChangeListenerBridge) {
         return new AccessibilityManager.AccessibilityStateChangeListener() { // from class: android.support.v4.view.accessibility.AccessibilityManagerCompatIcs.1
+            @Override // android.view.accessibility.AccessibilityManager.AccessibilityStateChangeListener
+            public void onAccessibilityStateChanged(boolean z) {
+                AccessibilityStateChangeListenerBridge.this.onAccessibilityStateChanged(z);
+            }
         };
     }
 

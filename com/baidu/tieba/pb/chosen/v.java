@@ -1,24 +1,31 @@
 package com.baidu.tieba.pb.chosen;
 
 import android.view.View;
-import com.baidu.tieba.i;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.coreExtra.share.f aVa;
-    final /* synthetic */ s cfP;
+    final /* synthetic */ t cyr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public v(s sVar, com.baidu.tbadk.coreExtra.share.f fVar) {
-        this.cfP = sVar;
-        this.aVa = fVar;
+    public v(t tVar) {
+        this.cyr = tVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         PbChosenActivity pbChosenActivity;
-        com.baidu.adp.lib.util.a.ay(this.aVa.linkUrl);
-        pbChosenActivity = this.cfP.cfO;
-        com.baidu.adp.lib.util.k.showToast(pbChosenActivity.getPageContext().getPageActivity(), view.getResources().getString(i.h.copy_pb_url_success));
+        PbChosenActivity pbChosenActivity2;
+        PbChosenActivity pbChosenActivity3;
+        pbChosenActivity = this.cyr.cyq;
+        pbChosenActivity.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+        pbChosenActivity2 = this.cyr.cyq;
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(pbChosenActivity2.getPageContext().getPageActivity(), 23007)));
+        pbChosenActivity3 = this.cyr.cyq;
+        TiebaStatic.eventStat(pbChosenActivity3.getPageContext().getPageActivity(), "pb_new_share", "loc", 0, new Object[0]);
     }
 }

@@ -1,35 +1,38 @@
 package com.baidu.tieba.frs;
 
-import android.view.MotionEvent;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class bv implements View.OnTouchListener {
-    final /* synthetic */ bs aXm;
+public class bv extends bm<com.baidu.tieba.tbadkCore.i, bw> {
+    protected bo bbY;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public bv(bs bsVar) {
-        this.aXm = bsVar;
+    /* JADX INFO: Access modifiers changed from: protected */
+    public bv(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
+        super(baseActivity, bdUniqueId);
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        ImageView imageView;
-        ImageView imageView2;
-        if (view.getId() == i.f.refresh_layout) {
-            if (motionEvent.getAction() == 1 || motionEvent.getAction() == 4 || motionEvent.getAction() == 3) {
-                imageView = this.aXm.aWJ;
-                com.baidu.tbadk.core.util.an.c(imageView, i.e.pic_fresh_n);
-            }
-            if (motionEvent.getAction() == 0) {
-                imageView2 = this.aXm.aWJ;
-                com.baidu.tbadk.core.util.an.c(imageView2, i.e.pic_fresh_s);
-                return false;
-            }
-            return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.widget.ListView.a
+    /* renamed from: n */
+    public bw a(ViewGroup viewGroup) {
+        View inflate = LayoutInflater.from(this.mContext).inflate(n.g.frs_feed_item_layout, (ViewGroup) null);
+        this.bbY = new bo(this.aXA.getPageContext(), inflate, 2);
+        return new bw(inflate);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tieba.frs.bm, com.baidu.adp.widget.ListView.a
+    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.i iVar, bw bwVar) {
+        super.a(i, view, viewGroup, (ViewGroup) iVar, (com.baidu.tieba.tbadkCore.i) bwVar);
+        if (iVar != null) {
+            this.bbY.e(iVar.getForumId(), iVar.aBB());
         }
-        return false;
+        return view;
     }
 }

@@ -9,23 +9,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o extends com.baidu.adp.base.e<WriteActivity> {
-    private a dqv;
-    private ArrayList<com.baidu.tbadk.core.data.w> dqw;
-    private WriteActivity dqx;
+    private WriteActivity dPA;
+    private a dPy;
+    private ArrayList<com.baidu.tbadk.core.data.z> dPz;
     private int mErrCode;
 
     public o(WriteActivity writeActivity) {
         super(writeActivity.getPageContext());
-        this.dqv = null;
-        this.dqw = null;
+        this.dPy = null;
+        this.dPz = null;
         this.mErrCode = 0;
-        this.dqx = writeActivity;
-        this.dqw = new ArrayList<>();
+        this.dPA = writeActivity;
+        this.dPz = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<com.baidu.tbadk.core.data.w> aDL() {
-        return this.dqw;
+    public ArrayList<com.baidu.tbadk.core.data.z> aJi() {
+        return this.dPz;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -34,18 +34,18 @@ public class o extends com.baidu.adp.base.e<WriteActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void mz(String str) {
-        if (this.dqv == null) {
-            this.dqv = new a(this, null);
-            this.dqv.setPriority(3);
-            this.dqv.execute(str);
+    public void nu(String str) {
+        if (this.dPy == null) {
+            this.dPy = new a(this, null);
+            this.dPy.setPriority(3);
+            this.dPy.execute(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, o, o> {
-        private com.baidu.tbadk.core.util.w Tj;
+        private com.baidu.tbadk.core.util.ab Ty;
 
         private a() {
         }
@@ -60,14 +60,14 @@ public class o extends com.baidu.adp.base.e<WriteActivity> {
         /* renamed from: F */
         public o doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
-            this.Tj = new com.baidu.tbadk.core.util.w(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
-            this.Tj.o("kw", obj);
-            String tG = this.Tj.tG();
-            if (!this.Tj.uh().va().qT()) {
+            this.Ty = new com.baidu.tbadk.core.util.ab(String.valueOf(TbConfig.SERVER_ADDRESS) + "c/f/frs/toplist");
+            this.Ty.o("kw", obj);
+            String ul = this.Ty.ul();
+            if (!this.Ty.uM().vG().rf()) {
                 return null;
             }
-            o oVar = new o(o.this.dqx);
-            oVar.parserJson(tG);
+            o oVar = new o(o.this.dPA);
+            oVar.parserJson(ul);
             return oVar;
         }
 
@@ -77,16 +77,16 @@ public class o extends com.baidu.adp.base.e<WriteActivity> {
         /* renamed from: c */
         public void onPostExecute(o oVar) {
             super.onPostExecute(oVar);
-            o.this.dqv = null;
+            o.this.dPy = null;
             o.this.mLoadDataCallBack.d(oVar);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            o.this.dqv = null;
-            if (this.Tj != null) {
-                this.Tj.gJ();
+            o.this.dPy = null;
+            if (this.Ty != null) {
+                this.Ty.gL();
             }
         }
     }
@@ -108,9 +108,9 @@ public class o extends com.baidu.adp.base.e<WriteActivity> {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            com.baidu.tbadk.core.data.w wVar = new com.baidu.tbadk.core.data.w();
-                            wVar.parserJson(jSONObject2);
-                            this.dqw.add(wVar);
+                            com.baidu.tbadk.core.data.z zVar = new com.baidu.tbadk.core.data.z();
+                            zVar.parserJson(jSONObject2);
+                            this.dPz.add(zVar);
                         }
                     }
                 }
@@ -127,8 +127,8 @@ public class o extends com.baidu.adp.base.e<WriteActivity> {
 
     @Override // com.baidu.adp.base.e
     public boolean cancelLoadData() {
-        if (this.dqv != null) {
-            this.dqv.cancel();
+        if (this.dPy != null) {
+            this.dPy.cancel();
             return true;
         }
         return true;

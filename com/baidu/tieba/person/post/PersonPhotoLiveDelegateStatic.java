@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class PersonPhotoLiveDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
@@ -17,14 +17,14 @@ public class PersonPhotoLiveDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c createFragmentTabStructure() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.atN = new u();
+        cVar.avR = new u();
         cVar.type = 2;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public FragmentTabIndicator getTabIndicator(Context context) {
-        this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(i.g.fragmenttabindicator, (ViewGroup) null);
+        this.mIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(n.g.fragmenttabindicator, (ViewGroup) null);
         return this.mIndicator;
     }
 

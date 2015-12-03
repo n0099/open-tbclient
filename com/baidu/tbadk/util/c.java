@@ -5,40 +5,40 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static c ayq = new c();
-    private b ayr;
-    private a ays;
+    private static c aAv = new c();
+    private b aAw;
+    private a aAx;
 
     /* loaded from: classes.dex */
     public interface a {
-        void ag(boolean z);
+        void ai(boolean z);
     }
 
     private c() {
     }
 
-    public static c Em() {
-        return ayq;
+    public static c Fo() {
+        return aAv;
     }
 
     public void a(a aVar) {
-        this.ays = aVar;
-        if (this.ayr != null) {
-            this.ayr.cancel();
+        this.aAx = aVar;
+        if (this.aAw != null) {
+            this.aAw.cancel();
         }
-        this.ayr = new b(this, null);
-        this.ayr.setPriority(4);
-        this.ayr.execute(new String[0]);
+        this.aAw = new b(this, null);
+        this.aAw.setPriority(4);
+        this.aAw.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean En() {
+    public boolean Fp() {
         int i;
         long j = 0;
-        byte[] aF = com.baidu.adp.lib.util.e.aF("crash_hour_record.log");
+        byte[] aJ = com.baidu.adp.lib.util.e.aJ("crash_hour_record.log");
         String str = null;
-        if (aF != null) {
-            str = new String(aF);
+        if (aJ != null) {
+            str = new String(aJ);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str)) {
@@ -48,8 +48,8 @@ public class c {
             if (split == null || split.length != 2) {
                 i = 0;
             } else {
-                i = com.baidu.adp.lib.g.b.g(split[0], 0);
-                j = com.baidu.adp.lib.g.b.c(split[1], j2);
+                i = com.baidu.adp.lib.h.b.g(split[0], 0);
+                j = com.baidu.adp.lib.h.b.c(split[1], j2);
             }
         }
         if (j == j2 && i > 1) {
@@ -73,7 +73,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(c.this.En());
+            return Boolean.valueOf(c.this.Fp());
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,8 +81,8 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(Boolean bool) {
-            if (c.this.ays != null && bool != null) {
-                c.this.ays.ag(bool.booleanValue());
+            if (c.this.aAx != null && bool != null) {
+                c.this.aAx.ai(bool.booleanValue());
             }
         }
     }

@@ -2,15 +2,15 @@ package com.baidu.tieba.image;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.tbadkCore.ag;
+import com.baidu.tieba.tbadkCore.ah;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements a.b {
-    final /* synthetic */ a bPj;
+    final /* synthetic */ a cfw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(a aVar) {
-        this.bPj = aVar;
+        this.cfw = aVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -22,19 +22,19 @@ public class f implements a.b {
         TbPageContext tbPageContext;
         i iVar2;
         com.baidu.tbadk.core.data.b bVar4;
-        iVar = this.bPj.bPg;
-        iVar.aap();
-        bVar = this.bPj.bPd;
-        String str = bVar.Ub;
-        bVar2 = this.bPj.bPd;
-        String str2 = bVar2.Ua;
-        bVar3 = this.bPj.bPd;
-        k kVar = new k(str, str2, bVar3.TX);
-        tbPageContext = this.bPj.mContext;
-        if (ag.a(tbPageContext.getPageActivity(), kVar, 0)) {
-            iVar2 = this.bPj.bPg;
-            bVar4 = this.bPj.bPd;
-            iVar2.iQ(bVar4.Ub);
+        iVar = this.cfw.cft;
+        iVar.adV();
+        bVar = this.cfw.cfq;
+        String str = bVar.Ur;
+        bVar2 = this.cfw.cfq;
+        String str2 = bVar2.Uq;
+        bVar3 = this.cfw.cfq;
+        k kVar = new k(str, str2, bVar3.Un);
+        tbPageContext = this.cfw.mContext;
+        if (ah.a(tbPageContext.getPageActivity(), kVar, 0)) {
+            iVar2 = this.cfw.cft;
+            bVar4 = this.cfw.cfq;
+            iVar2.jk(bVar4.Ur);
         }
         aVar.dismiss();
     }

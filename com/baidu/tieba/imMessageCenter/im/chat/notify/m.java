@@ -2,14 +2,13 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tieba.imMessageCenter.im.model.ImMessageCenterModel;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements com.baidu.tieba.im.chat.notify.a {
-    final /* synthetic */ e bKG;
+class m implements com.baidu.tieba.im.chat.notify.a {
+    final /* synthetic */ e bZK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(e eVar) {
-        this.bKG = eVar;
+        this.bZK = eVar;
     }
 
     @Override // com.baidu.tieba.im.chat.notify.a
@@ -19,14 +18,14 @@ public class m implements com.baidu.tieba.im.chat.notify.a {
         BdListView bdListView2;
         ImMessageCenterListAdapter imMessageCenterListAdapter;
         ImMessageCenterModel imMessageCenterModel2;
-        bdListView = this.bKG.bKw;
+        bdListView = this.bZK.bZB;
         if (bdListView != null) {
-            imMessageCenterModel = this.bKG.bKt;
+            imMessageCenterModel = this.bZK.bZy;
             if (imMessageCenterModel != null) {
-                bdListView2 = this.bKG.bKw;
+                bdListView2 = this.bZK.bZB;
                 bdListView2.completePullRefresh();
-                imMessageCenterListAdapter = this.bKG.bKx;
-                imMessageCenterModel2 = this.bKG.bKt;
+                imMessageCenterListAdapter = this.bZK.bZC;
+                imMessageCenterModel2 = this.bZK.bZy;
                 imMessageCenterListAdapter.setData(imMessageCenterModel2.getData());
             }
         }

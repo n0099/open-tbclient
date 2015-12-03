@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a implements View.OnClickListener {
-    final /* synthetic */ NavigationBarActivity cMs;
+    final /* synthetic */ NavigationBarActivity dkJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(NavigationBarActivity navigationBarActivity) {
-        this.cMs = navigationBarActivity;
+        this.dkJ = navigationBarActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.cMs.finish();
+        this.dkJ.finish();
     }
 }

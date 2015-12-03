@@ -3,14 +3,14 @@ package com.baidu.tbadk.editortools.view;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tbadk.editortools.j;
+import com.baidu.tbadk.editortools.k;
 import com.baidu.tbadk.editortools.view.b;
 /* loaded from: classes.dex */
 public abstract class a implements com.baidu.tbadk.editortools.b {
-    private j KB;
-    private b aro;
-    private InterfaceC0047a arp;
-    private b.a arq;
+    private k KS;
+    private b atp;
+    private InterfaceC0049a atq;
+    private b.a atr;
     private int column = 0;
     private int row = 0;
     private int verticalSpacing = 0;
@@ -18,57 +18,57 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
 
     /* renamed from: com.baidu.tbadk.editortools.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0047a {
+    public interface InterfaceC0049a {
         View getView(int i, View view, ViewGroup viewGroup);
     }
 
     /* loaded from: classes.dex */
     public static class b {
-        public int arr;
-        public int ars;
+        public int ats;
+        public int att;
     }
 
-    public abstract void AJ();
+    public abstract void BH();
 
     public abstract int getCount();
 
     public abstract void init(Context context);
 
     public void a(b.a aVar) {
-        this.arq = aVar;
+        this.atr = aVar;
     }
 
-    public void setEditorTools(j jVar) {
-        this.KB = jVar;
+    public void setEditorTools(k kVar) {
+        this.KS = kVar;
     }
 
     protected void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.KB != null) {
-            this.KB.b(aVar);
+        if (this.KS != null) {
+            this.KS.b(aVar);
         }
     }
 
-    public b BD() {
-        return this.aro;
+    public b CE() {
+        return this.atp;
     }
 
     public void a(b bVar) {
-        this.aro = bVar;
+        this.atp = bVar;
     }
 
-    public InterfaceC0047a BE() {
-        return this.arp;
+    public InterfaceC0049a CF() {
+        return this.atq;
     }
 
-    public void a(InterfaceC0047a interfaceC0047a) {
-        this.arp = interfaceC0047a;
+    public void a(InterfaceC0049a interfaceC0049a) {
+        this.atq = interfaceC0049a;
     }
 
-    public int BF() {
+    public int CG() {
         return this.column;
     }
 
-    public void eg(int i) {
+    public void eu(int i) {
         this.column = i;
     }
 
@@ -76,7 +76,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         return this.row;
     }
 
-    public void eh(int i) {
+    public void ev(int i) {
         this.row = i;
     }
 
@@ -96,7 +96,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.horizontalSpacing = i;
     }
 
-    public b.a BG() {
-        return this.arq;
+    public b.a CH() {
+        return this.atr;
     }
 }

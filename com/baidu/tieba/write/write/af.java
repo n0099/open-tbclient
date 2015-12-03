@@ -6,6 +6,7 @@ import android.widget.EditText;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.AtListActivityConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.data.AdditionData;
 import com.baidu.tbadk.core.data.VoiceData;
@@ -15,78 +16,82 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.plugins.XiaoyingUtil;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class af implements com.baidu.tbadk.editortools.b {
-    final /* synthetic */ WriteActivity dsa;
+    final /* synthetic */ WriteActivity dRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public af(WriteActivity writeActivity) {
-        this.dsa = writeActivity;
+        this.dRf = writeActivity;
     }
 
     @Override // com.baidu.tbadk.editortools.b
     public void a(com.baidu.tbadk.editortools.a aVar) {
-        com.baidu.tbadk.editortools.j jVar;
-        com.baidu.tbadk.editortools.j jVar2;
+        com.baidu.tbadk.editortools.k kVar;
+        com.baidu.tbadk.editortools.k kVar2;
         WriteData writeData;
         EditText editText;
-        com.baidu.tbadk.editortools.j jVar3;
-        com.baidu.tbadk.editortools.j jVar4;
+        com.baidu.tbadk.editortools.k kVar3;
+        com.baidu.tbadk.editortools.k kVar4;
         InputMethodManager inputMethodManager;
         EditText editText2;
         EditText editText3;
-        com.baidu.tbadk.editortools.j jVar5;
         WriteData writeData2;
-        com.baidu.tbadk.editortools.j jVar6;
-        com.baidu.tbadk.editortools.j jVar7;
-        com.baidu.tbadk.editortools.j jVar8;
-        com.baidu.tbadk.editortools.j jVar9;
+        String str;
+        WriteData writeData3;
+        com.baidu.tbadk.editortools.k kVar5;
+        com.baidu.tbadk.editortools.k kVar6;
+        com.baidu.tbadk.editortools.k kVar7;
+        com.baidu.tbadk.editortools.k kVar8;
+        com.baidu.tbadk.editortools.k kVar9;
+        com.baidu.tbadk.editortools.k kVar10;
+        WriteData writeData4;
         int i;
         AdditionData additionData;
         WriteImagesInfo writeImagesInfo;
         WriteImagesInfo writeImagesInfo2;
         WriteImagesInfo writeImagesInfo3;
         WriteImagesInfo writeImagesInfo4;
-        boolean aEk;
-        boolean aEk2;
+        boolean aJH;
+        boolean aJH2;
         if (aVar != null) {
             if (aVar.code != 16) {
                 if (aVar.code != 21) {
                     if (aVar.code == 14) {
-                        this.dsa.d(aVar);
+                        this.dRf.d(aVar);
                         return;
                     } else if (aVar.code != 24) {
                         if (aVar.code == 3) {
-                            this.dsa.aEo();
+                            this.dRf.aJL();
                             return;
                         } else if (aVar.code == 10) {
                             if (aVar.data != null && (aVar.data instanceof VoiceData.VoiceModel)) {
-                                this.dsa.aqr = (VoiceData.VoiceModel) aVar.data;
-                                this.dsa.aCV();
+                                this.dRf.asv = (VoiceData.VoiceModel) aVar.data;
+                                this.dRf.aIs();
                                 return;
                             }
                             return;
                         } else if (aVar.code == 11) {
-                            this.dsa.aqr = null;
-                            this.dsa.aCV();
+                            this.dRf.asv = null;
+                            this.dRf.aIs();
                             return;
                         } else if (aVar.code != 12 && aVar.code != 13) {
                             if (aVar.code != 22 && aVar.code != 23) {
                                 if (aVar.code == 15) {
                                     if (aVar.data != null && (aVar.data instanceof Integer)) {
                                         int intValue = ((Integer) aVar.data).intValue();
-                                        writeImagesInfo = this.dsa.writeImagesInfo;
+                                        writeImagesInfo = this.dRf.writeImagesInfo;
                                         if (writeImagesInfo != null) {
-                                            writeImagesInfo2 = this.dsa.writeImagesInfo;
+                                            writeImagesInfo2 = this.dRf.writeImagesInfo;
                                             if (writeImagesInfo2.getChosedFiles() != null) {
-                                                writeImagesInfo3 = this.dsa.writeImagesInfo;
+                                                writeImagesInfo3 = this.dRf.writeImagesInfo;
                                                 int size = writeImagesInfo3.getChosedFiles().size();
                                                 if (size >= 1 && intValue >= 0 && intValue < size) {
                                                     MessageManager messageManager = MessageManager.getInstance();
-                                                    Activity pageActivity = this.dsa.getPageContext().getPageActivity();
-                                                    writeImagesInfo4 = this.dsa.writeImagesInfo;
+                                                    Activity pageActivity = this.dRf.getPageContext().getPageActivity();
+                                                    writeImagesInfo4 = this.dRf.writeImagesInfo;
                                                     messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new WriteMulitImageActivityConfig(pageActivity, 12012, writeImagesInfo4, intValue)));
                                                     return;
                                                 }
@@ -99,118 +104,129 @@ public class af implements com.baidu.tbadk.editortools.b {
                                     return;
                                 } else if (aVar.code == 18) {
                                     if (aVar.data != null) {
-                                        additionData = this.dsa.drs;
+                                        additionData = this.dRf.dQw;
                                         if (additionData == null) {
-                                            this.dsa.Be();
+                                            this.dRf.Ce();
                                             return;
                                         }
                                     }
-                                    i = this.dsa.aqD;
+                                    i = this.dRf.asH;
                                     switch (i) {
                                         case 0:
-                                            this.dsa.Bc();
+                                            this.dRf.Cc();
                                             return;
                                         case 1:
                                         default:
                                             return;
                                         case 2:
-                                            this.dsa.Bb();
+                                            this.dRf.Cb();
                                             return;
                                     }
                                 } else if (aVar.code == 25) {
                                     if (aVar.data == null || !(aVar.data instanceof String)) {
-                                        this.dsa.bWX = null;
+                                        this.dRf.cnl = null;
                                     } else {
-                                        this.dsa.bWX = (String) aVar.data;
+                                        this.dRf.cnl = (String) aVar.data;
                                     }
-                                    this.dsa.he(false);
+                                    this.dRf.hM(false);
                                     return;
                                 } else if (aVar.code == 27) {
-                                    com.baidu.tbadk.core.sharedPref.b.tu().putBoolean("xiaoying_has_click", true);
-                                    jVar5 = this.dsa.drr;
-                                    jVar5.b(new com.baidu.tbadk.editortools.a(2, 19, null));
-                                    TiebaStatic.log("c10057");
-                                    writeData2 = this.dsa.ddI;
-                                    VideoInfo videoInfo = writeData2.getVideoInfo();
-                                    if (videoInfo != null && videoInfo.isAvaliable()) {
-                                        com.baidu.tbadk.editortools.a aVar2 = new com.baidu.tbadk.editortools.a(28, 20, videoInfo);
-                                        jVar9 = this.dsa.drr;
-                                        jVar9.b(aVar2);
-                                        return;
-                                    } else if (XiaoyingUtil.isXiaoyingInstalled()) {
-                                        if (!XiaoyingUtil.isXiaoyingForbidden()) {
-                                            jVar6 = this.dsa.drr;
-                                            if (jVar6.AC()) {
-                                                jVar7 = this.dsa.drr;
-                                                jVar7.zc();
-                                                jVar8 = this.dsa.drr;
-                                                jVar8.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+                                    com.baidu.tbadk.core.sharedPref.b.tZ().putBoolean("xiaoying_has_click", true);
+                                    com.baidu.tbadk.core.util.av avVar = new com.baidu.tbadk.core.util.av("c10645");
+                                    writeData2 = this.dRf.dBW;
+                                    if (writeData2 != null) {
+                                        writeData4 = this.dRf.dBW;
+                                        str = writeData4.getForumId();
+                                    } else {
+                                        str = "";
+                                    }
+                                    avVar.ab(ImageViewerConfig.FORUM_ID, str);
+                                    TiebaStatic.log(avVar);
+                                    writeData3 = this.dRf.dBW;
+                                    VideoInfo videoInfo = writeData3.getVideoInfo();
+                                    if (videoInfo == null || !videoInfo.isAvaliable()) {
+                                        kVar5 = this.dRf.aqK;
+                                        kVar5.b(new com.baidu.tbadk.editortools.a(2, 19, null));
+                                        if (XiaoyingUtil.isXiaoyingInstalled()) {
+                                            if (!XiaoyingUtil.isXiaoyingForbidden()) {
+                                                kVar6 = this.dRf.aqK;
+                                                if (kVar6.Bx()) {
+                                                    kVar7 = this.dRf.aqK;
+                                                    kVar7.zY();
+                                                    kVar8 = this.dRf.aqK;
+                                                    kVar8.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+                                                }
+                                                XiaoyingUtil.startXiaoying(this.dRf.getActivity());
+                                                return;
                                             }
-                                            XiaoyingUtil.startXiaoying(this.dsa.getActivity());
+                                            XiaoyingUtil.showGoPluginDetailDialog(this.dRf.getPageContext(), this.dRf.getResources().getString(n.i.plugin_video_not_active), this.dRf.getResources().getString(n.i.setup));
                                             return;
                                         }
-                                        XiaoyingUtil.showGoPluginDetailDialog(this.dsa.getPageContext(), this.dsa.getResources().getString(i.h.plugin_video_not_active), this.dsa.getResources().getString(i.h.setup));
-                                        return;
-                                    } else {
-                                        XiaoyingUtil.showGoPluginDetailDialog(this.dsa.getPageContext(), this.dsa.getResources().getString(i.h.plugin_video_install_tips), this.dsa.getResources().getString(i.h.plugin_go_install));
+                                        XiaoyingUtil.showGoPluginDetailDialog(this.dRf.getPageContext(), this.dRf.getResources().getString(n.i.plugin_video_install_tips), this.dRf.getResources().getString(n.i.plugin_go_install));
                                         return;
                                     }
+                                    kVar9 = this.dRf.aqK;
+                                    kVar9.b(new com.baidu.tbadk.editortools.a(2, 19, " "));
+                                    com.baidu.tbadk.editortools.a aVar2 = new com.baidu.tbadk.editortools.a(28, 20, videoInfo);
+                                    kVar10 = this.dRf.aqK;
+                                    kVar10.b(aVar2);
+                                    return;
                                 } else if (aVar.code == 29) {
                                     com.baidu.tbadk.editortools.a aVar3 = new com.baidu.tbadk.editortools.a(2, 19, null);
-                                    jVar = this.dsa.drr;
-                                    jVar.b(aVar3);
+                                    kVar = this.dRf.aqK;
+                                    kVar.b(aVar3);
                                     com.baidu.tbadk.editortools.a aVar4 = new com.baidu.tbadk.editortools.a(1, 2, null);
-                                    jVar2 = this.dsa.drr;
-                                    jVar2.b(aVar4);
-                                    writeData = this.dsa.ddI;
+                                    kVar2 = this.dRf.aqK;
+                                    kVar2.b(aVar4);
+                                    writeData = this.dRf.dBW;
                                     writeData.setVideoInfo(null);
-                                    this.dsa.aCV();
-                                    editText = this.dsa.dol;
+                                    this.dRf.aIs();
+                                    editText = this.dRf.dNr;
                                     if (editText != null) {
-                                        editText3 = this.dsa.dol;
+                                        editText3 = this.dRf.dNr;
                                         editText3.requestFocus();
                                     }
-                                    jVar3 = this.dsa.drr;
-                                    jVar3.zc();
-                                    jVar4 = this.dsa.drr;
-                                    jVar4.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-                                    WriteActivity writeActivity = this.dsa;
-                                    inputMethodManager = this.dsa.mInputManager;
-                                    editText2 = this.dsa.dol;
+                                    kVar3 = this.dRf.aqK;
+                                    kVar3.zY();
+                                    kVar4 = this.dRf.aqK;
+                                    kVar4.b(new com.baidu.tbadk.editortools.a(5, -1, null));
+                                    WriteActivity writeActivity = this.dRf;
+                                    inputMethodManager = this.dRf.mInputManager;
+                                    editText2 = this.dRf.dNr;
                                     writeActivity.ShowSoftKeyPad(inputMethodManager, editText2);
                                     return;
                                 } else {
                                     return;
                                 }
                             }
-                            this.dsa.aCV();
+                            this.dRf.aIs();
                             return;
                         } else {
-                            this.dsa.aEw();
-                            this.dsa.aCV();
+                            this.dRf.aJT();
+                            this.dRf.aIs();
                             return;
                         }
                     } else {
-                        aEk = this.dsa.aEk();
-                        if (aEk) {
-                            this.dsa.showToast(i.h.over_limit_tip);
+                        aJH = this.dRf.aJH();
+                        if (aJH) {
+                            this.dRf.showToast(n.i.over_limit_tip);
                             return;
-                        } else if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.coreExtra.data.f)) {
-                            this.dsa.a((com.baidu.tbadk.coreExtra.data.f) aVar.data);
+                        } else if (aVar.data != null && (aVar.data instanceof com.baidu.tbadk.coreExtra.data.h)) {
+                            this.dRf.a((com.baidu.tbadk.coreExtra.data.h) aVar.data);
                             return;
                         } else {
                             return;
                         }
                     }
                 }
-                this.dsa.aEl();
+                this.dRf.aJI();
                 return;
             }
-            aEk2 = this.dsa.aEk();
-            if (aEk2) {
-                this.dsa.showToast(i.h.over_limit_tip);
+            aJH2 = this.dRf.aJH();
+            if (aJH2) {
+                this.dRf.showToast(n.i.over_limit_tip);
             } else {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.dsa.getPageContext().getPageActivity(), 12004, true)));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AtListActivityConfig(this.dRf.getPageContext().getPageActivity(), 12004, true)));
             }
         }
     }

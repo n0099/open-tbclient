@@ -5,6 +5,6 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* loaded from: classes.dex */
 public class Static {
     static {
-        MessageManager.getInstance().registerListener(new v(CmdConfigCustom.EMOTION_COLLECT_GROUPS));
+        MessageManager.getInstance().registerListener(new w(CmdConfigCustom.EMOTION_COLLECT_GROUPS));
     }
 }

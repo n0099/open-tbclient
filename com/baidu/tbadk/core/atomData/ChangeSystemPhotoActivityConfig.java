@@ -7,6 +7,10 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class ChangeSystemPhotoActivityConfig extends IntentConfig {
     public static final String NEED_UPLOAD = "need_upload";
     public static final String NEW_PHOTO_URL = "new_photo";
+    public static final String UPLOAD_IMAGE_TYPE = "upload_image_type";
+    public static final int UPLOAD_TYPE_NO = 0;
+    public static final int UPLOAD_TYPE_RESET_PORTRAIT = 1;
+    public static final int UPLOAD_TYPE_UPLOAD_ONLY = 2;
 
     public ChangeSystemPhotoActivityConfig(Context context, int i) {
         super(context);

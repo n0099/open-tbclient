@@ -31,12 +31,14 @@ public class DealIntentService extends BdBaseService {
     public static final int CLASS_TYPE_MESSAGE = 5;
     public static final int CLASS_TYPE_MESSAGE_NEW = 11;
     public static final int CLASS_TYPE_MESSAGE_NEW_MENTION = 21;
+    public static final int CLASS_TYPE_MY_COLLECT_UPDATE = 33;
     public static final int CLASS_TYPE_NATIVE_BUY_TBEAN = 25;
     public static final int CLASS_TYPE_NATIVE_JUMP = 30;
     public static final int CLASS_TYPE_NATIVE_PAY = 23;
     public static final int CLASS_TYPE_NOTLOGINGUIDE_ACTIVITY = 20;
     public static final int CLASS_TYPE_OFFICAL_BAR = 22;
     public static final int CLASS_TYPE_PAY = 15;
+    public static final int CLASS_TYPE_PAYMENT_CONFIRM = 32;
     public static final int CLASS_TYPE_PB = 1;
     public static final int CLASS_TYPE_PERSON = 10;
     public static final int CLASS_TYPE_PERSON_NEW = 12;
@@ -109,7 +111,7 @@ public class DealIntentService extends BdBaseService {
             }
             int i = this.intent.getExtras().getInt("class", -1);
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                dz(i);
+                dO(i);
             }
             String string = this.intent.getExtras().getString("stat");
             String stringExtra = this.intent.getStringExtra("link");
@@ -122,7 +124,7 @@ public class DealIntentService extends BdBaseService {
             for (ActivityManager.RunningTaskInfo runningTaskInfo : runningTasks) {
                 if (runningTaskInfo.baseActivity.getPackageName().equals(DealIntentService.this.getPackageName())) {
                     if (5 == this.intent.getIntExtra("class", -1)) {
-                        if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.to())) {
+                        if (!runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(b.tT())) {
                             this.intent.putExtra("class", 11);
                         }
                         if (mentionActivityClassName != null && runningTaskInfo.topActivity.getClassName().equalsIgnoreCase(mentionActivityClassName)) {
@@ -138,7 +140,7 @@ public class DealIntentService extends BdBaseService {
                 TiebaStatic.eventStat(DealIntentService.this, "open_push", IntentConfig.START, 1, new Object[0]);
             }
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
-                dy(i);
+                dN(i);
             }
             return DealIntentService.ACTION_ON_POST_START;
         }
@@ -162,7 +164,7 @@ public class DealIntentService extends BdBaseService {
             DealIntentService.this.stopSelf();
         }
 
-        private void dy(int i) {
+        private void dN(int i) {
             switch (i) {
                 case 0:
                 case 1:
@@ -178,7 +180,7 @@ public class DealIntentService extends BdBaseService {
             }
         }
 
-        private void dz(int i) {
+        private void dO(int i) {
             switch (i) {
                 case 6:
                     TiebaStatic.eventStat(DealIntentService.this, "notify_to_pk_before", "click");

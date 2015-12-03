@@ -6,6 +6,7 @@ import java.util.List;
 import tbclient.Anti;
 import tbclient.PostInfoList;
 import tbclient.Profile.TAInfo;
+import tbclient.Profile.UserGodInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class ResponsePersonInfoMessage extends CustomResponsedMessage<Object> {
@@ -13,6 +14,7 @@ public class ResponsePersonInfoMessage extends CustomResponsedMessage<Object> {
     private List<PostInfoList> post_list;
     private TAInfo tainfo;
     private User user;
+    private UserGodInfo userGodInfo;
 
     public User getUser() {
         return this.user;
@@ -44,6 +46,14 @@ public class ResponsePersonInfoMessage extends CustomResponsedMessage<Object> {
 
     public void setPost_list(List<PostInfoList> list) {
         this.post_list = list;
+    }
+
+    public UserGodInfo getUserGodInfo() {
+        return this.userGodInfo;
+    }
+
+    public void setUserGodInfo(UserGodInfo userGodInfo) {
+        this.userGodInfo = userGodInfo;
     }
 
     public ResponsePersonInfoMessage() {

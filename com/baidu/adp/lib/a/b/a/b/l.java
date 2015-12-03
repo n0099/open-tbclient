@@ -8,19 +8,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class l implements h {
-    private Map<String, Object> rT;
+    private Map<String, Object> rU;
 
     public l(Map<String, Object> map) {
-        this.rT = map;
+        this.rU = map;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object a(com.baidu.adp.lib.a.b.a.e.c cVar) {
         Type[] fK = cVar.fK();
-        Set<String> keySet = this.rT.keySet();
+        Set<String> keySet = this.rU.keySet();
         JSONObject jSONObject = new JSONObject();
         for (String str : keySet) {
-            Object obj = this.rT.get(str);
+            Object obj = this.rU.get(str);
             if (fK != null && fK.length >= 2) {
                 try {
                     jSONObject.put(str, com.baidu.adp.lib.a.b.a.e.f.i(obj).a(new com.baidu.adp.lib.a.b.a.e.c(fK[1])));
@@ -54,7 +54,7 @@ public class l implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object d(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.rT;
+        return this.rU;
     }
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
@@ -74,6 +74,6 @@ public class l implements h {
 
     @Override // com.baidu.adp.lib.a.b.a.b.h
     public Object f(com.baidu.adp.lib.a.b.a.e.c cVar) {
-        return this.rT;
+        return this.rU;
     }
 }

@@ -11,11 +11,13 @@ import tbclient.ThemeBgProp;
 public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
     private boolean hasMore;
     private List<DressItemData> mBackgroundList;
+    private int mIsDefault;
     private com.baidu.tieba.themeCenter.dressCenter.k mRecommand;
 
     public BackgroundListHttpResponseMessage(int i) {
         super(i);
         this.hasMore = true;
+        this.mIsDefault = 0;
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage
@@ -31,6 +33,7 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
                     this.mRecommand = new com.baidu.tieba.themeCenter.dressCenter.k();
                     this.mRecommand.a(getBgListResIdl.data.recommend);
                 }
+                this.mIsDefault = getBgListResIdl.data.is_default.intValue();
                 if (getBgListResIdl.data.bgs != null) {
                     this.mBackgroundList = new ArrayList();
                     for (ThemeBgProp themeBgProp : getBgListResIdl.data.bgs) {
@@ -54,5 +57,13 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
 
     public boolean hasMore() {
         return this.hasMore;
+    }
+
+    public void setIsDefault(boolean z) {
+        this.mIsDefault = z ? 1 : 0;
+    }
+
+    public boolean getIsDefault() {
+        return this.mIsDefault == 1;
     }
 }

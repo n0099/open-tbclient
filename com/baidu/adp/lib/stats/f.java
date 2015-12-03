@@ -4,16 +4,16 @@ public class f {
     public String mClientId;
     public String mCuid;
     public String mNetType;
-    public String wa;
-    public String wk;
-    public String wl;
-    public String wm;
-    public String wn;
-    public String wo;
-    public String wp;
+    public String wA;
+    public String wg;
     public String wq;
     public String wr;
     public String ws;
     public String wt;
     public String wu;
+    public String wv;
+    public String ww;
+    public String wx;
+    public String wy;
+    public String wz;
 }

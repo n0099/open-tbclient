@@ -2,53 +2,53 @@ package com.baidu.tieba.frs.b;
 
 import android.util.SparseArray;
 import com.baidu.tieba.frs.b.o;
-import com.baidu.tieba.frs.bs;
-import com.baidu.tieba.frs.ec;
-import com.baidu.tieba.frs.ed;
-import com.baidu.tieba.frs.ee;
+import com.baidu.tieba.frs.cd;
+import com.baidu.tieba.frs.et;
+import com.baidu.tieba.frs.eu;
+import com.baidu.tieba.frs.ew;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class p implements ec {
-    final /* synthetic */ o bcK;
+public class p implements et {
+    final /* synthetic */ o bjp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.bcK = oVar;
+        this.bjp = oVar;
     }
 
-    @Override // com.baidu.tieba.frs.ec
-    public void a(ed edVar) {
+    @Override // com.baidu.tieba.frs.et
+    public void a(eu euVar) {
     }
 
-    @Override // com.baidu.tieba.frs.ec
-    public void a(int i, int i2, ee eeVar) {
-        bs bsVar;
-        bs bsVar2;
-        bs bsVar3;
-        bs bsVar4;
+    @Override // com.baidu.tieba.frs.et
+    public void a(int i, int i2, ew ewVar) {
+        cd cdVar;
+        cd cdVar2;
+        cd cdVar3;
+        cd cdVar4;
         SparseArray sparseArray;
-        int aa;
-        bsVar = this.bcK.aUc;
-        if (bsVar.getListView() != null) {
-            bsVar2 = this.bcK.aUc;
-            if (bsVar2.getListView().getChildAt(0) != null) {
+        int ac;
+        cdVar = this.bjp.aZq;
+        if (cdVar.getListView() != null) {
+            cdVar2 = this.bjp.aZq;
+            if (cdVar2.getListView().getChildAt(0) != null) {
                 o.a aVar = new o.a();
-                bsVar3 = this.bcK.aUc;
-                aVar.bcM = bsVar3.getListView().getFirstVisiblePosition();
-                bsVar4 = this.bcK.aUc;
-                aVar.top = bsVar4.getListView().getChildAt(0).getTop();
-                sparseArray = this.bcK.baB;
-                aa = this.bcK.aa(i, i2);
-                sparseArray.put(aa, aVar);
+                cdVar3 = this.bjp.aZq;
+                aVar.asj = cdVar3.getListView().getFirstVisiblePosition();
+                cdVar4 = this.bjp.aZq;
+                aVar.top = cdVar4.getListView().getChildAt(0).getTop();
+                sparseArray = this.bjp.bgT;
+                ac = this.bjp.ac(i, i2);
+                sparseArray.put(ac, aVar);
             }
         }
     }
 
-    @Override // com.baidu.tieba.frs.ec
+    @Override // com.baidu.tieba.frs.et
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.ec
-    public void KG() {
+    @Override // com.baidu.tieba.frs.et
+    public void Mf() {
     }
 }

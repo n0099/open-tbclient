@@ -8,105 +8,105 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class h {
-    private static h zx = null;
-    private String[] zA;
-    private g.a zE;
-    private String zy = null;
-    private List<BasicNameValuePair> zz = null;
-    private String zB = null;
-    private j zC = null;
-    private ArrayList<g.a> zD = new ArrayList<>();
+    private static h zD = null;
+    private String[] zG;
+    private g.a zK;
+    private String zE = null;
+    private List<BasicNameValuePair> zF = null;
+    private String zH = null;
+    private j zI = null;
+    private ArrayList<g.a> zJ = new ArrayList<>();
 
-    public static synchronized h jA() {
+    public static synchronized h jB() {
         h hVar;
         synchronized (h.class) {
-            if (zx == null) {
-                zx = new h();
+            if (zD == null) {
+                zD = new h();
             }
-            hVar = zx;
+            hVar = zD;
         }
         return hVar;
     }
 
     public void a(String str, String str2, String[] strArr, List<BasicNameValuePair> list) {
-        this.zy = str;
-        this.zB = str2;
-        this.zA = strArr;
-        this.zz = list;
+        this.zE = str;
+        this.zH = str2;
+        this.zG = strArr;
+        this.zF = list;
         isDebug();
     }
 
     private h() {
-        this.zE = null;
-        this.zE = new i(this);
+        this.zK = null;
+        this.zK = new i(this);
     }
 
-    public boolean jB() {
+    public boolean jC() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.k.jc();
+            com.baidu.adp.lib.util.k.je();
         }
-        if (this.zC != null) {
-            if (this.zC.jE() || this.zC.isOpen()) {
+        if (this.zI != null) {
+            if (this.zI.jF() || this.zI.isOpen()) {
                 isDebug();
                 return true;
             }
-            this.zC.close(1, null);
-            this.zC = null;
+            this.zI.close(1, null);
+            this.zI = null;
         }
-        this.zC = new j();
+        this.zI = new j();
         try {
             n nVar = new n();
-            nVar.aW(this.zB);
-            this.zC.a(this.zy, this.zA, this.zE, nVar, this.zz);
+            nVar.ba(this.zH);
+            this.zI.a(this.zE, this.zG, this.zK, nVar, this.zF);
             return true;
         } catch (WebSocketException e) {
-            this.zC = null;
+            this.zI = null;
             return false;
         }
     }
 
     public void close(int i, String str) {
-        if (this.zC != null) {
-            j jVar = this.zC;
-            this.zC = null;
+        if (this.zI != null) {
+            j jVar = this.zI;
+            this.zI = null;
             jVar.close(i, str);
-            if (this.zC != null) {
+            if (this.zI != null) {
                 BdLog.e("close is opened and thread is leaded!!!");
-                this.zC = null;
+                this.zI = null;
             }
         }
     }
 
-    public boolean jC() {
-        if (isDebug()) {
-            com.baidu.adp.lib.util.k.jc();
-        }
-        return (this.zC == null || !this.zC.isOpen() || this.zC.jL()) ? false : true;
-    }
-
     public boolean jD() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.k.jc();
+            com.baidu.adp.lib.util.k.je();
         }
-        return this.zC != null && this.zC.isOpen();
+        return (this.zI == null || !this.zI.isOpen() || this.zI.jM()) ? false : true;
     }
 
     public boolean jE() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.k.jc();
+            com.baidu.adp.lib.util.k.je();
         }
-        return this.zC != null && this.zC.jE();
+        return this.zI != null && this.zI.isOpen();
+    }
+
+    public boolean jF() {
+        if (isDebug()) {
+            com.baidu.adp.lib.util.k.je();
+        }
+        return this.zI != null && this.zI.jF();
     }
 
     public synchronized boolean sendMessage(c cVar) {
         boolean z = false;
         synchronized (this) {
             if (cVar != null) {
-                com.baidu.adp.lib.util.k.jc();
-                if (this.zC != null) {
-                    z = this.zC.sendMessage(cVar);
+                com.baidu.adp.lib.util.k.je();
+                if (this.zI != null) {
+                    z = this.zI.sendMessage(cVar);
                 } else if (cVar != null) {
-                    cVar.y(1);
+                    cVar.z(1);
                 }
             }
         }
@@ -116,8 +116,8 @@ public class h {
     public boolean a(g.a aVar) {
         if (aVar != null) {
             synchronized (h.class) {
-                if (!this.zD.contains(aVar)) {
-                    return this.zD.add(aVar);
+                if (!this.zJ.contains(aVar)) {
+                    return this.zJ.add(aVar);
                 }
             }
         }
@@ -128,68 +128,68 @@ public class h {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void jF() {
-        if (this.zC != null) {
-            this.zC.jF();
+    public void jG() {
+        if (this.zI != null) {
+            this.zI.jG();
         }
     }
 
     public long getUpFlowSize() {
-        if (this.zC != null) {
-            return this.zC.getUpFlowSize();
+        if (this.zI != null) {
+            return this.zI.getUpFlowSize();
         }
         return 0L;
     }
 
-    public void jG() {
-        if (this.zC != null) {
-            this.zC.jG();
+    public void jH() {
+        if (this.zI != null) {
+            this.zI.jH();
         }
     }
 
     public long getDownFlowSize() {
-        if (this.zC != null) {
-            return this.zC.getDownFlowSize();
+        if (this.zI != null) {
+            return this.zI.getDownFlowSize();
         }
         return 0L;
     }
 
-    public long jx() {
-        if (this.zC != null) {
-            return this.zC.jM();
+    public long jy() {
+        if (this.zI != null) {
+            return this.zI.jN();
         }
         return 0L;
     }
 
-    public String jw() {
-        if (this.zC != null) {
-            return this.zC.jN();
+    public String jx() {
+        if (this.zI != null) {
+            return this.zI.jO();
         }
         return null;
     }
 
-    public long jH() {
-        if (this.zC != null) {
-            return this.zC.jO();
+    public long jI() {
+        if (this.zI != null) {
+            return this.zI.jP();
         }
         return 0L;
     }
 
-    public String jf() {
-        if (this.zC != null) {
-            return this.zC.jf();
+    public String jh() {
+        if (this.zI != null) {
+            return this.zI.jh();
         }
         return null;
     }
 
-    public String jg() {
-        if (this.zC != null) {
-            return this.zC.jg();
+    public String ji() {
+        if (this.zI != null) {
+            return this.zI.ji();
         }
         return null;
     }
 
     public String getUrl() {
-        return this.zy;
+        return this.zE;
     }
 }

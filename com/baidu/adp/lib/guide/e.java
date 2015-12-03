@@ -5,11 +5,11 @@ import com.baidu.adp.lib.guide.g;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements Animation.AnimationListener {
-    final /* synthetic */ d ua;
+    final /* synthetic */ d ug;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.ua = dVar;
+        this.ug = dVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -20,10 +20,10 @@ public class e implements Animation.AnimationListener {
     public void onAnimationEnd(Animation animation) {
         g.a aVar;
         g.a aVar2;
-        aVar = this.ua.tZ;
+        aVar = this.ug.uf;
         if (aVar != null) {
-            aVar2 = this.ua.tZ;
-            aVar2.gz();
+            aVar2 = this.ug.uf;
+            aVar2.gA();
         }
     }
 

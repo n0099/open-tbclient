@@ -2,28 +2,28 @@ package com.baidu.tbadk.core;
 
 import android.location.Address;
 import android.text.TextUtils;
-import com.baidu.adp.lib.d.a;
+import com.baidu.adp.lib.e.a;
 import com.baidu.adp.lib.util.BdLog;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements a.InterfaceC0003a {
-    final /* synthetic */ TbadkCoreApplication Ty;
+    final /* synthetic */ TbadkCoreApplication TP;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(TbadkCoreApplication tbadkCoreApplication) {
-        this.Ty = tbadkCoreApplication;
+        this.TP = tbadkCoreApplication;
     }
 
-    @Override // com.baidu.adp.lib.d.a.InterfaceC0003a
+    @Override // com.baidu.adp.lib.e.a.InterfaceC0003a
     public void b(int i, String str, Address address) {
         if (i == 0 && address != null) {
             try {
                 String valueOf = String.valueOf(address.getLatitude());
                 String valueOf2 = String.valueOf(address.getLongitude());
                 if (!TextUtils.isEmpty(valueOf) && !TextUtils.isEmpty(valueOf2)) {
-                    this.Ty.setLocationLat(valueOf);
-                    this.Ty.setLocationLng(valueOf2);
-                    this.Ty.setLocationPos(address.getAddressLine(0));
+                    this.TP.setLocationLat(valueOf);
+                    this.TP.setLocationLng(valueOf2);
+                    this.TP.setLocationPos(address.getAddressLine(0));
                 }
             } catch (IllegalStateException e) {
                 BdLog.e(e.getMessage());

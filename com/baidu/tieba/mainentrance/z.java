@@ -4,47 +4,47 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.TextView;
 import com.baidu.tbadk.core.atomData.SquareSearchActivityConfig;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class z implements TextWatcher {
-    final /* synthetic */ SquareSearchActivity bWd;
+    final /* synthetic */ SquareSearchActivity cmr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public z(SquareSearchActivity squareSearchActivity) {
-        this.bWd = squareSearchActivity;
+        this.cmr = squareSearchActivity;
     }
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         boolean z;
-        this.bWd.bVw = charSequence.toString();
-        if (this.bWd.bVw.trim().length() > 0) {
-            if (this.bWd.mMode != 0) {
-                if (this.bWd.mMode != 1) {
+        this.cmr.clJ = charSequence.toString();
+        if (this.cmr.clJ.trim().length() > 0) {
+            if (this.cmr.mMode != 0) {
+                if (this.cmr.mMode != 1) {
                     return;
                 }
-                this.bWd.H(1, this.bWd.bVw);
+                this.cmr.I(1, this.cmr.clJ);
                 return;
             }
-            this.bWd.abK();
+            this.cmr.afq();
             return;
         }
-        this.bWd.abw();
-        if (this.bWd.mMode != 0) {
-            if (this.bWd.mMode != 3) {
-                this.bWd.abH();
+        this.cmr.afc();
+        if (this.cmr.mMode != 0) {
+            if (this.cmr.mMode != 3) {
+                this.cmr.afn();
                 return;
             } else {
-                this.bWd.abI();
+                this.cmr.afo();
                 return;
             }
         }
-        z = this.bWd.bVC;
+        z = this.cmr.clP;
         if (!z && !SquareSearchActivityConfig.IS_SHOW_LIKE_FORUM) {
             return;
         }
-        this.bWd.abG();
+        this.cmr.afm();
     }
 
     @Override // android.text.TextWatcher
@@ -57,13 +57,13 @@ public class z implements TextWatcher {
         TextView textView2;
         TextView textView3;
         if (editable.toString().trim().length() == 0) {
-            textView3 = this.bWd.bVc;
+            textView3 = this.cmr.clo;
             textView3.setVisibility(8);
         } else {
-            textView = this.bWd.bVc;
+            textView = this.cmr.clo;
             textView.setVisibility(0);
         }
-        textView2 = this.bWd.bVd;
-        com.baidu.tbadk.core.util.an.b(textView2, i.c.cp_cont_i, 1);
+        textView2 = this.cmr.clp;
+        com.baidu.tbadk.core.util.as.b(textView2, n.c.cp_cont_i, 1);
     }
 }

@@ -6,14 +6,14 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class u extends BaseAdapter {
-    private v dhv;
+    private v dFb;
     private DressItemData mBgItem;
     private TbPageContext<?> mContext;
 
     public u(TbPageContext<?> tbPageContext, DressItemData dressItemData) {
         this.mContext = tbPageContext;
         this.mBgItem = dressItemData;
-        this.dhv = new v(this.mContext);
+        this.dFb = new v(this.mContext);
     }
 
     @Override // android.widget.Adapter
@@ -33,8 +33,8 @@ public class u extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        this.dhv.c(this.mBgItem);
-        this.mContext.getLayoutMode().k(this.dhv.getRootView());
-        return this.dhv.getRootView();
+        this.dFb.d(this.mBgItem);
+        this.mContext.getLayoutMode().k(this.dFb.getRootView());
+        return this.dFb.getRootView();
     }
 }

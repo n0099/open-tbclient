@@ -9,11 +9,11 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class MsgSettingItemView2 extends LinearLayout {
-    private View Mo;
-    private CheckBox cQa;
+    private View MF;
+    private CheckBox dow;
 
     public MsgSettingItemView2(Context context) {
         super(context);
@@ -27,39 +27,39 @@ public class MsgSettingItemView2 extends LinearLayout {
 
     public void init(Context context) {
         setOrientation(1);
-        LayoutInflater.from(context).inflate(i.g.msg_setting_item_view2, (ViewGroup) this, true);
-        this.cQa = (CheckBox) findViewById(i.f.setting_check_view);
-        this.Mo = findViewById(i.f.bottom_line_ll);
+        LayoutInflater.from(context).inflate(n.g.msg_setting_item_view2, (ViewGroup) this, true);
+        this.dow = (CheckBox) findViewById(n.f.setting_check_view);
+        this.MF = findViewById(n.f.bottom_line_ll);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.cQa.setText(str);
+        this.dow.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.cQa.setText(i);
+            this.dow.setText(i);
         }
     }
 
     public void setLineVisibility(boolean z) {
         if (z) {
-            this.Mo.setVisibility(0);
+            this.MF.setVisibility(0);
         } else {
-            this.Mo.setVisibility(8);
+            this.MF.setVisibility(8);
         }
     }
 
     public CheckBox getSwitchView() {
-        return this.cQa;
+        return this.dow;
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        tbPageContext.getLayoutMode().ad(i == 1);
+        tbPageContext.getLayoutMode().af(i == 1);
         tbPageContext.getLayoutMode().k(this);
-        com.baidu.tbadk.core.util.an.j(this, i.c.cp_bg_line_d);
+        com.baidu.tbadk.core.util.as.j(this, n.c.cp_bg_line_d);
     }
 }

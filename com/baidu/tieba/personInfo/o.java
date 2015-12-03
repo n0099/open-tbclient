@@ -2,31 +2,30 @@ package com.baidu.tieba.personInfo;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.data.UserData;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class o extends CustomMessageListener {
-    final /* synthetic */ PersonInfoActivity cue;
+public class o extends CustomMessageListener {
+    final /* synthetic */ d cSn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o(PersonInfoActivity personInfoActivity, int i) {
+    public o(d dVar, int i) {
         super(i);
-        this.cue = personInfoActivity;
+        this.cSn = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        int g;
-        y yVar;
-        aj ajVar;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001233 && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.data.f) && (g = com.baidu.adp.lib.g.b.g(((com.baidu.tieba.tbadkCore.data.f) customResponsedMessage.getData()).awW(), 0)) > 0) {
-            yVar = this.cue.ctR;
-            UserData userData = yVar.getUserData();
-            if (userData != null) {
-                userData.setTDouNum(userData.getTDouNum() + g);
-                ajVar = this.cue.ctS;
-                ajVar.akG().notifyDataSetChanged();
+        aw awVar;
+        aw awVar2;
+        if (customResponsedMessage != null) {
+            Long l = (Long) customResponsedMessage.getData();
+            awVar = this.cSn.cMT;
+            long c = com.baidu.adp.lib.h.b.c(awVar.getId(), 0L);
+            if (l != null && c == l.longValue()) {
+                awVar2 = this.cSn.cMT;
+                awVar2.aph();
             }
         }
     }

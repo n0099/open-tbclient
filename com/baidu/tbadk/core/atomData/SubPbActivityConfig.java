@@ -48,8 +48,8 @@ public class SubPbActivityConfig extends IntentConfig {
         intent.putExtra("thread_id", str);
         intent.putExtra("post_id", str2);
         intent.putExtra("st_type", str3);
-        intent.putExtra("is_jump_from_pb", z);
-        intent.putExtra("show_keyboard", z2);
+        intent.putExtra(KEY_IS_JUMP_FROM_PB, z);
+        intent.putExtra(KEY_SHOW_KEYBOARD, z2);
         intent.putExtra(KEY_REPLAY_NAME, str4);
         intent.putExtra(KEY_REPLAY_POST_ID, str5);
         intent.putExtra(KEY_USER_IDENTITY, i);

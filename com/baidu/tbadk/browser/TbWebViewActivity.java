@@ -22,8 +22,10 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class TbWebViewActivity extends BaseWebViewActivity {
     public static final int FILECHOOSER_RESULTCODE = 1;
+    private com.baidu.tieba.tbadkCore.e.a jsBridge;
     private ValueCallback<Uri> mUploadMessage;
     protected BaseWebView mWebView = null;
+    private com.baidu.tieba.tbadkCore.e.c jsCallback = new m(this);
 
     @Override // com.baidu.tbadk.BaseActivity
     public boolean getGpuSwitch() {
@@ -35,6 +37,8 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         setUseStyleImmersiveSticky(false);
         super.onCreate(bundle);
         MessageManager.getInstance().runTask(CmdConfigCustom.CMD_WEBVIEW_PROXY, (Class) null);
+        this.jsBridge = new com.baidu.tieba.tbadkCore.e.a();
+        this.jsBridge.a(new XiubaTbJsBridge(getPageContext()));
         if (this.mNeedCookie) {
             initCookie();
         }
@@ -54,6 +58,18 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     public void onPause() {
         super.onPause();
         callHiddenWebViewMethod("onPause");
+    }
+
+    public void addJsPromptInterface(com.baidu.tieba.tbadkCore.e.b bVar) {
+        if (bVar != null) {
+            this.jsBridge.a(bVar);
+        }
+    }
+
+    public void removePromptInterface(com.baidu.tieba.tbadkCore.e.b bVar) {
+        if (bVar != null) {
+            this.jsBridge.b(bVar);
+        }
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
@@ -76,7 +92,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             this.mWebView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             this.mWebView.setWebViewClient(new a());
             this.mWebView.setDownloadListener(new b(this, null));
-            this.mWebView.setWebChromeClient(new TbWebChromeClient(this));
+            TbWebChromeClient tbWebChromeClient = new TbWebChromeClient(this);
+            tbWebChromeClient.setOnJsPromptCallback(this.jsCallback);
+            this.mWebView.setWebChromeClient(tbWebChromeClient);
             if (this.mEnableJs) {
                 addJavascriptInterface();
             }
@@ -114,10 +132,13 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
+        if (this.jsBridge != null) {
+            this.jsBridge.Ik();
+        }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
             this.mWebView.setVisibility(8);
-            com.baidu.adp.lib.g.h.hh().postDelayed(new n(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
+            com.baidu.adp.lib.h.h.hj().postDelayed(new n(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
         }
     }
 
@@ -134,8 +155,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 if (StringUtils.isNull(TbWebViewActivity.this.mUrlTitle)) {
                     TbWebViewActivity.this.mUrlTitle = TbWebViewActivity.this.mWebView.getTitle();
                 }
-                TbWebViewActivity.this.mView.bV(TbWebViewActivity.this.mUrlTitle);
+                TbWebViewActivity.this.mView.cb(TbWebViewActivity.this.mUrlTitle);
                 TbWebViewActivity.this.mView.setNavBarVisibility(TbWebViewActivity.this.mIsShowNavBar);
+                TbWebViewActivity.this.mView.ad(TbWebViewActivity.this.isNeedShowShareItem());
                 TbWebViewActivity.this.hideProgressBar();
                 TbWebViewActivity.this.stopLoadTimer();
             }
@@ -166,7 +188,10 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (com.baidu.tbadk.util.p.a(TbWebViewActivity.this, str)) {
+            if (com.baidu.tbadk.util.q.d(TbWebViewActivity.this.getPageContext(), str)) {
+                return true;
+            }
+            if (com.baidu.tbadk.util.q.a(TbWebViewActivity.this, str)) {
                 TbWebViewActivity.this.finish();
                 return true;
             }
@@ -204,7 +229,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void initCookie() {
-        g.W(getApplicationContext());
+        f.W(getApplicationContext());
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity

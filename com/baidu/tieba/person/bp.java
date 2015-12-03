@@ -1,37 +1,32 @@
 package com.baidu.tieba.person;
 
+import android.content.Context;
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class bp implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity csj;
+    final /* synthetic */ PersonListActivity cLD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bp(PersonListActivity personListActivity) {
-        this.csj = personListActivity;
+        this.cLD = personListActivity;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.person.PersonListActivity */
+    /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        bs bsVar;
-        bs bsVar2;
-        bs bsVar3;
-        if (view.getTag() instanceof Integer) {
-            int intValue = ((Integer) view.getTag()).intValue();
-            bsVar = this.csj.cse;
-            if (bsVar != null) {
-                bsVar2 = this.csj.cse;
-                if (bsVar2.getItemViewType(this.csj.crF) == 0) {
-                    bsVar3 = this.csj.cse;
-                    UserData userData = (UserData) bsVar3.getItem(intValue);
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AddFriendActivityConfig(this.csj.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), userData.getPortrait(), null, false, AddFriendActivityConfig.TYPE_FOCUS_RECOM)));
-                }
-            }
+        this.cLD.cKZ = ((Integer) view.getTag()).intValue();
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (currentAccount == null || currentAccount.length() <= 0) {
+            TbadkCoreApplication.m411getInst().login(this.cLD.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.cLD.getPageContext().getPageActivity(), this.cLD.getPageContext().getString(n.i.login_to_chat), true, 11028)));
+        } else {
+            this.cLD.anN();
         }
     }
 }

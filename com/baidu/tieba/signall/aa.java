@@ -4,17 +4,17 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aa implements View.OnClickListener {
-    final /* synthetic */ z cST;
+    final /* synthetic */ z drq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aa(z zVar) {
-        this.cST = zVar;
+        this.drq = zVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         SignAllForumActivity signAllForumActivity;
-        signAllForumActivity = this.cST.cSJ;
+        signAllForumActivity = this.drq.drf;
         signAllForumActivity.finish();
     }
 }

@@ -1,36 +1,32 @@
 package com.baidu.tieba.pb.chosen.cache;
 
 import java.util.List;
-import tbclient.FinePbPage.ForumInfo;
-import tbclient.FinePbPage.User_Info;
+import tbclient.ExcPbPage.ExcellentPbThreadInfo;
+import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class a implements com.baidu.tieba.pb.chosen.net.a {
-    private User_Info cfU;
-    private ForumInfo forumInfo;
-    private long nextTid;
+    private UserInfo cyw;
     private List<Post> postList;
-    private long preTid;
+    private ExcellentPbThreadInfo threadInfo;
     private List<User> userList;
 
-    public a(long j, long j2, User_Info user_Info, ForumInfo forumInfo, List<Post> list, List<User> list2) {
-        this.preTid = j;
-        this.nextTid = j2;
-        this.cfU = user_Info;
-        this.forumInfo = forumInfo;
+    public a(UserInfo userInfo, ExcellentPbThreadInfo excellentPbThreadInfo, List<Post> list, List<User> list2) {
+        this.cyw = userInfo;
+        this.threadInfo = excellentPbThreadInfo;
         this.postList = list;
         this.userList = list2;
     }
 
     @Override // com.baidu.tieba.pb.chosen.net.a
-    public User_Info getUserInfo() {
-        return this.cfU;
+    public UserInfo getUserInfo() {
+        return this.cyw;
     }
 
     @Override // com.baidu.tieba.pb.chosen.net.a
-    public ForumInfo getForumInfo() {
-        return this.forumInfo;
+    public ExcellentPbThreadInfo getThreadInfo() {
+        return this.threadInfo;
     }
 
     @Override // com.baidu.tieba.pb.chosen.net.a
@@ -45,7 +41,7 @@ public class a implements com.baidu.tieba.pb.chosen.net.a {
 
     @Override // com.baidu.tieba.pb.chosen.net.a
     public boolean isEmpty() {
-        return this.forumInfo == null || this.forumInfo.content == null || this.forumInfo.content.size() <= 0;
+        return this.threadInfo == null || this.threadInfo.content == null || this.threadInfo.content.size() <= 0;
     }
 
     @Override // com.baidu.tieba.pb.chosen.net.a

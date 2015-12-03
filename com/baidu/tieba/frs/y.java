@@ -1,32 +1,31 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.View;
+import com.baidu.tbadk.core.dialog.c;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class y implements Runnable {
-    final /* synthetic */ FrsActivity aUS;
-    private final /* synthetic */ long aUV;
-    private final /* synthetic */ long aUW;
-    private final /* synthetic */ long aUX;
+public class y implements c.b {
+    final /* synthetic */ FrsActivity bag;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public y(FrsActivity frsActivity, long j, long j2, long j3) {
-        this.aUS = frsActivity;
-        this.aUV = j;
-        this.aUW = j2;
-        this.aUX = j3;
+    public y(FrsActivity frsActivity) {
+        this.bag = frsActivity;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int K = com.baidu.adp.lib.util.k.K(this.aUS.getPageContext().getPageActivity());
-        int L = com.baidu.adp.lib.util.k.L(this.aUS.getPageContext().getPageActivity());
-        float f = TbadkCoreApplication.m411getInst().getApp().getResources().getDisplayMetrics().density;
-        int i = 1;
-        if (com.baidu.tbadk.core.util.at.uK().uM()) {
-            i = 2;
+    @Override // com.baidu.tbadk.core.dialog.c.b
+    public void itemClick(com.baidu.tbadk.core.dialog.c cVar, int i, View view) {
+        cVar.dismiss();
+        switch (i) {
+            case 0:
+                this.bag.aZg = false;
+                this.bag.fV(0);
+                return;
+            case 1:
+                this.bag.aZg = false;
+                this.bag.MK();
+                return;
+            default:
+                return;
         }
-        RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-        requestGetMyPostNetMessage.setParams(this.aUV, this.aUW, this.aUX, K, L, f, i);
-        this.aUS.sendMessage(requestGetMyPostNetMessage);
     }
 }

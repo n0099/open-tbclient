@@ -7,19 +7,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class s extends PagerAdapter {
-    private List<View> bnr;
+    private List<View> aMs;
 
     public s(List<View> list) {
-        this.bnr = new ArrayList();
-        this.bnr = list;
+        this.aMs = new ArrayList();
+        this.aMs = list;
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        if (this.bnr == null) {
+        if (this.aMs == null) {
             return 0;
         }
-        return this.bnr.size();
+        return this.aMs.size();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -30,7 +30,7 @@ public class s extends PagerAdapter {
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         if (i >= 0 && i < getCount()) {
-            viewGroup.removeView(this.bnr.get(i));
+            viewGroup.removeView(this.aMs.get(i));
         }
     }
 
@@ -39,7 +39,7 @@ public class s extends PagerAdapter {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        View view = this.bnr.get(i);
+        View view = this.aMs.get(i);
         viewGroup.addView(view);
         return view;
     }

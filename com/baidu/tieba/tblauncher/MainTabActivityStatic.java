@@ -6,41 +6,41 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import protobuf.GetOnlineInfo.Game;
 /* loaded from: classes.dex */
 public class MainTabActivityStatic {
-    private static Game dfs;
+    private static Game dDh;
 
     static {
-        LC();
-        azC();
-        Hm();
-        azB();
-        MessageManager.getInstance().registerListener(new ai(CmdConfigCustom.START_GO_HOME));
+        Nb();
+        aEQ();
+        IF();
+        aEP();
+        MessageManager.getInstance().registerListener(new q(CmdConfigCustom.START_GO_HOME));
     }
 
-    private static void LC() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MAINTAB, new aj());
+    private static void Nb() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.START_MAINTAB, new r());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void Hm() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new ak());
+    private static void IF() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.FRIEND_FEED_NEW, new s());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void azB() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHOW_GAME_ICON, new al());
+    private static void aEP() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.CMD_SHOW_GAME_ICON, new t());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void azC() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new am());
+    private static void aEQ() {
+        CustomMessageTask customMessageTask = new CustomMessageTask(CmdConfigCustom.MSG_NEW, new u());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
     public static Game getGame() {
-        return dfs;
+        return dDh;
     }
 }

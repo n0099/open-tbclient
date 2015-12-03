@@ -2,15 +2,15 @@ package com.baidu.tieba.image;
 
 import android.view.View;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.bf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    final /* synthetic */ a bPj;
+    final /* synthetic */ a cfw;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.bPj = aVar;
+        this.cfw = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -19,14 +19,14 @@ public class c implements View.OnClickListener {
         i iVar;
         TbPageContext<?> tbPageContext;
         com.baidu.tbadk.core.data.b bVar2;
-        bVar = this.bPj.bPd;
+        bVar = this.cfw.cfq;
         if (bVar != null) {
-            iVar = this.bPj.bPg;
-            iVar.aaq();
-            az uX = az.uX();
-            tbPageContext = this.bPj.mContext;
-            bVar2 = this.bPj.bPd;
-            uX.b(tbPageContext, new String[]{bVar2.TZ});
+            iVar = this.cfw.cft;
+            iVar.adW();
+            bf vD = bf.vD();
+            tbPageContext = this.cfw.mContext;
+            bVar2 = this.cfw.cfq;
+            vD.b(tbPageContext, new String[]{bVar2.Up});
         }
     }
 }

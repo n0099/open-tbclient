@@ -1,17 +1,18 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.sapi2.SapiWebView;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ah implements SapiWebView.OnFinishCallback {
-    final /* synthetic */ SapiWebViewActivity cQc;
+public class ah implements View.OnClickListener {
+    final /* synthetic */ SapiWebViewActivity doy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ah(SapiWebViewActivity sapiWebViewActivity) {
-        this.cQc = sapiWebViewActivity;
+        this.doy = sapiWebViewActivity;
     }
 
-    @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
-    public void onFinish() {
-        this.cQc.finish();
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.doy.goBack();
     }
 }

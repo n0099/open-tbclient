@@ -1,9 +1,15 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.tbadk.coreExtra.data.PersonChangeData;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.atomData.NotLoginGuideActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.setting.SystemHelpSettingActivityConfig;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class t extends com.baidu.adp.base.g {
+public class t implements s {
     final /* synthetic */ MoreActivity this$0;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -11,25 +17,65 @@ public class t extends com.baidu.adp.base.g {
         this.this$0 = moreActivity;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        com.baidu.tieba.setting.model.c cVar;
-        com.baidu.tieba.setting.model.c cVar2;
-        com.baidu.tieba.setting.model.c cVar3;
-        com.baidu.tieba.setting.model.c cVar4;
-        com.baidu.tieba.setting.model.c cVar5;
-        PersonChangeData personChangeData = new PersonChangeData();
-        cVar = this.this$0.cOR;
-        if (cVar.getUser() != null) {
-            cVar2 = this.this$0.cOR;
-            personChangeData.setName(cVar2.getUser().getName_show());
-            cVar3 = this.this$0.cOR;
-            personChangeData.setIntro(cVar3.getUser().getIntro());
-            cVar4 = this.this$0.cOR;
-            personChangeData.setPortrait(cVar4.getUser().getPortrait());
-            cVar5 = this.this$0.cOR;
-            personChangeData.setSex(cVar5.getUser().getSex());
-            this.this$0.b(personChangeData);
+    @Override // com.baidu.tieba.setting.more.s
+    public void lV(int i) {
+        if (i != 0) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 6) {
+                                if (i != 7) {
+                                    if (i != 8) {
+                                        if (i == 5) {
+                                            this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SystemHelpSettingActivityConfig(this.this$0.getPageContext().getPageActivity())));
+                                            return;
+                                        } else if (i != 9) {
+                                            if (i == 10) {
+                                                this.this$0.dnk.ayl();
+                                                return;
+                                            } else if (i == 12) {
+                                                com.baidu.adp.lib.h.h.hj().postDelayed(new u(this), 1000L);
+                                                this.this$0.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NotLoginGuideActivityConfig(this.this$0.getPageContext().getPageActivity(), NotLoginGuideActivityConfig.FROM_ACCOUNT)));
+                                                return;
+                                            } else if (i == 11) {
+                                                TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", true);
+                                                BdSocketLinkService.close("exit app");
+                                                com.baidu.tbadk.core.c.b.b(this.this$0.getPageContext().getPageActivity(), 12, false);
+                                                return;
+                                            } else if (i != 13) {
+                                                return;
+                                            } else {
+                                                this.this$0.ayb();
+                                                TiebaStatic.log("c10017");
+                                                return;
+                                            }
+                                        } else {
+                                            this.this$0.ayi();
+                                            return;
+                                        }
+                                    }
+                                    this.this$0.aya();
+                                    return;
+                                }
+                                this.this$0.goToFeedBack();
+                                return;
+                            }
+                            this.this$0.ayc();
+                            return;
+                        }
+                        this.this$0.ayh();
+                        return;
+                    }
+                    this.this$0.ayd();
+                    return;
+                }
+                this.this$0.aye();
+                return;
+            }
+            this.this$0.ayf();
+            return;
         }
+        this.this$0.ayg();
     }
 }

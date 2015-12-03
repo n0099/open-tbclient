@@ -1,39 +1,23 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
+import android.widget.ListView;
 /* loaded from: classes.dex */
-public class z extends com.baidu.tbadk.core.data.w {
-    public static final BdUniqueId cZA = BdUniqueId.gen();
-    private boolean cZB;
-    private p cZC;
-    private String fortune_desc;
+public class z implements Runnable {
+    private Activity aKK;
+    private int distance;
+    private com.baidu.tbadk.editortools.d.e dye;
+    private ListView dyf;
+    private int dyg;
+    private int position;
 
-    public boolean awG() {
-        return this.cZB;
-    }
-
-    public void gv(boolean z) {
-        this.cZB = z;
-    }
-
-    public String awH() {
-        return this.fortune_desc;
-    }
-
-    public void lC(String str) {
-        this.fortune_desc = str;
-    }
-
-    public p awI() {
-        return this.cZC;
-    }
-
-    public void b(p pVar) {
-        this.cZC = pVar;
-    }
-
-    @Override // com.baidu.tbadk.core.data.w, com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return cZA;
+    @Override // java.lang.Runnable
+    public void run() {
+        int[] iArr = new int[2];
+        if (this.dye != null && this.dye.Bu() != null) {
+            this.dye.Bu().getLocationInWindow(iArr);
+            this.dyf.setSelectionFromTop(this.position + this.dyf.getHeaderViewsCount(), ((iArr[1] - this.distance) - this.dyg) - com.baidu.adp.lib.util.k.l(this.aKK));
+            this.dyf.invalidate();
+        }
     }
 }

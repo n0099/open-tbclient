@@ -18,7 +18,7 @@ public class TextDirectionHeuristicsCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int j(int i) {
+    public static int k(int i) {
         switch (i) {
             case 0:
                 return 1;
@@ -31,7 +31,7 @@ public class TextDirectionHeuristicsCompat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static int k(int i) {
+    public static int l(int i) {
         switch (i) {
             case 0:
             case 14:
@@ -106,7 +106,7 @@ public class TextDirectionHeuristicsCompat {
             int i3 = i + i2;
             int i4 = 2;
             while (i < i3 && i4 == 2) {
-                i4 = TextDirectionHeuristicsCompat.k(Character.getDirectionality(charSequence.charAt(i)));
+                i4 = TextDirectionHeuristicsCompat.l(Character.getDirectionality(charSequence.charAt(i)));
                 i++;
             }
             return i4;
@@ -127,7 +127,7 @@ public class TextDirectionHeuristicsCompat {
             int i3 = i + i2;
             boolean z = false;
             while (i < i3) {
-                switch (TextDirectionHeuristicsCompat.j(Character.getDirectionality(charSequence.charAt(i)))) {
+                switch (TextDirectionHeuristicsCompat.k(Character.getDirectionality(charSequence.charAt(i)))) {
                     case 0:
                         if (!this.my) {
                             z = true;

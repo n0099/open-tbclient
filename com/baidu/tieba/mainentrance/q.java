@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.message.EnterForumInfoMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 class q extends CustomMessageListener {
-    final /* synthetic */ SquareSearchActivity bWd;
+    final /* synthetic */ SquareSearchActivity cmr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q(SquareSearchActivity squareSearchActivity, int i) {
         super(i);
-        this.bWd = squareSearchActivity;
+        this.cmr = squareSearchActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,29 +32,29 @@ class q extends CustomMessageListener {
         BdListView bdListView;
         SearchPageFocusBar searchPageFocusBar7;
         if ((customResponsedMessage instanceof EnterForumInfoMessage) && (likeForumData = ((EnterForumInfoMessage) customResponsedMessage).getLikeForumData()) != null && likeForumData.size() > 0) {
-            searchPageFocusBar = this.bWd.bVH;
+            searchPageFocusBar = this.cmr.clU;
             if (searchPageFocusBar != null) {
-                searchPageFocusBar2 = this.bWd.bVJ;
+                searchPageFocusBar2 = this.cmr.clW;
                 if (searchPageFocusBar2 != null) {
-                    if (this.bWd.mMode == 0) {
-                        bdListView = this.bWd.bVo;
+                    if (this.cmr.mMode == 0) {
+                        bdListView = this.cmr.clA;
                         if (bdListView.getVisibility() == 8) {
-                            searchPageFocusBar7 = this.bWd.bVH;
+                            searchPageFocusBar7 = this.cmr.clU;
                             searchPageFocusBar7.setVisibility(0);
-                            searchPageFocusBar5 = this.bWd.bVH;
-                            searchPageFocusBar5.b(likeForumData, this.bWd.getPageContext());
-                            searchPageFocusBar6 = this.bWd.bVJ;
-                            searchPageFocusBar6.b(likeForumData, this.bWd.getPageContext());
+                            searchPageFocusBar5 = this.cmr.clU;
+                            searchPageFocusBar5.c(likeForumData, this.cmr.getPageContext());
+                            searchPageFocusBar6 = this.cmr.clW;
+                            searchPageFocusBar6.c(likeForumData, this.cmr.getPageContext());
                         }
                     }
-                    searchPageFocusBar3 = this.bWd.bVH;
+                    searchPageFocusBar3 = this.cmr.clU;
                     searchPageFocusBar3.setVisibility(8);
-                    searchPageFocusBar4 = this.bWd.bVJ;
+                    searchPageFocusBar4 = this.cmr.clW;
                     searchPageFocusBar4.setVisibility(8);
-                    searchPageFocusBar5 = this.bWd.bVH;
-                    searchPageFocusBar5.b(likeForumData, this.bWd.getPageContext());
-                    searchPageFocusBar6 = this.bWd.bVJ;
-                    searchPageFocusBar6.b(likeForumData, this.bWd.getPageContext());
+                    searchPageFocusBar5 = this.cmr.clU;
+                    searchPageFocusBar5.c(likeForumData, this.cmr.getPageContext());
+                    searchPageFocusBar6 = this.cmr.clW;
+                    searchPageFocusBar6.c(likeForumData, this.cmr.getPageContext());
                 }
             }
         }

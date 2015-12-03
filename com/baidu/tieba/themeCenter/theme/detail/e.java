@@ -1,40 +1,47 @@
 package com.baidu.tieba.themeCenter.theme.detail;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tieba.themeCenter.theme.detail.d;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
-public class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ d diB;
+public class e extends com.baidu.adp.base.e<e> {
+    private com.baidu.adp.framework.listener.a aWh = new f(this, CmdConfigHttp.CMD_SKIN_DETAIL, 309012);
+    private a dGL;
+    private com.baidu.tieba.themeCenter.b mSkinData;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(d dVar, int i, int i2) {
-        super(i, i2);
-        this.diB = dVar;
+    /* loaded from: classes.dex */
+    public interface a {
+        void a(int i, String str, com.baidu.tieba.themeCenter.b bVar);
     }
 
-    @Override // com.baidu.adp.framework.listener.a
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        d.a aVar;
-        d.a aVar2;
-        com.baidu.tieba.themeCenter.b bVar;
-        if (responsedMessage != null) {
-            if ((responsedMessage instanceof SkinDetailHttpResponsedMessage) || (responsedMessage instanceof SkinDetailSocketResponsedMessage)) {
-                if (responsedMessage instanceof SkinDetailHttpResponsedMessage) {
-                    this.diB.mSkinData = ((SkinDetailHttpResponsedMessage) responsedMessage).getSkinData();
-                } else if (responsedMessage instanceof SkinDetailSocketResponsedMessage) {
-                    this.diB.mSkinData = ((SkinDetailSocketResponsedMessage) responsedMessage).getSkinData();
-                }
-                aVar = this.diB.diA;
-                if (aVar != null) {
-                    aVar2 = this.diB.diA;
-                    int error = responsedMessage.getError();
-                    String errorString = responsedMessage.getErrorString();
-                    bVar = this.diB.mSkinData;
-                    aVar2.a(error, errorString, bVar);
-                }
-            }
-        }
+    public e() {
+        com.baidu.tieba.tbadkCore.a.a.a(309012, SkinDetailSocketResponsedMessage.class, false, false);
+        com.baidu.tieba.tbadkCore.a.a.a(309012, CmdConfigHttp.CMD_SKIN_DETAIL, TbConfig.SKIN_DETAIL_PAGE, SkinDetailHttpResponsedMessage.class, false, false, false, false);
+        registerListener(this.aWh);
+    }
+
+    public void na(int i) {
+        SkinDetailReauestMessage skinDetailReauestMessage = new SkinDetailReauestMessage();
+        skinDetailReauestMessage.setThemeId(i);
+        sendMessage(skinDetailReauestMessage);
+    }
+
+    public void a(a aVar) {
+        this.dGL = aVar;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.adp.base.e
+    public boolean LoadData() {
+        return false;
+    }
+
+    public void destroy() {
+        MessageManager.getInstance().unRegisterListener(this.aWh);
     }
 }

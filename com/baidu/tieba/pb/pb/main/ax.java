@@ -1,48 +1,28 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.widget.LinearLayout;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.SelectFriendActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.util.TiebaStatic;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ax implements com.baidu.adp.lib.e.c<LinearLayout> {
-    final /* synthetic */ PbActivity cjN;
+public class ax implements View.OnClickListener {
+    final /* synthetic */ PbActivity cCm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ax(PbActivity pbActivity) {
-        this.cjN = pbActivity;
+        this.cCm = pbActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: agd */
-    public LinearLayout ha() {
-        LinearLayout linearLayout = new LinearLayout(this.cjN.getPageContext().getPageActivity());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        linearLayout.setLayoutParams(layoutParams);
-        linearLayout.setGravity(16);
-        linearLayout.setBaselineAligned(true);
-        linearLayout.setOrientation(0);
-        linearLayout.setLayoutParams(layoutParams);
-        return linearLayout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: g */
-    public void l(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: h */
-    public LinearLayout m(LinearLayout linearLayout) {
-        return linearLayout;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: i */
-    public LinearLayout n(LinearLayout linearLayout) {
-        linearLayout.removeAllViews();
-        return linearLayout;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        cc ccVar;
+        this.cCm.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SelectFriendActivityConfig(this.cCm.getPageContext().getPageActivity(), 23007)));
+        com.baidu.tbadk.core.util.av avVar = new com.baidu.tbadk.core.util.av("c10125");
+        ccVar = this.cCm.cBG;
+        TiebaStatic.log(avVar.ab("tid", ccVar.getThreadID()).r("obj_type", 1));
     }
 }

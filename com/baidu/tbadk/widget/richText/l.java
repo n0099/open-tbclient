@@ -9,19 +9,19 @@ import android.widget.TextView;
 import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
 public interface l {
-    com.baidu.adp.lib.e.b<GifView> getGifViewPool();
+    com.baidu.adp.lib.f.b<GifView> getGifViewPool();
 
-    com.baidu.adp.lib.e.b<ImageView> getImageViewPool();
+    com.baidu.adp.lib.f.b<ImageView> getImageViewPool();
 
     ListView getListView();
 
     int getRichTextViewId();
 
-    com.baidu.adp.lib.e.b<TextView> getTextViewPool();
+    com.baidu.adp.lib.f.b<TextView> getTextViewPool();
 
-    com.baidu.adp.lib.e.b<LinearLayout> getTextVoiceViewPool();
+    com.baidu.adp.lib.f.b<LinearLayout> getTextVoiceViewPool();
 
-    com.baidu.adp.lib.e.b<View> getVoiceViewPool();
+    com.baidu.adp.lib.f.b<View> getVoiceViewPool();
 
     void onAtClicked(Context context, String str);
 

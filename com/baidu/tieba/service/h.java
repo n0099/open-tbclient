@@ -1,17 +1,17 @@
 package com.baidu.tieba.service;
 
 import android.location.Address;
-import com.baidu.adp.lib.d.a;
+import com.baidu.adp.lib.e.a;
 /* loaded from: classes.dex */
 class h implements a.InterfaceC0003a {
-    final /* synthetic */ UpdateInfoService cMA;
+    final /* synthetic */ UpdateInfoService dkR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(UpdateInfoService updateInfoService) {
-        this.cMA = updateInfoService;
+        this.dkR = updateInfoService;
     }
 
-    @Override // com.baidu.adp.lib.d.a.InterfaceC0003a
+    @Override // com.baidu.adp.lib.e.a.InterfaceC0003a
     public void b(int i, String str, Address address) {
         com.baidu.tieba.model.c cVar;
         com.baidu.tieba.model.c cVar2;
@@ -21,12 +21,12 @@ class h implements a.InterfaceC0003a {
                 if (address != null) {
                     float longitude = (float) address.getLongitude();
                     float latitude = (float) address.getLatitude();
-                    cVar = this.cMA.mModel;
-                    if (cVar.adA()) {
-                        cVar2 = this.cMA.mModel;
+                    cVar = this.dkR.mModel;
+                    if (cVar.ahJ()) {
+                        cVar2 = this.dkR.mModel;
                         cVar2.a(1, longitude, latitude);
-                        cVar3 = this.cMA.mModel;
-                        cVar3.adB();
+                        cVar3 = this.dkR.mModel;
+                        cVar3.ahK();
                         return;
                     }
                     return;

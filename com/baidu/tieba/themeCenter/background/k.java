@@ -4,11 +4,11 @@ import com.baidu.tieba.themeCenter.background.o;
 import java.util.List;
 /* loaded from: classes.dex */
 class k implements o.a {
-    final /* synthetic */ BackgroundListActivity dhh;
+    final /* synthetic */ BackgroundListActivity dEK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(BackgroundListActivity backgroundListActivity) {
-        this.dhh = backgroundListActivity;
+        this.dEK = backgroundListActivity;
     }
 
     @Override // com.baidu.tieba.themeCenter.background.o.a
@@ -16,19 +16,21 @@ class k implements o.a {
         r rVar;
         r rVar2;
         r rVar3;
+        o oVar;
         r rVar4;
-        rVar = this.dhh.dhf;
-        rVar.aAk();
-        BackgroundListActivity backgroundListActivity = this.dhh;
-        rVar2 = this.dhh.dhf;
+        rVar = this.dEK.dEI;
+        rVar.aFu();
+        BackgroundListActivity backgroundListActivity = this.dEK;
+        rVar2 = this.dEK.dEI;
         backgroundListActivity.hideLoadingView(rVar2.getRootView());
         if (i == 0) {
-            rVar3 = this.dhh.dhf;
-            rVar3.a(kVar, list);
+            rVar3 = this.dEK.dEI;
+            oVar = this.dEK.dEH;
+            rVar3.a(kVar, list, oVar.aFs());
             return;
         }
-        this.dhh.showToast(str);
-        rVar4 = this.dhh.dhf;
-        rVar4.KD();
+        this.dEK.showToast(str);
+        rVar4 = this.dEK.dEI;
+        rVar4.LY();
     }
 }

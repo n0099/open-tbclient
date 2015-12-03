@@ -1,68 +1,29 @@
 package com.baidu.tieba.frs;
 
-import android.util.SparseArray;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dp extends SparseArray<ec> {
-    public void a(ed edVar) {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                ec valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(edVar);
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
+public class dp implements View.OnClickListener {
+    private final /* synthetic */ com.baidu.tbadk.core.data.z bci;
+    final /* synthetic */ dm bed;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public dp(dm dmVar, com.baidu.tbadk.core.data.z zVar) {
+        this.bed = dmVar;
+        this.bci = zVar;
     }
 
-    public void init() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                ec valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.init();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
-    }
-
-    public void destory() {
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 < size()) {
-                ec valueAt = valueAt(i2);
-                if (valueAt != null) {
-                    valueAt.a(null);
-                    valueAt.KG();
-                }
-                i = i2 + 1;
-            } else {
-                return;
-            }
-        }
-    }
-
-    public void a(int i, ec ecVar) {
-        if (i > 100) {
-            i = 100;
-        }
-        put(i, ecVar);
-    }
-
-    public ec fO(int i) {
-        if (i > 100) {
-            i = 100;
-        }
-        return get(i);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        Context context;
+        MessageManager messageManager = MessageManager.getInstance();
+        context = this.bed.mContext;
+        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.bci.getAuthor().getUserId(), this.bci.getAuthor().getName_show(), this.bed.aZs.ajy().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
     }
 }

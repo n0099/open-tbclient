@@ -7,13 +7,13 @@ import android.widget.BaseAdapter;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter implements AbsListView.OnScrollListener {
-    private PraiseListActivity cnt;
+    private PraiseListActivity cGE;
     private volatile boolean isScrolling;
     private List<a> mZanItemDataList = null;
 
     public c(PraiseListActivity praiseListActivity) {
-        this.cnt = null;
-        this.cnt = praiseListActivity;
+        this.cGE = null;
+        this.cGE = praiseListActivity;
     }
 
     public void setZanItemDataList(List<a> list) {
@@ -30,7 +30,7 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: ji */
+    /* renamed from: kc */
     public a getItem(int i) {
         if (this.mZanItemDataList != null) {
             return this.mZanItemDataList.get(i);
@@ -63,10 +63,10 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     private View buildItemView(int i, View view, ViewGroup viewGroup) {
-        b f = b.f(this.cnt.getPageContext().getPageActivity(), view);
+        b i2 = b.i(this.cGE.getPageContext().getPageActivity(), view);
         a item = getItem(i);
-        f.setData(item.getUserName(), item.getPortrait(), item.ahB(), this.isScrolling);
-        this.cnt.changSkinType(f.getView());
-        return f.getView();
+        i2.setData(item.getUserName(), item.getPortrait(), item.ame(), this.isScrolling);
+        this.cGE.changSkinType(i2.getView());
+        return i2.getView();
     }
 }

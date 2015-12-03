@@ -2,39 +2,39 @@ package com.baidu.tieba.tbadkCore.imgView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements Runnable {
-    final /* synthetic */ DragHorizonScrollView dcp;
+    final /* synthetic */ DragHorizonScrollView dBd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(DragHorizonScrollView dragHorizonScrollView) {
-        this.dcp = dragHorizonScrollView;
+        this.dBd = dragHorizonScrollView;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         boolean canScroll;
-        int axN;
-        int axN2;
+        int aDy;
+        int aDy2;
         boolean z;
-        this.dcp.dck = false;
-        int childCount = this.dcp.getChildCount();
+        this.dBd.dAY = false;
+        int childCount = this.dBd.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            this.dcp.getChildAt(i).clearAnimation();
+            this.dBd.getChildAt(i).clearAnimation();
         }
-        canScroll = this.dcp.canScroll();
+        canScroll = this.dBd.canScroll();
         if (!canScroll) {
-            this.dcp.scrollTo(0, 0);
+            this.dBd.scrollTo(0, 0);
         } else {
-            int scrollX = this.dcp.getScrollX();
-            axN = this.dcp.axN();
-            if (scrollX > axN) {
-                DragHorizonScrollView dragHorizonScrollView = this.dcp;
-                axN2 = this.dcp.axN();
-                dragHorizonScrollView.scrollTo(axN2, 0);
+            int scrollX = this.dBd.getScrollX();
+            aDy = this.dBd.aDy();
+            if (scrollX > aDy) {
+                DragHorizonScrollView dragHorizonScrollView = this.dBd;
+                aDy2 = this.dBd.aDy();
+                dragHorizonScrollView.scrollTo(aDy2, 0);
             }
         }
-        z = this.dcp.dcl;
+        z = this.dBd.dAZ;
         if (z) {
-            this.dcp.requestLayout();
+            this.dBd.requestLayout();
         }
     }
 }

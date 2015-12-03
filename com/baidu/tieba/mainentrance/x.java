@@ -4,15 +4,15 @@ import android.view.View;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class x implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity bWd;
+    final /* synthetic */ SquareSearchActivity cmr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(SquareSearchActivity squareSearchActivity) {
-        this.bWd = squareSearchActivity;
+        this.cmr = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.bWd.bVb.setText("");
+        this.cmr.cln.setText("");
     }
 }

@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ai implements View.OnClickListener {
-    final /* synthetic */ WriteActivity dsa;
+    final /* synthetic */ WriteActivity dRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ai(WriteActivity writeActivity) {
-        this.dsa = writeActivity;
+        this.dRf = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.dsa.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ImageProblemActivityConfig(this.dsa.getPageContext().getPageActivity())));
+        this.dRf.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ImageProblemActivityConfig(this.dRf.getPageContext().getPageActivity())));
     }
 }

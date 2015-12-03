@@ -1,29 +1,32 @@
 package com.baidu.tieba.payment;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class n implements TextWatcher {
-    private final /* synthetic */ com.baidu.tbadk.core.dialog.a amr;
-    final /* synthetic */ PaymentConfirmActivity ceE;
+public class n implements View.OnClickListener {
+    final /* synthetic */ PaymentConfirmActivity cxe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public n(PaymentConfirmActivity paymentConfirmActivity, com.baidu.tbadk.core.dialog.a aVar) {
-        this.ceE = paymentConfirmActivity;
-        this.amr = aVar;
+    public n(PaymentConfirmActivity paymentConfirmActivity) {
+        this.cxe = paymentConfirmActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        this.amr.am(!StringUtils.isNull(editable.toString()));
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        boolean z;
+        boolean z2;
+        z = this.cxe.cwY;
+        if (!z) {
+            z2 = this.cxe.cwX;
+            if (z2) {
+                t.kr("c10292");
+                this.cxe.ajb();
+                return;
+            }
+            t.kr("c10293");
+            this.cxe.aja();
+            return;
+        }
+        this.cxe.K(0, null);
     }
 }

@@ -4,40 +4,40 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.u;
+import com.baidu.tbadk.core.util.y;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements d {
-    private TbHttpMessageTask cJs;
-    private HttpMessageListener cJr = new g(this, CmdConfigHttp.CMD_AD_UPLOAD);
-    private ArrayList<a> cJt = new ArrayList<>();
+    private TbHttpMessageTask dia;
+    private HttpMessageListener dhZ = new g(this, CmdConfigHttp.CMD_AD_UPLOAD);
+    private ArrayList<a> dib = new ArrayList<>();
 
     public f() {
-        aql();
-        MessageManager.getInstance().registerListener(this.cJr);
+        avX();
+        MessageManager.getInstance().registerListener(this.dhZ);
     }
 
-    private void aql() {
-        this.cJs = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "http://als.baidu.com/dalog/logForC");
-        this.cJs.setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        this.cJs.setIsNeedAddCommenParam(true);
-        this.cJs.setResponsedClass(JsonHttpResponsedMessage.class);
+    private void avX() {
+        this.dia = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "http://als.baidu.com/dalog/logForC");
+        this.dia.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        this.dia.setIsNeedAddCommenParam(true);
+        this.dia.setResponsedClass(JsonHttpResponsedMessage.class);
     }
 
     @Override // com.baidu.tieba.recapp.report.d
     public void b(a aVar) {
         if (aVar != null) {
             d(aVar);
-            aqm();
+            avY();
         }
     }
 
     @Override // com.baidu.tieba.recapp.report.d
-    public void aqk() {
-        aqm();
+    public void avW() {
+        avY();
     }
 
     @Override // com.baidu.tieba.recapp.report.d
@@ -47,16 +47,16 @@ public class f implements d {
         }
     }
 
-    private void aqm() {
-        if (u.m(this.cJt) > 0) {
-            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.cJt), this.cJs);
-            this.cJt.clear();
+    private void avY() {
+        if (y.k(this.dib) > 0) {
+            MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.dib), this.dia);
+            this.dib.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void br(List<a> list) {
-        if (u.m(list) > 0) {
+    public void bD(List<a> list) {
+        if (y.k(list) > 0) {
             for (a aVar : list) {
                 if (aVar != null) {
                     d(aVar);
@@ -67,10 +67,10 @@ public class f implements d {
 
     private void d(a aVar) {
         if (aVar != null) {
-            if (u.m(this.cJt) >= 20) {
-                this.cJt.remove(0);
+            if (y.k(this.dib) >= 20) {
+                this.dib.remove(0);
             }
-            this.cJt.add(aVar);
+            this.dib.add(aVar);
         }
     }
 }

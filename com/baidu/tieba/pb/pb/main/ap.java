@@ -1,37 +1,40 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.i;
-import com.baidu.tieba.pb.FileDownloader;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
-public class ap implements a.b {
-    final /* synthetic */ PbActivity cjN;
+class ap implements com.baidu.adp.lib.f.c<GifView> {
+    final /* synthetic */ PbActivity cCm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ap(PbActivity pbActivity) {
-        this.cjN = pbActivity;
+        this.cCm = pbActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        com.baidu.tbadk.core.dialog.a aVar2;
-        String str;
-        String str2;
-        aVar2 = this.cjN.ciZ;
-        aVar2.dismiss();
-        if (com.baidu.tbadk.core.util.n.fi()) {
-            str = this.cjN.aPn;
-            if (!TextUtils.isEmpty(str) && com.baidu.adp.lib.util.i.iO()) {
-                Activity pageActivity = this.cjN.getPageContext().getPageActivity();
-                str2 = this.cjN.aPn;
-                FileDownloader.download(pageActivity, str2, null, this.cjN.getPageContext().getString(i.h.download_iqiyi_app));
-                return;
-            }
-            return;
-        }
-        this.cjN.showToast(com.baidu.tbadk.core.util.n.tB());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: akt */
+    public GifView hc() {
+        return new GifView(this.cCm.getPageContext().getPageActivity());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: g */
+    public void l(GifView gifView) {
+        gifView.onDestroy();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: h */
+    public GifView m(GifView gifView) {
+        return gifView;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: i */
+    public GifView n(GifView gifView) {
+        return gifView;
     }
 }

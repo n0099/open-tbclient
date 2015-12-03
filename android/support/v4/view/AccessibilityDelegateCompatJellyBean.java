@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityNodeInfo;
 /* loaded from: classes.dex */
 class AccessibilityDelegateCompatJellyBean {
 
@@ -30,6 +31,40 @@ class AccessibilityDelegateCompatJellyBean {
 
     public static Object newAccessibilityDelegateBridge(final AccessibilityDelegateBridgeJellyBean accessibilityDelegateBridgeJellyBean) {
         return new View.AccessibilityDelegate() { // from class: android.support.v4.view.AccessibilityDelegateCompatJellyBean.1
+            @Override // android.view.View.AccessibilityDelegate
+            public boolean dispatchPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+                return AccessibilityDelegateBridgeJellyBean.this.dispatchPopulateAccessibilityEvent(view, accessibilityEvent);
+            }
+
+            @Override // android.view.View.AccessibilityDelegate
+            public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+                AccessibilityDelegateBridgeJellyBean.this.onInitializeAccessibilityEvent(view, accessibilityEvent);
+            }
+
+            @Override // android.view.View.AccessibilityDelegate
+            public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfo accessibilityNodeInfo) {
+                AccessibilityDelegateBridgeJellyBean.this.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfo);
+            }
+
+            @Override // android.view.View.AccessibilityDelegate
+            public void onPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+                AccessibilityDelegateBridgeJellyBean.this.onPopulateAccessibilityEvent(view, accessibilityEvent);
+            }
+
+            @Override // android.view.View.AccessibilityDelegate
+            public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
+                return AccessibilityDelegateBridgeJellyBean.this.onRequestSendAccessibilityEvent(viewGroup, view, accessibilityEvent);
+            }
+
+            @Override // android.view.View.AccessibilityDelegate
+            public void sendAccessibilityEvent(View view, int i) {
+                AccessibilityDelegateBridgeJellyBean.this.sendAccessibilityEvent(view, i);
+            }
+
+            @Override // android.view.View.AccessibilityDelegate
+            public void sendAccessibilityEventUnchecked(View view, AccessibilityEvent accessibilityEvent) {
+                AccessibilityDelegateBridgeJellyBean.this.sendAccessibilityEventUnchecked(view, accessibilityEvent);
+            }
         };
     }
 

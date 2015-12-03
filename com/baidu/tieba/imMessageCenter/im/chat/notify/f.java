@@ -2,16 +2,15 @@ package com.baidu.tieba.imMessageCenter.im.chat.notify;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class f extends CustomMessageListener {
-    final /* synthetic */ e bKG;
+class f extends CustomMessageListener {
+    final /* synthetic */ e bZK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f(e eVar, int i) {
         super(i);
-        this.bKG = eVar;
+        this.bZK = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,9 +19,9 @@ public class f extends CustomMessageListener {
         ImMessageCenterListAdapter imMessageCenterListAdapter;
         ImMessageCenterListAdapter imMessageCenterListAdapter2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            imMessageCenterListAdapter = this.bKG.bKx;
+            imMessageCenterListAdapter = this.bZK.bZC;
             if (imMessageCenterListAdapter != null) {
-                imMessageCenterListAdapter2 = this.bKG.bKx;
+                imMessageCenterListAdapter2 = this.bZK.bZC;
                 imMessageCenterListAdapter2.notifyDataSetChanged();
             }
         }

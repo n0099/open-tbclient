@@ -1,25 +1,25 @@
 package com.baidu.tieba.myCollection;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.data.NewsNotifyMessage;
+import com.baidu.tbadk.core.dialog.a;
 /* loaded from: classes.dex */
-class h extends CustomMessageListener {
+class h implements a.b {
+    final /* synthetic */ EditMarkActivity cuc;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public h(int i) {
-        super(i);
+    public h(EditMarkActivity editMarkActivity) {
+        this.cuc = editMarkActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001124) {
-            if (customResponsedMessage instanceof NewsNotifyMessage) {
-                EditMarkStatic.msgCount = ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark();
-            } else {
-                BdLog.e("transform error");
-            }
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        m mVar;
+        com.baidu.tieba.myCollection.baseEditMark.a aVar2;
+        com.baidu.tieba.myCollection.baseEditMark.a aVar3;
+        aVar.dismiss();
+        mVar = this.cuc.ctZ;
+        aVar2 = this.cuc.ctY;
+        mVar.jC(aVar2.getOffset());
+        aVar3 = this.cuc.ctY;
+        aVar3.f(true);
     }
 }

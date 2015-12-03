@@ -2,32 +2,33 @@ package com.baidu.tieba.write.view;
 
 import android.view.View;
 import android.widget.AdapterView;
+import com.baidu.tieba.write.album.l;
 import com.baidu.tieba.write.view.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class b implements AdapterView.OnItemClickListener {
-    final /* synthetic */ a doF;
+    final /* synthetic */ a dNL;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.doF = aVar;
+        this.dNL = aVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        com.baidu.tieba.write.album.j jVar;
-        a.InterfaceC0082a interfaceC0082a;
-        a.InterfaceC0082a interfaceC0082a2;
-        jVar = this.doF.doC;
-        com.baidu.tieba.write.album.b item = jVar.getItem(i);
-        if (item instanceof com.baidu.tieba.write.album.b) {
-            com.baidu.tieba.write.album.b bVar = item;
-            interfaceC0082a = this.doF.doE;
-            if (interfaceC0082a != null) {
-                interfaceC0082a2 = this.doF.doE;
-                interfaceC0082a2.a(i, bVar);
+        l lVar;
+        a.InterfaceC0091a interfaceC0091a;
+        a.InterfaceC0091a interfaceC0091a2;
+        lVar = this.dNL.dNI;
+        com.baidu.tieba.write.album.d item = lVar.getItem(i);
+        if (item instanceof com.baidu.tieba.write.album.d) {
+            com.baidu.tieba.write.album.d dVar = item;
+            interfaceC0091a = this.dNL.dNK;
+            if (interfaceC0091a != null) {
+                interfaceC0091a2 = this.dNL.dNK;
+                interfaceC0091a2.a(i, dVar);
             }
         }
-        this.doF.XP();
+        this.dNL.aaV();
     }
 }

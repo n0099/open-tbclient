@@ -1,6 +1,6 @@
 package com.baidu.tieba.usermute.response;
 
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.h.b;
 import com.baidu.cloudsdk.social.core.SocialConstants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;

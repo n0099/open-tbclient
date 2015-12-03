@@ -2,6 +2,7 @@ package com.baidu.tieba.pb.a;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
@@ -11,10 +12,11 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.TwzhiboAnti;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.data.aa;
-import com.baidu.tbadk.core.data.w;
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.data.ad;
+import com.baidu.tbadk.core.data.q;
+import com.baidu.tbadk.core.data.z;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tieba.n;
 import com.baidu.tieba.tbadkCore.data.n;
 import com.baidu.tieba.tbadkCore.data.o;
 import com.baidu.tieba.usermute.data.MuteUser;
@@ -29,146 +31,146 @@ import tbclient.SimpleUser;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class c {
-    private int bPQ;
-    private TwzhiboAnti cgW;
-    private VoteDataInfo cgX;
-    private boolean cgT = true;
-    private ArrayList<n> cgV = new ArrayList<>();
-    private ForumData cgK = new ForumData();
-    private w cgL = new w();
-    private ArrayList<o> cgM = new ArrayList<>();
+    private int cgd;
+    private TwzhiboAnti czt;
+    private VoteDataInfo czu;
+    private boolean czq = true;
+    private ArrayList<n> czs = new ArrayList<>();
+    private ForumData czh = new ForumData();
+    private z czi = new z();
+    private ArrayList<o> czj = new ArrayList<>();
     private HashMap<String, MetaData> userMap = new HashMap<>();
-    private com.baidu.tbadk.core.data.o cbi = new com.baidu.tbadk.core.data.o();
-    private AntiData UV = new AntiData();
-    private com.baidu.tbadk.data.d cgN = new com.baidu.tbadk.data.d();
-    private int cgP = 0;
-    private boolean cgO = false;
-    private final UserData cgQ = new UserData();
-    private List<MuteUser> cgS = new ArrayList();
-    private AdditionData cgU = new AdditionData();
-    private aa cgR = new aa();
+    private q ceI = new q();
+    private AntiData Vx = new AntiData();
+    private com.baidu.tbadk.data.d czk = new com.baidu.tbadk.data.d();
+    private int czm = 0;
+    private boolean czl = false;
+    private final UserData czn = new UserData();
+    private List<MuteUser> czp = new ArrayList();
+    private AdditionData czr = new AdditionData();
+    private ad czo = new ad();
 
-    public boolean afe() {
-        return this.cgT;
+    public boolean ajw() {
+        return this.czq;
     }
 
-    public void eq(boolean z) {
-        this.cgT = z;
+    public void eS(boolean z) {
+        this.czq = z;
     }
 
-    public VoteDataInfo aff() {
-        return this.cgX;
+    public VoteDataInfo ajx() {
+        return this.czu;
     }
 
     public c() {
-        this.bPQ = 0;
-        this.cgW = null;
-        this.bPQ = 0;
-        this.cgW = new TwzhiboAnti();
+        this.cgd = 0;
+        this.czt = null;
+        this.cgd = 0;
+        this.czt = new TwzhiboAnti();
     }
 
     public boolean isValid() {
-        return this.cgM != null && this.cgM.size() > 0;
+        return this.czj != null && this.czj.size() > 0;
     }
 
     public String[] aD(Context context) {
         String str = "";
         if (isValid()) {
-            o oVar = this.cgM.get(0);
-            ad axA = oVar.axA();
-            r1 = axA != null ? axA.Wd : null;
-            str = oVar.aS(context);
-            if (this.cgL != null && this.cgL.getAnchorInfoData() != null && this.cgL.getAnchorInfoData().getGroup_id() != 0) {
-                str = "[" + context.getString(i.h.msglist_live) + "] " + str;
+            o oVar = this.czj.get(0);
+            ai aDk = oVar.aDk();
+            r1 = aDk != null ? aDk.WN : null;
+            str = oVar.aR(context);
+            if (this.czi != null && this.czi.getAnchorInfoData() != null && this.czi.getAnchorInfoData().getGroup_id() != 0) {
+                str = "[" + context.getString(n.i.msglist_live) + "] " + str;
             }
         }
         return new String[]{r1, str};
     }
 
-    public ForumData afg() {
-        return this.cgK;
+    public ForumData ajy() {
+        return this.czh;
     }
 
     public String getForumId() {
-        if (this.cgK == null) {
+        if (this.czh == null) {
             return "";
         }
-        return this.cgK.getId();
+        return this.czh.getId();
     }
 
-    public w afh() {
-        return this.cgL;
+    public z ajz() {
+        return this.czi;
     }
 
     public String getThreadId() {
-        if (this.cgL == null) {
+        if (this.czi == null) {
             return "";
         }
-        return this.cgL.getId();
+        return this.czi.getId();
     }
 
-    public ArrayList<o> afi() {
-        return this.cgM;
+    public ArrayList<o> ajA() {
+        return this.czj;
     }
 
-    public com.baidu.tbadk.core.data.o getPage() {
-        return this.cbi;
+    public q getPage() {
+        return this.ceI;
     }
 
-    public aa afj() {
-        return this.cgR;
+    public ad ajB() {
+        return this.czo;
     }
 
-    public TwzhiboAnti afk() {
-        return this.cgW;
+    public TwzhiboAnti ajC() {
+        return this.czt;
     }
 
-    public void a(com.baidu.tbadk.core.data.o oVar, int i) {
-        this.cbi.bw(oVar.rI());
-        this.cbi.bv(oVar.rm());
-        this.cbi.bu(oVar.rG());
-        this.cbi.bx(oVar.rJ());
+    public void a(q qVar, int i) {
+        this.ceI.bD(qVar.sd());
+        this.ceI.bC(qVar.rA());
+        this.ceI.bB(qVar.sb());
+        this.ceI.bE(qVar.se());
         if (i == 0) {
-            this.cbi = oVar;
+            this.ceI = qVar;
         } else if (i == 1) {
-            this.cbi.by(oVar.rK());
+            this.ceI.bF(qVar.sf());
         } else if (i == 2) {
-            this.cbi.bz(oVar.rL());
+            this.ceI.bG(qVar.sg());
         }
     }
 
-    public AntiData rE() {
-        return this.UV;
+    public AntiData rZ() {
+        return this.Vx;
     }
 
     public UserData getUserData() {
-        return this.cgQ;
+        return this.czn;
     }
 
-    public boolean qi() {
-        return this.cgL.getIsMarked() != 0;
+    public boolean qp() {
+        return this.czi.getIsMarked() != 0;
     }
 
     public void ab(boolean z) {
-        if (this.cgL != null) {
+        if (this.czi != null) {
             if (z) {
-                this.cgL.setIsMarked(1);
+                this.czi.setIsMarked(1);
             } else {
-                this.cgL.setIsMarked(0);
+                this.czi.setIsMarked(0);
             }
         }
     }
 
-    public String qh() {
-        if (this.cgL != null) {
-            return this.cgL.sn();
+    public String qo() {
+        if (this.czi != null) {
+            return this.czi.sP();
         }
         return null;
     }
 
-    public void jI(String str) {
-        if (this.cgL != null) {
-            this.cgL.co(str);
+    public void kx(String str) {
+        if (this.czi != null) {
+            this.czi.cw(str);
         }
     }
 
@@ -186,14 +188,14 @@ public class c {
                         }
                     }
                 }
-                ih(dataRes.is_new_url.intValue());
-                this.cgK.parserProtobuf(dataRes.forum);
-                this.cgL.setUserMap(this.userMap);
-                this.cgL.a(dataRes.thread);
-                this.cgR.a(dataRes.news_info);
-                if (this.cgL != null && this.cgL.sg() != null) {
-                    this.cgX = new VoteDataInfo();
-                    this.cgX.parserProtobuf(afh().sg());
+                jb(dataRes.is_new_url.intValue());
+                this.czh.parserProtobuf(dataRes.forum);
+                this.czi.setUserMap(this.userMap);
+                this.czi.a(dataRes.thread);
+                this.czo.a(dataRes.news_info);
+                if (this.czi != null && this.czi.sH() != null) {
+                    this.czu = new VoteDataInfo();
+                    this.czu.parserProtobuf(ajz().sH());
                 }
                 List<Post> list2 = dataRes.post_list;
                 if (list2 != null && list2.size() > 0) {
@@ -201,78 +203,79 @@ public class c {
                         o oVar = new o();
                         oVar.setUserMap(this.userMap);
                         oVar.a(post, context);
-                        if (oVar.axt() == 1 && this.cgL.sy()) {
-                            oVar.setPostType(this.cgL.sx());
-                        } else if (oVar.axt() == 1 && this.cgL != null && this.cgL.sB()) {
+                        if (oVar.aDd() == 1 && this.czi.sZ()) {
+                            oVar.setPostType(this.czi.sY());
+                        } else if (oVar.aDd() == 1 && this.czi != null && this.czi.tc()) {
                             oVar.setPostType(36);
                         }
-                        this.cgM.add(oVar);
+                        this.czj.add(oVar);
                     }
                 }
-                this.cbi.a(dataRes.page);
-                this.UV.parserProtobuf(dataRes.anti);
-                this.cgN.a(dataRes.location);
-                this.cgO = dataRes.has_floor.intValue() == 1;
+                this.ceI.a(dataRes.page);
+                this.Vx.parserProtobuf(dataRes.anti);
+                this.czk.a(dataRes.location);
+                this.czl = dataRes.has_floor.intValue() == 1;
                 if (dataRes.user != null) {
-                    this.cgP = dataRes.user.is_manager.intValue();
+                    this.czm = dataRes.user.is_manager.intValue();
                 }
-                this.cgQ.parserProtobuf(dataRes.user);
+                this.czn.parserProtobuf(dataRes.user);
                 if (dataRes.user != null && dataRes.user.mute_user != null) {
                     for (SimpleUser simpleUser : dataRes.user.mute_user) {
                         if (simpleUser != null) {
                             MuteUser muteUser = new MuteUser();
                             muteUser.parserProtobuf(simpleUser);
-                            this.cgS.add(muteUser);
+                            this.czp.add(muteUser);
                         }
                     }
                 }
-                this.cgU.parserProtoBuf(dataRes.add_post);
-                this.cgL.setReply_num(this.cgL.getReply_num() > 0 ? this.cgL.getReply_num() - 1 : 0);
+                this.czr.parserProtoBuf(dataRes.add_post);
+                this.czi.setReply_num(this.czi.getReply_num() > 0 ? this.czi.getReply_num() - 1 : 0);
                 if (dataRes.banner_list != null) {
                     for (App app : dataRes.banner_list.app) {
-                        n nVar = new n();
+                        com.baidu.tieba.tbadkCore.data.n nVar = new com.baidu.tieba.tbadkCore.data.n();
                         nVar.b(app);
-                        if (!this.cgV.contains(nVar)) {
-                            this.cgV.add(nVar);
+                        com.baidu.tieba.tbadkCore.data.d aCS = nVar.aCS();
+                        if (!this.czs.contains(nVar) && aCS.dzd != null && !StringUtils.isNull(aCS.dzd.user_name)) {
+                            this.czs.add(nVar);
                         }
                     }
                 }
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj != null) {
-                    currentAccountObj.setIsSelectTail(this.cgQ.getIsSelectTail());
+                    currentAccountObj.setIsSelectTail(this.czn.getIsSelectTail());
                 }
-                this.cgW.parserProtobuf(dataRes.twzhibo_anti);
+                this.czt.parserProtobuf(dataRes.twzhibo_anti);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public int afl() {
-        return this.cgP;
+    public int ajD() {
+        return this.czm;
     }
 
-    public int afm() {
-        return this.bPQ;
+    public int ajE() {
+        return this.cgd;
     }
 
-    public void ih(int i) {
-        this.bPQ = i;
+    public void jb(int i) {
+        this.cgd = i;
     }
 
-    public List<MuteUser> afn() {
-        return this.cgS;
+    public List<MuteUser> ajF() {
+        return this.czp;
     }
 
-    public AdditionData afo() {
-        return this.cgU;
+    public AdditionData ajG() {
+        return this.czr;
     }
 
-    public ArrayList<n> afp() {
-        return this.cgV;
+    public ArrayList<com.baidu.tieba.tbadkCore.data.n> ajH() {
+        return this.czs;
     }
 
-    public ArrayList<u> afq() {
-        return new ArrayList<>(this.cgM);
+    public ArrayList<u> ajI() {
+        return new ArrayList<>(this.czj);
     }
 }

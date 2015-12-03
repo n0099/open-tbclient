@@ -6,34 +6,34 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.adp.lib.util.k;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import com.baidu.tieba.themeCenter.SkinItemView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c extends BaseAdapter {
-    private int bcN;
-    private SkinItemView.a dia;
-    private int dib;
-    private int dic;
+    private int bjr;
+    private SkinItemView.a dGj;
+    private int dGk;
+    private int dGl;
     private TbPageContext<?> mContext;
     private List<com.baidu.tieba.themeCenter.theme.top.a> mThemeList;
 
     /* loaded from: classes.dex */
     public static class a {
-        public SkinItemView did;
-        public SkinItemView die;
-        public SkinItemView dif;
+        public SkinItemView dGm;
+        public SkinItemView dGn;
+        public SkinItemView dGo;
     }
 
     public c(TbPageContext<?> tbPageContext, SkinItemView.a aVar) {
-        this.bcN = 0;
-        this.dib = 0;
-        this.dic = 0;
+        this.bjr = 0;
+        this.dGk = 0;
+        this.dGl = 0;
         this.mContext = tbPageContext;
-        this.dia = aVar;
-        this.bcN = k.d(this.mContext.getPageActivity(), i.d.ds20);
-        this.dib = k.d(this.mContext.getPageActivity(), i.d.ds32);
-        this.dic = k.d(this.mContext.getPageActivity(), i.d.ds22);
+        this.dGj = aVar;
+        this.bjr = k.d(this.mContext.getPageActivity(), n.d.ds20);
+        this.dGk = k.d(this.mContext.getPageActivity(), n.d.ds32);
+        this.dGl = k.d(this.mContext.getPageActivity(), n.d.ds22);
     }
 
     @Override // android.widget.Adapter
@@ -46,7 +46,7 @@ public class c extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lN */
+    /* renamed from: mY */
     public com.baidu.tieba.themeCenter.theme.top.a getItem(int i) {
         if (this.mThemeList == null || this.mThemeList.size() <= 0 || i < 0 || i >= getCount()) {
             return null;
@@ -66,44 +66,44 @@ public class c extends BaseAdapter {
         if (view != null) {
             aVar = (a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(i.g.all_theme_list_item, viewGroup, false);
+            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(n.g.all_theme_list_item, viewGroup, false);
             aVar = new a();
-            aVar.did = (SkinItemView) view.findViewById(i.f.theme_view1);
-            aVar.die = (SkinItemView) view.findViewById(i.f.theme_view2);
-            aVar.dif = (SkinItemView) view.findViewById(i.f.theme_view3);
-            aVar.did.setOnItemClickCallback(this.dia);
-            aVar.die.setOnItemClickCallback(this.dia);
-            aVar.dif.setOnItemClickCallback(this.dia);
-            aVar.did.setListenerTag(this.mContext.getUniqueId());
-            aVar.die.setListenerTag(this.mContext.getUniqueId());
-            aVar.dif.setListenerTag(this.mContext.getUniqueId());
+            aVar.dGm = (SkinItemView) view.findViewById(n.f.theme_view1);
+            aVar.dGn = (SkinItemView) view.findViewById(n.f.theme_view2);
+            aVar.dGo = (SkinItemView) view.findViewById(n.f.theme_view3);
+            aVar.dGm.setOnItemClickCallback(this.dGj);
+            aVar.dGn.setOnItemClickCallback(this.dGj);
+            aVar.dGo.setOnItemClickCallback(this.dGj);
+            aVar.dGm.setListenerTag(this.mContext.getUniqueId());
+            aVar.dGn.setListenerTag(this.mContext.getUniqueId());
+            aVar.dGo.setListenerTag(this.mContext.getUniqueId());
             view.setTag(aVar);
         }
-        if (item != null && item.aAv() != null && item.aAv().size() > 0) {
-            if (item.aAv().size() == 1) {
-                aVar.did.a(item.aAv().get(0));
-                aVar.did.setVisibility(0);
-                aVar.die.setVisibility(8);
-                aVar.dif.setVisibility(8);
-            } else if (item.aAv().size() == 2) {
-                aVar.did.a(item.aAv().get(0));
-                aVar.die.a(item.aAv().get(1));
-                aVar.did.setVisibility(0);
-                aVar.die.setVisibility(0);
-                aVar.dif.setVisibility(8);
-            } else if (item.aAv().size() >= 3) {
-                aVar.did.a(item.aAv().get(0));
-                aVar.die.a(item.aAv().get(1));
-                aVar.dif.a(item.aAv().get(2));
-                aVar.did.setVisibility(0);
-                aVar.die.setVisibility(0);
-                aVar.dif.setVisibility(0);
+        if (item != null && item.aFG() != null && item.aFG().size() > 0) {
+            if (item.aFG().size() == 1) {
+                aVar.dGm.a(item.aFG().get(0));
+                aVar.dGm.setVisibility(0);
+                aVar.dGn.setVisibility(8);
+                aVar.dGo.setVisibility(8);
+            } else if (item.aFG().size() == 2) {
+                aVar.dGm.a(item.aFG().get(0));
+                aVar.dGn.a(item.aFG().get(1));
+                aVar.dGm.setVisibility(0);
+                aVar.dGn.setVisibility(0);
+                aVar.dGo.setVisibility(8);
+            } else if (item.aFG().size() >= 3) {
+                aVar.dGm.a(item.aFG().get(0));
+                aVar.dGn.a(item.aFG().get(1));
+                aVar.dGo.a(item.aFG().get(2));
+                aVar.dGm.setVisibility(0);
+                aVar.dGn.setVisibility(0);
+                aVar.dGo.setVisibility(0);
             }
         }
         if (i == 0) {
-            view.setPadding(this.dib, this.bcN, this.dic, 0);
+            view.setPadding(this.dGk, this.bjr, this.dGl, 0);
         } else {
-            view.setPadding(this.dib, 0, this.dic, 0);
+            view.setPadding(this.dGk, 0, this.dGl, 0);
         }
         this.mContext.getLayoutMode().k(view);
         return view;

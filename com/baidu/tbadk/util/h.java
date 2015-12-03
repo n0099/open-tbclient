@@ -1,54 +1,16 @@
 package com.baidu.tbadk.util;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class h {
-    public static void a(Object obj, boolean z) {
-        a(obj, z, false);
+    public static final <T extends IntentConfig> void c(T t) {
+        a(CmdConfigCustom.START_GO_ACTION, t);
     }
 
-    public static void a(Object obj, boolean z, boolean z2) {
-        if (obj != null) {
-            try {
-                Field field = obj.getClass().getField("common");
-                if (!field.isAccessible()) {
-                    field.setAccessible(true);
-                }
-                CommonReq.Builder builder = new CommonReq.Builder();
-                builder._client_type = 2;
-                builder._client_version = TbConfig.getVersion();
-                builder._client_id = TbadkCoreApplication.getClientId();
-                if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                    builder.subapp_type = TbConfig.getSubappType();
-                }
-                if (!TbadkCoreApplication.m411getInst().isOfficial()) {
-                    builder.apid = TbConfig.SW_APID;
-                }
-                builder._phone_imei = TbadkCoreApplication.m411getInst().getImei();
-                builder.from = TbadkCoreApplication.getFrom();
-                builder.cuid = TbadkCoreApplication.m411getInst().getCuid();
-                builder._timestamp = Long.valueOf(System.currentTimeMillis());
-                builder.model = Build.MODEL;
-                if (z) {
-                    builder.BDUSS = TbadkCoreApplication.getCurrentBduss();
-                }
-                if (z2) {
-                    builder.tbs = TbadkCoreApplication.m411getInst().getTbs();
-                }
-                builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
-                field.set(obj, builder.build(false));
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    th.printStackTrace();
-                }
-            }
-        }
+    public static final <T extends IntentConfig> void a(int i, T t) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(i, t));
     }
 }

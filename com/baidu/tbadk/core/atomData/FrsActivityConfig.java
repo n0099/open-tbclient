@@ -16,12 +16,16 @@ public class FrsActivityConfig extends IntentConfig {
     public static final int FRS_FLAG_NORMAL = 0;
     public static final String FRS_FROM_BAIDU_SEARCHBOX = "from_baidu_searchbox";
     public static final String FRS_FROM_ENTERFORUM_RECOMMEND = "recom_flist";
+    public static final String FRS_FROM_FOLLOWED_RECOMMEND = "followed_recommend_forumlist";
     public static final String FRS_FROM_LIKE = "tb_forumlist";
     public static final String FRS_FROM_PB = "tb_pb";
     public static final String FRS_FROM_RECOMMEND = "dimension_door";
     public static final String FRS_FROM_SEARCH = "tb_searchlist";
     public static final String FRS_FROM_SEARCHBOX = "tb_searchbox";
     public static final String FRS_FROM_SQUARE = "from_square";
+    public static final String FRS_FROM_SQUARE_HOT = "from_square_hot";
+    public static final String FRS_FROM_SQUARE_RECOMMEND = "from_square_recommend";
+    public static final String FRS_FROM_SQUARE_TOP = "from_square_top";
     public static final String FRS_FROM_WRITESHARE = "tb_write_share";
     public static final String FRS_TO_PB = "tb_frslist";
     public static final String GOOD = "good";

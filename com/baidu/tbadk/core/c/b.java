@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.c;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a XO = null;
+    private static a YB = null;
 
     public static void e(Context context, int i) {
-        if (XO != null) {
-            XO.e(context, i);
+        if (YB != null) {
+            YB.e(context, i);
         }
     }
 
     public static void a(Context context, int i, boolean z) {
-        if (XO != null) {
-            XO.a(context, i, z);
+        if (YB != null) {
+            YB.a(context, i, z);
         }
     }
 
     public static void aa(Context context) {
-        if (XO != null) {
-            XO.aa(context);
+        if (YB != null) {
+            YB.aa(context);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (XO != null) {
-            XO.b(context, i, z);
+        if (YB != null) {
+            YB.b(context, i, z);
         }
     }
 
-    public static Class<?> tn() {
-        if (XO == null) {
+    public static Class<?> tS() {
+        if (YB == null) {
             return null;
         }
-        return XO.tn();
+        return YB.tS();
     }
 
-    public static String to() {
-        if (XO == null) {
+    public static String tT() {
+        if (YB == null) {
             return null;
         }
-        return XO.to();
+        return YB.tT();
     }
 
     public static void a(a aVar) {
-        XO = aVar;
+        YB = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (XO == null) {
+        if (YB == null) {
             return -1;
         }
-        return XO.getCurrentTabType();
+        return YB.getCurrentTabType();
     }
 }

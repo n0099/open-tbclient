@@ -6,11 +6,11 @@ import com.baidu.tbadk.img.ImageFileInfo;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ g dpB;
+    final /* synthetic */ g dOE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.dpB = gVar;
+        this.dOE = gVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -24,23 +24,23 @@ public class h implements View.OnClickListener {
         b bVar3;
         int i3;
         ImageFileInfo imageFileInfo;
-        imageView = this.dpB.dpv;
+        imageView = this.dOE.dOy;
         if (view != imageView) {
-            imageView2 = this.dpB.dpx;
+            imageView2 = this.dOE.dOA;
             if (view == imageView2) {
-                bVar = this.dpB.dpA;
-                i = this.dpB.mId;
-                bVar.mo(i);
+                bVar = this.dOE.dOD;
+                i = this.dOE.mId;
+                bVar.nA(i);
             }
-        } else if (this.dpB.aDo()) {
-            bVar3 = this.dpB.dpA;
-            i3 = this.dpB.mId;
-            imageFileInfo = this.dpB.dpy;
-            bVar3.O(i3, imageFileInfo.getFilePath());
+        } else if (this.dOE.aIL()) {
+            bVar3 = this.dOE.dOD;
+            i3 = this.dOE.mId;
+            imageFileInfo = this.dOE.dOB;
+            bVar3.P(i3, imageFileInfo.getFilePath());
         } else {
-            bVar2 = this.dpB.dpA;
-            i2 = this.dpB.mId;
-            bVar2.mn(i2);
+            bVar2 = this.dOE.dOD;
+            i2 = this.dOE.mId;
+            bVar2.nz(i2);
         }
     }
 }

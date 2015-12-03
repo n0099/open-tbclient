@@ -1,20 +1,19 @@
 package com.baidu.tieba.person.post;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.i;
+import java.util.TimerTask;
 /* loaded from: classes.dex */
-public class ab {
-    BdListView mBdListView;
-    com.baidu.tbadk.core.view.m mNoDataView = null;
-
-    public BdListView getBdListView() {
-        return this.mBdListView;
-    }
+class ab extends TimerTask {
+    final /* synthetic */ u cRr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(Context context, View view) {
-        this.mBdListView = (BdListView) view.findViewById(i.f.list);
+    public ab(u uVar) {
+        this.cRr = uVar;
+    }
+
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public void run() {
+        if (this.cRr.getActivity() != null && !this.cRr.getActivity().isFinishing()) {
+            this.cRr.getActivity().finish();
+        }
     }
 }

@@ -3,34 +3,48 @@ package com.baidu.tieba.themeCenter.background;
 import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.themeCenter.background.d;
 /* loaded from: classes.dex */
 public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivity> {
-    private d dgA;
-    private g dgB;
-    private i dgC;
-    private d.a dgD = new a(this);
+    private d dEh;
+    private g dEi;
+    private i dEj;
+    private d.a dEk = new a(this);
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        TbadkCoreApplication.m411getInst().setThemeWebviewOpen(false);
         this.mPageContext = getPageContext();
-        this.dgA = new d(this);
-        this.dgA.a(this.dgD);
-        this.dgC = new i(this.mPageContext);
-        this.dgB = new g(this, this.dgC);
-        showLoadingView(this.dgB.getRootView());
-        this.dgA.LoadData();
+        this.dEh = new d(this);
+        this.dEh.a(this.dEk);
+        this.dEj = new i(this.mPageContext);
+        this.dEi = new g(this, this.dEj);
+        this.dEi.aFp();
+        showLoadingView(this.dEi.getRootView());
+        this.dEh.LoadData();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onResume() {
+        super.onResume();
+        if (TbadkCoreApplication.m411getInst().getThemeWebviewOpen()) {
+            TbadkCoreApplication.m411getInst().setThemeWebviewOpen(false);
+            showLoadingView(this.dEi.getRootView());
+            this.dEh.LoadData();
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.dgB != null) {
-            this.dgB.oP();
+        if (this.dEi != null) {
+            this.dEi.oV();
         }
     }
 
@@ -42,13 +56,13 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     protected void onNetRefreshButtonClicked() {
-        if (this.dgA != null && this.dgB != null) {
-            showLoadingView(this.dgB.getRootView());
-            this.dgA.LoadData();
+        if (this.dEh != null && this.dEi != null) {
+            showLoadingView(this.dEi.getRootView());
+            this.dEh.LoadData();
         }
     }
 
     public int getPropId() {
-        return this.dgC.getPropId();
+        return this.dEj.getPropId();
     }
 }

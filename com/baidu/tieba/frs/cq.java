@@ -1,47 +1,47 @@
 package com.baidu.tieba.frs;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.i;
+import android.app.Activity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cq extends bn<com.baidu.tbadk.core.data.p, cv> implements View.OnClickListener {
-    /* JADX INFO: Access modifiers changed from: protected */
-    public cq(BaseActivity baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity, bdUniqueId);
+public class cq extends com.baidu.adp.base.g {
+    final /* synthetic */ co bdk;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cq(co coVar) {
+        this.bdk = coVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: m */
-    public cv a(ViewGroup viewGroup) {
-        return new cv(LayoutInflater.from(this.mContext).inflate(i.g.frs_photo_live_view_pager_div, viewGroup, false));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.bn, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.p pVar, cv cvVar) {
-        super.a(i, view, viewGroup, (ViewGroup) pVar, (com.baidu.tbadk.core.data.p) cvVar);
-        cvVar.aYf.a(pVar);
-        cvVar.aYe.setTag(pVar);
-        cvVar.aYe.setOnClickListener(this);
-        com.baidu.tbadk.h.a.a(this.aSm.getPageContext(), view);
-        return view;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int id;
-        if ((view.getTag() instanceof com.baidu.tbadk.core.data.p) && (id = view.getId()) == i.f.all_live_list) {
-            this.aWo.a(id, 0, view, null, (com.baidu.tbadk.core.data.p) view.getTag());
+    @Override // com.baidu.adp.base.g
+    public void d(Object obj) {
+        com.baidu.tieba.tbadkCore.x xVar;
+        com.baidu.tieba.tbadkCore.x xVar2;
+        com.baidu.tieba.tbadkCore.x xVar3;
+        TbPageContext tbPageContext;
+        com.baidu.tieba.tbadkCore.x xVar4;
+        xVar = this.bdk.Ml;
+        if (AntiHelper.mC(xVar.getErrorCode())) {
+            tbPageContext = this.bdk.mContext;
+            Activity pageActivity = tbPageContext.getPageActivity();
+            xVar4 = this.bdk.Ml;
+            AntiHelper.Q(pageActivity, xVar4.getErrorString());
+        } else if (obj == null) {
+            xVar2 = this.bdk.Ml;
+            if (!StringUtils.isNull(xVar2.getErrorString())) {
+                TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
+                xVar3 = this.bdk.Ml;
+                com.baidu.adp.lib.util.k.showToast(m411getInst, xVar3.getErrorString());
+            }
+        } else {
+            com.baidu.tieba.tbadkCore.y yVar = (com.baidu.tieba.tbadkCore.y) obj;
+            yVar.setLike(1);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UPDATE_FRS_LIKE_STATUS, yVar));
         }
-    }
-
-    public int My() {
-        return i.f.all_live_list;
     }
 }

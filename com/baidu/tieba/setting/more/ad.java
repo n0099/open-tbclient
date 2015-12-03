@@ -1,36 +1,25 @@
 package com.baidu.tieba.setting.more;
 
-import android.app.TimePickerDialog;
-import android.widget.TimePicker;
-import com.baidu.tieba.i;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 /* loaded from: classes.dex */
-class ad implements TimePickerDialog.OnTimeSetListener {
-    final /* synthetic */ MsgRemindActivity cPq;
-    private final /* synthetic */ int val$id;
+class ad implements Runnable {
+    private final /* synthetic */ boolean bGQ;
+    final /* synthetic */ ab dnN;
+    private final /* synthetic */ BdSwitchView dnO;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ad(MsgRemindActivity msgRemindActivity, int i) {
-        this.cPq = msgRemindActivity;
-        this.val$id = i;
+    public ad(ab abVar, boolean z, BdSwitchView bdSwitchView) {
+        this.dnN = abVar;
+        this.bGQ = z;
+        this.dnO = bdSwitchView;
     }
 
-    @Override // android.app.TimePickerDialog.OnTimeSetListener
-    public void onTimeSet(TimePicker timePicker, int i, int i2) {
-        ae aeVar;
-        ae aeVar2;
-        if (this.val$id == i.f.sign_remind) {
-            com.baidu.tbadk.coreExtra.messageCenter.c.xj().setSignAlertTime(i, i2);
-            aeVar2 = this.cPq.cPo;
-            aeVar2.asY();
-        } else if (this.val$id == i.f.no_disturb_end_time || this.val$id == i.f.no_disturb_start_time) {
-            String str = String.valueOf(String.valueOf(i < 10 ? "0" : "") + i) + ":" + (String.valueOf(i2 < 10 ? "0" : "") + i2);
-            if (this.val$id == i.f.no_disturb_start_time) {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xj().dY(str);
-            } else {
-                com.baidu.tbadk.coreExtra.messageCenter.c.xj().dZ(str);
-            }
-            aeVar = this.cPq.cPo;
-            aeVar.asZ();
+    @Override // java.lang.Runnable
+    public void run() {
+        if (this.bGQ) {
+            this.dnO.mF();
+        } else {
+            this.dnO.mE();
         }
     }
 }

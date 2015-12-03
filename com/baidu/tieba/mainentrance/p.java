@@ -7,20 +7,20 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 class p implements View.OnClickListener {
-    final /* synthetic */ SquareSearchActivity bWd;
+    final /* synthetic */ SquareSearchActivity cmr;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(SquareSearchActivity squareSearchActivity) {
-        this.bWd = squareSearchActivity;
+        this.cmr = squareSearchActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        com.baidu.adp.lib.util.k.c(this.bWd.getPageContext().getPageActivity(), this.bWd.bVb);
+        com.baidu.adp.lib.util.k.c(this.cmr.getPageContext().getPageActivity(), this.cmr.cln);
         if (view.getTag() instanceof g) {
             g gVar = (g) view.getTag();
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c10363").ae("obj_name", gVar.getName()));
-            this.bWd.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(this.bWd.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(gVar.getId()), gVar.getName(), "")));
+            TiebaStatic.log(new com.baidu.tbadk.core.util.av("c10363").ab("obj_name", gVar.getName()));
+            this.cmr.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HotTopicActivityConfig(this.cmr.getPageContext().getPageActivity()).createNormalConfig(String.valueOf(gVar.getId()), gVar.getName(), "")));
         }
     }
 }

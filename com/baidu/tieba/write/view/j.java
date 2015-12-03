@@ -9,13 +9,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class j extends LinearLayout {
-    private TextView dpf;
-    private ImageView dpg;
-    private View dph;
+    private TextView dOj;
+    private ImageView dOk;
+    private View dOl;
     private Context mContext;
 
     public j(Context context) {
@@ -29,37 +29,37 @@ public class j extends LinearLayout {
     }
 
     private void init() {
-        LayoutInflater.from(this.mContext).inflate(i.g.prefix_item, this);
+        LayoutInflater.from(this.mContext).inflate(n.g.prefix_item, this);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
-        this.dpf = (TextView) findViewById(i.f.prefix_text);
-        this.dpg = (ImageView) findViewById(i.f.prefix_checked);
-        this.dph = findViewById(i.f.prefix_item_divider);
-        this.dpf.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        an.i((View) this.dpf, i.c.cp_bg_line_d);
-        this.dpg.setBackgroundDrawable(an.getDrawable(i.e.icon_set_list_ok_s));
-        an.i(this.dph, i.c.cp_bg_line_c);
+        this.dOj = (TextView) findViewById(n.f.prefix_text);
+        this.dOk = (ImageView) findViewById(n.f.prefix_checked);
+        this.dOl = findViewById(n.f.prefix_item_divider);
+        this.dOj.setEllipsize(TextUtils.TruncateAt.MIDDLE);
+        as.i((View) this.dOj, n.c.cp_bg_line_d);
+        this.dOk.setBackgroundDrawable(as.getDrawable(n.e.icon_set_list_ok_s));
+        as.i(this.dOl, n.c.cp_bg_line_c);
     }
 
     public void setPrefixText(String str) {
-        this.dpf.setText(str);
+        this.dOj.setText(str);
     }
 
     public void setPrefixTextColor(int i) {
-        this.dpf.setTextColor(i);
+        this.dOj.setTextColor(i);
     }
 
-    public void ha(boolean z) {
+    public void hI(boolean z) {
         if (z) {
-            this.dpg.setVisibility(0);
+            this.dOk.setVisibility(0);
         } else {
-            this.dpg.setVisibility(8);
+            this.dOk.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.dph.getLayoutParams()).setMargins(k.d(this.mContext, i.d.ds30), 0, k.d(this.mContext, i.d.ds30), 0);
+            ((LinearLayout.LayoutParams) this.dOl.getLayoutParams()).setMargins(k.d(this.mContext, n.d.ds30), 0, k.d(this.mContext, n.d.ds30), 0);
         }
     }
 }

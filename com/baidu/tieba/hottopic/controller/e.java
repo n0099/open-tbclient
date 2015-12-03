@@ -1,23 +1,55 @@
 package com.baidu.tieba.hottopic.controller;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.hottopic.data.RelateForumItemData;
 /* loaded from: classes.dex */
-class e extends com.baidu.adp.base.g {
-    final /* synthetic */ HotTopicActivity bpp;
+class e extends CustomMessageListener {
+    final /* synthetic */ HotTopicActivity bDn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public e(HotTopicActivity hotTopicActivity) {
-        this.bpp = hotTopicActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e(HotTopicActivity hotTopicActivity, int i) {
+        super(i);
+        this.bDn = hotTopicActivity;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        if (AntiHelper.lr(this.bpp.bpm.getErrorCode())) {
-            AntiHelper.Q(this.bpp.getActivity(), this.bpp.bpm.getErrorString());
-        } else if (!StringUtils.isNull(this.bpp.bpm.getErrorString())) {
-            com.baidu.adp.lib.util.k.showToast(TbadkCoreApplication.m411getInst(), this.bpp.bpm.getErrorString());
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        com.baidu.tieba.hottopic.data.c cVar;
+        com.baidu.tieba.hottopic.data.c cVar2;
+        com.baidu.tieba.hottopic.data.c cVar3;
+        RelateForumItemData aK;
+        com.baidu.tieba.hottopic.data.c cVar4;
+        com.baidu.tieba.hottopic.view.a aVar;
+        com.baidu.tieba.hottopic.data.c cVar5;
+        com.baidu.tieba.hottopic.view.a aVar2;
+        if (customResponsedMessage != null) {
+            cVar = this.bDn.bDi;
+            if (cVar != null) {
+                cVar2 = this.bDn.bDi;
+                if (cVar2.Uw() != null) {
+                    cVar3 = this.bDn.bDi;
+                    if (cVar3.Uw().bEw != null) {
+                        Object data = customResponsedMessage.getData();
+                        if (data instanceof Long) {
+                            aK = this.bDn.aK(((Long) data).longValue());
+                            if (aK != null) {
+                                aK.followNum--;
+                                aK.setIsLiked(false);
+                                cVar4 = this.bDn.bDi;
+                                cVar4.Uw().bEy = true;
+                                aVar = this.bDn.bDc;
+                                cVar5 = this.bDn.bDi;
+                                aVar.c(cVar5);
+                                aVar2 = this.bDn.bDc;
+                                aVar2.UD();
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

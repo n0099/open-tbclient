@@ -6,48 +6,48 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private String cJh;
-    private int cJi;
-    private int cJj;
-    private String cJm;
+    private String dhQ;
+    private int dhR;
+    private String dhU;
     private String extInfo;
     private JSONObject jsonObject;
-    private long cJl = System.currentTimeMillis() / 1000;
-    private int cJk = i.iT();
+    private int pageNumber;
+    private long dhT = System.currentTimeMillis() / 1000;
+    private int dhS = i.iV();
 
-    public void kW(String str) {
+    public void lT(String str) {
         this.extInfo = str;
     }
 
-    public void kX(String str) {
-        this.cJh = str;
+    public void lU(String str) {
+        this.dhQ = str;
     }
 
-    public void kA(int i) {
-        this.cJi = i;
+    public void lL(int i) {
+        this.dhR = i;
     }
 
-    public void kB(int i) {
-        this.cJj = i;
+    public void setPageNumber(int i) {
+        this.pageNumber = i;
     }
 
-    public void kY(String str) {
-        this.cJm = str;
+    public void lV(String str) {
+        this.dhU = str;
     }
 
-    public JSONObject aqh() {
+    public JSONObject avT() {
         if (this.jsonObject != null) {
             return this.jsonObject;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("da_locate", this.cJi);
-            jSONObject.put("da_type", this.cJh);
+            jSONObject.put("da_locate", this.dhR);
+            jSONObject.put("da_type", this.dhQ);
             jSONObject.put("extra_param", this.extInfo);
-            jSONObject.put("origin_time", this.cJl);
-            jSONObject.put("net_type", this.cJk);
-            jSONObject.put("page_num", this.cJj);
-            jSONObject.put("da_price", this.cJm);
+            jSONObject.put("origin_time", this.dhT);
+            jSONObject.put("net_type", this.dhS);
+            jSONObject.put("page_num", this.pageNumber);
+            jSONObject.put("da_price", this.dhU);
             jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
         } catch (JSONException e) {
             e.printStackTrace();

@@ -4,24 +4,23 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.f.e;
+import com.baidu.adp.lib.g.e;
 import com.baidu.adp.lib.voice.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.a.j;
-import com.baidu.tbadk.core.util.n;
 import com.baidu.tbadk.core.util.resourceLoaderProc.d;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class c implements e<a> {
-    @Override // com.baidu.adp.lib.f.e
-    public boolean he() {
+    @Override // com.baidu.adp.lib.g.e
+    public boolean hg() {
         return true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.e
+    @Override // com.baidu.adp.lib.g.e
     /* renamed from: c */
-    public a a(String str, String str2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
+    public a a(String str, String str2, com.baidu.adp.lib.g.a aVar, Object... objArr) {
         DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
         diskFileOperate.o(false);
@@ -29,7 +28,7 @@ public class c implements e<a> {
         if (aVar != null) {
             d dVar = new d();
             dVar.f(diskFileOperate);
-            aVar.vs = dVar;
+            aVar.vy = dVar;
         }
         diskFileOperate.fk();
         if (!diskFileOperate.isSuccess()) {
@@ -43,9 +42,9 @@ public class c implements e<a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.e
+    @Override // com.baidu.adp.lib.g.e
     /* renamed from: c */
-    public a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.f.a aVar, Object... objArr) {
+    public a a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, com.baidu.adp.lib.g.a aVar, Object... objArr) {
         String str3;
         int i3;
         String str4 = null;
@@ -55,38 +54,38 @@ public class c implements e<a> {
         a aVar2 = new a();
         j jVar = new j();
         if (aVar != null) {
-            aVar.vs = jVar;
+            aVar.vy = jVar;
         }
-        byte[] dw = jVar.dw(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
-        if (!jVar.vj()) {
+        byte[] dG = jVar.dG(!TextUtils.isEmpty(str4) ? String.valueOf(str3) + "&play_from=" + str4 : String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.VOICE_DATA + "?voice_md5=" + str);
+        if (!jVar.vP()) {
             aVar2.error_code = 3;
-            aVar2.error_msg = l.getString(i.h.neterror);
+            aVar2.error_msg = l.getString(n.i.neterror);
             return aVar2;
-        } else if (dw == null || dw.length == 0) {
+        } else if (dG == null || dG.length == 0) {
             aVar2.error_code = 4;
-            aVar2.error_msg = l.getString(i.h.voice_cache_error_no_file);
+            aVar2.error_msg = l.getString(n.i.voice_cache_error_no_file);
             return aVar2;
         } else {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (dw == null || dw.length == 0) {
+            } else if (dG == null || dG.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.o(false);
-                diskFileOperate.setData(dw);
+                diskFileOperate.setData(dG);
                 if (aVar != null) {
                     d dVar = new d();
                     dVar.f(diskFileOperate);
-                    aVar.vs = dVar;
+                    aVar.vy = dVar;
                 }
                 diskFileOperate.fk();
                 if (diskFileOperate.isSuccess() && diskFileOperate.fy() != null) {
                     str5 = diskFileOperate.fy().getAbsolutePath();
                     i3 = 0;
-                } else if (n.tE() < dw.length) {
+                } else if (com.baidu.tbadk.core.util.n.uj() < dG.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -97,28 +96,28 @@ public class c implements e<a> {
                 aVar2.md5 = str;
             } else {
                 aVar2.error_code = i3;
-                aVar2.error_msg = a.cQ(i3);
+                aVar2.error_msg = a.df(i3);
             }
             return aVar2;
         }
     }
 
-    @Override // com.baidu.adp.lib.f.e
+    @Override // com.baidu.adp.lib.g.e
     public void a(String str, Object obj, Object... objArr) {
     }
 
-    @Override // com.baidu.adp.lib.f.e
-    public BdAsyncTaskParallel hf() {
+    @Override // com.baidu.adp.lib.g.e
+    public BdAsyncTaskParallel hh() {
         return null;
     }
 
-    @Override // com.baidu.adp.lib.f.e
-    public int hg() {
+    @Override // com.baidu.adp.lib.g.e
+    public int hi() {
         return 2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.f.e
+    @Override // com.baidu.adp.lib.g.e
     /* renamed from: g */
     public a c(String str, String str2, Object... objArr) {
         return null;

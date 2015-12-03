@@ -45,7 +45,7 @@ public class b {
                     this.nz = this.nB.getWritableDatabase();
                 } catch (RuntimeException e) {
                     if (z) {
-                        a(e, "ensureDatabaseReady");
+                        d(e, "ensureDatabaseReady");
                     } else {
                         throw e;
                     }
@@ -61,7 +61,7 @@ public class b {
                 dL.execSQL(str);
                 return true;
             } catch (Throwable th) {
-                a(th, "execSQLNoException:" + str);
+                d(th, "execSQLNoException:" + str);
                 return false;
             }
         }
@@ -75,7 +75,7 @@ public class b {
                 dL.execSQL(str, objArr);
                 return true;
             } catch (Throwable th) {
-                a(th, "execSQLNoException:" + str);
+                d(th, "execSQLNoException:" + str);
                 return false;
             }
         }
@@ -116,7 +116,7 @@ public class b {
         return D;
     }
 
-    public void a(Throwable th, String str) {
+    public void d(Throwable th, String str) {
         int i;
         if (th != null && (th instanceof SQLiteException)) {
             if (((SQLiteException) th) instanceof SQLiteDatabaseCorruptException) {
@@ -153,7 +153,7 @@ public class b {
 
     protected void a(String str, int i, String str2, Object... objArr) {
         try {
-            com.baidu.adp.lib.stats.a.hj().b(str, "", i, str2, objArr);
+            com.baidu.adp.lib.stats.a.hl().b(str, "", i, str2, objArr);
         } catch (Exception e) {
             BdLog.detailException(e);
         }

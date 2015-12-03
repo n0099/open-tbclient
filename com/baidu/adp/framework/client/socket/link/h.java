@@ -7,25 +7,25 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class h {
-    private boolean pY = false;
-    private int pZ = 0;
+    private boolean pZ = false;
+    private int qa = 0;
     private final Handler myHandler = new i(this, Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void start(String str) {
         if (!BdSocketLinkService.isAvailable()) {
             stop("online failed 5");
-        } else if (!this.pY) {
-            this.pY = true;
+        } else if (!this.pZ) {
+            this.pZ = true;
             this.myHandler.removeMessages(1);
-            if (com.baidu.adp.lib.webSocket.h.jA().jD()) {
+            if (com.baidu.adp.lib.webSocket.h.jB().jE()) {
                 BdLog.d("启动重连策略失败，  WebSocketClient opened");
                 stop("in Opened");
                 return;
             }
             eP();
             BdLog.d("启动重连策略");
-            this.pZ = 0;
+            this.qa = 0;
             int[] eB = com.baidu.adp.framework.client.socket.j.eB();
             if (eB != null && eB.length >= 1) {
                 BdLog.i("start reconnStrategy... the first will be delay" + eB[0]);
@@ -44,10 +44,10 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void stop(String str) {
-        if (this.pY) {
+        if (this.pZ) {
             k.a("reconn", 0, 0, IntentConfig.STOP, BdSocketLinkService.STOP_RECONN, "ReConnStrategy:stop");
-            this.pY = false;
-            this.pZ = 0;
+            this.pZ = false;
+            this.qa = 0;
             BdLog.i("stop reconnStrategy");
             this.myHandler.removeMessages(1);
         }

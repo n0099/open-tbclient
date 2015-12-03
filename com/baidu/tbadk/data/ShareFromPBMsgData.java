@@ -12,6 +12,7 @@ public class ShareFromPBMsgData extends ShareBaseMsgData {
     protected String postId;
     protected String theNewThemeId;
     protected String threadId;
+    protected int threadType;
     protected String title;
 
     @Override // com.baidu.tbadk.data.ShareBaseMsgData
@@ -25,6 +26,7 @@ public class ShareFromPBMsgData extends ShareBaseMsgData {
             jSONObject.put("themeImageUrl", this.imageUrl == null ? "" : this.imageUrl);
             jSONObject.put("themeTitle", this.title);
             jSONObject.put("theNewThemeID", this.theNewThemeId);
+            jSONObject.put("threadType", this.threadType);
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(String.valueOf(this.title) + " http://tieba.baidu.com/p/" + this.threadId + "?share=9105");
             jSONArray.put("1");
@@ -34,6 +36,14 @@ public class ShareFromPBMsgData extends ShareBaseMsgData {
             BdLog.detailException(e);
             return null;
         }
+    }
+
+    public void setThreadType(int i) {
+        this.threadType = i;
+    }
+
+    public int getThreadType() {
+        return this.threadType;
     }
 
     public String getForumName() {

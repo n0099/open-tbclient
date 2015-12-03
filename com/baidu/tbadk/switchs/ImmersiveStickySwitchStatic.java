@@ -1,40 +1,40 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.adp.lib.b.a;
-import com.baidu.adp.lib.b.e;
+import com.baidu.adp.lib.c.a;
+import com.baidu.adp.lib.c.e;
 /* loaded from: classes.dex */
 public class ImmersiveStickySwitchStatic extends a {
     static {
-        e.gv().e(ImmersiveStickySwitchStatic.class);
+        e.gw().f(ImmersiveStickySwitchStatic.class);
     }
 
-    @Override // com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.c.a
     protected String getName() {
         return "android_chenjinshi_switch";
     }
 
-    @Override // com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.c.a
     protected String[] getCrashKeys() {
         return null;
     }
 
-    @Override // com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.c.a
     protected int getDefaultType() {
         return 1;
     }
 
-    @Override // com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.c.a
     protected int getOffType() {
         return 0;
     }
 
-    @Override // com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.c.a
     protected int getMaxCrashTimes() {
         return 10;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.lib.b.a
+    @Override // com.baidu.adp.lib.c.a
     public void changeSettingByType(int i) {
     }
 }

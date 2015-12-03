@@ -5,15 +5,15 @@ import android.widget.LinearLayout;
 import java.util.Timer;
 /* loaded from: classes.dex */
 class d implements Runnable {
-    private final /* synthetic */ Timer Iw;
-    final /* synthetic */ c Ix;
-    private final /* synthetic */ View yG;
+    private final /* synthetic */ Timer IO;
+    final /* synthetic */ c IP;
+    private final /* synthetic */ View yM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar, View view, Timer timer) {
-        this.Ix = cVar;
-        this.yG = view;
-        this.Iw = timer;
+        this.IP = cVar;
+        this.yM = view;
+        this.IO = timer;
     }
 
     @Override // java.lang.Runnable
@@ -31,32 +31,32 @@ class d implements Runnable {
         b bVar6;
         int i3;
         b bVar7;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.yG.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.yM.getLayoutParams();
         int i4 = layoutParams.bottomMargin;
-        bVar = this.Ix.Iv;
-        i = bVar.Ie;
+        bVar = this.IP.IN;
+        i = bVar.Iv;
         layoutParams.bottomMargin = i4 - i;
         int i5 = layoutParams.bottomMargin;
-        bVar2 = this.Ix.Iv;
-        i2 = bVar2.It;
+        bVar2 = this.IP.IN;
+        i2 = bVar2.IL;
         if (i5 <= i2) {
-            bVar6 = this.Ix.Iv;
-            i3 = bVar6.It;
+            bVar6 = this.IP.IN;
+            i3 = bVar6.IL;
             layoutParams.bottomMargin = i3;
-            this.Iw.cancel();
-            bVar7 = this.Ix.Iv;
-            bVar7.Iu = true;
+            this.IO.cancel();
+            bVar7 = this.IP.IN;
+            bVar7.IM = true;
         }
-        this.yG.setLayoutParams(layoutParams);
-        bVar3 = this.Ix.Iv;
-        z = bVar3.Iu;
+        this.yM.setLayoutParams(layoutParams);
+        bVar3 = this.IP.IN;
+        z = bVar3.IM;
         if (z) {
-            bVar4 = this.Ix.Iv;
-            gVar = bVar4.Ig;
+            bVar4 = this.IP.IN;
+            gVar = bVar4.Ix;
             if (gVar != null) {
-                bVar5 = this.Ix.Iv;
-                gVar2 = bVar5.Ig;
-                gVar2.nB();
+                bVar5 = this.IP.IN;
+                gVar2 = bVar5.Ix;
+                gVar2.nH();
             }
         }
     }

@@ -4,18 +4,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class h {
-    public static HashMap<String, Integer> TJ = new HashMap<>();
+    public static HashMap<String, Integer> Ua = new HashMap<>();
 
-    public static int br(int i) {
+    public static int bu(int i) {
         String str = String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@" + i;
-        if (TJ.containsKey(str)) {
-            return TJ.get(str).intValue();
+        if (Ua.containsKey(str)) {
+            return Ua.get(str).intValue();
         }
-        TJ.put(str, 1);
+        Ua.put(str, 1);
         return 1;
     }
 
     public static void w(int i, int i2) {
-        TJ.put(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@" + i, Integer.valueOf(i2));
+        Ua.put(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + "@" + i, Integer.valueOf(i2));
     }
 }

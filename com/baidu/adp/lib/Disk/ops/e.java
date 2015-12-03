@@ -7,22 +7,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e extends DiskFileOperate implements com.baidu.adp.lib.Disk.a {
-    private ArrayList<String> rK;
+    private ArrayList<String> list;
 
     public e(String str, String str2, DiskFileOperate.Action action, ArrayList<String> arrayList) {
         super(str, str2, action);
-        this.rK = arrayList;
+        this.list = arrayList;
     }
 
     @Override // com.baidu.adp.lib.Disk.a
     public boolean c(File file) {
-        if (this.rK == null) {
+        if (this.list == null) {
             return false;
         }
         if (file != null) {
             String name = file.getName();
             if (!TextUtils.isEmpty(name)) {
-                Iterator<String> it = this.rK.iterator();
+                Iterator<String> it = this.list.iterator();
                 while (it.hasNext()) {
                     if (name.equals(it.next())) {
                         return true;

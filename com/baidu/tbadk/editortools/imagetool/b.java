@@ -2,9 +2,9 @@ package com.baidu.tbadk.editortools.imagetool;
 
 import android.content.Context;
 import android.widget.TextView;
-import com.baidu.tbadk.editortools.w;
+import com.baidu.tbadk.editortools.y;
 /* loaded from: classes.dex */
-public class b extends w {
+public class b extends y {
     public b(Context context) {
         super(context, (String) null, 11);
         this.toolNeedAction = true;
@@ -21,7 +21,7 @@ public class b extends w {
         this.toolLaunchAction = new int[]{12, 13, 9};
     }
 
-    public void ea(int i) {
+    public void eo(int i) {
         if (this.toolView != null) {
             MultiImgToolView multiImgToolView = (MultiImgToolView) this.toolView;
             if (i == 1) {
@@ -33,14 +33,14 @@ public class b extends w {
         }
     }
 
-    public void eS(String str) {
+    public void fg(String str) {
         TextView mutiImageTips;
         if (this.toolView != null && (mutiImageTips = ((MultiImgToolView) this.toolView).getMutiImageTips()) != null) {
             mutiImageTips.setText(str);
         }
     }
 
-    public void eT(String str) {
+    public void fh(String str) {
         if (this.toolView instanceof MultiImgToolView) {
             ((MultiImgToolView) this.toolView).setNoPicTips(str);
         }

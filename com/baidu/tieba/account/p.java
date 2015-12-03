@@ -1,23 +1,38 @@
 package com.baidu.tieba.account;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.Editable;
+import android.text.TextWatcher;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-class p extends CustomMessageListener {
-    final /* synthetic */ NotLoginGuideActivity aEd;
+class p implements TextWatcher {
+    final /* synthetic */ ActivationActivity aGV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(NotLoginGuideActivity notLoginGuideActivity, int i) {
-        super(i);
-        this.aEd = notLoginGuideActivity;
+    public p(ActivationActivity activationActivity) {
+        this.aGV = activationActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
-            this.aEd.finish();
+    @Override // android.text.TextWatcher
+    public void afterTextChanged(Editable editable) {
+        int i;
+        if (editable.length() == 6) {
+            this.aGV.aGI.setEnabled(true);
+        } else {
+            this.aGV.aGI.setEnabled(false);
         }
+        i = this.aGV.aGS;
+        if (i != 0) {
+            this.aGV.aGS = 0;
+            this.aGV.aGC.setBackgroundResource(n.e.pass_input);
+            this.aGV.aGC.setPadding(this.aGV.aGQ, 0, this.aGV.aGR, 0);
+        }
+    }
+
+    @Override // android.text.TextWatcher
+    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+    }
+
+    @Override // android.text.TextWatcher
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
     }
 }

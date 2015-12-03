@@ -2,7 +2,7 @@ package com.baidu.tbadk.online;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.g.h;
+import com.baidu.adp.lib.h.h;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends CustomMessageListener {
@@ -15,8 +15,8 @@ public class d extends CustomMessageListener {
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Runnable runnable;
-        h hh = h.hh();
+        h hj = h.hj();
         runnable = GetOnLineInfoStatic.mRunnable;
-        hh.removeCallbacks(runnable);
+        hj.removeCallbacks(runnable);
     }
 }

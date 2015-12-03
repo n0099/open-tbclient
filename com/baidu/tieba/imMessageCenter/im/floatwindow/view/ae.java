@@ -6,15 +6,15 @@ import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class ae implements aj.a {
-    final /* synthetic */ FloatingPersonalChatView bNh;
+    final /* synthetic */ FloatingPersonalChatView ccl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ae(FloatingPersonalChatView floatingPersonalChatView) {
-        this.bNh = floatingPersonalChatView;
+        this.ccl = floatingPersonalChatView;
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.floatwindow.view.aj.a
-    public void Zv() {
+    public void acB() {
         List list;
         int i;
         List list2;
@@ -25,23 +25,23 @@ public class ae implements aj.a {
         aj ajVar;
         List list4;
         int i4;
-        list = this.bNh.mUserDataList;
+        list = this.ccl.mUserDataList;
         if (list != null) {
-            i = this.bNh.currentIndex;
-            list2 = this.bNh.mUserDataList;
+            i = this.ccl.currentIndex;
+            list2 = this.ccl.mUserDataList;
             if (i < list2.size()) {
-                i2 = this.bNh.currentIndex;
+                i2 = this.ccl.currentIndex;
                 if (i2 >= 0) {
-                    list3 = this.bNh.mUserDataList;
-                    i3 = this.bNh.currentIndex;
+                    list3 = this.ccl.mUserDataList;
+                    i3 = this.ccl.currentIndex;
                     if (list3.get(i3) == null) {
                         return;
                     }
-                    lVar = this.bNh.bNe;
-                    ajVar = this.bNh.bNf;
-                    list4 = this.bNh.mUserDataList;
-                    i4 = this.bNh.currentIndex;
-                    lVar.hX(ajVar.c((UserData) list4.get(i4)));
+                    lVar = this.ccl.cci;
+                    ajVar = this.ccl.ccj;
+                    list4 = this.ccl.mUserDataList;
+                    i4 = this.ccl.currentIndex;
+                    lVar.iL(ajVar.c((UserData) list4.get(i4)));
                 }
             }
         }

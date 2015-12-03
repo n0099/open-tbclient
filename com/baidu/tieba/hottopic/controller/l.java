@@ -1,23 +1,28 @@
 package com.baidu.tieba.hottopic.controller;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class l extends com.baidu.adp.base.g {
-    final /* synthetic */ RelateTopicForumActivity bpt;
+public class l implements View.OnClickListener {
+    final /* synthetic */ k bDq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public l(RelateTopicForumActivity relateTopicForumActivity) {
-        this.bpt = relateTopicForumActivity;
+    public l(k kVar) {
+        this.bDq = kVar;
     }
 
-    @Override // com.baidu.adp.base.g
-    public void d(Object obj) {
-        if (AntiHelper.lr(this.bpt.bpm.getErrorCode())) {
-            AntiHelper.Q(this.bpt.getActivity(), this.bpt.bpm.getErrorString());
-        } else if (!StringUtils.isNull(this.bpt.bpm.getErrorString())) {
-            com.baidu.adp.lib.util.k.showToast(TbadkCoreApplication.m411getInst(), this.bpt.bpm.getErrorString());
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        TbPageContext tbPageContext;
+        TbPageContext tbPageContext2;
+        tbPageContext = this.bDq.context;
+        tbPageContext.sendMessage(new CustomMessage(CmdConfigCustom.CMD_SHARE_DIALOG_DISMISS));
+        tbPageContext2 = this.bDq.context;
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonGroupActivityConfig(((HotTopicActivity) tbPageContext2.getOrignalPage()).getPageContext().getPageActivity(), 23003)));
     }
 }

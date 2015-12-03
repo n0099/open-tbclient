@@ -1,19 +1,29 @@
 package com.baidu.tieba.write.album;
 
-import android.widget.HorizontalScrollView;
+import android.view.View;
+import com.baidu.tbadk.img.ImageFileInfo;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class u implements Runnable {
-    final /* synthetic */ r dmA;
-    private final /* synthetic */ HorizontalScrollView dmC;
+public class u implements View.OnClickListener {
+    final /* synthetic */ t dLG;
+    private final /* synthetic */ ImageFileInfo dLH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public u(r rVar, HorizontalScrollView horizontalScrollView) {
-        this.dmA = rVar;
-        this.dmC = horizontalScrollView;
+    public u(t tVar, ImageFileInfo imageFileInfo) {
+        this.dLG = tVar;
+        this.dLH = imageFileInfo;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.dmC.fullScroll(66);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        AlbumActivity albumActivity;
+        AlbumActivity albumActivity2;
+        AlbumActivity albumActivity3;
+        albumActivity = this.dLG.dKK;
+        albumActivity.b(this.dLH);
+        albumActivity2 = this.dLG.dKK;
+        albumActivity2.e(this.dLH, false);
+        albumActivity3 = this.dLG.dKK;
+        albumActivity3.f(this.dLH, false);
     }
 }

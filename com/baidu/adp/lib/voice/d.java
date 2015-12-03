@@ -6,11 +6,11 @@ import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ c zf;
+    final /* synthetic */ c zl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.zf = cVar;
+        this.zl = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -23,28 +23,28 @@ public class d implements Runnable {
         int i2;
         Handler handler3;
         AudioTrack audioTrack2;
-        audioTrack = this.zf.yX;
+        audioTrack = this.zl.zd;
         if (audioTrack != null) {
             try {
-                audioTrack2 = this.zf.yX;
+                audioTrack2 = this.zl.zd;
                 if (audioTrack2.getPlayState() != 3) {
                     return;
                 }
             } catch (NullPointerException e) {
             }
-            int jq = this.zf.jq() + 0;
-            i = this.zf.mElapsedTime;
-            if (jq != i) {
-                this.zf.mElapsedTime = jq;
-                handler2 = this.zf.mHandler;
+            int jr = this.zl.jr() + 0;
+            i = this.zl.mElapsedTime;
+            if (jr != i) {
+                this.zl.mElapsedTime = jr;
+                handler2 = this.zl.mHandler;
                 Message obtainMessage = handler2.obtainMessage(6);
-                i2 = this.zf.mElapsedTime;
+                i2 = this.zl.mElapsedTime;
                 obtainMessage.arg1 = i2;
-                handler3 = this.zf.mHandler;
+                handler3 = this.zl.mHandler;
                 handler3.sendMessage(obtainMessage);
             }
-            handler = this.zf.zc;
-            runnable = this.zf.mPlayTimeThread;
+            handler = this.zl.zi;
+            runnable = this.zl.mPlayTimeThread;
             handler.postDelayed(runnable, 100L);
         }
     }

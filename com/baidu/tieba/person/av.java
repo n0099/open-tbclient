@@ -1,14 +1,30 @@
 package com.baidu.tieba.person;
 
-import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.coreExtra.data.PersonChangeData;
 /* loaded from: classes.dex */
-public class av extends d {
-    public av(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
-        super(basePersonInfoActivity, z);
+public class av extends com.baidu.adp.base.e {
+    PersonChangeData cKV;
+
+    public av(PersonChangeData personChangeData) {
+        super(null);
+        this.cKV = null;
+        this.cKV = personChangeData;
+        if (this.cKV == null) {
+            this.cKV = new PersonChangeData();
+        }
     }
 
-    @Override // com.baidu.tieba.person.d
-    protected BaseFragment aiH() {
-        return new aw();
+    public PersonChangeData anJ() {
+        return this.cKV;
+    }
+
+    @Override // com.baidu.adp.base.e
+    protected boolean LoadData() {
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.e
+    public boolean cancelLoadData() {
+        return false;
     }
 }

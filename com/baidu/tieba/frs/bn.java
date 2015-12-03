@@ -1,71 +1,30 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.adp.widget.ListView.x.a;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-public abstract class bn<T, V extends x.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected int aSZ;
-    protected BaseActivity<?> aSm;
-    protected int aTY;
-    protected int aTa;
-    protected ListView aTd;
-    protected com.baidu.tieba.tbadkCore.o aUe;
-    protected bd aWo;
-    protected boolean mIsFromCDN;
-    protected int mSkinType;
+public class bn implements com.baidu.adp.widget.ListView.u {
+    public static final BdUniqueId bbG = BdUniqueId.gen();
+    private int height = 0;
+    private int bbH = 0;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public bn(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
-        super(baseActivity == null ? null : baseActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.mIsFromCDN = false;
-        d(baseActivity);
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return bbG;
     }
 
-    public void d(BaseActivity<?> baseActivity) {
-        if (baseActivity != null) {
-            this.mContext = baseActivity.getActivity();
-            this.aSm = baseActivity;
-            this.aSZ = this.mContext.getResources().getDimensionPixelSize(i.d.ds8);
-            this.aTa = this.mContext.getResources().getDimensionPixelSize(i.d.ds16);
-        }
+    public int getHeight() {
+        return this.height;
     }
 
-    public void release() {
-        this.mContext = null;
-        this.aSm = null;
-        this.aWo = null;
-        this.GJ = null;
-        this.GK = null;
+    public void setHeight(int i) {
+        this.height = i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, T t, V v) {
-        this.mSkinType = TbadkCoreApplication.m411getInst().getSkinType();
-        this.aTd = (ListView) viewGroup;
-        return null;
+    public int No() {
+        return this.bbH;
     }
 
-    public void setFromCDN(boolean z) {
-        this.mIsFromCDN = z;
-    }
-
-    public void a(com.baidu.tieba.tbadkCore.o oVar) {
-        this.aUe = oVar;
-    }
-
-    public void a(bd bdVar) {
-        this.aWo = bdVar;
-    }
-
-    public void fC(int i) {
-        this.aTY = i;
+    public void fZ(int i) {
+        this.bbH = i;
     }
 }

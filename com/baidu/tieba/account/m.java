@@ -1,38 +1,24 @@
 package com.baidu.tieba.account;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import com.baidu.tieba.i;
+import android.webkit.JsPromptResult;
 /* loaded from: classes.dex */
-class m implements TextWatcher {
-    final /* synthetic */ ActivationActivity aDW;
+class m implements com.baidu.tieba.tbadkCore.e.c {
+    final /* synthetic */ AccountRestoreActivity aGA;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public m(ActivationActivity activationActivity) {
-        this.aDW = activationActivity;
+    public m(AccountRestoreActivity accountRestoreActivity) {
+        this.aGA = accountRestoreActivity;
     }
 
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        int i;
-        if (editable.length() == 6) {
-            this.aDW.aDJ.setEnabled(true);
-        } else {
-            this.aDW.aDJ.setEnabled(false);
+    @Override // com.baidu.tieba.tbadkCore.e.c
+    public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
+        com.baidu.tieba.tbadkCore.e.a aVar;
+        com.baidu.tieba.tbadkCore.e.a aVar2;
+        aVar = this.aGA.jsBridge;
+        if (aVar != null) {
+            aVar2 = this.aGA.jsBridge;
+            return aVar2.a(str, jsPromptResult);
         }
-        i = this.aDW.aDT;
-        if (i != 0) {
-            this.aDW.aDT = 0;
-            this.aDW.aDD.setBackgroundResource(i.e.pass_input);
-            this.aDW.aDD.setPadding(this.aDW.aDR, 0, this.aDW.aDS, 0);
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        return false;
     }
 }

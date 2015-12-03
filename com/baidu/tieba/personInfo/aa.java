@@ -1,63 +1,30 @@
 package com.baidu.tieba.personInfo;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.i;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.person.SetUserPicsResponse;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class aa {
-    private PersonInfoActivity csa;
-    private View cul;
-    private RelativeLayout cvp;
-    private TextView cvq;
-    private ImageView cvr;
-    private ImageView cvs;
-    private View mRootView;
+public class aa extends HttpMessageListener {
+    final /* synthetic */ d cSn;
 
-    public aa(PersonInfoActivity personInfoActivity) {
-        this.csa = personInfoActivity;
-        this.mRootView = LayoutInflater.from(this.csa.getPageContext().getPageActivity()).inflate(i.g.personinfo_my_mark_view, (ViewGroup) null);
-        initView();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aa(d dVar, int i) {
+        super(i);
+        this.cSn = dVar;
     }
 
-    private void initView() {
-        this.cul = this.mRootView.findViewById(i.f.root_next);
-        this.cvp = (RelativeLayout) this.mRootView.findViewById(i.f.bookmark);
-        this.cvq = (TextView) this.mRootView.findViewById(i.f.bookmark_num);
-        this.cvr = (ImageView) this.mRootView.findViewById(i.f.bookmark_icon);
-        this.cvs = (ImageView) this.mRootView.findViewById(i.f.bookmark_arrow);
-        this.cvp.setOnClickListener(this.csa);
-    }
-
-    public RelativeLayout ajU() {
-        return this.cvp;
-    }
-
-    public void ake() {
-        UserData userData = this.csa.ajH().getUserData();
-        if (userData != null) {
-            this.cvq.setText(String.valueOf(userData.getMarkCount()));
-            if (userData.getMarkCount() <= 0) {
-                an.b(this.cvq, i.c.cp_cont_e, 1);
-                this.cvs.setVisibility(8);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        if (httpResponsedMessage != null && (httpResponsedMessage instanceof SetUserPicsResponse)) {
+            SetUserPicsResponse setUserPicsResponse = (SetUserPicsResponse) httpResponsedMessage;
+            if (setUserPicsResponse.getErrCode() != 0) {
+                this.cSn.showToast(setUserPicsResponse.getErrorString());
             } else {
-                an.b(this.cvq, i.c.cp_cont_b, 1);
-                this.cvs.setVisibility(0);
-            }
-            if (userData.getNewMarkCount() > 0) {
-                this.cvr.setVisibility(0);
-            } else {
-                this.cvr.setVisibility(8);
+                this.cSn.aoK();
             }
         }
-    }
-
-    public View getRootView() {
-        return this.mRootView;
     }
 }

@@ -2,33 +2,33 @@ package com.baidu.tieba.setting.more;
 
 import android.view.View;
 import android.widget.AdapterView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class q implements AdapterView.OnItemClickListener {
-    final /* synthetic */ l cOO;
+    final /* synthetic */ l dnj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(l lVar) {
-        this.cOO = lVar;
+        this.dnj = lVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         com.baidu.tbadk.core.dialog.e eVar;
-        eVar = this.cOO.cOE;
-        eVar.bO(i);
+        eVar = this.dnj.dmW;
+        eVar.bW(i);
         switch (i) {
             case 0:
-                TbadkCoreApplication.m411getInst().setFontSize(1);
+                com.baidu.tbadk.core.m.rh().bq(0);
                 break;
             case 1:
-                TbadkCoreApplication.m411getInst().setFontSize(2);
+                com.baidu.tbadk.core.m.rh().bq(1);
                 break;
             case 2:
-                TbadkCoreApplication.m411getInst().setFontSize(3);
+                com.baidu.tbadk.core.m.rh().bq(2);
                 break;
         }
-        this.cOO.ast();
+        this.dnj.axU();
+        this.dnj.axQ();
     }
 }

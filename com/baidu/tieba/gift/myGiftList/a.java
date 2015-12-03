@@ -1,64 +1,118 @@
 package com.baidu.tieba.gift.myGiftList;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.gif.GiftGifView;
-import com.baidu.tieba.i;
+import java.util.ArrayList;
+import tbclient.GetMyGift.DataRes;
+import tbclient.GetMyGift.PresentMyList;
 /* loaded from: classes.dex */
-public class a implements DialogInterface.OnCancelListener, View.OnClickListener {
-    private Dialog bns;
-    private LinearLayout bnt;
-    private GiftGifView bnu;
-    private Activity mActivity;
-    private ProgressDialog mWaitingDialog;
+public class a {
+    private long bwe;
+    private long bwf;
+    private b bwg;
+    private c bwh;
+    private ArrayList<C0063a> giftList;
+    private long sceneId;
 
-    public a(Activity activity) {
-        this.mActivity = activity;
-        init();
+    /* renamed from: com.baidu.tieba.gift.myGiftList.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static class C0063a {
+        public String VG;
+        public long bwi;
+        public String bwj;
+        public String bwk;
+        public long bwl;
+        public long bwm;
+        public long createTime;
+        public String playUrl;
+        public String thumbnailUrl;
     }
 
-    private void init() {
-        this.bns = QM();
-        this.bnt = (LinearLayout) this.bns.findViewById(i.f.gift_gif_ll);
-        this.bnu = (GiftGifView) this.bns.findViewById(i.f.gift_gif_view);
-        this.bnt.setOnClickListener(this);
-        this.bnu.setOnClickListener(this);
-        this.bnu.setAutoPlay(true);
-        this.bnu.setPlayCallback(new b(this));
+    /* loaded from: classes.dex */
+    public static class b {
+        public int bwn;
+        public int bwo;
+        public int hasMore;
     }
 
-    public void hq(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            com.baidu.tbadk.gif.a aVar = new com.baidu.tbadk.gif.a();
-            aVar.arU = str;
-            aVar.arW = str;
-            this.bnu.setIsHide(false);
-            this.bnu.a(aVar);
-            this.mWaitingDialog = com.baidu.adp.lib.util.k.a(this.mActivity, this.mActivity.getString(i.h.loading), this);
+    /* loaded from: classes.dex */
+    public static class c {
+        public String bwp;
+        public String bwq;
+    }
+
+    public void a(DataRes dataRes) {
+        if (dataRes != null) {
+            this.bwe = dataRes.total_num.intValue();
+            this.bwf = dataRes.money.intValue();
+            this.sceneId = dataRes.scene_id.intValue();
+            if (dataRes.page != null) {
+                this.bwg = new b();
+                this.bwg.bwn = dataRes.page.cur_page.intValue();
+                this.bwg.hasMore = dataRes.page.has_more.intValue();
+                this.bwg.bwo = dataRes.page.total.intValue();
+            }
+            if (dataRes.money_txt != null) {
+                this.bwh = new c();
+                this.bwh.bwp = dataRes.money_txt.txt;
+                this.bwh.bwq = dataRes.money_txt.url;
+            }
+            if (dataRes.gift_list != null && dataRes.gift_list.size() > 0) {
+                this.giftList = new ArrayList<>();
+                for (PresentMyList presentMyList : dataRes.gift_list) {
+                    if (presentMyList != null) {
+                        C0063a c0063a = new C0063a();
+                        c0063a.bwi = presentMyList.pay_userid.longValue();
+                        c0063a.bwj = presentMyList.pay_username;
+                        c0063a.bwk = presentMyList.portrait;
+                        c0063a.bwl = presentMyList.gift_id.intValue();
+                        c0063a.VG = presentMyList.gift_name;
+                        c0063a.playUrl = presentMyList.play_url;
+                        c0063a.thumbnailUrl = presentMyList.thumbnail_url;
+                        c0063a.createTime = presentMyList.create_time.intValue();
+                        c0063a.bwm = presentMyList.num.intValue();
+                        this.giftList.add(c0063a);
+                    }
+                }
+            }
         }
     }
 
-    private Dialog QM() {
-        Dialog dialog = new Dialog(this.mActivity, i.C0057i.dialog_full_screen);
-        dialog.setContentView(i.g.gif_play_dialog);
-        dialog.setOnDismissListener(new c(this));
-        return dialog;
+    public long Tp() {
+        return this.bwe;
     }
 
-    @Override // android.content.DialogInterface.OnCancelListener
-    public void onCancel(DialogInterface dialogInterface) {
-        this.bnu.BS();
-        com.baidu.adp.lib.g.j.b(this.bns, this.mActivity);
+    public void aH(long j) {
+        this.bwe = j;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        this.bnu.stop();
-        com.baidu.adp.lib.g.j.b(this.bns, this.mActivity);
+    public long Tq() {
+        return this.bwf;
+    }
+
+    public void aI(long j) {
+        this.bwf = j;
+    }
+
+    public b Tr() {
+        return this.bwg;
+    }
+
+    public void a(b bVar) {
+        this.bwg = bVar;
+    }
+
+    public c Ts() {
+        return this.bwh;
+    }
+
+    public void a(c cVar) {
+        this.bwh = cVar;
+    }
+
+    public ArrayList<C0063a> getGiftList() {
+        return this.giftList;
+    }
+
+    public void I(ArrayList<C0063a> arrayList) {
+        this.giftList = arrayList;
     }
 }

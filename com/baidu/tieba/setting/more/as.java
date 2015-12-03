@@ -1,17 +1,23 @@
 package com.baidu.tieba.setting.more;
 
-import com.baidu.tbadk.core.dialog.a;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-class as implements a.b {
-    final /* synthetic */ SystemHelpSettingActivity cQl;
+class as extends CustomMessageListener {
+    final /* synthetic */ SystemHelpSettingActivity doH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public as(SystemHelpSettingActivity systemHelpSettingActivity) {
-        this.cQl = systemHelpSettingActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public as(SystemHelpSettingActivity systemHelpSettingActivity, int i) {
+        super(i);
+        this.doH = systemHelpSettingActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        this.doH.closeLoadingDialog();
+        this.doH.showToast(n.i.systemhelpsetting_clear_im_success);
     }
 }

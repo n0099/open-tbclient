@@ -1,18 +1,24 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dk implements View.OnLongClickListener {
-    final /* synthetic */ ct cmY;
+public class dk extends CustomMessageListener {
+    final /* synthetic */ da cGh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dk(ct ctVar) {
-        this.cmY = ctVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dk(da daVar, int i) {
+        super(i);
+        this.cGh = daVar;
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
-        return false;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        if (customResponsedMessage != null) {
+            this.cGh.cFx = false;
+        }
     }
 }

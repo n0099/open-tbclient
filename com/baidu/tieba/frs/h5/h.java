@@ -1,42 +1,42 @@
 package com.baidu.tieba.frs.h5;
 
 import com.baidu.adp.widget.ListView.u;
-import com.baidu.tieba.frs.ec;
-import com.baidu.tieba.frs.ed;
-import com.baidu.tieba.frs.ee;
-import com.baidu.tieba.frs.eg;
+import com.baidu.tieba.frs.et;
+import com.baidu.tieba.frs.eu;
+import com.baidu.tieba.frs.ew;
+import com.baidu.tieba.frs.ey;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class h implements ec {
-    private ed aRr;
+public class h implements et {
+    private eu aWF;
 
-    @Override // com.baidu.tieba.frs.ec
-    public void a(int i, int i2, ee eeVar) {
-        if (i > 100 && this.aRr != null && eeVar != null && eeVar.aZk != null && (eeVar.aZk instanceof String)) {
+    @Override // com.baidu.tieba.frs.et
+    public void a(int i, int i2, ew ewVar) {
+        if (i > 100 && this.aWF != null && ewVar != null && ewVar.bfp != null && (ewVar.bfp instanceof String)) {
             ArrayList<u> arrayList = new ArrayList<>();
-            g gVar = new g((String) eeVar.aZk);
-            gVar.stType = eeVar.stType;
+            g gVar = new g((String) ewVar.bfp);
+            gVar.stType = ewVar.stType;
             arrayList.add(gVar);
-            eg egVar = new eg();
-            egVar.hasMore = false;
-            egVar.aZm = false;
-            egVar.aZn = false;
-            egVar.pn = eeVar.pn;
-            egVar.aZk = eeVar.aZk;
-            this.aRr.a(i, i2, egVar, arrayList);
+            ey eyVar = new ey();
+            eyVar.hasMore = false;
+            eyVar.bfr = false;
+            eyVar.bfs = false;
+            eyVar.pn = ewVar.pn;
+            eyVar.bfp = ewVar.bfp;
+            this.aWF.a(i, i2, eyVar, arrayList);
         }
     }
 
-    @Override // com.baidu.tieba.frs.ec
-    public void a(ed edVar) {
-        this.aRr = edVar;
+    @Override // com.baidu.tieba.frs.et
+    public void a(eu euVar) {
+        this.aWF = euVar;
     }
 
-    @Override // com.baidu.tieba.frs.ec
+    @Override // com.baidu.tieba.frs.et
     public void init() {
     }
 
-    @Override // com.baidu.tieba.frs.ec
-    public void KG() {
+    @Override // com.baidu.tieba.frs.et
+    public void Mf() {
     }
 }

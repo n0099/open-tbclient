@@ -11,10 +11,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ap extends JsonHttpResponseHandler {
-    final /* synthetic */ SocialWidget dus;
+    final /* synthetic */ SocialWidget dSK;
 
     public ap(SocialWidget socialWidget) {
-        this.dus = socialWidget;
+        this.dSK = socialWidget;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,7 +27,7 @@ public class ap extends JsonHttpResponseHandler {
 
     @Override // com.baidu.cloudsdk.common.http.JsonHttpResponseHandler
     protected void onSuccess(JSONArray jSONArray) {
-        SessionManager sessionManager = SessionManager.getInstance(this.dus.mContext);
+        SessionManager sessionManager = SessionManager.getInstance(this.dSK.mContext);
         for (int i = 0; i < jSONArray.length(); i++) {
             try {
                 sessionManager.save(jSONArray.getJSONObject(i));

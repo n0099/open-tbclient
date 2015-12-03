@@ -1,17 +1,27 @@
 package com.baidu.tieba.payment;
 
-import com.baidu.tbadk.core.dialog.a;
+import android.widget.CompoundButton;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class m implements a.b {
-    final /* synthetic */ PaymentConfirmActivity ceE;
+public class m implements CompoundButton.OnCheckedChangeListener {
+    final /* synthetic */ PaymentConfirmActivity cxe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(PaymentConfirmActivity paymentConfirmActivity) {
-        this.ceE = paymentConfirmActivity;
+        this.cxe = paymentConfirmActivity;
     }
 
-    @Override // com.baidu.tbadk.core.dialog.a.b
-    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        aVar.dismiss();
+    @Override // android.widget.CompoundButton.OnCheckedChangeListener
+    public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
+        String kq;
+        String kq2;
+        com.baidu.tbadk.core.sharedPref.b tZ = com.baidu.tbadk.core.sharedPref.b.tZ();
+        kq = this.cxe.kq("payment_confirm_show");
+        tZ.putBoolean(kq, !z);
+        if (!z) {
+            com.baidu.tbadk.core.sharedPref.b tZ2 = com.baidu.tbadk.core.sharedPref.b.tZ();
+            kq2 = this.cxe.kq("payment_confirm_notshow_count");
+            tZ2.putInt(kq2, 0);
+        }
     }
 }

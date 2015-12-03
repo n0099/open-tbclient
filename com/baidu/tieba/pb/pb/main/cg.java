@@ -1,45 +1,37 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.i;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tieba.pb.pb.main.cc;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cg extends bz<com.baidu.tbadk.core.data.aa, cf> {
-    private View.OnClickListener bNr;
+public class cg extends HttpMessageListener {
+    final /* synthetic */ cc cDC;
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public cg(PbActivity pbActivity, BdUniqueId bdUniqueId) {
-        super(pbActivity, bdUniqueId);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cg(cc ccVar, int i) {
+        super(i);
+        this.cDC = ccVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: L */
-    public cf a(ViewGroup viewGroup) {
-        return new cf(LayoutInflater.from(this.mContext).inflate(i.g.pb_u9_news_layout, viewGroup, false));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.pb.pb.main.bz, com.baidu.adp.widget.ListView.a
-    public View a(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.core.data.aa aaVar, cf cfVar) {
-        super.a(i, view, viewGroup, (ViewGroup) aaVar, (com.baidu.tbadk.core.data.aa) cfVar);
-        if (aaVar != null) {
-            cfVar.cll.setOnClickListener(this.bNr);
-            cfVar.cll.setText(aaVar.getSummary());
-            cfVar.cll.setTag(aaVar);
-            com.baidu.tbadk.core.util.an.j(cfVar.clm, i.c.cp_bg_line_b);
-            com.baidu.tbadk.core.util.an.b(cfVar.cll, i.c.cp_cont_b, 1);
-            cfVar.cll.setCompoundDrawablesWithIntrinsicBounds(com.baidu.tbadk.core.util.an.getDrawable(i.e.icon_frs_news), (Drawable) null, (Drawable) null, (Drawable) null);
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        cc.a aVar;
+        cc.a aVar2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
+            if (httpResponsedMessage.getStatusCode() != 200) {
+                aVar = this.cDC.cCl;
+                aVar.f(-1, null, null);
+                return;
+            }
+            ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
+            String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
+            int errorCode = applyCopyThreadResponseMessage.getErrorCode();
+            String tid = applyCopyThreadResponseMessage.getTid();
+            aVar2 = this.cDC.cCl;
+            aVar2.f(errorCode, errorMessage, tid);
         }
-        return view;
-    }
-
-    public void r(View.OnClickListener onClickListener) {
-        this.bNr = onClickListener;
     }
 }

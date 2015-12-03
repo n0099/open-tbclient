@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.ad;
-import com.baidu.tbadk.core.util.ae;
+import com.baidu.tbadk.core.util.ai;
+import com.baidu.tbadk.core.util.aj;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ import tbclient.FrsPage.SignUser;
 import tbclient.FrsPage.TagInfo;
 import tbclient.SimpleForum;
 /* loaded from: classes.dex */
-public class ForumData implements ae, Serializable {
+public class ForumData implements aj, Serializable {
     public static final int ANCHOR_HAVE_POWER = 1;
     public static final int ANCHOR_NOT_SHOW = 0;
     public static final int ANCHOR_SHOW_BUT_NO_POWER = 2;
@@ -44,13 +44,13 @@ public class ForumData implements ae, Serializable {
     private final j mFrsBannerData;
     private final PostPrefixData mPrefixData;
     private ArrayList<RecommendForumData> mRecommendForumData;
-    private final r mRecommendLikeUser;
-    private aa news_info;
+    private final u mRecommendLikeUser;
+    private ad news_info;
     private String slogan;
     private String tag_color;
     private String tag_id;
-    private x top_code;
-    private y top_notice_data;
+    private aa top_code;
+    private ab top_notice_data;
     private String id = null;
     private String name = null;
     private String first_class = null;
@@ -65,7 +65,7 @@ public class ForumData implements ae, Serializable {
     private int album_open_photo_frs = 0;
     private SignData mSignData = new SignData();
     private ArrayList<String> managers = new ArrayList<>();
-    private ArrayList<k> good_classify = new ArrayList<>();
+    private ArrayList<m> good_classify = new ArrayList<>();
     private String tag_name = null;
 
     public ForumData() {
@@ -75,15 +75,15 @@ public class ForumData implements ae, Serializable {
         this.levelup_score = 0;
         this.is_support_local = 0;
         this.is_local_effect = 0;
-        this.top_notice_data = new y();
+        this.top_notice_data = new ab();
         this.mBadgeData = new ArrayList<>();
         this.mFrsBannerData = new j();
         this.mBannerListData = new BannerListData();
         this.mRecommendForumData = new ArrayList<>();
         this.mPrefixData = new PostPrefixData();
-        this.mRecommendLikeUser = new r();
-        this.top_code = new x();
-        this.news_info = new aa();
+        this.mRecommendLikeUser = new u();
+        this.top_code = new aa();
+        this.news_info = new ad();
     }
 
     public AnchorPower getAnchorPower() {
@@ -218,12 +218,12 @@ public class ForumData implements ae, Serializable {
         this.mSignData = signData;
     }
 
-    public y getTop_notice_data() {
+    public ab getTop_notice_data() {
         return this.top_notice_data;
     }
 
-    public void setTop_notice_data(y yVar) {
-        this.top_notice_data = yVar;
+    public void setTop_notice_data(ab abVar) {
+        this.top_notice_data = abVar;
     }
 
     public void setManagers(ArrayList<String> arrayList) {
@@ -234,11 +234,11 @@ public class ForumData implements ae, Serializable {
         return this.managers;
     }
 
-    public void setGood_classify(ArrayList<k> arrayList) {
+    public void setGood_classify(ArrayList<m> arrayList) {
         this.good_classify = arrayList;
     }
 
-    public ArrayList<k> getGood_classify() {
+    public ArrayList<m> getGood_classify() {
         return this.good_classify;
     }
 
@@ -262,7 +262,7 @@ public class ForumData implements ae, Serializable {
         return this.mBannerListData;
     }
 
-    public r getRecommendLikeUser() {
+    public u getRecommendLikeUser() {
         return this.mRecommendLikeUser;
     }
 
@@ -319,9 +319,9 @@ public class ForumData implements ae, Serializable {
                 List<Classify> list2 = forumInfo.good_classify;
                 if (list2 != null) {
                     for (int i2 = 0; i2 < list2.size(); i2++) {
-                        k kVar = new k();
-                        kVar.a(list2.get(i2));
-                        this.good_classify.add(kVar);
+                        m mVar = new m();
+                        mVar.a(list2.get(i2));
+                        this.good_classify.add(mVar);
                     }
                 }
                 SignInfo signInfo = forumInfo.sign_in_info;
@@ -438,9 +438,9 @@ public class ForumData implements ae, Serializable {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("good_classify");
                 if (optJSONArray2 != null) {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        k kVar = new k();
-                        kVar.parserJson(optJSONArray2.optJSONObject(i2));
-                        this.good_classify.add(kVar);
+                        m mVar = new m();
+                        mVar.parserJson(optJSONArray2.optJSONObject(i2));
+                        this.good_classify.add(mVar);
                     }
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("sign_in_info");
@@ -582,29 +582,29 @@ public class ForumData implements ae, Serializable {
         return this.mPrefixData;
     }
 
-    public void setTopCode(x xVar) {
-        this.top_code = xVar;
+    public void setTopCode(aa aaVar) {
+        this.top_code = aaVar;
     }
 
-    public void setNewsInfo(aa aaVar) {
-        this.news_info = aaVar;
+    public void setNewsInfo(ad adVar) {
+        this.news_info = adVar;
     }
 
-    public x getTopCode() {
+    public aa getTopCode() {
         return this.top_code;
     }
 
-    public aa getNewsInfo() {
+    public ad getNewsInfo() {
         return this.news_info;
     }
 
-    @Override // com.baidu.tbadk.core.util.ae
-    public ArrayList<ad> getImages() {
-        ArrayList<ad> arrayList = new ArrayList<>();
-        ad adVar = new ad();
-        adVar.Wd = this.image_url;
-        adVar.aaD = 10;
-        arrayList.add(adVar);
+    @Override // com.baidu.tbadk.core.util.aj
+    public ArrayList<ai> getImages() {
+        ArrayList<ai> arrayList = new ArrayList<>();
+        ai aiVar = new ai();
+        aiVar.WN = this.image_url;
+        aiVar.abp = 10;
+        arrayList.add(aiVar);
         return arrayList;
     }
 }

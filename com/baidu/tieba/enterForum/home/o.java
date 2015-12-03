@@ -1,24 +1,18 @@
 package com.baidu.tieba.enterForum.home;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class o extends CustomMessageListener {
-    final /* synthetic */ d aMe;
+public class o implements a.b {
+    final /* synthetic */ h aQN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o(d dVar, int i) {
-        super(i);
-        this.aMe = dVar;
+    public o(h hVar) {
+        this.aQN = hVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2009503 && this.aMe.aLN != null) {
-            this.aMe.aLN.Jm();
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

@@ -1,18 +1,18 @@
 package com.baidu.tieba.im.util;
 
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.w;
+import com.baidu.tbadk.core.util.ab;
 /* loaded from: classes.dex */
 public class f extends Thread {
-    private String aaW;
+    private String abJ;
     private String mGroupId;
     private String mObjTp;
 
     public f(String str, String str2, String str3) {
-        this.aaW = null;
+        this.abJ = null;
         this.mObjTp = null;
         this.mGroupId = null;
-        this.aaW = str;
+        this.abJ = str;
         this.mObjTp = str2;
         this.mGroupId = str3;
     }
@@ -20,10 +20,10 @@ public class f extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        w wVar = new w(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
-        wVar.o("obj", this.aaW);
-        wVar.o("obj_tp", this.mObjTp);
-        wVar.o("group_id", this.mGroupId);
-        wVar.tG();
+        ab abVar = new ab(String.valueOf(TbConfig.SERVER_ADDRESS) + TbConfig.LOAD_REG_PV_ADDRESS);
+        abVar.o("obj", this.abJ);
+        abVar.o("obj_tp", this.mObjTp);
+        abVar.o("group_id", this.mGroupId);
+        abVar.ul();
     }
 }

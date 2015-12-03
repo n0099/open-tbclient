@@ -20,11 +20,11 @@ public class f extends ClickableSpan {
         return this.mContext;
     }
 
-    public void fO(String str) {
-        com.baidu.tbadk.browser.g.B(this.mContext, str);
+    public void gc(String str) {
+        com.baidu.tbadk.browser.f.B(this.mContext, str);
     }
 
-    public void fP(String str) {
+    public void gd(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
     }
 

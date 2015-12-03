@@ -1,25 +1,22 @@
 package com.baidu.tieba.enterForum.home;
 
-import android.os.Bundle;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class w extends CustomMessageListener {
+public class w extends CustomMessageListener {
+    final /* synthetic */ h aQN;
+
     /* JADX INFO: Access modifiers changed from: package-private */
-    public w(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w(h hVar, int i) {
         super(i);
+        this.aQN = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        com.baidu.tbadk.mainTab.c fragmentTabStructure;
-        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-            EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
-            ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
-            if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (fragmentTabStructure = enterForumDelegateStatic.getFragmentTabStructure()) != null) {
-                fragmentTabStructure.atN.setArguments(new Bundle());
-            }
-        }
+        this.aQN.aQE = true;
     }
 }

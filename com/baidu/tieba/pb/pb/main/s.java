@@ -1,35 +1,26 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.q;
 /* loaded from: classes.dex */
-class s implements BdListView.e {
-    final /* synthetic */ PbActivity cjN;
+class s implements q.a {
+    final /* synthetic */ PbActivity cCm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(PbActivity pbActivity) {
-        this.cjN = pbActivity;
+        this.cCm = pbActivity;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView.e
-    public void onScrollToBottom() {
-        boolean z;
-        ca caVar;
-        ct ctVar;
-        ca caVar2;
-        ct ctVar2;
-        z = this.cjN.mIsLogin;
-        if (z) {
-            caVar = this.cjN.cjj;
-            if (caVar.eA(false)) {
-                ctVar2 = this.cjN.cjo;
-                ctVar2.ahb();
-                TiebaStatic.eventStat(this.cjN.getPageContext().getPageActivity(), "pb_more", "pbclick", 1, new Object[0]);
-                return;
-            }
-            ctVar = this.cjN.cjo;
-            caVar2 = this.cjN.cjj;
-            ctVar.k(caVar2.getPbData());
+    @Override // com.baidu.tbadk.core.view.q.a
+    public void onListPullRefresh(boolean z) {
+        cc ccVar;
+        da daVar;
+        ccVar = this.cCm.cBG;
+        if (!ccVar.fe(true)) {
+            daVar = this.cCm.cBL;
+            daVar.alC();
+            return;
         }
+        TiebaStatic.eventStat(this.cCm.getPageContext().getPageActivity(), "pb_pulldown", "pbclick", 1, new Object[0]);
     }
 }

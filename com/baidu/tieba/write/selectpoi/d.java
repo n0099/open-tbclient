@@ -6,23 +6,23 @@ import android.widget.EditText;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements View.OnClickListener {
-    final /* synthetic */ SearchLocationActivity dnw;
+    final /* synthetic */ SearchLocationActivity dMC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(SearchLocationActivity searchLocationActivity) {
-        this.dnw = searchLocationActivity;
+        this.dMC = searchLocationActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         EditText editText;
         EditText editText2;
-        editText = this.dnw.bVb;
+        editText = this.dMC.cln;
         if (editText.hasFocus()) {
-            Activity pageActivity = this.dnw.getPageContext().getPageActivity();
-            editText2 = this.dnw.bVb;
+            Activity pageActivity = this.dMC.getPageContext().getPageActivity();
+            editText2 = this.dMC.cln;
             com.baidu.adp.lib.util.k.c(pageActivity, editText2);
-            this.dnw.closeActivity();
+            this.dMC.closeActivity();
         }
     }
 }

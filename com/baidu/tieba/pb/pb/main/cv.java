@@ -1,33 +1,17 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.animation.Animation;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.core.util.UtilHelper;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-public class cv implements Animation.AnimationListener {
-    final /* synthetic */ ct cmY;
-
+class cv extends CustomMessageListener {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public cv(ct ctVar) {
-        this.cmY = ctVar;
+    public cv(int i) {
+        super(i);
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        RelativeLayout relativeLayout;
-        relativeLayout = this.cmY.clU;
-        relativeLayout.setVisibility(0);
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.cmY.eM(false);
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ct.ale().reset();
     }
 }

@@ -13,41 +13,41 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import com.baidu.tieba.setting.SapiWebViewActivityConfig;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 /* loaded from: classes.dex */
 public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     private String bduss;
-    private SapiWebView cdD;
+    private SapiWebView cwb;
     private NavigationBar mNavigationBar;
-    private com.baidu.tbadk.coreExtra.view.k atj = null;
-    private final a.InterfaceC0040a XW = new a(this);
+    private com.baidu.tbadk.coreExtra.view.k avn = null;
+    private final a.InterfaceC0041a YI = new a(this);
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        setContentView(i.g.layout_sapi_webview_fill_uprofile);
+        setContentView(n.g.layout_sapi_webview_fill_uprofile);
         this.bduss = getIntent().getStringExtra(SapiWebViewActivityConfig.EXTRA_BDUSS);
-        aeo();
+        aiH();
     }
 
-    protected void aeo() {
-        this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
+    protected void aiH() {
+        this.mNavigationBar = (NavigationBar) findViewById(n.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
-        this.mNavigationBar.setTitleText(getPageContext().getString(i.h.sapi_filluprofile));
+        this.mNavigationBar.setTitleText(getPageContext().getString(n.i.sapi_filluprofile));
         if (TextUtils.isEmpty(this.bduss)) {
             Toast.makeText(getPageContext().getPageActivity(), "参数错误，无法正常化", 0).show();
             finish();
         }
-        this.cdD = (SapiWebView) findViewById(i.f.sapi_webview);
-        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.cdD);
-        this.cdD.setOnBackCallback(new c(this));
-        this.cdD.setOnFinishCallback(new d(this));
-        this.cdD.setAuthorizationListener(new e(this));
-        this.cdD.loadFillUProfile(this.bduss);
+        this.cwb = (SapiWebView) findViewById(n.f.sapi_webview);
+        com.baidu.tbadk.core.a.d.a(getPageContext().getPageActivity(), this.cwb);
+        this.cwb.setOnBackCallback(new c(this));
+        this.cwb.setOnFinishCallback(new d(this));
+        this.cwb.setAuthorizationListener(new e(this));
+        this.cwb.loadFillUProfile(this.bduss);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -58,7 +58,7 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aep() {
+    public void aiI() {
         TbadkCoreApplication.m411getInst().onUserChanged();
         Intent intent = new Intent();
         intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
@@ -67,22 +67,22 @@ public class FillUProfileActivity extends BaseActivity<FillUProfileActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aeq() {
+    public void aiJ() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            com.baidu.tbadk.core.a.a.rb().a(session.username, session.bduss, session.ptoken, this.XW);
+            com.baidu.tbadk.core.a.a.rp().a(session.username, session.bduss, session.ptoken, this.YI);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n(AccountData accountData) {
-        if (this.atj == null) {
-            this.atj = new com.baidu.tbadk.coreExtra.view.k(getPageContext());
-            this.atj.a(new f(this));
+        if (this.avn == null) {
+            this.avn = new com.baidu.tbadk.coreExtra.view.k(getPageContext());
+            this.avn.a(new f(this));
         }
-        this.atj.yT();
-        this.atj.h(accountData);
-        this.atj.yP();
+        this.avn.zP();
+        this.avn.h(accountData);
+        this.avn.zL();
     }
 }

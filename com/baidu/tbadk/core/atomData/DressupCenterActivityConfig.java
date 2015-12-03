@@ -7,4 +7,9 @@ public class DressupCenterActivityConfig extends IntentConfig {
     public DressupCenterActivityConfig(Context context) {
         super(context);
     }
+
+    public DressupCenterActivityConfig(Context context, boolean z) {
+        super(context);
+        getIntent().putExtra(IntentConfig.MEMBER_BUY_SHOW, z);
+    }
 }

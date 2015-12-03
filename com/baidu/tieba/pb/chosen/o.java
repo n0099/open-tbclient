@@ -1,36 +1,58 @@
 package com.baidu.tieba.pb.chosen;
 
-import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.av;
+import com.baidu.tieba.pb.chosen.a.d;
 /* loaded from: classes.dex */
-class o implements View.OnClickListener {
-    final /* synthetic */ PbChosenActivity cfM;
+class o implements d.a {
+    final /* synthetic */ PbChosenActivity cyo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(PbChosenActivity pbChosenActivity) {
-        this.cfM = pbChosenActivity;
+        this.cyo = pbChosenActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        int i;
-        s sVar;
-        s sVar2;
+    @Override // com.baidu.tieba.pb.chosen.a.d.a
+    public void ku(String str) {
         com.baidu.tieba.pb.chosen.net.a aVar;
-        String str;
-        if (this.cfM.checkUpIsLogin()) {
-            i = this.cfM.from;
-            if (i == 2) {
-                TiebaStatic.log("c10148");
+        com.baidu.tieba.pb.chosen.net.a aVar2;
+        com.baidu.tieba.pb.chosen.net.a aVar3;
+        com.baidu.tieba.pb.chosen.net.a aVar4;
+        com.baidu.tieba.pb.chosen.net.a aVar5;
+        com.baidu.tieba.pb.chosen.net.a aVar6;
+        com.baidu.tieba.pb.chosen.net.a aVar7;
+        com.baidu.tieba.pb.chosen.net.a aVar8;
+        com.baidu.tieba.pb.chosen.net.a aVar9;
+        if (this.cyo.checkUpIsLogin()) {
+            aVar = this.cyo.chosenData;
+            if (aVar != null) {
+                aVar2 = this.cyo.chosenData;
+                if (aVar2.getThreadInfo() != null && !StringUtils.isNull(str)) {
+                    aVar3 = this.cyo.chosenData;
+                    if (aVar3 != null) {
+                        aVar5 = this.cyo.chosenData;
+                        if (aVar5.getThreadInfo() != null) {
+                            av avVar = new av("c10093");
+                            StringBuilder sb = new StringBuilder();
+                            aVar6 = this.cyo.chosenData;
+                            av ab = avVar.ab("tid", sb.append(aVar6.getThreadInfo().thread_id).toString());
+                            aVar7 = this.cyo.chosenData;
+                            av ab2 = ab.ab("obj_name", aVar7.getThreadInfo().tag_name);
+                            aVar8 = this.cyo.chosenData;
+                            av r = ab2.r("obj_source", aVar8.getThreadInfo().source.intValue());
+                            aVar9 = this.cyo.chosenData;
+                            TiebaStatic.log(r.ab("abtest", aVar9.getThreadInfo().abtest));
+                        }
+                    }
+                    StringBuilder sb2 = new StringBuilder();
+                    aVar4 = this.cyo.chosenData;
+                    this.cyo.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new SubPbActivityConfig(this.cyo.getPageContext().getPageActivity()).createSubPbActivityConfig(sb2.append(aVar4.getThreadInfo().thread_id).toString(), str, "pb_chosen", true, null, true)));
+                }
             }
-            sVar = this.cfM.cfA;
-            if (sVar == null) {
-                this.cfM.cfA = new s(this.cfM);
-            }
-            sVar2 = this.cfM.cfA;
-            aVar = this.cfM.chosenData;
-            str = this.cfM.shareUrl;
-            sVar2.a(aVar, str);
         }
     }
 }

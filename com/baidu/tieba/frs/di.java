@@ -1,19 +1,25 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.x;
-import com.baidu.tbadk.coreExtra.view.PhotoLiveCardView;
-import com.baidu.tieba.i;
+import android.os.Handler;
+import android.os.Message;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class di extends x.a {
-    public ViewGroup aYA;
-    public PhotoLiveCardView aYB;
+public class di implements Handler.Callback {
+    final /* synthetic */ dh bdU;
 
-    public di(View view) {
-        super(view);
-        this.aYA = (ViewGroup) view.findViewById(i.f.live_card_layout);
-        this.aYB = (PhotoLiveCardView) view.findViewById(i.f.item_live_card);
-        this.aYB.setAllowGreyState(true);
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public di(dh dhVar) {
+        this.bdU = dhVar;
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        switch (message.what) {
+            case 1:
+                this.bdU.ws();
+                return false;
+            default:
+                return false;
+        }
     }
 }

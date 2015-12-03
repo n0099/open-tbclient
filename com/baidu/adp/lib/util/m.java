@@ -5,31 +5,31 @@ import android.view.TouchDelegate;
 import android.view.View;
 /* loaded from: classes.dex */
 class m implements Runnable {
-    private final /* synthetic */ View yG;
-    private final /* synthetic */ int yH;
-    private final /* synthetic */ int yI;
-    private final /* synthetic */ int yJ;
-    private final /* synthetic */ int yK;
-    private final /* synthetic */ View yL;
+    private final /* synthetic */ View yM;
+    private final /* synthetic */ int yN;
+    private final /* synthetic */ int yO;
+    private final /* synthetic */ int yP;
+    private final /* synthetic */ int yQ;
+    private final /* synthetic */ View yR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(View view, int i, int i2, int i3, int i4, View view2) {
-        this.yG = view;
-        this.yH = i;
-        this.yI = i2;
-        this.yJ = i3;
-        this.yK = i4;
-        this.yL = view2;
+        this.yM = view;
+        this.yN = i;
+        this.yO = i2;
+        this.yP = i3;
+        this.yQ = i4;
+        this.yR = view2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Rect rect = new Rect();
-        this.yG.getHitRect(rect);
-        rect.right += this.yH;
-        rect.left -= this.yI;
-        rect.bottom += this.yJ;
-        rect.top -= this.yK;
-        this.yL.setTouchDelegate(new TouchDelegate(rect, this.yG));
+        this.yM.getHitRect(rect);
+        rect.right += this.yN;
+        rect.left -= this.yO;
+        rect.bottom += this.yP;
+        rect.top -= this.yQ;
+        this.yR.setTouchDelegate(new TouchDelegate(rect, this.yM));
     }
 }

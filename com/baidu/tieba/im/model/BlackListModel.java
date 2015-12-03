@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.model;
 
 import com.baidu.adp.base.e;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.message.RequestCheckUserMaskMessage;
 import com.baidu.tbadk.core.message.RequestGetMaskInfoMessage;
 import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
@@ -16,8 +16,8 @@ public class BlackListModel extends e {
     private int mMaskType;
     private RequestUpdateMaskInfoMessage mUpdateMessage;
 
-    public BlackListModel(BaseActivity baseActivity) {
-        super(baseActivity.getPageContext());
+    public BlackListModel(TbPageContext tbPageContext) {
+        super(tbPageContext);
         this.mMaskType = 2;
     }
 

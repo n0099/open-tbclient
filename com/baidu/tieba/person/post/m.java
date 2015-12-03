@@ -8,13 +8,13 @@ import com.baidu.tieba.person.UserPostPageRequestMessage;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class m extends HttpMessageListener {
-    final /* synthetic */ j ctm;
+    final /* synthetic */ j cQY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(j jVar, int i) {
         super(i);
-        this.ctm = jVar;
+        this.cQY = jVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,7 +25,7 @@ public class m extends HttpMessageListener {
         if (httpResponsedMessage instanceof UserPostPageHttpResponseMessage) {
             UserPostPageHttpResponseMessage userPostPageHttpResponseMessage = (UserPostPageHttpResponseMessage) httpResponsedMessage;
             if (userPostPageHttpResponseMessage.getOrginalMessage() == null) {
-                aVar2 = this.ctm.csT;
+                aVar2 = this.cQY.cQG;
                 aVar2.a(null, false);
                 return;
             }

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class i {
-    private com.baidu.tbadk.core.data.b bPd;
+    private com.baidu.tbadk.core.data.b cfq;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -16,34 +16,34 @@ public class i {
     }
 
     public void c(com.baidu.tbadk.core.data.b bVar) {
-        this.bPd = bVar;
+        this.cfq = bVar;
     }
 
-    public void aap() {
-        iR("area_download");
+    public void adV() {
+        jl("area_download");
     }
 
-    public void aaq() {
-        iR("btn_click");
+    public void adW() {
+        jl("btn_click");
     }
 
-    public void aar() {
-        iR("show");
+    public void adX() {
+        jl("show");
     }
 
-    public void aas() {
-        iR("btn_download");
+    public void adY() {
+        jl("btn_download");
     }
 
-    public void aat() {
-        iR("area_click");
+    public void adZ() {
+        jl("area_click");
     }
 
-    public void iQ(String str) {
+    public void jk(String str) {
         TiebaStatic.eventStat(this.mContext, "frs_dl_app", null, 1, "app_name", str);
     }
 
-    public void iR(String str) {
-        com.baidu.tbadk.distribute.a.Ai().a(this.mContext, this.bPd, str, "pb", this.mForumId, com.baidu.adp.lib.g.b.c(this.mPostId, 0L));
+    public void jl(String str) {
+        com.baidu.tbadk.distribute.a.Bf().a(this.mContext, this.cfq, str, "pb", this.mForumId, com.baidu.adp.lib.h.b.c(this.mPostId, 0L));
     }
 }

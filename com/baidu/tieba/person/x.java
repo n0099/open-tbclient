@@ -1,58 +1,77 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.n;
+import com.baidu.tieba.person.post.u;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class x implements View.OnClickListener {
-    final /* synthetic */ r cqM;
+public class x extends HttpMessageListener {
+    final /* synthetic */ s cKg;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public x(r rVar) {
-        this.cqM = rVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x(s sVar, int i) {
+        super(i);
+        this.cKg = sVar;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        ac acVar;
-        ac acVar2;
-        ac acVar3;
-        TextView textView;
-        TextView textView2;
-        ac acVar4;
-        ac acVar5;
-        TextView textView3;
-        TextView textView4;
-        ac acVar6;
-        TextView textView5;
-        acVar = this.cqM.cqw;
-        if (acVar != null) {
-            acVar2 = this.cqM.cqw;
-            if (!acVar2.FO()) {
-                acVar5 = this.cqM.cqw;
-                acVar5.setEditState(true);
-                textView3 = this.cqM.aDm;
-                textView3.setText(i.h.done);
-                if (TbadkCoreApplication.m411getInst().getSkinType() == 2) {
-                    textView5 = this.cqM.aDm;
-                    com.baidu.tbadk.core.util.an.b(textView5, i.c.navi_op_text, 1);
-                } else {
-                    textView4 = this.cqM.aDm;
-                    com.baidu.tbadk.core.util.an.b(textView4, i.c.cp_link_tip_a, 1);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        PersonBarActivity anx;
+        String str;
+        PersonBarActivity anx2;
+        boolean z;
+        String str2;
+        String str3;
+        ae aeVar;
+        ae aeVar2;
+        if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002002) {
+            anx = this.cKg.anx();
+            if (anx != null) {
+                if (this.cKg.cJQ != null && this.cKg.cJQ.getView() != null) {
+                    this.cKg.cJQ.getView().setVisibility(0);
                 }
-                acVar6 = this.cqM.cqw;
-                acVar6.notifyDataSetChanged();
+                this.cKg.mListView.completePullRefresh();
+                BdUniqueId tag = httpResponsedMessage.getOrginalMessage().getTag();
+                anx2 = this.cKg.anx();
+                if (tag == anx2.getUniqueId()) {
+                    if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonBarResponseMessage)) {
+                        PersonBarResponseMessage personBarResponseMessage = (PersonBarResponseMessage) httpResponsedMessage;
+                        if (personBarResponseMessage.getErrCode() == 0) {
+                            r personBarData = personBarResponseMessage.getPersonBarData();
+                            aeVar = this.cKg.cJG;
+                            aeVar.km(this.cKg.cJU);
+                            aeVar2 = this.cKg.cJG;
+                            aeVar2.kU(personBarResponseMessage.getResultString());
+                            this.cKg.a(personBarData, false);
+                            return;
+                        }
+                        this.cKg.showToast(httpResponsedMessage.getErrorString());
+                        u.a aVar = this.cKg.cJQ;
+                        str3 = this.cKg.cJX;
+                        aVar.kW(str3);
+                        return;
+                    }
+                    this.cKg.showToast(StringUtils.isNull(httpResponsedMessage.getErrorString()) ? this.cKg.getResources().getString(n.i.neterror) : httpResponsedMessage.getErrorString());
+                    z = this.cKg.cKa;
+                    if (z) {
+                        u.a aVar2 = this.cKg.cJQ;
+                        str2 = this.cKg.cJX;
+                        aVar2.kW(str2);
+                        return;
+                    }
+                    this.cKg.cJQ.kW("");
+                    return;
+                }
                 return;
             }
-            acVar3 = this.cqM.cqw;
-            acVar3.setEditState(false);
-            textView = this.cqM.aDm;
-            textView.setText(i.h.edit);
-            textView2 = this.cqM.aDm;
-            com.baidu.tbadk.core.util.an.b(textView2, i.c.navi_op_text, 1);
-            acVar4 = this.cqM.cqw;
-            acVar4.notifyDataSetChanged();
+            u.a aVar3 = this.cKg.cJQ;
+            str = this.cKg.cJX;
+            aVar3.kW(str);
         }
     }
 }

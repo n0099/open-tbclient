@@ -5,11 +5,11 @@ import com.baidu.tieba.im.model.BlackListModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements a.b {
-    final /* synthetic */ IMBlackListActivity bNp;
+    final /* synthetic */ IMBlackListActivity cct;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(IMBlackListActivity iMBlackListActivity) {
-        this.bNp = iMBlackListActivity;
+        this.cct = iMBlackListActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -17,12 +17,12 @@ public class c implements a.b {
         com.baidu.tieba.im.data.a aVar2;
         BlackListModel blackListModel;
         com.baidu.tieba.im.data.a aVar3;
-        aVar.sR();
-        aVar2 = this.bNp.bNo;
+        aVar.tv();
+        aVar2 = this.cct.ccs;
         if (aVar2 != null) {
-            this.bNp.Zw();
-            blackListModel = this.bNp.bNm;
-            aVar3 = this.bNp.bNo;
+            this.cct.acC();
+            blackListModel = this.cct.ccq;
+            aVar3 = this.cct.ccs;
             blackListModel.removeFromBlackList(aVar3.getUserId());
         }
     }

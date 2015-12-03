@@ -1,151 +1,136 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.content.Intent;
-import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.w;
+import java.io.File;
 import java.io.Serializable;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class VideoInfo implements Serializable {
-    public static final String DRAFT_JSON_NAME = "video_info";
-    public static final String KEY_DURATION = "key_duration";
-    public static final String KEY_THUMB_PICTURE_ID = "key_thumb_picture_id";
-    public static final String KEY_THUMB_URL = "key_thumb_url";
-    public static final String KEY_VIDEO_HEIGHT = "key_video_height";
-    public static final String KEY_VIDEO_SWF_URL = "key_video_swf_url";
-    public static final String KEY_VIDEO_URL = "key_video_url";
-    public static final String KEY_VIDEO_WIDTH = "key_video_width";
-    private static final long serialVersionUID = 2268559006566847573L;
-    private int duration;
-    private String pictureId;
-    private String swfUrl;
-    private String thumbUrl;
+public class VideoInfo extends com.baidu.adp.lib.a.b.a.a.i implements Serializable {
+    public static final String DRAFT_JSON_NAME = "new_video_info";
+    private static final long serialVersionUID = 4168698601975684150L;
+    private long thumbId;
+    private String thumbPath;
+    private int videoDuration;
     private int videoHeight;
+    private String videoMd5;
+    private String videoPath;
     private String videoUrl;
     private int videoWidth;
 
-    public void parseIntent(Intent intent) {
-        if (intent != null) {
-            this.videoUrl = intent.getStringExtra(KEY_VIDEO_URL);
-            this.videoHeight = intent.getIntExtra(KEY_VIDEO_HEIGHT, 0);
-            this.videoWidth = intent.getIntExtra(KEY_VIDEO_WIDTH, 0);
-            this.thumbUrl = intent.getStringExtra(KEY_THUMB_URL);
-            this.duration = intent.getIntExtra(KEY_DURATION, 0);
-            this.swfUrl = intent.getStringExtra(KEY_VIDEO_SWF_URL);
-        }
+    public String getVideoPath() {
+        return this.videoPath;
     }
 
-    public boolean isAvaliable() {
-        return !StringUtils.isNull(this.videoUrl) && !StringUtils.isNull(this.thumbUrl) && this.videoHeight > 0 && this.videoWidth > 0;
+    public void setVideoPath(String str) {
+        this.videoPath = str;
+    }
+
+    public long getThumbId() {
+        return this.thumbId;
+    }
+
+    public void setThumbId(long j) {
+        this.thumbId = j;
     }
 
     public String getVideoUrl() {
         return this.videoUrl;
     }
 
+    public void setVideoUrl(String str) {
+        this.videoUrl = str;
+    }
+
     public int getVideoHeight() {
         return this.videoHeight;
+    }
+
+    public void setVideoHeight(int i) {
+        this.videoHeight = i;
     }
 
     public int getVideoWidth() {
         return this.videoWidth;
     }
 
-    public String getThumbUrl() {
-        return this.thumbUrl;
+    public void setVideoWidth(int i) {
+        this.videoWidth = i;
     }
 
-    public int getDuration() {
-        return this.duration;
+    public int getVideoDuration() {
+        return this.videoDuration;
     }
 
-    public String getSwfUrl() {
-        return this.swfUrl;
+    public void setVideoDuration(int i) {
+        this.videoDuration = i;
     }
 
-    public String buildWriteContent(String str) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("#(xiaoying,");
-        if (StringUtils.isNull(this.pictureId)) {
-            this.pictureId = getPictureIdInBackground(str);
-        }
-        sb.append(this.pictureId).append(",");
-        sb.append(String.valueOf(this.videoWidth)).append(",");
-        sb.append(String.valueOf(this.videoHeight)).append(",");
-        sb.append(this.videoUrl).append(",");
-        sb.append(this.duration).append(",");
-        sb.append(String.valueOf(this.videoWidth)).append(",");
-        sb.append(String.valueOf(this.videoHeight)).append(",");
-        sb.append(this.swfUrl).append(")");
-        return sb.toString();
+    public String getVideoMd5() {
+        return this.videoMd5;
     }
 
-    public String getPictureIdInBackground(String str) {
-        JSONArray optJSONArray;
-        w wVar = new w(TbConfig.TRANSFER_PICTURE_ID);
-        wVar.o("urls[]", this.thumbUrl);
-        wVar.o("kw", str);
-        try {
-            JSONObject jSONObject = new JSONObject(wVar.tG());
-            if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("pics")) != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                    if (jSONObject2 != null) {
-                        String optString = jSONObject2.optString("url");
-                        String optString2 = jSONObject2.optString(Info.kBaiduPIDKey);
-                        if (TextUtils.equals(optString, this.thumbUrl)) {
-                            return optString2;
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-        }
-        return null;
+    public void setVideoMd5(String str) {
+        this.videoMd5 = str;
     }
 
-    public JSONObject toJsonObject() {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put(KEY_VIDEO_URL, this.videoUrl);
-            jSONObject.put(KEY_DURATION, this.duration);
-            jSONObject.put(KEY_THUMB_PICTURE_ID, this.pictureId);
-            jSONObject.put(KEY_THUMB_URL, this.thumbUrl);
-            jSONObject.put(KEY_VIDEO_HEIGHT, this.videoHeight);
-            jSONObject.put(KEY_VIDEO_WIDTH, this.videoWidth);
-            jSONObject.put(KEY_VIDEO_SWF_URL, this.swfUrl);
-        } catch (JSONException e) {
-        }
-        return jSONObject;
+    public String getThumbPath() {
+        return this.thumbPath;
     }
 
-    public void parseJsonObject(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            this.videoUrl = jSONObject.optString(KEY_VIDEO_URL);
-            this.pictureId = jSONObject.optString(KEY_THUMB_PICTURE_ID);
-            this.swfUrl = jSONObject.optString(KEY_VIDEO_SWF_URL);
-            this.thumbUrl = jSONObject.optString(KEY_THUMB_URL);
-            this.duration = jSONObject.optInt(KEY_DURATION);
-            this.videoHeight = jSONObject.optInt(KEY_VIDEO_HEIGHT);
-            this.videoWidth = jSONObject.optInt(KEY_VIDEO_WIDTH);
+    public void setThumbPath(String str) {
+        this.thumbPath = str;
+    }
+
+    public boolean isAvaliable() {
+        return !StringUtils.isNull(this.videoPath) && !StringUtils.isNull(this.thumbPath) && this.videoHeight > 0 && this.videoWidth > 0 && new File(this.videoPath).exists();
+    }
+
+    public boolean needUploadVideo() {
+        return StringUtils.isNull(this.videoUrl);
+    }
+
+    public boolean hasUpload() {
+        return (StringUtils.isNull(this.videoUrl) || StringUtils.isNull(this.videoMd5)) ? false : true;
+    }
+
+    public boolean needUploadThunmb() {
+        return !StringUtils.isNull(this.thumbPath) && this.thumbId <= 0;
+    }
+
+    public void parseFromIntent(Intent intent) {
+        if (intent != null) {
+            this.videoPath = intent.getStringExtra("video");
+            this.thumbPath = intent.getStringExtra(TbConfig.TMP_PIC_DIR_NAME);
+            this.videoDuration = (int) (intent.getLongExtra("video_l", 8000L) / 1000);
+            this.videoHeight = intent.getIntExtra("video_h", 480);
+            this.videoWidth = intent.getIntExtra("video_w", 480);
         }
     }
 
     public void copy(VideoInfo videoInfo) {
         if (videoInfo != null) {
-            this.videoUrl = videoInfo.videoUrl;
-            this.pictureId = videoInfo.pictureId;
-            this.swfUrl = videoInfo.swfUrl;
-            this.thumbUrl = videoInfo.thumbUrl;
-            this.duration = videoInfo.duration;
+            this.videoPath = videoInfo.videoPath;
+            this.thumbPath = videoInfo.thumbPath;
+            this.videoDuration = videoInfo.videoDuration;
             this.videoHeight = videoInfo.videoHeight;
             this.videoWidth = videoInfo.videoWidth;
+            this.videoMd5 = videoInfo.videoMd5;
+            this.videoUrl = videoInfo.videoUrl;
+            this.thumbId = videoInfo.thumbId;
         }
+    }
+
+    public String buildContent() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("#(movideo,").append(this.thumbId).append(",");
+        sb.append(this.videoWidth).append(",");
+        sb.append(this.videoHeight).append(",");
+        sb.append(this.videoMd5).append(",");
+        sb.append(this.videoUrl).append(",");
+        sb.append(this.videoDuration).append(",");
+        sb.append(this.videoWidth).append(",");
+        sb.append(this.videoHeight).append(")");
+        return sb.toString();
     }
 }

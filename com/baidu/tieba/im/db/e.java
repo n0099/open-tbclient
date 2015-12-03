@@ -52,6 +52,17 @@ public class e extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        try {
+            TbadkCoreApplication.m411getInst().getApp().deleteDatabase(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db");
+            r(sQLiteDatabase);
+        } catch (Exception e) {
+            TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.onDowngrade", new Object[0]);
+            e.printStackTrace();
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         switch (i) {
             case 1:
@@ -185,7 +196,7 @@ public class e extends SQLiteOpenHelper {
                 Iterator<String> it = z.iterator();
                 while (it.hasNext()) {
                     String next = it.next();
-                    if (!TextUtils.isEmpty(next) && (next.startsWith(l.bxi) || next.startsWith(k.bxi))) {
+                    if (!TextUtils.isEmpty(next) && (next.startsWith(l.bMo) || next.startsWith(k.bMo))) {
                         try {
                             sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD is_friend int default 1;");
                         } catch (Exception e) {
@@ -288,12 +299,12 @@ public class e extends SQLiteOpenHelper {
                 sQLiteDatabase.setTransactionSuccessful();
                 try {
                     sQLiteDatabase.beginTransaction();
-                    f.bxo.put(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db", sQLiteDatabase);
-                    j.Uj();
+                    f.bMu.put(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db", sQLiteDatabase);
+                    j.Xp();
                     sQLiteDatabase.setTransactionSuccessful();
                 } finally {
                     sQLiteDatabase.endTransaction();
-                    f.bxo.remove(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db");
+                    f.bMu.remove(String.valueOf(TbadkCoreApplication.getCurrentAccount()) + ".db");
                 }
             } finally {
                 sQLiteDatabase.endTransaction();

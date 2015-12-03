@@ -13,43 +13,43 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.a;
 /* loaded from: classes.dex */
 class j implements a.d {
-    final /* synthetic */ WriteVoteActivity dpK;
+    final /* synthetic */ WriteVoteActivity dON;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(WriteVoteActivity writeVoteActivity) {
-        this.dpK = writeVoteActivity;
+        this.dON = writeVoteActivity;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.a.d
-    public void a(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.l lVar, WriteData writeData, AntiData antiData) {
-        this.dpK.closeLoadingDialog();
+    public void a(boolean z, PostWriteCallBackData postWriteCallBackData, com.baidu.tbadk.coreExtra.data.n nVar, WriteData writeData, AntiData antiData) {
+        this.dON.closeLoadingDialog();
         if (postWriteCallBackData != null) {
             if (!z) {
-                if (lVar != null && writeData != null && lVar.getVcode_pic_url() != null) {
-                    if (!AntiHelper.g(antiData)) {
-                        writeData.setVcodeMD5(lVar.getVcode_md5());
-                        writeData.setVcodeUrl(lVar.getVcode_pic_url());
-                        if (lVar.wu().equals("4")) {
-                            this.dpK.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.dpK.getPageContext().getPageActivity(), 12006, writeData, false)));
+                if (nVar != null && writeData != null && nVar.getVcode_pic_url() != null) {
+                    if (!AntiHelper.f(antiData)) {
+                        writeData.setVcodeMD5(nVar.getVcode_md5());
+                        writeData.setVcodeUrl(nVar.getVcode_pic_url());
+                        if (nVar.xp().equals("4")) {
+                            this.dON.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(this.dON.getPageContext().getPageActivity(), 12006, writeData, false)));
                             return;
                         } else {
-                            this.dpK.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.dpK.getPageContext().getPageActivity(), writeData, 12006)));
+                            this.dON.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(this.dON.getPageContext().getPageActivity(), writeData, 12006)));
                             return;
                         }
                     }
-                    this.dpK.a(true, postWriteCallBackData);
+                    this.dON.a(true, postWriteCallBackData);
                     return;
                 }
-                this.dpK.a(true, postWriteCallBackData);
+                this.dON.a(true, postWriteCallBackData);
                 return;
             }
-            this.dpK.a(true, postWriteCallBackData);
+            this.dON.a(true, postWriteCallBackData);
             Intent intent = new Intent();
             Bundle bundle = new Bundle();
             bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
             intent.putExtras(bundle);
-            this.dpK.setResult(-1, intent);
-            this.dpK.finish();
+            this.dON.setResult(-1, intent);
+            this.dON.finish();
         }
     }
 }

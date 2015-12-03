@@ -6,15 +6,18 @@ import com.baidu.sapi2.utils.SapiUtils;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.App;
 import tbclient.BannerList;
+import tbclient.FeedForumInfo;
 /* loaded from: classes.dex */
 public class BannerListData implements Serializable {
     private static final long serialVersionUID = 1630193525564805923L;
     private ArrayList<b> advertAppList = new ArrayList<>();
+    private ArrayList<FeedForumData> feedForumList = new ArrayList<>();
 
     public ArrayList<b> getAllAdvertList() {
         return this.advertAppList;
@@ -27,8 +30,8 @@ public class BannerListData implements Serializable {
         StringBuilder sb = new StringBuilder();
         int size = this.advertAppList.size();
         for (int i = 0; i < size; i++) {
-            if (!TextUtils.isEmpty(this.advertAppList.get(i).TW)) {
-                sb.append(this.advertAppList.get(i).TW);
+            if (!TextUtils.isEmpty(this.advertAppList.get(i).Um)) {
+                sb.append(this.advertAppList.get(i).Um);
                 if (i != size - 1) {
                     sb.append(",");
                 }
@@ -63,21 +66,42 @@ public class BannerListData implements Serializable {
         if (bannerList != null) {
             List<App> list = bannerList.app;
             if (list != null && list.size() > 0) {
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 >= list.size()) {
-                        break;
-                    }
-                    if (list.get(i2) != null) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i) != null) {
                         b bVar = new b();
-                        bVar.a(list.get(i2));
+                        bVar.a(list.get(i));
                         this.advertAppList.add(bVar);
                     }
-                    i = i2 + 1;
                 }
             }
             Collections.sort(this.advertAppList, new d(this));
+            List<FeedForumInfo> list2 = bannerList.feed_forum;
+            if (list2 != null && list2.size() > 0) {
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    if (list2.get(i2) != null) {
+                        FeedForumData feedForumData = new FeedForumData();
+                        feedForumData.parseFromFeedForumInfo(list2.get(i2));
+                        this.feedForumList.add(feedForumData);
+                    }
+                }
+            }
+        }
+    }
+
+    public List<FeedForumData> getFeedForumList() {
+        return this.feedForumList;
+    }
+
+    public void setFeedForumLiked(String str, int i) {
+        if (this.feedForumList != null && str != null) {
+            Iterator<FeedForumData> it = this.feedForumList.iterator();
+            while (it.hasNext()) {
+                FeedForumData next = it.next();
+                if (next != null && next.getForumId() != null && next.getForumId().equals(str)) {
+                    next.setIsLike(i);
+                    return;
+                }
+            }
         }
     }
 }

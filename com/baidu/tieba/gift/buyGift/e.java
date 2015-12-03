@@ -7,11 +7,11 @@ import com.baidu.ueg.encrypt.entity.EncryptAlgorithm;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class e implements a.b {
-    final /* synthetic */ BuyGiftActivity bng;
+    final /* synthetic */ BuyGiftActivity buJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(BuyGiftActivity buyGiftActivity) {
-        this.bng = buyGiftActivity;
+        this.buJ = buyGiftActivity;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -22,31 +22,31 @@ public class e implements a.b {
         String str3;
         String str4;
         EditText editText2;
-        this.bng.cz(false);
-        BuyGiftActivity buyGiftActivity = this.bng;
-        editText = this.bng.bmY;
+        this.buJ.cP(false);
+        BuyGiftActivity buyGiftActivity = this.buJ;
+        editText = this.buJ.buB;
         buyGiftActivity.mPassword = editText.getText().toString();
-        str = this.bng.mPassword;
+        str = this.buJ.mPassword;
         if (StringUtils.isValidPassWord(str)) {
-            str2 = this.bng.mPublicKey;
+            str2 = this.buJ.mPublicKey;
             if (!StringUtils.isNull(str2)) {
                 try {
                     EncryptAlgorithm encryptAlgorithm = EncryptAlgorithm.RSA;
-                    str3 = this.bng.mPublicKey;
+                    str3 = this.buJ.mPublicKey;
                     com.baidu.ueg.encrypt.a a = com.baidu.ueg.encrypt.b.a(new com.baidu.ueg.encrypt.entity.a(encryptAlgorithm, str3));
-                    BuyGiftActivity buyGiftActivity2 = this.bng;
-                    str4 = this.bng.mPassword;
+                    BuyGiftActivity buyGiftActivity2 = this.buJ;
+                    str4 = this.buJ.mPassword;
                     buyGiftActivity2.mPassword = a.encrypt(str4);
                 } catch (Exception e) {
-                    this.bng.mPassword = "";
+                    this.buJ.mPassword = "";
                     e.printStackTrace();
                 }
             }
-            this.bng.QH();
-            editText2 = this.bng.bmY;
+            this.buJ.SX();
+            editText2 = this.buJ.buB;
             editText2.setText("");
             return;
         }
-        this.bng.cz(true);
+        this.buJ.cP(true);
     }
 }

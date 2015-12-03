@@ -3,20 +3,20 @@ package com.baidu.tieba.imMessageCenter.im.chat.personaltalk;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private HashMap<String, a> bKL = new HashMap<>();
+    private HashMap<String, a> bZP = new HashMap<>();
 
     public void a(String str, a aVar) {
-        this.bKL.put(str, aVar);
+        this.bZP.put(str, aVar);
     }
 
-    public boolean iw(String str) {
+    public boolean iQ(String str) {
         a aVar;
-        return (this.bKL == null || (aVar = this.bKL.get(str)) == null || Math.abs(System.currentTimeMillis() - aVar.HB()) >= 300000) ? false : true;
+        return (this.bZP == null || (aVar = this.bZP.get(str)) == null || Math.abs(System.currentTimeMillis() - aVar.IU()) >= 300000) ? false : true;
     }
 
-    public com.baidu.tbadk.coreExtra.relationship.b ix(String str) {
-        if (this.bKL.get(str) != null) {
-            return this.bKL.get(str).Yk();
+    public com.baidu.tbadk.coreExtra.relationship.b iR(String str) {
+        if (this.bZP.get(str) != null) {
+            return this.bZP.get(str).abq();
         }
         return null;
     }

@@ -2,7 +2,7 @@ package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.a.b.a.a.i;
-import com.baidu.adp.lib.g.b;
+import com.baidu.adp.lib.h.b;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
@@ -243,7 +243,7 @@ public class ImMessageCenterPojo implements Serializable {
         if (!z) {
             imMessageCenterPojo.setCustomGroupType(2);
         }
-        imMessageCenterPojo.setLast_content(h.D(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+        imMessageCenterPojo.setLast_content(h.E(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
         imMessageCenterPojo.setLast_user_name(userData.getUserName());
         imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
         imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);

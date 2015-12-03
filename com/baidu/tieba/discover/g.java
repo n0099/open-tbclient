@@ -1,63 +1,63 @@
 package com.baidu.tieba.discover;
 
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.discover.u;
+import com.baidu.tieba.discover.t;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements u.a {
-    final /* synthetic */ a aJA;
+public class g implements t.a {
+    final /* synthetic */ a aOb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(a aVar) {
-        this.aJA = aVar;
+        this.aOb = aVar;
     }
 
-    @Override // com.baidu.tieba.discover.u.a
+    @Override // com.baidu.tieba.discover.t.a
     public void a(boolean z, com.baidu.tieba.discover.data.a aVar, boolean z2) {
         BdListView bdListView;
         List list;
         List list2;
         List list3;
         List list4;
-        bdListView = this.aJA.aJj;
+        bdListView = this.aOb.aNK;
         bdListView.completePullRefresh();
         if (aVar != null) {
             if (!z) {
-                this.aJA.aJq = true;
+                this.aOb.aNR = true;
             } else {
-                this.aJA.aJr = true;
+                this.aOb.aNS = true;
             }
             if (z2) {
-                list = this.aJA.aJo;
+                list = this.aOb.aNP;
                 list.clear();
-                list2 = this.aJA.aJp;
+                list2 = this.aOb.aNQ;
                 list2.clear();
-                if (aVar.HD() != null && !aVar.HD().isEmpty()) {
-                    for (com.baidu.tieba.discover.data.d dVar : aVar.HD()) {
-                        if (dVar != null && dVar.HL() != null) {
+                if (aVar.IW() != null && !aVar.IW().isEmpty()) {
+                    for (com.baidu.tieba.discover.data.d dVar : aVar.IW()) {
+                        if (dVar != null && dVar.Je() != null) {
                             if (dVar.getType() == 1) {
-                                list3 = this.aJA.aJo;
+                                list3 = this.aOb.aNP;
                                 if (list3.isEmpty()) {
-                                    this.aJA.aJo = dVar.HL();
+                                    this.aOb.aNP = dVar.Je();
                                 }
                             } else {
-                                list4 = this.aJA.aJp;
+                                list4 = this.aOb.aNQ;
                                 list4.add(dVar);
                             }
                         }
                     }
                 }
-                this.aJA.a(aVar.HC());
-                this.aJA.bG(true);
+                this.aOb.a(aVar.IV());
+                this.aOb.bR(true);
             }
         }
     }
 
-    @Override // com.baidu.tieba.discover.u.a
-    public void Hx() {
+    @Override // com.baidu.tieba.discover.t.a
+    public void IQ() {
         BdListView bdListView;
-        bdListView = this.aJA.aJj;
+        bdListView = this.aOb.aNK;
         bdListView.completePullRefresh();
     }
 }

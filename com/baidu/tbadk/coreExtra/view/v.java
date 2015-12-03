@@ -4,19 +4,19 @@ import com.baidu.tbadk.widget.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class v implements a.e {
-    final /* synthetic */ MultiImageView akZ;
+    final /* synthetic */ MultiImageView amK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public v(MultiImageView multiImageView) {
-        this.akZ = multiImageView;
+        this.amK = multiImageView;
     }
 
     @Override // com.baidu.tbadk.widget.a.e
     public void a(com.baidu.tbadk.widget.a aVar, boolean z, boolean z2) {
         i iVar;
-        iVar = this.akZ.akT;
+        iVar = this.amK.amE;
         if (iVar.getSelectedView() == aVar) {
-            this.akZ.setZoomButton(aVar);
+            this.amK.setZoomButton(aVar);
         }
     }
 }

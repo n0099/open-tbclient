@@ -6,33 +6,33 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tbadk.util.n;
+import com.baidu.tbadk.util.o;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.discover.u;
-import com.baidu.tieba.i;
+import com.baidu.tieba.discover.t;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.discover.data.c, com.baidu.tbadk.mvc.d.b> {
-    private TbImageView MF;
-    private TextView aBD;
-    private ImageView aJU;
-    private ImageView aJY;
-    private View aJZ;
-    private View aKa;
-    private View aKb;
-    private TextView alz;
+    private TbImageView MW;
+    private TextView aEp;
+    private View aOA;
+    private View aOB;
+    private View aOC;
+    private ImageView aOv;
+    private ImageView aOz;
+    private TextView agd;
 
     public d(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.aKb = view.findViewById(i.f.root_view);
-        this.MF = (TbImageView) view.findViewById(i.f.icon);
-        this.alz = (TextView) view.findViewById(i.f.title);
-        this.aBD = (TextView) view.findViewById(i.f.desc);
-        this.aJU = (ImageView) view.findViewById(i.f.red_tip);
-        this.aJY = (ImageView) view.findViewById(i.f.red_new_tip);
-        this.aJZ = view.findViewById(i.f.top_divider);
-        this.aKa = view.findViewById(i.f.bottom_divider);
+        this.aOC = view.findViewById(n.f.root_view);
+        this.MW = (TbImageView) view.findViewById(n.f.icon);
+        this.agd = (TextView) view.findViewById(n.f.title);
+        this.aEp = (TextView) view.findViewById(n.f.desc);
+        this.aOv = (ImageView) view.findViewById(n.f.red_tip);
+        this.aOz = (ImageView) view.findViewById(n.f.red_new_tip);
+        this.aOA = view.findViewById(n.f.top_divider);
+        this.aOB = view.findViewById(n.f.bottom_divider);
         a(tbPageContext, TbadkApplication.getInst().getSkinType());
     }
 
@@ -42,48 +42,48 @@ public class d extends com.baidu.tbadk.mvc.g.a<com.baidu.tieba.discover.data.c, 
     public void B(com.baidu.tieba.discover.data.c cVar) {
         super.B(cVar);
         if (cVar != null) {
-            this.MF.setDefaultResource(u.gr(cVar.HG()));
+            this.MW.setDefaultResource(t.gG(cVar.IZ()));
             if (!StringUtils.isNull(cVar.getIcon_url())) {
-                this.MF.d(cVar.getIcon_url(), 10, false);
+                this.MW.d(cVar.getIcon_url(), 10, false);
             }
-            this.alz.setText(n.e(cVar.getTitle(), 0, 16));
-            this.aBD.setText(cVar.HF());
-            if (cVar.HH()) {
-                this.aJY.setVisibility(0);
+            this.agd.setText(o.e(cVar.getTitle(), 0, 16));
+            this.aEp.setText(cVar.IY());
+            if (cVar.Ja()) {
+                this.aOz.setVisibility(0);
             } else {
-                this.aJY.setVisibility(8);
+                this.aOz.setVisibility(8);
             }
-            if (cVar.HI()) {
-                this.aJU.setVisibility(0);
+            if (cVar.Jb()) {
+                this.aOv.setVisibility(0);
             } else {
-                this.aJU.setVisibility(8);
+                this.aOv.setVisibility(8);
             }
-            switch (cVar.HJ()) {
+            switch (cVar.Jc()) {
                 case 1:
-                    this.aJZ.setVisibility(0);
-                    this.aKa.setVisibility(0);
+                    this.aOA.setVisibility(0);
+                    this.aOB.setVisibility(0);
                     return;
                 case 2:
-                    this.aJZ.setVisibility(8);
-                    this.aKa.setVisibility(8);
+                    this.aOA.setVisibility(8);
+                    this.aOB.setVisibility(8);
                     return;
                 case 3:
-                    this.aJZ.setVisibility(0);
-                    this.aKa.setVisibility(8);
+                    this.aOA.setVisibility(0);
+                    this.aOB.setVisibility(8);
                     return;
                 default:
-                    this.aJZ.setVisibility(8);
-                    this.aKa.setVisibility(0);
+                    this.aOA.setVisibility(8);
+                    this.aOB.setVisibility(0);
                     return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.tbadkCore.s
+    @Override // com.baidu.tieba.tbadkCore.t
     public boolean a(TbPageContext<?> tbPageContext, int i) {
-        com.baidu.tbadk.h.a.a(tbPageContext, getRootView());
-        an.i(this.aKb, i.e.addresslist_item_bg);
-        this.MF.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
+        com.baidu.tbadk.i.a.a(tbPageContext, getRootView());
+        as.i(this.aOC, n.e.addresslist_item_bg);
+        this.MW.setIsNight(TbadkApplication.getInst().getSkinType() == 1);
         return true;
     }
 }

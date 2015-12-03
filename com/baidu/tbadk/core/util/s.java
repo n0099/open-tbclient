@@ -1,47 +1,32 @@
 package com.baidu.tbadk.core.util;
-/* loaded from: classes.dex */
-public class s {
-    private static s ZQ;
-    private long ZL = 0;
-    private long ZM = 0;
-    private String ZN = "";
-    private String ZO = "";
-    private final long ZP = 120000;
 
-    public static s tZ() {
-        if (ZQ == null) {
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* loaded from: classes.dex */
+public abstract class s {
+    public static s ZW = null;
+
+    public abstract com.baidu.tbadk.core.data.f getmCdnLogData();
+
+    public abstract void insertErrorData(int i, String str);
+
+    public abstract void insertNormalData(long j, String str);
+
+    public abstract void setmCdnLogData(com.baidu.tbadk.core.data.f fVar);
+
+    public static s getInstance() {
+        if (ZW == null) {
             synchronized (s.class) {
-                if (ZQ == null) {
-                    ZQ = new s();
+                if (ZW == null) {
+                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, s.class);
+                    if (runTask != null && runTask.getData() != null) {
+                        ZW = (s) runTask.getData();
+                    }
+                    return ZW;
                 }
             }
         }
-        return ZQ;
-    }
-
-    public String ua() {
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.ZL > 120000) {
-            if (com.baidu.adp.lib.util.k.jd()) {
-                return "";
-            }
-            this.ZL = currentTimeMillis;
-            this.ZN = UtilHelper.getIpFromDomain("tieba.baidu.com");
-        }
-        return this.ZN;
-    }
-
-    public String dc(String str) {
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.ZM > 120000) {
-            int indexOf = str.indexOf("hiphotos.baidu.com");
-            if (indexOf <= 0 || com.baidu.adp.lib.util.k.jd()) {
-                return "";
-            }
-            this.ZM = currentTimeMillis;
-            this.ZO = UtilHelper.getIpFromDomain(String.valueOf(str.substring(0, indexOf).replace("http://", "")) + "hiphotos.baidu.com");
-            return this.ZO;
-        }
-        return this.ZO;
+        return ZW;
     }
 }

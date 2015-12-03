@@ -2,11 +2,11 @@ package com.baidu.tieba.setting.model;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ e cNr;
+    final /* synthetic */ e dlI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.cNr = eVar;
+        this.dlI = eVar;
     }
 
     @Override // java.lang.Runnable
@@ -15,11 +15,11 @@ public class f implements Runnable {
         c cVar2;
         c cVar3;
         com.baidu.adp.base.g gVar;
-        cVar = this.cNr.cNq;
+        cVar = this.dlI.dlH;
         cVar.mLoadDataMode = 2;
-        cVar2 = this.cNr.cNq;
+        cVar2 = this.dlI.dlH;
         cVar2.setErrorString(null);
-        cVar3 = this.cNr.cNq;
+        cVar3 = this.dlI.dlH;
         gVar = cVar3.mLoadDataCallBack;
         gVar.d(true);
     }

@@ -14,25 +14,25 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ImDbShrinkStatic {
-    private static ImDbShrinkStatic bxq;
-    private static long bxt = -1;
-    private static int bxu = 0;
-    private a bxr = new a(null);
-    private b bxs = null;
+    private static ImDbShrinkStatic bMw;
+    private a bMx = new a(null);
+    private b bMy = null;
+    private static long bMz = -1;
+    private static int bMA = 0;
 
     static {
-        Uc();
+        Xi();
     }
 
-    public static ImDbShrinkStatic Uc() {
-        if (bxq == null) {
+    public static ImDbShrinkStatic Xi() {
+        if (bMw == null) {
             synchronized (ImDbShrinkStatic.class) {
-                if (bxq == null) {
-                    bxq = new ImDbShrinkStatic();
+                if (bMw == null) {
+                    bMw = new ImDbShrinkStatic();
                 }
             }
         }
-        return bxq;
+        return bMw;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -50,8 +50,8 @@ public class ImDbShrinkStatic {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    ImDbShrinkStatic.Uc().bxr.removeMessages(1);
-                    ImDbShrinkStatic.Uc().execute();
+                    ImDbShrinkStatic.Xi().bMx.removeMessages(1);
+                    ImDbShrinkStatic.Xi().execute();
                     return;
                 default:
                     return;
@@ -65,21 +65,21 @@ public class ImDbShrinkStatic {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.bxs != null) {
-            this.bxs.cancel();
-            this.bxs = null;
+        if (this.bMy != null) {
+            this.bMy.cancel();
+            this.bMy = null;
         }
-        this.bxs = new b(this, null);
-        this.bxs.setParallel(TiebaIMConfig.getParallel());
-        this.bxs.setPriority(4);
-        this.bxs.execute(new String[0]);
+        this.bMy = new b(this, null);
+        this.bMy.setParallel(TiebaIMConfig.getParallel());
+        this.bMy.setPriority(4);
+        this.bMy.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.bxs != null) {
-            this.bxs.cancel();
-            this.bxs = null;
+        if (this.bMy != null) {
+            this.bMy.cancel();
+            this.bMy = null;
         }
     }
 
@@ -99,48 +99,48 @@ public class ImDbShrinkStatic {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: i */
         public Boolean doInBackground(String... strArr) {
-            LinkedList<ImMessageCenterPojo> Ui = i.Uf().Ui();
-            if (Ui == null || Ui.size() == 0) {
+            LinkedList<ImMessageCenterPojo> Xo = i.Xl().Xo();
+            if (Xo == null || Xo.size() == 0) {
                 return false;
             }
-            if (ImDbShrinkStatic.bxt < 0) {
+            if (ImDbShrinkStatic.bMz < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    ImDbShrinkStatic.bxt = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (ImDbShrinkStatic.bxt > 2147483648L) {
-                        ImDbShrinkStatic.bxu = 5000;
-                    } else if (ImDbShrinkStatic.bxt > 1073741824) {
-                        ImDbShrinkStatic.bxu = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
+                    ImDbShrinkStatic.bMz = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (ImDbShrinkStatic.bMz > 2147483648L) {
+                        ImDbShrinkStatic.bMA = 5000;
+                    } else if (ImDbShrinkStatic.bMz > 1073741824) {
+                        ImDbShrinkStatic.bMA = LocationClientOption.MIN_SCAN_SPAN_NETWORK;
                     } else {
-                        ImDbShrinkStatic.bxu = 1000;
+                        ImDbShrinkStatic.bMA = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (ImDbShrinkStatic.bxu < 1000) {
-                ImDbShrinkStatic.bxu = 1000;
+            if (ImDbShrinkStatic.bMA < 1000) {
+                ImDbShrinkStatic.bMA = 1000;
             }
             try {
-                g.Ua().Ub();
-                for (ImMessageCenterPojo imMessageCenterPojo : Ui) {
+                g.Xg().Xh();
+                for (ImMessageCenterPojo imMessageCenterPojo : Xo) {
                     if (isCancelled()) {
-                        g.Ua().endTransaction();
+                        g.Xg().endTransaction();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.TW().B(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bxu);
+                        c.Xc().G(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bMA);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        l.Ul().B(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bxu);
+                        l.Xr().G(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bMA);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        k.Uk().B(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bxu);
+                        k.Xq().G(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bMA);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.TX().B(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bxu);
+                        d.Xd().G(imMessageCenterPojo.getGid(), ImDbShrinkStatic.bMA);
                     }
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             } finally {
-                g.Ua().endTransaction();
+                g.Xg().endTransaction();
             }
             return true;
         }

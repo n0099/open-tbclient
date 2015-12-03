@@ -3,26 +3,26 @@ package com.baidu.tieba.imMessageCenter.im.floatwindow.view;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 /* loaded from: classes.dex */
-class x extends com.baidu.tbadk.util.l<Void> {
-    final /* synthetic */ FloatingPersonalChatActivity bMS;
-    private final /* synthetic */ UserData btY;
+class x extends com.baidu.tbadk.util.m<Void> {
+    private final /* synthetic */ UserData bJd;
+    final /* synthetic */ FloatingPersonalChatActivity cbW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(FloatingPersonalChatActivity floatingPersonalChatActivity, UserData userData) {
-        this.bMS = floatingPersonalChatActivity;
-        this.btY = userData;
+        this.cbW = floatingPersonalChatActivity;
+        this.bJd = userData;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.util.l
-    /* renamed from: Ge */
+    @Override // com.baidu.tbadk.util.m
+    /* renamed from: Hl */
     public Void doInBackground() {
         String str;
-        if (this.btY != null) {
-            com.baidu.tieba.im.settingcache.j XA = com.baidu.tieba.im.settingcache.j.XA();
+        if (this.bJd != null) {
+            com.baidu.tieba.im.settingcache.j aaG = com.baidu.tieba.im.settingcache.j.aaG();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            str = this.bMS.ayp;
-            XA.a(currentAccount, str, this.btY);
+            str = this.cbW.aAu;
+            aaG.a(currentAccount, str, this.bJd);
             return null;
         }
         return null;

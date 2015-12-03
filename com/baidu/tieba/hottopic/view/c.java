@@ -1,37 +1,21 @@
 package com.baidu.tieba.hottopic.view;
 
 import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.as;
-import com.baidu.tieba.hottopic.controller.HotTopicActivity;
+import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    private final /* synthetic */ String axO;
-    final /* synthetic */ b bqV;
+    final /* synthetic */ a bFE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(b bVar, String str) {
-        this.bqV = bVar;
-        this.axO = str;
+    public c(a aVar) {
+        this.bFE = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        HotTopicActivity hotTopicActivity;
-        HotTopicActivity hotTopicActivity2;
-        if (as.aN(this.axO)) {
-            MessageManager messageManager = MessageManager.getInstance();
-            hotTopicActivity = this.bqV.boH;
-            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(hotTopicActivity.getPageContext().getPageActivity()).createNormalCfg(this.axO, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND)));
-            aq ae = new aq("c10365").ae("obj_type", "1");
-            hotTopicActivity2 = this.bqV.boH;
-            TiebaStatic.log(ae.ae("obj_id", hotTopicActivity2.Rh()));
-        }
+        LinearLayout linearLayout;
+        linearLayout = this.bFE.bFu;
+        linearLayout.performClick();
     }
 }

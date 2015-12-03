@@ -1,71 +1,69 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import android.content.Context;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tieba.i;
-import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import com.baidu.tieba.n;
+import java.text.MessageFormat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class u implements NewSubPbActivity.a {
-    final /* synthetic */ NewSubPbActivity cnS;
+public class u implements a.InterfaceC0040a {
+    final /* synthetic */ NewSubPbActivity cHd;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u(NewSubPbActivity newSubPbActivity) {
-        this.cnS = newSubPbActivity;
+        this.cHd = newSubPbActivity;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.pb.pb.sub.NewSubPbActivity */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.pb.pb.sub.NewSubPbActivity.a
-    public void d(Object obj) {
-        com.baidu.tieba.tbadkCore.h.a aVar;
-        am amVar;
-        am amVar2;
-        am amVar3;
-        am amVar4;
-        com.baidu.tieba.tbadkCore.h.a aVar2;
-        am amVar5;
-        am amVar6;
-        am amVar7;
-        Object[] objArr = (Object[]) obj;
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        if (currentAccount != null && currentAccount.length() > 0) {
-            aVar = this.cnS.cnI;
-            if (!aVar.ayB() && objArr != null && objArr.length >= 4) {
-                String valueOf = String.valueOf(objArr[0]);
-                int g = com.baidu.adp.lib.g.b.g(String.valueOf(objArr[1]), 0);
-                boolean d = com.baidu.adp.lib.g.b.d(String.valueOf(objArr[2]), false);
-                int g2 = com.baidu.adp.lib.g.b.g(String.valueOf(objArr[3]), 0);
-                amVar = this.cnS.cnH;
-                if (amVar != null) {
-                    amVar2 = this.cnS.cnH;
-                    if (amVar2.aic() != null) {
-                        amVar3 = this.cnS.cnH;
-                        if (amVar3.aic().afz() != null) {
-                            amVar4 = this.cnS.cnH;
-                            if (amVar4.aic().afB() != null) {
-                                aVar2 = this.cnS.cnI;
-                                amVar5 = this.cnS.cnH;
-                                String id = amVar5.aic().afz().getId();
-                                amVar6 = this.cnS.cnH;
-                                String name = amVar6.aic().afz().getName();
-                                amVar7 = this.cnS.cnH;
-                                aVar2.a(id, name, amVar7.aic().afB().getId(), valueOf, g2, g, d);
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                return;
+    @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0040a
+    public void a(boolean z, boolean z2, String str) {
+        com.baidu.tbadk.baseEditMark.a aVar;
+        com.baidu.tbadk.baseEditMark.a aVar2;
+        an anVar;
+        an anVar2;
+        com.baidu.tbadk.baseEditMark.a aVar3;
+        an anVar3;
+        an anVar4;
+        an anVar5;
+        com.baidu.tbadk.baseEditMark.a aVar4;
+        if (z) {
+            aVar = this.cHd.cBH;
+            if (aVar != null) {
+                aVar4 = this.cHd.cBH;
+                aVar4.ab(z2);
             }
+            aVar2 = this.cHd.cBH;
+            MarkData qs = aVar2.qs();
+            ap apVar = new ap();
+            apVar.setType(2);
+            if (z2) {
+                apVar.setData(qs);
+                aVar3 = this.cHd.cBH;
+                if (aVar3 != null) {
+                    if (qs != null) {
+                        anVar3 = this.cHd.cGS;
+                        anVar3.fz(true);
+                        anVar4 = this.cHd.cGS;
+                        anVar5 = this.cHd.cGS;
+                        anVar4.kR(anVar5.BU());
+                        this.cHd.showToast(MessageFormat.format(this.cHd.getPageContext().getString(n.i.add_mark_on_pb), Integer.valueOf(qs.getFloor())));
+                    } else {
+                        this.cHd.showToast(this.cHd.getPageContext().getString(n.i.add_mark));
+                    }
+                }
+            } else {
+                apVar.setData(null);
+                anVar = this.cHd.cGS;
+                anVar.fz(false);
+                anVar2 = this.cHd.cGS;
+                anVar2.kR(null);
+                this.cHd.showToast(this.cHd.getPageContext().getString(n.i.remove_mark));
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.UPDATE_PB_SUBPB_CMD, apVar));
             return;
         }
-        TbadkCoreApplication.m411getInst().login(this.cnS.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig((Context) this.cnS.getPageContext().getPageActivity(), this.cnS.getPageContext().getString(i.h.login_to_use), true, 11017)));
+        this.cHd.showToast(this.cHd.getPageContext().getString(n.i.update_mark_failed));
     }
 }

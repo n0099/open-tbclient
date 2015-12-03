@@ -19,6 +19,8 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
@@ -32,19 +34,26 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.base.h;
+import com.baidu.adp.base.i;
 import com.baidu.adp.base.j;
+import com.baidu.adp.base.k;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.c;
 import com.baidu.adp.plugin.util.f;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.megapp.ma.MAActivity;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 /* loaded from: classes.dex */
-public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.a {
-    private c ED = null;
+public class ActivityProxy extends MAActivity implements Handler.Callback, i, k, com.baidu.adp.plugin.a.a {
+    private c ER = null;
 
-    public void mw() {
-        if (this.ED == null && !super.isFinishing()) {
+    public void mz() {
+        if (this.ER == null && !super.isFinishing()) {
             Intent intent = getIntent();
             if (intent == null) {
                 finish();
@@ -60,14 +69,14 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
                 String stringExtra2 = intent.getStringExtra("intent_extra_activity");
                 if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
                     com.baidu.adp.plugin.a plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
-                    this.ED = (c) plugin2.kr().loadClass(stringExtra2).asSubclass(c.class).newInstance();
-                    this.ED.setActivityProxy(this);
-                    this.ED.setPluginPackageName(stringExtra);
-                    setTheme(plugin2.ku());
+                    this.ER = (c) plugin2.ks().loadClass(stringExtra2).asSubclass(c.class).newInstance();
+                    this.ER.setActivityProxy(this);
+                    this.ER.setPluginPackageName(stringExtra);
+                    setTheme(plugin2.kv());
                 } else {
-                    this.ED = (c) PluginCenter.getInstance().getPlugin(stringExtra).kr().loadClass(stringExtra2).asSubclass(c.class).newInstance();
-                    this.ED.setActivityProxy(this);
-                    this.ED.setPluginPackageName(stringExtra);
+                    this.ER = (c) PluginCenter.getInstance().getPlugin(stringExtra).ks().loadClass(stringExtra2).asSubclass(c.class).newInstance();
+                    this.ER.setActivityProxy(this);
+                    this.ER.setPluginPackageName(stringExtra);
                 }
             } catch (ClassNotFoundException e) {
                 BdLog.e(e);
@@ -83,8 +92,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
-        if (this.ED != null) {
-            this.ED.addContentView(view, layoutParams);
+        if (this.ER != null) {
+            this.ER.addContentView(view, layoutParams);
         } else {
             super.addContentView(view, layoutParams);
         }
@@ -92,13 +101,13 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
-        return this.ED != null ? this.ED.bindService(intent, serviceConnection, i) : super.bindService(intent, serviceConnection, i);
+        return this.ER != null ? this.ER.bindService(intent, serviceConnection, i) : super.bindService(intent, serviceConnection, i);
     }
 
     @Override // android.app.Activity
     public void closeContextMenu() {
-        if (this.ED != null) {
-            this.ED.closeContextMenu();
+        if (this.ER != null) {
+            this.ER.closeContextMenu();
         } else {
             super.closeContextMenu();
         }
@@ -106,8 +115,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void closeOptionsMenu() {
-        if (this.ED != null) {
-            this.ED.closeOptionsMenu();
+        if (this.ER != null) {
+            this.ER.closeOptionsMenu();
         } else {
             super.closeOptionsMenu();
         }
@@ -115,38 +124,58 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public PendingIntent createPendingResult(int i, Intent intent, int i2) {
-        return this.ED != null ? this.ED.createPendingResult(i, intent, i2) : super.createPendingResult(i, intent, i2);
+        return this.ER != null ? this.ER.createPendingResult(i, intent, i2) : super.createPendingResult(i, intent, i2);
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
+        if (this.ER != null) {
+            return this.ER.dispatchGenericMotionEvent(motionEvent);
+        }
+        return false;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        return this.ED != null ? this.ED.dispatchKeyEvent(keyEvent) : super.dispatchKeyEvent(keyEvent);
+        return this.ER != null ? this.ER.dispatchKeyEvent(keyEvent) : super.dispatchKeyEvent(keyEvent);
+    }
+
+    @Override // android.app.Activity, android.view.Window.Callback
+    public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
+        if (this.ER != null) {
+            return this.ER.dispatchKeyShortcutEvent(keyEvent);
+        }
+        return false;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        return this.ED != null ? this.ED.dispatchPopulateAccessibilityEvent(accessibilityEvent) : super.dispatchPopulateAccessibilityEvent(accessibilityEvent);
+        return this.ER != null ? this.ER.dispatchPopulateAccessibilityEvent(accessibilityEvent) : super.dispatchPopulateAccessibilityEvent(accessibilityEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        return this.ED != null ? this.ED.dispatchTouchEvent(motionEvent) : super.dispatchTouchEvent(motionEvent);
+        return this.ER != null ? this.ER.dispatchTouchEvent(motionEvent) : super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
-        return this.ED != null ? this.ED.dispatchTrackballEvent(motionEvent) : super.dispatchTrackballEvent(motionEvent);
+        return this.ER != null ? this.ER.dispatchTrackballEvent(motionEvent) : super.dispatchTrackballEvent(motionEvent);
+    }
+
+    @Override // android.app.Activity
+    public void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
     }
 
     @Override // android.app.Activity
     public View findViewById(int i) {
-        return this.ED != null ? this.ED.findViewById(i) : super.findViewById(i);
+        return this.ER != null ? this.ER.findViewById(i) : super.findViewById(i);
     }
 
     @Override // android.app.Activity
     public void finish() {
-        if (this.ED != null) {
-            this.ED.finish();
+        if (this.ER != null) {
+            this.ER.finish();
         } else {
             super.finish();
         }
@@ -154,8 +183,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void finishActivity(int i) {
-        if (this.ED != null) {
-            this.ED.finishActivity(i);
+        if (this.ER != null) {
+            this.ER.finishActivity(i);
         } else {
             super.finishActivity(i);
         }
@@ -163,8 +192,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void finishActivityFromChild(Activity activity, int i) {
-        if (this.ED != null) {
-            this.ED.finishActivityFromChild(activity, i);
+        if (this.ER != null) {
+            this.ER.finishActivityFromChild(activity, i);
         } else {
             super.finishActivityFromChild(activity, i);
         }
@@ -172,8 +201,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void finishFromChild(Activity activity) {
-        if (this.ED != null) {
-            this.ED.finishFromChild(activity);
+        if (this.ER != null) {
+            this.ER.finishFromChild(activity);
         } else {
             super.finishFromChild(activity);
         }
@@ -186,17 +215,17 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public AssetManager getAssets() {
-        return this.ED != null ? this.ED.getAssets() : super.getAssets();
+        return this.ER != null ? this.ER.getAssets() : super.getAssets();
     }
 
     @Override // android.app.Activity
     public ComponentName getCallingActivity() {
-        return this.ED != null ? this.ED.getCallingActivity() : super.getCallingActivity();
+        return this.ER != null ? this.ER.getCallingActivity() : super.getCallingActivity();
     }
 
     @Override // android.app.Activity
     public String getCallingPackage() {
-        return this.ED != null ? this.ED.getCallingPackage() : super.getCallingPackage();
+        return this.ER != null ? this.ER.getCallingPackage() : super.getCallingPackage();
     }
 
     @Override // android.app.Activity
@@ -206,57 +235,57 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ClassLoader getClassLoader() {
-        return this.ED != null ? this.ED.getClassLoader() : super.getClassLoader();
+        return this.ER != null ? this.ER.getClassLoader() : super.getClassLoader();
     }
 
     @Override // android.app.Activity
     public View getCurrentFocus() {
-        return this.ED != null ? this.ED.getCurrentFocus() : super.getCurrentFocus();
+        return this.ER != null ? this.ER.getCurrentFocus() : super.getCurrentFocus();
     }
 
     @Override // android.app.Activity
     public Intent getIntent() {
-        c cVar = this.ED;
+        c cVar = this.ER;
         return cVar != null ? cVar.getIntent() : super.getIntent();
     }
 
     @Override // android.app.Activity
     public LayoutInflater getLayoutInflater() {
-        c cVar = this.ED;
+        c cVar = this.ER;
         return cVar != null ? cVar.getLayoutInflater() : super.getLayoutInflater();
     }
 
     @Override // android.app.Activity
     public String getLocalClassName() {
-        c cVar = this.ED;
+        c cVar = this.ER;
         return cVar != null ? cVar.getLocalClassName() : super.getLocalClassName();
     }
 
     @Override // android.app.Activity
     public MenuInflater getMenuInflater() {
-        return this.ED != null ? this.ED.getMenuInflater() : super.getMenuInflater();
+        return this.ER != null ? this.ER.getMenuInflater() : super.getMenuInflater();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public PackageManager getPackageManager() {
-        return this.ED != null ? this.ED.getPackageManager() : super.getPackageManager();
+        return this.ER != null ? this.ER.getPackageManager() : super.getPackageManager();
     }
 
     @Override // android.app.Activity
     public SharedPreferences getPreferences(int i) {
-        return this.ED != null ? this.ED.getPreferences(i) : super.getPreferences(i);
+        return this.ER != null ? this.ER.getPreferences(i) : super.getPreferences(i);
     }
 
     @Override // android.app.Activity
     public int getRequestedOrientation() {
-        return this.ED != null ? this.ED.getRequestedOrientation() : super.getRequestedOrientation();
+        return this.ER != null ? this.ER.getRequestedOrientation() : super.getRequestedOrientation();
     }
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
         if (BdBaseApplication.getInst().getIsPluginResourcOpen()) {
-            if (this.ED != null) {
-                return this.ED.getResources();
+            if (this.ER != null) {
+                return this.ER.getResources();
             }
         } else {
             Resources resources = j.dK().getResources();
@@ -269,70 +298,70 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.content.ContextWrapper, android.content.Context
     public SharedPreferences getSharedPreferences(String str, int i) {
-        return this.ED != null ? this.ED.getSharedPreferences(str, i) : super.getSharedPreferences(str, i);
+        return this.ER != null ? this.ER.getSharedPreferences(str, i) : super.getSharedPreferences(str, i);
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Object getSystemService(String str) {
-        return this.ED != null ? this.ED.getSystemService(str) : super.getSystemService(str);
+        return this.ER != null ? this.ER.getSystemService(str) : super.getSystemService(str);
     }
 
     @Override // android.app.Activity
     public int getTaskId() {
-        c cVar = this.ED;
+        c cVar = this.ER;
         return cVar != null ? cVar.getTaskId() : super.getTaskId();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public int getWallpaperDesiredMinimumHeight() {
-        c cVar = this.ED;
+        c cVar = this.ER;
         return cVar != null ? cVar.getWallpaperDesiredMinimumHeight() : super.getWallpaperDesiredMinimumHeight();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public int getWallpaperDesiredMinimumWidth() {
-        c cVar = this.ED;
+        c cVar = this.ER;
         return cVar != null ? cVar.getWallpaperDesiredMinimumWidth() : super.getWallpaperDesiredMinimumWidth();
     }
 
     @Override // android.app.Activity
     public Window getWindow() {
-        c cVar = this.ED;
+        c cVar = this.ER;
         return cVar != null ? cVar.getWindow() : super.getWindow();
     }
 
     @Override // android.app.Activity
     public WindowManager getWindowManager() {
-        c cVar = this.ED;
+        c cVar = this.ER;
         return cVar != null ? cVar.getWindowManager() : super.getWindowManager();
     }
 
     @Override // android.app.Activity
     public boolean hasWindowFocus() {
-        return this.ED != null ? this.ED.hasWindowFocus() : super.hasWindowFocus();
+        return this.ER != null ? this.ER.hasWindowFocus() : super.hasWindowFocus();
     }
 
     @Override // android.app.Activity
     public boolean isFinishing() {
-        return this.ED != null ? this.ED.isFinishing() : super.isFinishing();
+        return this.ER != null ? this.ER.isFinishing() : super.isFinishing();
     }
 
     @Override // android.app.Activity
     public boolean isTaskRoot() {
-        c cVar = this.ED;
+        c cVar = this.ER;
         return cVar != null ? cVar.isTaskRoot() : super.isTaskRoot();
     }
 
     @Override // android.app.Activity
     public boolean moveTaskToBack(boolean z) {
-        c cVar = this.ED;
+        c cVar = this.ER;
         return cVar != null ? cVar.moveTaskToBack(z) : super.moveTaskToBack(z);
     }
 
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
-        if (this.ED != null) {
-            f.a(this.ED, "onActivityResult", new Class[]{Integer.TYPE, Integer.TYPE, Intent.class}, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent});
+        if (this.ER != null) {
+            f.a(this.ER, "onActivityResult", new Class[]{Integer.TYPE, Integer.TYPE, Intent.class}, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent});
         } else {
             super.onActivityResult(i, i2, intent);
         }
@@ -340,8 +369,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper
     protected void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
-        if (this.ED != null) {
-            f.a(this.ED, "onApplyThemeResource", new Class[]{Resources.Theme.class, Integer.TYPE, Boolean.TYPE}, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)});
+        if (this.ER != null) {
+            f.a(this.ER, "onApplyThemeResource", new Class[]{Resources.Theme.class, Integer.TYPE, Boolean.TYPE}, new Object[]{theme, Integer.valueOf(i), Boolean.valueOf(z)});
         } else {
             super.onApplyThemeResource(theme, i, z);
         }
@@ -349,8 +378,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
-        if (this.ED != null) {
-            this.ED.onAttachedToWindow();
+        if (this.ER != null) {
+            this.ER.onAttachedToWindow();
         } else {
             super.onAttachedToWindow();
         }
@@ -358,8 +387,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (this.ED != null) {
-            this.ED.onBackPressed();
+        if (this.ER != null) {
+            this.ER.onBackPressed();
         } else {
             super.onBackPressed();
         }
@@ -367,8 +396,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     protected void onChildTitleChanged(Activity activity, CharSequence charSequence) {
-        if (this.ED != null) {
-            f.a(this.ED, "onChildTitleChanged", new Class[]{Activity.class, CharSequence.class}, new Object[]{activity, charSequence});
+        if (this.ER != null) {
+            f.a(this.ER, "onChildTitleChanged", new Class[]{Activity.class, CharSequence.class}, new Object[]{activity, charSequence});
         } else {
             super.onChildTitleChanged(activity, charSequence);
         }
@@ -376,8 +405,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.ED != null) {
-            this.ED.onConfigurationChanged(configuration);
+        if (this.ER != null) {
+            this.ER.onConfigurationChanged(configuration);
         } else {
             super.onConfigurationChanged(configuration);
         }
@@ -385,8 +414,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onContentChanged() {
-        if (this.ED != null) {
-            this.ED.onContentChanged();
+        if (this.ER != null) {
+            this.ER.onContentChanged();
         } else {
             super.onContentChanged();
         }
@@ -394,13 +423,13 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public boolean onContextItemSelected(MenuItem menuItem) {
-        return this.ED != null ? this.ED.onContextItemSelected(menuItem) : super.onContextItemSelected(menuItem);
+        return this.ER != null ? this.ER.onContextItemSelected(menuItem) : super.onContextItemSelected(menuItem);
     }
 
     @Override // android.app.Activity
     public void onContextMenuClosed(Menu menu) {
-        if (this.ED != null) {
-            this.ED.onContextMenuClosed(menu);
+        if (this.ER != null) {
+            this.ER.onContextMenuClosed(menu);
         } else {
             super.onContextMenuClosed(menu);
         }
@@ -409,10 +438,10 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         requestWindowFeature(1);
-        this.ED = null;
-        mw();
-        if (this.ED != null) {
-            f.a(this.ED, "onCreate", new Class[]{Bundle.class}, new Object[]{bundle});
+        this.ER = null;
+        mz();
+        if (this.ER != null) {
+            f.a(this.ER, "onCreate", new Class[]{Bundle.class}, new Object[]{bundle});
         } else {
             super.onCreate(bundle);
         }
@@ -420,8 +449,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
     public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        if (this.ED != null) {
-            this.ED.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+        if (this.ER != null) {
+            this.ER.onCreateContextMenu(contextMenu, view, contextMenuInfo);
         } else {
             super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
         }
@@ -429,39 +458,39 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public CharSequence onCreateDescription() {
-        c cVar = this.ED;
+        c cVar = this.ER;
         return cVar != null ? cVar.onCreateDescription() : super.onCreateDescription();
     }
 
     @Override // android.app.Activity
     protected Dialog onCreateDialog(int i) {
-        return this.ED != null ? (Dialog) f.a(this.ED, "onCreateDialog", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(i)}) : super.onCreateDialog(i);
+        return this.ER != null ? (Dialog) f.a(this.ER, "onCreateDialog", new Class[]{Integer.TYPE}, new Object[]{Integer.valueOf(i)}) : super.onCreateDialog(i);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onCreatePanelMenu(int i, Menu menu) {
-        return this.ED != null ? this.ED.onCreatePanelMenu(i, menu) : super.onCreatePanelMenu(i, menu);
+        return this.ER != null ? this.ER.onCreatePanelMenu(i, menu) : super.onCreatePanelMenu(i, menu);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public View onCreatePanelView(int i) {
-        return this.ED != null ? this.ED.onCreatePanelView(i) : super.onCreatePanelView(i);
+        return this.ER != null ? this.ER.onCreatePanelView(i) : super.onCreatePanelView(i);
     }
 
     @Override // android.app.Activity
     public boolean onCreateThumbnail(Bitmap bitmap, Canvas canvas) {
-        return this.ED != null ? this.ED.onCreateThumbnail(bitmap, canvas) : super.onCreateThumbnail(bitmap, canvas);
+        return this.ER != null ? this.ER.onCreateThumbnail(bitmap, canvas) : super.onCreateThumbnail(bitmap, canvas);
     }
 
     @Override // android.app.Activity, android.view.LayoutInflater.Factory
     public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        return this.ED != null ? this.ED.onCreateView(str, context, attributeSet) : super.onCreateView(str, context, attributeSet);
+        return this.ER != null ? this.ER.onCreateView(str, context, attributeSet) : super.onCreateView(str, context, attributeSet);
     }
 
     @Override // android.app.Activity
     protected void onDestroy() {
-        if (this.ED != null) {
-            f.a(this.ED, "onDestroy", new Class[0], new Object[0]);
+        if (this.ER != null) {
+            f.a(this.ER, "onDestroy", new Class[0], new Object[0]);
         } else {
             super.onDestroy();
         }
@@ -469,8 +498,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onDetachedFromWindow() {
-        if (this.ED != null) {
-            this.ED.onDetachedFromWindow();
+        if (this.ER != null) {
+            this.ER.onDetachedFromWindow();
         } else {
             super.onDetachedFromWindow();
         }
@@ -478,28 +507,28 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        return this.ED != null ? this.ED.onKeyDown(i, keyEvent) : super.onKeyDown(i, keyEvent);
+        return this.ER != null ? this.ER.onKeyDown(i, keyEvent) : super.onKeyDown(i, keyEvent);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
-        return this.ED != null ? this.ED.onKeyLongPress(i, keyEvent) : super.onKeyLongPress(i, keyEvent);
+        return this.ER != null ? this.ER.onKeyLongPress(i, keyEvent) : super.onKeyLongPress(i, keyEvent);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyMultiple(int i, int i2, KeyEvent keyEvent) {
-        return this.ED != null ? this.ED.onKeyMultiple(i, i2, keyEvent) : super.onKeyMultiple(i, i2, keyEvent);
+        return this.ER != null ? this.ER.onKeyMultiple(i, i2, keyEvent) : super.onKeyMultiple(i, i2, keyEvent);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyUp(int i, KeyEvent keyEvent) {
-        return this.ED != null ? this.ED.onKeyUp(i, keyEvent) : super.onKeyUp(i, keyEvent);
+        return this.ER != null ? this.ER.onKeyUp(i, keyEvent) : super.onKeyUp(i, keyEvent);
     }
 
     @Override // android.app.Activity, android.content.ComponentCallbacks
     public void onLowMemory() {
-        if (this.ED != null) {
-            this.ED.onLowMemory();
+        if (this.ER != null) {
+            this.ER.onLowMemory();
         } else {
             super.onLowMemory();
         }
@@ -507,18 +536,18 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        return this.ED != null ? this.ED.onMenuItemSelected(i, menuItem) : super.onMenuItemSelected(i, menuItem);
+        return this.ER != null ? this.ER.onMenuItemSelected(i, menuItem) : super.onMenuItemSelected(i, menuItem);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onMenuOpened(int i, Menu menu) {
-        return this.ED != null ? this.ED.onMenuOpened(i, menu) : super.onMenuOpened(i, menu);
+        return this.ER != null ? this.ER.onMenuOpened(i, menu) : super.onMenuOpened(i, menu);
     }
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
-        if (this.ED != null) {
-            f.a(this.ED, "onNewIntent", new Class[]{Intent.class}, new Object[]{intent});
+        if (this.ER != null) {
+            f.a(this.ER, "onNewIntent", new Class[]{Intent.class}, new Object[]{intent});
         } else {
             super.onNewIntent(intent);
         }
@@ -526,13 +555,13 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        return this.ED != null ? this.ED.onOptionsItemSelected(menuItem) : super.onOptionsItemSelected(menuItem);
+        return this.ER != null ? this.ER.onOptionsItemSelected(menuItem) : super.onOptionsItemSelected(menuItem);
     }
 
     @Override // android.app.Activity
     public void onOptionsMenuClosed(Menu menu) {
-        if (this.ED != null) {
-            this.ED.onOptionsMenuClosed(menu);
+        if (this.ER != null) {
+            this.ER.onOptionsMenuClosed(menu);
         } else {
             super.onOptionsMenuClosed(menu);
         }
@@ -540,8 +569,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onPanelClosed(int i, Menu menu) {
-        if (this.ED != null) {
-            this.ED.onPanelClosed(i, menu);
+        if (this.ER != null) {
+            this.ER.onPanelClosed(i, menu);
         } else {
             super.onPanelClosed(i, menu);
         }
@@ -549,8 +578,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     protected void onPause() {
-        if (this.ED != null) {
-            f.a(this.ED, "onPause", new Class[0], new Object[0]);
+        if (this.ER != null) {
+            f.a(this.ER, "onPause", new Class[0], new Object[0]);
         } else {
             super.onPause();
         }
@@ -558,8 +587,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     protected void onPostCreate(Bundle bundle) {
-        if (this.ED != null) {
-            f.a(this.ED, "onPostCreate", new Class[]{Bundle.class}, new Object[]{bundle});
+        if (this.ER != null) {
+            f.a(this.ER, "onPostCreate", new Class[]{Bundle.class}, new Object[]{bundle});
         } else {
             super.onPostCreate(bundle);
         }
@@ -567,8 +596,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     protected void onPostResume() {
-        if (this.ED != null) {
-            f.a(this.ED, "onPostResume", new Class[0], new Object[0]);
+        if (this.ER != null) {
+            f.a(this.ER, "onPostResume", new Class[0], new Object[0]);
         } else {
             super.onPostResume();
         }
@@ -576,8 +605,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     protected void onPrepareDialog(int i, Dialog dialog) {
-        if (this.ED != null) {
-            this.ED.onPrepareDialog(i, dialog);
+        if (this.ER != null) {
+            this.ER.onPrepareDialog(i, dialog);
         } else {
             super.onPrepareDialog(i, dialog);
         }
@@ -585,18 +614,18 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public boolean onPrepareOptionsMenu(Menu menu) {
-        return this.ED != null ? this.ED.onPrepareOptionsMenu(menu) : super.onPrepareOptionsMenu(menu);
+        return this.ER != null ? this.ER.onPrepareOptionsMenu(menu) : super.onPrepareOptionsMenu(menu);
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onPreparePanel(int i, View view, Menu menu) {
-        return this.ED != null ? this.ED.onPreparePanel(i, view, menu) : super.onPreparePanel(i, view, menu);
+        return this.ER != null ? this.ER.onPreparePanel(i, view, menu) : super.onPreparePanel(i, view, menu);
     }
 
     @Override // android.app.Activity
     protected void onRestart() {
-        if (this.ED != null) {
-            f.a(this.ED, "onRestart", new Class[0], new Object[0]);
+        if (this.ER != null) {
+            f.a(this.ER, "onRestart", new Class[0], new Object[0]);
         } else {
             super.onRestart();
         }
@@ -604,8 +633,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     protected void onRestoreInstanceState(Bundle bundle) {
-        if (this.ED != null) {
-            f.a(this.ED, "onRestoreInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
+        if (this.ER != null) {
+            f.a(this.ER, "onRestoreInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
         } else {
             super.onRestoreInstanceState(bundle);
         }
@@ -613,8 +642,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     protected void onResume() {
-        if (this.ED != null) {
-            f.a(this.ED, "onResume", new Class[0], new Object[0]);
+        if (this.ER != null) {
+            f.a(this.ER, "onResume", new Class[0], new Object[0]);
         } else {
             super.onResume();
         }
@@ -622,8 +651,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        if (this.ED != null) {
-            f.a(this.ED, "onSaveInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
+        if (this.ER != null) {
+            f.a(this.ER, "onSaveInstanceState", new Class[]{Bundle.class}, new Object[]{bundle});
         } else {
             super.onSaveInstanceState(bundle);
         }
@@ -631,13 +660,13 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean onSearchRequested() {
-        return this.ED != null ? this.ED.onSearchRequested() : super.onSearchRequested();
+        return this.ER != null ? this.ER.onSearchRequested() : super.onSearchRequested();
     }
 
     @Override // android.app.Activity
     protected void onStart() {
-        if (this.ED != null) {
-            f.a(this.ED, "onStart", new Class[0], new Object[0]);
+        if (this.ER != null) {
+            f.a(this.ER, "onStart", new Class[0], new Object[0]);
         } else {
             super.onStart();
         }
@@ -645,8 +674,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     protected void onStop() {
-        if (this.ED != null) {
-            f.a(this.ED, "onStop", new Class[0], new Object[0]);
+        if (this.ER != null) {
+            f.a(this.ER, "onStop", new Class[0], new Object[0]);
         } else {
             super.onStop();
         }
@@ -654,8 +683,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     protected void onTitleChanged(CharSequence charSequence, int i) {
-        if (this.ED != null) {
-            f.a(this.ED, "onTitleChanged", new Class[]{CharSequence.class, Integer.TYPE}, new Object[]{charSequence, Integer.valueOf(i)});
+        if (this.ER != null) {
+            f.a(this.ER, "onTitleChanged", new Class[]{CharSequence.class, Integer.TYPE}, new Object[]{charSequence, Integer.valueOf(i)});
         } else {
             super.onTitleChanged(charSequence, i);
         }
@@ -663,18 +692,18 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return this.ED != null ? this.ED.onTouchEvent(motionEvent) : super.onTouchEvent(motionEvent);
+        return this.ER != null ? this.ER.onTouchEvent(motionEvent) : super.onTouchEvent(motionEvent);
     }
 
     @Override // android.app.Activity
     public boolean onTrackballEvent(MotionEvent motionEvent) {
-        return this.ED != null ? this.ED.onTrackballEvent(motionEvent) : super.onTrackballEvent(motionEvent);
+        return this.ER != null ? this.ER.onTrackballEvent(motionEvent) : super.onTrackballEvent(motionEvent);
     }
 
     @Override // android.app.Activity
     public void onUserInteraction() {
-        if (this.ED != null) {
-            this.ED.onUserInteraction();
+        if (this.ER != null) {
+            this.ER.onUserInteraction();
         } else {
             super.onUserInteraction();
         }
@@ -687,8 +716,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
-        if (this.ED != null) {
-            this.ED.onWindowAttributesChanged(layoutParams);
+        if (this.ER != null) {
+            this.ER.onWindowAttributesChanged(layoutParams);
         } else {
             super.onWindowAttributesChanged(layoutParams);
         }
@@ -696,8 +725,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
-        if (this.ED != null) {
-            this.ED.onWindowFocusChanged(z);
+        if (this.ER != null) {
+            this.ER.onWindowFocusChanged(z);
         } else {
             super.onWindowFocusChanged(z);
         }
@@ -705,8 +734,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void openContextMenu(View view) {
-        if (this.ED != null) {
-            this.ED.openContextMenu(view);
+        if (this.ER != null) {
+            this.ER.openContextMenu(view);
         } else {
             super.openContextMenu(view);
         }
@@ -714,8 +743,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void openOptionsMenu() {
-        if (this.ED != null) {
-            this.ED.openOptionsMenu();
+        if (this.ER != null) {
+            this.ER.openOptionsMenu();
         } else {
             super.openOptionsMenu();
         }
@@ -723,8 +752,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void overridePendingTransition(int i, int i2) {
-        if (this.ED != null) {
-            this.ED.overridePendingTransition(i, i2);
+        if (this.ER != null) {
+            this.ER.overridePendingTransition(i, i2);
         } else {
             super.overridePendingTransition(i, i2);
         }
@@ -741,12 +770,12 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void kG() {
+    public void kH() {
         super.closeContextMenu();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void kH() {
+    public void kI() {
         super.closeOptionsMenu();
     }
 
@@ -776,17 +805,17 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public View an(int i) {
+    public View ao(int i) {
         return super.findViewById(i);
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void kI() {
+    public void kJ() {
         super.finish();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void ao(int i) {
+    public void ap(int i) {
         super.finishActivity(i);
     }
 
@@ -801,42 +830,42 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public ComponentName kK() {
+    public ComponentName kL() {
         return null;
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public String kL() {
+    public String kM() {
         return super.getCallingPackage();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public int kM() {
+    public int kN() {
         return super.getChangingConfigurations();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public View kN() {
+    public View kO() {
         return super.getCurrentFocus();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public Intent kO() {
+    public Intent kP() {
         return super.getIntent();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public LayoutInflater kP() {
+    public LayoutInflater kQ() {
         return super.getLayoutInflater();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public String kQ() {
+    public String kR() {
         return super.getLocalClassName();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public MenuInflater kR() {
+    public MenuInflater kS() {
         return super.getMenuInflater();
     }
 
@@ -846,57 +875,57 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public SharedPreferences ap(int i) {
+    public SharedPreferences aq(int i) {
         return super.getPreferences(i);
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public int kS() {
+    public int kT() {
         return super.getRequestedOrientation();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public Object ba(String str) {
+    public Object be(String str) {
         return super.getSystemService(str);
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public int kT() {
+    public int kU() {
         return super.getTaskId();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public int kU() {
+    public int kV() {
         return super.getWallpaperDesiredMinimumHeight();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public int kV() {
+    public int kW() {
         return super.getWallpaperDesiredMinimumWidth();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public Window kW() {
+    public Window kX() {
         return super.getWindow();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public WindowManager kX() {
+    public WindowManager kY() {
         return super.getWindowManager();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public boolean kY() {
+    public boolean kZ() {
         return super.hasWindowFocus();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public boolean kZ() {
+    public boolean la() {
         return super.isFinishing();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public boolean la() {
+    public boolean lb() {
         return super.isTaskRoot();
     }
 
@@ -916,12 +945,12 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lb() {
+    public void lc() {
         super.onAttachedToWindow();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lc() {
+    public void ld() {
         super.onBackPressed();
     }
 
@@ -936,7 +965,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void ld() {
+    public void le() {
         super.onContentChanged();
     }
 
@@ -976,7 +1005,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void le() {
+    public void lf() {
         super.onDetachedFromWindow();
     }
 
@@ -1031,7 +1060,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lf() {
+    public void lg() {
         super.onPause();
     }
 
@@ -1041,7 +1070,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lg() {
+    public void lh() {
         super.onPostResume();
     }
 
@@ -1061,7 +1090,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lh() {
+    public void li() {
         super.onRestart();
     }
 
@@ -1071,12 +1100,12 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void li() {
+    public void lj() {
         super.onResume();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public Object lj() {
+    public Object lk() {
         return super.onRetainNonConfigurationInstance();
     }
 
@@ -1086,17 +1115,17 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public boolean lk() {
+    public boolean ll() {
         return super.onSearchRequested();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void ll() {
+    public void lm() {
         super.onStart();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lm() {
+    public void ln() {
         super.onStop();
     }
 
@@ -1116,7 +1145,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void ln() {
+    public void lo() {
         super.onUserInteraction();
     }
 
@@ -1136,7 +1165,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void lo() {
+    public void lp() {
         super.openOptionsMenu();
     }
 
@@ -1151,7 +1180,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void aq(int i) {
+    public void ar(int i) {
         super.setContentView(i);
     }
 
@@ -1171,12 +1200,12 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void ar(int i) {
+    public void as(int i) {
         super.setRequestedOrientation(i);
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void as(int i) {
+    public void at(int i) {
         super.setTitle(i);
     }
 
@@ -1186,7 +1215,7 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public void at(int i) {
+    public void au(int i) {
         super.setTitleColor(i);
     }
 
@@ -1267,8 +1296,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void registerForContextMenu(View view) {
-        if (this.ED != null) {
-            this.ED.registerForContextMenu(view);
+        if (this.ER != null) {
+            this.ER.registerForContextMenu(view);
         } else {
             super.registerForContextMenu(view);
         }
@@ -1276,8 +1305,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void setContentView(int i) {
-        if (this.ED != null) {
-            this.ED.setContentView(i);
+        if (this.ER != null) {
+            this.ER.setContentView(i);
         } else {
             super.setContentView(i);
         }
@@ -1285,8 +1314,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void setContentView(View view) {
-        if (this.ED != null) {
-            this.ED.setContentView(view);
+        if (this.ER != null) {
+            this.ER.setContentView(view);
         } else {
             super.setContentView(view);
         }
@@ -1294,8 +1323,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
-        if (this.ED != null) {
-            this.ED.setContentView(view, layoutParams);
+        if (this.ER != null) {
+            this.ER.setContentView(view, layoutParams);
         } else {
             super.setContentView(view, layoutParams);
         }
@@ -1303,8 +1332,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void setIntent(Intent intent) {
-        if (this.ED != null) {
-            this.ED.setIntent(intent);
+        if (this.ER != null) {
+            this.ER.setIntent(intent);
         } else {
             super.setIntent(intent);
         }
@@ -1312,8 +1341,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void setRequestedOrientation(int i) {
-        if (this.ED != null) {
-            this.ED.setRequestedOrientation(i);
+        if (this.ER != null) {
+            this.ER.setRequestedOrientation(i);
         } else {
             super.setRequestedOrientation(i);
         }
@@ -1321,13 +1350,13 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources.Theme getTheme() {
-        return this.ED != null ? this.ED.getTheme() : super.getTheme();
+        return this.ER != null ? this.ER.getTheme() : super.getTheme();
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public void setTheme(int i) {
-        if (this.ED != null) {
-            this.ED.setTheme(i);
+        if (this.ER != null) {
+            this.ER.setTheme(i);
         } else {
             super.setTheme(i);
         }
@@ -1335,8 +1364,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void setTitle(int i) {
-        if (this.ED != null) {
-            this.ED.setTitle(i);
+        if (this.ER != null) {
+            this.ER.setTitle(i);
         } else {
             super.setTitle(i);
         }
@@ -1344,8 +1373,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void setTitle(CharSequence charSequence) {
-        if (this.ED != null) {
-            this.ED.setTitle(charSequence);
+        if (this.ER != null) {
+            this.ER.setTitle(charSequence);
         } else {
             super.setTitle(charSequence);
         }
@@ -1353,8 +1382,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void setTitleColor(int i) {
-        if (this.ED != null) {
-            this.ED.setTitleColor(i);
+        if (this.ER != null) {
+            this.ER.setTitleColor(i);
         } else {
             super.setTitleColor(i);
         }
@@ -1362,8 +1391,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void setVisible(boolean z) {
-        if (this.ED != null) {
-            this.ED.setVisible(z);
+        if (this.ER != null) {
+            this.ER.setVisible(z);
         } else {
             super.setVisible(z);
         }
@@ -1371,8 +1400,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startActivity(Intent intent) {
-        if (this.ED != null) {
-            this.ED.startActivity(intent);
+        if (this.ER != null) {
+            this.ER.startActivity(intent);
         } else {
             super.startActivity(intent);
         }
@@ -1380,8 +1409,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void startActivityForResult(Intent intent, int i) {
-        if (this.ED != null) {
-            this.ED.startActivityForResult(intent, i);
+        if (this.ER != null) {
+            this.ER.startActivityForResult(intent, i);
         } else {
             super.startActivityForResult(intent, i);
         }
@@ -1389,8 +1418,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void startActivityFromChild(Activity activity, Intent intent, int i) {
-        if (this.ED != null) {
-            this.ED.startActivityFromChild(activity, intent, i);
+        if (this.ER != null) {
+            this.ER.startActivityFromChild(activity, intent, i);
         } else {
             super.startActivityFromChild(activity, intent, i);
         }
@@ -1398,13 +1427,13 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public boolean startActivityIfNeeded(Intent intent, int i) {
-        return this.ED != null ? this.ED.startActivityIfNeeded(intent, i) : super.startActivityIfNeeded(intent, i);
+        return this.ER != null ? this.ER.startActivityIfNeeded(intent, i) : super.startActivityIfNeeded(intent, i);
     }
 
     @Override // android.app.Activity, android.content.ContextWrapper, android.content.Context
     public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
-        if (this.ED != null) {
-            this.ED.startIntentSender(intentSender, intent, i, i2, i3);
+        if (this.ER != null) {
+            this.ER.startIntentSender(intentSender, intent, i, i2, i3);
         } else {
             super.startIntentSender(intentSender, intent, i, i2, i3);
         }
@@ -1412,8 +1441,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void startIntentSenderForResult(IntentSender intentSender, int i, Intent intent, int i2, int i3, int i4) {
-        if (this.ED != null) {
-            this.ED.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
+        if (this.ER != null) {
+            this.ER.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
         } else {
             super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
         }
@@ -1421,8 +1450,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void startManagingCursor(Cursor cursor) {
-        if (this.ED != null) {
-            this.ED.startManagingCursor(cursor);
+        if (this.ER != null) {
+            this.ER.startManagingCursor(cursor);
         } else {
             super.startManagingCursor(cursor);
         }
@@ -1430,14 +1459,14 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public boolean startNextMatchingActivity(Intent intent) {
-        c cVar = this.ED;
+        c cVar = this.ER;
         return cVar != null ? cVar.startNextMatchingActivity(intent) : super.startNextMatchingActivity(intent);
     }
 
     @Override // android.app.Activity
     public void startSearch(String str, boolean z, Bundle bundle, boolean z2) {
-        if (this.ED != null) {
-            this.ED.startSearch(str, z, bundle, z2);
+        if (this.ER != null) {
+            this.ER.startSearch(str, z, bundle, z2);
         } else {
             super.startSearch(str, z, bundle, z2);
         }
@@ -1445,13 +1474,13 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.content.ContextWrapper, android.content.Context
     public ComponentName startService(Intent intent) {
-        return this.ED != null ? this.ED.startService(intent) : super.startService(intent);
+        return this.ER != null ? this.ER.startService(intent) : super.startService(intent);
     }
 
     @Override // android.app.Activity
     public void stopManagingCursor(Cursor cursor) {
-        if (this.ED != null) {
-            this.ED.stopManagingCursor(cursor);
+        if (this.ER != null) {
+            this.ER.stopManagingCursor(cursor);
         } else {
             super.stopManagingCursor(cursor);
         }
@@ -1459,13 +1488,13 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.content.ContextWrapper, android.content.Context
     public boolean stopService(Intent intent) {
-        return this.ED != null ? this.ED.stopService(intent) : super.stopService(intent);
+        return this.ER != null ? this.ER.stopService(intent) : super.stopService(intent);
     }
 
     @Override // android.app.Activity
     public void takeKeyEvents(boolean z) {
-        if (this.ED != null) {
-            this.ED.takeKeyEvents(z);
+        if (this.ER != null) {
+            this.ER.takeKeyEvents(z);
         } else {
             super.takeKeyEvents(z);
         }
@@ -1473,8 +1502,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.app.Activity
     public void unregisterForContextMenu(View view) {
-        if (this.ED != null) {
-            this.ED.unregisterForContextMenu(view);
+        if (this.ER != null) {
+            this.ER.unregisterForContextMenu(view);
         } else {
             super.unregisterForContextMenu(view);
         }
@@ -1491,8 +1520,8 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public c kF() {
-        return this.ED;
+    public c kG() {
+        return this.ER;
     }
 
     @Override // com.baidu.adp.plugin.a.a
@@ -1502,11 +1531,57 @@ public class ActivityProxy extends MAActivity implements com.baidu.adp.plugin.a.
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Context getApplicationContext() {
-        return this.ED != null ? this.ED.getApplicationContext() : super.getApplicationContext();
+        return this.ER != null ? this.ER.getApplicationContext() : super.getApplicationContext();
     }
 
     @Override // com.baidu.adp.plugin.a.a
-    public Context kJ() {
+    public Context kK() {
         return super.getApplicationContext();
+    }
+
+    @Override // com.baidu.adp.base.k
+    public BdUniqueId getUniqueId() {
+        if (this.ER != null) {
+            return this.ER.getUniqueId();
+        }
+        return null;
+    }
+
+    @Override // com.baidu.adp.base.k
+    public boolean isScroll() {
+        if (this.ER != null) {
+            return this.ER.isScroll();
+        }
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.k
+    public void setIsScroll(boolean z) {
+        if (this.ER != null) {
+            this.ER.setIsScroll(z);
+        }
+    }
+
+    @Override // com.baidu.adp.base.k
+    public void onPreLoad(BdListView bdListView) {
+        if (this.ER != null) {
+            this.ER.onPreLoad(bdListView);
+        }
+    }
+
+    @Override // android.os.Handler.Callback
+    public boolean handleMessage(Message message) {
+        if (this.ER != null) {
+            return this.ER.handleMessage(message);
+        }
+        return false;
+    }
+
+    @Override // com.baidu.adp.base.i
+    public h getPageContext() {
+        if (this.ER == null || !(this.ER instanceof i)) {
+            return null;
+        }
+        return this.ER.getPageContext();
     }
 }

@@ -1,40 +1,27 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.util.SparseArray;
-import com.baidu.tieba.i;
-import com.baidu.tieba.usermute.i;
-import tbclient.UserMuteCheck.DataRes;
+import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
+import com.baidu.tieba.usermute.data.MuteUser;
+import com.baidu.tieba.usermute.response.UserMuteAddResponseMessage;
 /* loaded from: classes.dex */
-class h implements i.a {
-    final /* synthetic */ PbActivity cjN;
+class h implements UserMuteAddAndDelModel.a {
+    final /* synthetic */ PbActivity cCm;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(PbActivity pbActivity) {
-        this.cjN = pbActivity;
+        this.cCm = pbActivity;
     }
 
-    @Override // com.baidu.tieba.usermute.i.a
-    public void a(DataRes dataRes, int i, String str, Object obj) {
-        ct ctVar;
-        boolean z;
-        ct ctVar2;
-        ctVar = this.cjN.cjo;
-        ctVar.ahu();
-        SparseArray<Object> sparseArray = (SparseArray) obj;
-        if (i == 0 && dataRes != null) {
-            boolean z2 = com.baidu.adp.lib.g.b.g(dataRes.is_mute, 0) == 1;
-            sparseArray.put(i.f.tag_display_reply_visible, true);
-            z = z2;
-        } else {
-            sparseArray.put(i.f.tag_display_reply_visible, false);
-            z = false;
-        }
-        int intValue = ((Integer) sparseArray.get(i.f.tag_from)).intValue();
-        if (intValue == 0) {
-            this.cjN.a(z, sparseArray);
-        } else if (intValue == 1) {
-            ctVar2 = this.cjN.cjo;
-            ctVar2.a(sparseArray, z);
+    @Override // com.baidu.tieba.usermute.UserMuteAddAndDelModel.a
+    public void a(UserMuteAddResponseMessage userMuteAddResponseMessage) {
+        cc ccVar;
+        String str = (String) userMuteAddResponseMessage.getOrginalMessage().getExtra();
+        ccVar = this.cCm.cBG;
+        com.baidu.tieba.pb.a.c pbData = ccVar.getPbData();
+        if (pbData != null) {
+            MuteUser muteUser = new MuteUser();
+            muteUser.setUserId(str);
+            pbData.ajF().add(muteUser);
         }
     }
 }

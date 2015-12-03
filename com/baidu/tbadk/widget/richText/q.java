@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbListTextView;
 /* loaded from: classes.dex */
-class q implements com.baidu.adp.lib.e.c<TextView> {
+class q implements com.baidu.adp.lib.f.c<TextView> {
     private final /* synthetic */ Context val$context;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -14,14 +14,14 @@ class q implements com.baidu.adp.lib.e.c<TextView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
-    /* renamed from: Fm */
-    public TextView ha() {
+    @Override // com.baidu.adp.lib.f.c
+    /* renamed from: Gr */
+    public TextView hc() {
         return new TbListTextView(this.val$context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
+    @Override // com.baidu.adp.lib.f.c
     /* renamed from: d */
     public void l(TextView textView) {
         textView.setText((CharSequence) null);
@@ -40,14 +40,14 @@ class q implements com.baidu.adp.lib.e.c<TextView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
+    @Override // com.baidu.adp.lib.f.c
     /* renamed from: e */
     public TextView m(TextView textView) {
         return textView;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.e.c
+    @Override // com.baidu.adp.lib.f.c
     /* renamed from: f */
     public TextView n(TextView textView) {
         textView.setText((CharSequence) null);

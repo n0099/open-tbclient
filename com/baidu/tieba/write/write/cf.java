@@ -11,21 +11,21 @@ import android.widget.ScrollView;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class cf extends PopupWindow {
-    private int aru;
+    private int atv;
     private LinearLayout container;
     private Context context;
     private int count;
-    private a dsG;
+    private a dRL;
     private int maxHeight;
 
     /* loaded from: classes.dex */
     public interface a {
-        void mg(int i);
+        void ns(int i);
     }
 
     public cf(Context context) {
         super(context);
-        this.aru = -1;
+        this.atv = -1;
         this.context = context;
         init(context);
     }
@@ -67,7 +67,7 @@ public class cf extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.dsG));
+        view.setOnClickListener(new b(this.count, this.dRL));
         this.container.addView(view);
         this.count++;
     }
@@ -76,32 +76,32 @@ public class cf extends PopupWindow {
         this.maxHeight = i;
     }
 
-    public void lZ(int i) {
-        if (this.aru != -1) {
-            this.container.getChildAt(this.aru).setSelected(false);
+    public void nl(int i) {
+        if (this.atv != -1) {
+            this.container.getChildAt(this.atv).setSelected(false);
         }
-        this.aru = i;
-        this.container.getChildAt(this.aru).setSelected(true);
+        this.atv = i;
+        this.container.getChildAt(this.atv).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.dsG = aVar;
+        this.dRL = aVar;
     }
 
     /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a dsH;
+        private a dRM;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.dsH = aVar;
+            this.dRM = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.dsH != null) {
-                this.dsH.mg(this.position);
+            if (this.dRM != null) {
+                this.dRM.ns(this.position);
             }
         }
     }

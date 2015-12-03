@@ -7,35 +7,35 @@ import android.widget.TextView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class aq implements View.OnClickListener {
-    final /* synthetic */ WriteActivity dsa;
+    final /* synthetic */ WriteActivity dRf;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public aq(WriteActivity writeActivity) {
-        this.dsa = writeActivity;
+        this.dRf = writeActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TextView textView;
         cf cfVar;
-        com.baidu.tbadk.editortools.j jVar;
+        com.baidu.tbadk.editortools.k kVar;
         InputMethodManager inputMethodManager;
-        EditText aEn;
+        EditText aJK;
         InputMethodManager inputMethodManager2;
-        EditText aEm;
-        textView = this.dsa.don;
+        EditText aJJ;
+        textView = this.dRf.dNt;
         textView.setSelected(true);
-        cfVar = this.dsa.doo;
-        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(cfVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.dsa.getPageContext().getPageActivity(), 1.0f));
-        jVar = this.dsa.drr;
-        jVar.zc();
-        WriteActivity writeActivity = this.dsa;
-        inputMethodManager = this.dsa.mInputManager;
-        aEn = this.dsa.aEn();
-        writeActivity.HidenSoftKeyPad(inputMethodManager, aEn);
-        WriteActivity writeActivity2 = this.dsa;
-        inputMethodManager2 = this.dsa.mInputManager;
-        aEm = this.dsa.aEm();
-        writeActivity2.HidenSoftKeyPad(inputMethodManager2, aEm);
+        cfVar = this.dRf.dNu;
+        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(cfVar, view, 0, com.baidu.adp.lib.util.k.dip2px(this.dRf.getPageContext().getPageActivity(), 1.0f));
+        kVar = this.dRf.aqK;
+        kVar.zY();
+        WriteActivity writeActivity = this.dRf;
+        inputMethodManager = this.dRf.mInputManager;
+        aJK = this.dRf.aJK();
+        writeActivity.HidenSoftKeyPad(inputMethodManager, aJK);
+        WriteActivity writeActivity2 = this.dRf;
+        inputMethodManager2 = this.dRf.mInputManager;
+        aJJ = this.dRf.aJJ();
+        writeActivity2.HidenSoftKeyPad(inputMethodManager2, aJJ);
     }
 }

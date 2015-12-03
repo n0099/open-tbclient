@@ -1,22 +1,53 @@
 package com.baidu.tbadk.core.data;
-
-import com.baidu.adp.BdUniqueId;
-import java.util.List;
 /* loaded from: classes.dex */
-public class p extends w {
-    public static final BdUniqueId Vc = BdUniqueId.gen();
-    private List<PhotoLiveCardData> Vd;
+public class p {
+    private String VA;
+    private long Vz;
+    private String content;
+    private String link;
+    private String stat;
+    private long taskId;
 
-    public List<PhotoLiveCardData> rM() {
-        return this.Vd;
+    public p() {
+        this.Vz = -1L;
+        this.link = null;
+        this.content = null;
+        this.VA = null;
+        this.stat = "";
+        this.taskId = -1L;
     }
 
-    public void j(List<PhotoLiveCardData> list) {
-        this.Vd = list;
+    public p(long j, long j2, String str, String str2, String str3) {
+        this.Vz = -1L;
+        this.link = null;
+        this.content = null;
+        this.VA = null;
+        this.stat = "";
+        this.taskId = -1L;
+        this.Vz = j;
+        this.taskId = j2;
+        this.link = str;
+        this.content = str2;
+        this.stat = str3;
     }
 
-    @Override // com.baidu.tbadk.core.data.w, com.baidu.adp.widget.ListView.u
-    public BdUniqueId getType() {
-        return Vc;
+    public String getStat() {
+        return this.stat;
+    }
+
+    public long sa() {
+        return this.Vz;
+    }
+
+    public long getTaskId() {
+        return this.taskId;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public String getContent() {
+        return this.content;
     }
 }

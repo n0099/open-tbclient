@@ -2,19 +2,27 @@ package com.baidu.tbadk.browser;
 
 import android.content.Intent;
 import android.text.TextUtils;
+import android.webkit.JsPromptResult;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class XiubaTbJsBridge {
+public class XiubaTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
+    private static final String INTERFACE_NAME = "XiubaJSBridge";
+    private static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
+    private static final String METHOD_DOWNLOAD_APK = "downLoadAPK";
     private static final String XIUBA_PACKAGE = "com.xiu8.baidu.activity";
+    private static final int XIUBA_VERSION_FIRST = 3;
+    private static final int XIUBA_VERSION_SECOND = 2;
     private final TbPageContext<?> mTbPageContext;
     private final CustomMessageListener installListener = new s(this, CmdConfigCustom.CMD_PACKAGE_ADDED);
     private final CustomMessageListener downloadListener = new t(this, CmdConfigCustom.CMD_FILE_DOWNLOAD);
@@ -25,7 +33,7 @@ public class XiubaTbJsBridge {
         this.mTbPageContext.registerListener(this.installListener);
     }
 
-    public JSONObject checkAPKInstall(String str, long j, String str2) {
+    private JSONObject checkAPKInstall(String str, long j, String str2) {
         if (str == null || str2 == null) {
             return null;
         }
@@ -41,8 +49,13 @@ public class XiubaTbJsBridge {
         jSResultData.setResult(result);
         String installApkVersionName = UtilHelper.getInstallApkVersionName(TbadkCoreApplication.m411getInst(), str);
         if (installApkVersionName != null) {
-            result.setIsInstall(1);
-            result.setApkVersion(installApkVersionName);
+            if (isInstall(installApkVersionName)) {
+                result.setIsInstall(1);
+                result.setApkVersion(installApkVersionName);
+            } else {
+                result.setIsInstall(0);
+                result.setApkVersion("");
+            }
         } else {
             result.setIsInstall(0);
             result.setApkVersion("");
@@ -50,7 +63,19 @@ public class XiubaTbJsBridge {
         return com.baidu.adp.lib.a.b.a.a.i.jsonWithObject(jSResultData);
     }
 
-    public String downLoadAPK(String str, long j, String str2) {
+    private boolean isInstall(String str) {
+        String[] split;
+        if (StringUtils.isNull(str) || (split = str.split("\\.")) == null || split.length == 0) {
+            return false;
+        }
+        int g = com.baidu.adp.lib.h.b.g(split[0], 0);
+        if (g > 3) {
+            return true;
+        }
+        return split.length >= 2 && g == 3 && com.baidu.adp.lib.h.b.g(split[1], 0) >= 2;
+    }
+
+    private String downLoadAPK(String str, long j, String str2) {
         if (str == null || str2 == null) {
             return null;
         }
@@ -67,7 +92,7 @@ public class XiubaTbJsBridge {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Ap().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m411getInst().getResources().getString(i.h.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.Bm().a(XIUBA_PACKAGE, str, TbadkCoreApplication.m411getInst().getResources().getString(n.i.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -111,7 +136,7 @@ public class XiubaTbJsBridge {
         return dataString;
     }
 
-    public static String md5(String str) {
+    private static String md5(String str) {
         String str2 = null;
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
@@ -140,5 +165,30 @@ public class XiubaTbJsBridge {
             e.printStackTrace();
             return str2;
         }
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.e.b
+    public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        if (INTERFACE_NAME.equals(str)) {
+            if (METHOD_CHECK_APK_INSTALL.equals(str2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str3);
+                    String optString = jSONObject.optString(SapiUtils.KEY_QR_LOGIN_SIGN);
+                    jsPromptResult.confirm(checkAPKInstall(jSONObject.optString("apkName"), jSONObject.optLong("tk"), optString).toString());
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else if (METHOD_DOWNLOAD_APK.equals(str2)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(str3);
+                    jsPromptResult.confirm(downLoadAPK(jSONObject2.optString("url"), jSONObject2.optLong("tk"), jSONObject2.optString(SapiUtils.KEY_QR_LOGIN_SIGN)));
+                    return true;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+        return false;
     }
 }

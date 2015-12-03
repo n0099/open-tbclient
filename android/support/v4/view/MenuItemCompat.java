@@ -155,6 +155,15 @@ public class MenuItemCompat {
         @Override // android.support.v4.view.MenuItemCompat.HoneycombMenuVersionImpl, android.support.v4.view.MenuItemCompat.MenuVersionImpl
         public MenuItem setOnActionExpandListener(MenuItem menuItem, final OnActionExpandListener onActionExpandListener) {
             return onActionExpandListener == null ? MenuItemCompatIcs.setOnActionExpandListener(menuItem, null) : MenuItemCompatIcs.setOnActionExpandListener(menuItem, new MenuItemCompatIcs.SupportActionExpandProxy() { // from class: android.support.v4.view.MenuItemCompat.IcsMenuVersionImpl.1
+                @Override // android.support.v4.view.MenuItemCompatIcs.SupportActionExpandProxy
+                public boolean onMenuItemActionExpand(MenuItem menuItem2) {
+                    return onActionExpandListener.onMenuItemActionExpand(menuItem2);
+                }
+
+                @Override // android.support.v4.view.MenuItemCompatIcs.SupportActionExpandProxy
+                public boolean onMenuItemActionCollapse(MenuItem menuItem2) {
+                    return onActionExpandListener.onMenuItemActionCollapse(menuItem2);
+                }
             });
         }
     }

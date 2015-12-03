@@ -24,6 +24,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private String category_name;
     private String category_name_sim;
     private CodeInfo codeInfo;
+    private boolean currentStatusUpSuccess;
     private int day_downloads;
     private long deadline;
     private long downloadTime;
@@ -57,6 +58,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     private int server_type;
     private int star;
     private String superscript_color;
+    private int upStatus;
     private String version;
     private String ref_id = "5000901";
     private String ref_type = "606";
@@ -155,7 +157,7 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
     }
 
     public void setPackageSize(String str) {
-        this.package_size = fk(str);
+        this.package_size = fz(str);
     }
 
     public String getGameLink() {
@@ -324,6 +326,22 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
 
     public void setGamestatus(int i) {
         this.game_status = i;
+    }
+
+    public int getUpStatus() {
+        return this.upStatus;
+    }
+
+    public void setUpStatus(int i) {
+        this.upStatus = i;
+    }
+
+    public boolean isCurrentStatusUpSuccess() {
+        return this.currentStatusUpSuccess;
+    }
+
+    public void setCurrentStatusUpSuccess(boolean z) {
+        this.currentStatusUpSuccess = z;
     }
 
     public static GameInfoData fromGameInfo(GameInfo gameInfo) {
@@ -508,8 +526,8 @@ public class GameInfoData implements com.baidu.tbadk.mvc.b.a, Serializable {
         this.app_id = str;
     }
 
-    private String fk(String str) {
-        return String.format("%.1f", Float.valueOf(com.baidu.adp.lib.g.b.a(str, 0.0f)));
+    private String fz(String str) {
+        return String.format("%.1f", Float.valueOf(com.baidu.adp.lib.h.b.a(str, 0.0f)));
     }
 
     public String getIconPic1() {

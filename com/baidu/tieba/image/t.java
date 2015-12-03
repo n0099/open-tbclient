@@ -21,14 +21,14 @@ class t implements ViewPager.OnPageChangeListener {
         j jVar;
         j jVar2;
         int i2;
-        boolean aaB;
+        boolean aeh;
         a aVar;
-        z = this.this$0.bQh;
+        z = this.this$0.cgu;
         if (!z) {
-            jVar = this.this$0.bQb;
-            if (jVar != null && i > this.this$0.bPZ.getItemNum() - 5) {
-                jVar2 = this.this$0.bQb;
-                jVar2.aau();
+            jVar = this.this$0.cgo;
+            if (jVar != null && i > this.this$0.cgm.getItemNum() - 5) {
+                jVar2 = this.this$0.cgo;
+                jVar2.aea();
             }
         } else {
             Intent intent = new Intent(TbConfig.getBroadcastActionPageChanged());
@@ -37,14 +37,14 @@ class t implements ViewPager.OnPageChangeListener {
         }
         ImageViewerActivity imageViewerActivity = this.this$0;
         i2 = this.this$0.mIndex;
-        imageViewerActivity.af(i2, i);
+        imageViewerActivity.ah(i2, i);
         this.this$0.mIndex = i;
-        this.this$0.aaA();
-        this.this$0.aaG();
-        aaB = this.this$0.aaB();
-        if (aaB) {
-            aVar = this.this$0.bQj;
-            aVar.aah();
+        this.this$0.aeg();
+        this.this$0.aem();
+        aeh = this.this$0.aeh();
+        if (aeh) {
+            aVar = this.this$0.cgw;
+            aVar.adN();
         }
     }
 
@@ -60,12 +60,12 @@ class t implements ViewPager.OnPageChangeListener {
         int i3;
         if (i == 1) {
             long nanoTime = System.nanoTime();
-            j = this.this$0.bQc;
-            if (nanoTime - j > 300000000 && this.this$0.bPS != null) {
+            j = this.this$0.cgp;
+            if (nanoTime - j > 300000000 && this.this$0.cgf != null) {
                 i2 = this.this$0.mIndex;
-                if (i2 < this.this$0.bPS.size()) {
-                    hashMap = this.this$0.bQd;
-                    ArrayList arrayList = this.this$0.bPS;
+                if (i2 < this.this$0.cgf.size()) {
+                    hashMap = this.this$0.cgq;
+                    ArrayList arrayList = this.this$0.cgf;
                     i3 = this.this$0.mIndex;
                     hashMap.put((String) arrayList.get(i3), true);
                 }

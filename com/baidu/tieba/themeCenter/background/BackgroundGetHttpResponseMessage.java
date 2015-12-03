@@ -28,6 +28,8 @@ public class BackgroundGetHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mBgItem.setFreeUserLevel(getBackgroundResIdl.data.free_user_level.intValue());
                 this.mBgItem.setPermissionImgUrl(getBackgroundResIdl.data.permission);
                 this.mBgItem.setPropsStateImg(getBackgroundResIdl.data.props_state_img);
+                this.mBgItem.setActivityFinish(getBackgroundResIdl.data.is_finished.intValue());
+                this.mBgItem.setActivityUrl(getBackgroundResIdl.data.activity_url);
             }
         }
     }

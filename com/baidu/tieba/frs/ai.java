@@ -1,23 +1,22 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.tbadk.core.dialog.a;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ai extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aUS;
+public class ai implements a.b {
+    final /* synthetic */ FrsActivity bag;
+    private final /* synthetic */ com.baidu.tieba.frs.view.p ban;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ai(FrsActivity frsActivity, int i) {
-        super(i);
-        this.aUS = frsActivity;
+    public ai(FrsActivity frsActivity, com.baidu.tieba.frs.view.p pVar) {
+        this.bag = frsActivity;
+        this.ban = pVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.tbadkCore.x)) {
-            this.aUS.b((com.baidu.tieba.tbadkCore.x) customResponsedMessage.getData());
-        }
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.bag.HidenSoftKeyPad((InputMethodManager) this.bag.getSystemService("input_method"), this.ban.getChatMsgView());
+        aVar.dismiss();
     }
 }

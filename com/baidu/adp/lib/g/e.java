@@ -1,19 +1,20 @@
 package com.baidu.adp.lib.g;
 
-import android.view.animation.Animation;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
-class e implements Runnable {
-    final /* synthetic */ d vQ;
-    private final /* synthetic */ Animation vR;
+public interface e<T> {
+    T a(String str, String str2, int i, int i2, BdAsyncTask<?, ?, ?> bdAsyncTask, a aVar, Object... objArr);
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(d dVar, Animation animation) {
-        this.vQ = dVar;
-        this.vR = animation;
-    }
+    T a(String str, String str2, a aVar, Object... objArr);
 
-    @Override // java.lang.Runnable
-    public void run() {
-        this.vQ.a(this.vR);
-    }
+    void a(String str, Object obj, Object... objArr);
+
+    T c(String str, String str2, Object... objArr);
+
+    boolean hg();
+
+    BdAsyncTaskParallel hh();
+
+    int hi();
 }

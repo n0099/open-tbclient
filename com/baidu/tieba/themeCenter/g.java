@@ -8,23 +8,23 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class g implements a.b {
-    final /* synthetic */ d dgm;
-    private final /* synthetic */ b dgn;
+    final /* synthetic */ d dDT;
+    private final /* synthetic */ b dDU;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(d dVar, b bVar) {
-        this.dgm = dVar;
-        this.dgn = bVar;
+        this.dDT = dVar;
+        this.dDU = bVar;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         com.baidu.tbadk.core.dialog.a aVar2;
-        aVar2 = this.dgm.Lv;
+        aVar2 = this.dDT.LN;
         aVar2.dismiss();
-        if (this.dgn != null) {
+        if (this.dDU != null) {
             TbadkCoreApplication.m411getInst().setSkinType(0);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_DELETE_SKINT_DATA_FROM_DB, this.dgn));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_DELETE_SKINT_DATA_FROM_DB, this.dDU));
         }
     }
 }

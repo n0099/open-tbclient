@@ -5,15 +5,15 @@ import com.baidu.tieba.im.memorycache.a;
 import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class m implements a.InterfaceC0059a {
-    final /* synthetic */ b bEd;
+public class m implements a.InterfaceC0067a {
+    final /* synthetic */ b bTj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(b bVar) {
-        this.bEd = bVar;
+        this.bTj = bVar;
     }
 
-    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0059a
+    @Override // com.baidu.tieba.im.memorycache.a.InterfaceC0067a
     public void a(Iterator<ImMessageCenterPojo> it) {
         while (it.hasNext()) {
             ImMessageCenterPojo next = it.next();

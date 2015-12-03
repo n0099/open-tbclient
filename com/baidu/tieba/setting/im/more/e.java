@@ -3,16 +3,16 @@ package com.baidu.tieba.setting.im.more;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 class e extends com.baidu.adp.framework.listener.a {
-    final /* synthetic */ SecretSettingActivity cMS;
+    final /* synthetic */ SecretSettingActivity dlj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e(SecretSettingActivity secretSettingActivity, int i, int i2) {
         super(i, i2);
-        this.cMS = secretSettingActivity;
+        this.dlj = secretSettingActivity;
     }
 
     @Override // com.baidu.adp.framework.listener.a
@@ -24,11 +24,11 @@ class e extends com.baidu.adp.framework.listener.a {
         a aVar3;
         a aVar4;
         a aVar5;
-        this.cMS.hideProgressBar();
+        this.dlj.hideProgressBar();
         if (responsedMessage != null) {
-            this.cMS.cMH = true;
+            this.dlj.dkY = true;
             if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                this.cMS.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.cMS.getResources().getString(i.h.neterror) : responsedMessage.getErrorString());
+                this.dlj.showToast(StringUtils.isNull(responsedMessage.getErrorString()) ? this.dlj.getResources().getString(n.i.neterror) : responsedMessage.getErrorString());
                 return;
             }
             a aVar6 = null;
@@ -39,21 +39,21 @@ class e extends com.baidu.adp.framework.listener.a {
                 aVar6 = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
             }
             if (aVar6 != null) {
-                aVar = this.cMS.cMG;
+                aVar = this.dlj.dkX;
                 aVar.a(aVar6);
-                aVar2 = this.cMS.cMG;
-                aVar2.arx();
-                iVar = this.cMS.cMF;
-                iVar.fV(true);
-                iVar2 = this.cMS.cMF;
-                aVar3 = this.cMS.cMG;
+                aVar2 = this.dlj.dkX;
+                aVar2.awV();
+                iVar = this.dlj.dkW;
+                iVar.gL(true);
+                iVar2 = this.dlj.dkW;
+                aVar3 = this.dlj.dkX;
                 iVar2.c(aVar3);
-                SecretSettingActivity secretSettingActivity = this.cMS;
-                aVar4 = this.cMS.cMG;
+                SecretSettingActivity secretSettingActivity = this.dlj;
+                aVar4 = this.dlj.dkX;
                 secretSettingActivity.b(aVar4);
                 TbadkCoreApplication m411getInst = TbadkCoreApplication.m411getInst();
-                aVar5 = this.cMS.cMG;
-                m411getInst.setLocationShared(aVar5.arz());
+                aVar5 = this.dlj.dkX;
+                m411getInst.setLocationShared(aVar5.awX());
             }
         }
     }

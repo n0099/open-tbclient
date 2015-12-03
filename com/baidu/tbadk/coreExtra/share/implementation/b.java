@@ -3,22 +3,22 @@ package com.baidu.tbadk.coreExtra.share.implementation;
 import com.baidu.tbadk.coreExtra.share.f;
 import com.baidu.tbadk.coreExtra.share.implementation.a;
 /* loaded from: classes.dex */
-class b implements a.InterfaceC0043a {
-    final /* synthetic */ a.c ajn;
+class b implements a.InterfaceC0045a {
+    final /* synthetic */ a.c alb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a.c cVar) {
-        this.ajn = cVar;
+        this.alb = cVar;
     }
 
-    @Override // com.baidu.tbadk.coreExtra.share.implementation.a.InterfaceC0043a
+    @Override // com.baidu.tbadk.coreExtra.share.implementation.a.InterfaceC0045a
     public void onSuccess() {
         a aVar;
         f fVar;
         int i;
         aVar = a.this;
-        fVar = this.ajn.ajk;
-        i = this.ajn.ajl;
+        fVar = this.alb.akY;
+        i = this.alb.akZ;
         aVar.a(fVar, i, false);
     }
 }

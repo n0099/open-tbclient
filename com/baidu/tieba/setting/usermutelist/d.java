@@ -1,27 +1,27 @@
 package com.baidu.tieba.setting.usermutelist;
 
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import com.baidu.tieba.setting.usermutelist.h;
 import com.baidu.tieba.usermute.UserMuteAddAndDelModel;
 /* loaded from: classes.dex */
 class d implements h.b {
-    final /* synthetic */ UserMuteListActivity cQC;
+    final /* synthetic */ UserMuteListActivity doY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(UserMuteListActivity userMuteListActivity) {
-        this.cQC = userMuteListActivity;
+        this.doY = userMuteListActivity;
     }
 
     @Override // com.baidu.tieba.setting.usermutelist.h.b
-    public void g(long j, String str) {
+    public void j(long j, String str) {
         UserMuteAddAndDelModel userMuteAddAndDelModel;
-        if (!com.baidu.adp.lib.util.i.iN()) {
-            this.cQC.showToast(i.h.neterror);
+        if (!com.baidu.adp.lib.util.i.iP()) {
+            this.doY.showToast(n.i.neterror);
             return;
         }
         TiebaStatic.log("c10047");
-        userMuteAddAndDelModel = this.cQC.cjm;
+        userMuteAddAndDelModel = this.doY.cBJ;
         userMuteAddAndDelModel.a(true, new StringBuilder(String.valueOf(j)).toString(), str, null, null, UserMuteAddAndDelModel.From.Setting);
     }
 }

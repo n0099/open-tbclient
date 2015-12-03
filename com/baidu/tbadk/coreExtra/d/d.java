@@ -6,24 +6,26 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.f;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.data.WhiteListData;
-import com.baidu.tbadk.coreExtra.data.h;
-import com.baidu.tbadk.coreExtra.data.m;
+import com.baidu.tbadk.coreExtra.data.f;
+import com.baidu.tbadk.coreExtra.data.g;
+import com.baidu.tbadk.coreExtra.data.j;
+import com.baidu.tbadk.coreExtra.data.o;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
     private String mConfigVersion;
     private int mFaceShopVersion;
-    private int ahH = 0;
-    private VersionData ahB = new VersionData();
-    private com.baidu.tbadk.coreExtra.data.d ahC = new com.baidu.tbadk.coreExtra.data.d();
-    private com.baidu.tbadk.coreExtra.data.e ahD = new com.baidu.tbadk.coreExtra.data.e();
-    private CombineDownload ahE = new CombineDownload();
-    private h ahF = new h();
-    private m ahG = new m();
+    private int ajt = 0;
+    private VersionData ajn = new VersionData();
+    private com.baidu.tbadk.coreExtra.data.e ajo = new com.baidu.tbadk.coreExtra.data.e();
+    private f ajp = new f();
+    private CombineDownload ajq = new CombineDownload();
+    private j ajr = new j();
+    private o ajs = new o();
+    private g aju = new g();
 
     public void parserJson(String str) {
         try {
@@ -36,15 +38,17 @@ public class d {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.ahB.parserJson(jSONObject.optJSONObject("version"));
-                this.ahC.parserJson(jSONObject.optJSONObject("client"));
-                f.setIp(jSONObject.optString("client_ip", null));
-                this.ahD.parserJson(jSONObject.optJSONObject("config"));
-                this.ahG.parserJson(jSONObject.optJSONObject("wl_config"));
+                this.ajn.parserJson(jSONObject.optJSONObject("version"));
+                this.ajo.parserJson(jSONObject.optJSONObject("client"));
+                com.baidu.tbadk.core.util.f.setIp(jSONObject.optString("client_ip", null));
+                this.ajp.parserJson(jSONObject.optJSONObject("config"));
+                this.ajs.parserJson(jSONObject.optJSONObject("wl_config"));
+                this.aju.parserJson(jSONObject.optJSONObject("consume_path"));
+                TbadkCoreApplication.m411getInst().setConsumePathData(this.aju);
                 this.mConfigVersion = jSONObject.optString("config_version");
-                this.ahE.parserJson(jSONObject.optJSONObject("combine_download"));
-                this.ahF.parserJson(jSONObject.optJSONObject("mainbar"));
-                this.ahH = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
+                this.ajq.parserJson(jSONObject.optJSONObject("combine_download"));
+                this.ajr.parserJson(jSONObject.optJSONObject("mainbar"));
+                this.ajt = jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.CMD_ADS_EMOTION, jSONObject));
                 this.mFaceShopVersion = jSONObject.optInt("faceshop_version");
                 if (this.mFaceShopVersion > TbadkCoreApplication.m411getInst().getFaceShopVersion()) {
@@ -63,27 +67,27 @@ public class d {
         }
     }
 
-    public com.baidu.tbadk.coreExtra.data.e xL() {
-        return this.ahD;
+    public f yH() {
+        return this.ajp;
     }
 
-    public String xM() {
+    public String yI() {
         return this.mConfigVersion;
     }
 
-    public CombineDownload xN() {
-        return this.ahE;
+    public CombineDownload yJ() {
+        return this.ajq;
     }
 
-    public VersionData xO() {
-        return this.ahB;
+    public VersionData yK() {
+        return this.ajn;
     }
 
-    public com.baidu.tbadk.coreExtra.data.d xP() {
-        return this.ahC;
+    public com.baidu.tbadk.coreExtra.data.e yL() {
+        return this.ajo;
     }
 
-    public m xQ() {
-        return this.ahG;
+    public o yM() {
+        return this.ajs;
     }
 }

@@ -9,15 +9,15 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.i;
 import com.baidu.tieba.im.data.InviteMsgData;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
 public final class Invite2GroupView extends LinearLayout {
-    private TextView alz;
-    private TbImageView bJB;
-    private TextView bJC;
-    private TextView bJD;
-    private InviteMsgData bJE;
+    private TextView agd;
+    private TbImageView bYG;
+    private TextView bYH;
+    private TextView bYI;
+    private InviteMsgData bYJ;
 
     public Invite2GroupView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -30,13 +30,13 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     private void initUI() {
-        LayoutInflater.from(getContext()).inflate(i.g.invite_to_group_view, this);
+        LayoutInflater.from(getContext()).inflate(n.g.invite_to_group_view, this);
         setOrientation(1);
-        this.alz = (TextView) findViewById(i.f.chat_title);
-        this.bJB = (TbImageView) findViewById(i.f.chat_group_img);
-        this.bJC = (TextView) findViewById(i.f.chat_group_desc);
-        this.bJD = (TextView) findViewById(i.f.invite_btn);
-        this.bJB.setIsRound(false);
+        this.agd = (TextView) findViewById(n.f.chat_title);
+        this.bYG = (TbImageView) findViewById(n.f.chat_group_img);
+        this.bYH = (TextView) findViewById(n.f.chat_group_desc);
+        this.bYI = (TextView) findViewById(n.f.invite_btn);
+        this.bYG.setIsRound(false);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup
@@ -45,29 +45,29 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     public void a(TbPageContext<?> tbPageContext, InviteMsgData inviteMsgData) {
-        this.bJE = inviteMsgData;
-        j(tbPageContext);
+        this.bYJ = inviteMsgData;
+        l(tbPageContext);
     }
 
-    private void j(TbPageContext<?> tbPageContext) {
-        this.bJD.setEnabled(true);
-        this.bJD.setTag(String.valueOf(this.bJE.getGroupId()));
-        this.bJD.setText(i.h.i_want_attent);
-        this.bJD.setTextColor(getContext().getResources().getColor(i.c.cp_bg_line_d));
-        this.bJD.setOnClickListener(new a(this));
-        this.alz.setText(this.bJE.getTitle());
-        this.bJB.setTag(this.bJE.getPortrait());
-        this.bJB.d(this.bJE.getPortrait(), 10, false);
-        this.bJC.setText(this.bJE.getNotice());
+    private void l(TbPageContext<?> tbPageContext) {
+        this.bYI.setEnabled(true);
+        this.bYI.setTag(String.valueOf(this.bYJ.getGroupId()));
+        this.bYI.setText(n.i.i_want_attent);
+        this.bYI.setTextColor(getContext().getResources().getColor(n.c.cp_bg_line_d));
+        this.bYI.setOnClickListener(new a(this));
+        this.agd.setText(this.bYJ.getTitle());
+        this.bYG.setTag(this.bYJ.getPortrait());
+        this.bYG.d(this.bYJ.getPortrait(), 10, false);
+        this.bYH.setText(this.bYJ.getNotice());
         setOnClickListener(new b(this, tbPageContext));
-        if (com.baidu.tieba.im.memorycache.b.Wn().J(String.valueOf(this.bJE.getGroupId()), 1) != null) {
-            if (String.valueOf(this.bJE.getGroupId()).equals(this.bJD.getTag())) {
-                this.bJD.setText(i.h.i_want_talk);
-                this.bJD.setOnClickListener(new c(this));
+        if (com.baidu.tieba.im.memorycache.b.Zt().O(String.valueOf(this.bYJ.getGroupId()), 1) != null) {
+            if (String.valueOf(this.bYJ.getGroupId()).equals(this.bYI.getTag())) {
+                this.bYI.setText(n.i.i_want_talk);
+                this.bYI.setOnClickListener(new c(this));
                 return;
             }
             return;
         }
-        com.baidu.tieba.im.settingcache.c.Xx().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.bJE.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this, tbPageContext));
+        com.baidu.tieba.im.settingcache.c.aaD().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.bYJ.getGroupId()), TbConfig.USE_TIME_INTERVAL, new d(this, tbPageContext));
     }
 }

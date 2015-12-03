@@ -1,23 +1,25 @@
 package com.baidu.tieba.tblauncher;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.bj;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class ag extends CustomMessageListener {
-    final /* synthetic */ MainTabActivity this$0;
+public class ag implements View.OnClickListener {
+    final /* synthetic */ w dDs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ag(MainTabActivity mainTabActivity, int i) {
-        super(i);
-        this.this$0 = mainTabActivity;
+    public ag(w wVar) {
+        this.dDs = wVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null) {
-            this.this$0.azt();
-        }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        MainTabActivity mainTabActivity;
+        MainTabActivity mainTabActivity2;
+        mainTabActivity = this.dDs.dDj;
+        TiebaStatic.eventStat(mainTabActivity.getPageContext().getPageActivity(), "notlogin_4", "click", 1, new Object[0]);
+        mainTabActivity2 = this.dDs.dDj;
+        bj.ag(mainTabActivity2.getPageContext().getPageActivity());
     }
 }

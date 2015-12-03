@@ -5,13 +5,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.data.SignData;
 /* loaded from: classes.dex */
 class j extends CustomMessageListener {
-    final /* synthetic */ SignAllForumActivity cRT;
+    final /* synthetic */ SignAllForumActivity dqq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public j(SignAllForumActivity signAllForumActivity, int i) {
         super(i);
-        this.cRT = signAllForumActivity;
+        this.dqq = signAllForumActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,12 +20,12 @@ class j extends CustomMessageListener {
         z zVar;
         z zVar2;
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData)) {
-            zVar = this.cRT.cRL;
-            c auD = zVar.auD();
-            if (auD != null) {
-                auD.b((SignData) customResponsedMessage.getData());
-                zVar2 = this.cRT.cRL;
-                zVar2.auE().notifyDataSetChanged();
+            zVar = this.dqq.dqi;
+            c aAf = zVar.aAf();
+            if (aAf != null) {
+                aAf.b((SignData) customResponsedMessage.getData());
+                zVar2 = this.dqq.dqi;
+                zVar2.aAg().notifyDataSetChanged();
             }
         }
     }

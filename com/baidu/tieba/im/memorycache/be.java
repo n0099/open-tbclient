@@ -16,11 +16,11 @@ public class be implements a.b {
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
-        b.Wn().g(imMessageCenterPojo);
-        b.Wn().a(9, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
+        b.Zt().g(imMessageCenterPojo);
+        b.Zt().a(9, imMessageCenterPojo.getPulled_msgId(), imMessageCenterPojo.getGid());
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
-    public void e(String str, List<CommonMsgPojo> list) {
+    public void f(String str, List<CommonMsgPojo> list) {
     }
 }

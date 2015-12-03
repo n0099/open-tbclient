@@ -2,17 +2,17 @@ package com.baidu.tieba.frs.tab;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements Runnable {
-    final /* synthetic */ HorizontalTabView bbL;
-    private final /* synthetic */ int bbM;
+    final /* synthetic */ HorizontalTabView biq;
+    private final /* synthetic */ int bir;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(HorizontalTabView horizontalTabView, int i) {
-        this.bbL = horizontalTabView;
-        this.bbM = i;
+        this.biq = horizontalTabView;
+        this.bir = i;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.bbL.scrollBy(0 - this.bbM, 0);
+        this.biq.scrollBy(0 - this.bir, 0);
     }
 }

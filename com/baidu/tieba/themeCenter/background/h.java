@@ -9,18 +9,18 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class h implements View.OnClickListener {
-    final /* synthetic */ g dgY;
+    final /* synthetic */ g dEC;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(g gVar) {
-        this.dgY = gVar;
+        this.dEC = gVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         BackgroundGroupActivity backgroundGroupActivity;
         TiebaStatic.log("c10283");
-        backgroundGroupActivity = this.dgY.dgN;
+        backgroundGroupActivity = this.dEC.dEt;
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonalBackdropListActivityConfig(backgroundGroupActivity.getActivity())));
     }
 }

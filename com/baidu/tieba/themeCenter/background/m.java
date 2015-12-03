@@ -1,22 +1,22 @@
 package com.baidu.tieba.themeCenter.background;
 
-import com.baidu.tbadk.core.view.p;
+import com.baidu.tbadk.core.view.q;
 /* loaded from: classes.dex */
-class m implements p.a {
-    final /* synthetic */ BackgroundListActivity dhh;
+class m implements q.a {
+    final /* synthetic */ BackgroundListActivity dEK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(BackgroundListActivity backgroundListActivity) {
-        this.dhh = backgroundListActivity;
+        this.dEK = backgroundListActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.p.a
+    @Override // com.baidu.tbadk.core.view.q.a
     public void onListPullRefresh(boolean z) {
         o oVar;
         o oVar2;
-        oVar = this.dhh.dhe;
+        oVar = this.dEK.dEH;
         if (oVar != null) {
-            oVar2 = this.dhh.dhe;
+            oVar2 = this.dEK.dEH;
             oVar2.LoadData();
         }
     }

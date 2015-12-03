@@ -3,8 +3,8 @@ package com.baidu.tieba.frs.hot;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.u;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.o;
-import com.baidu.tbadk.core.data.w;
+import com.baidu.tbadk.core.data.q;
+import com.baidu.tbadk.core.data.z;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -15,13 +15,13 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Object> {
-    private final o mPage;
+    private final q mPage;
     private final ArrayList<u> mThreadList;
 
     public FrsHotThreadResponseCacheMessage() {
         super(CmdConfigCustom.CMD_FRS_HOT_CACHE);
         this.mThreadList = new ArrayList<>();
-        this.mPage = new o();
+        this.mPage = new q();
     }
 
     public void decodeInBackGround(int i, byte[] bArr) {
@@ -47,12 +47,12 @@ public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Obj
                 List<ThreadInfo> list2 = getHotThreadResIdl.data.thread_list;
                 if (list2 != null) {
                     for (int i3 = 0; i3 < list2.size(); i3++) {
-                        w wVar = new w();
-                        wVar.setUserMap(hashMap);
-                        wVar.a(list2.get(i3));
-                        wVar.bA(0);
-                        wVar.parser_title();
-                        this.mThreadList.add(wVar);
+                        z zVar = new z();
+                        zVar.setUserMap(hashMap);
+                        zVar.a(list2.get(i3));
+                        zVar.bJ(0);
+                        zVar.parser_title();
+                        this.mThreadList.add(zVar);
                     }
                 }
                 this.mPage.a(getHotThreadResIdl.data.page);
@@ -64,7 +64,7 @@ public class FrsHotThreadResponseCacheMessage extends CustomResponsedMessage<Obj
         return this.mThreadList;
     }
 
-    public o getPage() {
+    public q getPage() {
         return this.mPage;
     }
 }

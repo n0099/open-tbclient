@@ -8,30 +8,30 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class l {
-    private y bPE;
-    private ArrayList<com.baidu.tieba.tbadkCore.data.h> bPF;
+    private y cfR;
+    private ArrayList<com.baidu.tieba.tbadkCore.data.h> cfS;
     private Context mContext;
-    private String bPD = null;
+    private String cfQ = null;
     private String imageUrl = null;
-    private String aAA = null;
-    private String aAB = null;
+    private String aDk = null;
+    private String aDl = null;
     private int width = 0;
     private int height = 0;
-    private String bPG = null;
-    private String bPH = null;
+    private String cfT = null;
+    private String cfU = null;
     private String userName = null;
     private String userID = null;
     private int index = -1;
-    private String bPI = null;
+    private String cfV = null;
     private long originalSize = 0;
 
     public l(Context context) {
-        this.bPE = null;
-        this.bPF = null;
+        this.cfR = null;
+        this.cfS = null;
         this.mContext = null;
         this.mContext = context;
-        this.bPE = new y();
-        this.bPF = new ArrayList<>();
+        this.cfR = new y();
+        this.cfS = new ArrayList<>();
     }
 
     public String getImageUrl() {
@@ -39,7 +39,7 @@ public class l {
     }
 
     public String getImageID() {
-        return this.bPD;
+        return this.cfQ;
     }
 
     public int getWidth() {
@@ -54,12 +54,12 @@ public class l {
         return this.index;
     }
 
-    public String EW() {
-        return this.aAB;
+    public String FZ() {
+        return this.aDl;
     }
 
-    public String Fa() {
-        return this.bPI;
+    public String Gd() {
+        return this.cfV;
     }
 
     public long getOriginalSize() {
@@ -69,23 +69,23 @@ public class l {
     public void paserJson(JSONObject jSONObject) {
         JSONObject optJSONObject;
         try {
-            this.bPG = jSONObject.optString("post_id");
+            this.cfT = jSONObject.optString("post_id");
             this.userName = jSONObject.optString("user_name");
             this.userID = jSONObject.optString("user_id");
-            this.bPH = jSONObject.optString("comment_amount");
+            this.cfU = jSONObject.optString("comment_amount");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("img");
             this.index = jSONObject.optInt(ImageViewerConfig.INDEX, -1);
             if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.bPD = optJSONObject.optString("id");
+                this.cfQ = optJSONObject.optString("id");
                 this.imageUrl = optJSONObject.optString("url");
                 this.width = optJSONObject.optInt("width", 0);
                 this.height = optJSONObject.optInt("height", 0);
-                this.aAA = optJSONObject.optString("cdn_src", "");
-                if (this.aAA == null || this.aAA.length() == 0) {
-                    this.aAA = this.imageUrl;
+                this.aDk = optJSONObject.optString("cdn_src", "");
+                if (this.aDk == null || this.aDk.length() == 0) {
+                    this.aDk = this.imageUrl;
                 }
-                this.aAB = optJSONObject.optString("big_cdn_src", null);
-                this.bPI = optJSONObject.optString("original_src");
+                this.aDl = optJSONObject.optString("big_cdn_src", null);
+                this.cfV = optJSONObject.optString("original_src");
                 this.originalSize = optJSONObject.optInt("size");
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("descr");
@@ -93,12 +93,12 @@ public class l {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     com.baidu.tieba.tbadkCore.data.h hVar = new com.baidu.tieba.tbadkCore.data.h();
                     hVar.parserJson(optJSONArray.optJSONObject(i));
-                    this.bPF.add(hVar);
+                    this.cfS.add(hVar);
                 }
             }
-            this.bPE.setContent(this.bPF);
+            this.cfR.setContent(this.cfS);
             if (this.mContext != null) {
-                this.bPE.az(this.mContext);
+                this.cfR.az(this.mContext);
             }
         } catch (Exception e) {
             BdLog.detailException(e);

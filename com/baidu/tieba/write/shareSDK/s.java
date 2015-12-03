@@ -6,11 +6,11 @@ import com.baidu.tieba.write.write.cf;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class s implements View.OnClickListener {
-    final /* synthetic */ o doz;
+    final /* synthetic */ o dNF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public s(o oVar) {
-        this.doz = oVar;
+        this.dNF = oVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -21,17 +21,17 @@ public class s implements View.OnClickListener {
         WriteShareActivity writeShareActivity2;
         WriteShareActivity writeShareActivity3;
         WriteShareActivity writeShareActivity4;
-        textView = this.doz.don;
+        textView = this.dNF.dNt;
         textView.setSelected(true);
-        cfVar = this.doz.doo;
-        writeShareActivity = this.doz.dow;
+        cfVar = this.dNF.dNu;
+        writeShareActivity = this.dNF.dNC;
         int dip2px = com.baidu.adp.lib.util.k.dip2px(writeShareActivity.getPageContext().getContext(), 15.0f);
-        writeShareActivity2 = this.doz.dow;
-        com.baidu.adp.lib.g.j.showPopupWindowAsDropDown(cfVar, view, dip2px, com.baidu.adp.lib.util.k.dip2px(writeShareActivity2.getPageContext().getContext(), 1.0f));
-        writeShareActivity3 = this.doz.dow;
+        writeShareActivity2 = this.dNF.dNC;
+        com.baidu.adp.lib.h.j.showPopupWindowAsDropDown(cfVar, view, dip2px, com.baidu.adp.lib.util.k.dip2px(writeShareActivity2.getPageContext().getContext(), 1.0f));
+        writeShareActivity3 = this.dNF.dNC;
         if (writeShareActivity3 != null) {
-            writeShareActivity4 = this.doz.dow;
-            writeShareActivity4.aCR();
+            writeShareActivity4 = this.dNF.dNC;
+            writeShareActivity4.aIo();
         }
     }
 }

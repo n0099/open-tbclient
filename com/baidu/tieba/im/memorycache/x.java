@@ -6,21 +6,21 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.List;
 /* loaded from: classes.dex */
 class x implements a.b {
-    final /* synthetic */ w bEV;
+    final /* synthetic */ w bUc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public x(w wVar) {
-        this.bEV = wVar;
+        this.bUc = wVar;
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
     public void a(ImMessageCenterPojo imMessageCenterPojo, int i, boolean z) {
         if (imMessageCenterPojo != null) {
-            b.Wn().a(6, imMessageCenterPojo.getPulled_msgId(), String.valueOf(10));
+            b.Zt().a(6, imMessageCenterPojo.getPulled_msgId(), String.valueOf(10));
         }
     }
 
     @Override // com.baidu.tieba.im.chat.receiveChatMsgHandler.a.b
-    public void e(String str, List<CommonMsgPojo> list) {
+    public void f(String str, List<CommonMsgPojo> list) {
     }
 }

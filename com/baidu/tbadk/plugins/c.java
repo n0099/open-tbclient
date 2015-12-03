@@ -1,25 +1,32 @@
 package com.baidu.tbadk.plugins;
 
-import android.app.Activity;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
+import com.baidu.tbadk.core.atomData.XiaoyingPlayerConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-class c implements a.b {
-    private final /* synthetic */ Activity axJ;
-    private final /* synthetic */ TbPageContext axK;
+public class c implements a.b {
+    private final /* synthetic */ int azN;
+    private final /* synthetic */ int azO;
+    private final /* synthetic */ String azP;
+    private final /* synthetic */ Context val$context;
+    private final /* synthetic */ String val$url;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(Activity activity, TbPageContext tbPageContext) {
-        this.axJ = activity;
-        this.axK = tbPageContext;
+    public c(Context context, String str, int i, int i2, String str2) {
+        this.val$context = context;
+        this.val$url = str;
+        this.azN = i;
+        this.azO = i2;
+        this.azP = str2;
     }
 
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-        this.axK.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.axJ, XiaoyingUtil.PKG_NAME_XIAOYING)));
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new XiaoyingPlayerConfig(this.val$context, this.val$url, this.azN, this.azO, this.azP)));
         aVar.dismiss();
     }
 }

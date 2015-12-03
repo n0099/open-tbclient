@@ -1,52 +1,62 @@
 package com.baidu.tieba.person;
 
-import android.widget.ImageView;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.img.ImageUploadResult;
 /* loaded from: classes.dex */
-public class a extends HttpMessageListener {
-    final /* synthetic */ BasePersonInfoActivity cpt;
+public class a {
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(BasePersonInfoActivity basePersonInfoActivity, int i) {
-        super(i);
-        this.cpt = basePersonInfoActivity;
+    /* loaded from: classes.dex */
+    public interface b {
+        void a(int i, String str, ImageUploadResult imageUploadResult);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        int[] iArr;
-        int i;
-        ImageView imageView;
-        int[] iArr2;
-        int i2;
-        int[] iArr3;
-        int i3;
-        if (httpResponsedMessage.isSuccess()) {
-            if (httpResponsedMessage.getError() == 0) {
-                int aiF = this.cpt.aiF();
-                iArr = BasePersonInfoActivity.bGj;
-                i = this.cpt.bGb;
-                com.baidu.tbadk.core.a.h.w(aiF, iArr[i]);
-                imageView = this.cpt.bGd;
-                iArr2 = BasePersonInfoActivity.bGh;
-                i2 = this.cpt.bGb;
-                com.baidu.tbadk.core.util.an.c(imageView, iArr2[i2]);
-                BasePersonInfoActivity basePersonInfoActivity = this.cpt;
-                TbPageContext pageContext = this.cpt.getPageContext();
-                iArr3 = BasePersonInfoActivity.bGi;
-                i3 = this.cpt.bGb;
-                basePersonInfoActivity.showToastWithIcon(pageContext.getString(iArr3[i3]), i.e.icon_toast_info);
-                return;
-            }
-            this.cpt.showToast(httpResponsedMessage.getErrorString());
-            return;
+    public void a(String str, b bVar) {
+        if (!StringUtils.isNull(str)) {
+            C0081a c0081a = new C0081a(null);
+            c0081a.cIH = str;
+            c0081a.cII = bVar;
+            c0081a.execute("");
         }
-        this.cpt.showToast(this.cpt.getPageContext().getString(i.h.neterror));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
+    /* loaded from: classes.dex */
+    public static class C0081a extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public String cIH;
+        public b cII;
+
+        private C0081a() {
+        }
+
+        /* synthetic */ C0081a(C0081a c0081a) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: k */
+        public ImageUploadResult doInBackground(String... strArr) {
+            return new com.baidu.tbadk.img.c("user_pics").s(com.baidu.tbadk.core.util.n.cQ(this.cIH), false);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX INFO: Access modifiers changed from: protected */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: a */
+        public void onPostExecute(ImageUploadResult imageUploadResult) {
+            super.onPostExecute(imageUploadResult);
+            if (this.cII != null) {
+                int i = 0;
+                String str = "";
+                if (imageUploadResult != null) {
+                    i = imageUploadResult.error_code;
+                    str = imageUploadResult.error_msg;
+                }
+                this.cII.a(i, str, imageUploadResult);
+            }
+        }
     }
 }

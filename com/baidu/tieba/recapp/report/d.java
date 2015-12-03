@@ -1,7 +1,7 @@
 package com.baidu.tieba.recapp.report;
 /* loaded from: classes.dex */
 public interface d {
-    void aqk();
+    void avW();
 
     void b(a aVar);
 

@@ -12,11 +12,11 @@ class b extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.editortools.j)) {
-            com.baidu.tbadk.editortools.j jVar = (com.baidu.tbadk.editortools.j) customResponsedMessage.getData();
-            int indexOf = jVar.getCollectTools().indexOf(5);
+        if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.editortools.k)) {
+            com.baidu.tbadk.editortools.k kVar = (com.baidu.tbadk.editortools.k) customResponsedMessage.getData();
+            int indexOf = kVar.getCollectTools().indexOf(5);
             if (indexOf != -1) {
-                jVar.b(new r(jVar.getContext(), indexOf + 1));
+                kVar.b(new s(kVar.getContext(), indexOf + 1));
             }
         }
     }

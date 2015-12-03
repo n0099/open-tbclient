@@ -1,8 +1,10 @@
 package com.baidu.adp.framework.message;
 
+import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.FrameHelper;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.j;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
+    public static final String KEY_COOKIE = "Cookie";
     private Comparator<Map.Entry<String, Object>> mComparator;
     private HashMap<String, String> mHeaders;
     private boolean mNeedProgress;
@@ -24,7 +27,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         DESCEND,
         NONE;
 
-        /* JADX DEBUG: Replace access to removed values field (qu) with 'values()' method */
+        /* JADX DEBUG: Replace access to removed values field (qv) with 'values()' method */
         /* renamed from: values  reason: to resolve conflict with enum method */
         public static SORT[] valuesCustom() {
             SORT[] valuesCustom = values();
@@ -102,8 +105,32 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         return this.mHeaders.put(str, str2);
     }
 
+    public String addCookie(String str, String str2) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return null;
+        }
+        HashMap hashMap = new HashMap();
+        if (this.mHeaders.containsKey(KEY_COOKIE)) {
+            hashMap.putAll(j.B(this.mHeaders.get(KEY_COOKIE), ";"));
+        }
+        String str3 = hashMap.containsKey(str) ? (String) hashMap.get(str) : null;
+        hashMap.put(str, str2);
+        addHeader(KEY_COOKIE, j.b(";", hashMap));
+        return str3;
+    }
+
     public String removeHeader(String str) {
         return this.mHeaders.remove(str);
+    }
+
+    public String removeCookie(String str) {
+        if (str == null || !this.mHeaders.containsKey(KEY_COOKIE)) {
+            return null;
+        }
+        Map<String, String> B = j.B(this.mHeaders.get(KEY_COOKIE), ";");
+        String remove = B.remove(str);
+        addHeader(KEY_COOKIE, j.b(";", B));
+        return remove;
     }
 
     public HashMap<String, String> getHeaders() {
@@ -157,24 +184,24 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a implements Comparator<Map.Entry<String, Object>> {
-        private SORT qt;
+        private SORT qu;
 
         public a(SORT sort) {
-            this.qt = null;
-            this.qt = sort;
+            this.qu = null;
+            this.qu = sort;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(Map.Entry<String, Object> entry, Map.Entry<String, Object> entry2) {
-            return this.qt == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
+            return this.qu == SORT.ASCEND ? entry.getKey().compareTo(entry2.getKey()) : entry2.getKey().compareTo(entry.getKey());
         }
     }
 
     @Override // com.baidu.adp.framework.message.Message
     public boolean checkCmd(int i) {
-        return FrameHelper.u(i);
+        return FrameHelper.v(i);
     }
 
     public boolean setNeedProgress() {

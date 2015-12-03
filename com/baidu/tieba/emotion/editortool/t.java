@@ -1,93 +1,101 @@
 package com.baidu.tieba.emotion.editortool;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tieba.i;
-import java.util.Map;
 /* loaded from: classes.dex */
-public class t extends com.baidu.tbadk.editortools.emotiontool.c {
-    public t() {
-        init();
+public class t {
+    private int aPA;
+    private int aPB;
+    private int aPC;
+    private com.baidu.tbadk.editortools.emotiontool.c aPD;
+    private int aPE;
+    private int aPF;
+    private EmotionGroupType aPy;
+    private int aPz;
+    private int column;
+    private int index;
+    private int row;
+
+    public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
+        this.aPD = cVar;
     }
 
-    private void init() {
-        super.dY(7);
-        super.dZ(3);
-        com.baidu.adp.widget.a.a aVar = new com.baidu.adp.widget.a.a(BitmapFactory.decodeResource(TbadkCoreApplication.m411getInst().getApp().getResources(), i.e.icon_face_original_s), false);
-        super.d(aVar);
-        super.c(aVar);
+    public com.baidu.tbadk.editortools.emotiontool.c Jl() {
+        return this.aPD;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String dX(int i) {
-        int i2;
-        if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.apz.size()) {
-            i2 = 0;
-        } else {
-            i2 = com.baidu.tbadk.editortools.emotiontool.b.apz.get(i).intValue();
-        }
-        for (Map.Entry<String, Integer> entry : com.baidu.tbadk.editortools.emotiontool.b.apA.entrySet()) {
-            if (entry.getValue().intValue() == i2) {
-                return entry.getKey();
-            }
-        }
-        return null;
+    public void b(EmotionGroupType emotionGroupType) {
+        this.aPy = emotionGroupType;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean eP(String str) {
-        return com.baidu.tbadk.editortools.emotiontool.b.apA.get(str) != null;
+    public EmotionGroupType Jm() {
+        return this.aPy;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.a.a eQ(String str) {
-        Bitmap b;
-        Integer num = com.baidu.tbadk.editortools.emotiontool.b.apA.get(str);
-        if (num != null && (b = com.baidu.adp.lib.util.d.iv().b(TbadkCoreApplication.m411getInst().getApp(), num.intValue())) != null) {
-            return new com.baidu.adp.widget.a.a(b, false, str);
-        }
-        return null;
+    public void ev(int i) {
+        this.row = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public int getEmotionsCount() {
-        return com.baidu.tbadk.editortools.emotiontool.b.apz.size();
+    public int getRow() {
+        return this.row;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.a.a eR(String str) {
-        return eQ(str);
+    public void eu(int i) {
+        this.column = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public EmotionGroupType AP() {
-        return EmotionGroupType.LOCAL;
+    public int Jn() {
+        return this.column;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String getGroupId() {
-        return "_local";
+    public void fm(int i) {
+        this.aPF = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String getGroupName() {
-        return "_local";
+    public int Jo() {
+        return this.aPF;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public int getWidth() {
-        return 0;
+    public void fn(int i) {
+        this.aPE = i;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public int getHeight() {
-        return 0;
+    public int Jp() {
+        return this.aPE;
     }
 
-    @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean AO() {
-        return true;
+    public void fo(int i) {
+        this.aPz = i;
+    }
+
+    public int Jq() {
+        return this.aPz;
+    }
+
+    public void fp(int i) {
+        this.aPB = i;
+    }
+
+    public int Jr() {
+        return this.aPB;
+    }
+
+    public void setEndIndex(int i) {
+        this.aPC = i;
+    }
+
+    public void setIndex(int i) {
+        this.index = i;
+    }
+
+    public int getIndex() {
+        return this.index;
+    }
+
+    public void fq(int i) {
+        this.aPA = i;
+    }
+
+    public int Js() {
+        return this.aPA;
     }
 }

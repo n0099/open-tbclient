@@ -3,76 +3,76 @@ package com.baidu.tieba.frs.frsgood;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.tieba.frs.b.o;
-import com.baidu.tieba.frs.ec;
-import com.baidu.tieba.frs.ed;
+import com.baidu.tieba.frs.et;
+import com.baidu.tieba.frs.eu;
 import com.baidu.tieba.frs.tab.HorizontalTabView;
 import com.baidu.tieba.frs.tab.TabData;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class af extends com.baidu.adp.base.f<FrsGoodActivity> {
-    private String aWr;
-    private x aZZ;
-    private HorizontalTabView baA;
-    private SparseArray<o.a> baB;
-    private TabData baC;
-    private int baD;
-    private ed baE;
-    private FrsGoodActivity baq;
+    private String bcm;
+    private FrsGoodActivity bgJ;
+    private HorizontalTabView bgS;
+    private SparseArray<o.a> bgT;
+    private TabData bgU;
+    private int bgV;
+    private eu bgW;
+    private x bgr;
 
     public af(FrsGoodActivity frsGoodActivity) {
         super(frsGoodActivity.getPageContext());
-        this.baB = new SparseArray<>();
-        this.baD = 5;
-        this.baE = new ag(this);
-        this.baq = frsGoodActivity;
+        this.bgT = new SparseArray<>();
+        this.bgV = 5;
+        this.bgW = new ag(this);
+        this.bgJ = frsGoodActivity;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void oR() {
-        this.aZZ = new x(this.baq, this.baq.aUF);
-        this.baq.a(this.aZZ);
-        Ni();
+    public void oX() {
+        this.bgr = new x(this.bgJ, this.bgJ.aZT);
+        this.bgJ.a(this.bgr);
+        OK();
     }
 
-    private void Ni() {
-        this.baA = (HorizontalTabView) this.baq.findViewById(i.f.frs_good_tabview);
+    private void OK() {
+        this.bgS = (HorizontalTabView) this.bgJ.findViewById(n.f.frs_good_tabview);
     }
 
-    public void b(com.baidu.tieba.tbadkCore.o oVar) {
-        ArrayList<com.baidu.tbadk.core.data.k> good_classify;
-        if (oVar != null && oVar.afg() != null && oVar.afg().getGood_classify() != null && (good_classify = oVar.afg().getGood_classify()) != null) {
-            this.aWr = this.baq.getPageContext().getResources().getString(i.h.forum_list_menu_all);
-            this.baC = new TabData();
+    public void c(com.baidu.tieba.tbadkCore.p pVar) {
+        ArrayList<com.baidu.tbadk.core.data.m> good_classify;
+        if (pVar != null && pVar.ajy() != null && pVar.ajy().getGood_classify() != null && (good_classify = pVar.ajy().getGood_classify()) != null) {
+            this.bcm = this.bgJ.getPageContext().getResources().getString(n.i.forum_list_menu_all);
+            this.bgU = new TabData();
             com.baidu.tieba.frs.tab.h hVar = new com.baidu.tieba.frs.tab.h();
-            hVar.bbN = 0;
-            hVar.name = this.aWr;
-            this.baC.add(hVar);
-            for (com.baidu.tbadk.core.data.k kVar : good_classify) {
-                if (kVar != null && kVar.rD() > 0 && !TextUtils.isEmpty(kVar.rC()) && !TextUtils.isEmpty(kVar.rC().trim())) {
+            hVar.bis = 0;
+            hVar.name = this.bcm;
+            this.bgU.add(hVar);
+            for (com.baidu.tbadk.core.data.m mVar : good_classify) {
+                if (mVar != null && mVar.rY() > 0 && !TextUtils.isEmpty(mVar.rX()) && !TextUtils.isEmpty(mVar.rX().trim())) {
                     com.baidu.tieba.frs.tab.h hVar2 = new com.baidu.tieba.frs.tab.h();
-                    hVar2.bbN = kVar.rD();
-                    hVar2.name = kVar.rC();
-                    this.baC.add(hVar2);
+                    hVar2.bis = mVar.rY();
+                    hVar2.name = mVar.rX();
+                    this.bgU.add(hVar2);
                 }
             }
-            this.baA.setData(this.baC, this.baD);
+            this.bgS.setData(this.bgU, this.bgV);
         }
     }
 
-    public HorizontalTabView Nj() {
-        return this.baA;
+    public HorizontalTabView OL() {
+        return this.bgS;
     }
 
-    public void a(ec ecVar) {
-        if (this.baA != null) {
-            this.baA.setDataLoadInterface(ecVar);
+    public void a(et etVar) {
+        if (this.bgS != null) {
+            this.bgS.setDataLoadInterface(etVar);
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.baA != null) {
-            this.baA.vB();
+        if (this.bgS != null) {
+            this.bgS.wh();
         }
     }
 }

@@ -2,15 +2,15 @@ package com.baidu.tieba.launcherGuide.topRec;
 
 import android.view.animation.Animation;
 import android.widget.TextView;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Animation.AnimationListener {
-    final /* synthetic */ e bTN;
+    final /* synthetic */ e ckb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.bTN = eVar;
+        this.ckb = eVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -26,26 +26,26 @@ public class f implements Animation.AnimationListener {
         TextView textView5;
         TopRecActivity topRecActivity2;
         int i2;
-        i = this.bTN.bTJ;
+        i = this.ckb.cjX;
         if (i < 100) {
-            textView5 = this.bTN.bTK;
-            topRecActivity2 = this.bTN.bTt;
-            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getPageContext().getString(i.h.done))).append("(");
-            i2 = this.bTN.bTJ;
+            textView5 = this.ckb.cjY;
+            topRecActivity2 = this.ckb.cjH;
+            StringBuilder append = new StringBuilder(String.valueOf(topRecActivity2.getPageContext().getString(n.i.done))).append("(");
+            i2 = this.ckb.cjX;
             textView5.setText(append.append(i2).append(")").toString());
         } else {
-            textView = this.bTN.bTK;
-            topRecActivity = this.bTN.bTt;
-            textView.setText(String.valueOf(topRecActivity.getPageContext().getString(i.h.done)) + "(99+)");
+            textView = this.ckb.cjY;
+            topRecActivity = this.ckb.cjH;
+            textView.setText(String.valueOf(topRecActivity.getPageContext().getString(n.i.done)) + "(99+)");
         }
-        textView2 = this.bTN.bTK;
+        textView2 = this.ckb.cjY;
         textView2.invalidate();
-        textView3 = this.bTN.bTK;
-        animation2 = this.bTN.bTM;
+        textView3 = this.ckb.cjY;
+        animation2 = this.ckb.cka;
         textView3.setAnimation(animation2);
-        animation3 = this.bTN.bTM;
+        animation3 = this.ckb.cka;
         animation3.start();
-        textView4 = this.bTN.bTK;
+        textView4 = this.ckb.cjY;
         textView4.setVisibility(4);
     }
 

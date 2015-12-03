@@ -1,46 +1,33 @@
 package com.baidu.tieba.write.album;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.i;
 /* loaded from: classes.dex */
-class ah implements v {
-    final /* synthetic */ ae dmW;
+class ah implements aa {
+    final /* synthetic */ ag dMc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ah(ae aeVar) {
-        this.dmW = aeVar;
+    public ah(ag agVar) {
+        this.dMc = agVar;
     }
 
-    @Override // com.baidu.tieba.write.album.v
-    public void a(int i, ImageFileInfo imageFileInfo) {
-        m mVar;
-        m mVar2;
-        m mVar3;
-        m mVar4;
+    @Override // com.baidu.tieba.write.album.aa
+    public boolean a(int i, ImageFileInfo imageFileInfo, boolean z) {
         AlbumActivity albumActivity;
         AlbumActivity albumActivity2;
-        m mVar5;
-        mVar = this.dmW.dlv;
-        int maxImagesAllowed = mVar.getMaxImagesAllowed();
-        mVar2 = this.dmW.dlv;
-        if (mVar2.size() < maxImagesAllowed) {
-            mVar3 = this.dmW.dlv;
-            if (mVar3.aCk()) {
-                mVar5 = this.dmW.dlv;
-                mVar5.mr(String.valueOf(System.currentTimeMillis()));
+        o oVar;
+        AlbumActivity albumActivity3;
+        if (z) {
+            albumActivity2 = this.dMc.dKK;
+            boolean a = albumActivity2.a(imageFileInfo);
+            oVar = this.dMc.dKx;
+            if (oVar.isOriginalImg()) {
+                albumActivity3 = this.dMc.dKK;
+                albumActivity3.aHs();
+                return a;
             }
-            mVar4 = this.dmW.dlv;
-            String aCj = mVar4.aCj();
-            if (!StringUtils.isNull(aCj, true)) {
-                albumActivity2 = this.dmW.dlE;
-                com.baidu.tbadk.core.util.am.a(albumActivity2.getPageContext(), aCj);
-                return;
-            }
-            albumActivity = this.dmW.dlE;
-            com.baidu.tbadk.core.util.am.c(albumActivity.getPageContext());
-            return;
+            return a;
         }
-        this.dmW.showToast(String.format(this.dmW.getPageContext().getString(i.h.editor_mutiiamge_max), Integer.valueOf(maxImagesAllowed)));
+        albumActivity = this.dMc.dKK;
+        return albumActivity.b(imageFileInfo);
     }
 }

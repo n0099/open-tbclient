@@ -24,7 +24,7 @@ public class b {
         StringBuffer stringBuffer = new StringBuffer("");
         try {
             Class<?> cls = obj.getClass();
-            if (str.equals("") || str == null) {
+            if (str == null || str.equals("")) {
                 stringBuffer.append(String.valueOf(dP()) + cls.getSimpleName() + " = {\n");
             } else {
                 stringBuffer.append(String.valueOf(str) + " = {\n");
@@ -84,6 +84,10 @@ public class b {
         int i;
         int i2 = 0;
         StringBuffer stringBuffer = new StringBuffer("");
+        if (obj == null) {
+            stringBuffer.append(String.valueOf(str) + "[] = null\n");
+            return stringBuffer.toString();
+        }
         if (obj.getClass().isArray()) {
             if (Array.getLength(obj) > 0) {
                 if (f(Array.get(obj, 0))) {
@@ -130,38 +134,34 @@ public class b {
                     stringBuffer.append(String.valueOf(str) + "[] = empty\n");
                 }
             } else if (z || z2) {
-                if (obj != null) {
-                    if (z) {
-                        it = ((Collection) obj).iterator();
-                        i = ((Collection) obj).size();
-                    } else if (!z2) {
-                        it = null;
-                        i = 0;
-                    } else {
-                        it = ((HashSet) obj).iterator();
-                        i = ((HashSet) obj).size();
-                    }
-                    if (i > 0) {
-                        while (it.hasNext()) {
-                            Object g3 = g(it.next());
-                            if (!f(g3)) {
-                                if (i2 == 0) {
-                                    stringBuffer.append(String.valueOf(str) + " = [");
-                                } else if (i2 == i - 1) {
-                                    stringBuffer.append(g3 + "]\n");
-                                } else {
-                                    stringBuffer.append(g3 + ", ");
-                                }
+                if (z) {
+                    it = ((Collection) obj).iterator();
+                    i = ((Collection) obj).size();
+                } else if (!z2) {
+                    it = null;
+                    i = 0;
+                } else {
+                    it = ((HashSet) obj).iterator();
+                    i = ((HashSet) obj).size();
+                }
+                if (i > 0) {
+                    while (it.hasNext()) {
+                        Object g3 = g(it.next());
+                        if (!f(g3)) {
+                            if (i2 == 0) {
+                                stringBuffer.append(String.valueOf(str) + " = [");
+                            } else if (i2 == i - 1) {
+                                stringBuffer.append(g3 + "]\n");
                             } else {
-                                stringBuffer.append(c(String.valueOf(str) + "[" + i2 + "]", g3, list));
+                                stringBuffer.append(g3 + ", ");
                             }
-                            i2++;
+                        } else {
+                            stringBuffer.append(c(String.valueOf(str) + "[" + i2 + "]", g3, list));
                         }
-                    } else {
-                        stringBuffer.append(String.valueOf(str) + "[] = empty\n");
+                        i2++;
                     }
                 } else {
-                    stringBuffer.append(String.valueOf(str) + "[] = null\n");
+                    stringBuffer.append(String.valueOf(str) + "[] = empty\n");
                 }
             } else if (z3) {
                 int size2 = ((SparseArray) obj).size();

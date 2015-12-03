@@ -20,7 +20,7 @@ public class d {
     public static boolean nS = false;
     public static boolean nT = false;
 
-    public static void r(int i) {
+    public static void s(int i) {
         nI = i;
         try {
             if (mHandler != null) {

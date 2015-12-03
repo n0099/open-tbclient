@@ -2,28 +2,26 @@ package com.baidu.tieba.frs;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.coreExtra.message.NewMsgArriveResponsedMessage;
 /* loaded from: classes.dex */
 class ar extends CustomMessageListener {
-    final /* synthetic */ FrsActivity aUS;
-
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ar(FrsActivity frsActivity, int i) {
+    public ar(int i) {
         super(i);
-        this.aUS = frsActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        bs bsVar;
-        bs bsVar2;
-        if (customResponsedMessage != null) {
-            bsVar = this.aUS.aUc;
-            if (bsVar != null) {
-                bsVar2 = this.aUS.aUc;
-                bsVar2.nx();
+        if (customResponsedMessage != null && (customResponsedMessage instanceof NewMsgArriveResponsedMessage) && customResponsedMessage.getCmd() == 2012111) {
+            int intValue = ((NewMsgArriveResponsedMessage) customResponsedMessage).getData().intValue();
+            if (intValue == 1 || intValue == 4 || intValue == 3 || intValue == 2) {
+                FrsActivityStatic.baz = true;
+                FrsActivityStatic.bay = true;
+                return;
             }
+            FrsActivityStatic.baz = false;
+            FrsActivityStatic.bay = false;
         }
     }
 }

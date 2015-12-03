@@ -7,20 +7,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.util.an;
-import com.baidu.tieba.i;
+import com.baidu.tbadk.core.util.as;
+import com.baidu.tieba.n;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class EmotionTabWidgetView extends LinearLayout {
-    private com.baidu.tbadk.editortools.j KB;
-    private EmotionTabHorizonScrollView aKT;
-    private ImageView aKU;
-    private View aKV;
-    private boolean aKW;
+    private com.baidu.tbadk.editortools.k KS;
+    private EmotionTabHorizonScrollView aPt;
+    private ImageView aPu;
+    private View aPv;
+    private boolean aPw;
 
     /* loaded from: classes.dex */
     public interface a {
-        void ei(int i);
+        void ew(int i);
     }
 
     public EmotionTabWidgetView(Context context, AttributeSet attributeSet) {
@@ -35,68 +35,68 @@ public class EmotionTabWidgetView extends LinearLayout {
 
     private void init(Context context) {
         removeAllViews();
-        LayoutInflater.from(context).inflate(i.g.emotion_tab_widget, (ViewGroup) this, true);
-        this.aKT = (EmotionTabHorizonScrollView) findViewById(i.f.face_tab_scroll_view);
-        this.aKU = (ImageView) findViewById(i.f.face_tab_delete);
-        this.aKV = findViewById(i.f.vertical_div_line);
-        this.aKU.setOnClickListener(new q(this));
+        LayoutInflater.from(context).inflate(n.g.emotion_tab_widget, (ViewGroup) this, true);
+        this.aPt = (EmotionTabHorizonScrollView) findViewById(n.f.face_tab_scroll_view);
+        this.aPu = (ImageView) findViewById(n.f.face_tab_delete);
+        this.aPv = findViewById(n.f.vertical_div_line);
+        this.aPu.setOnClickListener(new r(this));
     }
 
     public void setFrom(int i) {
-        if (this.aKT != null) {
-            this.aKT.setFrom(i);
+        if (this.aPt != null) {
+            this.aPt.setFrom(i);
         }
     }
 
     public void setDatas(ArrayList<com.baidu.tbadk.editortools.emotiontool.c> arrayList) {
-        this.aKT.setDatas(arrayList);
+        this.aPt.setDatas(arrayList);
     }
 
     public void c(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.aKT.c(cVar);
+        this.aPt.c(cVar);
     }
 
     public void setCurrentTab(int i) {
-        this.aKT.setCurrentTab(i);
+        this.aPt.setCurrentTab(i);
     }
 
     public void setOnTabSelectedListener(a aVar) {
-        this.aKT.setOnTabSelectedListener(aVar);
+        this.aPt.setOnTabSelectedListener(aVar);
     }
 
     public void reset() {
-        this.aKT.reset();
+        this.aPt.reset();
     }
 
     public void setIsInChat(boolean z) {
-        this.aKW = z;
-        if (this.aKT != null) {
-            this.aKT.setIsInChat(z);
+        this.aPw = z;
+        if (this.aPt != null) {
+            this.aPt.setIsInChat(z);
         }
     }
 
     public void onChangeSkinType(int i) {
-        an.d(this, i.c.write_editor_background, i);
-        this.aKT.cP(i);
-        an.b(this.aKU, i.e.but_face_close, i);
-        an.d(this.aKU, i.c.write_editor_background, i);
-        an.d(this.aKV, i.c.emotion_tab_div_line_color, i);
+        as.d(this, n.c.write_editor_background, i);
+        this.aPt.cX(i);
+        as.b(this.aPu, n.e.but_face_close, i);
+        as.d(this.aPu, n.c.write_editor_background, i);
+        as.d(this.aPv, n.c.emotion_tab_div_line_color, i);
     }
 
     public void setShowDelete(boolean z) {
         if (z) {
-            this.aKU.setVisibility(0);
+            this.aPu.setVisibility(0);
         } else {
-            this.aKU.setVisibility(8);
+            this.aPu.setVisibility(8);
         }
     }
 
     public void h(int i, boolean z) {
-        this.aKT.h(i, z);
+        this.aPt.h(i, z);
     }
 
-    public void setOnDataSelected(com.baidu.tbadk.editortools.j jVar) {
-        this.KB = jVar;
-        this.aKT.setEditorTools(this.KB);
+    public void setOnDataSelected(com.baidu.tbadk.editortools.k kVar) {
+        this.KS = kVar;
+        this.aPt.setEditorTools(this.KS);
     }
 }

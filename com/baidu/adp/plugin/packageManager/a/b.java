@@ -13,32 +13,32 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static b Ev;
-    private final LinkedHashMap<String, a> Ew = new LinkedHashMap<>(10);
+    private static b EJ;
+    private final LinkedHashMap<String, a> EK = new LinkedHashMap<>(10);
 
     private b() {
     }
 
-    public static b mu() {
-        if (Ev == null) {
+    public static b mx() {
+        if (EJ == null) {
             synchronized (b.class) {
-                if (Ev == null) {
-                    Ev = new b();
+                if (EJ == null) {
+                    EJ = new b();
                 }
             }
         }
-        return Ev;
+        return EJ;
     }
 
-    public void bE(String str) {
-        a bG = mu().bG(str);
-        if (bG != null) {
-            bG.Es = PluginPackageManager.PluginStatus.NROMAL;
+    public void bJ(String str) {
+        a bL = mx().bL(str);
+        if (bL != null) {
+            bL.EG = PluginPackageManager.PluginStatus.NROMAL;
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, bG));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, bL));
     }
 
-    public void h(String str, String str2, String str3) {
+    public void j(String str, String str2, String str3) {
         String string;
         String string2;
         int i = 2;
@@ -47,18 +47,19 @@ public class b {
             string2 = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_rom_too_small);
         } else if (!"plugin_install_retry_timeout".equals(str2) && !"plugin_install_timeout".equals(str2)) {
             if (str3 != null) {
-                if (str3.toLowerCase(Locale.getDefault()).contains("no_space_left_on_device")) {
+                String lowerCase = str3.toLowerCase(Locale.getDefault());
+                if (lowerCase.contains("no_space_left_on_device") || lowerCase.contains("no space left on device")) {
                     string = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_rom_too_small);
                     string2 = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_rom_too_small);
-                } else if (str3.toLowerCase(Locale.getDefault()).contains("read-only_file_system")) {
+                } else if (lowerCase.contains("read-only_file_system") || lowerCase.contains("read-only file system")) {
                     i = 3;
                     string = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_need_restart);
                     string2 = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_need_restart);
-                } else if (str3.toLowerCase(Locale.getDefault()).contains("permission_denied")) {
+                } else if (lowerCase.contains("permission_denied") || lowerCase.contains("permission denied")) {
                     i = 4;
                     string = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_need_restart);
                     string2 = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_need_restart);
-                } else if (str3.toLowerCase(Locale.getDefault()).contains("fsync_failed")) {
+                } else if (lowerCase.contains("fsync_failed") || lowerCase.contains("fsync failed")) {
                     i = 5;
                     string = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
                     string2 = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
@@ -75,37 +76,37 @@ public class b {
         } else {
             return;
         }
-        a bG = bG(str);
-        if (bG == null) {
-            bG = new a();
+        a bL = bL(str);
+        if (bL == null) {
+            bL = new a();
         }
-        bG.Es = PluginPackageManager.PluginStatus.ERROR;
-        bG.errorMsg = string;
-        bG.Et = string2;
-        bG.errorCode = i;
-        bG.Eu = false;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, bG));
+        bL.EG = PluginPackageManager.PluginStatus.ERROR;
+        bL.errorMsg = string;
+        bL.EH = string2;
+        bL.errorCode = i;
+        bL.EI = false;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, bL));
     }
 
-    public void bF(String str) {
-        a bG = bG(str);
-        if (bG == null) {
-            bG = new a();
+    public void bK(String str) {
+        a bL = bL(str);
+        if (bL == null) {
+            bL = new a();
         }
-        bG.Es = PluginPackageManager.PluginStatus.ERROR;
-        bG.errorCode = 100;
-        bG.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-        bG.Et = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, bG));
+        bL.EG = PluginPackageManager.PluginStatus.ERROR;
+        bL.errorCode = 100;
+        bL.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
+        bL.EH = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, bL));
     }
 
-    public List<a> mv() {
+    public List<a> my() {
         ArrayList arrayList;
         a value;
-        synchronized (this.Ew) {
-            arrayList = new ArrayList(this.Ew.size());
-            for (Map.Entry<String, a> entry : this.Ew.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null && value.Es == PluginPackageManager.PluginStatus.ERROR) {
+        synchronized (this.EK) {
+            arrayList = new ArrayList(this.EK.size());
+            for (Map.Entry<String, a> entry : this.EK.entrySet()) {
+                if (entry != null && (value = entry.getValue()) != null && value.EG == PluginPackageManager.PluginStatus.ERROR) {
                     arrayList.add(value);
                 }
             }
@@ -113,17 +114,17 @@ public class b {
         return arrayList;
     }
 
-    public a bG(String str) {
+    public a bL(String str) {
         a aVar;
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.Ew) {
-            aVar = this.Ew.get(str);
+        synchronized (this.EK) {
+            aVar = this.EK.get(str);
             if (aVar == null) {
                 aVar = new a();
                 aVar.pkgName = str;
-                this.Ew.put(str, aVar);
+                this.EK.put(str, aVar);
             }
         }
         return aVar;

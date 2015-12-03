@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class k implements CustomMessageTask.CustomRunnable<Object> {
-    public static final List<String> aX(List<o.b<String>> list) {
+    public static final List<String> bi(List<o.b<String>> list) {
         LinkedList linkedList = new LinkedList();
         if (list != null) {
             for (o.b<String> bVar : list) {
@@ -32,9 +32,9 @@ public class k implements CustomMessageTask.CustomRunnable<Object> {
         if (currentAccount == null) {
             currentAccount = "";
         }
-        List<String> aX = aX(com.baidu.adp.lib.util.s.b(com.baidu.tbadk.core.b.a.sO().U("tb.searchperson_history", currentAccount)));
+        List<String> bi = bi(com.baidu.adp.lib.util.s.b(com.baidu.tbadk.core.b.a.ts().R("tb.searchperson_history", currentAccount)));
         ResponseSearchPersonHistoryReadMessage responseSearchPersonHistoryReadMessage = new ResponseSearchPersonHistoryReadMessage();
-        responseSearchPersonHistoryReadMessage.datas.addAll(aX);
+        responseSearchPersonHistoryReadMessage.datas.addAll(bi);
         return responseSearchPersonHistoryReadMessage;
     }
 }

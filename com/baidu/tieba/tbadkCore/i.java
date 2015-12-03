@@ -1,37 +1,32 @@
 package com.baidu.tieba.tbadkCore;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tbadk.core.atomData.PraiseListActivityConfig;
-import com.baidu.tbadk.core.data.PraiseData;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.FeedForumData;
+import java.util.List;
 /* loaded from: classes.dex */
-public class i implements View.OnClickListener {
-    final /* synthetic */ FrsPraiseView cYG;
+public class i implements com.baidu.adp.widget.ListView.u {
+    public static final BdUniqueId dxf = BdUniqueId.gen();
+    private List<FeedForumData> bbP;
+    private String forumId;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public i(FrsPraiseView frsPraiseView) {
-        this.cYG = frsPraiseView;
+    @Override // com.baidu.adp.widget.ListView.u
+    public BdUniqueId getType() {
+        return dxf;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        PraiseData praiseData;
-        Context context;
-        String str;
-        String str2;
-        boolean z;
-        PraiseData praiseData2;
-        String str3 = "";
-        praiseData = this.cYG.cYF;
-        if (praiseData != null) {
-            praiseData2 = this.cYG.cYF;
-            str3 = praiseData2.getTitle();
-        }
-        context = this.cYG.mContext;
-        str = this.cYG.mThreadId;
-        str2 = this.cYG.mPostId;
-        z = this.cYG.coH;
-        com.baidu.tbadk.util.g.c(new PraiseListActivityConfig(context, str, str2, str3, z));
+    public List<FeedForumData> aBB() {
+        return this.bbP;
+    }
+
+    public void bH(List<FeedForumData> list) {
+        this.bbP = list;
+    }
+
+    public String getForumId() {
+        return this.forumId;
+    }
+
+    public void setForumId(String str) {
+        this.forumId = str;
     }
 }

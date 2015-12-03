@@ -21,10 +21,15 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     private Integer msign_valid;
     private List<NewRecommend> new_recommend;
     private List<RecommendForumInfo> recommend_forum_info;
+    private int redirect;
     private Integer time;
 
     public forumRecommendSocketResponseMessage() {
         super(303011);
+    }
+
+    public int getRedirect() {
+        return this.redirect;
     }
 
     public List<LikeForum> GetLikeForum() {
@@ -93,6 +98,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
                 this.time = forumRecommendResIdl.data.time;
                 this.is_mem = forumRecommendResIdl.data.is_mem;
                 this.recommend_forum_info = forumRecommendResIdl.data.recommend_forum_info;
+                this.redirect = forumRecommendResIdl.data.redirect.intValue();
                 if (forumRecommendResIdl.data.hot_search != null) {
                     this.hotSearchInfo = new com.baidu.tieba.enterForum.b.c();
                     this.hotSearchInfo.a(forumRecommendResIdl.data.hot_search);
@@ -105,7 +111,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.b.a.sO().T("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).g("forumRecommend_cache_key", bArr);
+            com.baidu.tbadk.core.b.a.ts().Q("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).g("forumRecommend_cache_key", bArr);
         }
     }
 }

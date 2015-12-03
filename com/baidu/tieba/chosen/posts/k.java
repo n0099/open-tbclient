@@ -1,15 +1,15 @@
 package com.baidu.tieba.chosen.posts;
 
 import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class k implements BdListView.f {
-    final /* synthetic */ e aIO;
+    final /* synthetic */ e aNp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(e eVar) {
-        this.aIO = eVar;
+        this.aNp = eVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.f
@@ -18,17 +18,17 @@ public class k implements BdListView.f {
         com.baidu.tbadk.mvc.h.a aVar2;
         com.baidu.tbadk.mvc.h.a aVar3;
         ChosenPostActivity chosenPostActivity;
-        if (com.baidu.adp.lib.util.k.je()) {
-            chosenPostActivity = this.aIO.aIH;
-            chosenPostActivity.Hc().Hg();
+        if (com.baidu.adp.lib.util.k.jg()) {
+            chosenPostActivity = this.aNp.aNi;
+            chosenPostActivity.Iv().Iz();
             return;
         }
-        aVar = this.aIO.aIK;
+        aVar = this.aNp.aNl;
         if (aVar != null) {
-            aVar2 = this.aIO.aIK;
-            aVar2.ox();
-            aVar3 = this.aIO.aIK;
-            aVar3.es(i.h.no_more_msg);
+            aVar2 = this.aNp.aNl;
+            aVar2.oD();
+            aVar3 = this.aNp.aNl;
+            aVar3.eG(n.i.no_more_msg);
         }
     }
 }

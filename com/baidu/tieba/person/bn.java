@@ -1,38 +1,36 @@
 package com.baidu.tieba.person;
 
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.text.TextUtils;
+import android.widget.ProgressBar;
+import com.baidu.tieba.person.bu;
 /* loaded from: classes.dex */
-public class bn implements View.OnClickListener {
-    final /* synthetic */ PersonListActivity csj;
+class bn implements bu.a {
+    final /* synthetic */ PersonListActivity cLD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bn(PersonListActivity personListActivity) {
-        this.csj = personListActivity;
+        this.cLD = personListActivity;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        bs bsVar;
-        bs bsVar2;
-        bs bsVar3;
-        int intValue = ((Integer) view.getTag()).intValue();
-        bsVar = this.csj.cse;
-        if (bsVar != null) {
-            bsVar2 = this.csj.cse;
-            if (bsVar2.getItemViewType(intValue) == 0) {
-                bsVar3 = this.csj.cse;
-                UserData userData = (UserData) bsVar3.getItem(intValue);
-                if (userData != null && userData.getUserId() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(this.csj.getPageContext().getPageActivity(), userData.getUserId(), userData.getName_show(), null, AddFriendActivityConfig.TYPE_FOCUS)));
-                }
+    @Override // com.baidu.tieba.person.bu.a
+    public void G(String str, boolean z) {
+        ProgressBar progressBar;
+        ProgressBar progressBar2;
+        if (!z) {
+            progressBar = this.cLD.mProgress;
+            if (progressBar.isShown()) {
+                progressBar2 = this.cLD.mProgress;
+                progressBar2.setVisibility(8);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                this.cLD.showToast(str);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.person.bu.a
+    public com.baidu.tieba.person.data.n d(com.baidu.tieba.person.data.n nVar, boolean z) {
+        this.cLD.a(nVar, z);
+        return null;
     }
 }

@@ -7,5 +7,5 @@ public interface a {
 
     BdUniqueId getUniqueId();
 
-    boolean oJ();
+    boolean oP();
 }

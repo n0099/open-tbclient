@@ -4,13 +4,13 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class a extends BdAsyncTask.c<Params, Result> {
-    final /* synthetic */ BdAsyncTask st;
+    final /* synthetic */ BdAsyncTask su;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(BdAsyncTask bdAsyncTask) {
         super(null);
-        this.st = bdAsyncTask;
+        this.su = bdAsyncTask;
     }
 
     /* JADX WARN: Type inference failed for: r0v4, types: [java.lang.Object, Result] */
@@ -20,12 +20,12 @@ public class a extends BdAsyncTask.c<Params, Result> {
         g gVar;
         ?? postResult;
         ?? postResult2;
-        gVar = this.st.mFuture;
+        gVar = this.su.mFuture;
         if (!gVar.isCancelled()) {
-            postResult2 = this.st.postResult(this.st.doInBackground(this.mParams));
+            postResult2 = this.su.postResult(this.su.doInBackground(this.mParams));
             return postResult2;
         }
-        postResult = this.st.postResult(null);
+        postResult = this.su.postResult(null);
         return postResult;
     }
 }

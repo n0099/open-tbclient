@@ -12,45 +12,45 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.util.n;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
 /* loaded from: classes.dex */
 public class j extends com.baidu.adp.base.e {
-    private b cNA;
-    private BaseActivity.LoadDataCallBack cNB;
-    private a cNz;
+    private a dlQ;
+    private b dlR;
+    private BaseActivity.LoadDataCallBack dlS;
     private Context mContext;
 
     public j(SystemHelpSettingActivity systemHelpSettingActivity) {
         super(systemHelpSettingActivity.getPageContext());
-        this.cNz = null;
-        this.cNA = null;
+        this.dlQ = null;
+        this.dlR = null;
         this.mContext = null;
-        this.cNB = null;
+        this.dlS = null;
         this.mContext = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void arT() {
-        if (this.cNz == null) {
-            this.cNz = new a(this, null);
-            this.cNz.execute(new String[0]);
+    public void axr() {
+        if (this.dlQ == null) {
+            this.dlQ = new a(this, null);
+            this.dlQ.execute(new String[0]);
         }
     }
 
-    public void arU() {
+    public void axs() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!TextUtils.isEmpty(currentAccount)) {
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(CmdConfigCustom.IM_DELETE_IM_DB, currentAccount));
         }
     }
 
-    public void arV() {
-        if (this.cNA == null) {
-            this.cNA = new b(this, null);
-            this.cNA.execute(new String[0]);
+    public void axt() {
+        if (this.dlR == null) {
+            this.dlR = new b(this, null);
+            this.dlR.execute(new String[0]);
         }
     }
 
@@ -72,11 +72,11 @@ public class j extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            j.this.cNz = null;
-            if (j.this.cNB == null) {
+            j.this.dlQ = null;
+            if (j.this.dlS == null) {
                 return;
             }
-            j.this.cNB.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
+            j.this.dlS.callback(MoreModel.TaskType.DO_CACHE_CLEAR);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -84,10 +84,10 @@ public class j extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().dN();
-            com.baidu.tbadk.core.voice.a.b.vK();
+            com.baidu.tbadk.core.voice.a.b.wB();
             try {
-                ar.uE().uF();
-                ar.uE().uG();
+                aw.vk().vl();
+                aw.vk().vm();
                 MessageManager.getInstance().sendMessageFromBackground(new CustomMessage((int) CmdConfigCustom.CMD_BAOBAO_CLEARIMAGE, ""));
                 return null;
             } catch (Exception e) {
@@ -111,13 +111,13 @@ public class j extends com.baidu.adp.base.e {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            String tD = n.tD();
-            long k = n.k(TbConfig.IMAGE_CACHE_DIR_NAME, false) + n.k(String.valueOf(tD) + TbConfig.TMP_PIC_DIR_NAME, false) + n.k(String.valueOf(tD) + "voice", false) + n.cS(String.valueOf(tD) + TbConfig.TMP_DATABASE_NAME);
-            float f = 0.0f + ((float) k);
-            if (k < 10485.76d) {
+            String ui = n.ui();
+            long l = n.l(TbConfig.IMAGE_CACHE_DIR_NAME, false) + n.l(String.valueOf(ui) + TbConfig.TMP_PIC_DIR_NAME, false) + n.l(String.valueOf(ui) + "voice", false) + n.da(String.valueOf(ui) + TbConfig.TMP_DATABASE_NAME);
+            float f = 0.0f + ((float) l);
+            if (l < 10485.76d) {
                 return "";
             }
-            return String.valueOf(String.format("%.2f", Float.valueOf(f / 1048576.0f))) + j.this.mContext.getString(i.h.mebibyte);
+            return String.valueOf(String.format("%.2f", Float.valueOf(f / 1048576.0f))) + j.this.mContext.getString(n.i.mebibyte);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -125,11 +125,11 @@ public class j extends com.baidu.adp.base.e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((b) str);
-            j.this.cNA = null;
-            if (j.this.cNB == null) {
+            j.this.dlR = null;
+            if (j.this.dlS == null) {
                 return;
             }
-            j.this.cNB.callback(MoreModel.TaskType.GET_SIZE, str);
+            j.this.dlS.callback(MoreModel.TaskType.GET_SIZE, str);
         }
     }
 
@@ -144,6 +144,6 @@ public class j extends com.baidu.adp.base.e {
     }
 
     public void a(BaseActivity.LoadDataCallBack loadDataCallBack) {
-        this.cNB = loadDataCallBack;
+        this.dlS = loadDataCallBack;
     }
 }

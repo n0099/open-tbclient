@@ -1,24 +1,37 @@
 package com.baidu.tieba.gift.myGiftList;
 
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class d implements NoNetworkView.a {
-    final /* synthetic */ MyGiftListActivity bnC;
+class d extends CustomMessageListener {
+    final /* synthetic */ MyGiftListActivity bwy;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(MyGiftListActivity myGiftListActivity) {
-        this.bnC = myGiftListActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d(MyGiftListActivity myGiftListActivity, int i) {
+        super(i);
+        this.bwy = myGiftListActivity;
     }
 
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void ax(boolean z) {
-        l lVar;
-        l lVar2;
-        if (z) {
-            lVar = this.bnC.bnw;
-            lVar.cC(false);
-            lVar2 = this.bnC.bnw;
-            lVar2.LoadData();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Long l;
+        boolean z;
+        long j;
+        j jVar;
+        j jVar2;
+        if (customResponsedMessage != null && (l = (Long) customResponsedMessage.getData()) != null) {
+            z = this.bwy.mIsHost;
+            if (!z) {
+                j = this.bwy.mUserId;
+                if (j == l.longValue()) {
+                    jVar = this.bwy.bwr;
+                    jVar.cV(false);
+                    jVar2 = this.bwy.bwr;
+                    jVar2.LoadData();
+                }
+            }
         }
     }
 }

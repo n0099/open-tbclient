@@ -1,37 +1,68 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.app.Dialog;
-import android.util.SparseArray;
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.tieba.i;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.n;
 /* loaded from: classes.dex */
-public class cy implements View.OnClickListener {
-    final /* synthetic */ ct cmY;
+public class cy {
+    private TbPageContext<?> aUx;
+    private View.OnClickListener mClickListener;
+    private View mView = null;
+    private TextView cDH = null;
+    private TextView cEf = null;
+    private ImageView cEg = null;
+    private ImageView cEh = null;
+    private boolean cEi = true;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public cy(ct ctVar) {
-        this.cmY = ctVar;
+    public void fi(boolean z) {
+        this.cEi = z;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        Dialog dialog;
-        Dialog dialog2;
-        Dialog dialog3;
-        PbActivity pbActivity;
-        dialog = this.cmY.cme;
-        if (dialog != null) {
-            dialog2 = this.cmY.cme;
-            if (dialog2 instanceof Dialog) {
-                dialog3 = this.cmY.cme;
-                pbActivity = this.cmY.cjZ;
-                com.baidu.adp.lib.g.j.b(dialog3, pbActivity.getPageContext());
-            }
-        }
-        SparseArray sparseArray = (SparseArray) view.getTag();
-        if (sparseArray != null) {
-            this.cmY.a(((Integer) sparseArray.get(i.f.tag_del_post_type)).intValue(), (String) sparseArray.get(i.f.tag_del_post_id), ((Integer) sparseArray.get(i.f.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(i.f.tag_del_post_is_self)).booleanValue());
-        }
+    public cy(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
+        this.aUx = null;
+        this.mClickListener = null;
+        this.aUx = tbPageContext;
+        this.mClickListener = onClickListener;
+        initUI();
+    }
+
+    public View getView() {
+        return this.mView;
+    }
+
+    public void fh(boolean z) {
+        this.cEh.setVisibility(z ? 0 : 8);
+    }
+
+    public TextView akU() {
+        return this.cDH;
+    }
+
+    public TextView ali() {
+        return this.cEf;
+    }
+
+    public ImageView alj() {
+        return this.cEg;
+    }
+
+    public ImageView alk() {
+        return this.cEh;
+    }
+
+    private void initUI() {
+        this.mView = LayoutInflater.from(this.aUx.getPageActivity()).inflate(n.g.pb_reply_view, (ViewGroup) null);
+        this.cDH = (TextView) this.mView.findViewById(n.f.pb_reply_view_item_mark);
+        this.cDH.setOnClickListener(this.mClickListener);
+        this.cEf = (TextView) this.mView.findViewById(n.f.pb_reply_view_item_reply);
+        this.cEf.setOnClickListener(this.mClickListener);
+        this.cEg = (ImageView) this.mView.findViewById(n.f.pb_reply_view_item_manage);
+        this.cEg.setOnClickListener(this.mClickListener);
+        this.cEh = (ImageView) this.mView.findViewById(n.f.pb_reply_view_item_report);
+        this.cEh.setOnClickListener(this.mClickListener);
     }
 }

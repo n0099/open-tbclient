@@ -3,11 +3,11 @@ package com.baidu.tbadk.coreExtra.view;
 import android.view.animation.Animation;
 /* loaded from: classes.dex */
 class ab implements Animation.AnimationListener {
-    final /* synthetic */ aa amp;
+    final /* synthetic */ aa aoc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ab(aa aaVar) {
-        this.amp = aaVar;
+        this.aoc = aaVar;
     }
 
     @Override // android.view.animation.Animation.AnimationListener
@@ -21,7 +21,7 @@ class ab implements Animation.AnimationListener {
     @Override // android.view.animation.Animation.AnimationListener
     public void onAnimationEnd(Animation animation) {
         z zVar;
-        zVar = this.amp.amo;
-        zVar.amc.setVisibility(8);
+        zVar = this.aoc.aob;
+        zVar.anP.setVisibility(8);
     }
 }

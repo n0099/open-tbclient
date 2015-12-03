@@ -4,7 +4,7 @@ import android.content.Context;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize ZR = null;
+    private static LocalViewSize aaD = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -13,11 +13,11 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize ub() {
-        if (ZR == null) {
-            ZR = new LocalViewSize();
+    public static LocalViewSize uG() {
+        if (aaD == null) {
+            aaD = new LocalViewSize();
         }
-        return ZR;
+        return aaD;
     }
 
     private LocalViewSize() {
@@ -58,7 +58,7 @@ public class LocalViewSize {
         return imageSize2;
     }
 
-    public int uc() {
+    public int uH() {
         int K = com.baidu.adp.lib.util.k.K(this.mContext);
         if (K >= 1080) {
             return 1080;
@@ -84,14 +84,14 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize ud() {
+    public ImageSize uI() {
         ImageSize imageSize = new ImageSize();
         imageSize.height = com.baidu.adp.lib.util.k.L(this.mContext);
         imageSize.width = com.baidu.adp.lib.util.k.K(this.mContext);
         return imageSize;
     }
 
-    public int ue() {
+    public int uJ() {
         ImageSize msgSPicMaxSize = getMsgSPicMaxSize();
         return msgSPicMaxSize.height >= msgSPicMaxSize.width ? msgSPicMaxSize.height : msgSPicMaxSize.width;
     }

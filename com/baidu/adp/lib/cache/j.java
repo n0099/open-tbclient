@@ -26,4 +26,8 @@ public class j extends com.baidu.adp.base.a.c {
         g(sQLiteDatabase);
         MessageManager.getInstance().dispatchResponsedMessageToUI(new BdDatabaseNewCreatedMessage(sQLiteDatabase));
     }
+
+    @Override // com.baidu.adp.base.a.c
+    public void d(SQLiteDatabase sQLiteDatabase) {
+    }
 }

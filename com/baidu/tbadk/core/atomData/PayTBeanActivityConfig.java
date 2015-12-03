@@ -11,7 +11,7 @@ public class PayTBeanActivityConfig extends IntentConfig {
 
     public PayTBeanActivityConfig(Context context, String str, String str2, String str3, String str4) {
         super(context);
-        getIntent().putExtra(PAY_TYPE, str);
+        getIntent().putExtra("pay_type", str);
         getIntent().putExtra(ICON_ID, str2);
         getIntent().putExtra(QUAN_NUM, str3);
         getIntent().putExtra(ICON_COUNT, str4);

@@ -1,73 +1,109 @@
 package com.baidu.tieba.myCollection;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes.dex */
-class e extends l {
-    final /* synthetic */ EditMarkActivity ccd;
+public class e {
+    private static e ctV;
+    private volatile boolean ctW = false;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public e(EditMarkActivity editMarkActivity) {
-        this.ccd = editMarkActivity;
+    private e() {
     }
 
-    @Override // com.baidu.tieba.myCollection.l
-    public void callback(Object... objArr) {
-        boolean booleanValue;
-        j jVar;
-        com.baidu.tieba.myCollection.baseEditMark.a aVar;
-        j jVar2;
-        j jVar3;
-        com.baidu.tieba.myCollection.baseEditMark.a aVar2;
-        com.baidu.tieba.myCollection.baseEditMark.a aVar3;
-        j jVar4;
-        j jVar5;
-        j jVar6;
-        j jVar7;
-        com.baidu.tieba.myCollection.baseEditMark.a aVar4;
-        com.baidu.tieba.myCollection.baseEditMark.a aVar5;
-        try {
-            if (((Integer) objArr[0]).intValue() == 0) {
-                jVar6 = this.ccd.cca;
-                jVar6.completePullRefresh();
-                if (objArr[1] != null && (objArr[1] instanceof String)) {
-                    r1 = (String) objArr[1];
+    public static e ahT() {
+        if (ctV == null) {
+            synchronized (e.class) {
+                if (ctV == null) {
+                    ctV = new e();
                 }
-                jVar7 = this.ccd.cca;
-                aVar4 = this.ccd.cbZ;
-                jVar7.a(r1, aVar4, ((Boolean) objArr[2]).booleanValue());
-                EditMarkActivity editMarkActivity = this.ccd;
-                aVar5 = this.ccd.cbZ;
-                editMarkActivity.ccc = aVar5.adT();
-            } else if (((Integer) objArr[0]).intValue() == 3) {
-                jVar4 = this.ccd.cca;
-                jVar4.completePullRefresh();
-                if (objArr[1] != null && (objArr[1] instanceof String)) {
-                    r1 = (String) objArr[1];
-                }
-                jVar5 = this.ccd.cca;
-                jVar5.a(r1, (com.baidu.tieba.myCollection.baseEditMark.a) null, false);
-            } else if (((Integer) objArr[0]).intValue() == 1) {
-                boolean booleanValue2 = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
-                r1 = objArr[2] != null ? (String) objArr[2] : null;
-                booleanValue = objArr[3] != null ? ((Boolean) objArr[3]).booleanValue() : false;
-                jVar2 = this.ccd.cca;
-                jVar2.a(booleanValue2, r1, booleanValue);
-                if (booleanValue2) {
-                    jVar3 = this.ccd.cca;
-                    aVar2 = this.ccd.cbZ;
-                    jVar3.iL(aVar2.getOffset());
-                    aVar3 = this.ccd.cbZ;
-                    aVar3.f(true);
-                }
-            } else if (((Integer) objArr[0]).intValue() == 2) {
-                booleanValue = objArr[1] != null ? ((Boolean) objArr[1]).booleanValue() : false;
-                String str = objArr[2] != null ? (String) objArr[2] : null;
-                jVar = this.ccd.cca;
-                aVar = this.ccd.cbZ;
-                jVar.a(booleanValue, str, aVar);
             }
-        } catch (Exception e) {
-            BdLog.d(e.getMessage());
         }
+        return ctV;
+    }
+
+    public void ez(boolean z) {
+        this.ctW = z;
+    }
+
+    public void eA(boolean z) {
+        if (this.ctW) {
+            z = false;
+        }
+        com.baidu.tbadk.core.sharedPref.b.tZ().putBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), z);
+    }
+
+    public void ahU() {
+        Calendar ahV = ahV();
+        if (ahV != null) {
+            Context context = TbadkCoreApplication.m411getInst().getContext();
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService("alarm");
+            Intent intent = new Intent(CollectUpdateReceiver.ACTION_NAME);
+            intent.setClass(context, CollectUpdateReceiver.class);
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(14, 0);
+            if (ahV.before(calendar)) {
+                ahV.set(6, calendar.get(6) + 1);
+            }
+            alarmManager.set(1, ahV.getTimeInMillis(), PendingIntent.getBroadcast(context, 0, intent, 134217728));
+        }
+    }
+
+    private Calendar ahV() {
+        String string = com.baidu.tbadk.core.sharedPref.b.tZ().getString("collect_update_time_key", null);
+        if (TextUtils.isEmpty(string)) {
+            return null;
+        }
+        ArrayList arrayList = new ArrayList();
+        Calendar calendar = Calendar.getInstance();
+        try {
+            JSONArray jSONArray = new JSONArray(string);
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+            for (int i = 0; i < jSONArray.length(); i++) {
+                String optString = jSONArray.optString(i);
+                if (!TextUtils.isEmpty(optString)) {
+                    Calendar calendar2 = (Calendar) calendar.clone();
+                    calendar2.setTime(simpleDateFormat.parse(optString));
+                    calendar2.set(calendar.get(1), calendar.get(2), calendar.get(5));
+                    arrayList.add(calendar2);
+                }
+            }
+        } catch (ParseException e) {
+            BdLog.e(e.getMessage());
+            e.printStackTrace();
+            return null;
+        } catch (JSONException e2) {
+            BdLog.e(e2.getMessage());
+            return null;
+        } catch (Exception e3) {
+            BdLog.e(e3.getMessage());
+        }
+        if (arrayList.isEmpty()) {
+            return null;
+        }
+        Collections.sort(arrayList, new f(this));
+        Calendar calendar3 = (Calendar) arrayList.get(0);
+        Calendar calendar4 = (Calendar) arrayList.get(arrayList.size() - 1);
+        if (arrayList.size() != 1 && !calendar3.after(calendar) && !calendar4.before(calendar)) {
+            for (int i2 = 1; i2 < arrayList.size(); i2++) {
+                Calendar calendar5 = (Calendar) arrayList.get(i2);
+                if (!calendar5.before(calendar)) {
+                    return calendar5;
+                }
+            }
+            return null;
+        }
+        return calendar3;
     }
 }

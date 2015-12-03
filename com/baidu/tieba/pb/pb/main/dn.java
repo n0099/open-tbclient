@@ -1,38 +1,19 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.View;
-import android.view.animation.Animation;
-import android.widget.RelativeLayout;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class dn implements Animation.AnimationListener {
-    final /* synthetic */ ct cmY;
-    private final /* synthetic */ View cna;
+public class dn implements a.b {
+    final /* synthetic */ da cGh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public dn(ct ctVar, View view) {
-        this.cmY = ctVar;
-        this.cna = view;
+    public dn(da daVar) {
+        this.cGh = daVar;
     }
 
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationStart(Animation animation) {
-        this.cna.setVisibility(0);
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationEnd(Animation animation) {
-        RelativeLayout relativeLayout;
-        relativeLayout = this.cmY.clU;
-        relativeLayout.setVisibility(8);
-        this.cna.setVisibility(8);
-        if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.cmY.eM(true);
-        }
-    }
-
-    @Override // android.view.animation.Animation.AnimationListener
-    public void onAnimationRepeat(Animation animation) {
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        this.cGh.alO();
+        aVar.dismiss();
     }
 }

@@ -1,50 +1,59 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.widget.ListView.BdExpandListView;
+import android.text.TextUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class g implements BdExpandListView.a {
-    final /* synthetic */ PersonInfoActivity cue;
+public class g extends CustomMessageListener {
+    final /* synthetic */ d cSn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public g(PersonInfoActivity personInfoActivity) {
-        this.cue = personInfoActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g(d dVar, int i) {
+        super(i);
+        this.cSn = dVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
-    public void no() {
-        y yVar;
-        aj ajVar;
-        aj ajVar2;
-        yVar = this.cue.ctR;
-        yVar.akw();
-        ajVar = this.cue.ctS;
-        if (ajVar.akA() != null) {
-            ajVar2 = this.cue.ctS;
-            ajVar2.akA().nm();
-        }
-        this.cue.ajK();
-    }
-
-    @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
-    public void nn() {
-        aj ajVar;
-        aj ajVar2;
-        ajVar = this.cue.ctS;
-        if (ajVar.akA() != null) {
-            ajVar2 = this.cue.ctS;
-            ajVar2.akA().hideProgress();
-        }
-    }
-
-    @Override // com.baidu.adp.widget.ListView.BdExpandListView.a
-    public void k(float f) {
-        aj ajVar;
-        aj ajVar2;
-        ajVar = this.cue.ctS;
-        if (ajVar.akA() != null) {
-            ajVar2 = this.cue.ctS;
-            ajVar2.akA().j(f);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        aw awVar;
+        az azVar;
+        aw awVar2;
+        az azVar2;
+        aw awVar3;
+        aw awVar4;
+        if (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg) {
+            ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
+            if (responseNewFriendUpdateUiMsg.getAction() == -1) {
+                String content = responseNewFriendUpdateUiMsg.getContent();
+                if (!TextUtils.isEmpty(content)) {
+                    long friendId = responseNewFriendUpdateUiMsg.getFriendId();
+                    long c = com.baidu.adp.lib.h.b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
+                    ReplyInfo replyInfo = new ReplyInfo();
+                    replyInfo.setUserId(c);
+                    replyInfo.setFriendId(friendId);
+                    replyInfo.setMessage(content);
+                    awVar3 = this.cSn.cMT;
+                    awVar3.apc().getReplyInfo().add(replyInfo);
+                    awVar4 = this.cSn.cMT;
+                    awVar4.aph();
+                }
+            } else if (responseNewFriendUpdateUiMsg.getAction() == 0) {
+                awVar = this.cSn.cMT;
+                if (awVar.apc() != null) {
+                    azVar = this.cSn.cRH;
+                    if (azVar != null) {
+                        awVar2 = this.cSn.cMT;
+                        awVar2.apc().setIsFriend(1);
+                        azVar2 = this.cSn.cRH;
+                        azVar2.apB();
+                    }
+                }
+            }
         }
     }
 }

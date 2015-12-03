@@ -5,11 +5,11 @@ import android.widget.AdapterView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d implements AdapterView.OnItemClickListener {
-    final /* synthetic */ c dpu;
+    final /* synthetic */ c dOx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.dpu = cVar;
+        this.dOx = cVar;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -19,35 +19,35 @@ public class d implements AdapterView.OnItemClickListener {
         int i3;
         int i4;
         com.baidu.tbadk.core.dialog.e eVar2;
-        eVar = this.dpu.dpn;
-        eVar.bO(i);
+        eVar = this.dOx.dOq;
+        eVar.bW(i);
         switch (i) {
             case 0:
-                this.dpu.dpl = 1;
-                this.dpu.dpm = false;
-                c cVar = this.dpu;
-                i4 = this.dpu.dpl;
-                cVar.mp(i4);
+                this.dOx.dOo = 1;
+                this.dOx.dOp = false;
+                c cVar = this.dOx;
+                i4 = this.dOx.dOo;
+                cVar.nB(i4);
                 break;
             case 1:
-                this.dpu.dpl = 7;
-                this.dpu.dpm = false;
-                c cVar2 = this.dpu;
-                i3 = this.dpu.dpl;
-                cVar2.mp(i3);
+                this.dOx.dOo = 7;
+                this.dOx.dOp = false;
+                c cVar2 = this.dOx;
+                i3 = this.dOx.dOo;
+                cVar2.nB(i3);
                 break;
             case 2:
-                this.dpu.dpl = 30;
-                this.dpu.dpm = false;
-                c cVar3 = this.dpu;
-                i2 = this.dpu.dpl;
-                cVar3.mp(i2);
+                this.dOx.dOo = 30;
+                this.dOx.dOp = false;
+                c cVar3 = this.dOx;
+                i2 = this.dOx.dOo;
+                cVar3.nB(i2);
                 break;
             case 3:
-                this.dpu.aDn();
+                this.dOx.aIK();
                 break;
         }
-        eVar2 = this.dpu.dpn;
+        eVar2 = this.dOx.dOq;
         eVar2.dismiss();
     }
 }

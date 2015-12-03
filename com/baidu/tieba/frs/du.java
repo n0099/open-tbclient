@@ -7,23 +7,29 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+import com.baidu.tieba.n;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class du implements View.OnClickListener {
-    private final /* synthetic */ com.baidu.tbadk.core.data.w aXA;
-    final /* synthetic */ dr aYN;
+    final /* synthetic */ ds ber;
+    private final /* synthetic */ com.baidu.tbadk.core.data.u bes;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public du(dr drVar, com.baidu.tbadk.core.data.w wVar) {
-        this.aYN = drVar;
-        this.aXA = wVar;
+    public du(ds dsVar, com.baidu.tbadk.core.data.u uVar) {
+        this.ber = dsVar;
+        this.bes = uVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Context context;
-        MessageManager messageManager = MessageManager.getInstance();
-        context = this.aYN.mContext;
-        messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, this.aXA.getAuthor().getUserId(), this.aXA.getAuthor().getName_show(), this.aYN.aUe.afg().getName(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        com.baidu.tbadk.core.data.v so = this.bes.so();
+        if (com.baidu.adp.lib.util.i.iP()) {
+            MessageManager messageManager = MessageManager.getInstance();
+            context = this.ber.mContext;
+            messageManager.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(context, String.valueOf(so.getUserId()), so.getName(), null, AddFriendActivityConfig.TYPE_ADD_FRD)));
+            return;
+        }
+        this.ber.aXA.showToast(n.i.im_error_default);
     }
 }

@@ -17,7 +17,7 @@ public class SkinDetailReauestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.props_id = Integer.valueOf(this.themeId);
         if (z) {
-            com.baidu.tbadk.util.h.a(builder, true);
+            com.baidu.tbadk.util.i.a(builder, true);
         }
         GetSkinReqIdl.Builder builder2 = new GetSkinReqIdl.Builder();
         builder2.data = builder.build(false);

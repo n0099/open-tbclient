@@ -12,12 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class bk {
-    private List<ap> aVK;
-    private BdTypeListView aVo;
-    private MsgLeftViewItemAdapter bsW;
-    private MsgRightViewItemAdapter bsX;
-    private MsgMidViewItemAdapter bsY;
-    private CustomMessageListener bsZ;
+    private List<ap> aRI;
+    private BdTypeListView aRs;
+    private MsgLeftViewItemAdapter bIc;
+    private MsgRightViewItemAdapter bId;
+    private MsgMidViewItemAdapter bIe;
+    private CustomMessageListener bIf;
     private TbPageContext<MsglistActivity<?>> mContext;
     private List<ChatMessage> mData;
 
@@ -27,61 +27,61 @@ public class bk {
 
     public bk(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
         this.mData = null;
-        this.aVK = new ArrayList();
-        this.bsZ = new bl(this, CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN);
+        this.aRI = new ArrayList();
+        this.bIf = new bl(this, CmdConfigCustom.CMD_MSG_LIST_ADAPTER_SCAN);
         this.mContext = tbPageContext;
-        this.aVo = bdTypeListView;
-        Sj();
-        this.bsW.gV(i);
-        this.bsX.gV(i);
+        this.aRs = bdTypeListView;
+        Vp();
+        this.bIc.hH(i);
+        this.bId.hH(i);
     }
 
-    private void Sj() {
-        this.bsW = new MsgLeftViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_LEFT);
-        this.bsW.cL(true);
-        this.bsW.cK(true);
-        this.bsX = new MsgRightViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_RIGHT);
-        this.bsX.cL(true);
-        this.bsX.cK(true);
-        this.bsY = new MsgMidViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_MID);
-        this.aVK.add(this.bsW);
-        this.aVK.add(this.bsX);
-        this.aVK.add(this.bsY);
+    private void Vp() {
+        this.bIc = new MsgLeftViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_LEFT);
+        this.bIc.dg(true);
+        this.bIc.df(true);
+        this.bId = new MsgRightViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_RIGHT);
+        this.bId.dg(true);
+        this.bId.df(true);
+        this.bIe = new MsgMidViewItemAdapter(this.mContext, ChatMessage.TYPE_MSG_MID);
+        this.aRI.add(this.bIc);
+        this.aRI.add(this.bId);
+        this.aRI.add(this.bIe);
         initListener();
         MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
-        aVar.bsn = new ArrayList();
+        aVar.bHt = new ArrayList();
         aVar.context = this.mContext;
         MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
     }
 
     private void initListener() {
-        this.bsZ.setPriority(Integer.MAX_VALUE);
-        this.mContext.registerListener(this.bsZ);
+        this.bIf.setPriority(Integer.MAX_VALUE);
+        this.mContext.registerListener(this.bIf);
     }
 
-    public void cM(boolean z) {
-        if (this.bsW != null) {
-            this.bsW.cM(z);
+    public void dh(boolean z) {
+        if (this.bIc != null) {
+            this.bIc.dh(z);
         }
     }
 
-    public void cN(boolean z) {
-        if (this.bsX != null) {
-            this.bsX.cN(z);
+    public void di(boolean z) {
+        if (this.bId != null) {
+            this.bId.di(z);
         }
     }
 
-    public void a(com.baidu.adp.lib.c.a aVar) {
-        for (ap apVar : this.aVK) {
-            if (apVar.Sg()) {
+    public void a(com.baidu.adp.lib.d.a aVar) {
+        for (ap apVar : this.aRI) {
+            if (apVar.Vm()) {
                 apVar.a(aVar);
             }
         }
     }
 
-    public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        for (ap apVar : this.aVK) {
-            if (apVar.Sf()) {
+    public void setOnItemViewLongClickListener(com.baidu.adp.lib.d.b bVar) {
+        for (ap apVar : this.aRI) {
+            if (apVar.Vl()) {
                 apVar.setOnItemViewLongClickListener(bVar);
             }
         }
@@ -92,20 +92,20 @@ public class bk {
     }
 
     public void e(ChatMessage chatMessage) {
-        if (this.aVo.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            ((com.baidu.adp.widget.ListView.e) this.aVo.getAdapter()).notifyDataSetChanged();
+        if (this.aRs.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            ((com.baidu.adp.widget.ListView.e) this.aRs.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.aVo.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            ((com.baidu.adp.widget.ListView.e) this.aVo.getAdapter()).notifyDataSetChanged();
+        if (this.aRs.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            ((com.baidu.adp.widget.ListView.e) this.aRs.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void notifyDataSetInvalidated() {
-        if (this.aVo.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
-            ((com.baidu.adp.widget.ListView.e) this.aVo.getAdapter()).notifyDataSetInvalidated();
+        if (this.aRs.getAdapter() instanceof com.baidu.adp.widget.ListView.e) {
+            ((com.baidu.adp.widget.ListView.e) this.aRs.getAdapter()).notifyDataSetInvalidated();
         }
     }
 
@@ -124,22 +124,22 @@ public class bk {
             }
             arrayList.addAll(this.mData);
         }
-        this.aVo.setData(arrayList);
+        this.aRs.setData(arrayList);
     }
 
-    public void gV(int i) {
-        if (this.bsW != null) {
-            this.bsW.gV(i);
+    public void hH(int i) {
+        if (this.bIc != null) {
+            this.bIc.hH(i);
         }
-        if (this.bsX != null) {
-            this.bsX.gV(i);
+        if (this.bId != null) {
+            this.bId.hH(i);
         }
     }
 
     public void onDestory() {
-        if (this.bsZ != null) {
-            MessageManager.getInstance().unRegisterListener(this.bsZ);
-            this.bsZ = null;
+        if (this.bIf != null) {
+            MessageManager.getInstance().unRegisterListener(this.bIf);
+            this.bIf = null;
         }
     }
 }

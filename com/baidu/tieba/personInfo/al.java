@@ -1,32 +1,18 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.tbadk.core.view.MorePopupWindow;
-import com.baidu.tbadk.core.view.h;
+import com.baidu.tbadk.core.dialog.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class al implements h.a {
-    final /* synthetic */ aj cws;
+public class al implements a.b {
+    final /* synthetic */ d cSn;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public al(aj ajVar) {
-        this.cws = ajVar;
+    public al(d dVar) {
+        this.cSn = dVar;
     }
 
-    @Override // com.baidu.tbadk.core.view.h.a
-    public void qu() {
-        MorePopupWindow morePopupWindow;
-        PersonInfoActivity personInfoActivity;
-        morePopupWindow = this.cws.cwq;
-        personInfoActivity = this.cws.csa;
-        com.baidu.adp.lib.g.j.a(morePopupWindow, personInfoActivity.getPageContext().getPageActivity());
-    }
-
-    @Override // com.baidu.tbadk.core.view.h.a
-    public void qv() {
-        MorePopupWindow morePopupWindow;
-        PersonInfoActivity personInfoActivity;
-        morePopupWindow = this.cws.cwq;
-        personInfoActivity = this.cws.csa;
-        com.baidu.adp.lib.g.j.a(morePopupWindow, personInfoActivity.getPageContext().getPageActivity());
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        aVar.dismiss();
     }
 }

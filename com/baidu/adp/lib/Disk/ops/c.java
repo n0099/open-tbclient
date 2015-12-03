@@ -9,31 +9,31 @@ import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class c extends DiskFileOperate {
     protected Bitmap mBitmap;
-    protected BitmapFactory.Options rC;
-    protected a rD;
+    protected BitmapFactory.Options rE;
+    protected a rF;
 
     public c(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mBitmap = null;
-        this.rC = null;
-        this.rD = null;
-        this.rD = new a();
+        this.rE = null;
+        this.rF = null;
+        this.rF = new a();
     }
 
     public boolean fF() {
-        return this.rD.rG;
+        return this.rF.rI;
     }
 
     public void r(boolean z) {
-        this.rD.rG = z;
+        this.rF.rI = z;
     }
 
     public boolean fG() {
-        return this.rD.rI;
+        return this.rF.rK;
     }
 
     public void s(boolean z) {
-        this.rD.rI = z;
+        this.rF.rK = z;
     }
 
     public Bitmap getBitmap() {
@@ -53,20 +53,20 @@ public class c extends DiskFileOperate {
         if (this.mData == null) {
             return null;
         }
-        return this.rD.toByteArray();
+        return this.rF.toByteArray();
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
     public boolean x(byte[] bArr) {
-        if (bArr != null && this.rD.y(bArr)) {
-            if (this.rD.rH == 0 || this.rD.rH >= System.currentTimeMillis()) {
-                if (this.rC == null) {
-                    this.rC = new BitmapFactory.Options();
-                    this.rC.inPreferredConfig = Bitmap.Config.RGB_565;
+        if (bArr != null && this.rF.y(bArr)) {
+            if (this.rF.rJ == 0 || this.rF.rJ >= System.currentTimeMillis()) {
+                if (this.rE == null) {
+                    this.rE = new BitmapFactory.Options();
+                    this.rE.inPreferredConfig = Bitmap.Config.RGB_565;
                 }
                 int fI = a.fI();
                 try {
-                    this.mBitmap = BitmapFactory.decodeByteArray(bArr, fI, bArr.length - fI, this.rC);
+                    this.mBitmap = BitmapFactory.decodeByteArray(bArr, fI, bArr.length - fI, this.rE);
                 } catch (Error e) {
                     BdLog.e(e.getMessage());
                 }
@@ -87,11 +87,11 @@ public class c extends DiskFileOperate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private static byte rE = Byte.MIN_VALUE;
-        private static byte rF = Byte.MIN_VALUE;
-        boolean rG = false;
-        long rH = 0;
-        boolean rI = true;
+        private static byte rG = Byte.MIN_VALUE;
+        private static byte rH = Byte.MIN_VALUE;
+        boolean rI = false;
+        long rJ = 0;
+        boolean rK = true;
 
         a() {
         }
@@ -103,9 +103,9 @@ public class c extends DiskFileOperate {
         public byte[] toByteArray() {
             ByteBuffer allocate = ByteBuffer.allocate(fI());
             allocate.putInt(1786600511);
-            allocate.put(this.rG ? (byte) (rE | 0) : (byte) 0);
-            allocate.putLong(this.rH);
-            allocate.put(this.rI ? (byte) 0 : (byte) (rF | 0));
+            allocate.put(this.rI ? (byte) (rG | 0) : (byte) 0);
+            allocate.putLong(this.rJ);
+            allocate.put(this.rK ? (byte) 0 : (byte) (rH | 0));
             allocate.flip();
             return allocate.array();
         }
@@ -116,12 +116,12 @@ public class c extends DiskFileOperate {
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, fI());
             if (wrap.getInt() == 1786600511) {
-                if ((wrap.get() & rE) != 0) {
-                    this.rG = true;
+                if ((wrap.get() & rG) != 0) {
+                    this.rI = true;
                 }
-                this.rH = wrap.getLong();
-                if ((wrap.get() & rF) != 0) {
-                    this.rI = false;
+                this.rJ = wrap.getLong();
+                if ((wrap.get() & rH) != 0) {
+                    this.rK = false;
                 }
                 return true;
             }

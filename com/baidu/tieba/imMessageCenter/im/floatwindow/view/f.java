@@ -5,24 +5,24 @@ import android.widget.LinearLayout;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class f implements Runnable {
-    final /* synthetic */ e bME;
+    final /* synthetic */ e cbI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.bME = eVar;
+        this.cbI = eVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         LinearLayout linearLayout;
         LinearLayout linearLayout2;
-        Animation Zb;
-        if (this.bME.YN()) {
-            linearLayout = this.bME.bMu;
+        Animation ach;
+        if (this.cbI.abT()) {
+            linearLayout = this.cbI.cby;
             linearLayout.clearAnimation();
-            linearLayout2 = this.bME.bMu;
-            Zb = this.bME.Zb();
-            linearLayout2.startAnimation(Zb);
+            linearLayout2 = this.cbI.cby;
+            ach = this.cbI.ach();
+            linearLayout2.startAnimation(ach);
         }
     }
 }

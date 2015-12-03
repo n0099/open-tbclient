@@ -19,6 +19,8 @@ public final class ZhiBoInfoTW extends Message {
     public final String forumName;
     @ProtoField(tag = 15, type = Message.Datatype.UINT32)
     public final Integer isHeadline;
+    @ProtoField(tag = 17, type = Message.Datatype.UINT32)
+    public final Integer isHeadlineAvailable;
     @ProtoField(tag = 16, type = Message.Datatype.UINT32)
     public final Integer isNewHeadline;
     @ProtoField(label = Message.Label.REPEATED, tag = 13)
@@ -52,6 +54,7 @@ public final class ZhiBoInfoTW extends Message {
     public static final Integer DEFAULT_RANK = 0;
     public static final Integer DEFAULT_ISHEADLINE = 0;
     public static final Integer DEFAULT_ISNEWHEADLINE = 0;
+    public static final Integer DEFAULT_ISHEADLINEAVAILABLE = 0;
 
     /* synthetic */ ZhiBoInfoTW(Builder builder, boolean z, ZhiBoInfoTW zhiBoInfoTW) {
         this(builder, z);
@@ -129,9 +132,14 @@ public final class ZhiBoInfoTW extends Message {
             }
             if (builder.isNewHeadline == null) {
                 this.isNewHeadline = DEFAULT_ISNEWHEADLINE;
-                return;
             } else {
                 this.isNewHeadline = builder.isNewHeadline;
+            }
+            if (builder.isHeadlineAvailable == null) {
+                this.isHeadlineAvailable = DEFAULT_ISHEADLINEAVAILABLE;
+                return;
+            } else {
+                this.isHeadlineAvailable = builder.isHeadlineAvailable;
                 return;
             }
         }
@@ -151,6 +159,7 @@ public final class ZhiBoInfoTW extends Message {
         this.rank = builder.rank;
         this.isHeadline = builder.isHeadline;
         this.isNewHeadline = builder.isNewHeadline;
+        this.isHeadlineAvailable = builder.isHeadlineAvailable;
     }
 
     /* loaded from: classes.dex */
@@ -159,6 +168,7 @@ public final class ZhiBoInfoTW extends Message {
         public Long forumId;
         public String forumName;
         public Integer isHeadline;
+        public Integer isHeadlineAvailable;
         public Integer isNewHeadline;
         public List<LabelInfoForLivePost> labels;
         public Long lastModifiedTime;
@@ -194,6 +204,7 @@ public final class ZhiBoInfoTW extends Message {
                 this.rank = zhiBoInfoTW.rank;
                 this.isHeadline = zhiBoInfoTW.isHeadline;
                 this.isNewHeadline = zhiBoInfoTW.isNewHeadline;
+                this.isHeadlineAvailable = zhiBoInfoTW.isHeadlineAvailable;
             }
         }
 

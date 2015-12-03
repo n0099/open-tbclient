@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.g.i;
+import com.baidu.adp.lib.h.i;
 /* loaded from: classes.dex */
 public class ImagesInvalidReceiver extends BroadcastReceiver {
     public static final String SUCCESS = "success";

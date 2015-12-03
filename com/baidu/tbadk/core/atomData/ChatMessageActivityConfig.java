@@ -7,4 +7,9 @@ public class ChatMessageActivityConfig extends IntentConfig {
     public ChatMessageActivityConfig(Context context) {
         super(context);
     }
+
+    public ChatMessageActivityConfig(Context context, int i) {
+        super(context);
+        getIntent().putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, i);
+    }
 }

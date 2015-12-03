@@ -14,16 +14,16 @@ import com.baidu.tbadk.core.atomData.PhotoLiveActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.mvc.model.a;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
-    private com.baidu.tbadk.mvc.g.d<com.baidu.tieba.myCollection.baseHistory.b, com.baidu.tbadk.mvc.d.b, g> aJn;
-    private final a.InterfaceC0052a<com.baidu.tieba.myCollection.baseHistory.b> aua = new b(this);
-    private RelativeLayout ccO;
-    private com.baidu.tieba.myCollection.baseHistory.a ccP;
-    private TextView mEditBtn;
+    private com.baidu.tbadk.mvc.g.d<com.baidu.tieba.myCollection.baseHistory.b, com.baidu.tbadk.mvc.d.b, g> aNO;
+    private final a.InterfaceC0054a<com.baidu.tieba.myCollection.baseHistory.b> awe = new b(this);
+    private RelativeLayout cuP;
+    private TextView cuQ;
+    private com.baidu.tieba.myCollection.baseHistory.a cuR;
     private BdListView mListView;
     private NavigationBar mNavigationBar;
 
@@ -31,20 +31,20 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.ccP = new com.baidu.tieba.myCollection.baseHistory.a(this);
-        this.ccP.a(this.aua);
-        this.ccO = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(i.g.pb_history_activity, (ViewGroup) null);
-        setContentView(this.ccO);
-        this.mNavigationBar = (NavigationBar) findViewById(i.f.view_navigation_bar);
+        this.cuR = new com.baidu.tieba.myCollection.baseHistory.a(this);
+        this.cuR.a(this.awe);
+        this.cuP = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(n.g.pb_history_activity, (ViewGroup) null);
+        setContentView(this.cuP);
+        this.mNavigationBar = (NavigationBar) findViewById(n.f.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(i.h.my_history);
-        this.mEditBtn = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(i.h.delete_all_user_chat));
-        this.mEditBtn.setOnClickListener(new c(this));
-        this.mEditBtn.setVisibility(8);
-        this.mListView = (BdListView) findViewById(i.f.list);
-        this.aJn = new com.baidu.tbadk.mvc.g.d<>(getPageContext(), g.class, i.g.pb_history_list_item, null);
-        this.aJn.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.C(i.h.pb_history_no_data_tip, i.h.pb_history_no_data_tip_2), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
-        this.mListView.setAdapter((ListAdapter) this.aJn);
+        this.mNavigationBar.setTitleText(n.i.my_history);
+        this.cuQ = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(n.i.delete_all_user_chat));
+        this.cuQ.setOnClickListener(new c(this));
+        this.cuQ.setVisibility(8);
+        this.mListView = (BdListView) findViewById(n.f.list);
+        this.aNO = new com.baidu.tbadk.mvc.g.d<>(getPageContext(), g.class, n.g.pb_history_list_item, null);
+        this.aNO.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.D(n.i.pb_history_no_data_tip, n.i.pb_history_no_data_tip_2), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
+        this.mListView.setAdapter((ListAdapter) this.aNO);
         this.mListView.setOnItemClickListener(new f(this));
     }
 
@@ -52,7 +52,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        KA();
+        LV();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -60,35 +60,35 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.aJn.a(getPageContext(), i);
-        getLayoutMode().k(this.ccO);
+        this.aNO.a(getPageContext(), i);
+        getLayoutMode().k(this.cuP);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KA() {
-        this.ccP.Cy();
+    public void LV() {
+        this.cuR.Dz();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bb(List<com.baidu.tieba.myCollection.baseHistory.b> list) {
+    public void bm(List<com.baidu.tieba.myCollection.baseHistory.b> list) {
         if (!TbadkCoreApplication.m411getInst().appResponseToIntentClass(PhotoLiveActivityConfig.class)) {
-            bc(list);
+            bn(list);
         }
-        if (this.aJn != null) {
-            this.aJn.s(list);
+        if (this.aNO != null) {
+            this.aNO.r(list);
         }
         if (list == null || list.size() == 0) {
-            this.mEditBtn.setVisibility(8);
+            this.cuQ.setVisibility(8);
         } else {
-            this.mEditBtn.setVisibility(0);
+            this.cuQ.setVisibility(0);
         }
     }
 
-    private void bc(List<com.baidu.tieba.myCollection.baseHistory.b> list) {
+    private void bn(List<com.baidu.tieba.myCollection.baseHistory.b> list) {
         if (list != null && list.size() != 0) {
             Iterator<com.baidu.tieba.myCollection.baseHistory.b> it = list.iterator();
             while (it.hasNext()) {
-                if (it.next().sq() == 33) {
+                if (it.next().getThreadType() == 33) {
                     it.remove();
                 }
             }

@@ -1,72 +1,25 @@
 package com.baidu.tieba.pb.pb.main;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.i;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public class cr {
-    private TbPageContext<?> aPu;
-    private View.OnClickListener mClickListener;
-    private View mView = null;
-    private TextView cld = null;
-    private TextView clt = null;
-    private ImageView clu = null;
-    private ImageView clv = null;
-    private boolean clw = true;
+public class cr implements View.OnClickListener {
+    private final /* synthetic */ int cAB;
+    private final /* synthetic */ com.baidu.tieba.tbadkCore.data.o cAC;
+    final /* synthetic */ cn cDY;
+    private final /* synthetic */ int val$count;
 
-    public boolean agJ() {
-        return this.clw;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public cr(cn cnVar, int i, int i2, com.baidu.tieba.tbadkCore.data.o oVar) {
+        this.cDY = cnVar;
+        this.cAB = i;
+        this.val$count = i2;
+        this.cAC = oVar;
     }
 
-    public void eF(boolean z) {
-        this.clw = z;
-    }
-
-    public cr(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
-        this.aPu = null;
-        this.mClickListener = null;
-        this.aPu = tbPageContext;
-        this.mClickListener = onClickListener;
-        initUI();
-    }
-
-    public View getView() {
-        return this.mView;
-    }
-
-    public void eG(boolean z) {
-        this.clv.setVisibility(z ? 0 : 8);
-    }
-
-    public TextView agz() {
-        return this.cld;
-    }
-
-    public TextView agK() {
-        return this.clt;
-    }
-
-    public ImageView agL() {
-        return this.clu;
-    }
-
-    public ImageView agM() {
-        return this.clv;
-    }
-
-    private void initUI() {
-        this.mView = LayoutInflater.from(this.aPu.getPageActivity()).inflate(i.g.pb_reply_view, (ViewGroup) null);
-        this.cld = (TextView) this.mView.findViewById(i.f.pb_reply_view_item_mark);
-        this.cld.setOnClickListener(this.mClickListener);
-        this.clt = (TextView) this.mView.findViewById(i.f.pb_reply_view_item_reply);
-        this.clt.setOnClickListener(this.mClickListener);
-        this.clu = (ImageView) this.mView.findViewById(i.f.pb_reply_view_item_manage);
-        this.clu.setOnClickListener(this.mClickListener);
-        this.clv = (ImageView) this.mView.findViewById(i.f.pb_reply_view_item_report);
-        this.clv.setOnClickListener(this.mClickListener);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        this.cAC.mx(Math.min(this.cAB + 5, this.val$count));
+        this.cDY.notifyDataSetChanged();
     }
 }

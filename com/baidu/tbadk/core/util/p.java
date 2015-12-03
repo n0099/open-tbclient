@@ -1,32 +1,24 @@
 package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PluginDetailActivityConfig;
+import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigCustom;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
-public abstract class p {
-    public static p Zk = null;
+public class p implements a.b {
+    private final /* synthetic */ TbPageContext Sn;
 
-    public abstract com.baidu.tbadk.core.data.f getmCdnLogData();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public p(TbPageContext tbPageContext) {
+        this.Sn = tbPageContext;
+    }
 
-    public abstract void insertErrorData(int i, String str);
-
-    public abstract void insertNormalData(long j, String str);
-
-    public abstract void setmCdnLogData(com.baidu.tbadk.core.data.f fVar);
-
-    public static p getInstance() {
-        if (Zk == null) {
-            synchronized (p.class) {
-                if (Zk == null) {
-                    CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_CDN_PROBLEM_UPLOADER, p.class);
-                    if (runTask != null && runTask.getData() != null) {
-                        Zk = (p) runTask.getData();
-                    }
-                    return Zk;
-                }
-            }
-        }
-        return Zk;
+    @Override // com.baidu.tbadk.core.dialog.a.b
+    public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
+        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PluginDetailActivityConfig(this.Sn.getPageActivity(), "com.baidu.tieba.pluginCookeryGod")));
+        aVar.dismiss();
     }
 }

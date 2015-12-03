@@ -18,7 +18,7 @@ class p implements c.b {
         if (cVar == listMenu) {
             switch (i) {
                 case 0:
-                    this.this$0.Vo();
+                    this.this$0.Yu();
                     break;
             }
             cVar.dismiss();

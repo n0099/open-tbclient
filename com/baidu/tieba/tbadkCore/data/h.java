@@ -7,7 +7,7 @@ import android.text.SpannableStringBuilder;
 import android.text.style.ImageSpan;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.i;
+import com.baidu.tieba.n;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -16,19 +16,19 @@ public class h {
     private int height;
     private int width;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern daH = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern dzt = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String daF = null;
-    private SpannableStringBuilder daG = null;
-    private boolean daE = false;
+    private String dzr = null;
+    private SpannableStringBuilder dzs = null;
+    private boolean dzq = false;
 
-    public static boolean aG(int i, int i2) {
+    public static boolean aJ(int i, int i2) {
         return i == 0 && i2 != 3;
     }
 
-    public static boolean aH(int i, int i2) {
+    public static boolean aK(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
@@ -44,23 +44,23 @@ public class h {
         return this.text;
     }
 
-    public String awY() {
+    public String aCK() {
         return this.c;
     }
 
-    public SpannableStringBuilder awZ() {
-        return this.daG;
+    public SpannableStringBuilder aCL() {
+        return this.dzs;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.daG == null) {
-            this.daG = new SpannableStringBuilder();
+        if (this.dzs == null) {
+            this.dzs = new SpannableStringBuilder();
         }
-        this.daG.append((CharSequence) spannableString);
-        return this.daG;
+        this.dzs.append((CharSequence) spannableString);
+        return this.dzs;
     }
 
-    public SpannableString aP(Context context) {
+    public SpannableString aO(Context context) {
         String str;
         switch (this.type) {
             case 0:
@@ -76,9 +76,9 @@ public class h {
                 SpannableString spannableString2 = new SpannableString(String.valueOf(this.text) + " ");
                 com.baidu.adp.widget.a.a face = TbadkCoreApplication.m411getInst().getFace(this.text);
                 if (face != null) {
-                    BitmapDrawable nd = face.nd();
-                    nd.setBounds(0, 0, face.getWidth(), face.getHeight());
-                    spannableString2.setSpan(new ImageSpan(nd, 1), 0, this.text.length(), 33);
+                    BitmapDrawable ni = face.ni();
+                    ni.setBounds(0, 0, face.getWidth(), face.getHeight());
+                    spannableString2.setSpan(new ImageSpan(ni, 1), 0, this.text.length(), 33);
                     return spannableString2;
                 }
                 return spannableString2;
@@ -102,7 +102,7 @@ public class h {
                 if (!this.text.endsWith(" ")) {
                     this.text = String.valueOf(this.text) + " ";
                 }
-                String string = context.getString(i.h.video);
+                String string = context.getString(n.i.video);
                 SpannableString spannableString4 = new SpannableString(String.valueOf(string) + this.text);
                 spannableString4.setSpan(new i(this, context), string.length(), str.length() - 1, 33);
                 return spannableString4;
@@ -120,7 +120,7 @@ public class h {
                 if (this.type == 3) {
                     this.link = jSONObject.optString("src");
                     this.text = jSONObject.optString("bsize");
-                    this.daF = jSONObject.optString("cdn_src", null);
+                    this.dzr = jSONObject.optString("cdn_src", null);
                     if (this.text != null && this.text.length() > 0) {
                         String[] split = this.text.split(",");
                         if (split.length > 1) {
@@ -135,7 +135,7 @@ public class h {
                         this.height = 1;
                     }
                     if (this.link != null && this.link.indexOf(".baidu.com") != -1) {
-                        this.daE = true;
+                        this.dzq = true;
                     }
                 } else if (this.type == 4) {
                     this.text = jSONObject.optString("text");
@@ -145,7 +145,7 @@ public class h {
                 } else {
                     this.text = jSONObject.optString("text");
                     this.link = jSONObject.optString("link");
-                    if (this.type == 2 && TbFaceManager.BU().eM(this.text) == 0) {
+                    if (this.type == 2 && TbFaceManager.CW().fa(this.text) == 0) {
                         this.type = 0;
                         this.text = "[" + jSONObject.optString("c") + "]";
                     }

@@ -1,9 +1,8 @@
 package com.baidu.tieba.frs;
+
+import java.util.List;
 /* loaded from: classes.dex */
 public class ee {
-    public Object aZk;
-    public String forumId;
-    public String forumName;
-    public int pn;
-    public String stType;
+    public int beI;
+    public List<ec> beJ;
 }

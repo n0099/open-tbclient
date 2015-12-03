@@ -17,17 +17,17 @@ public class g extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vm() {
+    public boolean vS() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a
-    public boolean vn() {
+    public boolean vT() {
         return false;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.f.e
-    public boolean he() {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.a, com.baidu.adp.lib.g.e
+    public boolean hg() {
         return true;
     }
 }

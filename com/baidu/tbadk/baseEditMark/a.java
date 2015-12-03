@@ -9,25 +9,25 @@ public abstract class a {
 
     /* renamed from: com.baidu.tbadk.baseEditMark.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0039a {
+    public interface InterfaceC0040a {
         void a(boolean z, boolean z2, String str);
     }
 
     public abstract void a(MarkData markData);
 
-    public abstract void a(InterfaceC0039a interfaceC0039a);
+    public abstract void a(InterfaceC0040a interfaceC0040a);
 
     public abstract void ab(boolean z);
 
-    public abstract String qh();
+    public abstract String qo();
 
-    public abstract boolean qi();
+    public abstract boolean qp();
 
-    public abstract void qj();
+    public abstract void qq();
 
-    public abstract void qk();
+    public abstract void qr();
 
-    public abstract MarkData ql();
+    public abstract MarkData qs();
 
     public static a a(BaseActivity baseActivity) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_MARK_MANAGER, a.class, baseActivity);

@@ -1,25 +1,29 @@
 package com.baidu.tieba.personInfo;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.usermute.i;
-import tbclient.UserMuteCheck.DataRes;
+import android.widget.ImageView;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
-class c implements i.a {
-    final /* synthetic */ PersonInfoActivity cue;
+class c extends CustomMessageListener {
+    final /* synthetic */ PersonInfoDelegateStatic cRF;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(PersonInfoActivity personInfoActivity) {
-        this.cue = personInfoActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(PersonInfoDelegateStatic personInfoDelegateStatic, int i) {
+        super(i);
+        this.cRF = personInfoDelegateStatic;
     }
 
-    @Override // com.baidu.tieba.usermute.i.a
-    public void a(DataRes dataRes, int i, String str, Object obj) {
-        if (i == 0 && !StringUtils.isNULL(dataRes.is_mute)) {
-            if (dataRes.is_mute.equals("0")) {
-                this.cue.ctO = 0;
-            } else if (dataRes.is_mute.equals("1")) {
-                this.cue.ctO = 1;
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        ImageView imageView;
+        Boolean bool;
+        if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.mainTab.a)) {
+            this.cRF.aOf = Boolean.valueOf(((com.baidu.tbadk.mainTab.a) customResponsedMessage.getData()).avE);
+            imageView = this.cRF.aOe;
+            bool = this.cRF.aOf;
+            imageView.setVisibility(bool.booleanValue() ? 0 : 8);
         }
     }
 }
